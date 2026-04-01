@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }} | Rofo</title>
-  <meta name="description" content="{{ city.meta_description or city.short_description or (&#39;Explore commercial real estate in &#39; + city.city + &#39;, &#39; + city.state_abbr + &#39;.&#39;) }}">
+  <title>About Rofo | Rofo</title>
+  <meta name="description" content="Learn about Rofo and our mission to simplify commercial real estate discovery.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -47,223 +47,63 @@
 
   <main>
     
-<section class="section" style="padding-bottom:32px;">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Market</div>
-      <h1>Commercial Real Estate in Long Beach, CA</h1>
-      <p class="lead">
-        Explore office, retail, and industrial commercial real estate in Long Beach, CA.
+<section class="section">
+  <div class="container" style="max-width:800px;">
+    <div class="eyebrow">Company</div>
+    <h1>About Rofo</h1>
+
+    <p class="lead">
+      Rofo was founded in 2007 with a simple goal: make it easier for businesses to find the right commercial space.
+    </p>
+
+    <p>
+      We started in San Francisco, working closely with small businesses navigating the complexities of office, retail, and industrial real estate. Over time, we expanded to markets across the United States, helping companies make more informed location decisions.
+    </p>
+
+    <p>
+      Along the way, Rofo has consistently explored new ways to improve the search experience:
+    </p>
+
+    <ul style="margin:16px 0; padding-left:18px; line-height:1.7;">
+      <li>Finalist for a Webby Award</li>
+      <li>Built one of the first commercial real estate apps using augmented reality</li>
+      <li>Selected as one of a small group of companies to build an app for LinkedIn</li>
+    </ul>
+
+    <p>
+      Most importantly, we’ve helped <strong>over 100,000 businesses</strong> connect with commercial real estate opportunities.
+    </p>
+
+    <p>
+      Today, we’re continuing that mission by leveraging modern data and AI to make market discovery faster, clearer, and more useful for business owners.
+    </p>
+
+    <div class="panel" style="margin-top:40px;">
+      <div class="kicker">Contact</div>
+      <h3>Get in touch</h3>
+      <p class="muted" style="margin-bottom:16px;">
+        Have a question or looking for space? We’re here to help.
       </p>
 
-      <div class="hero-subnav" style="margin-top:18px;">
-        <span class="pill">Office</span>
-        <span class="pill">Retail</span>
-        <span class="pill">Industrial</span>
-        <span class="pill">Los Angeles County</span>
-      </div>
-    </div>
-
-    <div class="hero-side">
-      <div class="panel" style="padding:0; overflow:hidden; min-height:320px;">
-        <img
-          src="/images/cities/city.jpg"
-          alt="Long Beach, CA"
-          style="display:block; width:100%; height:100%; min-height:320px; object-fit:cover;"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0; padding-bottom:40px;">
-  <div class="container">
-    <div class="stats">
-      <div class="stat-card">
-        <div class="kicker">Market</div>
-        <h3>Long Beach</h3>
-        <p class="muted">CA</p>
+      <div class="form-grid">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="Your email">
+        </div>
       </div>
 
-      <div class="stat-card">
-        <div class="kicker">Buildings</div>
-        <h3>500</h3>
-        <p class="muted">Known buildings in this market</p>
+      <div class="field" style="margin-top:12px;">
+        <label>Message</label>
+        <textarea placeholder="How can we help?"></textarea>
       </div>
 
-      <div class="stat-card">
-        <div class="kicker">County</div>
-        <h3>Los Angeles County</h3>
-        <p class="muted">Local market context</p>
-      </div>
-
-      <div class="stat-card">
-        <div class="kicker">Coordinates</div>
-        <h3>33.7701, -118.1937</h3>
-        <p class="muted">Reference location</p>
+      <div style="margin-top:14px;">
+        <button class="btn btn-primary">Send Message</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
-  <div class="container sidebar-layout">
-    <div>
-      <div class="panel" style="margin-bottom:24px;">
-        <div class="kicker">Overview</div>
-        <h2>Explore the Long Beach market</h2>
-        <p>
-          Rofo helps businesses research commercial real estate in Long Beach, CA.
-          Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
-        </p>
-        <p>
-          Whether you are looking for office space, retail frontage, or industrial property,
-          Rofo is designed to make market discovery simpler and more efficient.
-        </p>
-      </div>
-
-      <div class="panel" style="margin-bottom:24px;">
-        <div class="kicker">Featured Buildings</div>
-        <h2>Representative buildings in Long Beach</h2>
-        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
-          This section can later be powered by your real building dataset.
-        </p>
-
-        <div class="grid-3">
-          <div class="market-card">
-            <h3>Sample Building One</h3>
-            <p>Office or mixed-use building in Long Beach.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-
-          <div class="market-card">
-            <h3>Sample Building Two</h3>
-            <p>Retail or neighborhood commercial option.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-
-          <div class="market-card">
-            <h3>Sample Building Three</h3>
-            <p>Industrial or flex-use property in market.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="kicker">Nearby Markets</div>
-        <h2>Explore nearby cities</h2>
-        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
-          Browse nearby markets to expand your search.
-        </p>
-
-        <div class="hero-search-links">
-          
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Santa-Ana/">Santa Ana, CA</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Los-Angeles/">Los Angeles, CA</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Irvine/">Irvine, CA</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Santa-Monica/">Santa Monica, CA</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Pasadena/">Pasadena, CA</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CA/Burbank/">Burbank, CA</a>
-      
-    
-  
-        </div>
-      </div>
-    </div>
-
-    <aside class="sticky">
-      <div class="form-card" style="margin-bottom:20px;">
-        <div class="kicker">Get Help</div>
-        <h3>Looking in Long Beach?</h3>
-        <p class="muted" style="margin-top:-2px; margin-bottom:16px;">
-          Tell us what you need and we can help point you in the right direction.
-        </p>
-
-        <div class="form-grid">
-          <div class="field">
-            <label>Email</label>
-            <input type="email" placeholder="Your email">
-          </div>
-          <div class="field">
-            <label>Market</label>
-            <input type="text" value="Long Beach, CA">
-          </div>
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label>Property type</label>
-          <input type="text" placeholder="Office, retail, industrial...">
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label>What are you looking for?</label>
-          <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
-        </div>
-
-        <div style="margin-top:14px;">
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="kicker">Why Rofo</div>
-        <h3>Start with market context</h3>
-        <p>
-          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
-        </p>
-
-        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
-          <li>Explore markets city by city</li>
-          <li>Review representative buildings</li>
-          <li>Compare nearby markets</li>
-          <li>Get help narrowing your search</li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-</section>
   </main>
 
   <footer class="footer">
