@@ -9,7 +9,7 @@ title: "Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}"
 description: "{{ city.meta_description or city.short_description or ('Explore commercial real estate in ' + city.city + ', ' + city.state_abbr + '.') }}"
 ---
 
-<section class="section">
+<section class="section" style="padding-bottom:32px;">
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Market</div>
@@ -27,19 +27,18 @@ description: "{{ city.meta_description or city.short_description or ('Explore co
     </div>
 
     <div class="hero-side">
-      <div class="panel" style="padding:0; overflow:hidden;">
+      <div class="panel" style="padding:0; overflow:hidden; min-height:320px;">
         <img
-          <img
-  src="/images/cities/city.jpg"
-  alt="{{ city.city }}, {{ city.state_abbr }}"
-  style="display:block; width:100%; height:100%; min-height:280px; object-fit:cover;"
+          src="{{ city.hero_image or '/images/cities/city.jpg' }}"
+          alt="{{ city.city }}, {{ city.state_abbr }}"
+          style="display:block; width:100%; height:100%; min-height:320px; object-fit:cover;"
         />
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
+<section class="section" style="padding-top:0; padding-bottom:40px;">
   <div class="container">
     <div class="stats">
       <div class="stat-card">
@@ -69,30 +68,30 @@ description: "{{ city.meta_description or city.short_description or ('Explore co
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top:0;">
   <div class="container sidebar-layout">
     <div>
-      <div class="panel">
+      <div class="panel" style="margin-bottom:24px;">
         <div class="kicker">Overview</div>
         <h2>Explore the {{ city.city }} market</h2>
         <p>
           Rofo helps businesses research commercial real estate in {{ city.city }}, {{ city.state_abbr }}.
-          Use this page as a starting point to understand the market, review building options, and narrow your search.
+          Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
         </p>
         <p>
           Whether you are looking for office space, retail frontage, or industrial property,
-          Rofo is designed to make market discovery easier and more efficient.
+          Rofo is designed to make market discovery simpler and more efficient.
         </p>
       </div>
 
-      <div class="panel">
+      <div class="panel" style="margin-bottom:24px;">
         <div class="kicker">Featured Buildings</div>
         <h2>Representative buildings in {{ city.city }}</h2>
-        <p class="muted" style="margin-top:-4px;">
+        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
           This section can later be powered by your real building dataset.
         </p>
 
-        <div class="grid-3" style="margin-top:18px;">
+        <div class="grid-3">
           <div class="market-card">
             <h3>Sample Building One</h3>
             <p>Office or mixed-use building in {{ city.city }}.</p>
@@ -134,38 +133,35 @@ description: "{{ city.meta_description or city.short_description or ('Explore co
       <div class="panel">
         <div class="kicker">Nearby Markets</div>
         <h2>Explore nearby cities</h2>
-        <p class="muted" style="margin-top:-4px;">
-          For now these are placeholders. Later this can be computed automatically from lat/lng.
+        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
+          Browse nearby markets to expand your search.
         </p>
 
-        <div class="hero-search-links" style="margin-top:18px;">
-          <a href="#">Nearby City One</a>
-          <a href="#">Nearby City Two</a>
-          <a href="#">Nearby City Three</a>
-          <a href="#">Nearby City Four</a>
+        <div class="hero-search-links">
+          {% if city.nearby_cities and city.nearby_cities.length %}
+    {% for nearby in city.nearby_cities %}
+      {% set nearbyCity = cityLookup[nearby] %}
+      {% if nearbyCity %}
+        <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }}</a>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <a href="#">Nearby City One</a>
+    <a href="#">Nearby City Two</a>
+    <a href="#">Nearby City Three</a>
+    <a href="#">Nearby City Four</a>
+  {% endif %}
         </div>
       </div>
     </div>
 
     <aside class="sticky">
-      <div class="panel">
-        <div class="kicker">Why Rofo</div>
-        <h3>Start your search with market context</h3>
-        <p>
-          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
-        </p>
-
-        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
-          <li>Explore markets city by city</li>
-          <li>Review representative buildings</li>
-          <li>Get help narrowing your search</li>
-          <li>Connect with the right next step</li>
-        </ul>
-      </div>
-
-      <div class="form-card" style="margin-top:20px;">
+      <div class="form-card" style="margin-bottom:20px;">
         <div class="kicker">Get Help</div>
         <h3>Looking in {{ city.city }}?</h3>
+        <p class="muted" style="margin-top:-2px; margin-bottom:16px;">
+          Tell us what you need and we can help point you in the right direction.
+        </p>
 
         <div class="form-grid">
           <div class="field">
@@ -191,6 +187,21 @@ description: "{{ city.meta_description or city.short_description or ('Explore co
         <div style="margin-top:14px;">
           <button class="btn btn-primary">Submit</button>
         </div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Why Rofo</div>
+        <h3>Start with market context</h3>
+        <p>
+          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
+        </p>
+
+        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
+          <li>Explore markets city by city</li>
+          <li>Review representative buildings</li>
+          <li>Compare nearby markets</li>
+          <li>Get help narrowing your search</li>
+        </ul>
       </div>
     </aside>
   </div>

@@ -19,9 +19,9 @@
     </a>
 
     <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/#markets">Markets</a>
-      <a href="/#contact">Contact</a>
+  <a href="/">Home</a>
+  <a href="/markets/">Markets</a>
+  <a href="/#contact">Contact</a>
     </nav>
 
     <div class="nav-search" data-market-search>
@@ -46,7 +46,7 @@
 
   <main>
     
-<section class="section">
+<section class="section" style="padding-bottom:32px;">
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Market</div>
@@ -64,19 +64,18 @@
     </div>
 
     <div class="hero-side">
-      <div class="panel" style="padding:0; overflow:hidden;">
+      <div class="panel" style="padding:0; overflow:hidden; min-height:320px;">
         <img
-          <img
-  src="/images/cities/city.jpg"
-  alt="Austin, TX"
-  style="display:block; width:100%; height:100%; min-height:280px; object-fit:cover;"
+          src="/images/cities/city.jpg"
+          alt="Austin, TX"
+          style="display:block; width:100%; height:100%; min-height:320px; object-fit:cover;"
         />
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
+<section class="section" style="padding-top:0; padding-bottom:40px;">
   <div class="container">
     <div class="stats">
       <div class="stat-card">
@@ -87,7 +86,7 @@
 
       <div class="stat-card">
         <div class="kicker">Buildings</div>
-        <h3>950</h3>
+        <h3>1250</h3>
         <p class="muted">Known buildings in this market</p>
       </div>
 
@@ -106,30 +105,30 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top:0;">
   <div class="container sidebar-layout">
     <div>
-      <div class="panel">
+      <div class="panel" style="margin-bottom:24px;">
         <div class="kicker">Overview</div>
         <h2>Explore the Austin market</h2>
         <p>
           Rofo helps businesses research commercial real estate in Austin, TX.
-          Use this page as a starting point to understand the market, review building options, and narrow your search.
+          Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
         </p>
         <p>
           Whether you are looking for office space, retail frontage, or industrial property,
-          Rofo is designed to make market discovery easier and more efficient.
+          Rofo is designed to make market discovery simpler and more efficient.
         </p>
       </div>
 
-      <div class="panel">
+      <div class="panel" style="margin-bottom:24px;">
         <div class="kicker">Featured Buildings</div>
         <h2>Representative buildings in Austin</h2>
-        <p class="muted" style="margin-top:-4px;">
+        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
           This section can later be powered by your real building dataset.
         </p>
 
-        <div class="grid-3" style="margin-top:18px;">
+        <div class="grid-3">
           <div class="market-card">
             <h3>Sample Building One</h3>
             <p>Office or mixed-use building in Austin.</p>
@@ -171,38 +170,55 @@
       <div class="panel">
         <div class="kicker">Nearby Markets</div>
         <h2>Explore nearby cities</h2>
-        <p class="muted" style="margin-top:-4px;">
-          For now these are placeholders. Later this can be computed automatically from lat/lng.
+        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
+          Browse nearby markets to expand your search.
         </p>
 
-        <div class="hero-search-links" style="margin-top:18px;">
-          <a href="#">Nearby City One</a>
-          <a href="#">Nearby City Two</a>
-          <a href="#">Nearby City Three</a>
-          <a href="#">Nearby City Four</a>
+        <div class="hero-search-links">
+          
+    
+      
+      
+        <a href="/commercial-real-estate/TX/San-Antonio/">San Antonio, TX</a>
+      
+    
+      
+      
+        <a href="/commercial-real-estate/TX/Houston/">Houston, TX</a>
+      
+    
+      
+      
+        <a href="/commercial-real-estate/TX/Fort-Worth/">Fort Worth, TX</a>
+      
+    
+      
+      
+        <a href="/commercial-real-estate/TX/Dallas/">Dallas, TX</a>
+      
+    
+      
+      
+        <a href="/commercial-real-estate/TN/Nashville/">Nashville, TN</a>
+      
+    
+      
+      
+        <a href="/commercial-real-estate/CO/Denver/">Denver, CO</a>
+      
+    
+  
         </div>
       </div>
     </div>
 
     <aside class="sticky">
-      <div class="panel">
-        <div class="kicker">Why Rofo</div>
-        <h3>Start your search with market context</h3>
-        <p>
-          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
-        </p>
-
-        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
-          <li>Explore markets city by city</li>
-          <li>Review representative buildings</li>
-          <li>Get help narrowing your search</li>
-          <li>Connect with the right next step</li>
-        </ul>
-      </div>
-
-      <div class="form-card" style="margin-top:20px;">
+      <div class="form-card" style="margin-bottom:20px;">
         <div class="kicker">Get Help</div>
         <h3>Looking in Austin?</h3>
+        <p class="muted" style="margin-top:-2px; margin-bottom:16px;">
+          Tell us what you need and we can help point you in the right direction.
+        </p>
 
         <div class="form-grid">
           <div class="field">
@@ -228,6 +244,21 @@
         <div style="margin-top:14px;">
           <button class="btn btn-primary">Submit</button>
         </div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Why Rofo</div>
+        <h3>Start with market context</h3>
+        <p>
+          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
+        </p>
+
+        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
+          <li>Explore markets city by city</li>
+          <li>Review representative buildings</li>
+          <li>Compare nearby markets</li>
+          <li>Get help narrowing your search</li>
+        </ul>
       </div>
     </aside>
   </div>
@@ -257,6 +288,6 @@
   </footer>
 
   <script>
-  window.rofoMarkets = [{"city":"San Francisco","state":"CA","label":"San Francisco, CA","path":"/commercial-real-estate/CA/San-Francisco/"},{"city":"Austin","state":"TX","label":"Austin, TX","path":"/commercial-real-estate/TX/Austin/"},{"city":"Denver","state":"CO","label":"Denver, CO","path":"/commercial-real-estate/CO/Denver/"},{"city":"South Portland","state":"ME","label":"South Portland, ME","path":"/commercial-real-estate/ME/South-Portland/"}];
+  window.rofoMarkets = [{"city":"San Francisco","state":"CA","label":"San Francisco, CA","path":"/commercial-real-estate/CA/San-Francisco/"},{"city":"Oakland","state":"CA","label":"Oakland, CA","path":"/commercial-real-estate/CA/Oakland/"},{"city":"San Jose","state":"CA","label":"San Jose, CA","path":"/commercial-real-estate/CA/San-Jose/"},{"city":"Sacramento","state":"CA","label":"Sacramento, CA","path":"/commercial-real-estate/CA/Sacramento/"},{"city":"San Rafael","state":"CA","label":"San Rafael, CA","path":"/commercial-real-estate/CA/San-Rafael/"},{"city":"Walnut Creek","state":"CA","label":"Walnut Creek, CA","path":"/commercial-real-estate/CA/Walnut-Creek/"},{"city":"Palo Alto","state":"CA","label":"Palo Alto, CA","path":"/commercial-real-estate/CA/Palo-Alto/"},{"city":"Redwood City","state":"CA","label":"Redwood City, CA","path":"/commercial-real-estate/CA/Redwood-City/"},{"city":"Berkeley","state":"CA","label":"Berkeley, CA","path":"/commercial-real-estate/CA/Berkeley/"},{"city":"Sunnyvale","state":"CA","label":"Sunnyvale, CA","path":"/commercial-real-estate/CA/Sunnyvale/"},{"city":"Los Angeles","state":"CA","label":"Los Angeles, CA","path":"/commercial-real-estate/CA/Los-Angeles/"},{"city":"Santa Monica","state":"CA","label":"Santa Monica, CA","path":"/commercial-real-estate/CA/Santa-Monica/"},{"city":"Pasadena","state":"CA","label":"Pasadena, CA","path":"/commercial-real-estate/CA/Pasadena/"},{"city":"Burbank","state":"CA","label":"Burbank, CA","path":"/commercial-real-estate/CA/Burbank/"},{"city":"Long Beach","state":"CA","label":"Long Beach, CA","path":"/commercial-real-estate/CA/Long-Beach/"},{"city":"Irvine","state":"CA","label":"Irvine, CA","path":"/commercial-real-estate/CA/Irvine/"},{"city":"Santa Ana","state":"CA","label":"Santa Ana, CA","path":"/commercial-real-estate/CA/Santa-Ana/"},{"city":"San Diego","state":"CA","label":"San Diego, CA","path":"/commercial-real-estate/CA/San-Diego/"},{"city":"Carlsbad","state":"CA","label":"Carlsbad, CA","path":"/commercial-real-estate/CA/Carlsbad/"},{"city":"Phoenix","state":"AZ","label":"Phoenix, AZ","path":"/commercial-real-estate/AZ/Phoenix/"},{"city":"Scottsdale","state":"AZ","label":"Scottsdale, AZ","path":"/commercial-real-estate/AZ/Scottsdale/"},{"city":"Tempe","state":"AZ","label":"Tempe, AZ","path":"/commercial-real-estate/AZ/Tempe/"},{"city":"Seattle","state":"WA","label":"Seattle, WA","path":"/commercial-real-estate/WA/Seattle/"},{"city":"Bellevue","state":"WA","label":"Bellevue, WA","path":"/commercial-real-estate/WA/Bellevue/"},{"city":"Tacoma","state":"WA","label":"Tacoma, WA","path":"/commercial-real-estate/WA/Tacoma/"},{"city":"Portland","state":"OR","label":"Portland, OR","path":"/commercial-real-estate/OR/Portland/"},{"city":"Beaverton","state":"OR","label":"Beaverton, OR","path":"/commercial-real-estate/OR/Beaverton/"},{"city":"Denver","state":"CO","label":"Denver, CO","path":"/commercial-real-estate/CO/Denver/"},{"city":"Boulder","state":"CO","label":"Boulder, CO","path":"/commercial-real-estate/CO/Boulder/"},{"city":"Austin","state":"TX","label":"Austin, TX","path":"/commercial-real-estate/TX/Austin/"},{"city":"Dallas","state":"TX","label":"Dallas, TX","path":"/commercial-real-estate/TX/Dallas/"},{"city":"Fort Worth","state":"TX","label":"Fort Worth, TX","path":"/commercial-real-estate/TX/Fort-Worth/"},{"city":"Houston","state":"TX","label":"Houston, TX","path":"/commercial-real-estate/TX/Houston/"},{"city":"San Antonio","state":"TX","label":"San Antonio, TX","path":"/commercial-real-estate/TX/San-Antonio/"},{"city":"Atlanta","state":"GA","label":"Atlanta, GA","path":"/commercial-real-estate/GA/Atlanta/"},{"city":"Nashville","state":"TN","label":"Nashville, TN","path":"/commercial-real-estate/TN/Nashville/"},{"city":"Charlotte","state":"NC","label":"Charlotte, NC","path":"/commercial-real-estate/NC/Charlotte/"},{"city":"Raleigh","state":"NC","label":"Raleigh, NC","path":"/commercial-real-estate/NC/Raleigh/"},{"city":"Miami","state":"FL","label":"Miami, FL","path":"/commercial-real-estate/FL/Miami/"},{"city":"Fort Lauderdale","state":"FL","label":"Fort Lauderdale, FL","path":"/commercial-real-estate/FL/Fort-Lauderdale/"},{"city":"Tampa","state":"FL","label":"Tampa, FL","path":"/commercial-real-estate/FL/Tampa/"},{"city":"Orlando","state":"FL","label":"Orlando, FL","path":"/commercial-real-estate/FL/Orlando/"},{"city":"Chicago","state":"IL","label":"Chicago, IL","path":"/commercial-real-estate/IL/Chicago/"},{"city":"Evanston","state":"IL","label":"Evanston, IL","path":"/commercial-real-estate/IL/Evanston/"},{"city":"Boston","state":"MA","label":"Boston, MA","path":"/commercial-real-estate/MA/Boston/"},{"city":"Cambridge","state":"MA","label":"Cambridge, MA","path":"/commercial-real-estate/MA/Cambridge/"},{"city":"New York","state":"NY","label":"New York, NY","path":"/commercial-real-estate/NY/New-York/"},{"city":"Jersey City","state":"NJ","label":"Jersey City, NJ","path":"/commercial-real-estate/NJ/Jersey-City/"},{"city":"Philadelphia","state":"PA","label":"Philadelphia, PA","path":"/commercial-real-estate/PA/Philadelphia/"},{"city":"Washington","state":"DC","label":"Washington, DC","path":"/commercial-real-estate/DC/Washington/"}];
 </script>
 <script src="/js/market-search.js"></script>
