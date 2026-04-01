@@ -1,13 +1,4 @@
-const rofoMarkets = [
-  { city: "San Francisco", state: "CA", label: "San Francisco, CA", path: "/commercial-real-estate/CA/San-Francisco/" },
-  { city: "Austin", state: "TX", label: "Austin, TX", path: "/commercial-real-estate/TX/Austin/" },
-  { city: "Denver", state: "CO", label: "Denver, CO", path: "/commercial-real-estate/CO/Denver/" },
-  { city: "South Portland", state: "ME", label: "South Portland, ME", path: "/commercial-real-estate/ME/South-Portland/" },
-  { city: "Portland", state: "ME", label: "Portland, ME", path: "/commercial-real-estate/ME/Portland/" },
-  { city: "Burbank", state: "CA", label: "Burbank, CA", path: "/commercial-real-estate/CA/Burbank/" },
-  { city: "Los Angeles", state: "CA", label: "Los Angeles, CA", path: "/commercial-real-estate/CA/Los-Angeles/" },
-  { city: "Chicago", state: "IL", label: "Chicago, IL", path: "/commercial-real-estate/IL/Chicago/" }
-];
+const rofoMarkets = window.rofoMarkets || [];
 
 function escapeHtml(str) {
   return str.replace(/[&<>"']/g, function(m) {

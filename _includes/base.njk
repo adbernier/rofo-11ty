@@ -21,10 +21,6 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="logo" style="color:#fff;">
-          <span class="logo-badge">R</span>
-          <span>Rofo</span>
-        </div>
         <p class="note">Helping businesses find commercial space since 2007.</p>
       </div>
       <div>
@@ -44,6 +40,7 @@
     </div>
   </footer>
 
-  <script src="/js/market-search.js"></script>
-</body>
-</html>
+  <script>
+  window.rofoMarkets = {{ searchMarkets | dump | safe }};
+</script>
+<script src="/js/market-search.js"></script>

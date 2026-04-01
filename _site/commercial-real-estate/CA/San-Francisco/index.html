@@ -15,8 +15,7 @@
   <header class="topbar">
   <div class="container nav-wrap">
     <a class="logo" href="/">
-      <span class="logo-badge">R</span>
-      <span>Rofo</span>
+      <img src="/images/logo/RofoLogo.png" alt="Rofo" style="height:64px; width:auto;" />
     </a>
 
     <nav class="nav">
@@ -39,7 +38,7 @@
 
     <div class="actions">
       <a class="btn btn-secondary" href="/#markets">Browse Markets</a>
-      <a class="btn btn-primary" href="/#contact">Get Help</a>
+      <a class="btn btn-secondary" href="/#contact">Get Help</a>
     </div>
   </div>
 </header>
@@ -238,10 +237,6 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="logo" style="color:#fff;">
-          <span class="logo-badge">R</span>
-          <span>Rofo</span>
-        </div>
         <p class="note">Helping businesses find commercial space since 2007.</p>
       </div>
       <div>
@@ -261,6 +256,7 @@
     </div>
   </footer>
 
-  <script src="/js/market-search.js"></script>
-</body>
-</html>
+  <script>
+  window.rofoMarkets = [{"city":"San Francisco","state":"CA","label":"San Francisco, CA","path":"/commercial-real-estate/CA/San-Francisco/"},{"city":"Austin","state":"TX","label":"Austin, TX","path":"/commercial-real-estate/TX/Austin/"},{"city":"Denver","state":"CO","label":"Denver, CO","path":"/commercial-real-estate/CO/Denver/"},{"city":"South Portland","state":"ME","label":"South Portland, ME","path":"/commercial-real-estate/ME/South-Portland/"}];
+</script>
+<script src="/js/market-search.js"></script>

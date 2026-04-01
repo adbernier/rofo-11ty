@@ -15,8 +15,7 @@
   <header class="topbar">
   <div class="container nav-wrap">
     <a class="logo" href="/">
-      <span class="logo-badge">R</span>
-      <span>Rofo</span>
+      <img src="/images/logo/RofoLogo.png" alt="Rofo" style="height:64px; width:auto;" />
     </a>
 
     <nav class="nav">
@@ -39,7 +38,7 @@
 
     <div class="actions">
       <a class="btn btn-secondary" href="/#markets">Browse Markets</a>
-      <a class="btn btn-primary" href="/#contact">Get Help</a>
+      <a class="btn btn-secondary" href="/#contact">Get Help</a>
     </div>
   </div>
 </header>
@@ -63,41 +62,41 @@
       </div>
 
       <div style="margin-top: 22px;">
-        <a class="btn btn-primary" href="#contact">Tell us what you need</a>
+        <a class="btn btn-primary" href="#markets">Search Markets</a>
       </div>
     </div>
 
     <div class="hero-side">
       <div class="hero-search-card">
-        <h3>Search markets</h3>
-        <p>
-          Jump directly to a city page and explore local office, retail, and industrial options.
-        </p>
+  <h3>Find space in the right market</h3>
+  <p>
+    Search by city or get help narrowing your office, retail, or industrial space search.
+  </p>
 
-        <div class="hero-search-wrap" data-market-search>
-          <label class="sr-only" for="heroMarketSearch">Search markets</label>
-          <input
-            id="heroMarketSearch"
-            class="hero-search__input"
-            type="text"
-            placeholder="Try San Francisco, Austin, Denver..."
-            autocomplete="off"
-          />
-          <div class="search-results" id="heroMarketResults"></div>
-        </div>
+  <div class="hero-search-wrap" data-market-search>
+    <label class="sr-only" for="heroMarketSearch">Search markets</label>
+    <input
+      id="heroMarketSearch"
+      class="hero-search__input"
+      type="text"
+      placeholder="Try San Francisco, Austin, Denver..."
+      autocomplete="off"
+    />
+    <div class="search-results" id="heroMarketResults"></div>
+  </div>
 
-        <div class="hero-search-actions">
-          <a class="btn btn-primary" href="#markets">Browse Markets</a>
-          <a class="btn btn-secondary" href="#contact">Get Help</a>
-        </div>
+  <div class="hero-search-actions">
+    <a class="btn btn-primary" href="#markets">Search Markets</a>
+    <a class="btn btn-secondary" href="#contact">Get Help Finding Space</a>
+  </div>
 
-        <div class="hero-search-links">
-          <a href="/commercial-real-estate/CA/San-Francisco/">San Francisco</a>
-          <a href="/commercial-real-estate/TX/Austin/">Austin</a>
-          <a href="/commercial-real-estate/CO/Denver/">Denver</a>
-          <a href="/commercial-real-estate/ME/South-Portland/">South Portland</a>
-        </div>
-      </div>
+  <div class="hero-search-links">
+    <a href="/commercial-real-estate/CA/San-Francisco/">San Francisco</a>
+    <a href="/commercial-real-estate/TX/Austin/">Austin</a>
+    <a href="/commercial-real-estate/CO/Denver/">Denver</a>
+    <a href="/commercial-real-estate/ME/South-Portland/">South Portland</a>
+  </div>
+</div>
 
       <div class="panel">
         <h3>How Rofo Works</h3>
@@ -202,10 +201,6 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="logo" style="color:#fff;">
-          <span class="logo-badge">R</span>
-          <span>Rofo</span>
-        </div>
         <p class="note">Helping businesses find commercial space since 2007.</p>
       </div>
       <div>
@@ -225,6 +220,7 @@
     </div>
   </footer>
 
-  <script src="/js/market-search.js"></script>
-</body>
-</html>
+  <script>
+  window.rofoMarkets = [{"city":"San Francisco","state":"CA","label":"San Francisco, CA","path":"/commercial-real-estate/CA/San-Francisco/"},{"city":"Austin","state":"TX","label":"Austin, TX","path":"/commercial-real-estate/TX/Austin/"},{"city":"Denver","state":"CO","label":"Denver, CO","path":"/commercial-real-estate/CO/Denver/"},{"city":"South Portland","state":"ME","label":"South Portland, ME","path":"/commercial-real-estate/ME/South-Portland/"}];
+</script>
+<script src="/js/market-search.js"></script>
