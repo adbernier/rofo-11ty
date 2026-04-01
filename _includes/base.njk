@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} | Rofo{% else %}Rofo | Find Commercial Real Estate{% endif %}</title>
+  <meta name="description" content="{{ description or 'Rofo helps businesses find office, retail, and industrial space across U.S. markets.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  {% include "header.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="color:#fff;">
+          <span class="logo-badge">R</span>
+          <span>Rofo</span>
+        </div>
+        <p class="note">Helping businesses find commercial space since 2007.</p>
+      </div>
+      <div>
+        <h4>Markets</h4>
+        <a href="/commercial-real-estate/CA/San-Francisco/">San Francisco</a>
+        <a href="/commercial-real-estate/TX/Austin/">Austin</a>
+        <a href="/commercial-real-estate/CO/Denver/">Denver</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/">Home</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="/#contact">Get Help</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/market-search.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }} | Rofo</title>
+  <meta name="description" content="{{ city.meta_description or city.short_description or (&#39;Explore commercial real estate in &#39; + city.city + &#39;, &#39; + city.state_abbr + &#39;.&#39;) }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+  <div class="container nav-wrap">
+    <a class="logo" href="/">
+      <span class="logo-badge">R</span>
+      <span>Rofo</span>
+    </a>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/#markets">Markets</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+
+    <div class="nav-search" data-market-search>
+      <label class="sr-only" for="headerMarketSearch">Search markets</label>
+      <input
+        id="headerMarketSearch"
+        class="nav-search__input"
+        type="text"
+        placeholder="Search city or market"
+        autocomplete="off"
+      />
+      <div class="search-results" id="headerMarketResults"></div>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-secondary" href="/#markets">Browse Markets</a>
+      <a class="btn btn-primary" href="/#contact">Get Help</a>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    
+<section class="section">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Market</div>
+      <h1>Commercial Real Estate in Austin, TX</h1>
+      <p class="lead">
+        Explore office, retail, and industrial commercial real estate in Austin, TX.
+      </p>
+
+      <div class="hero-subnav" style="margin-top:18px;">
+        <span class="pill">Office</span>
+        <span class="pill">Retail</span>
+        <span class="pill">Industrial</span>
+        <span class="pill">Travis County</span>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="panel" style="padding:0; overflow:hidden;">
+        <img
+          <img
+  src="/images/cities/city.jpg"
+  alt="Austin, TX"
+  style="display:block; width:100%; height:100%; min-height:280px; object-fit:cover;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="kicker">Market</div>
+        <h3>Austin</h3>
+        <p class="muted">TX</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="kicker">Buildings</div>
+        <h3>950</h3>
+        <p class="muted">Known buildings in this market</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="kicker">County</div>
+        <h3>Travis County</h3>
+        <p class="muted">Local market context</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="kicker">Coordinates</div>
+        <h3>30.2672, -97.7431</h3>
+        <p class="muted">Reference location</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container sidebar-layout">
+    <div>
+      <div class="panel">
+        <div class="kicker">Overview</div>
+        <h2>Explore the Austin market</h2>
+        <p>
+          Rofo helps businesses research commercial real estate in Austin, TX.
+          Use this page as a starting point to understand the market, review building options, and narrow your search.
+        </p>
+        <p>
+          Whether you are looking for office space, retail frontage, or industrial property,
+          Rofo is designed to make market discovery easier and more efficient.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Featured Buildings</div>
+        <h2>Representative buildings in Austin</h2>
+        <p class="muted" style="margin-top:-4px;">
+          This section can later be powered by your real building dataset.
+        </p>
+
+        <div class="grid-3" style="margin-top:18px;">
+          <div class="market-card">
+            <h3>Sample Building One</h3>
+            <p>Office or mixed-use building in Austin.</p>
+            <a class="city-link" href="#">
+              <div>
+                <h4>View Building</h4>
+                <p class="muted">Add real building link later</p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="market-card">
+            <h3>Sample Building Two</h3>
+            <p>Retail or neighborhood commercial option.</p>
+            <a class="city-link" href="#">
+              <div>
+                <h4>View Building</h4>
+                <p class="muted">Add real building link later</p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="market-card">
+            <h3>Sample Building Three</h3>
+            <p>Industrial or flex-use property in market.</p>
+            <a class="city-link" href="#">
+              <div>
+                <h4>View Building</h4>
+                <p class="muted">Add real building link later</p>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Nearby Markets</div>
+        <h2>Explore nearby cities</h2>
+        <p class="muted" style="margin-top:-4px;">
+          For now these are placeholders. Later this can be computed automatically from lat/lng.
+        </p>
+
+        <div class="hero-search-links" style="margin-top:18px;">
+          <a href="#">Nearby City One</a>
+          <a href="#">Nearby City Two</a>
+          <a href="#">Nearby City Three</a>
+          <a href="#">Nearby City Four</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sticky">
+      <div class="panel">
+        <div class="kicker">Why Rofo</div>
+        <h3>Start your search with market context</h3>
+        <p>
+          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
+        </p>
+
+        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
+          <li>Explore markets city by city</li>
+          <li>Review representative buildings</li>
+          <li>Get help narrowing your search</li>
+          <li>Connect with the right next step</li>
+        </ul>
+      </div>
+
+      <div class="form-card" style="margin-top:20px;">
+        <div class="kicker">Get Help</div>
+        <h3>Looking in Austin?</h3>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="Your email">
+          </div>
+          <div class="field">
+            <label>Market</label>
+            <input type="text" value="Austin, TX">
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label>Property type</label>
+          <input type="text" placeholder="Office, retail, industrial...">
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label>What are you looking for?</label>
+          <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
+        </div>
+
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="color:#fff;">
+          <span class="logo-badge">R</span>
+          <span>Rofo</span>
+        </div>
+        <p class="note">Helping businesses find commercial space since 2007.</p>
+      </div>
+      <div>
+        <h4>Markets</h4>
+        <a href="/commercial-real-estate/CA/San-Francisco/">San Francisco</a>
+        <a href="/commercial-real-estate/TX/Austin/">Austin</a>
+        <a href="/commercial-real-estate/CO/Denver/">Denver</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/">Home</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="/#contact">Get Help</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/market-search.js"></script>
+</body>
+</html>
