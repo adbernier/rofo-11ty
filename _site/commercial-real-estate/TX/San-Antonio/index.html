@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }} | Rofo</title>
-  <meta name="description" content="{{ city.meta_description or city.short_description or (&#39;Explore commercial real estate in &#39; + city.city + &#39;, &#39; + city.state_abbr + &#39;.&#39;) }}">
+  <meta name="description" content="{% if city.meta_description %}{{ city.meta_description }}{% elseif city.tier == 1 %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}, one of the most active business markets in the state. Browse office, retail, and industrial space and discover opportunities across the market.{% elseif city.county %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}, located in {{ city.county }}. Browse office, retail, and industrial properties and discover nearby opportunities with Rofo.{% else %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}. Browse office, retail, and industrial properties and discover nearby opportunities with Rofo.{% endif %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -15,15 +15,19 @@
   <header class="topbar">
   <div class="container nav-wrap">
     <a class="logo" href="/">
-      <img src="/images/logo/RofoLogo.png" alt="Rofo" style="height:64px; width:auto;" />
+      <img src="/images/logo/RofoLogo.png" alt="Rofo" />
     </a>
 
     <nav class="nav">
-  <a href="/">Home</a>
-  <a href="/markets/">Markets</a>
-  <a href="/#contact">Contact</a>
-  <a href="/about/">About</a>
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
     </nav>
+
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('mobile-menu-open')">
+      ☰
+    </button>
 
     <div class="nav-search" data-market-search>
       <label class="sr-only" for="headerMarketSearch">Search markets</label>
@@ -38,230 +42,704 @@
     </div>
 
     <div class="actions">
-      <a class="btn btn-secondary" href="/#markets">Browse Markets</a>
+      <a class="btn btn-secondary" href="/markets/">Browse Markets</a>
       <a class="btn btn-secondary" href="/#contact">Get Help</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="container mobile-menu__inner">
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
     </div>
   </div>
 </header>
 
-
   <main>
     
-<section class="section" style="padding-bottom:32px;">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Market</div>
-      <h1>Commercial Real Estate in San Antonio, TX</h1>
-      <p class="lead">
-        Explore office, retail, and industrial commercial real estate in San Antonio, TX.
-      </p>
+<style>
+  .city-page {
+    padding: 32px 0 56px;
+  }
 
-      <div class="hero-subnav" style="margin-top:18px;">
-        <span class="pill">Office</span>
-        <span class="pill">Retail</span>
-        <span class="pill">Industrial</span>
-        <span class="pill">Bexar County</span>
+  .city-page .city-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .city-page .city-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .city-page .city-card,
+  .city-page .city-sidecard,
+  .city-page .city-stat,
+  .city-page .city-form {
+    background: #fff;
+    border: 1px solid #d8e0ea;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .city-page .city-card,
+  .city-page .city-sidecard,
+  .city-page .city-form {
+    padding: 24px;
+  }
+
+  .city-page .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #556274;
+    margin-bottom: 10px;
+  }
+
+  .city-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    color: #0f172a;
+  }
+
+  .city-page h2 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: #0f172a;
+  }
+
+  .city-page h3 {
+    font-size: 1.08rem;
+    line-height: 1.25;
+    margin: 0 0 10px;
+    color: #0f172a;
+  }
+
+  .city-page p {
+    color: #334155;
+    line-height: 1.65;
+    margin: 0 0 14px;
+  }
+
+  .city-page .lead {
+    font-size: 1.05rem;
+    color: #475569;
+    max-width: 62ch;
+  }
+
+  .city-page .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .city-page .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .city-page .hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .city-page .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .city-page .city-stat {
+    padding: 18px;
+  }
+
+  .city-page .stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+
+  .city-page .stat-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .city-page .stat-note {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .city-page .city-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.9fr) minmax(280px, 0.95fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .city-page .stack {
+    display: grid;
+    gap: 24px;
+  }
+
+  .city-page .building-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .city-page .building-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    background: #fbfdff;
+  }
+
+  .city-page .building-meta {
+    color: #64748b;
+    font-size: 0.94rem;
+    margin-bottom: 10px;
+  }
+
+  .city-page .building-link,
+  .city-page .market-links a,
+  .city-page .back-link {
+    color: #1346d8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .city-page .building-link:hover,
+  .city-page .market-links a:hover,
+  .city-page .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .city-page .market-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+  }
+
+  .city-page .market-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    font-size: 0.93rem;
+  }
+
+  .city-page .city-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+
+  .city-page .city-form input,
+  .city-page .city-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font: inherit;
+    color: #0f172a;
+    background: #fff;
+  }
+
+  .city-page .city-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .city-page .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .city-page .field + .field {
+    margin-top: 12px;
+  }
+
+  .city-page .form-grid .field + .field {
+    margin-top: 0;
+  }
+
+  .city-page .btn-primary {
+    display: inline-block;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+    background: #1346d8;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .city-page .mini-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 980px) {
+    .city-page .city-hero,
+    .city-page .city-main {
+      grid-template-columns: 1fr;
+    }
+
+    .city-page .stats-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .city-page .stats-grid,
+    .city-page .building-grid,
+    .city-page .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .city-page .city-shell {
+      padding: 0 16px;
+    }
+
+    .city-page .city-card,
+    .city-page .city-sidecard,
+    .city-page .city-stat,
+    .city-page .city-form {
+      padding: 18px;
+    }
+  }
+</style>
+
+<section class="city-page">
+  <div class="city-shell">
+
+    <div class="city-hero">
+      <div class="city-card">
+        <div class="eyebrow">Market</div>
+        <h1>Commercial Real Estate in San Antonio, TX</h1>
+        <p class="lead">
+          Explore office, retail, and industrial commercial real estate in San Antonio, TX.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Office</span>
+          <span class="pill">Retail</span>
+          <span class="pill">Industrial</span>
+          <span class="pill">Bexar County</span>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-side">
-      <div class="panel" style="padding:0; overflow:hidden; min-height:320px;">
+      <div class="city-sidecard">
         <img
+          class="hero-image"
           src="/images/cities/city.jpg"
           alt="San Antonio, TX"
-          style="display:block; width:100%; height:100%; min-height:320px; object-fit:cover;"
         />
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section" style="padding-top:0; padding-bottom:40px;">
-  <div class="container">
-    <div class="stats">
-      <div class="stat-card">
-        <div class="kicker">Market</div>
-        <h3>San Antonio</h3>
-        <p class="muted">TX</p>
+    <div class="stats-grid">
+      <div class="city-stat">
+        <div class="stat-label">Market</div>
+        <div class="stat-value">San Antonio</div>
+        <p class="stat-note">TX</p>
       </div>
 
-      <div class="stat-card">
-        <div class="kicker">Buildings</div>
-        <h3>850</h3>
-        <p class="muted">Known buildings in this market</p>
+      <div class="city-stat">
+        <div class="stat-label">Buildings</div>
+        <div class="stat-value">850</div>
+        <p class="stat-note">Known buildings in this market</p>
       </div>
 
-      <div class="stat-card">
-        <div class="kicker">County</div>
-        <h3>Bexar County</h3>
-        <p class="muted">Local market context</p>
+      <div class="city-stat">
+        <div class="stat-label">County</div>
+        <div class="stat-value">Bexar County</div>
+        <p class="stat-note">Local market context</p>
       </div>
 
-      <div class="stat-card">
-        <div class="kicker">Coordinates</div>
-        <h3>29.4241, -98.4936</h3>
-        <p class="muted">Reference location</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="container sidebar-layout">
-    <div>
-      <div class="panel" style="margin-bottom:24px;">
-        <div class="kicker">Overview</div>
-        <h2>Explore the San Antonio market</h2>
-        <p>
-          Rofo helps businesses research commercial real estate in San Antonio, TX.
-          Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
-        </p>
-        <p>
-          Whether you are looking for office space, retail frontage, or industrial property,
-          Rofo is designed to make market discovery simpler and more efficient.
-        </p>
-      </div>
-
-      <div class="panel" style="margin-bottom:24px;">
-        <div class="kicker">Featured Buildings</div>
-        <h2>Representative buildings in San Antonio</h2>
-        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
-          This section can later be powered by your real building dataset.
-        </p>
-
-        <div class="grid-3">
-          <div class="market-card">
-            <h3>Sample Building One</h3>
-            <p>Office or mixed-use building in San Antonio.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-
-          <div class="market-card">
-            <h3>Sample Building Two</h3>
-            <p>Retail or neighborhood commercial option.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-
-          <div class="market-card">
-            <h3>Sample Building Three</h3>
-            <p>Industrial or flex-use property in market.</p>
-            <a class="city-link" href="#">
-              <div>
-                <h4>View Building</h4>
-                <p class="muted">Add real building link later</p>
-              </div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="kicker">Nearby Markets</div>
-        <h2>Explore nearby cities</h2>
-        <p class="muted" style="margin-top:-4px; margin-bottom:18px;">
-          Browse nearby markets to expand your search.
-        </p>
-
-        <div class="hero-search-links">
-          
-    
-      
-      
-        <a href="/commercial-real-estate/TX/Austin/">Austin, TX</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/TX/Houston/">Houston, TX</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/TX/Fort-Worth/">Fort Worth, TX</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/TX/Dallas/">Dallas, TX</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/CO/Denver/">Denver, CO</a>
-      
-    
-      
-      
-        <a href="/commercial-real-estate/TN/Nashville/">Nashville, TN</a>
-      
-    
-  
-        </div>
+      <div class="city-stat">
+        <div class="stat-label">Coordinates</div>
+        <div class="stat-value">29.4241, -98.4936</div>
+        <p class="stat-note">Reference location</p>
       </div>
     </div>
 
-    <aside class="sticky">
-      <div class="form-card" style="margin-bottom:20px;">
-        <div class="kicker">Get Help</div>
-        <h3>Looking in San Antonio?</h3>
-        <p class="muted" style="margin-top:-2px; margin-bottom:16px;">
-          Tell us what you need and we can help point you in the right direction.
-        </p>
+    <div class="city-main">
+      <div class="stack">
+        <div class="city-card">
+          <div class="eyebrow">Overview</div>
+          <h2>Explore the San Antonio market</h2>
+          <p>
+            Rofo helps businesses research commercial real estate in San Antonio, TX.
+            Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
+          </p>
+          <p>
+            Whether you are looking for office space, retail frontage, or industrial property,
+            Rofo is designed to make market discovery simpler and more efficient.
+          </p>
+        </div>
 
-        <div class="form-grid">
-          <div class="field">
-            <label>Email</label>
-            <input type="email" placeholder="Your email">
+        <div class="city-card">
+          <div class="eyebrow">Featured Buildings</div>
+          <h2>Representative buildings in San Antonio</h2>
+          <p>
+            This section is currently powered by sample building data and can later be replaced with your real building dataset.
+          </p>
+
+          <div class="building-grid">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <div class="building-card">
+                  <h3>Downtown San Antonio Office Center</h3>
+                  <div class="building-meta">Office · 12,000 SF</div>
+                  <p>100 Main St, San Antonio, TX</p>
+                  <a class="building-link" href="/commercial-real-estate/TX/San-Antonio/buildings/downtown-san-antonio-office/">
+                    View building
+                  </a>
+                </div>
+              
+            
+              
+                <div class="building-card">
+                  <h3>San Antonio Retail Plaza</h3>
+                  <div class="building-meta">Retail · 8,500 SF</div>
+                  <p>250 Market St, San Antonio, TX</p>
+                  <a class="building-link" href="/commercial-real-estate/TX/San-Antonio/buildings/san-antonio-retail-plaza/">
+                    View building
+                  </a>
+                </div>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
-          <div class="field">
-            <label>Market</label>
-            <input type="text" value="San Antonio, TX">
+        </div>
+
+        <div class="city-card">
+          <div class="eyebrow">Nearby Markets</div>
+          <h2>Explore nearby cities</h2>
+          <p>Browse nearby markets to expand your search.</p>
+
+          <div class="market-links">
+            
+              
+                
+                
+                  <a href="/commercial-real-estate/TX/Austin/">Austin, TX</a>
+                
+              
+                
+                
+                  <a href="/commercial-real-estate/TX/Houston/">Houston, TX</a>
+                
+              
+                
+                
+                  <a href="/commercial-real-estate/TX/Fort-Worth/">Fort Worth, TX</a>
+                
+              
+                
+                
+                  <a href="/commercial-real-estate/TX/Dallas/">Dallas, TX</a>
+                
+              
+                
+                
+                  <a href="/commercial-real-estate/CO/Denver/">Denver, CO</a>
+                
+              
+                
+                
+                  <a href="/commercial-real-estate/TN/Nashville/">Nashville, TN</a>
+                
+              
+            
           </div>
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label>Property type</label>
-          <input type="text" placeholder="Office, retail, industrial...">
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label>What are you looking for?</label>
-          <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
-        </div>
-
-        <div style="margin-top:14px;">
-          <button class="btn btn-primary">Submit</button>
         </div>
       </div>
 
-      <div class="panel">
-        <div class="kicker">Why Rofo</div>
-        <h3>Start with market context</h3>
-        <p>
-          Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
-        </p>
+      <div class="stack">
+        <div class="city-form">
+          <div class="eyebrow">Get Help</div>
+          <h2>Looking in San Antonio?</h2>
+          <p>
+            Tell us what you need and we can help point you in the right direction.
+          </p>
 
-        <ul style="margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.7;">
-          <li>Explore markets city by city</li>
-          <li>Review representative buildings</li>
-          <li>Compare nearby markets</li>
-          <li>Get help narrowing your search</li>
-        </ul>
+          <div class="form-grid">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="Your email">
+            </div>
+            <div class="field">
+              <label>Market</label>
+              <input type="text" value="San Antonio, TX">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Property type</label>
+            <input type="text" placeholder="Office, retail, industrial...">
+          </div>
+
+          <div class="field">
+            <label>What are you looking for?</label>
+            <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
+          </div>
+
+          <div style="margin-top: 14px;">
+            <button class="btn-primary">Submit</button>
+          </div>
+        </div>
+
+        <div class="city-card">
+          <div class="eyebrow">Why Rofo</div>
+          <h2>Start with market context</h2>
+          <p>
+            Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
+          </p>
+
+          <ul class="mini-list">
+            <li>Explore markets city by city</li>
+            <li>Review representative buildings</li>
+            <li>Compare nearby markets</li>
+            <li>Get help narrowing your search</li>
+          </ul>
+        </div>
       </div>
-    </aside>
+    </div>
+
   </div>
 </section>
   </main>

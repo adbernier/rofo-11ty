@@ -15,15 +15,19 @@
   <header class="topbar">
   <div class="container nav-wrap">
     <a class="logo" href="/">
-      <img src="/images/logo/RofoLogo.png" alt="Rofo" style="height:64px; width:auto;" />
+      <img src="/images/logo/RofoLogo.png" alt="Rofo" />
     </a>
 
     <nav class="nav">
-  <a href="/">Home</a>
-  <a href="/markets/">Markets</a>
-  <a href="/#contact">Contact</a>
-  <a href="/about/">About</a>
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
     </nav>
+
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('mobile-menu-open')">
+      ☰
+    </button>
 
     <div class="nav-search" data-market-search>
       <label class="sr-only" for="headerMarketSearch">Search markets</label>
@@ -38,12 +42,20 @@
     </div>
 
     <div class="actions">
-      <a class="btn btn-secondary" href="/#markets">Browse Markets</a>
+      <a class="btn btn-secondary" href="/markets/">Browse Markets</a>
       <a class="btn btn-secondary" href="/#contact">Get Help</a>
     </div>
   </div>
-</header>
 
+  <div class="mobile-menu">
+    <div class="container mobile-menu__inner">
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</header>
 
   <main>
     

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ building.name }} | {{ building.city }}, {{ building.state_abbr }} | Rofo</title>
+  <meta name="description" content="Explore {{ building.name }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+  <div class="container nav-wrap">
+    <a class="logo" href="/">
+      <img src="/images/logo/RofoLogo.png" alt="Rofo" />
+    </a>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('mobile-menu-open')">
+      ☰
+    </button>
+
+    <div class="nav-search" data-market-search>
+      <label class="sr-only" for="headerMarketSearch">Search markets</label>
+      <input
+        id="headerMarketSearch"
+        class="nav-search__input"
+        type="text"
+        placeholder="Search city or market"
+        autocomplete="off"
+      />
+      <div class="search-results" id="headerMarketResults"></div>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-secondary" href="/markets/">Browse Markets</a>
+      <a class="btn btn-secondary" href="/#contact">Get Help</a>
+    </div>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="container mobile-menu__inner">
+      <a href="/">Home</a>
+      <a href="/markets/">Markets</a>
+      <a href="/about/">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+  <main>
+    
+<style>
+  .building-page {
+    padding: 32px 0 56px;
+  }
+
+  .building-page .building-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .building-page .building-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .building-page .building-card,
+  .building-page .building-sidecard,
+  .building-page .building-stat,
+  .building-page .building-form {
+    background: #fff;
+    border: 1px solid #d8e0ea;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .building-page .building-card,
+  .building-page .building-sidecard,
+  .building-page .building-form {
+    padding: 24px;
+  }
+
+  .building-page .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #556274;
+    margin-bottom: 10px;
+  }
+
+  .building-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    color: #0f172a;
+  }
+
+  .building-page h2 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: #0f172a;
+  }
+
+  .building-page h3 {
+    font-size: 1.08rem;
+    line-height: 1.25;
+    margin: 0 0 10px;
+    color: #0f172a;
+  }
+
+  .building-page p {
+    color: #334155;
+    line-height: 1.65;
+    margin: 0 0 14px;
+  }
+
+  .building-page .lead {
+    font-size: 1.05rem;
+    color: #475569;
+    max-width: 62ch;
+  }
+
+  .building-page .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .building-page .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .building-page .hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .building-page .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .building-page .building-stat {
+    padding: 18px;
+  }
+
+  .building-page .stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+
+  .building-page .stat-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .building-page .stat-note {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .building-page .building-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.9fr) minmax(280px, 0.95fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .building-page .stack {
+    display: grid;
+    gap: 24px;
+  }
+
+  .building-page .detail-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .building-page .detail-row {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 14px;
+  }
+
+  .building-page .detail-row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .building-page .detail-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+
+  .building-page .detail-value {
+    color: #0f172a;
+    font-weight: 600;
+  }
+
+  .building-page .building-link,
+  .building-page .back-link {
+    color: #1346d8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .building-page .building-link:hover,
+  .building-page .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .building-page .building-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+
+  .building-page .building-form input,
+  .building-page .building-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 12px 13px;
+    font: inherit;
+    color: #0f172a;
+    background: #fff;
+  }
+
+  .building-page .building-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .building-page .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .building-page .field + .field {
+    margin-top: 12px;
+  }
+
+  .building-page .form-grid .field + .field {
+    margin-top: 0;
+  }
+
+  .building-page .btn-primary,
+  .building-page .btn-secondary {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .building-page .btn-primary {
+    border: 0;
+    background: #1346d8;
+    color: #fff;
+  }
+
+  .building-page .btn-secondary {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+  }
+
+  .building-page .mini-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 980px) {
+    .building-page .building-hero,
+    .building-page .building-main {
+      grid-template-columns: 1fr;
+    }
+
+    .building-page .stats-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .building-page .stats-grid,
+    .building-page .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .building-page .building-shell {
+      padding: 0 16px;
+    }
+
+    .building-page .building-card,
+    .building-page .building-sidecard,
+    .building-page .building-stat,
+    .building-page .building-form {
+      padding: 18px;
+    }
+  }
+</style>
+
+<section class="building-page">
+  <div class="building-shell">
+
+    <div class="building-hero">
+      <div class="building-card">
+        <div class="eyebrow">Building</div>
+        <h1>Downtown Redwood City Office Center</h1>
+        <p class="lead">
+          Explore this representative office property in Redwood City, CA.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Office</span>
+          <span class="pill">12,000 SF</span>
+          <span class="pill">Redwood City, CA</span>
+        </div>
+      </div>
+
+      <div class="building-sidecard">
+        <img
+          class="hero-image"
+          src="/images/cities/city.jpg"
+          alt="Downtown Redwood City Office Center"
+        />
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="building-stat">
+        <div class="stat-label">Address</div>
+        <div class="stat-value">100 Main St, Redwood City, CA</div>
+        <p class="stat-note">Representative property location</p>
+      </div>
+
+      <div class="building-stat">
+        <div class="stat-label">Type</div>
+        <div class="stat-value">Office</div>
+        <p class="stat-note">Property category</p>
+      </div>
+
+      <div class="building-stat">
+        <div class="stat-label">Size</div>
+        <div class="stat-value">12,000 SF</div>
+        <p class="stat-note">Approximate building size</p>
+      </div>
+
+      <div class="building-stat">
+        <div class="stat-label">Market</div>
+        <div class="stat-value">Redwood City</div>
+        <p class="stat-note">CA</p>
+      </div>
+    </div>
+
+    <div class="building-main">
+      <div class="stack">
+        <div class="building-card">
+          <div class="eyebrow">Overview</div>
+          <h2>About Downtown Redwood City Office Center</h2>
+          <p>
+            Downtown Redwood City Office Center is a sample office property page for Redwood City, CA.
+            This content stands in for the fuller property data you can later pull from the Rofo database.
+          </p>
+          <p>
+            Use this template as the foundation for future building pages, including real photos, descriptions,
+            availability details, amenities, and inquiry flows.
+          </p>
+        </div>
+
+        <div class="building-card">
+          <div class="eyebrow">Property Details</div>
+          <h2>Representative building information</h2>
+
+          <div class="detail-list">
+            <div class="detail-row">
+              <div class="detail-label">Building Name</div>
+              <div class="detail-value">Downtown Redwood City Office Center</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label">Address</div>
+              <div class="detail-value">100 Main St, Redwood City, CA</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label">Property Type</div>
+              <div class="detail-value">Office</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label">Approximate Size</div>
+              <div class="detail-value">12,000 SF</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label">Market</div>
+              <div class="detail-value">Redwood City, CA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="building-card">
+          <div class="eyebrow">Next Step</div>
+          <h2>Explore more in Redwood City</h2>
+          <p>
+            Continue browsing the broader Redwood City market to compare representative buildings
+            and nearby opportunities.
+          </p>
+
+          <a class="btn-secondary" href="/commercial-real-estate/CA/Redwood-City/">
+            Back to Redwood City Market
+          </a>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="building-form">
+          <div class="eyebrow">Get Help</div>
+          <h2>Interested in Redwood City?</h2>
+          <p>
+            Tell us what kind of space you need and we can help point you in the right direction.
+          </p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="Your email">
+            </div>
+            <div class="field">
+              <label>Market</label>
+              <input type="text" value="Redwood City, CA">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Property type</label>
+            <input type="text" value="Office">
+          </div>
+
+          <div class="field">
+            <label>What are you looking for?</label>
+            <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
+          </div>
+
+          <div style="margin-top: 14px;">
+            <button class="btn-primary">Submit</button>
+          </div>
+        </div>
+
+        <div class="building-card">
+          <div class="eyebrow">Why Rofo</div>
+          <h2>Commercial real estate discovery</h2>
+          <p>
+            Rofo helps businesses explore markets, compare representative properties,
+            and narrow their search more efficiently.
+          </p>
+
+          <ul class="mini-list">
+            <li>Start with market-level context</li>
+            <li>Review representative buildings</li>
+            <li>Compare cities and nearby options</li>
+            <li>Get help narrowing your search</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="note">Helping businesses find commercial space since 2007.</p>
+      </div>
+      <div>
+        <h4>Markets</h4>
+        <a href="/commercial-real-estate/CA/San-Francisco/">San Francisco</a>
+        <a href="/commercial-real-estate/TX/Austin/">Austin</a>
+        <a href="/commercial-real-estate/CO/Denver/">Denver</a>
+      </div>
+      <div>
+        <div>
+  <h4>Company</h4>
+  <ul>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</div>
+    </div>
+  </footer>
+
+  <script>
+  window.rofoMarkets = [{"city":"San Francisco","state":"CA","label":"San Francisco, CA","path":"/commercial-real-estate/CA/San-Francisco/"},{"city":"Oakland","state":"CA","label":"Oakland, CA","path":"/commercial-real-estate/CA/Oakland/"},{"city":"San Jose","state":"CA","label":"San Jose, CA","path":"/commercial-real-estate/CA/San-Jose/"},{"city":"Sacramento","state":"CA","label":"Sacramento, CA","path":"/commercial-real-estate/CA/Sacramento/"},{"city":"San Rafael","state":"CA","label":"San Rafael, CA","path":"/commercial-real-estate/CA/San-Rafael/"},{"city":"Walnut Creek","state":"CA","label":"Walnut Creek, CA","path":"/commercial-real-estate/CA/Walnut-Creek/"},{"city":"Palo Alto","state":"CA","label":"Palo Alto, CA","path":"/commercial-real-estate/CA/Palo-Alto/"},{"city":"Redwood City","state":"CA","label":"Redwood City, CA","path":"/commercial-real-estate/CA/Redwood-City/"},{"city":"Berkeley","state":"CA","label":"Berkeley, CA","path":"/commercial-real-estate/CA/Berkeley/"},{"city":"Sunnyvale","state":"CA","label":"Sunnyvale, CA","path":"/commercial-real-estate/CA/Sunnyvale/"},{"city":"Los Angeles","state":"CA","label":"Los Angeles, CA","path":"/commercial-real-estate/CA/Los-Angeles/"},{"city":"Santa Monica","state":"CA","label":"Santa Monica, CA","path":"/commercial-real-estate/CA/Santa-Monica/"},{"city":"Pasadena","state":"CA","label":"Pasadena, CA","path":"/commercial-real-estate/CA/Pasadena/"},{"city":"Burbank","state":"CA","label":"Burbank, CA","path":"/commercial-real-estate/CA/Burbank/"},{"city":"Long Beach","state":"CA","label":"Long Beach, CA","path":"/commercial-real-estate/CA/Long-Beach/"},{"city":"Irvine","state":"CA","label":"Irvine, CA","path":"/commercial-real-estate/CA/Irvine/"},{"city":"Santa Ana","state":"CA","label":"Santa Ana, CA","path":"/commercial-real-estate/CA/Santa-Ana/"},{"city":"San Diego","state":"CA","label":"San Diego, CA","path":"/commercial-real-estate/CA/San-Diego/"},{"city":"Carlsbad","state":"CA","label":"Carlsbad, CA","path":"/commercial-real-estate/CA/Carlsbad/"},{"city":"Phoenix","state":"AZ","label":"Phoenix, AZ","path":"/commercial-real-estate/AZ/Phoenix/"},{"city":"Scottsdale","state":"AZ","label":"Scottsdale, AZ","path":"/commercial-real-estate/AZ/Scottsdale/"},{"city":"Tempe","state":"AZ","label":"Tempe, AZ","path":"/commercial-real-estate/AZ/Tempe/"},{"city":"Seattle","state":"WA","label":"Seattle, WA","path":"/commercial-real-estate/WA/Seattle/"},{"city":"Bellevue","state":"WA","label":"Bellevue, WA","path":"/commercial-real-estate/WA/Bellevue/"},{"city":"Tacoma","state":"WA","label":"Tacoma, WA","path":"/commercial-real-estate/WA/Tacoma/"},{"city":"Portland","state":"OR","label":"Portland, OR","path":"/commercial-real-estate/OR/Portland/"},{"city":"Beaverton","state":"OR","label":"Beaverton, OR","path":"/commercial-real-estate/OR/Beaverton/"},{"city":"Denver","state":"CO","label":"Denver, CO","path":"/commercial-real-estate/CO/Denver/"},{"city":"Boulder","state":"CO","label":"Boulder, CO","path":"/commercial-real-estate/CO/Boulder/"},{"city":"Austin","state":"TX","label":"Austin, TX","path":"/commercial-real-estate/TX/Austin/"},{"city":"Dallas","state":"TX","label":"Dallas, TX","path":"/commercial-real-estate/TX/Dallas/"},{"city":"Fort Worth","state":"TX","label":"Fort Worth, TX","path":"/commercial-real-estate/TX/Fort-Worth/"},{"city":"Houston","state":"TX","label":"Houston, TX","path":"/commercial-real-estate/TX/Houston/"},{"city":"San Antonio","state":"TX","label":"San Antonio, TX","path":"/commercial-real-estate/TX/San-Antonio/"},{"city":"Atlanta","state":"GA","label":"Atlanta, GA","path":"/commercial-real-estate/GA/Atlanta/"},{"city":"Nashville","state":"TN","label":"Nashville, TN","path":"/commercial-real-estate/TN/Nashville/"},{"city":"Charlotte","state":"NC","label":"Charlotte, NC","path":"/commercial-real-estate/NC/Charlotte/"},{"city":"Raleigh","state":"NC","label":"Raleigh, NC","path":"/commercial-real-estate/NC/Raleigh/"},{"city":"Miami","state":"FL","label":"Miami, FL","path":"/commercial-real-estate/FL/Miami/"},{"city":"Fort Lauderdale","state":"FL","label":"Fort Lauderdale, FL","path":"/commercial-real-estate/FL/Fort-Lauderdale/"},{"city":"Tampa","state":"FL","label":"Tampa, FL","path":"/commercial-real-estate/FL/Tampa/"},{"city":"Orlando","state":"FL","label":"Orlando, FL","path":"/commercial-real-estate/FL/Orlando/"},{"city":"Chicago","state":"IL","label":"Chicago, IL","path":"/commercial-real-estate/IL/Chicago/"},{"city":"Evanston","state":"IL","label":"Evanston, IL","path":"/commercial-real-estate/IL/Evanston/"},{"city":"Boston","state":"MA","label":"Boston, MA","path":"/commercial-real-estate/MA/Boston/"},{"city":"Cambridge","state":"MA","label":"Cambridge, MA","path":"/commercial-real-estate/MA/Cambridge/"},{"city":"New York","state":"NY","label":"New York, NY","path":"/commercial-real-estate/NY/New-York/"},{"city":"Jersey City","state":"NJ","label":"Jersey City, NJ","path":"/commercial-real-estate/NJ/Jersey-City/"},{"city":"Philadelphia","state":"PA","label":"Philadelphia, PA","path":"/commercial-real-estate/PA/Philadelphia/"},{"city":"Washington","state":"DC","label":"Washington, DC","path":"/commercial-real-estate/DC/Washington/"}];
+</script>
+<script src="/js/market-search.js"></script>
