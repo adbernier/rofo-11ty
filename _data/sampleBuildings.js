@@ -1,4 +1,4 @@
-const cities = require("./cities.json");
+const cities = require("./cities.js");
 
 function slugify(str) {
   return String(str)
