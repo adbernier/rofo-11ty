@@ -264,7 +264,7 @@ h1 {
 .field {
     background: var(--surface-2);
     border: 1px solid #dbe3ee;
-    border-radius: 16px;
+    border-radius: 14px;
     padding: 12px 14px;
     min-height: 70px
 }
@@ -276,7 +276,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: .04em;
     color: #607085;
-    margin-bottom: 9px
+    margin-bottom: 6px
 }
 
 .field span {
@@ -622,7 +622,17 @@ h1 {
     color: inherit;
     outline: none
 }
+.field:focus-within {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(19,70,216,.12);
+}
 
+.form-note {
+    margin: -4px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+}
 .footer {
     margin-top: 30px;
     padding: 36px 0 60px;
@@ -967,4 +977,43 @@ h1 {
   display: block;
   position: relative;
   top: -1px; /* fine-tune alignment */
+}
+/* Space between each form block */
+/* Stronger vertical rhythm */
+.form-stack {
+  margin-bottom: 18px;
+}
+
+/* Reduce visual heaviness of fields */
+.field {
+  padding: 10px 14px;
+  min-height: auto;
+}
+
+/* Textarea breathing room */
+.field textarea {
+  min-height: 120px;
+}
+
+/* Button spacing */
+.btn-row {
+  margin-top: 16px;
+}
+
+/* Fine print spacing */
+.form-note {
+  margin-top: 14px;
+}
+
+/* Card padding */
+.city-form {
+  padding: 20px;
+}
+.city-form h2 {
+  margin-bottom: 8px;
+}
+
+.city-form > p {
+  margin: 0 0 14px;
+  max-width: 32ch;
 }

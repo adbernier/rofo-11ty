@@ -6,7 +6,7 @@ pagination:
   alias: city
 permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/index.html"
 title: "Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}"
-description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif city.tier == 1 %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}, one of the most active business markets in the state. Browse office, retail, and industrial space and discover opportunities across the market.{% elseif city.county %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}, located in {{ city.county }}. Browse office, retail, and industrial properties and discover nearby opportunities with Rofo.{% else %}Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }}. Browse office, retail, and industrial properties and discover nearby opportunities with Rofo.{% endif %}"
+description: "{{ city.seo_description }}"
 ---
 
 <style>
@@ -22,7 +22,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
 
   .city-page .city-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
     gap: 24px;
     align-items: stretch;
     margin-bottom: 24px;
@@ -36,11 +36,6 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     border: 1px solid #d8e0ea;
     border-radius: 18px;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  }
-
-  .city-page .city-card,
-  .city-page .city-sidecard,
-  .city-page .city-form {
     padding: 24px;
   }
 
@@ -50,7 +45,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     letter-spacing: .08em;
     text-transform: uppercase;
     color: #556274;
-    margin-bottom: 10px;
+    margin: 0 0 6px;
   }
 
   .city-page h1 {
@@ -65,6 +60,16 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     line-height: 1.2;
     margin: 0 0 14px;
     color: #0f172a;
+  }
+
+  .city-page .city-form > h2 {
+    margin: 0 0 2px;
+  }
+
+  .city-page .city-form > p {
+    margin: 0 0 12px;
+    line-height: 1.4;
+    max-width: 26ch;
   }
 
   .city-page h3 {
@@ -120,10 +125,6 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     margin-bottom: 24px;
   }
 
-  .city-page .city-stat {
-    padding: 18px;
-  }
-
   .city-page .stat-label {
     font-size: 12px;
     font-weight: 700;
@@ -148,13 +149,22 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
   }
 
   .city-page .city-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.9fr) minmax(280px, 0.95fr);
+    display: flex;
     gap: 24px;
-    align-items: start;
+    align-items: flex-start;
   }
 
-  .city-page .stack {
+  .city-page .city-main-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: grid;
+    gap: 24px;
+  }
+
+  .city-page .city-main-right {
+    flex: 0 0 380px;
+    width: 380px;
+    max-width: 100%;
     display: grid;
     gap: 24px;
   }
@@ -162,7 +172,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
   .city-page .building-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
 
   .city-page .building-card {
@@ -196,6 +206,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     display: flex;
     flex-wrap: wrap;
     gap: 10px 12px;
+    align-items: flex-start;
   }
 
   .city-page .market-links a {
@@ -206,6 +217,25 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     font-size: 0.93rem;
+    white-space: nowrap;
+  }
+
+  .city-page .city-form {
+    display: block;
+  }
+
+  .city-page .rofo-formspree-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .city-page .city-form p,
+  .city-page .city-form .form-grid,
+  .city-page .city-form .field,
+  .city-page .city-form .btn-row,
+  .city-page .city-form .form-stack {
+    margin: 0;
   }
 
   .city-page .city-form label {
@@ -213,11 +243,12 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     font-size: 0.9rem;
     font-weight: 600;
     color: #334155;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .city-page .city-form input,
-  .city-page .city-form textarea {
+  .city-page .city-form textarea,
+  .city-page .city-form select {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #cbd5e1;
@@ -240,13 +271,41 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
   }
 
   .city-page .field + .field {
-    margin-top: 12px;
-  }
-
-  .city-page .form-grid .field + .field {
     margin-top: 0;
   }
 
+  .city-page .form-stack {
+    display: block;
+  }
+
+  .city-page .field {
+    margin: 0;
+    padding: 14px 16px;
+  }
+
+  .city-page form > .field:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .city-page .optional {
+    font-weight: 500;
+    color: #64748b;
+  }
+
+  .city-page .btn-row {
+    margin-top: 6px;
+  }
+
+  .city-page .btn-row .btn-primary {
+    width: 100%;
+  }
+
+  .city-page .form-note {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #64748b;
+  }
   .city-page .btn-primary {
     display: inline-block;
     border: 0;
@@ -267,9 +326,17 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
   }
 
   @media (max-width: 980px) {
-    .city-page .city-hero,
-    .city-page .city-main {
+    .city-page .city-hero {
       grid-template-columns: 1fr;
+    }
+
+    .city-page .city-main {
+      flex-direction: column;
+    }
+
+    .city-page .city-main-right {
+      width: 100%;
+      flex: 1 1 auto;
     }
 
     .city-page .stats-grid {
@@ -292,7 +359,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     .city-page .city-sidecard,
     .city-page .city-stat,
     .city-page .city-form {
-      padding: 18px;
+      padding: 20px;
     }
   }
 </style>
@@ -304,9 +371,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
       <div class="city-card">
         <div class="eyebrow">Market</div>
         <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
-        <p class="lead">
-          {{ city.short_description or city.city_description_raw or ("Explore office, retail, and industrial real estate opportunities in " + city.city + ", " + city.state_abbr + ".") }}
-        </p>
+        <p class="lead">{{ city.seo_intro }}</p>
 
         <div class="pill-row">
           <span class="pill">Office</span>
@@ -352,7 +417,7 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
     </div>
 
     <div class="city-main">
-      <div class="stack">
+      <div class="city-main-left">
         <div class="city-card">
           <div class="eyebrow">Overview</div>
           <h2>Explore the {{ city.city }} market</h2>
@@ -367,6 +432,13 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
         </div>
 
         <div class="city-card">
+          <div class="eyebrow">Market Context</div>
+          <h2>{{ city.market_context_heading }}</h2>
+          <p>{{ city.market_context_paragraph1 }}</p>
+          <p>{{ city.market_context_paragraph2 }}</p>
+        </div>
+
+        <div class="city-card">
           <div class="eyebrow">Featured Buildings</div>
           <h2>Representative buildings in {{ city.city }}</h2>
           <p>
@@ -378,8 +450,14 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
               {% if building.city == city.city %}
                 <div class="building-card">
                   <h3>{{ building.name }}</h3>
-                  <div class="building-meta">{{ building.type }} · {{ building.size }}</div>
+                  <div class="building-meta">
+                    {{ building.type }} · {{ building.size }}
+                    {% if building.year_built %} · Built {{ building.year_built }}{% endif %}
+                  </div>
                   <p>{{ building.address }}</p>
+                  {% if building.teaser %}
+                    <p>{{ building.teaser }}</p>
+                  {% endif %}
                   <a class="building-link" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/">
                     View building
                   </a>
@@ -395,11 +473,11 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
           <p>Browse nearby markets to expand your search.</p>
 
           <div class="market-links">
-            {% if city.nearby_cities and city.nearby_cities.length %}
-              {% for nearby in city.nearby_cities %}
-                {% set nearbyCity = cityLookup[nearby] %}
+            {% if city.nearby_city_details and city.nearby_city_details.length %}
+              {% for nearby in city.nearby_city_details %}
+                {% set nearbyCity = cityLookup[nearby.slug] %}
                 {% if nearbyCity %}
-                  <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }}</a>
+                  <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }} · {{ nearby.distance_miles }} mi</a>
                 {% endif %}
               {% endfor %}
             {% else %}
@@ -412,55 +490,85 @@ description: "{% if city.meta_description %}{{ city.meta_description }}{% elseif
         </div>
       </div>
 
-      <div class="stack">
+      <div class="city-main-right">
         <div class="city-form">
-          <div class="eyebrow">Get Help</div>
-          <h2>Looking in {{ city.city }}?</h2>
-          <p>
-            Tell us what you need and we can help point you in the right direction.
-          </p>
+  <div class="eyebrow">Get Help</div>
+  <h2>Tell us what you need</h2>
+  <p>We’ll send relevant options in {{ city.city }}.</p>
 
-          <div class="form-grid">
-            <div class="field">
-              <label>Email</label>
-              <input type="email" placeholder="Your email">
-            </div>
-            <div class="field">
-              <label>Market</label>
-              <input type="text" value="{{ city.city }}, {{ city.state_abbr }}">
-            </div>
-          </div>
+  <form
+    action="https://formspree.io/f/xreoadbr"
+    method="POST"
+    class="rofo-formspree-form"
+  >
+    <input type="hidden" name="source" value="rofo-city-page">
+    <input type="hidden" name="page_type" value="city">
+    <input type="hidden" name="city" value="{{ city.city }}">
+    <input type="hidden" name="state" value="{{ city.state_abbr }}">
+    <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
+    <input type="hidden" name="page_url" value="https://www.rofo.com{{ page.url }}">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
-          <div class="field">
-            <label>Property type</label>
-            <input type="text" placeholder="Office, retail, industrial...">
-          </div>
-
-          <div class="field">
-            <label>What are you looking for?</label>
-            <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
-          </div>
-
-          <div style="margin-top: 14px;">
-            <button class="btn-primary">Submit</button>
-          </div>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Why Rofo</div>
-          <h2>Start with market context</h2>
-          <p>
-            Rofo helps businesses discover commercial real estate by market first, then drill into buildings and location options.
-          </p>
-
-          <ul class="mini-list">
-            <li>Explore markets city by city</li>
-            <li>Review representative buildings</li>
-            <li>Compare nearby markets</li>
-            <li>Get help narrowing your search</li>
-          </ul>
-        </div>
+    <div class="form-stack">
+      <div class="field">
+        <label for="lead-name">Name</label>
+        <input id="lead-name" name="name" type="text" placeholder="Your name" required>
       </div>
+    </div>
+
+    <div class="form-stack">
+      <div class="field">
+        <label for="lead-email">Email</label>
+        <input id="lead-email" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+    </div>
+
+    <div class="form-stack">
+      <div class="field">
+        <label for="lead-size">Space needed <span class="optional">(optional)</span></label>
+        <select id="lead-size" name="space_needed">
+          <option value="">Select one</option>
+          <option>Under 1,000 sqft</option>
+          <option>1,000–2,500 sqft</option>
+          <option>2,500–5,000 sqft</option>
+          <option>5,000–10,000 sqft</option>
+          <option>10,000+ sqft</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-stack">
+      <div class="field">
+        <label for="lead-timeline">Timeline <span class="optional">(optional)</span></label>
+        <select id="lead-timeline" name="timeline">
+          <option value="">Select one</option>
+          <option>ASAP</option>
+          <option>Within 3 months</option>
+          <option>Within 6 months</option>
+          <option>6+ months</option>
+          <option>Just exploring</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="lead-notes">Anything else? <span class="optional">(optional)</span></label>
+      <textarea
+        id="lead-notes"
+        name="notes"
+        placeholder="Business type, preferred area, must-haves..."
+      ></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" type="submit">Show Me Options</button>
+    </div>
+
+    <p class="form-note">No spam. Just helpful options to get you started.</p>
+  </form>
+</div></div>
+
+        </div>
     </div>
 
   </div>
