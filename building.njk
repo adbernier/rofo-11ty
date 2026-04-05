@@ -305,8 +305,8 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
         <div class="eyebrow">Building</div>
         <h1>{{ building.name }}</h1>
         <p class="lead">
-          Explore this representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
-        </p>
+  Explore this representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
+</p>
 
         <div class="pill-row">
           <span class="pill">{{ building.type }}</span>
@@ -356,13 +356,13 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
           <div class="eyebrow">Overview</div>
           <h2>About {{ building.name }}</h2>
           <p>
-            {{ building.name }} is a sample {{ building.type | lower }} property page for {{ building.city }}, {{ building.state_abbr }}.
-            This content stands in for the fuller property data you can later pull from the Rofo database.
-          </p>
-          <p>
-            Use this template as the foundation for future building pages, including real photos, descriptions,
-            availability details, amenities, and inquiry flows.
-          </p>
+  {{ building.name }} is a representative {{ building.type | lower }} property page for {{ building.city }}, {{ building.state_abbr }}.
+  {% if building.teaser %}{{ building.teaser }}{% endif %}
+</p>
+<p>
+  Use this template as the foundation for future building pages, including real photos, descriptions,
+  availability details, amenities, and inquiry flows.
+</p>
         </div>
 
         <div class="building-card">
@@ -394,6 +394,20 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
               <div class="detail-label">Market</div>
               <div class="detail-value">{{ building.city }}, {{ building.state_abbr }}</div>
             </div>
+            <div class="detail-row">
+  <div class="detail-label">Year Built</div>
+  <div class="detail-value">{{ building.year_built or "—" }}</div>
+</div>
+
+<div class="detail-row">
+  <div class="detail-label">Floors</div>
+  <div class="detail-value">{{ building.floors or "—" }}</div>
+</div>
+
+<div class="detail-row">
+  <div class="detail-label">Summary</div>
+  <div class="detail-value">{{ building.teaser or "Representative sample property page." }}</div>
+</div>
           </div>
         </div>
 
