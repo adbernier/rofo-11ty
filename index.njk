@@ -41,10 +41,11 @@ description: Rofo helps businesses find office, retail, and industrial space acr
       autocomplete="off"
     />
     <div class="search-results" id="heroMarketResults"></div>
+    <p class="hero-search-error" id="heroMarketError" hidden>No matching market found. Try another city.</p>
   </div>
 
   <div class="hero-search-actions">
-    <a class="btn btn-primary" href="/markets/">Search Markets</a>
+    <button class="btn btn-primary" type="button" id="heroMarketSearchBtn">Search Markets</button>
     <a class="btn btn-secondary" href="#contact">Get Help Finding Space</a>
   </div>
 
@@ -231,3 +232,70 @@ description: Rofo helps businesses find office, retail, and industrial space acr
 </div>
   </div>
 </section>
+<script>
+  (function () {
+    const input = document.getElementById('heroMarketSearch');
+    const results = document.getElementById('heroMarketResults');
+    const button = document.getElementById('heroMarketSearchBtn');
+    const error = document.getElementById('heroMarketError');
+
+    if (!input || !button) return;
+
+    function normalizeValue(value) {
+      return value.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+
+    function hideError() {
+      if (error) error.hidden = true;
+    }
+
+    function showError() {
+      if (error) error.hidden = false;
+    }
+
+    function goToSelectedMarket() {
+      hideError();
+
+      const value = input.value.trim();
+
+      if (!value) {
+        window.location.href = '/markets/';
+        return;
+      }
+
+      const openResults = results && results.classList.contains('is-open');
+      const firstResult = results ? results.querySelector('.search-results__item') : null;
+
+      if (openResults && firstResult) {
+        window.location.href = firstResult.getAttribute('href');
+        return;
+      }
+
+      const links = document.querySelectorAll('.hero-search-links a');
+      const normalizedInput = normalizeValue(value);
+
+      for (const link of links) {
+        const label = normalizeValue(link.textContent || '');
+        if (label === normalizedInput) {
+          window.location.href = link.getAttribute('href');
+          return;
+        }
+      }
+
+      showError();
+    }
+
+    button.addEventListener('click', goToSelectedMarket);
+
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        goToSelectedMarket();
+      } else {
+        hideError();
+      }
+    });
+
+    input.addEventListener('input', hideError);
+  })();
+</script>

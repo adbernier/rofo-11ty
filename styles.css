@@ -835,7 +835,12 @@ h1 {
     transition: border-color .2s ease, box-shadow .2s ease;
     box-sizing: border-box;
 }
-
+.hero-search-error {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #b42318;
+}
 .nav-search__input:focus,
 .hero-search__input:focus {
     border-color: var(--blue);
