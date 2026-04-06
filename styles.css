@@ -109,7 +109,16 @@ body.mobile-menu-open .mobile-menu {
     display: block;
     transform: translateY(-2px);
 }
+@media (max-width: 900px) {
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .hero-side {
+    order: -1;
+  }
+}
 .logo-badge {
     display: none;
 }
