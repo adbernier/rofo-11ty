@@ -109,16 +109,7 @@ body.mobile-menu-open .mobile-menu {
     display: block;
     transform: translateY(-2px);
 }
-@media (max-width: 900px) {
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .hero-side {
-    order: -1;
-  }
-}
 .logo-badge {
     display: none;
 }
@@ -1057,4 +1048,22 @@ h1 {
 
 .breadcrumbs [aria-current="page"] {
   color: #475569;
+}
+@media (max-width: 680px) {
+  .page-hero {
+    padding: 16px 0 32px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero-side {
+    order: -1;
+  }
+
+  .nav-wrap .btn {
+    display: none;
+  }
 }
