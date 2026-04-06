@@ -8,10 +8,15 @@ permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_s
 title: "{{ building.name }} | {{ building.city }}, {{ building.state_abbr }}"
 description: "Explore {{ building.name }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
 ---
-
+{% set crumbs = [
+  { "label": "Home", "url": "/" },
+  { "label": "Markets", "url": "/markets/" },
+  { "label": building.city + ", " + building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" + building.city_slug + "/" },
+  { "label": building.name or building.address, "url": page.url }
+] %}
 <style>
   .building-page {
-    padding: 32px 0 56px;
+    padding: 8px 0 56px;
   }
 
   .building-page .building-shell {
@@ -293,12 +298,19 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
     .building-page .building-stat,
     .building-page .building-form {
       padding: 18px;
-    }
-  }
+    
+  }.building-page .breadcrumbs {
+  margin: 0 0 16px;
+  
+}.building-page .breadcrumbs {
+  margin: 0 0 16px;
+}
 </style>
 
 <section class="building-page">
   <div class="building-shell">
+
+{% include "partials/breadcrumbs.njk" %}
 
     <div class="building-hero">
       <div class="building-card">
