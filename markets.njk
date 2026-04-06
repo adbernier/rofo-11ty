@@ -1,17 +1,25 @@
 ---
 layout: base.njk
-title: "Markets | Rofo"
-description: "Browse commercial real estate markets across the United States."
+title: Markets
 ---
 
-<section class="section">
-  <div class="container">
-    <div class="eyebrow">Markets</div>
-    <h1>Browse Markets</h1>
-    <p class="lead">
-      Explore commercial real estate markets across the U.S. by state and city.
-    </p>
-  </div>
+{% set crumbs = [
+  { "label": "Home", "url": "/" },
+  { "label": "Markets", "url": "/markets/" }
+] %}
+
+<section class="page-shell">
+  <section class="section" style="padding-top:8px;">
+    <div class="container">
+      {% include "partials/breadcrumbs.njk" %}
+
+      <div class="eyebrow">Markets</div>
+      <h1>Browse Markets</h1>
+      <p class="lead">
+        Explore commercial real estate markets across the U.S. by state and city.
+      </p>
+    </div>
+  </section>
 </section>
 
 <section class="section" style="padding-top:0;">

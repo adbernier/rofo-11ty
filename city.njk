@@ -8,10 +8,14 @@ permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/index.
 title: "Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}"
 description: "{{ city.seo_description }}"
 ---
-
+{% set crumbs = [
+  { "label": "Home", "url": "/" },
+  { "label": "Markets", "url": "/markets/" },
+  { "label": city.city + ", " + city.state_abbr, "url": page.url }
+] %}
 <style>
   .city-page {
-    padding: 32px 0 56px;
+    padding: 8px 0 56px;
   }
 
   .city-page .city-shell {
@@ -361,11 +365,15 @@ description: "{{ city.seo_description }}"
     .city-page .city-form {
       padding: 20px;
     }
-  }
+  .city-page .breadcrumbs {
+  margin: 0 0 16px;
+}
 </style>
 
 <section class="city-page">
   <div class="city-shell">
+
+    {% include "partials/breadcrumbs.njk" %}
 
     <div class="city-hero">
       <div class="city-card">
