@@ -6,7 +6,6 @@ description: "Commercial real estate insights, leasing guides, and market resour
 ---
 
 {% set blogPosts = collections.blog or [] %}
-{% set featuredPosts = blogPosts | reverse | slice(0, 3) %}
 {% set latestPosts = blogPosts | reverse %}
 
 <style>
@@ -247,36 +246,37 @@ description: "Commercial real estate insights, leasing guides, and market resour
       </div>
     </div>
 
-    <div class="section-stack">
-      <div class="blog-card">
-        <div class="eyebrow">Featured Articles</div>
-        <h2>Start here</h2>
+    <div class="blog-card">
+  <div class="eyebrow">Featured Articles</div>
+  <h2>Start here: key guides</h2>
 
-        {% if featuredPosts and featuredPosts.length %}
-          <div class="featured-grid">
-            {% for post in featuredPosts %}
-              <article class="post-card">
-                <div class="post-meta">
-                  {% if post.data.category %}{{ post.data.category }}{% else %}Article{% endif %}
-                </div>
-                <h3>
-                  <a href="{{ post.url }}">{{ post.data.title }}</a>
-                </h3>
-                {% if post.data.description %}
-                  <p>{{ post.data.description }}</p>
-                {% elseif post.data.excerpt %}
-                  <p>{{ post.data.excerpt }}</p>
-                {% else %}
-                  <p>Read this article on commercial real estate strategy, markets, and leasing decisions.</p>
-                {% endif %}
-                <a href="{{ post.url }}">Read article</a>
-              </article>
-            {% endfor %}
-          </div>
-        {% else %}
-          <p class="empty-state">No blog posts yet. Add your first posts and they’ll appear here automatically.</p>
+  {% if latestPosts and latestPosts.length %}
+    <div class="featured-grid">
+      {% for post in latestPosts %}
+        {% if loop.index <= 3 %}
+          <article class="post-card">
+            <div class="post-meta">
+              {% if post.data.category %}{{ post.data.category }}{% else %}Article{% endif %}
+            </div>
+            <h3>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            {% if post.data.description %}
+              <p>{{ post.data.description }}</p>
+            {% elseif post.data.excerpt %}
+              <p>{{ post.data.excerpt }}</p>
+            {% else %}
+              <p>Read this article on commercial real estate strategy, markets, and leasing decisions.</p>
+            {% endif %}
+            <a href="{{ post.url }}">Read article</a>
+          </article>
         {% endif %}
-      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-state">No blog posts yet. Add your first posts and they’ll appear here automatically.</p>
+  {% endif %}
+</div>
 
       <div class="blog-card">
         <div class="eyebrow">Browse by Topic</div>
@@ -292,34 +292,34 @@ description: "Commercial real estate insights, leasing guides, and market resour
       </div>
 
       <div class="blog-card">
-        <div class="eyebrow">Latest</div>
-        <h2>Recent articles</h2>
+  <div class="eyebrow">Latest</div>
+  <h2>Recent articles</h2>
 
-        {% if latestPosts and latestPosts.length %}
-          <div class="latest-grid">
-            {% for post in latestPosts %}
-              <article class="post-card">
-                <div class="post-meta">
-                  {% if post.data.category %}{{ post.data.category }}{% else %}Article{% endif %}
-                </div>
-                <h3>
-                  <a href="{{ post.url }}">{{ post.data.title }}</a>
-                </h3>
-                {% if post.data.description %}
-                  <p>{{ post.data.description }}</p>
-                {% elseif post.data.excerpt %}
-                  <p>{{ post.data.excerpt }}</p>
-                {% else %}
-                  <p>Read this article on commercial real estate strategy, markets, and leasing decisions.</p>
-                {% endif %}
-                <a href="{{ post.url }}">Read article</a>
-              </article>
-            {% endfor %}
+  {% if latestPosts and latestPosts.length %}
+    <div class="latest-grid">
+      {% for post in latestPosts %}
+        <article class="post-card">
+          <div class="post-meta">
+            {% if post.data.category %}{{ post.data.category }}{% else %}Article{% endif %}
           </div>
-        {% else %}
-          <p class="empty-state">No posts yet.</p>
-        {% endif %}
-      </div>
+          <h3>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h3>
+          {% if post.data.description %}
+            <p>{{ post.data.description }}</p>
+          {% elseif post.data.excerpt %}
+            <p>{{ post.data.excerpt }}</p>
+          {% else %}
+            <p>Read this article on commercial real estate strategy, markets, and leasing decisions.</p>
+          {% endif %}
+          <a href="{{ post.url }}">Read article</a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-state">No posts yet.</p>
+  {% endif %}
+</div>
 
       <div class="cta-card">
         <div>
