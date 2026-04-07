@@ -1,4 +1,4 @@
-const rawCities = require("./cities.raw.json");
+const rawCities = require("./raw/cities.raw.json");
 
 function toRadians(deg) {
   return deg * (Math.PI / 180);

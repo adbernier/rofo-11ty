@@ -1,0 +1,168 @@
+---
+layout: base.njk
+---
+
+<style>
+  .post-page {
+    padding: 8px 0 56px;
+  }
+
+  .post-page .post-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .post-page .post-card {
+    background: #fff;
+    border: 1px solid #d8e0ea;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    padding: 28px;
+  }
+
+  .post-page .post-header {
+    max-width: 1000px;
+  }
+
+  .post-page .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #556274;
+    margin: 0 0 8px;
+  }
+
+  .post-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    color: #0f172a;
+    max-width: 26ch;
+  }
+
+  .post-page .post-dek {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0 0 24px;
+    max-width: 70ch;
+  }
+
+  .post-page .post-body {
+    max-width: 720px;
+    color: #334155;
+    line-height: 1.75;
+    font-size: 1.05rem;
+  }
+
+  .post-page .post-body h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 32px 0 12px;
+    color: #0f172a;
+  }
+
+  .post-page .post-body h3 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin: 24px 0 10px;
+    color: #0f172a;
+  }
+
+  .post-page .post-body p {
+    margin: 0 0 16px;
+  }
+
+  .post-page .post-body ul,
+  .post-page .post-body ol {
+    margin: 0 0 18px 22px;
+    padding: 0;
+  }
+
+  .post-page .post-body li {
+    margin: 0 0 8px;
+  }
+
+  .post-page .post-body a {
+    color: #1346d8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .post-page .post-body a:hover {
+    text-decoration: underline;
+  }
+
+  .post-page .post-body strong {
+    color: #0f172a;
+  }
+
+  @media (max-width: 680px) {
+    .post-page .post-shell {
+      padding: 0 16px;
+    }
+
+    .post-page .post-card {
+      padding: 22px;
+    }
+
+    .post-page .post-header,
+    .post-page .post-body {
+      max-width: none;
+    }
+
+    .post-page h1 {
+      max-width: none;
+    }
+  
+  .breadcrumbs {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.breadcrumbs a {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  margin: 0 6px;
+}
+</style>
+
+<section class="post-page">
+  <div class="post-shell">
+    <article class="post-card">
+      <div class="post-header">
+        <div class="eyebrow">
+          {% if category %}{{ category }}{% else %}Rofo Blog{% endif %}
+        </div>
+
+<div class="breadcrumbs">
+  <a href="/">Home</a>
+  <span>›</span>
+  <a href="/blog/">Blog</a>
+  <span>›</span>
+  <span>{{ title }}</span>
+</div>
+
+        <h1>{{ title }}</h1>
+
+        {% if description %}
+          <p class="post-dek">{{ description }}</p>
+        {% endif %}
+      </div>
+
+      <div class="post-body">
+        {{ content | safe }}
+      </div>
+    </article>
+  </div>
+</section>

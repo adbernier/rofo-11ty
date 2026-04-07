@@ -348,7 +348,7 @@ description: "{{ city.seo_description }}"
     }
   }
 
-  @media (max-width: 680px) {
+    @media (max-width: 680px) {
     .city-page .stats-grid,
     .city-page .building-grid,
     .city-page .form-grid {
@@ -365,8 +365,24 @@ description: "{{ city.seo_description }}"
     .city-page .city-form {
       padding: 20px;
     }
-  .city-page .breadcrumbs {
-  margin: 0 0 16px;
+
+    .city-page .breadcrumbs {
+      margin: 0 0 16px;
+    }
+  
+  .city-card {
+  margin-bottom: 24px;
+}
+
+.city-card .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.subtle-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #6b7280;
 }
 </style>
 
@@ -447,19 +463,20 @@ description: "{{ city.seo_description }}"
         </div>
 
         <div class="city-card">
-          <div class="eyebrow">Featured Buildings</div>
-          <h2>Representative buildings in {{ city.city }}</h2>
+          <div class="eyebrow">Featured</div>
+          <h2>Featured Buildings in {{ city.city }}</h2>
           <p>
-            This section is currently powered by sample building data and can later be replaced with your real building dataset.
+          A selection of featured properties currently available in {{ city.city }}.
           </p>
-
+<p class="subtle-note"> Want your building featured here? <a href="/partner-with-rofo/">Learn more</a>
+</p>
           <div class="building-grid">
             {% for building in sampleBuildings %}
               {% if building.city == city.city %}
                 <div class="building-card">
                   <h3>{{ building.name }}</h3>
                   <div class="building-meta">
-                    {{ building.type }} · {{ building.size }}
+                    Featured · {{ building.type }} · {{ building.size }}
                     {% if building.year_built %} · Built {{ building.year_built }}{% endif %}
                   </div>
                   <p>{{ building.address }}</p>
@@ -475,7 +492,7 @@ description: "{{ city.seo_description }}"
           </div>
         </div>
 
-        <div class="city-card">
+                <div class="city-card">
           <div class="eyebrow">Nearby Markets</div>
           <h2>Explore nearby cities</h2>
           <p>Browse nearby markets to expand your search.</p>
@@ -496,7 +513,53 @@ description: "{{ city.seo_description }}"
             {% endif %}
           </div>
         </div>
+
+        <div class="city-card">
+          <div class="eyebrow">Resources</div>
+          <h2>Helpful Resources for Businesses in {{ city.city }}</h2>
+          <p>Learn more about leasing, pricing, and how to evaluate commercial space in {{ city.city }}.</p>
+          <ul class="mini-list">
+            <li>
+              <a href="/blog/typical-lease-rates-in-{{ city.slug }}/">
+                Typical Lease Rates in {{ city.city }}
+              </a>
+            </li>
+            <li>
+              <a href="/blog/best-neighborhoods-for-office-space-in-{{ city.slug }}/">
+                Best Neighborhoods for Office Space in {{ city.city }}
+              </a>
+            </li>
+            <li>
+              <a href="/blog/how-to-evaluate-office-space-to-lease/">
+                How to Evaluate Office Space Before You Lease
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="city-card">
+          <div class="eyebrow">Local Expert</div>
+          <h2>Talk to a Local Tenant Rep</h2>
+          <p>
+            Connect with a local expert who understands the {{ city.city }} market and can help you evaluate your options.
+          </p>
+
+          <div class="building-card">
+            <h3>{{ city.city }} Tenant Rep</h3>
+            <div class="building-meta">
+              {{ city.city }} · Office & Retail Focus
+            </div>
+            <p>
+  Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
+</p>
+            <a class="building-link" href="#">
+              Connect with a Local Expert
+            </a>
+          </div>
+        </div>
       </div>
+
+      <div class="city-main-right">
 
       <div class="city-main-right">
         <div class="city-form">
