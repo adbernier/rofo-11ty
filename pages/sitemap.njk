@@ -1,0 +1,27 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.rofo.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://www.rofo.com/markets/</loc>
+  </url>
+
+  {% for city in cities %}
+  <url>
+    <loc>https://www.rofo.com{{ city.path }}</loc>
+  </url>
+  {% endfor %}
+
+  {% for building in sampleBuildings %}
+  <url>
+    <loc>https://www.rofo.com/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/</loc>
+  </url>
+  {% endfor %}
+
+</urlset>
