@@ -129,16 +129,18 @@ layout: base.njk
   <div class="info-shell">
     <article class="info-card">
       <div class="info-header">
-        <div class="info-pill">
-          {% if pageLabel %}{{ pageLabel }}{% else %}Rofo{% endif %}
-        </div>
+  <div class="info-pill">
+    {% if pageLabel %}{{ pageLabel }}{% else %}Rofo{% endif %}
+  </div>
 
-        <h1>{{ title }}</h1>
+  {% if pageHeading %}
+    <h1>{{ pageHeading }}</h1>
+  {% endif %}
 
-        {% if description %}
-          <p class="info-dek">{{ description }}</p>
-        {% endif %}
-      </div>
+  {% if intro %}
+    <p class="info-dek">{{ intro }}</p>
+  {% endif %}
+</div>
 
       <div class="info-body">
         {{ content | safe }}
