@@ -1,0 +1,242 @@
+/* =========================
+   ROFO DESIGN SYSTEM v1
+   ========================= */
+
+:root {
+  --rofo-blue: #1346d8;
+  --rofo-blue-light: #e9eefb;
+
+  --rofo-text: #1f2937;
+  --rofo-muted: #556274;
+
+  --rofo-border: #d9e1ea;
+  --rofo-bg: #f4f6f8;
+  --rofo-card-bg: #ffffff;
+
+  --rofo-radius: 16px;
+  --rofo-pill-radius: 999px;
+
+  --rofo-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+  --rofo-spacing-sm: 12px;
+  --rofo-spacing-md: 24px;
+  --rofo-spacing-lg: 32px;
+}
+
+
+/* =========================
+   BASE
+   ========================= */
+
+body {
+  color: var(--rofo-text);
+  background: var(--rofo-bg);
+}
+
+a {
+  color: var(--rofo-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   PILLS / EYEBROWS
+   ========================= */
+
+.pill,
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: var(--rofo-pill-radius);
+  background: var(--rofo-blue-light);
+  color: var(--rofo-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card,
+.city-card,
+.city-sidecard,
+.city-stat,
+.city-form,
+.building-card,
+.building-sidecard,
+.building-stat,
+.building-form,
+.info-card {
+  background: var(--rofo-card-bg);
+  border: 1px solid var(--rofo-border);
+  border-radius: var(--rofo-radius);
+  box-shadow: var(--rofo-shadow);
+  padding: 24px;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--rofo-blue);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.94;
+}
+
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+h1 {
+  margin: 0 0 12px;
+}
+
+h2 {
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 14px;
+  color: var(--rofo-text);
+}
+
+.info-intro,
+.info-dek {
+  color: var(--rofo-muted);
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   LISTS
+   ========================= */
+
+.mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mini-list li {
+  margin-bottom: 10px;
+}
+
+.mini-list a {
+  color: var(--rofo-blue);
+  font-weight: 500;
+}
+
+
+/* =========================
+   FORM SYSTEM
+   ========================= */
+
+.form-stack {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  background: #fff;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--rofo-border);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--rofo-muted);
+}
+
+.btn-row {
+  margin-top: 12px;
+}
+
+.form-note {
+  font-size: 13px;
+  color: var(--rofo-muted);
+  margin-top: 8px;
+}
+
+
+/* =========================
+   GRID UTILITIES
+   ========================= */
+
+.two-col {
+  display: grid;
+  gap: var(--rofo-spacing-md);
+}
+
+.two-col-hero {
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
+}
+
+@media (max-width: 980px) {
+  .two-col,
+  .two-col-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   HELPERS
+   ========================= */
+
+.section-stack {
+  display: grid;
+  gap: var(--rofo-spacing-md);
+}
+
+.centered {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

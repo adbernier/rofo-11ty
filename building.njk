@@ -27,35 +27,19 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
 
   .building-page .building-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.9fr);
     gap: 24px;
     align-items: stretch;
     margin-bottom: 24px;
   }
 
-  .building-page .building-card,
-  .building-page .building-sidecard,
-  .building-page .building-stat,
-  .building-page .building-form {
-    background: #fff;
-    border: 1px solid #d8e0ea;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  .building-page .building-hero > * {
+    min-width: 0;
   }
 
-  .building-page .building-card,
-  .building-page .building-sidecard,
-  .building-page .building-form {
-    padding: 24px;
-  }
-
-  .building-page .eyebrow {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #556274;
-    margin-bottom: 10px;
+  .building-page .building-card h1,
+  .building-page .building-card .lead {
+    max-width: none;
   }
 
   .building-page h1 {
@@ -154,7 +138,7 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
 
   .building-page .building-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.9fr) minmax(280px, 0.95fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
     gap: 24px;
     align-items: start;
   }
@@ -203,75 +187,30 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
     text-decoration: underline;
   }
 
-  .building-page .building-form label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #334155;
-    margin-bottom: 6px;
-  }
-
-  .building-page .building-form input,
-  .building-page .building-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
-    padding: 12px 13px;
-    font: inherit;
-    color: #0f172a;
-    background: #fff;
-  }
-
-  .building-page .building-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
   .building-page .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 16px;
   }
 
-  .building-page .field + .field {
-    margin-top: 12px;
-  }
-
-  .building-page .form-grid .field + .field {
-    margin-top: 0;
-  }
-
-  .building-page .btn-primary,
-  .building-page .btn-secondary {
-    display: inline-block;
-    border-radius: 12px;
-    padding: 12px 18px;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .building-page .btn-primary {
-    border: 0;
-    background: #1346d8;
-    color: #fff;
-  }
-
-  .building-page .btn-secondary {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    color: #0f172a;
-  }
-
-  .building-page .mini-list {
+  .building-page .field {
     margin: 0;
-    padding-left: 18px;
-    color: #475569;
-    line-height: 1.7;
+    padding: 14px 16px;
   }
 
+  .building-page .building-form .btn-row {
+    margin-top: 2px;
+  }
+  
+  .building-page .building-form form {
+    display: grid;
+    gap: 18px;
+  }
+  .building-page .building-form .form-note {
+    margin: -4px 0 0;
+    font-size: 13px;
+    line-height: 1.45;
+}
   @media (max-width: 980px) {
     .building-page .building-hero,
     .building-page .building-main {
@@ -293,18 +232,10 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
       padding: 0 16px;
     }
 
-    .building-page .building-card,
-    .building-page .building-sidecard,
-    .building-page .building-stat,
-    .building-page .building-form {
-      padding: 18px;
-    
-  }.building-page .breadcrumbs {
-  margin: 0 0 16px;
-  
-}.building-page .breadcrumbs {
-  margin: 0 0 16px;
-}
+    .building-page .breadcrumbs {
+      margin: 0 0 16px;
+    }
+  }
 </style>
 
 <section class="building-page">
@@ -439,6 +370,7 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
 
       <div class="stack">
         <div class="building-form">
+        <form>
           <div class="eyebrow">Get Help</div>
           <h2>Interested in {{ building.city }}?</h2>
           <p>
@@ -466,9 +398,12 @@ description: "Explore {{ building.name }}, a representative {{ building.type | l
             <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
           </div>
 
-          <div style="margin-top: 14px;">
+          <div class="btn-row">
             <button class="btn-primary">Submit</button>
           </div>
+
+          <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
+          </form>
         </div>
 
         <div class="building-card">

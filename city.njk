@@ -32,24 +32,13 @@ description: "{{ city.seo_description }}"
     margin-bottom: 24px;
   }
 
-  .city-page .city-card,
-  .city-page .city-sidecard,
-  .city-page .city-stat,
-  .city-page .city-form {
-    background: #fff;
-    border: 1px solid #d8e0ea;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-    padding: 24px;
-  }
-
-  .city-page .eyebrow {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #556274;
-    margin: 0 0 6px;
+  .city-page .hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
   }
 
   .city-page h1 {
@@ -72,13 +61,12 @@ description: "{{ city.seo_description }}"
 
   .city-page .city-form > p {
     margin: 0 0 12px;
-    line-height: 1.4;
-    max-width: 26ch;
+    line-height: 1.5;
+    max-width: none;
   }
 
   .city-page h3 {
     font-size: 1.08rem;
-    line-height: 1.25;
     margin: 0 0 10px;
     color: #0f172a;
   }
@@ -102,26 +90,6 @@ description: "{{ city.seo_description }}"
     margin-top: 16px;
   }
 
-  .city-page .pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    color: #0f172a;
-    font-size: 0.92rem;
-    font-weight: 600;
-  }
-
-  .city-page .hero-image {
-    width: 100%;
-    height: 100%;
-    min-height: 320px;
-    object-fit: cover;
-    display: block;
-    border-radius: 14px;
-  }
-
   .city-page .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -142,35 +110,26 @@ description: "{{ city.seo_description }}"
     font-size: 1.15rem;
     font-weight: 700;
     color: #0f172a;
-    line-height: 1.2;
     margin-bottom: 6px;
   }
 
   .city-page .stat-note {
     color: #64748b;
     font-size: 0.92rem;
-    margin: 0;
   }
 
   .city-page .city-main {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  .city-page .city-main-left {
-    flex: 1 1 auto;
-    min-width: 0;
     display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
     gap: 24px;
+    align-items: start;
   }
 
+  .city-page .city-main-left,
   .city-page .city-main-right {
-    flex: 0 0 380px;
-    width: 380px;
-    max-width: 100%;
     display: grid;
     gap: 24px;
+    min-width: 0;
   }
 
   .city-page .building-grid {
@@ -192,25 +151,10 @@ description: "{{ city.seo_description }}"
     margin-bottom: 10px;
   }
 
-  .city-page .building-link,
-  .city-page .market-links a,
-  .city-page .back-link {
-    color: #1346d8;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .city-page .building-link:hover,
-  .city-page .market-links a:hover,
-  .city-page .back-link:hover {
-    text-decoration: underline;
-  }
-
   .city-page .market-links {
     display: flex;
     flex-wrap: wrap;
     gap: 10px 12px;
-    align-items: flex-start;
   }
 
   .city-page .market-links a {
@@ -224,48 +168,10 @@ description: "{{ city.seo_description }}"
     white-space: nowrap;
   }
 
-  .city-page .city-form {
-    display: block;
-  }
-
   .city-page .rofo-formspree-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-
-  .city-page .city-form p,
-  .city-page .city-form .form-grid,
-  .city-page .city-form .field,
-  .city-page .city-form .btn-row,
-  .city-page .city-form .form-stack {
-    margin: 0;
-  }
-
-  .city-page .city-form label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #334155;
-    margin-bottom: 5px;
-  }
-
-  .city-page .city-form input,
-  .city-page .city-form textarea,
-  .city-page .city-form select {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
-    padding: 12px 13px;
-    font: inherit;
-    color: #0f172a;
-    background: #fff;
-  }
-
-  .city-page .city-form textarea {
-    min-height: 120px;
-    resize: vertical;
   }
 
   .city-page .form-grid {
@@ -274,73 +180,31 @@ description: "{{ city.seo_description }}"
     gap: 12px;
   }
 
-  .city-page .field + .field {
-    margin-top: 0;
-  }
-
-  .city-page .form-stack {
-    display: block;
-  }
-
   .city-page .field {
-    margin: 0;
     padding: 14px 16px;
   }
 
-  .city-page form > .field:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .city-page .optional {
-    font-weight: 500;
+  .subtle-note {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
     color: #64748b;
   }
 
-  .city-page .btn-row {
-    margin-top: 6px;
+  .subtle-note a {
+    color: #1346d8;
+    text-decoration: none;
+    font-weight: 600;
   }
 
-  .city-page .btn-row .btn-primary {
-    width: 100%;
-  }
-
-  .city-page .form-note {
-    margin: 8px 0 0;
-    font-size: 0.9rem;
-    line-height: 1.45;
-    color: #64748b;
-  }
-  .city-page .btn-primary {
-    display: inline-block;
-    border: 0;
-    border-radius: 12px;
-    padding: 12px 18px;
-    font: inherit;
-    font-weight: 700;
-    background: #1346d8;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .city-page .mini-list {
-    margin: 0;
-    padding-left: 18px;
-    color: #475569;
-    line-height: 1.7;
+  .subtle-note a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 980px) {
+    .city-page .city-main,
     .city-page .city-hero {
       grid-template-columns: 1fr;
-    }
-
-    .city-page .city-main {
-      flex-direction: column;
-    }
-
-    .city-page .city-main-right {
-      width: 100%;
-      flex: 1 1 auto;
     }
 
     .city-page .stats-grid {
@@ -348,7 +212,7 @@ description: "{{ city.seo_description }}"
     }
   }
 
-    @media (max-width: 680px) {
+  @media (max-width: 680px) {
     .city-page .stats-grid,
     .city-page .building-grid,
     .city-page .form-grid {
@@ -358,49 +222,7 @@ description: "{{ city.seo_description }}"
     .city-page .city-shell {
       padding: 0 16px;
     }
-
-    .city-page .city-card,
-    .city-page .city-sidecard,
-    .city-page .city-stat,
-    .city-page .city-form {
-      padding: 20px;
-    }
-
-    .city-page .breadcrumbs {
-      margin: 0 0 16px;
-    }
-  
-  .city-card {
-  margin-bottom: 24px;
-}
-
-.city-card .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.subtle-note {
-  margin-top: 12px;
-  font-size: 13px;
-  color: #6b7280;
-}
-.subtle-note {
-  margin-top: 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #64748b;
-}
-
-.subtle-note a {
-  color: #1346d8;   /* same as building-link */
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.subtle-note a:hover {
-  text-decoration: underline;
-}
-
+  }
 </style>
 
 <section class="city-page">
@@ -569,7 +391,7 @@ class="subtle-note"> Want your building featured here? <a class="building-link" 
             <p>
   Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
 </p>
-            <a class="building-link" href="#contact">
+            <a class="btn btn-primary" href="#market-contact-form">Get Help</a>
   Connect with a Local Expert
 </a>
 
@@ -584,8 +406,8 @@ class="subtle-note"> Want your building featured here? <a class="building-link" 
       <div class="city-main-right">
 
       <div class="city-main-right">
-        <div class="city-form">
-  <div class="eyebrow">Get Help</div>
+        <div id="market-contact-form" class="city-form">
+  <div class="eyebrow">Get help finding space</div>
   <h2>Find Office, Retail, or Industrial Space in {{ city.city }}</h2>
   <p>Tell us what you’re looking for and we’ll send you relevant options in {{ city.city }}.</p>
 
