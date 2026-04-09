@@ -26,21 +26,22 @@ description: "Browse Rofo markets."
 
 <section class="section" style="padding-top:0;">
   <div class="container">
-<div style="margin-bottom:50px;">
-  <div class="kicker">Featured Markets</div>
-  <h2 style="margin-bottom:12px;">Top Markets</h2>
-  <p class="muted" style="margin-bottom:18px;">
-    Start with some of the most active and representative Rofo markets.
-  </p>
+    <div style="margin-bottom:50px;">
+      <div class="kicker">Featured Markets</div>
+      <h2 style="margin-bottom:12px;">Top Markets</h2>
+      <p class="muted" style="margin-bottom:18px;">
+        Start with some of the most active and representative Rofo markets.
+      </p>
 
-  <div class="hero-search-links">
-    {% for city in cities %}
-      {% if city.is_featured %}
-        <a href="{{ city.path }}">{{ city.label }} ({{ city.building_count }})</a>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
+      <div class="hero-search-links">
+        {% for city in cities %}
+          {% if city.is_featured %}
+            <a href="{{ city.path }}">{{ city.label }} ({{ city.building_count }})</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
     {% set stateList = [] %}
     {% for city in cities %}
       {% if stateList.indexOf(city.state_abbr) == -1 %}
@@ -49,21 +50,26 @@ description: "Browse Rofo markets."
     {% endfor %}
 
     {% for state in stateList | sort %}
-  <div class="panel" style="margin-bottom:24px;">
-    <div class="kicker">State</div>
-    <h2 style="margin-bottom:16px;">{{ stateNames[state] or state }}</h2>
-
-    <div class="hero-search-links">
-      {% for city in cities %}
-        {% if city.state_abbr == state %}
-          <a href="{{ city.path }}">
-            {{ city.label }} ({{ city.building_count }})
+      {% set stateName = stateNames[state] or state %}
+      <div class="panel" style="margin-bottom:24px;">
+        <div class="kicker">State</div>
+        <h2 style="margin-bottom:16px;">
+          <a href="/commercial-real-estate/{{ state }}/">
+            {{ stateName }} ({{ state }})
           </a>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-{% endfor %}
+        </h2>
+
+        <div class="hero-search-links">
+          {% for city in cities %}
+            {% if city.state_abbr == state %}
+              <a href="{{ city.path }}">
+                {{ city.label }} ({{ city.building_count }})
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
 
   </div>
 </section>
