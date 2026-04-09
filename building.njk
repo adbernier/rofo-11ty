@@ -4,15 +4,15 @@ pagination:
   data: sampleBuildings
   size: 1
   alias: building
-permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/index.html"
-title: "{{ building.name }} | {{ building.city }}, {{ building.state_abbr }}"
-description: "Explore {{ building.name }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
+  permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/index.html"
+  title: "{{ building.address or building.name }} | {{ building.city }}, {{ building.state_abbr }}"
+  description: "Explore {{ building.address or building.name }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
 ---
 {% set crumbs = [
-  { "label": "Home", "url": "/" },
   { "label": "Markets", "url": "/markets/" },
+  { "label": building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
   { "label": building.city + ", " + building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" + building.city_slug + "/" },
-  { "label": building.name or building.address, "url": page.url }
+  { "label": building.address or building.name, "url": page.url }
 ] %}
 <style>
   .building-page {

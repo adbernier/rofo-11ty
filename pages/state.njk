@@ -1,0 +1,161 @@
+---
+layout: base.njk
+pagination:
+  data: states
+  size: 1
+  alias: state
+permalink: "/commercial-real-estate/{{ state.state_abbr }}/"
+---
+
+<style>
+  .state-page {
+    padding: 8px 0 56px;
+  }
+
+  .state-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .state-card {
+    background: #fff;
+    border: 1px solid #d8e0ea;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    padding: 24px;
+  }
+
+  .state-stack {
+    display: grid;
+    gap: 24px;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .breadcrumbs a {
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .breadcrumbs a:hover {
+    color: #0f172a;
+  }
+
+  .state-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 14px;
+    color: #0f172a;
+    max-width: 26ch;
+  }
+
+  .state-page h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    color: #0f172a;
+  }
+
+  .state-page p {
+    color: #334155;
+    line-height: 1.65;
+    margin: 0 0 14px;
+  }
+
+  .state-lead {
+    font-size: 1.05rem;
+    color: #475569;
+    max-width: 68ch;
+  }
+
+  .state-page a {
+    color: #1346d8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .state-page a:hover {
+    text-decoration: underline;
+  }
+
+  .state-page .mini-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .state-page .mini-list li + li {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 680px) {
+    .state-shell {
+      padding: 0 16px;
+    }
+
+    .state-card {
+      padding: 20px;
+    }
+
+    .state-page h1 {
+      max-width: none;
+    }
+  }
+</style>
+
+<section class="state-page">
+  <div class="state-shell">
+
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>›</span>
+      <a href="/markets/">Markets</a>
+      <span>›</span>
+      <span>{{ state.state_abbr }}</span>
+    </nav>
+
+    <div class="state-stack">
+
+      <div class="state-card">
+        <header>
+          <h1>Commercial Real Estate in {{ state.state_abbr }}</h1>
+
+          <p class="state-lead">
+            Browse cities across {{ state.state_abbr }} to explore office, retail, and industrial real estate opportunities.
+          </p>
+
+          <p>
+            Rofo helps businesses compare commercial real estate markets across {{ state.state_abbr }}, research representative cities, and discover office, retail, and industrial space opportunities by market.
+          </p>
+        </header>
+      </div>
+
+      <div class="state-card">
+        <h2>Cities</h2>
+
+        <ul class="mini-list">
+          {% for c in cities %}
+            {% if c.state_abbr == state.state_abbr %}
+              <li>
+                <a href="/commercial-real-estate/{{ c.state_abbr }}/{{ c.slug }}/">
+                  {{ c.city }}, {{ c.state_abbr }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>

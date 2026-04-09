@@ -22,7 +22,31 @@
   --rofo-spacing-md: 24px;
   --rofo-spacing-lg: 32px;
 }
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #64748b;
+}
 
+.breadcrumbs a {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #0f172a;
+}
+
+.section-stack > * + * {
+  margin-top: 24px;
+}
+
+.card.section-stack > * + * {
+  margin-top: 18px;
+}
 
 /* =========================
    BASE
