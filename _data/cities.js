@@ -1,5 +1,37 @@
 const rawCities = require("./raw/cities.raw.json");
 
+// ---- DUPLICATE GUARD (skip + log) ----
+const seenCityKeys = new Set();
+const duplicateCities = [];
+
+const dedupedCities = rawCities.filter((city) => {
+  const key = city.city_state_slug;
+
+  if (!key) {
+    console.warn(
+      `⚠️ Missing city_state_slug: ${city.city}, ${city.state_abbr}`
+    );
+    return false;
+  }
+
+  if (seenCityKeys.has(key)) {
+    duplicateCities.push(key);
+    return false;
+  }
+
+  seenCityKeys.add(key);
+  return true;
+});
+
+if (duplicateCities.length) {
+  console.warn(
+    `⚠️ Skipped ${duplicateCities.length} duplicate cities:\n` +
+      duplicateCities.slice(0, 10).join(", ") +
+      (duplicateCities.length > 10 ? "..." : "")
+  );
+}
+// --------------------------------------
+
 function toRadians(deg) {
   return deg * (Math.PI / 180);
 }
@@ -68,7 +100,7 @@ function getMarketContext(city, nearbyNames) {
   };
 }
 
-module.exports = rawCities.map((city) => {
+module.exports = dedupedCities.map((city) => {
   const candidates = rawCities
     .filter((other) => {
       if (other.city === city.city && other.state_abbr === city.state_abbr) {
