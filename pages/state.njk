@@ -5,8 +5,9 @@ pagination:
   size: 1
   alias: state
 permalink: "/commercial-real-estate/{{ state.state_abbr }}/"
-title: "Commercial Real Estate in {{ stateNames[state.state_abbr] or state.state_abbr }} | Browse Cities & Markets | Rofo"
-description: "Explore commercial real estate markets across {{ stateNames[state.state_abbr] or state.state_abbr }}. Browse cities, compare office, retail, and industrial opportunities, and find the right market for your business."
+eleventyComputed:
+  title: "Commercial Real Estate in {{ stateNames[state.state_abbr] or state.state_abbr }} | Browse Cities & Markets"
+  description: "Explore commercial real estate markets across {{ stateNames[state.state_abbr] or state.state_abbr }}. Browse cities, compare office, retail, and industrial opportunities, and find the right market for your business."
 ---
 
 {% set stateName = stateNames[state.state_abbr] or state.state_abbr %}

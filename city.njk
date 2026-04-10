@@ -5,12 +5,14 @@ pagination:
   size: 1
   alias: city
 permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/index.html"
-title: "{{ city.seo_title }}"
-description: "{{ city.seo_description }}"
+eleventyComputed:
+  title: "{{ city.seo_title or ('Office, Retail & Industrial Space in ' + city.city + ', ' + city.state_abbr + ' | Rofo') }}"
+  description: "{{ city.seo_description }}"
 ---
+{% set stateName = stateNames[city.state_abbr] or city.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
-  { "label": stateNames[city.state_abbr] or city.state_abbr, "url": "/commercial-real-estate/" + city.state_abbr + "/" },
+  { "label": stateName, "url": "/commercial-real-estate/" + city.state_abbr + "/" },
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 
@@ -33,13 +35,18 @@ description: "{{ city.seo_description }}"
     margin-bottom: 24px;
   }
 
-  .city-page .hero-image {
-    width: 100%;
-    height: 100%;
-    min-height: 320px;
-    object-fit: cover;
-    display: block;
-    border-radius: 14px;
+  .city-page .city-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .city-page .city-main-left,
+  .city-page .city-main-right {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
   }
 
   .city-page h1 {
@@ -54,16 +61,6 @@ description: "{{ city.seo_description }}"
     line-height: 1.2;
     margin: 0 0 14px;
     color: #0f172a;
-  }
-
-  .city-page .city-form > h2 {
-    margin: 0 0 2px;
-  }
-
-  .city-page .city-form > p {
-    margin: 0 0 12px;
-    line-height: 1.5;
-    max-width: none;
   }
 
   .city-page h3 {
@@ -98,6 +95,10 @@ description: "{{ city.seo_description }}"
     margin-bottom: 24px;
   }
 
+  .city-page .city-stat {
+    padding: 18px;
+  }
+
   .city-page .stat-label {
     font-size: 12px;
     font-weight: 700;
@@ -112,25 +113,13 @@ description: "{{ city.seo_description }}"
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 6px;
+    line-height: 1.2;
   }
 
   .city-page .stat-note {
     color: #64748b;
     font-size: 0.92rem;
-  }
-
-  .city-page .city-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
-    gap: 24px;
-    align-items: start;
-  }
-
-  .city-page .city-main-left,
-  .city-page .city-main-right {
-    display: grid;
-    gap: 24px;
-    min-width: 0;
+    margin: 0;
   }
 
   .city-page .building-grid {
@@ -183,10 +172,34 @@ description: "{{ city.seo_description }}"
     display: block;
   }
 
-  .city-page .seo-copy p:last-child,
-  .city-page .city-card p:last-child,
-  .city-page .building-card p:last-child {
-    margin-bottom: 0;
+  .city-page .form-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #64748b;
+  }
+
+  .city-page .btn-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .city-page .mini-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #334155;
+  }
+
+  .city-page .mini-list li + li {
+    margin-top: 8px;
+  }
+
+  .city-page .mini-list a {
+    text-decoration: none;
+  }
+
+  .city-page .mini-list a:hover,
+  .subtle-note a:hover {
+    text-decoration: underline;
   }
 
   .subtle-note {
@@ -202,37 +215,48 @@ description: "{{ city.seo_description }}"
     font-weight: 600;
   }
 
-  .subtle-note a:hover {
-    text-decoration: underline;
+  .city-page .hero-media {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
   }
 
-  .form-note {
+  .city-page .hero-image {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .city-page .hero-overlay {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .city-page .hero-overlay-title {
+    margin: 0 0 4px;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .city-page .hero-overlay-meta {
     margin: 0;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: #64748b;
-  }
-
-  .btn-row {
-    display: flex;
-    align-items: center;
-  }
-
-  .mini-list {
-    margin: 0;
-    padding-left: 18px;
-    color: #334155;
-  }
-
-  .mini-list li + li {
-    margin-top: 8px;
-  }
-
-  .mini-list a {
-    text-decoration: none;
-  }
-
-  .mini-list a:hover {
-    text-decoration: underline;
   }
 
   @media (max-width: 980px) {
@@ -260,7 +284,6 @@ description: "{{ city.seo_description }}"
 
 <section class="city-page">
   <div class="city-shell">
-
     {% include "partials/breadcrumbs.njk" %}
 
     <div class="city-hero">
@@ -278,11 +301,17 @@ description: "{{ city.seo_description }}"
       </div>
 
       <div class="city-sidecard">
-        <img
-          class="hero-image"
-          src="{{ city.hero_image or '/images/cities/city.jpg' }}"
-          alt="{{ city.city }}, {{ city.state_abbr }}"
-        />
+        <div class="hero-media">
+          <img
+            class="hero-image"
+            src="/images/placeholders/city-placeholder.svg"
+            alt="{{ city.city }}, {{ city.state_abbr }}"
+          />
+          <div class="hero-overlay">
+            <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
+            <p class="hero-overlay-meta">Commercial Real Estate Market</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -314,7 +343,6 @@ description: "{{ city.seo_description }}"
 
     <div class="city-main">
       <div class="city-main-left">
-
         <div class="city-card">
           <div class="eyebrow">Overview</div>
           <h2>Explore the {{ city.city }} market</h2>
@@ -354,9 +382,7 @@ description: "{{ city.seo_description }}"
         <div class="city-card">
           <div class="eyebrow">Featured</div>
           <h2>Featured Buildings in {{ city.city }}</h2>
-          <p>
-            A selection of featured properties currently available in {{ city.city }}.
-          </p>
+          <p>A selection of featured properties currently available in {{ city.city }}.</p>
           <p class="subtle-note">
             Want your building featured here?
             <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
@@ -435,9 +461,7 @@ description: "{{ city.seo_description }}"
 
           <div class="building-card">
             <h3>{{ city.city }} Tenant Rep</h3>
-            <div class="building-meta">
-              {{ city.city }} · Office & Retail Focus
-            </div>
+            <div class="building-meta">{{ city.city }} · Office & Retail Focus</div>
             <p>
               Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
             </p>
@@ -530,6 +554,5 @@ description: "{{ city.seo_description }}"
         </div>
       </div>
     </div>
-
   </div>
 </section>

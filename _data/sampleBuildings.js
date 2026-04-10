@@ -34,8 +34,7 @@ const industrialNames = [
 ];
 
 module.exports = cities.flatMap((city, index) => {
-  const citySlug = city.slug;
-  const cityBase = slugify(city.city);
+  const citySlug = slugify(city.city);
 
   const officeName = officeNames[index % officeNames.length];
   const retailName = retailNames[index % retailNames.length];
@@ -43,10 +42,11 @@ module.exports = cities.flatMap((city, index) => {
 
   return [
     {
+      id: `${citySlug}-office`,
       city: city.city,
       state_abbr: city.state_abbr,
       city_slug: citySlug,
-      building_slug: `${cityBase}-commerce-center`,
+      building_slug: `${citySlug}-commerce-center`,
       name: `${city.city} ${officeName}`,
       address: `${100 + (index % 40) * 10} Main Street, ${city.city}, ${city.state_abbr}`,
       type: "Office",
@@ -54,13 +54,14 @@ module.exports = cities.flatMap((city, index) => {
       year_built: 1995 + (index % 20),
       floors: 4 + (index % 10),
       teaser: `A well-located office property in ${city.city} suited for professional services, technology, and growing teams seeking central market access.`,
-      hero_image: "/images/cities/city.jpg"
+      hero_image: "/images/placeholders/building-placeholder.svg",
     },
     {
+      id: `${citySlug}-retail`,
       city: city.city,
       state_abbr: city.state_abbr,
       city_slug: citySlug,
-      building_slug: `${cityBase}-retail-plaza`,
+      building_slug: `${citySlug}-retail-plaza`,
       name: `${city.city} ${retailName}`,
       address: `${200 + (index % 35) * 10} Market Street, ${city.city}, ${city.state_abbr}`,
       type: "Retail",
@@ -68,13 +69,14 @@ module.exports = cities.flatMap((city, index) => {
       year_built: 1988 + (index % 25),
       floors: 1 + (index % 3),
       teaser: `A visible neighborhood retail property in ${city.city} with flexible merchandising potential and convenient customer access.`,
-      hero_image: "/images/cities/city.jpg"
+      hero_image: "/images/placeholders/building-placeholder.svg",
     },
     {
+      id: `${citySlug}-industrial`,
       city: city.city,
       state_abbr: city.state_abbr,
       city_slug: citySlug,
-      building_slug: `${cityBase}-industrial-park`,
+      building_slug: `${citySlug}-industrial-park`,
       name: `${city.city} ${industrialName}`,
       address: `${300 + (index % 30) * 10} Industrial Way, ${city.city}, ${city.state_abbr}`,
       type: "Industrial",
@@ -82,7 +84,7 @@ module.exports = cities.flatMap((city, index) => {
       year_built: 1985 + (index % 30),
       floors: 1,
       teaser: `A representative industrial and flex property in ${city.city} designed for warehouse, light manufacturing, or distribution-oriented users.`,
-      hero_image: "/images/cities/city.jpg"
+      hero_image: "/images/placeholders/building-placeholder.svg",
     },
   ];
 });

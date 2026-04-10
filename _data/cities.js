@@ -129,20 +129,20 @@ module.exports = dedupedCities.map((city) => {
 
   const stateName = city.state_abbr;
 
-let seoTitle = `Office, Retail & Industrial Space in ${city.city}, ${stateName} | Rofo`;
+let seoTitle = `Office, Retail and Industrial Space in ${city.city}, ${stateName}`;
 let seoIntro = `Explore office, retail, and industrial real estate opportunities in ${city.city}, ${stateName}.`;
 let seoDescription = `Browse office, retail, and industrial commercial real estate in ${city.city}, ${stateName}. Explore market context, buildings, nearby cities, and get help finding space.`;
 
 if (city.tier === 1) {
-  seoTitle = `Commercial Real Estate in ${city.city}, ${stateName} | Office, Retail & Industrial | Rofo`;
+  seoTitle = `Commercial Real Estate in ${city.city}, ${stateName} | Office, Retail and Industrial`;
   seoIntro = `${city.city} is one of the more active commercial real estate markets in ${stateName}, with opportunities across office, retail, and industrial property types.`;
   seoDescription = `Explore commercial real estate in ${city.city}, ${stateName}, one of the most active business markets in the state. Browse office, retail, and industrial properties and compare nearby markets with Rofo.`;
 } else if (city.tier === 2) {
-  seoTitle = `Office & Retail Space in ${city.city}, ${stateName} | Commercial Real Estate | Rofo`;
+  seoTitle = `Office and Retail Space in ${city.city}, ${stateName} | Commercial Real Estate`;
   seoIntro = `Browse commercial real estate in ${city.city}, ${stateName}, including office, retail, and industrial space for a range of business needs.`;
   seoDescription = `Browse commercial real estate in ${city.city}, ${stateName}. Explore office, retail, and industrial space, review representative buildings, and compare nearby markets with Rofo.`;
 } else if (city.county) {
-  seoTitle = `Commercial Real Estate in ${city.city}, ${stateName} | Local Market Overview | Rofo`;
+  seoTitle = `Commercial Real Estate in ${city.city}, ${stateName} | Local Market Overview`;
   seoIntro = `${city.city}, located in ${city.county}, offers businesses access to local office, retail, and industrial real estate opportunities.`;
   seoDescription = `Explore commercial real estate in ${city.city}, ${stateName}. Browse office, retail, and industrial properties and discover nearby opportunities with Rofo.`;
 }

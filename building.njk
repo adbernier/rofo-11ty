@@ -4,13 +4,15 @@ pagination:
   data: sampleBuildings
   size: 1
   alias: building
-  permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/index.html"
-  title: "{{ building.address or building.name }} | {{ building.city }}, {{ building.state_abbr }}"
-  description: "Explore {{ building.address or building.name }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
+permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/index.html"
+eleventyComputed:
+  title: "{{ (building.address or building.name) }} | {{ building.city }}, {{ building.state_abbr }}"
+  description: "Explore {{ (building.address or building.name) }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
 ---
+{% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
-  { "label": building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
+  { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
   { "label": building.city + ", " + building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" + building.city_slug + "/" },
   { "label": building.address or building.name, "url": page.url }
 ] %}
@@ -37,9 +39,16 @@ pagination:
     min-width: 0;
   }
 
-  .building-page .building-card h1,
-  .building-page .building-card .lead {
-    max-width: none;
+  .building-page .building-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .building-page .stack {
+    display: grid;
+    gap: 24px;
   }
 
   .building-page h1 {
@@ -93,6 +102,14 @@ pagination:
     font-weight: 600;
   }
 
+  .building-page .hero-media {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
   .building-page .hero-image {
     width: 100%;
     height: 100%;
@@ -100,6 +117,33 @@ pagination:
     object-fit: cover;
     display: block;
     border-radius: 14px;
+  }
+
+  .building-page .hero-overlay {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .building-page .hero-overlay-title {
+    margin: 0 0 4px;
+    font-size: 1.25rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .building-page .hero-overlay-meta {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #64748b;
   }
 
   .building-page .stats-grid {
@@ -134,18 +178,6 @@ pagination:
     color: #64748b;
     font-size: 0.92rem;
     margin: 0;
-  }
-
-  .building-page .building-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.95fr);
-    gap: 24px;
-    align-items: start;
-  }
-
-  .building-page .stack {
-    display: grid;
-    gap: 24px;
   }
 
   .building-page .detail-list {
@@ -198,19 +230,31 @@ pagination:
     padding: 14px 16px;
   }
 
-  .building-page .building-form .btn-row {
-    margin-top: 2px;
-  }
-  
   .building-page .building-form form {
     display: grid;
     gap: 18px;
   }
+
+  .building-page .building-form .btn-row {
+    margin-top: 2px;
+  }
+
   .building-page .building-form .form-note {
     margin: -4px 0 0;
     font-size: 13px;
     line-height: 1.45;
-}
+  }
+
+  .building-page .mini-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #334155;
+  }
+
+  .building-page .mini-list li + li {
+    margin-top: 8px;
+  }
+
   @media (max-width: 980px) {
     .building-page .building-hero,
     .building-page .building-main {
@@ -240,16 +284,15 @@ pagination:
 
 <section class="building-page">
   <div class="building-shell">
-
-{% include "partials/breadcrumbs.njk" %}
+    {% include "partials/breadcrumbs.njk" %}
 
     <div class="building-hero">
       <div class="building-card">
         <div class="eyebrow">Building</div>
         <h1>{{ building.name }}</h1>
         <p class="lead">
-  Explore this representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
-</p>
+          Explore this representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
+        </p>
 
         <div class="pill-row">
           <span class="pill">{{ building.type }}</span>
@@ -259,11 +302,17 @@ pagination:
       </div>
 
       <div class="building-sidecard">
-        <img
-          class="hero-image"
-          src="{{ building.hero_image or '/images/cities/city.jpg' }}"
-          alt="{{ building.name }}"
-        />
+        <div class="hero-media">
+          <img
+            class="hero-image"
+            src="{{ building.hero_image or '/images/placeholders/building-placeholder.svg' }}"
+            alt="{{ building.name }}"
+          />
+          <div class="hero-overlay">
+            <p class="hero-overlay-title">{{ building.address or building.name }}</p>
+            <p class="hero-overlay-meta">{{ building.type }} · {{ building.city }}, {{ building.state_abbr }}</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -299,13 +348,13 @@ pagination:
           <div class="eyebrow">Overview</div>
           <h2>About {{ building.name }}</h2>
           <p>
-  {{ building.name }} is a representative {{ building.type | lower }} property page for {{ building.city }}, {{ building.state_abbr }}.
-  {% if building.teaser %}{{ building.teaser }}{% endif %}
-</p>
-<p>
-  Use this template as the foundation for future building pages, including real photos, descriptions,
-  availability details, amenities, and inquiry flows.
-</p>
+            {{ building.name }} is a representative {{ building.type | lower }} property page for {{ building.city }}, {{ building.state_abbr }}.
+            {% if building.teaser %}{{ building.teaser }}{% endif %}
+          </p>
+          <p>
+            Use this template as the foundation for future building pages, including real photos, descriptions,
+            availability details, amenities, and inquiry flows.
+          </p>
         </div>
 
         <div class="building-card">
@@ -337,20 +386,21 @@ pagination:
               <div class="detail-label">Market</div>
               <div class="detail-value">{{ building.city }}, {{ building.state_abbr }}</div>
             </div>
+
             <div class="detail-row">
-  <div class="detail-label">Year Built</div>
-  <div class="detail-value">{{ building.year_built or "—" }}</div>
-</div>
+              <div class="detail-label">Year Built</div>
+              <div class="detail-value">{{ building.year_built or "—" }}</div>
+            </div>
 
-<div class="detail-row">
-  <div class="detail-label">Floors</div>
-  <div class="detail-value">{{ building.floors or "—" }}</div>
-</div>
+            <div class="detail-row">
+              <div class="detail-label">Floors</div>
+              <div class="detail-value">{{ building.floors or "—" }}</div>
+            </div>
 
-<div class="detail-row">
-  <div class="detail-label">Summary</div>
-  <div class="detail-value">{{ building.teaser or "Representative sample property page." }}</div>
-</div>
+            <div class="detail-row">
+              <div class="detail-label">Summary</div>
+              <div class="detail-value">{{ building.teaser or "Representative sample property page." }}</div>
+            </div>
           </div>
         </div>
 
@@ -370,39 +420,39 @@ pagination:
 
       <div class="stack">
         <div class="building-form">
-        <form>
-          <div class="eyebrow">Get Help</div>
-          <h2>Interested in {{ building.city }}?</h2>
-          <p>
-            Tell us what kind of space you need and we can help point you in the right direction.
-          </p>
+          <form>
+            <div class="eyebrow">Get Help</div>
+            <h2>Interested in {{ building.city }}?</h2>
+            <p>
+              Tell us what kind of space you need and we can help point you in the right direction.
+            </p>
 
-          <div class="form-grid">
-            <div class="field">
-              <label>Email</label>
-              <input type="email" placeholder="Your email">
+            <div class="form-grid">
+              <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="Your email">
+              </div>
+              <div class="field">
+                <label>Market</label>
+                <input type="text" value="{{ building.city }}, {{ building.state_abbr }}">
+              </div>
             </div>
+
             <div class="field">
-              <label>Market</label>
-              <input type="text" value="{{ building.city }}, {{ building.state_abbr }}">
+              <label>Property type</label>
+              <input type="text" value="{{ building.type }}">
             </div>
-          </div>
 
-          <div class="field">
-            <label>Property type</label>
-            <input type="text" value="{{ building.type }}">
-          </div>
+            <div class="field">
+              <label>What are you looking for?</label>
+              <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
+            </div>
 
-          <div class="field">
-            <label>What are you looking for?</label>
-            <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
-          </div>
+            <div class="btn-row">
+              <button class="btn-primary">Submit</button>
+            </div>
 
-          <div class="btn-row">
-            <button class="btn-primary">Submit</button>
-          </div>
-
-          <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
+            <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
           </form>
         </div>
 
@@ -423,6 +473,5 @@ pagination:
         </div>
       </div>
     </div>
-
   </div>
 </section>
