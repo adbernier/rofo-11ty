@@ -1,0 +1,20 @@
+{% set allTypes = [
+  { "slug": "office-space", "label": "Office" },
+  { "slug": "retail-space", "label": "Retail" },
+  { "slug": "industrial-space", "label": "Industrial" },
+  { "slug": "flex-space", "label": "Flex" },
+  { "slug": "coworking-space", "label": "Coworking" }
+] %}
+
+<div class="pill-nav-card">
+  <div class="pill-nav">
+    {% for item in allTypes %}
+      <a
+        class="pill{% if item.slug == spaceType.slug %} is-active{% endif %}"
+        href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
+      >
+        {{ item.label }}
+      </a>
+    {% endfor %}
+  </div>
+</div>

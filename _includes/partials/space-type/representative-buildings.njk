@@ -1,0 +1,14 @@
+<div class="content-card">
+  <div class="eyebrow">Representative Buildings</div>
+  <h2>Representative {{ spaceType.pluralLabel | lower }} in {{ city.city }}</h2>
+
+  {% if representativeBuildings and representativeBuildings.length %}
+    <div class="building-grid">
+      {% for building in representativeBuildings.slice(0, 6) %}
+        {% include "partials/shared/building-card.njk" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No representative {{ spaceType.pluralLabel | lower }} are available for this market yet.</p>
+  {% endif %}
+</div>

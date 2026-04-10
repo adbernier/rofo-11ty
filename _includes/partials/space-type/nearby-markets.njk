@@ -1,0 +1,22 @@
+<div class="content-card">
+  <div class="eyebrow">Nearby Markets</div>
+  <h2>Compare nearby markets</h2>
+
+  {% if city.nearby_city_details and city.nearby_city_details.length %}
+    <div class="nearby-grid">
+      {% for nearby in city.nearby_city_details.slice(0, 6) %}
+        <a
+          class="nearby-card"
+          href="/commercial-real-estate/{{ nearby.state_abbr | lower }}/{{ nearby.slug | lower }}/{{ spaceType.slug }}/"
+        >
+          <strong>{{ nearby.city }}, {{ nearby.state_abbr }}</strong>
+          {% if nearby.distance_miles %}
+            <span>{{ nearby.distance_miles }} miles away</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Browse nearby markets to compare options in the region.</p>
+  {% endif %}
+</div>

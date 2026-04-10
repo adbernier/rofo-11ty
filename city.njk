@@ -125,7 +125,7 @@ eleventyComputed:
   .city-page .building-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 22px;
   }
 
   .city-page .building-card {
@@ -259,6 +259,130 @@ eleventyComputed:
     color: #64748b;
   }
 
+  .city-page .city-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .city-page .city-card--full {
+    margin-bottom: 24px;
+  }
+
+  .city-page .expert-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+    background: #f8fafc;
+    border: 1px solid #d9e0ea;
+    border-radius: 18px;
+  }
+
+  .city-page .expert-panel h3,
+  .city-page .expert-panel p,
+  .city-page .expert-meta {
+    margin: 0;
+  }
+
+  .city-page .expert-meta {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  .city-page .expert-panel .btn {
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+
+  .city-page .featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .city-page .featured-header__cta {
+    flex: 0 0 auto;
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #64748b;
+    white-space: nowrap;
+  }
+
+  .city-page .featured-header__cta a {
+    display: block;
+    font-weight: 600;
+  }
+
+  .building-card-compact {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .building-card-compact:last-child {
+    border-bottom: none;
+  }
+
+  .building-card-compact__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f8fafc;
+  }
+
+  .building-card-compact__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .building-card-compact__title {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+
+  .building-card-compact__title a {
+    text-decoration: none;
+  }
+
+  .building-card-compact__meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+
+  .building-card-compact__address {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #334155;
+  }
+
+  .building-card-compact__teaser {
+    grid-column: 1 / -1;
+    margin: 6px 0 0;
+    color: #334155;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .building-card-compact__cta {
+    grid-column: 1 / -1;
+    margin: 4px 0 0;
+    font-weight: 600;
+  }
+
+  .building-card-compact__cta a {
+    text-decoration: none;
+  }
+
   @media (max-width: 980px) {
     .city-page .city-main,
     .city-page .city-hero {
@@ -271,13 +395,28 @@ eleventyComputed:
   }
 
   @media (max-width: 680px) {
+    .building-card-compact {
+      grid-template-columns: 80px 1fr;
+    }
+
     .city-page .stats-grid,
-    .city-page .building-grid {
+    .city-page .building-grid,
+    .city-page .city-grid {
       grid-template-columns: 1fr;
     }
 
     .city-page .city-shell {
       padding: 0 16px;
+    }
+
+    .city-page .featured-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .city-page .featured-header__cta {
+      text-align: left;
+      white-space: normal;
     }
   }
 </style>
@@ -341,6 +480,34 @@ eleventyComputed:
       </div>
     </div>
 
+    <div class="city-card city-card--full">
+      <div class="featured-header">
+        <div>
+          <div class="eyebrow">Featured</div>
+          <h2>Featured Buildings in {{ city.city }}</h2>
+        </div>
+
+        <div class="featured-header__cta">
+          <span>Want your building featured?</span>
+          <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
+        </div>
+      </div>
+
+      {% set featuredBuildings = [] %}
+      {% for b in sampleBuildings %}
+        {% if b.city == city.city and b.state_abbr == city.state_abbr %}
+          {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="building-grid">
+        {% for b in featuredBuildings.slice(0, 2) %}
+          {% set building = b %}
+          {% include "partials/shared/building-card-compact.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+
     <div class="city-main">
       <div class="city-main-left">
         <div class="city-card">
@@ -356,122 +523,93 @@ eleventyComputed:
           </p>
         </div>
 
-        <div class="city-card seo-copy">
-          <div class="eyebrow">About This Market</div>
-          <h2>About commercial real estate in {{ city.city }}</h2>
-          <p>
-            {{ city.city }}, {{ city.state_abbr }} offers a mix of office, retail, and industrial real estate options for businesses at different stages of growth.
-            Whether you are evaluating a first location, relocating, or expanding, this market can offer a range of property types and leasing options.
-          </p>
-          <p>
-            Businesses often compare areas based on accessibility, surrounding amenities, workforce, and proximity to customers or logistics corridors.
-            Rofo helps simplify that search by making it easier to explore buildings, compare nearby markets, and connect with help when you need it.
-          </p>
-          <p>
-            Use this page to get a practical overview of the {{ city.city }} market, review featured properties, and expand your search into nearby cities if you want a wider set of options.
-          </p>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Market Context</div>
-          <h2>{{ city.market_context_heading }}</h2>
-          <p>{{ city.market_context_paragraph1 }}</p>
-          <p>{{ city.market_context_paragraph2 }}</p>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Featured</div>
-          <h2>Featured Buildings in {{ city.city }}</h2>
-          <p>A selection of featured properties currently available in {{ city.city }}.</p>
-          <p class="subtle-note">
-            Want your building featured here?
-            <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
-          </p>
-
-          <div class="building-grid">
-            {% for building in sampleBuildings %}
-              {% if building.city == city.city %}
-                <div class="building-card">
-                  <h3>{{ building.name }}</h3>
-                  <div class="building-meta">
-                    Featured · {{ building.type }} · {{ building.size }}
-                    {% if building.year_built %} · Built {{ building.year_built }}{% endif %}
-                  </div>
-                  <p>{{ building.address }}</p>
-                  {% if building.teaser %}
-                    <p>{{ building.teaser }}</p>
-                  {% endif %}
-                  <a class="building-link" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/">
-                    View building
-                  </a>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Nearby Markets</div>
-          <h2>Explore nearby cities</h2>
-          <p>Browse nearby markets to expand your search.</p>
-
-          <div class="market-links">
-            {% if city.nearby_city_details and city.nearby_city_details.length %}
-              {% for nearby in city.nearby_city_details %}
-                {% set nearbyCity = cityLookup[nearby.slug] %}
-                {% if nearbyCity %}
-                  <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }} · {{ nearby.distance_miles }} mi</a>
-                {% endif %}
-              {% endfor %}
-            {% else %}
-              <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Resources</div>
-          <h2>Helpful Resources for Businesses in {{ city.city }}</h2>
-          <p>Learn more about leasing, pricing, and how to evaluate commercial space in {{ city.city }}.</p>
-          <ul class="mini-list">
-            <li>
-              <a href="/blog/typical-lease-rates-in-{{ city.slug }}/">
-                Typical Lease Rates in {{ city.city }}
-              </a>
-            </li>
-            <li>
-              <a href="/blog/best-neighborhoods-for-office-space-in-{{ city.slug }}/">
-                Best Neighborhoods for Office Space in {{ city.city }}
-              </a>
-            </li>
-            <li>
-              <a href="/blog/how-to-evaluate-office-space-to-lease/">
-                How to Evaluate Office Space Before You Lease
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="city-card">
-          <div class="eyebrow">Local Expert</div>
-          <h2>Talk to a Local Tenant Rep</h2>
-          <p>
-            Connect with a local expert who understands the {{ city.city }} market and can help you evaluate your options.
-          </p>
-
-          <div class="building-card">
-            <h3>{{ city.city }} Tenant Rep</h3>
-            <div class="building-meta">{{ city.city }} · Office & Retail Focus</div>
+        <div class="city-grid">
+          <div class="city-card seo-copy">
+            <div class="eyebrow">About This Market</div>
+            <h2>About commercial real estate in {{ city.city }}</h2>
             <p>
-              Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
+              {{ city.city }}, {{ city.state_abbr }} offers a mix of office, retail, and industrial real estate options for businesses at different stages of growth.
+              Whether you are evaluating a first location, relocating, or expanding, this market can offer a range of property types and leasing options.
             </p>
-            <a class="btn btn-primary" href="#market-contact-form">Get Free Help Finding Space</a>
+            <p>
+              Businesses often compare areas based on accessibility, surrounding amenities, workforce, and proximity to customers or logistics corridors.
+              Rofo helps simplify that search by making it easier to explore buildings, compare nearby markets, and connect with help when you need it.
+            </p>
+            <p>
+              Use this page to get a practical overview of the {{ city.city }} market, review featured properties, and expand your search into nearby cities if you want a wider set of options.
+            </p>
           </div>
 
-          <p class="subtle-note">
-            Interested in becoming a local market expert?
-            <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
-          </p>
+          <div class="city-card">
+            <div class="eyebrow">Market Context</div>
+            <h2>{{ city.market_context_heading }}</h2>
+            <p>{{ city.market_context_paragraph1 }}</p>
+            <p>{{ city.market_context_paragraph2 }}</p>
+          </div>
+
+          <div class="city-card">
+            <div class="eyebrow">Nearby Markets</div>
+            <h2>Explore nearby cities</h2>
+            <p>Browse nearby markets to expand your search.</p>
+
+            <div class="market-links">
+              {% if city.nearby_city_details and city.nearby_city_details.length %}
+                {% for nearby in city.nearby_city_details %}
+                  {% set nearbyCity = cityLookup[nearby.slug] %}
+                  {% if nearbyCity %}
+                    <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }} · {{ nearby.distance_miles }} mi</a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="city-card">
+            <div class="eyebrow">Resources</div>
+            <h2>Helpful Resources for Businesses in {{ city.city }}</h2>
+            <p>Learn more about leasing, pricing, and how to evaluate commercial space in {{ city.city }}.</p>
+            <ul class="mini-list">
+              <li>
+                <a href="/blog/typical-lease-rates-in-{{ city.slug }}/">
+                  Typical Lease Rates in {{ city.city }}
+                </a>
+              </li>
+              <li>
+                <a href="/blog/best-neighborhoods-for-office-space-in-{{ city.slug }}/">
+                  Best Neighborhoods for Office Space in {{ city.city }}
+                </a>
+              </li>
+              <li>
+                <a href="/blog/how-to-evaluate-office-space-to-lease/">
+                  How to Evaluate Office Space Before You Lease
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="city-card">
+            <div class="eyebrow">Local Expert</div>
+            <h2>Talk to a Local Tenant Rep</h2>
+            <p>
+              Connect with a local expert who understands the {{ city.city }} market and can help you evaluate your options.
+            </p>
+
+            <div class="expert-panel">
+              <h3>{{ city.city }} Tenant Rep</h3>
+              <div class="expert-meta">{{ city.city }} · Office &amp; Retail Focus</div>
+              <p>
+                Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
+              </p>
+              <a class="btn btn-primary" href="#market-contact-form">Get Free Help Finding Space</a>
+            </div>
+
+            <p class="subtle-note">
+              Interested in becoming a local market expert?
+              <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
+            </p>
+          </div>
         </div>
       </div>
 

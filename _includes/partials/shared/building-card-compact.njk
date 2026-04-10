@@ -1,0 +1,43 @@
+<article class="building-card-compact">
+  <a
+    class="building-card-compact__image-link"
+    href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/"
+    aria-label="View {{ building.name or building.address }}"
+  >
+    <img
+      class="building-card-compact__image"
+      src="{{ building.hero_image or '/images/placeholders/building-placeholder.svg' }}"
+      alt="{{ building.name or building.address }}"
+      loading="lazy"
+    />
+  </a>
+
+  <div class="building-card-compact__content">
+    <h3 class="building-card-compact__title">
+      <a href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/">
+        {{ building.address or building.name }}
+      </a>
+    </h3>
+
+    <p class="building-card-compact__meta">
+      {{ building.type or "Commercial" }}
+      {% if building.size %} • {{ building.size }}{% endif %}
+    </p>
+
+    {% if building.address %}
+      <p class="building-card-compact__address">{{ building.address }}</p>
+    {% endif %}
+  </div>
+
+  {% if building.teaser %}
+    <p class="building-card-compact__teaser">
+      {{ building.teaser }}
+    </p>
+  {% endif %}
+
+  <p class="building-card-compact__cta">
+    <a href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/">
+      View Building →
+    </a>
+  </p>
+</article>

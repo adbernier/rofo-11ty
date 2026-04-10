@@ -1,0 +1,28 @@
+---
+layout: base.njk
+pagination:
+  data: spaceTypePages
+  size: 1
+  alias: entry
+permalink: "/commercial-real-estate/{{ entry.state }}/{{ entry.city_slug }}/{{ entry.page_slug }}/index.html"
+eleventyComputed:
+  title: "{{ entry.spaceType.pluralLabel }} in {{ entry.city.city }}, {{ entry.city.state_abbr }} | Rofo"
+  description: "Explore {{ entry.spaceType.pluralLabel | lower }} in {{ entry.city.city }}, {{ entry.city.state_abbr }}. Review representative buildings, nearby markets, and get help finding space with Rofo."
+---
+
+{% set city = entry.city %}
+{% set spaceType = entry.spaceType %}
+{% set representativeBuildings = entry.representativeBuildings %}
+
+<section class="market-page market-page--space-type">
+  <div class="city-shell">
+    {% include "partials/space-type/hero.njk" %}
+    {% include "partials/space-type/pill-nav.njk" %}
+
+    <div class="page-stack">
+      {% include "partials/space-type/market-snapshot.njk" %}
+      {% include "partials/space-type/representative-buildings.njk" %}
+      {% include "partials/space-type/nearby-markets.njk" %}
+    </div>
+  </div>
+</section>
