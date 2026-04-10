@@ -5,14 +5,15 @@ pagination:
   size: 1
   alias: city
 permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/index.html"
-title: "Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}"
+title: "{{ city.seo_title }}"
 description: "{{ city.seo_description }}"
 ---
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
-  { "label": city.state_abbr, "url": "/commercial-real-estate/" + city.state_abbr + "/" },
+  { "label": stateNames[city.state_abbr] or city.state_abbr, "url": "/commercial-real-estate/" + city.state_abbr + "/" },
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
+
 <style>
   .city-page {
     padding: 8px 0 56px;
@@ -174,14 +175,18 @@ description: "{{ city.seo_description }}"
     gap: 16px;
   }
 
-  .city-page .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
   .city-page .field {
     padding: 14px 16px;
+  }
+
+  .city-page .form-stack {
+    display: block;
+  }
+
+  .city-page .seo-copy p:last-child,
+  .city-page .city-card p:last-child,
+  .city-page .building-card p:last-child {
+    margin-bottom: 0;
   }
 
   .subtle-note {
@@ -201,6 +206,35 @@ description: "{{ city.seo_description }}"
     text-decoration: underline;
   }
 
+  .form-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #64748b;
+  }
+
+  .btn-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .mini-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #334155;
+  }
+
+  .mini-list li + li {
+    margin-top: 8px;
+  }
+
+  .mini-list a {
+    text-decoration: none;
+  }
+
+  .mini-list a:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 980px) {
     .city-page .city-main,
     .city-page .city-hero {
@@ -214,8 +248,7 @@ description: "{{ city.seo_description }}"
 
   @media (max-width: 680px) {
     .city-page .stats-grid,
-    .city-page .building-grid,
-    .city-page .form-grid {
+    .city-page .building-grid {
       grid-template-columns: 1fr;
     }
 
@@ -281,6 +314,7 @@ description: "{{ city.seo_description }}"
 
     <div class="city-main">
       <div class="city-main-left">
+
         <div class="city-card">
           <div class="eyebrow">Overview</div>
           <h2>Explore the {{ city.city }} market</h2>
@@ -291,6 +325,22 @@ description: "{{ city.seo_description }}"
           <p>
             Whether you are looking for office space, retail frontage, or industrial property,
             Rofo is designed to make market discovery simpler and more efficient.
+          </p>
+        </div>
+
+        <div class="city-card seo-copy">
+          <div class="eyebrow">About This Market</div>
+          <h2>About commercial real estate in {{ city.city }}</h2>
+          <p>
+            {{ city.city }}, {{ city.state_abbr }} offers a mix of office, retail, and industrial real estate options for businesses at different stages of growth.
+            Whether you are evaluating a first location, relocating, or expanding, this market can offer a range of property types and leasing options.
+          </p>
+          <p>
+            Businesses often compare areas based on accessibility, surrounding amenities, workforce, and proximity to customers or logistics corridors.
+            Rofo helps simplify that search by making it easier to explore buildings, compare nearby markets, and connect with help when you need it.
+          </p>
+          <p>
+            Use this page to get a practical overview of the {{ city.city }} market, review featured properties, and expand your search into nearby cities if you want a wider set of options.
           </p>
         </div>
 
@@ -305,10 +355,13 @@ description: "{{ city.seo_description }}"
           <div class="eyebrow">Featured</div>
           <h2>Featured Buildings in {{ city.city }}</h2>
           <p>
-          A selection of featured properties currently available in {{ city.city }}.
-          <p 
-class="subtle-note"> Want your building featured here? <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
-</p>
+            A selection of featured properties currently available in {{ city.city }}.
+          </p>
+          <p class="subtle-note">
+            Want your building featured here?
+            <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
+          </p>
+
           <div class="building-grid">
             {% for building in sampleBuildings %}
               {% if building.city == city.city %}
@@ -331,7 +384,7 @@ class="subtle-note"> Want your building featured here? <a class="building-link" 
           </div>
         </div>
 
-                <div class="city-card">
+        <div class="city-card">
           <div class="eyebrow">Nearby Markets</div>
           <h2>Explore nearby cities</h2>
           <p>Browse nearby markets to expand your search.</p>
@@ -345,10 +398,7 @@ class="subtle-note"> Want your building featured here? <a class="building-link" 
                 {% endif %}
               {% endfor %}
             {% else %}
-              <a href="#">Nearby City One</a>
-              <a href="#">Nearby City Two</a>
-              <a href="#">Nearby City Three</a>
-              <a href="#">Nearby City Four</a>
+              <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>
             {% endif %}
           </div>
         </div>
@@ -389,101 +439,96 @@ class="subtle-note"> Want your building featured here? <a class="building-link" 
               {{ city.city }} · Office & Retail Focus
             </div>
             <p>
-  Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
-</p>
-            <a class="btn btn-primary" href="#market-contact-form">Get Help</a>
-  Connect with a Local Expert
-</a>
-
+              Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
+            </p>
+            <a class="btn btn-primary" href="#market-contact-form">Get Free Help Finding Space</a>
           </div>
+
           <p class="subtle-note">
-    Interested in becoming a local market expert?
-    <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
-  </p>
+            Interested in becoming a local market expert?
+            <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
+          </p>
         </div>
       </div>
 
       <div class="city-main-right">
+        <div id="market-contact-form" class="city-form city-card">
+          <div class="eyebrow">Get help finding space</div>
+          <h2>Get Free Help Finding Space in {{ city.city }}</h2>
+          <p>Tell us what you’re looking for and we’ll send you relevant options in {{ city.city }}.</p>
 
-      <div class="city-main-right">
-        <div id="market-contact-form" class="city-form">
-  <div class="eyebrow">Get help finding space</div>
-  <h2>Find Office, Retail, or Industrial Space in {{ city.city }}</h2>
-  <p>Tell us what you’re looking for and we’ll send you relevant options in {{ city.city }}.</p>
+          <form
+            action="https://formspree.io/f/xreoadbr"
+            method="POST"
+            class="rofo-formspree-form"
+          >
+            <input type="hidden" name="source" value="rofo-city-page">
+            <input type="hidden" name="page_type" value="city">
+            <input type="hidden" name="city" value="{{ city.city }}">
+            <input type="hidden" name="state" value="{{ city.state_abbr }}">
+            <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
+            <input type="hidden" name="page_url" value="https://www.rofo.com{{ page.url }}">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
-  <form
-    action="https://formspree.io/f/xreoadbr"
-    method="POST"
-    class="rofo-formspree-form"
-  >
-    <input type="hidden" name="source" value="rofo-city-page">
-    <input type="hidden" name="page_type" value="city">
-    <input type="hidden" name="city" value="{{ city.city }}">
-    <input type="hidden" name="state" value="{{ city.state_abbr }}">
-    <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
-    <input type="hidden" name="page_url" value="https://www.rofo.com{{ page.url }}">
-    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+            <div class="form-stack">
+              <div class="field">
+                <label for="lead-name">Name</label>
+                <input id="lead-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+            </div>
 
-    <div class="form-stack">
-      <div class="field">
-        <label for="lead-name">Name</label>
-        <input id="lead-name" name="name" type="text" placeholder="Your name" required>
-      </div>
-    </div>
+            <div class="form-stack">
+              <div class="field">
+                <label for="lead-email">Email</label>
+                <input id="lead-email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+            </div>
 
-    <div class="form-stack">
-      <div class="field">
-        <label for="lead-email">Email</label>
-        <input id="lead-email" name="email" type="email" placeholder="you@example.com" required>
-      </div>
-    </div>
+            <div class="form-stack">
+              <div class="field">
+                <label for="lead-size">Space needed <span class="optional">(optional)</span></label>
+                <select id="lead-size" name="space_needed">
+                  <option value="">Select one</option>
+                  <option>Under 1,000 sqft</option>
+                  <option>1,000–2,500 sqft</option>
+                  <option>2,500–5,000 sqft</option>
+                  <option>5,000–10,000 sqft</option>
+                  <option>10,000+ sqft</option>
+                </select>
+              </div>
+            </div>
 
-    <div class="form-stack">
-      <div class="field">
-        <label for="lead-size">Space needed <span class="optional">(optional)</span></label>
-        <select id="lead-size" name="space_needed">
-          <option value="">Select one</option>
-          <option>Under 1,000 sqft</option>
-          <option>1,000–2,500 sqft</option>
-          <option>2,500–5,000 sqft</option>
-          <option>5,000–10,000 sqft</option>
-          <option>10,000+ sqft</option>
-        </select>
-      </div>
-    </div>
+            <div class="form-stack">
+              <div class="field">
+                <label for="lead-timeline">Timeline <span class="optional">(optional)</span></label>
+                <select id="lead-timeline" name="timeline">
+                  <option value="">Select one</option>
+                  <option>ASAP</option>
+                  <option>Within 3 months</option>
+                  <option>Within 6 months</option>
+                  <option>6+ months</option>
+                  <option>Just exploring</option>
+                </select>
+              </div>
+            </div>
 
-    <div class="form-stack">
-      <div class="field">
-        <label for="lead-timeline">Timeline <span class="optional">(optional)</span></label>
-        <select id="lead-timeline" name="timeline">
-          <option value="">Select one</option>
-          <option>ASAP</option>
-          <option>Within 3 months</option>
-          <option>Within 6 months</option>
-          <option>6+ months</option>
-          <option>Just exploring</option>
-        </select>
-      </div>
-    </div>
+            <div class="field">
+              <label for="lead-notes">What kind of space are you looking for? <span class="optional">(optional)</span></label>
+              <textarea
+                id="lead-notes"
+                name="notes"
+                placeholder="Business type, preferred area, must-haves..."
+              ></textarea>
+            </div>
 
-    <div class="field">
-      <label for="lead-notes">What kind of space are you looking for? <span class="optional">(optional)</span></label>
-      <textarea
-        id="lead-notes"
-        name="notes"
-        placeholder="Business type, preferred area, must-haves..."
-      ></textarea>
-    </div>
+            <div class="btn-row">
+              <button class="btn-primary" type="submit">Get Free Help Finding Space</button>
+            </div>
 
-    <div class="btn-row">
-      <button class="btn-primary" type="submit">Show Me Available Spaces</button>
-    </div>
-
-    <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
-  </form>
-</div></div>
-
+            <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
+          </form>
         </div>
+      </div>
     </div>
 
   </div>

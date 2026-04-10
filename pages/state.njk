@@ -5,7 +5,11 @@ pagination:
   size: 1
   alias: state
 permalink: "/commercial-real-estate/{{ state.state_abbr }}/"
+title: "Commercial Real Estate in {{ stateNames[state.state_abbr] or state.state_abbr }} | Browse Cities & Markets | Rofo"
+description: "Explore commercial real estate markets across {{ stateNames[state.state_abbr] or state.state_abbr }}. Browse cities, compare office, retail, and industrial opportunities, and find the right market for your business."
 ---
+
+{% set stateName = stateNames[state.state_abbr] or state.state_abbr %}
 
 <style>
   .state-page {
@@ -125,22 +129,28 @@ permalink: "/commercial-real-estate/{{ state.state_abbr }}/"
 
     <div class="state-stack">
 
-      <div class="state-card">
-        <header>
-          <h1>Commercial Real Estate in {{ state.state_abbr }}</h1>
+  <div class="state-card">
+    <header>
+      <h1>Commercial Real Estate in {{ stateName }}</h1>
 
-          <p class="state-lead">
-            Browse cities across {{ state.state_abbr }} to explore office, retail, and industrial real estate opportunities.
-          </p>
+      <p class="state-lead">
+        Browse office, retail, and industrial space across {{ stateName }}.
+      </p>
 
-          <p>
-            Rofo helps businesses compare commercial real estate markets across {{ state.state_abbr }}, research representative cities, and discover office, retail, and industrial space opportunities by market.
-          </p>
-        </header>
-      </div>
+      <p>
+        Rofo helps businesses explore commercial real estate markets throughout {{ stateName }},
+        compare cities, and find the right location to lease space.
+      </p>
 
-      <div class="state-card">
-        <h2>Cities</h2>
+      <p>
+        Use this page to discover major markets and emerging cities across {{ stateName }},
+        and narrow your search based on your business needs.
+      </p>
+    </header>
+  </div>
+
+  <div class="state-card">
+    <h2>Markets in {{ stateName }}</h2>
 
         <ul class="mini-list">
           {% for c in cities %}
