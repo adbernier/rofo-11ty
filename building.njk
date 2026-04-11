@@ -4,18 +4,20 @@ pagination:
   data: sampleBuildings
   size: 1
   alias: building
-permalink: "/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/index.html"
+permalink: "/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_segment }}/{{ building.building_slug }}{% if building.property_id and building.property_id != 'nan' %}-{{ building.property_id }}{% endif %}.html"
 eleventyComputed:
-  title: "{{ (building.address or building.name) }} | {{ building.city }}, {{ building.state_abbr }}"
-  description: "Explore {{ (building.address or building.name) }}, a representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}."
+  title: "{{ building.address }} | {{ building.city }}, {{ building.state_abbr }}"
+  description: "{{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}."
 ---
+
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
   { "label": building.city + ", " + building.state_abbr, "url": "/commercial-real-estate/" + building.state_abbr + "/" + building.city_slug + "/" },
-  { "label": building.address or building.name, "url": page.url }
+  { "label": building.address, "url": page.url }
 ] %}
+
 <style>
   .building-page {
     padding: 8px 0 56px;
@@ -289,14 +291,16 @@ eleventyComputed:
     <div class="building-hero">
       <div class="building-card">
         <div class="eyebrow">Building</div>
-        <h1>{{ building.name }}</h1>
+        <h1>{{ building.address }}</h1>
         <p class="lead">
-          Explore this representative {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
+          {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}, offering {{ building.size_label | lower }} for businesses of all sizes.
         </p>
 
         <div class="pill-row">
           <span class="pill">{{ building.type }}</span>
-          <span class="pill">{{ building.size }}</span>
+          {% if building.size_label %}
+            <span class="pill">{{ building.size_label }}</span>
+          {% endif %}
           <span class="pill">{{ building.city }}, {{ building.state_abbr }}</span>
         </div>
       </div>
@@ -306,10 +310,10 @@ eleventyComputed:
           <img
             class="hero-image"
             src="{{ building.hero_image or '/images/placeholders/building-placeholder.svg' }}"
-            alt="{{ building.name }}"
+            alt="{{ building.address }}"
           />
           <div class="hero-overlay">
-            <p class="hero-overlay-title">{{ building.address or building.name }}</p>
+            <p class="hero-overlay-title">{{ building.address }}</p>
             <p class="hero-overlay-meta">{{ building.type }} · {{ building.city }}, {{ building.state_abbr }}</p>
           </div>
         </div>
@@ -330,9 +334,9 @@ eleventyComputed:
       </div>
 
       <div class="building-stat">
-        <div class="stat-label">Size</div>
-        <div class="stat-value">{{ building.size }}</div>
-        <p class="stat-note">Approximate building size</p>
+        <div class="stat-label">Typical Space</div>
+        <div class="stat-value">{{ building.size_label }}</div>
+        <p class="stat-note">Common suite configuration</p>
       </div>
 
       <div class="building-stat">
@@ -346,14 +350,12 @@ eleventyComputed:
       <div class="stack">
         <div class="building-card">
           <div class="eyebrow">Overview</div>
-          <h2>About {{ building.name }}</h2>
+          <h2>About {{ building.address }}</h2>
           <p>
-            {{ building.name }} is a representative {{ building.type | lower }} property page for {{ building.city }}, {{ building.state_abbr }}.
-            {% if building.teaser %}{{ building.teaser }}{% endif %}
+            {{ building.address }} is a flexible workspace location in {{ building.city }}, {{ building.state_abbr }}, offering options suited for small teams, growing companies, and established businesses.
           </p>
           <p>
-            Use this template as the foundation for future building pages, including real photos, descriptions,
-            availability details, amenities, and inquiry flows.
+            This representative building reflects the types of office and workspace environments commonly found throughout the {{ building.city }} market.
           </p>
         </div>
 
@@ -362,11 +364,6 @@ eleventyComputed:
           <h2>Representative building information</h2>
 
           <div class="detail-list">
-            <div class="detail-row">
-              <div class="detail-label">Building Name</div>
-              <div class="detail-value">{{ building.name }}</div>
-            </div>
-
             <div class="detail-row">
               <div class="detail-label">Address</div>
               <div class="detail-value">{{ building.address }}</div>
@@ -378,8 +375,8 @@ eleventyComputed:
             </div>
 
             <div class="detail-row">
-              <div class="detail-label">Approximate Size</div>
-              <div class="detail-value">{{ building.size }}</div>
+              <div class="detail-label">Typical Space</div>
+              <div class="detail-value">{{ building.size_label }}</div>
             </div>
 
             <div class="detail-row">
@@ -388,18 +385,8 @@ eleventyComputed:
             </div>
 
             <div class="detail-row">
-              <div class="detail-label">Year Built</div>
-              <div class="detail-value">{{ building.year_built or "—" }}</div>
-            </div>
-
-            <div class="detail-row">
-              <div class="detail-label">Floors</div>
-              <div class="detail-value">{{ building.floors or "—" }}</div>
-            </div>
-
-            <div class="detail-row">
               <div class="detail-label">Summary</div>
-              <div class="detail-value">{{ building.teaser or "Representative sample property page." }}</div>
+              <div class="detail-value">Flexible workspace and office configurations typical for this market.</div>
             </div>
           </div>
         </div>
@@ -408,8 +395,7 @@ eleventyComputed:
           <div class="eyebrow">Next Step</div>
           <h2>Explore more in {{ building.city }}</h2>
           <p>
-            Continue browsing the broader {{ building.city }} market to compare representative buildings
-            and nearby opportunities.
+            Continue browsing the broader {{ building.city }} market to compare buildings and nearby opportunities.
           </p>
 
           <a class="btn-secondary" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/">
@@ -422,9 +408,9 @@ eleventyComputed:
         <div class="building-form">
           <form>
             <div class="eyebrow">Get Help</div>
-            <h2>Interested in {{ building.city }}?</h2>
+            <h2>Need space in {{ building.city }}?</h2>
             <p>
-              Tell us what kind of space you need and we can help point you in the right direction.
+              Tell us what you're looking for and we’ll help you find the right space.
             </p>
 
             <div class="form-grid">
@@ -445,7 +431,7 @@ eleventyComputed:
 
             <div class="field">
               <label>What are you looking for?</label>
-              <textarea placeholder="Size, neighborhood, timing, budget, use case, etc."></textarea>
+              <textarea placeholder="Size, location, timing, budget..."></textarea>
             </div>
 
             <div class="btn-row">
@@ -460,15 +446,14 @@ eleventyComputed:
           <div class="eyebrow">Why Rofo</div>
           <h2>Commercial real estate discovery</h2>
           <p>
-            Rofo helps businesses explore markets, compare representative properties,
-            and narrow their search more efficiently.
+            Rofo helps businesses explore markets, compare buildings, and narrow their search more efficiently.
           </p>
 
           <ul class="mini-list">
-            <li>Start with market-level context</li>
-            <li>Review representative buildings</li>
-            <li>Compare cities and nearby options</li>
-            <li>Get help narrowing your search</li>
+            <li>Explore markets quickly</li>
+            <li>Compare representative buildings</li>
+            <li>Evaluate nearby options</li>
+            <li>Get help finding the right space</li>
           </ul>
         </div>
       </div>

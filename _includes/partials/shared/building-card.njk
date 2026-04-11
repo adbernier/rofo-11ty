@@ -1,7 +1,7 @@
 <article class="building-card">
   <a
     class="building-card__image-link"
-    href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/"
+    href="{{ building.legacy_rofo_path }}"
     aria-label="View {{ building.name or building.address }}"
   >
     <img
@@ -14,7 +14,7 @@
 
   <div class="building-card__body">
     <h3 class="building-card__title">
-      <a href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/">
+      <a href="{{ building.legacy_rofo_path }}">
         {{ building.name or building.address }}
       </a>
     </h3>
@@ -33,7 +33,7 @@
     {% endif %}
 
     <p class="building-card__cta">
-      <a href="/commercial-real-estate/{{ building.state_abbr | lower }}/{{ building.city_slug | lower }}/buildings/{{ building.building_slug }}/">
+      <a href="{{ building.legacy_rofo_path }}">
         View Building →
       </a>
     </p>
