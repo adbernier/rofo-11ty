@@ -1,0 +1,11 @@
+<div class="city-card">
+  <div class="eyebrow">Space Type</div>
+  <h1>{{ spaceType.pluralLabel }} in {{ city.city }}, {{ city.state_abbr }}</h1>
+  <p class="lead">
+    Explore {{ spaceType.pluralLabel | lower }} in {{ city.city }}, including representative buildings, nearby markets, and help finding the right space.
+  </p>
+
+  <div class="pill-nav-card">
+    {% include "partials/space-type/pill-nav.njk" %}
+  </div>
+</div>

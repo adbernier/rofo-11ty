@@ -6,15 +6,23 @@
   { "slug": "coworking-space", "label": "Coworking" }
 ] %}
 
-<div class="pill-nav-card">
-  <div class="pill-nav">
-    {% for item in allTypes %}
-      <a
-        class="pill{% if item.slug == spaceType.slug %} is-active{% endif %}"
-        href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
-      >
-        {{ item.label }}
-      </a>
-    {% endfor %}
-  </div>
+{% set activeSlug = "" %}
+{% if spaceType and spaceType.slug %}
+  {% set activeSlug = spaceType.slug %}
+{% endif %}
+
+<div class="pill-nav">
+  {% for item in allTypes %}
+    <a
+      class="pill{% if item.slug == activeSlug %} is-active{% endif %}"
+      href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
+      {% if item.slug == activeSlug %}aria-current="page"{% endif %}
+    >
+      {{ item.label }}
+    </a>
+  {% endfor %}
+
+  {% if city.county %}
+    <span class="pill pill--muted">{{ city.county }}</span>
+  {% endif %}
 </div>

@@ -426,33 +426,28 @@ eleventyComputed:
     {% include "partials/breadcrumbs.njk" %}
 
     <div class="city-hero">
-      <div class="city-card">
-        <div class="eyebrow">Market</div>
-        <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
-        <p class="lead">{{ city.seo_intro }}</p>
+  <div class="city-card">
+    <div class="eyebrow">Market</div>
+    <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
+    <p class="lead">{{ city.seo_intro }}</p>
 
-        <div class="pill-row">
-          <span class="pill">Office</span>
-          <span class="pill">Retail</span>
-          <span class="pill">Industrial</span>
-          {% if city.county %}<span class="pill">{{ city.county }}</span>{% endif %}
-        </div>
-      </div>
+    {% include "partials/space-type/pill-nav.njk" %}
+  </div>
 
-      <div class="city-sidecard">
-        <div class="hero-media">
-          <img
-            class="hero-image"
-            src="/images/placeholders/city-placeholder.svg"
-            alt="{{ city.city }}, {{ city.state_abbr }}"
-          />
-          <div class="hero-overlay">
-            <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
-            <p class="hero-overlay-meta">Commercial Real Estate Market</p>
-          </div>
-        </div>
+  <div class="city-sidecard">
+    <div class="hero-media">
+      <img
+        class="hero-image"
+        src="/images/placeholders/city-placeholder.svg"
+        alt="{{ city.city }}, {{ city.state_abbr }}"
+      />
+      <div class="hero-overlay">
+        <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
+        <p class="hero-overlay-meta">Commercial Real Estate Market</p>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="stats-grid">
       <div class="city-stat">

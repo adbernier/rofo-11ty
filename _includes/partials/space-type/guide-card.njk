@@ -1,0 +1,16 @@
+{% if spaceType.guide %}
+  <div class="city-card">
+    <div class="eyebrow">Guide</div>
+    <h2>{{ spaceType.guide.title }}</h2>
+    <p>{{ spaceType.guide.intro }}</p>
+
+    <div class="mini-guide">
+      {% for item in spaceType.guide.items %}
+        <div class="mini-guide__item">
+          <h3>{{ item.heading }}</h3>
+          <p>{{ item.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

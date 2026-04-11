@@ -1,0 +1,25 @@
+<div class="city-card">
+  <div class="eyebrow">Explore More</div>
+  <h2>Other space types in {{ city.city }}</h2>
+
+  <div class="pill-nav">
+    {% set allTypes = [
+      { "slug": "office-space", "label": "Office" },
+      { "slug": "retail-space", "label": "Retail" },
+      { "slug": "industrial-space", "label": "Industrial" },
+      { "slug": "flex-space", "label": "Flex" },
+      { "slug": "coworking-space", "label": "Coworking" }
+    ] %}
+
+    {% for item in allTypes %}
+      {% if item.slug != spaceType.slug %}
+        <a
+          class="pill"
+          href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
+        >
+          {{ item.label }}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

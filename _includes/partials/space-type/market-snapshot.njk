@@ -1,0 +1,25 @@
+<div class="stats-grid">
+  <div class="city-stat">
+    <div class="stat-label">Space Type</div>
+    <div class="stat-value">{{ spaceType.label }}</div>
+    <p class="stat-note">Commercial real estate category</p>
+  </div>
+
+  <div class="city-stat">
+    <div class="stat-label">Market</div>
+    <div class="stat-value">{{ city.city }}</div>
+    <p class="stat-note">{{ city.state_abbr }}</p>
+  </div>
+
+  <div class="city-stat">
+    <div class="stat-label">County</div>
+    <div class="stat-value">{{ city.county or "—" }}</div>
+    <p class="stat-note">Local market context</p>
+  </div>
+
+  <div class="city-stat">
+    <div class="stat-label">Buildings</div>
+    <div class="stat-value">{{ representativeBuildings.length or 0 }}</div>
+    <p class="stat-note">Representative listings shown</p>
+  </div>
+</div>
