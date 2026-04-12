@@ -124,7 +124,7 @@ eleventyComputed:
 
   .city-page .building-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
   }
 
@@ -318,16 +318,20 @@ eleventyComputed:
   }
 
   .building-card-compact {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid #e5e7eb;
-  }
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
 
-  .building-card-compact:last-child {
-    border-bottom: none;
-  }
+.building-card-compact:hover {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
 
   .building-card-compact__image {
     width: 100%;
@@ -403,7 +407,10 @@ eleventyComputed:
     .city-page .building-grid {
       grid-template-columns: 1fr;
     }
-
+  @media (max-width: 980px) {
+  .city-page .building-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
     .city-page .city-shell {
       padding: 0 16px;
     }
@@ -428,7 +435,12 @@ eleventyComputed:
       <div class="city-card">
         <div class="eyebrow">Market</div>
         <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
-        <p class="lead">{{ city.seo_intro }}</p>
+        <p class="lead">
+          Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }} — including office, retail, and flexible workspace options. Browse representative buildings, compare nearby markets, and get help finding the right space.
+        </p>
+        <p class="subtle-note">
+          Rofo helps businesses explore commercial real estate markets across the U.S. with curated data and local expertise.
+        </p>
 
         {% include "partials/space-type/pill-nav.njk" %}
       </div>
@@ -478,7 +490,7 @@ eleventyComputed:
       <div class="featured-header">
         <div>
           <div class="eyebrow">Featured</div>
-          <h2>Featured Buildings in {{ city.city }}</h2>
+          <h2>Representative Buildings in {{ city.city }}</h2>
         </div>
 
         <div class="featured-header__cta">
@@ -486,6 +498,10 @@ eleventyComputed:
           <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
         </div>
       </div>
+
+      <p>
+        Explore a selection of office and flexible workspace locations across {{ city.city }}. These buildings represent the types of spaces commonly available in this market.
+      </p>
 
       {% set featuredBuildings = [] %}
       {% for b in sampleBuildings %}
@@ -495,11 +511,17 @@ eleventyComputed:
       {% endfor %}
 
       <div class="building-grid">
-        {% for b in featuredBuildings.slice(0, 2) %}
+        {% for b in featuredBuildings.slice(0, 6) %}
           {% set building = b %}
           {% include "partials/shared/building-card-compact.njk" %}
         {% endfor %}
       </div>
+
+      <p style="margin-top: 16px;">
+        <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
+          Browse all buildings in {{ city.city }} →
+        </a>
+      </p>
     </div>
 
     <div class="city-main">
