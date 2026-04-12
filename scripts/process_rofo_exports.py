@@ -106,7 +106,7 @@ def normalize_row(row, company):
         "hero_image": first_url(row.get('property_image_urls'), row.get('space_image_urls')),
         "city_slug": city_slug,
         "building_slug": building_slug,
-        "legacy_rofo_path": legacy_path,
+        "building_path": legacy_path,
     }
 
 def build_building(rows):
@@ -129,7 +129,7 @@ def build_building(rows):
         "postal": primary['postal'],
         "city_slug": primary['city_slug'],
         "building_slug": primary['building_slug'],
-        "legacy_rofo_path": f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}.html",
+        "building_path": f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}.html",
         "property_size": primary['property_size'],
         "property_year_built": primary['property_year_built'],
         "teaser": teaser[:320].strip(),
