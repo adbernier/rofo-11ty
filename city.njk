@@ -6,8 +6,18 @@ pagination:
   alias: city
 permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/index.html"
 eleventyComputed:
-  title: "{{ city.seo_title or ('Office, Retail & Industrial Space in ' + city.city + ', ' + city.state_abbr + ' | Rofo') }}"
-  description: "{{ city.seo_description }}"
+  title: >
+    {% if city.seo_title %}
+      {{ city.seo_title }}
+    {% else %}
+      Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }} | Office, Retail, Industrial | Rofo
+    {% endif %}
+  description: >
+    {% if city.seo_description %}
+      {{ city.seo_description }}
+    {% else %}
+      Explore office, retail, and industrial space in {{ city.city }}, {{ city.state_abbr }}. Browse representative buildings, compare nearby markets, and get help finding the right space.
+    {% endif %}
 ---
 {% set stateName = stateNames[city.state_abbr] or city.state_abbr %}
 {% set crumbs = [

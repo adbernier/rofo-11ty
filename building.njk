@@ -6,8 +6,10 @@ pagination:
   alias: building
 permalink: "/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_segment }}/{{ building.building_slug }}{% if building.property_id and building.property_id != 'nan' %}-{{ building.property_id }}{% endif %}.html"
 eleventyComputed:
-  title: "{{ building.address }} | {{ building.city }}, {{ building.state_abbr }}"
-  description: "{{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}."
+  title: >
+    {{ building.address }} in {{ building.city }}, {{ building.state_abbr }} | Commercial Real Estate | Rofo
+  description: >
+    {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}.
 ---
 
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}

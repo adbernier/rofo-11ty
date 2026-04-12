@@ -6,8 +6,8 @@ pagination:
   alias: entry
 permalink: "/commercial-real-estate/{{ entry.state }}/{{ entry.city_slug }}/{{ entry.page_slug }}/index.html"
 eleventyComputed:
-  title: "{{ entry.spaceType.pluralLabel }} in {{ entry.city.city }}, {{ entry.city.state_abbr }} | Rofo"
-  description: "Explore {{ entry.spaceType.pluralLabel | lower }} in {{ entry.city.city }}, {{ entry.city.state_abbr }}. Review representative buildings, nearby markets, and get help finding space with Rofo."
+  title: "{{ entry.spaceType.label }} Space in {{ entry.city.city }}, {{ entry.city.state_abbr }} | Commercial Real Estate | Rofo"
+  description: "Explore {{ entry.spaceType.label | lower }} space in {{ entry.city.city }}, {{ entry.city.state_abbr }}. Browse representative buildings and get help finding the right commercial space."
 ---
 
 <style>
