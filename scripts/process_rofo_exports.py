@@ -129,7 +129,7 @@ def build_building(rows):
         "postal": primary['postal'],
         "city_slug": primary['city_slug'],
         "building_slug": primary['building_slug'],
-        "legacy_rofo_path": f"/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}.html",
+        "legacy_rofo_path": f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}.html",
         "property_size": primary['property_size'],
         "property_year_built": primary['property_year_built'],
         "teaser": teaser[:320].strip(),

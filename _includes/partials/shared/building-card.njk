@@ -4,7 +4,7 @@
 <article class="building-card">
   <a
     class="building-card__image-link"
-    href="{{ building.legacy_rofo_path }}"
+    href="{{ buildingPath }}"
     aria-label="View {{ building.name or building.address }}"
   >
     <img
@@ -17,28 +17,28 @@
   </a>
 
   <div class="building-card__body">
-  {% if building.type %}
-    <p class="building-card__eyebrow">{{ building.type }}</p>
-  {% endif %}
+    {% if building.type %}
+      <p class="building-card__eyebrow">{{ building.type }}</p>
+    {% endif %}
 
-  <h3 class="building-card__title">
-    <a href="{{ building.legacy_rofo_path }}">
-      {{ building.name or building.address }}
-    </a>
-  </h3>
+    <h3 class="building-card__title">
+      <a href="{{ buildingPath }}">
+        {{ building.name or building.address }}
+      </a>
+    </h3>
 
     {% if building.address and building.name and building.address != building.name %}
-  <p class="building-card__address">{{ building.address }}</p>
-{% endif %}
+      <p class="building-card__address">{{ building.address }}</p>
+    {% endif %}
 
     {% if building.size %}
-  <p class="building-card__meta">
-    {{ building.size }}
-  </p>
-{% endif %}
+      <p class="building-card__meta">
+        {{ building.size }}
+      </p>
+    {% endif %}
 
     <p class="building-card__cta">
-      <a href="{{ building.legacy_rofo_path }}">
+      <a href="{{ buildingPath }}">
         View Building →
       </a>
     </p>
