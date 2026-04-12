@@ -1,3 +1,5 @@
+{% set placeholderSrc = building | buildingPlaceholder %}
+
 <article class="building-card">
   <a
     class="building-card__image-link"
@@ -6,27 +8,33 @@
   >
     <img
       class="building-card__image"
-      src="{{ building.hero_image or '/images/placeholders/building-placeholder.svg' }}"
+      src="{{ building.hero_image or placeholderSrc }}"
       alt="{{ building.name or building.address }}"
       loading="lazy"
+      decoding="async"
     />
   </a>
 
   <div class="building-card__body">
-    <h3 class="building-card__title">
-      <a href="{{ building.legacy_rofo_path }}">
-        {{ building.name or building.address }}
-      </a>
-    </h3>
+  {% if building.type %}
+    <p class="building-card__eyebrow">{{ building.type }}</p>
+  {% endif %}
+
+  <h3 class="building-card__title">
+    <a href="{{ building.legacy_rofo_path }}">
+      {{ building.name or building.address }}
+    </a>
+  </h3>
 
     {% if building.address %}
       <p class="building-card__address">{{ building.address }}</p>
     {% endif %}
 
-    <p class="building-card__meta">
-      {{ building.type or "Commercial" }}
-      {% if building.size %} • {{ building.size }}{% endif %}
-    </p>
+    {% if building.size %}
+  <p class="building-card__meta">
+    {{ building.size }}
+  </p>
+{% endif %}
 
     {% if building.teaser %}
       <p class="building-card__teaser">{{ building.teaser }}</p>

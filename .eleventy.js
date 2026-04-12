@@ -13,6 +13,36 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("buildingPlaceholder", (building) => {
+    const type = (building?.type || "").toLowerCase();
+
+    let variants = [
+      "/images/placeholders/building-a.svg",
+      "/images/placeholders/building-b.svg",
+      "/images/placeholders/building-c.svg",
+    ];
+
+    if (type.includes("industrial") || type.includes("flex")) {
+      variants = [
+        "/images/placeholders/building-c.svg",
+        "/images/placeholders/building-b.svg",
+      ];
+    }
+
+    const seedSource =
+      building?.slug ||
+      building?.address ||
+      building?.name ||
+      "building";
+
+    let hash = 0;
+    for (let i = 0; i < seedSource.length; i++) {
+      hash = (hash + seedSource.charCodeAt(i)) % 100000;
+    }
+
+    return variants[hash % variants.length];
+  });
+
   return {
     dir: {
       input: ".",

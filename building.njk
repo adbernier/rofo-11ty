@@ -12,6 +12,7 @@ eleventyComputed:
     {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}.
 ---
 
+{% set placeholderSrc = building | buildingPlaceholder %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
@@ -311,7 +312,7 @@ eleventyComputed:
         <div class="hero-media">
           <img
             class="hero-image"
-            src="{{ building.hero_image or '/images/placeholders/building-placeholder.svg' }}"
+            src="{{ building.hero_image or placeholderSrc }}"
             alt="{{ building.address }}"
           />
           <div class="hero-overlay">
