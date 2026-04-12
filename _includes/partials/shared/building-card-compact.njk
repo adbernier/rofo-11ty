@@ -1,4 +1,5 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
+{% set buildingPath = "/commercial-real-estate/building/" + building.state_abbr + "/" + building.city_slug + "/" + building.building_slug + ".html" %}
 
 <article class="building-card-compact">
   <a
@@ -32,16 +33,10 @@
   </p>
 {% endif %}
 
-    {% if building.address %}
-      <p class="building-card-compact__address">{{ building.address }}</p>
-    {% endif %}
+    {% if building.address and building.name and building.address != building.name %}
+  <p class="building-card-compact__address">{{ building.address }}</p>
+{% endif %}
   </div>
-
-  {% if building.teaser %}
-    <p class="building-card-compact__teaser">
-      {{ building.teaser }}
-    </p>
-  {% endif %}
 
   <p class="building-card-compact__cta">
     <a href="{{ building.legacy_rofo_path }}">
