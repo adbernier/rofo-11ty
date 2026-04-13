@@ -76,13 +76,14 @@ def normalize_row(row, company):
     city = clean_str(row.get('property_city')).title()
     state = clean_str(row.get('property_state')).upper()
     name = clean_str(row.get('property_name'))
-    property_id = clean_str(row.get('property_id'))
+
     building_slug = slugify(address or name)
     city_slug = slugify(city)
-    legacy_path = f"/building/{state}/{city_slug}/{building_slug}" + (f"-{property_id}" if property_id else "") + ".html"
+    building_path = f"/commercial-real-estate/building/{state}/{city_slug}/{building_slug}/"
+
     return {
         "source_company": company,
-        "property_id": property_id,
+        "property_id": clean_str(row.get('property_id')),
         "name": name,
         "address": address,
         "city": city,
@@ -106,21 +107,31 @@ def normalize_row(row, company):
         "hero_image": first_url(row.get('property_image_urls'), row.get('space_image_urls')),
         "city_slug": city_slug,
         "building_slug": building_slug,
-        "building_path": legacy_path,
+        "building_path": building_path,
     }
 
 def build_building(rows):
     rows = sorted(rows, key=lambda r: (r['space_size'], r['property_size']), reverse=True)
     primary = rows[0]
+
     names = [r['name'] for r in rows if r['name']]
     name = Counter(names).most_common(1)[0][0] if names else primary['address']
+
     space_types = sorted({r['space_type'] for r in rows if r['space_type']})
     raw_space_types = sorted({r['raw_space_type'] for r in rows if r['raw_space_type']})
     source_companies = sorted({r['source_company'] for r in rows})
     hero = next((r['hero_image'] for r in rows if r['hero_image']), "")
+
     teaser = next((r['property_description'] for r in rows if r['property_description']), "") or \
              next((r['space_description'] for r in rows if r['space_description']), "")
-    primary_space_type = primary['space_type'] or (Counter([r['space_type'] for r in rows if r['space_type']]).most_common(1)[0][0] if [r['space_type'] for r in rows if r['space_type']] else "")
+
+    primary_space_type = primary['space_type'] or (
+        Counter([r['space_type'] for r in rows if r['space_type']]).most_common(1)[0][0]
+        if [r['space_type'] for r in rows if r['space_type']] else ""
+    )
+
+    building_path = f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}/"
+
     return {
         "name": name,
         "address": primary['address'],
@@ -129,7 +140,7 @@ def build_building(rows):
         "postal": primary['postal'],
         "city_slug": primary['city_slug'],
         "building_slug": primary['building_slug'],
-        "building_path": f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}.html",
+        "building_path": building_path,
         "property_size": primary['property_size'],
         "property_year_built": primary['property_year_built'],
         "teaser": teaser[:320].strip(),
@@ -195,7 +206,7 @@ def main():
 
     with open(os.path.join(output_dir, "raw-listings.json"), "w") as f:
         json.dump(listings, f, indent=2)
-    with open(os.path.join(output_dir, "normalized-buildings.json"), "w") as f:
+    with open(os.path.join(output_dir, "buildings.json"), "w") as f:
         json.dump(buildings, f, indent=2)
     with open(os.path.join(output_dir, "derived-cities.json"), "w") as f:
         json.dump(cities, f, indent=2)

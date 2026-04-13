@@ -18,7 +18,7 @@ eleventyComputed:
 ] %}
 
 {% set cityBuildings = [] %}
-{% for b in sampleBuildings %}
+{% for b in buildingPages %}
   {% if b.city == city.city and b.state_abbr == city.state_abbr %}
     {% set cityBuildings = (cityBuildings.push(b), cityBuildings) %}
   {% endif %}

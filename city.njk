@@ -304,17 +304,17 @@ eleventyComputed:
       </p>
 
       {% set featuredBuildings = [] %}
-      {% for b in sampleBuildings %}
-        {% if b.city == city.city and b.state_abbr == city.state_abbr %}
-          {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
-        {% endif %}
+      {% for b in buildingPages %}
+      {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr %}
+      {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
+      {% endif %}
       {% endfor %}
 
       <div class="building-grid">
-        {% for b in featuredBuildings.slice(0, 6) %}
-          {% set building = b %}
-          {% include "partials/shared/building-card-compact.njk" %}
-        {% endfor %}
+      {% for b in featuredBuildings.slice(0, 6) %}
+      {% set building = b %}
+      {% include "partials/shared/building-card-compact.njk" %}
+      {% endfor %}
       </div>
 
       <p style="margin-top: 16px;">
