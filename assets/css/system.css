@@ -429,3 +429,63 @@ p {
   margin: 0 auto;
   padding: 0 20px;
 }
+@media (max-width: 680px) {
+  .city-page .building-grid,
+  .city-page .city-grid,
+  .city-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .city-page .building-card-compact {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .city-page .building-card-compact__image-link,
+  .city-page .building-card-compact__image {
+    width: 100%;
+    max-width: 120px;
+  }
+
+  .city-page .building-card-compact__content {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .city-page .building-card-compact__title {
+    font-size: 1.1rem;
+    line-height: 1.15;
+  }
+
+  .city-page .building-card-compact__title a {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+
+  .city-page .building-card-compact__meta,
+  .city-page .building-card-compact__address,
+  .city-page .building-card-compact__teaser {
+    overflow-wrap: anywhere;
+  }
+
+  .city-page .building-card-compact__pills,
+  .city-page .building-card-compact__meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .city-page .building-card-compact__pill,
+  .city-page .pill {
+    font-size: 0.84rem;
+    line-height: 1.2;
+    padding: 6px 10px;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .city-page .building-card-compact__cta {
+    margin-top: 2px;
+  }
+}
