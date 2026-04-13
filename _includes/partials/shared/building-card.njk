@@ -1,5 +1,5 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
-{% set buildingPath = "/commercial-real-estate/building/" + building.state_abbr + "/" + building.city_slug + "/" + building.building_slug + ".html" %}
+{% set buildingPath = building.building_path %}
 
 <article class="building-card">
   <a
