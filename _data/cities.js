@@ -1,36 +1,192 @@
+const fs = require("fs");
+const path = require("path");
+
 const rawCities = require("./raw/cities.raw.json");
+
+const supplementalCsvPath = path.join(
+  __dirname,
+  "raw",
+  "rofo_top_1200_cities_2026-04-14_103326.csv"
+);
+
+function slugify(text) {
+  return String(text || "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function parseCsvLine(line) {
+  const values = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    const next = line[i + 1];
+
+    if (char === '"') {
+      if (inQuotes && next === '"') {
+        current += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === "," && !inQuotes) {
+      values.push(current);
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+
+  values.push(current);
+  return values.map((v) => String(v || "").trim());
+}
+
+function readCsvRows(filePath) {
+  if (!fs.existsSync(filePath)) {
+    console.warn(`⚠️ Supplemental CSV not found: ${filePath}`);
+    return [];
+  }
+
+  const raw = fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
+  const lines = raw.split(/\r?\n/).filter((line) => line.trim().length);
+
+  if (lines.length < 2) return [];
+
+  const headers = parseCsvLine(lines[0]);
+
+  return lines.slice(1).map((line) => {
+    const values = parseCsvLine(line);
+    const row = {};
+
+    headers.forEach((header, i) => {
+      row[header] = values[i] || "";
+    });
+
+    return row;
+  });
+}
+
+function toNumber(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function mergeSupplementalCities(baseCities, supplementalRows) {
+  const merged = baseCities.map((city) => ({ ...city }));
+  const byKey = new Map();
+
+  merged.forEach((city, index) => {
+    const key =
+      city.city_state_slug ||
+      `${slugify(city.city)}-${String(city.state_abbr || "").toLowerCase()}`;
+    byKey.set(key, index);
+  });
+
+  let updatedCount = 0;
+  let addedCount = 0;
+  let countyFilledCount = 0;
+
+  supplementalRows.forEach((row) => {
+    const cityName = String(row.city || "").trim();
+    const stateAbbr = String(row.state_abbr || "").trim().toUpperCase();
+
+    if (!cityName || !stateAbbr) return;
+
+    const slug = slugify(cityName);
+    const key = `${slug}-${stateAbbr.toLowerCase()}`;
+
+    const county = String(row.county || "").trim();
+    const state = String(row.state || "").trim();
+    const metro = String(row.metro || "").trim();
+    const updatedAt = String(row.updated_at || "").trim();
+    const cityDescription = String(row.city_description || "").trim();
+    const lat = toNumber(row.lat);
+    const lng = toNumber(row.lng);
+    const buildingCount = toNumber(row.building_count);
+
+    if (byKey.has(key)) {
+      const idx = byKey.get(key);
+      const existing = merged[idx];
+
+      const hadCounty = !!String(existing.county || "").trim();
+
+      merged[idx] = {
+        ...existing,
+        state: existing.state || state,
+        county: hadCounty ? existing.county : county || existing.county || "",
+        lat:
+          typeof existing.lat === "number" && !Number.isNaN(existing.lat)
+            ? existing.lat
+            : lat,
+        lng:
+          typeof existing.lng === "number" && !Number.isNaN(existing.lng)
+            ? existing.lng
+            : lng,
+        metro: existing.metro || metro,
+        updated_at: existing.updated_at || updatedAt,
+        building_count:
+          existing.building_count ||
+          buildingCount ||
+          existing.building_count ||
+          null,
+        city_description_raw:
+          existing.city_description_raw ||
+          cityDescription ||
+          existing.city_description_raw ||
+          "",
+      };
+
+      if (!hadCounty && county) countyFilledCount += 1;
+      updatedCount += 1;
+      return;
+    }
+
+    const newCity = {
+      city: cityName,
+      slug,
+      state_abbr: stateAbbr,
+      state,
+      county: county || "",
+      lat,
+      lng,
+      metro: metro || "",
+      updated_at: updatedAt || "",
+      building_count: buildingCount,
+      city_description_raw: cityDescription || "",
+      city_state_slug: key,
+    };
+
+    merged.push(newCity);
+    byKey.set(key, merged.length - 1);
+    if (county) countyFilledCount += 1;
+    addedCount += 1;
+  });
+
+  console.warn(
+    `ℹ️ Supplemental city CSV merged: updated ${updatedCount}, added ${addedCount}, county filled ${countyFilledCount}`
+  );
+
+  return merged;
+}
+
+const supplementalRows = readCsvRows(supplementalCsvPath);
+const mergedRawCities = mergeSupplementalCities(rawCities, supplementalRows);
 
 // ---- DUPLICATE GUARD (skip + log) ----
 const seenCityKeys = new Set();
 const duplicateCities = [];
 
-function normalizeSlug(value) {
-  return String(value || "").trim().toLowerCase();
-}
-
-function buildCityPath(city) {
-  return `/commercial-real-estate/${city.state_abbr}/${city.slug}/`;
-}
-
-const normalizedRawCities = rawCities.map((city) => {
-  const normalizedSlug = normalizeSlug(city.slug || city.city_state_slug || city.city);
-  const normalizedCityStateSlug = normalizeSlug(
-    city.city_state_slug || `${normalizedSlug}-${city.state_abbr || ""}`
-  );
-
-  return {
-    ...city,
-    slug: normalizedSlug,
-    city_state_slug: normalizedCityStateSlug,
-    path: buildCityPath({
-      ...city,
-      slug: normalizedSlug,
-    }),
-  };
-});
-
-const dedupedCities = normalizedRawCities.filter((city) => {
-  const key = city.city_state_slug;
+const dedupedCities = mergedRawCities.filter((city) => {
+  const key =
+    city.city_state_slug ||
+    `${slugify(city.city)}-${String(city.state_abbr || "").toLowerCase()}`;
 
   if (!key) {
     console.warn(
@@ -95,7 +251,7 @@ function getMarketContext(city, nearbyNames) {
     ? city.building_count.toLocaleString()
     : null;
 
-  const heading = `Commercial real estate in ${city.city}`;
+  let heading = `Commercial real estate in ${city.city}`;
   let paragraph1 = `${city.city}, ${city.state_abbr} offers businesses a range of office, retail, and industrial real estate opportunities.`;
   let paragraph2 = `Rofo helps businesses explore representative buildings, compare market options, and evaluate nearby cities when searching for space.`;
 
@@ -126,7 +282,7 @@ function getMarketContext(city, nearbyNames) {
 }
 
 module.exports = dedupedCities.map((city) => {
-  const candidates = normalizedRawCities
+  const candidates = dedupedCities
     .filter((other) => {
       if (other.city === city.city && other.state_abbr === city.state_abbr) {
         return false;
@@ -152,7 +308,7 @@ module.exports = dedupedCities.map((city) => {
     ? city.building_count.toLocaleString()
     : null;
 
-  const stateName = city.state_abbr;
+  const stateName = city.state || city.state_abbr;
 
   let seoTitle = `Office, Retail and Industrial Space in ${city.city}, ${stateName}`;
   let seoIntro = `Explore office, retail, and industrial real estate opportunities in ${city.city}, ${stateName}.`;
@@ -190,7 +346,6 @@ module.exports = dedupedCities.map((city) => {
       city: c.city,
       state_abbr: c.state_abbr,
       distance_miles: Math.round(c.distance_miles),
-      path: c.path,
     })),
     seo_title: seoTitle,
     seo_intro: seoIntro,
