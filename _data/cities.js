@@ -181,14 +181,22 @@ const dedupedCities = mergedRawCities.filter((city) => {
   return true;
 });
 
-// ---- LIMIT (KEY CHANGE) ----
-const CITY_LIMIT = 500;
+// ---- LIMIT (CONFIGURABLE) ----
+const CITY_LIMIT = null; // set to number (e.g. 500) to re-enable cap
 
-const limitedCities = [...dedupedCities]
-  .sort((a, b) => (b.building_count || 0) - (a.building_count || 0))
-  .slice(0, CITY_LIMIT);
+const sortedCities = [...dedupedCities].sort(
+  (a, b) => (b.building_count || 0) - (a.building_count || 0)
+);
 
-console.warn(`🚧 Limiting build to ${limitedCities.length} cities`);
+const limitedCities = CITY_LIMIT
+  ? sortedCities.slice(0, CITY_LIMIT)
+  : sortedCities;
+
+console.warn(
+  CITY_LIMIT
+    ? `🚧 Limiting build to ${limitedCities.length} cities`
+    : `✅ Building full dataset: ${limitedCities.length} cities`
+);
 
 // ---- HELPERS ----
 function toRadians(deg) {
