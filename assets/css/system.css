@@ -933,3 +933,53 @@ section.market-page--space-type .market-links a {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* =========================
+   HOMEPAGE CTA BAND
+   ========================= */
+
+.cta-band__lead {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  max-width: 34rem;
+}
+
+.cta-band__prompts {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cta-band__prompt {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.cta-band__prompt strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.cta-band__prompt span {
+  display: block;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.82);
+}
+
+.cta-band__footer {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+
+@media (max-width: 768px) {
+  .cta-band {
+    display: none;
+  }
+}
