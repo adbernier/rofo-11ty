@@ -28,10 +28,12 @@ eleventyComputed:
     line-height: 1.08;
     margin: 0 0 14px;
     color: #0f172a;
-}
-    .market-page--space-type .city-card h1 {
+  }
+
+  .market-page--space-type .city-card h1 {
     max-width: 26ch;
-}
+  }
+
   .market-page--space-type h2 {
     font-size: 1.55rem;
     line-height: 1.2;
@@ -117,6 +119,21 @@ eleventyComputed:
     gap: 24px;
   }
 
+  .market-page--space-type .mini-guide {
+    display: grid;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .market-page--space-type .mini-guide__item h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+  }
+
+  .market-page--space-type .mini-guide__item p {
+    margin: 0;
+  }
+
   /* Responsive */
   @media (max-width: 980px) {
     .market-page--space-type .stats-grid {
@@ -133,20 +150,6 @@ eleventyComputed:
       padding: 0 16px;
     }
   }
-  .market-page--space-type .mini-guide {
-  display: grid;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.market-page--space-type .mini-guide__item h3 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-}
-
-.market-page--space-type .mini-guide__item p {
-  margin: 0;
-}
 </style>
 
 {% set city = entry.city %}
@@ -163,11 +166,16 @@ eleventyComputed:
     {% include "partials/space-type/hero.njk" %}
 
     <div class="page-stack">
-  {% include "partials/space-type/market-snapshot.njk" %}
-  {% include "partials/space-type/guide-card.njk" %}
-  {% include "partials/space-type/representative-buildings.njk" %}
-  {% include "partials/space-type/related-space-types.njk" %}
-  {% include "partials/space-type/nearby-markets.njk" %}
-</div>
+      {% include "partials/space-type/market-snapshot.njk" %}
+      {% include "partials/space-type/guide-card.njk" %}
+
+      {% include "partials/space-type/definitions-card.njk" %}
+      {% include "partials/space-type/budget-card.njk" %}
+      {% include "partials/space-type/timeline-card.njk" %}
+
+      {% include "partials/space-type/representative-buildings.njk" %}
+      {% include "partials/space-type/related-space-types.njk" %}
+      {% include "partials/space-type/nearby-markets.njk" %}
+    </div>
   </div>
 </section>

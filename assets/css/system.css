@@ -629,3 +629,119 @@ p {
 .city-page .hero-actions {
   margin-top: 16px;
 }
+
+/* =========================
+   HELPFUL CONTENT CARDS
+   ========================= */
+
+.help-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  margin-bottom: 24px;
+}
+
+.help-card--city {
+  padding: 28px;
+}
+
+.help-card--compact {
+  padding: 22px;
+}
+
+.help-card__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.help-card__title {
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  line-height: 1.15;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.help-card__intro {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 20px;
+  max-width: 72ch;
+}
+
+.help-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.help-card__grid--tight {
+  gap: 14px;
+}
+
+.help-card__item {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.help-card__item h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.help-card__item p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Timeline */
+
+.timeline-card {
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-card__step {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.timeline-card__step strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.98rem;
+  color: #0f172a;
+}
+
+.timeline-card__step p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* Mobile */
+
+@media (max-width: 820px) {
+  .help-card,
+  .help-card--city,
+  .help-card--compact {
+    padding: 20px;
+  }
+
+  .help-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
