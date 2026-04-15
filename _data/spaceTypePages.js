@@ -62,29 +62,26 @@ buildings.forEach((building) => {
 });
 
 // -----------------------------
-// Generate pages (filtered)
+// Generate pages (all cities x all space types)
 // -----------------------------
 module.exports = cities.flatMap((city) => {
   const normalizedCitySlug = String(city.slug || "").toLowerCase();
   const normalizedStateAbbr = String(city.state_abbr || "").toLowerCase();
 
-  return Object.values(spaceTypes)
-    .map((spaceType) => {
-      const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
+  return Object.values(spaceTypes).map((spaceType) => {
+    const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
 
-      const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
-      const representativeBuildings = buildingIndex.get(key) || [];
+    const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
+    const representativeBuildings = buildingIndex.get(key) || [];
 
-      if (!representativeBuildings.length) return null;
-
-      return {
-        city,
-        spaceType,
-        state: normalizedStateAbbr,
-        city_slug: normalizedCitySlug,
-        page_slug: normalizedTypeSlug,
-        representativeBuildings: representativeBuildings.slice(0, 12),
-      };
-    })
-    .filter(Boolean);
+    return {
+      city,
+      spaceType,
+      state: normalizedStateAbbr,
+      city_slug: normalizedCitySlug,
+      page_slug: normalizedTypeSlug,
+      representativeBuildings: representativeBuildings.slice(0, 12),
+      hasInventory: representativeBuildings.length > 0,
+    };
+  });
 });

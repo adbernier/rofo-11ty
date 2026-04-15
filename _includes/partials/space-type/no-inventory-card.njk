@@ -1,0 +1,45 @@
+<section class="help-card help-card--compact">
+  <div class="help-card__eyebrow">Availability</div>
+
+  <h2 class="help-card__title">
+    {{ spaceType.pluralLabel }} in {{ city.city }} may be limited
+  </h2>
+
+  <p class="help-card__intro">
+    {{ spaceType.label }} space in {{ city.city }} can be available through a mix of listed and off-market opportunities.
+    Inventory changes often, and not every option is publicly displayed.
+  </p>
+
+  <div class="help-card__grid help-card__grid--tight">
+    <div class="help-card__item">
+      <h3>Explore the broader market</h3>
+      <p>
+        Browse the full {{ city.city }} market to get a better sense of location options, building types, and nearby opportunities.
+      </p>
+    </div>
+
+    <div class="help-card__item">
+      <h3>Consider nearby markets</h3>
+      <p>
+        Nearby cities may offer more availability, different pricing, or space configurations that better match your needs.
+      </p>
+    </div>
+
+    <div class="help-card__item">
+      <h3>Get help finding space</h3>
+      <p>
+        Tell us what you need and we can help identify {{ spaceType.label | lower }} options that may not be visible online.
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+    <a class="btn-primary" href="#market-contact-form">
+      Get Help Finding {{ spaceType.label }} Space
+    </a>
+
+    <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/">
+      Explore {{ city.city }} Market
+    </a>
+  </div>
+</section>

@@ -9,6 +9,6 @@
       {% endfor %}
     </div>
   {% else %}
-    <p>No representative {{ spaceType.pluralLabel | lower }} are available for this market yet.</p>
+    {% include "partials/space-type/no-inventory-card.njk" %}
   {% endif %}
 </div>
