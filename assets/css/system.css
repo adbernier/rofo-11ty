@@ -22,31 +22,6 @@
   --rofo-spacing-md: 24px;
   --rofo-spacing-lg: 32px;
 }
-.breadcrumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  font-size: 14px;
-  color: #64748b;
-}
-
-.breadcrumbs a {
-  color: #64748b;
-  text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-  color: #0f172a;
-}
-
-.section-stack > * + * {
-  margin-top: 24px;
-}
-
-.card.section-stack > * + * {
-  margin-top: 18px;
-}
 
 /* =========================
    BASE
@@ -66,6 +41,27 @@ a:hover {
   text-decoration: underline;
 }
 
+/* =========================
+   BREADCRUMBS
+   ========================= */
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.breadcrumbs a {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #0f172a;
+}
 
 /* =========================
    PILLS / EYEBROWS
@@ -81,11 +77,10 @@ a:hover {
   color: var(--rofo-blue);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0 0 14px;
 }
-
 
 /* =========================
    CARDS
@@ -96,7 +91,6 @@ a:hover {
 .city-sidecard,
 .city-stat,
 .city-form,
-.building-card,
 .building-sidecard,
 .building-stat,
 .building-form,
@@ -107,33 +101,204 @@ a:hover {
   box-shadow: var(--rofo-shadow);
   padding: 24px;
 }
+
+/* =========================
+   STACKS / HELPERS
+   ========================= */
+
+.section-stack {
+  display: grid;
+  gap: var(--rofo-spacing-md);
+}
+
+.section-stack > * + * {
+  margin-top: 24px;
+}
+
+.card.section-stack > * + * {
+  margin-top: 18px;
+}
+
+.centered {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   BUILDING GRID
+   ========================= */
+
 .building-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
-.building-card {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #d9e0ea;
-  border-radius: 18px;
-  overflow: hidden;
-  height: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
+/* =========================
+   BUILDING CARD — STANDARD
+   image + overlay format
+   ========================= */
 
 .building-card {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #e6ebf1;
-  border-radius: 18px;
-  overflow: hidden;
+  position: relative;
   height: 100%;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
+
+.building-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.building-card__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid #dbe4ef;
+  background: #f8fafc;
+  box-shadow: var(--rofo-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.building-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  background: #f7f9fc;
+  transition: transform 0.25s ease;
+}
+
+.building-card__overlay {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  padding: 20px 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(219, 228, 239, 0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.building-card__title {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.15;
+}
+
+.building-card__meta {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.building-card__link:hover {
+  text-decoration: none;
+}
+
+.building-card__link:hover .building-card__media {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+  border-color: #d2dbe7;
+}
+
+.building-card__link:hover .building-card__image {
+  transform: scale(1.02);
+}
+
+.building-card__link:hover .building-card__title {
+  text-decoration: underline;
+}
+
+/* =========================
+   BUILDING CARD — COMPACT
+   same language, slightly tighter
+   ========================= */
+
+.building-card-compact {
+  position: relative;
+  height: 100%;
+}
+
+.building-card-compact__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.building-card-compact__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid #dbe4ef;
+  background: #f8fafc;
+  box-shadow: var(--rofo-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.building-card-compact__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: #f7f9fc;
+  transition: transform 0.25s ease;
+}
+
+.building-card-compact__overlay {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(219, 228, 239, 0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.building-card-compact__title {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.15;
+}
+
+.building-card-compact__meta {
+  margin: 9px 0 0;
+  color: #64748b;
+  font-size: 0.97rem;
+  line-height: 1.35;
+}
+
+.building-card-compact__link:hover {
+  text-decoration: none;
+}
+
+.building-card-compact__link:hover .building-card-compact__media {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+  border-color: #d2dbe7;
+}
+
+.building-card-compact__link:hover .building-card-compact__image {
+  transform: scale(1.02);
+}
+
+.building-card-compact__link:hover .building-card-compact__title {
+  text-decoration: underline;
+}
+
+/* =========================
+   LEGACY BUILDING CARD HELPERS
+   kept for compatibility where still referenced
+   ========================= */
 
 .building-card__eyebrow,
 .building-card-compact__eyebrow {
@@ -159,7 +324,8 @@ a:hover {
 }
 
 .building-card__pill-row,
-.building-card-compact__pill-row {
+.building-card-compact__pill-row,
+.building-card-compact__pills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -179,86 +345,13 @@ a:hover {
   line-height: 1;
 }
 
-.building-card:hover {
-  border-color: #d7dee8;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
-  transform: translateY(-2px);
-}
-
-.building-card__image-link {
-  display: block;
-  background: #f7f9fc;
-  border-bottom: 1px solid #e9eef4;
-}
-
-.building-card__image {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: #f7f9fc;
-}
-
-.building-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-}
-
-.building-card__title {
-  margin: 0;
-  font-size: 1.35rem;
-  line-height: 1.2;
-}
-
-.building-card__title a {
-  text-decoration: none;
-}
-
-.building-card__address,
-.building-card__meta,
-.building-card__teaser,
-.building-card__cta {
-  margin: 0;
-}
-
-.building-card__address {
-  color: #334155;
-}
-
-.building-card__meta {
-  font-size: 0.95rem;
-  color: #64748b;
-}
-
-.building-card__teaser {
-  color: #334155;
-  line-height: 1.6;
-}
-
-.building-card__cta {
-  margin-top: auto;
-  padding-top: 4px;
-  font-weight: 600;
-}
-
-.building-card__cta a {
-  text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  .building-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* =========================
    BUTTONS
    ========================= */
 
 .btn,
-.btn-primary {
+.btn-primary,
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -278,8 +371,19 @@ a:hover {
 
 .btn-primary:hover {
   opacity: 0.94;
+  text-decoration: none;
 }
 
+.btn-secondary {
+  background: #fff;
+  color: var(--rofo-blue);
+  border: 1px solid var(--rofo-border);
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  text-decoration: none;
+}
 
 /* =========================
    TYPOGRAPHY
@@ -304,7 +408,6 @@ p {
   margin-bottom: 20px;
 }
 
-
 /* =========================
    LISTS
    ========================= */
@@ -323,7 +426,6 @@ p {
   color: var(--rofo-blue);
   font-weight: 500;
 }
-
 
 /* =========================
    FORM SYSTEM
@@ -364,6 +466,9 @@ p {
 
 .btn-row {
   margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .form-note {
@@ -372,7 +477,10 @@ p {
   margin-top: 8px;
 }
 
-/* Space-type page tuning */
+/* =========================
+   SPACE-TYPE PAGE TUNING
+   ========================= */
+
 .market-page--space-type .city-card {
   padding: 28px 32px;
 }
@@ -409,26 +517,16 @@ p {
 
 @media (max-width: 980px) {
   .two-col,
-  .two-col-hero {
+  .two-col-hero,
+  .building-grid {
     grid-template-columns: 1fr;
   }
 }
 
-
 /* =========================
-   HELPERS
+   MOBILE
    ========================= */
 
-.section-stack {
-  display: grid;
-  gap: var(--rofo-spacing-md);
-}
-
-.centered {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 @media (max-width: 680px) {
   .city-page .building-grid,
   .city-page .city-grid,
@@ -436,56 +534,98 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .city-page .building-card-compact {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 14px 0;
+  .building-card__overlay {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 16px 18px;
+    border-radius: 18px;
   }
 
-  .city-page .building-card-compact__image-link,
-  .city-page .building-card-compact__image {
-    width: 100%;
-    max-width: 120px;
+  .building-card__title {
+    font-size: 1.05rem;
   }
 
-  .city-page .building-card-compact__content {
-    min-width: 0;
-    gap: 10px;
+  .building-card__meta {
+    font-size: 0.94rem;
+    margin-top: 8px;
   }
 
-  .city-page .building-card-compact__title {
-    font-size: 1.1rem;
-    line-height: 1.15;
+  .building-card-compact__overlay {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 16px 18px;
+    border-radius: 18px;
   }
 
-  .city-page .building-card-compact__title a {
-    display: block;
-    overflow-wrap: anywhere;
+  .building-card-compact__title {
+    font-size: 1.02rem;
   }
 
-  .city-page .building-card-compact__meta,
-  .city-page .building-card-compact__address,
-  .city-page .building-card-compact__teaser {
-    overflow-wrap: anywhere;
+  .building-card-compact__meta {
+    font-size: 0.92rem;
+    margin-top: 8px;
   }
 
-  .city-page .building-card-compact__pills,
-  .city-page .building-card-compact__meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .btn-row {
+    align-items: stretch;
   }
+}
 
-  .city-page .building-card-compact__pill,
-  .city-page .pill {
-    font-size: 0.84rem;
-    line-height: 1.2;
-    padding: 6px 10px;
-    max-width: 100%;
-    white-space: normal;
-  }
+/* =========================
+   HERO FIXES (click + spacing)
+   ========================= */
 
-  .city-page .building-card-compact__cta {
-    margin-top: 2px;
-  }
+/* ensure hero content sits above image */
+.city-page .city-card {
+  position: relative;
+  z-index: 2;
+}
+
+/* ensure image never blocks interactions */
+.city-page .city-sidecard {
+  position: relative;
+  z-index: 1;
+}
+
+/* make pill nav clearly interactive */
+.city-page .pill-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* clickable pills */
+.city-page .pill-nav a.pill {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.city-page .pill-nav a.pill:hover {
+  background: #dbeafe;
+  color: #0f172a;
+  border-color: #c7d7f5;
+}
+
+/* non-clickable county pill */
+.city-page .pill--muted {
+  cursor: default;
+  opacity: 0.75;
+}
+
+/* tighten hero rhythm */
+.city-page .city-hero-copy > * + * {
+  margin-top: 12px;
+}
+
+/* slightly more breathing room before pills */
+.city-page .hero-pill-wrap {
+  margin-top: 14px;
+}
+
+/* better spacing between buttons and pills */
+.city-page .hero-actions {
+  margin-top: 16px;
 }

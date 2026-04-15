@@ -26,6 +26,11 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 
+{% set marketHeading = city.market_context_heading or "" %}
+{% set marketParagraph1 = city.market_context_paragraph1 or "" %}
+{% set marketParagraph2 = city.market_context_paragraph2 or "" %}
+{% set hasMarketContext = (marketHeading | trim) or (marketParagraph1 | trim) or (marketParagraph2 | trim) %}
+
 <style>
   .city-page {
     padding: 8px 0 56px;
@@ -59,11 +64,16 @@ eleventyComputed:
     min-width: 0;
   }
 
+  .city-page .city-hero-copy > * + * {
+    margin-top: 14px;
+  }
+
   .city-page h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.08;
-    margin: 0 0 14px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.02;
+    margin: 0;
     color: #0f172a;
+    max-width: 11ch;
   }
 
   .city-page h2 {
@@ -88,7 +98,19 @@ eleventyComputed:
   .city-page .lead {
     font-size: 1.05rem;
     color: #475569;
-    max-width: 62ch;
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .city-page .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .city-page .hero-pill-wrap {
+    margin-top: 18px;
   }
 
   .city-page .pill-row {
@@ -184,12 +206,32 @@ eleventyComputed:
     backdrop-filter: blur(4px);
   }
 
+  .city-page .hero-overlay-title {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+  }
+
+  .city-page .hero-overlay-meta {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #64748b;
+    line-height: 1.3;
+  }
+
   .city-page .featured-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 16px;
     margin-bottom: 12px;
+  }
+
+  .city-page .city-grid {
+    display: grid;
+    gap: 24px;
   }
 
   /* TABLET */
@@ -215,6 +257,10 @@ eleventyComputed:
       flex-direction: column;
       align-items: flex-start;
     }
+
+    .city-page h1 {
+      max-width: 14ch;
+    }
   }
 
   /* MOBILE */
@@ -223,6 +269,14 @@ eleventyComputed:
     .city-page .building-grid,
     .city-page .city-grid {
       grid-template-columns: 1fr;
+    }
+
+    .city-page .hero-actions {
+      align-items: stretch;
+    }
+
+    .city-page h1 {
+      max-width: none;
     }
   }
 </style>
@@ -233,16 +287,27 @@ eleventyComputed:
 
     <div class="city-hero">
       <div class="city-card">
-        <div class="eyebrow">Market</div>
-        <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
-        <p class="lead">
-          Explore commercial real estate in {{ city.city }}, {{ city.state_abbr }} — including office, retail, and flexible workspace options. Browse representative buildings, compare nearby markets, and get help finding the right space.
-        </p>
-        <p class="subtle-note">
-          Rofo helps businesses explore commercial real estate markets across the U.S. with curated data and local expertise.
-        </p>
+        <div class="city-hero-copy">
+          <div class="eyebrow">Market</div>
 
-        {% include "partials/space-type/pill-nav.njk" %}
+          <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
+
+          <p class="lead">
+            Explore office, retail, and industrial space in {{ city.city }}.
+            Browse representative buildings or get help finding the right location.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#market-contact-form">Get Help Finding Space</a>
+            <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
+              Browse Buildings
+            </a>
+          </div>
+
+          <div class="hero-pill-wrap">
+            {% include "partials/space-type/pill-nav.njk" %}
+          </div>
+        </div>
       </div>
 
       <div class="city-sidecard">
@@ -268,9 +333,13 @@ eleventyComputed:
       </div>
 
       <div class="city-stat">
-        <div class="stat-label">Buildings</div>
-        <div class="stat-value">{{ city.building_count or "—" }}</div>
-        <p class="stat-note">Known buildings in this market</p>
+        <div class="stat-label">Market Type</div>
+        <div class="stat-value">
+          {% if city.tier == 1 %}Major Market
+          {% elseif city.tier == 2 %}Established Market
+          {% else %}Local Market{% endif %}
+        </div>
+        <p class="stat-note">General market classification</p>
       </div>
 
       <div class="city-stat">
@@ -300,21 +369,22 @@ eleventyComputed:
       </div>
 
       <p>
-        Explore a selection of office and flexible workspace locations across {{ city.city }}. These buildings represent the types of spaces commonly available in this market.
+        A curated selection of office, retail, and industrial properties in {{ city.city }}.
+        These buildings reflect the types of spaces typically available in this market.
       </p>
 
       {% set featuredBuildings = [] %}
       {% for b in buildingPages %}
-      {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr %}
-      {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
-      {% endif %}
+        {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr %}
+          {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
+        {% endif %}
       {% endfor %}
 
       <div class="building-grid">
-      {% for b in featuredBuildings.slice(0, 6) %}
-      {% set building = b %}
-      {% include "partials/shared/building-card-compact.njk" %}
-      {% endfor %}
+        {% for b in featuredBuildings.slice(0, 6) %}
+          {% set building = b %}
+          {% include "partials/shared/building-card-compact.njk" %}
+        {% endfor %}
       </div>
 
       <p style="margin-top: 16px;">
@@ -330,12 +400,13 @@ eleventyComputed:
           <div class="eyebrow">Overview</div>
           <h2>Explore the {{ city.city }} market</h2>
           <p>
-            Rofo helps businesses research commercial real estate in {{ city.city }}, {{ city.state_abbr }}.
-            Use this page as a starting point to understand the market, explore representative buildings, and narrow your search.
+            {{ city.city }} is a
+            {% if city.tier == 1 %}major{% elseif city.tier == 2 %}established{% else %}local{% endif %}
+            commercial real estate market in {{ city.state_abbr }}.
           </p>
           <p>
-            Whether you are looking for office space, retail frontage, or industrial property,
-            Rofo is designed to make market discovery simpler and more efficient.
+            Businesses typically search here for office, retail, and industrial space based on access, visibility, and proximity to customers or workforce.
+            Many also compare {{ city.city }} with nearby markets to evaluate pricing, inventory, and location fit.
           </p>
         </div>
 
@@ -356,12 +427,20 @@ eleventyComputed:
             </p>
           </div>
 
-          <div class="city-card">
-            <div class="eyebrow">Market Context</div>
-            <h2>{{ city.market_context_heading }}</h2>
-            <p>{{ city.market_context_paragraph1 }}</p>
-            <p>{{ city.market_context_paragraph2 }}</p>
-          </div>
+          {% if hasMarketContext %}
+            <div class="city-card">
+              <div class="eyebrow">Market Context</div>
+              {% if marketHeading | trim %}
+                <h2>{{ marketHeading }}</h2>
+              {% endif %}
+              {% if marketParagraph1 | trim %}
+                <p>{{ marketParagraph1 }}</p>
+              {% endif %}
+              {% if marketParagraph2 | trim %}
+                <p>{{ marketParagraph2 }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
 
           <div class="city-card">
             <div class="eyebrow">Nearby Markets</div>
@@ -433,7 +512,9 @@ eleventyComputed:
         <div id="market-contact-form" class="city-form city-card">
           <div class="eyebrow">Get help finding space</div>
           <h2>Get Free Help Finding Space in {{ city.city }}</h2>
-          <p>Tell us what you’re looking for and we’ll send you relevant options in {{ city.city }}.</p>
+          <p>
+            Tell us what you’re looking for and we’ll help you identify options, compare buildings, and connect with local experts in {{ city.city }}.
+          </p>
 
           <form
             action="https://formspree.io/f/xreoadbr"

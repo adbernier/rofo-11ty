@@ -1,43 +1,33 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set buildingPath = building.building_path %}
+{% set buildingTitle = building.address or building.name %}
 
 <article class="building-card">
   <a
-    class="building-card__image-link"
+    class="building-card__link"
     href="{{ buildingPath }}"
-    aria-label="View {{ building.address or building.name }}"
+    aria-label="View {{ buildingTitle }}"
   >
-    <img
-      class="building-card__image"
-      src="{{ building.hero_image or placeholderSrc }}"
-      alt="{{ building.address or building.name }}"
-      loading="lazy"
-      decoding="async"
-    />
-  </a>
+    <div class="building-card__media">
+      <img
+        class="building-card__image"
+        src="{{ building.hero_image or placeholderSrc }}"
+        alt="{{ buildingTitle }}"
+        loading="lazy"
+        decoding="async"
+      />
 
-  <div class="building-card__body">
-    <h3 class="building-card__title">
-      <a href="{{ buildingPath }}">
-        {{ building.address or building.name }}
-      </a>
-    </h3>
+      <div class="building-card__overlay">
+        <h3 class="building-card__title">
+          {{ buildingTitle }}
+        </h3>
 
-
-    <div class="building-card__pill-row">
-      {% if building.type %}
-        <span class="building-card__pill">{{ building.type }}</span>
-      {% endif %}
-      {% if building.size_label %}
-        <span class="building-card__pill">{{ building.size_label }}</span>
-      {% endif %}
-      <span class="building-card__pill">{{ building.city }}, {{ building.state_abbr }}</span>
+        {% if building.type or building.size_label %}
+          <p class="building-card__meta">
+            {% if building.type %}{{ building.type }}{% endif %}{% if building.type and building.size_label %} • {% endif %}{% if building.size_label %}{{ building.size_label }}{% endif %}
+          </p>
+        {% endif %}
+      </div>
     </div>
-
-    <p class="building-card__cta">
-      <a href="{{ buildingPath }}">
-        View Building →
-      </a>
-    </p>
-  </div>
+  </a>
 </article>

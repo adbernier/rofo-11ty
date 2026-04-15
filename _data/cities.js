@@ -183,7 +183,10 @@ const dedupedCities = mergedRawCities.filter((city) => {
 
 // ---- LIMIT (KEY CHANGE) ----
 const CITY_LIMIT = 500;
-const limitedCities = dedupedCities.slice(0, CITY_LIMIT);
+
+const limitedCities = [...dedupedCities]
+  .sort((a, b) => (b.building_count || 0) - (a.building_count || 0))
+  .slice(0, CITY_LIMIT);
 
 console.warn(`🚧 Limiting build to ${limitedCities.length} cities`);
 
@@ -244,6 +247,14 @@ module.exports = limitedCities.map((city) => {
 
   return {
     ...city,
+    path: `/commercial-real-estate/${city.state_abbr}/${city.slug}/`,
+    label: `${city.city}, ${city.state_abbr}`,
     nearby_cities: candidates.map((c) => c.slug),
+    nearby_city_details: candidates.map((c) => ({
+      slug: c.slug,
+      city: c.city,
+      state_abbr: c.state_abbr,
+      distance_miles: Math.round(c.distance_miles),
+    })),
   };
 });
