@@ -432,27 +432,34 @@ eleventyComputed:
     method="POST"
   >
     <div class="eyebrow">Get Help</div>
-    <h2>Need space in {{ building.city }}?</h2>
+    <h2>Want options like this?</h2>
     <p>
-      Tell us what you're looking for and we’ll help you find the right space.
+      We’ll help you find similar spaces or better options nearby.
     </p>
 
-    <input type="hidden" name="source" value="rofo-building-page">
-    <input type="hidden" name="page_type" value="building">
-    <input type="hidden" name="page_url" value="https://www.myrofo.com{{ page.url }}">
+    <input type="text" name="_gotcha" style="display:none">
+    <input type="hidden" name="source" value="rofo-building-page" />
+    <input type="hidden" name="lead_type" value="building" />
+    <input type="hidden" name="page_type" value="building" />
+    <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}" />
 
-    <input type="hidden" name="building_name" value="{{ building.name or '' }}">
-    <input type="hidden" name="building_address" value="{{ building.address or '' }}">
-    <input type="hidden" name="building_city" value="{{ building.city or '' }}">
-    <input type="hidden" name="building_state" value="{{ building.state_abbr or '' }}">
-    <input type="hidden" name="building_type" value="{{ building.type or '' }}">
-    <input type="hidden" name="building_slug" value="{{ building.building_slug or '' }}">
-    <input type="hidden" name="building_space_types" value="{{ (building.space_types or []) | join(', ') }}">
-    <input type="hidden" name="building_company" value="{{ building.primary_source or '' }}">
-    <input type="hidden" name="building_source_companies" value="{{ (building.source_companies or []) | join(', ') }}">
-    <input type="hidden" name="is_exec_suite_present" value="{{ building.is_exec_suite_present or false }}">
+    <input type="hidden" name="building_name" value="{{ building.name or '' }}" />
+    <input type="hidden" name="building_address" value="{{ building.address or '' }}" />
+    <input type="hidden" name="building_slug" value="{{ building.building_slug or '' }}" />
 
-    <div class="form-grid">
+    <input type="hidden" name="city" value="{{ building.city or '' }}" />
+    <input type="hidden" name="state" value="{{ building.state_abbr or '' }}" />
+    <input type="hidden" name="market" value="{{ building.city or '' }}, {{ building.state_abbr or '' }}" />
+    <input type="hidden" name="space_type" value="{{ building.type or '' }}" />
+
+    <input type="hidden" name="primary_source" value="{{ building.primary_source or '' }}" />
+    <input type="hidden" name="building_company" value="{{ building.company or building.primary_source or '' }}" />
+    <input type="hidden" name="building_source_companies" value="{{ (building.source_companies or []) | join(', ') }}" />
+    <input type="hidden" name="building_space_types" value="{{ (building.space_types or []) | join(', ') }}" />
+    <input type="hidden" name="is_exec_suite_present" value="{{ building.is_exec_suite_present or false }}" />
+
+    <input type="hidden" name="routing_key" value="{{ (building.primary_source or 'unknown') | lower }}__{{ building.city_slug or '' }}__{{ (building.type or 'unknown') | lower }}" />
+
       <div class="field">
         <label for="building-lead-email">Email</label>
         <input
@@ -465,40 +472,29 @@ eleventyComputed:
       </div>
 
       <div class="field">
-        <label for="building-lead-market">Market</label>
+        <label for="building-lead-type">Type of Space</label>
         <input
-          id="building-lead-market"
+          id="building-lead-type"
           type="text"
-          value="{{ building.city }}, {{ building.state_abbr }}"
+          value="{{ building.type }}"
           disabled
         >
       </div>
-    </div>
 
-    <div class="field">
-      <label for="building-lead-type">Property type</label>
-      <input
-        id="building-lead-type"
-        type="text"
-        value="{{ building.type }}"
-        disabled
-      >
-    </div>
+      <div class="field">
+        <label for="building-lead-notes">What are you looking for?</label>
+        <textarea
+          id="building-lead-notes"
+          name="notes"
+          placeholder="Example: 2–4 person office, move in May, flexible budget"
+        ></textarea>
+      </div>
 
-    <div class="field">
-      <label for="building-lead-notes">What are you looking for?</label>
-      <textarea
-        id="building-lead-notes"
-        name="notes"
-        placeholder="Size, location, timing, budget..."
-      ></textarea>
-    </div>
+      <div class="btn-row">
+        <button class="btn-primary" type="submit">Get Options Like This</button>
+      </div>
 
-    <div class="btn-row">
-      <button class="btn-primary" type="submit">Show Me Options</button>
-    </div>
-
-    <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
+    <p class="form-note">✓ No cost • ✓ No obligation • ✓ Local Expertise</p>
   </form>
 </div>
 
