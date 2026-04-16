@@ -3,8 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title %}{{ title | trim }}{% else %}Rofo | Find Commercial Real Estate{% endif %}</title>
-  <meta name="description" content="{{ description or 'Rofo helps businesses find office, retail, and industrial space across U.S. markets.' }}">
+
+  {% set siteName = metadata.siteName or "Rofo" %}
+  {% set defaultDescription = "Rofo helps businesses find office, retail, industrial, flex, and coworking space across U.S. markets. Explore cities, compare buildings, and get help finding the right space." %}
+  {% set siteUrl = metadata.siteUrl or "" %}
+  {% set canonicalUrl = "" %}
+  {% set pageTitle = siteName + " | Find Office, Retail & Industrial Space" %}
+  {% set pageDescription = description or defaultDescription %}
+
+  {% if canonical %}
+    {% set canonicalUrl = canonical %}
+  {% elseif siteUrl and page and page.url %}
+    {% set canonicalUrl = siteUrl + page.url %}
+  {% endif %}
+
+  {% if title %}
+    {% set pageTitle = title | trim %}
+  {% endif %}
+
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+
+  {% if canonicalUrl %}
+    <link rel="canonical" href="{{ canonicalUrl }}">
+  {% endif %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ siteName }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+
+  {% if canonicalUrl %}
+    <meta property="og:url" content="{{ canonicalUrl }}">
+  {% endif %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -27,23 +63,26 @@
       <div>
         <h4>Markets</h4>
         <a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a>
-<a href="/commercial-real-estate/TX/austin/">Austin</a>
-<a href="/commercial-real-estate/CO/denver/">Denver</a>
+        <a href="/commercial-real-estate/TX/austin/">Austin</a>
+        <a href="/commercial-real-estate/CO/denver/">Denver</a>
       </div>
       <div>
         <div>
-  <h4>Company</h4>
-    <a href="/about/">About</a>
-    <a href="/#contact">Contact</a>
-    <a href="/partner-with-rofo/">Partner With Rofo</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/terms/">Terms</a>
-    <a href="/sitemap/">Sitemap</a>
-</div>
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/#contact">Contact</a>
+          <a href="/partner-with-rofo/">Partner With Rofo</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/sitemap/">Sitemap</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-  window.rofoMarkets = {{ searchMarkets | dump | safe }};
-</script>
-<script src="/js/market-search.js"></script>
+    window.rofoMarkets = {{ searchMarkets | dump | safe }};
+  </script>
+  <script src="/js/market-search.js"></script>
+</body>
+</html>

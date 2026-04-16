@@ -427,41 +427,80 @@ eleventyComputed:
 
       <div class="stack">
         <div class="building-form">
-          <form>
-            <div class="eyebrow">Get Help</div>
-            <h2>Need space in {{ building.city }}?</h2>
-            <p>
-              Tell us what you're looking for and we’ll help you find the right space.
-            </p>
+  <form
+    action="https://formspree.io/f/xreoadbr"
+    method="POST"
+  >
+    <div class="eyebrow">Get Help</div>
+    <h2>Need space in {{ building.city }}?</h2>
+    <p>
+      Tell us what you're looking for and we’ll help you find the right space.
+    </p>
 
-            <div class="form-grid">
-              <div class="field">
-                <label>Email</label>
-                <input type="email" placeholder="Your email">
-              </div>
-              <div class="field">
-                <label>Market</label>
-                <input type="text" value="{{ building.city }}, {{ building.state_abbr }}">
-              </div>
-            </div>
+    <input type="hidden" name="source" value="rofo-building-page">
+    <input type="hidden" name="page_type" value="building">
+    <input type="hidden" name="page_url" value="https://www.myrofo.com{{ page.url }}">
 
-            <div class="field">
-              <label>Property type</label>
-              <input type="text" value="{{ building.type }}">
-            </div>
+    <input type="hidden" name="building_name" value="{{ building.name or '' }}">
+    <input type="hidden" name="building_address" value="{{ building.address or '' }}">
+    <input type="hidden" name="building_city" value="{{ building.city or '' }}">
+    <input type="hidden" name="building_state" value="{{ building.state_abbr or '' }}">
+    <input type="hidden" name="building_type" value="{{ building.type or '' }}">
+    <input type="hidden" name="building_slug" value="{{ building.building_slug or '' }}">
+    <input type="hidden" name="building_space_types" value="{{ (building.space_types or []) | join(', ') }}">
+    <input type="hidden" name="building_company" value="{{ building.primary_source or '' }}">
+    <input type="hidden" name="building_source_companies" value="{{ (building.source_companies or []) | join(', ') }}">
+    <input type="hidden" name="is_exec_suite_present" value="{{ building.is_exec_suite_present or false }}">
 
-            <div class="field">
-              <label>What are you looking for?</label>
-              <textarea placeholder="Size, location, timing, budget..."></textarea>
-            </div>
+    <div class="form-grid">
+      <div class="field">
+        <label for="building-lead-email">Email</label>
+        <input
+          id="building-lead-email"
+          name="email"
+          type="email"
+          placeholder="Your email"
+          required
+        >
+      </div>
 
-            <div class="btn-row">
-              <button class="btn-primary">Submit</button>
-            </div>
+      <div class="field">
+        <label for="building-lead-market">Market</label>
+        <input
+          id="building-lead-market"
+          type="text"
+          value="{{ building.city }}, {{ building.state_abbr }}"
+          disabled
+        >
+      </div>
+    </div>
 
-            <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
-          </form>
-        </div>
+    <div class="field">
+      <label for="building-lead-type">Property type</label>
+      <input
+        id="building-lead-type"
+        type="text"
+        value="{{ building.type }}"
+        disabled
+      >
+    </div>
+
+    <div class="field">
+      <label for="building-lead-notes">What are you looking for?</label>
+      <textarea
+        id="building-lead-notes"
+        name="notes"
+        placeholder="Size, location, timing, budget..."
+      ></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" type="submit">Show Me Options</button>
+    </div>
+
+    <p class="form-note">✓ No cost • ✓ No obligation • ✓ Fast response</p>
+  </form>
+</div>
 
         <div class="building-card">
           <div class="eyebrow">Why Rofo</div>
