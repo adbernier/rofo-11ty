@@ -198,6 +198,13 @@ console.warn(
     : `✅ Building full dataset: ${limitedCities.length} cities`
 );
 
+const cityHeroImages = {
+  "san-francisco-ca": {
+    hero_image: "/assets/images/cities/san-francisco.jpg",
+    hero_image_alt: "Street view of San Francisco with small businesses and offices"
+  }
+};
+
 // ---- HELPERS ----
 function toRadians(deg) {
   return deg * (Math.PI / 180);
@@ -253,8 +260,16 @@ module.exports = limitedCities.map((city) => {
     .sort((a, b) => a.distance_miles - b.distance_miles)
     .slice(0, 4);
 
+  const cityKey =
+    city.city_state_slug ||
+    `${slugify(city.city)}-${String(city.state_abbr || "").toLowerCase()}`;
+
+  const hero = cityHeroImages[cityKey] || {};
+
   return {
     ...city,
+    hero_image: hero.hero_image || "",
+    hero_image_alt: hero.hero_image_alt || "",
     path: `/commercial-real-estate/${city.state_abbr}/${city.slug}/`,
     label: `${city.city}, ${city.state_abbr}`,
     nearby_cities: candidates.map((c) => c.slug),
