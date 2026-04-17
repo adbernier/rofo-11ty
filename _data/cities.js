@@ -3,11 +3,10 @@ const path = require("path");
 
 const rawCities = require("./raw/cities.raw.json");
 
-const supplementalCsvPath = path.join(
-  __dirname,
-  "raw",
-  "rofo_top_1200_cities_2026-04-14_103326.csv"
-);
+const supplementalCsvPaths = [
+  path.join(__dirname, "raw", "rofo_top_1200_cities_2026-04-14_103326.csv"),
+  path.join(__dirname, "raw", "gsc_cities.csv"),
+];
 
 function slugify(text) {
   return String(text || "")
@@ -164,7 +163,7 @@ function mergeSupplementalCities(baseCities, supplementalRows) {
   return merged;
 }
 
-const supplementalRows = readCsvRows(supplementalCsvPath);
+const supplementalRows = supplementalCsvPaths.flatMap(readCsvRows);
 const mergedRawCities = mergeSupplementalCities(rawCities, supplementalRows);
 
 // ---- DEDUPE ----
@@ -238,27 +237,27 @@ function formatNearbyList(candidates) {
 
 // ---- FINAL EXPORT ----
 module.exports = limitedCities.map((city) => {
-  const candidates = limitedCities
-    .filter(
-      (other) =>
-        !(other.city === city.city && other.state_abbr === city.state_abbr) &&
-        other.state_abbr === city.state_abbr &&
-        validCoord(city.lat) &&
-        validCoord(city.lng) &&
-        validCoord(other.lat) &&
-        validCoord(other.lng)
-    )
-    .map((other) => ({
-      ...other,
-      distance_miles: haversineMiles(
-        city.lat,
-        city.lng,
-        other.lat,
-        other.lng
-      ),
-    }))
-    .sort((a, b) => a.distance_miles - b.distance_miles)
-    .slice(0, 4);
+  const candidates = validCoord(city.lat) && validCoord(city.lng)
+  ? limitedCities
+      .filter(
+        (other) =>
+          !(other.city === city.city && other.state_abbr === city.state_abbr) &&
+          other.state_abbr === city.state_abbr &&
+          validCoord(other.lat) &&
+          validCoord(other.lng)
+      )
+      .map((other) => ({
+        ...other,
+        distance_miles: haversineMiles(
+          city.lat,
+          city.lng,
+          other.lat,
+          other.lng
+        ),
+      }))
+      .sort((a, b) => a.distance_miles - b.distance_miles)
+      .slice(0, 4)
+  : [];
 
   const cityKey =
     city.city_state_slug ||
