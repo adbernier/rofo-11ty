@@ -311,21 +311,33 @@ eleventyComputed:
       </div>
 
       <div class="city-sidecard">
-        <div class="hero-media">
-          {% set heroImage = city.hero_image or "/images/placeholders/city-placeholder.svg" %}
-{% set heroAlt = city.hero_image_alt or (city.city + ", " + city.state_abbr) %}
+  <div class="hero-media">
 
-<img
-  class="hero-image"
-  src="{{ heroImage }}"
-  alt="{{ heroAlt }}"
-/>
-          <div class="hero-overlay">
-            <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
-            <p class="hero-overlay-meta">Commercial Real Estate Market</p>
-          </div>
-        </div>
-      </div>
+    {% if city.hero_image %}
+      <img
+        class="hero-image"
+        src="{{ city.hero_image }}"
+        alt="{{ city.hero_image_alt or (city.city + ", " + city.state_abbr) }}"
+        width="1200"
+        height="400"
+        fetchpriority="high"
+        decoding="async"
+      />
+    {% else %}
+      <div
+        class="hero-image hero-image--placeholder hero-image--theme-{{ city.placeholder_theme }}"
+        data-location="{{ city.city }}, {{ city.state_abbr }}"
+        aria-label="{{ city.city }}, {{ city.state_abbr }}"
+      ></div>
+    {% endif %}
+
+    <div class="hero-overlay">
+      <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
+      <p class="hero-overlay-meta">Commercial Real Estate Market</p>
+    </div>
+
+  </div>
+</div>
     </div>
 
     <div class="stats-grid">

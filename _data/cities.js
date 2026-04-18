@@ -235,29 +235,39 @@ function formatNearbyList(candidates) {
   return `${labels[0]}, ${labels[1]}, and ${labels[2]}`;
 }
 
+// ---- HELPERS ----
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
 // ---- FINAL EXPORT ----
 module.exports = limitedCities.map((city) => {
   const candidates = validCoord(city.lat) && validCoord(city.lng)
-  ? limitedCities
-      .filter(
-        (other) =>
-          !(other.city === city.city && other.state_abbr === city.state_abbr) &&
-          other.state_abbr === city.state_abbr &&
-          validCoord(other.lat) &&
-          validCoord(other.lng)
-      )
-      .map((other) => ({
-        ...other,
-        distance_miles: haversineMiles(
-          city.lat,
-          city.lng,
-          other.lat,
-          other.lng
-        ),
-      }))
-      .sort((a, b) => a.distance_miles - b.distance_miles)
-      .slice(0, 4)
-  : [];
+    ? limitedCities
+        .filter(
+          (other) =>
+            !(other.city === city.city && other.state_abbr === city.state_abbr) &&
+            other.state_abbr === city.state_abbr &&
+            validCoord(other.lat) &&
+            validCoord(other.lng)
+        )
+        .map((other) => ({
+          ...other,
+          distance_miles: haversineMiles(
+            city.lat,
+            city.lng,
+            other.lat,
+            other.lng
+          ),
+        }))
+        .sort((a, b) => a.distance_miles - b.distance_miles)
+        .slice(0, 4)
+    : [];
 
   const cityKey =
     city.city_state_slug ||
@@ -265,12 +275,19 @@ module.exports = limitedCities.map((city) => {
 
   const hero = cityHeroImages[cityKey] || {};
 
+  // 🔥 NEW: deterministic theme (0–5)
+  const placeholder_theme = hashString(city.slug) % 6;
+
   return {
     ...city,
     hero_image: hero.hero_image || "",
     hero_image_alt: hero.hero_image_alt || "",
     path: `/commercial-real-estate/${city.state_abbr}/${city.slug}/`,
     label: `${city.city}, ${city.state_abbr}`,
+
+    // 🔥 NEW
+    placeholder_theme,
+
     nearby_cities: candidates.map((c) => c.slug),
     nearby_city_details: candidates.map((c) => ({
       slug: c.slug,
