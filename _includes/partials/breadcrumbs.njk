@@ -20,11 +20,12 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {% for crumb in crumbs %}
+    {% set absoluteUrl = (metadata.siteUrl or "https://www.rofo.com") + crumb.url %}
     {
       "@type": "ListItem",
       "position": {{ loop.index }},
       "name": {{ crumb.label | dump | safe }},
-      "item": {{ crumb.url | dump | safe }}
+      "item": {{ absoluteUrl | dump | safe }}
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
