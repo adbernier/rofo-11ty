@@ -459,20 +459,17 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          <div class="city-card">
+                    <div class="city-card">
             <div class="eyebrow">Nearby Markets</div>
-            <h2>Explore nearby cities</h2>
-            <p>Browse nearby markets to expand your search.</p>
+            <h2>Explore nearby markets</h2>
+            <p>Businesses often consider these nearby markets when evaluating options in {{ city.city }}.</p>
 
             <div class="market-links">
-              {% if city.nearby_city_details and city.nearby_city_details.length %}
-                {% for nearby in city.nearby_city_details %}
-                  {% set nearbyCity = cityLookup[nearby.slug] %}
-                  {% if nearbyCity %}
-                    <a href="{{ nearbyCity.path }}">
-                      Commercial Real Estate in {{ nearbyCity.label }}
-                    </a>
-                  {% endif %}
+              {% if city.nearby_cities and city.nearby_cities.length %}
+                {% for nearby in city.nearby_cities %}
+                  <a href="{{ nearby.path }}">
+                    {{ nearby.city }}, {{ nearby.state_abbr }}
+                  </a>
                 {% endfor %}
               {% else %}
                 <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>

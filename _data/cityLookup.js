@@ -1,4 +1,4 @@
-const cities = require("./cities.js");
+const cities = require("./cities.generated.json");
 
 module.exports = Object.fromEntries(
   cities.map((city) => [

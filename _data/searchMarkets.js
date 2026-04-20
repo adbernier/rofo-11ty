@@ -1,5 +1,5 @@
 module.exports = function() {
-  const cities = require("./cities.js");
+  const cities = require("./cities.generated.json");
 
   return cities.map(city => ({
     city: city.city,

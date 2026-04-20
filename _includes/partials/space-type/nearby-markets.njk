@@ -1,13 +1,13 @@
 <div class="city-card">
   <div class="eyebrow">Nearby Markets</div>
-  <h2>Compare nearby markets</h2>
+  <h2>Explore nearby markets</h2>
+  <p>Businesses often consider these nearby markets when evaluating {{ spaceType.label | lower }} options in {{ city.city }}.</p>
 
-  {% if city.nearby_city_details and city.nearby_city_details.length %}
+  {% if city.nearby_cities and city.nearby_cities.length %}
     <div class="market-links">
-      {% for nearby in city.nearby_city_details.slice(0, 6) %}
-        <a href="/commercial-real-estate/{{ nearby.state_abbr | lower }}/{{ nearby.slug | lower }}/{{ spaceType.slug }}/">
+      {% for nearby in city.nearby_cities %}
+        <a href="{{ nearby.path }}{{ spaceType.slug }}/">
           {{ nearby.city }}, {{ nearby.state_abbr }}
-          {% if nearby.distance_miles %} {{ nearby.distance_miles }} miles away{% endif %}
         </a>
       {% endfor %}
     </div>

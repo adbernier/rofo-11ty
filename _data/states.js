@@ -1,4 +1,4 @@
-const cities = require("./cities");
+const cities = require("./cities.generated.json");
 
 const seen = new Set();
 
