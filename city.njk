@@ -293,12 +293,12 @@ eleventyComputed:
           <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
 
           <p class="lead">
-            Explore office, retail, and industrial space in {{ city.city }}.
-            Browse representative buildings or get help finding the right location.
+            Explore office, retail, and industrial space for lease in {{ city.city }}, {{ city.state_abbr }}.
+            Browse representative buildings, compare nearby markets, or get help finding available space.
           </p>
 
           <div class="hero-actions">
-            <a class="btn-primary" href="#market-contact-form">Get Help Finding Space</a>
+            <a class="btn-primary" href="#market-contact-form">Get Available Spaces in {{ city.city }}</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
               Browse Buildings
             </a>
@@ -311,33 +311,33 @@ eleventyComputed:
       </div>
 
       <div class="city-sidecard">
-  <div class="hero-media">
+        <div class="hero-media">
 
-    {% if city.hero_image %}
-      <img
-        class="hero-image"
-        src="{{ city.hero_image }}"
-        alt="{{ city.hero_image_alt or (city.city + ", " + city.state_abbr) }}"
-        width="1200"
-        height="400"
-        fetchpriority="high"
-        decoding="async"
-      />
-    {% else %}
-      <div
-        class="hero-image hero-image--placeholder hero-image--theme-{{ city.placeholder_theme }}"
-        data-location="{{ city.city }}, {{ city.state_abbr }}"
-        aria-label="{{ city.city }}, {{ city.state_abbr }}"
-      ></div>
-    {% endif %}
+          {% if city.hero_image %}
+            <img
+              class="hero-image"
+              src="{{ city.hero_image }}"
+              alt="{{ city.hero_image_alt or (city.city + ", " + city.state_abbr) }}"
+              width="1200"
+              height="400"
+              fetchpriority="high"
+              decoding="async"
+            />
+          {% else %}
+            <div
+              class="hero-image hero-image--placeholder hero-image--theme-{{ city.placeholder_theme }}"
+              data-location="{{ city.city }}, {{ city.state_abbr }}"
+              aria-label="{{ city.city }}, {{ city.state_abbr }}"
+            ></div>
+          {% endif %}
 
-    <div class="hero-overlay">
-      <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
-      <p class="hero-overlay-meta">Commercial Real Estate Market</p>
-    </div>
+          <div class="hero-overlay">
+            <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
+            <p class="hero-overlay-meta">Commercial Real Estate Market</p>
+          </div>
 
-  </div>
-</div>
+        </div>
+      </div>
     </div>
 
     <div class="stats-grid">
@@ -370,7 +370,7 @@ eleventyComputed:
       </div>
     </div>
 
-{% include "partials/city/helpful-leasing-card.njk" %}
+    {% include "partials/city/helpful-leasing-card.njk" %}
 
     <div class="city-card city-card--full">
       <div class="featured-header">
@@ -422,7 +422,7 @@ eleventyComputed:
             commercial real estate market in {{ city.state_abbr }}.
           </p>
           <p>
-            Businesses typically search here for office, retail, and industrial space based on access, visibility, and proximity to customers or workforce.
+            Businesses typically search here for office, retail, and industrial space for lease based on access, visibility, and proximity to customers or workforce.
             Many also compare {{ city.city }} with nearby markets to evaluate pricing, inventory, and location fit.
           </p>
         </div>
@@ -469,13 +469,27 @@ eleventyComputed:
                 {% for nearby in city.nearby_city_details %}
                   {% set nearbyCity = cityLookup[nearby.slug] %}
                   {% if nearbyCity %}
-                    <a href="{{ nearbyCity.path }}">{{ nearbyCity.label }} · {{ nearby.distance_miles }} mi</a>
+                    <a href="{{ nearbyCity.path }}">
+                      Commercial Real Estate in {{ nearbyCity.label }}
+                    </a>
                   {% endif %}
                 {% endfor %}
               {% else %}
                 <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>
               {% endif %}
             </div>
+          </div>
+
+          <div class="city-card">
+            <div class="eyebrow">Popular Searches</div>
+            <h2>Popular commercial real estate searches in {{ city.city }}</h2>
+            <ul class="mini-list">
+              <li>Office space for lease in {{ city.city }}</li>
+              <li>Retail space for lease in {{ city.city }}</li>
+              <li>Industrial space in {{ city.city }}</li>
+              <li>Small office space in {{ city.city }}</li>
+              <li>Coworking space in {{ city.city }}</li>
+            </ul>
           </div>
 
           <div class="city-card">
@@ -514,7 +528,7 @@ eleventyComputed:
               <p>
                 Work with a local expert who understands the {{ city.city }} market and can help you evaluate options, negotiate terms, and find the right space.
               </p>
-              <a class="btn btn-primary" href="#market-contact-form">Get Free Help Finding Space</a>
+              <a class="btn btn-primary" href="#market-contact-form">Get Available Spaces in {{ city.city }}</a>
             </div>
 
             <p class="subtle-note">
@@ -531,6 +545,9 @@ eleventyComputed:
           <h2>Get Help Finding Space in {{ city.city }}</h2>
           <p>
             Tell us what you’re looking for — we’ll help you find and compare the right spaces in {{ city.city }}.
+          </p>
+          <p>
+            Rofo helps businesses explore and secure commercial space across {{ city.state_abbr }}.
           </p>
 
           <form
@@ -598,7 +615,7 @@ eleventyComputed:
             </div>
 
             <div class="btn-row">
-              <button class="btn-primary" type="submit">Get Help Finding Space</button>
+              <button class="btn-primary" type="submit">Get Available Spaces</button>
             </div>
 
             <p class="form-note">✓ No cost • ✓ No obligation • ✓ Local expertise</p>
