@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P38M67VE76');
-</script>
-
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P38M67VE76"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P38M67VE76');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:image" content="https://www.rofo.com/images/og-default.png">
@@ -96,9 +95,6 @@
     </div>
   </footer>
 
-  <script>
-    window.rofoMarkets = {{ searchMarkets | dump | safe }};
-  </script>
-  <script src="/js/market-search.js"></script>
+  <script src="/js/market-search.js" defer></script>
 </body>
 </html>
