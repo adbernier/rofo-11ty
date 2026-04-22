@@ -1,12 +1,21 @@
 const fs = require("fs");
 const path = require("path");
 
-const cityHeroImages = {
-  "san-francisco-ca": {
-    hero_image: "/assets/images/cities/san-francisco.jpg",
-    hero_image_alt: "Street view of San Francisco with small businesses and offices"
+function findCityHeroImage(cityStateSlug) {
+  const baseDir = path.join(process.cwd(), "assets", "images", "cities");
+  const extensions = [".jpg", ".jpeg", ".webp", ".png"];
+
+  for (const ext of extensions) {
+    const filename = `${cityStateSlug}${ext}`;
+    const filePath = path.join(baseDir, filename);
+
+    if (fs.existsSync(filePath)) {
+      return `/assets/images/cities/${filename}`;
+    }
   }
-};
+
+  return "";
+}
 
 function hashString(str) {
   let hash = 0;
@@ -24,22 +33,24 @@ module.exports = () => {
   const cities = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
   return cities.map((city) => {
-    const heroOverride = cityHeroImages[city.city_state_slug] || {};
+    const cityStateSlug =
+      city.city_state_slug || `${city.slug}-${city.state_abbr.toLowerCase()}`;
+
+    const autoHeroImage = findCityHeroImage(cityStateSlug);
     const rawHeroImage = city.hero_image || "";
     const isGenericPlaceholder = rawHeroImage === "/images/cities/city.jpg";
 
     const placeholderTheme =
       city.placeholder_theme !== undefined && city.placeholder_theme !== null
         ? city.placeholder_theme
-        : hashString(city.city_state_slug || `${city.city}-${city.state_abbr}`) % PLACEHOLDER_THEME_COUNT;
+        : hashString(cityStateSlug || `${city.city}-${city.state_abbr}`) % PLACEHOLDER_THEME_COUNT;
 
     return {
       ...city,
       hero_image:
-        heroOverride.hero_image ||
+        autoHeroImage ||
         (isGenericPlaceholder ? "" : rawHeroImage),
       hero_image_alt:
-        heroOverride.hero_image_alt ||
         city.hero_image_alt ||
         `${city.city}, ${city.state_abbr}`,
       placeholder_theme: placeholderTheme
