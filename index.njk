@@ -186,67 +186,79 @@ description: Rofo helps businesses find office, retail, and industrial space acr
       <p>Tell us what you need — we’ll follow up with a few spaces that fit.</p>
 
       <form action="https://formspree.io/f/xreoadbr" method="POST">
-        <input type="hidden" name="source" value="rofo-homepage">
-        <input type="hidden" name="page_type" value="homepage">
-        <input type="hidden" name="page_url" value="{{ page.url }}">
+  <input type="hidden" name="source" value="rofo-homepage">
+  <input type="hidden" name="page_type" value="homepage">
+  <input type="hidden" name="page_url" value="{{ page.url }}">
 
-        <div class="form-stack">
-          <div class="field">
-            <label>Name</label>
-            <input name="name" type="text" placeholder="Your name" required>
-          </div>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>Name</label>
+      <input name="name" type="text" placeholder="Your name" required>
+    </div>
+  </div>
 
-        <div class="form-stack">
-          <div class="field">
-            <label>Email</label>
-            <input name="email" type="email" placeholder="you@example.com" required>
-          </div>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>Email</label>
+      <input name="email" type="email" placeholder="you@example.com" required>
+    </div>
+  </div>
 
-        <div class="form-stack">
-          <div class="field">
-            <label>What type of space? <span class="optional">(optional)</span></label>
-            <select name="space_needed">
-              <option value="">Select one</option>
-              <option>Under 1,000 sqft</option>
-              <option>1,000–2,500 sqft</option>
-              <option>2,500–5,000 sqft</option>
-              <option>5,000–10,000 sqft</option>
-              <option>10,000+ sqft</option>
-            </select>
-          </div>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>Where are you looking?</label>
+      <input
+        name="location"
+        type="text"
+        placeholder="City, State (e.g. San Francisco, CA)"
+        required
+      >
+    </div>
+  </div>
 
-        <div class="form-stack">
-          <div class="field">
-            <label>Timeline <span class="optional">(optional)</span></label>
-            <select name="timeline">
-              <option value="">Select one</option>
-              <option>ASAP</option>
-              <option>Within 3 months</option>
-              <option>Within 6 months</option>
-              <option>6+ months</option>
-              <option>Just exploring</option>
-            </select>
-          </div>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>What size of space? <span class="optional">(optional)</span></label>
+      <select name="space_needed">
+        <option value="">Select one</option>
+        <option>Under 1,000 sqft</option>
+        <option>1,000–2,500 sqft</option>
+        <option>2,500–5,000 sqft</option>
+        <option>5,000–10,000 sqft</option>
+        <option>10,000+ sqft</option>
+      </select>
+    </div>
+  </div>
 
-        <div class="form-stack">
-          <div class="field">
-  <label>What are you looking for? <span class="optional">(optional)</span></label>
-  <textarea name="notes" placeholder="Example: 2–4 person office, move in May, flexible budget"></textarea>
-</div>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>Timeline <span class="optional">(optional)</span></label>
+      <select name="timeline">
+        <option value="">Select one</option>
+        <option>ASAP</option>
+        <option>Within 3 months</option>
+        <option>Within 6 months</option>
+        <option>6+ months</option>
+        <option>Just exploring</option>
+      </select>
+    </div>
+  </div>
 
-        <div class="btn-row">
-          <button class="btn btn-primary" type="submit">Get Help Finding Space</button>
-        </div>
+  <div class="form-stack">
+    <div class="field">
+      <label>What are you looking for? <span class="optional">(optional)</span></label>
+      <textarea name="notes" placeholder="Example: 2–4 person office, move in May, flexible budget"></textarea>
+    </div>
+  </div>
 
-        <p class="form-note">
-          No spam. Just helpful options to get you started.
-        </p>
-      </form>
+  <div class="btn-row">
+    <button class="btn btn-primary" type="submit">Get Help Finding Space</button>
+  </div>
+
+  <p class="form-note">
+    No spam. Just helpful options to get you started.
+  </p>
+</form>
     </div>
 
   </div>
