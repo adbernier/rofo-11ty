@@ -25,4 +25,10 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
+  {% for company in companies %}
+  <url>
+    <loc>https://rofo.com/commercial-real-estate/company/{{ company.slug }}/</loc>
+  </url>
+  {% endfor %}
+
 </urlset>

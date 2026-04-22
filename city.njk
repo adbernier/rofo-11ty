@@ -69,11 +69,11 @@ eleventyComputed:
   }
 
   .city-page h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.02;
+    font-size: clamp(1.85rem, 3.6vw, 2.7rem);
+    line-height: 1.04;
     margin: 0;
     color: #0f172a;
-    max-width: 11ch;
+    max-width: 16ch;
   }
 
   .city-page h2 {
@@ -259,7 +259,7 @@ eleventyComputed:
     }
 
     .city-page h1 {
-      max-width: 14ch;
+      max-width: 13ch;
     }
   }
 
@@ -279,6 +279,56 @@ eleventyComputed:
       max-width: none;
     }
   }
+
+  /* =========================
+   BUILDINGS TO EXPLORE CARD
+   ========================= */
+
+.city-page .buildings-explore-card {
+  padding-bottom: 24px;
+}
+
+.city-page .buildings-explore-card > *:last-child {
+  margin-bottom: 0;
+}
+
+.city-page .buildings-explore-card .featured-header,
+.city-page .buildings-explore-card .featured-header--simple {
+  display: block;
+  margin-bottom: 0;
+}
+
+.city-page .buildings-explore-card h2 {
+  margin: 0 0 10px;
+}
+
+.city-page .buildings-explore-card__intro {
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 72ch;
+}
+
+.city-page .buildings-explore-card__grid {
+  margin-top: 18px;
+}
+
+.city-page .buildings-explore-card__footer-link {
+  margin-top: 18px;
+}
+
+.city-page .buildings-explore-card__footer-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.city-page .buildings-explore-card__footer-link a:hover {
+  text-decoration: underline;
+}
+
 </style>
 
 <section class="city-page">
@@ -372,46 +422,12 @@ eleventyComputed:
 
     {% include "partials/city/helpful-leasing-card.njk" %}
 
-    <div class="city-card city-card--full">
-      <div class="featured-header">
-        <div>
-          <div class="eyebrow">Featured</div>
-          <h2>Representative Buildings in {{ city.city }}</h2>
-        </div>
+{# ===== FEATURED COMPANY CARD ===== #}
+{% set company = companies[0] %}
+{% include "partials/city/featured-company-card.njk" %}
+{% include "partials/city/buildings-to-explore.njk" %}
 
-        <div class="featured-header__cta">
-          <span>Want your building featured?</span>
-          <a class="building-link" href="/partner-with-rofo/">Partner with Rofo</a>
-        </div>
-      </div>
-
-      <p>
-        A curated selection of office, retail, and industrial properties in {{ city.city }}.
-        These buildings reflect the types of spaces typically available in this market.
-      </p>
-
-      {% set featuredBuildings = [] %}
-      {% for b in buildingPages %}
-        {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr %}
-          {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
-        {% endif %}
-      {% endfor %}
-
-      <div class="building-grid">
-        {% for b in featuredBuildings.slice(0, 6) %}
-          {% set building = b %}
-          {% include "partials/shared/building-card-compact.njk" %}
-        {% endfor %}
-      </div>
-
-      <p style="margin-top: 16px;">
-        <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
-          Browse all buildings in {{ city.city }} →
-        </a>
-      </p>
-    </div>
-
-    <div class="city-main">
+<div class="city-main">
       <div class="city-main-left">
         <div class="city-card">
           <div class="eyebrow">Overview</div>

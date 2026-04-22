@@ -1,3 +1,8 @@
+const {
+  getBuildingsForCompany,
+  getBuildingsForCompanyInCity
+} = require("./_data/companyUtils");
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("js");
@@ -46,6 +51,17 @@ module.exports = function(eleventyConfig) {
 
     return variants[hash % variants.length];
   });
+
+  eleventyConfig.addFilter("getBuildingsForCompany", (buildings, companySlug) => {
+    return getBuildingsForCompany(buildings, companySlug);
+  });
+
+  eleventyConfig.addFilter(
+    "getBuildingsForCompanyInCity",
+    (buildings, companySlug, cityStateSlug) => {
+      return getBuildingsForCompanyInCity(buildings, companySlug, cityStateSlug);
+    }
+  );
 
   return {
     dir: {

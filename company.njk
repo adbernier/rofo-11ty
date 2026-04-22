@@ -1,0 +1,77 @@
+---
+layout: base.njk
+pagination:
+  data: companies
+  size: 1
+  alias: company
+permalink: "/commercial-real-estate/company/{{ company.slug }}/index.html"
+eleventyComputed:
+  title: "{{ company.name }} | Commercial Real Estate | Rofo"
+  description: "{{ company.short_description }}"
+---
+
+{% set companyBuildings = buildingPages | getBuildingsForCompany(company.slug) %}
+
+<section class="company-page">
+  <div class="city-shell">
+
+    <nav class="breadcrumbs company-breadcrumbs" aria-label="Breadcrumb">
+      <a href="/commercial-real-estate/">Markets</a>
+      <span>›</span>
+      <span>{{ company.name }}</span>
+    </nav>
+
+    <div class="company-shell">
+      <section class="company-hero card">
+        <div class="company-hero__content">
+          <div class="eyebrow">{{ company.eyebrow or "Featured Portfolio" }}</div>
+          <h1>{{ company.name }}</h1>
+
+          {% if company.short_description %}
+            <p class="company-hero__subhead">{{ company.short_description }}</p>
+          {% endif %}
+
+          {% if company.description %}
+            <p class="company-hero__body">{{ company.description }}</p>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="company-section">
+        <div class="company-section__head">
+          <div>
+            <div class="eyebrow">Available Properties</div>
+            <h2>Properties from {{ company.name }}</h2>
+          </div>
+
+          {% if company.region_label %}
+            <p class="company-section__note">
+              Representative availability in {{ company.region_label }}.
+            </p>
+          {% endif %}
+        </div>
+
+        {% if companyBuildings.length %}
+          <div class="building-grid company-building-grid">
+            {% for building in companyBuildings %}
+              {% include "partials/shared/building-card-compact.njk" %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="card company-empty-state">
+            <p>No properties are currently listed for {{ company.name }}.</p>
+          </div>
+        {% endif %}
+      </section>
+
+      <section class="company-footer-card card">
+        <h3>Looking for space in {{ company.region_label or "this market" }}?</h3>
+        <p>
+          We can help you compare options across nearby buildings and markets.
+        </p>
+        <a href="/contact/" class="btn btn-primary">Get Help Finding Space</a>
+      </section>
+    </div>
+
+  </div>
+</section>

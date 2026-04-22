@@ -1,0 +1,34 @@
+{% set featuredBuildings = [] %}
+{% for b in buildingPages %}
+  {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr and not b.featured_company_slug %}
+    {% set featuredBuildings = (featuredBuildings.push(b), featuredBuildings) %}
+  {% endif %}
+{% endfor %}
+
+<div class="city-card city-card--full buildings-explore-card">
+  <div class="featured-header featured-header--simple">
+    <div>
+      <div class="eyebrow">Buildings to Explore</div>
+      <h2>Buildings to Explore in {{ city.city }}</h2>
+      <p class="buildings-explore-card__intro">
+        A curated selection of office, retail, and industrial buildings in {{ city.city }}.
+        These examples help illustrate the types of properties businesses often consider in this market.
+      </p>
+    </div>
+  </div>
+
+  <div class="buildings-explore-card__grid">
+    <div class="building-grid">
+      {% for b in featuredBuildings.slice(0, 6) %}
+        {% set building = b %}
+        {% include "partials/shared/building-card-compact.njk" %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="buildings-explore-card__footer-link">
+    <a href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
+      Browse all buildings in {{ city.city }} →
+    </a>
+  </div>
+</div>

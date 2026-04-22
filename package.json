@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "dev": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy --serve",
+  "build": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

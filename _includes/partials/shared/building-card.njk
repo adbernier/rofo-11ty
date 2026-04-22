@@ -3,12 +3,12 @@
 {% set buildingTitle = building.address or building.name %}
 
 <article class="building-card">
-  <a
-    class="building-card__link"
-    href="{{ buildingPath }}"
-    aria-label="View {{ buildingTitle }}"
-  >
-    <div class="building-card__media">
+
+  <div class="building-card__media">
+    <a
+      href="{{ buildingPath }}"
+      aria-label="View {{ buildingTitle }}"
+    >
       <img
         class="building-card__image"
         src="{{ building.hero_image or placeholderSrc }}"
@@ -16,18 +16,32 @@
         loading="lazy"
         decoding="async"
       />
+    </a>
 
-      <div class="building-card__overlay">
-        <h3 class="building-card__title">
+    <div class="building-card__overlay">
+      <h3 class="building-card__title">
+        <a href="{{ buildingPath }}">
           {{ buildingTitle }}
-        </h3>
+        </a>
+      </h3>
 
-        {% if building.type or building.size_label %}
-          <p class="building-card__meta">
-            {% if building.type %}{{ building.type }}{% endif %}{% if building.type and building.size_label %} • {% endif %}{% if building.size_label %}{{ building.size_label }}{% endif %}
-          </p>
-        {% endif %}
-      </div>
+      {% if building.type or building.size_label %}
+        <p class="building-card__meta">
+          {% if building.type %}{{ building.type }}{% endif %}
+          {% if building.type and building.size_label %} • {% endif %}
+          {% if building.size_label %}{{ building.size_label }}{% endif %}
+        </p>
+      {% endif %}
+
+      {% if building.featured_company_name and building.featured_company_slug %}
+  <p class="building-presented-by">
+    Presented by
+    <a href="/commercial-real-estate/company/{{ building.featured_company_slug }}/">
+      {{ building.featured_company_name }}
+    </a>
+  </p>
+{% endif %}
     </div>
-  </a>
+  </div>
+
 </article>

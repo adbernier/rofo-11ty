@@ -1,0 +1,24 @@
+{% set currentCityStateSlug = city.city_state_slug or (city.slug + "-" + (city.state_abbr | lower)) %}
+{% set cityCompanyBuildings = buildingPages | getBuildingsForCompanyInCity(company.slug, currentCityStateSlug) %}
+{% set featuredCount = cityCompanyBuildings.length %}
+
+{% if featuredCount %}
+  <div class="city-card city-card--full featured-portfolio-card">
+    <div class="featured-header featured-header--simple">
+      <div>
+        <div class="eyebrow">Featured Portfolio</div>
+        <h2>{{ company.name }} in {{ city.city }}</h2>
+        <p class="featured-portfolio-card__intro">
+          Featured properties presented by {{ company.name }} in {{ city.city }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="featured-portfolio-card__grid featured-portfolio-card__grid--{{ featuredCount if featuredCount < 4 else 3 }}">
+      {% for b in cityCompanyBuildings.slice(0, 3) %}
+        {% set building = b %}
+        {% include "partials/shared/building-card-compact.njk" %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
