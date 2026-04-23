@@ -67,6 +67,7 @@ buildings.forEach((building) => {
 module.exports = cities.flatMap((city) => {
   const normalizedCitySlug = String(city.slug || "").toLowerCase();
   const normalizedStateAbbr = String(city.state_abbr || "").toLowerCase();
+  const stateAbbr = String(city.state_abbr || "").toUpperCase();
 
   return Object.values(spaceTypes).map((spaceType) => {
     const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
@@ -77,7 +78,8 @@ module.exports = cities.flatMap((city) => {
     return {
       city,
       spaceType,
-      state: normalizedStateAbbr,
+      state: stateAbbr,
+      state_abbr: stateAbbr,
       city_slug: normalizedCitySlug,
       page_slug: normalizedTypeSlug,
       representativeBuildings: representativeBuildings.slice(0, 12),

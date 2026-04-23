@@ -14,8 +14,8 @@ eleventyComputed:
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
 {% set crumbs = [
-  { "label": city.city + ", " + city.state_abbr, "url": "/commercial-real-estate/" + (city.state_abbr | lower) + "/" + (city.slug | lower) + "/" },
-  { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + (city.state_abbr | lower) + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
+  { "label": city.city + ", " + city.state_abbr, "url": "/commercial-real-estate/" + city.state_abbr + "/" + (city.slug | lower) + "/" },
+  { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + city.state_abbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
 ] %}
 
 <section class="market-page market-page--space-type">
