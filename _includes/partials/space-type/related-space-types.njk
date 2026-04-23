@@ -15,7 +15,7 @@
       {% if item.slug != spaceType.slug %}
         <a
           class="pill"
-          href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
+          href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/"
         >
           {{ item.label }}
         </a>

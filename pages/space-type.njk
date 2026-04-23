@@ -4,18 +4,19 @@ pagination:
   data: spaceTypePages
   size: 1
   alias: entry
-permalink: "/commercial-real-estate/{{ entry.state }}/{{ entry.city_slug }}/{{ entry.page_slug }}/index.html"
+permalink: "/commercial-real-estate/{{ entry.city.state_abbr | upper }}/{{ entry.city_slug }}/{{ entry.page_slug }}/index.html"
 eleventyComputed:
-  title: "{{ entry.spaceType.label }} Space in {{ entry.city.city }}, {{ entry.city.state_abbr }} | Commercial Real Estate | Rofo"
-  description: "Explore {{ entry.spaceType.label | lower }} space in {{ entry.city.city }}, {{ entry.city.state_abbr }}. Browse representative buildings and get help finding the right commercial space."
+  title: "{{ entry.spaceType.label }} Space in {{ entry.city.city }}, {{ entry.city.state_abbr | upper }} | Commercial Real Estate | Rofo"
+  description: "Explore {{ entry.spaceType.label | lower }} space in {{ entry.city.city }}, {{ entry.city.state_abbr | upper }}. Browse representative buildings and get help finding the right commercial space."
 ---
 
 {% set city = entry.city %}
+{% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
 {% set crumbs = [
-  { "label": city.city + ", " + city.state_abbr, "url": "/commercial-real-estate/" + city.state_abbr + "/" + (city.slug | lower) + "/" },
-  { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + city.state_abbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
+  { "label": city.city + ", " + stateAbbr, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" },
+  { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
 ] %}
 
 <section class="market-page market-page--space-type">

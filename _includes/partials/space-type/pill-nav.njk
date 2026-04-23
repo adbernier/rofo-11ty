@@ -15,7 +15,7 @@
   {% for item in allTypes %}
     <a
       class="pill{% if item.slug == activeSlug %} is-active{% endif %}"
-      href="/commercial-real-estate/{{ city.state_abbr | lower }}/{{ city.slug | lower }}/{{ item.slug }}/"
+      href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/"
       {% if item.slug == activeSlug %}aria-current="page"{% endif %}
     >
       {{ item.label }} space in {{ city.city }}
