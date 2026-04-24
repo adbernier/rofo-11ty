@@ -1,4 +1,4 @@
-const buildings = require("./buildings.json");
+const buildings = require("./buildings.js");
 
 module.exports = buildings.filter((building, index, arr) => {
   const key = [

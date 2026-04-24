@@ -1,6 +1,6 @@
 const cities = require("./cities.generated.json");
 const spaceTypes = require("./spaceTypes");
-const buildings = require("./buildings.json");
+const buildings = require("./buildings.js");
 
 // -----------------------------
 // Normalize building type set
