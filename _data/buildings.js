@@ -13,6 +13,11 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function isLand(building) {
+  const type = String(building.type || building.space_type || "").toLowerCase();
+  return type.includes("land");
+}
+
 function normalizeState(building) {
   return clean(building.state_abbr || building.state || building.property_state).toUpperCase();
 }
@@ -120,7 +125,9 @@ for (const building of companyBuildings) {
   }
 }
 
-module.exports = Array.from(merged.values()).sort((a, b) => {
+const filtered = Array.from(merged.values()).filter(b => !isLand(b));
+
+module.exports = filtered.sort((a, b) => {
   return `${a.state_abbr} ${a.city} ${a.address}`.localeCompare(
     `${b.state_abbr} ${b.city} ${b.address}`
   );
