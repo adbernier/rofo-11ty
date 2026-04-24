@@ -218,7 +218,7 @@ a:hover {
 
 /* =========================
    BUILDING CARD — COMPACT
-   same language, slightly tighter
+   same language, lighter overlay
    ========================= */
 
 .building-card-compact {
@@ -253,31 +253,41 @@ a:hover {
 
 .building-card-compact__overlay {
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
-  padding: 18px 22px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(219, 228, 239, 0.95);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* push content to bottom */
+
+  padding: 10px 10px; /* reduced vertical padding */
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
 .building-card-compact__title {
   margin: 0;
   color: #0f172a;
   font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .building-card-compact__meta {
-  margin: 9px 0 0;
+  margin: 3px 0 0;
   color: #64748b;
-  font-size: 0.97rem;
-  line-height: 1.35;
+  font-size: 0.96rem;
+  line-height: 1.2;
 }
-
+.building-card-compact__meta:last-child {
+  margin-bottom: 0;
+}
 .building-card-compact__link:hover {
   text-decoration: none;
 }
@@ -294,6 +304,59 @@ a:hover {
 
 .building-card-compact__link:hover .building-card-compact__title {
   text-decoration: underline;
+}
+
+.building-card-compact .building-presented-by {
+  margin: 3px 0 0;
+  line-height: 1.15;
+  font-size: 0.86rem;
+  color: #64748b;
+}
+
+.building-card-compact .building-presented-by a {
+  color: #334155;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.building-card-compact .building-presented-by a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .building-card-compact__overlay {
+    left: 12px;
+    right: 12px;
+    bottom: 8px;
+
+    padding: 9px 12px;
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .building-card-compact__title {
+    font-size: 1rem;
+    line-height: 1.11;
+  }
+
+  .building-card-compact__meta {
+    margin-top: 2px;
+    font-size: 0.88rem;
+    line-height: 1.18;
+  }
+
+  .building-card-compact__meta:last-child {
+    margin-bottom: 0;
+  }
+
+  .building-card-compact .building-presented-by {
+    margin-top: 2px;
+    font-size: 0.82rem;
+    line-height: 1.12;
+  }
 }
 
 /* =========================
@@ -1537,5 +1600,131 @@ section.market-page--space-type .market-links a {
     bottom: 12px;
     padding: 12px 14px;
     border-radius: 16px;
+  }
+}
+
+/* =========================
+   Partner Page
+   ========================= */
+
+.partner-page {
+  padding: 32px 0 64px;
+}
+
+.partner-page .page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.partner-hero {
+  padding: 56px;
+}
+
+.partner-hero h1 {
+  max-width: 720px;
+  font-size: clamp(2rem, 4vw, 3rem); /* smaller + tighter */
+  line-height: 1.1;
+  margin: 12px 0 14px;
+  font-weight: 600; /* softer than default bold */
+}
+
+.partner-hero .hero-subhead {
+  max-width: 720px;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.partner-section {
+  margin-top: 32px;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 6px 0 0;
+}
+
+.partner-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.partner-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.partner-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.partner-page .city-card h3 {
+  margin-top: 0;
+}
+
+.step-number {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: rgba(17, 24, 39, 0.08);
+  margin-bottom: 14px;
+}
+
+.partner-list {
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.partner-list li {
+  margin-bottom: 8px;
+}
+
+.pricing-card {
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 18px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.pricing-card h3 {
+  margin: 0 0 10px;
+}
+
+.pricing-card p {
+  margin: 8px 0;
+}
+
+.pricing-note {
+  margin: 22px 0 0;
+  font-weight: 600;
+}
+
+.partner-form-card form {
+  margin-top: 18px;
+}
+
+.partner-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .partner-hero {
+    padding: 32px 24px;
+  }
+
+  .partner-grid--2,
+  .partner-grid--3,
+  .partner-form-grid {
+    grid-template-columns: 1fr;
   }
 }
