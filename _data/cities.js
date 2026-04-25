@@ -3,7 +3,7 @@ const path = require("path");
 
 function findCityHeroImage(cityStateSlug) {
   const baseDir = path.join(process.cwd(), "assets", "images", "cities");
-  const extensions = [".jpg", ".jpeg", ".webp", ".png"];
+  const extensions = [".webp", ".jpg", ".jpeg", ".png"];
 
   for (const ext of extensions) {
     const filename = `${cityStateSlug}${ext}`;
