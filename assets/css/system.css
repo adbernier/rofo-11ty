@@ -512,6 +512,23 @@ h1 {
    FORM SYSTEM
    ========================= */
 
+.field {
+    background: var(--surface-2);
+    border: 1px solid #dbe3ee;
+    border-radius: 14px;
+    padding: 12px 14px;
+    min-height: 70px
+}
+
+.form-grid .field {
+    min-height: auto
+}
+
+.field:focus-within {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(19,70,216,.12);
+}
+
 .form-stack {
   margin-bottom: 14px;
 }

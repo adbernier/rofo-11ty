@@ -217,14 +217,6 @@ h1 {
     align-items: end
 }
 
-.field {
-    background: var(--surface-2);
-    border: 1px solid #dbe3ee;
-    border-radius: 14px;
-    padding: 12px 14px;
-    min-height: 70px
-}
-
 .field label {
     display: block;
     font-size: 12px;
@@ -538,10 +530,6 @@ h1 {
     gap: 12px
 }
 
-.form-grid .field {
-    min-height: auto
-}
-
 .field textarea {
     width: 100%;
     border: none;
@@ -561,11 +549,6 @@ h1 {
     color: inherit;
     outline: none
 }
-.field:focus-within {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(19,70,216,.12);
-}
-
 .form-note {
     margin: -4px 0 0;
     font-size: 13px;
