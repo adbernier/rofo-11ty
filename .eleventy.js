@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon-32x32.png");
   eleventyConfig.addPassthroughCopy("favicon-16x16.png");
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   eleventyConfig.addFilter("uniqueStates", (cities) => {
     const seen = new Set();
