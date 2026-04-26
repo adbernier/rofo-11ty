@@ -83,6 +83,11 @@ a:hover {
   margin: 0 0 14px;
 }
 
+.pill.dark {
+  background: rgba(255,255,255,.13);
+  color: #fff;
+}
+
 /* =========================
    CARDS
    ========================= */
@@ -419,18 +424,26 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 18px;
   border-radius: 12px;
   font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-primary {
   background: var(--rofo-blue);
   color: #fff;
   border: none;
+  box-shadow: 0 12px 24px rgba(19,70,216,.18);
 }
 
 .btn-primary:hover {
