@@ -168,7 +168,21 @@ eleventyComputed:
             commercial real estate market in {{ city.state_abbr }}.
           </p>
           <p>
-            Businesses typically search here for office, retail, and industrial space for lease based on access, visibility, and proximity to customers or workforce.
+            {% if availableSpaceTypes.length %}
+              Businesses search here for
+              {% for item in availableSpaceTypes %}
+                {% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}
+                {% if item.slug == "office-space" %}office leasing
+                {% elseif item.slug == "industrial-space" %}warehouse and logistics space
+                {% elseif item.slug == "retail-space" %}storefront and restaurant space
+                {% elseif item.slug == "flex-space" %}flexible commercial space
+                {% elseif item.slug == "coworking-space" %}coworking options
+                {% endif %}
+              {% endfor %}
+              based on access, visibility, and proximity to customers or workforce.
+            {% else %}
+              Businesses typically evaluate commercial space here based on access, visibility, and proximity to customers or workforce.
+            {% endif %}
             Many also compare {{ city.city }} with nearby markets to evaluate pricing, inventory, and location fit.
           </p>
         </div>
