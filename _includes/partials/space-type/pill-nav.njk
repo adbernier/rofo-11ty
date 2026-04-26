@@ -13,13 +13,16 @@
 
 <div class="pill-nav">
   {% for item in allTypes %}
-    <a
-      class="pill{% if item.slug == activeSlug %} is-active{% endif %}"
-      href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/"
-      {% if item.slug == activeSlug %}aria-current="page"{% endif %}
-    >
-      {{ item.label }} space in {{ city.city }}
-    </a>
+    {% set pageKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
+    {% if spaceTypePageLookup[pageKey] %}
+      <a
+        class="pill{% if item.slug == activeSlug %} is-active{% endif %}"
+        href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/"
+        {% if item.slug == activeSlug %}aria-current="page"{% endif %}
+      >
+        {{ item.label }} space in {{ city.city }}
+      </a>
+    {% endif %}
   {% endfor %}
 
   {% if city.county %}

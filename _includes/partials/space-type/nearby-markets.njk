@@ -6,9 +6,12 @@
   {% if city.nearby_cities and city.nearby_cities.length %}
     <div class="market-links">
       {% for nearby in city.nearby_cities %}
-        <a href="{{ nearby.path }}{{ spaceType.slug }}/">
-          {{ nearby.city }}, {{ nearby.state_abbr }}
-        </a>
+        {% set nearbyKey = (nearby.state_abbr | upper) + "/" + (nearby.slug | lower) + "/" + spaceType.slug %}
+        {% if spaceTypePageLookup[nearbyKey] %}
+          <a href="{{ nearby.path }}{{ spaceType.slug }}/">
+            {{ nearby.city }}, {{ nearby.state_abbr }}
+          </a>
+        {% endif %}
       {% endfor %}
     </div>
   {% else %}

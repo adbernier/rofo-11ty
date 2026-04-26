@@ -12,7 +12,8 @@
     ] %}
 
     {% for item in allTypes %}
-      {% if item.slug != spaceType.slug %}
+      {% set pageKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
+      {% if item.slug != spaceType.slug and spaceTypePageLookup[pageKey] %}
         <a
           class="pill"
           href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/"

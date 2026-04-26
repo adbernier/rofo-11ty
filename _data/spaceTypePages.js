@@ -8,28 +8,100 @@ const buildings = require("./buildings.js");
 function getBuildingTypeSet(building) {
   const typeSet = new Set();
 
-  const buildingType = String(building.type || "").toLowerCase();
-  const buildingPrimaryType = String(building.primary_space_type || "").toLowerCase();
-  const buildingSpaceTypes = Array.isArray(building.space_types)
-    ? building.space_types.map((t) => String(t).toLowerCase())
-    : [];
+  const classificationFields = [
+    building.type,
+    building.primary_space_type,
+    building.category,
+    building.use,
+    building.property_type,
+    building.listing_type,
+    building.lease_category,
+    ...(Array.isArray(building.space_types) ? building.space_types : []),
+    ...(Array.isArray(building.raw_space_types) ? building.raw_space_types : []),
+  ]
+    .filter(Boolean)
+    .map((value) => String(value).toLowerCase());
 
-  if (buildingType) typeSet.add(buildingType);
-  if (buildingPrimaryType) typeSet.add(buildingPrimaryType);
-  buildingSpaceTypes.forEach((t) => typeSet.add(t));
+  const sourceFields = [
+    building.primary_source,
+    building.source,
+    ...(Array.isArray(building.source_companies) ? building.source_companies : []),
+  ]
+    .filter(Boolean)
+    .map((value) => String(value).toLowerCase());
 
-  const provider = String(building.provider || building.source || "").toLowerCase();
-  const name = String(building.name || building.address || "").toLowerCase();
+  const hasClassificationMatch = (matches) =>
+    classificationFields.some((value) =>
+      matches.some((match) => value.includes(match))
+    );
 
-  const looksLikeCoworking =
-    provider.includes("regus") ||
-    name.includes("regus") ||
-    typeSet.has("coworking") ||
-    typeSet.has("coworking-space") ||
-    typeSet.has("flex") ||
-    typeSet.has("flex-space");
+  const hasSourceMatch = (matches) =>
+    sourceFields.some((value) =>
+      matches.some((match) => value.includes(match))
+    );
 
-  if (looksLikeCoworking) {
+  const hasOffice =
+    hasClassificationMatch([
+      "office",
+      "private office",
+      "executive suite",
+      "business center",
+      "live/work",
+      "live work",
+    ]);
+
+  const hasRetail =
+    hasClassificationMatch(["retail", "storefront", "restaurant"]);
+
+  const hasIndustrial =
+    hasClassificationMatch([
+      "industrial",
+      "warehouse",
+      "distribution",
+      "manufacturing",
+      "logistics",
+      "light industrial",
+    ]);
+
+  const hasFlex =
+    hasClassificationMatch([
+      "flex",
+      "flex-space",
+      "office/warehouse",
+      "office warehouse",
+      "light industrial",
+      "live/work",
+      "live work",
+    ]) ||
+    (hasOffice && hasIndustrial);
+
+  const hasCoworking =
+    hasClassificationMatch([
+      "coworking",
+      "co-working",
+      "shared office",
+      "executive suite",
+    ]) ||
+    hasSourceMatch(["regus", "wework"]) ||
+    Boolean(building.is_exec_suite_present);
+
+  if (hasOffice) {
+    typeSet.add("office-space");
+  }
+
+  if (hasRetail) {
+    typeSet.add("retail-space");
+  }
+
+  if (hasIndustrial) {
+    typeSet.add("industrial-space");
+  }
+
+  if (hasFlex) {
+    typeSet.add("flex-space");
+  }
+
+  if (hasCoworking) {
     typeSet.add("coworking-space");
   }
 
@@ -62,28 +134,30 @@ buildings.forEach((building) => {
 });
 
 // -----------------------------
-// Generate pages (all cities x all space types)
+// Generate pages only where matching inventory exists.
 // -----------------------------
 module.exports = cities.flatMap((city) => {
   const normalizedCitySlug = String(city.slug || "").toLowerCase();
   const normalizedStateAbbr = String(city.state_abbr || "").toLowerCase();
   const stateAbbr = String(city.state_abbr || "").toUpperCase();
 
-  return Object.values(spaceTypes).map((spaceType) => {
-    const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
+  return Object.values(spaceTypes)
+    .map((spaceType) => {
+      const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
 
-    const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
-    const representativeBuildings = buildingIndex.get(key) || [];
+      const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
+      const representativeBuildings = buildingIndex.get(key) || [];
 
-    return {
-      city,
-      spaceType,
-      state: stateAbbr,
-      state_abbr: stateAbbr,
-      city_slug: normalizedCitySlug,
-      page_slug: normalizedTypeSlug,
-      representativeBuildings: representativeBuildings.slice(0, 12),
-      hasInventory: representativeBuildings.length > 0,
-    };
-  });
+      return {
+        city,
+        spaceType,
+        state: stateAbbr,
+        state_abbr: stateAbbr,
+        city_slug: normalizedCitySlug,
+        page_slug: normalizedTypeSlug,
+        representativeBuildings: representativeBuildings.slice(0, 12),
+        hasInventory: representativeBuildings.length > 0,
+      };
+    })
+    .filter((entry) => entry.representativeBuildings.length > 0);
 });
