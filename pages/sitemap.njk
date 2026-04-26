@@ -3,31 +3,41 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+{% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://rofo.com/</loc>
+    <loc>{{ siteUrl }}/</loc>
   </url>
 
   <url>
-    <loc>https://rofo.com/markets/</loc>
+    <loc>{{ siteUrl }}/markets/</loc>
   </url>
 
   {% for city in cities %}
   <url>
-    <loc>https://rofo.com{{ city.path }}</loc>
+    <loc>{{ siteUrl }}{{ city.path }}</loc>
+  </url>
+  <url>
+    <loc>{{ siteUrl }}{{ city.path }}buildings/</loc>
+  </url>
+  {% endfor %}
+
+  {% for entry in spaceTypePages %}
+  <url>
+    <loc>{{ siteUrl }}/commercial-real-estate/{{ entry.state_abbr }}/{{ entry.city_slug }}/{{ entry.page_slug }}/</loc>
   </url>
   {% endfor %}
 
   {% for building in buildings %}
   <url>
-    <loc>https://rofo.com/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/buildings/{{ building.building_slug }}/</loc>
+    <loc>{{ siteUrl }}/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_slug }}/{{ building.building_slug }}/</loc>
   </url>
   {% endfor %}
 
   {% for company in companies %}
   <url>
-    <loc>https://rofo.com/commercial-real-estate/company/{{ company.slug }}/</loc>
+    <loc>{{ siteUrl }}/commercial-real-estate/company/{{ company.slug }}/</loc>
   </url>
   {% endfor %}
 
