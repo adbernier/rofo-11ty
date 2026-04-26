@@ -30,6 +30,26 @@ eleventyComputed:
 {% set marketParagraph1 = city.market_context_paragraph1 or "" %}
 {% set marketParagraph2 = city.market_context_paragraph2 or "" %}
 {% set hasMarketContext = (marketHeading | trim) or (marketParagraph1 | trim) or (marketParagraph2 | trim) %}
+{% set cityBuildings = [] %}
+{% for b in buildingPages %}
+  {% if b.city_slug == city.slug and b.state_abbr == city.state_abbr %}
+    {% set cityBuildings = (cityBuildings.push(b), cityBuildings) %}
+  {% endif %}
+{% endfor %}
+{% set availableSpaceTypes = [] %}
+{% set citySpaceTypeLinks = [
+  { "slug": "office-space", "label": "Office space", "search": "Office space for lease in " + city.city },
+  { "slug": "retail-space", "label": "Retail space", "search": "Retail space for lease in " + city.city },
+  { "slug": "industrial-space", "label": "Industrial space", "search": "Industrial space in " + city.city },
+  { "slug": "flex-space", "label": "Flex space", "search": "Flex space in " + city.city },
+  { "slug": "coworking-space", "label": "Coworking space", "search": "Coworking space in " + city.city }
+] %}
+{% for item in citySpaceTypeLinks %}
+  {% set pageKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
+  {% if spaceTypePageLookup[pageKey] %}
+    {% set availableSpaceTypes = (availableSpaceTypes.push(item), availableSpaceTypes) %}
+  {% endif %}
+{% endfor %}
 
 <section class="city-page">
   <div class="city-shell">
@@ -120,6 +140,16 @@ eleventyComputed:
       </div>
     </div>
 
+    {% if cityBuildings.length > 0 %}
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Inventory Snapshot</div>
+        <h2>{{ city.city }} commercial real estate inventory</h2>
+        <p>
+          Explore {{ cityBuildings.length }} representative {% if cityBuildings.length == 1 %}building{% else %}buildings{% endif %} in {{ city.city }}{% if availableSpaceTypes.length %}, including {% for item in availableSpaceTypes %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ item.label | lower }}{% endfor %}{% endif %}.
+        </p>
+      </div>
+    {% endif %}
+
     {% include "partials/city/helpful-leasing-card.njk" %}
 
 {# ===== FEATURED COMPANY CARD ===== #}
@@ -193,17 +223,21 @@ eleventyComputed:
             </div>
           </div>
 
-          <div class="city-card">
-            <div class="eyebrow">Popular Searches</div>
-            <h2>Popular commercial real estate searches in {{ city.city }}</h2>
-            <ul class="mini-list">
-              <li>Office space for lease in {{ city.city }}</li>
-              <li>Retail space for lease in {{ city.city }}</li>
-              <li>Industrial space in {{ city.city }}</li>
-              <li>Small office space in {{ city.city }}</li>
-              <li>Coworking space in {{ city.city }}</li>
-            </ul>
-          </div>
+          {% if availableSpaceTypes.length %}
+            <div class="city-card">
+              <div class="eyebrow">Popular Searches</div>
+              <h2>Popular commercial real estate searches in {{ city.city }}</h2>
+              <ul class="mini-list">
+                {% for item in availableSpaceTypes %}
+                  <li>
+                    <a href="/commercial-real-estate/{{ city.state_abbr | upper }}/{{ city.slug | lower }}/{{ item.slug }}/">
+                      {{ item.search }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
 
           <div class="city-card">
             <div class="eyebrow">Resources</div>
