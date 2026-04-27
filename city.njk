@@ -16,7 +16,7 @@ eleventyComputed:
     {% if city.seo_description %}
       {{ city.seo_description }}
     {% else %}
-      Explore office, retail, and industrial space in {{ city.city }}, {{ city.state_abbr }}. Browse representative buildings, compare nearby markets, and get help finding the right space.
+      Explore office, retail, and industrial space in {{ city.city }}, {{ city.state_abbr }}. Browse buildings, compare nearby markets, and get help finding the right space.
     {% endif %}
 ---
 {% set stateName = stateNames[city.state_abbr] or city.state_abbr %}
@@ -36,6 +36,7 @@ eleventyComputed:
     {% set cityBuildings = (cityBuildings.push(b), cityBuildings) %}
   {% endif %}
 {% endfor %}
+{% set cityLocationFragments = cityBuildings | cityStreetFragments %}
 {% set availableSpaceTypes = [] %}
 {% set citySpaceTypeLinks = [
   { "slug": "office-space", "label": "Office space", "search": "Office space for lease in " + city.city },
@@ -64,7 +65,7 @@ eleventyComputed:
 
           <p class="lead">
             Explore office, retail, and industrial space for lease in {{ city.city }}, {{ city.state_abbr }}.
-            Browse representative buildings, compare nearby markets, or get help finding available space.
+            Browse buildings, compare nearby markets, or get help finding available space.
           </p>
 
           <div class="hero-actions">
@@ -145,8 +146,13 @@ eleventyComputed:
         <div class="eyebrow">Inventory Snapshot</div>
         <h2>{{ city.city }} commercial real estate inventory</h2>
         <p>
-          Explore {{ cityBuildings.length }} representative {% if cityBuildings.length == 1 %}building{% else %}buildings{% endif %} in {{ city.city }}{% if availableSpaceTypes.length %}, including {% for item in availableSpaceTypes %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ item.label | lower }}{% endfor %}{% endif %}.
+          Explore {{ cityBuildings.length }} {% if cityBuildings.length == 1 %}building{% else %}buildings{% endif %} in {{ city.city }}{% if availableSpaceTypes.length %}, including {% for item in availableSpaceTypes %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ item.label | lower }}{% endfor %}{% endif %}.
         </p>
+        {% if cityBuildings.length >= 3 and cityLocationFragments.length >= 3 %}
+          <p>
+            Example locations in {{ city.city }} include {% for fragment in cityLocationFragments.slice(0, 3) %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ fragment }}{% endfor %}.
+          </p>
+        {% endif %}
       </div>
     {% endif %}
 
