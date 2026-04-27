@@ -95,6 +95,114 @@ function generateMarketContext({ city, buildingPages = [], availableSpaceTypes =
   return `${cityName} is ${size} in ${displayState}, ${inventory}${regional}.`;
 }
 
+function looksLikeRealBuildingName(name, address) {
+  const value = String(name || "").trim();
+  if (!value) return false;
+
+  const addr = String(address || "").trim();
+  if (addr && value.toLowerCase() === addr.toLowerCase()) return false;
+  if (/^\d+[a-z]?\s+/i.test(value)) return false;
+  if (/^(n\/a|na|unknown|property|building)$/i.test(value)) return false;
+  if (value.length < 4) return false;
+
+  return true;
+}
+
+function getBuildingLabel(building) {
+  return looksLikeRealBuildingName(building.name, building.address)
+    ? building.name.trim()
+    : String(building.address || building.name || "This property").trim();
+}
+
+function getBuildingTypes(building) {
+  const values = [
+    building.type,
+    building.primary_space_type,
+    ...(Array.isArray(building.space_types) ? building.space_types : [])
+  ]
+    .filter(Boolean)
+    .map((value) => String(value).toLowerCase());
+
+  const types = new Set();
+
+  if (values.some((value) => value.includes("office") || value.includes("cowork"))) {
+    types.add("office");
+  }
+
+  if (
+    values.some(
+      (value) =>
+        value.includes("industrial") ||
+        value.includes("warehouse") ||
+        value.includes("distribution") ||
+        value.includes("logistics")
+    )
+  ) {
+    types.add("industrial");
+  }
+
+  if (
+    values.some(
+      (value) =>
+        value.includes("retail") ||
+        value.includes("storefront") ||
+        value.includes("restaurant")
+    )
+  ) {
+    types.add("retail");
+  }
+
+  if (values.some((value) => value.includes("flex"))) {
+    types.add("flex");
+  }
+
+  return [...types];
+}
+
+function generateBuildingDescription(building) {
+  const label = getBuildingLabel(building);
+  const city = building.city;
+  const state = building.state_abbr;
+  const types = getBuildingTypes(building);
+  const set = new Set(types);
+
+  if (!types.length) return "";
+
+  if (set.has("office") && set.has("retail") && set.has("industrial")) {
+    return `${label} in ${city}, ${state} supports office, customer-facing, warehouse, and light industrial uses.`;
+  }
+
+  if (set.has("office") && set.has("retail")) {
+    return `${label} in ${city}, ${state} supports office and customer-facing uses.`;
+  }
+
+  if (set.has("office") && set.has("industrial")) {
+    return `${label} in ${city}, ${state} supports office, warehouse, and light industrial uses.`;
+  }
+
+  if (set.has("retail") && set.has("industrial")) {
+    return `${label} in ${city}, ${state} supports retail, service, and light industrial uses.`;
+  }
+
+  if (set.has("industrial")) {
+    return `${label} in ${city}, ${state} provides warehouse and logistics space.`;
+  }
+
+  if (set.has("retail")) {
+    return `${label} in ${city}, ${state} is positioned for retail and customer-facing uses.`;
+  }
+
+  if (set.has("office")) {
+    return `${label} in ${city}, ${state} offers office space for professional use.`;
+  }
+
+  if (set.has("flex")) {
+    return `${label} in ${city}, ${state} supports flexible business uses.`;
+  }
+
+  return "";
+}
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("js");
@@ -182,6 +290,10 @@ module.exports = function(eleventyConfig) {
       availableSpaceTypes,
       stateName
     });
+  });
+
+  eleventyConfig.addFilter("buildingDescription", (building) => {
+    return generateBuildingDescription(building || {});
   });
 
   return {

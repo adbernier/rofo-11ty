@@ -13,6 +13,7 @@ eleventyComputed:
 ---
 
 {% set placeholderSrc = building | buildingPlaceholder %}
+{% set buildingGeneratedDescription = building | buildingDescription %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
@@ -32,6 +33,9 @@ eleventyComputed:
         <p class="lead">
           {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}, offering {{ building.size_label | lower }} for businesses of all sizes.
         </p>
+        {% if buildingGeneratedDescription %}
+          <p class="lead">{{ buildingGeneratedDescription }}</p>
+        {% endif %}
 
         <div class="pill-row">
           <span class="pill">{{ building.type }}</span>
@@ -183,34 +187,65 @@ eleventyComputed:
 
     <input type="hidden" name="routing_key" value="{{ (building.primary_source or 'unknown') | lower }}__{{ building.city_slug or '' }}__{{ (building.type or 'unknown') | lower }}" />
 
-      <div class="field">
-        <label for="building-lead-email">Email</label>
-        <input
-          id="building-lead-email"
-          name="email"
-          type="email"
-          placeholder="Your email"
-          required
-        >
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-name">Name</label>
+          <input
+            id="building-lead-name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+          >
+        </div>
       </div>
 
-      <div class="field">
-        <label for="building-lead-type">Type of Space</label>
-        <input
-          id="building-lead-type"
-          type="text"
-          value="{{ building.type }}"
-          disabled
-        >
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-email">Email</label>
+          <input
+            id="building-lead-email"
+            name="email"
+            type="email"
+            placeholder="Your email"
+            required
+          >
+        </div>
       </div>
 
-      <div class="field">
-        <label for="building-lead-notes">What are you looking for?</label>
-        <textarea
-          id="building-lead-notes"
-          name="notes"
-          placeholder="Example: 2–4 person office, move in May, flexible budget"
-        ></textarea>
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-phone">Phone (optional — helps us connect you faster)</label>
+          <input
+            id="building-lead-phone"
+            name="phone"
+            type="tel"
+            placeholder="Your phone number"
+          >
+        </div>
+      </div>
+
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-type">Type of Space</label>
+          <input
+            id="building-lead-type"
+            type="text"
+            value="{{ building.type }}"
+            disabled
+          >
+        </div>
+      </div>
+
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-notes">What are you looking for?</label>
+          <textarea
+            id="building-lead-notes"
+            name="notes"
+            placeholder="Example: 2–4 person office, move in May, flexible budget"
+          ></textarea>
+        </div>
       </div>
 
       <div class="btn-row">
