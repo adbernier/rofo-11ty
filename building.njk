@@ -29,11 +29,12 @@ eleventyComputed:
       <div class="building-card">
         <div class="eyebrow">Building</div>
         <h1>{{ building.address }}</h1>
-        <p class="lead">
-          {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}, offering {{ building.size_label | lower }} for businesses of all sizes.
-        </p>
         {% if building.building_description %}
           <p class="lead">{{ building.building_description }}</p>
+        {% else %}
+          <p class="lead">
+            {{ building.address }} is a {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
+          </p>
         {% endif %}
 
         <div class="pill-row">
@@ -96,12 +97,11 @@ eleventyComputed:
         <div class="building-card">
           <div class="eyebrow">Overview</div>
           <h2>About {{ building.address }}</h2>
-          <p>
-            {{ building.address }} is a flexible workspace location in {{ building.city }}, {{ building.state_abbr }}, offering options suited for small teams, growing companies, and established businesses.
-          </p>
-          <p>
-            This building reflects the types of office and workspace environments commonly found throughout the {{ building.city }} market.
-          </p>
+          {% if building.about_context %}
+            <p>{{ building.about_context }}</p>
+          {% else %}
+            <p>This property reflects the types of commercial environments commonly found in the {{ building.city }} market.</p>
+          {% endif %}
         </div>
 
         {% if building.best_for and building.best_for.length %}
@@ -124,11 +124,12 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        {% if building.space_type_url %}
+        {% set buildingSpaceTypeKey = building.state_abbr + "/" + building.city_slug + "/" + building.space_type_slug %}
+        {% if building.space_type_url and spaceTypePageLookup[buildingSpaceTypeKey] %}
           <section class="building-card">
             <div class="eyebrow">Related Market</div>
             <h2>Explore similar space in {{ building.city }}</h2>
-            <p>Compare other {{ building.space_type_label | lower }} options in {{ building.city }}, {{ building.state_abbr }}.</p>
+            <p>Browse {{ building.space_type_label | lower }} across {{ building.city }} to compare nearby options in the market.</p>
             <a class="building-link" href="{{ building.space_type_url }}">View {{ building.space_type_label | lower }} in {{ building.city }}</a>
           </section>
         {% endif %}
@@ -158,10 +159,12 @@ eleventyComputed:
               <div class="detail-value">{{ building.city }}, {{ building.state_abbr }}</div>
             </div>
 
-            <div class="detail-row">
-              <div class="detail-label">Summary</div>
-              <div class="detail-value">Flexible workspace and office configurations typical for this market.</div>
-            </div>
+            {% if building.detail_summary %}
+              <div class="detail-row">
+                <div class="detail-label">Common Fit</div>
+                <div class="detail-value">{{ building.detail_summary }}</div>
+              </div>
+            {% endif %}
           </div>
         </div>
 

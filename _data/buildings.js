@@ -136,7 +136,60 @@ function getBuildingTypeSet(building) {
   return types;
 }
 
-function getPrimaryBuildingType(typeSet) {
+function matchBuildingType(value) {
+  const normalized = String(value || "").toLowerCase();
+  if (!normalized) return "";
+
+  if (
+    ["coworking", "co-working", "shared office", "executive suite"].some((match) =>
+      normalized.includes(match)
+    )
+  ) {
+    return "coworking";
+  }
+
+  if (
+    ["flex", "flex-space", "office/warehouse", "office warehouse"].some((match) =>
+      normalized.includes(match)
+    )
+  ) {
+    return "flex";
+  }
+
+  if (
+    ["industrial", "warehouse", "distribution", "manufacturing", "logistics", "light industrial"].some((match) =>
+      normalized.includes(match)
+    )
+  ) {
+    return "industrial";
+  }
+
+  if (["retail", "storefront", "restaurant"].some((match) => normalized.includes(match))) {
+    return "retail";
+  }
+
+  if (["office", "private office", "business center", "live/work", "live work"].some((match) =>
+    normalized.includes(match)
+  )) {
+    return "office";
+  }
+
+  return "";
+}
+
+function getPrimaryBuildingType(building, typeSet) {
+  const explicitType = matchBuildingType(
+    building.primary_space_type ||
+      building.space_type ||
+      building.type ||
+      building.property_type ||
+      building.category
+  );
+
+  if (typeSet.has("office") && typeSet.has("industrial")) return "flex";
+
+  if (explicitType) return explicitType;
+
   const order = ["coworking", "flex", "industrial", "retail", "office"];
   return order.find((type) => typeSet.has(type)) || "commercial";
 }
@@ -148,6 +201,10 @@ const TYPE_META = {
     slug: "office-space",
     description:
       "offers office space suited for professional services, small teams, and client-facing businesses",
+    about:
+      "This property reflects the types of professional office environments commonly found in the {city} market, with potential fit for service firms, small teams, and client-facing businesses.",
+    detailSummary:
+      "Professional office use",
     bestFor: [
       "Professional services",
       "Small to mid-size teams",
@@ -160,6 +217,10 @@ const TYPE_META = {
     slug: "retail-space",
     description:
       "is positioned for retail, service, and customer-facing businesses",
+    about:
+      "This property reflects the types of retail and service-oriented environments commonly found in the {city} market, with potential fit for customer-facing businesses.",
+    detailSummary:
+      "Retail and service-oriented use",
     bestFor: [
       "Walk-in retail",
       "Service businesses",
@@ -172,6 +233,10 @@ const TYPE_META = {
     slug: "industrial-space",
     description:
       "provides industrial space suited for warehouse, logistics, and light industrial users",
+    about:
+      "This property reflects the types of warehouse, logistics, and light industrial environments commonly found in the {city} market.",
+    detailSummary:
+      "Warehouse, logistics, or light industrial use",
     bestFor: [
       "Warehouse users",
       "Light industrial operations",
@@ -184,6 +249,10 @@ const TYPE_META = {
     slug: "coworking-space",
     description:
       "offers coworking space for flexible teams, remote workers, and small businesses",
+    about:
+      "This property reflects the types of flexible workspace environments commonly found in the {city} market, with potential fit for remote workers, small teams, and growing companies.",
+    detailSummary:
+      "Coworking and flexible workspace use",
     bestFor: [
       "Flexible teams",
       "Remote workers",
@@ -196,6 +265,10 @@ const TYPE_META = {
     slug: "flex-space",
     description:
       "supports adaptable space needs for showroom, service, office, or light industrial users",
+    about:
+      "This property reflects the types of adaptable commercial environments commonly found in the {city} market, with potential fit for showroom, service, office, or light industrial users.",
+    detailSummary:
+      "Adaptable commercial use",
     bestFor: [
       "Showroom or service businesses",
       "Light industrial users",
@@ -208,6 +281,10 @@ const TYPE_META = {
     slug: "",
     description:
       "supports businesses exploring commercial space in the local market",
+    about:
+      "This property reflects the types of commercial environments commonly found in the {city} market.",
+    detailSummary:
+      "General commercial use",
     bestFor: [
       "Local businesses",
       "Growing teams",
@@ -216,14 +293,57 @@ const TYPE_META = {
   },
 };
 
+const TOP_MARKET_CONTEXT = {
+  "san-francisco":
+    "within one of the Bay Area's most established commercial markets",
+  "los-angeles":
+    "within one of Southern California's largest and most diverse commercial markets",
+  "san-diego":
+    "within a major Southern California market with office, retail, and industrial demand",
+  "austin":
+    "within one of Texas's fastest-growing business markets",
+  "phoenix":
+    "within one of the Southwest's largest and fastest-growing commercial markets",
+  "new-york":
+    "within one of the country's deepest and most active commercial real estate markets",
+  "chicago":
+    "within one of the Midwest's largest commercial real estate markets",
+  "dallas":
+    "within one of Texas's largest business and logistics markets",
+  "houston":
+    "within one of Texas's largest office, industrial, and energy-linked business markets",
+  "miami":
+    "within one of South Florida's most active commercial markets",
+  "seattle":
+    "within a major Pacific Northwest business and technology market",
+  "denver":
+    "within one of the Mountain West's major business markets",
+  "boston":
+    "within one of the Northeast's most established office, medical, and technology markets",
+  "atlanta":
+    "within one of the Southeast's largest business and logistics markets",
+  "charlotte":
+    "within one of the Southeast's growing finance and business markets",
+};
+
 function getBuildingDescription(building, label, city, state_abbr, primaryType) {
   const meta = TYPE_META[primaryType] || TYPE_META.commercial;
   return `${label} in ${city}, ${state_abbr} ${meta.description}.`;
 }
 
-function getLocationContext(city, state_abbr, primaryType) {
+function formatTypeText(text, city) {
+  return text.replace("{city}", city);
+}
+
+function getLocationContext(city, city_slug, primaryType) {
   const meta = TYPE_META[primaryType] || TYPE_META.commercial;
-  return `Located in ${city}, ${state_abbr}, this property may work well for businesses exploring ${meta.optionLabel} options in the local market.`;
+  const topMarketContext = TOP_MARKET_CONTEXT[city_slug];
+
+  if (topMarketContext) {
+    return `For businesses evaluating ${meta.optionLabel} in ${city}, this property sits ${topMarketContext}.`;
+  }
+
+  return `For businesses evaluating ${meta.optionLabel} in ${city}, this property can be considered within the broader local commercial market.`;
 }
 
 function buildingKey(building) {
@@ -243,7 +363,7 @@ function normalizeBuilding(building, source) {
   const city_slug = building.city_slug || slugify(city);
   const building_slug = building.building_slug || building.slug || slugify(address);
   const typeSet = getBuildingTypeSet(building);
-  const primaryType = getPrimaryBuildingType(typeSet);
+  const primaryType = getPrimaryBuildingType(building, typeSet);
   const typeMeta = TYPE_META[primaryType] || TYPE_META.commercial;
   const buildingLabel = getBuildingLabel(building, address);
   const spaceTypeUrl = typeMeta.slug
@@ -276,9 +396,12 @@ function normalizeBuilding(building, source) {
       state_abbr,
       primaryType
     ),
+    about_context: formatTypeText(typeMeta.about, city),
     best_for: typeMeta.bestFor,
-    location_context: getLocationContext(city, state_abbr, primaryType),
+    location_context: getLocationContext(city, city_slug, primaryType),
+    detail_summary: typeMeta.detailSummary,
     primary_type_label: typeMeta.label,
+    space_type_slug: typeMeta.slug,
     space_type_url: spaceTypeUrl,
     space_type_label: typeMeta.label,
 
