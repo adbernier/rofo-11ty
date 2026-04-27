@@ -13,7 +13,6 @@ eleventyComputed:
 ---
 
 {% set placeholderSrc = building | buildingPlaceholder %}
-{% set buildingGeneratedDescription = building | buildingDescription %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
@@ -33,8 +32,8 @@ eleventyComputed:
         <p class="lead">
           {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}, offering {{ building.size_label | lower }} for businesses of all sizes.
         </p>
-        {% if buildingGeneratedDescription %}
-          <p class="lead">{{ buildingGeneratedDescription }}</p>
+        {% if building.building_description %}
+          <p class="lead">{{ building.building_description }}</p>
         {% endif %}
 
         <div class="pill-row">
@@ -104,6 +103,35 @@ eleventyComputed:
             This building reflects the types of office and workspace environments commonly found throughout the {{ building.city }} market.
           </p>
         </div>
+
+        {% if building.best_for and building.best_for.length %}
+          <section class="building-card">
+            <div class="eyebrow">Best For</div>
+            <h2>Who this property may work well for</h2>
+            <ul class="mini-list">
+              {% for item in building.best_for %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        {% if building.location_context %}
+          <section class="building-card">
+            <div class="eyebrow">Location Context</div>
+            <h2>Where this property fits in {{ building.city }}</h2>
+            <p>{{ building.location_context }}</p>
+          </section>
+        {% endif %}
+
+        {% if building.space_type_url %}
+          <section class="building-card">
+            <div class="eyebrow">Related Market</div>
+            <h2>Explore similar space in {{ building.city }}</h2>
+            <p>Compare other {{ building.space_type_label | lower }} options in {{ building.city }}, {{ building.state_abbr }}.</p>
+            <a class="building-link" href="{{ building.space_type_url }}">View {{ building.space_type_label | lower }} in {{ building.city }}</a>
+          </section>
+        {% endif %}
 
         <div class="building-card">
           <div class="eyebrow">Property Details</div>
