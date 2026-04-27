@@ -7,7 +7,7 @@ pagination:
 permalink: "/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/index.html"
 eleventyComputed:
   title: "Buildings in {{ city.city }}, {{ city.state_abbr }} | Rofo"
-  description: "Browse representative office, retail, and flexible workspace buildings in {{ city.city }}, {{ city.state_abbr }}."
+  description: "Browse office, retail, and flexible workspace buildings in {{ city.city }}, {{ city.state_abbr }}."
 ---
 {% set stateName = stateNames[city.state_abbr] or city.state_abbr %}
 {% set crumbs = [
@@ -170,7 +170,7 @@ eleventyComputed:
       <div class="eyebrow">Buildings</div>
       <h1>Buildings in {{ city.city }}, {{ city.state_abbr }}</h1>
       <p class="lead">
-        Browse representative office, retail, and flexible workspace buildings in {{ city.city }}. Use this page to explore locations, compare options, and click through to individual building pages.
+        Browse office, retail, and flexible workspace buildings in {{ city.city }}. Use this page to explore locations, compare options, and click through to individual building pages.
       </p>
 
       <div class="top-actions">
@@ -194,7 +194,7 @@ eleventyComputed:
         <div class="summary-stat">
           <div class="stat-label">Buildings Listed</div>
           <div class="stat-value">{{ cityBuildings.length }}</div>
-          <p class="stat-note">Representative buildings on this page</p>
+          <p class="stat-note">Buildings on this page</p>
         </div>
 
         <div class="summary-stat">

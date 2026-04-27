@@ -173,6 +173,9 @@ eleventyComputed:
             {% if city.tier == 1 %}major{% elseif city.tier == 2 %}established{% else %}local{% endif %}
             commercial real estate market in {{ city.state_abbr }}.
           </p>
+          {% if cityBuildings.length > 0 %}
+            <p>{{ city | marketContext(cityBuildings, availableSpaceTypes, stateName) }}</p>
+          {% endif %}
           <p>
             {% if availableSpaceTypes.length %}
               Businesses search here for
