@@ -552,18 +552,21 @@
     "city": "Austin",
     "state_abbr": "TX",
     "city_slug": "austin",
-    "building_count": 16,
+    "building_count": 63,
     "primary_space_types": [
       "office",
-      "industrial"
+      "industrial",
+      "retail"
     ],
     "supported_space_types": [
       "industrial",
-      "office"
+      "office",
+      "retail"
     ],
     "space_type_counts": {
-      "office": 15,
-      "industrial": 1
+      "office": 61,
+      "industrial": 1,
+      "retail": 1
     }
   },
   {
@@ -1182,7 +1185,7 @@
     "city": "Buffalo",
     "state_abbr": "NY",
     "city_slug": "buffalo",
-    "building_count": 70,
+    "building_count": 139,
     "primary_space_types": [
       "office",
       "retail",
@@ -1197,9 +1200,9 @@
     ],
     "space_type_counts": {
       "land": 7,
-      "retail": 24,
-      "industrial": 12,
-      "office": 30
+      "retail": 41,
+      "office": 69,
+      "industrial": 26
     }
   },
   {
@@ -1224,7 +1227,7 @@
     "city": "Burbank",
     "state_abbr": "CA",
     "city_slug": "burbank",
-    "building_count": 1,
+    "building_count": 4,
     "primary_space_types": [
       "office"
     ],
@@ -1232,7 +1235,7 @@
       "office"
     ],
     "space_type_counts": {
-      "office": 1
+      "office": 4
     }
   },
   {
@@ -1317,7 +1320,7 @@
     "city": "Campbell",
     "state_abbr": "CA",
     "city_slug": "campbell",
-    "building_count": 6,
+    "building_count": 9,
     "primary_space_types": [
       "retail",
       "land",
@@ -1330,8 +1333,8 @@
     ],
     "space_type_counts": {
       "land": 2,
-      "retail": 3,
-      "office": 1
+      "office": 2,
+      "retail": 5
     }
   },
   {
@@ -1371,7 +1374,7 @@
     "city": "Carlsbad",
     "state_abbr": "CA",
     "city_slug": "carlsbad",
-    "building_count": 19,
+    "building_count": 28,
     "primary_space_types": [
       "office",
       "industrial"
@@ -1381,8 +1384,8 @@
       "office"
     ],
     "space_type_counts": {
-      "office": 13,
-      "industrial": 6
+      "industrial": 12,
+      "office": 16
     }
   },
   {
@@ -1419,7 +1422,7 @@
     "city": "Carmichael",
     "state_abbr": "CA",
     "city_slug": "carmichael",
-    "building_count": 7,
+    "building_count": 9,
     "primary_space_types": [
       "retail",
       "office"
@@ -1430,7 +1433,7 @@
     ],
     "space_type_counts": {
       "retail": 6,
-      "office": 1
+      "office": 3
     }
   },
   {
@@ -1542,6 +1545,21 @@
     ],
     "space_type_counts": {
       "land": 1
+    }
+  },
+  {
+    "city": "Cedar Park",
+    "state_abbr": "TX",
+    "city_slug": "cedar-park",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
     }
   },
   {
@@ -1662,14 +1680,17 @@
     "city": "Chandler",
     "state_abbr": "AZ",
     "city_slug": "chandler",
-    "building_count": 1,
+    "building_count": 3,
     "primary_space_types": [
+      "office",
       "industrial"
     ],
     "supported_space_types": [
-      "industrial"
+      "industrial",
+      "office"
     ],
     "space_type_counts": {
+      "office": 2,
       "industrial": 1
     }
   },
@@ -2361,25 +2382,28 @@
     "city": "Culver City",
     "state_abbr": "CA",
     "city_slug": "culver-city",
-    "building_count": 24,
+    "building_count": 31,
     "primary_space_types": [
       "office",
-      "industrial"
+      "industrial",
+      "retail"
     ],
     "supported_space_types": [
       "industrial",
-      "office"
+      "office",
+      "retail"
     ],
     "space_type_counts": {
-      "office": 21,
-      "industrial": 3
+      "office": 26,
+      "retail": 1,
+      "industrial": 4
     }
   },
   {
     "city": "Cupertino",
     "state_abbr": "CA",
     "city_slug": "cupertino",
-    "building_count": 3,
+    "building_count": 5,
     "primary_space_types": [
       "retail"
     ],
@@ -2387,7 +2411,7 @@
       "retail"
     ],
     "space_type_counts": {
-      "retail": 3
+      "retail": 5
     }
   },
   {
@@ -2616,19 +2640,22 @@
     "city": "Depew",
     "state_abbr": "NY",
     "city_slug": "depew",
-    "building_count": 7,
+    "building_count": 9,
     "primary_space_types": [
       "retail",
+      "office",
       "land",
       "industrial"
     ],
     "supported_space_types": [
       "industrial",
       "land",
+      "office",
       "retail"
     ],
     "space_type_counts": {
-      "retail": 5,
+      "retail": 6,
+      "office": 1,
       "land": 1,
       "industrial": 1
     }
@@ -2694,6 +2721,27 @@
     ],
     "space_type_counts": {
       "land": 1
+    }
+  },
+  {
+    "city": "Dover",
+    "state_abbr": "NH",
+    "city_slug": "dover",
+    "building_count": 4,
+    "primary_space_types": [
+      "office",
+      "land",
+      "industrial"
+    ],
+    "supported_space_types": [
+      "industrial",
+      "land",
+      "office"
+    ],
+    "space_type_counts": {
+      "land": 1,
+      "office": 2,
+      "industrial": 1
     }
   },
   {
@@ -2772,6 +2820,21 @@
     "space_type_counts": {
       "office": 1,
       "industrial": 1
+    }
+  },
+  {
+    "city": "Durham",
+    "state_abbr": "NH",
+    "city_slug": "durham",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
     }
   },
   {
@@ -2859,11 +2922,11 @@
     "city": "East Syracuse",
     "state_abbr": "NY",
     "city_slug": "east-syracuse",
-    "building_count": 22,
+    "building_count": 23,
     "primary_space_types": [
+      "industrial",
       "land",
       "office",
-      "industrial",
       "retail",
       "coworking"
     ],
@@ -2877,7 +2940,7 @@
     "space_type_counts": {
       "land": 7,
       "office": 7,
-      "industrial": 7,
+      "industrial": 8,
       "retail": 3,
       "coworking": 1
     }
@@ -2916,7 +2979,7 @@
     "city": "El Dorado Hills",
     "state_abbr": "CA",
     "city_slug": "el-dorado-hills",
-    "building_count": 1,
+    "building_count": 18,
     "primary_space_types": [
       "office",
       "retail"
@@ -2926,7 +2989,7 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 1,
+      "office": 18,
       "retail": 1
     }
   },
@@ -2979,10 +3042,25 @@
     }
   },
   {
+    "city": "Eliot",
+    "state_abbr": "ME",
+    "city_slug": "eliot",
+    "building_count": 1,
+    "primary_space_types": [
+      "retail"
+    ],
+    "supported_space_types": [
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1
+    }
+  },
+  {
     "city": "Elk Grove",
     "state_abbr": "CA",
     "city_slug": "elk-grove",
-    "building_count": 15,
+    "building_count": 21,
     "primary_space_types": [
       "retail",
       "industrial",
@@ -2994,9 +3072,9 @@
       "retail"
     ],
     "space_type_counts": {
-      "industrial": 3,
-      "retail": 11,
-      "office": 1
+      "industrial": 5,
+      "office": 5,
+      "retail": 11
     }
   },
   {
@@ -3123,6 +3201,21 @@
     }
   },
   {
+    "city": "Encinitas",
+    "state_abbr": "CA",
+    "city_slug": "encinitas",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
     "city": "Endicott",
     "state_abbr": "NY",
     "city_slug": "endicott",
@@ -3156,6 +3249,39 @@
     "space_type_counts": {
       "office": 6,
       "industrial": 6
+    }
+  },
+  {
+    "city": "Epping",
+    "state_abbr": "NH",
+    "city_slug": "epping",
+    "building_count": 1,
+    "primary_space_types": [
+      "retail"
+    ],
+    "supported_space_types": [
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1
+    }
+  },
+  {
+    "city": "Escondido",
+    "state_abbr": "CA",
+    "city_slug": "escondido",
+    "building_count": 4,
+    "primary_space_types": [
+      "office",
+      "industrial"
+    ],
+    "supported_space_types": [
+      "industrial",
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 3,
+      "industrial": 1
     }
   },
   {
@@ -3225,18 +3351,21 @@
     "city": "Fairfield",
     "state_abbr": "CA",
     "city_slug": "fairfield",
-    "building_count": 6,
+    "building_count": 14,
     "primary_space_types": [
+      "industrial",
       "retail",
       "land"
     ],
     "supported_space_types": [
+      "industrial",
       "land",
       "retail"
     ],
     "space_type_counts": {
       "retail": 4,
-      "land": 2
+      "land": 2,
+      "industrial": 8
     }
   },
   {
@@ -3378,15 +3507,18 @@
     "city": "Folsom",
     "state_abbr": "CA",
     "city_slug": "folsom",
-    "building_count": 5,
+    "building_count": 12,
     "primary_space_types": [
+      "office",
       "retail"
     ],
     "supported_space_types": [
+      "office",
       "retail"
     ],
     "space_type_counts": {
-      "retail": 5
+      "retail": 5,
+      "office": 7
     }
   },
   {
@@ -3579,7 +3711,7 @@
     "city": "Fremont",
     "state_abbr": "CA",
     "city_slug": "fremont",
-    "building_count": 7,
+    "building_count": 9,
     "primary_space_types": [
       "retail",
       "office",
@@ -3594,7 +3726,7 @@
     ],
     "space_type_counts": {
       "office": 1,
-      "retail": 4,
+      "retail": 6,
       "industrial": 1,
       "land": 1
     }
@@ -3744,10 +3876,10 @@
     "city": "Gilroy",
     "state_abbr": "CA",
     "city_slug": "gilroy",
-    "building_count": 4,
+    "building_count": 5,
     "primary_space_types": [
-      "land",
-      "retail"
+      "retail",
+      "land"
     ],
     "supported_space_types": [
       "land",
@@ -3755,7 +3887,7 @@
     ],
     "space_type_counts": {
       "land": 2,
-      "retail": 2
+      "retail": 3
     }
   },
   {
@@ -3819,6 +3951,21 @@
     }
   },
   {
+    "city": "Gold River",
+    "state_abbr": "CA",
+    "city_slug": "gold-river",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
     "city": "Gouverneur",
     "state_abbr": "NY",
     "city_slug": "gouverneur",
@@ -3834,6 +3981,21 @@
     "space_type_counts": {
       "retail": 1,
       "multi-family": 1
+    }
+  },
+  {
+    "city": "Grand Island",
+    "state_abbr": "NY",
+    "city_slug": "grand-island",
+    "building_count": 1,
+    "primary_space_types": [
+      "retail"
+    ],
+    "supported_space_types": [
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1
     }
   },
   {
@@ -3990,20 +4152,38 @@
     "city": "Hamburg",
     "state_abbr": "NY",
     "city_slug": "hamburg",
-    "building_count": 3,
+    "building_count": 7,
     "primary_space_types": [
       "retail",
+      "office",
       "industrial",
       "land"
     ],
     "supported_space_types": [
       "industrial",
       "land",
+      "office",
       "retail"
     ],
     "space_type_counts": {
-      "retail": 1,
+      "office": 1,
+      "retail": 4,
       "industrial": 1,
+      "land": 1
+    }
+  },
+  {
+    "city": "Hampton",
+    "state_abbr": "NH",
+    "city_slug": "hampton",
+    "building_count": 1,
+    "primary_space_types": [
+      "land"
+    ],
+    "supported_space_types": [
+      "land"
+    ],
+    "space_type_counts": {
       "land": 1
     }
   },
@@ -4059,7 +4239,7 @@
     "city": "Hayward",
     "state_abbr": "CA",
     "city_slug": "hayward",
-    "building_count": 11,
+    "building_count": 12,
     "primary_space_types": [
       "retail",
       "office",
@@ -4075,7 +4255,7 @@
     "space_type_counts": {
       "land": 2,
       "industrial": 2,
-      "retail": 4,
+      "retail": 5,
       "office": 3
     }
   },
@@ -4723,6 +4903,21 @@
   },
   {
     "city": "Kingston",
+    "state_abbr": "NH",
+    "city_slug": "kingston",
+    "building_count": 1,
+    "primary_space_types": [
+      "retail"
+    ],
+    "supported_space_types": [
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1
+    }
+  },
+  {
+    "city": "Kingston",
     "state_abbr": "NY",
     "city_slug": "kingston",
     "building_count": 4,
@@ -4770,6 +4965,36 @@
     ],
     "space_type_counts": {
       "industrial": 1
+    }
+  },
+  {
+    "city": "La Jolla",
+    "state_abbr": "CA",
+    "city_slug": "la-jolla",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
+    "city": "La Mesa",
+    "state_abbr": "CA",
+    "city_slug": "la-mesa",
+    "building_count": 2,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 2
     }
   },
   {
@@ -5190,12 +5415,12 @@
     "city": "Livermore",
     "state_abbr": "CA",
     "city_slug": "livermore",
-    "building_count": 6,
+    "building_count": 7,
     "primary_space_types": [
+      "retail",
       "land",
       "industrial",
-      "office",
-      "retail"
+      "office"
     ],
     "supported_space_types": [
       "industrial",
@@ -5205,7 +5430,7 @@
     ],
     "space_type_counts": {
       "office": 1,
-      "retail": 1,
+      "retail": 2,
       "land": 2,
       "industrial": 2
     }
@@ -5376,10 +5601,10 @@
     "city": "Los Angeles",
     "state_abbr": "CA",
     "city_slug": "los-angeles",
-    "building_count": 112,
+    "building_count": 151,
     "primary_space_types": [
-      "industrial",
       "office",
+      "industrial",
       "retail"
     ],
     "supported_space_types": [
@@ -5388,9 +5613,9 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 45,
-      "industrial": 66,
-      "retail": 1
+      "office": 73,
+      "industrial": 70,
+      "retail": 9
     }
   },
   {
@@ -5412,7 +5637,7 @@
     "city": "Los Gatos",
     "state_abbr": "CA",
     "city_slug": "los-gatos",
-    "building_count": 3,
+    "building_count": 4,
     "primary_space_types": [
       "retail",
       "office"
@@ -5422,7 +5647,7 @@
       "retail"
     ],
     "space_type_counts": {
-      "retail": 2,
+      "retail": 3,
       "office": 1
     }
   },
@@ -5544,16 +5769,33 @@
     }
   },
   {
+    "city": "Manhattan Beach",
+    "state_abbr": "CA",
+    "city_slug": "manhattan-beach",
+    "building_count": 1,
+    "primary_space_types": [
+      "industrial"
+    ],
+    "supported_space_types": [
+      "industrial"
+    ],
+    "space_type_counts": {
+      "industrial": 1
+    }
+  },
+  {
     "city": "Manlius",
     "state_abbr": "NY",
     "city_slug": "manlius",
-    "building_count": 7,
+    "building_count": 8,
     "primary_space_types": [
       "land",
       "retail",
-      "office"
+      "office",
+      "industrial"
     ],
     "supported_space_types": [
+      "industrial",
       "land",
       "office",
       "retail"
@@ -5561,6 +5803,7 @@
     "space_type_counts": {
       "land": 3,
       "office": 1,
+      "industrial": 1,
       "retail": 3
     }
   },
@@ -5667,7 +5910,7 @@
     "city": "Marina Del Rey",
     "state_abbr": "CA",
     "city_slug": "marina-del-rey",
-    "building_count": 2,
+    "building_count": 3,
     "primary_space_types": [
       "office"
     ],
@@ -5675,7 +5918,7 @@
       "office"
     ],
     "space_type_counts": {
-      "office": 2
+      "office": 3
     }
   },
   {
@@ -5883,6 +6126,24 @@
     }
   },
   {
+    "city": "Mesa",
+    "state_abbr": "AZ",
+    "city_slug": "mesa",
+    "building_count": 5,
+    "primary_space_types": [
+      "industrial",
+      "office"
+    ],
+    "supported_space_types": [
+      "industrial",
+      "office"
+    ],
+    "space_type_counts": {
+      "industrial": 3,
+      "office": 2
+    }
+  },
+  {
     "city": "Mesquite",
     "state_abbr": "TX",
     "city_slug": "mesquite",
@@ -6003,15 +6264,21 @@
     "city": "Milpitas",
     "state_abbr": "CA",
     "city_slug": "milpitas",
-    "building_count": 2,
+    "building_count": 5,
     "primary_space_types": [
-      "land"
+      "land",
+      "office",
+      "retail"
     ],
     "supported_space_types": [
-      "land"
+      "land",
+      "office",
+      "retail"
     ],
     "space_type_counts": {
-      "land": 2
+      "land": 2,
+      "office": 2,
+      "retail": 1
     }
   },
   {
@@ -6216,17 +6483,20 @@
     "city": "Morgan Hill",
     "state_abbr": "CA",
     "city_slug": "morgan-hill",
-    "building_count": 6,
+    "building_count": 8,
     "primary_space_types": [
       "land",
-      "retail"
+      "retail",
+      "office"
     ],
     "supported_space_types": [
       "land",
+      "office",
       "retail"
     ],
     "space_type_counts": {
-      "retail": 1,
+      "retail": 2,
+      "office": 1,
       "land": 5
     }
   },
@@ -6249,7 +6519,7 @@
     "city": "Mountain View",
     "state_abbr": "CA",
     "city_slug": "mountain-view",
-    "building_count": 7,
+    "building_count": 8,
     "primary_space_types": [
       "retail",
       "office",
@@ -6263,7 +6533,7 @@
     "space_type_counts": {
       "retail": 4,
       "industrial": 1,
-      "office": 2
+      "office": 3
     }
   },
   {
@@ -6351,15 +6621,18 @@
     "city": "New York",
     "state_abbr": "NY",
     "city_slug": "new-york",
-    "building_count": 39,
+    "building_count": 40,
     "primary_space_types": [
-      "office"
+      "office",
+      "industrial"
     ],
     "supported_space_types": [
+      "industrial",
       "office"
     ],
     "space_type_counts": {
-      "office": 39
+      "office": 39,
+      "industrial": 1
     }
   },
   {
@@ -6450,6 +6723,21 @@
     }
   },
   {
+    "city": "Newington",
+    "state_abbr": "NH",
+    "city_slug": "newington",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
     "city": "Newport Beach",
     "state_abbr": "CA",
     "city_slug": "newport-beach",
@@ -6468,11 +6756,11 @@
     "city": "Niagara Falls",
     "state_abbr": "NY",
     "city_slug": "niagara-falls",
-    "building_count": 5,
+    "building_count": 10,
     "primary_space_types": [
       "retail",
-      "industrial",
       "office",
+      "industrial",
       "land"
     ],
     "supported_space_types": [
@@ -6482,9 +6770,9 @@
       "retail"
     ],
     "space_type_counts": {
-      "retail": 2,
-      "industrial": 1,
-      "office": 1,
+      "retail": 4,
+      "office": 3,
+      "industrial": 2,
       "land": 1
     }
   },
@@ -6522,7 +6810,7 @@
     "city": "North Hollywood",
     "state_abbr": "CA",
     "city_slug": "north-hollywood",
-    "building_count": 1,
+    "building_count": 2,
     "primary_space_types": [
       "office"
     ],
@@ -6530,14 +6818,14 @@
       "office"
     ],
     "space_type_counts": {
-      "office": 1
+      "office": 2
     }
   },
   {
     "city": "North Tonawanda",
     "state_abbr": "NY",
     "city_slug": "north-tonawanda",
-    "building_count": 9,
+    "building_count": 11,
     "primary_space_types": [
       "industrial",
       "office",
@@ -6549,9 +6837,9 @@
       "retail"
     ],
     "space_type_counts": {
-      "industrial": 5,
+      "industrial": 7,
       "office": 3,
-      "retail": 2
+      "retail": 3
     }
   },
   {
@@ -6630,12 +6918,12 @@
     "city": "Oakland",
     "state_abbr": "CA",
     "city_slug": "oakland",
-    "building_count": 8,
+    "building_count": 36,
     "primary_space_types": [
-      "land",
       "office",
+      "industrial",
       "retail",
-      "industrial"
+      "land"
     ],
     "supported_space_types": [
       "industrial",
@@ -6644,10 +6932,10 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 2,
-      "industrial": 1,
-      "land": 3,
-      "retail": 2
+      "office": 20,
+      "industrial": 9,
+      "retail": 4,
+      "land": 3
     }
   },
   {
@@ -6810,7 +7098,7 @@
     "city": "Orchard Park",
     "state_abbr": "NY",
     "city_slug": "orchard-park",
-    "building_count": 1,
+    "building_count": 5,
     "primary_space_types": [
       "office"
     ],
@@ -6818,7 +7106,7 @@
       "office"
     ],
     "space_type_counts": {
-      "office": 1
+      "office": 5
     }
   },
   {
@@ -6879,6 +7167,21 @@
     "city": "Oxnard",
     "state_abbr": "CA",
     "city_slug": "oxnard",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
+    "city": "Pacific Palisades",
+    "state_abbr": "CA",
+    "city_slug": "pacific-palisades",
     "building_count": 1,
     "primary_space_types": [
       "office"
@@ -7086,18 +7389,18 @@
     "city": "Phoenix",
     "state_abbr": "AZ",
     "city_slug": "phoenix",
-    "building_count": 12,
+    "building_count": 88,
     "primary_space_types": [
-      "industrial",
-      "office"
+      "office",
+      "industrial"
     ],
     "supported_space_types": [
       "industrial",
       "office"
     ],
     "space_type_counts": {
-      "industrial": 7,
-      "office": 5
+      "industrial": 28,
+      "office": 60
     }
   },
   {
@@ -7314,6 +7617,27 @@
     }
   },
   {
+    "city": "Portsmouth",
+    "state_abbr": "NH",
+    "city_slug": "portsmouth",
+    "building_count": 4,
+    "primary_space_types": [
+      "office",
+      "industrial",
+      "retail"
+    ],
+    "supported_space_types": [
+      "industrial",
+      "office",
+      "retail"
+    ],
+    "space_type_counts": {
+      "industrial": 1,
+      "office": 2,
+      "retail": 1
+    }
+  },
+  {
     "city": "Potsdam",
     "state_abbr": "NY",
     "city_slug": "potsdam",
@@ -7347,14 +7671,20 @@
     "city": "Poway",
     "state_abbr": "CA",
     "city_slug": "poway",
-    "building_count": 1,
+    "building_count": 9,
     "primary_space_types": [
+      "industrial",
+      "office",
       "retail"
     ],
     "supported_space_types": [
+      "industrial",
+      "office",
       "retail"
     ],
     "space_type_counts": {
+      "industrial": 4,
+      "office": 4,
       "retail": 1
     }
   },
@@ -7410,11 +7740,11 @@
     "city": "Rancho Cordova",
     "state_abbr": "CA",
     "city_slug": "rancho-cordova",
-    "building_count": 30,
+    "building_count": 36,
     "primary_space_types": [
       "office",
-      "retail",
-      "industrial"
+      "industrial",
+      "retail"
     ],
     "supported_space_types": [
       "industrial",
@@ -7422,9 +7752,9 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 15,
+      "office": 18,
       "retail": 8,
-      "industrial": 8
+      "industrial": 11
     }
   },
   {
@@ -7603,6 +7933,30 @@
   },
   {
     "city": "Rochester",
+    "state_abbr": "NH",
+    "city_slug": "rochester",
+    "building_count": 4,
+    "primary_space_types": [
+      "retail",
+      "coworking",
+      "office",
+      "industrial"
+    ],
+    "supported_space_types": [
+      "coworking",
+      "industrial",
+      "office",
+      "retail"
+    ],
+    "space_type_counts": {
+      "coworking": 1,
+      "office": 1,
+      "industrial": 1,
+      "retail": 2
+    }
+  },
+  {
+    "city": "Rochester",
     "state_abbr": "NY",
     "city_slug": "rochester",
     "building_count": 44,
@@ -7629,7 +7983,7 @@
     "city": "Rocklin",
     "state_abbr": "CA",
     "city_slug": "rocklin",
-    "building_count": 20,
+    "building_count": 21,
     "primary_space_types": [
       "office",
       "retail",
@@ -7644,7 +7998,7 @@
     ],
     "space_type_counts": {
       "retail": 6,
-      "office": 12,
+      "office": 13,
       "industrial": 1,
       "land": 1
     }
@@ -7758,7 +8112,7 @@
     "city": "Roseville",
     "state_abbr": "CA",
     "city_slug": "roseville",
-    "building_count": 30,
+    "building_count": 36,
     "primary_space_types": [
       "office",
       "retail",
@@ -7770,8 +8124,8 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 24,
-      "retail": 5,
+      "office": 29,
+      "retail": 7,
       "industrial": 1
     }
   },
@@ -7824,11 +8178,11 @@
     "city": "Sacramento",
     "state_abbr": "CA",
     "city_slug": "sacramento",
-    "building_count": 86,
+    "building_count": 131,
     "primary_space_types": [
       "office",
-      "retail",
-      "industrial"
+      "industrial",
+      "retail"
     ],
     "supported_space_types": [
       "industrial",
@@ -7836,8 +8190,8 @@
       "retail"
     ],
     "space_type_counts": {
-      "office": 51,
-      "industrial": 17,
+      "office": 75,
+      "industrial": 38,
       "retail": 18
     }
   },
@@ -7938,7 +8292,7 @@
     "city": "San Diego",
     "state_abbr": "CA",
     "city_slug": "san-diego",
-    "building_count": 36,
+    "building_count": 74,
     "primary_space_types": [
       "office",
       "industrial",
@@ -7950,16 +8304,16 @@
       "retail"
     ],
     "space_type_counts": {
+      "office": 42,
       "retail": 5,
-      "office": 21,
-      "industrial": 10
+      "industrial": 27
     }
   },
   {
     "city": "San Francisco",
     "state_abbr": "CA",
     "city_slug": "san-francisco",
-    "building_count": 27,
+    "building_count": 90,
     "primary_space_types": [
       "retail",
       "office",
@@ -7973,21 +8327,21 @@
       "retail"
     ],
     "space_type_counts": {
-      "retail": 17,
+      "retail": 60,
+      "office": 26,
       "land": 2,
-      "office": 7,
-      "industrial": 1
+      "industrial": 2
     }
   },
   {
     "city": "San Jose",
     "state_abbr": "CA",
     "city_slug": "san-jose",
-    "building_count": 39,
+    "building_count": 79,
     "primary_space_types": [
       "retail",
-      "land",
       "office",
+      "land",
       "industrial"
     ],
     "supported_space_types": [
@@ -7997,27 +8351,30 @@
       "retail"
     ],
     "space_type_counts": {
+      "retail": 54,
       "land": 9,
-      "office": 7,
-      "retail": 23,
-      "industrial": 1
+      "office": 14,
+      "industrial": 3
     }
   },
   {
     "city": "San Leandro",
     "state_abbr": "CA",
     "city_slug": "san-leandro",
-    "building_count": 4,
+    "building_count": 5,
     "primary_space_types": [
       "land",
+      "retail",
       "industrial"
     ],
     "supported_space_types": [
       "industrial",
-      "land"
+      "land",
+      "retail"
     ],
     "space_type_counts": {
       "land": 3,
+      "retail": 1,
       "industrial": 1
     }
   },
@@ -8040,7 +8397,7 @@
     "city": "San Marcos",
     "state_abbr": "CA",
     "city_slug": "san-marcos",
-    "building_count": 4,
+    "building_count": 5,
     "primary_space_types": [
       "retail",
       "office"
@@ -8051,7 +8408,7 @@
     ],
     "space_type_counts": {
       "retail": 3,
-      "office": 2
+      "office": 3
     }
   },
   {
@@ -8073,15 +8430,18 @@
     "city": "San Mateo",
     "state_abbr": "CA",
     "city_slug": "san-mateo",
-    "building_count": 4,
+    "building_count": 5,
     "primary_space_types": [
-      "office"
+      "office",
+      "retail"
     ],
     "supported_space_types": [
-      "office"
+      "office",
+      "retail"
     ],
     "space_type_counts": {
-      "office": 4
+      "office": 4,
+      "retail": 1
     }
   },
   {
@@ -8172,7 +8532,7 @@
     "city": "Santa Clara",
     "state_abbr": "CA",
     "city_slug": "santa-clara",
-    "building_count": 9,
+    "building_count": 15,
     "primary_space_types": [
       "retail",
       "land",
@@ -8187,9 +8547,9 @@
     ],
     "space_type_counts": {
       "land": 3,
+      "retail": 10,
       "office": 1,
-      "industrial": 1,
-      "retail": 4
+      "industrial": 1
     }
   },
   {
@@ -8211,15 +8571,18 @@
     "city": "Santa Monica",
     "state_abbr": "CA",
     "city_slug": "santa-monica",
-    "building_count": 2,
+    "building_count": 19,
     "primary_space_types": [
-      "office"
+      "office",
+      "retail"
     ],
     "supported_space_types": [
-      "office"
+      "office",
+      "retail"
     ],
     "space_type_counts": {
-      "office": 2
+      "office": 17,
+      "retail": 3
     }
   },
   {
@@ -8244,10 +8607,10 @@
     "city": "Saratoga",
     "state_abbr": "CA",
     "city_slug": "saratoga",
-    "building_count": 2,
+    "building_count": 3,
     "primary_space_types": [
-      "office",
-      "retail"
+      "retail",
+      "office"
     ],
     "supported_space_types": [
       "office",
@@ -8255,7 +8618,7 @@
     ],
     "space_type_counts": {
       "office": 1,
-      "retail": 1
+      "retail": 2
     }
   },
   {
@@ -8403,15 +8766,18 @@
     "city": "Scottsdale",
     "state_abbr": "AZ",
     "city_slug": "scottsdale",
-    "building_count": 1,
+    "building_count": 12,
     "primary_space_types": [
-      "office"
+      "office",
+      "industrial"
     ],
     "supported_space_types": [
+      "industrial",
       "office"
     ],
     "space_type_counts": {
-      "office": 1
+      "office": 10,
+      "industrial": 2
     }
   },
   {
@@ -8478,6 +8844,21 @@
     ],
     "space_type_counts": {
       "industrial": 1
+    }
+  },
+  {
+    "city": "Sherman Oaks",
+    "state_abbr": "CA",
+    "city_slug": "sherman-oaks",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
     }
   },
   {
@@ -8601,6 +8982,21 @@
     ],
     "space_type_counts": {
       "land": 6
+    }
+  },
+  {
+    "city": "Somersworth",
+    "state_abbr": "NH",
+    "city_slug": "somersworth",
+    "building_count": 1,
+    "primary_space_types": [
+      "retail"
+    ],
+    "supported_space_types": [
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1
     }
   },
   {
@@ -8784,6 +9180,36 @@
     }
   },
   {
+    "city": "Stratham",
+    "state_abbr": "NH",
+    "city_slug": "stratham",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
+    "city": "Studio City",
+    "state_abbr": "CA",
+    "city_slug": "studio-city",
+    "building_count": 1,
+    "primary_space_types": [
+      "office"
+    ],
+    "supported_space_types": [
+      "office"
+    ],
+    "space_type_counts": {
+      "office": 1
+    }
+  },
+  {
     "city": "Suisun City",
     "state_abbr": "CA",
     "city_slug": "suisun-city",
@@ -8802,7 +9228,7 @@
     "city": "Sunnyvale",
     "state_abbr": "CA",
     "city_slug": "sunnyvale",
-    "building_count": 6,
+    "building_count": 11,
     "primary_space_types": [
       "retail",
       "office",
@@ -8816,7 +9242,22 @@
     "space_type_counts": {
       "office": 2,
       "industrial": 1,
-      "retail": 3
+      "retail": 8
+    }
+  },
+  {
+    "city": "Surprise",
+    "state_abbr": "AZ",
+    "city_slug": "surprise",
+    "building_count": 1,
+    "primary_space_types": [
+      "industrial"
+    ],
+    "supported_space_types": [
+      "industrial"
+    ],
+    "space_type_counts": {
+      "industrial": 1
     }
   },
   {
@@ -8889,15 +9330,18 @@
     "city": "Tempe",
     "state_abbr": "AZ",
     "city_slug": "tempe",
-    "building_count": 1,
+    "building_count": 4,
     "primary_space_types": [
-      "office"
+      "office",
+      "industrial"
     ],
     "supported_space_types": [
+      "industrial",
       "office"
     ],
     "space_type_counts": {
-      "office": 1
+      "office": 3,
+      "industrial": 1
     }
   },
   {
@@ -8976,20 +9420,23 @@
     "city": "Tonawanda",
     "state_abbr": "NY",
     "city_slug": "tonawanda",
-    "building_count": 5,
+    "building_count": 8,
     "primary_space_types": [
+      "retail",
       "industrial",
-      "land",
-      "retail"
+      "office",
+      "land"
     ],
     "supported_space_types": [
       "industrial",
       "land",
+      "office",
       "retail"
     ],
     "space_type_counts": {
-      "retail": 1,
+      "retail": 2,
       "industrial": 2,
+      "office": 2,
       "land": 2
     }
   },
@@ -9162,14 +9609,17 @@
     "city": "Vacaville",
     "state_abbr": "CA",
     "city_slug": "vacaville",
-    "building_count": 1,
+    "building_count": 3,
     "primary_space_types": [
+      "industrial",
       "land"
     ],
     "supported_space_types": [
+      "industrial",
       "land"
     ],
     "space_type_counts": {
+      "industrial": 2,
       "land": 1
     }
   },
@@ -9219,6 +9669,24 @@
     }
   },
   {
+    "city": "Venice",
+    "state_abbr": "CA",
+    "city_slug": "venice",
+    "building_count": 2,
+    "primary_space_types": [
+      "retail",
+      "office"
+    ],
+    "supported_space_types": [
+      "office",
+      "retail"
+    ],
+    "space_type_counts": {
+      "retail": 1,
+      "office": 1
+    }
+  },
+  {
     "city": "Ventura",
     "state_abbr": "CA",
     "city_slug": "ventura",
@@ -9240,15 +9708,18 @@
     "city": "Vernon",
     "state_abbr": "CA",
     "city_slug": "vernon",
-    "building_count": 6,
+    "building_count": 8,
     "primary_space_types": [
-      "industrial"
+      "industrial",
+      "office"
     ],
     "supported_space_types": [
-      "industrial"
+      "industrial",
+      "office"
     ],
     "space_type_counts": {
-      "industrial": 6
+      "industrial": 7,
+      "office": 1
     }
   },
   {
@@ -9312,7 +9783,7 @@
     "city": "Vista",
     "state_abbr": "CA",
     "city_slug": "vista",
-    "building_count": 11,
+    "building_count": 13,
     "primary_space_types": [
       "industrial",
       "retail",
@@ -9324,7 +9795,7 @@
       "retail"
     ],
     "space_type_counts": {
-      "industrial": 6,
+      "industrial": 8,
       "retail": 3,
       "office": 2
     }

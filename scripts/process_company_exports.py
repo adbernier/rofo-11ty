@@ -138,12 +138,11 @@ def build_building(rows):
     source_companies = sorted({r["source_company"] for r in rows})
     hero = next((r["hero_image"] for r in rows if r["hero_image"]), "")
 
-    teaser = f"{primary['type']} space in {primary['city']}, {primary['state_abbr']} with flexible leasing options."
-
     primary_space_type = primary["space_type"] or (
         Counter([r["space_type"] for r in rows if r["space_type"]]).most_common(1)[0][0]
         if [r["space_type"] for r in rows if r["space_type"]] else ""
     )
+    teaser = f"{primary_space_type.title() if primary_space_type else 'Commercial'} space in {primary['city']}, {primary['state_abbr']} with flexible leasing options."
 
     building_path = f"/commercial-real-estate/building/{primary['state_abbr']}/{primary['city_slug']}/{primary['building_slug']}/"
 
