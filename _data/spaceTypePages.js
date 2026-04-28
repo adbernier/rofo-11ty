@@ -1,6 +1,7 @@
 const cities = require("./cities.generated.json");
 const spaceTypes = require("./spaceTypes");
 const buildings = require("./buildings.js");
+const { getRoutingCandidates } = require("./leadRouting.js");
 
 // -----------------------------
 // Normalize building type set
@@ -147,6 +148,8 @@ module.exports = cities.flatMap((city) => {
 
       const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
       const representativeBuildings = buildingIndex.get(key) || [];
+      const cityStateSlug =
+        city.city_state_slug || `${normalizedCitySlug}-${normalizedStateAbbr}`;
 
       return {
         city,
@@ -155,6 +158,12 @@ module.exports = cities.flatMap((city) => {
         state_abbr: stateAbbr,
         city_slug: normalizedCitySlug,
         page_slug: normalizedTypeSlug,
+        routing_candidates: getRoutingCandidates({
+          city_state_slug: cityStateSlug,
+          space_type_slug: normalizedTypeSlug,
+        }),
+        routing_market: cityStateSlug,
+        routing_space_type: normalizedTypeSlug,
         representativeBuildings: representativeBuildings.slice(0, 12),
         hasInventory: representativeBuildings.length > 0,
       };

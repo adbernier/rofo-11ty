@@ -1,5 +1,6 @@
 const legacyBuildings = require("../data-sources/reference/buildings-live-before-merge.json");
 const companyBuildings = require("../data-sources/reference/company-buildings.json");
+const { getRoutingCandidates } = require("./leadRouting.js");
 
 function clean(value) {
   return String(value || "").trim();
@@ -369,6 +370,11 @@ function normalizeBuilding(building, source) {
   const spaceTypeUrl = typeMeta.slug
     ? `/commercial-real-estate/${state_abbr}/${city_slug}/${typeMeta.slug}/`
     : "";
+  const city_state_slug = building.city_state_slug || `${city_slug}-${state_abbr.toLowerCase()}`;
+  const routingCandidates = getRoutingCandidates({
+    city_state_slug,
+    space_type_slug: typeMeta.slug,
+  });
 
   return {
     ...building,
@@ -376,12 +382,13 @@ function normalizeBuilding(building, source) {
     source,
     address,
     name: clean(building.name) || address,
+    display_name: getBuildingLabel(building, address),
     city,
     state_abbr,
 
     city_slug,
     building_slug,
-    city_state_slug: building.city_state_slug || `${city_slug}-${state_abbr.toLowerCase()}`,
+    city_state_slug,
 
     building_path:
       building.building_path ||
@@ -404,6 +411,9 @@ function normalizeBuilding(building, source) {
     space_type_slug: typeMeta.slug,
     space_type_url: spaceTypeUrl,
     space_type_label: typeMeta.label,
+    routing_candidates: routingCandidates,
+    routing_market: city_state_slug,
+    routing_space_type: typeMeta.slug,
 
     hero_image: building.hero_image || images[0] || "",
     image_urls: images,

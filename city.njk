@@ -330,7 +330,10 @@ eleventyComputed:
             <input type="hidden" name="city" value="{{ city.city }}">
             <input type="hidden" name="state" value="{{ city.state_abbr }}">
             <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
-            <input type="hidden" name="page_url" value="https://www.rofo.com{{ page.url }}">
+            <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
+            <input type="hidden" name="routing_market" value="{{ city.city_state_slug }}">
+            <input type="hidden" name="routing_space_type" value="">
+            <input type="hidden" name="routing_candidates" value="{{ city.routing_candidates | join(',') }}">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
             <div class="form-stack">

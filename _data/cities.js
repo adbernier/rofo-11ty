@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { getRoutingCandidates } = require("./leadRouting.js");
 
 function findCityHeroImage(cityStateSlug) {
   const baseDir = path.join(process.cwd(), "assets", "images", "cities");
@@ -47,6 +48,11 @@ module.exports = () => {
 
     return {
       ...city,
+      city_state_slug: cityStateSlug,
+      routing_candidates: getRoutingCandidates({
+        city_state_slug: cityStateSlug,
+        space_type_slug: "",
+      }),
       hero_image:
         autoHeroImage ||
         (isGenericPlaceholder ? "" : rawHeroImage),

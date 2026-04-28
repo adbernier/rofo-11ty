@@ -201,14 +201,14 @@ eleventyComputed:
     <input type="hidden" name="page_type" value="building" />
     <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}" />
 
-    <input type="hidden" name="building_name" value="{{ building.name or '' }}" />
+    <input type="hidden" name="building_name" value="{{ building.display_name or building.name or '' }}" />
     <input type="hidden" name="building_address" value="{{ building.address or '' }}" />
     <input type="hidden" name="building_slug" value="{{ building.building_slug or '' }}" />
 
     <input type="hidden" name="city" value="{{ building.city or '' }}" />
     <input type="hidden" name="state" value="{{ building.state_abbr or '' }}" />
     <input type="hidden" name="market" value="{{ building.city or '' }}, {{ building.state_abbr or '' }}" />
-    <input type="hidden" name="space_type" value="{{ building.type or '' }}" />
+    <input type="hidden" name="space_type" value="{{ building.primary_type_label or building.type or '' }}" />
 
     <input type="hidden" name="primary_source" value="{{ building.primary_source or '' }}" />
     <input type="hidden" name="building_company" value="{{ building.company or building.primary_source or '' }}" />
@@ -216,6 +216,9 @@ eleventyComputed:
     <input type="hidden" name="building_space_types" value="{{ (building.space_types or []) | join(', ') }}" />
     <input type="hidden" name="is_exec_suite_present" value="{{ building.is_exec_suite_present or false }}" />
 
+    <input type="hidden" name="routing_candidates" value="{{ building.routing_candidates | join(',') }}" />
+    <input type="hidden" name="routing_market" value="{{ building.routing_market }}" />
+    <input type="hidden" name="routing_space_type" value="{{ building.routing_space_type }}" />
     <input type="hidden" name="routing_key" value="{{ (building.primary_source or 'unknown') | lower }}__{{ building.city_slug or '' }}__{{ (building.type or 'unknown') | lower }}" />
 
       <div class="form-stack">
