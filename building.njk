@@ -218,6 +218,7 @@ eleventyComputed:
 
     <input type="hidden" name="routing_candidates" value="{{ building.routing_candidates | join(',') }}" />
     <input type="hidden" name="routing_market" value="{{ building.routing_market }}" />
+    <input type="hidden" name="routing_county" value="{{ building.routing_county }}" />
     <input type="hidden" name="routing_space_type" value="{{ building.routing_space_type }}" />
     <input type="hidden" name="routing_key" value="{{ (building.primary_source or 'unknown') | lower }}__{{ building.city_slug or '' }}__{{ (building.type or 'unknown') | lower }}" />
 

@@ -3,6 +3,22 @@ const spaceTypes = require("./spaceTypes");
 const buildings = require("./buildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 
+function slugify(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function countyStateSlug(county, state_abbr) {
+  const countySlug = slugify(county);
+  const stateSlug = String(state_abbr || "").trim().toLowerCase();
+
+  return countySlug && stateSlug ? `${countySlug}-${stateSlug}` : "";
+}
+
 // -----------------------------
 // Normalize building type set
 // -----------------------------
@@ -150,6 +166,7 @@ module.exports = cities.flatMap((city) => {
       const representativeBuildings = buildingIndex.get(key) || [];
       const cityStateSlug =
         city.city_state_slug || `${normalizedCitySlug}-${normalizedStateAbbr}`;
+      const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
 
       return {
         city,
@@ -160,9 +177,11 @@ module.exports = cities.flatMap((city) => {
         page_slug: normalizedTypeSlug,
         routing_candidates: getRoutingCandidates({
           city_state_slug: cityStateSlug,
+          county_state_slug: routingCounty,
           space_type_slug: normalizedTypeSlug,
         }),
         routing_market: cityStateSlug,
+        routing_county: routingCounty,
         routing_space_type: normalizedTypeSlug,
         representativeBuildings: representativeBuildings.slice(0, 12),
         hasInventory: representativeBuildings.length > 0,

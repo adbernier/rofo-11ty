@@ -27,6 +27,22 @@ function hashString(str) {
   return Math.abs(hash);
 }
 
+function slugify(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function countyStateSlug(county, state_abbr) {
+  const countySlug = slugify(county);
+  const stateSlug = String(state_abbr || "").trim().toLowerCase();
+
+  return countySlug && stateSlug ? `${countySlug}-${stateSlug}` : "";
+}
+
 const PLACEHOLDER_THEME_COUNT = 6;
 
 module.exports = () => {
@@ -36,6 +52,7 @@ module.exports = () => {
   return cities.map((city) => {
     const cityStateSlug =
       city.city_state_slug || `${city.slug}-${city.state_abbr.toLowerCase()}`;
+    const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
 
     const autoHeroImage = findCityHeroImage(cityStateSlug);
     const rawHeroImage = city.hero_image || "";
@@ -49,8 +66,11 @@ module.exports = () => {
     return {
       ...city,
       city_state_slug: cityStateSlug,
+      routing_market: cityStateSlug,
+      routing_county: routingCounty,
       routing_candidates: getRoutingCandidates({
         city_state_slug: cityStateSlug,
+        county_state_slug: routingCounty,
         space_type_slug: "",
       }),
       hero_image:

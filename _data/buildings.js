@@ -1,6 +1,7 @@
 const legacyBuildings = require("../data-sources/reference/buildings-live-before-merge.json");
 const companyBuildings = require("../data-sources/reference/company-buildings.json");
 const { getRoutingCandidates } = require("./leadRouting.js");
+const cities = require("./cities.generated.json");
 
 function clean(value) {
   return String(value || "").trim();
@@ -13,6 +14,20 @@ function slugify(value) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+function countyStateSlug(county, state_abbr) {
+  const countySlug = slugify(county);
+  const stateSlug = clean(state_abbr).toLowerCase();
+
+  return countySlug && stateSlug ? `${countySlug}-${stateSlug}` : "";
+}
+
+const cityCountyLookup = new Map(
+  cities.map((city) => [
+    city.city_state_slug || `${city.slug}-${String(city.state_abbr || "").toLowerCase()}`,
+    countyStateSlug(city.county || city.county_name, city.state_abbr),
+  ])
+);
 
 function isLand(building) {
   const type = String(building.type || building.space_type || "").toLowerCase();
@@ -371,8 +386,13 @@ function normalizeBuilding(building, source) {
     ? `/commercial-real-estate/${state_abbr}/${city_slug}/${typeMeta.slug}/`
     : "";
   const city_state_slug = building.city_state_slug || `${city_slug}-${state_abbr.toLowerCase()}`;
+  const routing_county = countyStateSlug(
+    building.county || building.county_name || building.property_county,
+    state_abbr
+  ) || cityCountyLookup.get(city_state_slug) || "";
   const routingCandidates = getRoutingCandidates({
     city_state_slug,
+    county_state_slug: routing_county,
     space_type_slug: typeMeta.slug,
   });
 
@@ -413,6 +433,7 @@ function normalizeBuilding(building, source) {
     space_type_label: typeMeta.label,
     routing_candidates: routingCandidates,
     routing_market: city_state_slug,
+    routing_county,
     routing_space_type: typeMeta.slug,
 
     hero_image: building.hero_image || images[0] || "",
