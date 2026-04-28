@@ -262,7 +262,45 @@ eleventyComputed:
 
       <div class="form-stack">
         <div class="field">
-          <label for="building-lead-type">Type of Space</label>
+          <label for="building-lead-requested-type">What type of space do you need?</label>
+          <select
+            id="building-lead-requested-type"
+            name="requested_space_type"
+            required
+          >
+            <option value="">Select one</option>
+            <option>Office Space</option>
+            <option>Retail Space</option>
+            <option>Industrial Space</option>
+            <option>Coworking Space</option>
+            <option>Flex Space</option>
+            <option>Not Sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-size">What size of space do you need?</label>
+          <select
+            id="building-lead-size"
+            name="space_needed"
+            required
+          >
+            <option value="">Select one</option>
+            <option>Under 1,000 sqft</option>
+            <option>1,000–2,500 sqft</option>
+            <option>2,500–5,000 sqft</option>
+            <option>5,000–10,000 sqft</option>
+            <option>10,000+ sqft</option>
+            <option>Not Sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-stack">
+        <div class="field">
+          <label for="building-lead-type">Page space type</label>
           <input
             id="building-lead-type"
             type="text"
