@@ -1,0 +1,37 @@
+---
+layout: base.njk
+permalink: /commercial-real-estate/market-guides/index.html
+title: Commercial Real Estate Market Guides | Rofo
+description: Explore practical office market guides with average rents, local leasing trends, neighborhood notes, and nearby markets.
+---
+
+{% set sortedGuides = marketGuides | sort(attribute="city") %}
+
+<section class="city-page">
+  <div class="city-shell">
+    <div class="city-card city-card--full">
+      <div class="eyebrow">Market Guides</div>
+      <h1>Commercial Real Estate Market Guides</h1>
+      <p class="lead">
+        Explore practical office market guides with average rents, local leasing trends, neighborhood notes, and nearby markets.
+      </p>
+    </div>
+
+    <div class="guide-grid">
+      {% for guide in sortedGuides %}
+        <article class="city-card">
+          <div class="eyebrow">{{ guide.city }}, {{ guide.state_abbr }}</div>
+          <h2>{{ guide.title }}</h2>
+          <p>{{ guide.meta_description }}</p>
+
+          <ul class="mini-list">
+            <li><strong>Average rent:</strong> {{ guide.average_rent }}</li>
+            <li><strong>Market date:</strong> {{ guide.market_date }}</li>
+          </ul>
+
+          <a class="btn-secondary" href="{{ guide.url }}">Read the guide</a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
