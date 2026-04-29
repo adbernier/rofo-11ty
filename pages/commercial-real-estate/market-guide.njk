@@ -69,7 +69,7 @@ eleventyComputed:
           <div class="guide-mini-card">
             <div class="stat-label">Space Type</div>
             <div class="stat-value">{{ guide.space_type_label }}</div>
-            <p class="stat-note">Traditional, flexible, and team office options</p>
+            <p class="stat-note">Market context for {{ guide.space_type_label_lower }} options</p>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ eleventyComputed:
 
       <div class="city-card city-card--full">
         <div class="eyebrow">Neighborhood Breakdown</div>
-        <h2>Where to compare office options</h2>
+        <h2>Where to compare {{ guide.space_type_label_lower }} options</h2>
         <div class="guide-grid">
           {% for neighborhood in guide.neighborhoods %}
             <div class="guide-mini-card">
@@ -100,16 +100,16 @@ eleventyComputed:
       {% if nearbyMarketGuides.length %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Nearby Markets</div>
-          <h2>Nearby office markets to consider</h2>
+          <h2>Nearby {{ guide.space_type_label_lower }} markets to consider</h2>
           <p>
-            Compare nearby office markets if you are flexible on location, commute, pricing, or building type.
+            Compare nearby {{ guide.space_type_noun }} markets if you are flexible on location, commute, pricing, or building type.
           </p>
           <div class="guide-grid">
             {% for nearbyGuide in nearbyMarketGuides %}
               <div class="guide-mini-card">
                 <h3>{{ nearbyGuide.city }}, {{ nearbyGuide.state_abbr }}</h3>
                 <p>{{ nearbyGuide.average_rent }}</p>
-                <a class="building-link" href="{{ nearbyGuide.url }}">Read the {{ nearbyGuide.city }} office guide</a>
+                <a class="building-link" href="{{ nearbyGuide.url }}">Read the {{ nearbyGuide.city }} {{ guide.space_type_noun }} guide</a>
               </div>
             {% endfor %}
           </div>
@@ -117,15 +117,15 @@ eleventyComputed:
       {% endif %}
 
       <div class="city-card city-card--full">
-        <div class="eyebrow">Office Planning</div>
-        <h2>What size office do you need?</h2>
+        <div class="eyebrow">Space Planning</div>
+        <h2>What size {{ guide.space_type_label_lower }} do you need?</h2>
         <p>
-          Most teams start by estimating headcount, workstyle, meeting needs, and whether they need private offices, open workspace, or a flexible layout. If you are unsure, compare a few size ranges before narrowing the search.
+          Most businesses start by estimating team size, operational needs, customer access, storage needs, and future growth. If you are unsure, compare a few size ranges before narrowing the search.
         </p>
         <ul class="guide-list">
-          <li>Under 1,000 sqft can work for small teams, private offices, or focused client meetings.</li>
-          <li>1,000-5,000 sqft often fits growing teams that need a mix of desks, meeting rooms, and shared areas.</li>
-          <li>5,000+ sqft is usually evaluated around department layout, collaboration needs, and future growth.</li>
+          <li>Under 1,000 sqft can work for smaller teams, service businesses, or focused local operations.</li>
+          <li>1,000-5,000 sqft often fits growing businesses that need a practical mix of work, customer, or support areas.</li>
+          <li>5,000+ sqft is usually evaluated around layout, operational flow, and future expansion needs.</li>
         </ul>
       </div>
 
