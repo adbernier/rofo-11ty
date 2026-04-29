@@ -33,6 +33,7 @@ Each guide record should include:
 Use these fields for higher-priority guides or any guide where the market has enough distinct local context:
 
 - `summary_short`: One concise line for index cards.
+- `has_inventory`: Set to `false` when the guide has useful market context but Rofo does not currently generate a matching city/space-type inventory page. Omit it or set `true` when inventory-backed CTAs are available.
 - `best_for`: Tenant or business types that are a strong fit for the market.
 - `neighborhood_strategy`: Advice that maps tenant needs to specific areas.
 - `leasing_tips`: Practical search guidance tied to the space type or market.
@@ -99,6 +100,7 @@ Low-inventory or low-confidence markets. Hold until inventory, source quality, o
   "average_rent": "$69-$71 per square foot per year",
   "rent_basis": "Annual full-service/gross asking rent, based on Q1 2026 market reports.",
   "market_date": "Q1 2026",
+  "has_inventory": true,
   "summary_short": "A dense Bay Area office market for technology, professional services, and teams comparing downtown and nearby alternatives.",
   "summary": "San Francisco's office market is shaped by technology demand, high-quality buildings, transit access, and tenant interest in move-in-ready space.",
   "best_for": [

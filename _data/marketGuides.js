@@ -41,6 +41,7 @@ module.exports = function () {
       space_type_label_lower: String(spaceTypeLabel || "").toLowerCase(),
       space_type_noun: spaceTypeNoun,
       space_type_short_label: spaceTypeShortLabels[guide.space_type] || String(spaceTypeLabel || "").toLowerCase(),
+      has_inventory: guide.has_inventory !== false,
       url: `/commercial-real-estate/${state}/${citySlug}/${guideSlug}/`,
       city_url: `/commercial-real-estate/${state}/${citySlug}/`,
       space_type_url: `/commercial-real-estate/${state}/${citySlug}/${guide.space_type}/`

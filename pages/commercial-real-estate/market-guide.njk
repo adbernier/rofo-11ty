@@ -169,9 +169,13 @@ eleventyComputed:
       {% if nearbyMarketGuides.length %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Nearby Markets</div>
-          <h2>Nearby {{ guide.space_type_label_lower }} markets to consider</h2>
+          <h2>{% if not guide.has_inventory %}Start with nearby {{ guide.space_type_label_lower }} markets{% else %}Nearby {{ guide.space_type_label_lower }} markets to consider{% endif %}</h2>
           <p>
-            Compare nearby {{ guide.space_type_noun }} markets if you are flexible on location, commute, pricing, or building type.
+            {% if not guide.has_inventory %}
+              This guide covers {{ guide.city }} market context, but nearby markets may have more active {{ guide.space_type_label_lower }} options to compare.
+            {% else %}
+              Compare nearby {{ guide.space_type_noun }} markets if you are flexible on location, commute, pricing, or building type.
+            {% endif %}
           </p>
           <div class="guide-grid">
             {% for nearbyGuide in nearbyMarketGuides %}
@@ -198,6 +202,16 @@ eleventyComputed:
         </ul>
       </div>
 
+      {% if not guide.has_inventory %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Finding Space</div>
+          <h2>How to find space in {{ guide.city }}</h2>
+          <p>
+            Some markets have useful rent and neighborhood context before Rofo has active {{ guide.space_type_label_lower }} inventory to browse. Tell us what you need and we can help identify options, compare nearby markets, or connect you with local market support.
+          </p>
+        </div>
+      {% endif %}
+
       {% if guide.leasing_tips and guide.leasing_tips.length %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Leasing Tips</div>
@@ -212,14 +226,25 @@ eleventyComputed:
 
       <div class="city-card city-card--full">
         <div class="eyebrow">Next Steps</div>
-        <h2>Compare {{ guide.space_type_label_lower }} in {{ guide.city }}</h2>
-        <p>
-          Use Rofo to compare current {{ guide.space_type_label_lower }} options in {{ guide.city }} or step back to the broader city market.
-        </p>
-        <div class="button-row">
-          <a class="btn-primary" href="{{ guide.space_type_url }}">View {{ guide.space_type_label_lower }} in {{ guide.city }}</a>
-          <a class="btn-secondary" href="{{ guide.city_url }}">Explore the {{ guide.city }} market</a>
-        </div>
+        {% if guide.has_inventory %}
+          <h2>Compare {{ guide.space_type_label_lower }} in {{ guide.city }}</h2>
+          <p>
+            Use Rofo to compare current {{ guide.space_type_label_lower }} options in {{ guide.city }} or step back to the broader city market.
+          </p>
+          <div class="button-row">
+            <a class="btn-primary" href="{{ guide.space_type_url }}">View {{ guide.space_type_label_lower }} in {{ guide.city }}</a>
+            <a class="btn-secondary" href="{{ guide.city_url }}">Explore the {{ guide.city }} market</a>
+          </div>
+        {% else %}
+          <h2>We can help you find space in this market</h2>
+          <p>
+            Share the type of space, size range, and timing you are considering, and Rofo can help you evaluate {{ guide.city }} or nearby {{ guide.space_type_noun }} markets.
+          </p>
+          <div class="button-row">
+            <a class="btn-primary" href="/#contact">Get help finding space</a>
+            <a class="btn-secondary" href="{{ guide.city_url }}">Explore the {{ guide.city }} market</a>
+          </div>
+        {% endif %}
       </div>
 
       <div class="city-card city-card--full">
