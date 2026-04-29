@@ -52,10 +52,12 @@ description: Explore practical office, industrial, and retail market guides with
 
     <div class="guide-grid">
       {% for guide in sortedGuides %}
-        <article class="city-card">
+        <article class="guide-mini-card">
           <div class="eyebrow">{{ guide.city }}, {{ guide.state_abbr }}</div>
           <h2>{{ guide.title }}</h2>
-          <p>{{ guide.meta_description }}</p>
+          {% if guide.summary_short %}
+            <p>{{ guide.summary_short }}</p>
+          {% endif %}
 
           <ul class="mini-list">
             <li><strong>Average rent:</strong> {{ guide.average_rent }}</li>

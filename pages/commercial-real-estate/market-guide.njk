@@ -125,6 +125,18 @@ eleventyComputed:
         </ul>
       </div>
 
+      {% if guide.best_for and guide.best_for.length %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Best Fit</div>
+          <h2>Who this market is best for</h2>
+          <ul class="guide-list">
+            {% for item in guide.best_for %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
       <div class="city-card city-card--full">
         <div class="eyebrow">Neighborhood Breakdown</div>
         <h2>Where to compare {{ guide.space_type_label_lower }} options</h2>
@@ -137,6 +149,22 @@ eleventyComputed:
           {% endfor %}
         </div>
       </div>
+
+      {% if guide.neighborhood_strategy and guide.neighborhood_strategy.length %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Neighborhood Strategy</div>
+          <h2>How to compare areas in {{ guide.city }}</h2>
+          <div class="guide-grid">
+            {% for item in guide.neighborhood_strategy %}
+              <div class="guide-mini-card">
+                <h3>{{ item.label }}</h3>
+                <p><strong>Consider:</strong> {{ item.areas }}</p>
+                <p>{{ item.summary }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
 
       {% if nearbyMarketGuides.length %}
         <div class="city-card city-card--full">
@@ -169,6 +197,18 @@ eleventyComputed:
           <li>5,000+ sqft is usually evaluated around layout, operational flow, and future expansion needs.</li>
         </ul>
       </div>
+
+      {% if guide.leasing_tips and guide.leasing_tips.length %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Leasing Tips</div>
+          <h2>How to approach the search</h2>
+          <ul class="guide-list">
+            {% for tip in guide.leasing_tips %}
+              <li>{{ tip }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
 
       <div class="city-card city-card--full">
         <div class="eyebrow">Next Steps</div>
