@@ -186,7 +186,7 @@ eleventyComputed:
       <div class="stack">
         <div class="building-form">
   <form
-    action="https://formspree.io/f/xreoadbr"
+    action="/api/leads/submit"
     method="POST"
   >
     <div class="eyebrow">Get Help</div>
@@ -250,12 +250,13 @@ eleventyComputed:
 
       <div class="form-stack">
         <div class="field">
-          <label for="building-lead-phone">Phone (optional — helps us connect you faster)</label>
+          <label for="building-lead-phone">Phone</label>
           <input
             id="building-lead-phone"
             name="phone"
             type="tel"
             placeholder="Your phone number"
+            required
           >
         </div>
       </div>

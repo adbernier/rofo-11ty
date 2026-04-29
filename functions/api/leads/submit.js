@@ -3,9 +3,11 @@ import {
   buildOfficeFinderPayload,
   getMissingSubmitFields,
   jsonResponse,
+  logLeadToGoogleSheets,
   randomHex,
   readSubmittedFields,
   redirectResponse,
+  resolveLeadRoute,
   saveLead,
   sendApprovalEmail,
   sha256,
@@ -36,6 +38,8 @@ export async function onRequestPost({ request, env }) {
 
   const id = crypto.randomUUID ? crypto.randomUUID() : randomHex(16);
   const token = randomHex(32);
+  const routeRecommendation = resolveLeadRoute(lead);
+  lead.route_recommendation = routeRecommendation;
   const officefinderPayload = buildOfficeFinderPayload(lead, env);
   const record = {
     id,
@@ -47,6 +51,7 @@ export async function onRequestPost({ request, env }) {
 
   try {
     const storage = await saveLead(env, record);
+    const sheets = await logLeadToGoogleSheets(env, record);
     const email = await sendApprovalEmail(env, request, record, token);
 
     if ((request.headers.get("accept") || "").includes("application/json")) {
@@ -55,6 +60,8 @@ export async function onRequestPost({ request, env }) {
         id,
         status: "pending",
         storage,
+        route_recommendation: routeRecommendation,
+        sheets,
         notification: email,
       });
     }

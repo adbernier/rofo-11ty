@@ -1,0 +1,53 @@
+[
+  {
+    "id": "default-officefinder",
+    "route_to": "officefinder",
+    "priority": 1000,
+    "active": true,
+    "notes": "Default fallback. Sends approved leads to OfficeFinder when no active broker route matches."
+  },
+  {
+    "id": "all-leads-officefinder",
+    "route_to": "officefinder",
+    "city": "all",
+    "county": "all",
+    "state": "all",
+    "space_type": "all",
+    "priority": 1,
+    "active": false,
+    "notes": "Activate this rule to recommend OfficeFinder for all leads."
+  },
+  {
+    "id": "marin-county-ca-office-broker",
+    "route_to": "broker",
+    "broker_name": "Example Marin Office Broker",
+    "broker_email": "broker@example.com",
+    "county": "marin-county-ca",
+    "state": "CA",
+    "space_type": "office-space",
+    "priority": 10,
+    "active": false,
+    "notes": "Inactive sample county broker route for Marin County office leads."
+  },
+  {
+    "id": "san-francisco-county-ca-office-broker",
+    "route_to": "broker",
+    "broker_name": "Example San Francisco Office Broker",
+    "broker_email": "broker@example.com",
+    "county": "san-francisco-county-ca",
+    "state": "CA",
+    "space_type": "office-space",
+    "priority": 10,
+    "active": false,
+    "notes": "Inactive sample county broker route for San Francisco County office leads."
+  },
+  {
+    "id": "california-office-officefinder",
+    "route_to": "officefinder",
+    "state": "CA",
+    "space_type": "office-space",
+    "priority": 100,
+    "active": false,
+    "notes": "Inactive sample California office fallback to OfficeFinder."
+  }
+]

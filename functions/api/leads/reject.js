@@ -21,7 +21,7 @@ export async function onRequestGet({ request, env }) {
       return htmlResponse("<h1>Invalid or expired rejection link</h1>", 403);
     }
 
-    if (record.status === "approved_sent") {
+    if (["approved_sent", "broker_sent", "both_sent", "partial_sent"].includes(record.status)) {
       return htmlResponse("<h1>Lead already approved and sent</h1><p>It was not rejected.</p>", 409);
     }
 

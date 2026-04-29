@@ -2,49 +2,52 @@
 permalink: false
 ---
 
-# Rofo Lead Approval System for OfficeFinder
+# Rofo Lead Approval and Routing System
 
-This is the Phase 1 test-mode workflow for manually approving Rofo leads before sending them to OfficeFinder. It does not replace the current Formspree forms until the form actions are intentionally switched.
+This workflow stores tenant leads as pending, emails Alan for approval, and sends the lead only after an approval link is clicked. It supports OfficeFinder, broker email delivery, or both.
+
+Partner and advertising forms should stay separate unless those inquiries should enter this tenant lead queue.
 
 ## Architecture
 
-1. Rofo form posts to `/api/leads/submit`.
-2. The Pages Function validates basic lead fields and the honeypot field.
-3. The lead is stored with `status = pending`.
-4. Alan receives an approval email with approve and reject links.
-5. Approving validates the stored token and sends the mapped lead to the OfficeFinder test endpoint.
-6. Rejecting validates the token and marks the lead rejected.
-7. Users are redirected to `/thank-you/` after a successful form post.
+1. Tenant form posts to `/api/leads/submit`.
+2. The Pages Function validates required fields and the honeypot field.
+3. The lead is matched against `_data/leadRoutes.json`.
+4. The lead is stored with `status = pending`.
+5. Alan receives an email with lead summary, route recommendation, approve links, and a reject link.
+6. Approval sends to the selected target:
+   - recommended route
+   - OfficeFinder only
+   - broker only, when a broker route exists
+7. Rejection marks the lead `rejected`.
 
-The approval links are:
-
-- `/api/leads/approve?id={id}&token={token}`
-- `/api/leads/reject?id={id}&token={token}`
-
-Tokens are stored only as SHA-256 hashes.
+No lead is auto-sent to OfficeFinder or a broker before approval.
 
 ## Cloudflare bindings and environment variables
 
-Preferred storage is D1:
+Storage:
 
-- `LEADS_DB`: D1 database binding
+- `LEADS_DB`: D1 database binding, preferred
+- `LEADS_KV`: optional KV fallback
 
-Phase 1 fallback storage is KV:
-
-- `LEADS_KV`: KV namespace binding
-
-Email and OfficeFinder settings:
+Email and OfficeFinder:
 
 - `LEAD_NOTIFY_EMAIL`: approval notification recipient
-- `RESEND_API_KEY`: Resend API key for approval emails
+- `RESEND_API_KEY`: Resend API key for approval and broker emails
 - `RESEND_FROM_EMAIL`: optional sender address
 - `OFFICEFINDER_REFERRER_CODE`: `MM2`
 - `OFFICEFINDER_REFERRER_PCT`: `75`
 - `OFFICEFINDER_TEST_MODE`: `true`
 
-If `OFFICEFINDER_TEST_MODE` is not set, the functions default to test mode.
+Optional Google Sheets logging:
+
+- `GOOGLE_LEADS_WEBHOOK_URL`: Apps Script or webhook URL for newly submitted leads
+
+If `OFFICEFINDER_TEST_MODE` is missing, the functions default to OfficeFinder test mode.
 
 ## D1 schema
+
+The current schema stores route metadata inside `lead_json`, so no extra route columns are required.
 
 ```sql
 create table if not exists leads (
@@ -65,13 +68,155 @@ create index if not exists idx_leads_status on leads(status);
 create index if not exists idx_leads_created_at on leads(created_at);
 ```
 
+## Routing config
+
+Lead routing rules live in `_data/leadRoutes.json`.
+
+Each rule may include:
+
+- `id`
+- `route_to`: `officefinder`, `broker`, or `both`
+- `broker_name`
+- `broker_email`
+- `broker_phone`
+- `city`
+- `county`
+- `state`
+- `space_type`
+- `priority`
+- `active`
+- `notes`
+
+Use lowercase kebab-case for city and county route values. County values should include state when practical, for example `marin-county-ca`. State values should use uppercase postal abbreviations like `CA`.
+
+Inactive rules are ignored.
+
+## Routing priority
+
+The intended specificity order is:
+
+1. Exact city + state + space type
+2. Exact county + state + space type
+3. Exact city + state
+4. Exact county + state
+5. Exact state + space type
+6. Exact state
+7. Default route
+
+When multiple active rules match, explicit `priority` is evaluated first, then specificity. Lower priority numbers win.
+
+If no active broker route matches, the active default OfficeFinder rule is used. If that rule is missing, the function has a built-in OfficeFinder fallback.
+
+## Adding a city broker
+
+```json
+{
+  "id": "san-francisco-office-broker",
+  "route_to": "broker",
+  "broker_name": "Broker Name",
+  "broker_email": "broker@example.com",
+  "city": "san-francisco-ca",
+  "state": "CA",
+  "space_type": "office-space",
+  "priority": 10,
+  "active": true
+}
+```
+
+## Adding a county broker
+
+```json
+{
+  "id": "marin-county-office-broker",
+  "route_to": "broker",
+  "broker_name": "Broker Name",
+  "broker_email": "broker@example.com",
+  "county": "marin-county-ca",
+  "state": "CA",
+  "space_type": "office-space",
+  "priority": 10,
+  "active": true
+}
+```
+
+## Routing all leads to OfficeFinder
+
+Activate the `all-leads-officefinder` rule in `_data/leadRoutes.json`:
+
+```json
+{
+  "id": "all-leads-officefinder",
+  "route_to": "officefinder",
+  "city": "all",
+  "county": "all",
+  "state": "all",
+  "space_type": "all",
+  "priority": 1,
+  "active": true
+}
+```
+
+This keeps approval required but recommends OfficeFinder for every lead.
+
+## route_to both
+
+Use `route_to: "both"` when Alan should have a recommended approval link that sends to OfficeFinder and emails the broker.
+
+```json
+{
+  "id": "example-both-route",
+  "route_to": "both",
+  "broker_name": "Broker Name",
+  "broker_email": "broker@example.com",
+  "county": "san-francisco-county-ca",
+  "state": "CA",
+  "space_type": "office-space",
+  "priority": 10,
+  "active": true
+}
+```
+
+The approval email still includes OfficeFinder-only and broker-only links for manual override.
+
+## Approval links
+
+- Recommended route: `/api/leads/approve?id={id}&token={token}&route=recommended`
+- OfficeFinder only: `/api/leads/approve?id={id}&token={token}&route=officefinder`
+- Broker only: `/api/leads/approve?id={id}&token={token}&route=broker`
+- Reject: `/api/leads/reject?id={id}&token={token}`
+
+OfficeFinder approvals use the test endpoint while `OFFICEFINDER_TEST_MODE=true`.
+
+Broker approvals send a Resend email to the matched `broker_email` and mark the lead `broker_sent`. They do not create automation outside the approval click.
+
+## Google Sheets webhook
+
+If `GOOGLE_LEADS_WEBHOOK_URL` is configured, `/api/leads/submit` posts each new lead to it after storage. Payload includes:
+
+- lead id
+- status
+- route recommendation
+- city
+- county
+- state
+- space type
+- name
+- email
+- phone
+- company
+- source
+- page URL
+- created timestamp
+
+If the webhook is missing or fails, lead submission continues and the user still reaches the thank-you flow.
+
 ## OfficeFinder mapping
 
-Endpoint in test mode:
+Test endpoint:
 
 `https://www.officefinder.com/scripts/_importLeadTest.cfm`
 
-Production endpoint for a later approved switch:
+Production endpoint:
 
 `https://www.officefinder.com/scripts/_importLead.cfm`
 
@@ -102,22 +247,24 @@ Finance option mapping:
 - flex space: `MixedUse`
 - fallback: `leasing`
 
-Approval will not submit to OfficeFinder if required OfficeFinder fields are missing. Current Rofo forms collect phone as optional, so a lead with no phone can be stored and reviewed but will fail approval until phone is collected or added manually.
+## Switching OfficeFinder to production
 
-## Form switch checklist
+1. Confirm D1 storage, Resend, and approval emails are stable.
+2. Confirm multiple OfficeFinder test submissions were accepted.
+3. Confirm the tenant forms are posting to `/api/leads/submit`.
+4. Set `OFFICEFINDER_TEST_MODE=false`.
+5. Submit one controlled lead and approve OfficeFinder routing.
+6. Monitor D1 status and OfficeFinder receipt.
 
-Current Formspree forms remain active. To switch tenant lead forms to the approval workflow later:
+## Rollback
 
-1. Change the form action on `building.njk`, `city.njk`, and `index.njk` to `/api/leads/submit`.
-2. Keep `method="POST"`.
-3. Preserve `_gotcha`, hidden page fields, and routing metadata fields.
-4. Keep `name`, `email`, `space_type` or `requested_space_type`, `space_needed`, and `notes` field names.
-5. Consider making `phone` required before switching, because OfficeFinder requires `Phone`.
-6. Do not switch the partner form unless partner inquiries should enter this lead approval queue.
+To rollback form submission, restore tenant form actions in `index.njk`, `city.njk`, and `building.njk` to the Formspree endpoint.
+
+To rollback routing without changing forms, leave `/api/leads/submit` active but set all broker routes inactive and keep the default OfficeFinder route active. Leads will still require approval before sending.
 
 ## Test checklist
 
-Submit a test lead after the Pages Functions and bindings are configured:
+Submit a test lead:
 
 ```bash
 curl -i -X POST "https://www.rofo.com/api/leads/submit" \
@@ -130,34 +277,23 @@ curl -i -X POST "https://www.rofo.com/api/leads/submit" \
     "company": "Example Co",
     "city": "Sacramento",
     "state": "CA",
-    "space_type": "office-space",
+    "routing_county": "sacramento-county-ca",
+    "space_type": "Office Space",
     "space_needed": "1,000-2,500 sqft",
-    "notes": "Testing OfficeFinder approval flow",
+    "notes": "Testing approval flow",
     "page_type": "city",
     "page_url": "https://www.rofo.com/commercial-real-estate/CA/sacramento/",
     "source": "rofo"
   }'
 ```
 
-Then click the approval or rejection links in the notification email.
+Verify:
 
-Expected approval result in test mode:
-
-- Lead status changes from `pending` to `approved_sent`.
-- OfficeFinder receives a POST to `_importLeadTest.cfm`.
-- No production OfficeFinder endpoint is used.
-
-Expected rejection result:
-
-- Lead status changes from `pending` to `rejected`.
-- No OfficeFinder request is made.
-
-## Production switch checklist
-
-1. Confirm D1 binding and schema are deployed.
-2. Confirm Resend sender domain is verified.
-3. Run multiple test submissions with `OFFICEFINDER_TEST_MODE=true`.
-4. Confirm OfficeFinder test submissions include all required fields.
-5. Switch form actions to `/api/leads/submit`.
-6. Monitor pending, approved, rejected, and approval failed statuses.
-7. Only after explicit approval, set `OFFICEFINDER_TEST_MODE=false`.
+- Missing phone is rejected.
+- Default route recommends OfficeFinder.
+- An active county route recommends the broker.
+- A `route_to: "both"` rule sends to OfficeFinder and broker after approval.
+- Approval links cannot be used with a bad token.
+- Duplicate approvals do not resend.
+- Google Sheets webhook failure does not block submission.
+- Partner form still posts to Formspree.

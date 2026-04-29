@@ -339,7 +339,7 @@ eleventyComputed:
           </p>
 
           <form
-            action="https://formspree.io/f/xreoadbr"
+            action="/api/leads/submit"
             method="POST"
             class="rofo-formspree-form"
           >
@@ -371,8 +371,8 @@ eleventyComputed:
 
             <div class="form-stack">
               <div class="field">
-                <label for="lead-phone">Phone <span class="optional">(optional)</span></label>
-                <input id="lead-phone" name="phone" type="tel" placeholder="Your phone number">
+                <label for="lead-phone">Phone</label>
+                <input id="lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
               </div>
             </div>
 

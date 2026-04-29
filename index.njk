@@ -185,7 +185,7 @@ description: Rofo helps businesses find office, retail, and industrial space acr
       <h2>Find the right space for your business</h2>
       <p>Tell us what you need — we’ll follow up with a few spaces that fit.</p>
 
-      <form action="https://formspree.io/f/xreoadbr" method="POST">
+      <form action="/api/leads/submit" method="POST">
   <input type="hidden" name="source" value="rofo-homepage">
   <input type="hidden" name="page_type" value="homepage">
   <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
@@ -210,8 +210,8 @@ description: Rofo helps businesses find office, retail, and industrial space acr
 
   <div class="form-stack">
     <div class="field">
-      <label>Phone <span class="optional">(optional)</span></label>
-      <input name="phone" type="tel" placeholder="Your phone number">
+      <label>Phone</label>
+      <input name="phone" type="tel" placeholder="Your phone number" required>
     </div>
   </div>
 

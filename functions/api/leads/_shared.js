@@ -1,3 +1,5 @@
+import leadRoutes from "../../../_data/leadRoutes.json";
+
 export const OFFICEFINDER_TEST_ENDPOINT = "https://www.officefinder.com/scripts/_importLeadTest.cfm";
 export const OFFICEFINDER_PRODUCTION_ENDPOINT = "https://www.officefinder.com/scripts/_importLead.cfm";
 
@@ -51,6 +53,18 @@ function normalizeSpaceType(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function normalizeRouteValue(value) {
+  return normalizeField(value)
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizeState(value) {
+  return normalizeField(value).toUpperCase();
+}
+
 function getFinanceOption(spaceType) {
   const slug = normalizeSpaceType(spaceType);
   if (slug.includes("coworking")) return "ExecSuites";
@@ -80,6 +94,7 @@ export function buildLeadPayload(formFields, request) {
   const now = new Date().toISOString();
   const spaceType = normalizeField(formFields.requested_space_type || formFields.space_type);
   const market = normalizeField(formFields.market || formFields.location || [formFields.city, formFields.state].filter(Boolean).join(", "));
+  const state = normalizeState(formFields.state);
 
   return {
     name: normalizeField(formFields.name),
@@ -87,10 +102,14 @@ export function buildLeadPayload(formFields, request) {
     phone: normalizeField(formFields.phone),
     company: normalizeField(formFields.company || formFields.CompanyName),
     city: normalizeField(formFields.city),
-    state: normalizeField(formFields.state),
+    county: normalizeField(formFields.county),
+    state,
     market,
     space_type: normalizeField(formFields.space_type),
     requested_space_type: normalizeField(formFields.requested_space_type),
+    routing_market: normalizeRouteValue(formFields.routing_market),
+    routing_county: normalizeRouteValue(formFields.routing_county),
+    routing_space_type: normalizeSpaceType(formFields.routing_space_type),
     space_needed: normalizeField(formFields.space_needed || formFields.size),
     requirements: normalizeField(formFields.requirements || formFields.message || formFields.notes),
     page_type: normalizeField(formFields.page_type),
@@ -108,8 +127,132 @@ export function getMissingSubmitFields(lead) {
   const missing = [];
   if (!lead.name) missing.push("name");
   if (!lead.email) missing.push("email");
+  if (!lead.phone) missing.push("phone");
   if (!lead.market && !lead.city) missing.push("market");
   return missing;
+}
+
+function getLeadCitySlug(lead) {
+  if (lead.routing_market) return lead.routing_market.replace(/-[a-z]{2}$/i, "");
+  return normalizeRouteValue(lead.city || lead.market);
+}
+
+function getLeadCountySlug(lead) {
+  if (lead.routing_county) return lead.routing_county.replace(/-[a-z]{2}$/i, "");
+  return normalizeRouteValue(lead.county);
+}
+
+function getLeadState(lead) {
+  if (lead.state) return normalizeState(lead.state);
+  const market = normalizeField(lead.routing_market || lead.market);
+  const match = market.match(/-([a-z]{2})$/i) || market.match(/,\s*([a-z]{2})$/i);
+  return match ? normalizeState(match[1]) : "";
+}
+
+function getLeadSpaceTypeSlug(lead) {
+  return normalizeSpaceType(lead.routing_space_type || lead.requested_space_type || lead.space_type || lead.effective_space_type);
+}
+
+function routeValueMatches(routeValue, leadValues) {
+  const normalized = normalizeRouteValue(routeValue);
+  if (!normalized) return true;
+  if (normalized === "all") return true;
+  return leadValues.includes(normalized);
+}
+
+function stateMatches(routeState, leadState) {
+  const normalized = normalizeField(routeState);
+  if (!normalized) return true;
+  if (normalized.toLowerCase() === "all") return true;
+  return normalizeState(normalized) === leadState;
+}
+
+function routeMatches(route, leadContext) {
+  if (route.active === false) return false;
+  return routeValueMatches(route.city, leadContext.cityValues)
+    && routeValueMatches(route.county, leadContext.countyValues)
+    && stateMatches(route.state, leadContext.state)
+    && routeValueMatches(route.space_type, leadContext.spaceTypeValues);
+}
+
+function getSpecificityTier(route) {
+  const hasCity = Boolean(normalizeRouteValue(route.city)) && normalizeRouteValue(route.city) !== "all";
+  const hasCounty = Boolean(normalizeRouteValue(route.county)) && normalizeRouteValue(route.county) !== "all";
+  const hasState = Boolean(normalizeField(route.state)) && normalizeField(route.state).toLowerCase() !== "all";
+  const hasSpaceType = Boolean(normalizeRouteValue(route.space_type)) && normalizeRouteValue(route.space_type) !== "all";
+
+  if (hasCity && hasState && hasSpaceType) return 1;
+  if (hasCounty && hasState && hasSpaceType) return 2;
+  if (hasCity && hasState) return 3;
+  if (hasCounty && hasState) return 4;
+  if (hasState && hasSpaceType) return 5;
+  if (hasState) return 6;
+  return 7;
+}
+
+function describeRouteReason(route, tier) {
+  const parts = [];
+  if (route.city) parts.push(`city=${route.city}`);
+  if (route.county) parts.push(`county=${route.county}`);
+  if (route.state) parts.push(`state=${route.state}`);
+  if (route.space_type) parts.push(`space_type=${route.space_type}`);
+  return parts.length ? `Matched rule ${route.id || "(unnamed)"} (${parts.join(", ")}, tier ${tier}).` : `Matched default rule ${route.id || "(unnamed)"}.`;
+}
+
+export function resolveLeadRoute(lead) {
+  const state = getLeadState(lead);
+  const citySlug = getLeadCitySlug(lead);
+  const countySlug = getLeadCountySlug(lead);
+  const spaceTypeSlug = getLeadSpaceTypeSlug(lead);
+  const cityStateSlug = lead.routing_market || (citySlug && state ? `${citySlug}-${state.toLowerCase()}` : citySlug);
+  const countyStateSlug = lead.routing_county || (countySlug && state ? `${countySlug}-${state.toLowerCase()}` : countySlug);
+  const leadContext = {
+    state,
+    cityValues: [citySlug, cityStateSlug].filter(Boolean),
+    countyValues: [countySlug, countyStateSlug].filter(Boolean),
+    spaceTypeValues: [spaceTypeSlug, normalizeField(lead.requested_space_type), normalizeField(lead.space_type)].map(normalizeSpaceType).filter(Boolean),
+  };
+
+  const activeMatches = leadRoutes
+    .filter((route) => route.active !== false)
+    .filter((route) => routeMatches(route, leadContext))
+    .map((route, index) => {
+      const specificity = getSpecificityTier(route);
+      return {
+        ...route,
+        _index: index,
+        _specificity: specificity,
+        _priority: Number.isFinite(Number(route.priority)) ? Number(route.priority) : 1000,
+      };
+    })
+    .sort((a, b) => a._priority - b._priority || a._specificity - b._specificity || a._index - b._index);
+
+  const matched = activeMatches[0] || {
+    id: "rofo-default-officefinder",
+    route_to: "officefinder",
+    notes: "Built-in fallback when no active default route exists.",
+    _specificity: 7,
+  };
+
+  return {
+    route_to: matched.route_to || "officefinder",
+    route_id: matched.id || "",
+    route_reason: describeRouteReason(matched, matched._specificity || 7),
+    broker_name: matched.broker_name || "",
+    broker_email: matched.broker_email || "",
+    broker_phone: matched.broker_phone || "",
+    notes: matched.notes || "",
+    matched_rule: {
+      id: matched.id || "",
+      route_to: matched.route_to || "officefinder",
+      city: matched.city || "",
+      county: matched.county || "",
+      state: matched.state || "",
+      space_type: matched.space_type || "",
+      priority: matched.priority || "",
+      specificity: matched._specificity || 7,
+    },
+  };
 }
 
 export function buildOfficeFinderPayload(lead, env) {
@@ -296,10 +439,14 @@ export async function sendApprovalEmail(env, request, record, token) {
   }
 
   const baseUrl = getBaseUrl(request);
-  const approveUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}`;
+  const approveUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}&route=recommended`;
+  const approveOfficeFinderUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}&route=officefinder`;
+  const approveBrokerUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}&route=broker`;
   const rejectUrl = `${baseUrl}/api/leads/reject?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}`;
   const lead = record.lead;
+  const route = lead.route_recommendation || {};
   const officeFinderMissing = getMissingOfficeFinderFields(record.officefinder_payload);
+  const brokerAvailable = Boolean(route.broker_email);
 
   const subject = `New Rofo lead pending approval: ${lead.city || lead.market || "Unknown market"}, ${lead.state || ""} - ${lead.effective_space_type || lead.space_type || "space"}`;
   const text = [
@@ -320,11 +467,19 @@ export async function sendApprovalEmail(env, request, record, token) {
     `Source: ${lead.source || ""}`,
     `Submitted: ${lead.timestamp || ""}`,
     "",
+    "Recommended route:",
+    `Route to: ${route.route_to || "officefinder"}`,
+    `Matched rule: ${route.route_id || ""}`,
+    `Reason: ${route.route_reason || ""}`,
+    route.broker_email ? `Broker: ${route.broker_name || ""} <${route.broker_email}>` : "",
+    "",
     officeFinderMissing.length ? `OfficeFinder missing fields: ${officeFinderMissing.join(", ")}` : "OfficeFinder required fields: complete",
     "",
-    `Approve: ${approveUrl}`,
+    `Approve recommended route: ${approveUrl}`,
+    `Approve OfficeFinder only: ${approveOfficeFinderUrl}`,
+    brokerAvailable ? `Approve broker only: ${approveBrokerUrl}` : "Approve broker only: no broker route available",
     `Reject: ${rejectUrl}`,
-  ].join("\n");
+  ].filter((line) => line !== "").join("\n");
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -345,6 +500,100 @@ export async function sendApprovalEmail(env, request, record, token) {
   }
 
   return { sent: true };
+}
+
+export async function sendBrokerLeadEmail(env, record) {
+  const route = record.lead.route_recommendation || {};
+  if (!route.broker_email) {
+    return { sent: false, reason: "No broker email is available for this route" };
+  }
+
+  if (!env.RESEND_API_KEY) {
+    return { sent: false, reason: "RESEND_API_KEY is not configured" };
+  }
+
+  const lead = record.lead;
+  const subject = `Rofo lead: ${lead.city || lead.market || "Unknown market"}, ${lead.state || ""} - ${lead.effective_space_type || lead.space_type || "space"}`;
+  const text = [
+    subject,
+    "",
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    `Phone: ${lead.phone}`,
+    `Company: ${lead.company || ""}`,
+    `Market: ${lead.market || lead.city || ""}`,
+    `County: ${lead.routing_county || lead.county || ""}`,
+    `State: ${lead.state || ""}`,
+    `Space type: ${lead.effective_space_type || lead.space_type || ""}`,
+    `Space needed: ${lead.space_needed || ""}`,
+    `Requirements: ${lead.requirements || ""}`,
+    `Page type: ${lead.page_type || ""}`,
+    `Page URL: ${lead.page_url || ""}`,
+    `Source: ${lead.source || ""}`,
+    "",
+    "This lead was manually approved by Rofo before routing.",
+  ].join("\n");
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      from: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
+      to: [route.broker_email],
+      subject,
+      text,
+    }),
+  });
+
+  if (!response.ok) {
+    return { sent: false, reason: await response.text() };
+  }
+
+  return { sent: true };
+}
+
+export async function logLeadToGoogleSheets(env, record) {
+  if (!env.GOOGLE_LEADS_WEBHOOK_URL) return { sent: false, reason: "GOOGLE_LEADS_WEBHOOK_URL is not configured" };
+
+  const lead = record.lead;
+  const route = lead.route_recommendation || {};
+  const payload = {
+    id: record.id,
+    status: record.status,
+    route_recommendation: route,
+    city: lead.city,
+    county: lead.routing_county || lead.county,
+    state: lead.state,
+    space_type: lead.effective_space_type || lead.requested_space_type || lead.space_type,
+    name: lead.name,
+    email: lead.email,
+    phone: lead.phone,
+    company: lead.company,
+    source: lead.source,
+    page_url: lead.page_url,
+    created_at: lead.timestamp,
+  };
+
+  try {
+    const response = await fetch(env.GOOGLE_LEADS_WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      return { sent: false, reason: await response.text() };
+    }
+
+    return { sent: true };
+  } catch (error) {
+    return { sent: false, reason: error.message };
+  }
 }
 
 export async function submitToOfficeFinder(env, payload) {
