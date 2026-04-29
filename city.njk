@@ -51,6 +51,13 @@ eleventyComputed:
     {% set availableSpaceTypes = (availableSpaceTypes.push(item), availableSpaceTypes) %}
   {% endif %}
 {% endfor %}
+{% set cityMarketGuides = [] %}
+{% for item in citySpaceTypeLinks %}
+  {% set guideKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
+  {% if marketGuideLookup[guideKey] %}
+    {% set cityMarketGuides = (cityMarketGuides.push(marketGuideLookup[guideKey]), cityMarketGuides) %}
+  {% endif %}
+{% endfor %}
 
 <section class="city-page">
   <div class="city-shell">
@@ -260,6 +267,17 @@ eleventyComputed:
                 {% endfor %}
               </ul>
             </div>
+          {% endif %}
+
+          {% if cityMarketGuides.length %}
+            {% for guide in cityMarketGuides %}
+              <div class="city-card">
+                <div class="eyebrow">Market Guide</div>
+                <h2>{{ guide.title }}</h2>
+                <p>See average rents, neighborhood notes, leasing trends, and nearby {{ guide.space_type_short_label }} markets.</p>
+                <a class="building-link" href="{{ guide.url }}">Read the {{ guide.space_type_label_lower }} guide</a>
+              </div>
+            {% endfor %}
           {% endif %}
 
           <div class="city-card">

@@ -14,3 +14,16 @@
     </div>
   </div>
 {% endif %}
+
+{% set marketGuideKey = (stateAbbr | upper) + "/" + (city.slug | lower) + "/" + spaceType.slug %}
+{% set marketGuide = marketGuideLookup[marketGuideKey] %}
+{% if marketGuide %}
+  <div class="city-card">
+    <div class="eyebrow">Market Guide</div>
+    <h2>{{ marketGuide.title }}</h2>
+    <p>Compare average {{ marketGuide.space_type_short_label }} rents, leasing trends, and neighborhood options before starting your search.</p>
+    <div class="button-row">
+      <a class="btn-secondary" href="{{ marketGuide.url }}">Read the {{ marketGuide.city }} {{ marketGuide.space_type_short_label }} guide</a>
+    </div>
+  </div>
+{% endif %}
