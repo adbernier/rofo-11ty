@@ -1,0 +1,122 @@
+---
+layout: base.njk
+pagination:
+  data: marketGuides
+  size: 1
+  alias: guide
+permalink: "/commercial-real-estate/{{ guide.state_abbr }}/{{ guide.city_slug }}/{{ guide.guide_slug }}/index.html"
+eleventyComputed:
+  title: "{{ guide.title }} | Rofo"
+  description: "{{ guide.meta_description }}"
+---
+
+{% set crumbs = [
+  { "label": "Markets", "url": "/markets/" },
+  { "label": guide.city + ", " + guide.state_abbr, "url": guide.city_url },
+  { "label": guide.title, "url": guide.url }
+] %}
+
+<section class="city-page market-page market-page--guide">
+  <div class="city-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="city-hero">
+      <div class="city-card">
+        <div class="city-hero-copy">
+          <div class="eyebrow">Market Guide</div>
+          <h1>{{ guide.title }}</h1>
+          <p class="lead">{{ guide.summary }}</p>
+          <div class="pill-row">
+            <span class="pill">{{ guide.city }}, {{ guide.state_abbr }}</span>
+            <span class="pill">{{ guide.market_date }}</span>
+            <span class="pill">{{ guide.space_type_label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-stack">
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Market Snapshot</div>
+        <h2>{{ guide.city }} {{ guide.space_type_label_lower }} market snapshot</h2>
+        <div class="guide-grid">
+          <div class="guide-mini-card">
+            <div class="stat-label">Average Rent</div>
+            <div class="stat-value">{{ guide.average_rent }}</div>
+            <p class="stat-note">{{ guide.rent_basis }}</p>
+          </div>
+          <div class="guide-mini-card">
+            <div class="stat-label">Market Date</div>
+            <div class="stat-value">{{ guide.market_date }}</div>
+            <p class="stat-note">Snapshot for current market context</p>
+          </div>
+          <div class="guide-mini-card">
+            <div class="stat-label">Space Type</div>
+            <div class="stat-value">{{ guide.space_type_label }}</div>
+            <p class="stat-note">Traditional, flexible, and team office options</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Current Trends</div>
+        <h2>What tenants are seeing now</h2>
+        <ul class="guide-list">
+          {% for trend in guide.trends %}
+            <li>{{ trend }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Neighborhood Breakdown</div>
+        <h2>Where to compare office options</h2>
+        <div class="guide-grid">
+          {% for neighborhood in guide.neighborhoods %}
+            <div class="guide-mini-card">
+              <h3>{{ neighborhood.name }}</h3>
+              <p>{{ neighborhood.summary }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Office Planning</div>
+        <h2>What size office do you need?</h2>
+        <p>
+          Most teams start by estimating headcount, workstyle, meeting needs, and whether they need private offices, open workspace, or a flexible layout. If you are unsure, compare a few size ranges before narrowing the search.
+        </p>
+        <ul class="guide-list">
+          <li>Under 1,000 sqft can work for small teams, private offices, or focused client meetings.</li>
+          <li>1,000-5,000 sqft often fits growing teams that need a mix of desks, meeting rooms, and shared areas.</li>
+          <li>5,000+ sqft is usually evaluated around department layout, collaboration needs, and future growth.</li>
+        </ul>
+      </div>
+
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Next Steps</div>
+        <h2>Compare {{ guide.space_type_label_lower }} in {{ guide.city }}</h2>
+        <p>
+          Use Rofo to compare current {{ guide.space_type_label_lower }} options in {{ guide.city }} or step back to the broader city market.
+        </p>
+        <div class="button-row">
+          <a class="btn-primary" href="{{ guide.space_type_url }}">View {{ guide.space_type_label_lower }} in {{ guide.city }}</a>
+          <a class="btn-secondary" href="{{ guide.city_url }}">Explore the {{ guide.city }} market</a>
+        </div>
+      </div>
+
+      <div class="city-card city-card--full">
+        <div class="eyebrow">Sources</div>
+        <h2>Market data sources</h2>
+        <ul class="guide-list">
+          {% for source in guide.sources %}
+            <li>
+              <a href="{{ source.url }}" rel="nofollow noopener" target="_blank">{{ source.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

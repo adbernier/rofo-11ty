@@ -29,6 +29,12 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
+  {% for guide in marketGuides %}
+  <url>
+    <loc>{{ siteUrl }}{{ guide.url }}</loc>
+  </url>
+  {% endfor %}
+
   {% for building in buildings %}
   <url>
     <loc>{{ siteUrl }}/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_slug }}/{{ building.building_slug }}/</loc>

@@ -614,6 +614,55 @@ p {
 }
 
 /* =========================
+   MARKET GUIDE PAGE STYLES
+   ========================= */
+
+.market-page--guide .page-stack {
+  display: grid;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.guide-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--rofo-text);
+}
+
+.guide-list li + li {
+  margin-top: 10px;
+}
+
+.guide-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.guide-mini-card {
+  border: 1px solid var(--rofo-border);
+  border-radius: 8px;
+  padding: 18px;
+  background: #fff;
+}
+
+.guide-mini-card h3 {
+  margin: 0 0 8px;
+  color: var(--rofo-ink);
+}
+
+.guide-mini-card p {
+  margin: 0;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* =========================
    GRID UTILITIES
    ========================= */
 
