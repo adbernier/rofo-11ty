@@ -6,9 +6,39 @@ description: Explore practical office, industrial, and retail market guides with
 ---
 
 {% set sortedGuides = marketGuides | sort(attribute="city") %}
+{% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
+{% set indexUrl = siteUrl + "/commercial-real-estate/market-guides/" %}
 
 <section class="city-page">
   <div class="city-shell">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Commercial Real Estate Market Guides",
+  "description": {{ description | dump | safe }},
+  "url": {{ indexUrl | dump | safe }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rofo",
+    "url": {{ siteUrl | dump | safe }}
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for guide in sortedGuides %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": {{ guide.title | dump | safe }},
+        "url": {{ (siteUrl + guide.url) | dump | safe }}
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+    </script>
+
     <div class="city-card city-card--full">
       <div class="eyebrow">Market Guides</div>
       <h1>Commercial Real Estate Market Guides</h1>

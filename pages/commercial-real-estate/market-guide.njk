@@ -8,6 +8,7 @@ permalink: "/commercial-real-estate/{{ guide.state_abbr }}/{{ guide.city_slug }}
 eleventyComputed:
   title: "{{ guide.title }} | Rofo"
   description: "{{ guide.meta_description }}"
+  canonical: "{{ metadata.siteUrl }}{{ guide.url }}"
 ---
 
 {% set crumbs = [
@@ -31,10 +32,50 @@ eleventyComputed:
     {% endif %}
   {% endfor %}
 {% endif %}
+{% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
+{% set guideAbsoluteUrl = siteUrl + guide.url %}
 
 <section class="city-page market-page market-page--guide">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ guide.title | dump | safe }},
+  "description": {{ guide.meta_description | dump | safe }},
+  "url": {{ guideAbsoluteUrl | dump | safe }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ guideAbsoluteUrl | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rofo",
+    "url": {{ siteUrl | dump | safe }}
+  },
+  "about": [
+    {{ guide.city | dump | safe }},
+    {{ guide.space_type_label | dump | safe }},
+    "Commercial real estate market guide"
+  ],
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": {{ (guide.city + ", " + guide.state_abbr) | dump | safe }}
+  },
+  "temporalCoverage": {{ guide.market_date | dump | safe }}{% if guide.sources and guide.sources.length %},
+  "citation": [
+    {% for source in guide.sources %}
+    {
+      "@type": "CreativeWork",
+      "name": {{ source.name | dump | safe }},
+      "url": {{ source.url | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]{% endif %}
+}
+    </script>
 
     <div class="city-hero">
       <div class="city-card">
