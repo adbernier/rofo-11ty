@@ -38,7 +38,8 @@ export function escapeHtml(value) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function normalizeField(value) {
@@ -433,6 +434,192 @@ function getBaseUrl(request) {
   return `${url.protocol}//${url.host}`;
 }
 
+function formatRouteLabel(routeTo) {
+  const normalized = normalizeField(routeTo).toLowerCase();
+  if (normalized === "both") return "Both";
+  if (normalized === "broker") return "Broker";
+  return "OfficeFinder";
+}
+
+function formatSubmittedDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return normalizeField(value);
+  return date.toLocaleString("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "America/Los_Angeles",
+  });
+}
+
+function getLeadMarket(lead) {
+  return normalizeField(lead.market || [lead.city, lead.state].filter(Boolean).join(", ") || lead.city);
+}
+
+function buildEmailField(label, value) {
+  if (!value) return "";
+  return `
+    <tr>
+      <td style="padding:8px 0;color:#64748b;font-size:13px;line-height:18px;width:38%;vertical-align:top;">${escapeHtml(label)}</td>
+      <td style="padding:8px 0;color:#0f172a;font-size:14px;line-height:20px;font-weight:600;vertical-align:top;">${value}</td>
+    </tr>
+  `;
+}
+
+function buildEmailButton(label, url, background, color = "#ffffff", border = "none") {
+  return `
+    <a href="${escapeHtml(url)}" style="display:block;width:100%;box-sizing:border-box;margin:0 0 10px 0;padding:15px 18px;border-radius:8px;background:${background};border:${border};color:${color};font-size:15px;line-height:20px;font-weight:700;text-align:center;text-decoration:none;">
+      ${escapeHtml(label)}
+    </a>
+  `;
+}
+
+function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
+  const lead = record.lead;
+  const route = lead.route_recommendation || {};
+  const market = getLeadMarket(lead);
+  const spaceType = lead.effective_space_type || lead.space_type || "space";
+  const submitted = formatSubmittedDate(lead.timestamp);
+  const brokerAvailable = Boolean(route.broker_email);
+  const requiredStatus = officeFinderMissing.length
+    ? `<span style="color:#b45309;font-weight:700;">Missing: ${escapeHtml(officeFinderMissing.join(", "))}</span>`
+    : `<span style="color:#047857;font-weight:700;">Complete</span>`;
+  const requirements = lead.requirements || "(none provided)";
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <div style="display:none;max-height:0;overflow:hidden;color:transparent;">
+      ${escapeHtml(market)} - ${escapeHtml(spaceType)} - ${escapeHtml(lead.space_needed || "")}
+    </div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:24px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:640px;margin:0 auto;">
+            <tr>
+              <td style="padding:22px 22px 18px;background:#0f172a;border-radius:14px 14px 0 0;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#93c5fd;font-weight:700;">Rofo lead approval</div>
+                <h1 style="margin:8px 0 8px;font-size:26px;line-height:32px;font-weight:800;">New Rofo lead</h1>
+                <div style="font-size:15px;line-height:22px;color:#dbeafe;">${escapeHtml(market)} &bull; ${escapeHtml(spaceType)} &bull; ${escapeHtml(lead.space_needed || "Size not provided")}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 18px 24px;background:#ffffff;border-radius:0 0 14px 14px;">
+                <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:14px;background:#f8fafc;">
+                  <h2 style="margin:0 0 10px;font-size:17px;line-height:23px;">Status and routing</h2>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${buildEmailField("Recommended route", escapeHtml(formatRouteLabel(route.route_to)))}
+                    ${buildEmailField("Matched rule", escapeHtml(route.route_id || "default"))}
+                    ${buildEmailField("Reason", escapeHtml(route.route_reason || ""))}
+                    ${buildEmailField("OfficeFinder fields", requiredStatus)}
+                    ${route.broker_email ? buildEmailField("Broker", `${escapeHtml(route.broker_name || "Broker")} &lt;${escapeHtml(route.broker_email)}&gt;`) : ""}
+                  </table>
+                </div>
+
+                ${officeFinderMissing.length ? `
+                <div style="border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:14px;background:#fffbeb;color:#92400e;font-size:14px;line-height:20px;">
+                  OfficeFinder approval will fail until these fields are present: <strong>${escapeHtml(officeFinderMissing.join(", "))}</strong>.
+                </div>` : ""}
+
+                <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:14px;background:#ffffff;">
+                  <h2 style="margin:0 0 10px;font-size:17px;line-height:23px;">Contact</h2>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${buildEmailField("Name", escapeHtml(lead.name))}
+                    ${buildEmailField("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
+                    ${buildEmailField("Phone", `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>`)}
+                    ${lead.company ? buildEmailField("Company", escapeHtml(lead.company)) : ""}
+                  </table>
+                </div>
+
+                <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:14px;background:#ffffff;">
+                  <h2 style="margin:0 0 10px;font-size:17px;line-height:23px;">Lead details</h2>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${buildEmailField("Market", escapeHtml(market))}
+                    ${buildEmailField("State", escapeHtml(lead.state))}
+                    ${buildEmailField("Space type", escapeHtml(spaceType))}
+                    ${buildEmailField("Space needed", escapeHtml(lead.space_needed))}
+                    ${buildEmailField("Page type", escapeHtml(lead.page_type))}
+                    ${buildEmailField("Source", escapeHtml(lead.source))}
+                    ${buildEmailField("Submitted", escapeHtml(submitted))}
+                    ${lead.page_url ? buildEmailField("Page URL", `<a href="${escapeHtml(lead.page_url)}" style="color:#2563eb;text-decoration:none;">View source page</a>`) : ""}
+                  </table>
+                </div>
+
+                <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:18px;background:#ffffff;">
+                  <h2 style="margin:0 0 10px;font-size:17px;line-height:23px;">Requirements</h2>
+                  <div style="white-space:pre-wrap;word-break:break-word;color:#0f172a;font-size:14px;line-height:21px;background:#f8fafc;border-radius:8px;padding:12px;">${escapeHtml(requirements)}</div>
+                </div>
+
+                <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:14px;background:#f8fafc;">
+                  <h2 style="margin:0 0 12px;font-size:17px;line-height:23px;">Actions</h2>
+                  ${buildEmailButton("Approve Recommended Route", urls.approve, "#14532d")}
+                  ${buildEmailButton("Approve OfficeFinder Only", urls.approveOfficeFinder, "#1d4ed8")}
+                  ${brokerAvailable ? buildEmailButton("Approve Broker Only", urls.approveBroker, "#334155") : ""}
+                  ${buildEmailButton("Reject Lead", urls.reject, "#ffffff", "#b91c1c", "1px solid #dc2626")}
+                </div>
+
+                <div style="padding:4px 2px;color:#64748b;font-size:12px;line-height:18px;">
+                  Lead ID: ${escapeHtml(record.id)}<br>
+                  Manual approval required before this lead is sent.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function buildApprovalEmailText(record, urls, officeFinderMissing) {
+  const lead = record.lead;
+  const route = lead.route_recommendation || {};
+  const market = getLeadMarket(lead);
+  const spaceType = lead.effective_space_type || lead.space_type || "space";
+  const brokerAvailable = Boolean(route.broker_email);
+
+  return [
+    "NEW ROFO LEAD",
+    `${market} - ${spaceType} - ${lead.space_needed || "Size not provided"}`,
+    "",
+    "STATUS AND ROUTING",
+    `Recommended route: ${formatRouteLabel(route.route_to)}`,
+    `Matched rule: ${route.route_id || "default"}`,
+    `Reason: ${route.route_reason || ""}`,
+    officeFinderMissing.length ? `OfficeFinder fields missing: ${officeFinderMissing.join(", ")}` : "OfficeFinder fields: complete",
+    route.broker_email ? `Broker: ${route.broker_name || "Broker"} <${route.broker_email}>` : "",
+    "",
+    "CONTACT",
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    `Phone: ${lead.phone || "(missing)"}`,
+    lead.company ? `Company: ${lead.company}` : "",
+    "",
+    "LEAD DETAILS",
+    `Market: ${market}`,
+    `State: ${lead.state || ""}`,
+    `Space type: ${spaceType}`,
+    `Space needed: ${lead.space_needed || ""}`,
+    `Page type: ${lead.page_type || ""}`,
+    `Source: ${lead.source || ""}`,
+    `Submitted: ${formatSubmittedDate(lead.timestamp) || lead.timestamp || ""}`,
+    `Page URL: ${lead.page_url || ""}`,
+    "",
+    "REQUIREMENTS",
+    lead.requirements || "(none provided)",
+    "",
+    "ACTIONS",
+    `Approve recommended route: ${urls.approve}`,
+    `Approve OfficeFinder only: ${urls.approveOfficeFinder}`,
+    brokerAvailable ? `Approve broker only: ${urls.approveBroker}` : "Approve broker only: no broker route available",
+    `Reject lead: ${urls.reject}`,
+    "",
+    `Lead ID: ${record.id}`,
+    "Manual approval required before this lead is sent.",
+  ].filter((line) => line !== "").join("\n");
+}
+
 export async function sendApprovalEmail(env, request, record, token) {
   if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_EMAIL) {
     return { sent: false, reason: "RESEND_API_KEY and LEAD_NOTIFY_EMAIL are not configured" };
@@ -444,42 +631,16 @@ export async function sendApprovalEmail(env, request, record, token) {
   const approveBrokerUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}&route=broker`;
   const rejectUrl = `${baseUrl}/api/leads/reject?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}`;
   const lead = record.lead;
-  const route = lead.route_recommendation || {};
   const officeFinderMissing = getMissingOfficeFinderFields(record.officefinder_payload);
-  const brokerAvailable = Boolean(route.broker_email);
-
-  const subject = `New Rofo lead pending approval: ${lead.city || lead.market || "Unknown market"}, ${lead.state || ""} - ${lead.effective_space_type || lead.space_type || "space"}`;
-  const text = [
-    subject,
-    "",
-    `Lead ID: ${record.id}`,
-    `Name: ${lead.name}`,
-    `Email: ${lead.email}`,
-    `Phone: ${lead.phone || "(missing)"}`,
-    `Company: ${lead.company || ""}`,
-    `Market: ${lead.market || lead.city || ""}`,
-    `State: ${lead.state || ""}`,
-    `Space type: ${lead.effective_space_type || lead.space_type || ""}`,
-    `Space needed: ${lead.space_needed || ""}`,
-    `Requirements: ${lead.requirements || ""}`,
-    `Page type: ${lead.page_type || ""}`,
-    `Page URL: ${lead.page_url || ""}`,
-    `Source: ${lead.source || ""}`,
-    `Submitted: ${lead.timestamp || ""}`,
-    "",
-    "Recommended route:",
-    `Route to: ${route.route_to || "officefinder"}`,
-    `Matched rule: ${route.route_id || ""}`,
-    `Reason: ${route.route_reason || ""}`,
-    route.broker_email ? `Broker: ${route.broker_name || ""} <${route.broker_email}>` : "",
-    "",
-    officeFinderMissing.length ? `OfficeFinder missing fields: ${officeFinderMissing.join(", ")}` : "OfficeFinder required fields: complete",
-    "",
-    `Approve recommended route: ${approveUrl}`,
-    `Approve OfficeFinder only: ${approveOfficeFinderUrl}`,
-    brokerAvailable ? `Approve broker only: ${approveBrokerUrl}` : "Approve broker only: no broker route available",
-    `Reject: ${rejectUrl}`,
-  ].filter((line) => line !== "").join("\n");
+  const urls = {
+    approve: approveUrl,
+    approveOfficeFinder: approveOfficeFinderUrl,
+    approveBroker: approveBrokerUrl,
+    reject: rejectUrl,
+  };
+  const subject = `New Rofo lead pending approval: ${getLeadMarket(lead) || "Unknown market"} - ${lead.effective_space_type || lead.space_type || "space"}`;
+  const text = buildApprovalEmailText(record, urls, officeFinderMissing);
+  const html = buildApprovalEmailHtml(record, urls, officeFinderMissing);
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -491,6 +652,7 @@ export async function sendApprovalEmail(env, request, record, token) {
       from: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
       to: [env.LEAD_NOTIFY_EMAIL],
       subject,
+      html,
       text,
     }),
   });
