@@ -15,6 +15,22 @@ eleventyComputed:
   { "label": guide.city + ", " + guide.state_abbr, "url": guide.city_url },
   { "label": guide.title, "url": guide.url }
 ] %}
+{% set guideCityMatches = [] %}
+{% for city in cities %}
+  {% if city.city_state_slug == guide.city_state_slug %}
+    {% set guideCityMatches = (guideCityMatches.push(city), guideCityMatches) %}
+  {% endif %}
+{% endfor %}
+{% set guideCity = guideCityMatches[0] %}
+{% set nearbyMarketGuides = [] %}
+{% if guideCity and guideCity.nearby_cities %}
+  {% for nearby in guideCity.nearby_cities %}
+    {% set nearbyGuideKey = (nearby.state_abbr | upper) + "/" + (nearby.slug | lower) + "/" + guide.space_type %}
+    {% if marketGuideLookup[nearbyGuideKey] and marketGuideLookup[nearbyGuideKey].url != guide.url %}
+      {% set nearbyMarketGuides = (nearbyMarketGuides.push(marketGuideLookup[nearbyGuideKey]), nearbyMarketGuides) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 <section class="city-page market-page market-page--guide">
   <div class="city-shell">
@@ -80,6 +96,25 @@ eleventyComputed:
           {% endfor %}
         </div>
       </div>
+
+      {% if nearbyMarketGuides.length %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Nearby Markets</div>
+          <h2>Nearby office markets to consider</h2>
+          <p>
+            Compare nearby office markets if you are flexible on location, commute, pricing, or building type.
+          </p>
+          <div class="guide-grid">
+            {% for nearbyGuide in nearbyMarketGuides %}
+              <div class="guide-mini-card">
+                <h3>{{ nearbyGuide.city }}, {{ nearbyGuide.state_abbr }}</h3>
+                <p>{{ nearbyGuide.average_rent }}</p>
+                <a class="building-link" href="{{ nearbyGuide.url }}">Read the {{ nearbyGuide.city }} office guide</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
 
       <div class="city-card city-card--full">
         <div class="eyebrow">Office Planning</div>
