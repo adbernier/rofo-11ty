@@ -474,13 +474,83 @@ function buildEmailButton(label, url, background, color = "#ffffff", border = "n
   `;
 }
 
+function getApprovalActions(route, urls) {
+  const routeTo = normalizeField(route.route_to || "officefinder").toLowerCase();
+  const brokerAvailable = Boolean(route.broker_email);
+
+  if (routeTo === "both" && brokerAvailable) {
+    return [
+      { label: "Approve & Send to Both", url: urls.approve, background: "#14532d" },
+      { label: "Send to OfficeFinder Only", url: urls.approveOfficeFinder, background: "#1d4ed8" },
+      { label: "Send to Broker Only", url: urls.approveBroker, background: "#334155" },
+    ];
+  }
+
+  if (routeTo === "broker" && brokerAvailable) {
+    return [
+      { label: "Approve & Send to Broker", url: urls.approveBroker, background: "#14532d" },
+    ];
+  }
+
+  if (brokerAvailable) {
+    return [
+      { label: "Approve & Send to OfficeFinder", url: urls.approveOfficeFinder, background: "#14532d" },
+      { label: "Send to Broker Instead", url: urls.approveBroker, background: "#334155" },
+    ];
+  }
+
+  return [
+    { label: "Approve & Send to OfficeFinder", url: urls.approveOfficeFinder, background: "#14532d" },
+  ];
+}
+
+export function detectPossibleSpam(lead) {
+  const reasons = [];
+  const requirements = normalizeField(lead.requirements);
+  const lowerRequirements = requirements.toLowerCase();
+  const urlMatches = requirements.match(/https?:\/\/|www\./gi) || [];
+  const cyrillicChars = requirements.match(/[\u0400-\u04FF]/g) || [];
+  const letterChars = requirements.match(/[A-Za-z\u0400-\u04FF]/g) || [];
+  const repeatedPattern = /(.)\1{5,}/;
+  const name = normalizeField(lead.name);
+  const market = normalizeField(lead.market || lead.city);
+
+  if (/<a\s/i.test(requirements) || lowerRequirements.includes("href=")) {
+    reasons.push("Contains HTML-like link markup");
+  }
+
+  if (urlMatches.length > 1) {
+    reasons.push("Contains multiple URLs in requirements");
+  } else if (urlMatches.length === 1) {
+    reasons.push("Contains URL in requirements");
+  }
+
+  if (requirements.length > 500) {
+    reasons.push("Very long requirements text");
+  }
+
+  if (letterChars.length >= 20 && cyrillicChars.length / letterChars.length > 0.35) {
+    reasons.push("Contains mostly non-English or Cyrillic text");
+  }
+
+  if ((name && repeatedPattern.test(name)) || (market && repeatedPattern.test(market))) {
+    reasons.push("Name or market appears nonsensical");
+  }
+
+  return {
+    isPossibleSpam: reasons.length > 0,
+    reasons,
+  };
+}
+
 function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
   const lead = record.lead;
   const route = lead.route_recommendation || {};
   const market = getLeadMarket(lead);
   const spaceType = lead.effective_space_type || lead.space_type || "space";
   const submitted = formatSubmittedDate(lead.timestamp);
-  const brokerAvailable = Boolean(route.broker_email);
+  const spam = detectPossibleSpam(lead);
+  const actions = getApprovalActions(route, urls);
   const requiredStatus = officeFinderMissing.length
     ? `<span style="color:#b45309;font-weight:700;">Missing: ${escapeHtml(officeFinderMissing.join(", "))}</span>`
     : `<span style="color:#047857;font-weight:700;">Complete</span>`;
@@ -515,6 +585,14 @@ function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
                     ${route.broker_email ? buildEmailField("Broker", `${escapeHtml(route.broker_name || "Broker")} &lt;${escapeHtml(route.broker_email)}&gt;`) : ""}
                   </table>
                 </div>
+
+                ${spam.isPossibleSpam ? `
+                <div style="border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:14px;background:#fffbeb;color:#92400e;font-size:14px;line-height:20px;">
+                  <h2 style="margin:0 0 8px;font-size:16px;line-height:22px;color:#92400e;">Possible spam submission</h2>
+                  <ul style="margin:0;padding-left:18px;">
+                    ${spam.reasons.map((reason) => `<li style="margin:0 0 4px;">${escapeHtml(reason)}</li>`).join("")}
+                  </ul>
+                </div>` : ""}
 
                 ${officeFinderMissing.length ? `
                 <div style="border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:14px;background:#fffbeb;color:#92400e;font-size:14px;line-height:20px;">
@@ -552,9 +630,7 @@ function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
 
                 <div style="border:1px solid #dbe5f2;border-radius:12px;padding:16px;margin-bottom:14px;background:#f8fafc;">
                   <h2 style="margin:0 0 12px;font-size:17px;line-height:23px;">Actions</h2>
-                  ${buildEmailButton("Approve Recommended Route", urls.approve, "#14532d")}
-                  ${buildEmailButton("Approve OfficeFinder Only", urls.approveOfficeFinder, "#1d4ed8")}
-                  ${brokerAvailable ? buildEmailButton("Approve Broker Only", urls.approveBroker, "#334155") : ""}
+                  ${actions.map((action) => buildEmailButton(action.label, action.url, action.background, action.color, action.border)).join("")}
                   ${buildEmailButton("Reject Lead", urls.reject, "#ffffff", "#b91c1c", "1px solid #dc2626")}
                 </div>
 
@@ -577,7 +653,8 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
   const route = lead.route_recommendation || {};
   const market = getLeadMarket(lead);
   const spaceType = lead.effective_space_type || lead.space_type || "space";
-  const brokerAvailable = Boolean(route.broker_email);
+  const spam = detectPossibleSpam(lead);
+  const actions = getApprovalActions(route, urls);
 
   return [
     "NEW ROFO LEAD",
@@ -589,6 +666,10 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
     `Reason: ${route.route_reason || ""}`,
     officeFinderMissing.length ? `OfficeFinder fields missing: ${officeFinderMissing.join(", ")}` : "OfficeFinder fields: complete",
     route.broker_email ? `Broker: ${route.broker_name || "Broker"} <${route.broker_email}>` : "",
+    "",
+    `POSSIBLE SPAM: ${spam.isPossibleSpam ? "yes" : "no"}`,
+    spam.isPossibleSpam ? "Reasons:" : "",
+    ...spam.reasons.map((reason) => `- ${reason}`),
     "",
     "CONTACT",
     `Name: ${lead.name}`,
@@ -610,9 +691,7 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
     lead.requirements || "(none provided)",
     "",
     "ACTIONS",
-    `Approve recommended route: ${urls.approve}`,
-    `Approve OfficeFinder only: ${urls.approveOfficeFinder}`,
-    brokerAvailable ? `Approve broker only: ${urls.approveBroker}` : "Approve broker only: no broker route available",
+    ...actions.map((action) => `${action.label}: ${action.url}`),
     `Reject lead: ${urls.reject}`,
     "",
     `Lead ID: ${record.id}`,
