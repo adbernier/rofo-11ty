@@ -26,6 +26,28 @@ export async function onRequestPost({ request, env }) {
     return redirectResponse("/thank-you/");
   }
 
+  const honeypot = fields.company_website;
+  if (honeypot) {
+    return new Response("Spam detected", { status: 400 });
+  }
+
+  const start = Number(fields.form_start_time);
+  const now = Date.now();
+
+  if (start && now - start < 3000) {
+    return new Response("Form submitted too quickly", { status: 400 });
+  }
+
+  if (!fields.human_check) {
+    return new Response("Please confirm you are human", { status: 400 });
+  }
+
+  const requirements = fields.requirements || fields.message || fields.notes || "";
+
+  if (requirements.includes("http://") || requirements.includes("https://")) {
+    return new Response("Links are not allowed", { status: 400 });
+  }
+
   const lead = buildLeadPayload(fields, request);
   const missing = getMissingSubmitFields(lead);
 

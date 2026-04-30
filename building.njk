@@ -196,6 +196,11 @@ eleventyComputed:
     </p>
 
     <input type="text" name="_gotcha" style="display:none">
+    <input type="text" name="company_website" style="display:none;">
+    <input type="hidden" name="form_start_time" value="">
+    <script>
+      document.currentScript.previousElementSibling.value = Date.now();
+    </script>
     <input type="hidden" name="source" value="rofo-building-page" />
     <input type="hidden" name="lead_type" value="building" />
     <input type="hidden" name="page_type" value="building" />
@@ -323,6 +328,10 @@ eleventyComputed:
       </div>
 
       <div class="btn-row">
+        <label>
+          <input type="checkbox" name="human_check" required>
+          I’m a real person looking for space
+        </label>
         <button class="btn-primary" type="submit">Get Options Like This</button>
       </div>
 

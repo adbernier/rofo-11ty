@@ -354,6 +354,11 @@ eleventyComputed:
             <input type="hidden" name="routing_space_type" value="">
             <input type="hidden" name="routing_candidates" value="{{ city.routing_candidates | join(',') }}">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+            <input type="text" name="company_website" style="display:none;">
+            <input type="hidden" name="form_start_time" value="">
+            <script>
+              document.currentScript.previousElementSibling.value = Date.now();
+            </script>
 
             <div class="form-stack">
               <div class="field">
@@ -416,6 +421,10 @@ eleventyComputed:
             </div>
 
             <div class="btn-row">
+              <label>
+                <input type="checkbox" name="human_check" required>
+                I’m a real person looking for space
+              </label>
               <button class="btn-primary" type="submit">Get Available Spaces</button>
             </div>
 
