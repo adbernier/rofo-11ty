@@ -58,6 +58,8 @@ eleventyComputed:
     {% set cityMarketGuides = (cityMarketGuides.push(marketGuideLookup[guideKey]), cityMarketGuides) %}
   {% endif %}
 {% endfor %}
+{% set cityMarketGuideKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" %}
+{% set cityMarketGuide = marketGuideLookup[cityMarketGuideKey] %}
 
 <section class="city-page">
   <div class="city-shell">

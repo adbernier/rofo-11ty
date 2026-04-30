@@ -12,6 +12,10 @@
 {% endif %}
 
 <div class="pill-nav">
+  {% if cityMarketGuide and cityMarketGuide.url %}
+    <a class="pill" href="{{ cityMarketGuide.url }}">Market Guide</a>
+  {% endif %}
+
   {% for item in allTypes %}
     {% set pageKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
     {% if spaceTypePageLookup[pageKey] %}
