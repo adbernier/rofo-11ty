@@ -639,11 +639,83 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.market-guide-grid {
+  align-items: stretch;
+}
+
 .guide-mini-card {
   border: 1px solid var(--rofo-border);
   border-radius: 8px;
   padding: 18px;
   background: #fff;
+}
+
+.market-guide-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.market-guide-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.market-guide-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.market-guide-card__content > * + * {
+  margin-top: 10px;
+}
+
+.market-guide-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 2.4em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.market-guide-card__summary {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.market-guide-card__rent {
+  font-weight: 600;
+}
+
+.market-guide-card__desc {
+  color: #555;
+}
+
+.market-guide-card__meta {
+  color: var(--rofo-muted);
+  font-size: 0.95rem;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.market-guide-card__cta {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.market-guide-card__cta .btn-secondary {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .market-guide-card__title {
+    display: block;
+    min-height: 0;
+  }
 }
 
 .guide-mini-card h3 {

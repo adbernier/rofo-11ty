@@ -50,21 +50,28 @@ description: Explore practical office, industrial, and retail market guides with
       </p>
     </div>
 
-    <div class="guide-grid">
+    <div class="guide-grid market-guide-grid">
       {% for guide in sortedGuides %}
-        <article class="guide-mini-card">
-          <div class="eyebrow">{{ guide.city }}, {{ guide.state_abbr }}</div>
-          <h2>{{ guide.title }}</h2>
-          {% if guide.summary_short %}
-            <p>{{ guide.summary_short }}</p>
-          {% endif %}
+        <article class="guide-mini-card market-guide-card">
+          <div class="market-guide-card__content">
+            <div class="eyebrow market-guide-card__location">{{ guide.city }}, {{ guide.state_abbr }}</div>
+            <h2 class="market-guide-card__title">{{ guide.title }}</h2>
 
-          <ul class="mini-list">
-            <li><strong>Average rent:</strong> {{ guide.average_rent }}</li>
-            <li><strong>Market date:</strong> {{ guide.market_date }}</li>
-          </ul>
+            <div class="market-guide-card__summary">
+              <div class="market-guide-card__rent">Average rent: {{ guide.average_rent }}</div>
+              {% if guide.summary_short %}
+                <div class="market-guide-card__desc">{{ guide.summary_short }}</div>
+              {% endif %}
+            </div>
 
-          <a class="btn-secondary" href="{{ guide.url }}">Read the guide</a>
+            <div class="market-guide-card__meta">
+              <span>Market date: {{ guide.market_date }}</span>
+            </div>
+          </div>
+
+          <div class="market-guide-card__cta">
+            <a class="btn-secondary" href="{{ guide.url }}">Read the guide</a>
+          </div>
         </article>
       {% endfor %}
     </div>
