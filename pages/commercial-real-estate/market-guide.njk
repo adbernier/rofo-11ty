@@ -4,7 +4,7 @@ pagination:
   data: marketGuides
   size: 1
   alias: guide
-permalink: "/commercial-real-estate/{{ guide.state_abbr }}/{{ guide.city_slug }}/{{ guide.guide_slug }}/index.html"
+permalink: "{{ guide.output_path }}"
 eleventyComputed:
   title: "{{ guide.title }} | Rofo"
   description: "{{ guide.meta_description }}"
@@ -16,22 +16,6 @@ eleventyComputed:
   { "label": guide.city + ", " + guide.state_abbr, "url": guide.city_url },
   { "label": guide.title, "url": guide.url }
 ] %}
-{% set guideCityMatches = [] %}
-{% for city in cities %}
-  {% if city.city_state_slug == guide.city_state_slug %}
-    {% set guideCityMatches = (guideCityMatches.push(city), guideCityMatches) %}
-  {% endif %}
-{% endfor %}
-{% set guideCity = guideCityMatches[0] %}
-{% set nearbyMarketGuides = [] %}
-{% if guideCity and guideCity.nearby_cities %}
-  {% for nearby in guideCity.nearby_cities %}
-    {% set nearbyGuideKey = (nearby.state_abbr | upper) + "/" + (nearby.slug | lower) + "/" + guide.space_type %}
-    {% if marketGuideLookup[nearbyGuideKey] and marketGuideLookup[nearbyGuideKey].url != guide.url %}
-      {% set nearbyMarketGuides = (nearbyMarketGuides.push(marketGuideLookup[nearbyGuideKey]), nearbyMarketGuides) %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
 {% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
 {% set guideAbsoluteUrl = siteUrl + guide.url %}
 
@@ -57,7 +41,9 @@ eleventyComputed:
   },
   "about": [
     {{ guide.city | dump | safe }},
+    {% if guide.guide_kind == "space-type" %}
     {{ guide.space_type_label | dump | safe }},
+    {% endif %}
     "Commercial real estate market guide"
   ],
   "spatialCoverage": {
@@ -81,16 +67,23 @@ eleventyComputed:
       <div class="city-card">
         <div class="city-hero-copy">
           <div class="eyebrow">Market Guide</div>
-          <h1>{{ guide.city }}, {{ guide.state_abbr }} {{ guide.space_type_label }} Commercial Real Estate Guide</h1>
+          <h1>{{ guide.title }}</h1>
           <p class="lead">{{ guide.summary_short or guide.summary }}</p>
           <div class="pill-row">
             <span class="pill">{{ guide.city }}, {{ guide.state_abbr }}</span>
-            <span class="pill">{{ guide.market_date }}</span>
-            <span class="pill">{{ guide.space_type_label }}</span>
+            {% if guide.market_date %}
+              <span class="pill">{{ guide.market_date }}</span>
+            {% endif %}
+            {% if guide.guide_kind == "space-type" %}
+              <span class="pill">{{ guide.space_type_label }}</span>
+            {% endif %}
           </div>
           <div class="button-row">
             <a class="btn-primary" href="#market-guide-contact">Get help finding space</a>
             <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
+            {% if guide.guide_kind == "space-type" %}
+              <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -162,22 +155,28 @@ eleventyComputed:
         <p>{{ guide.market_overview }}</p>
       </div>
 
-      <div class="city-card city-card--full">
-        <div class="eyebrow">Market Snapshot</div>
-        <h2>{{ guide.city }} {{ guide.space_type_label_lower }} market snapshot</h2>
-        <div class="guide-grid">
-          <div class="guide-mini-card">
-            <div class="stat-label">Average Rent</div>
-            <div class="stat-value">{{ guide.average_rent }}</div>
-            <p class="stat-note">{{ guide.rent_basis }}</p>
-          </div>
-          <div class="guide-mini-card">
-            <div class="stat-label">Market Date</div>
-            <div class="stat-value">{{ guide.market_date }}</div>
-            <p class="stat-note">Snapshot for current market context</p>
+      {% if guide.average_rent or guide.market_date %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Market Snapshot</div>
+          <h2>{{ guide.city }}{% if guide.guide_kind == "space-type" %} {{ guide.space_type_label_lower }}{% endif %} market snapshot</h2>
+          <div class="guide-grid">
+            {% if guide.average_rent %}
+              <div class="guide-mini-card">
+                <div class="stat-label">Average Rent</div>
+                <div class="stat-value">{{ guide.average_rent }}</div>
+                {% if guide.rent_basis %}<p class="stat-note">{{ guide.rent_basis }}</p>{% endif %}
+              </div>
+            {% endif %}
+            {% if guide.market_date %}
+              <div class="guide-mini-card">
+                <div class="stat-label">Market Date</div>
+                <div class="stat-value">{{ guide.market_date }}</div>
+                <p class="stat-note">Snapshot for current market context</p>
+              </div>
+            {% endif %}
           </div>
         </div>
-      </div>
+      {% endif %}
 
       {% if guide.trends and guide.trends.length %}
         <div class="city-card city-card--full">
@@ -201,6 +200,9 @@ eleventyComputed:
                 <h3>{{ type.label }} in {{ guide.city }}</h3>
                 <p>{{ type.use_case }}</p>
                 <a class="building-link" href="{{ type.url }}">View {{ type.label_lower }} in {{ guide.city }}</a>
+                {% if type.guide_url and type.guide_url != guide.url %}
+                  <a class="building-link" href="{{ type.guide_url }}">Read the {{ type.label_lower }} guide</a>
+                {% endif %}
               </div>
             {% endfor %}
           </div>
@@ -250,23 +252,24 @@ eleventyComputed:
         </div>
       {% endif %}
 
-      {% if nearbyMarketGuides.length %}
+      {% if guide.nearby_market_guides and guide.nearby_market_guides.length %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Nearby Markets</div>
-          <h2>{% if not guide.has_inventory %}Start with nearby {{ guide.space_type_label_lower }} markets{% else %}Nearby {{ guide.space_type_label_lower }} markets to consider{% endif %}</h2>
+          <h2>{% if guide.guide_kind == "space-type" %}{% if not guide.has_inventory %}Start with nearby {{ guide.space_type_label_lower }} markets{% else %}Nearby {{ guide.space_type_label_lower }} markets to consider{% endif %}{% else %}Nearby commercial real estate guides{% endif %}</h2>
           <p>
-            {% if not guide.has_inventory %}
+            {% if guide.guide_kind == "space-type" and not guide.has_inventory %}
               This guide covers {{ guide.city }} market context, but nearby markets may have more active {{ guide.space_type_label_lower }} options to compare.
-            {% else %}
+            {% elseif guide.guide_kind == "space-type" %}
               Compare nearby {{ guide.space_type_noun }} markets if you are flexible on location, commute, pricing, or building type.
+            {% else %}
+              Compare nearby market guides if you are flexible on location, commute, space type, or building fit.
             {% endif %}
           </p>
           <div class="guide-grid">
-            {% for nearbyGuide in nearbyMarketGuides %}
+            {% for nearbyGuide in guide.nearby_market_guides %}
               <div class="guide-mini-card">
                 <h3>{{ nearbyGuide.city }}, {{ nearbyGuide.state_abbr }}</h3>
-                <p>{{ nearbyGuide.average_rent }}</p>
-                <a class="building-link" href="{{ nearbyGuide.url }}">Read the {{ nearbyGuide.city }} {{ guide.space_type_noun }} guide</a>
+                <a class="building-link" href="{{ nearbyGuide.guide_url }}">Read the {{ nearbyGuide.city }} guide</a>
               </div>
             {% endfor %}
           </div>
@@ -340,7 +343,7 @@ eleventyComputed:
 
       <div class="city-card city-card--full">
         <div class="eyebrow">Next Steps</div>
-        {% if guide.has_inventory %}
+        {% if guide.guide_kind == "space-type" and guide.has_inventory %}
           <h2>Compare {{ guide.space_type_label_lower }} in {{ guide.city }}</h2>
           <p>
             Use Rofo to compare current {{ guide.space_type_label_lower }} options in {{ guide.city }} or step back to the broader city market.
@@ -428,12 +431,16 @@ eleventyComputed:
             <textarea id="guide-lead-notes" name="notes" placeholder="Example: office near clients, retail storefront, warehouse space, target move date"></textarea>
           </div>
 
-          <div class="btn-row">
-            <label>
+          <div class="form-actions">
+            <label class="checkbox">
               <input type="checkbox" name="human_check" required>
               I’m a real person looking for space
             </label>
             <button class="btn-primary" type="submit">Get Help Finding Space</button>
+
+            <div class="form-note">
+              No spam. Just helpful options to get you started.
+            </div>
           </div>
         </form>
       </div>
@@ -453,17 +460,19 @@ eleventyComputed:
         </div>
       {% endif %}
 
-      <div class="city-card city-card--full">
-        <div class="eyebrow">Sources</div>
-        <h2>Market data sources</h2>
-        <ul class="guide-list">
-          {% for source in guide.sources %}
-            <li>
-              <a href="{{ source.url }}" rel="nofollow noopener" target="_blank">{{ source.name }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if guide.sources and guide.sources.length %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Sources</div>
+          <h2>Market data sources</h2>
+          <ul class="guide-list">
+            {% for source in guide.sources %}
+              <li>
+                <a href="{{ source.url }}" rel="nofollow noopener" target="_blank">{{ source.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

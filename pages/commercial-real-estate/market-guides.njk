@@ -58,7 +58,13 @@ description: Explore practical office, industrial, and retail market guides with
             <h2 class="market-guide-card__title">{{ guide.title }}</h2>
 
             <div class="market-guide-card__summary">
-              <div class="market-guide-card__rent">Average rent: {{ guide.average_rent }}</div>
+              {% if guide.average_rent %}
+                <div class="market-guide-card__rent">Average rent: {{ guide.average_rent }}</div>
+              {% elseif guide.representative_building_count %}
+                <div class="market-guide-card__rent">{{ guide.representative_building_count }} example {% if guide.representative_building_count == 1 %}building{% else %}buildings{% endif %}</div>
+              {% else %}
+                <div class="market-guide-card__rent">City market guide</div>
+              {% endif %}
               {% if guide.summary_short %}
                 <div class="market-guide-card__desc">{{ guide.summary_short }}</div>
               {% endif %}

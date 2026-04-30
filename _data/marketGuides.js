@@ -131,8 +131,7 @@ function buildFaqs(guide) {
   ];
 }
 
-module.exports = function () {
-  return [...officeGuides, ...industrialGuides, ...retailGuides].map((guide) => {
+function normalizeSpaceTypeGuide(guide) {
     const state = String(guide.state_abbr || "").toUpperCase();
     const citySlug = guide.city_slug;
     const guideSlug = guide.guide_slug;
@@ -165,9 +164,11 @@ module.exports = function () {
       state_abbr: String(nearby.state_abbr || "").toUpperCase(),
       slug: String(nearby.slug || "").toLowerCase(),
       url: nearby.path || `/commercial-real-estate/${String(nearby.state_abbr || "").toUpperCase()}/${String(nearby.slug || "").toLowerCase()}/`,
+      guide_url: `/commercial-real-estate/${String(nearby.state_abbr || "").toUpperCase()}/${String(nearby.slug || "").toLowerCase()}/market-guide/`,
     }));
     const normalizedGuide = {
       ...guide,
+      guide_kind: "space-type",
       city_state_slug: cityStateSlug,
       state_abbr: state,
       county,
@@ -187,6 +188,8 @@ module.exports = function () {
       has_inventory: guide.has_inventory !== false && hasMatchingSpaceTypePage,
       has_matching_space_type_page: hasMatchingSpaceTypePage,
       url: `/commercial-real-estate/${state}/${citySlug}/${guideSlug}/`,
+      output_path: `/commercial-real-estate/${state}/${citySlug}/${guideSlug}/index.html`,
+      city_market_guide_url: `/commercial-real-estate/${state}/${citySlug}/market-guide/`,
       city_url: `/commercial-real-estate/${state}/${citySlug}/`,
       space_type_url: `/commercial-real-estate/${state}/${citySlug}/${guide.space_type}/`,
       routing_market: cityStateSlug,
@@ -198,6 +201,8 @@ module.exports = function () {
         space_type_slug: guide.space_type,
       }),
       nearby_markets: nearbyMarkets,
+      nearby_market_guides: [],
+      matching_space_type_guides: [],
       available_space_types: availableSpaceTypes,
       representative_buildings: representativeBuildings,
       representative_building_count: (buildingsByCity.get(cityStateSlug) || []).length,
@@ -215,5 +220,163 @@ module.exports = function () {
       }),
       faqs: guide.faqs || buildFaqs(normalizedGuide),
     };
+}
+
+function buildCityGuide(city) {
+  const citySlug = String(city.slug || "").toLowerCase();
+  const state = String(city.state_abbr || "").toUpperCase();
+  const cityStateSlug = city.city_state_slug || getCityStateSlug(citySlug, state);
+  const enrichment = marketGuideEnrichment[cityStateSlug] || {};
+  const county = enrichment.county || city.county_name || city.county || "";
+  const countySlug = countyStateSlug(county, state);
+  const allCityBuildings = buildingsByCity.get(cityStateSlug) || [];
+  const representativeBuildings = allCityBuildings.slice(0, 6);
+  const citySpaceTypePages = spaceTypePagesByCity.get(cityStateSlug) || [];
+  const availableSpaceTypes = citySpaceTypePages.map((entry) => {
+    const label = entry.spaceType && entry.spaceType.pluralLabel
+      ? entry.spaceType.pluralLabel
+      : spaceTypeLabels[entry.page_slug] || entry.page_slug;
+
+    return {
+      slug: entry.page_slug,
+      label,
+      label_lower: String(label || "").toLowerCase(),
+      url: `/commercial-real-estate/${state}/${citySlug}/${entry.page_slug}/`,
+      use_case: spaceTypeUseCases[entry.page_slug] || "This space type may fit businesses comparing commercial locations in the market.",
+    };
   });
+  const nearbyMarkets = (city.nearby_cities || []).map((nearby) => ({
+    city: nearby.city,
+    state_abbr: String(nearby.state_abbr || "").toUpperCase(),
+    slug: String(nearby.slug || "").toLowerCase(),
+    url: nearby.path || `/commercial-real-estate/${String(nearby.state_abbr || "").toUpperCase()}/${String(nearby.slug || "").toLowerCase()}/`,
+    guide_url: `/commercial-real-estate/${String(nearby.state_abbr || "").toUpperCase()}/${String(nearby.slug || "").toLowerCase()}/market-guide/`,
+  }));
+  const title = `${city.city}, ${state} Commercial Real Estate Guide`;
+  const normalizedGuide = {
+    guide_kind: "city",
+    city: city.city,
+    state_abbr: state,
+    state,
+    county,
+    city_slug: citySlug,
+    city_state_slug: cityStateSlug,
+    title,
+    meta_description: `Explore commercial real estate in ${city.city}, ${state}, including local market context, common space types, nearby markets, and example buildings where available.`,
+    summary: `Use this guide to compare commercial real estate options in ${city.city}, ${state}, including space types, nearby markets, and example buildings where Rofo has inventory data.`,
+    summary_short: `Commercial real estate guide for ${city.city}, ${state}.`,
+    market_date: "Current",
+    population: enrichment.population || city.population || "",
+    population_label: formatNumber(enrichment.population || city.population),
+    employment_count: enrichment.employment_count || "",
+    employment_count_label: formatNumber(enrichment.employment_count),
+    establishment_count: enrichment.establishment_count || "",
+    establishment_count_label: formatNumber(enrichment.establishment_count),
+    unemployment_rate: enrichment.unemployment_rate || "",
+    data_source_label: enrichment.data_source_label || "",
+    data_source_year: enrichment.data_source_year || "",
+    has_inventory: allCityBuildings.length > 0,
+    has_matching_space_type_page: availableSpaceTypes.length > 0,
+    url: `/commercial-real-estate/${state}/${citySlug}/market-guide/`,
+    output_path: `/commercial-real-estate/${state}/${citySlug}/market-guide/index.html`,
+    city_market_guide_url: `/commercial-real-estate/${state}/${citySlug}/market-guide/`,
+    city_url: `/commercial-real-estate/${state}/${citySlug}/`,
+    space_type_url: "",
+    space_type: "",
+    space_type_label: "Commercial Space",
+    space_type_label_lower: "commercial space",
+    space_type_noun: "commercial real estate",
+    space_type_short_label: "commercial",
+    routing_market: cityStateSlug,
+    routing_county: countySlug,
+    routing_space_type: "",
+    routing_candidates: getRoutingCandidates({
+      city_state_slug: cityStateSlug,
+      county_state_slug: countySlug,
+      space_type_slug: "",
+    }),
+    nearby_markets: nearbyMarkets,
+    nearby_market_guides: [],
+    matching_space_type_guides: [],
+    available_space_types: availableSpaceTypes,
+    representative_buildings: representativeBuildings,
+    representative_building_count: allCityBuildings.length,
+    sources: [],
+  };
+
+  return {
+    ...normalizedGuide,
+    market_overview: buildMarketOverview({
+      city: city.city,
+      state,
+      county,
+      nearbyMarkets,
+      availableSpaceTypes,
+      buildingCount: normalizedGuide.representative_building_count,
+    }),
+    faqs: buildFaqs(normalizedGuide),
+  };
+}
+
+function addNearbyGuideLinks(guides) {
+  const cityGuideUrls = new Map();
+  const spaceGuideUrls = new Map();
+  const spaceGuideUrlsByCity = new Map();
+
+  guides.forEach((guide) => {
+    if (guide.guide_kind === "city") {
+      cityGuideUrls.set(guide.city_state_slug, guide.url);
+    }
+
+    if (guide.guide_kind === "space-type") {
+      spaceGuideUrls.set(`${guide.city_state_slug}::${guide.space_type}`, guide.url);
+      if (!spaceGuideUrlsByCity.has(guide.city_state_slug)) {
+        spaceGuideUrlsByCity.set(guide.city_state_slug, []);
+      }
+      spaceGuideUrlsByCity.get(guide.city_state_slug).push({
+        slug: guide.space_type,
+        label: guide.space_type_label,
+        label_lower: guide.space_type_label_lower,
+        url: guide.url,
+      });
+    }
+  });
+
+  return guides.map((guide) => ({
+    ...guide,
+    available_space_types: guide.available_space_types.map((type) => ({
+      ...type,
+      guide_url: spaceGuideUrls.get(`${guide.city_state_slug}::${type.slug}`) || "",
+    })),
+    matching_space_type_guides: spaceGuideUrlsByCity.get(guide.city_state_slug) || [],
+    nearby_market_guides: guide.nearby_markets
+      .map((nearby) => {
+        const cityStateSlug = getCityStateSlug(nearby.slug, nearby.state_abbr);
+        const url = guide.guide_kind === "space-type"
+          ? spaceGuideUrls.get(`${cityStateSlug}::${guide.space_type}`)
+          : cityGuideUrls.get(cityStateSlug);
+
+        return url ? { ...nearby, guide_url: url } : null;
+      })
+      .filter(Boolean),
+  }));
+}
+
+module.exports = function () {
+  const rawSpaceTypeGuides = [...officeGuides, ...industrialGuides, ...retailGuides].map(normalizeSpaceTypeGuide);
+  const rawCityGuides = cities
+    .filter((city) => {
+      const citySlug = String(city.slug || "").toLowerCase();
+      const state = String(city.state_abbr || "").toUpperCase();
+      if (!citySlug || !state) return false;
+
+      const cityStateSlug = city.city_state_slug || getCityStateSlug(citySlug, state);
+      const buildingCount = (buildingsByCity.get(cityStateSlug) || []).length;
+      const hasGeneratedCityPage = Boolean(city.path);
+
+      return buildingCount > 0 || hasGeneratedCityPage;
+    })
+    .map(buildCityGuide);
+
+  return addNearbyGuideLinks([...rawSpaceTypeGuides, ...rawCityGuides]);
 };
