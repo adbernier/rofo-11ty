@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { getRoutingCandidates } = require("./leadRouting.js");
+const marketSnapshots = require("./marketSnapshots.js");
 
 function findCityHeroImage(cityStateSlug) {
   const baseDir = path.join(process.cwd(), "assets", "images", "cities");
@@ -52,6 +53,7 @@ module.exports = () => {
   return cities.map((city) => {
     const cityStateSlug =
       city.city_state_slug || `${city.slug}-${city.state_abbr.toLowerCase()}`;
+    const marketSnapshotKey = `${String(city.state_abbr || "").toUpperCase()}/${String(city.slug || "").toLowerCase()}`;
     const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
 
     const autoHeroImage = findCityHeroImage(cityStateSlug);
@@ -68,6 +70,7 @@ module.exports = () => {
       city_state_slug: cityStateSlug,
       routing_market: cityStateSlug,
       routing_county: routingCounty,
+      market_snapshot: marketSnapshots[marketSnapshotKey] || null,
       routing_candidates: getRoutingCandidates({
         city_state_slug: cityStateSlug,
         county_state_slug: routingCounty,

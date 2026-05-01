@@ -18,6 +18,20 @@ eleventyComputed:
 ] %}
 {% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
 {% set guideAbsoluteUrl = siteUrl + guide.url %}
+{% set marketSnapshot = guide.market_snapshot or {} %}
+{% set guideSnapshotItems = [] %}
+{% if marketSnapshot.average_rent %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label }), guideSnapshotItems) %}
+{% endif %}
+{% if marketSnapshot.availability_rate %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Availability", "value": marketSnapshot.availability_rate, "note": marketSnapshot.availability_label }), guideSnapshotItems) %}
+{% endif %}
+{% if marketSnapshot.market_trend %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Market Trend", "value": marketSnapshot.market_trend, "note": marketSnapshot.market_trend_label }), guideSnapshotItems) %}
+{% endif %}
+{% if marketSnapshot.notable_areas and marketSnapshot.notable_areas.length %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Notable Areas", "value": marketSnapshot.notable_areas | join(", "), "note": marketSnapshot.notable_areas_label }), guideSnapshotItems) %}
+{% endif %}
 
 <section class="city-page market-page market-page--guide">
   <div class="city-shell">
@@ -155,7 +169,39 @@ eleventyComputed:
         <p>{{ guide.market_overview }}</p>
       </div>
 
-      {% if guide.average_rent or guide.market_date %}
+      {% if guide.guide_kind == "city" and guideSnapshotItems.length >= 2 %}
+        <div class="city-card city-card--full">
+          <div class="eyebrow">Market Snapshot</div>
+          <h2>{{ guide.city }} Market Snapshot</h2>
+          {% if marketSnapshot.summary %}
+            <p>{{ marketSnapshot.summary }}</p>
+          {% endif %}
+          <div class="guide-grid">
+            {% for item in guideSnapshotItems %}
+              <div class="guide-mini-card">
+                <div class="stat-label">{{ item.label }}</div>
+                <div class="stat-value">{{ item.value }}</div>
+                {% if item.note %}
+                  <p class="stat-note">{{ item.note }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+          {% if marketSnapshot.rent_note or marketSnapshot.availability_note or marketSnapshot.tenant_takeaway %}
+            <div class="guide-list">
+              {% if marketSnapshot.rent_note %}
+                <p>{{ marketSnapshot.rent_note }}</p>
+              {% endif %}
+              {% if marketSnapshot.availability_note %}
+                <p>{{ marketSnapshot.availability_note }}</p>
+              {% endif %}
+              {% if marketSnapshot.tenant_takeaway %}
+                <p>{{ marketSnapshot.tenant_takeaway }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% elseif guide.guide_kind == "space-type" and (guide.average_rent or guide.market_date) %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Market Snapshot</div>
           <h2>{{ guide.city }}{% if guide.guide_kind == "space-type" %} {{ guide.space_type_label_lower }}{% endif %} market snapshot</h2>
