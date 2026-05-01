@@ -33,16 +33,26 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
+  {% set guideUrls = [] %}
   {% for guide in marketGuides %}
+  {% set guideLoc = siteUrl + guide.url %}
+  {% if guide.url and guide.output_path and "/commercial-real-estate-guides/" not in guide.url and guideLoc not in guideUrls %}
   <url>
-    <loc>{{ siteUrl }}{{ guide.url }}</loc>
+    <loc>{{ guideLoc }}</loc>
   </url>
+  {% set guideUrls = (guideUrls.push(guideLoc), guideUrls) %}
+  {% endif %}
   {% endfor %}
 
+  {% set buildingUrls = [] %}
   {% for building in buildings %}
+  {% set buildingLoc = siteUrl + "/commercial-real-estate/building/" + building.state_abbr + "/" + building.city_slug + "/" + building.building_slug + "/" %}
+  {% if buildingLoc not in buildingUrls %}
   <url>
-    <loc>{{ siteUrl }}/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_slug }}/{{ building.building_slug }}/</loc>
+    <loc>{{ buildingLoc }}</loc>
   </url>
+  {% set buildingUrls = (buildingUrls.push(buildingLoc), buildingUrls) %}
+  {% endif %}
   {% endfor %}
 
   {% for company in companies %}
