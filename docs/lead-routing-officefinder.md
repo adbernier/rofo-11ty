@@ -243,16 +243,26 @@ Field mapping:
 | `MarketName` | `city`, then `market`, then `location` |
 | `MarketState` | `state` |
 | `MarketCountry` | hardcoded `USA` |
-| `NotListed` | same as `MarketName` |
+| `NotListed` | omitted for normal city/state leads; used only as a fallback when a normal market cannot be identified |
+| `Prospect_Status` | hardcoded `Actively looking for space` |
+| `ApproveExec` | hardcoded `0` |
 | `Name` | `name` |
 | `Email` | `email` |
 | `Phone` | normalized to `555-555-5555`; invalid phones are not submitted |
 | `CompanyName` | `company` |
 | `SqFt` | parsed numeric upper end from `space_needed`; `Not Sure` defaults to `1000` |
-| `FinanceOption` | hardcoded `leasing` |
+| `FinanceOption` | mapped from the submitted space type |
 | `PrefLeaseTerm` | hardcoded `2` |
 | `Comments` | requirements, raw size, page type, source, and space type |
 | `rofo_source` | `rofo_source`, falling back to `page_url` |
+
+Finance option mapping:
+
+- Office Space, Office, Flex Space, Flex, Not Sure, or blank: `leasing`
+- Coworking Space, Coworking, Executive Suite: `ExecSuites`
+- Retail Space or Retail: `Retail`
+- Industrial Space, Industrial, or Warehouse: `Industrial`
+- Medical Office Space or Medical: `Medical`
 
 OfficeFinder submissions use `application/x-www-form-urlencoded`.
 

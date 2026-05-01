@@ -67,6 +67,14 @@ function normalizeState(value) {
 }
 
 function getFinanceOption(spaceType) {
+  const normalized = normalizeSpaceType(spaceType);
+  if (!normalized || normalized.includes("not-sure")) return "leasing";
+  if (normalized.includes("medical")) return "Medical";
+  if (normalized.includes("coworking") || normalized.includes("executive-suite")) return "ExecSuites";
+  if (normalized.includes("retail")) return "Retail";
+  if (normalized.includes("industrial") || normalized.includes("warehouse")) return "Industrial";
+  if (normalized.includes("flex")) return "leasing";
+  if (normalized.includes("office")) return "leasing";
   return "leasing";
 }
 
@@ -284,6 +292,8 @@ export function buildOfficeFinderPayload(lead, env) {
   const spaceType = lead.requested_space_type || lead.space_type;
   const sqFt = normalizeSqFtForOfficeFinder(lead.space_needed);
   const phone = normalizePhoneForOfficeFinder(lead.phone);
+  const marketName = getMarketName(lead);
+  const marketState = normalizeField(lead.state);
 
   const comments = [
     lead.requirements,
@@ -293,12 +303,13 @@ export function buildOfficeFinderPayload(lead, env) {
     lead.source && `Source: ${lead.source}`,
   ].filter(Boolean).join("\n");
 
-  return {
+  const payload = {
     Referrer: "MM2",
-    MarketName: getMarketName(lead),
-    MarketState: normalizeField(lead.state),
+    MarketName: marketName,
+    MarketState: marketState,
     MarketCountry: "USA",
-    NotListed: getMarketName(lead),
+    Prospect_Status: "Actively looking for space",
+    ApproveExec: "0",
     Name: normalizeField(lead.name),
     Email: normalizeField(lead.email),
     Phone: phone,
@@ -309,17 +320,26 @@ export function buildOfficeFinderPayload(lead, env) {
     Comments: comments,
     rofo_source: normalizeField(lead.rofo_source || lead.page_url),
   };
+
+  if (!marketName || !marketState) {
+    payload.NotListed = marketName || normalizeField(lead.market || lead.location || lead.city);
+  }
+
+  return payload;
 }
 
 export function getMissingOfficeFinderFields(payload) {
   const missing = [];
-  for (const field of ["Referrer", "MarketName", "MarketState", "MarketCountry", "NotListed", "Name", "Email", "Phone", "SqFt", "FinanceOption", "PrefLeaseTerm"]) {
+  for (const field of ["Referrer", "MarketCountry", "Prospect_Status", "ApproveExec", "Name", "Email", "Phone", "SqFt", "FinanceOption", "PrefLeaseTerm"]) {
     if (!payload[field]) missing.push(field);
   }
+  if ((!payload.MarketName || !payload.MarketState) && !payload.NotListed) missing.push("MarketName/MarketState or NotListed");
   if (payload.Phone && !/^\d{3}-\d{3}-\d{4}$/.test(payload.Phone)) missing.push("Phone format");
   if (payload.SqFt && !/^\d+$/.test(payload.SqFt)) missing.push("SqFt numeric");
-  if (payload.FinanceOption !== "leasing") missing.push("FinanceOption leasing");
+  if (payload.FinanceOption && !["leasing", "ExecSuites", "Retail", "Industrial", "Medical"].includes(payload.FinanceOption)) missing.push("FinanceOption valid");
   if (String(payload.PrefLeaseTerm) !== "2") missing.push("PrefLeaseTerm 2");
+  if (payload.Prospect_Status !== "Actively looking for space") missing.push("Prospect_Status Actively looking for space");
+  if (String(payload.ApproveExec) !== "0") missing.push("ApproveExec 0");
   return missing;
 }
 
