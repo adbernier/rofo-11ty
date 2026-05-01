@@ -1,5 +1,6 @@
 import {
   appendOfficeFinderAttempt,
+  buildOfficeFinderPayload,
   escapeHtml,
   getLead,
   getMissingOfficeFinderFields,
@@ -48,15 +49,17 @@ export async function onRequestGet({ request, env }) {
     const targets = getApprovalTargets(routeParam, routeRecommendation);
     const results = [];
     const failures = [];
+    let officeFinderPayload = null;
 
     if (targets.includes("officefinder")) {
-      const missing = getMissingOfficeFinderFields(record.officefinder_payload);
+      officeFinderPayload = buildOfficeFinderPayload(record.lead, env);
+      const missing = getMissingOfficeFinderFields(officeFinderPayload);
       if (missing.length) {
         const attempt = {
           lead_id: id,
           attempted_at: new Date().toISOString(),
           officefinder_mode: routeRecommendation.officefinder_mode || "",
-          request_payload: record.officefinder_payload,
+          request_payload: officeFinderPayload,
           response_status: 0,
           response_body: "",
           success: false,
@@ -81,12 +84,12 @@ export async function onRequestGet({ request, env }) {
     }
 
     if (targets.includes("officefinder") && !failures.length) {
-      const result = await submitToOfficeFinder(env, record.officefinder_payload);
+      const result = await submitToOfficeFinder(env, officeFinderPayload);
       const attempt = {
         lead_id: id,
         attempted_at: new Date().toISOString(),
         officefinder_mode: routeRecommendation.officefinder_mode || "",
-        request_payload: record.officefinder_payload,
+        request_payload: officeFinderPayload,
         response_status: result.status,
         response_body: result.body,
         success: result.ok,
