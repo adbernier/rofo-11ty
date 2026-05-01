@@ -429,21 +429,45 @@ eleventyComputed:
       </div>
 
       <div id="market-guide-contact" class="guide-lead-section">
-        <div class="guide-lead-card guide-lead-card--intro">
-          <div class="eyebrow">Get Help</div>
-          <h2>Need help finding commercial space?</h2>
-          <p>Tell us what kind of space you need and we’ll help you compare options in this market and nearby areas.</p>
-          <ul class="guide-lead-list">
-            <li>Office, retail, industrial, flex, and coworking</li>
-            <li>Local market guidance</li>
-            <li>No spam — just helpful next steps</li>
-          </ul>
+        <div class="guide-lead-card guide-lead-card--intro cta-band">
+          <div class="kicker">GET HELP</div>
+          <h2>Tell us what you need</h2>
+
+          <p class="cta-band__lead">
+            Help us understand your space, timing, and priorities—we’ll point you in the right direction.
+          </p>
+
+          <div class="cta-band__prompts">
+            <div class="cta-band__prompt">
+              <strong>Type of space</strong>
+              <span>Office, retail, industrial, flex, or coworking</span>
+            </div>
+
+            <div class="cta-band__prompt">
+              <strong>Size or team</strong>
+              <span>A rough range or headcount is enough</span>
+            </div>
+
+            <div class="cta-band__prompt">
+              <strong>Location</strong>
+              <span>Your target area or nearby options</span>
+            </div>
+
+            <div class="cta-band__prompt">
+              <strong>Timeline</strong>
+              <span>Now, soon, or just exploring</span>
+            </div>
+          </div>
+
+          <div class="cta-band__footer">
+            You don’t need all the answers—we’ll help you figure it out.
+          </div>
         </div>
 
-        <div class="guide-lead-card guide-lead-card--form">
-          <div class="eyebrow">Tell us what you need</div>
-          <h2>Get help comparing options</h2>
-          <p>Share a few details and we’ll follow up with helpful next steps.</p>
+        <div class="guide-lead-card guide-lead-card--form form-card">
+          <div class="eyebrow">GET HELP</div>
+          <h2>Find the right space for your business</h2>
+          <p>Tell us what you need — we’ll follow up with a few spaces that fit.</p>
 
           <form action="/api/leads/submit" method="POST">
             <input type="hidden" name="source" value="rofo-market-guide">
@@ -475,6 +499,10 @@ eleventyComputed:
               <div class="field">
                 <label for="guide-lead-phone">Phone</label>
                 <input id="guide-lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
+              </div>
+              <div class="field">
+                <label for="guide-lead-location">Where are you looking?</label>
+                <input id="guide-lead-location" name="location" type="text" value="{{ guide.city }}, {{ guide.state_abbr }}" placeholder="City, State" required>
               </div>
               <div class="field">
                 <label for="guide-lead-space-type">What type of space do you need?</label>
@@ -517,7 +545,7 @@ eleventyComputed:
                 No spam. Just helpful options to get you started.
               </div>
 
-              <button class="btn-primary" type="submit">Get Help Finding Space</button>
+              <button class="btn-primary" type="submit">See Available Spaces</button>
             </div>
           </form>
         </div>

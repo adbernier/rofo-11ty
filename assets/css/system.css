@@ -667,31 +667,45 @@ p {
 
 .guide-lead-section {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 18px;
   align-items: stretch;
 }
 
 .guide-lead-card {
   border: 1px solid var(--rofo-border);
-  border-radius: 8px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding: 24px;
   background: #fff;
 }
 
 .guide-lead-card--intro {
-  background: #0f2f57;
-  border-color: #0f2f57;
+  background: linear-gradient(135deg, #0d3277, #1346d8);
+  border: none;
   color: #fff;
 }
 
-.guide-lead-card--intro .eyebrow {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
+.guide-lead-card--intro .kicker {
+  color: #d9e6ff;
 }
 
 .guide-lead-card--intro h2,
 .guide-lead-card--intro p {
+  color: #fff;
+}
+
+.guide-lead-card--intro h2 {
+  margin: 10px 0 12px;
+}
+
+.guide-lead-card--intro .cta-band__lead,
+.guide-lead-card--intro .cta-band__prompt span,
+.guide-lead-card--intro .cta-band__footer {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.guide-lead-card--intro .cta-band__prompt strong {
   color: #fff;
 }
 
@@ -780,6 +794,10 @@ p {
 @media (max-width: 760px) {
   .guide-lead-section {
     grid-template-columns: 1fr;
+  }
+
+  .guide-lead-section .cta-band {
+    display: block !important;
   }
 
   .guide-lead-card {
