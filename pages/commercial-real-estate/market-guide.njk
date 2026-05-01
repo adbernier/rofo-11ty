@@ -364,86 +364,99 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <div id="market-guide-contact" class="city-card city-card--full">
-        <div class="eyebrow">Get Help</div>
-        <h2>Tell us what kind of space you need</h2>
-        <p>Tell us what kind of space you need and we’ll help you find options.</p>
+      <div id="market-guide-contact" class="guide-lead-section">
+        <div class="guide-lead-card guide-lead-card--intro">
+          <div class="eyebrow">Get Help</div>
+          <h2>Need help finding commercial space?</h2>
+          <p>Tell us what kind of space you need and we’ll help you compare options in this market and nearby areas.</p>
+          <ul class="guide-lead-list">
+            <li>Office, retail, industrial, flex, and coworking</li>
+            <li>Local market guidance</li>
+            <li>No spam — just helpful next steps</li>
+          </ul>
+        </div>
 
-        <form action="/api/leads/submit" method="POST">
-          <input type="hidden" name="source" value="rofo-market-guide">
-          <input type="hidden" name="page_type" value="market-guide">
-          <input type="hidden" name="city" value="{{ guide.city }}">
-          <input type="hidden" name="state" value="{{ guide.state_abbr }}">
-          <input type="hidden" name="market" value="{{ guide.city }}, {{ guide.state_abbr }}">
-          <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
-          <input type="hidden" name="routing_market" value="{{ guide.routing_market }}">
-          <input type="hidden" name="routing_county" value="{{ guide.routing_county }}">
-          <input type="hidden" name="routing_space_type" value="{{ guide.routing_space_type }}">
-          <input type="hidden" name="routing_candidates" value="{{ guide.routing_candidates | join(',') }}">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
-          <input type="text" name="company_website" style="display:none;">
-          <input type="hidden" name="form_start_time" value="">
-          <script>
-            document.currentScript.previousElementSibling.value = Date.now();
-          </script>
+        <div class="guide-lead-card guide-lead-card--form">
+          <div class="eyebrow">Tell us what you need</div>
+          <h2>Get help comparing options</h2>
+          <p>Share a few details and we’ll follow up with helpful next steps.</p>
 
-          <div class="form-grid">
+          <form action="/api/leads/submit" method="POST">
+            <input type="hidden" name="source" value="rofo-market-guide">
+            <input type="hidden" name="page_type" value="market-guide">
+            <input type="hidden" name="city" value="{{ guide.city }}">
+            <input type="hidden" name="state" value="{{ guide.state_abbr }}">
+            <input type="hidden" name="market" value="{{ guide.city }}, {{ guide.state_abbr }}">
+            <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
+            <input type="hidden" name="routing_market" value="{{ guide.routing_market }}">
+            <input type="hidden" name="routing_county" value="{{ guide.routing_county }}">
+            <input type="hidden" name="routing_space_type" value="{{ guide.routing_space_type }}">
+            <input type="hidden" name="routing_candidates" value="{{ guide.routing_candidates | join(',') }}">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+            <input type="text" name="company_website" style="display:none;">
+            <input type="hidden" name="form_start_time" value="">
+            <script>
+              document.currentScript.previousElementSibling.value = Date.now();
+            </script>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="guide-lead-name">Name</label>
+                <input id="guide-lead-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="guide-lead-email">Email</label>
+                <input id="guide-lead-email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="field">
+                <label for="guide-lead-phone">Phone</label>
+                <input id="guide-lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
+              </div>
+              <div class="field">
+                <label for="guide-lead-space-type">What type of space do you need?</label>
+                <select id="guide-lead-space-type" name="space_type" required>
+                  <option value="">Select one</option>
+                  <option{% if guide.space_type == "office-space" %} selected{% endif %}>Office Space</option>
+                  <option{% if guide.space_type == "retail-space" %} selected{% endif %}>Retail Space</option>
+                  <option{% if guide.space_type == "industrial-space" %} selected{% endif %}>Industrial Space</option>
+                  <option{% if guide.space_type == "coworking-space" %} selected{% endif %}>Coworking Space</option>
+                  <option{% if guide.space_type == "flex-space" %} selected{% endif %}>Flex Space</option>
+                  <option>Not Sure</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="guide-lead-size">Space size</label>
+                <select id="guide-lead-size" name="space_needed" required>
+                  <option value="">Select one</option>
+                  <option>Under 1,000 sqft</option>
+                  <option>1,000–2,500 sqft</option>
+                  <option>2,500–5,000 sqft</option>
+                  <option>5,000–10,000 sqft</option>
+                  <option>10,000+ sqft</option>
+                  <option>Not Sure</option>
+                </select>
+              </div>
+            </div>
+
             <div class="field">
-              <label for="guide-lead-name">Name</label>
-              <input id="guide-lead-name" name="name" type="text" placeholder="Your name" required>
-            </div>
-            <div class="field">
-              <label for="guide-lead-email">Email</label>
-              <input id="guide-lead-email" name="email" type="email" placeholder="you@example.com" required>
-            </div>
-            <div class="field">
-              <label for="guide-lead-phone">Phone</label>
-              <input id="guide-lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
-            </div>
-            <div class="field">
-              <label for="guide-lead-space-type">What type of space do you need?</label>
-              <select id="guide-lead-space-type" name="space_type" required>
-                <option value="">Select one</option>
-                <option{% if guide.space_type == "office-space" %} selected{% endif %}>Office Space</option>
-                <option{% if guide.space_type == "retail-space" %} selected{% endif %}>Retail Space</option>
-                <option{% if guide.space_type == "industrial-space" %} selected{% endif %}>Industrial Space</option>
-                <option{% if guide.space_type == "coworking-space" %} selected{% endif %}>Coworking Space</option>
-                <option{% if guide.space_type == "flex-space" %} selected{% endif %}>Flex Space</option>
-                <option>Not Sure</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="guide-lead-size">Space size</label>
-              <select id="guide-lead-size" name="space_needed" required>
-                <option value="">Select one</option>
-                <option>Under 1,000 sqft</option>
-                <option>1,000–2,500 sqft</option>
-                <option>2,500–5,000 sqft</option>
-                <option>5,000–10,000 sqft</option>
-                <option>10,000+ sqft</option>
-                <option>Not Sure</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="guide-lead-notes">Other requirements for your space <span class="optional">(optional)</span></label>
-            <textarea id="guide-lead-notes" name="notes" placeholder="Example: office near clients, retail storefront, warehouse space, target move date"></textarea>
-          </div>
-
-          <div class="form-actions">
-            <label class="checkbox">
-              <input type="checkbox" name="human_check" required>
-              I’m a real person looking for space
-            </label>
-
-            <div class="form-note">
-              No spam. Just helpful options to get you started.
+              <label for="guide-lead-notes">Other requirements for your space <span class="optional">(optional)</span></label>
+              <textarea id="guide-lead-notes" name="notes" placeholder="Example: office near clients, retail storefront, warehouse space, target move date"></textarea>
             </div>
 
-            <button class="btn-primary" type="submit">Get Help Finding Space</button>
-          </div>
-        </form>
+            <div class="form-actions">
+              <label class="checkbox">
+                <input type="checkbox" name="human_check" required>
+                I’m a real person looking for space
+              </label>
+
+              <div class="form-note">
+                No spam. Just helpful options to get you started.
+              </div>
+
+              <button class="btn-primary" type="submit">Get Help Finding Space</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       {% if guide.faqs and guide.faqs.length %}

@@ -665,6 +665,50 @@ p {
   background: #fff;
 }
 
+.guide-lead-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.guide-lead-card {
+  border: 1px solid var(--rofo-border);
+  border-radius: 8px;
+  padding: 24px;
+  background: #fff;
+}
+
+.guide-lead-card--intro {
+  background: #0f2f57;
+  border-color: #0f2f57;
+  color: #fff;
+}
+
+.guide-lead-card--intro .eyebrow {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.guide-lead-card--intro h2,
+.guide-lead-card--intro p {
+  color: #fff;
+}
+
+.guide-lead-list {
+  margin: 18px 0 0;
+  padding-left: 20px;
+}
+
+.guide-lead-list li + li {
+  margin-top: 10px;
+}
+
+.guide-lead-card--form .btn-primary {
+  align-self: flex-start;
+  width: auto;
+}
+
 .market-guide-card {
   display: flex;
   flex-direction: column;
@@ -730,6 +774,21 @@ p {
   .market-guide-card__title {
     display: block;
     min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .guide-lead-section {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-lead-card {
+    padding: 20px;
+  }
+
+  .guide-lead-card--form .btn-primary {
+    align-self: stretch;
+    width: 100%;
   }
 }
 
