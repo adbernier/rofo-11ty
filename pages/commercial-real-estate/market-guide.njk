@@ -19,18 +19,19 @@ eleventyComputed:
 {% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
 {% set guideAbsoluteUrl = siteUrl + guide.url %}
 {% set marketSnapshot = guide.market_snapshot or {} %}
+{% set snapshotTitle = marketSnapshot.snapshot_title or "Market Snapshot" %}
 {% set guideSnapshotItems = [] %}
 {% if marketSnapshot.average_rent %}
-  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label }), guideSnapshotItems) %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label, "direction": marketSnapshot.average_rent_direction }), guideSnapshotItems) %}
 {% endif %}
 {% if marketSnapshot.availability_rate %}
-  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Availability", "value": marketSnapshot.availability_rate, "note": marketSnapshot.availability_label }), guideSnapshotItems) %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Availability", "value": marketSnapshot.availability_rate, "note": marketSnapshot.availability_label, "direction": marketSnapshot.availability_direction }), guideSnapshotItems) %}
 {% endif %}
 {% if marketSnapshot.market_trend %}
-  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Market Trend", "value": marketSnapshot.market_trend, "note": marketSnapshot.market_trend_label }), guideSnapshotItems) %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Market Trend", "value": marketSnapshot.market_trend, "note": marketSnapshot.market_trend_label, "direction": marketSnapshot.market_trend_direction }), guideSnapshotItems) %}
 {% endif %}
 {% if marketSnapshot.notable_areas and marketSnapshot.notable_areas.length %}
-  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Notable Areas", "value": marketSnapshot.notable_areas | join(", "), "note": marketSnapshot.notable_areas_label }), guideSnapshotItems) %}
+  {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Notable Areas", "areas": marketSnapshot.notable_areas, "note": marketSnapshot.notable_areas_label }), guideSnapshotItems) %}
 {% endif %}
 
 <section class="city-page market-page market-page--guide">
@@ -171,8 +172,8 @@ eleventyComputed:
 
       {% if guide.guide_kind == "city" and guideSnapshotItems.length >= 2 %}
         <div class="city-card city-card--full">
-          <div class="eyebrow">Market Snapshot</div>
-          <h2>{{ guide.city }} Market Snapshot</h2>
+          <div class="eyebrow">{{ snapshotTitle }}</div>
+          <h2>{{ guide.city }} {{ snapshotTitle }}</h2>
           {% if marketSnapshot.summary %}
             <p>{{ marketSnapshot.summary }}</p>
           {% endif %}
@@ -180,7 +181,24 @@ eleventyComputed:
             {% for item in guideSnapshotItems %}
               <div class="guide-mini-card">
                 <div class="stat-label">{{ item.label }}</div>
-                <div class="stat-value">{{ item.value }}</div>
+                {% if item.areas and item.areas.length %}
+                  <div class="stat-value stat-value--list">
+                    {% for area in item.areas %}
+                      <span>{{ area }}</span>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <div class="stat-value">
+                    {{ item.value }}
+                    {% if item.direction == "up" %}
+                      <span class="stat-direction" aria-label="Up">↑</span>
+                    {% elseif item.direction == "down" %}
+                      <span class="stat-direction" aria-label="Down">↓</span>
+                    {% elseif item.direction == "flat" %}
+                      <span class="stat-direction" aria-label="Flat">→</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
                 {% if item.note %}
                   <p class="stat-note">{{ item.note }}</p>
                 {% endif %}

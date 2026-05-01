@@ -58,29 +58,30 @@ eleventyComputed:
 {% set cityMarketGuide = marketGuideLookup[cityMarketGuideKey] %}
 {% set snapshotItems = [] %}
 {% set marketSnapshot = city.market_snapshot or {} %}
+{% set snapshotTitle = marketSnapshot.snapshot_title or city.snapshot_title or "Market Snapshot" %}
 {% if marketSnapshot.average_rent %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label, "direction": marketSnapshot.average_rent_direction }), snapshotItems) %}
 {% elseif city.avg_rent %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": city.avg_rent, "note": city.avg_rent_label or city.average_rent_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": city.avg_rent, "note": city.avg_rent_label or city.average_rent_label, "direction": city.average_rent_direction }), snapshotItems) %}
 {% elseif city.average_rent %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": city.average_rent, "note": city.average_rent_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Average Rent", "value": city.average_rent, "note": city.average_rent_label, "direction": city.average_rent_direction }), snapshotItems) %}
 {% endif %}
 {% if marketSnapshot.availability_rate %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": marketSnapshot.availability_rate, "note": marketSnapshot.availability_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": marketSnapshot.availability_rate, "note": marketSnapshot.availability_label, "direction": marketSnapshot.availability_direction }), snapshotItems) %}
 {% elseif city.availability_rate %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": city.availability_rate, "note": city.availability_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": city.availability_rate, "note": city.availability_label, "direction": city.availability_direction }), snapshotItems) %}
 {% elseif city.vacancy_rate %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": city.vacancy_rate, "note": city.vacancy_label or city.vacancy_rate_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Availability", "value": city.vacancy_rate, "note": city.vacancy_label or city.vacancy_rate_label, "direction": city.availability_direction }), snapshotItems) %}
 {% endif %}
 {% if marketSnapshot.market_trend %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Market Trend", "value": marketSnapshot.market_trend, "note": marketSnapshot.market_trend_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Market Trend", "value": marketSnapshot.market_trend, "note": marketSnapshot.market_trend_label, "direction": marketSnapshot.market_trend_direction }), snapshotItems) %}
 {% elseif city.market_trend %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Market Trend", "value": city.market_trend, "note": city.market_trend_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Market Trend", "value": city.market_trend, "note": city.market_trend_label, "direction": city.market_trend_direction }), snapshotItems) %}
 {% endif %}
 {% if marketSnapshot.notable_areas and marketSnapshot.notable_areas.length %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Notable Areas", "value": marketSnapshot.notable_areas | join(", "), "note": marketSnapshot.notable_areas_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Notable Areas", "areas": marketSnapshot.notable_areas, "note": marketSnapshot.notable_areas_label }), snapshotItems) %}
 {% elseif city.notable_areas and city.notable_areas.length %}
-  {% set snapshotItems = (snapshotItems.push({ "label": "Notable Areas", "value": city.notable_areas | join(", "), "note": city.notable_areas_label }), snapshotItems) %}
+  {% set snapshotItems = (snapshotItems.push({ "label": "Notable Areas", "areas": city.notable_areas, "note": city.notable_areas_label }), snapshotItems) %}
 {% elseif city.trending_neighborhood %}
   {% set snapshotItems = (snapshotItems.push({ "label": "Notable Areas", "value": city.trending_neighborhood, "note": city.trending_neighborhood_label }), snapshotItems) %}
 {% elseif city.notable_neighborhood %}
@@ -253,12 +254,29 @@ eleventyComputed:
       <div class="city-main-right">
         {% if snapshotItems.length >= 2 %}
           <div class="city-card city-market-snapshot">
-            <div class="eyebrow">Market Snapshot</div>
+            <div class="eyebrow">{{ snapshotTitle }}</div>
             <div class="city-market-snapshot__grid">
               {% for item in snapshotItems %}
                 <div class="city-market-snapshot__item">
                   <div class="stat-label">{{ item.label }}</div>
-                  <div class="stat-value">{{ item.value }}</div>
+                  {% if item.areas and item.areas.length %}
+                    <div class="stat-value stat-value--list">
+                      {% for area in item.areas %}
+                        <span>{{ area }}</span>
+                      {% endfor %}
+                    </div>
+                  {% else %}
+                    <div class="stat-value">
+                      {{ item.value }}
+                      {% if item.direction == "up" %}
+                        <span class="stat-direction" aria-label="Up">↑</span>
+                      {% elseif item.direction == "down" %}
+                        <span class="stat-direction" aria-label="Down">↓</span>
+                      {% elseif item.direction == "flat" %}
+                        <span class="stat-direction" aria-label="Flat">→</span>
+                      {% endif %}
+                    </div>
+                  {% endif %}
                   {% if item.note %}
                     <p class="stat-note">{{ item.note }}</p>
                   {% endif %}

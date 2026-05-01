@@ -801,6 +801,24 @@ p {
   margin: 0;
 }
 
+.stat-direction {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--rofo-muted);
+  font-size: 0.95em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-value--list {
+  display: grid;
+  gap: 3px;
+}
+
+.stat-value--list span {
+  display: block;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
