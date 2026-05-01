@@ -2,6 +2,7 @@
   {
     "id": "default-officefinder",
     "route_to": "officefinder",
+    "officefinder_mode": "fallback",
     "priority": 1000,
     "active": true,
     "notes": "Default fallback. Sends approved leads to OfficeFinder when no active broker route matches."
@@ -9,6 +10,7 @@
   {
     "id": "all-leads-officefinder",
     "route_to": "officefinder",
+    "officefinder_mode": "primary",
     "city": "all",
     "county": "all",
     "state": "all",
@@ -20,6 +22,7 @@
   {
     "id": "marin-county-ca-office-broker",
     "route_to": "broker",
+    "officefinder_mode": "fallback",
     "broker_name": "Example Marin Office Broker",
     "broker_email": "broker@example.com",
     "county": "marin-county-ca",
@@ -32,6 +35,7 @@
   {
     "id": "san-francisco-county-ca-office-broker",
     "route_to": "broker",
+    "officefinder_mode": "fallback",
     "broker_name": "Example San Francisco Office Broker",
     "broker_email": "broker@example.com",
     "county": "san-francisco-county-ca",
@@ -44,10 +48,24 @@
   {
     "id": "california-office-officefinder",
     "route_to": "officefinder",
+    "officefinder_mode": "primary",
     "state": "CA",
     "space_type": "office-space",
     "priority": 100,
     "active": false,
     "notes": "Inactive sample California office fallback to OfficeFinder."
+  },
+  {
+    "id": "san-francisco-office-parallel-example",
+    "route_to": "both",
+    "officefinder_mode": "parallel",
+    "broker_name": "Example San Francisco Office Broker",
+    "broker_email": "broker@example.com",
+    "city": "san-francisco-ca",
+    "state": "CA",
+    "space_type": "office-space",
+    "priority": 10,
+    "active": false,
+    "notes": "Inactive sample. Sends approved San Francisco office leads to both the broker and OfficeFinder."
   }
 ]

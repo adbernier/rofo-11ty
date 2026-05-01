@@ -205,6 +205,7 @@ eleventyComputed:
     <input type="hidden" name="lead_type" value="building" />
     <input type="hidden" name="page_type" value="building" />
     <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}" />
+    <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}" />
 
     <input type="hidden" name="building_name" value="{{ building.display_name or building.name or '' }}" />
     <input type="hidden" name="building_address" value="{{ building.address or '' }}" />

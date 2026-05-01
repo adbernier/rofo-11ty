@@ -67,24 +67,29 @@ function normalizeState(value) {
 }
 
 function getFinanceOption(spaceType) {
-  const slug = normalizeSpaceType(spaceType);
-  if (slug.includes("coworking")) return "ExecSuites";
-  if (slug.includes("retail")) return "Retail";
-  if (slug.includes("industrial")) return "Industrial";
-  if (slug.includes("flex")) return "MixedUse";
   return "leasing";
 }
 
-function parseSqFt(spaceNeeded) {
+export function normalizeSqFtForOfficeFinder(spaceNeeded) {
   const raw = normalizeField(spaceNeeded).toLowerCase();
-  if (!raw || raw.includes("not sure")) return "";
+  if (!raw || raw.includes("not sure")) return "1000";
   const numbers = raw.match(/\d[\d,]*/g);
-  if (!numbers || !numbers.length) return "";
+  if (!numbers || !numbers.length) return "1000";
   const parsed = numbers.map((number) => Number(number.replace(/,/g, ""))).filter(Boolean);
-  if (!parsed.length) return "";
+  if (!parsed.length) return "1000";
   if (raw.includes("under")) return String(parsed[0]);
   if (raw.includes("+")) return String(parsed[0]);
   return String(parsed[parsed.length - 1]);
+}
+
+export function normalizePhoneForOfficeFinder(phone) {
+  const raw = normalizeField(phone);
+  let digits = raw.replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("1")) {
+    digits = digits.slice(1);
+  }
+  if (digits.length !== 10) return "";
+  return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
 }
 
 function getMarketName(lead) {
@@ -115,9 +120,11 @@ export function buildLeadPayload(formFields, request) {
     requirements: normalizeField(formFields.requirements || formFields.message || formFields.notes),
     page_type: normalizeField(formFields.page_type),
     page_url: normalizeField(formFields.page_url),
+    rofo_source: normalizeField(formFields.rofo_source || formFields.page_url),
     source: normalizeField(formFields.source || "rofo"),
     timestamp: now,
     status: "pending",
+    officefinder_status: "officefinder_not_attempted",
     user_agent: normalizeField(request.headers.get("user-agent")),
     ip_country: normalizeField(request.cf && request.cf.country),
     effective_space_type: spaceType,
@@ -200,6 +207,17 @@ function describeRouteReason(route, tier) {
   return parts.length ? `Matched rule ${route.id || "(unnamed)"} (${parts.join(", ")}, tier ${tier}).` : `Matched default rule ${route.id || "(unnamed)"}.`;
 }
 
+function getRouteTo(route) {
+  const mode = normalizeField(route.officefinder_mode).toLowerCase();
+  const brokerAvailable = Boolean(normalizeField(route.broker_email || (Array.isArray(route.brokers) ? route.brokers[0] : "")));
+
+  if (mode === "primary") return "officefinder";
+  if (mode === "parallel") return brokerAvailable ? "both" : "officefinder";
+  if (mode === "fallback") return brokerAvailable ? "broker" : "officefinder";
+
+  return route.route_to || "officefinder";
+}
+
 export function resolveLeadRoute(lead) {
   const state = getLeadState(lead);
   const citySlug = getLeadCitySlug(lead);
@@ -231,21 +249,27 @@ export function resolveLeadRoute(lead) {
   const matched = activeMatches[0] || {
     id: "rofo-default-officefinder",
     route_to: "officefinder",
+    officefinder_mode: "fallback",
     notes: "Built-in fallback when no active default route exists.",
     _specificity: 7,
   };
+  const routeTo = getRouteTo(matched);
+  const brokerEmail = normalizeField(matched.broker_email || (Array.isArray(matched.brokers) ? matched.brokers[0] : ""));
 
   return {
-    route_to: matched.route_to || "officefinder",
+    route_to: routeTo,
+    officefinder_mode: matched.officefinder_mode || (routeTo === "both" ? "parallel" : routeTo === "officefinder" ? "primary" : "fallback"),
     route_id: matched.id || "",
     route_reason: describeRouteReason(matched, matched._specificity || 7),
     broker_name: matched.broker_name || "",
-    broker_email: matched.broker_email || "",
+    broker_email: brokerEmail,
     broker_phone: matched.broker_phone || "",
     notes: matched.notes || "",
     matched_rule: {
       id: matched.id || "",
-      route_to: matched.route_to || "officefinder",
+      route_to: routeTo,
+      officefinder_mode: matched.officefinder_mode || "",
+      brokers: Array.isArray(matched.brokers) ? matched.brokers : [],
       city: matched.city || "",
       county: matched.county || "",
       state: matched.state || "",
@@ -258,43 +282,44 @@ export function resolveLeadRoute(lead) {
 
 export function buildOfficeFinderPayload(lead, env) {
   const spaceType = lead.requested_space_type || lead.space_type;
-  const sqFt = parseSqFt(lead.space_needed);
-  const workStations = normalizeField(lead.workstations || lead.work_stations);
-  const referrer = normalizeField(env.OFFICEFINDER_REFERRER_CODE || "MM2");
-  const referrerPct = normalizeField(env.OFFICEFINDER_REFERRER_PCT || "75");
+  const sqFt = normalizeSqFtForOfficeFinder(lead.space_needed);
+  const phone = normalizePhoneForOfficeFinder(lead.phone);
 
   const comments = [
-    lead.requirements && `Requirements: ${lead.requirements}`,
-    lead.page_url && `Page URL: ${lead.page_url}`,
+    lead.requirements,
+    lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
+    spaceType && `Requested/page space type: ${spaceType}`,
     lead.page_type && `Page type: ${lead.page_type}`,
     lead.source && `Source: ${lead.source}`,
-    spaceType && `Requested/page space type: ${spaceType}`,
-    lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
   ].filter(Boolean).join("\n");
 
   return {
-    Referrer: referrer,
-    ReferrerPct: referrerPct,
+    Referrer: "MM2",
     MarketName: getMarketName(lead),
     MarketState: normalizeField(lead.state),
+    MarketCountry: "USA",
+    NotListed: getMarketName(lead),
     Name: normalizeField(lead.name),
     Email: normalizeField(lead.email),
-    Phone: normalizeField(lead.phone),
+    Phone: phone,
     CompanyName: normalizeField(lead.company),
     SqFt: sqFt,
-    WorkStations: workStations,
     FinanceOption: getFinanceOption(spaceType),
-    PrefLeaseTerm: normalizeField(lead.pref_lease_term || lead.lease_term || "2"),
+    PrefLeaseTerm: "2",
     Comments: comments,
+    rofo_source: normalizeField(lead.rofo_source || lead.page_url),
   };
 }
 
 export function getMissingOfficeFinderFields(payload) {
   const missing = [];
-  for (const field of ["Referrer", "MarketName", "Name", "Email", "Phone", "FinanceOption", "PrefLeaseTerm"]) {
+  for (const field of ["Referrer", "MarketName", "MarketState", "MarketCountry", "NotListed", "Name", "Email", "Phone", "SqFt", "FinanceOption", "PrefLeaseTerm"]) {
     if (!payload[field]) missing.push(field);
   }
-  if (!payload.SqFt && !payload.WorkStations) missing.push("SqFt or WorkStations");
+  if (payload.Phone && !/^\d{3}-\d{3}-\d{4}$/.test(payload.Phone)) missing.push("Phone format");
+  if (payload.SqFt && !/^\d+$/.test(payload.SqFt)) missing.push("SqFt numeric");
+  if (payload.FinanceOption !== "leasing") missing.push("FinanceOption leasing");
+  if (String(payload.PrefLeaseTerm) !== "2") missing.push("PrefLeaseTerm 2");
   return missing;
 }
 
@@ -422,6 +447,25 @@ export async function updateLeadStatus(env, id, values) {
   }
 
   throw new Error("Missing lead storage binding. Configure LEADS_DB D1 or LEADS_KV KV.");
+}
+
+export async function appendOfficeFinderAttempt(env, record, attempt) {
+  const lead = {
+    ...(record.lead || {}),
+    officefinder_status: attempt.success ? "officefinder_sent" : "officefinder_failed",
+    officefinder_attempts: [
+      ...((record.lead && record.lead.officefinder_attempts) || []),
+      attempt,
+    ],
+  };
+
+  await updateLeadStatus(env, record.id, {
+    lead,
+    officefinder_response: JSON.stringify(attempt),
+    approval_error: attempt.success ? "" : attempt.error || `OfficeFinder returned HTTP ${attempt.response_status || ""}`,
+  });
+
+  return lead;
 }
 
 export async function verifyLeadToken(record, token) {
@@ -838,25 +882,37 @@ export async function logLeadToGoogleSheets(env, record) {
 }
 
 export async function submitToOfficeFinder(env, payload) {
-  const testMode = String(env.OFFICEFINDER_TEST_MODE || "true").toLowerCase() !== "false";
-  const endpoint = testMode ? OFFICEFINDER_TEST_ENDPOINT : OFFICEFINDER_PRODUCTION_ENDPOINT;
+  const endpoint = normalizeField(env.OFFICEFINDER_API_URL) || OFFICEFINDER_PRODUCTION_ENDPOINT;
   const form = new URLSearchParams();
   Object.entries(payload).forEach(([key, value]) => form.set(key, value || ""));
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "content-type": "application/x-www-form-urlencoded",
-    },
-    body: form.toString(),
-  });
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      body: form.toString(),
+    });
 
-  return {
-    endpoint,
-    status: response.status,
-    ok: response.ok,
-    body: await response.text(),
-  };
+    const body = await response.text();
+
+    return {
+      endpoint,
+      status: response.status,
+      ok: response.ok,
+      body,
+      error: response.ok ? "" : `OfficeFinder returned HTTP ${response.status}`,
+    };
+  } catch (error) {
+    return {
+      endpoint,
+      status: 0,
+      ok: false,
+      body: "",
+      error: error.message,
+    };
+  }
 }
 
 export async function readSubmittedFields(request) {

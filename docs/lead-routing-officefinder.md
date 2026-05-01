@@ -35,19 +35,20 @@ Email and OfficeFinder:
 - `LEAD_NOTIFY_EMAIL`: approval notification recipient
 - `RESEND_API_KEY`: Resend API key for approval and broker emails
 - `RESEND_FROM_EMAIL`: optional sender address
-- `OFFICEFINDER_REFERRER_CODE`: `MM2`
-- `OFFICEFINDER_REFERRER_PCT`: `75`
-- `OFFICEFINDER_TEST_MODE`: `true`
+- `OFFICEFINDER_API_URL`: optional OfficeFinder endpoint override
 
 Optional Google Sheets logging:
 
 - `GOOGLE_LEADS_WEBHOOK_URL`: Apps Script or webhook URL for newly submitted leads
 
-If `OFFICEFINDER_TEST_MODE` is missing, the functions default to OfficeFinder test mode.
+If `OFFICEFINDER_API_URL` is missing, approved OfficeFinder leads post to:
+
+`https://www.officefinder.com/scripts/_importLead.cfm`
 
 ## D1 schema
 
 The current schema stores route metadata inside `lead_json`, so no extra route columns are required.
+OfficeFinder attempts are also appended to `lead_json.officefinder_attempts`, with the latest approval summary mirrored in `officefinder_response`.
 
 ```sql
 create table if not exists leads (
@@ -76,8 +77,10 @@ Each rule may include:
 
 - `id`
 - `route_to`: `officefinder`, `broker`, or `both`
+- `officefinder_mode`: `primary`, `fallback`, or `parallel`
 - `broker_name`
 - `broker_email`
+- `brokers`: optional email array; the first email is used by the Phase 1 sender when `broker_email` is not set
 - `broker_phone`
 - `city`
 - `county`
@@ -90,6 +93,14 @@ Each rule may include:
 Use lowercase kebab-case for city and county route values. County values should include state when practical, for example `marin-county-ca`. State values should use uppercase postal abbreviations like `CA`.
 
 Inactive rules are ignored.
+
+`officefinder_mode` controls how OfficeFinder participates:
+
+- `primary`: send only to OfficeFinder after approval.
+- `fallback`: send to OfficeFinder only when the matched route has no broker.
+- `parallel`: send to both broker and OfficeFinder after approval.
+
+Existing `route_to` values are still supported. If both are present, `officefinder_mode` determines whether OfficeFinder is primary, fallback, or parallel.
 
 ## Routing priority
 
@@ -113,6 +124,7 @@ If no active broker route matches, the active default OfficeFinder rule is used.
 {
   "id": "san-francisco-office-broker",
   "route_to": "broker",
+  "officefinder_mode": "fallback",
   "broker_name": "Broker Name",
   "broker_email": "broker@example.com",
   "city": "san-francisco-ca",
@@ -129,6 +141,7 @@ If no active broker route matches, the active default OfficeFinder rule is used.
 {
   "id": "marin-county-office-broker",
   "route_to": "broker",
+  "officefinder_mode": "fallback",
   "broker_name": "Broker Name",
   "broker_email": "broker@example.com",
   "county": "marin-county-ca",
@@ -147,6 +160,7 @@ Activate the `all-leads-officefinder` rule in `_data/leadRoutes.json`:
 {
   "id": "all-leads-officefinder",
   "route_to": "officefinder",
+  "officefinder_mode": "primary",
   "city": "all",
   "county": "all",
   "state": "all",
@@ -158,14 +172,15 @@ Activate the `all-leads-officefinder` rule in `_data/leadRoutes.json`:
 
 This keeps approval required but recommends OfficeFinder for every lead.
 
-## route_to both
+## route_to both / officefinder_mode parallel
 
-Use `route_to: "both"` when Alan should have a recommended approval link that sends to OfficeFinder and emails the broker.
+Use `route_to: "both"` and `officefinder_mode: "parallel"` when Alan should have a recommended approval link that sends to OfficeFinder and emails the broker.
 
 ```json
 {
   "id": "example-both-route",
   "route_to": "both",
+  "officefinder_mode": "parallel",
   "broker_name": "Broker Name",
   "broker_email": "broker@example.com",
   "county": "san-francisco-county-ca",
@@ -185,7 +200,7 @@ The approval email still includes OfficeFinder-only and broker-only links for ma
 - Broker only: `/api/leads/approve?id={id}&token={token}&route=broker`
 - Reject: `/api/leads/reject?id={id}&token={token}`
 
-OfficeFinder approvals use the test endpoint while `OFFICEFINDER_TEST_MODE=true`.
+OfficeFinder approvals post to `OFFICEFINDER_API_URL` when configured, otherwise the production OfficeFinder import endpoint.
 
 Broker approvals send a Resend email to the matched `broker_email` and mark the lead `broker_sent`. They do not create automation outside the approval click.
 
@@ -212,49 +227,56 @@ If the webhook is missing or fails, lead submission continues and the user still
 
 ## OfficeFinder mapping
 
-Test endpoint:
-
-`https://www.officefinder.com/scripts/_importLeadTest.cfm`
-
 Production endpoint:
 
 `https://www.officefinder.com/scripts/_importLead.cfm`
+
+Optional override:
+
+`OFFICEFINDER_API_URL`
 
 Field mapping:
 
 | OfficeFinder field | Rofo source |
 | --- | --- |
-| `Referrer` | `OFFICEFINDER_REFERRER_CODE`, defaults to `MM2` |
-| `ReferrerPct` | `OFFICEFINDER_REFERRER_PCT`, defaults to `75` |
+| `Referrer` | hardcoded `MM2` |
 | `MarketName` | `city`, then `market`, then `location` |
 | `MarketState` | `state` |
+| `MarketCountry` | hardcoded `USA` |
+| `NotListed` | same as `MarketName` |
 | `Name` | `name` |
 | `Email` | `email` |
-| `Phone` | `phone` |
+| `Phone` | normalized to `555-555-5555`; invalid phones are not submitted |
 | `CompanyName` | `company` |
-| `SqFt` | parsed from `space_needed` |
-| `WorkStations` | blank unless submitted |
-| `FinanceOption` | mapped from requested/page space type |
-| `PrefLeaseTerm` | submitted lease term or `2` |
-| `Comments` | requirements, page URL, page type, source, space type, and raw size |
+| `SqFt` | parsed numeric upper end from `space_needed`; `Not Sure` defaults to `1000` |
+| `FinanceOption` | hardcoded `leasing` |
+| `PrefLeaseTerm` | hardcoded `2` |
+| `Comments` | requirements, raw size, page type, source, and space type |
+| `rofo_source` | `rofo_source`, falling back to `page_url` |
 
-Finance option mapping:
+OfficeFinder submissions use `application/x-www-form-urlencoded`.
 
-- office space: `leasing`
-- coworking space: `ExecSuites`
-- retail space: `Retail`
-- industrial space: `Industrial`
-- flex space: `MixedUse`
-- fallback: `leasing`
+OfficeFinder attempt logs include:
 
-## Switching OfficeFinder to production
+- lead id
+- attempted timestamp
+- officefinder mode
+- request payload
+- response status
+- response body
+- success flag
+- error message
+
+These are stored in `lead_json.officefinder_attempts`; the latest approval summary is mirrored in `officefinder_response`.
+
+## Endpoint control
 
 1. Confirm D1 storage, Resend, and approval emails are stable.
-2. Confirm multiple OfficeFinder test submissions were accepted.
+2. If testing against a non-production endpoint, set `OFFICEFINDER_API_URL` to that endpoint.
 3. Confirm the tenant forms are posting to `/api/leads/submit`.
-4. Set `OFFICEFINDER_TEST_MODE=false`.
+4. To use the production endpoint, remove `OFFICEFINDER_API_URL` or set it to `https://www.officefinder.com/scripts/_importLead.cfm`.
 5. Submit one controlled lead and approve OfficeFinder routing.
-6. Monitor D1 status and OfficeFinder receipt.
+6. Monitor D1 status, `officefinder_response`, and OfficeFinder receipt.
 
 ## Rollback
 
@@ -273,7 +295,7 @@ curl -i -X POST "https://www.rofo.com/api/leads/submit" \
   --data '{
     "name": "Test Lead",
     "email": "test@example.com",
-    "phone": "555-0100",
+    "phone": "555-555-5555",
     "company": "Example Co",
     "city": "Sacramento",
     "state": "CA",
@@ -292,7 +314,9 @@ Verify:
 - Missing phone is rejected.
 - Default route recommends OfficeFinder.
 - An active county route recommends the broker.
-- A `route_to: "both"` rule sends to OfficeFinder and broker after approval.
+- A `route_to: "both"` / `officefinder_mode: "parallel"` rule sends to OfficeFinder and broker after approval.
+- A broker route with `officefinder_mode: "fallback"` sends only to the broker.
+- An invalid OfficeFinder phone fails OfficeFinder validation without deleting the pending lead.
 - Approval links cannot be used with a bad token.
 - Duplicate approvals do not resend.
 - Google Sheets webhook failure does not block submission.

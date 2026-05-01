@@ -784,6 +784,20 @@ p {
   width: 100%;
 }
 
+/* Fix Market Guide lead intro heading contrast */
+.guide-lead-card--intro h1,
+.guide-lead-card--intro h2,
+.guide-lead-card--intro h3,
+.guide-lead-card--intro .cta-band__title {
+  color: #fff;
+}
+
+.guide-lead-card--intro p,
+.guide-lead-card--intro .cta-band__lead,
+.guide-lead-card--intro .cta-band__footer {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 @media (max-width: 640px) {
   .market-guide-card__title {
     display: block;

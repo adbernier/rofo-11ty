@@ -1,4 +1,5 @@
 import {
+  appendOfficeFinderAttempt,
   escapeHtml,
   getLead,
   getMissingOfficeFinderFields,
@@ -46,73 +47,105 @@ export async function onRequestGet({ request, env }) {
     const routeRecommendation = record.lead.route_recommendation || { route_to: "officefinder" };
     const targets = getApprovalTargets(routeParam, routeRecommendation);
     const results = [];
+    const failures = [];
 
     if (targets.includes("officefinder")) {
       const missing = getMissingOfficeFinderFields(record.officefinder_payload);
       if (missing.length) {
-        await updateLeadStatus(env, id, {
-          status: "approval_failed",
-          approval_error: `Missing OfficeFinder fields: ${missing.join(", ")}`,
-        });
-        return htmlResponse(
-          `<h1>Lead not sent</h1><p>Missing OfficeFinder fields: ${escapeHtml(missing.join(", "))}</p>`,
-          422
-        );
+        const attempt = {
+          lead_id: id,
+          attempted_at: new Date().toISOString(),
+          officefinder_mode: routeRecommendation.officefinder_mode || "",
+          request_payload: record.officefinder_payload,
+          response_status: 0,
+          response_body: "",
+          success: false,
+          error: `Missing OfficeFinder fields: ${missing.join(", ")}`,
+        };
+        const lead = await appendOfficeFinderAttempt(env, record, attempt);
+        record.lead = lead;
+        failures.push(attempt.error);
+
+        if (!targets.includes("broker")) {
+          await updateLeadStatus(env, id, {
+            status: "approved_send_failed",
+            lead,
+            approval_error: attempt.error,
+          });
+          return htmlResponse(
+            `<h1>Lead not sent</h1><p>${escapeHtml(attempt.error)}</p>`,
+            422
+          );
+        }
+      }
+    }
+
+    if (targets.includes("officefinder") && !failures.length) {
+      const result = await submitToOfficeFinder(env, record.officefinder_payload);
+      const attempt = {
+        lead_id: id,
+        attempted_at: new Date().toISOString(),
+        officefinder_mode: routeRecommendation.officefinder_mode || "",
+        request_payload: record.officefinder_payload,
+        response_status: result.status,
+        response_body: result.body,
+        success: result.ok,
+        error: result.error || "",
+      };
+      const lead = await appendOfficeFinderAttempt(env, record, attempt);
+      record.lead = lead;
+
+      if (!result.ok) {
+        failures.push(attempt.error || `OfficeFinder returned HTTP ${result.status}`);
+      } else {
+        results.push(`OfficeFinder: submitted to ${result.endpoint}`);
       }
     }
 
     if (targets.includes("broker") && !routeRecommendation.broker_email) {
       await updateLeadStatus(env, id, {
-        status: "approval_failed",
+        status: results.length ? "partial_sent" : "approved_send_failed",
         approval_error: "Broker approval requested, but no broker email exists for the matched route.",
       });
       return htmlResponse("<h1>Lead not sent</h1><p>No broker email exists for this route.</p>", 422);
     }
 
-    if (targets.includes("officefinder")) {
-      const result = await submitToOfficeFinder(env, record.officefinder_payload);
-      if (!result.ok) {
-        await updateLeadStatus(env, id, {
-          status: results.length ? "partial_sent" : "approval_failed",
-          officefinder_response: result.body,
-          approval_error: `OfficeFinder returned HTTP ${result.status}`,
-        });
-        return htmlResponse(
-          `<h1>OfficeFinder test submission failed</h1><p>Status: ${result.status}</p><pre>${escapeHtml(result.body)}</pre>`,
-          502
-        );
-      }
-      results.push(`OfficeFinder: submitted to ${result.endpoint}`);
-    }
-
     if (targets.includes("broker")) {
       const brokerResult = await sendBrokerLeadEmail(env, record);
       if (!brokerResult.sent) {
-        await updateLeadStatus(env, id, {
-          status: results.length ? "partial_sent" : "approval_failed",
-          officefinder_response: results.join("\n"),
-          approval_error: `Broker email failed: ${brokerResult.reason}`,
-        });
-        return htmlResponse(
-          `<h1>Broker email failed</h1><p>${escapeHtml(brokerResult.reason)}</p>`,
-          502
-        );
+        failures.push(`Broker email failed: ${brokerResult.reason}`);
+      } else {
+        results.push(`Broker: sent to ${routeRecommendation.broker_name || routeRecommendation.broker_email}`);
       }
-      results.push(`Broker: sent to ${routeRecommendation.broker_name || routeRecommendation.broker_email}`);
     }
 
-    const nextStatus = targets.includes("officefinder") && targets.includes("broker")
-      ? "both_sent"
-      : targets.includes("broker") ? "broker_sent" : "approved_sent";
+    if (!results.length && failures.length) {
+      await updateLeadStatus(env, id, {
+        status: "approved_send_failed",
+        approval_error: failures.join("\n"),
+      });
+      return htmlResponse(
+        `<h1>Lead approval failed</h1><p>${escapeHtml(failures.join(" "))}</p>`,
+        502
+      );
+    }
+
+    const nextStatus = failures.length
+      ? "partial_sent"
+      : targets.includes("officefinder") && targets.includes("broker")
+        ? "both_sent"
+        : targets.includes("broker") ? "broker_sent" : "approved_sent";
 
     await updateLeadStatus(env, id, {
       status: nextStatus,
-      officefinder_response: results.join("\n"),
+      lead: record.lead,
+      officefinder_response: [...results, ...failures].join("\n"),
+      approval_error: failures.join("\n"),
       sent_at: new Date().toISOString(),
     });
 
     return htmlResponse(
-      `<h1>Lead approved and sent</h1><p>${escapeHtml(results.join(" "))}</p>`
+      `<h1>Lead approved and sent</h1><p>${escapeHtml(results.join(" "))}</p>${failures.length ? `<p>Some routing failed: ${escapeHtml(failures.join(" "))}</p>` : ""}`
     );
   } catch (error) {
     return htmlResponse(`<h1>Approval failed</h1><p>${escapeHtml(error.message)}</p>`, 500);
