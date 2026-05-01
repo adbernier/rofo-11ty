@@ -157,7 +157,7 @@ eleventyComputed:
       <div class="city-main-left">
         <div class="city-grid">
           {% if cityMarketGuide %}
-            <div class="city-card">
+            <div class="city-card city-market-guide-card">
               <div class="eyebrow">Market Guide</div>
               <h2>{{ city.city }} Commercial Real Estate Market Guide</h2>
               <p>
@@ -200,7 +200,7 @@ eleventyComputed:
           {% include "partials/city/featured-company-card.njk" %}
 
           {% if cityMarketGuides.length %}
-            <div class="city-card">
+            <div class="city-card city-leasing-guides-card">
               <div class="eyebrow">Leasing Guides</div>
               <h2>Leasing guides for {{ city.city }}</h2>
               <p>Explore space-specific leasing guides for {{ city.city }}, including office, retail, industrial, coworking, and flex space where available.</p>
@@ -215,7 +215,7 @@ eleventyComputed:
           {% endif %}
 
           {% if availableSpaceTypes.length %}
-            <div class="city-card">
+            <div class="city-card city-popular-searches-card">
               <div class="eyebrow">Popular Searches</div>
               <h2>Popular commercial real estate searches in {{ city.city }}</h2>
               <ul class="mini-list">
@@ -230,7 +230,7 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          <div class="city-card">
+          <div class="city-card city-nearby-markets-card">
             <div class="eyebrow">Nearby Markets</div>
             <h2>Compare nearby markets</h2>
             <p>Businesses often compare {{ city.city }} with nearby markets when evaluating pricing, access, inventory, and location fit.</p>

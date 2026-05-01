@@ -2203,6 +2203,46 @@ section.market-page--space-type .market-links a {
     grid-template-columns: 1fr;
   }
 
+  .city-page .city-main-right {
+    order: 1;
+  }
+
+  .city-page .city-main-left {
+    order: 2;
+  }
+
+  .city-page .city-form {
+    order: 1;
+  }
+
+  .city-page .city-market-snapshot {
+    order: 2;
+  }
+
+  .city-page .city-market-guide-card {
+    order: 1;
+  }
+
+  .city-page .city-buildings-card {
+    order: 2;
+  }
+
+  .city-page .city-leasing-guides-card {
+    order: 3;
+  }
+
+  .city-page .city-popular-searches-card {
+    order: 4;
+  }
+
+  .city-page .city-nearby-markets-card {
+    order: 5;
+  }
+
+  .city-page .featured-portfolio-card {
+    order: 6;
+  }
+
   .city-page .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2222,6 +2262,50 @@ section.market-page--space-type .market-links a {
 
   .city-page h1 {
     max-width: 13ch;
+  }
+}
+
+@media (max-width: 600px) {
+  .city-page .city-buildings-card .building-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .city-page .city-buildings-card .building-card-compact__media {
+    border-radius: 18px;
+  }
+
+  .city-page .city-buildings-card .building-card-compact__image {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+
+  .city-page .city-buildings-card .building-card-compact__overlay {
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.86);
+  }
+
+  .city-page .city-buildings-card .building-card-compact__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1rem;
+    line-height: 1.16;
+  }
+
+  .city-page .city-buildings-card .building-card-compact__meta,
+  .city-page .city-buildings-card .building-presented-by {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.88rem;
+    line-height: 1.2;
   }
 }
 
