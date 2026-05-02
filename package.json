@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy --serve",
-  "build": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy"
-},
+    "dev": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy --serve",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 npx @11ty/eleventy",
+    "build:market-snapshots": "node scripts/build-market-snapshots.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
