@@ -148,6 +148,208 @@ export function getMissingSubmitFields(lead) {
   return missing;
 }
 
+const EXPECTED_SPACE_TYPES = new Set([
+  "office space",
+  "retail space",
+  "industrial space",
+  "coworking space",
+  "flex space",
+  "medical office space",
+  "not sure",
+]);
+
+const EXPECTED_SPACE_NEEDED = new Set([
+  "under 1,000 sqft",
+  "under 1000 sqft",
+  "1,000–2,500 sqft",
+  "1,000-2,500 sqft",
+  "1000–2500 sqft",
+  "1000-2500 sqft",
+  "2,500–5,000 sqft",
+  "2,500-5,000 sqft",
+  "2500–5000 sqft",
+  "2500-5000 sqft",
+  "5,000–10,000 sqft",
+  "5,000-10,000 sqft",
+  "5000–10000 sqft",
+  "5000-10000 sqft",
+  "10,000+ sqft",
+  "10000+ sqft",
+  "not sure",
+]);
+
+const DISPOSABLE_OR_TEST_EMAIL_DOMAINS = new Set([
+  "example.com",
+  "example.org",
+  "example.net",
+  "test.com",
+  "mailinator.com",
+  "guerrillamail.com",
+  "10minutemail.com",
+  "tempmail.com",
+  "temp-mail.org",
+  "yopmail.com",
+  "trashmail.com",
+  "fakeinbox.com",
+]);
+
+const SPAM_KEYWORDS = [
+  "casino",
+  "crypto",
+  "viagra",
+  "payday loan",
+  "loan offer",
+  "backlink",
+  "seo service",
+  "guest post",
+  "link building",
+  "rank higher",
+];
+
+function normalizeChoice(value) {
+  return normalizeField(value).toLowerCase().replace(/\s+/g, " ");
+}
+
+function isNumericOnly(value) {
+  return /^\d+$/.test(normalizeField(value));
+}
+
+function isBadDropdownValue(value, expectedValues) {
+  const normalized = normalizeChoice(value);
+  if (!normalized) return false;
+  if (["0", "1", "test"].includes(normalized) || isNumericOnly(normalized)) return true;
+  return expectedValues && !expectedValues.has(normalized);
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(normalizeField(value));
+}
+
+function getEmailDomain(value) {
+  const email = normalizeField(value).toLowerCase();
+  const parts = email.split("@");
+  return parts.length === 2 ? parts[1] : "";
+}
+
+function getPhoneDigits(value) {
+  let digits = normalizeField(value).replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+  return digits;
+}
+
+function isFakePhone(value) {
+  const digits = getPhoneDigits(value);
+  if (digits.length < 10) return true;
+  if (/^(\d)\1{9}$/.test(digits)) return true;
+  if (["1234567890", "0123456789", "5555555555", "0000000000"].includes(digits)) return true;
+  return false;
+}
+
+function looksLikeGibberishName(value) {
+  const compact = normalizeField(value).replace(/[^a-z]/gi, "");
+  if (compact.length < 7) return false;
+  const vowels = compact.match(/[aeiou]/gi) || [];
+  const consonants = compact.match(/[bcdfghjklmnpqrstvwxyz]/gi) || [];
+  if (vowels.length === 0) return true;
+  return consonants.length / compact.length > 0.82;
+}
+
+function hasLinkPattern(value) {
+  return /https?:\/\/|www\.|href\s*=|<a\s|\[url[=\]]/i.test(normalizeField(value));
+}
+
+function getDomainMatches(value) {
+  return normalizeField(value).match(/\b(?:[a-z0-9-]+\.)+(?:com|net|org|io|co|biz|info|ru|cn|xyz)\b/gi) || [];
+}
+
+function addSpamSignal(signals, score, reason) {
+  signals.score += score;
+  signals.reasons.push(reason);
+}
+
+export function detectLeadSpam(lead, rawFormFields = {}) {
+  const signals = { score: 0, reasons: [] };
+  const visibleValues = [
+    lead.name,
+    lead.email,
+    lead.phone,
+    lead.company,
+    lead.market,
+    lead.city,
+    lead.requested_space_type,
+    lead.space_needed,
+    lead.requirements,
+  ].filter(Boolean);
+  const requirements = normalizeField(lead.requirements);
+  const submittedSpaceType = normalizeField(lead.requested_space_type || rawFormFields.requested_space_type || rawFormFields.space_type || lead.space_type);
+  const submittedSize = normalizeField(lead.space_needed || rawFormFields.space_needed || rawFormFields.size);
+
+  if (normalizeField(rawFormFields._gotcha) || normalizeField(rawFormFields.company_website)) {
+    addSpamSignal(signals, 100, "Honeypot field was filled");
+  }
+
+  if (!rawFormFields.human_check) {
+    addSpamSignal(signals, 50, "Human checkbox was not confirmed");
+  }
+
+  if (isBadDropdownValue(submittedSpaceType, EXPECTED_SPACE_TYPES)) {
+    addSpamSignal(signals, 50, "Invalid space type dropdown value");
+  }
+
+  if (isBadDropdownValue(submittedSize, EXPECTED_SPACE_NEEDED)) {
+    addSpamSignal(signals, 50, "Invalid space size dropdown value");
+  }
+
+  if (!lead.name || normalizeField(lead.name).length < 2) {
+    addSpamSignal(signals, 35, "Name is missing or too short");
+  } else if (looksLikeGibberishName(lead.name)) {
+    addSpamSignal(signals, 25, "Name appears random or nonsensical");
+  }
+
+  if (!lead.email || !isValidEmail(lead.email)) {
+    addSpamSignal(signals, 40, "Email is missing or invalid");
+  } else if (DISPOSABLE_OR_TEST_EMAIL_DOMAINS.has(getEmailDomain(lead.email))) {
+    addSpamSignal(signals, 40, "Email uses test or disposable domain");
+  }
+
+  if (!lead.phone || isFakePhone(lead.phone)) {
+    addSpamSignal(signals, 40, "Phone is missing, too short, or fake");
+  }
+
+  if (visibleValues.some(hasLinkPattern)) {
+    addSpamSignal(signals, 40, "Visible field contains a URL or link markup");
+  }
+
+  if (getDomainMatches(requirements).length > 1) {
+    addSpamSignal(signals, 20, "Requirements contain multiple domains");
+  }
+
+  const lowerVisibleText = visibleValues.join(" ").toLowerCase();
+  const matchedKeywords = SPAM_KEYWORDS.filter((keyword) => lowerVisibleText.includes(keyword));
+  if (matchedKeywords.length >= 2) {
+    addSpamSignal(signals, 30, `Multiple spam keywords: ${matchedKeywords.join(", ")}`);
+  } else if (matchedKeywords.length === 1) {
+    addSpamSignal(signals, 15, `Spam keyword: ${matchedKeywords[0]}`);
+  }
+
+  const start = Number(rawFormFields.form_start_time);
+  const now = Date.now();
+  const pageType = normalizeField(rawFormFields.page_type || lead.page_type);
+  if (start && now - start < 3000) {
+    addSpamSignal(signals, 30, "Submitted under 3 seconds");
+  } else if (!start && ["homepage", "city", "building", "space-type", "market-guide"].includes(pageType)) {
+    addSpamSignal(signals, 15, "Missing form_start_time on tenant form");
+  }
+
+  const uniqueReasons = [...new Set(signals.reasons)];
+  return {
+    isSpam: signals.score >= 50,
+    isSuspicious: signals.score >= 25 && signals.score < 50,
+    score: signals.score,
+    reasons: uniqueReasons,
+  };
+}
+
 function getLeadCitySlug(lead) {
   if (lead.routing_market) return lead.routing_market.replace(/-[a-z]{2}$/i, "");
   return normalizeRouteValue(lead.city || lead.market);

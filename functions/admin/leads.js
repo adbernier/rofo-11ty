@@ -94,6 +94,7 @@ function renderLeadCard(row) {
   const latestAttempt = getLatestOfficeFinderAttempt(lead);
   const market = lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
   const officeFinderStatus = lead.officefinder_status || "officefinder_not_attempted";
+  const spamReasons = Array.isArray(lead.spam_reasons) ? lead.spam_reasons : [];
 
   return `
     <article class="lead-card">
@@ -125,10 +126,12 @@ function renderLeadCard(row) {
         ${field("Route reason", route.route_reason)}
         ${field("Broker email", route.broker_email)}
         ${field("OfficeFinder status", officeFinderStatus)}
+        ${field("Spam score", lead.spam_score)}
         ${field("Sent at", formatDate(row.sent_at))}
         ${field("Rejected at", formatDate(row.rejected_at))}
       </div>
 
+      ${spamReasons.length ? `<div class="alert"><strong>Spam reasons:</strong><ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
@@ -214,6 +217,7 @@ function renderPage({ rows, token, filters, fetchedCount }) {
     .badge--pending { background: #fff7db; color: #7a4b00; }
     .badge--approved_sent, .badge--broker_sent, .badge--both_sent, .badge--partial_sent, .badge--officefinder_sent { background: #e4f8ec; color: #166534; }
     .badge--approved_send_failed, .badge--officefinder_failed { background: #fee2e2; color: #991b1b; }
+    .badge--spam_quarantined, .badge--rejected_spam { background: #ffedd5; color: #9a3412; }
     .badge--rejected { background: #f1f5f9; color: #475569; }
     .lead-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 16px; margin-top: 16px; }
     .lead-grid--compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }

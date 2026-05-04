@@ -1,6 +1,7 @@
 import {
   buildLeadPayload,
   buildOfficeFinderPayload,
+  detectLeadSpam,
   getMissingSubmitFields,
   jsonResponse,
   logLeadToGoogleSheets,
@@ -22,33 +23,43 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ error: "Unable to parse submitted lead" }, 400);
   }
 
-  if (fields._gotcha) {
+  const lead = buildLeadPayload(fields, request);
+  const spam = detectLeadSpam(lead, fields);
+
+  if (spam.isSpam) {
+    const id = crypto.randomUUID ? crypto.randomUUID() : randomHex(16);
+    const token = randomHex(32);
+    lead.status = "spam_quarantined";
+    lead.spam_score = spam.score;
+    lead.spam_reasons = spam.reasons;
+    lead.officefinder_status = "officefinder_not_attempted";
+
+    const record = {
+      id,
+      token_hash: await sha256(token),
+      status: "spam_quarantined",
+      lead,
+      officefinder_payload: {},
+    };
+
+    try {
+      await saveLead(env, record);
+    } catch (error) {
+      console.warn("Unable to quarantine spam lead", error);
+    }
+
+    if ((request.headers.get("accept") || "").includes("application/json")) {
+      return jsonResponse({ ok: true, status: "received" });
+    }
+
     return redirectResponse("/thank-you/");
   }
 
-  const honeypot = fields.company_website;
-  if (honeypot) {
-    return new Response("Spam detected", { status: 400 });
+  if (spam.isSuspicious) {
+    lead.spam_score = spam.score;
+    lead.spam_reasons = spam.reasons;
   }
 
-  const start = Number(fields.form_start_time);
-  const now = Date.now();
-
-  if (start && now - start < 3000) {
-    return new Response("Form submitted too quickly", { status: 400 });
-  }
-
-  if (!fields.human_check) {
-    return new Response("Please confirm you are human", { status: 400 });
-  }
-
-  const requirements = fields.requirements || fields.message || fields.notes || "";
-
-  if (requirements.includes("http://") || requirements.includes("https://")) {
-    return new Response("Links are not allowed", { status: 400 });
-  }
-
-  const lead = buildLeadPayload(fields, request);
   const missing = getMissingSubmitFields(lead);
 
   if (missing.length) {
