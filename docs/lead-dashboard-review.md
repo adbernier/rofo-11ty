@@ -63,6 +63,32 @@ Dashboard actions use `POST` and require `ADMIN_DASHBOARD_TOKEN`. They do not ex
 
 Approving from the dashboard calls the same shared routing logic as the existing approval email token endpoint. OfficeFinder and broker delivery still happen only after manual approval.
 
+## Tenant Confirmation Emails
+
+After a lead is approved and routing has been attempted, Rofo sends the tenant a simple confirmation email.
+
+The confirmation email is not sent on initial submission. It is also not sent for:
+
+- `spam_quarantined`
+- `rejected`
+- `rejected_spam`
+- `spam_purged`
+
+The confirmation uses Resend and defaults to:
+
+`Rofo <leads@rofo.com>`
+
+Set `TENANT_CONFIRMATION_FROM` to override the sender.
+
+The email includes a short acknowledgement and any submitted details that are available:
+
+- market
+- space type
+- approximate size
+- requirements
+
+The lead JSON stores `tenant_confirmation_sent_at` after a successful send so approval retries do not send duplicate tenant confirmations. If the confirmation fails, routing remains successful and the error is stored as `tenant_confirmation_error`.
+
 ## Statuses
 
 Common statuses:
@@ -98,6 +124,7 @@ Real lead:
 4. Open the dashboard link.
 5. Approve from the dashboard.
 6. Confirm status changes to the expected sent status.
+7. Confirm the tenant receives `We received your Rofo space request`.
 
 Spam lead:
 

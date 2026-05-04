@@ -780,6 +780,169 @@ export function getApprovalTargets(routeParam, routeRecommendation) {
   return ["officefinder"];
 }
 
+function getTenantFirstName(name) {
+  const first = normalizeField(name).split(/\s+/)[0] || "";
+  if (first.length < 2 || first.length > 40) return "";
+  if (/@|https?:|www\./i.test(first)) return "";
+  if (!/[A-Za-z]/.test(first)) return "";
+  return first.replace(/[^A-Za-z'-]/g, "");
+}
+
+function getTenantConfirmationDetails(lead) {
+  const city = normalizeField(lead.city || lead.market || lead.location);
+  const state = normalizeState(lead.state);
+  const spaceType = normalizeField(lead.effective_space_type || lead.requested_space_type || lead.space_type);
+  const spaceSize = normalizeField(lead.space_needed || lead.size);
+  const requirements = normalizeField(lead.requirements || lead.message || lead.notes);
+
+  return {
+    city,
+    state,
+    market: [city, state].filter(Boolean).join(", "),
+    spaceType,
+    spaceSize,
+    requirements,
+    hasKeyDetails: Boolean(city && state),
+  };
+}
+
+function buildTenantConfirmationText(lead) {
+  const firstName = getTenantFirstName(lead.name);
+  const details = getTenantConfirmationDetails(lead);
+
+  if (!details.hasKeyDetails) {
+    return [
+      firstName ? `Hi ${firstName},` : "Hi,",
+      "",
+      "Thanks for reaching out through Rofo. We received your request for commercial space.",
+      "",
+      "A local commercial real estate professional will review your request and follow up shortly if there's a good fit.",
+      "",
+      "If anything has changed, or if you want to add more detail, you can simply reply to this email.",
+      "",
+      "Thanks,",
+      "Rofo",
+      "Commercial real estate search guidance since 2007",
+    ].join("\n");
+  }
+
+  const detailLines = [
+    `Market: ${details.market}`,
+    details.spaceType ? `Space type: ${details.spaceType}` : "",
+    details.spaceSize ? `Approx. size: ${details.spaceSize}` : "",
+    details.requirements ? `Requirements: ${details.requirements}` : "",
+  ].filter(Boolean);
+
+  return [
+    firstName ? `Hi ${firstName},` : "Hi,",
+    "",
+    `Thanks for reaching out through Rofo. We received your request for space in ${details.market}.`,
+    "",
+    detailLines.length ? "Here's what we have so far:" : "",
+    detailLines.length ? "" : "",
+    ...detailLines,
+    "",
+    "A local commercial real estate professional will review your request and follow up shortly if there's a good fit.",
+    "",
+    "If anything has changed, or if you want to add more detail, you can simply reply to this email.",
+    "",
+    "Thanks,",
+    "Rofo",
+    "Commercial real estate search guidance since 2007",
+  ].filter((line, index, lines) => line !== "" || lines[index - 1] !== "").join("\n");
+}
+
+function buildTenantConfirmationHtml(lead) {
+  const firstName = getTenantFirstName(lead.name);
+  const details = getTenantConfirmationDetails(lead);
+  const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi,";
+  const intro = details.hasKeyDetails
+    ? `Thanks for reaching out through Rofo. We received your request for space in ${escapeHtml(details.market)}.`
+    : "Thanks for reaching out through Rofo. We received your request for commercial space.";
+  const detailRows = [
+    details.hasKeyDetails ? buildEmailField("Market", escapeHtml(details.market)) : "",
+    details.spaceType ? buildEmailField("Space type", escapeHtml(details.spaceType)) : "",
+    details.spaceSize ? buildEmailField("Approx. size", escapeHtml(details.spaceSize)) : "",
+    details.requirements ? buildEmailField("Requirements", `<span style="white-space:pre-wrap;">${escapeHtml(details.requirements)}</span>`) : "",
+  ].filter(Boolean).join("");
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo</div>
+                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">We received your space request</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px;font-size:15px;line-height:23px;">
+                <p style="margin:0 0 14px;">${greeting}</p>
+                <p style="margin:0 0 16px;">${intro}</p>
+                ${detailRows ? `
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Here's what we have so far</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${detailRows}
+                  </table>
+                </div>` : ""}
+                <p style="margin:0 0 14px;">A local commercial real estate professional will review your request and follow up shortly if there's a good fit.</p>
+                <p style="margin:0 0 18px;">If anything has changed, or if you want to add more detail, you can simply reply to this email.</p>
+                <p style="margin:0;">Thanks,<br>Rofo<br><span style="color:#64748b;">Commercial real estate search guidance since 2007</span></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+export async function sendTenantConfirmationEmail(env, record) {
+  const lead = record.lead || {};
+  if (lead.tenant_confirmation_sent_at) {
+    return { sent: false, skipped: true, reason: "Tenant confirmation was already sent" };
+  }
+
+  if (["spam_quarantined", "rejected", "rejected_spam", "spam_purged"].includes(record.status)) {
+    return { sent: false, skipped: true, reason: `Lead status ${record.status} does not send tenant confirmations` };
+  }
+
+  if (!env.RESEND_API_KEY) {
+    return { sent: false, reason: "RESEND_API_KEY is not configured" };
+  }
+
+  if (!lead.email) {
+    return { sent: false, reason: "Lead email is missing" };
+  }
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      from: env.TENANT_CONFIRMATION_FROM || "Rofo <leads@rofo.com>",
+      to: [lead.email],
+      subject: "We received your Rofo space request",
+      html: buildTenantConfirmationHtml(lead),
+      text: buildTenantConfirmationText(lead),
+    }),
+  });
+
+  if (!response.ok) {
+    return { sent: false, reason: await response.text() };
+  }
+
+  return { sent: true, sent_at: new Date().toISOString() };
+}
+
 export async function approveLead(env, id, routeParam = "recommended") {
   const record = await getLead(env, id);
   if (!record) {
@@ -894,6 +1057,43 @@ export async function approveLead(env, id, routeParam = "recommended") {
     sent_at: new Date().toISOString(),
   });
 
+  let tenantConfirmation = { sent: false, skipped: true, reason: "Not attempted" };
+  if (results.length && !record.lead.tenant_confirmation_sent_at) {
+    try {
+      tenantConfirmation = await sendTenantConfirmationEmail(env, {
+        ...record,
+        status: nextStatus,
+        lead: record.lead,
+      });
+
+      const leadWithConfirmation = {
+        ...record.lead,
+        tenant_confirmation_sent_at: tenantConfirmation.sent ? tenantConfirmation.sent_at : record.lead.tenant_confirmation_sent_at,
+        tenant_confirmation_error: tenantConfirmation.sent ? "" : tenantConfirmation.reason || "",
+      };
+
+      await updateLeadStatus(env, id, {
+        status: nextStatus,
+        lead: leadWithConfirmation,
+        officefinder_response: [...results, ...failures].join("\n"),
+        approval_error: [...failures, tenantConfirmation.sent || tenantConfirmation.skipped ? "" : `Tenant confirmation failed: ${tenantConfirmation.reason}`].filter(Boolean).join("\n"),
+        sent_at: new Date().toISOString(),
+      });
+    } catch (error) {
+      await updateLeadStatus(env, id, {
+        status: nextStatus,
+        lead: {
+          ...record.lead,
+          tenant_confirmation_error: error.message,
+        },
+        officefinder_response: [...results, ...failures].join("\n"),
+        approval_error: [...failures, `Tenant confirmation failed: ${error.message}`].filter(Boolean).join("\n"),
+        sent_at: new Date().toISOString(),
+      });
+      tenantConfirmation = { sent: false, reason: error.message };
+    }
+  }
+
   return {
     ok: failures.length === 0,
     status: failures.length ? 207 : 200,
@@ -901,6 +1101,7 @@ export async function approveLead(env, id, routeParam = "recommended") {
     message: results.join(" "),
     results,
     failures,
+    tenantConfirmation,
     nextStatus,
   };
 }
