@@ -770,6 +770,141 @@ function getApprovalActions(route, urls) {
   ];
 }
 
+export function getApprovalTargets(routeParam, routeRecommendation) {
+  if (routeParam === "officefinder") return ["officefinder"];
+  if (routeParam === "broker") return ["broker"];
+
+  const recommended = routeRecommendation.route_to || "officefinder";
+  if (recommended === "both") return ["officefinder", "broker"];
+  if (recommended === "broker") return ["broker"];
+  return ["officefinder"];
+}
+
+export async function approveLead(env, id, routeParam = "recommended") {
+  const record = await getLead(env, id);
+  if (!record) {
+    return { ok: false, status: 404, title: "Lead not found", message: "No matching lead exists." };
+  }
+
+  if (["approved_sent", "broker_sent", "both_sent", "partial_sent"].includes(record.status)) {
+    return { ok: true, status: 200, title: "Lead already approved and sent", message: "No duplicate submission was made." };
+  }
+
+  if (record.status === "rejected") {
+    return { ok: false, status: 409, title: "Lead already rejected", message: "No submission was made." };
+  }
+
+  if (["spam_quarantined", "rejected_spam"].includes(record.status)) {
+    return { ok: false, status: 409, title: "Lead is quarantined as spam", message: "Review and change status before routing this lead." };
+  }
+
+  const routeRecommendation = record.lead.route_recommendation || { route_to: "officefinder" };
+  const targets = getApprovalTargets(routeParam, routeRecommendation);
+  const results = [];
+  const failures = [];
+  let officeFinderPayload = null;
+
+  if (targets.includes("officefinder")) {
+    officeFinderPayload = buildOfficeFinderPayload(record.lead, env);
+    const missing = getMissingOfficeFinderFields(officeFinderPayload);
+    if (missing.length) {
+      const attempt = {
+        lead_id: id,
+        attempted_at: new Date().toISOString(),
+        officefinder_mode: routeRecommendation.officefinder_mode || "",
+        request_payload: officeFinderPayload,
+        response_status: 0,
+        response_body: "",
+        success: false,
+        error: `Missing OfficeFinder fields: ${missing.join(", ")}`,
+      };
+      const lead = await appendOfficeFinderAttempt(env, record, attempt);
+      record.lead = lead;
+      failures.push(attempt.error);
+
+      if (!targets.includes("broker")) {
+        await updateLeadStatus(env, id, {
+          status: "approved_send_failed",
+          lead,
+          approval_error: attempt.error,
+        });
+        return { ok: false, status: 422, title: "Lead not sent", message: attempt.error, failures };
+      }
+    }
+  }
+
+  if (targets.includes("officefinder") && !failures.length) {
+    const result = await submitToOfficeFinder(env, officeFinderPayload);
+    const attempt = {
+      lead_id: id,
+      attempted_at: new Date().toISOString(),
+      officefinder_mode: routeRecommendation.officefinder_mode || "",
+      request_payload: officeFinderPayload,
+      response_status: result.status,
+      response_body: result.body,
+      success: result.ok,
+      error: result.error || "",
+    };
+    const lead = await appendOfficeFinderAttempt(env, record, attempt);
+    record.lead = lead;
+
+    if (!result.ok) {
+      failures.push(attempt.error || `OfficeFinder returned HTTP ${result.status}`);
+    } else {
+      results.push(`OfficeFinder: submitted to ${result.endpoint}`);
+    }
+  }
+
+  if (targets.includes("broker") && !routeRecommendation.broker_email) {
+    await updateLeadStatus(env, id, {
+      status: results.length ? "partial_sent" : "approved_send_failed",
+      approval_error: "Broker approval requested, but no broker email exists for the matched route.",
+    });
+    return { ok: false, status: 422, title: "Lead not sent", message: "No broker email exists for this route.", results, failures };
+  }
+
+  if (targets.includes("broker")) {
+    const brokerResult = await sendBrokerLeadEmail(env, record);
+    if (!brokerResult.sent) {
+      failures.push(`Broker email failed: ${brokerResult.reason}`);
+    } else {
+      results.push(`Broker: sent to ${routeRecommendation.broker_name || routeRecommendation.broker_email}`);
+    }
+  }
+
+  if (!results.length && failures.length) {
+    await updateLeadStatus(env, id, {
+      status: "approved_send_failed",
+      approval_error: failures.join("\n"),
+    });
+    return { ok: false, status: 502, title: "Lead approval failed", message: failures.join(" "), failures };
+  }
+
+  const nextStatus = failures.length
+    ? "partial_sent"
+    : targets.includes("officefinder") && targets.includes("broker")
+      ? "both_sent"
+      : targets.includes("broker") ? "broker_sent" : "approved_sent";
+
+  await updateLeadStatus(env, id, {
+    status: nextStatus,
+    lead: record.lead,
+    officefinder_response: [...results, ...failures].join("\n"),
+    approval_error: failures.join("\n"),
+    sent_at: new Date().toISOString(),
+  });
+
+  return {
+    ok: failures.length === 0,
+    status: failures.length ? 207 : 200,
+    title: failures.length ? "Lead partially sent" : "Lead approved and sent",
+    message: results.join(" "),
+    results,
+    failures,
+    nextStatus,
+  };
+}
+
 export function detectPossibleSpam(lead) {
   const reasons = [];
   const requirements = normalizeField(lead.requirements);
@@ -966,6 +1101,10 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
 }
 
 export async function sendApprovalEmail(env, request, record, token) {
+  if (record.status !== "pending") {
+    return { sent: false, reason: `Lead status ${record.status} does not send approval alerts` };
+  }
+
   if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_EMAIL) {
     return { sent: false, reason: "RESEND_API_KEY and LEAD_NOTIFY_EMAIL are not configured" };
   }
@@ -976,16 +1115,78 @@ export async function sendApprovalEmail(env, request, record, token) {
   const approveBrokerUrl = `${baseUrl}/api/leads/approve?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}&route=broker`;
   const rejectUrl = `${baseUrl}/api/leads/reject?id=${encodeURIComponent(record.id)}&token=${encodeURIComponent(token)}`;
   const lead = record.lead;
-  const officeFinderMissing = getMissingOfficeFinderFields(record.officefinder_payload);
-  const urls = {
-    approve: approveUrl,
-    approveOfficeFinder: approveOfficeFinderUrl,
-    approveBroker: approveBrokerUrl,
-    reject: rejectUrl,
-  };
-  const subject = `New Rofo lead pending approval: ${getLeadMarket(lead) || "Unknown market"} - ${lead.effective_space_type || lead.space_type || "space"}`;
-  const text = buildApprovalEmailText(record, urls, officeFinderMissing);
-  const html = buildApprovalEmailHtml(record, urls, officeFinderMissing);
+  const adminParams = new URLSearchParams();
+  if (env.ADMIN_DASHBOARD_TOKEN) adminParams.set("token", env.ADMIN_DASHBOARD_TOKEN);
+  adminParams.set("id", record.id);
+  adminParams.set("view", "pending");
+  const dashboardUrl = `${baseUrl}/admin/leads?${adminParams.toString()}`;
+  const market = getLeadMarket(lead);
+  const spaceType = lead.effective_space_type || lead.requested_space_type || lead.space_type || "";
+  const subject = `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
+  const requirements = lead.requirements || "(none provided)";
+  const text = [
+    "NEW ROFO LEAD",
+    "",
+    `Name: ${lead.name}`,
+    `Company: ${lead.company || ""}`,
+    `Email: ${lead.email}`,
+    `Phone: ${lead.phone}`,
+    `Market: ${market}`,
+    `Space type: ${spaceType}`,
+    `Space size: ${lead.space_needed || ""}`,
+    lead.spam_score ? `Spam score: ${lead.spam_score}` : "",
+    "",
+    "NOTES",
+    requirements,
+    "",
+    `Review Lead in Dashboard: ${dashboardUrl}`,
+    "",
+    "Fallback approval links:",
+    `Approve recommended: ${approveUrl}`,
+    `Approve OfficeFinder: ${approveOfficeFinderUrl}`,
+    `Approve broker: ${approveBrokerUrl}`,
+    `Reject: ${rejectUrl}`,
+  ].filter((line) => line !== "").join("\n");
+  const html = `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo lead alert</div>
+                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">New lead ready for review</h1>
+                <div style="font-size:15px;line-height:22px;color:#eff6ff;">${escapeHtml(market)} &bull; ${escapeHtml(spaceType || "Space needed")} &bull; ${escapeHtml(lead.space_needed || "Size not provided")}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 18px 22px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:16px;">
+                  ${buildEmailField("Name", escapeHtml(lead.name))}
+                  ${lead.company ? buildEmailField("Company", escapeHtml(lead.company)) : ""}
+                  ${buildEmailField("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
+                  ${buildEmailField("Phone", `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>`)}
+                  ${buildEmailField("Market", escapeHtml(market))}
+                  ${buildEmailField("Space type", escapeHtml(spaceType))}
+                  ${buildEmailField("Space size", escapeHtml(lead.space_needed))}
+                  ${lead.spam_score ? buildEmailField("Spam score", escapeHtml(lead.spam_score)) : ""}
+                </table>
+                <div style="margin:0 0 18px;padding:13px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 6px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Notes</div>
+                  <div style="white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:21px;">${escapeHtml(requirements)}</div>
+                </div>
+                <a href="${escapeHtml(dashboardUrl)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">Review Lead in Dashboard</a>
+                <div style="margin-top:14px;color:#64748b;font-size:12px;line-height:18px;">OfficeFinder and broker routing still require manual approval. Spam-quarantined leads do not send this alert.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
