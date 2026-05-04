@@ -2,6 +2,12 @@ import { escapeHtml } from "../api/leads/_shared.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
+const STATUS_VIEWS = {
+  pending: ["pending"],
+  sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
+  rejected: ["rejected"],
+  spam: ["spam_quarantined", "rejected_spam"],
+};
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -77,6 +83,12 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(status)}</span>`;
 }
 
+function normalizeView(value) {
+  const view = String(value || "").trim().toLowerCase();
+  if (["pending", "sent", "rejected", "spam", "all"].includes(view)) return view;
+  return "pending";
+}
+
 function detailsBlock(label, value) {
   if (!value) return "";
   return `
@@ -95,9 +107,10 @@ function renderLeadCard(row) {
   const market = lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
   const officeFinderStatus = lead.officefinder_status || "officefinder_not_attempted";
   const spamReasons = Array.isArray(lead.spam_reasons) ? lead.spam_reasons : [];
+  const isSpam = ["spam_quarantined", "rejected_spam"].includes(row.status);
 
   return `
-    <article class="lead-card">
+    <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
       <div class="lead-card__header">
         <div>
           <div class="lead-card__time">${escapeHtml(formatDate(row.created_at))}</div>
@@ -131,7 +144,7 @@ function renderLeadCard(row) {
         ${field("Rejected at", formatDate(row.rejected_at))}
       </div>
 
-      ${spamReasons.length ? `<div class="alert"><strong>Spam reasons:</strong><ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
+      ${spamReasons.length ? `<div class="spam-box"><strong>Spam review:</strong> Score ${escapeHtml(lead.spam_score || 0)}<ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
@@ -164,13 +177,44 @@ function renderLeadCard(row) {
   `;
 }
 
+function buildTabUrl(token, view, filters) {
+  const params = new URLSearchParams();
+  params.set("token", token);
+  params.set("view", view);
+  if (filters.officefinderStatus) params.set("officefinder_status", filters.officefinderStatus);
+  if (filters.limit !== DEFAULT_LIMIT) params.set("limit", filters.limit);
+  return `/admin/leads?${params.toString()}`;
+}
+
+function renderTabs(token, filters, counts) {
+  const tabs = [
+    { view: "pending", label: "Pending", count: counts.pending || 0 },
+    { view: "sent", label: "Approved/Sent", count: counts.sent || 0 },
+    { view: "rejected", label: "Rejected", count: counts.rejected || 0 },
+    { view: "spam", label: "Spam Quarantined", count: counts.spam || 0 },
+    { view: "all", label: "All", count: counts.all || 0 },
+  ];
+
+  return `
+    <nav class="tabs" aria-label="Lead status views">
+      ${tabs.map((tab) => `
+        <a class="tab${filters.view === tab.view ? " tab--active" : ""}" href="${escapeHtml(buildTabUrl(token, tab.view, filters))}">
+          <span>${escapeHtml(tab.label)}</span>
+          <strong>${escapeHtml(tab.count)}</strong>
+        </a>
+      `).join("")}
+    </nav>
+  `;
+}
+
 function renderFilters(token, filters) {
   return `
     <form class="filters" method="GET" action="/admin/leads">
       <input type="hidden" name="token" value="${escapeHtml(token)}">
+      <input type="hidden" name="view" value="${escapeHtml(filters.view)}">
       <label>
-        Status
-        <input name="status" value="${escapeHtml(filters.status)}" placeholder="pending">
+        Exact status override
+        <input name="status" value="${escapeHtml(filters.status)}" placeholder="optional: approved_send_failed">
       </label>
       <label>
         OfficeFinder status
@@ -186,7 +230,7 @@ function renderFilters(token, filters) {
   `;
 }
 
-function renderPage({ rows, token, filters, fetchedCount }) {
+function renderPage({ rows, token, filters, fetchedCount, counts }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -204,12 +248,18 @@ function renderPage({ rows, token, filters, fetchedCount }) {
     h2 { margin: 4px 0; font-size: 20px; }
     p { margin: 0; color: var(--muted); }
     .filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 12px; align-items: end; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 20px 0; }
+    .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
+    .tab { display: flex; justify-content: space-between; gap: 10px; align-items: center; min-height: 54px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: #fff; color: var(--ink); text-decoration: none; font-weight: 800; }
+    .tab strong { min-width: 32px; border-radius: 999px; padding: 4px 8px; background: #eef3f8; text-align: center; font-size: 12px; }
+    .tab--active { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(23, 63, 138, .12); }
+    .tab--active strong { background: var(--blue); color: #fff; }
     label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: #34445b; }
     input { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font: inherit; }
     button { border: 0; border-radius: 8px; padding: 11px 14px; background: var(--blue); color: #fff; font-weight: 800; cursor: pointer; }
     .summary { margin: 0 0 16px; color: var(--muted); }
     .lead-list { display: grid; gap: 16px; }
     .lead-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: 0 8px 24px rgba(23, 32, 51, 0.06); }
+    .lead-card--spam { background: #fffaf5; border-color: #fed7aa; box-shadow: none; }
     .lead-card__header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
     .lead-card__time { color: var(--muted); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
     .lead-card__status { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
@@ -227,13 +277,15 @@ function renderPage({ rows, token, filters, fetchedCount }) {
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
     .note { background: #eff6ff; color: #1e3a8a; }
+    .spam-box { margin-top: 14px; border: 1px solid #fed7aa; border-radius: 10px; padding: 12px; background: #fff7ed; color: #9a3412; overflow-wrap: anywhere; }
+    .spam-box ul { margin: 8px 0 0; padding-left: 18px; }
     details { margin-top: 14px; border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: #fbfdff; }
     summary { cursor: pointer; font-weight: 800; }
     pre { white-space: pre-wrap; overflow-x: auto; background: #111827; color: #e5e7eb; border-radius: 8px; padding: 12px; font-size: 12px; }
     .lead-actions { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 14px; color: var(--muted); font-size: 13px; }
     .muted { color: var(--muted); }
     @media (max-width: 820px) {
-      .filters, .lead-grid, .lead-grid--compact { grid-template-columns: 1fr; }
+      .filters, .tabs, .lead-grid, .lead-grid--compact { grid-template-columns: 1fr; }
       .lead-card__header { display: grid; }
       .lead-card__status { justify-content: flex-start; }
     }
@@ -245,8 +297,9 @@ function renderPage({ rows, token, filters, fetchedCount }) {
       <h1>Rofo Lead Dashboard</h1>
       <p>Recent tenant leads, routing status, and OfficeFinder attempt history.</p>
     </header>
+    ${renderTabs(token, filters, counts)}
     ${renderFilters(token, filters)}
-    <p class="summary">Showing ${rows.length} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
+    <p class="summary">Showing ${rows.length} ${escapeHtml(filters.status || filters.view)} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
     <section class="lead-list">
       ${rows.length ? rows.map(renderLeadCard).join("") : "<p>No leads match these filters.</p>"}
     </section>
@@ -266,6 +319,10 @@ async function fetchLeadRows(env, filters) {
   if (filters.status) {
     clauses.push("status = ?");
     bindings.push(filters.status);
+  } else if (filters.view !== "all") {
+    const statuses = STATUS_VIEWS[filters.view] || STATUS_VIEWS.pending;
+    clauses.push(`status in (${statuses.map(() => "?").join(", ")})`);
+    bindings.push(...statuses);
   }
 
   const fetchLimit = filters.officefinderStatus ? Math.min(filters.limit * 5, MAX_LIMIT) : filters.limit;
@@ -293,6 +350,28 @@ async function fetchLeadRows(env, filters) {
   return { rows: filtered, fetchedCount: rows.length };
 }
 
+async function fetchStatusCounts(env) {
+  if (!env.LEADS_DB) {
+    throw new Error("LEADS_DB D1 binding is not configured.");
+  }
+
+  const result = await env.LEADS_DB.prepare("select status, count(*) as count from leads group by status").all();
+  const byStatus = {};
+  for (const row of result.results || []) {
+    byStatus[row.status] = Number(row.count || 0);
+  }
+
+  const sum = (statuses) => statuses.reduce((total, status) => total + (byStatus[status] || 0), 0);
+
+  return {
+    pending: sum(STATUS_VIEWS.pending),
+    sent: sum(STATUS_VIEWS.sent),
+    rejected: sum(STATUS_VIEWS.rejected),
+    spam: sum(STATUS_VIEWS.spam),
+    all: Object.values(byStatus).reduce((total, count) => total + count, 0),
+  };
+}
+
 export async function onRequestGet({ request, env }) {
   const configuredToken = env.ADMIN_DASHBOARD_TOKEN;
   if (!configuredToken) {
@@ -306,14 +385,16 @@ export async function onRequestGet({ request, env }) {
   }
 
   const filters = {
+    view: normalizeView(url.searchParams.get("view")),
     status: (url.searchParams.get("status") || "").trim(),
     officefinderStatus: (url.searchParams.get("officefinder_status") || "").trim(),
     limit: normalizeLimit(url.searchParams.get("limit")),
   };
 
   try {
+    const counts = await fetchStatusCounts(env);
     const { rows, fetchedCount } = await fetchLeadRows(env, filters);
-    return adminResponse(renderPage({ rows, token, filters, fetchedCount }));
+    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts }));
   } catch (error) {
     return adminResponse(`<h1>Lead dashboard error</h1><p>${escapeHtml(error.message)}</p>`, 500);
   }
