@@ -216,9 +216,9 @@ const TYPE_META = {
     optionLabel: "office space",
     slug: "office-space",
     description:
-      "offers office space suited for professional services, small teams, and client-facing businesses",
+      "offers office space for professional use, client-facing teams, and businesses comparing workspace options",
     about:
-      "This property reflects the types of professional office environments commonly found in the {city} market, with potential fit for service firms, small teams, and client-facing businesses.",
+      "{label} gives businesses a way to evaluate office options in {city}, with a typical fit for professional services, administrative teams, and companies that need client-accessible workspace.",
     detailSummary:
       "Professional office use",
     bestFor: [
@@ -232,9 +232,9 @@ const TYPE_META = {
     optionLabel: "retail space",
     slug: "retail-space",
     description:
-      "is positioned for retail, service, and customer-facing businesses",
+      "is positioned for retail, service, and other customer-facing uses",
     about:
-      "This property reflects the types of retail and service-oriented environments commonly found in the {city} market, with potential fit for customer-facing businesses.",
+      "{label} can help businesses compare retail or service-oriented options in {city}, especially users that need a customer-facing location in the local trade area.",
     detailSummary:
       "Retail and service-oriented use",
     bestFor: [
@@ -248,9 +248,9 @@ const TYPE_META = {
     optionLabel: "industrial space",
     slug: "industrial-space",
     description:
-      "provides industrial space suited for warehouse, logistics, and light industrial users",
+      "provides industrial space for warehouse, logistics, service, or light industrial users",
     about:
-      "This property reflects the types of warehouse, logistics, and light industrial environments commonly found in the {city} market.",
+      "{label} gives warehouse, logistics, service, or light industrial users a building to compare within the {city} market.",
     detailSummary:
       "Warehouse, logistics, or light industrial use",
     bestFor: [
@@ -264,9 +264,9 @@ const TYPE_META = {
     optionLabel: "coworking space",
     slug: "coworking-space",
     description:
-      "offers coworking space for flexible teams, remote workers, and small businesses",
+      "offers coworking space for flexible teams, remote workers, and small business users",
     about:
-      "This property reflects the types of flexible workspace environments commonly found in the {city} market, with potential fit for remote workers, small teams, and growing companies.",
+      "{label} is relevant for businesses comparing flexible workspace in {city}, including small teams, remote workers, and companies that do not need a traditional long-term office.",
     detailSummary:
       "Coworking and flexible workspace use",
     bestFor: [
@@ -280,9 +280,9 @@ const TYPE_META = {
     optionLabel: "flex space",
     slug: "flex-space",
     description:
-      "supports adaptable space needs for showroom, service, office, or light industrial users",
+      "supports adaptable office, showroom, service, or light industrial uses",
     about:
-      "This property reflects the types of adaptable commercial environments commonly found in the {city} market, with potential fit for showroom, service, office, or light industrial users.",
+      "{label} can support businesses comparing adaptable commercial space in {city}, including office, showroom, service, workshop, or light industrial uses.",
     detailSummary:
       "Adaptable commercial use",
     bestFor: [
@@ -298,7 +298,7 @@ const TYPE_META = {
     description:
       "supports businesses exploring commercial space in the local market",
     about:
-      "This property reflects the types of commercial environments commonly found in the {city} market.",
+      "{label} gives local businesses another property to compare when evaluating commercial space in {city}.",
     detailSummary:
       "General commercial use",
     bestFor: [
@@ -344,11 +344,13 @@ const TOP_MARKET_CONTEXT = {
 
 function getBuildingDescription(building, label, city, state_abbr, primaryType) {
   const meta = TYPE_META[primaryType] || TYPE_META.commercial;
-  return `${label} in ${city}, ${state_abbr} ${meta.description}.`;
+  const sizeLabel = clean(building.size_label || building.size);
+  const sizeSentence = sizeLabel ? ` Source data identifies ${sizeLabel.toLowerCase()}, making it a useful starting point for comparing ${meta.optionLabel} in ${city}.` : "";
+  return `${label} in ${city}, ${state_abbr} ${meta.description}.${sizeSentence}`;
 }
 
-function formatTypeText(text, city) {
-  return text.replace("{city}", city);
+function formatTypeText(text, city, label) {
+  return text.replace(/{city}/g, city).replace(/{label}/g, label);
 }
 
 function getLocationContext(city, city_slug, primaryType) {
@@ -356,10 +358,25 @@ function getLocationContext(city, city_slug, primaryType) {
   const topMarketContext = TOP_MARKET_CONTEXT[city_slug];
 
   if (topMarketContext) {
-    return `For businesses evaluating ${meta.optionLabel} in ${city}, this property sits ${topMarketContext}.`;
+    return `For businesses comparing ${meta.optionLabel} in ${city}, this property sits ${topMarketContext} and can be reviewed alongside other nearby market options.`;
   }
 
-  return `For businesses evaluating ${meta.optionLabel} in ${city}, this property can be considered within the broader local commercial market.`;
+  const typeContext = {
+    office:
+      `For office users in ${city}, this location can be compared for professional services, team workspace, client access, and nearby market alternatives.`,
+    retail:
+      `For retail and service users in ${city}, this location can be compared for customer-facing use, local trade area fit, visibility needs, and access within the market.`,
+    industrial:
+      `For industrial users in ${city}, this location can be compared for warehouse, logistics, service-area coverage, and regional movement needs.`,
+    flex:
+      `For flex users in ${city}, this location can be compared for businesses that need a mix of office, warehouse, workshop, showroom, or service space.`,
+    coworking:
+      `For coworking users in ${city}, this location can be compared for flexible teams, small businesses, remote workers, and companies exploring shorter-term workspace options.`,
+    commercial:
+      `For businesses evaluating commercial space in ${city}, this property can be compared with other local buildings and nearby market options.`,
+  };
+
+  return typeContext[primaryType] || typeContext.commercial;
 }
 
 function buildingKey(building) {
@@ -416,21 +433,20 @@ function normalizeBuilding(building, source) {
 
     type: clean(building.type || building.space_type) || "Commercial Space",
     size_label: clean(building.size_label || building.size) || "",
-    building_description: getBuildingDescription(
-      building,
-      buildingLabel,
-      city,
-      state_abbr,
-      primaryType
-    ),
-    about_context: formatTypeText(typeMeta.about, city),
-    best_for: typeMeta.bestFor,
-    location_context: getLocationContext(city, city_slug, primaryType),
-    detail_summary: typeMeta.detailSummary,
+    // Richer partner/listing fields can override these generated fallbacks as Peter's data improves.
+    building_description: clean(building.building_description) ||
+      getBuildingDescription(building, buildingLabel, city, state_abbr, primaryType),
+    about_context: clean(building.about_context) ||
+      formatTypeText(typeMeta.about, city, buildingLabel),
+    best_for: Array.isArray(building.best_for) && building.best_for.length ? building.best_for : typeMeta.bestFor,
+    common_fit: clean(building.common_fit) || typeMeta.detailSummary,
+    location_context: clean(building.location_context) || getLocationContext(city, city_slug, primaryType),
+    detail_summary: clean(building.detail_summary || building.common_fit) || typeMeta.detailSummary,
     primary_type_label: typeMeta.label,
     space_type_slug: typeMeta.slug,
     space_type_url: spaceTypeUrl,
     space_type_label: typeMeta.label,
+    city_market_guide_url: `/commercial-real-estate/${state_abbr}/${city_slug}/market-guide/`,
     routing_candidates: routingCandidates,
     routing_market: city_state_slug,
     routing_county,

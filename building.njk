@@ -134,6 +134,34 @@ eleventyComputed:
           </section>
         {% endif %}
 
+        {% if building.city_market_guide_url %}
+          <section class="building-card">
+            <div class="eyebrow">Market Guide</div>
+            <h2>{{ building.city }} Commercial Real Estate Guide</h2>
+            <p>Review broader market context, nearby markets, and space-type options before comparing buildings in {{ building.city }}.</p>
+            <a class="building-link" href="{{ building.city_market_guide_url }}">Read the {{ building.city }} market guide</a>
+          </section>
+        {% endif %}
+
+        {% if building.related_buildings and building.related_buildings.length %}
+          <section class="building-card">
+            <div class="eyebrow">Similar Buildings</div>
+            <h2>Similar buildings in {{ building.city }}</h2>
+            <p>Compare other buildings in {{ building.city }}{% if building.space_type_label %}, starting with {{ building.space_type_label | lower }} where available{% endif %}.</p>
+
+            <div class="related-building-list">
+              {% for related in building.related_buildings %}
+                <a class="related-building-card" href="{{ related.building_path }}">
+                  <span class="related-building-card__title">{{ related.display_name or related.address }}</span>
+                  <span class="related-building-card__meta">
+                    {{ related.type }}{% if related.size_label %} · {{ related.size_label }}{% endif %}
+                  </span>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
         <div class="building-card">
           <div class="eyebrow">Property Details</div>
           <h2>Building information</h2>
@@ -159,10 +187,10 @@ eleventyComputed:
               <div class="detail-value">{{ building.city }}, {{ building.state_abbr }}</div>
             </div>
 
-            {% if building.detail_summary %}
+            {% if building.common_fit or building.detail_summary %}
               <div class="detail-row">
                 <div class="detail-label">Common Fit</div>
-                <div class="detail-value">{{ building.detail_summary }}</div>
+                <div class="detail-value">{{ building.common_fit or building.detail_summary }}</div>
               </div>
             {% endif %}
           </div>

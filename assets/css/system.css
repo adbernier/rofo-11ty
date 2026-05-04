@@ -2648,6 +2648,42 @@ section.market-page--space-type .market-links a {
     text-decoration: underline;
   }
 
+  .building-page .related-building-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .building-page .related-building-card {
+    display: grid;
+    gap: 5px;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+
+  .building-page .related-building-card:hover {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    transform: translateY(-1px);
+  }
+
+  .building-page .related-building-card__title {
+    color: #0f172a;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .building-page .related-building-card__meta {
+    color: #64748b;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
   .building-page .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
