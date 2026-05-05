@@ -2434,6 +2434,367 @@ section.market-page--space-type .market-links a {
     padding: 8px 0 56px;
   }
 
+/* =========================
+   LEASING GUIDE PAGE
+   ========================= */
+
+.lease-guide-page {
+  padding: 8px 0 64px;
+  background: #f8fafc;
+}
+
+.lease-guide-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.lease-guide-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 22px;
+}
+
+.lease-guide-hero__content,
+.lease-guide-hero__card,
+.lease-guide-section,
+.lease-guide-sidebar__card,
+.lease-guide-contact,
+.lease-guide-nav {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.lease-guide-hero__content {
+  padding: clamp(28px, 5vw, 54px);
+}
+
+.lease-guide-hero__card {
+  padding: 26px;
+  align-self: stretch;
+  background:
+    radial-gradient(620px 260px at 90% 0%, rgba(19, 70, 216, 0.12), transparent 44%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.lease-guide-page h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.35rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  color: #0f172a;
+  max-width: 920px;
+}
+
+.lease-guide-page h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  line-height: 1.13;
+  color: #0f172a;
+}
+
+.lease-guide-page h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.lease-guide-page p {
+  margin: 0 0 15px;
+  color: #334155;
+  line-height: 1.68;
+}
+
+.lease-guide-page .lead {
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+  color: #475569;
+  max-width: 760px;
+}
+
+.lease-guide-page .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.lease-guide-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 14px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.lease-guide-nav a {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #1e3a8a;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lease-guide-nav a:hover {
+  background: #dbeafe;
+}
+
+.lease-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+.lease-guide-content {
+  display: grid;
+  gap: 22px;
+}
+
+.lease-guide-section {
+  scroll-margin-top: 96px;
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.lease-guide-grid,
+.lease-guide-split {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.lease-guide-grid--2,
+.lease-guide-split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lease-guide-mini-card {
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #334155;
+  line-height: 1.58;
+}
+
+.lease-guide-mini-card p:last-child,
+.lease-guide-section p:last-child {
+  margin-bottom: 0;
+}
+
+.lease-guide-page ul,
+.lease-guide-page ol {
+  color: #334155;
+  line-height: 1.62;
+}
+
+.lease-guide-page li + li {
+  margin-top: 8px;
+}
+
+.lease-guide-steps {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: lease-step;
+}
+
+.lease-guide-steps li {
+  counter-increment: lease-step;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.lease-guide-steps li::before {
+  content: counter(lease-step);
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #1346d8;
+  color: #ffffff;
+  font-size: 0.9rem;
+  flex: 0 0 auto;
+}
+
+.lease-guide-checklist {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lease-guide-checklist--columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lease-guide-checklist li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.lease-guide-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #14532d;
+  font-weight: 900;
+}
+
+.lease-guide-callout,
+.lease-guide-note {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.lease-guide-note {
+  border-color: #fde68a;
+  background: #fffbeb;
+  color: #7c2d12;
+  font-weight: 600;
+}
+
+.lease-guide-faq {
+  display: grid;
+  gap: 12px;
+}
+
+.lease-guide-faq details {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  padding: 16px 18px;
+}
+
+.lease-guide-faq summary {
+  cursor: pointer;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.lease-guide-faq p {
+  margin: 12px 0 0;
+}
+
+.lease-guide-sidebar {
+  position: sticky;
+  top: 88px;
+  display: grid;
+  gap: 16px;
+}
+
+.lease-guide-sidebar__card {
+  padding: 20px;
+}
+
+.lease-guide-sidebar__card a:not(.btn-primary) {
+  display: block;
+  padding: 11px 0;
+  border-top: 1px solid #e2e8f0;
+  color: #1346d8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lease-guide-sidebar__card a:not(.btn-primary):hover {
+  text-decoration: underline;
+}
+
+.lease-guide-sidebar__card--strong {
+  background: #0f2f6e;
+}
+
+.lease-guide-sidebar__card--strong h3,
+.lease-guide-sidebar__card--strong p {
+  color: #ffffff;
+}
+
+.lease-guide-contact {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 28px;
+  padding: 22px;
+}
+
+.lease-guide-contact .cta-band,
+.lease-guide-contact .form-card {
+  height: 100%;
+}
+
+.lease-guide-contact .form-actions {
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .lease-guide-hero,
+  .lease-guide-layout,
+  .lease-guide-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .lease-guide-sidebar {
+    position: static;
+  }
+
+  .lease-guide-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .lease-guide-shell {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .lease-guide-grid,
+  .lease-guide-grid--2,
+  .lease-guide-split,
+  .lease-guide-checklist--columns {
+    grid-template-columns: 1fr;
+  }
+
+  .lease-guide-hero__content,
+  .lease-guide-hero__card,
+  .lease-guide-section,
+  .lease-guide-contact {
+    border-radius: 14px;
+  }
+
+  .lease-guide-contact {
+    padding: 16px;
+  }
+}
+
   .building-page .building-shell {
     max-width: 1180px;
     margin: 0 auto;

@@ -1,0 +1,574 @@
+---
+layout: base.njk
+permalink: /commercial-real-estate/lease-guide/index.html
+title: The Ultimate Guide to Leasing Commercial Space | Rofo
+description: Learn how to lease commercial space for your business, including how to evaluate locations, understand pricing, compare buildings, work with brokers, negotiate terms, and avoid common mistakes.
+eleventyComputed:
+  canonical: "{{ metadata.siteUrl }}/commercial-real-estate/lease-guide/"
+---
+
+{% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
+{% set guideUrl = siteUrl + "/commercial-real-estate/lease-guide/" %}
+{% set crumbs = [
+  { "label": "Markets", "url": "/markets/" },
+  { "label": "Leasing Guide", "url": "/commercial-real-estate/lease-guide/" }
+] %}
+{% set faqs = [
+  {
+    "question": "How long are commercial leases?",
+    "answer": "Commercial leases often run three to ten years, depending on the market, property type, landlord, and tenant needs."
+  },
+  {
+    "question": "Can I negotiate rent?",
+    "answer": "Yes. Most commercial leases are negotiable, although market conditions and landlord flexibility vary."
+  },
+  {
+    "question": "What is a net lease?",
+    "answer": "A net lease is a structure where the tenant pays base rent plus some or all property expenses, such as taxes, insurance, and maintenance."
+  },
+  {
+    "question": "Do I need a broker?",
+    "answer": "It is strongly recommended, especially if the broker is active in your specific market and has access to recent lease comps."
+  },
+  {
+    "question": "What is a Letter of Intent?",
+    "answer": "A Letter of Intent outlines the major business terms of a proposed lease before the full lease is drafted."
+  },
+  {
+    "question": "Who pays for tenant improvements?",
+    "answer": "It depends on the deal. Sometimes the landlord contributes a tenant improvement allowance. Sometimes the tenant pays directly. Often it is negotiated."
+  },
+  {
+    "question": "Should I have a lawyer review the lease?",
+    "answer": "Yes. A commercial lease is a serious contract, and a qualified attorney can help identify risks before you sign."
+  },
+  {
+    "question": "How do I compare two spaces with different rent structures?",
+    "answer": "Compare total occupancy cost, not just base rent. Include taxes, insurance, maintenance, utilities, buildout, parking, and any other recurring costs."
+  }
+] %}
+
+<section class="lease-guide-page">
+  <div class="lease-guide-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Ultimate Guide to Leasing Commercial Space",
+  "description": {{ description | dump | safe }},
+  "url": {{ guideUrl | dump | safe }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ guideUrl | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rofo",
+    "url": {{ siteUrl | dump | safe }}
+  },
+  "about": [
+    "Commercial leasing",
+    "Tenant representation",
+    "Commercial real estate"
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": {{ faq.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ faq.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+    </script>
+
+    <div class="lease-guide-hero">
+      <div class="lease-guide-hero__content">
+        <div class="eyebrow">Tenant Guide</div>
+        <h1>The Ultimate Guide to Leasing Commercial Space</h1>
+        <p class="lead">A practical guide to finding, evaluating, and negotiating the right space for your business.</p>
+        <p>
+          Leasing commercial space can feel overwhelming. There are unfamiliar terms, long contracts, and decisions that can affect your business for years. Most people go through this process only a few times, so it is hard to know what actually matters.
+        </p>
+        <p>
+          This guide is meant to simplify things. Whether you are opening your first location or relocating an existing business, it will walk you through how the process works, what to look for, how pricing really works, and what to watch out for before you sign anything.
+        </p>
+        <div class="button-row">
+          <a class="btn-primary" href="#lease-guide-contact">Get help finding space</a>
+          <a class="btn-secondary" href="#guide-sections">Jump to guide sections</a>
+        </div>
+      </div>
+
+      <aside class="lease-guide-hero__card">
+        <div class="eyebrow">What this guide covers</div>
+        <ul class="lease-guide-checklist">
+          <li>How the leasing process works</li>
+          <li>How to compare locations and buildings</li>
+          <li>How pricing and lease structures work</li>
+          <li>How brokers, lawyers, and planners can help</li>
+          <li>How to avoid common tenant mistakes</li>
+        </ul>
+      </aside>
+    </div>
+
+    <nav id="guide-sections" class="lease-guide-nav" aria-label="Guide sections">
+      <a href="#leasing-process">Leasing process</a>
+      <a href="#space-needs">Space needs</a>
+      <a href="#location">Location</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#lease-types">Lease types</a>
+      <a href="#evaluating-buildings">Evaluating buildings</a>
+      <a href="#touring-space">Touring space</a>
+      <a href="#working-with-brokers">Working with brokers</a>
+      <a href="#negotiating">Negotiating</a>
+      <a href="#lease-review">Lease review</a>
+      <a href="#common-mistakes">Common mistakes</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="lease-guide-layout">
+      <main class="lease-guide-content">
+        <section id="leasing-process" class="lease-guide-section">
+          <div class="eyebrow">Process</div>
+          <h2>How the leasing process works</h2>
+          <p>Most leases follow a predictable path.</p>
+          <ol class="lease-guide-steps">
+            <li>Search for available space</li>
+            <li>Tour properties</li>
+            <li>Submit a Letter of Intent</li>
+            <li>Negotiate terms</li>
+            <li>Sign the lease</li>
+            <li>Build out the space if needed</li>
+            <li>Move in</li>
+          </ol>
+          <div class="lease-guide-callout">
+            The biggest mistakes usually happen early, before you even get to the lease. Getting clear on your needs, budget, and location priorities upfront can save time and money later.
+          </div>
+        </section>
+
+        <section id="space-needs" class="lease-guide-section">
+          <div class="eyebrow">Planning</div>
+          <h2>How to determine what you actually need</h2>
+          <p>Before you start looking at listings, get clear on a few basics.</p>
+          <div class="lease-guide-grid">
+            <article class="lease-guide-mini-card">
+              <h3>Space size</h3>
+              <ul>
+                <li>How many people do you have today</li>
+                <li>How much room do you need for storage or equipment</li>
+                <li>Do you expect to grow</li>
+              </ul>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Layout</h3>
+              <ul>
+                <li>Open space or private offices</li>
+                <li>Customer facing or back of house</li>
+                <li>Warehouse, showroom, or mixed use</li>
+              </ul>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Flexibility</h3>
+              <ul>
+                <li>Will your team expand</li>
+                <li>Do you need a shorter term or more flexibility</li>
+                <li>Could your space needs change over the next year or two</li>
+              </ul>
+            </article>
+          </div>
+          <p>Most businesses underestimate how quickly their needs change. It is worth thinking a step ahead.</p>
+        </section>
+
+        <section id="location" class="lease-guide-section">
+          <div class="eyebrow">Location</div>
+          <h2>Location matters more than most people think</h2>
+          <p>The right space in the wrong location rarely works. Location is not just about the address. It is about how the space fits into your daily workflow.</p>
+
+          <div class="lease-guide-split">
+            <article>
+              <h3>For employees</h3>
+              <ul>
+                <li>How easy is the commute</li>
+                <li>Is there access to public transportation</li>
+                <li>Is parking available and reliable</li>
+                <li>Will the location help or hurt recruiting and retention</li>
+              </ul>
+              <p>If it is difficult to get to, it can affect hiring, retention, and day to day satisfaction.</p>
+            </article>
+
+            <article>
+              <h3>For customers</h3>
+              <ul>
+                <li>Is the space easy to find</li>
+                <li>Is it visible or tucked away</li>
+                <li>Does the surrounding area support your business</li>
+                <li>Is parking or access simple enough for repeat visits</li>
+              </ul>
+              <p>Retail and service businesses depend heavily on this. Office and industrial users still need to think about access, convenience, and perception.</p>
+            </article>
+          </div>
+
+          <article class="lease-guide-mini-card">
+            <h3>For operations</h3>
+            <ul>
+              <li>Are you close to suppliers or distribution routes</li>
+              <li>Is loading or delivery easy</li>
+              <li>Does the location support how your business actually runs</li>
+              <li>Are there constraints that could slow down daily operations</li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="pricing" class="lease-guide-section">
+          <div class="eyebrow">Pricing</div>
+          <h2>Understanding how pricing really works</h2>
+          <p>This is where most confusion comes in. Commercial leases are rarely just rent.</p>
+          <div class="lease-guide-grid lease-guide-grid--2">
+            <article class="lease-guide-mini-card">
+              <h3>Base rent</h3>
+              <p>This is the starting price per square foot.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Additional costs</h3>
+              <p>Depending on the lease, you may also pay for:</p>
+              <ul>
+                <li>property taxes</li>
+                <li>insurance</li>
+                <li>maintenance</li>
+                <li>utilities</li>
+                <li>janitorial</li>
+                <li>repairs</li>
+                <li>management fees</li>
+              </ul>
+            </article>
+          </div>
+          <div class="lease-guide-callout">
+            What matters is your total occupancy cost, not just the advertised rent.
+          </div>
+        </section>
+
+        <section id="lease-types" class="lease-guide-section">
+          <div class="eyebrow">Lease Structures</div>
+          <h2>Types of commercial leases</h2>
+          <p>You will typically see a few common structures.</p>
+          <div class="lease-guide-grid">
+            <article class="lease-guide-mini-card">
+              <h3>Gross lease</h3>
+              <p>One all in number.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Modified gross lease</h3>
+              <p>Some costs are included and some are shared.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Net lease</h3>
+              <p>Many costs are passed through to the tenant.</p>
+            </article>
+          </div>
+          <p>Each structure shifts cost and risk in different ways. Make sure you understand what is included, what is estimated, and what can change over time.</p>
+        </section>
+
+        <section id="evaluating-buildings" class="lease-guide-section">
+          <div class="eyebrow">Buildings</div>
+          <h2>How to evaluate a building</h2>
+          <p>When you are looking at space, go beyond whether it looks good.</p>
+          <div class="lease-guide-grid">
+            <article class="lease-guide-mini-card">
+              <h3>Does it work for your business</h3>
+              <ul>
+                <li>Does the layout support how you operate</li>
+                <li>Is there wasted space or awkward flow</li>
+                <li>Does the space support your employees, customers, or operations</li>
+              </ul>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>What are the real costs</h3>
+              <ul>
+                <li>Utilities</li>
+                <li>Maintenance</li>
+                <li>Improvements</li>
+                <li>Ongoing expenses</li>
+                <li>Move in costs</li>
+              </ul>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>What is the landlord like</h3>
+              <ul>
+                <li>Responsive</li>
+                <li>Experienced</li>
+                <li>Reasonable</li>
+                <li>Clear about expectations</li>
+              </ul>
+            </article>
+          </div>
+          <p>You are not just choosing a space. You are entering into a multi year relationship.</p>
+        </section>
+
+        <section id="touring-space" class="lease-guide-section">
+          <div class="eyebrow">Tours</div>
+          <h2>Touring space</h2>
+          <p>When you walk a property, pay attention to what is not obvious.</p>
+          <ul class="lease-guide-checklist lease-guide-checklist--columns">
+            <li>Look at layout and constraints, not just finishes</li>
+            <li>Check access, parking, and visibility</li>
+            <li>Ask what is included and what is not</li>
+            <li>Ask what improvements are possible</li>
+            <li>Ask who pays for repairs or upgrades</li>
+            <li>Take photos and notes</li>
+            <li>Compare each property against the same criteria</li>
+          </ul>
+          <p>After a few tours, everything starts to blend together. Take notes so you can compare clearly later.</p>
+        </section>
+
+        <section id="working-with-brokers" class="lease-guide-section">
+          <div class="eyebrow">Guidance</div>
+          <h2>The value of working with the right broker</h2>
+          <p>This is one of the most important and most overlooked parts of the process. A good broker does more than show space.</p>
+          <div class="lease-guide-split">
+            <article class="lease-guide-mini-card">
+              <h3>They should help you understand the market</h3>
+              <ul>
+                <li>be active in your specific market and neighborhood</li>
+                <li>know what deals have actually been done recently</li>
+                <li>understand real pricing, not just asking rates</li>
+                <li>help you compare options realistically</li>
+                <li>guide negotiations based on current market conditions</li>
+              </ul>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>They should help you assemble the right team</h3>
+              <ul>
+                <li>a lawyer to review the lease</li>
+                <li>a space planner or architect</li>
+                <li>furniture and fixture vendors</li>
+                <li>IT and infrastructure support</li>
+              </ul>
+            </article>
+          </div>
+          <p>Access to recent lease comps is especially important. It gives you a real sense of what tenants are actually paying, not just what landlords are asking.</p>
+          <p>Having the right team in place early makes the process smoother and helps avoid costly mistakes later.</p>
+          <p>The difference between an average broker and a strong one often shows up directly in your lease terms, your costs, and how smoothly everything comes together.</p>
+        </section>
+
+        <section id="negotiating" class="lease-guide-section">
+          <div class="eyebrow">Negotiation</div>
+          <h2>Negotiating the deal</h2>
+          <p>Commercial leases are negotiable.</p>
+          <div class="lease-guide-grid lease-guide-grid--2">
+            <article class="lease-guide-mini-card">
+              <h3>Tenant improvements</h3>
+              <p>Who pays to build out the space.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Free rent</h3>
+              <p>Can you reduce costs during the move in period.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Lease term</h3>
+              <p>Longer terms can provide stability. Shorter terms can provide flexibility.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Rent increases</h3>
+              <p>Understand how rent changes over time and what is built into the lease.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Renewal options</h3>
+              <p>Know whether you have the right to renew and how future rent will be determined.</p>
+            </article>
+            <article class="lease-guide-mini-card">
+              <h3>Assignment and sublease rights</h3>
+              <p>Understand what flexibility you have if your business changes.</p>
+            </article>
+          </div>
+          <p>This is where experience and good guidance really matter.</p>
+        </section>
+
+        <section id="lease-review" class="lease-guide-section">
+          <div class="eyebrow">Review</div>
+          <h2>Understanding the lease</h2>
+          <p>A commercial lease defines:</p>
+          <ul class="lease-guide-checklist lease-guide-checklist--columns">
+            <li>rent and payment terms</li>
+            <li>maintenance responsibilities</li>
+            <li>what you are allowed to use the space for</li>
+            <li>how long you are committed</li>
+            <li>renewal options</li>
+            <li>insurance requirements</li>
+            <li>default rules</li>
+            <li>who pays for repairs</li>
+            <li>what happens if you need to leave early</li>
+          </ul>
+          <p>Unlike residential leases, many commercial lease terms are negotiable. It is worth taking the time to understand what you are agreeing to before signing.</p>
+          <div class="lease-guide-note">
+            This guide is for general education only. You should have a qualified attorney review any lease before signing.
+          </div>
+        </section>
+
+        <section id="common-mistakes" class="lease-guide-section">
+          <div class="eyebrow">Mistakes</div>
+          <h2>Common mistakes to avoid</h2>
+          <div class="lease-guide-grid lease-guide-grid--2">
+            <article class="lease-guide-mini-card">Focusing only on rent instead of total cost</article>
+            <article class="lease-guide-mini-card">Signing too quickly without comparing options</article>
+            <article class="lease-guide-mini-card">Underestimating buildout and improvement costs</article>
+            <article class="lease-guide-mini-card">Not negotiating terms</article>
+            <article class="lease-guide-mini-card">Choosing a location that does not fit the business</article>
+            <article class="lease-guide-mini-card">Ignoring parking, access, loading, or customer convenience</article>
+            <article class="lease-guide-mini-card">Not understanding who pays for repairs</article>
+            <article class="lease-guide-mini-card">Failing to involve the right broker, lawyer, or space planner early enough</article>
+            <article class="lease-guide-mini-card">Not planning for growth or flexibility</article>
+          </div>
+        </section>
+
+        <section id="faq" class="lease-guide-section">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+          <div class="lease-guide-faq">
+            {% for faq in faqs %}
+              <details>
+                <summary>{{ faq.question }}</summary>
+                <p>{{ faq.answer }}</p>
+              </details>
+            {% endfor %}
+          </div>
+        </section>
+      </main>
+
+      <aside class="lease-guide-sidebar">
+        <div class="lease-guide-sidebar__card">
+          <div class="eyebrow">Helpful Links</div>
+          <a href="/markets/">Browse markets</a>
+          <a href="/commercial-real-estate/market-guides/">Read market guides</a>
+          <a href="/partner-with-rofo/">Partner with Rofo</a>
+        </div>
+        <div class="lease-guide-sidebar__card lease-guide-sidebar__card--strong">
+          <h3>Need help now?</h3>
+          <p>Tell us what you need and Rofo can help you compare next steps.</p>
+          <a class="btn-primary" href="#lease-guide-contact">Get help finding space</a>
+        </div>
+      </aside>
+    </div>
+
+    <section id="lease-guide-contact" class="lease-guide-contact">
+      <div class="cta-band">
+        <div class="kicker">Get Help</div>
+        <h2>Need help finding the right commercial space?</h2>
+        <p class="cta-band__lead">
+          Tell us what you are looking for and Rofo can help you compare options, understand the market, and connect with the right local resources.
+        </p>
+        <div class="cta-band__prompts">
+          <div class="cta-band__prompt">
+            <strong>Space type</strong>
+            <span>Office, retail, industrial, flex, or coworking</span>
+          </div>
+          <div class="cta-band__prompt">
+            <strong>Market</strong>
+            <span>Your target city or nearby options</span>
+          </div>
+          <div class="cta-band__prompt">
+            <strong>Size</strong>
+            <span>A rough range is enough to start</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="eyebrow">Get Help</div>
+        <h2>Get help finding space</h2>
+        <p>Share a few details and we will help point you in the right direction.</p>
+
+        <form action="/api/leads/submit" method="POST">
+          <input type="hidden" name="source" value="rofo-lease-guide">
+          <input type="hidden" name="page_type" value="lease-guide">
+          <input type="hidden" name="lead_type" value="guide">
+          <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
+          <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
+          <input type="hidden" name="routing_market" value="">
+          <input type="hidden" name="routing_county" value="">
+          <input type="hidden" name="routing_space_type" value="">
+          <input type="hidden" name="routing_candidates" value="rofo-default">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+          <input type="text" name="company_website" style="display:none;">
+          <input type="hidden" name="form_start_time" value="">
+          <script>
+            document.currentScript.previousElementSibling.value = Date.now();
+          </script>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="lease-guide-name">Name</label>
+              <input id="lease-guide-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="lease-guide-email">Email</label>
+              <input id="lease-guide-email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="lease-guide-phone">Phone</label>
+              <input id="lease-guide-phone" name="phone" type="tel" placeholder="Your phone number" required>
+            </div>
+            <div class="field">
+              <label for="lease-guide-location">City or market</label>
+              <input id="lease-guide-location" name="location" type="text" placeholder="San Francisco, CA" required>
+            </div>
+            <div class="field">
+              <label for="lease-guide-space-type">Space type</label>
+              <select id="lease-guide-space-type" name="space_type" required>
+                <option value="">Select one</option>
+                <option>Office Space</option>
+                <option>Retail Space</option>
+                <option>Industrial Space</option>
+                <option>Coworking Space</option>
+                <option>Flex Space</option>
+                <option>Not Sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="lease-guide-size">Space size</label>
+              <select id="lease-guide-size" name="space_needed" required>
+                <option value="">Select one</option>
+                <option>Under 1,000 sqft</option>
+                <option value="1,000–2,500 sqft">1,000 to 2,500 sqft</option>
+                <option value="2,500–5,000 sqft">2,500 to 5,000 sqft</option>
+                <option value="5,000–10,000 sqft">5,000 to 10,000 sqft</option>
+                <option>10,000+ sqft</option>
+                <option>Not Sure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-stack">
+            <div class="field">
+              <label for="lease-guide-notes">Other requirements for your space <span class="optional">(optional)</span></label>
+              <textarea id="lease-guide-notes" name="notes" placeholder="Tell us about location, timing, layout, or anything else that matters"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <label class="checkbox">
+              <input type="checkbox" name="human_check" required>
+              I’m a real person looking for space
+            </label>
+            <button class="btn-primary" type="submit">Get help finding space</button>
+            <div class="form-note">
+              No spam. Just helpful options to get you started.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</section>
