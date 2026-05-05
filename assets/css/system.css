@@ -2448,6 +2448,11 @@ section.market-page--space-type .market-links a {
   margin: 0 auto;
 }
 
+.lease-guide-page .breadcrumbs {
+  padding-left: clamp(28px, 5vw, 54px);
+  margin-bottom: 16px;
+}
+
 .lease-guide-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
@@ -2774,6 +2779,10 @@ section.market-page--space-type .market-links a {
 @media (max-width: 720px) {
   .lease-guide-shell {
     width: min(100% - 32px, 1180px);
+  }
+
+  .lease-guide-page .breadcrumbs {
+    padding-left: 0;
   }
 
   .lease-guide-grid,
