@@ -1,4 +1,5 @@
 const buildings = require("./buildings.js");
+const buildingEnrichment = require("./buildingEnrichment.js");
 
 const uniqueBuildings = buildings.filter((building, index, arr) => {
   const key = [
@@ -33,6 +34,51 @@ function buildingIdentity(building) {
     String(building.city_slug || "").toLowerCase(),
     String(building.building_slug || "").toLowerCase(),
   ].join("|");
+}
+
+function enrichmentKey(building) {
+  const state = String(building.state_abbr || "").toLowerCase();
+  const city = String(building.city_slug || "").toLowerCase();
+  const address = buildingEnrichment.normalizeAddress(building.address);
+  const slug = String(building.building_slug || "").toLowerCase();
+
+  return [
+    address ? `${state}|${city}|${address}` : "",
+    slug ? `${state}|${city}|${slug}` : "",
+  ].filter(Boolean);
+}
+
+function getEnrichment(building) {
+  return enrichmentKey(building)
+    .map((key) => buildingEnrichment[key])
+    .find(Boolean);
+}
+
+function mergeUnique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function applyEnrichment(building) {
+  const enrichment = getEnrichment(building);
+  if (!enrichment) return building;
+
+  const enrichmentTags = enrichment.inferred_tenant_types || [];
+  const bestFor = mergeUnique([...(building.best_for || []), ...enrichmentTags]);
+
+  return {
+    ...building,
+    has_availability: Boolean(enrichment.has_availability),
+    availability_count: enrichment.availability_count || 0,
+    enrichment_description: enrichment.description_snippet || "",
+    enrichment_image: enrichment.image_url || "",
+    enrichment_tags: enrichmentTags,
+    virtual_tour_url: enrichment.virtual_tour_url || "",
+    enrichment_source: enrichment.source || "",
+    enrichment_source_url: enrichment.source_url || "",
+    building_description: enrichment.description_snippet || building.building_description,
+    hero_image: enrichment.image_url || building.hero_image,
+    best_for: bestFor.length ? bestFor : building.best_for,
+  };
 }
 
 function relatedBuildingSummary(building) {
@@ -71,7 +117,9 @@ function getRelatedBuildings(building) {
   return [...sameType, ...fallback].slice(0, 5).map(relatedBuildingSummary);
 }
 
-module.exports = uniqueBuildings.map((building) => ({
-  ...building,
-  related_buildings: getRelatedBuildings(building),
-}));
+module.exports = uniqueBuildings.map((building) =>
+  applyEnrichment({
+    ...building,
+    related_buildings: getRelatedBuildings(building),
+  })
+);
