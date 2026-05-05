@@ -809,6 +809,12 @@ function getTenantConfirmationDetails(lead) {
 function buildTenantConfirmationText(lead) {
   const firstName = getTenantFirstName(lead.name);
   const details = getTenantConfirmationDetails(lead);
+  const guideLines = [
+    "While you wait, this guide may help you evaluate your options:",
+    "",
+    "The Ultimate Guide to Leasing Commercial Space",
+    "https://www.rofo.com/commercial-real-estate/lease-guide/",
+  ];
 
   if (!details.hasKeyDetails) {
     return [
@@ -819,6 +825,8 @@ function buildTenantConfirmationText(lead) {
       "A local commercial real estate professional will review your request and follow up shortly if there's a good fit.",
       "",
       "If anything has changed, or if you want to add more detail, you can simply reply to this email.",
+      "",
+      ...guideLines,
       "",
       "Thanks,",
       "Rofo",
@@ -845,6 +853,8 @@ function buildTenantConfirmationText(lead) {
     "A local commercial real estate professional will review your request and follow up shortly if there's a good fit.",
     "",
     "If anything has changed, or if you want to add more detail, you can simply reply to this email.",
+    "",
+    ...guideLines,
     "",
     "Thanks,",
     "Rofo",
@@ -892,6 +902,8 @@ function buildTenantConfirmationHtml(lead) {
                 </div>` : ""}
                 <p style="margin:0 0 14px;">A local commercial real estate professional will review your request and follow up shortly if there's a good fit.</p>
                 <p style="margin:0 0 18px;">If anything has changed, or if you want to add more detail, you can simply reply to this email.</p>
+                <p style="margin:0 0 8px;color:#475569;">While you wait, this guide may help you evaluate your options:</p>
+                <p style="margin:0 0 18px;"><a href="https://www.rofo.com/commercial-real-estate/lease-guide/" style="color:#1346d8;font-weight:700;text-decoration:none;">The Ultimate Guide to Leasing Commercial Space</a></p>
                 <p style="margin:0;">Thanks,<br>Rofo<br><span style="color:#64748b;">Commercial real estate search guidance since 2007</span></p>
               </td>
             </tr>
