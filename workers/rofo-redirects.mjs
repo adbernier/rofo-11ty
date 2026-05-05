@@ -117,7 +117,8 @@ const STATE_ABBREVIATIONS = new Set([
         }
       }
 
-      // Old city buildings index like /commercial-real-estate/OH/amelia/buildings/
+      // City buildings index like /commercial-real-estate/OH/Amelia/buildings/
+      // Normalize city casing, but allow current canonical /buildings/ pages to render.
       const buildingsIndexMatch = path.match(
         /^\/commercial-real-estate\/([A-Z]{2})\/([^\/]+)\/buildings\/?$/
       );
@@ -125,8 +126,11 @@ const STATE_ABBREVIATIONS = new Set([
       if (buildingsIndexMatch && STATE_ABBREVIATIONS.has(buildingsIndexMatch[1])) {
         const state = buildingsIndexMatch[1];
         const city = buildingsIndexMatch[2].toLowerCase();
+        const canonicalPath = `/commercial-real-estate/${state}/${city}/buildings/`;
 
-        return redirectTo(url, `/commercial-real-estate/${state}/${city}/`);
+        if (path !== canonicalPath) {
+          return redirectTo(url, canonicalPath);
+        }
       }
 
       // Old listing URL like /listings/OR/Portland/50-SW-2nd-Ave-52772.html
