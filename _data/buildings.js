@@ -1,5 +1,6 @@
 const legacyBuildings = require("../data-sources/reference/buildings-live-before-merge.json");
 const companyBuildings = require("../data-sources/reference/company-buildings.json");
+const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
@@ -68,7 +69,7 @@ function looksLikeRealBuildingName(name, address) {
 
   const addr = clean(address);
   if (addr && value.toLowerCase() === addr.toLowerCase()) return false;
-  if (/^\d+[a-z]?\s+/i.test(value)) return false;
+  if (/^\d+[a-z]?\s+.*\b(st|street|ave|avenue|rd|road|pkwy|parkway|blvd|boulevard|dr|drive|ln|lane|way)\b/i.test(value)) return false;
   if (/^(n\/a|na|unknown|property|building)$/i.test(value)) return false;
   if (value.length < 4) return false;
 
@@ -380,6 +381,8 @@ function getLocationContext(city, city_slug, primaryType) {
 }
 
 function buildingKey(building) {
+  if (building.merge_key) return String(building.merge_key).toLowerCase();
+
   return [
     normalizeAddress(building),
     normalizeCity(building),
@@ -484,6 +487,18 @@ for (const building of legacyBuildings) {
 
 for (const building of companyBuildings) {
   const normalized = normalizeBuilding(building, "company");
+  const key = buildingKey(normalized);
+  if (!key) continue;
+
+  const existing = merged.get(key);
+
+  if (!existing || scoreBuilding(normalized) > scoreBuilding(existing)) {
+    merged.set(key, normalized);
+  }
+}
+
+for (const building of approvedAvailabilityBuildings) {
+  const normalized = normalizeBuilding(building, "approved-availability");
   const key = buildingKey(normalized);
   if (!key) continue;
 

@@ -3,14 +3,11 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const STAGING_FILES = [
-  path.join(ROOT, "raw/availability-intake/highwoods-atlanta.csv"),
+  path.join(ROOT, "raw/availability-intake/highwoods-atlanta-buildings.approved.csv"),
 ];
 
-// Review gate: staging rows are ignored unless marked needs_review=false
-// or approved here while the intake workflow is still review-only.
-const MANUALLY_APPROVED_BUILDING_KEYS = new Set([
-  "ga|atlanta|3500-lenox-rd-ne",
-]);
+// Review gate: this module reads only approved building-level promotion files.
+// Suite-level staging files should not feed public page enrichment directly.
 
 function clean(value) {
   return String(value || "").trim();
@@ -113,14 +110,12 @@ function buildingKey(row) {
 
 function rowIsApproved(row) {
   const needsReview = clean(row.needs_review).toLowerCase();
-  const approved = clean(row.enrichment_approved || row.approved || row.manually_approved).toLowerCase();
-  const key = buildingKey(row);
+  const approved = clean(row.reviewed || row.enrichment_approved || row.approved || row.manually_approved).toLowerCase();
 
   return (
     needsReview === "false" ||
     approved === "true" ||
-    approved === "yes" ||
-    MANUALLY_APPROVED_BUILDING_KEYS.has(key)
+    approved === "yes"
   );
 }
 
@@ -185,18 +180,25 @@ function firstValue(rows, field) {
 }
 
 function buildEntry(key, rows) {
-  const sizeSignals = [...new Set(rows.map((row) => sizeSignal(row.size_sf)).filter(Boolean))];
-  const tenantTypes = [...new Set(rows.flatMap((row) => inferTenantTypes(row.availability_notes)))];
-  const description = cleanDescription(firstValue(rows, "availability_notes"));
+  const sizeSignals = [...new Set(rows.flatMap((row) => [
+    sizeSignal(row.min_size_sf),
+    sizeSignal(row.max_size_sf),
+    sizeSignal(row.size_sf),
+  ]).filter(Boolean))];
+  const tenantTypes = [...new Set(rows.flatMap((row) =>
+    inferTenantTypes(`${row.description_snippet || ""} ${row.availability_notes || ""}`)
+  ))];
+  const description = firstValue(rows, "description_snippet") || cleanDescription(firstValue(rows, "availability_notes"));
   const imageUrl = firstValue(rows, "image_url");
-  const virtualTourUrl = rows.map((row) => extractVirtualTourUrl(row.availability_notes)).find(Boolean) || "";
+  const virtualTourUrl = firstValue(rows, "virtual_tour_url") || rows.map((row) => extractVirtualTourUrl(row.availability_notes)).find(Boolean) || "";
   const sourceUrl = firstValue(rows, "source_url");
   const sourceName = firstValue(rows, "source_name") || firstValue(rows, "company");
+  const explicitCount = Number(firstValue(rows, "availability_count") || 0);
 
   return {
     building_key: key,
     has_availability: rows.length >= 1,
-    availability_count: rows.length,
+    availability_count: explicitCount || rows.length,
     size_signals: sizeSignals,
     inferred_tenant_types: tenantTypes,
     description_snippet: description,
