@@ -1,0 +1,348 @@
+---
+layout: base.njk
+permalink: /prototype/neighborhoods/financial-district-san-francisco/
+eleventyExcludeFromCollections: true
+title: "Financial District, San Francisco Business District Prototype | Rofo"
+description: "A Rofo prototype page for understanding the Financial District as a business location, including tenant fit, building environment, access, nearby districts, and representative buildings."
+---
+
+{% set crumbs = [
+  { "label": "Home", "url": "/" },
+  { "label": "Financial District, San Francisco", "url": "/prototype/neighborhoods/financial-district-san-francisco/" }
+] %}
+
+{% set bestFits = [
+  "Professional services",
+  "Finance and advisory teams",
+  "Legal practices",
+  "Consultants",
+  "Client-facing startups",
+  "Transit-oriented teams"
+] %}
+
+{% set quickFitGroups = [
+  {
+    "title": "Best Fit For",
+    "items": [
+      "Law firms",
+      "Financial services",
+      "Consultants",
+      "Client-facing teams",
+      "Downtown satellite offices",
+      "Teams prioritizing transit access"
+    ]
+  },
+  {
+    "title": "Good Match If You Need",
+    "items": [
+      "Easy client access",
+      "Downtown credibility",
+      "BART/Muni proximity",
+      "Professional office environment",
+      "Walkable lunch/meeting options"
+    ]
+  }
+] %}
+
+{% set nearbyFitItems = [
+  { "need": "More creative/loft feel", "district": "Jackson Square or SoMa" },
+  { "need": "Larger tech-oriented floorplates", "district": "SoMa" },
+  { "need": "Biotech/lab ecosystem", "district": "Mission Bay" },
+  { "need": "More parking-flexible options", "district": "compare outside the downtown core" }
+] %}
+
+{% set workspaceTypes = [
+  { "title": "High-rise office towers", "body": "A fit for established teams that need a professional lobby, meeting infrastructure, and a formal client arrival experience." },
+  { "title": "Historic downtown buildings", "body": "Useful for firms that want downtown access with more character than a conventional tower environment." },
+  { "title": "Boutique office pockets", "body": "Most relevant near Jackson Square and the northern Financial District, where smaller firms can stay close to the core." },
+  { "title": "Service and support retail", "body": "Customer-facing uses here often serve the downtown workday, business visitors, and nearby office population." }
+] %}
+
+{% set accessItems = [
+  { "title": "BART and Muni", "body": "Good for regional and local commute patterns, especially when employees come from multiple parts of San Francisco and the Bay Area." },
+  { "title": "Ferry access", "body": "Can matter for some North Bay and East Bay commuters and for client visits tied to the waterfront." },
+  { "title": "Walking and bike access", "body": "A practical factor for employees living nearby or moving between downtown meetings." },
+  { "title": "Parking tradeoffs", "body": "Parking may be more expensive or less convenient than suburban markets, so teams should evaluate visitor and employee needs carefully." }
+] %}
+
+{% set dailyItems = [
+  "Coffee and lunch options for the workday",
+  "Hotels and meeting places for visiting clients",
+  "Gyms, errands, and business services nearby",
+  "Waterfront access and central downtown amenities",
+  "Convenient places for informal meetings",
+  "A recognizable setting for client-facing teams"
+] %}
+
+{% set comparisons = [
+  { "name": "Jackson Square", "type": "Adjacent boutique alternative", "body": "Choose Jackson Square when the business wants downtown access with smaller buildings, more character, and a quieter client-facing environment." },
+  { "name": "SoMa", "type": "Creative and technology alternative", "body": "Choose SoMa when flexible building styles, creative office, showroom, or startup-oriented space matter more than a traditional downtown address." },
+  { "name": "Union Square", "type": "Retail and hospitality comparison", "body": "Choose Union Square when visitor activity, hospitality, retail, and customer-facing downtown context are more central to the business." },
+  { "name": "Mission Bay", "type": "Modern office and life science comparison", "body": "Choose Mission Bay when newer buildings, medical or life science adjacency, and a different waterfront work environment are more important." }
+] %}
+
+{% set buildings = [
+  { "name": "44 Montgomery", "address": "44 Montgomery St", "reason": "A useful example of the larger professional office pattern near the center of the Financial District signal area." },
+  { "name": "The Russ Building", "address": "235 Montgomery St", "reason": "A recognizable historic downtown building that helps explain the established side of the district." },
+  { "name": "575 Market St", "address": "575 Market St", "reason": "Represents the Market Street edge where Financial District office patterns connect with SoMa and transit-oriented searches." },
+  { "name": "580 California", "address": "580 California St", "reason": "Reflects the traditional downtown office tower environment and institutional business address pattern." },
+  { "name": "One Sansome St", "address": "1 Sansome St", "reason": "Shows the central downtown mix of office and customer-facing business context near the core." },
+  { "name": "180 Montgomery St", "address": "180 Montgomery St", "reason": "A practical example of the dense professional building pattern around Montgomery Street." }
+] %}
+
+{% set spaceTypes = [
+  { "title": "Office", "body": "The primary space type here, especially for professional services, finance, legal, consulting, and client-facing companies." },
+  { "title": "Coworking", "body": "Useful for smaller teams that want a downtown address or meeting access without planning a full traditional office." },
+  { "title": "Retail and service", "body": "Most relevant for businesses that support downtown employees, visitors, and weekday customer patterns." },
+  { "title": "Boutique professional", "body": "A fit for design, advisory, consulting, and appointment-based firms that want a smaller downtown environment." }
+] %}
+
+<section class="city-page neighborhood-prototype">
+  <div class="city-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="neighborhood-prototype__notice">
+      Controlled prototype page. This is not linked from navigation or sitemap, and it does not represent live inventory.
+    </div>
+
+    <section class="neighborhood-hero city-card">
+      <div class="neighborhood-hero__content">
+        <div class="eyebrow">Business District Prototype</div>
+        <h1>San Francisco Financial District</h1>
+        <p class="lead">
+          A central business district for teams that value client access, transit options, professional image, and proximity to other downtown firms and services.
+        </p>
+        <div class="neighborhood-chip-row" aria-label="Best fit businesses">
+          {% for fit in bestFits %}
+            <span class="neighborhood-chip">{{ fit }}</span>
+          {% endfor %}
+        </div>
+        <div class="neighborhood-hero__actions">
+          <a class="btn-primary" href="#neighborhood-cta">Compare this district</a>
+          <a class="btn-secondary" href="#nearby-districts">Nearby districts</a>
+        </div>
+      </div>
+      <aside class="neighborhood-hero__panel">
+        <div class="stat-label">Nearby districts to compare</div>
+        <ul class="mini-list">
+          <li>Jackson Square for a more boutique downtown environment</li>
+          <li>SoMa for creative, technology, and flexible workspace patterns</li>
+          <li>Union Square for retail, hospitality, and visitor-facing context</li>
+          <li>Mission Bay for newer buildings and life science adjacency</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="neighborhood-layout">
+      <aside class="neighborhood-sidebar">
+        <section class="city-card neighborhood-sticky-card" id="neighborhood-cta">
+          <div class="eyebrow">Get Guidance</div>
+          <h2>Tell us what kind of environment you're looking for</h2>
+          <p>
+            We'll help compare the Financial District with nearby options like Jackson Square, SoMa, and Mission Bay. This does not imply live availability.
+          </p>
+          <form class="neighborhood-prototype-form" aria-label="Prototype neighborhood guidance form">
+            <div class="field">
+              <label for="neighborhood-name">Name</label>
+              <input id="neighborhood-name" type="text" name="name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="neighborhood-email">Email</label>
+              <input id="neighborhood-email" type="email" name="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="neighborhood-phone">Phone</label>
+              <input id="neighborhood-phone" type="tel" name="phone" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="neighborhood-company">Company</label>
+              <input id="neighborhood-company" type="text" name="company" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="neighborhood-size">Approximate size</label>
+              <select id="neighborhood-size" name="space_needed">
+                <option value="">Select a range</option>
+                <option>Under 1,000 sqft</option>
+                <option>1,000-2,500 sqft</option>
+                <option>2,500-5,000 sqft</option>
+                <option>5,000-10,000 sqft</option>
+                <option>10,000+ sqft</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="neighborhood-timing">Desired timing</label>
+              <select id="neighborhood-timing" name="timing">
+                <option value="">Select timing</option>
+                <option>Now</option>
+                <option>Next 3 months</option>
+                <option>3-6 months</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="neighborhood-requirements">What kind of space/environment are you looking for?</label>
+              <textarea id="neighborhood-requirements" name="requirements" rows="4"></textarea>
+            </div>
+            <button class="btn-primary" type="button">Get neighborhood guidance</button>
+            <p class="form-note">
+              Static prototype form. Later this could be wired into Rofo's lead workflow with district metadata.
+            </p>
+          </form>
+        </section>
+      </aside>
+
+      <main class="neighborhood-main">
+        <section class="city-card neighborhood-fit-card">
+          <div class="eyebrow">Best Fit</div>
+          <h2>Is the Financial District a good fit?</h2>
+          <div class="neighborhood-fit-grid">
+            {% for group in quickFitGroups %}
+              <article class="neighborhood-fit-group">
+                <h3>{{ group.title }}</h3>
+                <div class="neighborhood-fit-chip-row">
+                  {% for item in group.items %}
+                    <span>{{ item }}</span>
+                  {% endfor %}
+                </div>
+              </article>
+            {% endfor %}
+            <article class="neighborhood-fit-group neighborhood-fit-group--wide">
+              <h3>Consider Nearby Districts If You Need</h3>
+              <ul class="neighborhood-fit-list">
+                {% for item in nearbyFitItems %}
+                  <li><strong>{{ item.need }}</strong> <span aria-hidden="true">&rarr;</span> {{ item.district }}</li>
+                {% endfor %}
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Decision Fit</div>
+          <h2>Why businesses choose the Financial District</h2>
+          <p>
+            Businesses choose the Financial District when the address and surrounding environment matter as much as the space itself. The district can reduce friction for meetings because clients, advisors, partners, banks, lawyers, accountants, and consultants are often already moving through downtown San Francisco.
+          </p>
+          <p>
+            For teams, the district offers a traditional downtown work environment. That can help companies that want a recognizable address, a more formal client impression, and access to a larger base of professional office buildings.
+          </p>
+          <div class="neighborhood-callout">
+            The main tenant question is fit: does a central business address and transit-heavy environment matter more than parking ease, production space, or a more creative neighborhood feel?
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Workspace Environment</div>
+          <h2>Building styles and workspace environment</h2>
+          <p>
+            The Financial District has one of San Francisco's clearest office identities. The building environment includes high-rise office towers, older downtown commercial buildings, historic properties, and smaller boutique office options near Jackson Square and the northern edge of the district.
+          </p>
+          <div class="neighborhood-card-grid">
+            {% for item in workspaceTypes %}
+              <article class="neighborhood-mini-card">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.body }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Access</div>
+          <h2>Transit, parking, and accessibility</h2>
+          <p>
+            Access is one of the main reasons companies evaluate the Financial District. The location can support employees, clients, and visitors coming from different parts of the city and region, but parking-sensitive businesses should evaluate tradeoffs carefully.
+          </p>
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            {% for item in accessItems %}
+              <article class="neighborhood-mini-card">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.body }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Daily Experience</div>
+          <h2>Food, amenities, and the workday</h2>
+          <p>
+            The daily experience around the office affects whether a location works after move-in. In the Financial District, convenience is the business point: nearby services can make meetings, errands, client visits, and employee workdays easier.
+          </p>
+          <div class="neighborhood-check-grid">
+            {% for item in dailyItems %}
+              <div class="neighborhood-check-item">{{ item }}</div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card" id="nearby-districts">
+          <div class="eyebrow">Compare Districts</div>
+          <h2>Nearby district comparisons</h2>
+          <p>
+            Most tenants should compare the Financial District with nearby business districts before choosing a location. The right answer depends on client access, building style, daily experience, and how the team works.
+          </p>
+          <div class="neighborhood-comparison-grid">
+            {% for item in comparisons %}
+              <article class="neighborhood-comparison-card">
+                <div class="stat-label">{{ item.type }}</div>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.body }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Representative Buildings</div>
+          <h2>Examples of the district's building fabric</h2>
+          <p>
+            These buildings are representative examples selected from historical Rofo building and activity signals. They are not presented as current options, and this page intentionally avoids suite, pricing, or inventory claims.
+          </p>
+          <div class="neighborhood-building-list">
+            {% for building in buildings %}
+              <article class="neighborhood-building-card">
+                <div>
+                  <h3>{{ building.name }}</h3>
+                  <p class="neighborhood-building-card__address">{{ building.address }}</p>
+                </div>
+                <p>{{ building.reason }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Space Types</div>
+          <h2>Common space types in this district</h2>
+          <div class="neighborhood-card-grid">
+            {% for item in spaceTypes %}
+              <article class="neighborhood-mini-card">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.body }}</p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Market Context</div>
+          <h2>Leasing patterns and tradeoffs</h2>
+          <p>
+            Rofo's historical building and activity signals show meaningful commercial intensity in the Financial District. In the prototype dataset, the district has 274 assigned representative building records, 164 buildings with active historical signals, and 1,812 total historical activity signals.
+          </p>
+          <p>
+            These signals help explain the district's role as a traditional downtown office market. They do not describe today's options. They should be used as context for building patterns, tenant fit, and nearby comparison, not as an inventory count.
+          </p>
+          <ul class="guide-list">
+            <li>Strong central address versus potential parking friction.</li>
+            <li>Professional image versus a less creative neighborhood feel.</li>
+            <li>Large tower inventory versus boutique buildings nearby.</li>
+            <li>Client access versus employee preference for other districts.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</section>
