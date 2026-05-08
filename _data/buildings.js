@@ -4,6 +4,13 @@ const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.j
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
+let semanticBuildingIdLookup = {};
+try {
+  semanticBuildingIdLookup = require("../data/peter/derived/production_building_semantic_id_lookup.json");
+} catch (error) {
+  semanticBuildingIdLookup = {};
+}
+
 function clean(value) {
   return String(value || "").trim();
 }
@@ -380,6 +387,11 @@ function getLocationContext(city, city_slug, primaryType) {
   return typeContext[primaryType] || typeContext.commercial;
 }
 
+function getSemanticSourceBuildingId(buildingPath) {
+  const match = semanticBuildingIdLookup[buildingPath];
+  return match ? clean(match.semantic_source_building_id) : "";
+}
+
 function buildingKey(building) {
   if (building.merge_key) return String(building.merge_key).toLowerCase();
 
@@ -402,6 +414,9 @@ function normalizeBuilding(building, source) {
   const primaryType = getPrimaryBuildingType(building, typeSet);
   const typeMeta = TYPE_META[primaryType] || TYPE_META.commercial;
   const buildingLabel = getBuildingLabel(building, address);
+  const building_path =
+    building.building_path ||
+    `/commercial-real-estate/building/${state_abbr}/${city_slug}/${building_slug}/`;
   const spaceTypeUrl = typeMeta.slug
     ? `/commercial-real-estate/${state_abbr}/${city_slug}/${typeMeta.slug}/`
     : "";
@@ -430,9 +445,13 @@ function normalizeBuilding(building, source) {
     building_slug,
     city_state_slug,
 
-    building_path:
-      building.building_path ||
-      `/commercial-real-estate/building/${state_abbr}/${city_slug}/${building_slug}/`,
+    building_path,
+    semantic_source_building_id:
+      clean(building.semantic_source_building_id) ||
+      clean(building.legacy_building_id) ||
+      clean(building.building_id) ||
+      clean(building.b_id) ||
+      getSemanticSourceBuildingId(building_path),
 
     type: clean(building.type || building.space_type) || "Commercial Space",
     size_label: clean(building.size_label || building.size) || "",

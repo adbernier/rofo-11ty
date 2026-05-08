@@ -14,6 +14,7 @@ eleventyComputed:
 
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
+{% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
@@ -112,6 +113,20 @@ eleventyComputed:
             <a class="building-link" href="{{ building.virtual_tour_url }}">View virtual tour</a>
           {% endif %}
         </div>
+
+        {% if semanticEnvironment and semanticEnvironment.building_path == building.building_path %}
+          <section class="building-card semantic-building-card">
+            <div class="eyebrow">Building Environment</div>
+            <h2>Building Environment</h2>
+            <div class="semantic-chip-row">
+              {% for label in semanticEnvironment.signal_labels %}
+                <span class="semantic-chip">{{ label }}</span>
+              {% endfor %}
+            </div>
+            <p>{{ semanticEnvironment.context_sentence }}</p>
+            <p class="semantic-footnote">Historical signals do not indicate current availability.</p>
+          </section>
+        {% endif %}
 
         {% if building.best_for and building.best_for.length %}
           <section class="building-card">

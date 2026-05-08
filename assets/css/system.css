@@ -151,6 +151,37 @@ a:hover {
   height: 100%;
 }
 
+.semantic-building-card {
+  border-color: #d7e3f4;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.semantic-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 14px;
+}
+
+.semantic-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--rofo-pill-radius);
+  border: 1px solid #cfe0f5;
+  background: #eef6ff;
+  color: #1d4f8f;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 11px;
+}
+
+.semantic-footnote {
+  color: var(--rofo-muted);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
 .building-card__link {
   display: block;
   text-decoration: none;
