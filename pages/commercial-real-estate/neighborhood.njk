@@ -1,0 +1,214 @@
+---
+layout: base.njk
+pagination:
+  data: neighborhoodPages
+  size: 1
+  alias: neighborhood
+permalink: "{{ neighborhood.canonical_neighborhood_path }}"
+eleventyComputed:
+  title: "Commercial Real Estate in {{ neighborhood.name }}, {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
+  description: "Explore commercial real estate context, buildings, and common business environments in {{ neighborhood.name }}, {{ neighborhood.city }}."
+  canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
+  robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
+---
+
+{% set crumbs = [
+  { "label": "Markets", "url": "/markets/" },
+  { "label": neighborhood.city + ", " + neighborhood.state_abbr, "url": "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" },
+  { "label": neighborhood.name, "url": neighborhood.canonical_neighborhood_path }
+] %}
+{% set hasSignals = neighborhood.approximate_semantic_signals and neighborhood.approximate_semantic_signals.length %}
+{% set hasBuildings = neighborhood.representative_buildings and neighborhood.representative_buildings.length %}
+{% set hasNearby = neighborhood.nearby_neighborhoods and neighborhood.nearby_neighborhoods.length %}
+{% set hasSpaceTypes = neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
+{% set cityUrl = "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" %}
+
+<section class="city-page neighborhood-public neighborhood-page-review">
+  <div class="city-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="city-hero">
+      <div class="city-card">
+        <div class="city-hero-copy">
+          <div class="eyebrow">Neighborhood Guide</div>
+          <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
+          <p class="lead">
+            {{ neighborhood.name }} is a commercial district within {{ neighborhood.city }}, with building context, nearby market connections, and space-type patterns worth comparing as you evaluate location fit.
+          </p>
+          <div class="pill-row">
+            <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
+            <span class="pill">Business District</span>
+            {% if neighborhood.approximate_building_count %}
+              <span class="pill">{{ neighborhood.approximate_building_count }} representative buildings</span>
+            {% endif %}
+          </div>
+          <div class="button-row">
+            <a class="btn-primary" href="{{ cityUrl }}">View broader {{ neighborhood.city }} market</a>
+            <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="city-sidecard neighborhood-review-note">
+        <div class="eyebrow">Neighborhood Context</div>
+        <h2>{{ neighborhood.name }} in context</h2>
+        <p>
+          This page highlights commercial buildings and broader market context associated with {{ neighborhood.name }} within {{ neighborhood.city }}.
+        </p>
+        <p>Building associations are based on available location data.</p>
+      </div>
+    </div>
+
+    <div class="neighborhood-layout">
+      <div class="neighborhood-main">
+        <section class="city-card">
+          <div class="eyebrow">Neighborhood Overview</div>
+          <h2>{{ neighborhood.name }} commercial context</h2>
+          <p>
+            This guide brings together neighborhood-level commercial context, representative building examples, nearby districts, and broader {{ neighborhood.city }} market links.
+            It is designed to help businesses compare location fit without implying current availability.
+          </p>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Common Commercial Signals</div>
+          <h2>Context signals for {{ neighborhood.name }}</h2>
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            <div class="neighborhood-mini-card">
+              <h3>Building context</h3>
+              <p>{{ neighborhood.approximate_building_count }} representative commercial building records</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Common space types</h3>
+              <p>
+                {% if hasSpaceTypes %}
+                  {% for type in neighborhood.approximate_space_types %}
+                    {{ type | capitalize }}{% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                {% else %}
+                  Broader commercial space patterns
+                {% endif %}
+              </p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Nearby districts</h3>
+              <p>
+                {% if hasNearby %}
+                  {{ neighborhood.nearby_neighborhoods.length }} nearby areas to compare
+                {% else %}
+                  Broader {{ neighborhood.city }} market comparison
+                {% endif %}
+              </p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Market category</h3>
+              <p>{{ neighborhood.city }} business district context</p>
+            </div>
+          </div>
+
+          {% if hasSignals %}
+            <div class="semantic-chip-row neighborhood-chip-row">
+              {% for signal in neighborhood.approximate_semantic_signals %}
+                <span class="semantic-chip">{{ signal }}</span>
+              {% endfor %}
+            </div>
+            <p class="semantic-footnote">
+              Common signals may reflect historical or contextual patterns. They do not represent live availability.
+            </p>
+          {% else %}
+            <div class="neighborhood-context-fallback">
+              <h3>Commercial context</h3>
+              <p>
+                This neighborhood guide groups commercial context by location, space type, and the broader {{ neighborhood.city }} market.
+              </p>
+            </div>
+          {% endif %}
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Buildings to Explore</div>
+          <h2>Representative buildings associated with {{ neighborhood.name }}</h2>
+          <p>
+            Representative commercial buildings associated with {{ neighborhood.name }}. Building selection is based on available location and market data.
+          </p>
+
+          {% if hasBuildings %}
+            <div class="building-grid neighborhood-building-grid">
+              {% for b in neighborhood.representative_buildings %}
+                {% set building = b %}
+                {% include "partials/shared/building-card-compact.njk" %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>Representative building examples are not available for this neighborhood yet.</p>
+          {% endif %}
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Related Space Types</div>
+          <h2>Commercial space types to compare</h2>
+          <p>
+            These broader commercial categories may be relevant when comparing {{ neighborhood.name }} within the {{ neighborhood.city }} market.
+          </p>
+          {% if neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
+            <div class="pill-row">
+              {% for type in neighborhood.approximate_space_types %}
+                <a class="pill" href="{{ cityUrl }}{{ type }}-space/">{{ type | capitalize }} space</a>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No space-type pattern is available yet.</p>
+          {% endif %}
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Nearby Neighborhoods</div>
+          <h2>Nearby areas to compare</h2>
+          <p>
+            Nearby areas can help frame how {{ neighborhood.name }} fits into the broader {{ neighborhood.city }} commercial market.
+          </p>
+          {% if hasNearby %}
+            <div class="neighborhood-comparison-grid">
+              {% for nearby in neighborhood.nearby_neighborhoods %}
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ nearby.url }}">
+                  <h3>{{ nearby.name }}</h3>
+                  <p>{{ nearby.city }}, {{ nearby.state_abbr }}</p>
+                </a>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No nearby first-wave neighborhoods are available yet.</p>
+          {% endif %}
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Broader Market</div>
+          <h2>Compare the broader {{ neighborhood.city }} market</h2>
+          <p>
+            Use the broader city page and market guide to compare {{ neighborhood.name }} with other parts of {{ neighborhood.city }}.
+          </p>
+          <div class="button-row">
+            <a class="btn-primary" href="{{ cityUrl }}">Explore {{ neighborhood.city }}</a>
+            <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read the {{ neighborhood.city }} market guide</a>
+          </div>
+        </section>
+      </div>
+
+      <aside class="neighborhood-sidebar">
+        <div class="city-card neighborhood-sticky-card">
+          <div class="eyebrow">Neighborhood Context</div>
+          <h2>{{ neighborhood.name }} context</h2>
+          <p>
+            Use this page as a starting point for comparing {{ neighborhood.name }} with other parts of {{ neighborhood.city }}.
+          </p>
+          <ul class="mini-list">
+            <li>Broader {{ neighborhood.city }} market links</li>
+            <li>Representative building examples</li>
+            <li>Nearby district comparisons</li>
+            <li>Related commercial space categories</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

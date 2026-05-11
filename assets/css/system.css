@@ -2461,7 +2461,8 @@ section.market-page--space-type .market-links a {
    NEIGHBORHOOD PROTOTYPE
    ========================= */
 
-.neighborhood-prototype {
+.neighborhood-prototype,
+.neighborhood-public {
   padding: 8px 0 64px;
   background:
     radial-gradient(circle at top left, rgba(19, 70, 216, 0.08), transparent 32rem),
@@ -2478,7 +2479,8 @@ section.market-page--space-type .market-links a {
   font-size: 0.92rem;
 }
 
-.neighborhood-prototype .breadcrumbs {
+.neighborhood-prototype .breadcrumbs,
+.neighborhood-public .breadcrumbs {
   margin-top: 4px;
 }
 
@@ -2561,15 +2563,18 @@ section.market-page--space-type .market-links a {
   grid-area: sidebar;
 }
 
-.neighborhood-prototype .city-card {
+.neighborhood-prototype .city-card,
+.neighborhood-public .city-card {
   border-radius: 18px;
 }
 
-.neighborhood-prototype .city-card h2 {
+.neighborhood-prototype .city-card h2,
+.neighborhood-public .city-card h2 {
   max-width: 22ch;
 }
 
-.neighborhood-prototype .city-card p {
+.neighborhood-prototype .city-card p,
+.neighborhood-public .city-card p {
   max-width: 76ch;
 }
 
@@ -2733,6 +2738,89 @@ section.market-page--space-type .market-links a {
   margin-top: 18px;
 }
 
+.neighborhood-page-review .neighborhood-review-note h2 {
+  max-width: none;
+}
+
+.neighborhood-page-review .neighborhood-chip-row {
+  margin-top: 18px;
+}
+
+.neighborhood-page-review .neighborhood-building-grid {
+  margin-top: 18px;
+}
+
+.neighborhood-page-review .neighborhood-context-fallback {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dbe3ee;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.neighborhood-page-review .neighborhood-context-fallback h3 {
+  margin: 0 0 8px;
+}
+
+.neighborhood-page-review .neighborhood-context-fallback p {
+  margin: 0;
+}
+
+.neighborhood-page-review .neighborhood-link-card {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.neighborhood-page-review .neighborhood-link-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
+}
+
+.neighborhood-page-review .neighborhood-link-card:hover h3,
+.neighborhood-page-review .neighborhood-link-card:focus-visible h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.neighborhood-page-review .pill[href]:hover,
+.neighborhood-page-review .pill[href]:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.city-neighborhood-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.city-neighborhood-link-list a {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dbe3ee;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #1e3a8a;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 9px 12px;
+  text-decoration: none;
+}
+
+.city-neighborhood-link-list a:hover {
+  border-color: #bfdbfe;
+  background: #eef6ff;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .neighborhood-building-card {
   display: grid;
   grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
@@ -2811,12 +2899,14 @@ section.market-page--space-type .market-links a {
 }
 
 @media (max-width: 680px) {
-  .neighborhood-prototype {
+  .neighborhood-prototype,
+  .neighborhood-public {
     padding-bottom: 48px;
   }
 
   .neighborhood-hero,
-  .neighborhood-prototype .city-card {
+  .neighborhood-prototype .city-card,
+  .neighborhood-public .city-card {
     padding: 20px;
   }
 

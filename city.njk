@@ -56,6 +56,12 @@ eleventyComputed:
 {% endfor %}
 {% set cityMarketGuideKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" %}
 {% set cityMarketGuide = marketGuideLookup[cityMarketGuideKey] %}
+{% set cityNeighborhoods = [] %}
+{% for neighborhood in neighborhoodPages %}
+  {% if neighborhood.city_slug == city.slug and neighborhood.state_abbr == city.state_abbr and not neighborhood.noindex %}
+    {% set cityNeighborhoods = (cityNeighborhoods.push(neighborhood), cityNeighborhoods) %}
+  {% endif %}
+{% endfor %}
 {% set snapshotItems = [] %}
 {% set marketSnapshot = city.market_snapshot or {} %}
 {% set snapshotTitle = marketSnapshot.snapshot_title or city.snapshot_title or "Market Snapshot" %}
@@ -165,6 +171,19 @@ eleventyComputed:
                 See leasing trends, average rents, neighborhood notes, and nearby market comparisons for {{ city.city }}.
               </p>
               <a class="building-link" href="{{ cityMarketGuide.url }}">View the {{ city.city }} Market Guide →</a>
+            </div>
+          {% endif %}
+
+          {% if cityNeighborhoods.length %}
+            <div class="city-card city-neighborhoods-card">
+              <div class="eyebrow">Neighborhoods</div>
+              <h2>Explore neighborhoods</h2>
+              <p>Browse commercial real estate by neighborhood and business district.</p>
+              <div class="city-neighborhood-link-list">
+                {% for neighborhood in cityNeighborhoods %}
+                  <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
+                {% endfor %}
+              </div>
             </div>
           {% endif %}
 

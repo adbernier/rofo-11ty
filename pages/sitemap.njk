@@ -48,6 +48,14 @@ eleventyExcludeFromCollections: true
   {% endif %}
   {% endfor %}
 
+  {% for neighborhood in neighborhoodPages %}
+  {% if neighborhood.canonical_neighborhood_path and not neighborhood.noindex %}
+  <url>
+    <loc>{{ siteUrl }}{{ neighborhood.canonical_neighborhood_path }}</loc>
+  </url>
+  {% endif %}
+  {% endfor %}
+
   {% set buildingUrls = [] %}
   {% for building in buildings %}
   {% set buildingLoc = siteUrl + "/commercial-real-estate/building/" + building.state_abbr + "/" + building.city_slug + "/" + building.building_slug + "/" %}
