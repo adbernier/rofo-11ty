@@ -1,4 +1,4 @@
-const candidates = require("../data/peter/normalized/ecosystem_building_activation_review_batch1.json");
+const candidates = require("../data/peter/prototypes/ecosystem_building_activation_review_batch1.json");
 
 function clean(value) {
   return String(value || "").trim();

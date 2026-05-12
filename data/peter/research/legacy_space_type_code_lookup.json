@@ -1,0 +1,145 @@
+{
+  "0": {
+    "numeric_code": 0,
+    "public_safe_category": "other/unknown",
+    "legacy_label_guess": "unknown / unset",
+    "estimated_listing_count": 171,
+    "confidence": "low",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile"
+    ],
+    "evidence": "Very small listing count. Lead text is mixed and sparse; no durable category pattern.",
+    "notes": "Treat as unset or unknown. Do not use for public categorization."
+  },
+  "1": {
+    "numeric_code": 1,
+    "public_safe_category": "office",
+    "legacy_label_guess": "office",
+    "estimated_listing_count": 1205090,
+    "confidence": "high",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "data/peter/derived/raw_listing_descriptions_sample.csv",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Largest code. Lead messages are heavily office-oriented; raw rich samples include private office, executive suite, business center, and office-for-lease examples. Prior semantic workflow labeled code 1 as office.",
+    "notes": "Use as office for public-safe expansion scoring. Coworking/executive-suite language may appear inside this code and should be handled by semantic text extraction, not numeric code alone."
+  },
+  "2": {
+    "numeric_code": 2,
+    "public_safe_category": "retail",
+    "legacy_label_guess": "retail",
+    "estimated_listing_count": 726872,
+    "confidence": "high",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "data/peter/derived/raw_listing_descriptions_sample.csv",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Lead messages have the strongest retail/storefront/restaurant keyword concentration among common codes. Listing profile is mostly NNN lease/sale, consistent with retail property economics. Prior semantic workflow labeled code 2 as retail.",
+    "notes": "Use as retail. Some office and mixed-use examples appear, so text signals should still refine final categorization."
+  },
+  "3": {
+    "numeric_code": 3,
+    "public_safe_category": "industrial",
+    "legacy_label_guess": "industrial",
+    "estimated_listing_count": 368663,
+    "confidence": "high",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "data/peter/derived/raw_listing_descriptions_sample.csv",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Lead messages show the strongest warehouse, industrial, loading, distribution, and larger-square-footage pattern among common codes. Listing square-footage distribution is materially larger than office/retail. Prior semantic workflow labeled code 3 as industrial.",
+    "notes": "Use as industrial. Flex/R&D and showroom-warehouse needs may be present inside this code and should be refined with text signals."
+  },
+  "8": {
+    "numeric_code": 8,
+    "public_safe_category": "land",
+    "legacy_label_guess": "land / land-other",
+    "estimated_listing_count": 621403,
+    "confidence": "high",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "data/peter/derived/raw_listing_descriptions_sample.csv",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Raw rich samples for code 8 are land/redevelopment tracts. Lead keyword profile has the strongest land keyword concentration among uncommon codes. Listing profile is sale-heavy with many zero or very large square-footage values. Prior semantic workflow labeled code 8 as land/other.",
+    "notes": "Use as land when building expansion logic needs a public-safe category. Exclude from building-page style inventory unless the page model supports land explicitly."
+  },
+  "9": {
+    "numeric_code": 9,
+    "public_safe_category": "other/unknown",
+    "legacy_label_guess": "specialty",
+    "estimated_listing_count": 209,
+    "confidence": "low",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Very small listing count and mixed lead text. Prior semantic workflow labeled it specialty, but the category is not specific enough for public grouping.",
+    "notes": "Keep as other/unknown until legacy application constants are recovered."
+  },
+  "10": {
+    "numeric_code": 10,
+    "public_safe_category": "other/unknown",
+    "legacy_label_guess": "other / investment-oriented",
+    "estimated_listing_count": 252815,
+    "confidence": "medium",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/derived/raw_listing_descriptions_sample.csv",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Mostly SALE records with total price selection and unknown price type. Rich samples include apartment, waterfront development, and investment-oriented property copy rather than a durable tenant space type.",
+    "notes": "Do not map to office/retail/industrial/flex/coworking/medical/land without more evidence. Public-safe category should remain other/unknown."
+  },
+  "11": {
+    "numeric_code": 11,
+    "public_safe_category": "other/unknown",
+    "legacy_label_guess": "hospitality / special use",
+    "estimated_listing_count": 273,
+    "confidence": "low",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Tiny sale-heavy code. Lead samples include function/event and hotel-like requests, but volume is too low for reliable public categorization.",
+    "notes": "Keep as other/unknown. If hospitality becomes a future public category, revisit."
+  },
+  "12": {
+    "numeric_code": 12,
+    "public_safe_category": "flex",
+    "legacy_label_guess": "flex / mixed commercial",
+    "estimated_listing_count": 29221,
+    "confidence": "medium",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Prior semantic workflow labeled code 12 as flex/mixed. Lead keyword profile is mixed across office, retail, warehouse, industrial, studio, and flexible-use language rather than a clean single-use type.",
+    "notes": "Usable as flex for coarse scoring, but treat as medium-confidence mixed/flex. Do not expose unsupported specific claims without text confirmation."
+  },
+  "13": {
+    "numeric_code": 13,
+    "public_safe_category": "other/unknown",
+    "legacy_label_guess": "ambiguous; prior workflow guessed coworking/executive suite",
+    "estimated_listing_count": 60210,
+    "confidence": "low",
+    "evidence_source": [
+      "data/peter/raw/rofo_listings.csv aggregate profile",
+      "data/peter/raw/rofo_leads.csv keyword profile",
+      "scripts/peter/build_building_semantic_identity.py prior label"
+    ],
+    "evidence": "Prior semantic workflow guessed coworking/executive suite, but listing profile is overwhelmingly SALE-oriented and the available lead/text evidence does not support a reliable coworking mapping.",
+    "notes": "Keep as other/unknown for now. Coworking should be extracted from rich text/operator signals such as executive suite, coworking, shared office, serviced office, Regus, or WeWork."
+  }
+}
