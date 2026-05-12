@@ -67,6 +67,16 @@ eleventyExcludeFromCollections: true
   {% endif %}
   {% endfor %}
 
+  {% for building in ecosystemPublicBuildings %}
+  {% set buildingLoc = siteUrl + building.canonical_path %}
+  {% if building.canonical_path and buildingLoc not in buildingUrls %}
+  <url>
+    <loc>{{ buildingLoc }}</loc>
+  </url>
+  {% set buildingUrls = (buildingUrls.push(buildingLoc), buildingUrls) %}
+  {% endif %}
+  {% endfor %}
+
   {% for company in companies %}
   <url>
     <loc>{{ siteUrl }}/commercial-real-estate/company/{{ company.slug }}/</loc>

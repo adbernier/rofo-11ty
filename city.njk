@@ -62,6 +62,12 @@ eleventyComputed:
     {% set cityNeighborhoods = (cityNeighborhoods.push(neighborhood), cityNeighborhoods) %}
   {% endif %}
 {% endfor %}
+{% set cityEcosystemBuildings = [] %}
+{% for building in ecosystemPublicBuildings %}
+  {% if building.city_slug == city.slug and building.state_abbr == city.state_abbr %}
+    {% set cityEcosystemBuildings = (cityEcosystemBuildings.push(building), cityEcosystemBuildings) %}
+  {% endif %}
+{% endfor %}
 {% set snapshotItems = [] %}
 {% set marketSnapshot = city.market_snapshot or {} %}
 {% set snapshotTitle = marketSnapshot.snapshot_title or city.snapshot_title or "Market Snapshot" %}
@@ -211,6 +217,24 @@ eleventyComputed:
                 <a href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
                   Browse all buildings in {{ city.city }} →
                 </a>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if cityEcosystemBuildings.length %}
+            <div class="city-card city-buildings-card">
+              <div class="eyebrow">Buildings to Explore</div>
+              <h2>More buildings to explore in {{ city.city }}</h2>
+              <p>
+                Browse selected commercial building pages in {{ city.city }} for broader market context.
+              </p>
+              <div class="related-building-list">
+                {% for building in cityEcosystemBuildings %}
+                  <a class="related-building-card" href="{{ building.canonical_path }}">
+                    <span class="related-building-card__title">{{ building.display_title }}</span>
+                    <span class="related-building-card__meta">{{ building.profile_label }}</span>
+                  </a>
+                {% endfor %}
               </div>
             </div>
           {% endif %}

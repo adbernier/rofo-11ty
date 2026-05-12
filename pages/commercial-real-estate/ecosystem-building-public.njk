@@ -1,0 +1,193 @@
+---
+layout: base.njk
+pagination:
+  data: ecosystemPublicBuildings
+  size: 1
+  alias: building
+permalink: "{{ building.canonical_path }}"
+eleventyComputed:
+  title: "{{ building.display_title }} in {{ building.city }}, {{ building.state_abbr }} | Commercial Real Estate | Rofo"
+  description: "Explore commercial real estate near {{ building.display_title }} in {{ building.city }}, {{ building.state_abbr }}."
+  canonical: "{{ metadata.siteUrl }}{{ building.canonical_path }}"
+---
+
+{% set cityUrl = building.city_url %}
+{% set marketGuideUrl = building.market_guide_url %}
+{% set crumbs = [
+  { "label": "Markets", "url": "/markets/" },
+  { "label": building.city + ", " + building.state_abbr, "url": cityUrl },
+  { "label": building.display_title, "url": building.canonical_path }
+] %}
+
+<section class="building-page ecosystem-building-page">
+  <div class="building-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="building-hero">
+      <div class="building-card">
+        <div class="eyebrow">Building Area</div>
+        <h1>{{ building.display_title }}</h1>
+        <p class="lead">
+          Commercial real estate near {{ building.display_title }} in {{ building.city }}, {{ building.state_abbr }}.
+        </p>
+        <p class="lead">
+          Explore nearby buildings, related commercial space types, and the broader {{ building.city }} business market.
+        </p>
+        <div class="pill-row">
+          <span class="pill">{{ building.city }}, {{ building.state_abbr }}</span>
+          <span class="pill">{{ building.profile_label }}</span>
+          {% for item in building.space_types %}
+            {% if loop.index <= 2 %}
+              <span class="pill">{{ item.label }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <aside class="building-card">
+        <div class="eyebrow">Market Context</div>
+        <h2>Part of the {{ building.city }} market</h2>
+        <p>
+          Use this page as a starting point for comparing this address with nearby buildings and commercial areas in {{ building.city }}.
+        </p>
+        <p class="semantic-footnote">
+          This page is for market exploration and does not indicate current availability.
+        </p>
+      </aside>
+    </div>
+
+    <div class="stats-grid">
+      <div class="building-stat">
+        <div class="stat-label">Location</div>
+        <div class="stat-value">{{ building.address }}</div>
+        <p class="stat-note">{{ building.city }}, {{ building.state_abbr }}</p>
+      </div>
+      <div class="building-stat">
+        <div class="stat-label">Market</div>
+        <div class="stat-value">{{ building.city }}</div>
+        <p class="stat-note">Broader commercial market</p>
+      </div>
+      <div class="building-stat">
+        <div class="stat-label">Profile</div>
+        <div class="stat-value">{{ building.profile_label }}</div>
+        <p class="stat-note">Commercial context</p>
+      </div>
+      <div class="building-stat">
+        <div class="stat-label">Space Types</div>
+        <div class="stat-value">{{ building.space_type_phrase | capitalize }}</div>
+        <p class="stat-note">Related market categories</p>
+      </div>
+    </div>
+
+    <div class="building-main">
+      <div class="stack">
+        <section class="building-card">
+          <div class="eyebrow">Building Overview</div>
+          <h2>Commercial real estate near {{ building.display_title }}</h2>
+          <p>
+            {{ building.display_title }} is part of the broader {{ building.city }} commercial real estate market. Use this page to compare the surrounding area, related space types, and nearby commercial buildings.
+          </p>
+          <p>
+            The page focuses on commercial location context rather than listing details.
+          </p>
+        </section>
+
+        <section class="building-card">
+          <div class="eyebrow">Commercial Profile</div>
+          <h2>{{ building.profile_label }}</h2>
+          <p>
+            This address is grouped with {{ building.space_type_phrase }} commercial context in the {{ building.city }} market.
+          </p>
+          {% if building.space_types and building.space_types.length %}
+            <div class="semantic-chip-row">
+              {% for item in building.space_types %}
+                <span class="semantic-chip">{{ item.label }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <p class="semantic-footnote">
+            Commercial context does not indicate current availability.
+          </p>
+        </section>
+
+        {% if building.space_types and building.space_types.length %}
+          <section class="building-card">
+            <div class="eyebrow">Related Space Types</div>
+            <h2>Related commercial categories</h2>
+            <p>
+              Use the broader {{ building.city }} market pages to compare related commercial space categories.
+            </p>
+            <div class="pill-row">
+              {% for item in building.space_types %}
+                {% if item.url_slug %}
+                  <a class="pill" href="{{ cityUrl }}{{ item.url_slug }}/">{{ item.label }} space</a>
+                {% else %}
+                  <span class="pill">{{ item.label }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if building.nearby_batch_buildings and building.nearby_batch_buildings.length %}
+          <section class="building-card">
+            <div class="eyebrow">Nearby Buildings</div>
+            <h2>Nearby commercial buildings in {{ building.city }}</h2>
+            <p>
+              Continue exploring nearby commercial buildings in the same market.
+            </p>
+            <div class="related-building-list">
+              {% for related in building.nearby_batch_buildings %}
+                <a class="related-building-card" href="{{ related.url }}">
+                  <span class="related-building-card__title">{{ related.title }}</span>
+                  <span class="related-building-card__meta">
+                    {{ related.market }} · {{ related.space_type_phrase }}
+                  </span>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      </div>
+
+      <aside class="stack">
+        <section class="building-card">
+          <div class="eyebrow">Explore The Market</div>
+          <h2>{{ building.city }} commercial real estate</h2>
+          <p>
+            Compare this address with the broader {{ building.city }} market and related space-type pages.
+          </p>
+          <div class="detail-list">
+            <div class="detail-row">
+              <div class="detail-label">City page</div>
+              <div class="detail-value"><a class="building-link" href="{{ cityUrl }}">View {{ building.city }}</a></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Market guide</div>
+              <div class="detail-value"><a class="building-link" href="{{ marketGuideUrl }}">Read market guide</a></div>
+            </div>
+          </div>
+        </section>
+
+        {% if building.space_types and building.space_types.length %}
+          <section class="building-card">
+            <div class="eyebrow">Related Space Types</div>
+            <h2>Explore related space</h2>
+            <div class="detail-list">
+              {% for item in building.space_types %}
+                {% if item.url_slug %}
+                  <div class="detail-row">
+                    <div class="detail-label">{{ item.label }}</div>
+                    <div class="detail-value">
+                      <a class="building-link" href="{{ cityUrl }}{{ item.url_slug }}/">{{ item.label }} space in {{ building.city }}</a>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
