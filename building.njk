@@ -114,6 +114,22 @@ eleventyComputed:
           {% endif %}
         </div>
 
+        {% if building.ecosystem_context %}
+          <section class="building-card">
+            <div class="eyebrow">Commercial Environment</div>
+            <h2>{{ building.ecosystem_context.profile_label }}</h2>
+            <p>{{ building.ecosystem_context.environment_sentence }}</p>
+            {% if building.ecosystem_context.space_types and building.ecosystem_context.space_types.length %}
+              <div class="semantic-chip-row">
+                {% for item in building.ecosystem_context.space_types %}
+                  <span class="semantic-chip">{{ item.label }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+            <p class="semantic-footnote">Commercial context does not indicate current availability.</p>
+          </section>
+        {% endif %}
+
         {% if semanticEnvironment and semanticEnvironment.building_path == building.building_path %}
           <section class="building-card semantic-building-card">
             <div class="eyebrow">Building Environment</div>

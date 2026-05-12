@@ -213,28 +213,18 @@ eleventyComputed:
                 {% endfor %}
               </div>
 
+              {% if cityEcosystemBuildings.length %}
+                <div class="buildings-explore-card__footer-link">
+                  {% for building in cityEcosystemBuildings %}
+                    <a href="{{ building.canonical_path }}">{{ building.display_title }}</a>{% if not loop.last %} · {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
               <div class="buildings-explore-card__footer-link">
                 <a href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
                   Browse all buildings in {{ city.city }} →
                 </a>
-              </div>
-            </div>
-          {% endif %}
-
-          {% if cityEcosystemBuildings.length %}
-            <div class="city-card city-buildings-card">
-              <div class="eyebrow">Buildings to Explore</div>
-              <h2>More buildings to explore in {{ city.city }}</h2>
-              <p>
-                Browse selected commercial building pages in {{ city.city }} for broader market context.
-              </p>
-              <div class="related-building-list">
-                {% for building in cityEcosystemBuildings %}
-                  <a class="related-building-card" href="{{ building.canonical_path }}">
-                    <span class="related-building-card__title">{{ building.display_title }}</span>
-                    <span class="related-building-card__meta">{{ building.profile_label }}</span>
-                  </a>
-                {% endfor %}
               </div>
             </div>
           {% endif %}

@@ -58,14 +58,45 @@ function typePhrase(types) {
 function profileLabel(types) {
   const keys = new Set(types.map((item) => item.type));
 
-  if (keys.has("industrial") && keys.has("office")) return "Mixed office and industrial setting";
-  if (keys.has("industrial")) return "Industrial and logistics-oriented setting";
-  if (keys.has("retail") && keys.has("office")) return "Mixed office and retail setting";
-  if (keys.has("retail")) return "Retail-oriented commercial setting";
-  if (keys.has("office")) return "Office-oriented commercial setting";
-  if (keys.has("flex")) return "Flexible commercial setting";
+  if (keys.has("industrial") && keys.has("office")) return "Office and light industrial area";
+  if (keys.has("industrial")) return "Industrial and service-area location";
+  if (keys.has("retail") && keys.has("office")) return "Retail and office corridor";
+  if (keys.has("retail")) return "Neighborhood-serving retail corridor";
+  if (keys.has("office")) return "Business-oriented office location";
+  if (keys.has("flex")) return "Flexible commercial area";
 
-  return "Commercial market context";
+  return "Commercial area";
+}
+
+function environmentSentence(building, types) {
+  const keys = new Set(types.map((item) => item.type));
+  const city = building.city;
+
+  if (keys.has("retail") && keys.has("office")) {
+    return `Located within a ${city} commercial corridor with nearby storefront, service, and office activity.`;
+  }
+
+  if (keys.has("industrial") && keys.has("office")) {
+    return `Part of a ${city} commercial area where office, service, and light industrial uses can sit near one another.`;
+  }
+
+  if (keys.has("industrial")) {
+    return `Located in a ${city} area with industrial, service, logistics, or operations-oriented commercial activity nearby.`;
+  }
+
+  if (keys.has("retail")) {
+    return `Part of a ${city} corridor with neighborhood-serving retail, service businesses, and other customer-facing commercial uses nearby.`;
+  }
+
+  if (keys.has("office")) {
+    return `Located in a ${city} business area with nearby office and professional commercial activity.`;
+  }
+
+  if (keys.has("flex")) {
+    return `Part of a ${city} commercial area where flexible office, service, and light operational uses may be compared nearby.`;
+  }
+
+  return `Part of the ${city} commercial real estate market, with nearby buildings and business areas to compare.`;
 }
 
 function cityKey(building) {
@@ -92,6 +123,7 @@ const pages = batch
       space_types: spaceTypes,
       space_type_phrase: typePhrase(spaceTypes),
       profile_label: profileLabel(spaceTypes),
+      environment_sentence: environmentSentence(building, spaceTypes),
     };
   });
 

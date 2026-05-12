@@ -1,6 +1,7 @@
 const legacyBuildings = require("../data-sources/reference/buildings-live-before-merge.json");
 const companyBuildings = require("../data-sources/reference/company-buildings.json");
 const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.js");
+const ecosystemPublicBuildings = require("./ecosystemPublicBuildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
@@ -526,6 +527,51 @@ for (const building of approvedAvailabilityBuildings) {
   if (!existing || scoreBuilding(normalized) > scoreBuilding(existing)) {
     merged.set(key, normalized);
   }
+}
+
+for (const building of ecosystemPublicBuildings) {
+  const normalized = normalizeBuilding(
+    {
+      address: building.address,
+      city: building.city,
+      state_abbr: building.state_abbr,
+      city_slug: building.city_slug,
+      building_slug: building.slug,
+      building_path: building.canonical_path,
+      type: building.space_types && building.space_types.length
+        ? building.space_types.map((item) => item.label).join(", ")
+        : "Commercial Space",
+      primary_space_type: building.space_types && building.space_types.length
+        ? building.space_types[0].label
+        : "Commercial Space",
+      raw_space_types: (building.space_types || []).map((item) => item.label),
+      building_description:
+        `${building.address} is located in ${building.city}, ${building.state_abbr}, within a ${building.profile_label.toLowerCase()}.`,
+      about_context:
+        `${building.environment_sentence} Review this address alongside nearby buildings, related space types, and the broader ${building.city} market.`,
+      location_context:
+        `${building.address} sits within the ${building.city} commercial real estate market. Nearby commercial activity includes ${building.space_type_phrase} properties and other business locations in the area.`,
+      common_fit: building.profile_label,
+      detail_summary: building.profile_label,
+      best_for: [
+        "Businesses comparing nearby commercial areas",
+        "Teams evaluating location and property type fit",
+        "Tenants reviewing options in the local market",
+      ],
+      ecosystem_context: {
+        profile_label: building.profile_label,
+        environment_sentence: building.environment_sentence,
+        space_type_phrase: building.space_type_phrase,
+        space_types: building.space_types,
+        nearby_batch_buildings: building.nearby_batch_buildings,
+      },
+    },
+    "ecosystem-public"
+  );
+  const key = buildingKey(normalized);
+  if (!key || merged.has(key)) continue;
+
+  merged.set(key, normalized);
 }
 
 const filtered = Array.from(merged.values()).filter(b => !isLand(b));
