@@ -1,5 +1,7 @@
 const buildings = require("./buildings.js");
 const buildingEnrichment = require("./buildingEnrichment.js");
+const commercialAreas = require("../data/peter/research/commercial_area_entities_v1.json");
+const commercialAreaRelationships = require("../data/peter/research/commercial_area_building_relationships_v1.json");
 
 const uniqueBuildings = buildings.filter((building, index, arr) => {
   const key = [
@@ -26,6 +28,15 @@ function cityKey(building) {
     String(building.state_abbr || "").toUpperCase(),
     String(building.city_slug || "").toLowerCase(),
   ].join("/");
+}
+
+function slugify(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function buildingIdentity(building) {
@@ -56,6 +67,27 @@ function getEnrichment(building) {
 
 function mergeUnique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+const commercialAreaById = new Map(commercialAreas.map((area) => [area.id, area]));
+const highConfidenceAreaByBuildingPath = new Map();
+
+for (const relationship of commercialAreaRelationships.relationships || []) {
+  if (relationship.confidence !== "high" || !relationship.building_path) continue;
+
+  const area = commercialAreaById.get(relationship.primary_area_id);
+  if (!area) continue;
+
+  highConfidenceAreaByBuildingPath.set(relationship.building_path, {
+    id: area.id,
+    name: area.canonical_name,
+    area_type: area.area_type,
+    city: area.city,
+    state_abbr: area.state_abbr,
+    path: `/commercial-real-estate/${area.state_abbr}/${slugify(area.city)}/${slugify(area.canonical_name)}/`,
+    confidence: relationship.confidence,
+    distance_to_centroid_km: relationship.distance_to_centroid_km,
+  });
 }
 
 function applyEnrichment(building) {
@@ -121,5 +153,6 @@ module.exports = uniqueBuildings.map((building) =>
   applyEnrichment({
     ...building,
     related_buildings: getRelatedBuildings(building),
+    commercial_area: highConfidenceAreaByBuildingPath.get(building.building_path) || null,
   })
 );

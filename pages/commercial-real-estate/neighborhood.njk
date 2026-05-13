@@ -22,6 +22,8 @@ eleventyComputed:
 {% set hasNearby = neighborhood.nearby_neighborhoods and neighborhood.nearby_neighborhoods.length %}
 {% set hasSpaceTypes = neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
 {% set cityUrl = "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" %}
+{% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
+{% set areaTermDisplay = areaTerm | capitalize %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -30,14 +32,14 @@ eleventyComputed:
     <div class="city-hero">
       <div class="city-card">
         <div class="city-hero-copy">
-          <div class="eyebrow">Neighborhood Guide</div>
+          <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
           <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
           <p class="lead">
-            Explore commercial buildings, nearby neighborhoods, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
+            Explore commercial buildings, nearby areas, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
           </p>
           <div class="pill-row">
             <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
-            <span class="pill">Neighborhood guide</span>
+            <span class="pill">{{ areaTermDisplay }} guide</span>
             {% if neighborhood.approximate_building_count %}
               <span class="pill">{{ neighborhood.approximate_building_count }} buildings</span>
             {% endif %}
@@ -50,7 +52,7 @@ eleventyComputed:
       </div>
 
       <div class="city-sidecard neighborhood-review-note">
-        <div class="eyebrow">Neighborhood Guide</div>
+        <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
         <h2>Explore {{ neighborhood.name }}</h2>
         <p>
           Use this page as a starting point for comparing {{ neighborhood.name }} with the broader {{ neighborhood.city }} commercial real estate market.
@@ -65,7 +67,7 @@ eleventyComputed:
           <h2>{{ neighborhood.name }} commercial real estate</h2>
           <p>
             {{ neighborhood.name }} is part of the broader {{ neighborhood.city }} commercial real estate market.
-            Use this page to compare buildings in the area, review related space types, and explore nearby neighborhoods.
+            Use this page to compare buildings in the area, review related space types, and explore nearby commercial areas.
           </p>
         </section>
 
@@ -90,10 +92,10 @@ eleventyComputed:
               </p>
             </div>
             <div class="neighborhood-mini-card">
-              <h3>Nearby neighborhoods</h3>
+              <h3>Nearby areas</h3>
               <p>
                 {% if hasNearby %}
-                  {{ neighborhood.nearby_neighborhoods.length }} nearby neighborhoods
+                  {{ neighborhood.nearby_neighborhoods.length }} nearby areas
                 {% else %}
                   Broader {{ neighborhood.city }} market
                 {% endif %}
@@ -114,7 +116,7 @@ eleventyComputed:
             <div class="neighborhood-context-fallback">
               <h3>Commercial context</h3>
               <p>
-                Review buildings, space types, and nearby neighborhoods as you compare {{ neighborhood.name }} with the broader {{ neighborhood.city }} market.
+                Review buildings, space types, and nearby areas as you compare {{ neighborhood.name }} with the broader {{ neighborhood.city }} market.
               </p>
             </div>
           {% endif %}
@@ -158,9 +160,9 @@ eleventyComputed:
 
         <section class="city-card">
           <div class="eyebrow">Nearby Neighborhoods</div>
-          <h2>Nearby neighborhoods</h2>
+          <h2>Nearby areas</h2>
           <p>
-            Compare {{ neighborhood.name }} with nearby {{ neighborhood.city }} neighborhoods.
+            Compare {{ neighborhood.name }} with nearby {{ neighborhood.city }} neighborhoods and commercial districts.
           </p>
           {% if hasNearby %}
             <div class="neighborhood-comparison-grid">
@@ -198,7 +200,7 @@ eleventyComputed:
           </p>
           <ul class="mini-list">
             <li>Buildings in this area</li>
-            <li>Nearby {{ neighborhood.city }} neighborhoods</li>
+            <li>Nearby {{ neighborhood.city }} areas</li>
             <li>Related commercial space types</li>
             <li>Broader {{ neighborhood.city }} market guide</li>
           </ul>

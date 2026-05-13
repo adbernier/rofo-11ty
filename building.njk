@@ -49,6 +49,9 @@ eleventyComputed:
           {% if building.has_availability %}
             <span class="pill">Availability signal</span>
           {% endif %}
+          {% if building.commercial_area %}
+            <a class="pill" href="{{ building.commercial_area.path }}">Located in {{ building.commercial_area.name }}</a>
+          {% endif %}
           <span class="pill">{{ building.city }}, {{ building.state_abbr }}</span>
         </div>
       </div>
@@ -160,6 +163,11 @@ eleventyComputed:
           <section class="building-card">
             <div class="eyebrow">Location Context</div>
             <h2>Where this property fits in {{ building.city }}</h2>
+            {% if building.commercial_area %}
+              <p>
+                Located in <a class="building-link" href="{{ building.commercial_area.path }}">{{ building.commercial_area.name }}</a>, this property can also be reviewed within the surrounding {{ building.commercial_area.area_type | replace("_", " ") }} context.
+              </p>
+            {% endif %}
             <p>{{ building.location_context }}</p>
           </section>
         {% endif %}
