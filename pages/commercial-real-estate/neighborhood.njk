@@ -22,6 +22,7 @@ eleventyComputed:
 {% set hasNearby = neighborhood.nearby_neighborhoods and neighborhood.nearby_neighborhoods.length %}
 {% set hasSpaceTypes = neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
 {% set cityUrl = "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" %}
+{% set cityLeadUrl = cityUrl + "?neighborhood_name=" + neighborhood.name + "&neighborhood_slug=" + neighborhood.slug + "&neighborhood_path=" + neighborhood.canonical_neighborhood_path + "&commercial_area_id=" + (neighborhood.commercial_area_id or "") + "&commercial_area_type=" + (neighborhood.commercial_area_type or "") + "#market-contact-form" %}
 {% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
 {% set areaTermDisplay = areaTerm | capitalize %}
 
@@ -141,7 +142,7 @@ eleventyComputed:
               Use this page as a starting point for comparing {{ neighborhood.name }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
             </p>
             <div class="button-row">
-              <a class="btn-primary" href="{{ cityUrl }}#market-contact-form">Get help exploring this area</a>
+              <a class="btn-primary" href="{{ cityLeadUrl }}">Get help exploring this area</a>
               <a class="btn-secondary" href="{{ cityUrl }}">View {{ neighborhood.city }} market</a>
             </div>
           {% endif %}

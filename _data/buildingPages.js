@@ -81,6 +81,7 @@ for (const relationship of commercialAreaRelationships.relationships || []) {
   highConfidenceAreaByBuildingPath.set(relationship.building_path, {
     id: area.id,
     name: area.canonical_name,
+    slug: slugify(area.canonical_name),
     area_type: area.area_type,
     city: area.city,
     state_abbr: area.state_abbr,
@@ -119,7 +120,7 @@ function relatedBuildingSummary(building) {
 
   return {
     address: building.address,
-    display_name: hasNoisyName ? building.address : displayName || building.address,
+    display_name: building.address || (hasNoisyName ? building.address : displayName),
     type: building.primary_type_label || building.type || "Commercial Space",
     size_label: building.size_label || "",
     building_path: building.building_path,

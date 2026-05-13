@@ -353,6 +353,11 @@ eleventyComputed:
             <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
             <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
             <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
+            <input type="hidden" name="neighborhood_name" value="">
+            <input type="hidden" name="neighborhood_slug" value="">
+            <input type="hidden" name="neighborhood_path" value="">
+            <input type="hidden" name="commercial_area_id" value="">
+            <input type="hidden" name="commercial_area_type" value="">
             <input type="hidden" name="routing_market" value="{{ city.routing_market }}">
             <input type="hidden" name="routing_county" value="{{ city.routing_county }}">
             <input type="hidden" name="routing_space_type" value="">
@@ -362,6 +367,23 @@ eleventyComputed:
             <input type="hidden" name="form_start_time" value="">
             <script>
               document.currentScript.previousElementSibling.value = Date.now();
+            </script>
+            <script>
+              (function () {
+                var params = new URLSearchParams(window.location.search);
+                [
+                  "neighborhood_name",
+                  "neighborhood_slug",
+                  "neighborhood_path",
+                  "commercial_area_id",
+                  "commercial_area_type"
+                ].forEach(function (fieldName) {
+                  var value = params.get(fieldName);
+                  if (!value) return;
+                  var field = document.querySelector('#market-contact-form [name="' + fieldName + '"]');
+                  if (field) field.value = value;
+                });
+              })();
             </script>
 
             <div class="form-stack">

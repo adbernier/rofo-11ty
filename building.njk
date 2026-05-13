@@ -297,6 +297,13 @@ eleventyComputed:
     <input type="hidden" name="building_source_companies" value="{{ (building.source_companies or []) | join(', ') }}" />
     <input type="hidden" name="building_space_types" value="{{ (building.space_types or []) | join(', ') }}" />
     <input type="hidden" name="is_exec_suite_present" value="{{ building.is_exec_suite_present or false }}" />
+    {% if building.commercial_area %}
+      <input type="hidden" name="neighborhood_name" value="{{ building.commercial_area.name or '' }}" />
+      <input type="hidden" name="neighborhood_slug" value="{{ building.commercial_area.slug or '' }}" />
+      <input type="hidden" name="neighborhood_path" value="{{ building.commercial_area.path or '' }}" />
+      <input type="hidden" name="commercial_area_id" value="{{ building.commercial_area.id or '' }}" />
+      <input type="hidden" name="commercial_area_type" value="{{ building.commercial_area.area_type or '' }}" />
+    {% endif %}
 
     <input type="hidden" name="routing_candidates" value="{{ building.routing_candidates | join(',') }}" />
     <input type="hidden" name="routing_market" value="{{ building.routing_market }}" />

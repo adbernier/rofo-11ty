@@ -129,6 +129,11 @@ export function buildLeadPayload(formFields, request) {
     page_type: normalizeField(formFields.page_type),
     page_url: normalizeField(formFields.page_url),
     rofo_source: normalizeField(formFields.rofo_source || formFields.page_url),
+    neighborhood_name: normalizeField(formFields.neighborhood_name),
+    neighborhood_slug: normalizeRouteValue(formFields.neighborhood_slug),
+    neighborhood_path: normalizeField(formFields.neighborhood_path),
+    commercial_area_id: normalizeField(formFields.commercial_area_id),
+    commercial_area_type: normalizeField(formFields.commercial_area_type),
     source: normalizeField(formFields.source || "rofo"),
     timestamp: now,
     status: "pending",
@@ -496,9 +501,13 @@ export function buildOfficeFinderPayload(lead, env) {
   const phone = normalizePhoneForOfficeFinder(lead.phone);
   const marketName = getMarketName(lead);
   const marketState = normalizeField(lead.state);
+  const neighborhoodContext = normalizeField(lead.neighborhood_name)
+    ? `Neighborhood/area context: ${normalizeField(lead.neighborhood_name)}${lead.city ? `, ${normalizeField(lead.city)}` : ""}.`
+    : "";
 
   const comments = [
     lead.requirements,
+    neighborhoodContext,
     lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
     spaceType && `Requested/page space type: ${spaceType}`,
     lead.page_type && `Page type: ${lead.page_type}`,
@@ -1169,6 +1178,9 @@ function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
     ? `<span style="color:#b45309;font-weight:700;">Missing: ${escapeHtml(officeFinderMissing.join(", "))}</span>`
     : `<span style="color:#047857;font-weight:700;">Complete</span>`;
   const requirements = lead.requirements || "(none provided)";
+  const neighborhoodContext = lead.neighborhood_name
+    ? `${lead.neighborhood_name}${lead.city ? `, ${lead.city}` : ""}`
+    : "";
 
   return `<!doctype html>
 <html>
@@ -1230,6 +1242,7 @@ function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
                     ${buildEmailField("State", escapeHtml(lead.state))}
                     ${buildEmailField("Space type", escapeHtml(spaceType))}
                     ${buildEmailField("Space needed", escapeHtml(lead.space_needed))}
+                    ${neighborhoodContext ? buildEmailField("Neighborhood / Area", escapeHtml(neighborhoodContext)) : ""}
                     ${buildEmailField("Page type", escapeHtml(lead.page_type))}
                     ${buildEmailField("Source", escapeHtml(lead.source))}
                     ${buildEmailField("Submitted", escapeHtml(submitted))}
@@ -1269,6 +1282,9 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
   const spaceType = lead.effective_space_type || lead.space_type || "space";
   const spam = detectPossibleSpam(lead);
   const actions = getApprovalActions(route, urls);
+  const neighborhoodContext = lead.neighborhood_name
+    ? `${lead.neighborhood_name}${lead.city ? `, ${lead.city}` : ""}`
+    : "";
 
   return [
     "NEW ROFO LEAD",
@@ -1296,6 +1312,7 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
     `State: ${lead.state || ""}`,
     `Space type: ${spaceType}`,
     `Space needed: ${lead.space_needed || ""}`,
+    neighborhoodContext ? `Neighborhood / Area: ${neighborhoodContext}` : "",
     `Page type: ${lead.page_type || ""}`,
     `Source: ${lead.source || ""}`,
     `Submitted: ${formatSubmittedDate(lead.timestamp) || lead.timestamp || ""}`,
@@ -1337,6 +1354,9 @@ export async function sendApprovalEmail(env, request, record, token) {
   const spaceType = lead.effective_space_type || lead.requested_space_type || lead.space_type || "";
   const subject = `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
   const requirements = lead.requirements || "(none provided)";
+  const neighborhoodContext = lead.neighborhood_name
+    ? `${lead.neighborhood_name}${lead.city ? `, ${lead.city}` : ""}`
+    : "";
   const text = [
     "NEW ROFO LEAD",
     "",
@@ -1345,6 +1365,7 @@ export async function sendApprovalEmail(env, request, record, token) {
     `Email: ${lead.email}`,
     `Phone: ${lead.phone}`,
     `Market: ${market}`,
+    neighborhoodContext ? `Neighborhood / Area: ${neighborhoodContext}` : "",
     `Space type: ${spaceType}`,
     `Space size: ${lead.space_needed || ""}`,
     lead.spam_score ? `Spam score: ${lead.spam_score}` : "",
@@ -1382,6 +1403,7 @@ export async function sendApprovalEmail(env, request, record, token) {
                   ${buildEmailField("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
                   ${buildEmailField("Phone", `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>`)}
                   ${buildEmailField("Market", escapeHtml(market))}
+                  ${neighborhoodContext ? buildEmailField("Neighborhood / Area", escapeHtml(neighborhoodContext)) : ""}
                   ${buildEmailField("Space type", escapeHtml(spaceType))}
                   ${buildEmailField("Space size", escapeHtml(lead.space_needed))}
                   ${lead.spam_score ? buildEmailField("Spam score", escapeHtml(lead.spam_score)) : ""}

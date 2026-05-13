@@ -1,6 +1,6 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set buildingPath = building.building_path %}
-{% set buildingTitle = building.display_name or building.address or building.name %}
+{% set buildingTitle = building.address or building.display_name or building.name %}
 
 <article class="building-card-compact">
 
