@@ -2824,6 +2824,44 @@ section.market-page--space-type .market-links a {
   text-underline-offset: 3px;
 }
 
+.city-neighborhoods-all {
+  margin-top: 14px;
+}
+
+.city-neighborhoods-all summary {
+  color: #1e3a8a;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.94rem;
+  font-weight: 800;
+  list-style: none;
+  text-decoration: none;
+}
+
+.city-neighborhoods-all summary::-webkit-details-marker {
+  display: none;
+}
+
+.city-neighborhoods-all summary::after {
+  content: "+";
+  margin-left: 8px;
+}
+
+.city-neighborhoods-all[open] summary::after {
+  content: "−";
+}
+
+.city-neighborhoods-all summary:hover,
+.city-neighborhoods-all summary:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.city-neighborhood-link-list--all {
+  margin-top: 12px;
+}
+
 .neighborhood-building-card {
   display: grid;
   grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);

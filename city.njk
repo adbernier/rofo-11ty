@@ -183,13 +183,25 @@ eleventyComputed:
           {% if cityNeighborhoods.length %}
             <div class="city-card city-neighborhoods-card">
               <div class="eyebrow">Neighborhoods</div>
-              <h2>Explore neighborhoods</h2>
-              <p>Browse commercial real estate by neighborhood and business district.</p>
+              <h2>Explore neighborhoods and commercial areas</h2>
+              <p>Compare neighborhoods, business districts, and commercial areas within {{ city.city }}.</p>
+              {% set visibleNeighborhoods = cityNeighborhoods.slice(0, 8) %}
+              {% set hiddenNeighborhoods = cityNeighborhoods.slice(8) %}
               <div class="city-neighborhood-link-list">
-                {% for neighborhood in cityNeighborhoods %}
+                {% for neighborhood in visibleNeighborhoods %}
                   <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
                 {% endfor %}
               </div>
+              {% if hiddenNeighborhoods.length %}
+                <details class="city-neighborhoods-all">
+                  <summary>View all neighborhoods</summary>
+                  <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
+                    {% for neighborhood in hiddenNeighborhoods %}
+                      <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
+                    {% endfor %}
+                  </div>
+                </details>
+              {% endif %}
             </div>
           {% endif %}
 

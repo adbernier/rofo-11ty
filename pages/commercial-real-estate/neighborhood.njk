@@ -124,12 +124,11 @@ eleventyComputed:
 
         <section class="city-card">
           <div class="eyebrow">Buildings to Explore</div>
-          <h2>Buildings in {{ neighborhood.name }}</h2>
-          <p>
-            Browse selected commercial buildings in {{ neighborhood.name }}.
-          </p>
-
           {% if hasBuildings %}
+            <h2>Buildings in {{ neighborhood.name }}</h2>
+            <p>
+              Browse selected commercial buildings in {{ neighborhood.name }}.
+            </p>
             <div class="building-grid neighborhood-building-grid">
               {% for b in neighborhood.representative_buildings %}
                 {% set building = b %}
@@ -137,7 +136,14 @@ eleventyComputed:
               {% endfor %}
             </div>
           {% else %}
-            <p>Representative building examples are not available for this neighborhood yet.</p>
+            <h2>Explore opportunities in {{ neighborhood.name }}</h2>
+            <p>
+              Use this page as a starting point for comparing {{ neighborhood.name }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
+            </p>
+            <div class="button-row">
+              <a class="btn-primary" href="{{ cityUrl }}#market-contact-form">Get help exploring this area</a>
+              <a class="btn-secondary" href="{{ cityUrl }}">View {{ neighborhood.city }} market</a>
+            </div>
           {% endif %}
         </section>
 
@@ -154,7 +160,7 @@ eleventyComputed:
               {% endfor %}
             </div>
           {% else %}
-            <p>No space-type pattern is available yet.</p>
+            <p>Explore office, retail, industrial, flex, and coworking options across the broader {{ neighborhood.city }} market.</p>
           {% endif %}
         </section>
 
@@ -174,7 +180,7 @@ eleventyComputed:
               {% endfor %}
             </div>
           {% else %}
-            <p>No nearby first-wave neighborhoods are available yet.</p>
+            <p>Use the broader {{ neighborhood.city }} market page to compare nearby commercial areas.</p>
           {% endif %}
         </section>
 

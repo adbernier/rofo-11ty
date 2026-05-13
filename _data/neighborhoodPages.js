@@ -188,14 +188,53 @@ function spaceTypesFor(areaId) {
   return [...new Set(values)];
 }
 
+function fallbackSpaceTypesFor(area) {
+  const profile = area.commercial_profile || [];
+  const values = [];
+
+  for (const tag of profile) {
+    if (["office", "retail", "industrial", "flex", "coworking"].includes(tag)) {
+      values.push(tag);
+    } else if (tag === "warehouse" || tag === "logistics") {
+      values.push("industrial");
+    } else if (tag === "neighborhood_retail" || tag === "showroom") {
+      values.push("retail");
+    } else if (
+      tag === "creative_office" ||
+      tag === "professional_services" ||
+      tag === "boutique_office" ||
+      tag === "enterprise_environment" ||
+      tag === "suburban_office"
+    ) {
+      values.push("office");
+    }
+  }
+
+  return [...new Set(values)];
+}
+
+function areaTypePriority(areaType) {
+  const priorities = {
+    downtown_core: 0,
+    district: 1,
+    submarket: 2,
+    corridor: 3,
+    neighborhood: 4,
+    industrial_area: 5,
+  };
+
+  return priorities[areaType] ?? 9;
+}
+
 function commercialPageFor(area) {
   const summary = areaSummaryById.get(area.id);
   const representative_buildings = representativeBuildingsFor(area.id);
 
-  if (!summary || !representative_buildings.length) return null;
-
   const canonical_neighborhood_path = areaPath(area);
   const areaTypeLabel = clean(area.area_type).replace(/_/g, " ");
+  const approximate_space_types = spaceTypesFor(area.id);
+  const fallback_space_types = fallbackSpaceTypesFor(area);
+  const relationshipCount = summary?.relationship_count || representative_buildings.length || 0;
 
   return {
     name: area.canonical_name,
@@ -208,8 +247,8 @@ function commercialPageFor(area) {
     centroid_lng: area.approximate_centroid?.lng || "",
     radius: "",
     geometry_quality: "commercial_area_entity",
-    approximate_building_count: summary.relationship_count,
-    approximate_space_types: spaceTypesFor(area.id),
+    approximate_building_count: relationshipCount,
+    approximate_space_types: approximate_space_types.length ? approximate_space_types : fallback_space_types,
     approximate_semantic_signals: (area.commercial_profile || []).map(signalLabel).slice(0, 8),
     representative_buildings,
     commercial_area_id: area.id,
@@ -222,6 +261,7 @@ function commercialPageFor(area) {
     public_review: false,
     public_phase_1: false,
     public_phase_2: true,
+    city_nav_priority: relationshipCount > 0 ? areaTypePriority(area.area_type) : areaTypePriority(area.area_type) + 4,
   };
 }
 
@@ -233,6 +273,7 @@ const existingPages = pages
     representative_buildings: (page.representative_buildings || []).map(
       normalizeRepresentativeBuilding
     ),
+    city_nav_priority: 3,
     prototype: true,
     public_review: false,
     public_phase_1: true,
@@ -258,6 +299,12 @@ for (const page of commercialPages) {
 const allPages = Array.from(allPagesByPath.values());
 
 for (const page of allPages) {
+  if (page.city_nav_priority == null) {
+    page.city_nav_priority = page.representative_buildings?.length ? 3 : 7;
+  }
+}
+
+for (const page of allPages) {
   const center = { lat: page.centroid_lat, lng: page.centroid_lng };
   page.nearby_neighborhoods = allPages
     .filter((candidate) =>
@@ -279,5 +326,8 @@ for (const page of allPages) {
 }
 
 module.exports = allPages.sort((a, b) =>
-  `${a.state_abbr} ${a.city} ${a.name}`.localeCompare(`${b.state_abbr} ${b.city} ${b.name}`)
+  `${a.state_abbr} ${a.city}`.localeCompare(`${b.state_abbr} ${b.city}`) ||
+  (a.city_nav_priority || 0) - (b.city_nav_priority || 0) ||
+  (b.approximate_building_count || 0) - (a.approximate_building_count || 0) ||
+  a.name.localeCompare(b.name)
 );
