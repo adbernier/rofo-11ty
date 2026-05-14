@@ -1645,5 +1645,1144 @@
     "recommended_status": "launch",
     "city_nav_priority": 8,
     "notes": "Recognized Dallas retail and restaurant district. No high-confidence representative building paths were attached in this pass."
+  },
+  {
+    "id": "sea-downtown-seattle",
+    "canonical_name": "Downtown Seattle",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "downtown_core",
+    "aliases": [
+      "Seattle CBD",
+      "Downtown"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6062,
+      "lng": -122.3321
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/107-spring-st/",
+      "/commercial-real-estate/building/WA/seattle/1201-3rd-ave/",
+      "/commercial-real-estate/building/WA/seattle/1201-second-avenue-suite-900/",
+      "/commercial-real-estate/building/WA/seattle/1420-fifth-avenue/",
+      "/commercial-real-estate/building/WA/seattle/1424-4th-ave/",
+      "/commercial-real-estate/building/WA/seattle/1601-2nd-ave/",
+      "/commercial-real-estate/building/WA/seattle/506-second-avenue/",
+      "/commercial-real-estate/building/WA/seattle/701-fifth-avenue/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized downtown commercial core. Representative buildings are central downtown office addresses."
+  },
+  {
+    "id": "sea-south-lake-union",
+    "canonical_name": "South Lake Union",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "SLU"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "official_neighborhood_plan",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6232,
+      "lng": -122.3367
+    },
+    "commercial_profile": [
+      "office",
+      "life_science",
+      "tech_startup",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized Seattle commercial and life science district. No current building paths were attached because the available Seattle building addresses do not clearly fall within SLU."
+  },
+  {
+    "id": "sea-denny-triangle",
+    "canonical_name": "Denny Triangle",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "Denny Triangle Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "official_north_downtown_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6165,
+      "lng": -122.3367
+    },
+    "commercial_profile": [
+      "office",
+      "mixed_use",
+      "tech_startup",
+      "downtown",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/600-stewart-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized North Downtown neighborhood. Single building inheritance is limited to a clear Stewart Street/Denny Triangle address."
+  },
+  {
+    "id": "sea-belltown",
+    "canonical_name": "Belltown",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Belltown Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "official_north_downtown_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6137,
+      "lng": -122.3454
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "waterfront",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized North Downtown neighborhood. Building inheritance deferred until stronger address-level matches are available."
+  },
+  {
+    "id": "sea-pioneer-square",
+    "canonical_name": "Pioneer Square",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "Pioneer Square Seattle"
+    ],
+    "source_types": [
+      "recognized_historic_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6015,
+      "lng": -122.3343
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "historic_building",
+      "creative_office",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+      "/commercial-real-estate/building/WA/seattle/450-alaskan-way-s/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized historic commercial district south of downtown. Representative buildings are clear Pioneer Square/Stadium District edge addresses."
+  },
+  {
+    "id": "sea-capitol-hill",
+    "canonical_name": "Capitol Hill",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Capitol Hill Seattle"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6253,
+      "lng": -122.3222
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "restaurant_food",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Seattle neighborhood with commercial corridors. No high-confidence current building paths were attached in this pass."
+  },
+  {
+    "id": "sea-ballard",
+    "canonical_name": "Ballard",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Ballard Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.668,
+      "lng": -122.386
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "neighborhood_retail",
+      "creative_office",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/1448-nw-market-st/",
+      "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Seattle neighborhood and commercial district. Representative buildings are Market Street and Leary Way addresses."
+  },
+  {
+    "id": "sea-fremont",
+    "canonical_name": "Fremont",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Fremont Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.651,
+      "lng": -122.35
+    },
+    "commercial_profile": [
+      "office",
+      "creative_office",
+      "retail",
+      "tech_startup",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized Seattle neighborhood and office/creative district. Building inheritance deferred until clear Fremont paths are available."
+  },
+  {
+    "id": "sea-university-district",
+    "canonical_name": "University District",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "U District",
+      "University District Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.6614,
+      "lng": -122.3139
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "medical",
+      "education",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Seattle district around the University of Washington. No high-confidence representative building paths were attached."
+  },
+  {
+    "id": "sea-northgate",
+    "canonical_name": "Northgate",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "Northgate Seattle"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.706,
+      "lng": -122.325
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "medical",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/10202-5th-ave-ne-2nd-floor/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized north Seattle commercial district. Single building inheritance is limited to an obvious Northgate-area address."
+  },
+  {
+    "id": "sea-sodo",
+    "canonical_name": "SoDo",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "industrial_area",
+    "aliases": [
+      "SODO",
+      "South of Downtown"
+    ],
+    "source_types": [
+      "recognized_industrial_area",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 47.585,
+      "lng": -122.333
+    },
+    "commercial_profile": [
+      "industrial",
+      "warehouse",
+      "logistics",
+      "office",
+      "freeway_access"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized industrial and stadium-area commercial district. No current building paths were attached to avoid overbroad assignment."
+  },
+  {
+    "id": "sea-waterfront",
+    "canonical_name": "Waterfront",
+    "city": "Seattle",
+    "state_abbr": "WA",
+    "area_type": "district",
+    "aliases": [
+      "Seattle Waterfront"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_downtown_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 47.607,
+      "lng": -122.342
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "tourism",
+      "waterfront",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/WA/seattle/2815-elliott-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized waterfront commercial district. Single building inheritance is limited to an Elliott Avenue waterfront/Belltown edge address."
+  },
+  {
+    "id": "bos-downtown-boston",
+    "canonical_name": "Downtown Boston",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "downtown_core",
+    "aliases": [
+      "Downtown",
+      "Boston CBD"
+    ],
+    "source_types": [
+      "official_neighborhood_context",
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3555,
+      "lng": -71.0572
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/1-beacon-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Officially recognized Boston neighborhood and central commercial area. Single downtown inheritance is limited to a clear central address not better assigned elsewhere."
+  },
+  {
+    "id": "bos-financial-district",
+    "canonical_name": "Financial District",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Boston Financial District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3552,
+      "lng": -71.055
+    },
+    "commercial_profile": [
+      "office",
+      "financial_services",
+      "professional_services",
+      "transit_oriented",
+      "downtown"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/1-lincoln-st/",
+      "/commercial-real-estate/building/MA/boston/33-arch-st/",
+      "/commercial-real-estate/building/MA/boston/101-arch-st/",
+      "/commercial-real-estate/building/MA/boston/101-federal-st/",
+      "/commercial-real-estate/building/MA/boston/75-state-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized Boston office and financial district. Representative buildings are clear Financial District office addresses."
+  },
+  {
+    "id": "bos-back-bay",
+    "canonical_name": "Back Bay",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Back Bay Boston"
+    ],
+    "source_types": [
+      "official_neighborhood_context",
+      "recognized_neighborhood",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3503,
+      "lng": -71.081
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "professional_services",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/177-huntington-ave/",
+      "/commercial-real-estate/building/MA/boston/361-newbury-st/",
+      "/commercial-real-estate/building/MA/boston/501-boylston-st/",
+      "/commercial-real-estate/building/MA/boston/75-arlington-st/",
+      "/commercial-real-estate/building/MA/boston/800-boylston-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Officially recognized Boston neighborhood with major office and retail corridors. Representative buildings are clear Back Bay addresses."
+  },
+  {
+    "id": "bos-seaport-district",
+    "canonical_name": "Seaport District",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Seaport",
+      "South Boston Waterfront"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3503,
+      "lng": -71.0437
+    },
+    "commercial_profile": [
+      "office",
+      "life_science",
+      "waterfront",
+      "mixed_use",
+      "tech_startup"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/1-marina-park-dr/",
+      "/commercial-real-estate/building/MA/boston/77-sleeper-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized Boston waterfront commercial district. Representative buildings are clear Seaport/Fort Point edge addresses."
+  },
+  {
+    "id": "bos-government-center",
+    "canonical_name": "Government Center",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Government Center Boston"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.359,
+      "lng": -71.059
+    },
+    "commercial_profile": [
+      "office",
+      "civic",
+      "professional_services",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/100-cambridge-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized civic and office district. Single building inheritance is limited to an obvious Cambridge Street/Government Center address."
+  },
+  {
+    "id": "bos-leather-district",
+    "canonical_name": "Leather District",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Leather District Boston"
+    ],
+    "source_types": [
+      "official_neighborhood_context",
+      "recognized_historic_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3507,
+      "lng": -71.0575
+    },
+    "commercial_profile": [
+      "office",
+      "historic_building",
+      "creative_office",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/711-atlantic-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Boston neighborhood/district near South Station. Single building inheritance is limited to a clear Atlantic Avenue address."
+  },
+  {
+    "id": "bos-north-station-west-end",
+    "canonical_name": "North Station / West End",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "North Station",
+      "West End"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 42.365,
+      "lng": -71.061
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/MA/boston/90-canal-st/",
+      "/commercial-real-estate/building/MA/boston/200-portland-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized North Station/West End commercial context. Representative buildings are clear Canal and Portland Street addresses."
+  },
+  {
+    "id": "bos-theater-district",
+    "canonical_name": "Theater District",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Theatre District"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_commercial_district",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3519,
+      "lng": -71.0642
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "restaurant_food",
+      "downtown",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized downtown Boston district. No representative building paths were attached in this pass."
+  },
+  {
+    "id": "bos-longwood-medical-area",
+    "canonical_name": "Longwood Medical Area",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "district",
+    "aliases": [
+      "Longwood",
+      "Longwood Medical and Academic Area"
+    ],
+    "source_types": [
+      "recognized_medical_district",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.337,
+      "lng": -71.105
+    },
+    "commercial_profile": [
+      "medical",
+      "life_science",
+      "office",
+      "education"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized medical and academic district. No current building paths were attached without clear Longwood addresses."
+  },
+  {
+    "id": "bos-south-end",
+    "canonical_name": "South End",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "South End Boston"
+    ],
+    "source_types": [
+      "official_neighborhood_context",
+      "recognized_neighborhood",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3393,
+      "lng": -71.0705
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "restaurant_food",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Officially recognized Boston neighborhood with commercial corridors. Building inheritance deferred until clear address matches are reviewed."
+  },
+  {
+    "id": "bos-fenway-kenmore",
+    "canonical_name": "Fenway-Kenmore",
+    "city": "Boston",
+    "state_abbr": "MA",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Fenway",
+      "Kenmore"
+    ],
+    "source_types": [
+      "official_neighborhood_context",
+      "recognized_neighborhood",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 42.3429,
+      "lng": -71.1003
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "medical",
+      "education",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Officially recognized Boston neighborhood. No high-confidence building paths were attached in this pass."
+  },
+  {
+    "id": "dc-downtown-dc",
+    "canonical_name": "Downtown DC",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "downtown_core",
+    "aliases": [
+      "Downtown Washington DC",
+      "Downtown Washington"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "dc_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.902,
+      "lng": -77.032
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "transit_oriented",
+      "professional_services"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/1200-g-st-nw/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized central business district. Single inheritance is limited to a clear central downtown address."
+  },
+  {
+    "id": "dc-golden-triangle",
+    "canonical_name": "Golden Triangle",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "Golden Triangle BID"
+    ],
+    "source_types": [
+      "recognized_business_improvement_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.904,
+      "lng": -77.04
+    },
+    "commercial_profile": [
+      "office",
+      "professional_services",
+      "financial_services",
+      "transit_oriented",
+      "downtown"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/1015-15th-st-nw/",
+      "/commercial-real-estate/building/DC/washington/1015-15th-street-nw-6th-floor/",
+      "/commercial-real-estate/building/DC/washington/1100-15th-st-nw/",
+      "/commercial-real-estate/building/DC/washington/1300-i-st-nw/",
+      "/commercial-real-estate/building/DC/washington/1500-k-street-2nd-floor/",
+      "/commercial-real-estate/building/DC/washington/1701-rhode-island-ave-nw/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized DC business improvement district and central office area. Representative buildings are clear Golden Triangle addresses."
+  },
+  {
+    "id": "dc-penn-quarter",
+    "canonical_name": "Penn Quarter",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "Penn Quarter DC"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.8967,
+      "lng": -77.0226
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "restaurant_food",
+      "downtown",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/1101-pennsylvania-ave-nw/",
+      "/commercial-real-estate/building/DC/washington/601-pennsylvania-avenue-nw-south-building/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized downtown DC commercial district. Representative buildings are Pennsylvania Avenue addresses near Penn Quarter/Federal Triangle context."
+  },
+  {
+    "id": "dc-capitol-riverfront",
+    "canonical_name": "Capitol Riverfront",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "Navy Yard",
+      "Capitol Riverfront DC"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_business_improvement_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.8749,
+      "lng": -77.0069
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "waterfront",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/80-m-st-se/",
+      "/commercial-real-estate/building/DC/washington/100-m-st-se/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized DC waterfront and office district. Representative buildings are clear M Street SE/Navy Yard addresses."
+  },
+  {
+    "id": "dc-noma",
+    "canonical_name": "NoMa",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "North of Massachusetts Avenue"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_business_improvement_district",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.906,
+      "lng": -77.003
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "transit_oriented",
+      "startup"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized DC neighborhood and BID. No building inheritance added without clear current building paths."
+  },
+  {
+    "id": "dc-mount-vernon-triangle",
+    "canonical_name": "Mount Vernon Triangle",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "Mount Vernon Triangle CID"
+    ],
+    "source_types": [
+      "recognized_community_improvement_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.903,
+      "lng": -77.018
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "transit_oriented",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/700-k-st-nw/",
+      "/commercial-real-estate/building/DC/washington/200-massachusetts-ave-nw/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized DC community improvement district. Representative buildings are clear K Street NW and Massachusetts Avenue NW area addresses."
+  },
+  {
+    "id": "dc-dupont-circle",
+    "canonical_name": "Dupont Circle",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Dupont Circle DC"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.9097,
+      "lng": -77.0434
+    },
+    "commercial_profile": [
+      "office",
+      "professional_services",
+      "retail",
+      "neighborhood_retail",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/2025-m-st-nw/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized DC neighborhood. Single building inheritance is limited to an obvious M Street NW/Dupont area address."
+  },
+  {
+    "id": "dc-capitol-hill",
+    "canonical_name": "Capitol Hill",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Capitol Hill DC"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "dc_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.8899,
+      "lng": -77.0091
+    },
+    "commercial_profile": [
+      "office",
+      "civic",
+      "retail",
+      "professional_services",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/20-f-st-nw/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized DC neighborhood and civic office context. Single building inheritance is limited to a clear Capitol Hill/Union Station edge address."
+  },
+  {
+    "id": "dc-h-street-ne",
+    "canonical_name": "H Street NE",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "corridor",
+    "aliases": [
+      "H Street Corridor",
+      "H Street NE Corridor"
+    ],
+    "source_types": [
+      "recognized_commercial_corridor",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.9005,
+      "lng": -76.992
+    },
+    "commercial_profile": [
+      "retail",
+      "restaurant_food",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/DC/washington/609-h-st-ne/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized DC commercial corridor. Single building inheritance is limited to an obvious H Street NE address."
+  },
+  {
+    "id": "dc-georgetown",
+    "canonical_name": "Georgetown",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Georgetown DC"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "dc_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.9097,
+      "lng": -77.0654
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "waterfront",
+      "neighborhood_retail",
+      "restaurant_food"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized DC neighborhood and commercial district. No high-confidence current building paths were attached."
+  },
+  {
+    "id": "dc-southwest-waterfront",
+    "canonical_name": "Southwest Waterfront",
+    "city": "Washington",
+    "state_abbr": "DC",
+    "area_type": "district",
+    "aliases": [
+      "The Wharf",
+      "Southwest DC Waterfront"
+    ],
+    "source_types": [
+      "recognized_business_improvement_district",
+      "dc_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 38.8807,
+      "lng": -77.0252
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "waterfront",
+      "restaurant_food",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized DC waterfront district. Building inheritance deferred until high-confidence current paths are available."
   }
 ]
