@@ -412,6 +412,129 @@ function seattleCompactHero(slug, config) {
   return compactCityHero(seattleHero, seattleColors, slug, config);
 }
 
+const bostonBase = {
+  city_label: "Boston",
+  basemap: "boston-core-v1",
+  map_region_label: "Boston Harbor",
+  map_region_label_position: { x: 744, y: 330 },
+  secondary_map_region_label: "Charles River",
+  secondary_map_region_label_position: { x: 254, y: 178 },
+  water_paths: [
+    "M 702 0 C 656 112 664 238 716 340 C 760 426 744 580 686 720 H 920 V 0 Z",
+    "M 0 128 C 128 156 244 156 350 132 C 452 108 544 132 616 190 L 592 238 C 480 190 382 178 272 202 C 164 226 74 218 0 190 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "90", x: 420, y: 448 },
+    { label: "93", x: 566, y: 362 },
+    { label: "1A", x: 704, y: 250 }
+  ]
+};
+
+const bostonColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function bostonHero(slug, config) {
+  return [
+    `MA/boston/${slug}`,
+    {
+      ...bostonBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Boston near surrounding commercial districts.`
+    }
+  ];
+}
+
+function bostonCompactHero(slug, config) {
+  return compactCityHero(bostonHero, bostonColors, slug, config);
+}
+
+const dcBase = {
+  city_label: "Washington DC",
+  basemap: "washington-dc-core-v1",
+  map_region_label: "National Mall",
+  map_region_label_position: { x: 470, y: 420 },
+  secondary_map_region_label: "Potomac River",
+  secondary_map_region_label_position: { x: 142, y: 504 },
+  water_paths: [
+    "M 0 504 C 112 454 194 440 280 476 C 350 506 378 588 356 720 H 0 Z",
+    "M 600 548 C 684 532 760 562 824 620 V 720 H 592 C 626 656 628 598 600 548 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "66", x: 254, y: 420 },
+    { label: "395", x: 430, y: 560 },
+    { label: "695", x: 626, y: 462 }
+  ]
+};
+
+const dcColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function dcHero(slug, config) {
+  return [
+    `DC/washington/${slug}`,
+    {
+      ...dcBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Washington DC near surrounding commercial districts.`
+    }
+  ];
+}
+
+function dcCompactHero(slug, config) {
+  return compactCityHero(dcHero, dcColors, slug, config);
+}
+
+const atlantaBase = {
+  city_label: "Atlanta",
+  basemap: "atlanta-core-v1",
+  map_region_label: "Downtown connector",
+  map_region_label_position: { x: 470, y: 382 },
+  secondary_map_region_label: "Northside markets",
+  secondary_map_region_label_position: { x: 532, y: 104 },
+  transit_or_freeway_labels: [
+    { label: "75/85", x: 470, y: 354 },
+    { label: "20", x: 460, y: 532 },
+    { label: "400", x: 520, y: 164 },
+    { label: "285", x: 650, y: 92 }
+  ]
+};
+
+const atlantaColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function atlantaHero(slug, config) {
+  return [
+    `GA/atlanta/${slug}`,
+    {
+      ...atlantaBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Atlanta near surrounding commercial districts.`
+    }
+  ];
+}
+
+function atlantaCompactHero(slug, config) {
+  return compactCityHero(atlantaHero, atlantaColors, slug, config);
+}
+
 const chicagoMapConfigs = [
   ["the-loop", { title: "The Loop", subtitle: "Central business district with office, civic, transit, and cultural commercial context.", orientation_label: "Downtown core", x: 504, y: 382, nearby: [{ label: "West Loop", x: 342, y: 404 }, { label: "River North", x: 462, y: 254 }, { label: "South Loop", x: 494, y: 568 }, { label: "Lake Michigan", x: 736, y: 250 }] }],
   ["west-loop", { title: "West Loop", subtitle: "Near-downtown district with office, food, retail, and mixed commercial context.", orientation_label: "West of downtown", x: 342, y: 404, nearby: [{ label: "Fulton Market", x: 306, y: 324 }, { label: "The Loop", x: 504, y: 382 }, { label: "River West", x: 326, y: 280 }, { label: "Fulton River", x: 404, y: 320 }] }],
@@ -512,6 +635,48 @@ const seattleMapConfigs = [
   ["northgate", { title: "Northgate", subtitle: "North Seattle commercial node with retail, medical, office, and transit-oriented context.", orientation_label: "North Seattle", x: 600, y: 20, nearby: [{ label: "University District", x: 630, y: 75 }, { label: "Ballard", x: 335, y: 95 }, { label: "Fremont", x: 500, y: 95 }, { label: "I-5", x: 544, y: 300 }] }],
   ["waterfront", { title: "Waterfront", subtitle: "Central Seattle waterfront area with hospitality, retail, civic, and office-adjacent context.", orientation_label: "Central waterfront", x: 350, y: 360, nearby: [{ label: "Downtown Seattle", x: 430, y: 360 }, { label: "Belltown", x: 385, y: 270 }, { label: "Pioneer Square", x: 430, y: 475 }, { label: "Puget Sound", x: 104, y: 330 }] }],
   ["sodo", { title: "SoDo", subtitle: "South Seattle industrial and stadium-area district with logistics, service, and commercial context.", orientation_label: "South of downtown", x: 450, y: 610, nearby: [{ label: "Pioneer Square", x: 430, y: 475 }, { label: "Downtown Seattle", x: 430, y: 360 }, { label: "Waterfront", x: 350, y: 360 }, { label: "I-90", x: 548, y: 570 }] }]
+];
+
+const bostonMapConfigs = [
+  ["back-bay", { title: "Back Bay", subtitle: "Central Boston district with office, retail, hospitality, and transit-rich commercial context.", orientation_label: "West of downtown", x: 318, y: 318, nearby: [{ label: "Financial District", x: 560, y: 356 }, { label: "South End", x: 342, y: 458 }, { label: "Fenway-Kenmore", x: 186, y: 292 }, { label: "Charles River", x: 254, y: 178 }] }],
+  ["financial-district", { title: "Financial District", subtitle: "Downtown Boston business district with office, hospitality, civic, and waterfront context.", orientation_label: "Downtown core", x: 560, y: 356, nearby: [{ label: "Downtown Boston", x: 506, y: 318 }, { label: "Seaport", x: 676, y: 442 }, { label: "Government Center", x: 526, y: 244 }, { label: "Boston Harbor", x: 744, y: 330 }] }],
+  ["downtown-boston", { title: "Downtown Boston", subtitle: "Central Boston commercial core with office, retail, civic, and hospitality context.", orientation_label: "Boston central core", x: 506, y: 318, nearby: [{ label: "Financial District", x: 560, y: 356 }, { label: "Government Center", x: 526, y: 244 }, { label: "Theater District", x: 444, y: 392 }, { label: "Leather District", x: 516, y: 450 }] }],
+  ["seaport-district", { title: "Seaport District", subtitle: "Waterfront district with office, life science, hospitality, retail, and innovation context.", orientation_label: "Waterfront district", x: 676, y: 442, nearby: [{ label: "Financial District", x: 560, y: 356 }, { label: "Leather District", x: 516, y: 450 }, { label: "Downtown Boston", x: 506, y: 318 }, { label: "Boston Harbor", x: 744, y: 330 }] }],
+  ["government-center", { title: "Government Center", subtitle: "Downtown civic and office district near Boston's central commercial core.", orientation_label: "North downtown", x: 526, y: 244, nearby: [{ label: "Downtown Boston", x: 506, y: 318 }, { label: "Financial District", x: 560, y: 356 }, { label: "North Station", x: 452, y: 182 }, { label: "Back Bay", x: 318, y: 318 }] }],
+  ["leather-district", { title: "Leather District", subtitle: "Compact downtown district between the Financial District, Chinatown, and South Station.", orientation_label: "South downtown", x: 516, y: 450, nearby: [{ label: "Financial District", x: 560, y: 356 }, { label: "Theater District", x: 444, y: 392 }, { label: "Seaport", x: 676, y: 442 }, { label: "South End", x: 342, y: 458 }] }],
+  ["north-station-west-end", { title: "North Station / West End", subtitle: "North downtown area with office, medical, transit, civic, and entertainment context.", orientation_label: "North downtown", x: 452, y: 182, nearby: [{ label: "Government Center", x: 526, y: 244 }, { label: "Downtown Boston", x: 506, y: 318 }, { label: "Financial District", x: 560, y: 356 }, { label: "Charles River", x: 254, y: 178 }] }],
+  ["theater-district", { title: "Theater District", subtitle: "Downtown-adjacent district with hospitality, retail, office, and entertainment context.", orientation_label: "Central downtown", x: 444, y: 392, nearby: [{ label: "Downtown Boston", x: 506, y: 318 }, { label: "Leather District", x: 516, y: 450 }, { label: "Back Bay", x: 318, y: 318 }, { label: "South End", x: 342, y: 458 }] }],
+  ["longwood-medical-area", { title: "Longwood Medical Area", subtitle: "Medical and institutional district with healthcare, research, and office-adjacent context.", orientation_label: "Medical district", x: 176, y: 412, nearby: [{ label: "Fenway-Kenmore", x: 186, y: 292 }, { label: "Back Bay", x: 318, y: 318 }, { label: "South End", x: 342, y: 458 }, { label: "Downtown Boston", x: 506, y: 318 }] }],
+  ["south-end", { title: "South End", subtitle: "Central Boston neighborhood with retail, services, office-adjacent, and mixed commercial context.", orientation_label: "Southwest of downtown", x: 342, y: 458, nearby: [{ label: "Back Bay", x: 318, y: 318 }, { label: "Theater District", x: 444, y: 392 }, { label: "Leather District", x: 516, y: 450 }, { label: "Longwood", x: 176, y: 412 }] }],
+  ["fenway-kenmore", { title: "Fenway-Kenmore", subtitle: "Central Boston district with institutional, medical-adjacent, retail, and entertainment context.", orientation_label: "West central Boston", x: 186, y: 292, nearby: [{ label: "Longwood", x: 176, y: 412 }, { label: "Back Bay", x: 318, y: 318 }, { label: "South End", x: 342, y: 458 }, { label: "Charles River", x: 254, y: 178 }] }]
+];
+
+const dcMapConfigs = [
+  ["golden-triangle", { title: "Golden Triangle", subtitle: "Downtown DC business district near Dupont Circle and the central office core.", orientation_label: "Northwest office core", x: 380, y: 286, nearby: [{ label: "Dupont Circle", x: 330, y: 224 }, { label: "Downtown DC", x: 456, y: 316 }, { label: "Penn Quarter", x: 522, y: 372 }, { label: "Georgetown", x: 206, y: 284 }] }],
+  ["downtown-dc", { title: "Downtown DC", subtitle: "Central Washington commercial core with office, civic, hospitality, and retail context.", orientation_label: "Central DC", x: 456, y: 316, nearby: [{ label: "Golden Triangle", x: 380, y: 286 }, { label: "Penn Quarter", x: 522, y: 372 }, { label: "Mount Vernon Triangle", x: 584, y: 290 }, { label: "National Mall", x: 470, y: 420 }] }],
+  ["capitol-riverfront", { title: "Capitol Riverfront", subtitle: "Waterfront district with office, mixed-use, entertainment, and riverfront commercial context.", orientation_label: "Southeast waterfront", x: 660, y: 548, nearby: [{ label: "Capitol Hill", x: 662, y: 426 }, { label: "Southwest Waterfront", x: 506, y: 540 }, { label: "Penn Quarter", x: 522, y: 372 }, { label: "Anacostia River", x: 760, y: 612 }] }],
+  ["penn-quarter", { title: "Penn Quarter", subtitle: "Central DC district with office, hospitality, civic, entertainment, and retail context.", orientation_label: "East downtown", x: 522, y: 372, nearby: [{ label: "Downtown DC", x: 456, y: 316 }, { label: "Mount Vernon Triangle", x: 584, y: 290 }, { label: "Capitol Hill", x: 662, y: 426 }, { label: "National Mall", x: 470, y: 420 }] }],
+  ["mount-vernon-triangle", { title: "Mount Vernon Triangle", subtitle: "Northeast downtown district with office, residential, retail, and mixed-use context.", orientation_label: "Northeast downtown", x: 584, y: 290, nearby: [{ label: "Penn Quarter", x: 522, y: 372 }, { label: "NoMa", x: 652, y: 218 }, { label: "Downtown DC", x: 456, y: 316 }, { label: "Capitol Hill", x: 662, y: 426 }] }],
+  ["noma", { title: "NoMa", subtitle: "North of Massachusetts Avenue district with office, residential, transit, and mixed-use context.", orientation_label: "North Capitol corridor", x: 652, y: 218, nearby: [{ label: "H Street NE", x: 724, y: 314 }, { label: "Mount Vernon Triangle", x: 584, y: 290 }, { label: "Capitol Hill", x: 662, y: 426 }, { label: "Penn Quarter", x: 522, y: 372 }] }],
+  ["dupont-circle", { title: "Dupont Circle", subtitle: "Northwest DC district with office, embassy, retail, restaurant, and service context.", orientation_label: "Northwest DC", x: 330, y: 224, nearby: [{ label: "Golden Triangle", x: 380, y: 286 }, { label: "Downtown DC", x: 456, y: 316 }, { label: "Georgetown", x: 206, y: 284 }, { label: "Penn Quarter", x: 522, y: 372 }] }],
+  ["capitol-hill", { title: "Capitol Hill", subtitle: "Civic and neighborhood district with office-adjacent, retail, and institutional context.", orientation_label: "East of the Mall", x: 662, y: 426, nearby: [{ label: "Penn Quarter", x: 522, y: 372 }, { label: "Capitol Riverfront", x: 660, y: 548 }, { label: "Mount Vernon Triangle", x: 584, y: 290 }, { label: "H Street NE", x: 724, y: 314 }] }],
+  ["h-street-ne", { title: "H Street NE", subtitle: "Northeast DC corridor with retail, food, services, and neighborhood commercial context.", orientation_label: "Northeast corridor", x: 724, y: 314, nearby: [{ label: "NoMa", x: 652, y: 218 }, { label: "Capitol Hill", x: 662, y: 426 }, { label: "Mount Vernon Triangle", x: 584, y: 290 }, { label: "Penn Quarter", x: 522, y: 372 }] }],
+  ["georgetown", { title: "Georgetown", subtitle: "Northwest DC district with retail, office-adjacent, hospitality, and waterfront context.", orientation_label: "Northwest waterfront", x: 206, y: 284, nearby: [{ label: "Dupont Circle", x: 330, y: 224 }, { label: "Golden Triangle", x: 380, y: 286 }, { label: "Downtown DC", x: 456, y: 316 }, { label: "Potomac River", x: 142, y: 504 }] }],
+  ["southwest-waterfront", { title: "Southwest Waterfront", subtitle: "Waterfront district with hospitality, office-adjacent, entertainment, and mixed-use context.", orientation_label: "Southwest waterfront", x: 506, y: 540, nearby: [{ label: "Capitol Riverfront", x: 660, y: 548 }, { label: "Capitol Hill", x: 662, y: 426 }, { label: "Penn Quarter", x: 522, y: 372 }, { label: "Potomac River", x: 142, y: 504 }] }]
+];
+
+const atlantaMapConfigs = [
+  ["buckhead", { title: "Buckhead", subtitle: "North Atlanta business district with office, retail, hospitality, and mixed commercial context.", orientation_label: "North Atlanta", x: 520, y: 142, nearby: [{ label: "Midtown", x: 476, y: 316 }, { label: "Perimeter Center", x: 660, y: 86 }, { label: "West Midtown", x: 344, y: 336 }, { label: "GA 400", x: 520, y: 164 }] }],
+  ["midtown", { title: "Midtown", subtitle: "Central Atlanta district with office, institutional, retail, hospitality, and mixed-use context.", orientation_label: "Central Atlanta", x: 476, y: 316, nearby: [{ label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "West Midtown", x: 344, y: 336 }, { label: "Buckhead", x: 520, y: 142 }] }],
+  ["downtown-atlanta", { title: "Downtown Atlanta", subtitle: "Central Atlanta business district with office, civic, hospitality, and institutional context.", orientation_label: "Downtown core", x: 486, y: 454, nearby: [{ label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Inman Park", x: 648, y: 470 }] }],
+  ["perimeter-center", { title: "Perimeter Center", subtitle: "North Atlanta office and retail submarket near the perimeter and GA 400.", orientation_label: "North perimeter market", x: 660, y: 86, nearby: [{ label: "Buckhead", x: 520, y: 142 }, { label: "Cumberland", x: 238, y: 122 }, { label: "Midtown", x: 476, y: 316 }, { label: "285", x: 650, y: 92 }] }],
+  ["cumberland-galleria", { title: "Cumberland / Galleria", subtitle: "Northwest Atlanta office, retail, hospitality, and entertainment submarket.", orientation_label: "Northwest submarket", x: 238, y: 122, nearby: [{ label: "Buckhead", x: 520, y: 142 }, { label: "Perimeter Center", x: 660, y: 86 }, { label: "West Midtown", x: 344, y: 336 }, { label: "Midtown", x: 476, y: 316 }] }],
+  ["west-midtown", { title: "West Midtown", subtitle: "Westside Atlanta district with office, creative, retail, food, and mixed commercial context.", orientation_label: "Westside Atlanta", x: 344, y: 336, nearby: [{ label: "Midtown", x: 476, y: 316 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Buckhead", x: 520, y: 142 }] }],
+  ["old-fourth-ward", { title: "Old Fourth Ward", subtitle: "Eastside Atlanta district with retail, food, office-adjacent, and mixed-use context.", orientation_label: "East of Midtown", x: 596, y: 382, nearby: [{ label: "Inman Park", x: 648, y: 470 }, { label: "Midtown", x: 476, y: 316 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "South Downtown", x: 482, y: 524 }] }],
+  ["fulton-industrial", { title: "Fulton Industrial", subtitle: "West Atlanta industrial corridor with logistics, warehouse, and service commercial context.", orientation_label: "West industrial corridor", x: 188, y: 560, nearby: [{ label: "West Midtown", x: 344, y: 336 }, { label: "South Downtown", x: 482, y: 524 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "I-20", x: 460, y: 532 }] }],
+  ["hartsfield-jackson-airport-area", { title: "Hartsfield-Jackson Airport Area", subtitle: "Airport-area commercial district with logistics, hospitality, service, and transportation context.", orientation_label: "Airport submarket", x: 530, y: 674, nearby: [{ label: "South Downtown", x: 482, y: 524 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Fulton Industrial", x: 188, y: 560 }, { label: "I-75/85", x: 470, y: 354 }] }],
+  ["south-downtown", { title: "South Downtown", subtitle: "South of downtown district with civic, office-adjacent, retail, and mixed commercial context.", orientation_label: "South of downtown", x: 482, y: 524, nearby: [{ label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Inman Park", x: 648, y: 470 }, { label: "Fulton Industrial", x: 188, y: 560 }] }],
+  ["inman-park", { title: "Inman Park", subtitle: "Eastside Atlanta neighborhood with retail, food, services, and mixed commercial context.", orientation_label: "Eastside Atlanta", x: 648, y: 470, nearby: [{ label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }] }]
 ];
 
 module.exports = Object.fromEntries([
@@ -1958,5 +2123,8 @@ module.exports = Object.fromEntries([
   ...laMapConfigs.map(([slug, config]) => laCompactHero(slug, config)),
   ...miamiMapConfigs.map(([slug, config]) => miamiCompactHero(slug, config)),
   ...dallasMapConfigs.map(([slug, config]) => dallasCompactHero(slug, config)),
-  ...seattleMapConfigs.map(([slug, config]) => seattleCompactHero(slug, config))
+  ...seattleMapConfigs.map(([slug, config]) => seattleCompactHero(slug, config)),
+  ...bostonMapConfigs.map(([slug, config]) => bostonCompactHero(slug, config)),
+  ...dcMapConfigs.map(([slug, config]) => dcCompactHero(slug, config)),
+  ...atlantaMapConfigs.map(([slug, config]) => atlantaCompactHero(slug, config))
 ]);
