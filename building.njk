@@ -61,7 +61,7 @@ eleventyComputed:
           <img
             class="hero-image"
             src="{{ building.hero_image or placeholderSrc }}"
-            alt="{{ building.name or building.address }} in {{ building.city }}, {{ building.state_abbr }}"
+            alt="{{ building.address or building.display_name or building.name }} in {{ building.city }}, {{ building.state_abbr }}"
             width="1600"
             height="900"
             decoding="async"
