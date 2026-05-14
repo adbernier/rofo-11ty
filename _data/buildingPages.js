@@ -2,6 +2,7 @@ const buildings = require("./buildings.js");
 const buildingEnrichment = require("./buildingEnrichment.js");
 const commercialAreas = require("../data/peter/research/commercial_area_entities_v1.json");
 const commercialAreaRelationships = require("../data/peter/research/commercial_area_building_relationships_v1.json");
+const nycNeighborhoodCandidates = require("../data/peter/research/nyc_neighborhood_rollout_candidates.json");
 
 const uniqueBuildings = buildings.filter((building, index, arr) => {
   const key = [
@@ -89,6 +90,26 @@ for (const relationship of commercialAreaRelationships.relationships || []) {
     confidence: relationship.confidence,
     distance_to_centroid_km: relationship.distance_to_centroid_km,
   });
+}
+
+for (const candidate of nycNeighborhoodCandidates || []) {
+  if (candidate.recommended_status !== "launch") continue;
+
+  for (const buildingPath of candidate.representative_building_paths || []) {
+    if (!buildingPath || highConfidenceAreaByBuildingPath.has(buildingPath)) continue;
+
+    highConfidenceAreaByBuildingPath.set(buildingPath, {
+      id: `nyc-${candidate.slug}`,
+      name: candidate.canonical_name,
+      slug: candidate.slug,
+      area_type: candidate.area_type,
+      city: "New York",
+      state_abbr: "NY",
+      path: candidate.canonical_path,
+      confidence: "high",
+      borough: candidate.borough,
+    });
+  }
 }
 
 function applyEnrichment(building) {

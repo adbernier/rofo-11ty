@@ -29,11 +29,23 @@ const commercialRelationshipsPath = path.join(
   "research",
   "commercial_area_building_relationships_v1.json"
 );
+const nycCandidatesPath = path.join(
+  process.cwd(),
+  "data",
+  "peter",
+  "research",
+  "nyc_neighborhood_rollout_candidates.json"
+);
 
 const pages = JSON.parse(fs.readFileSync(pageDataPath, "utf8"));
 const allowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8"));
 const commercialAreas = JSON.parse(fs.readFileSync(commercialAreasPath, "utf8"));
 const commercialRelationships = JSON.parse(fs.readFileSync(commercialRelationshipsPath, "utf8"));
+const nycCandidates = fs.existsSync(nycCandidatesPath)
+  ? JSON.parse(fs.readFileSync(nycCandidatesPath, "utf8"))
+  : [];
+const buildingPages = require("./buildingPages.js");
+const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const allowlistByPath = new Map(
   allowlist.map((item) => [item.canonical_neighborhood_path, item])
 );
@@ -179,6 +191,25 @@ function representativeBuildingsFor(areaId) {
     );
 }
 
+function representativeBuildingsFromPaths(paths = [], areaId = "") {
+  return paths
+    .map((buildingPath) => buildingByPath.get(buildingPath))
+    .filter(Boolean)
+    .slice(0, 6)
+    .map((building) =>
+      normalizeRepresentativeBuilding({
+        address: building.address,
+        display_name: building.address || building.display_name || building.name,
+        name: building.name,
+        building_path: building.building_path,
+        type: building.primary_type_label || building.type || "Commercial Space",
+        size_label: building.size_label || "",
+        primary_area_id: areaId,
+        relationship_confidence: "high",
+      })
+    );
+}
+
 function spaceTypesFor(areaId) {
   const summary = areaSummaryById.get(areaId);
   const values = (summary?.dominant_space_type_patterns || [])
@@ -265,6 +296,48 @@ function commercialPageFor(area) {
   };
 }
 
+function nycPageFor(candidate) {
+  if (candidate.recommended_status !== "launch") return null;
+
+  const representative_buildings = representativeBuildingsFromPaths(
+    candidate.representative_building_paths || [],
+    `nyc-${candidate.slug}`
+  );
+  const areaTypeLabel = clean(candidate.area_type).replace(/_/g, " ");
+
+  return {
+    name: candidate.canonical_name,
+    slug: candidate.slug,
+    borough: candidate.borough,
+    city: "New York",
+    state_abbr: "NY",
+    city_slug: "new-york",
+    canonical_neighborhood_path: candidate.canonical_path,
+    centroid_lat: "",
+    centroid_lng: "",
+    radius: "",
+    geometry_quality: "nyc_nta_reference",
+    approximate_building_count: representative_buildings.length,
+    approximate_space_types: (candidate.likely_space_types || [])
+      .filter((value) => ["office", "retail", "industrial", "flex", "coworking"].includes(value)),
+    approximate_semantic_signals: (candidate.likely_space_types || []).map(signalLabel).slice(0, 8),
+    representative_buildings,
+    commercial_area_id: `nyc-${candidate.slug}`,
+    commercial_area_type: candidate.area_type,
+    commercial_area_type_label: areaTypeLabel,
+    commercial_profile: candidate.likely_space_types || [],
+    source_confidence: candidate.source_confidence,
+    source_types: candidate.source_types || [],
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: false,
+    public_nyc_rollout: true,
+    city_nav_priority: Math.max(0, 100 - (candidate.commercial_relevance_score || 70)),
+  };
+}
+
 const existingPages = pages
   .filter((page) => allowlistByPath.has(page.canonical_neighborhood_path))
   .map((page) => ({
@@ -283,6 +356,10 @@ const commercialPages = commercialAreas
   .map(commercialPageFor)
   .filter(Boolean);
 
+const nycPages = nycCandidates
+  .map(nycPageFor)
+  .filter(Boolean);
+
 const allPagesByPath = new Map();
 
 for (const page of existingPages) {
@@ -290,6 +367,13 @@ for (const page of existingPages) {
 }
 
 for (const page of commercialPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of nycPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

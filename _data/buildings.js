@@ -85,9 +85,22 @@ function looksLikeRealBuildingName(name, address) {
 }
 
 function getBuildingLabel(building, address) {
-  return looksLikeRealBuildingName(building.name, address)
-    ? clean(building.name)
-    : address;
+  return address || clean(building.name);
+}
+
+function escapeRegExp(value) {
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function addressFirstText(text, building, address) {
+  const value = clean(text);
+  const buildingName = clean(building.name);
+
+  if (!value || !address || !buildingName || buildingName.toLowerCase() === address.toLowerCase()) {
+    return value;
+  }
+
+  return value.replace(new RegExp(escapeRegExp(buildingName), "gi"), address);
 }
 
 function getBuildingTypeSet(building) {
@@ -457,9 +470,9 @@ function normalizeBuilding(building, source) {
     type: clean(building.type || building.space_type) || "Commercial Space",
     size_label: clean(building.size_label || building.size) || "",
     // Richer partner/listing fields can override these generated fallbacks as Peter's data improves.
-    building_description: clean(building.building_description) ||
+    building_description: addressFirstText(building.building_description, building, address) ||
       getBuildingDescription(building, buildingLabel, city, state_abbr, primaryType),
-    about_context: clean(building.about_context) ||
+    about_context: addressFirstText(building.about_context, building, address) ||
       formatTypeText(typeMeta.about, city, buildingLabel),
     best_for: Array.isArray(building.best_for) && building.best_for.length ? building.best_for : typeMeta.bestFor,
     common_fit: clean(building.common_fit) || typeMeta.detailSummary,

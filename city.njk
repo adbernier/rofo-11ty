@@ -192,7 +192,47 @@ eleventyComputed:
                   <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
                 {% endfor %}
               </div>
-              {% if hiddenNeighborhoods.length %}
+              {% if city.slug == "new-york" and hiddenNeighborhoods.length %}
+                {% set manhattanNeighborhoods = [] %}
+                {% set brooklynNeighborhoods = [] %}
+                {% set otherNycNeighborhoods = [] %}
+                {% for neighborhood in cityNeighborhoods %}
+                  {% if neighborhood.borough == "Manhattan" %}
+                    {% set manhattanNeighborhoods = (manhattanNeighborhoods.push(neighborhood), manhattanNeighborhoods) %}
+                  {% elseif neighborhood.borough == "Brooklyn" %}
+                    {% set brooklynNeighborhoods = (brooklynNeighborhoods.push(neighborhood), brooklynNeighborhoods) %}
+                  {% else %}
+                    {% set otherNycNeighborhoods = (otherNycNeighborhoods.push(neighborhood), otherNycNeighborhoods) %}
+                  {% endif %}
+                {% endfor %}
+                <details class="city-neighborhoods-all">
+                  <summary>View all neighborhoods</summary>
+                  {% if manhattanNeighborhoods.length %}
+                    <h3>Manhattan</h3>
+                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
+                      {% for neighborhood in manhattanNeighborhoods %}
+                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                  {% if brooklynNeighborhoods.length %}
+                    <h3>Brooklyn</h3>
+                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
+                      {% for neighborhood in brooklynNeighborhoods %}
+                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                  {% if otherNycNeighborhoods.length %}
+                    <h3>Other areas</h3>
+                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
+                      {% for neighborhood in otherNycNeighborhoods %}
+                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </details>
+              {% elseif hiddenNeighborhoods.length %}
                 <details class="city-neighborhoods-all">
                   <summary>View all neighborhoods</summary>
                   <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
