@@ -31,31 +31,31 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    {% if hasMapHero %}
-      {% include "partials/neighborhood/map-hero.njk" %}
-    {% else %}
-      <div class="city-hero">
-        <div class="city-card">
-          <div class="city-hero-copy">
-            <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
-            <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
-            <p class="lead">
-              Explore commercial buildings, nearby areas, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
-            </p>
-            <div class="pill-row">
-              <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
-              <span class="pill">{{ areaTermDisplay }} guide</span>
-              {% if neighborhood.approximate_building_count %}
-                <span class="pill">{{ neighborhood.approximate_building_count }} buildings</span>
-              {% endif %}
-            </div>
-            <div class="button-row">
-              <a class="btn-primary" href="{{ cityUrl }}">View broader {{ neighborhood.city }} market</a>
-              <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
-            </div>
+    <div class="city-hero">
+      <div class="city-card">
+        <div class="city-hero-copy">
+          <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
+          <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
+          <p class="lead">
+            Explore commercial buildings, nearby areas, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
+          </p>
+          <div class="pill-row">
+            <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
+            <span class="pill">{{ areaTermDisplay }} guide</span>
+            {% if neighborhood.approximate_building_count %}
+              <span class="pill">{{ neighborhood.approximate_building_count }} buildings</span>
+            {% endif %}
+          </div>
+          <div class="button-row">
+            <a class="btn-primary" href="#neighborhood-contact-form">Get help finding space</a>
+            <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
           </div>
         </div>
+      </div>
 
+      {% if hasMapHero %}
+        {% include "partials/neighborhood/map-hero.njk" %}
+      {% else %}
         <div class="city-sidecard neighborhood-review-note">
           <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
           <h2>Explore {{ neighborhood.name }}</h2>
@@ -63,10 +63,10 @@ eleventyComputed:
             Use this page as a starting point for comparing {{ neighborhood.name }} with the broader {{ neighborhood.city }} commercial real estate market.
           </p>
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
 
-    <div class="neighborhood-layout{% if hasMapHero %} neighborhood-layout--map-hero{% endif %}">
+    <div class="neighborhood-layout">
       <div class="neighborhood-main">
         {% if not hasMapHero %}
           <section class="city-card">
@@ -205,8 +205,8 @@ eleventyComputed:
         </section>
       </div>
 
-      {% if not hasMapHero %}
-        <aside class="neighborhood-sidebar">
+      <aside class="neighborhood-sidebar">
+        {% if not hasMapHero %}
           <div class="city-card neighborhood-sticky-card">
             <div class="eyebrow">Neighborhood Context</div>
             <h2>Explore {{ neighborhood.name }}</h2>
@@ -220,8 +220,108 @@ eleventyComputed:
               <li>Broader {{ neighborhood.city }} market guide</li>
             </ul>
           </div>
-        </aside>
-      {% endif %}
+        {% endif %}
+
+        <div id="neighborhood-contact-form" class="city-form city-card neighborhood-lead-form">
+          <div class="eyebrow">Get help finding space</div>
+          <h2>Find space in {{ neighborhood.name }}</h2>
+          <p>
+            Tell us what you’re looking for. Rofo can help you compare {{ neighborhood.name }} with nearby areas and the broader {{ neighborhood.city }} market.
+          </p>
+
+          <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
+            <input type="hidden" name="source" value="rofo-neighborhood-page">
+            <input type="hidden" name="lead_type" value="neighborhood">
+            <input type="hidden" name="page_type" value="neighborhood">
+            <input type="hidden" name="city" value="{{ neighborhood.city }}">
+            <input type="hidden" name="state" value="{{ neighborhood.state_abbr }}">
+            <input type="hidden" name="market" value="{{ neighborhood.city }}, {{ neighborhood.state_abbr }}">
+            <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
+            <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
+            <input type="hidden" name="neighborhood_name" value="{{ neighborhood.name }}">
+            <input type="hidden" name="neighborhood_slug" value="{{ neighborhood.slug }}">
+            <input type="hidden" name="neighborhood_path" value="{{ neighborhood.canonical_neighborhood_path }}">
+            <input type="hidden" name="commercial_area_id" value="{{ neighborhood.commercial_area_id or '' }}">
+            <input type="hidden" name="commercial_area_type" value="{{ neighborhood.commercial_area_type or '' }}">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+            <input type="text" name="company_website" style="display:none;">
+            <input type="hidden" name="form_start_time" value="">
+            <script>
+              document.currentScript.previousElementSibling.value = Date.now();
+            </script>
+
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-name">Name</label>
+                <input id="neighborhood-lead-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+            </div>
+
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-email">Email</label>
+                <input id="neighborhood-lead-email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-phone">Phone</label>
+                <input id="neighborhood-lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
+              </div>
+            </div>
+
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-space-type">What type of space do you need?</label>
+                <select id="neighborhood-lead-space-type" name="space_type" required>
+                  <option value="">Select one</option>
+                  <option>Office Space</option>
+                  <option>Retail Space</option>
+                  <option>Industrial Space</option>
+                  <option>Coworking Space</option>
+                  <option>Flex Space</option>
+                  <option>Not Sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-size">Space size</label>
+                <select id="neighborhood-lead-size" name="space_needed" required>
+                  <option value="">Select one</option>
+                  <option>Under 1,000 sqft</option>
+                  <option>1,000–2,500 sqft</option>
+                  <option>2,500–5,000 sqft</option>
+                  <option>5,000–10,000 sqft</option>
+                  <option>10,000+ sqft</option>
+                  <option>Not Sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="neighborhood-lead-notes">Other requirements for your space <span class="optional">(optional)</span></label>
+              <textarea
+                id="neighborhood-lead-notes"
+                name="notes"
+                placeholder="Example: office near transit, flexible timing, compare nearby areas"
+              ></textarea>
+            </div>
+
+            <div class="btn-row">
+              <label>
+                <input type="checkbox" name="human_check" required>
+                I’m a real person looking for space
+              </label>
+              <button class="btn-primary" type="submit">Get help finding space in {{ neighborhood.name }}</button>
+            </div>
+
+            <p class="form-note">✓ Compare nearby areas • ✓ Understand market context • ✓ Connect with trusted local help</p>
+          </form>
+        </div>
+      </aside>
     </div>
   </div>
 </section>

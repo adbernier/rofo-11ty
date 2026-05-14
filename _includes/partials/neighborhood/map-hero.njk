@@ -1,41 +1,15 @@
 {% set hero = neighborhood.map_hero %}
 
-<section class="neighborhood-map-hero" aria-labelledby="neighborhood-map-hero-title">
-  <div class="neighborhood-map-hero__content">
-    <p class="neighborhood-map-hero__city">{{ hero.city_label }}</p>
-    <h1 id="neighborhood-map-hero-title">{{ hero.title }}</h1>
-    <div class="neighborhood-map-hero__rule" aria-hidden="true"></div>
-    <p class="neighborhood-map-hero__subtitle">{{ hero.subtitle }}</p>
-    <p class="neighborhood-map-hero__descriptor">{{ hero.descriptor }}</p>
-
-    {% if hero.nearby_landmarks and hero.nearby_landmarks.length %}
-      <div class="neighborhood-map-hero__landmarks" aria-label="Nearby landmarks">
-        <h2>Nearby landmarks</h2>
-        <ul>
-          {% for landmark in hero.nearby_landmarks %}
-            <li>
-              <span class="neighborhood-map-hero__dot neighborhood-map-hero__dot--{{ landmark.color }}" aria-hidden="true"></span>
-              <span>{{ landmark.label }}</span>
-              <span>{{ landmark.time }}</span>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-
-    <div class="neighborhood-map-hero__orientation">
-      <div class="neighborhood-map-hero__compass" aria-hidden="true">
-        <span>N</span>
-        <span></span>
-      </div>
-      <div>
-        <strong>{{ hero.accessibility_label }}</strong>
-        <p>{{ hero.accessibility_note }}</p>
-      </div>
+<div class="city-sidecard neighborhood-map-card" aria-labelledby="neighborhood-map-card-title">
+  <div class="neighborhood-map-card__header">
+    <div>
+      <div class="eyebrow">Area Map</div>
+      <h2 id="neighborhood-map-card-title">{{ hero.title }}</h2>
     </div>
+    <p>{{ hero.orientation_label }}</p>
   </div>
 
-  <figure class="neighborhood-map-hero__map" aria-label="{{ hero.map_alt }}">
+  <figure class="neighborhood-map-card__figure" aria-label="{{ hero.map_alt }}">
     <svg viewBox="0 0 920 720" role="img" aria-labelledby="neighborhood-map-svg-title neighborhood-map-svg-desc" preserveAspectRatio="xMidYMid slice">
       <title id="neighborhood-map-svg-title">{{ hero.title }} neighborhood orientation map</title>
       <desc id="neighborhood-map-svg-desc">{{ hero.map_alt }}</desc>
@@ -98,15 +72,11 @@
       {% endfor %}
 
       <text x="752" y="220" class="neighborhood-map-hero__water">San Francisco Bay</text>
-
-      <g class="neighborhood-map-hero__inset" transform="translate(720 545)">
-        <rect width="158" height="128" rx="18" fill="#ffffff" stroke="#dbe4ef" />
-        <path d="M 42 28 L 88 38 L 100 76 L 78 104 L 38 88 Z" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
-        <circle cx="90" cy="86" r="22" fill="#dbeafe" stroke="#93c5fd" />
-        <circle cx="90" cy="86" r="6" fill="#2563eb" />
-        <text x="106" y="80">Southeast</text>
-        <text x="106" y="96">San Francisco</text>
-      </g>
     </svg>
   </figure>
-</section>
+
+  <div class="neighborhood-map-card__footer">
+    <strong>{{ hero.accessibility_label }}</strong>
+    <p>{{ hero.accessibility_note }}</p>
+  </div>
+</div>

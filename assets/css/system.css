@@ -2689,112 +2689,6 @@ section.market-page--space-type .market-links a {
   margin-top: 4px;
 }
 
-.neighborhood-map-hero {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.36fr) minmax(0, 0.64fr);
-  min-height: 560px;
-  margin: 18px 0 18px;
-  overflow: hidden;
-  border: 1px solid #dbe4ef;
-  border-radius: 26px;
-  background:
-    linear-gradient(90deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0.76) 42%, rgba(255,255,255,0) 66%),
-    #edf5fb;
-  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
-}
-
-.neighborhood-map-hero__content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(30px, 4vw, 52px);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 18px 0 36px rgba(15, 23, 42, 0.05);
-}
-
-.neighborhood-map-hero__city {
-  color: #1d4ed8;
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  margin: 0 0 26px;
-  text-transform: uppercase;
-}
-
-.neighborhood-map-hero h1 {
-  color: #102039;
-  font-size: clamp(3rem, 6vw, 5.4rem);
-  letter-spacing: 0;
-  line-height: 0.98;
-  margin: 0;
-  max-width: 9ch;
-}
-
-.neighborhood-map-hero__rule {
-  width: 70px;
-  height: 4px;
-  margin: 28px 0;
-  border-radius: 999px;
-  background: #2f6feb;
-}
-
-.neighborhood-map-hero__subtitle,
-.neighborhood-map-hero__descriptor {
-  color: #1f2f46;
-  font-size: 1.1rem;
-  line-height: 1.45;
-  margin: 0;
-  max-width: 27ch;
-}
-
-.neighborhood-map-hero__descriptor {
-  margin-top: 18px;
-}
-
-.neighborhood-map-hero__landmarks {
-  margin-top: auto;
-  padding-top: 38px;
-}
-
-.neighborhood-map-hero__landmarks h2 {
-  color: #64748b;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  margin: 0 0 16px;
-  text-transform: uppercase;
-}
-
-.neighborhood-map-hero__landmarks ul {
-  display: grid;
-  gap: 13px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.neighborhood-map-hero__landmarks li {
-  display: grid;
-  grid-template-columns: 14px minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  color: #21314b;
-  font-size: 0.98rem;
-}
-
-.neighborhood-map-hero__landmarks li span:last-child {
-  color: #64748b;
-  font-size: 0.92rem;
-}
-
-.neighborhood-map-hero__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: #2563eb;
-}
-
 .neighborhood-map-hero__dot--green,
 .neighborhood-map-hero__marker--green {
   background: #52b36b;
@@ -2819,19 +2713,62 @@ section.market-page--space-type .market-links a {
   fill: #f4c83f;
 }
 
-.neighborhood-map-hero__orientation {
+.neighborhood-map-card {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 16px;
-  align-items: center;
-  margin-top: 34px;
-  padding: 18px;
-  border: 1px solid #e2e8f0;
+  grid-template-rows: auto minmax(250px, 1fr) auto;
+  gap: 14px;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 22px;
+}
+
+.neighborhood-map-card__header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.neighborhood-map-card__header h2 {
+  margin: 0;
+  max-width: 12ch;
+}
+
+.neighborhood-map-card__header p {
+  color: #64748b;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 12ch;
+  text-align: right;
+}
+
+.neighborhood-map-card__figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #dbe4ef;
   border-radius: 18px;
+  background: #edf5fb;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+}
+
+.neighborhood-map-card__figure svg {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  display: block;
+}
+
+.neighborhood-map-card__footer {
+  padding: 14px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
   background: #f8fafc;
 }
 
-.neighborhood-map-hero__orientation strong {
+.neighborhood-map-card__footer strong {
   display: block;
   color: #233653;
   font-size: 0.75rem;
@@ -2839,58 +2776,16 @@ section.market-page--space-type .market-links a {
   text-transform: uppercase;
 }
 
-.neighborhood-map-hero__orientation p {
+.neighborhood-map-card__footer p {
   color: #556274;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.35;
   margin: 4px 0 0;
 }
 
-.neighborhood-map-hero__compass {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border: 1.5px solid #1d4ed8;
-  border-radius: 999px;
-  color: #17315d;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-align: center;
-}
-
-.neighborhood-map-hero__compass span:first-child {
-  display: block;
-  margin-top: 6px;
-}
-
-.neighborhood-map-hero__compass span:last-child {
-  position: absolute;
-  left: 18px;
-  top: 22px;
-  width: 12px;
-  height: 17px;
-  clip-path: polygon(50% 0, 100% 100%, 50% 78%, 0 100%);
-  background: #17315d;
-}
-
-.neighborhood-map-hero__map {
-  position: relative;
-  min-height: 560px;
-  margin: 0;
-  overflow: hidden;
-  background: #edf5fb;
-}
-
-.neighborhood-map-hero__map svg {
-  width: 100%;
-  height: 100%;
-  min-height: 560px;
-  display: block;
-}
-
 .neighborhood-map-hero__map-title {
   fill: #1359d8;
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-anchor: middle;
@@ -2920,19 +2815,11 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-map-hero__water {
   fill: #3d7fb8;
-  font-size: 17px;
+  font-size: 16px;
   font-style: italic;
   font-weight: 700;
   letter-spacing: 0.12em;
   opacity: 0.82;
-  text-transform: uppercase;
-}
-
-.neighborhood-map-hero__inset text {
-  fill: #21314b;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -3009,20 +2896,6 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-main {
   grid-area: main;
-}
-
-.neighborhood-layout--map-hero {
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "main";
-  gap: 20px;
-}
-
-.neighborhood-layout--map-hero .neighborhood-main {
-  gap: 20px;
-}
-
-.neighborhood-layout--map-hero .city-card:first-child {
-  margin-top: 0;
 }
 
 .neighborhood-sidebar {
@@ -3388,23 +3261,17 @@ section.market-page--space-type .market-links a {
   margin-top: 8px;
 }
 
+.neighborhood-lead-form h2 {
+  max-width: 16ch;
+}
+
+.neighborhood-lead-form .btn-primary {
+  width: 100%;
+}
+
 @media (max-width: 1020px) {
-  .neighborhood-map-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .neighborhood-map-hero__content {
-    box-shadow: none;
-  }
-
-  .neighborhood-map-hero__landmarks {
-    margin-top: 0;
-    padding-top: 28px;
-  }
-
-  .neighborhood-map-hero__map,
-  .neighborhood-map-hero__map svg {
-    min-height: 420px;
+  .neighborhood-map-card__figure svg {
+    min-height: 300px;
   }
 
   .neighborhood-hero,
@@ -3435,32 +3302,22 @@ section.market-page--space-type .market-links a {
     padding-bottom: 48px;
   }
 
-  .neighborhood-map-hero {
-    min-height: 0;
-    border-radius: 20px;
-    margin-top: 14px;
+  .neighborhood-map-card {
+    padding: 18px;
   }
 
-  .neighborhood-map-hero__content {
-    padding: 24px;
+  .neighborhood-map-card__header {
+    display: block;
   }
 
-  .neighborhood-map-hero h1 {
-    font-size: clamp(2.5rem, 15vw, 4rem);
-  }
-
-  .neighborhood-map-hero__subtitle,
-  .neighborhood-map-hero__descriptor {
+  .neighborhood-map-card__header p {
+    margin-top: 8px;
     max-width: none;
+    text-align: left;
   }
 
-  .neighborhood-map-hero__orientation {
-    grid-template-columns: 1fr;
-  }
-
-  .neighborhood-map-hero__map,
-  .neighborhood-map-hero__map svg {
-    min-height: 330px;
+  .neighborhood-map-card__figure svg {
+    min-height: 250px;
   }
 
   .neighborhood-hero,
