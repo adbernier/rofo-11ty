@@ -99,6 +99,243 @@ function nycSimpleHero(slug, config) {
   });
 }
 
+const chicagoBase = {
+  city_label: "Chicago",
+  basemap: "chicago-central-v1",
+  map_region_label: "Lake Michigan",
+  map_region_label_position: { x: 724, y: 234 },
+  water_paths: [
+    "M 690 0 C 656 116 660 242 704 360 C 746 472 742 608 694 720 H 920 V 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "90/94", x: 330, y: 258 },
+    { label: "290", x: 262, y: 430 },
+    { label: "55", x: 354, y: 612 }
+  ]
+};
+
+const chicagoColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function chicagoHero(slug, config) {
+  return [
+    `IL/chicago/${slug}`,
+    {
+      ...chicagoBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Chicago near surrounding commercial districts.`
+    }
+  ];
+}
+
+function chicagoSimpleHero(slug, config) {
+  const nearby = config.nearby || [];
+
+  return chicagoHero(slug, {
+    title: config.title,
+    subtitle: config.subtitle,
+    descriptor: config.descriptor,
+    orientation_label: config.orientation_label,
+    accessibility_label: config.accessibility_label || config.orientation_label,
+    accessibility_note:
+      config.accessibility_note ||
+      `Useful for comparing ${config.title} with nearby Chicago commercial districts.`,
+    approximate_polygon: config.approximate_polygon,
+    label_position: config.label_position,
+    nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      time: item.time || "nearby",
+      color: item.color || Object.values(chicagoColors)[index % 4]
+    })),
+    nearby_districts: nearby.slice(0, 5).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      emphasis: index === 0
+    })),
+    anchor_points: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      color: item.color || Object.values(chicagoColors)[index % 4]
+    }))
+  });
+}
+
+const laBase = {
+  city_label: "Los Angeles",
+  basemap: "los-angeles-v1",
+  map_region_label: "Westside",
+  map_region_label_position: { x: 168, y: 360 },
+  secondary_map_region_label: "Downtown",
+  secondary_map_region_label_position: { x: 650, y: 320 },
+  transit_or_freeway_labels: [
+    { label: "10", x: 402, y: 422 },
+    { label: "101", x: 536, y: 246 },
+    { label: "110", x: 626, y: 410 },
+    { label: "405", x: 246, y: 432 }
+  ]
+};
+
+const laColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function laHero(slug, config) {
+  return [
+    `CA/los-angeles/${slug}`,
+    {
+      ...laBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Los Angeles near surrounding commercial districts.`
+    }
+  ];
+}
+
+function laSimpleHero(slug, config) {
+  const nearby = config.nearby || [];
+
+  return laHero(slug, {
+    title: config.title,
+    subtitle: config.subtitle,
+    descriptor: config.descriptor,
+    orientation_label: config.orientation_label,
+    accessibility_label: config.accessibility_label || config.orientation_label,
+    accessibility_note:
+      config.accessibility_note ||
+      `Useful for comparing ${config.title} with nearby Los Angeles commercial districts.`,
+    approximate_polygon: config.approximate_polygon,
+    label_position: config.label_position,
+    nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      time: item.time || "nearby",
+      color: item.color || Object.values(laColors)[index % 4]
+    })),
+    nearby_districts: nearby.slice(0, 5).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      emphasis: index === 0
+    })),
+    anchor_points: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      color: item.color || Object.values(laColors)[index % 4]
+    }))
+  });
+}
+
+function boxPolygon(x, y, width = 128, height = 92) {
+  const left = x - width / 2;
+  const right = x + width / 2;
+  const top = y - height / 2;
+  const bottom = y + height / 2;
+
+  return `${left},${top + 18} ${x - 18},${top} ${right - 14},${top + 16} ${right},${y + 10} ${x + 18},${bottom} ${left + 12},${bottom - 12}`;
+}
+
+function compactCityHero(cityHero, colors, slug, config) {
+  const nearby = (config.nearby || []).map((item, index) => ({
+    ...item,
+    color: item.color || Object.values(colors)[index % 4]
+  }));
+
+  return cityHero(slug, {
+    title: config.title,
+    subtitle: config.subtitle,
+    descriptor: `Near ${nearby.map((item) => item.label).slice(0, 3).join(", ")}.`,
+    orientation_label: config.orientation_label,
+    accessibility_label: config.orientation_label,
+    accessibility_note: `Useful for comparing ${config.title} with nearby commercial areas.`,
+    approximate_polygon: boxPolygon(config.x, config.y, config.width, config.height),
+    label_position: { x: config.x, y: config.y + 6 },
+    nearby_landmarks: nearby.slice(0, 4).map((item) => ({
+      label: item.label,
+      time: "nearby",
+      color: item.color
+    })),
+    nearby_districts: nearby.slice(0, 5).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      emphasis: index === 0
+    })),
+    anchor_points: nearby.slice(0, 4)
+  });
+}
+
+function chicagoCompactHero(slug, config) {
+  return compactCityHero(chicagoHero, chicagoColors, slug, config);
+}
+
+function laCompactHero(slug, config) {
+  return compactCityHero(laHero, laColors, slug, config);
+}
+
+const chicagoMapConfigs = [
+  ["the-loop", { title: "The Loop", subtitle: "Central business district with office, civic, transit, and cultural commercial context.", orientation_label: "Downtown core", x: 504, y: 382, nearby: [{ label: "West Loop", x: 342, y: 404 }, { label: "River North", x: 462, y: 254 }, { label: "South Loop", x: 494, y: 568 }, { label: "Lake Michigan", x: 736, y: 250 }] }],
+  ["west-loop", { title: "West Loop", subtitle: "Near-downtown district with office, food, retail, and mixed commercial context.", orientation_label: "West of downtown", x: 342, y: 404, nearby: [{ label: "Fulton Market", x: 306, y: 324 }, { label: "The Loop", x: 504, y: 382 }, { label: "River West", x: 326, y: 280 }, { label: "Fulton River", x: 404, y: 320 }] }],
+  ["fulton-market", { title: "Fulton Market", subtitle: "West Loop district with office, food, showroom, hospitality, and mixed-use context.", orientation_label: "West Loop district", x: 306, y: 324, nearby: [{ label: "West Loop", x: 342, y: 404 }, { label: "River West", x: 326, y: 280 }, { label: "The Loop", x: 504, y: 382 }, { label: "Goose Island", x: 358, y: 204 }] }],
+  ["river-north", { title: "River North", subtitle: "Downtown-adjacent district with office, design, hospitality, and gallery commercial context.", orientation_label: "North of The Loop", x: 462, y: 254, nearby: [{ label: "Streeterville", x: 614, y: 234 }, { label: "The Loop", x: 504, y: 382 }, { label: "River West", x: 326, y: 280 }, { label: "Magnificent Mile", x: 568, y: 166 }] }],
+  ["streeterville", { title: "Streeterville", subtitle: "Near North Side district with medical, office, hospitality, retail, and lakefront context.", orientation_label: "Near North lakefront", x: 614, y: 234, nearby: [{ label: "Magnificent Mile", x: 568, y: 166 }, { label: "River North", x: 462, y: 254 }, { label: "The Loop", x: 504, y: 382 }, { label: "Lake Michigan", x: 736, y: 234 }] }],
+  ["south-loop", { title: "South Loop", subtitle: "South downtown district with office, institutional, residential, and mixed commercial context.", orientation_label: "South downtown", x: 494, y: 568, nearby: [{ label: "The Loop", x: 504, y: 382 }, { label: "Prairie District", x: 530, y: 628 }, { label: "Chinatown", x: 432, y: 654 }, { label: "Pilsen", x: 292, y: 622 }] }],
+  ["magnificent-mile", { title: "Magnificent Mile", subtitle: "North Michigan Avenue district with retail, hospitality, office, and visitor-serving context.", orientation_label: "North Michigan Avenue", x: 568, y: 166, nearby: [{ label: "Streeterville", x: 614, y: 234 }, { label: "River North", x: 462, y: 254 }, { label: "The Loop", x: 504, y: 382 }, { label: "Lake Michigan", x: 736, y: 210 }] }],
+  ["clybourn-corridor", { title: "Clybourn Corridor", subtitle: "North Side corridor with retail, showroom, service, and mixed commercial context.", orientation_label: "North Side corridor", x: 296, y: 160, nearby: [{ label: "Lincoln Park", x: 372, y: 108 }, { label: "Goose Island", x: 358, y: 204 }, { label: "Old Town", x: 434, y: 150 }, { label: "River West", x: 326, y: 280 }] }],
+  ["goose-island", { title: "Goose Island", subtitle: "Near North Side industrial and mixed commercial area.", orientation_label: "North Branch corridor", x: 358, y: 204, nearby: [{ label: "Clybourn", x: 296, y: 160 }, { label: "Old Town", x: 434, y: 150 }, { label: "River West", x: 326, y: 280 }, { label: "Fulton Market", x: 306, y: 324 }] }],
+  ["river-west", { title: "River West", subtitle: "Near-downtown district with office, residential, service, and mixed commercial context.", orientation_label: "Near northwest downtown", x: 326, y: 280, nearby: [{ label: "Fulton Market", x: 306, y: 324 }, { label: "River North", x: 462, y: 254 }, { label: "Goose Island", x: 358, y: 204 }, { label: "West Loop", x: 342, y: 404 }] }],
+  ["o-hare", { title: "O’Hare", subtitle: "Airport-area commercial district with office, logistics, hospitality, and transportation context.", orientation_label: "Airport submarket", x: 158, y: 150, nearby: [{ label: "Airport area", x: 158, y: 150 }, { label: "Kennedy Expy", x: 260, y: 220 }, { label: "Downtown", x: 504, y: 382 }, { label: "Northwest side", x: 190, y: 84 }] }],
+  ["hyde-park", { title: "Hyde Park", subtitle: "South Side district with education, medical, retail, office, and neighborhood commercial context.", orientation_label: "South Side lakefront", x: 612, y: 674, nearby: [{ label: "Bridgeport", x: 330, y: 682 }, { label: "South Loop", x: 494, y: 568 }, { label: "Lake Michigan", x: 746, y: 636 }, { label: "Chinatown", x: 432, y: 654 }] }],
+  ["illinois-medical-district", { title: "Illinois Medical District", subtitle: "Medical and institutional district west of downtown with office and healthcare context.", orientation_label: "West of downtown", x: 246, y: 482, nearby: [{ label: "Pilsen", x: 292, y: 622 }, { label: "West Loop", x: 342, y: 404 }, { label: "The Loop", x: 504, y: 382 }, { label: "Fulton Market", x: 306, y: 324 }] }],
+  ["pilsen", { title: "Pilsen", subtitle: "Near southwest district with arts, retail, industrial, service, and mixed commercial context.", orientation_label: "Near southwest side", x: 292, y: 622, nearby: [{ label: "Chinatown", x: 432, y: 654 }, { label: "Bridgeport", x: 330, y: 682 }, { label: "Medical District", x: 246, y: 482 }, { label: "South Loop", x: 494, y: 568 }] }],
+  ["fulton-river-district", { title: "Fulton River District", subtitle: "Downtown-adjacent district with office, residential, food, and riverfront context.", orientation_label: "Downtown river district", x: 404, y: 320, nearby: [{ label: "River West", x: 326, y: 280 }, { label: "Fulton Market", x: 306, y: 324 }, { label: "River North", x: 462, y: 254 }, { label: "The Loop", x: 504, y: 382 }] }],
+  ["lincoln-park", { title: "Lincoln Park", subtitle: "North Side neighborhood with retail, services, office-adjacent, and institutional context.", orientation_label: "North Side", x: 372, y: 108, nearby: [{ label: "Clybourn", x: 296, y: 160 }, { label: "Old Town", x: 434, y: 150 }, { label: "Goose Island", x: 358, y: 204 }, { label: "Lake Michigan", x: 724, y: 164 }] }],
+  ["uptown", { title: "Uptown", subtitle: "North lakefront neighborhood with retail, entertainment, office-adjacent, and service context.", orientation_label: "North lakefront", x: 468, y: 76, nearby: [{ label: "Andersonville", x: 340, y: 66 }, { label: "Edgewater", x: 506, y: 58 }, { label: "Rogers Park", x: 528, y: 50 }, { label: "Lake Michigan", x: 728, y: 110 }] }],
+  ["chinatown", { title: "Chinatown", subtitle: "Near South Side district with retail, food, services, and neighborhood commercial context.", orientation_label: "Near South Side", x: 432, y: 654, nearby: [{ label: "South Loop", x: 494, y: 568 }, { label: "Pilsen", x: 292, y: 622 }, { label: "Bridgeport", x: 330, y: 682 }, { label: "The Loop", x: 504, y: 382 }] }],
+  ["logan-square", { title: "Logan Square", subtitle: "Northwest Side neighborhood with retail, food, creative, and mixed-use commercial context.", orientation_label: "Northwest Side", x: 146, y: 178, nearby: [{ label: "Wicker Park", x: 202, y: 330 }, { label: "Clybourn", x: 296, y: 160 }, { label: "Goose Island", x: 358, y: 204 }, { label: "Lincoln Park", x: 372, y: 108 }] }],
+  ["prairie-district", { title: "Prairie District", subtitle: "South Loop-adjacent district with institutional, office-adjacent, and mixed commercial context.", orientation_label: "South downtown", x: 530, y: 628, nearby: [{ label: "South Loop", x: 494, y: 568 }, { label: "Chinatown", x: 432, y: 654 }, { label: "The Loop", x: 504, y: 382 }, { label: "Lake Michigan", x: 742, y: 620 }] }],
+  ["wicker-park", { title: "Wicker Park", subtitle: "Northwest Side neighborhood with retail, food, creative, and mixed-use commercial context.", orientation_label: "Northwest Side", x: 202, y: 330, nearby: [{ label: "Logan Square", x: 146, y: 178 }, { label: "Clybourn", x: 296, y: 160 }, { label: "Goose Island", x: 358, y: 204 }, { label: "River West", x: 326, y: 280 }] }],
+  ["andersonville", { title: "Andersonville", subtitle: "North Side neighborhood with retail, food, services, and neighborhood commercial context.", orientation_label: "North Side", x: 340, y: 66, nearby: [{ label: "Edgewater", x: 506, y: 58 }, { label: "Uptown", x: 468, y: 76 }, { label: "Rogers Park", x: 528, y: 50 }, { label: "Lincoln Park", x: 372, y: 108 }] }],
+  ["bridgeport", { title: "Bridgeport", subtitle: "South Side neighborhood with industrial, service, retail, and mixed commercial context.", orientation_label: "Southwest Side", x: 330, y: 682, nearby: [{ label: "Pilsen", x: 292, y: 622 }, { label: "Chinatown", x: 432, y: 654 }, { label: "South Loop", x: 494, y: 568 }, { label: "Medical District", x: 246, y: 482 }] }],
+  ["old-town", { title: "Old Town", subtitle: "Near North Side neighborhood with retail, hospitality, services, and office-adjacent context.", orientation_label: "Near North Side", x: 434, y: 150, nearby: [{ label: "Lincoln Park", x: 372, y: 108 }, { label: "Goose Island", x: 358, y: 204 }, { label: "River North", x: 462, y: 254 }, { label: "Clybourn", x: 296, y: 160 }] }],
+  ["edgewater", { title: "Edgewater", subtitle: "North lakefront neighborhood with retail, services, and neighborhood commercial context.", orientation_label: "North lakefront", x: 506, y: 58, nearby: [{ label: "Andersonville", x: 340, y: 66 }, { label: "Uptown", x: 468, y: 76 }, { label: "Rogers Park", x: 528, y: 50 }, { label: "Lake Michigan", x: 728, y: 90 }] }],
+  ["rogers-park", { title: "Rogers Park", subtitle: "Far North Side neighborhood with retail, services, institutional, and neighborhood context.", orientation_label: "Far North Side", x: 528, y: 50, nearby: [{ label: "Edgewater", x: 506, y: 58 }, { label: "Andersonville", x: 340, y: 66 }, { label: "Uptown", x: 468, y: 76 }, { label: "Lake Michigan", x: 728, y: 80 }] }]
+];
+
+const laMapConfigs = [
+  ["downtown-los-angeles", { title: "Downtown Los Angeles", subtitle: "Central LA business district with office, civic, hospitality, retail, and mixed commercial context.", orientation_label: "Central Los Angeles", x: 638, y: 366, nearby: [{ label: "Fashion District", x: 654, y: 504 }, { label: "Arts District", x: 764, y: 398 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "South Park", x: 574, y: 474 }] }],
+  ["arts-district", { title: "Arts District", subtitle: "Downtown-adjacent district with creative office, showroom, production, retail, and food context.", orientation_label: "East downtown", x: 764, y: 398, nearby: [{ label: "Little Tokyo", x: 714, y: 344 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "Fashion District", x: 654, y: 504 }, { label: "Boyle Heights", x: 812, y: 526 }] }],
+  ["century-city", { title: "Century City", subtitle: "Westside office district with entertainment, professional services, retail, and hospitality context.", orientation_label: "Westside office district", x: 326, y: 356, nearby: [{ label: "Westwood", x: 292, y: 256 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Brentwood", x: 174, y: 250 }, { label: "Miracle Mile", x: 458, y: 400 }] }],
+  ["fashion-district", { title: "Fashion District", subtitle: "Downtown LA district with showroom, wholesale, retail, production, and mixed commercial context.", orientation_label: "Downtown south", x: 654, y: 504, nearby: [{ label: "South Park", x: 574, y: 474 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "Arts District", x: 764, y: 398 }, { label: "Little Tokyo", x: 714, y: 344 }] }],
+  ["hollywood", { title: "Hollywood", subtitle: "Central LA district with entertainment, office, retail, hospitality, and production context.", orientation_label: "Central LA", x: 488, y: 214, nearby: [{ label: "Cahuenga Pass", x: 438, y: 132 }, { label: "Miracle Mile", x: 458, y: 400 }, { label: "Koreatown", x: 548, y: 420 }, { label: "Downtown LA", x: 638, y: 366 }] }],
+  ["south-park", { title: "South Park", subtitle: "Downtown LA district with entertainment, hospitality, office, and mixed commercial context.", orientation_label: "South downtown", x: 574, y: 474, nearby: [{ label: "Fashion District", x: 654, y: 504 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Arts District", x: 764, y: 398 }] }],
+  ["westwood", { title: "Westwood", subtitle: "Westside district with office, medical, education, retail, and neighborhood commercial context.", orientation_label: "Westside", x: 292, y: 256, nearby: [{ label: "Century City", x: 326, y: 356 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Brentwood", x: 174, y: 250 }, { label: "Venice", x: 154, y: 566 }] }],
+  ["koreatown", { title: "Koreatown", subtitle: "Central LA district with office, retail, food, hospitality, and dense mixed-use context.", orientation_label: "Central LA", x: 548, y: 420, nearby: [{ label: "Miracle Mile", x: 458, y: 400 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "South Park", x: 574, y: 474 }, { label: "Hollywood", x: 488, y: 214 }] }],
+  ["westchester", { title: "Westchester", subtitle: "Westside district with airport-adjacent, office, education, and service commercial context.", orientation_label: "Westside airport area", x: 202, y: 536, nearby: [{ label: "Playa Vista", x: 176, y: 474 }, { label: "Venice", x: 154, y: 566 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Century City", x: 326, y: 356 }] }],
+  ["playa-vista", { title: "Playa Vista", subtitle: "Westside district with tech, office, creative, retail, and mixed-use commercial context.", orientation_label: "Westside", x: 176, y: 474, nearby: [{ label: "Westchester", x: 202, y: 536 }, { label: "Venice", x: 154, y: 566 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Century City", x: 326, y: 356 }] }],
+  ["miracle-mile", { title: "Miracle Mile", subtitle: "Central LA corridor with office, retail, museum, medical, and mixed commercial context.", orientation_label: "Central LA corridor", x: 458, y: 400, nearby: [{ label: "Koreatown", x: 548, y: 420 }, { label: "Hollywood", x: 488, y: 214 }, { label: "Century City", x: 326, y: 356 }, { label: "Westwood", x: 292, y: 256 }] }],
+  ["sawtelle", { title: "Sawtelle", subtitle: "Westside neighborhood with retail, food, office-adjacent, and service commercial context.", orientation_label: "Westside", x: 206, y: 336, nearby: [{ label: "Westwood", x: 292, y: 256 }, { label: "Century City", x: 326, y: 356 }, { label: "Brentwood", x: 174, y: 250 }, { label: "Venice", x: 154, y: 566 }] }],
+  ["little-tokyo", { title: "Little Tokyo", subtitle: "Downtown LA district with retail, food, cultural, office-adjacent, and mixed-use context.", orientation_label: "East downtown", x: 714, y: 344, nearby: [{ label: "Arts District", x: 764, y: 398 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "Chinatown", x: 662, y: 272 }, { label: "Fashion District", x: 654, y: 504 }] }],
+  ["brentwood", { title: "Brentwood", subtitle: "Westside neighborhood with office-adjacent, medical, retail, and service commercial context.", orientation_label: "Westside", x: 174, y: 250, nearby: [{ label: "Westwood", x: 292, y: 256 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Century City", x: 326, y: 356 }, { label: "Venice", x: 154, y: 566 }] }],
+  ["chinatown", { title: "Chinatown", subtitle: "Central LA neighborhood with retail, food, services, and downtown-adjacent commercial context.", orientation_label: "North downtown", x: 662, y: 272, nearby: [{ label: "Little Tokyo", x: 714, y: 344 }, { label: "Downtown LA", x: 638, y: 366 }, { label: "Arts District", x: 764, y: 398 }, { label: "Lincoln Heights", x: 786, y: 274 }] }],
+  ["venice", { title: "Venice", subtitle: "Westside neighborhood with creative office, retail, food, service, and coastal commercial context.", orientation_label: "Westside coast", x: 154, y: 566, nearby: [{ label: "Playa Vista", x: 176, y: 474 }, { label: "Westchester", x: 202, y: 536 }, { label: "Sawtelle", x: 206, y: 336 }, { label: "Westwood", x: 292, y: 256 }] }],
+  ["highland-park", { title: "Highland Park", subtitle: "Northeast LA neighborhood with retail, food, creative, and neighborhood commercial context.", orientation_label: "Northeast Los Angeles", x: 766, y: 174, nearby: [{ label: "Lincoln Heights", x: 786, y: 274 }, { label: "Chinatown", x: 662, y: 272 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Boyle Heights", x: 812, y: 526 }] }],
+  ["cahuenga-pass", { title: "Cahuenga Pass", subtitle: "Central LA pass corridor with entertainment, office-adjacent, and transportation commercial context.", orientation_label: "Hollywood corridor", x: 438, y: 132, nearby: [{ label: "Hollywood", x: 488, y: 214 }, { label: "Miracle Mile", x: 458, y: 400 }, { label: "Koreatown", x: 548, y: 420 }, { label: "Century City", x: 326, y: 356 }] }],
+  ["lincoln-heights", { title: "Lincoln Heights", subtitle: "Northeast LA neighborhood with industrial, service, retail, and downtown-adjacent context.", orientation_label: "Northeast downtown edge", x: 786, y: 274, nearby: [{ label: "Chinatown", x: 662, y: 272 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Arts District", x: 764, y: 398 }, { label: "Boyle Heights", x: 812, y: 526 }] }],
+  ["boyle-heights", { title: "Boyle Heights", subtitle: "East LA neighborhood with retail, service, industrial, and downtown-adjacent commercial context.", orientation_label: "East of downtown", x: 812, y: 526, nearby: [{ label: "Arts District", x: 764, y: 398 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Fashion District", x: 654, y: 504 }, { label: "Lincoln Heights", x: 786, y: 274 }] }]
+];
+
 module.exports = Object.fromEntries([
   sfHero("dogpatch", {
     title: "Dogpatch",
@@ -1537,5 +1774,8 @@ module.exports = Object.fromEntries([
       { label: "Downtown Brooklyn", x: 728, y: 620 },
       { label: "East River", x: 610, y: 330 }
     ]
-  })
+  }),
+
+  ...chicagoMapConfigs.map(([slug, config]) => chicagoCompactHero(slug, config)),
+  ...laMapConfigs.map(([slug, config]) => laCompactHero(slug, config))
 ]);
