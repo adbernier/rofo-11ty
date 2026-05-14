@@ -259,5 +259,402 @@
     "recommended_status": "launch",
     "city_nav_priority": 11,
     "notes": "Recognized community area with Broadway and neighborhood-serving commercial corridors. No building inheritance added in this pass."
+  },
+  {
+    "id": "la-downtown-los-angeles",
+    "canonical_name": "Downtown Los Angeles",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "downtown_core",
+    "aliases": ["DTLA", "Downtown LA"],
+    "source_types": ["official_community_plan", "recognized_commercial_district", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0505, "lng": -118.2551 },
+    "commercial_profile": ["office", "retail", "downtown", "transit_oriented", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/515-s-flower-st/",
+      "/commercial-real-estate/building/CA/los-angeles/555-w-5th-st/",
+      "/commercial-real-estate/building/CA/los-angeles/633-west-fifth-street/",
+      "/commercial-real-estate/building/CA/los-angeles/725-s-figueroa-st/",
+      "/commercial-real-estate/building/CA/los-angeles/801-s-grand-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Central business district and official Downtown Community Plan area. Representative buildings are clear DTLA office addresses."
+  },
+  {
+    "id": "la-arts-district",
+    "canonical_name": "Arts District",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["Art District", "Arts District Los Angeles"],
+    "source_types": ["recognized_commercial_district", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0417, "lng": -118.2346 },
+    "commercial_profile": ["creative_office", "industrial", "retail", "mixed_use", "warehouse"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1100-mateo-st/",
+      "/commercial-real-estate/building/CA/los-angeles/811-traction-ave/",
+      "/commercial-real-estate/building/CA/los-angeles/953-e-3rd-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1238-palmetto-st/",
+      "/commercial-real-estate/building/CA/los-angeles/2143-bay-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized DTLA district with adaptive reuse, creative office, industrial, and mixed commercial context."
+  },
+  {
+    "id": "la-fashion-district",
+    "canonical_name": "Fashion District",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["Los Angeles Fashion District", "Garment District"],
+    "source_types": ["recognized_business_improvement_district", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0388, "lng": -118.2527 },
+    "commercial_profile": ["retail", "showroom", "office", "fashion", "downtown"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/777-s-alameda-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1149-s-hill-st/",
+      "/commercial-real-estate/building/CA/los-angeles/315-w-9th-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized DTLA commercial district and business improvement district. Representative buildings are central Fashion District and adjacent DTLA addresses."
+  },
+  {
+    "id": "la-south-park",
+    "canonical_name": "South Park",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["South Park LA", "South Park Downtown Los Angeles"],
+    "source_types": ["recognized_commercial_district", "live_building_graph", "editorial_review"],
+    "source_confidence": "medium",
+    "approximate_centroid": { "lat": 34.0412, "lng": -118.2641 },
+    "commercial_profile": ["office", "retail", "hospitality", "mixed_use", "downtown"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1150-s-hope-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1150-s-olive-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1317-s-olive-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1337-s-flower-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized southern Downtown district. Representative buildings are DTLA/South Park addresses."
+  },
+  {
+    "id": "la-little-tokyo",
+    "canonical_name": "Little Tokyo",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["Little Tokyo Los Angeles"],
+    "source_types": ["recognized_commercial_district", "existing_rofo_neighborhood_data", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0501, "lng": -118.2394 },
+    "commercial_profile": ["retail", "office", "hospitality", "neighborhood_retail", "downtown"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/443-s-san-pedro-st/",
+      "/commercial-real-estate/building/CA/los-angeles/437-s-los-angeles-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized DTLA district with retail, hospitality, and office context. Building matches are conservative central/Little Tokyo adjacent addresses."
+  },
+  {
+    "id": "la-chinatown",
+    "canonical_name": "Chinatown",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Chinatown Los Angeles"],
+    "source_types": ["recognized_neighborhood", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0637, "lng": -118.2393 },
+    "commercial_profile": ["retail", "office", "neighborhood_retail", "hospitality", "transit_oriented"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1231-n-spring-st/",
+      "/commercial-real-estate/building/CA/los-angeles/843-n-spring-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 8,
+    "notes": "Recognized neighborhood north of Downtown. Spring Street building matches are high-confidence local examples."
+  },
+  {
+    "id": "la-century-city",
+    "canonical_name": "Century City",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "submarket",
+    "aliases": ["Century City Los Angeles"],
+    "source_types": ["recognized_business_district", "specific_plan_area", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0586, "lng": -118.4178 },
+    "commercial_profile": ["office", "enterprise_environment", "professional_services", "retail", "suburban_office"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/10250-constellation-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/1800-century-park-e/",
+      "/commercial-real-estate/building/CA/los-angeles/1901-avenue-of-the-stars/",
+      "/commercial-real-estate/building/CA/los-angeles/2029-century-park-e/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized Westside office district and specific plan area. Representative buildings are clear Century City office addresses."
+  },
+  {
+    "id": "la-westwood",
+    "canonical_name": "Westwood",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Westwood Village", "Westwood Los Angeles"],
+    "source_types": ["official_community_plan", "specific_plan_area", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0635, "lng": -118.4455 },
+    "commercial_profile": ["office", "retail", "professional_services", "neighborhood_retail", "transit_oriented"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1010-westwood-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/10914-kinross-ave/",
+      "/commercial-real-estate/building/CA/los-angeles/1990-westwood-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/10880-wilshire-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized Westside neighborhood and Westwood Village commercial context. Representative buildings are Westwood and Wilshire corridor addresses."
+  },
+  {
+    "id": "la-sawtelle",
+    "canonical_name": "Sawtelle",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Sawtelle Japantown", "Sawtelle Los Angeles"],
+    "source_types": ["recognized_neighborhood", "official_overlay_context", "live_building_graph", "editorial_review"],
+    "source_confidence": "medium",
+    "approximate_centroid": { "lat": 34.0386, "lng": -118.4425 },
+    "commercial_profile": ["office", "retail", "neighborhood_retail", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/2045-sawtelle-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/2250-cotner-ave/",
+      "/commercial-real-estate/building/CA/los-angeles/2251-barry-ave/",
+      "/commercial-real-estate/building/CA/los-angeles/2201-s-carmelina-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized Westside commercial neighborhood. Representative buildings are concentrated around Sawtelle/Cotner/Barry office addresses."
+  },
+  {
+    "id": "la-brentwood",
+    "canonical_name": "Brentwood",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Brentwood Los Angeles"],
+    "source_types": ["official_community_plan", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0521, "lng": -118.4742 },
+    "commercial_profile": ["office", "retail", "professional_services", "neighborhood_retail"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/11911-san-vicente-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/12100-wilshire-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 8,
+    "notes": "Recognized Westside neighborhood and commercial corridor context. Representative buildings are San Vicente/Wilshire area addresses."
+  },
+  {
+    "id": "la-hollywood",
+    "canonical_name": "Hollywood",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["Hollywood Los Angeles"],
+    "source_types": ["official_community_plan", "recognized_commercial_district", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.1016, "lng": -118.3269 },
+    "commercial_profile": ["office", "creative_office", "retail", "hospitality", "transit_oriented"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1800-north-vine-street/",
+      "/commercial-real-estate/building/CA/los-angeles/1161-vine-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1419-wilcox-ave/",
+      "/commercial-real-estate/building/CA/los-angeles/6151-santa-monica-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/7021-santa-monica-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Official Hollywood Community Plan area and recognized entertainment/commercial district. Representative buildings are Hollywood/Vine and Santa Monica Boulevard addresses."
+  },
+  {
+    "id": "la-koreatown",
+    "canonical_name": "Koreatown",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Koreatown Los Angeles", "Wilshire Center Koreatown"],
+    "source_types": ["recognized_neighborhood", "redevelopment_plan_area", "existing_rofo_neighborhood_data", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.058, "lng": -118.3005 },
+    "commercial_profile": ["office", "retail", "hospitality", "neighborhood_retail", "transit_oriented"],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized central LA neighborhood and Wilshire/Koreatown redevelopment context. Launched without building inheritance until address matches are reviewed."
+  },
+  {
+    "id": "la-miracle-mile",
+    "canonical_name": "Miracle Mile",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "district",
+    "aliases": ["Miracle Mile Los Angeles"],
+    "source_types": ["official_overlay_context", "recognized_commercial_district", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0631, "lng": -118.3585 },
+    "commercial_profile": ["office", "retail", "museum_district", "professional_services", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/6333-wilshire-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized Wilshire corridor district and planning overlay context. Representative buildings are Wilshire/Fairfax area addresses."
+  },
+  {
+    "id": "la-venice",
+    "canonical_name": "Venice",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Venice Los Angeles", "Venice Coastal Zone"],
+    "source_types": ["official_community_plan", "coastal_zone_plan", "existing_rofo_neighborhood_data", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 33.985, "lng": -118.4695 },
+    "commercial_profile": ["office", "creative_office", "retail", "neighborhood_retail", "mixed_use"],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 8,
+    "notes": "Recognized coastal neighborhood and official coastal planning area. No building inheritance added in this pass."
+  },
+  {
+    "id": "la-westchester",
+    "canonical_name": "Westchester",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "submarket",
+    "aliases": ["Westchester Los Angeles", "LAX office corridor", "Century Boulevard"],
+    "source_types": ["official_community_plan", "official_overlay_context", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 33.9597, "lng": -118.3995 },
+    "commercial_profile": ["office", "airport_access", "hospitality", "suburban_office", "enterprise_environment"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/5777-w-century-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/6033-w-century-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/6080-center-dr/",
+      "/commercial-real-estate/building/CA/los-angeles/8610-s-sepulveda-blvd/",
+      "/commercial-real-estate/building/CA/los-angeles/8616-la-tijera-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Westchester area with LAX/Century Boulevard office and hospitality context. Representative buildings are clear airport-area commercial addresses."
+  },
+  {
+    "id": "la-playa-vista",
+    "canonical_name": "Playa Vista",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "submarket",
+    "aliases": ["Playa Vista Los Angeles"],
+    "source_types": ["specific_plan_area", "recognized_commercial_district", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 33.976, "lng": -118.418 },
+    "commercial_profile": ["office", "creative_office", "technology", "mixed_use", "suburban_office"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/12130-millennium-dr/",
+      "/commercial-real-estate/building/CA/los-angeles/5301-beethoven-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized Westside office and mixed-use district with specific plan context. Building matches are Playa Vista/Howard Hughes area commercial addresses."
+  },
+  {
+    "id": "la-cahuenga-pass",
+    "canonical_name": "Cahuenga Pass",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "corridor",
+    "aliases": ["Cahuenga Pass Los Angeles", "Studio City and Cahuenga Pass"],
+    "source_types": ["official_overlay_context", "live_building_graph", "editorial_review"],
+    "source_confidence": "medium",
+    "approximate_centroid": { "lat": 34.133, "lng": -118.357 },
+    "commercial_profile": ["office", "creative_office", "media", "corridor", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/3151-cahuenga-blvd-w/",
+      "/commercial-real-estate/building/CA/los-angeles/3330-cahuenga-blvd-w/",
+      "/commercial-real-estate/building/CA/los-angeles/3575-cahuenga-blvd-w/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 9,
+    "notes": "Recognized corridor with Studio City and Cahuenga Pass planning overlay context. Building matches are Cahuenga Boulevard addresses."
+  },
+  {
+    "id": "la-highland-park",
+    "canonical_name": "Highland Park",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Highland Park Los Angeles", "Highland Park - Garvanza"],
+    "source_types": ["recognized_neighborhood", "official_overlay_context", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.1158, "lng": -118.185 },
+    "commercial_profile": ["retail", "office", "neighborhood_retail", "creative_office", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/5619-n-figueroa-st/",
+      "/commercial-real-estate/building/CA/los-angeles/5715-n-figueroa-st/",
+      "/commercial-real-estate/building/CA/los-angeles/7447-n-figueroa-st/",
+      "/commercial-real-estate/building/CA/los-angeles/7462-n-figueroa-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 9,
+    "notes": "Recognized Northeast Los Angeles neighborhood with Figueroa commercial corridor context. Representative buildings are North Figueroa addresses."
+  },
+  {
+    "id": "la-lincoln-heights",
+    "canonical_name": "Lincoln Heights",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Lincoln Heights Los Angeles"],
+    "source_types": ["official_overlay_context", "recognized_neighborhood", "live_building_graph", "editorial_review"],
+    "source_confidence": "medium",
+    "approximate_centroid": { "lat": 34.075, "lng": -118.207 },
+    "commercial_profile": ["industrial", "retail", "neighborhood_retail", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1600-n-spring-st/",
+      "/commercial-real-estate/building/CA/los-angeles/1667-n-main-st/",
+      "/commercial-real-estate/building/CA/los-angeles/2635-pasadena-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 10,
+    "notes": "Recognized Northeast Los Angeles neighborhood and planning overlay context. Building matches are north of Chinatown/Lincoln Heights corridor addresses."
+  },
+  {
+    "id": "la-boyle-heights",
+    "canonical_name": "Boyle Heights",
+    "city": "Los Angeles",
+    "state_abbr": "CA",
+    "area_type": "neighborhood",
+    "aliases": ["Boyle Heights Los Angeles"],
+    "source_types": ["official_community_plan", "existing_rofo_neighborhood_data", "live_building_graph", "editorial_review"],
+    "source_confidence": "high",
+    "approximate_centroid": { "lat": 34.0339, "lng": -118.2053 },
+    "commercial_profile": ["industrial", "retail", "neighborhood_retail", "mixed_use"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/los-angeles/1312-s-boyle-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 10,
+    "notes": "Recognized Eastside neighborhood and official community plan area. Single building inheritance is limited to an obvious Boyle Avenue address."
   }
 ]
