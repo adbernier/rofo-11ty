@@ -656,5 +656,994 @@
     "recommended_status": "launch",
     "city_nav_priority": 10,
     "notes": "Recognized Eastside neighborhood and official community plan area. Single building inheritance is limited to an obvious Boyle Avenue address."
+  },
+  {
+    "id": "miami-downtown-miami",
+    "canonical_name": "Downtown Miami",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "downtown_core",
+    "aliases": [
+      "Miami Central Business District",
+      "Downtown"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_commercial_district",
+      "official_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7753,
+      "lng": -80.1903
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/FL/miami/201-s-biscayne-blvd/",
+      "/commercial-real-estate/building/FL/miami/333-se-2nd-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized central business district. Representative buildings are clear downtown Miami office addresses."
+  },
+  {
+    "id": "miami-brickell",
+    "canonical_name": "Brickell",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "district",
+    "aliases": [
+      "Brickell Financial District"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_commercial_district",
+      "official_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7602,
+      "lng": -80.1959
+    },
+    "commercial_profile": [
+      "office",
+      "financial_services",
+      "retail",
+      "transit_oriented",
+      "downtown"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/FL/miami/1221-brickell-ave/",
+      "/commercial-real-estate/building/FL/miami/601-brickell-key-dr/",
+      "/commercial-real-estate/building/FL/miami/78-sw-7th-st/",
+      "/commercial-real-estate/building/FL/miami/80-sw-8th-st/",
+      "/commercial-real-estate/building/FL/miami/801-brickell-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized Miami office and financial district. Building matches are Brickell Avenue, Brickell Key, and immediate Brickell core addresses."
+  },
+  {
+    "id": "miami-wynwood",
+    "canonical_name": "Wynwood",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Wynwood Arts District"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.8011,
+      "lng": -80.1996
+    },
+    "commercial_profile": [
+      "creative_office",
+      "retail",
+      "showroom",
+      "mixed_use",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/FL/miami/218-nw-24th-st/",
+      "/commercial-real-estate/building/FL/miami/360-nw-27th-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized Miami arts and commercial neighborhood. Representative buildings are clear Wynwood street addresses."
+  },
+  {
+    "id": "miami-design-district",
+    "canonical_name": "Design District",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "district",
+    "aliases": [
+      "Miami Design District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.8133,
+      "lng": -80.1922
+    },
+    "commercial_profile": [
+      "retail",
+      "showroom",
+      "creative_office",
+      "mixed_use",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized Miami retail, showroom, and design district. Launched without building inheritance until clear in-district building matches are available."
+  },
+  {
+    "id": "miami-edgewater",
+    "canonical_name": "Edgewater",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Edgewater Miami"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.8022,
+      "lng": -80.1896
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "waterfront",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Miami neighborhood north of downtown. No high-confidence representative building paths were attached in this pass."
+  },
+  {
+    "id": "miami-coconut-grove",
+    "canonical_name": "Coconut Grove",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "The Grove"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7289,
+      "lng": -80.2374
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "neighborhood_retail",
+      "mixed_use",
+      "waterfront"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Miami neighborhood with commercial village and office context. Launched without building inheritance because current building paths do not clearly map into Coconut Grove."
+  },
+  {
+    "id": "miami-little-havana",
+    "canonical_name": "Little Havana",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "East Little Havana",
+      "Calle Ocho"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.765,
+      "lng": -80.2197
+    },
+    "commercial_profile": [
+      "retail",
+      "neighborhood_retail",
+      "mixed_use",
+      "restaurant_food"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized Miami neighborhood and commercial corridor context. Building inheritance is deferred until address-level matches are reviewed."
+  },
+  {
+    "id": "miami-allapattah",
+    "canonical_name": "Allapattah",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Allapattah Miami"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.811,
+      "lng": -80.224
+    },
+    "commercial_profile": [
+      "industrial",
+      "retail",
+      "warehouse",
+      "mixed_use",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Miami neighborhood with industrial and mixed commercial context. No building inheritance added without clear address-level support."
+  },
+  {
+    "id": "miami-little-haiti",
+    "canonical_name": "Little Haiti",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Little Haiti Miami"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.824,
+      "lng": -80.191
+    },
+    "commercial_profile": [
+      "retail",
+      "creative_office",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Miami neighborhood north of Wynwood and the Design District. Building inheritance deferred until higher-confidence matches are available."
+  },
+  {
+    "id": "miami-overtown",
+    "canonical_name": "Overtown",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "neighborhood",
+    "aliases": [
+      "Historic Overtown"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_neighborhood",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7874,
+      "lng": -80.2012
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "transit_oriented",
+      "mixed_use",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized Miami neighborhood adjacent to Downtown. Launched without representative buildings in this pass."
+  },
+  {
+    "id": "miami-blue-lagoon",
+    "canonical_name": "Blue Lagoon",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "submarket",
+    "aliases": [
+      "Waterford at Blue Lagoon",
+      "Miami Airport Blue Lagoon"
+    ],
+    "source_types": [
+      "recognized_commercial_submarket",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7827,
+      "lng": -80.2817
+    },
+    "commercial_profile": [
+      "office",
+      "airport_access",
+      "campus_environment",
+      "suburban_office"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/FL/miami/5201-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5202-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5203-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5204-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5205-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5206-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5207-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/5208-blue-lagoon-dr/",
+      "/commercial-real-estate/building/FL/miami/6303-blue-lagoon-dr/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized airport-area office submarket. Representative buildings are Blue Lagoon Drive addresses."
+  },
+  {
+    "id": "miami-coral-way",
+    "canonical_name": "Coral Way",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "corridor",
+    "aliases": [
+      "Coral Way Miami"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_corridor",
+      "official_neighborhood_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 25.7506,
+      "lng": -80.245
+    },
+    "commercial_profile": [
+      "retail",
+      "office",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized Miami corridor and neighborhood context. No building inheritance added without clear current building matches."
+  },
+  {
+    "id": "miami-dadeland",
+    "canonical_name": "Dadeland",
+    "city": "Miami",
+    "state_abbr": "FL",
+    "area_type": "submarket",
+    "aliases": [
+      "Dadeland Miami",
+      "Dadeland Kendall"
+    ],
+    "source_types": [
+      "recognized_commercial_submarket",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 25.689,
+      "lng": -80.314
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "suburban_office",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/FL/miami/9100-s-dadeland-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 8,
+    "notes": "Recognized south Miami-Dade commercial submarket. Single building inheritance is limited to the obvious Dadeland Boulevard address."
+  },
+  {
+    "id": "dallas-downtown-dallas",
+    "canonical_name": "Downtown Dallas",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "downtown_core",
+    "aliases": [
+      "Dallas CBD",
+      "Central Business District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_downtown_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7817,
+      "lng": -96.797
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "transit_oriented",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/325-n-st-paul-st/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized downtown core. Inheritance is limited to clear central Dallas addresses not better assigned to a smaller district."
+  },
+  {
+    "id": "dallas-uptown",
+    "canonical_name": "Uptown",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Uptown Dallas"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7968,
+      "lng": -96.8017
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "transit_oriented",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/100-crescent-ct/",
+      "/commercial-real-estate/building/TX/dallas/1919-mckinney-ave/",
+      "/commercial-real-estate/building/TX/dallas/1920-mckinney-ave/",
+      "/commercial-real-estate/building/TX/dallas/3232-mckinney-ave/",
+      "/commercial-real-estate/building/TX/dallas/3232-mckinney-ave-1st-floor/",
+      "/commercial-real-estate/building/TX/dallas/3333-lee-pkwy/",
+      "/commercial-real-estate/building/TX/dallas/4514-cole-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 0,
+    "notes": "Recognized mixed-use Dallas district. Representative building paths are McKinney, Crescent, Lee Parkway, and Cole Avenue addresses in the Uptown/Oak Lawn area."
+  },
+  {
+    "id": "dallas-main-street-district",
+    "canonical_name": "Main Street District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Main Street",
+      "Main Street District Dallas"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_downtown_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7814,
+      "lng": -96.7977
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "downtown",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/1910-pacific-ave/",
+      "/commercial-real-estate/building/TX/dallas/2550-pacific-ave/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized downtown Dallas district. Representative buildings are Pacific Avenue addresses in the downtown core."
+  },
+  {
+    "id": "dallas-victory-park",
+    "canonical_name": "Victory Park",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Victory Park Dallas"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7906,
+      "lng": -96.8104
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "mixed_use",
+      "entertainment"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/3090-nowitzki-way/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 1,
+    "notes": "Recognized district northwest of downtown. Single building inheritance is limited to the clear Nowitzki Way address."
+  },
+  {
+    "id": "dallas-arts-district",
+    "canonical_name": "Arts District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Dallas Arts District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_downtown_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.789,
+      "lng": -96.798
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "civic",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized Dallas cultural and commercial district. No high-confidence building paths were attached in this pass."
+  },
+  {
+    "id": "dallas-west-end-historic-district",
+    "canonical_name": "West End Historic District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "West End",
+      "Dallas West End"
+    ],
+    "source_types": [
+      "recognized_historic_district",
+      "official_downtown_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7819,
+      "lng": -96.8064
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "historic_building",
+      "mixed_use",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized historic district in downtown Dallas. Building inheritance deferred until clear West End address matches are reviewed."
+  },
+  {
+    "id": "dallas-deep-ellum",
+    "canonical_name": "Deep Ellum",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Deep Ellum Dallas"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_economic_development_district",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.784,
+      "lng": -96.783
+    },
+    "commercial_profile": [
+      "creative_office",
+      "retail",
+      "restaurant_food",
+      "mixed_use",
+      "historic_building"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 2,
+    "notes": "Recognized Dallas district with official economic development/TIF district context. No building inheritance added without address-level certainty."
+  },
+  {
+    "id": "dallas-design-district",
+    "canonical_name": "Design District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Dallas Design District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_downtown_context",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7987,
+      "lng": -96.8268
+    },
+    "commercial_profile": [
+      "showroom",
+      "office",
+      "retail",
+      "creative_office",
+      "mixed_use"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/1220-river-bend-dr/",
+      "/commercial-real-estate/building/TX/dallas/1850-crown-dr/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 3,
+    "notes": "Recognized Dallas commercial and showroom district. Representative buildings are Design District/River Bend area addresses."
+  },
+  {
+    "id": "dallas-cedars",
+    "canonical_name": "Cedars",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "The Cedars",
+      "Cedars Dallas"
+    ],
+    "source_types": [
+      "recognized_neighborhood",
+      "official_downtown_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.7705,
+      "lng": -96.792
+    },
+    "commercial_profile": [
+      "creative_office",
+      "industrial",
+      "retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized district south of downtown Dallas. Launched without representative buildings until high-confidence address matches are reviewed."
+  },
+  {
+    "id": "dallas-medical-district",
+    "canonical_name": "Medical District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Southwestern Medical District",
+      "Dallas Medical District"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_downtown_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.811,
+      "lng": -96.839
+    },
+    "commercial_profile": [
+      "medical",
+      "office",
+      "life_science",
+      "transit_oriented"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 4,
+    "notes": "Recognized medical and institutional district. Building inheritance deferred because current Dallas building paths did not clearly establish a Medical District location."
+  },
+  {
+    "id": "dallas-stemmons-corridor",
+    "canonical_name": "Stemmons Corridor",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "corridor",
+    "aliases": [
+      "Stemmons Freeway Corridor",
+      "I-35E Stemmons Corridor"
+    ],
+    "source_types": [
+      "recognized_commercial_corridor",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 32.823,
+      "lng": -96.866
+    },
+    "commercial_profile": [
+      "office",
+      "industrial",
+      "logistics",
+      "warehouse",
+      "freeway_access"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/1140-empire-central-pl/",
+      "/commercial-real-estate/building/TX/dallas/1341-w-mockingbird-ln/",
+      "/commercial-real-estate/building/TX/dallas/2351-w-northwest-hwy/",
+      "/commercial-real-estate/building/TX/dallas/8204-elmbrook-dr/",
+      "/commercial-real-estate/building/TX/dallas/8500-n-stemmons-fwy/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Dallas commercial corridor along Stemmons Freeway and nearby industrial/office areas. Building matches are limited to clear Stemmons, Empire Central, Mockingbird, and nearby corridor addresses."
+  },
+  {
+    "id": "dallas-turtle-creek",
+    "canonical_name": "Turtle Creek",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Turtle Creek Dallas"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.808,
+      "lng": -96.804
+    },
+    "commercial_profile": [
+      "office",
+      "professional_services",
+      "mixed_use",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/2911-turtle-creek-blvd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized Dallas district. Single building inheritance is limited to the obvious Turtle Creek Boulevard address."
+  },
+  {
+    "id": "dallas-preston-center",
+    "canonical_name": "Preston Center",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Preston Center Dallas"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.862,
+      "lng": -96.804
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "professional_services",
+      "neighborhood_retail"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/5956-sherry-ln/",
+      "/commercial-real-estate/building/TX/dallas/5960-berkshire-ln/",
+      "/commercial-real-estate/building/TX/dallas/8117-preston-rd/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 5,
+    "notes": "Recognized office and retail district in north Dallas. Representative paths are Preston Center area addresses."
+  },
+  {
+    "id": "dallas-north-dallas",
+    "canonical_name": "North Dallas",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "submarket",
+    "aliases": [
+      "North Dallas office submarket"
+    ],
+    "source_types": [
+      "recognized_submarket",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 32.913,
+      "lng": -96.789
+    },
+    "commercial_profile": [
+      "office",
+      "retail",
+      "suburban_office",
+      "professional_services"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/10000-north-central-expressway/",
+      "/commercial-real-estate/building/TX/dallas/10100-north-central-expressway/",
+      "/commercial-real-estate/building/TX/dallas/13140-coit-rd/",
+      "/commercial-real-estate/building/TX/dallas/13601-preston-rd/",
+      "/commercial-real-estate/building/TX/dallas/9304-forest-ln/",
+      "/commercial-real-estate/building/TX/dallas/9535-forest-ln/",
+      "/commercial-real-estate/building/TX/dallas/9550-forest-ln/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 6,
+    "notes": "Recognized broad north Dallas commercial submarket. Building inheritance is limited to clear North Central, Preston, Coit, and Forest Lane addresses."
+  },
+  {
+    "id": "dallas-far-north-dallas",
+    "canonical_name": "Far North Dallas",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "submarket",
+    "aliases": [
+      "Far North Dallas office submarket"
+    ],
+    "source_types": [
+      "existing_rofo_neighborhood_data",
+      "recognized_submarket",
+      "live_building_graph",
+      "editorial_review"
+    ],
+    "source_confidence": "medium",
+    "approximate_centroid": {
+      "lat": 32.947,
+      "lng": -96.823
+    },
+    "commercial_profile": [
+      "office",
+      "suburban_office",
+      "freeway_access",
+      "professional_services"
+    ],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/TX/dallas/14800-quorum-dr/",
+      "/commercial-real-estate/building/TX/dallas/15950-north-dallas-parkway-tower-ii/",
+      "/commercial-real-estate/building/TX/dallas/4001-mcewen-rd/",
+      "/commercial-real-estate/building/TX/dallas/4099-mcewen-rd/",
+      "/commercial-real-estate/building/TX/dallas/4100-alpha-rd/",
+      "/commercial-real-estate/building/TX/dallas/4100-spring-valley-rd/",
+      "/commercial-real-estate/building/TX/dallas/4101-mcewen-rd/",
+      "/commercial-real-estate/building/TX/dallas/5050-quorum-dr/",
+      "/commercial-real-estate/building/TX/dallas/5430-lbj-freeway/",
+      "/commercial-real-estate/building/TX/dallas/8330-8360-lyndon-b-johnson-fwy/",
+      "/commercial-real-estate/building/TX/dallas/9330-lbj-freeway/"
+    ],
+    "recommended_status": "launch",
+    "city_nav_priority": 7,
+    "notes": "Recognized broad Far North Dallas office submarket. Building matches are obvious Quorum, McEwen, Spring Valley, and LBJ/North Dallas Parkway addresses."
+  },
+  {
+    "id": "dallas-bishop-arts-district",
+    "canonical_name": "Bishop Arts District",
+    "city": "Dallas",
+    "state_abbr": "TX",
+    "area_type": "district",
+    "aliases": [
+      "Bishop Arts",
+      "Bishop Arts Dallas"
+    ],
+    "source_types": [
+      "recognized_commercial_district",
+      "official_district_context",
+      "editorial_review"
+    ],
+    "source_confidence": "high",
+    "approximate_centroid": {
+      "lat": 32.749,
+      "lng": -96.828
+    },
+    "commercial_profile": [
+      "retail",
+      "restaurant_food",
+      "neighborhood_retail",
+      "mixed_use"
+    ],
+    "representative_building_paths": [],
+    "recommended_status": "launch",
+    "city_nav_priority": 8,
+    "notes": "Recognized Dallas retail and restaurant district. No high-confidence representative building paths were attached in this pass."
   }
 ]
