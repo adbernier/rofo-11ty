@@ -2689,6 +2689,253 @@ section.market-page--space-type .market-links a {
   margin-top: 4px;
 }
 
+.neighborhood-map-hero {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.36fr) minmax(0, 0.64fr);
+  min-height: 560px;
+  margin: 18px 0 18px;
+  overflow: hidden;
+  border: 1px solid #dbe4ef;
+  border-radius: 26px;
+  background:
+    linear-gradient(90deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0.76) 42%, rgba(255,255,255,0) 66%),
+    #edf5fb;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+}
+
+.neighborhood-map-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(30px, 4vw, 52px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 18px 0 36px rgba(15, 23, 42, 0.05);
+}
+
+.neighborhood-map-hero__city {
+  color: #1d4ed8;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin: 0 0 26px;
+  text-transform: uppercase;
+}
+
+.neighborhood-map-hero h1 {
+  color: #102039;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0;
+  max-width: 9ch;
+}
+
+.neighborhood-map-hero__rule {
+  width: 70px;
+  height: 4px;
+  margin: 28px 0;
+  border-radius: 999px;
+  background: #2f6feb;
+}
+
+.neighborhood-map-hero__subtitle,
+.neighborhood-map-hero__descriptor {
+  color: #1f2f46;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 27ch;
+}
+
+.neighborhood-map-hero__descriptor {
+  margin-top: 18px;
+}
+
+.neighborhood-map-hero__landmarks {
+  margin-top: auto;
+  padding-top: 38px;
+}
+
+.neighborhood-map-hero__landmarks h2 {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.neighborhood-map-hero__landmarks ul {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.neighborhood-map-hero__landmarks li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  color: #21314b;
+  font-size: 0.98rem;
+}
+
+.neighborhood-map-hero__landmarks li span:last-child {
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
+.neighborhood-map-hero__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #2563eb;
+}
+
+.neighborhood-map-hero__dot--green,
+.neighborhood-map-hero__marker--green {
+  background: #52b36b;
+  fill: #52b36b;
+}
+
+.neighborhood-map-hero__dot--blue,
+.neighborhood-map-hero__marker--blue {
+  background: #2f6feb;
+  fill: #2f6feb;
+}
+
+.neighborhood-map-hero__dot--purple,
+.neighborhood-map-hero__marker--purple {
+  background: #8056cc;
+  fill: #8056cc;
+}
+
+.neighborhood-map-hero__dot--yellow,
+.neighborhood-map-hero__marker--yellow {
+  background: #f4c83f;
+  fill: #f4c83f;
+}
+
+.neighborhood-map-hero__orientation {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin-top: 34px;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.neighborhood-map-hero__orientation strong {
+  display: block;
+  color: #233653;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.neighborhood-map-hero__orientation p {
+  color: #556274;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  margin: 4px 0 0;
+}
+
+.neighborhood-map-hero__compass {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid #1d4ed8;
+  border-radius: 999px;
+  color: #17315d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.neighborhood-map-hero__compass span:first-child {
+  display: block;
+  margin-top: 6px;
+}
+
+.neighborhood-map-hero__compass span:last-child {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  width: 12px;
+  height: 17px;
+  clip-path: polygon(50% 0, 100% 100%, 50% 78%, 0 100%);
+  background: #17315d;
+}
+
+.neighborhood-map-hero__map {
+  position: relative;
+  min-height: 560px;
+  margin: 0;
+  overflow: hidden;
+  background: #edf5fb;
+}
+
+.neighborhood-map-hero__map svg {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  display: block;
+}
+
+.neighborhood-map-hero__map-title {
+  fill: #1359d8;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+}
+
+.neighborhood-map-hero__district {
+  fill: #20324d;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+.neighborhood-map-hero__district--emphasis {
+  fill: #30935a;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.neighborhood-map-hero__route {
+  fill: #334155;
+  font-size: 13px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.neighborhood-map-hero__water {
+  fill: #3d7fb8;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.82;
+  text-transform: uppercase;
+}
+
+.neighborhood-map-hero__inset text {
+  fill: #21314b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .neighborhood-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
@@ -2762,6 +3009,20 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-main {
   grid-area: main;
+}
+
+.neighborhood-layout--map-hero {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "main";
+  gap: 20px;
+}
+
+.neighborhood-layout--map-hero .neighborhood-main {
+  gap: 20px;
+}
+
+.neighborhood-layout--map-hero .city-card:first-child {
+  margin-top: 0;
 }
 
 .neighborhood-sidebar {
@@ -3128,6 +3389,24 @@ section.market-page--space-type .market-links a {
 }
 
 @media (max-width: 1020px) {
+  .neighborhood-map-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .neighborhood-map-hero__content {
+    box-shadow: none;
+  }
+
+  .neighborhood-map-hero__landmarks {
+    margin-top: 0;
+    padding-top: 28px;
+  }
+
+  .neighborhood-map-hero__map,
+  .neighborhood-map-hero__map svg {
+    min-height: 420px;
+  }
+
   .neighborhood-hero,
   .neighborhood-layout {
     grid-template-columns: 1fr;
@@ -3154,6 +3433,34 @@ section.market-page--space-type .market-links a {
   .neighborhood-prototype,
   .neighborhood-public {
     padding-bottom: 48px;
+  }
+
+  .neighborhood-map-hero {
+    min-height: 0;
+    border-radius: 20px;
+    margin-top: 14px;
+  }
+
+  .neighborhood-map-hero__content {
+    padding: 24px;
+  }
+
+  .neighborhood-map-hero h1 {
+    font-size: clamp(2.5rem, 15vw, 4rem);
+  }
+
+  .neighborhood-map-hero__subtitle,
+  .neighborhood-map-hero__descriptor {
+    max-width: none;
+  }
+
+  .neighborhood-map-hero__orientation {
+    grid-template-columns: 1fr;
+  }
+
+  .neighborhood-map-hero__map,
+  .neighborhood-map-hero__map svg {
+    min-height: 330px;
   }
 
   .neighborhood-hero,

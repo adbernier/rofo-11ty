@@ -1,0 +1,112 @@
+{% set hero = neighborhood.map_hero %}
+
+<section class="neighborhood-map-hero" aria-labelledby="neighborhood-map-hero-title">
+  <div class="neighborhood-map-hero__content">
+    <p class="neighborhood-map-hero__city">{{ hero.city_label }}</p>
+    <h1 id="neighborhood-map-hero-title">{{ hero.title }}</h1>
+    <div class="neighborhood-map-hero__rule" aria-hidden="true"></div>
+    <p class="neighborhood-map-hero__subtitle">{{ hero.subtitle }}</p>
+    <p class="neighborhood-map-hero__descriptor">{{ hero.descriptor }}</p>
+
+    {% if hero.nearby_landmarks and hero.nearby_landmarks.length %}
+      <div class="neighborhood-map-hero__landmarks" aria-label="Nearby landmarks">
+        <h2>Nearby landmarks</h2>
+        <ul>
+          {% for landmark in hero.nearby_landmarks %}
+            <li>
+              <span class="neighborhood-map-hero__dot neighborhood-map-hero__dot--{{ landmark.color }}" aria-hidden="true"></span>
+              <span>{{ landmark.label }}</span>
+              <span>{{ landmark.time }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="neighborhood-map-hero__orientation">
+      <div class="neighborhood-map-hero__compass" aria-hidden="true">
+        <span>N</span>
+        <span></span>
+      </div>
+      <div>
+        <strong>{{ hero.accessibility_label }}</strong>
+        <p>{{ hero.accessibility_note }}</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="neighborhood-map-hero__map" aria-label="{{ hero.map_alt }}">
+    <svg viewBox="0 0 920 720" role="img" aria-labelledby="neighborhood-map-svg-title neighborhood-map-svg-desc" preserveAspectRatio="xMidYMid slice">
+      <title id="neighborhood-map-svg-title">{{ hero.title }} neighborhood orientation map</title>
+      <desc id="neighborhood-map-svg-desc">{{ hero.map_alt }}</desc>
+      <defs>
+        <pattern id="map-grid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+          <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.72" />
+        </pattern>
+        <linearGradient id="map-water" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e7f5ff" />
+          <stop offset="100%" stop-color="#cfe8f7" />
+        </linearGradient>
+        <filter id="map-soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12" />
+        </filter>
+        <filter id="map-neighborhood-glow" x="-12%" y="-12%" width="124%" height="124%">
+          <feGaussianBlur stdDeviation="5" result="softGlow" />
+          <feColorMatrix in="softGlow" type="matrix" values="0 0 0 0 0.08 0 0 0 0 0.35 0 0 0 0 0.85 0 0 0 0.34 0" />
+        </filter>
+      </defs>
+
+      <rect width="920" height="720" fill="#f8faf7" />
+      <path d="M 680 0 C 650 96 678 166 710 220 C 742 275 736 344 720 402 C 696 492 724 596 796 720 L 920 720 L 920 0 Z" fill="url(#map-water)" />
+      <path d="M 0 0 H 720 V 720 H 0 Z" fill="url(#map-grid)" opacity="0.72" />
+
+      <g opacity="0.58">
+        <path d="M 0 180 C 142 204 205 246 288 286 C 386 334 498 296 578 248 C 640 210 694 206 742 226" fill="none" stroke="#d3d9e2" stroke-width="10" />
+        <path d="M 120 720 C 222 608 300 544 368 466 C 444 378 474 300 432 208 C 392 120 360 82 350 0" fill="none" stroke="#cfd6df" stroke-width="12" />
+        <path d="M 292 720 C 402 625 510 576 614 526 C 686 492 730 464 814 460" fill="none" stroke="#cfd6df" stroke-width="8" />
+        <path d="M 280 0 C 330 68 376 126 424 198 C 472 272 514 350 548 452 C 574 532 610 620 684 720" fill="none" stroke="#9fa8b4" stroke-width="4" stroke-dasharray="8 10" />
+      </g>
+
+      <g opacity="0.56">
+        <path d="M 456 350 L 508 322 L 560 340 L 566 406 L 508 428 L 448 406 Z" fill="#b9dfc0" />
+        <path d="M 332 418 L 402 394 L 438 460 L 370 500 Z" fill="#c8e6c9" />
+        <path d="M 596 74 L 626 52 L 652 82 L 624 104 Z" fill="#c7e3c5" />
+        <path d="M 658 522 L 722 496 L 766 570 L 690 608 Z" fill="#d5ead4" />
+      </g>
+
+      <g filter="url(#map-soft-shadow)">
+        <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#2f6feb" stroke-width="14" opacity="0.18" filter="url(#map-neighborhood-glow)" />
+        <polygon points="{{ hero.approximate_polygon }}" fill="#cfe3ff" fill-opacity="0.82" stroke="#1359d8" stroke-width="3.5" />
+        <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.86" />
+      </g>
+
+      <text x="{{ hero.label_position.x }}" y="{{ hero.label_position.y }}" class="neighborhood-map-hero__map-title">{{ hero.title | upper }}</text>
+
+      {% for district in hero.nearby_districts %}
+        <text x="{{ district.x }}" y="{{ district.y }}" class="neighborhood-map-hero__district{% if district.emphasis %} neighborhood-map-hero__district--emphasis{% endif %}">{{ district.label }}</text>
+      {% endfor %}
+
+      {% for marker in hero.anchor_points %}
+        <circle cx="{{ marker.x }}" cy="{{ marker.y }}" r="8" class="neighborhood-map-hero__marker neighborhood-map-hero__marker--{{ marker.color }}" />
+      {% endfor %}
+
+      {% for label in hero.transit_or_freeway_labels %}
+        <g>
+          <circle cx="{{ label.x }}" cy="{{ label.y }}" r="18" fill="#fff" stroke="#94a3b8" stroke-width="2" />
+          <text x="{{ label.x }}" y="{{ label.y + 5 }}" class="neighborhood-map-hero__route">{{ label.label }}</text>
+        </g>
+      {% endfor %}
+
+      <text x="752" y="220" class="neighborhood-map-hero__water">San Francisco Bay</text>
+
+      <g class="neighborhood-map-hero__inset" transform="translate(720 545)">
+        <rect width="158" height="128" rx="18" fill="#ffffff" stroke="#dbe4ef" />
+        <path d="M 42 28 L 88 38 L 100 76 L 78 104 L 38 88 Z" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+        <circle cx="90" cy="86" r="22" fill="#dbeafe" stroke="#93c5fd" />
+        <circle cx="90" cy="86" r="6" fill="#2563eb" />
+        <text x="106" y="80">Southeast</text>
+        <text x="106" y="96">San Francisco</text>
+      </g>
+    </svg>
+  </figure>
+</section>

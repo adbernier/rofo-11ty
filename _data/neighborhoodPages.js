@@ -55,6 +55,7 @@ const priorityMarketAreas = fs.existsSync(priorityMarketAreasPath)
   ? JSON.parse(fs.readFileSync(priorityMarketAreasPath, "utf8"))
   : [];
 const buildingPages = require("./buildingPages.js");
+const neighborhoodMapHeroes = require("./neighborhoodMapHeroes.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const allowlistByPath = new Map(
   allowlist.map((item) => [item.canonical_neighborhood_path, item])
@@ -157,6 +158,14 @@ function signalLabel(value) {
 
 function areaPath(area) {
   return `/commercial-real-estate/${area.state_abbr}/${slugify(area.city)}/${slugify(area.canonical_name)}/`;
+}
+
+function mapHeroKey(page) {
+  return [
+    clean(page.state_abbr).toUpperCase(),
+    slugify(page.city),
+    page.slug || slugify(page.name),
+  ].join("/");
 }
 
 function distanceKm(a, b) {
@@ -405,6 +414,8 @@ for (const page of allPages) {
   if (page.city_nav_priority == null) {
     page.city_nav_priority = page.representative_buildings?.length ? 3 : 7;
   }
+
+  page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
 }
 
 for (const page of allPages) {

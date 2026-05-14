@@ -25,52 +25,59 @@ eleventyComputed:
 {% set cityLeadUrl = cityUrl + "?neighborhood_name=" + neighborhood.name + "&neighborhood_slug=" + neighborhood.slug + "&neighborhood_path=" + neighborhood.canonical_neighborhood_path + "&commercial_area_id=" + (neighborhood.commercial_area_id or "") + "&commercial_area_type=" + (neighborhood.commercial_area_type or "") + "#market-contact-form" %}
 {% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
 {% set areaTermDisplay = areaTerm | capitalize %}
+{% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero">
-      <div class="city-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
-          <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
-          <p class="lead">
-            Explore commercial buildings, nearby areas, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
-          </p>
-          <div class="pill-row">
-            <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
-            <span class="pill">{{ areaTermDisplay }} guide</span>
-            {% if neighborhood.approximate_building_count %}
-              <span class="pill">{{ neighborhood.approximate_building_count }} buildings</span>
-            {% endif %}
-          </div>
-          <div class="button-row">
-            <a class="btn-primary" href="{{ cityUrl }}">View broader {{ neighborhood.city }} market</a>
-            <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
+    {% if hasMapHero %}
+      {% include "partials/neighborhood/map-hero.njk" %}
+    {% else %}
+      <div class="city-hero">
+        <div class="city-card">
+          <div class="city-hero-copy">
+            <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
+            <h1>Commercial Real Estate in {{ neighborhood.name }}</h1>
+            <p class="lead">
+              Explore commercial buildings, nearby areas, and related space types in {{ neighborhood.name }}, {{ neighborhood.city }}.
+            </p>
+            <div class="pill-row">
+              <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
+              <span class="pill">{{ areaTermDisplay }} guide</span>
+              {% if neighborhood.approximate_building_count %}
+                <span class="pill">{{ neighborhood.approximate_building_count }} buildings</span>
+              {% endif %}
+            </div>
+            <div class="button-row">
+              <a class="btn-primary" href="{{ cityUrl }}">View broader {{ neighborhood.city }} market</a>
+              <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="city-sidecard neighborhood-review-note">
-        <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
-        <h2>Explore {{ neighborhood.name }}</h2>
-        <p>
-          Use this page as a starting point for comparing {{ neighborhood.name }} with the broader {{ neighborhood.city }} commercial real estate market.
-        </p>
-      </div>
-    </div>
-
-    <div class="neighborhood-layout">
-      <div class="neighborhood-main">
-        <section class="city-card">
-          <div class="eyebrow">Neighborhood Overview</div>
-          <h2>{{ neighborhood.name }} commercial real estate</h2>
+        <div class="city-sidecard neighborhood-review-note">
+          <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
+          <h2>Explore {{ neighborhood.name }}</h2>
           <p>
-            {{ neighborhood.name }} is part of the broader {{ neighborhood.city }} commercial real estate market.
-            Use this page to compare buildings in the area, review related space types, and explore nearby commercial areas.
+            Use this page as a starting point for comparing {{ neighborhood.name }} with the broader {{ neighborhood.city }} commercial real estate market.
           </p>
-        </section>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="neighborhood-layout{% if hasMapHero %} neighborhood-layout--map-hero{% endif %}">
+      <div class="neighborhood-main">
+        {% if not hasMapHero %}
+          <section class="city-card">
+            <div class="eyebrow">Neighborhood Overview</div>
+            <h2>{{ neighborhood.name }} commercial real estate</h2>
+            <p>
+              {{ neighborhood.name }} is part of the broader {{ neighborhood.city }} commercial real estate market.
+              Use this page to compare buildings in the area, review related space types, and explore nearby commercial areas.
+            </p>
+          </section>
+        {% endif %}
 
         <section class="city-card">
           <div class="eyebrow">At a Glance</div>
@@ -198,21 +205,23 @@ eleventyComputed:
         </section>
       </div>
 
-      <aside class="neighborhood-sidebar">
-        <div class="city-card neighborhood-sticky-card">
-          <div class="eyebrow">Neighborhood Context</div>
-          <h2>Explore {{ neighborhood.name }}</h2>
-          <p>
-            Use this page as a starting point for comparing {{ neighborhood.name }} with other parts of {{ neighborhood.city }}.
-          </p>
-          <ul class="mini-list">
-            <li>Buildings in this area</li>
-            <li>Nearby {{ neighborhood.city }} areas</li>
-            <li>Related commercial space types</li>
-            <li>Broader {{ neighborhood.city }} market guide</li>
-          </ul>
-        </div>
-      </aside>
+      {% if not hasMapHero %}
+        <aside class="neighborhood-sidebar">
+          <div class="city-card neighborhood-sticky-card">
+            <div class="eyebrow">Neighborhood Context</div>
+            <h2>Explore {{ neighborhood.name }}</h2>
+            <p>
+              Use this page as a starting point for comparing {{ neighborhood.name }} with other parts of {{ neighborhood.city }}.
+            </p>
+            <ul class="mini-list">
+              <li>Buildings in this area</li>
+              <li>Nearby {{ neighborhood.city }} areas</li>
+              <li>Related commercial space types</li>
+              <li>Broader {{ neighborhood.city }} market guide</li>
+            </ul>
+          </div>
+        </aside>
+      {% endif %}
     </div>
   </div>
 </section>
