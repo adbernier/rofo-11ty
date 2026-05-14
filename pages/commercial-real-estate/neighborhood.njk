@@ -130,6 +130,10 @@ eleventyComputed:
           {% endif %}
         </section>
 
+        {% if neighborhood.neighborhood_intelligence %}
+          {% include "partials/neighborhood/intelligence.njk" %}
+        {% endif %}
+
         <section class="city-card">
           <div class="eyebrow">Buildings to Explore</div>
           {% if hasBuildings %}

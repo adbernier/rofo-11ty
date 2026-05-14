@@ -1,0 +1,71 @@
+{% set intelligence = neighborhood.neighborhood_intelligence %}
+{% if intelligence %}
+  <section class="city-card neighborhood-intelligence" aria-labelledby="neighborhood-intelligence-heading">
+    <div class="neighborhood-intelligence__header">
+      <div>
+        <div class="eyebrow">Neighborhood Intelligence</div>
+        <h2 id="neighborhood-intelligence-heading">{{ neighborhood.name }} commercial profile</h2>
+      </div>
+      <span class="neighborhood-intelligence__confidence">{{ intelligence.confidence | capitalize }} confidence</span>
+    </div>
+
+    {% if intelligence.headline %}
+      <p class="neighborhood-intelligence__lead">{{ intelligence.headline }}</p>
+    {% endif %}
+
+    {% if intelligence.modules and intelligence.modules.length %}
+      <div class="neighborhood-intelligence__grid">
+        {% for module in intelligence.modules %}
+          <article class="neighborhood-intelligence__card">
+            <div class="neighborhood-intelligence__card-heading">
+              <h3>{{ module.title }}</h3>
+              {% if module.confidence %}
+                <span>{{ module.confidence }}</span>
+              {% endif %}
+            </div>
+            <p>{{ module.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if intelligence.fit_chips and intelligence.fit_chips.length %}
+      <div class="neighborhood-intelligence__block">
+        <h3>Useful for comparing</h3>
+        <div class="neighborhood-intelligence__chips">
+          {% for chip in intelligence.fit_chips %}
+            <span>{{ chip }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="neighborhood-intelligence__split">
+      {% if intelligence.building_scale_patterns and intelligence.building_scale_patterns.length %}
+        <div class="neighborhood-intelligence__block">
+          <h3>Building scale patterns</h3>
+          <ul>
+            {% for item in intelligence.building_scale_patterns %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if intelligence.nearby_alternatives and intelligence.nearby_alternatives.length %}
+        <div class="neighborhood-intelligence__block">
+          <h3>Nearby alternatives</h3>
+          <ul>
+            {% for item in intelligence.nearby_alternatives %}
+              <li><strong>{{ item.label }}:</strong> {{ item.note }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if intelligence.source_note %}
+      <p class="neighborhood-intelligence__note">{{ intelligence.source_note }} This does not represent live availability.</p>
+    {% endif %}
+  </section>
+{% endif %}

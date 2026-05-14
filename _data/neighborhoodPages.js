@@ -56,6 +56,7 @@ const priorityMarketAreas = fs.existsSync(priorityMarketAreasPath)
   : [];
 const buildingPages = require("./buildingPages.js");
 const neighborhoodMapHeroes = require("./neighborhoodMapHeroes.js");
+const neighborhoodIntelligence = require("./neighborhoodIntelligence.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const allowlistByPath = new Map(
   allowlist.map((item) => [item.canonical_neighborhood_path, item])
@@ -643,6 +644,7 @@ for (const page of allPages) {
   }
 
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
+  page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
 }
 
 const allPagesByCitySlug = new Map();

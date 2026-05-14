@@ -3105,6 +3105,136 @@ section.market-page--space-type .market-links a {
   margin: 0;
 }
 
+.neighborhood-intelligence {
+  border-color: #dbeafe;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.neighborhood-intelligence__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.neighborhood-intelligence__confidence {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.neighborhood-intelligence__lead {
+  margin-top: 12px;
+  color: #334155;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.neighborhood-intelligence__grid,
+.neighborhood-intelligence__split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.neighborhood-intelligence__card,
+.neighborhood-intelligence__block {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 16px;
+}
+
+.neighborhood-intelligence__card-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 8px;
+}
+
+.neighborhood-intelligence__card-heading h3,
+.neighborhood-intelligence__block h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.neighborhood-intelligence__card-heading span {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.neighborhood-intelligence__card p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.neighborhood-intelligence__block {
+  margin-top: 18px;
+}
+
+.neighborhood-intelligence__split .neighborhood-intelligence__block {
+  margin-top: 0;
+}
+
+.neighborhood-intelligence__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.neighborhood-intelligence__chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid #dbe3ee;
+  border-radius: 999px;
+  background: #fff;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.neighborhood-intelligence__block ul {
+  display: grid;
+  gap: 9px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.neighborhood-intelligence__block li {
+  color: #475569;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.neighborhood-intelligence__block strong {
+  color: #0f172a;
+}
+
+.neighborhood-intelligence__note {
+  margin: 16px 0 0;
+  color: #64748b !important;
+  font-size: 0.86rem !important;
+  line-height: 1.45 !important;
+}
+
 .neighborhood-page-review .neighborhood-link-card {
   color: inherit;
   display: block;
@@ -3291,6 +3421,8 @@ section.market-page--space-type .market-links a {
 
   .neighborhood-signal-grid,
   .neighborhood-fit-grid,
+  .neighborhood-intelligence__grid,
+  .neighborhood-intelligence__split,
   .neighborhood-card-grid--compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3341,12 +3473,22 @@ section.market-page--space-type .market-links a {
   .neighborhood-signal-grid,
   .neighborhood-fit-grid,
   .neighborhood-fit-list,
+  .neighborhood-intelligence__grid,
+  .neighborhood-intelligence__split,
   .neighborhood-card-grid,
   .neighborhood-card-grid--compact,
   .neighborhood-comparison-grid,
   .neighborhood-check-grid,
   .neighborhood-building-card {
     grid-template-columns: 1fr;
+  }
+
+  .neighborhood-intelligence__header {
+    display: grid;
+  }
+
+  .neighborhood-intelligence__confidence {
+    width: fit-content;
   }
 }
 
