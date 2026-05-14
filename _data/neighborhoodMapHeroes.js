@@ -185,5 +185,191 @@ module.exports = Object.fromEntries([
       { label: "Civic Center", x: 205, y: 165, color: sfColors.purple },
       { label: "Embarcadero", x: 642, y: 126, color: sfColors.green }
     ]
+  }),
+
+  sfHero("jackson-square", {
+    title: "Jackson Square",
+    subtitle: "Historic downtown district with boutique office, design, and professional services context.",
+    descriptor: "Near the Financial District, North Beach, Embarcadero, and Union Square.",
+    orientation_label: "Northeast downtown",
+    accessibility_label: "Historic downtown edge",
+    accessibility_note: "Close to the Financial District, Embarcadero, and north downtown connections.",
+    approximate_polygon:
+      "428,26 520,22 558,66 532,112 438,120 396,72",
+    label_position: { x: 474, y: 78 },
+    nearby_landmarks: [
+      { label: "Financial District", time: "4 min", color: sfColors.yellow },
+      { label: "Embarcadero", time: "6 min", color: sfColors.purple },
+      { label: "Union Square", time: "9 min", color: sfColors.blue },
+      { label: "SoMa", time: "10 min", color: sfColors.green }
+    ],
+    nearby_districts: [
+      { label: "Financial District", x: 548, y: 136, emphasis: true },
+      { label: "Embarcadero", x: 664, y: 106 },
+      { label: "Union Square", x: 346, y: 154 },
+      { label: "SOMA", x: 360, y: 282 },
+      { label: "Mission Bay", x: 496, y: 430 }
+    ],
+    anchor_points: [
+      { label: "Financial District", x: 545, y: 136, color: sfColors.yellow },
+      { label: "Embarcadero", x: 642, y: 112, color: sfColors.purple },
+      { label: "Union Square", x: 350, y: 150, color: sfColors.blue },
+      { label: "SoMa", x: 372, y: 270, color: sfColors.green }
+    ]
+  }),
+
+  sfHero("civic-center", {
+    title: "Civic Center",
+    subtitle: "Central civic, office, cultural, and neighborhood-serving commercial district.",
+    descriptor: "Near Hayes Valley, Union Square, SoMa, and Market Street.",
+    orientation_label: "Central city",
+    accessibility_label: "Civic core",
+    accessibility_note: "Close to Market Street transit, Hayes Valley, Union Square, and central offices.",
+    approximate_polygon:
+      "152,112 274,104 322,168 286,240 170,250 112,184",
+    label_position: { x: 218, y: 180 },
+    nearby_landmarks: [
+      { label: "Hayes Valley", time: "4 min", color: sfColors.green },
+      { label: "Union Square", time: "7 min", color: sfColors.yellow },
+      { label: "SoMa", time: "7 min", color: sfColors.blue },
+      { label: "Financial District", time: "12 min", color: sfColors.purple }
+    ],
+    nearby_districts: [
+      { label: "Hayes Valley", x: 120, y: 132, emphasis: true },
+      { label: "Union Square", x: 380, y: 148 },
+      { label: "SOMA", x: 372, y: 286 },
+      { label: "Financial District", x: 540, y: 96 },
+      { label: "Mission Bay", x: 506, y: 432 }
+    ],
+    anchor_points: [
+      { label: "Hayes Valley", x: 132, y: 134, color: sfColors.green },
+      { label: "Union Square", x: 372, y: 150, color: sfColors.yellow },
+      { label: "SoMa", x: 382, y: 280, color: sfColors.blue },
+      { label: "Financial District", x: 540, y: 106, color: sfColors.purple }
+    ]
+  }),
+
+  sfHero("hayes-valley", {
+    title: "Hayes Valley",
+    subtitle: "Central neighborhood with retail, design, food, and office-adjacent commercial activity.",
+    descriptor: "Near Civic Center, Market Street, Union Square, and SoMa.",
+    orientation_label: "Central west",
+    accessibility_label: "Central neighborhood",
+    accessibility_note: "Close to Civic Center, Market Street transit, and downtown commercial districts.",
+    approximate_polygon:
+      "72,82 178,70 228,126 182,204 74,210 34,142",
+    label_position: { x: 126, y: 146 },
+    nearby_landmarks: [
+      { label: "Civic Center", time: "4 min", color: sfColors.purple },
+      { label: "Union Square", time: "10 min", color: sfColors.yellow },
+      { label: "SoMa", time: "10 min", color: sfColors.blue },
+      { label: "Financial District", time: "14 min", color: sfColors.green }
+    ],
+    nearby_districts: [
+      { label: "Civic Center", x: 230, y: 180, emphasis: true },
+      { label: "Union Square", x: 384, y: 150 },
+      { label: "SOMA", x: 372, y: 288 },
+      { label: "Financial District", x: 540, y: 98 },
+      { label: "Mission Bay", x: 506, y: 432 }
+    ],
+    anchor_points: [
+      { label: "Civic Center", x: 226, y: 180, color: sfColors.purple },
+      { label: "Union Square", x: 382, y: 150, color: sfColors.yellow },
+      { label: "SoMa", x: 382, y: 288, color: sfColors.blue },
+      { label: "Financial District", x: 538, y: 108, color: sfColors.green }
+    ]
+  }),
+
+  sfHero("marina-district", {
+    title: "Marina District",
+    subtitle: "North-side neighborhood with retail corridors, services, and waterfront access.",
+    descriptor: "Near Pacific Heights, the Presidio, Russian Hill, and northern waterfront areas.",
+    orientation_label: "North San Francisco",
+    accessibility_label: "North-side district",
+    accessibility_note: "Useful for businesses comparing northern San Francisco neighborhoods and waterfront access.",
+    approximate_polygon:
+      "118,18 274,12 342,54 306,110 164,118 72,70",
+    label_position: { x: 206, y: 70 },
+    nearby_landmarks: [
+      { label: "Pacific Heights", time: "5 min", color: sfColors.green },
+      { label: "Russian Hill", time: "8 min", color: sfColors.blue },
+      { label: "Financial District", time: "15 min", color: sfColors.yellow },
+      { label: "Union Square", time: "15 min", color: sfColors.purple }
+    ],
+    nearby_districts: [
+      { label: "Pacific Heights", x: 180, y: 130, emphasis: true },
+      { label: "Russian Hill", x: 358, y: 76 },
+      { label: "Financial District", x: 548, y: 116 },
+      { label: "Union Square", x: 374, y: 168 },
+      { label: "Civic Center", x: 226, y: 214 }
+    ],
+    anchor_points: [
+      { label: "Pacific Heights", x: 184, y: 128, color: sfColors.green },
+      { label: "Russian Hill", x: 354, y: 82, color: sfColors.blue },
+      { label: "Financial District", x: 548, y: 118, color: sfColors.yellow },
+      { label: "Union Square", x: 374, y: 166, color: sfColors.purple }
+    ]
+  }),
+
+  sfHero("south-park", {
+    title: "South Park",
+    subtitle: "Small SoMa-adjacent district with office, creative, and startup-oriented commercial context.",
+    descriptor: "Near SoMa, Mission Bay, Oracle Park, and the Financial District.",
+    orientation_label: "SoMa edge",
+    accessibility_label: "SoMa-adjacent pocket",
+    accessibility_note: "Close to SoMa, Mission Bay, 280, and downtown commercial districts.",
+    approximate_polygon:
+      "418,214 508,206 552,264 520,330 430,336 386,276",
+    label_position: { x: 470, y: 274 },
+    nearby_landmarks: [
+      { label: "SoMa", time: "3 min", color: sfColors.blue },
+      { label: "Mission Bay", time: "6 min", color: sfColors.green },
+      { label: "Financial District", time: "8 min", color: sfColors.yellow },
+      { label: "Dogpatch", time: "10 min", color: sfColors.purple }
+    ],
+    nearby_districts: [
+      { label: "SOMA", x: 342, y: 210, emphasis: true },
+      { label: "Mission Bay", x: 512, y: 410 },
+      { label: "Financial District", x: 526, y: 96 },
+      { label: "Dogpatch", x: 646, y: 410 },
+      { label: "Potrero Hill", x: 318, y: 512 }
+    ],
+    anchor_points: [
+      { label: "SoMa", x: 344, y: 218, color: sfColors.blue },
+      { label: "Mission Bay", x: 508, y: 410, color: sfColors.green },
+      { label: "Financial District", x: 526, y: 104, color: sfColors.yellow },
+      { label: "Dogpatch", x: 648, y: 410, color: sfColors.purple }
+    ]
+  }),
+
+  sfHero("bayview", {
+    title: "Bayview",
+    subtitle: "Southeastern San Francisco district with industrial, service, and neighborhood commercial context.",
+    descriptor: "Near Dogpatch, India Basin, Hunters Point, and the southeastern waterfront.",
+    orientation_label: "Southeast San Francisco",
+    accessibility_label: "Southeast district",
+    accessibility_note: "Useful for comparing industrial, service, and waterfront-adjacent commercial areas.",
+    approximate_polygon:
+      "586,524 700,504 786,596 766,704 632,704 548,626",
+    label_position: { x: 670, y: 626 },
+    nearby_landmarks: [
+      { label: "Dogpatch", time: "8 min", color: sfColors.blue },
+      { label: "Mission Bay", time: "10 min", color: sfColors.green },
+      { label: "Potrero Hill", time: "10 min", color: sfColors.purple },
+      { label: "SoMa", time: "14 min", color: sfColors.yellow }
+    ],
+    nearby_districts: [
+      { label: "Dogpatch", x: 632, y: 398, emphasis: true },
+      { label: "Mission Bay", x: 500, y: 424 },
+      { label: "Potrero Hill", x: 318, y: 512 },
+      { label: "SOMA", x: 342, y: 210 },
+      { label: "Chase Center", x: 704, y: 540 }
+    ],
+    anchor_points: [
+      { label: "Dogpatch", x: 646, y: 406, color: sfColors.blue },
+      { label: "Mission Bay", x: 506, y: 416, color: sfColors.green },
+      { label: "Potrero Hill", x: 320, y: 508, color: sfColors.purple },
+      { label: "SoMa", x: 350, y: 232, color: sfColors.yellow }
+    ]
   })
 ]);
