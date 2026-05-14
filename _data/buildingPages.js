@@ -3,6 +3,7 @@ const buildingEnrichment = require("./buildingEnrichment.js");
 const commercialAreas = require("../data/peter/research/commercial_area_entities_v1.json");
 const commercialAreaRelationships = require("../data/peter/research/commercial_area_building_relationships_v1.json");
 const nycNeighborhoodCandidates = require("../data/peter/research/nyc_neighborhood_rollout_candidates.json");
+const priorityMarketAreas = require("../data/peter/research/priority_market_commercial_area_entities_v1.json");
 
 const uniqueBuildings = buildings.filter((building, index, arr) => {
   const key = [
@@ -108,6 +109,25 @@ for (const candidate of nycNeighborhoodCandidates || []) {
       path: candidate.canonical_path,
       confidence: "high",
       borough: candidate.borough,
+    });
+  }
+}
+
+for (const area of priorityMarketAreas || []) {
+  if (area.recommended_status !== "launch") continue;
+
+  for (const buildingPath of area.representative_building_paths || []) {
+    if (!buildingPath || highConfidenceAreaByBuildingPath.has(buildingPath)) continue;
+
+    highConfidenceAreaByBuildingPath.set(buildingPath, {
+      id: area.id,
+      name: area.canonical_name,
+      slug: slugify(area.canonical_name),
+      area_type: area.area_type,
+      city: area.city,
+      state_abbr: area.state_abbr,
+      path: `/commercial-real-estate/${area.state_abbr}/${slugify(area.city)}/${slugify(area.canonical_name)}/`,
+      confidence: "high",
     });
   }
 }

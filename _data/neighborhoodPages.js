@@ -36,6 +36,13 @@ const nycCandidatesPath = path.join(
   "research",
   "nyc_neighborhood_rollout_candidates.json"
 );
+const priorityMarketAreasPath = path.join(
+  process.cwd(),
+  "data",
+  "peter",
+  "research",
+  "priority_market_commercial_area_entities_v1.json"
+);
 
 const pages = JSON.parse(fs.readFileSync(pageDataPath, "utf8"));
 const allowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8"));
@@ -43,6 +50,9 @@ const commercialAreas = JSON.parse(fs.readFileSync(commercialAreasPath, "utf8"))
 const commercialRelationships = JSON.parse(fs.readFileSync(commercialRelationshipsPath, "utf8"));
 const nycCandidates = fs.existsSync(nycCandidatesPath)
   ? JSON.parse(fs.readFileSync(nycCandidatesPath, "utf8"))
+  : [];
+const priorityMarketAreas = fs.existsSync(priorityMarketAreasPath)
+  ? JSON.parse(fs.readFileSync(priorityMarketAreasPath, "utf8"))
   : [];
 const buildingPages = require("./buildingPages.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
@@ -258,8 +268,13 @@ function areaTypePriority(areaType) {
 }
 
 function commercialPageFor(area) {
+  if (area.recommended_status && area.recommended_status !== "launch") return null;
+
   const summary = areaSummaryById.get(area.id);
-  const representative_buildings = representativeBuildingsFor(area.id);
+  const relationshipBuildings = representativeBuildingsFor(area.id);
+  const representative_buildings = relationshipBuildings.length
+    ? relationshipBuildings
+    : representativeBuildingsFromPaths(area.representative_building_paths || [], area.id);
 
   const canonical_neighborhood_path = areaPath(area);
   const areaTypeLabel = clean(area.area_type).replace(/_/g, " ");
@@ -287,12 +302,15 @@ function commercialPageFor(area) {
     commercial_area_type_label: areaTypeLabel,
     commercial_profile: area.commercial_profile || [],
     source_confidence: area.source_confidence,
+    source_types: area.source_types || [],
     noindex: false,
     prototype: false,
     public_review: false,
     public_phase_1: false,
     public_phase_2: true,
-    city_nav_priority: relationshipCount > 0 ? areaTypePriority(area.area_type) : areaTypePriority(area.area_type) + 4,
+    city_nav_priority: area.city_nav_priority != null
+      ? area.city_nav_priority
+      : relationshipCount > 0 ? areaTypePriority(area.area_type) : areaTypePriority(area.area_type) + 4,
   };
 }
 
@@ -352,7 +370,7 @@ const existingPages = pages
     public_phase_1: true,
   }));
 
-const commercialPages = commercialAreas
+const commercialPages = [...commercialAreas, ...priorityMarketAreas]
   .map(commercialPageFor)
   .filter(Boolean);
 
