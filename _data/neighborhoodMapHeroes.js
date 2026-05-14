@@ -284,6 +284,134 @@ function laCompactHero(slug, config) {
   return compactCityHero(laHero, laColors, slug, config);
 }
 
+const miamiBase = {
+  city_label: "Miami",
+  basemap: "miami-urban-core-v1",
+  map_region_label: "Biscayne Bay",
+  map_region_label_position: { x: 732, y: 288 },
+  secondary_map_region_label: "Airport area",
+  secondary_map_region_label_position: { x: 174, y: 382 },
+  water_paths: [
+    "M 672 0 C 640 112 650 214 700 306 C 758 414 744 568 688 720 H 920 V 0 Z",
+    "M 560 532 C 642 560 690 626 704 720 H 920 V 720 H 602 C 600 642 574 592 560 532 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "95", x: 548, y: 258 },
+    { label: "195", x: 560, y: 126 },
+    { label: "836", x: 318, y: 342 },
+    { label: "US 1", x: 438, y: 542 }
+  ]
+};
+
+const miamiColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function miamiHero(slug, config) {
+  return [
+    `FL/miami/${slug}`,
+    {
+      ...miamiBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Miami near surrounding commercial districts.`
+    }
+  ];
+}
+
+function miamiCompactHero(slug, config) {
+  return compactCityHero(miamiHero, miamiColors, slug, config);
+}
+
+const dallasBase = {
+  city_label: "Dallas",
+  basemap: "dallas-commercial-core-v1",
+  map_region_label: "Trinity River",
+  map_region_label_position: { x: 122, y: 438 },
+  secondary_map_region_label: "Downtown core",
+  secondary_map_region_label_position: { x: 528, y: 366 },
+  water_paths: [
+    "M 0 406 C 86 388 156 412 220 466 C 274 510 318 572 384 604 L 360 720 H 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "35E", x: 288, y: 300 },
+    { label: "30", x: 454, y: 498 },
+    { label: "75", x: 556, y: 214 },
+    { label: "45", x: 552, y: 586 }
+  ]
+};
+
+const dallasColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function dallasHero(slug, config) {
+  return [
+    `TX/dallas/${slug}`,
+    {
+      ...dallasBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Dallas near surrounding commercial districts.`
+    }
+  ];
+}
+
+function dallasCompactHero(slug, config) {
+  return compactCityHero(dallasHero, dallasColors, slug, config);
+}
+
+const seattleBase = {
+  city_label: "Seattle",
+  basemap: "seattle-core-v1",
+  map_region_label: "Puget Sound",
+  map_region_label_position: { x: 104, y: 330 },
+  secondary_map_region_label: "Lake Union",
+  secondary_map_region_label_position: { x: 532, y: 174 },
+  water_paths: [
+    "M 0 0 H 168 C 126 128 126 256 164 374 C 206 504 176 626 106 720 H 0 Z",
+    "M 478 90 C 556 68 636 104 644 180 C 650 244 592 282 516 262 C 450 244 424 124 478 90 Z",
+    "M 792 0 H 920 V 720 H 826 C 794 588 802 456 842 324 C 882 184 852 80 792 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "5", x: 544, y: 300 },
+    { label: "90", x: 548, y: 570 },
+    { label: "99", x: 374, y: 336 }
+  ]
+};
+
+const seattleColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function seattleHero(slug, config) {
+  return [
+    `WA/seattle/${slug}`,
+    {
+      ...seattleBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Seattle near surrounding commercial districts.`
+    }
+  ];
+}
+
+function seattleCompactHero(slug, config) {
+  return compactCityHero(seattleHero, seattleColors, slug, config);
+}
+
 const chicagoMapConfigs = [
   ["the-loop", { title: "The Loop", subtitle: "Central business district with office, civic, transit, and cultural commercial context.", orientation_label: "Downtown core", x: 504, y: 382, nearby: [{ label: "West Loop", x: 342, y: 404 }, { label: "River North", x: 462, y: 254 }, { label: "South Loop", x: 494, y: 568 }, { label: "Lake Michigan", x: 736, y: 250 }] }],
   ["west-loop", { title: "West Loop", subtitle: "Near-downtown district with office, food, retail, and mixed commercial context.", orientation_label: "West of downtown", x: 342, y: 404, nearby: [{ label: "Fulton Market", x: 306, y: 324 }, { label: "The Loop", x: 504, y: 382 }, { label: "River West", x: 326, y: 280 }, { label: "Fulton River", x: 404, y: 320 }] }],
@@ -334,6 +462,56 @@ const laMapConfigs = [
   ["cahuenga-pass", { title: "Cahuenga Pass", subtitle: "Central LA pass corridor with entertainment, office-adjacent, and transportation commercial context.", orientation_label: "Hollywood corridor", x: 438, y: 132, nearby: [{ label: "Hollywood", x: 488, y: 214 }, { label: "Miracle Mile", x: 458, y: 400 }, { label: "Koreatown", x: 548, y: 420 }, { label: "Century City", x: 326, y: 356 }] }],
   ["lincoln-heights", { title: "Lincoln Heights", subtitle: "Northeast LA neighborhood with industrial, service, retail, and downtown-adjacent context.", orientation_label: "Northeast downtown edge", x: 786, y: 274, nearby: [{ label: "Chinatown", x: 662, y: 272 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Arts District", x: 764, y: 398 }, { label: "Boyle Heights", x: 812, y: 526 }] }],
   ["boyle-heights", { title: "Boyle Heights", subtitle: "East LA neighborhood with retail, service, industrial, and downtown-adjacent commercial context.", orientation_label: "East of downtown", x: 812, y: 526, nearby: [{ label: "Arts District", x: 764, y: 398 }, { label: "Little Tokyo", x: 714, y: 344 }, { label: "Fashion District", x: 654, y: 504 }, { label: "Lincoln Heights", x: 786, y: 274 }] }]
+];
+
+const miamiMapConfigs = [
+  ["brickell", { title: "Brickell", subtitle: "Downtown-adjacent financial and mixed-use district near Biscayne Bay.", orientation_label: "South downtown waterfront", x: 590, y: 400, nearby: [{ label: "Downtown Miami", x: 610, y: 300 }, { label: "Little Havana", x: 410, y: 350 }, { label: "Overtown", x: 520, y: 260 }, { label: "Biscayne Bay", x: 732, y: 288 }] }],
+  ["downtown-miami", { title: "Downtown Miami", subtitle: "Central Miami commercial core with office, civic, hospitality, and retail context.", orientation_label: "Miami central core", x: 610, y: 300, nearby: [{ label: "Brickell", x: 590, y: 400 }, { label: "Overtown", x: 520, y: 260 }, { label: "Edgewater", x: 575, y: 210 }, { label: "Wynwood", x: 520, y: 170 }] }],
+  ["wynwood", { title: "Wynwood", subtitle: "Creative and mixed commercial district north of downtown Miami.", orientation_label: "North of downtown", x: 520, y: 170, nearby: [{ label: "Edgewater", x: 575, y: 210 }, { label: "Design District", x: 560, y: 120 }, { label: "Allapattah", x: 430, y: 170 }, { label: "Overtown", x: 520, y: 260 }] }],
+  ["design-district", { title: "Design District", subtitle: "Retail, design, showroom, and hospitality district north of Midtown Miami.", orientation_label: "North Miami core", x: 560, y: 120, nearby: [{ label: "Wynwood", x: 520, y: 170 }, { label: "Little Haiti", x: 550, y: 65 }, { label: "Edgewater", x: 575, y: 210 }, { label: "Allapattah", x: 430, y: 170 }] }],
+  ["coconut-grove", { title: "Coconut Grove", subtitle: "South Miami waterfront neighborhood with office, retail, hospitality, and service context.", orientation_label: "South waterfront", x: 430, y: 560, nearby: [{ label: "Coral Way", x: 360, y: 445 }, { label: "Brickell", x: 590, y: 400 }, { label: "Dadeland", x: 470, y: 650 }, { label: "US 1", x: 438, y: 542 }] }],
+  ["edgewater", { title: "Edgewater", subtitle: "Waterfront-adjacent district north of downtown with mixed commercial context.", orientation_label: "North downtown waterfront", x: 575, y: 210, nearby: [{ label: "Wynwood", x: 520, y: 170 }, { label: "Design District", x: 560, y: 120 }, { label: "Downtown Miami", x: 610, y: 300 }, { label: "Biscayne Bay", x: 732, y: 288 }] }],
+  ["little-havana", { title: "Little Havana", subtitle: "West of downtown neighborhood with retail, food, services, and mixed commercial context.", orientation_label: "West of downtown", x: 410, y: 350, nearby: [{ label: "Brickell", x: 590, y: 400 }, { label: "Coral Way", x: 360, y: 445 }, { label: "Overtown", x: 520, y: 260 }, { label: "Downtown Miami", x: 610, y: 300 }] }],
+  ["allapattah", { title: "Allapattah", subtitle: "Industrial, medical, service, and mixed commercial area northwest of downtown.", orientation_label: "Northwest of downtown", x: 430, y: 170, nearby: [{ label: "Wynwood", x: 520, y: 170 }, { label: "Design District", x: 560, y: 120 }, { label: "Overtown", x: 520, y: 260 }, { label: "Airport area", x: 174, y: 382 }] }],
+  ["little-haiti", { title: "Little Haiti", subtitle: "North Miami neighborhood with retail, arts, services, and mixed commercial context.", orientation_label: "North Miami", x: 550, y: 65, nearby: [{ label: "Design District", x: 560, y: 120 }, { label: "Wynwood", x: 520, y: 170 }, { label: "Edgewater", x: 575, y: 210 }, { label: "Allapattah", x: 430, y: 170 }] }],
+  ["blue-lagoon", { title: "Blue Lagoon", subtitle: "Airport-area commercial district with office, hospitality, and service context.", orientation_label: "Miami airport area", x: 220, y: 370, nearby: [{ label: "Coral Way", x: 360, y: 445 }, { label: "Little Havana", x: 410, y: 350 }, { label: "Allapattah", x: 430, y: 170 }, { label: "836", x: 318, y: 342 }] }],
+  ["overtown", { title: "Overtown", subtitle: "Central Miami neighborhood between Wynwood, Downtown, and the broader urban core.", orientation_label: "Central Miami", x: 520, y: 260, nearby: [{ label: "Downtown Miami", x: 610, y: 300 }, { label: "Wynwood", x: 520, y: 170 }, { label: "Edgewater", x: 575, y: 210 }, { label: "Brickell", x: 590, y: 400 }] }],
+  ["coral-way", { title: "Coral Way", subtitle: "Southwest Miami corridor with retail, office, service, and neighborhood commercial context.", orientation_label: "Southwest corridor", x: 360, y: 445, nearby: [{ label: "Coconut Grove", x: 430, y: 560 }, { label: "Little Havana", x: 410, y: 350 }, { label: "Brickell", x: 590, y: 400 }, { label: "Blue Lagoon", x: 220, y: 370 }] }],
+  ["dadeland", { title: "Dadeland", subtitle: "South Miami commercial node with retail, office, transit, and corridor context.", orientation_label: "South Miami commercial node", x: 470, y: 650, nearby: [{ label: "Coconut Grove", x: 430, y: 560 }, { label: "Coral Way", x: 360, y: 445 }, { label: "US 1", x: 438, y: 542 }, { label: "Biscayne Bay", x: 732, y: 288 }] }]
+];
+
+const dallasMapConfigs = [
+  ["uptown", { title: "Uptown", subtitle: "North of downtown district with office, residential, retail, and hospitality context.", orientation_label: "North of downtown", x: 480, y: 240, nearby: [{ label: "Arts District", x: 520, y: 300 }, { label: "Victory Park", x: 420, y: 270 }, { label: "Turtle Creek", x: 420, y: 180 }, { label: "Downtown Dallas", x: 470, y: 360 }] }],
+  ["downtown-dallas", { title: "Downtown Dallas", subtitle: "Central business district with office, civic, hospitality, and retail context.", orientation_label: "Dallas central core", x: 470, y: 360, nearby: [{ label: "Main Street District", x: 500, y: 385 }, { label: "Arts District", x: 520, y: 300 }, { label: "West End", x: 430, y: 350 }, { label: "Deep Ellum", x: 620, y: 390 }] }],
+  ["main-street-district", { title: "Main Street District", subtitle: "Downtown Dallas district with office, hospitality, retail, and civic context.", orientation_label: "Downtown core", x: 500, y: 385, nearby: [{ label: "Downtown Dallas", x: 470, y: 360 }, { label: "West End", x: 430, y: 350 }, { label: "Arts District", x: 520, y: 300 }, { label: "Deep Ellum", x: 620, y: 390 }] }],
+  ["victory-park", { title: "Victory Park", subtitle: "Downtown-adjacent district with entertainment, office, hospitality, and mixed-use context.", orientation_label: "Northwest downtown", x: 420, y: 270, nearby: [{ label: "Uptown", x: 480, y: 240 }, { label: "West End", x: 430, y: 350 }, { label: "Arts District", x: 520, y: 300 }, { label: "Design District", x: 330, y: 270 }] }],
+  ["arts-district", { title: "Arts District", subtitle: "Downtown district with office, civic, cultural, hospitality, and retail context.", orientation_label: "Northeast downtown", x: 520, y: 300, nearby: [{ label: "Uptown", x: 480, y: 240 }, { label: "Downtown Dallas", x: 470, y: 360 }, { label: "Victory Park", x: 420, y: 270 }, { label: "Deep Ellum", x: 620, y: 390 }] }],
+  ["deep-ellum", { title: "Deep Ellum", subtitle: "East of downtown district with creative, entertainment, retail, and mixed commercial context.", orientation_label: "East of downtown", x: 620, y: 390, nearby: [{ label: "Downtown Dallas", x: 470, y: 360 }, { label: "Main Street District", x: 500, y: 385 }, { label: "Arts District", x: 520, y: 300 }, { label: "Cedars", x: 500, y: 500 }] }],
+  ["west-end-historic-district", { title: "West End Historic District", subtitle: "Historic downtown district with office, hospitality, civic, and visitor-serving context.", orientation_label: "West downtown", x: 430, y: 350, nearby: [{ label: "Main Street District", x: 500, y: 385 }, { label: "Downtown Dallas", x: 470, y: 360 }, { label: "Victory Park", x: 420, y: 270 }, { label: "Arts District", x: 520, y: 300 }] }],
+  ["design-district", { title: "Design District", subtitle: "Showroom, design, office, hospitality, and mixed commercial district northwest of downtown.", orientation_label: "Northwest downtown", x: 330, y: 270, nearby: [{ label: "Medical District", x: 250, y: 300 }, { label: "Victory Park", x: 420, y: 270 }, { label: "Stemmons Corridor", x: 210, y: 220 }, { label: "Uptown", x: 480, y: 240 }] }],
+  ["cedars", { title: "Cedars", subtitle: "South of downtown district with creative, industrial, office-adjacent, and mixed commercial context.", orientation_label: "South of downtown", x: 500, y: 500, nearby: [{ label: "Downtown Dallas", x: 470, y: 360 }, { label: "Deep Ellum", x: 620, y: 390 }, { label: "Main Street District", x: 500, y: 385 }, { label: "Bishop Arts", x: 380, y: 590 }] }],
+  ["medical-district", { title: "Medical District", subtitle: "Healthcare and institutional commercial district northwest of downtown Dallas.", orientation_label: "Medical corridor", x: 250, y: 300, nearby: [{ label: "Design District", x: 330, y: 270 }, { label: "Stemmons Corridor", x: 210, y: 220 }, { label: "Turtle Creek", x: 420, y: 180 }, { label: "Victory Park", x: 420, y: 270 }] }],
+  ["stemmons-corridor", { title: "Stemmons Corridor", subtitle: "Northwest Dallas corridor with medical, office, logistics, and highway-oriented context.", orientation_label: "Northwest corridor", x: 210, y: 220, nearby: [{ label: "Medical District", x: 250, y: 300 }, { label: "Design District", x: 330, y: 270 }, { label: "Turtle Creek", x: 420, y: 180 }, { label: "35E", x: 288, y: 300 }] }],
+  ["preston-center", { title: "Preston Center", subtitle: "North Dallas commercial node with office, retail, medical, and service context.", orientation_label: "North Dallas node", x: 450, y: 90, nearby: [{ label: "North Dallas", x: 540, y: 70 }, { label: "Turtle Creek", x: 420, y: 180 }, { label: "Uptown", x: 480, y: 240 }, { label: "75", x: 556, y: 214 }] }],
+  ["turtle-creek", { title: "Turtle Creek", subtitle: "North of Uptown district with office, residential, hospitality, and service context.", orientation_label: "North of Uptown", x: 420, y: 180, nearby: [{ label: "Uptown", x: 480, y: 240 }, { label: "Preston Center", x: 450, y: 90 }, { label: "Victory Park", x: 420, y: 270 }, { label: "Design District", x: 330, y: 270 }] }],
+  ["north-dallas", { title: "North Dallas", subtitle: "North Dallas area with office, retail, medical, and neighborhood-serving commercial context.", orientation_label: "North Dallas", x: 540, y: 70, nearby: [{ label: "Far North Dallas", x: 600, y: 35 }, { label: "Preston Center", x: 450, y: 90 }, { label: "Turtle Creek", x: 420, y: 180 }, { label: "75", x: 556, y: 214 }] }],
+  ["far-north-dallas", { title: "Far North Dallas", subtitle: "Far north commercial area with office, retail, medical, and corridor context.", orientation_label: "Far North Dallas", x: 600, y: 35, nearby: [{ label: "North Dallas", x: 540, y: 70 }, { label: "Preston Center", x: 450, y: 90 }, { label: "75", x: 556, y: 214 }, { label: "Turtle Creek", x: 420, y: 180 }] }],
+  ["bishop-arts-district", { title: "Bishop Arts District", subtitle: "Oak Cliff district with retail, food, services, and neighborhood commercial context.", orientation_label: "Oak Cliff district", x: 380, y: 590, nearby: [{ label: "Cedars", x: 500, y: 500 }, { label: "West End", x: 430, y: 350 }, { label: "Downtown Dallas", x: 470, y: 360 }, { label: "Trinity River", x: 122, y: 438 }] }]
+];
+
+const seattleMapConfigs = [
+  ["downtown-seattle", { title: "Downtown Seattle", subtitle: "Central Seattle commercial core with office, civic, hospitality, and retail context.", orientation_label: "Seattle central core", x: 430, y: 360, nearby: [{ label: "Waterfront", x: 350, y: 360 }, { label: "Pioneer Square", x: 430, y: 475 }, { label: "Belltown", x: 385, y: 270 }, { label: "Denny Triangle", x: 465, y: 250 }] }],
+  ["south-lake-union", { title: "South Lake Union", subtitle: "Office, life science, tech, retail, and mixed-use district south of Lake Union.", orientation_label: "South of Lake Union", x: 510, y: 170, nearby: [{ label: "Denny Triangle", x: 465, y: 250 }, { label: "Capitol Hill", x: 600, y: 280 }, { label: "Belltown", x: 385, y: 270 }, { label: "Lake Union", x: 532, y: 174 }] }],
+  ["denny-triangle", { title: "Denny Triangle", subtitle: "Downtown-adjacent district between South Lake Union, Belltown, and the central core.", orientation_label: "North downtown", x: 465, y: 250, nearby: [{ label: "South Lake Union", x: 510, y: 170 }, { label: "Belltown", x: 385, y: 270 }, { label: "Downtown Seattle", x: 430, y: 360 }, { label: "Capitol Hill", x: 600, y: 280 }] }],
+  ["pioneer-square", { title: "Pioneer Square", subtitle: "Historic district south of downtown with office, retail, hospitality, and stadium-area context.", orientation_label: "South downtown", x: 430, y: 475, nearby: [{ label: "Downtown Seattle", x: 430, y: 360 }, { label: "Waterfront", x: 350, y: 360 }, { label: "SoDo", x: 450, y: 610 }, { label: "Belltown", x: 385, y: 270 }] }],
+  ["belltown", { title: "Belltown", subtitle: "North downtown neighborhood with office-adjacent, retail, hospitality, and waterfront context.", orientation_label: "North downtown", x: 385, y: 270, nearby: [{ label: "Denny Triangle", x: 465, y: 250 }, { label: "Waterfront", x: 350, y: 360 }, { label: "South Lake Union", x: 510, y: 170 }, { label: "Downtown Seattle", x: 430, y: 360 }] }],
+  ["ballard", { title: "Ballard", subtitle: "Northwest Seattle neighborhood with retail, food, maritime, and mixed commercial context.", orientation_label: "Northwest Seattle", x: 335, y: 95, nearby: [{ label: "Fremont", x: 500, y: 95 }, { label: "University District", x: 630, y: 75 }, { label: "Northgate", x: 600, y: 20 }, { label: "Puget Sound", x: 104, y: 330 }] }],
+  ["capitol-hill", { title: "Capitol Hill", subtitle: "Central Seattle neighborhood with retail, food, services, office-adjacent, and nightlife context.", orientation_label: "East of downtown", x: 600, y: 280, nearby: [{ label: "South Lake Union", x: 510, y: 170 }, { label: "Denny Triangle", x: 465, y: 250 }, { label: "Downtown Seattle", x: 430, y: 360 }, { label: "University District", x: 630, y: 75 }] }],
+  ["fremont", { title: "Fremont", subtitle: "North Seattle neighborhood with office, creative, retail, food, and mixed commercial context.", orientation_label: "North of Lake Union", x: 500, y: 95, nearby: [{ label: "University District", x: 630, y: 75 }, { label: "Ballard", x: 335, y: 95 }, { label: "South Lake Union", x: 510, y: 170 }, { label: "Lake Union", x: 532, y: 174 }] }],
+  ["university-district", { title: "University District", subtitle: "North Seattle district with institutional, retail, office-adjacent, and service context.", orientation_label: "Northeast Seattle", x: 630, y: 75, nearby: [{ label: "Fremont", x: 500, y: 95 }, { label: "Northgate", x: 600, y: 20 }, { label: "Capitol Hill", x: 600, y: 280 }, { label: "South Lake Union", x: 510, y: 170 }] }],
+  ["northgate", { title: "Northgate", subtitle: "North Seattle commercial node with retail, medical, office, and transit-oriented context.", orientation_label: "North Seattle", x: 600, y: 20, nearby: [{ label: "University District", x: 630, y: 75 }, { label: "Ballard", x: 335, y: 95 }, { label: "Fremont", x: 500, y: 95 }, { label: "I-5", x: 544, y: 300 }] }],
+  ["waterfront", { title: "Waterfront", subtitle: "Central Seattle waterfront area with hospitality, retail, civic, and office-adjacent context.", orientation_label: "Central waterfront", x: 350, y: 360, nearby: [{ label: "Downtown Seattle", x: 430, y: 360 }, { label: "Belltown", x: 385, y: 270 }, { label: "Pioneer Square", x: 430, y: 475 }, { label: "Puget Sound", x: 104, y: 330 }] }],
+  ["sodo", { title: "SoDo", subtitle: "South Seattle industrial and stadium-area district with logistics, service, and commercial context.", orientation_label: "South of downtown", x: 450, y: 610, nearby: [{ label: "Pioneer Square", x: 430, y: 475 }, { label: "Downtown Seattle", x: 430, y: 360 }, { label: "Waterfront", x: 350, y: 360 }, { label: "I-90", x: 548, y: 570 }] }]
 ];
 
 module.exports = Object.fromEntries([
@@ -1777,5 +1955,8 @@ module.exports = Object.fromEntries([
   }),
 
   ...chicagoMapConfigs.map(([slug, config]) => chicagoCompactHero(slug, config)),
-  ...laMapConfigs.map(([slug, config]) => laCompactHero(slug, config))
+  ...laMapConfigs.map(([slug, config]) => laCompactHero(slug, config)),
+  ...miamiMapConfigs.map(([slug, config]) => miamiCompactHero(slug, config)),
+  ...dallasMapConfigs.map(([slug, config]) => dallasCompactHero(slug, config)),
+  ...seattleMapConfigs.map(([slug, config]) => seattleCompactHero(slug, config))
 ]);
