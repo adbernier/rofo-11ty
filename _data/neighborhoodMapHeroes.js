@@ -65,6 +65,40 @@ function nycHero(slug, config) {
   ];
 }
 
+function nycSimpleHero(slug, config) {
+  const nearby = config.nearby || [];
+
+  return nycHero(slug, {
+    title: config.title,
+    subtitle: config.subtitle,
+    descriptor: config.descriptor,
+    orientation_label: config.orientation_label,
+    accessibility_label: config.accessibility_label || config.orientation_label,
+    accessibility_note:
+      config.accessibility_note ||
+      `Useful for comparing ${config.title} with nearby New York commercial districts.`,
+    approximate_polygon: config.approximate_polygon,
+    label_position: config.label_position,
+    nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      time: item.time || item.note || "nearby",
+      color: item.color || Object.values(nycColors)[index % 4]
+    })),
+    nearby_districts: (config.nearby_districts || nearby).slice(0, 5).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      emphasis: index === 0
+    })),
+    anchor_points: (config.anchor_points || nearby).slice(0, 4).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      color: item.color || Object.values(nycColors)[index % 4]
+    }))
+  });
+}
+
 module.exports = Object.fromEntries([
   sfHero("dogpatch", {
     title: "Dogpatch",
@@ -857,6 +891,651 @@ module.exports = Object.fromEntries([
       { label: "Park Slope", x: 826, y: 690, color: nycColors.green },
       { label: "Red Hook", x: 640, y: 688, color: nycColors.purple },
       { label: "DUMBO", x: 650, y: 548, color: nycColors.blue }
+    ]
+  }),
+
+  nycSimpleHero("midtown-south", {
+    title: "Midtown South",
+    subtitle: "Central Manhattan commercial area connecting office, design, retail, and mixed-use districts.",
+    descriptor: "Near NoMad, Flatiron, Chelsea, and the Garment District.",
+    orientation_label: "Midtown South",
+    approximate_polygon: "262,158 470,146 520,270 462,362 278,354 214,238",
+    label_position: { x: 368, y: 260 },
+    nearby: [
+      { label: "NoMad", x: 392, y: 214 },
+      { label: "Flatiron", x: 392, y: 274 },
+      { label: "Chelsea", x: 248, y: 250 },
+      { label: "Garment District", x: 300, y: 164 }
+    ]
+  }),
+
+  nycSimpleHero("times-square", {
+    title: "Times Square",
+    subtitle: "Midtown district with hospitality, entertainment, office, and visitor-serving commercial context.",
+    descriptor: "Near Midtown, the Garment District, Hell's Kitchen, and Penn District.",
+    orientation_label: "West Midtown",
+    approximate_polygon: "278,64 398,58 448,126 410,196 284,202 238,132",
+    label_position: { x: 342, y: 132 },
+    nearby: [
+      { label: "Midtown", x: 420, y: 130 },
+      { label: "Garment District", x: 300, y: 178 },
+      { label: "Hell's Kitchen", x: 214, y: 126 },
+      { label: "Hudson Yards", x: 188, y: 116 }
+    ]
+  }),
+
+  nycSimpleHero("east-midtown", {
+    title: "East Midtown",
+    subtitle: "East side Manhattan office district with enterprise, professional services, and transit context.",
+    descriptor: "Near Midtown, Murray Hill, Plaza District, and the East River.",
+    orientation_label: "East Midtown",
+    approximate_polygon: "420,78 536,70 586,150 540,232 424,230 378,150",
+    label_position: { x: 486, y: 152 },
+    nearby: [
+      { label: "Midtown", x: 382, y: 130 },
+      { label: "Murray Hill", x: 478, y: 238 },
+      { label: "Plaza District", x: 458, y: 76 },
+      { label: "East River", x: 612, y: 220 }
+    ]
+  }),
+
+  nycSimpleHero("plaza-district", {
+    title: "Plaza District",
+    subtitle: "Central Midtown office district with institutional, hospitality, and professional services context.",
+    descriptor: "Near Midtown, East Midtown, Times Square, and the Upper East Side.",
+    orientation_label: "Central Midtown",
+    approximate_polygon: "370,22 506,18 558,80 522,142 382,146 326,84",
+    label_position: { x: 446, y: 84 },
+    nearby: [
+      { label: "Midtown", x: 392, y: 148 },
+      { label: "East Midtown", x: 500, y: 162 },
+      { label: "Times Square", x: 310, y: 130 },
+      { label: "Upper East Side", x: 512, y: 48 }
+    ]
+  }),
+
+  nycSimpleHero("noho", {
+    title: "NoHo",
+    subtitle: "Lower Manhattan district with boutique office, retail, creative, and mixed commercial context.",
+    descriptor: "Near SoHo, Greenwich Village, East Village, and Union Square.",
+    orientation_label: "Downtown Manhattan",
+    approximate_polygon: "344,292 438,284 472,332 440,384 346,388 306,338",
+    label_position: { x: 390, y: 342 },
+    nearby: [
+      { label: "SoHo", x: 354, y: 392 },
+      { label: "Union Square", x: 392, y: 304 },
+      { label: "East Village", x: 480, y: 350 },
+      { label: "Greenwich Village", x: 286, y: 330 }
+    ]
+  }),
+
+  nycSimpleHero("murray-hill", {
+    title: "Murray Hill",
+    subtitle: "East side Manhattan district with office, professional services, residential, and neighborhood retail context.",
+    descriptor: "Near East Midtown, Kips Bay, Midtown, and the East River.",
+    orientation_label: "East side Manhattan",
+    approximate_polygon: "406,190 526,184 574,254 532,324 410,326 364,252",
+    label_position: { x: 470, y: 256 },
+    nearby: [
+      { label: "East Midtown", x: 500, y: 162 },
+      { label: "Kips Bay", x: 486, y: 326 },
+      { label: "Midtown", x: 386, y: 146 },
+      { label: "East River", x: 612, y: 220 }
+    ]
+  }),
+
+  nycSimpleHero("greenwich-village", {
+    title: "Greenwich Village",
+    subtitle: "Lower Manhattan neighborhood with retail, office, education, hospitality, and mixed-use context.",
+    descriptor: "Near West Village, NoHo, SoHo, and Union Square.",
+    orientation_label: "Lower Manhattan",
+    approximate_polygon: "234,288 350,276 398,336 358,410 244,414 190,344",
+    label_position: { x: 294, y: 348 },
+    nearby: [
+      { label: "West Village", x: 232, y: 346 },
+      { label: "NoHo", x: 390, y: 342 },
+      { label: "SoHo", x: 354, y: 392 },
+      { label: "Union Square", x: 392, y: 304 }
+    ]
+  }),
+
+  nycSimpleHero("industry-city", {
+    title: "Industry City",
+    subtitle: "Brooklyn waterfront commercial district with production, creative, retail, and light industrial context.",
+    descriptor: "Near Sunset Park, Greenwood, Red Hook, and Gowanus.",
+    orientation_label: "South Brooklyn waterfront",
+    approximate_polygon: "662,650 780,634 846,704 820,720 666,720 610,690",
+    label_position: { x: 742, y: 690 },
+    nearby: [
+      { label: "Sunset Park", x: 792, y: 700 },
+      { label: "Greenwood", x: 780, y: 650 },
+      { label: "Red Hook", x: 640, y: 688 },
+      { label: "Gowanus", x: 766, y: 666 }
+    ]
+  }),
+
+  nycSimpleHero("meatpacking-district", {
+    title: "Meatpacking District",
+    subtitle: "Lower west side district with retail, hospitality, showroom, and office-adjacent commercial context.",
+    descriptor: "Near Chelsea, West Village, Hudson Yards, and the Hudson River.",
+    orientation_label: "Lower west side",
+    approximate_polygon: "164,246 276,236 324,296 288,358 174,362 126,300",
+    label_position: { x: 226, y: 304 },
+    nearby: [
+      { label: "Chelsea", x: 252, y: 244 },
+      { label: "West Village", x: 230, y: 350 },
+      { label: "Hudson River", x: 92, y: 260 },
+      { label: "Flatiron", x: 392, y: 274 }
+    ]
+  }),
+
+  nycSimpleHero("penn-district", {
+    title: "Penn District",
+    subtitle: "West Midtown district with office, transit, hospitality, and mixed commercial context.",
+    descriptor: "Near the Garment District, Hudson Yards, Chelsea, and Midtown.",
+    orientation_label: "West Midtown",
+    approximate_polygon: "208,118 334,108 382,174 344,238 216,244 168,178",
+    label_position: { x: 276, y: 180 },
+    nearby: [
+      { label: "Garment District", x: 306, y: 164 },
+      { label: "Hudson Yards", x: 190, y: 116 },
+      { label: "Chelsea", x: 252, y: 246 },
+      { label: "Midtown", x: 410, y: 130 }
+    ]
+  }),
+
+  nycSimpleHero("harlem", {
+    title: "Harlem",
+    subtitle: "Upper Manhattan district with neighborhood retail, office, cultural, and institutional context.",
+    descriptor: "Near East Harlem, Upper West Side, Washington Heights, and the Upper East Side.",
+    orientation_label: "Upper Manhattan",
+    approximate_polygon: "274,0 474,0 540,52 506,118 308,126 232,62",
+    label_position: { x: 390, y: 62 },
+    nearby: [
+      { label: "East Harlem", x: 520, y: 92 },
+      { label: "Upper West Side", x: 238, y: 92 },
+      { label: "Upper East Side", x: 520, y: 48 },
+      { label: "Midtown", x: 392, y: 148 }
+    ]
+  }),
+
+  nycSimpleHero("upper-east-side", {
+    title: "Upper East Side",
+    subtitle: "Upper Manhattan district with medical, retail, professional, and neighborhood commercial context.",
+    descriptor: "Near East Midtown, Plaza District, East Harlem, and Central Park.",
+    orientation_label: "Upper east side",
+    approximate_polygon: "456,0 596,0 640,92 588,174 474,146 432,62",
+    label_position: { x: 532, y: 78 },
+    nearby: [
+      { label: "East Midtown", x: 500, y: 162 },
+      { label: "Plaza District", x: 446, y: 84 },
+      { label: "East Harlem", x: 540, y: 96 },
+      { label: "Midtown", x: 392, y: 148 }
+    ]
+  }),
+
+  nycSimpleHero("west-village", {
+    title: "West Village",
+    subtitle: "Lower west side neighborhood with retail, hospitality, boutique office, and mixed-use context.",
+    descriptor: "Near Greenwich Village, SoHo, Tribeca, and Chelsea.",
+    orientation_label: "Lower west side",
+    approximate_polygon: "180,322 288,308 336,374 300,450 190,456 138,386",
+    label_position: { x: 238, y: 386 },
+    nearby: [
+      { label: "Greenwich Village", x: 300, y: 348 },
+      { label: "SoHo", x: 354, y: 392 },
+      { label: "Tribeca", x: 294, y: 478 },
+      { label: "Chelsea", x: 252, y: 246 }
+    ]
+  }),
+
+  nycSimpleHero("chinatown", {
+    title: "Chinatown",
+    subtitle: "Lower Manhattan neighborhood with retail, food, office-adjacent, and neighborhood-serving commercial context.",
+    descriptor: "Near Civic Center, Lower East Side, SoHo, and the Financial District.",
+    orientation_label: "Lower Manhattan",
+    approximate_polygon: "372,408 488,398 532,462 496,532 380,536 332,468",
+    label_position: { x: 430, y: 470 },
+    nearby: [
+      { label: "Lower East Side", x: 500, y: 392 },
+      { label: "Civic Center", x: 404, y: 520 },
+      { label: "SoHo", x: 354, y: 392 },
+      { label: "Financial District", x: 404, y: 590 }
+    ]
+  }),
+
+  nycSimpleHero("civic-center", {
+    title: "Civic Center",
+    subtitle: "Lower Manhattan civic district with office, institutional, legal, and neighborhood commercial context.",
+    descriptor: "Near Chinatown, Tribeca, SoHo, and the Financial District.",
+    orientation_label: "Lower Manhattan",
+    approximate_polygon: "330,462 456,448 506,516 470,596 342,600 286,528",
+    label_position: { x: 398, y: 530 },
+    nearby: [
+      { label: "Financial District", x: 404, y: 590 },
+      { label: "Chinatown", x: 430, y: 470 },
+      { label: "Tribeca", x: 294, y: 478 },
+      { label: "SoHo", x: 354, y: 392 }
+    ]
+  }),
+
+  nycSimpleHero("east-village", {
+    title: "East Village",
+    subtitle: "Lower Manhattan neighborhood with retail, food, creative, and mixed-use commercial context.",
+    descriptor: "Near NoHo, Union Square, Lower East Side, and Greenwich Village.",
+    orientation_label: "Downtown Manhattan",
+    approximate_polygon: "416,306 526,296 574,360 538,432 424,436 374,366",
+    label_position: { x: 478, y: 370 },
+    nearby: [
+      { label: "NoHo", x: 390, y: 342 },
+      { label: "Union Square", x: 392, y: 304 },
+      { label: "Lower East Side", x: 500, y: 412 },
+      { label: "Greenwich Village", x: 300, y: 348 }
+    ]
+  }),
+
+  nycSimpleHero("gramercy", {
+    title: "Gramercy",
+    subtitle: "Central Manhattan neighborhood with office, residential, retail, and professional services context.",
+    descriptor: "Near Union Square, Flatiron, Kips Bay, and NoMad.",
+    orientation_label: "Central Manhattan",
+    approximate_polygon: "398,236 504,228 548,292 512,356 402,360 356,296",
+    label_position: { x: 456, y: 296 },
+    nearby: [
+      { label: "Union Square", x: 392, y: 304 },
+      { label: "Flatiron", x: 390, y: 274 },
+      { label: "Kips Bay", x: 486, y: 326 },
+      { label: "NoMad", x: 392, y: 214 }
+    ]
+  }),
+
+  nycSimpleHero("greenpoint", {
+    title: "Greenpoint",
+    subtitle: "North Brooklyn neighborhood with creative office, retail, production, and waterfront context.",
+    descriptor: "Near Williamsburg, East Williamsburg, Brooklyn Navy Yard, and the East River.",
+    orientation_label: "North Brooklyn",
+    approximate_polygon: "666,112 812,100 880,188 844,284 690,292 612,198",
+    label_position: { x: 746, y: 198 },
+    nearby: [
+      { label: "Williamsburg", x: 716, y: 326 },
+      { label: "East Williamsburg", x: 824, y: 332 },
+      { label: "Navy Yard", x: 772, y: 462 },
+      { label: "East River", x: 606, y: 300 }
+    ]
+  }),
+
+  nycSimpleHero("hells-kitchen", {
+    title: "Hell's Kitchen",
+    subtitle: "West Midtown neighborhood with hospitality, office, entertainment, and neighborhood retail context.",
+    descriptor: "Near Times Square, Midtown, Hudson Yards, and the Hudson River.",
+    orientation_label: "West Midtown",
+    approximate_polygon: "156,42 292,36 348,118 310,206 174,210 112,122",
+    label_position: { x: 230, y: 128 },
+    nearby: [
+      { label: "Times Square", x: 342, y: 132 },
+      { label: "Midtown", x: 392, y: 148 },
+      { label: "Hudson Yards", x: 190, y: 116 },
+      { label: "Hudson River", x: 92, y: 150 }
+    ]
+  }),
+
+  nycSimpleHero("lower-east-side", {
+    title: "Lower East Side",
+    subtitle: "Lower Manhattan neighborhood with retail, food, nightlife, creative, and mixed-use context.",
+    descriptor: "Near East Village, Chinatown, SoHo, and the East River.",
+    orientation_label: "Lower east side",
+    approximate_polygon: "458,366 566,354 614,430 574,514 466,516 418,436",
+    label_position: { x: 520, y: 440 },
+    nearby: [
+      { label: "East Village", x: 478, y: 370 },
+      { label: "Chinatown", x: 430, y: 470 },
+      { label: "SoHo", x: 354, y: 392 },
+      { label: "East River", x: 612, y: 420 }
+    ]
+  }),
+
+  nycSimpleHero("sunset-park", {
+    title: "Sunset Park",
+    subtitle: "South Brooklyn district with industrial, production, waterfront, and neighborhood retail context.",
+    descriptor: "Near Industry City, Greenwood, Red Hook, and Gowanus.",
+    orientation_label: "South Brooklyn",
+    approximate_polygon: "730,650 882,630 920,704 900,720 742,720 678,688",
+    label_position: { x: 820, y: 690 },
+    nearby: [
+      { label: "Industry City", x: 742, y: 690 },
+      { label: "Greenwood", x: 780, y: 650 },
+      { label: "Red Hook", x: 640, y: 688 },
+      { label: "Gowanus", x: 766, y: 666 }
+    ]
+  }),
+
+  nycSimpleHero("brooklyn-heights", {
+    title: "Brooklyn Heights",
+    subtitle: "Brooklyn waterfront neighborhood with office-adjacent, retail, civic, and mixed-use context.",
+    descriptor: "Near DUMBO, Downtown Brooklyn, Cobble Hill, and Lower Manhattan.",
+    orientation_label: "Brooklyn waterfront",
+    approximate_polygon: "574,558 682,546 728,610 692,682 582,686 530,620",
+    label_position: { x: 636, y: 620 },
+    nearby: [
+      { label: "DUMBO", x: 650, y: 548 },
+      { label: "Downtown Brooklyn", x: 728, y: 620 },
+      { label: "Cobble Hill", x: 688, y: 680 },
+      { label: "Financial District", x: 404, y: 590 }
+    ]
+  }),
+
+  nycSimpleHero("bushwick", {
+    title: "Bushwick",
+    subtitle: "Brooklyn neighborhood with creative, industrial, retail, and mixed commercial context.",
+    descriptor: "Near East Williamsburg, Williamsburg, Bedford-Stuyvesant, and Crown Heights.",
+    orientation_label: "East Brooklyn",
+    approximate_polygon: "786,250 920,246 920,372 856,434 764,402 730,318",
+    label_position: { x: 848, y: 344 },
+    nearby: [
+      { label: "East Williamsburg", x: 824, y: 332 },
+      { label: "Williamsburg", x: 716, y: 326 },
+      { label: "Bed-Stuy", x: 824, y: 520 },
+      { label: "Crown Heights", x: 846, y: 626 }
+    ]
+  }),
+
+  nycSimpleHero("kips-bay", {
+    title: "Kips Bay",
+    subtitle: "East side Manhattan neighborhood with medical, office, retail, and residential commercial context.",
+    descriptor: "Near Gramercy, Murray Hill, East Midtown, and the East River.",
+    orientation_label: "East side Manhattan",
+    approximate_polygon: "422,294 538,286 586,352 546,426 430,428 380,358",
+    label_position: { x: 484, y: 362 },
+    nearby: [
+      { label: "Gramercy", x: 456, y: 296 },
+      { label: "Murray Hill", x: 470, y: 256 },
+      { label: "East Midtown", x: 500, y: 162 },
+      { label: "East River", x: 612, y: 350 }
+    ]
+  }),
+
+  nycSimpleHero("east-harlem", {
+    title: "East Harlem",
+    subtitle: "Upper Manhattan neighborhood with medical, civic, retail, and neighborhood-serving commercial context.",
+    descriptor: "Near Harlem, Upper East Side, and the East River.",
+    orientation_label: "Upper east side",
+    approximate_polygon: "470,0 626,0 682,72 638,156 500,150 434,74",
+    label_position: { x: 554, y: 78 },
+    nearby: [
+      { label: "Harlem", x: 390, y: 62 },
+      { label: "Upper East Side", x: 532, y: 78 },
+      { label: "East River", x: 612, y: 120 },
+      { label: "Midtown", x: 392, y: 148 }
+    ]
+  }),
+
+  nycSimpleHero("east-williamsburg", {
+    title: "East Williamsburg",
+    subtitle: "Brooklyn district with creative, production, light industrial, and mixed commercial context.",
+    descriptor: "Near Williamsburg, Greenpoint, Bushwick, and Bedford-Stuyvesant.",
+    orientation_label: "North Brooklyn",
+    approximate_polygon: "746,284 886,276 920,352 876,446 748,430 690,354",
+    label_position: { x: 824, y: 360 },
+    nearby: [
+      { label: "Williamsburg", x: 716, y: 326 },
+      { label: "Greenpoint", x: 746, y: 198 },
+      { label: "Bushwick", x: 848, y: 344 },
+      { label: "Bed-Stuy", x: 824, y: 520 }
+    ]
+  }),
+
+  nycSimpleHero("fort-greene", {
+    title: "Fort Greene",
+    subtitle: "Brooklyn neighborhood with office-adjacent, civic, arts, retail, and mixed-use context.",
+    descriptor: "Near Downtown Brooklyn, Clinton Hill, Brooklyn Navy Yard, and Prospect Heights.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "756,486 866,474 912,538 876,606 764,610 716,548",
+    label_position: { x: 818, y: 546 },
+    nearby: [
+      { label: "Downtown Brooklyn", x: 728, y: 620 },
+      { label: "Navy Yard", x: 772, y: 462 },
+      { label: "Clinton Hill", x: 850, y: 490 },
+      { label: "Prospect Heights", x: 842, y: 596 }
+    ]
+  }),
+
+  nycSimpleHero("red-hook", {
+    title: "Red Hook",
+    subtitle: "Brooklyn waterfront district with industrial, creative, retail, and logistics-oriented context.",
+    descriptor: "Near Gowanus, Carroll Gardens, Sunset Park, and the Brooklyn waterfront.",
+    orientation_label: "Brooklyn waterfront",
+    approximate_polygon: "554,632 682,616 744,688 706,720 572,720 514,682",
+    label_position: { x: 632, y: 686 },
+    nearby: [
+      { label: "Gowanus", x: 766, y: 666 },
+      { label: "Carroll Gardens", x: 704, y: 650 },
+      { label: "Sunset Park", x: 820, y: 690 },
+      { label: "Downtown Brooklyn", x: 728, y: 620 }
+    ]
+  }),
+
+  nycSimpleHero("upper-west-side", {
+    title: "Upper West Side",
+    subtitle: "Upper Manhattan neighborhood with retail, education, cultural, and professional services context.",
+    descriptor: "Near Hell's Kitchen, Midtown, Harlem, and the west side waterfront.",
+    orientation_label: "Upper west side",
+    approximate_polygon: "170,0 324,0 382,78 334,164 190,154 126,74",
+    label_position: { x: 250, y: 82 },
+    nearby: [
+      { label: "Harlem", x: 390, y: 62 },
+      { label: "Hell's Kitchen", x: 230, y: 128 },
+      { label: "Midtown", x: 392, y: 148 },
+      { label: "Hudson River", x: 92, y: 150 }
+    ]
+  }),
+
+  nycSimpleHero("bedford-stuyvesant", {
+    title: "Bedford-Stuyvesant",
+    subtitle: "Brooklyn neighborhood with neighborhood retail, creative, office-adjacent, and mixed-use context.",
+    descriptor: "Near Clinton Hill, Bushwick, Crown Heights, and Williamsburg.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "760,454 920,444 920,574 850,626 742,588 704,512",
+    label_position: { x: 826, y: 532 },
+    nearby: [
+      { label: "Clinton Hill", x: 850, y: 490 },
+      { label: "Bushwick", x: 848, y: 344 },
+      { label: "Crown Heights", x: 846, y: 626 },
+      { label: "Fort Greene", x: 818, y: 546 }
+    ]
+  }),
+
+  nycSimpleHero("boerum-hill", {
+    title: "Boerum Hill",
+    subtitle: "Brooklyn neighborhood with retail, office-adjacent, residential, and mixed-use commercial context.",
+    descriptor: "Near Downtown Brooklyn, Cobble Hill, Gowanus, and Fort Greene.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "676,600 788,590 836,650 798,720 686,714 636,656",
+    label_position: { x: 736, y: 656 },
+    nearby: [
+      { label: "Downtown Brooklyn", x: 728, y: 620 },
+      { label: "Cobble Hill", x: 688, y: 680 },
+      { label: "Gowanus", x: 766, y: 666 },
+      { label: "Fort Greene", x: 818, y: 546 }
+    ]
+  }),
+
+  nycSimpleHero("clinton-hill", {
+    title: "Clinton Hill",
+    subtitle: "Brooklyn neighborhood with creative, institutional, retail, and office-adjacent context.",
+    descriptor: "Near Fort Greene, Brooklyn Navy Yard, Bedford-Stuyvesant, and Williamsburg.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "806,434 920,428 920,536 854,586 764,556 724,488",
+    label_position: { x: 856, y: 504 },
+    nearby: [
+      { label: "Fort Greene", x: 818, y: 546 },
+      { label: "Navy Yard", x: 772, y: 462 },
+      { label: "Bed-Stuy", x: 826, y: 532 },
+      { label: "Williamsburg", x: 716, y: 326 }
+    ]
+  }),
+
+  nycSimpleHero("cobble-hill", {
+    title: "Cobble Hill",
+    subtitle: "Brooklyn neighborhood with neighborhood retail, services, food, and mixed-use commercial context.",
+    descriptor: "Near Brooklyn Heights, Boerum Hill, Carroll Gardens, and Gowanus.",
+    orientation_label: "West Brooklyn",
+    approximate_polygon: "626,626 734,614 786,676 752,720 634,720 586,682",
+    label_position: { x: 688, y: 680 },
+    nearby: [
+      { label: "Boerum Hill", x: 736, y: 656 },
+      { label: "Brooklyn Heights", x: 636, y: 620 },
+      { label: "Carroll Gardens", x: 704, y: 650 },
+      { label: "Gowanus", x: 766, y: 666 }
+    ]
+  }),
+
+  nycSimpleHero("crown-heights", {
+    title: "Crown Heights",
+    subtitle: "Brooklyn neighborhood with retail corridors, services, mixed-use, and neighborhood commercial context.",
+    descriptor: "Near Prospect Heights, Bedford-Stuyvesant, Flatbush, and Park Slope.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "774,584 920,576 920,704 838,720 742,676 724,620",
+    label_position: { x: 844, y: 650 },
+    nearby: [
+      { label: "Prospect Heights", x: 842, y: 596 },
+      { label: "Bed-Stuy", x: 826, y: 532 },
+      { label: "Flatbush", x: 852, y: 700 },
+      { label: "Park Slope", x: 826, y: 690 }
+    ]
+  }),
+
+  nycSimpleHero("greenwood", {
+    title: "Greenwood",
+    subtitle: "South Brooklyn area with industrial, production, service, and neighborhood commercial context.",
+    descriptor: "Near Industry City, Sunset Park, Park Slope, and Gowanus.",
+    orientation_label: "South Brooklyn",
+    approximate_polygon: "728,618 856,604 912,678 874,720 736,720 680,666",
+    label_position: { x: 794, y: 672 },
+    nearby: [
+      { label: "Industry City", x: 742, y: 690 },
+      { label: "Sunset Park", x: 820, y: 690 },
+      { label: "Park Slope", x: 826, y: 690 },
+      { label: "Gowanus", x: 766, y: 666 }
+    ]
+  }),
+
+  nycSimpleHero("park-slope", {
+    title: "Park Slope",
+    subtitle: "Brooklyn neighborhood with neighborhood retail, services, food, and mixed-use commercial context.",
+    descriptor: "Near Gowanus, Prospect Heights, Greenwood, and Crown Heights.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "758,636 874,620 920,692 888,720 756,720 704,682",
+    label_position: { x: 824, y: 686 },
+    nearby: [
+      { label: "Gowanus", x: 766, y: 666 },
+      { label: "Prospect Heights", x: 842, y: 596 },
+      { label: "Greenwood", x: 794, y: 672 },
+      { label: "Crown Heights", x: 844, y: 650 }
+    ]
+  }),
+
+  nycSimpleHero("prospect-heights", {
+    title: "Prospect Heights",
+    subtitle: "Brooklyn neighborhood with retail, cultural, office-adjacent, and mixed-use commercial context.",
+    descriptor: "Near Fort Greene, Park Slope, Crown Heights, and Atlantic Avenue.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "778,544 894,532 920,600 880,666 772,658 728,596",
+    label_position: { x: 842, y: 604 },
+    nearby: [
+      { label: "Fort Greene", x: 818, y: 546 },
+      { label: "Park Slope", x: 826, y: 690 },
+      { label: "Crown Heights", x: 844, y: 650 },
+      { label: "Atlantic Avenue", x: 772, y: 604 }
+    ]
+  }),
+
+  nycSimpleHero("washington-heights", {
+    title: "Washington Heights",
+    subtitle: "Upper Manhattan neighborhood with medical, retail, civic, and neighborhood-serving commercial context.",
+    descriptor: "Near Harlem, Upper West Side, and northern Manhattan corridors.",
+    orientation_label: "Northern Manhattan",
+    approximate_polygon: "196,0 396,0 470,46 430,112 240,106 150,42",
+    label_position: { x: 312, y: 50 },
+    nearby: [
+      { label: "Harlem", x: 390, y: 62 },
+      { label: "Upper West Side", x: 250, y: 82 },
+      { label: "East Harlem", x: 554, y: 78 },
+      { label: "Hudson River", x: 92, y: 90 }
+    ]
+  }),
+
+  nycSimpleHero("atlantic-avenue", {
+    title: "Atlantic Avenue",
+    subtitle: "Brooklyn corridor with retail, transit, office-adjacent, and mixed-use commercial context.",
+    descriptor: "Near Downtown Brooklyn, Boerum Hill, Fort Greene, and Prospect Heights.",
+    orientation_label: "Brooklyn corridor",
+    approximate_polygon: "650,560 846,546 890,604 834,650 666,640 604,594",
+    label_position: { x: 748, y: 604 },
+    nearby: [
+      { label: "Downtown Brooklyn", x: 728, y: 620 },
+      { label: "Boerum Hill", x: 736, y: 656 },
+      { label: "Fort Greene", x: 818, y: 546 },
+      { label: "Prospect Heights", x: 842, y: 596 }
+    ]
+  }),
+
+  nycSimpleHero("flatbush", {
+    title: "Flatbush",
+    subtitle: "Brooklyn neighborhood with retail corridors, services, civic, and neighborhood commercial context.",
+    descriptor: "Near Crown Heights, Prospect Heights, Park Slope, and central Brooklyn.",
+    orientation_label: "Central Brooklyn",
+    approximate_polygon: "782,646 920,636 920,720 790,720 724,690",
+    label_position: { x: 850, y: 696 },
+    nearby: [
+      { label: "Crown Heights", x: 844, y: 650 },
+      { label: "Prospect Heights", x: 842, y: 596 },
+      { label: "Park Slope", x: 826, y: 690 },
+      { label: "Bed-Stuy", x: 826, y: 532 }
+    ]
+  }),
+
+  nycSimpleHero("carroll-gardens", {
+    title: "Carroll Gardens",
+    subtitle: "Brooklyn neighborhood with retail, services, food, and mixed-use commercial context.",
+    descriptor: "Near Cobble Hill, Gowanus, Boerum Hill, and Red Hook.",
+    orientation_label: "West Brooklyn",
+    approximate_polygon: "640,638 758,628 814,690 780,720 648,720 590,684",
+    label_position: { x: 704, y: 682 },
+    nearby: [
+      { label: "Cobble Hill", x: 688, y: 680 },
+      { label: "Gowanus", x: 766, y: 666 },
+      { label: "Boerum Hill", x: 736, y: 656 },
+      { label: "Red Hook", x: 632, y: 686 }
+    ]
+  }),
+
+  nycSimpleHero("south-williamsburg", {
+    title: "South Williamsburg",
+    subtitle: "Brooklyn neighborhood with retail, creative, mixed-use, and light industrial context.",
+    descriptor: "Near Williamsburg, DUMBO, East Williamsburg, and Brooklyn Navy Yard.",
+    orientation_label: "North Brooklyn",
+    approximate_polygon: "602,328 740,314 800,394 762,492 620,486 552,402",
+    label_position: { x: 682, y: 408 },
+    nearby: [
+      { label: "Williamsburg", x: 716, y: 326 },
+      { label: "East Williamsburg", x: 824, y: 360 },
+      { label: "DUMBO", x: 650, y: 548 },
+      { label: "Navy Yard", x: 772, y: 462 }
+    ]
+  }),
+
+  nycSimpleHero("vinegar-hill", {
+    title: "Vinegar Hill",
+    subtitle: "Brooklyn waterfront area with creative, light industrial, and Downtown Brooklyn-adjacent context.",
+    descriptor: "Near DUMBO, Brooklyn Navy Yard, Downtown Brooklyn, and the East River.",
+    orientation_label: "Brooklyn waterfront",
+    approximate_polygon: "644,468 752,456 802,520 766,584 654,590 604,528",
+    label_position: { x: 704, y: 528 },
+    nearby: [
+      { label: "DUMBO", x: 650, y: 548 },
+      { label: "Navy Yard", x: 772, y: 462 },
+      { label: "Downtown Brooklyn", x: 728, y: 620 },
+      { label: "East River", x: 610, y: 330 }
     ]
   })
 ]);

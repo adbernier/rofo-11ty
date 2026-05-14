@@ -168,6 +168,76 @@ function mapHeroKey(page) {
   ].join("/");
 }
 
+function pageKey(page) {
+  return [
+    clean(page.state_abbr).toUpperCase(),
+    slugify(page.city),
+    page.slug || slugify(page.name),
+  ].join("/");
+}
+
+const curatedNearbyByKey = {
+  "NY/new-york/financial-district": ["tribeca", "soho", "civic-center", "dumbo", "downtown-brooklyn"],
+  "NY/new-york/tribeca": ["soho", "financial-district", "civic-center", "west-village", "dumbo"],
+  "NY/new-york/soho": ["noho", "tribeca", "west-village", "greenwich-village", "union-square"],
+  "NY/new-york/noho": ["soho", "greenwich-village", "east-village", "union-square", "flatiron-district"],
+  "NY/new-york/greenwich-village": ["west-village", "noho", "soho", "union-square", "east-village"],
+  "NY/new-york/west-village": ["greenwich-village", "soho", "tribeca", "meatpacking-district", "chelsea"],
+  "NY/new-york/east-village": ["lower-east-side", "noho", "greenwich-village", "union-square", "gramercy"],
+  "NY/new-york/lower-east-side": ["east-village", "chinatown", "soho", "noho", "financial-district"],
+  "NY/new-york/chinatown": ["lower-east-side", "civic-center", "soho", "tribeca", "financial-district"],
+  "NY/new-york/civic-center": ["financial-district", "tribeca", "chinatown", "soho", "lower-east-side"],
+  "NY/new-york/union-square": ["flatiron-district", "gramercy", "greenwich-village", "noho", "soho"],
+  "NY/new-york/flatiron-district": ["nomad", "union-square", "chelsea", "gramercy", "midtown-south"],
+  "NY/new-york/nomad": ["flatiron-district", "midtown-south", "chelsea", "garment-district", "midtown"],
+  "NY/new-york/gramercy": ["union-square", "flatiron-district", "kips-bay", "east-village", "nomad"],
+  "NY/new-york/kips-bay": ["gramercy", "murray-hill", "east-midtown", "union-square", "flatiron-district"],
+  "NY/new-york/murray-hill": ["kips-bay", "east-midtown", "midtown", "grand-central", "gramercy"],
+  "NY/new-york/midtown-south": ["nomad", "flatiron-district", "garment-district", "midtown", "chelsea"],
+  "NY/new-york/chelsea": ["hudson-yards", "flatiron-district", "nomad", "meatpacking-district", "west-village"],
+  "NY/new-york/meatpacking-district": ["chelsea", "west-village", "greenwich-village", "hudson-yards", "flatiron-district"],
+  "NY/new-york/garment-district": ["midtown", "hudson-yards", "penn-district", "times-square", "nomad"],
+  "NY/new-york/hudson-yards": ["garment-district", "chelsea", "penn-district", "midtown", "hells-kitchen"],
+  "NY/new-york/penn-district": ["garment-district", "hudson-yards", "chelsea", "midtown", "times-square"],
+  "NY/new-york/times-square": ["midtown", "garment-district", "hells-kitchen", "penn-district", "plaza-district"],
+  "NY/new-york/midtown": ["garment-district", "times-square", "east-midtown", "plaza-district", "nomad"],
+  "NY/new-york/east-midtown": ["midtown", "murray-hill", "plaza-district", "kips-bay", "upper-east-side"],
+  "NY/new-york/plaza-district": ["midtown", "east-midtown", "upper-east-side", "times-square", "hells-kitchen"],
+  "NY/new-york/hells-kitchen": ["times-square", "midtown", "hudson-yards", "garment-district", "upper-west-side"],
+  "NY/new-york/upper-east-side": ["plaza-district", "east-midtown", "east-harlem", "midtown", "upper-west-side"],
+  "NY/new-york/upper-west-side": ["hells-kitchen", "midtown", "harlem", "upper-east-side", "washington-heights"],
+  "NY/new-york/harlem": ["east-harlem", "upper-west-side", "upper-east-side", "washington-heights"],
+  "NY/new-york/east-harlem": ["harlem", "upper-east-side", "upper-west-side", "plaza-district"],
+  "NY/new-york/washington-heights": ["harlem", "upper-west-side", "east-harlem"],
+  "NY/new-york/dumbo": ["downtown-brooklyn", "brooklyn-heights", "vinegar-hill", "brooklyn-navy-yard", "financial-district"],
+  "NY/new-york/downtown-brooklyn": ["dumbo", "brooklyn-heights", "fort-greene", "boerum-hill", "brooklyn-commons"],
+  "NY/new-york/brooklyn-heights": ["dumbo", "downtown-brooklyn", "cobble-hill", "boerum-hill", "carroll-gardens"],
+  "NY/new-york/vinegar-hill": ["dumbo", "brooklyn-navy-yard", "downtown-brooklyn", "fort-greene", "williamsburg"],
+  "NY/new-york/brooklyn-navy-yard": ["dumbo", "vinegar-hill", "fort-greene", "williamsburg", "clinton-hill"],
+  "NY/new-york/fort-greene": ["downtown-brooklyn", "brooklyn-navy-yard", "clinton-hill", "boerum-hill", "prospect-heights"],
+  "NY/new-york/clinton-hill": ["fort-greene", "brooklyn-navy-yard", "bedford-stuyvesant", "prospect-heights", "williamsburg"],
+  "NY/new-york/boerum-hill": ["downtown-brooklyn", "brooklyn-heights", "cobble-hill", "gowanus", "fort-greene"],
+  "NY/new-york/cobble-hill": ["boerum-hill", "brooklyn-heights", "carroll-gardens", "gowanus", "downtown-brooklyn"],
+  "NY/new-york/carroll-gardens": ["cobble-hill", "gowanus", "boerum-hill", "red-hook", "park-slope"],
+  "NY/new-york/gowanus": ["boerum-hill", "carroll-gardens", "park-slope", "red-hook", "downtown-brooklyn"],
+  "NY/new-york/park-slope": ["gowanus", "prospect-heights", "crown-heights", "greenwood", "carroll-gardens"],
+  "NY/new-york/prospect-heights": ["park-slope", "fort-greene", "clinton-hill", "crown-heights", "atlantic-avenue"],
+  "NY/new-york/atlantic-avenue": ["downtown-brooklyn", "boerum-hill", "fort-greene", "prospect-heights", "crown-heights"],
+  "NY/new-york/crown-heights": ["prospect-heights", "bedford-stuyvesant", "flatbush", "park-slope", "atlantic-avenue"],
+  "NY/new-york/bedford-stuyvesant": ["crown-heights", "clinton-hill", "bushwick", "east-williamsburg", "prospect-heights"],
+  "NY/new-york/flatbush": ["crown-heights", "prospect-heights", "park-slope", "bedford-stuyvesant"],
+  "NY/new-york/williamsburg": ["greenpoint", "east-williamsburg", "south-williamsburg", "brooklyn-navy-yard", "dumbo"],
+  "NY/new-york/south-williamsburg": ["williamsburg", "east-williamsburg", "dumbo", "brooklyn-navy-yard", "bushwick"],
+  "NY/new-york/east-williamsburg": ["williamsburg", "south-williamsburg", "bushwick", "greenpoint", "bedford-stuyvesant"],
+  "NY/new-york/greenpoint": ["williamsburg", "east-williamsburg", "brooklyn-navy-yard", "dumbo"],
+  "NY/new-york/bushwick": ["east-williamsburg", "bedford-stuyvesant", "williamsburg", "crown-heights"],
+  "NY/new-york/red-hook": ["gowanus", "carroll-gardens", "cobble-hill", "sunset-park", "downtown-brooklyn"],
+  "NY/new-york/greenwood": ["industry-city", "sunset-park", "park-slope", "gowanus", "red-hook"],
+  "NY/new-york/industry-city": ["sunset-park", "greenwood", "red-hook", "gowanus", "park-slope"],
+  "NY/new-york/sunset-park": ["industry-city", "greenwood", "red-hook", "gowanus", "park-slope"],
+  "NY/new-york/brooklyn-commons": ["downtown-brooklyn", "fort-greene", "boerum-hill", "brooklyn-heights", "dumbo"]
+};
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -418,9 +488,45 @@ for (const page of allPages) {
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
 }
 
+const allPagesByCitySlug = new Map();
+
+for (const page of allPages) {
+  const cityKey = [clean(page.state_abbr).toUpperCase(), slugify(page.city)].join("/");
+  const slug = page.slug || slugify(page.name);
+
+  if (!allPagesByCitySlug.has(cityKey)) {
+    allPagesByCitySlug.set(cityKey, new Map());
+  }
+
+  allPagesByCitySlug.get(cityKey).set(slug, page);
+}
+
 for (const page of allPages) {
   if (page.suppress_nearby_neighborhoods) {
     page.nearby_neighborhoods = [];
+    continue;
+  }
+
+  const curatedSlugs = curatedNearbyByKey[pageKey(page)] || [];
+  const cityKey = [clean(page.state_abbr).toUpperCase(), slugify(page.city)].join("/");
+  const cityPagesBySlug = allPagesByCitySlug.get(cityKey) || new Map();
+  const curatedNearby = curatedSlugs
+    .map((slug) => cityPagesBySlug.get(slug))
+    .filter((candidate) =>
+      candidate &&
+      candidate.canonical_neighborhood_path !== page.canonical_neighborhood_path &&
+      !candidate.noindex
+    )
+    .slice(0, 5)
+    .map((candidate) => ({
+      name: candidate.name,
+      city: candidate.city,
+      state_abbr: candidate.state_abbr,
+      url: candidate.canonical_neighborhood_path,
+    }));
+
+  if (curatedNearby.length) {
+    page.nearby_neighborhoods = curatedNearby;
     continue;
   }
 

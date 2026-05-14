@@ -6,8 +6,8 @@ pagination:
   alias: neighborhood
 permalink: "{{ neighborhood.canonical_neighborhood_path }}"
 eleventyComputed:
-  title: "Commercial Real Estate in {{ neighborhood.name }}, {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
-  description: "Explore commercial real estate context, buildings, and common business environments in {{ neighborhood.name }}, {{ neighborhood.city }}."
+  title: "Commercial Real Estate in {{ neighborhood.name | safe }}, {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
+  description: "Explore commercial real estate context, buildings, and common business environments in {{ neighborhood.name | safe }}, {{ neighborhood.city }}."
   canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
   robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
 ---
