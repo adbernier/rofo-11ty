@@ -535,6 +535,130 @@ function atlantaCompactHero(slug, config) {
   return compactCityHero(atlantaHero, atlantaColors, slug, config);
 }
 
+const sandiegoBase = {
+  city_label: "San Diego",
+  basemap: "san-diego-core-v1",
+  map_region_label: "San Diego Bay",
+  map_region_label_position: { x: 192, y: 474 },
+  secondary_map_region_label: "I-15 corridor",
+  secondary_map_region_label_position: { x: 664, y: 154 },
+  water_paths: [
+    "M 0 240 C 96 284 126 370 116 470 C 106 570 166 632 252 720 H 0 Z",
+    "M 94 0 C 144 116 158 210 126 292 C 94 376 72 470 112 562 C 142 630 210 678 286 720 H 0 V 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "5", x: 286, y: 430 },
+    { label: "8", x: 418, y: 322 },
+    { label: "15", x: 640, y: 230 },
+    { label: "805", x: 526, y: 278 }
+  ]
+};
+
+const sandiegoColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function sandiegoHero(slug, config) {
+  return [
+    `CA/san-diego/${slug}`,
+    {
+      ...sandiegoBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in San Diego near surrounding commercial districts.`
+    }
+  ];
+}
+
+function sandiegoCompactHero(slug, config) {
+  return compactCityHero(sandiegoHero, sandiegoColors, slug, config);
+}
+
+const nashvilleBase = {
+  city_label: "Nashville",
+  basemap: "nashville-core-v1",
+  map_region_label: "Cumberland River",
+  map_region_label_position: { x: 644, y: 338 },
+  secondary_map_region_label: "West End corridor",
+  secondary_map_region_label_position: { x: 246, y: 286 },
+  water_paths: [
+    "M 560 0 C 664 96 670 192 610 278 C 544 374 596 470 718 526 C 800 564 846 628 858 720 H 920 V 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "40", x: 438, y: 442 },
+    { label: "65", x: 470, y: 332 },
+    { label: "24", x: 664, y: 440 },
+    { label: "440", x: 326, y: 522 }
+  ]
+};
+
+const nashvilleColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function nashvilleHero(slug, config) {
+  return [
+    `TN/nashville/${slug}`,
+    {
+      ...nashvilleBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Nashville near surrounding commercial districts.`
+    }
+  ];
+}
+
+function nashvilleCompactHero(slug, config) {
+  return compactCityHero(nashvilleHero, nashvilleColors, slug, config);
+}
+
+const denverBase = {
+  city_label: "Denver",
+  basemap: "denver-core-v1",
+  map_region_label: "Downtown grid",
+  map_region_label_position: { x: 430, y: 310 },
+  secondary_map_region_label: "DTC corridor",
+  secondary_map_region_label_position: { x: 664, y: 674 },
+  transit_or_freeway_labels: [
+    { label: "25", x: 354, y: 390 },
+    { label: "70", x: 462, y: 166 },
+    { label: "225", x: 730, y: 544 },
+    { label: "6", x: 332, y: 506 }
+  ]
+};
+
+const denverColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function denverHero(slug, config) {
+  return [
+    `CO/denver/${slug}`,
+    {
+      ...denverBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in Denver near surrounding commercial districts.`
+    }
+  ];
+}
+
+function denverCompactHero(slug, config) {
+  return compactCityHero(denverHero, denverColors, slug, config);
+}
+
 const chicagoMapConfigs = [
   ["the-loop", { title: "The Loop", subtitle: "Central business district with office, civic, transit, and cultural commercial context.", orientation_label: "Downtown core", x: 504, y: 382, nearby: [{ label: "West Loop", x: 342, y: 404 }, { label: "River North", x: 462, y: 254 }, { label: "South Loop", x: 494, y: 568 }, { label: "Lake Michigan", x: 736, y: 250 }] }],
   ["west-loop", { title: "West Loop", subtitle: "Near-downtown district with office, food, retail, and mixed commercial context.", orientation_label: "West of downtown", x: 342, y: 404, nearby: [{ label: "Fulton Market", x: 306, y: 324 }, { label: "The Loop", x: 504, y: 382 }, { label: "River West", x: 326, y: 280 }, { label: "Fulton River", x: 404, y: 320 }] }],
@@ -677,6 +801,52 @@ const atlantaMapConfigs = [
   ["hartsfield-jackson-airport-area", { title: "Hartsfield-Jackson Airport Area", subtitle: "Airport-area commercial district with logistics, hospitality, service, and transportation context.", orientation_label: "Airport submarket", x: 530, y: 674, nearby: [{ label: "South Downtown", x: 482, y: 524 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Fulton Industrial", x: 188, y: 560 }, { label: "I-75/85", x: 470, y: 354 }] }],
   ["south-downtown", { title: "South Downtown", subtitle: "South of downtown district with civic, office-adjacent, retail, and mixed commercial context.", orientation_label: "South of downtown", x: 482, y: 524, nearby: [{ label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Inman Park", x: 648, y: 470 }, { label: "Fulton Industrial", x: 188, y: 560 }] }],
   ["inman-park", { title: "Inman Park", subtitle: "Eastside Atlanta neighborhood with retail, food, services, and mixed commercial context.", orientation_label: "Eastside Atlanta", x: 648, y: 470, nearby: [{ label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }] }]
+];
+
+const sandiegoMapConfigs = [
+  ["downtown-san-diego", { title: "Downtown San Diego", subtitle: "Central San Diego commercial core with office, civic, hospitality, and waterfront context.", orientation_label: "Downtown waterfront", x: 318, y: 450, nearby: [{ label: "East Village", x: 386, y: 464 }, { label: "Little Italy", x: 302, y: 384 }, { label: "Barrio Logan", x: 400, y: 552 }, { label: "San Diego Bay", x: 192, y: 474 }] }],
+  ["east-village", { title: "East Village", subtitle: "Downtown-adjacent district with office, entertainment, residential, and mixed commercial context.", orientation_label: "East downtown", x: 386, y: 464, nearby: [{ label: "Downtown San Diego", x: 318, y: 450 }, { label: "Barrio Logan", x: 400, y: 552 }, { label: "Little Italy", x: 302, y: 384 }, { label: "Bankers Hill", x: 342, y: 330 }] }],
+  ["little-italy", { title: "Little Italy", subtitle: "North downtown neighborhood with food, retail, office-adjacent, and waterfront context.", orientation_label: "North downtown", x: 302, y: 384, nearby: [{ label: "Downtown San Diego", x: 318, y: 450 }, { label: "Bankers Hill", x: 342, y: 330 }, { label: "Liberty Station", x: 178, y: 392 }, { label: "San Diego Bay", x: 192, y: 474 }] }],
+  ["mission-valley", { title: "Mission Valley", subtitle: "Central San Diego corridor with office, retail, hospitality, and freeway-oriented context.", orientation_label: "Central corridor", x: 450, y: 310, nearby: [{ label: "Bankers Hill", x: 342, y: 330 }, { label: "Kearny Mesa", x: 526, y: 220 }, { label: "Downtown San Diego", x: 318, y: 450 }, { label: "I-8", x: 418, y: 322 }] }],
+  ["bankers-hill", { title: "Bankers Hill", subtitle: "Central San Diego neighborhood with office-adjacent, medical, retail, and service context.", orientation_label: "North of downtown", x: 342, y: 330, nearby: [{ label: "Little Italy", x: 302, y: 384 }, { label: "Downtown San Diego", x: 318, y: 450 }, { label: "Mission Valley", x: 450, y: 310 }, { label: "East Village", x: 386, y: 464 }] }],
+  ["kearny-mesa", { title: "Kearny Mesa", subtitle: "Central San Diego business district with office, industrial, retail, and logistics context.", orientation_label: "Central business corridor", x: 526, y: 220, nearby: [{ label: "Mission Valley", x: 450, y: 310 }, { label: "University City", x: 532, y: 112 }, { label: "Sorrento Valley", x: 610, y: 72 }, { label: "805", x: 526, y: 278 }] }],
+  ["sorrento-valley", { title: "Sorrento Valley", subtitle: "North San Diego employment area with office, life science, R&D, and freeway access context.", orientation_label: "North employment area", x: 610, y: 72, nearby: [{ label: "University City", x: 532, y: 112 }, { label: "Kearny Mesa", x: 526, y: 220 }, { label: "Rancho Bernardo", x: 696, y: 38 }, { label: "I-15", x: 640, y: 230 }] }],
+  ["university-city", { title: "University City", subtitle: "North San Diego district with office, retail, medical, education, and mixed-use context.", orientation_label: "North San Diego", x: 532, y: 112, nearby: [{ label: "Sorrento Valley", x: 610, y: 72 }, { label: "Kearny Mesa", x: 526, y: 220 }, { label: "Mission Valley", x: 450, y: 310 }, { label: "I-5", x: 286, y: 430 }] }],
+  ["rancho-bernardo", { title: "Rancho Bernardo", subtitle: "North San Diego business area with office, industrial, R&D, and corridor context.", orientation_label: "North inland corridor", x: 696, y: 38, nearby: [{ label: "Sorrento Valley", x: 610, y: 72 }, { label: "University City", x: 532, y: 112 }, { label: "Kearny Mesa", x: 526, y: 220 }, { label: "I-15", x: 640, y: 230 }] }],
+  ["otay-mesa", { title: "Otay Mesa", subtitle: "South San Diego industrial and logistics district near major border and freeway corridors.", orientation_label: "South industrial district", x: 636, y: 668, nearby: [{ label: "Barrio Logan", x: 400, y: 552 }, { label: "East Village", x: 386, y: 464 }, { label: "Downtown San Diego", x: 318, y: 450 }, { label: "I-805", x: 526, y: 278 }] }],
+  ["barrio-logan", { title: "Barrio Logan", subtitle: "South of downtown neighborhood with industrial, creative, retail, and waterfront commercial context.", orientation_label: "South downtown", x: 400, y: 552, nearby: [{ label: "East Village", x: 386, y: 464 }, { label: "Downtown San Diego", x: 318, y: 450 }, { label: "Little Italy", x: 302, y: 384 }, { label: "San Diego Bay", x: 192, y: 474 }] }],
+  ["liberty-station", { title: "Liberty Station", subtitle: "Bay-adjacent district with office, retail, hospitality, and mixed commercial context.", orientation_label: "Bay-adjacent district", x: 178, y: 392, nearby: [{ label: "Little Italy", x: 302, y: 384 }, { label: "Downtown San Diego", x: 318, y: 450 }, { label: "Bankers Hill", x: 342, y: 330 }, { label: "San Diego Bay", x: 192, y: 474 }] }]
+];
+
+const nashvilleMapConfigs = [
+  ["downtown-nashville", { title: "Downtown Nashville", subtitle: "Central Nashville district with office, hospitality, entertainment, civic, and retail context.", orientation_label: "Downtown core", x: 520, y: 378, nearby: [{ label: "SoBro", x: 540, y: 454 }, { label: "The Gulch", x: 438, y: 430 }, { label: "Germantown", x: 456, y: 278 }, { label: "Cumberland River", x: 644, y: 338 }] }],
+  ["sobro", { title: "SoBro", subtitle: "South of Broadway district with hospitality, office-adjacent, entertainment, and mixed-use context.", orientation_label: "South downtown", x: 540, y: 454, nearby: [{ label: "Downtown Nashville", x: 520, y: 378 }, { label: "The Gulch", x: 438, y: 430 }, { label: "Music Row", x: 340, y: 392 }, { label: "I-40", x: 438, y: 442 }] }],
+  ["midtown", { title: "Midtown", subtitle: "Central Nashville district with office-adjacent, medical, education, retail, and hospitality context.", orientation_label: "West of downtown", x: 300, y: 348, nearby: [{ label: "Music Row", x: 340, y: 392 }, { label: "The Gulch", x: 438, y: 430 }, { label: "West End", x: 220, y: 320 }, { label: "Downtown Nashville", x: 520, y: 378 }] }],
+  ["music-row", { title: "Music Row", subtitle: "Central Nashville district with office, creative, entertainment, and service commercial context.", orientation_label: "Music business district", x: 340, y: 392, nearby: [{ label: "Midtown", x: 300, y: 348 }, { label: "The Gulch", x: 438, y: 430 }, { label: "West End", x: 220, y: 320 }, { label: "SoBro", x: 540, y: 454 }] }],
+  ["west-end", { title: "West End", subtitle: "West Nashville corridor with office, medical, education, retail, and hospitality context.", orientation_label: "West End corridor", x: 220, y: 320, nearby: [{ label: "Midtown", x: 300, y: 348 }, { label: "Music Row", x: 340, y: 392 }, { label: "Green Hills", x: 174, y: 540 }, { label: "The Gulch", x: 438, y: 430 }] }],
+  ["green-hills", { title: "Green Hills", subtitle: "Southwest Nashville commercial node with retail, office-adjacent, medical, and service context.", orientation_label: "Southwest commercial node", x: 174, y: 540, nearby: [{ label: "West End", x: 220, y: 320 }, { label: "Midtown", x: 300, y: 348 }, { label: "Music Row", x: 340, y: 392 }, { label: "I-440", x: 326, y: 522 }] }],
+  ["east-nashville", { title: "East Nashville", subtitle: "East of downtown neighborhood with retail, food, services, creative, and mixed commercial context.", orientation_label: "East of downtown", x: 708, y: 386, nearby: [{ label: "Downtown Nashville", x: 520, y: 378 }, { label: "SoBro", x: 540, y: 454 }, { label: "Germantown", x: 456, y: 278 }, { label: "Cumberland River", x: 644, y: 338 }] }],
+  ["donelson-airport-area", { title: "Donelson / Airport Area", subtitle: "Airport-area district with hospitality, office, logistics, and transportation context.", orientation_label: "Airport corridor", x: 742, y: 610, nearby: [{ label: "East Nashville", x: 708, y: 386 }, { label: "SoBro", x: 540, y: 454 }, { label: "Downtown Nashville", x: 520, y: 378 }, { label: "I-40", x: 438, y: 442 }] }],
+  ["the-gulch", { title: "The Gulch", subtitle: "Downtown-adjacent district with office, hospitality, retail, and mixed-use commercial context.", orientation_label: "Southwest downtown", x: 438, y: 430, nearby: [{ label: "SoBro", x: 540, y: 454 }, { label: "Downtown Nashville", x: 520, y: 378 }, { label: "Music Row", x: 340, y: 392 }, { label: "Midtown", x: 300, y: 348 }] }],
+  ["germantown", { title: "Germantown", subtitle: "North of downtown neighborhood with office-adjacent, retail, food, and mixed commercial context.", orientation_label: "North downtown", x: 456, y: 278, nearby: [{ label: "Downtown Nashville", x: 520, y: 378 }, { label: "The Gulch", x: 438, y: 430 }, { label: "East Nashville", x: 708, y: 386 }, { label: "Cumberland River", x: 644, y: 338 }] }]
+];
+
+const denverMapConfigs = [
+  ["central-business-district", { title: "Central Business District", subtitle: "Downtown Denver office core with civic, hospitality, retail, and transit context.", orientation_label: "Downtown core", x: 430, y: 330, nearby: [{ label: "LoDo", x: 350, y: 288 }, { label: "Ballpark", x: 420, y: 224 }, { label: "Capitol Hill", x: 520, y: 412 }, { label: "Santa Fe", x: 330, y: 470 }] }],
+  ["cherry-creek", { title: "Cherry Creek", subtitle: "Central Denver commercial district with retail, office, hospitality, and service context.", orientation_label: "East central district", x: 666, y: 456, nearby: [{ label: "Capitol Hill", x: 520, y: 412 }, { label: "Baker", x: 420, y: 548 }, { label: "CBD", x: 430, y: 330 }, { label: "DTC", x: 690, y: 652 }] }],
+  ["lodo", { title: "LoDo", subtitle: "Lower Downtown district with office, hospitality, retail, entertainment, and transit context.", orientation_label: "Lower downtown", x: 350, y: 288, nearby: [{ label: "CBD", x: 430, y: 330 }, { label: "Ballpark", x: 420, y: 224 }, { label: "Lower Highland", x: 278, y: 266 }, { label: "RiNo", x: 520, y: 190 }] }],
+  ["ballpark", { title: "Ballpark", subtitle: "North downtown district with office-adjacent, hospitality, entertainment, and mixed-use context.", orientation_label: "North downtown", x: 420, y: 224, nearby: [{ label: "LoDo", x: 350, y: 288 }, { label: "CBD", x: 430, y: 330 }, { label: "RiNo", x: 520, y: 190 }, { label: "Globeville", x: 396, y: 124 }] }],
+  ["denver-tech-center", { title: "Denver Tech Center", subtitle: "Southeast Denver office and business corridor with highway and transit access context.", orientation_label: "Southeast business corridor", x: 690, y: 652, nearby: [{ label: "Cherry Creek", x: 666, y: 456 }, { label: "Baker", x: 420, y: 548 }, { label: "Capitol Hill", x: 520, y: 412 }, { label: "I-25", x: 354, y: 390 }] }],
+  ["santa-fe-arts-district", { title: "Santa Fe Arts District", subtitle: "Central Denver district with creative, retail, service, and mixed commercial context.", orientation_label: "Southwest of downtown", x: 330, y: 470, nearby: [{ label: "Sun Valley", x: 268, y: 420 }, { label: "CBD", x: 430, y: 330 }, { label: "Baker", x: 420, y: 548 }, { label: "Capitol Hill", x: 520, y: 412 }] }],
+  ["central-park", { title: "Central Park", subtitle: "Northeast Denver area with retail, office-adjacent, medical, and mixed commercial context.", orientation_label: "Northeast Denver", x: 724, y: 188, nearby: [{ label: "Northeast Industrial", x: 646, y: 116 }, { label: "RiNo", x: 520, y: 190 }, { label: "Globeville", x: 396, y: 124 }, { label: "I-70", x: 462, y: 166 }] }],
+  ["capitol-hill", { title: "Capitol Hill", subtitle: "Central Denver neighborhood with office-adjacent, retail, service, and civic context.", orientation_label: "East of downtown", x: 520, y: 412, nearby: [{ label: "CBD", x: 430, y: 330 }, { label: "Cherry Creek", x: 666, y: 456 }, { label: "Santa Fe", x: 330, y: 470 }, { label: "Baker", x: 420, y: 548 }] }],
+  ["sun-valley", { title: "Sun Valley", subtitle: "West of downtown district with industrial, service, civic, and mixed commercial context.", orientation_label: "West of downtown", x: 268, y: 420, nearby: [{ label: "Santa Fe", x: 330, y: 470 }, { label: "CBD", x: 430, y: 330 }, { label: "LoDo", x: 350, y: 288 }, { label: "Baker", x: 420, y: 548 }] }],
+  ["northeast-denver-industrial", { title: "Northeast Denver Industrial", subtitle: "Northeast Denver industrial area with logistics, warehouse, service, and corridor context.", orientation_label: "Northeast industrial", x: 646, y: 116, nearby: [{ label: "Central Park", x: 724, y: 188 }, { label: "RiNo", x: 520, y: 190 }, { label: "Globeville", x: 396, y: 124 }, { label: "I-70", x: 462, y: 166 }] }],
+  ["globeville", { title: "Globeville", subtitle: "North Denver district with industrial, service, mixed-use, and corridor context.", orientation_label: "North Denver", x: 396, y: 124, nearby: [{ label: "Elyria-Swansea", x: 482, y: 112 }, { label: "RiNo", x: 520, y: 190 }, { label: "Ballpark", x: 420, y: 224 }, { label: "I-70", x: 462, y: 166 }] }],
+  ["river-north-art-district", { title: "River North Art District", subtitle: "North Denver district with creative, office, food, light industrial, and mixed commercial context.", orientation_label: "North of downtown", x: 520, y: 190, nearby: [{ label: "Ballpark", x: 420, y: 224 }, { label: "Globeville", x: 396, y: 124 }, { label: "CBD", x: 430, y: 330 }, { label: "Central Park", x: 724, y: 188 }] }],
+  ["globeville-elyria-swansea", { title: "Globeville / Elyria-Swansea", subtitle: "North Denver area with industrial, logistics, service, and mixed commercial context.", orientation_label: "North Denver", x: 482, y: 112, nearby: [{ label: "Globeville", x: 396, y: 124 }, { label: "RiNo", x: 520, y: 190 }, { label: "Ballpark", x: 420, y: 224 }, { label: "Northeast Industrial", x: 646, y: 116 }] }],
+  ["lower-highland", { title: "Lower Highland", subtitle: "Northwest of downtown district with office-adjacent, retail, food, and mixed-use context.", orientation_label: "Northwest of downtown", x: 278, y: 266, nearby: [{ label: "LoDo", x: 350, y: 288 }, { label: "Ballpark", x: 420, y: 224 }, { label: "CBD", x: 430, y: 330 }, { label: "Globeville", x: 396, y: 124 }] }],
+  ["baker", { title: "Baker", subtitle: "South central Denver neighborhood with retail, creative, service, and mixed commercial context.", orientation_label: "South central Denver", x: 420, y: 548, nearby: [{ label: "Santa Fe", x: 330, y: 470 }, { label: "Capitol Hill", x: 520, y: 412 }, { label: "Cherry Creek", x: 666, y: 456 }, { label: "CBD", x: 430, y: 330 }] }]
 ];
 
 module.exports = Object.fromEntries([
@@ -2126,5 +2296,8 @@ module.exports = Object.fromEntries([
   ...seattleMapConfigs.map(([slug, config]) => seattleCompactHero(slug, config)),
   ...bostonMapConfigs.map(([slug, config]) => bostonCompactHero(slug, config)),
   ...dcMapConfigs.map(([slug, config]) => dcCompactHero(slug, config)),
-  ...atlantaMapConfigs.map(([slug, config]) => atlantaCompactHero(slug, config))
+  ...atlantaMapConfigs.map(([slug, config]) => atlantaCompactHero(slug, config)),
+  ...sandiegoMapConfigs.map(([slug, config]) => sandiegoCompactHero(slug, config)),
+  ...nashvilleMapConfigs.map(([slug, config]) => nashvilleCompactHero(slug, config)),
+  ...denverMapConfigs.map(([slug, config]) => denverCompactHero(slug, config))
 ]);
