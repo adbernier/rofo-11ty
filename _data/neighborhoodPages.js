@@ -303,6 +303,7 @@ function commercialPageFor(area) {
     commercial_profile: area.commercial_profile || [],
     source_confidence: area.source_confidence,
     source_types: area.source_types || [],
+    suppress_nearby_neighborhoods: Boolean(area.suppress_nearby_neighborhoods),
     noindex: false,
     prototype: false,
     public_review: false,
@@ -407,6 +408,11 @@ for (const page of allPages) {
 }
 
 for (const page of allPages) {
+  if (page.suppress_nearby_neighborhoods) {
+    page.nearby_neighborhoods = [];
+    continue;
+  }
+
   const center = { lat: page.centroid_lat, lng: page.centroid_lng };
   page.nearby_neighborhoods = allPages
     .filter((candidate) =>

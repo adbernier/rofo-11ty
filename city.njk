@@ -206,7 +206,7 @@ eleventyComputed:
                   {% endif %}
                 {% endfor %}
                 <details class="city-neighborhoods-all">
-                  <summary>View all neighborhoods</summary>
+                  <summary>View more neighborhoods</summary>
                   {% if manhattanNeighborhoods.length %}
                     <h3>Manhattan</h3>
                     <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
@@ -234,7 +234,7 @@ eleventyComputed:
                 </details>
               {% elseif hiddenNeighborhoods.length %}
                 <details class="city-neighborhoods-all">
-                  <summary>View all neighborhoods</summary>
+                  <summary>View more neighborhoods</summary>
                   <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
                     {% for neighborhood in hiddenNeighborhoods %}
                       <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
