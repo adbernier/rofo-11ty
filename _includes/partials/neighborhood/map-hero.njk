@@ -31,7 +31,13 @@
       </defs>
 
       <rect width="920" height="720" fill="#f8faf7" />
-      <path d="M 680 0 C 650 96 678 166 710 220 C 742 275 736 344 720 402 C 696 492 724 596 796 720 L 920 720 L 920 0 Z" fill="url(#map-water)" />
+      {% if hero.water_paths %}
+        {% for waterPath in hero.water_paths %}
+          <path d="{{ waterPath }}" fill="url(#map-water)" />
+        {% endfor %}
+      {% else %}
+        <path d="M 680 0 C 650 96 678 166 710 220 C 742 275 736 344 720 402 C 696 492 724 596 796 720 L 920 720 L 920 0 Z" fill="url(#map-water)" />
+      {% endif %}
       <path d="M 0 0 H 720 V 720 H 0 Z" fill="url(#map-grid)" opacity="0.72" />
 
       <g opacity="0.58">
@@ -71,7 +77,10 @@
         </g>
       {% endfor %}
 
-      <text x="752" y="220" class="neighborhood-map-hero__water">{{ hero.map_region_label or "San Francisco Bay" }}</text>
+      <text x="{{ hero.map_region_label_position.x if hero.map_region_label_position else 752 }}" y="{{ hero.map_region_label_position.y if hero.map_region_label_position else 220 }}" class="neighborhood-map-hero__water">{{ hero.map_region_label or "San Francisco Bay" }}</text>
+      {% if hero.secondary_map_region_label %}
+        <text x="{{ hero.secondary_map_region_label_position.x }}" y="{{ hero.secondary_map_region_label_position.y }}" class="neighborhood-map-hero__water">{{ hero.secondary_map_region_label }}</text>
+      {% endif %}
     </svg>
   </figure>
 
