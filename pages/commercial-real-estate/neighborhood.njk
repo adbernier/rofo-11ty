@@ -31,7 +31,7 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero">
+    <div class="city-hero{% if hasMapHero %} city-hero--map-card{% endif %}">
       <div class="city-card">
         <div class="city-hero-copy">
           <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
