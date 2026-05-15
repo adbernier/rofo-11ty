@@ -1,4 +1,15 @@
-module.exports = {
+const fs = require("fs");
+const path = require("path");
+
+const extractedSignalsPath = path.join(
+  process.cwd(),
+  "data",
+  "peter",
+  "research",
+  "neighborhood_intelligence_signals_v1.json"
+);
+
+const intelligence = {
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
     status: "prototype",
     confidence: "high",
@@ -275,3 +286,22 @@ module.exports = {
     ],
   },
 };
+
+if (fs.existsSync(extractedSignalsPath)) {
+  const extracted = JSON.parse(fs.readFileSync(extractedSignalsPath, "utf8"));
+
+  for (const target of extracted.targets || []) {
+    if (!intelligence[target.canonical_path]) continue;
+
+    intelligence[target.canonical_path].derived_signal_chips =
+      (target.public_signal_chips || []).map((signal) => ({
+        key: signal.key,
+        label: signal.label,
+        confidence: signal.confidence,
+      }));
+    intelligence[target.canonical_path].derived_signal_source =
+      "Representative building and listing-derived commercial signal extraction";
+  }
+}
+
+module.exports = intelligence;

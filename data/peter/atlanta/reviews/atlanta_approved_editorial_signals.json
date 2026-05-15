@@ -1,0 +1,75 @@
+{
+  "version": "atlanta-approved-editorial-signals-v1",
+  "generated_at": "2026-05-15",
+  "source_files": [
+    "data/peter/atlanta/reviews/atlanta_signal_editorial_review.json",
+    "data/peter/atlanta/intelligence/neighborhood_signal_confidence_v2.json"
+  ],
+  "public_use_guardrails": [
+    "Only human-approved rows in this file may be surfaced publicly.",
+    "Use restrained, non-statistical language.",
+    "Do not imply live availability, pricing, rent, suite-level detail, or current condition."
+  ],
+  "signals": [
+    {
+      "neighborhood": "Midtown",
+      "city": "Atlanta",
+      "state": "GA",
+      "signal_key": "office_oriented",
+      "approved_public_label": "Office and mixed-use district",
+      "approved_public_copy": "Midtown is an office-oriented Atlanta district with a mix of business, retail, and mixed-use commercial activity.",
+      "source_status": "human_approved",
+      "display_status": "public_safe",
+      "confidence_note": "High-confidence office-oriented signal with representative agreement and the strongest true provenance coverage among Atlanta focus neighborhoods.",
+      "approved_at": "2026-05-15"
+    },
+    {
+      "neighborhood": "Buckhead",
+      "city": "Atlanta",
+      "state": "GA",
+      "signal_key": "office_oriented",
+      "approved_public_label": "Office-oriented district",
+      "approved_public_copy": "Buckhead is primarily an office-oriented commercial district with a strong concentration of professional and business services.",
+      "source_status": "human_approved",
+      "display_status": "public_safe",
+      "confidence_note": "High-confidence office-oriented signal with broad building/contact support; public copy remains broad because provenance coverage is still limited.",
+      "approved_at": "2026-05-15"
+    },
+    {
+      "neighborhood": "Perimeter Center",
+      "city": "Atlanta",
+      "state": "GA",
+      "signal_key": "office_oriented",
+      "approved_public_label": "Suburban office node",
+      "approved_public_copy": "Perimeter Center functions as one of Atlanta’s major suburban office nodes, with strong freeway access and a concentration of larger business properties.",
+      "source_status": "human_approved",
+      "display_status": "public_safe",
+      "confidence_note": "High-confidence office-oriented signal with broad building/contact support and representative agreement; freeway wording is editorially approved as broad area context.",
+      "approved_at": "2026-05-15"
+    },
+    {
+      "neighborhood": "West Midtown",
+      "city": "Atlanta",
+      "state": "GA",
+      "signal_key": "industrial_flex_context",
+      "approved_public_label": "Industrial, flex, and office mix",
+      "approved_public_copy": "West Midtown shows a mix of industrial, flex, showroom, and office-oriented commercial space.",
+      "source_status": "human_approved",
+      "display_status": "public_safe",
+      "confidence_note": "High-confidence industrial/flex signal with representative agreement; public copy combines approved area context and avoids quantitative claims.",
+      "approved_at": "2026-05-15"
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "city": "Atlanta",
+      "state": "GA",
+      "signal_key": "office_oriented",
+      "approved_public_label": "Office-oriented downtown core",
+      "approved_public_copy": "Downtown Atlanta is an office-oriented commercial district with civic, professional, and business-service activity near the city core.",
+      "source_status": "human_approved",
+      "display_status": "public_safe",
+      "confidence_note": "High-confidence office-oriented signal with representative agreement; public copy remains broad because provenance coverage is still limited.",
+      "approved_at": "2026-05-15"
+    }
+  ]
+}

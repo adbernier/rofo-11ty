@@ -35,6 +35,17 @@
           </div>
         </div>
       {% endif %}
+
+      {% if intelligence.derived_signal_chips and intelligence.derived_signal_chips.length %}
+        <div>
+          <h3>Extracted signals</h3>
+          <div class="neighborhood-intelligence__chips">
+            {% for signal in intelligence.derived_signal_chips %}
+              <span>{{ signal.label }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     </div>
 
     {% if intelligence.modules and intelligence.modules.length %}

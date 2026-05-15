@@ -1,0 +1,1116 @@
+{
+  "version": "atlanta-signal-confidence-v2",
+  "generated_at": "2026-05-15T17:10:13.499Z",
+  "source_files": [
+    "data/peter/atlanta/lineage/atlanta_lineage_objects.json",
+    "data/peter/atlanta/intelligence/neighborhood_diversity_metrics.json",
+    "data/peter/research/atlanta_building_listing_subset_v1.json",
+    "data/peter/research/neighborhood_intelligence_signals_v1.json"
+  ],
+  "public_language_guardrails": [
+    "Use historical/contextual phrasing only.",
+    "Do not imply current availability, pricing, rent, suite-level status, or move-in condition.",
+    "Do not promote source-biased signals without editorial review.",
+    "Treat LMS as ingestion_origin, not a single external source."
+  ],
+  "neighborhoods": [
+    {
+      "neighborhood": "Buckhead",
+      "signal_review_summary": {
+        "public_safe": 0,
+        "review_needed": 3,
+        "internal_only": 3
+      },
+      "inputs": {
+        "lineage_rows": 1174,
+        "unique_buildings": 216,
+        "unique_companies": 10,
+        "unique_listing_contacts": 93,
+        "diversity_score": 64,
+        "concentration_score": 20,
+        "coworking_concentration": 8.4,
+        "top_ingestion_origin_concentration": 100,
+        "top_provenance_entity_concentration": 8.4,
+        "warnings": [
+          "Originating company coverage is low at 15.9% of lineage rows.",
+          "True provenance entity coverage is low at 15.9% of lineage rows."
+        ]
+      },
+      "signals": [
+        {
+          "signal_key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence_score": 92,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "979 lineage rows match Office-oriented.",
+            "133 unique buildings support the signal.",
+            "83.4% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 64.",
+            "8 originating companies support the signal."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 979,
+            "lineage_row_share": 83.4,
+            "unique_buildings": 133,
+            "unique_companies": 8,
+            "unique_provenance_entities": 9,
+            "unique_listing_contacts": 76,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        },
+        {
+          "signal_key": "professional_services",
+          "label": "Professional services fit",
+          "confidence_score": 63,
+          "confidence_tier": "medium",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept.",
+            "Existing prototype extractor scored this signal medium (0.76)."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        },
+        {
+          "signal_key": "financial_services",
+          "label": "Financial services fit",
+          "confidence_score": 60,
+          "confidence_tier": "medium",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept.",
+            "Existing prototype extractor scored this signal medium (0.72)."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        },
+        {
+          "signal_key": "retail_context",
+          "label": "Retail context",
+          "confidence_score": 50,
+          "confidence_tier": "low",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "81 lineage rows match Retail context.",
+            "22 unique buildings support the signal.",
+            "6.9% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 64."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 4 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 81,
+            "lineage_row_share": 6.9,
+            "unique_buildings": 22,
+            "unique_companies": 4,
+            "unique_provenance_entities": 4,
+            "unique_listing_contacts": 17,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        },
+        {
+          "signal_key": "industrial_flex_context",
+          "label": "Industrial/flex context",
+          "confidence_score": 4,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "9 lineage rows match Industrial/flex context.",
+            "6 unique buildings support the signal.",
+            "0.8% of lineage rows match the signal.",
+            "Neighborhood diversity score is 64."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 9,
+            "lineage_row_share": 0.8,
+            "unique_buildings": 6,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 2,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        },
+        {
+          "signal_key": "land_context",
+          "label": "Land/development context",
+          "confidence_score": 2,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "60 lineage rows match Land/development context.",
+            "26 unique buildings support the signal.",
+            "5.1% of lineage rows match the signal.",
+            "Neighborhood diversity score is 64."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal.",
+            "Signal is not durable enough for public neighborhood identity."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 60,
+            "lineage_row_share": 5.1,
+            "unique_buildings": 26,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 3,
+            "diversity_score": 64,
+            "concentration_score": 20,
+            "coworking_concentration": 8.4,
+            "known_origin_company_coverage": 15.9,
+            "known_provenance_entity_coverage": 15.9,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 8.4
+          }
+        }
+      ]
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "signal_review_summary": {
+        "public_safe": 0,
+        "review_needed": 4,
+        "internal_only": 2
+      },
+      "inputs": {
+        "lineage_rows": 955,
+        "unique_buildings": 136,
+        "unique_companies": 11,
+        "unique_listing_contacts": 73,
+        "diversity_score": 69,
+        "concentration_score": 17,
+        "coworking_concentration": 6.8,
+        "top_ingestion_origin_concentration": 99.9,
+        "top_provenance_entity_concentration": 6.8,
+        "warnings": [
+          "Originating company coverage is low at 21.5% of lineage rows.",
+          "True provenance entity coverage is low at 21.5% of lineage rows."
+        ]
+      },
+      "signals": [
+        {
+          "signal_key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence_score": 87,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "660 lineage rows match Office-oriented.",
+            "73 unique buildings support the signal.",
+            "69.1% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 69.",
+            "9 originating companies support the signal."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 660,
+            "lineage_row_share": 69.1,
+            "unique_buildings": 73,
+            "unique_companies": 9,
+            "unique_provenance_entities": 12,
+            "unique_listing_contacts": 58,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        },
+        {
+          "signal_key": "retail_context",
+          "label": "Retail context",
+          "confidence_score": 74,
+          "confidence_tier": "medium",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "186 lineage rows match Retail context.",
+            "31 unique buildings support the signal.",
+            "19.5% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 4 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 186,
+            "lineage_row_share": 19.5,
+            "unique_buildings": 31,
+            "unique_companies": 4,
+            "unique_provenance_entities": 4,
+            "unique_listing_contacts": 14,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        },
+        {
+          "signal_key": "professional_services",
+          "label": "Professional services fit",
+          "confidence_score": 41,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        },
+        {
+          "signal_key": "transit_oriented",
+          "label": "Transit-oriented context",
+          "confidence_score": 41,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        },
+        {
+          "signal_key": "industrial_flex_context",
+          "label": "Industrial/flex context",
+          "confidence_score": 16,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "50 lineage rows match Industrial/flex context.",
+            "10 unique buildings support the signal.",
+            "5.2% of lineage rows match the signal.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 50,
+            "lineage_row_share": 5.2,
+            "unique_buildings": 10,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 8,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        },
+        {
+          "signal_key": "land_context",
+          "label": "Land/development context",
+          "confidence_score": 3,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "34 lineage rows match Land/development context.",
+            "8 unique buildings support the signal.",
+            "3.6% of lineage rows match the signal.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal.",
+            "Signal is not durable enough for public neighborhood identity."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 34,
+            "lineage_row_share": 3.6,
+            "unique_buildings": 8,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 3,
+            "diversity_score": 69,
+            "concentration_score": 17,
+            "coworking_concentration": 6.8,
+            "known_origin_company_coverage": 21.5,
+            "known_provenance_entity_coverage": 21.5,
+            "representative_buildings": 2,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 99.9,
+            "top_provenance_entity_concentration": 6.8
+          }
+        }
+      ]
+    },
+    {
+      "neighborhood": "Midtown",
+      "signal_review_summary": {
+        "public_safe": 0,
+        "review_needed": 4,
+        "internal_only": 2
+      },
+      "inputs": {
+        "lineage_rows": 751,
+        "unique_buildings": 128,
+        "unique_companies": 8,
+        "unique_listing_contacts": 72,
+        "diversity_score": 69,
+        "concentration_score": 23,
+        "coworking_concentration": 16.5,
+        "top_ingestion_origin_concentration": 100,
+        "top_provenance_entity_concentration": 16.5,
+        "warnings": []
+      },
+      "signals": [
+        {
+          "signal_key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence_score": 86,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "534 lineage rows match Office-oriented.",
+            "72 unique buildings support the signal.",
+            "71.1% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 69.",
+            "5 originating companies support the signal."
+          ],
+          "warnings": [],
+          "supporting_counts": {
+            "lineage_rows": 534,
+            "lineage_row_share": 71.1,
+            "unique_buildings": 72,
+            "unique_companies": 5,
+            "unique_provenance_entities": 6,
+            "unique_listing_contacts": 58,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        },
+        {
+          "signal_key": "retail_context",
+          "label": "Retail context",
+          "confidence_score": 75,
+          "confidence_tier": "medium",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "145 lineage rows match Retail context.",
+            "36 unique buildings support the signal.",
+            "19.3% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "Only 3 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 145,
+            "lineage_row_share": 19.3,
+            "unique_buildings": 36,
+            "unique_companies": 3,
+            "unique_provenance_entities": 3,
+            "unique_listing_contacts": 11,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        },
+        {
+          "signal_key": "creative_office",
+          "label": "Creative office",
+          "confidence_score": 41,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        },
+        {
+          "signal_key": "transit_oriented",
+          "label": "Transit-oriented context",
+          "confidence_score": 41,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        },
+        {
+          "signal_key": "industrial_flex_context",
+          "label": "Industrial/flex context",
+          "confidence_score": 6,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "9 lineage rows match Industrial/flex context.",
+            "5 unique buildings support the signal.",
+            "1.2% of lineage rows match the signal.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "Only 0 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 9,
+            "lineage_row_share": 1.2,
+            "unique_buildings": 5,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 6,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        },
+        {
+          "signal_key": "land_context",
+          "label": "Land/development context",
+          "confidence_score": 3,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "44 lineage rows match Land/development context.",
+            "3 unique buildings support the signal.",
+            "5.9% of lineage rows match the signal.",
+            "Neighborhood diversity score is 69."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "Only 1 identifiable originating companies support the signal.",
+            "Signal is not durable enough for public neighborhood identity."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 44,
+            "lineage_row_share": 5.9,
+            "unique_buildings": 3,
+            "unique_companies": 1,
+            "unique_provenance_entities": 1,
+            "unique_listing_contacts": 3,
+            "diversity_score": 69,
+            "concentration_score": 23,
+            "coworking_concentration": 16.5,
+            "known_origin_company_coverage": 31.7,
+            "known_provenance_entity_coverage": 32.6,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 16.5
+          }
+        }
+      ]
+    },
+    {
+      "neighborhood": "Perimeter Center",
+      "signal_review_summary": {
+        "public_safe": 0,
+        "review_needed": 2,
+        "internal_only": 3
+      },
+      "inputs": {
+        "lineage_rows": 1441,
+        "unique_buildings": 238,
+        "unique_companies": 8,
+        "unique_listing_contacts": 115,
+        "diversity_score": 58,
+        "concentration_score": 27,
+        "coworking_concentration": 17,
+        "top_ingestion_origin_concentration": 99.7,
+        "top_provenance_entity_concentration": 17,
+        "warnings": [
+          "Originating company coverage is low at 21.3% of lineage rows.",
+          "True provenance entity coverage is low at 21.3% of lineage rows."
+        ]
+      },
+      "signals": [
+        {
+          "signal_key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence_score": 90,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "1315 lineage rows match Office-oriented.",
+            "199 unique buildings support the signal.",
+            "91.3% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 58.",
+            "7 originating companies support the signal."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 1315,
+            "lineage_row_share": 91.3,
+            "unique_buildings": 199,
+            "unique_companies": 7,
+            "unique_provenance_entities": 8,
+            "unique_listing_contacts": 104,
+            "diversity_score": 58,
+            "concentration_score": 27,
+            "coworking_concentration": 17,
+            "known_origin_company_coverage": 21.3,
+            "known_provenance_entity_coverage": 21.3,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.7,
+            "top_provenance_entity_concentration": 17
+          }
+        },
+        {
+          "signal_key": "retail_context",
+          "label": "Retail context",
+          "confidence_score": 42,
+          "confidence_tier": "low",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "85 lineage rows match Retail context.",
+            "15 unique buildings support the signal.",
+            "5.9% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 58."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 1 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 85,
+            "lineage_row_share": 5.9,
+            "unique_buildings": 15,
+            "unique_companies": 1,
+            "unique_provenance_entities": 1,
+            "unique_listing_contacts": 8,
+            "diversity_score": 58,
+            "concentration_score": 27,
+            "coworking_concentration": 17,
+            "known_origin_company_coverage": 21.3,
+            "known_provenance_entity_coverage": 21.3,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.7,
+            "top_provenance_entity_concentration": 17
+          }
+        },
+        {
+          "signal_key": "freeway_access",
+          "label": "Freeway access context",
+          "confidence_score": 40,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 58,
+            "concentration_score": 27,
+            "coworking_concentration": 17,
+            "known_origin_company_coverage": 21.3,
+            "known_provenance_entity_coverage": 21.3,
+            "representative_buildings": 6,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 99.7,
+            "top_provenance_entity_concentration": 17
+          }
+        },
+        {
+          "signal_key": "industrial_flex_context",
+          "label": "Industrial/flex context",
+          "confidence_score": 1,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "8 lineage rows match Industrial/flex context.",
+            "4 unique buildings support the signal.",
+            "0.6% of lineage rows match the signal.",
+            "Neighborhood diversity score is 58."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 8,
+            "lineage_row_share": 0.6,
+            "unique_buildings": 4,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 3,
+            "diversity_score": 58,
+            "concentration_score": 27,
+            "coworking_concentration": 17,
+            "known_origin_company_coverage": 21.3,
+            "known_provenance_entity_coverage": 21.3,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 99.7,
+            "top_provenance_entity_concentration": 17
+          }
+        },
+        {
+          "signal_key": "land_context",
+          "label": "Land/development context",
+          "confidence_score": 0,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "2 lineage rows match Land/development context.",
+            "2 unique buildings support the signal.",
+            "0.1% of lineage rows match the signal.",
+            "Neighborhood diversity score is 58."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal.",
+            "Signal is not durable enough for public neighborhood identity."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 2,
+            "lineage_row_share": 0.1,
+            "unique_buildings": 2,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 2,
+            "diversity_score": 58,
+            "concentration_score": 27,
+            "coworking_concentration": 17,
+            "known_origin_company_coverage": 21.3,
+            "known_provenance_entity_coverage": 21.3,
+            "representative_buildings": 6,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 99.7,
+            "top_provenance_entity_concentration": 17
+          }
+        }
+      ]
+    },
+    {
+      "neighborhood": "West Midtown",
+      "signal_review_summary": {
+        "public_safe": 0,
+        "review_needed": 4,
+        "internal_only": 2
+      },
+      "inputs": {
+        "lineage_rows": 654,
+        "unique_buildings": 170,
+        "unique_companies": 10,
+        "unique_listing_contacts": 78,
+        "diversity_score": 75,
+        "concentration_score": 11,
+        "coworking_concentration": 0,
+        "top_ingestion_origin_concentration": 100,
+        "top_provenance_entity_concentration": 3.8,
+        "warnings": [
+          "Originating company coverage is low at 10.7% of lineage rows.",
+          "True provenance entity coverage is low at 10.7% of lineage rows."
+        ]
+      },
+      "signals": [
+        {
+          "signal_key": "industrial_flex_context",
+          "label": "Industrial/flex context",
+          "confidence_score": 89,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "215 lineage rows match Industrial/flex context.",
+            "72 unique buildings support the signal.",
+            "32.9% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 75."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 1 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 215,
+            "lineage_row_share": 32.9,
+            "unique_buildings": 72,
+            "unique_companies": 1,
+            "unique_provenance_entities": 1,
+            "unique_listing_contacts": 30,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        },
+        {
+          "signal_key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence_score": 85,
+          "confidence_tier": "high",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "341 lineage rows match Office-oriented.",
+            "76 unique buildings support the signal.",
+            "52.1% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 75."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 4 identifiable originating companies support the signal."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 341,
+            "lineage_row_share": 52.1,
+            "unique_buildings": 76,
+            "unique_companies": 4,
+            "unique_provenance_entities": 4,
+            "unique_listing_contacts": 46,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        },
+        {
+          "signal_key": "retail_context",
+          "label": "Retail context",
+          "confidence_score": 61,
+          "confidence_tier": "medium",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "80 lineage rows match Retail context.",
+            "21 unique buildings support the signal.",
+            "12.2% of lineage rows match the signal.",
+            "Published representative-building/page signals agree with the raw pattern.",
+            "Neighborhood diversity score is 75.",
+            "5 originating companies support the signal."
+          ],
+          "warnings": [
+            "True provenance coverage is thin; do not rely on this signal without review."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 80,
+            "lineage_row_share": 12.2,
+            "unique_buildings": 21,
+            "unique_companies": 5,
+            "unique_provenance_entities": 5,
+            "unique_listing_contacts": 12,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        },
+        {
+          "signal_key": "creative_office",
+          "label": "Creative office",
+          "confidence_score": 42,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        },
+        {
+          "signal_key": "showroom",
+          "label": "Showroom context",
+          "confidence_score": 42,
+          "confidence_tier": "low",
+          "public_use_status": "review_needed",
+          "reasons": [
+            "Published page/profile signals include this concept."
+          ],
+          "warnings": [
+            "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+            "Requires editorial review before public use.",
+            "Raw lineage true-provenance coverage is thin."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": true,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        },
+        {
+          "signal_key": "land_context",
+          "label": "Land/development context",
+          "confidence_score": 2,
+          "confidence_tier": "weak",
+          "public_use_status": "internal_only",
+          "reasons": [
+            "Neighborhood diversity score is 75."
+          ],
+          "warnings": [
+            "Representative-building/page signals do not clearly confirm this raw pattern.",
+            "True provenance coverage is thin; do not rely on this signal without review.",
+            "Only 0 identifiable originating companies support the signal.",
+            "Signal is not durable enough for public neighborhood identity."
+          ],
+          "supporting_counts": {
+            "lineage_rows": 0,
+            "lineage_row_share": 0,
+            "unique_buildings": 0,
+            "unique_companies": 0,
+            "unique_provenance_entities": 0,
+            "unique_listing_contacts": 0,
+            "diversity_score": 75,
+            "concentration_score": 11,
+            "coworking_concentration": 0,
+            "known_origin_company_coverage": 10.7,
+            "known_provenance_entity_coverage": 10.7,
+            "representative_buildings": 2,
+            "representative_agreement": false,
+            "top_ingestion_origin_concentration": 100,
+            "top_provenance_entity_concentration": 3.8
+          }
+        }
+      ]
+    }
+  ]
+}

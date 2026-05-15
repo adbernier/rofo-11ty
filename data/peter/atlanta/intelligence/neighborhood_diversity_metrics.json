@@ -1,0 +1,1151 @@
+{
+  "version": "atlanta-neighborhood-diversity-v1",
+  "generated_at": "2026-05-15T17:10:13.474Z",
+  "source_file": "data/peter/atlanta/lineage/atlanta_lineage_objects.json",
+  "caveats": [
+    "Lineage rows are historical internal signals, not live inventory.",
+    "Scores are review aids and should not be presented publicly.",
+    "LMS ingestion concentration should not block automated public claims by itself.",
+    "Low true provenance diversity should block automated public claims even when space-type patterns look strong."
+  ],
+  "neighborhoods": [
+    {
+      "neighborhood": "Buckhead",
+      "lineage_object_count": 1174,
+      "unique_companies": 10,
+      "unique_listing_contacts": 93,
+      "unique_portfolios": 1,
+      "unique_buildings": 216,
+      "unique_listings": 1174,
+      "space_type_distribution": [
+        {
+          "key": "office",
+          "count": 979
+        },
+        {
+          "key": "retail",
+          "count": 81
+        },
+        {
+          "key": "land",
+          "count": 60
+        },
+        {
+          "key": "other/unknown",
+          "count": 45
+        },
+        {
+          "key": "industrial",
+          "count": 9
+        }
+      ],
+      "ingestion_origin_distribution": [
+        {
+          "key": "LMS",
+          "count": 1174
+        }
+      ],
+      "provenance_entity_distribution": [
+        {
+          "key": "coworking_operator",
+          "count": 99
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 99
+        },
+        {
+          "key": "Cousins Properties Marketing",
+          "count": 41
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 16
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 8
+        },
+        {
+          "key": "Granite Properties Marketing",
+          "count": 7
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 6
+        },
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 3
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 3
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 3
+        },
+        {
+          "key": "Kw Commercial Peachtree Road Marketing",
+          "count": 1
+        }
+      ],
+      "top_companies": [
+        {
+          "key": "Regus / IWG",
+          "count": 99
+        },
+        {
+          "key": "Cousins Properties Marketing",
+          "count": 41
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 16
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 8
+        },
+        {
+          "key": "Granite Properties Marketing",
+          "count": 7
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 6
+        },
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 3
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 3
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 3
+        },
+        {
+          "key": "Kw Commercial Peachtree Road Marketing",
+          "count": 1
+        }
+      ],
+      "top_contacts": [
+        {
+          "key": "Ginger Martin",
+          "count": 99
+        },
+        {
+          "key": "Steve Massell, CCIM",
+          "count": 92
+        },
+        {
+          "key": "Matt Kornfeind",
+          "count": 74
+        },
+        {
+          "key": "Mike Wells",
+          "count": 74
+        },
+        {
+          "key": "Regus S-SAT",
+          "count": 71
+        },
+        {
+          "key": "Kevin Driver",
+          "count": 63
+        },
+        {
+          "key": "Cousins Properties Marketing",
+          "count": 41
+        },
+        {
+          "key": "David Curry",
+          "count": 36
+        },
+        {
+          "key": "Mike Werner",
+          "count": 36
+        },
+        {
+          "key": "Tom Miller",
+          "count": 36
+        }
+      ],
+      "top_portfolios": [
+        {
+          "key": "none",
+          "count": 1075
+        },
+        {
+          "key": "coworking_operator",
+          "count": 99
+        }
+      ],
+      "top_provenance_entities": [
+        {
+          "key": "coworking_operator",
+          "count": 99
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 99
+        },
+        {
+          "key": "Cousins Properties Marketing",
+          "count": 41
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 16
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 8
+        },
+        {
+          "key": "Granite Properties Marketing",
+          "count": 7
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 6
+        },
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 3
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 3
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 3
+        }
+      ],
+      "known_origin_company_coverage": 15.9,
+      "known_provenance_entity_coverage": 15.9,
+      "coworking_concentration": 8.4,
+      "top_company_concentration": 8.4,
+      "top_space_type_concentration": 83.4,
+      "top_ingestion_origin_concentration": 100,
+      "top_provenance_entity_concentration": 8.4,
+      "duplicate_listing_ratio": 0,
+      "diversity_score": 64,
+      "concentration_score": 20,
+      "warnings": [
+        "Originating company coverage is low at 15.9% of lineage rows.",
+        "True provenance entity coverage is low at 15.9% of lineage rows."
+      ]
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "lineage_object_count": 955,
+      "unique_companies": 11,
+      "unique_listing_contacts": 73,
+      "unique_portfolios": 2,
+      "unique_buildings": 136,
+      "unique_listings": 955,
+      "space_type_distribution": [
+        {
+          "key": "office",
+          "count": 660
+        },
+        {
+          "key": "retail",
+          "count": 186
+        },
+        {
+          "key": "industrial",
+          "count": 48
+        },
+        {
+          "key": "land",
+          "count": 34
+        },
+        {
+          "key": "other/unknown",
+          "count": 25
+        },
+        {
+          "key": "flex",
+          "count": 2
+        }
+      ],
+      "ingestion_origin_distribution": [
+        {
+          "key": "LMS",
+          "count": 954
+        },
+        {
+          "key": "USR",
+          "count": 1
+        }
+      ],
+      "provenance_entity_distribution": [
+        {
+          "key": "coworking_operator",
+          "count": 65
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 65
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 47
+        },
+        {
+          "key": "Boxer Property",
+          "count": 40
+        },
+        {
+          "key": "boxer_property",
+          "count": 40
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 20
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Provision Brokerage Marketing",
+          "count": 7
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "City Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 2
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 1
+        },
+        {
+          "key": "Usr",
+          "count": 1
+        }
+      ],
+      "top_companies": [
+        {
+          "key": "Regus / IWG",
+          "count": 65
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 47
+        },
+        {
+          "key": "Boxer Property",
+          "count": 40
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 20
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Provision Brokerage Marketing",
+          "count": 7
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "City Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 2
+        }
+      ],
+      "top_contacts": [
+        {
+          "key": "Gene Kansas CRE",
+          "count": 98
+        },
+        {
+          "key": "Scott DeMyer",
+          "count": 93
+        },
+        {
+          "key": "Brian Bell",
+          "count": 82
+        },
+        {
+          "key": "Kristen Parsons",
+          "count": 63
+        },
+        {
+          "key": "Jeff Taylor",
+          "count": 56
+        },
+        {
+          "key": "Joel & Granot Commercial Marketing",
+          "count": 47
+        },
+        {
+          "key": "Regus W-MTN",
+          "count": 46
+        },
+        {
+          "key": "Jodi Selvey",
+          "count": 41
+        },
+        {
+          "key": "Boxer Property",
+          "count": 40
+        },
+        {
+          "key": "Matt Kornfeind",
+          "count": 35
+        }
+      ],
+      "top_portfolios": [
+        {
+          "key": "none",
+          "count": 850
+        },
+        {
+          "key": "coworking_operator",
+          "count": 65
+        },
+        {
+          "key": "boxer_property",
+          "count": 40
+        }
+      ],
+      "top_provenance_entities": [
+        {
+          "key": "coworking_operator",
+          "count": 65
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 65
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 47
+        },
+        {
+          "key": "Boxer Property",
+          "count": 40
+        },
+        {
+          "key": "boxer_property",
+          "count": 40
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 20
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Provision Brokerage Marketing",
+          "count": 7
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 6
+        }
+      ],
+      "known_origin_company_coverage": 21.5,
+      "known_provenance_entity_coverage": 21.5,
+      "coworking_concentration": 6.8,
+      "top_company_concentration": 6.8,
+      "top_space_type_concentration": 69.1,
+      "top_ingestion_origin_concentration": 99.9,
+      "top_provenance_entity_concentration": 6.8,
+      "duplicate_listing_ratio": 0,
+      "diversity_score": 69,
+      "concentration_score": 17,
+      "warnings": [
+        "Originating company coverage is low at 21.5% of lineage rows.",
+        "True provenance entity coverage is low at 21.5% of lineage rows."
+      ]
+    },
+    {
+      "neighborhood": "Midtown",
+      "lineage_object_count": 751,
+      "unique_companies": 8,
+      "unique_listing_contacts": 72,
+      "unique_portfolios": 1,
+      "unique_buildings": 128,
+      "unique_listings": 751,
+      "space_type_distribution": [
+        {
+          "key": "office",
+          "count": 534
+        },
+        {
+          "key": "retail",
+          "count": 145
+        },
+        {
+          "key": "land",
+          "count": 44
+        },
+        {
+          "key": "other/unknown",
+          "count": 19
+        },
+        {
+          "key": "industrial",
+          "count": 9
+        }
+      ],
+      "ingestion_origin_distribution": [
+        {
+          "key": "LMS",
+          "count": 751
+        }
+      ],
+      "provenance_entity_distribution": [
+        {
+          "key": "coworking_operator",
+          "count": 124
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 117
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 58
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 39
+        },
+        {
+          "key": "Billy Spain Real Estate",
+          "count": 11
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 3
+        },
+        {
+          "key": "Srs Real Estate Marketing",
+          "count": 2
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 2
+        }
+      ],
+      "top_companies": [
+        {
+          "key": "Regus / IWG",
+          "count": 117
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 58
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 39
+        },
+        {
+          "key": "Billy Spain Real Estate",
+          "count": 11
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 3
+        },
+        {
+          "key": "Srs Real Estate Marketing",
+          "count": 2
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 2
+        }
+      ],
+      "top_contacts": [
+        {
+          "key": "Dyron Dinsmore",
+          "count": 72
+        },
+        {
+          "key": "Regus S-SAT",
+          "count": 61
+        },
+        {
+          "key": "Mitchell King",
+          "count": 58
+        },
+        {
+          "key": "Matthew Levin, CCIM",
+          "count": 52
+        },
+        {
+          "key": "Regus W-MTN",
+          "count": 51
+        },
+        {
+          "key": "Gene Kansas CRE",
+          "count": 47
+        },
+        {
+          "key": "Mike Werner",
+          "count": 40
+        },
+        {
+          "key": "SVN Bell Commercial Marketing",
+          "count": 39
+        },
+        {
+          "key": "Jessica Doyle",
+          "count": 32
+        },
+        {
+          "key": "Matt Kornfeind",
+          "count": 26
+        }
+      ],
+      "top_portfolios": [
+        {
+          "key": "none",
+          "count": 627
+        },
+        {
+          "key": "coworking_operator",
+          "count": 124
+        }
+      ],
+      "top_provenance_entities": [
+        {
+          "key": "coworking_operator",
+          "count": 124
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 117
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 58
+        },
+        {
+          "key": "Svn Bell Commercial Marketing",
+          "count": 39
+        },
+        {
+          "key": "Billy Spain Real Estate",
+          "count": 11
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 6
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 3
+        },
+        {
+          "key": "Srs Real Estate Marketing",
+          "count": 2
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 2
+        }
+      ],
+      "known_origin_company_coverage": 31.7,
+      "known_provenance_entity_coverage": 32.6,
+      "coworking_concentration": 16.5,
+      "top_company_concentration": 15.6,
+      "top_space_type_concentration": 71.1,
+      "top_ingestion_origin_concentration": 100,
+      "top_provenance_entity_concentration": 16.5,
+      "duplicate_listing_ratio": 0,
+      "diversity_score": 69,
+      "concentration_score": 23,
+      "warnings": []
+    },
+    {
+      "neighborhood": "Perimeter Center",
+      "lineage_object_count": 1441,
+      "unique_companies": 8,
+      "unique_listing_contacts": 115,
+      "unique_portfolios": 1,
+      "unique_buildings": 238,
+      "unique_listings": 1441,
+      "space_type_distribution": [
+        {
+          "key": "office",
+          "count": 1315
+        },
+        {
+          "key": "retail",
+          "count": 85
+        },
+        {
+          "key": "other/unknown",
+          "count": 31
+        },
+        {
+          "key": "industrial",
+          "count": 8
+        },
+        {
+          "key": "land",
+          "count": 2
+        }
+      ],
+      "ingestion_origin_distribution": [
+        {
+          "key": "LMS",
+          "count": 1437
+        },
+        {
+          "key": "USR",
+          "count": 4
+        }
+      ],
+      "provenance_entity_distribution": [
+        {
+          "key": "coworking_operator",
+          "count": 245
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 245
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 43
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Usr",
+          "count": 4
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 2
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 2
+        },
+        {
+          "key": "Lincoln Property Company Marketing",
+          "count": 1
+        }
+      ],
+      "top_companies": [
+        {
+          "key": "Regus / IWG",
+          "count": 245
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 43
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Usr",
+          "count": 3
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 2
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 2
+        },
+        {
+          "key": "Lincoln Property Company Marketing",
+          "count": 1
+        }
+      ],
+      "top_contacts": [
+        {
+          "key": "Justen Cimino",
+          "count": 154
+        },
+        {
+          "key": "Tom Miller",
+          "count": 135
+        },
+        {
+          "key": "Regus S-SAT",
+          "count": 99
+        },
+        {
+          "key": "John Grimsley",
+          "count": 94
+        },
+        {
+          "key": "Regus W-MTN",
+          "count": 94
+        },
+        {
+          "key": "Greg Frankum",
+          "count": 89
+        },
+        {
+          "key": "Paige Kaufmann",
+          "count": 57
+        },
+        {
+          "key": "Scott O'Halloran",
+          "count": 57
+        },
+        {
+          "key": "Jessica Doyle",
+          "count": 49
+        },
+        {
+          "key": "Regus W-PAC",
+          "count": 45
+        }
+      ],
+      "top_portfolios": [
+        {
+          "key": "none",
+          "count": 1196
+        },
+        {
+          "key": "coworking_operator",
+          "count": 245
+        }
+      ],
+      "top_provenance_entities": [
+        {
+          "key": "coworking_operator",
+          "count": 245
+        },
+        {
+          "key": "Regus / IWG",
+          "count": 245
+        },
+        {
+          "key": "Sk Commercial Marketing",
+          "count": 43
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Usr",
+          "count": 4
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 2
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 2
+        },
+        {
+          "key": "Lincoln Property Company Marketing",
+          "count": 1
+        }
+      ],
+      "known_origin_company_coverage": 21.3,
+      "known_provenance_entity_coverage": 21.3,
+      "coworking_concentration": 17,
+      "top_company_concentration": 17,
+      "top_space_type_concentration": 91.3,
+      "top_ingestion_origin_concentration": 99.7,
+      "top_provenance_entity_concentration": 17,
+      "duplicate_listing_ratio": 0,
+      "diversity_score": 58,
+      "concentration_score": 27,
+      "warnings": [
+        "Originating company coverage is low at 21.3% of lineage rows.",
+        "True provenance entity coverage is low at 21.3% of lineage rows."
+      ]
+    },
+    {
+      "neighborhood": "West Midtown",
+      "lineage_object_count": 654,
+      "unique_companies": 10,
+      "unique_listing_contacts": 78,
+      "unique_portfolios": 0,
+      "unique_buildings": 170,
+      "unique_listings": 654,
+      "space_type_distribution": [
+        {
+          "key": "office",
+          "count": 341
+        },
+        {
+          "key": "industrial",
+          "count": 215
+        },
+        {
+          "key": "retail",
+          "count": 80
+        },
+        {
+          "key": "other/unknown",
+          "count": 18
+        }
+      ],
+      "ingestion_origin_distribution": [
+        {
+          "key": "LMS",
+          "count": 654
+        }
+      ],
+      "provenance_entity_distribution": [
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 25
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 9
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 7
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 2
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 1
+        },
+        {
+          "key": "One Commercial",
+          "count": 1
+        }
+      ],
+      "top_companies": [
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 25
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 9
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 7
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 2
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 1
+        },
+        {
+          "key": "One Commercial",
+          "count": 1
+        }
+      ],
+      "top_contacts": [
+        {
+          "key": "Matthew Levin, CCIM",
+          "count": 91
+        },
+        {
+          "key": "Joseph W. Rogers",
+          "count": 58
+        },
+        {
+          "key": "Scott DeMyer",
+          "count": 55
+        },
+        {
+          "key": "Preston Pannell",
+          "count": 48
+        },
+        {
+          "key": "Brian Bell",
+          "count": 40
+        },
+        {
+          "key": "Selig Enterprises Marketing",
+          "count": 29
+        },
+        {
+          "key": "Steven Marshall",
+          "count": 28
+        },
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 25
+        },
+        {
+          "key": "Laura Power",
+          "count": 22
+        },
+        {
+          "key": "Cresa Marketing",
+          "count": 17
+        }
+      ],
+      "top_portfolios": [
+        {
+          "key": "none",
+          "count": 654
+        }
+      ],
+      "top_provenance_entities": [
+        {
+          "key": "Cartel Properties Marketing",
+          "count": 25
+        },
+        {
+          "key": "Joel Granot Commercial Marketing",
+          "count": 9
+        },
+        {
+          "key": "Bull Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Pollock Commercial Marketing",
+          "count": 7
+        },
+        {
+          "key": "Seagate Properties",
+          "count": 7
+        },
+        {
+          "key": "Vantage Realty Marketing",
+          "count": 7
+        },
+        {
+          "key": "Coro Realty Marketing",
+          "count": 4
+        },
+        {
+          "key": "Perimeter Commercial Marketing",
+          "count": 2
+        },
+        {
+          "key": "Oakhurst Realty Marketing",
+          "count": 1
+        },
+        {
+          "key": "One Commercial",
+          "count": 1
+        }
+      ],
+      "known_origin_company_coverage": 10.7,
+      "known_provenance_entity_coverage": 10.7,
+      "coworking_concentration": 0,
+      "top_company_concentration": 3.8,
+      "top_space_type_concentration": 52.1,
+      "top_ingestion_origin_concentration": 100,
+      "top_provenance_entity_concentration": 3.8,
+      "duplicate_listing_ratio": 0,
+      "diversity_score": 75,
+      "concentration_score": 11,
+      "warnings": [
+        "Originating company coverage is low at 10.7% of lineage rows.",
+        "True provenance entity coverage is low at 10.7% of lineage rows."
+      ]
+    }
+  ]
+}

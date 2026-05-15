@@ -3132,10 +3132,16 @@ section.market-page--space-type .market-links a {
 }
 
 .neighborhood-intelligence__grid,
-.neighborhood-intelligence__summary,
 .neighborhood-intelligence__split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.neighborhood-intelligence__summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
   margin-top: 18px;
 }
@@ -3232,6 +3238,29 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-intelligence__note {
   margin: 16px 0 0;
+  color: #64748b !important;
+  font-size: 0.86rem !important;
+  line-height: 1.45 !important;
+}
+
+.neighborhood-approved-signal {
+  border-color: #d7e2ef;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 100%);
+}
+
+.neighborhood-approved-signal h2 {
+  max-width: 680px;
+}
+
+.neighborhood-approved-signal p {
+  max-width: 720px;
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.neighborhood-approved-signal__note {
+  margin-top: 14px !important;
   color: #64748b !important;
   font-size: 0.86rem !important;
   line-height: 1.45 !important;

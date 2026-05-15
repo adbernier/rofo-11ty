@@ -26,6 +26,7 @@ eleventyComputed:
 {% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
 {% set areaTermDisplay = areaTerm | capitalize %}
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero %}
+{% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -131,6 +132,17 @@ eleventyComputed:
                 </p>
               </div>
             {% endif %}
+          </section>
+        {% endif %}
+
+        {% if approvedEditorialSignal %}
+          <section class="city-card neighborhood-approved-signal" aria-labelledby="neighborhood-approved-signal-heading">
+            <div class="eyebrow">Commercial area context</div>
+            <h2 id="neighborhood-approved-signal-heading">{{ approvedEditorialSignal.approved_public_label }}</h2>
+            <p>{{ approvedEditorialSignal.approved_public_copy }}</p>
+            <p class="neighborhood-approved-signal__note">
+              Human-reviewed signal based on Rofo’s broader Atlanta listing and building corpus.
+            </p>
           </section>
         {% endif %}
 

@@ -33,6 +33,9 @@
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
+  {% if robots %}
+    <meta name="robots" content="{{ robots }}">
+  {% endif %}
 
   {% if canonicalUrl %}
     <link rel="canonical" href="{{ canonicalUrl }}">

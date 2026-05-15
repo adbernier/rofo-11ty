@@ -1,0 +1,368 @@
+{
+  "version": "atlanta-signal-editorial-review-v1",
+  "generated_at": "2026-05-15T19:42:00.894Z",
+  "source_file": "data/peter/atlanta/intelligence/neighborhood_signal_confidence_v2.json",
+  "editorial_status_default": "pending_review",
+  "public_use_guardrails": [
+    "Do not wire pending review rows to public UI.",
+    "Use restrained, non-statistical language.",
+    "Do not imply live availability, pricing, rent, suite-level detail, or current condition.",
+    "LMS is an ingestion origin, not a single external source."
+  ],
+  "summary": {
+    "approve": 1,
+    "revise": 7,
+    "hold": 9
+  },
+  "reviews": [
+    {
+      "neighborhood": "Buckhead",
+      "signal_key": "office_oriented",
+      "confidence_score": 92,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Office-oriented district",
+      "proposed_public_copy": "Buckhead is primarily an office-oriented commercial district with a strong concentration of professional and business services.",
+      "evidence_summary": "979 lineage rows; 133 supporting buildings; 76 listing contacts; 8 originating companies; representative-building/page signals agree; neighborhood diversity score 64; true provenance coverage 15.9%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Perimeter Center",
+      "signal_key": "office_oriented",
+      "confidence_score": 90,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Suburban office node",
+      "proposed_public_copy": "Perimeter Center functions as one of Atlanta’s major suburban office nodes, with strong freeway access and a concentration of larger business properties.",
+      "evidence_summary": "1315 lineage rows; 199 supporting buildings; 104 listing contacts; 7 originating companies; representative-building/page signals agree; neighborhood diversity score 58; true provenance coverage 21.3%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "West Midtown",
+      "signal_key": "industrial_flex_context",
+      "confidence_score": 89,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Industrial and flex context",
+      "proposed_public_copy": "West Midtown shows a mix of industrial, flex, showroom, and office-oriented commercial space.",
+      "evidence_summary": "215 lineage rows; 72 supporting buildings; 30 listing contacts; 1 originating companies; representative-building/page signals agree; neighborhood diversity score 75; true provenance coverage 10.7%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review.",
+        "Only 1 identifiable originating companies support the signal."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "Originating-company support is narrow.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "signal_key": "office_oriented",
+      "confidence_score": 87,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Office-oriented downtown core",
+      "proposed_public_copy": "Downtown Atlanta is an office-oriented commercial district with civic, professional, and business-service activity near the city core.",
+      "evidence_summary": "660 lineage rows; 73 supporting buildings; 58 listing contacts; 9 originating companies; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 21.5%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Midtown",
+      "signal_key": "office_oriented",
+      "confidence_score": 86,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Office and mixed-use district",
+      "proposed_public_copy": "Midtown is an office-oriented Atlanta district with a mix of business, retail, and mixed-use commercial activity.",
+      "evidence_summary": "534 lineage rows; 72 supporting buildings; 58 listing contacts; 5 originating companies; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 32.6%",
+      "cautions": [],
+      "recommended_action": "approve",
+      "editorial_review_notes": [
+        "Strong candidate for public wording after final human read."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "West Midtown",
+      "signal_key": "office_oriented",
+      "confidence_score": 85,
+      "confidence_tier": "high",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Office and industrial mix",
+      "proposed_public_copy": "West Midtown combines office-oriented commercial uses with industrial and flex space.",
+      "evidence_summary": "341 lineage rows; 76 supporting buildings; 46 listing contacts; 4 originating companies; representative-building/page signals agree; neighborhood diversity score 75; true provenance coverage 10.7%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review.",
+        "Only 4 identifiable originating companies support the signal."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "Originating-company support is narrow.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Midtown",
+      "signal_key": "retail_context",
+      "confidence_score": 75,
+      "confidence_tier": "medium",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Retail and service context",
+      "proposed_public_copy": "Midtown includes retail and service uses that support the area’s office and mixed-use environment.",
+      "evidence_summary": "145 lineage rows; 36 supporting buildings; 11 listing contacts; 3 originating companies; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 32.6%",
+      "cautions": [
+        "Only 3 identifiable originating companies support the signal."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "Originating-company support is narrow."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "signal_key": "retail_context",
+      "confidence_score": 74,
+      "confidence_tier": "medium",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Office and retail mix",
+      "proposed_public_copy": "Downtown Atlanta includes office activity alongside street-level retail and service uses.",
+      "evidence_summary": "186 lineage rows; 31 supporting buildings; 14 listing contacts; 4 originating companies; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 21.5%",
+      "cautions": [
+        "True provenance coverage is thin; do not rely on this signal without review.",
+        "Only 4 identifiable originating companies support the signal."
+      ],
+      "recommended_action": "revise",
+      "editorial_review_notes": [
+        "Useful signal, but public wording should remain broad and avoid overclaiming.",
+        "Originating-company support is narrow.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Buckhead",
+      "signal_key": "professional_services",
+      "confidence_score": 63,
+      "confidence_tier": "medium",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Professional services context",
+      "proposed_public_copy": "Buckhead has historical signals associated with professional services and business-oriented office use.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 64; true provenance coverage 15.9%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Buckhead",
+      "signal_key": "financial_services",
+      "confidence_score": 60,
+      "confidence_tier": "medium",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Financial services context",
+      "proposed_public_copy": "Buckhead has historical signals related to finance-oriented office activity within Atlanta’s north-side business market.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 64; true provenance coverage 15.9%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "West Midtown",
+      "signal_key": "creative_office",
+      "confidence_score": 42,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Creative commercial context",
+      "proposed_public_copy": "West Midtown has reviewed signals for creative office and adaptive commercial uses.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 75; true provenance coverage 10.7%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "West Midtown",
+      "signal_key": "showroom",
+      "confidence_score": 42,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Showroom context",
+      "proposed_public_copy": "West Midtown has reviewed signals for showroom-oriented commercial activity.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 75; true provenance coverage 10.7%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "signal_key": "professional_services",
+      "confidence_score": 41,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Professional services context",
+      "proposed_public_copy": "Downtown Atlanta has reviewed signals for professional services uses within the city’s central commercial core.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 21.5%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Downtown Atlanta",
+      "signal_key": "transit_oriented",
+      "confidence_score": 41,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Transit-connected district",
+      "proposed_public_copy": "Downtown Atlanta is one of the city’s more transit-connected commercial areas.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 21.5%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Midtown",
+      "signal_key": "creative_office",
+      "confidence_score": 41,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Creative office context",
+      "proposed_public_copy": "Midtown has reviewed signals for creative office and mixed-use commercial space.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 32.6%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Midtown",
+      "signal_key": "transit_oriented",
+      "confidence_score": 41,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Transit-connected district",
+      "proposed_public_copy": "Midtown has reviewed signals for transit-connected commercial activity within Atlanta.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 69; true provenance coverage 32.6%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use."
+      ],
+      "editorial_status": "pending_review"
+    },
+    {
+      "neighborhood": "Perimeter Center",
+      "signal_key": "freeway_access",
+      "confidence_score": 40,
+      "confidence_tier": "low",
+      "internal_status": "review_needed",
+      "proposed_public_label": "Freeway-oriented business district",
+      "proposed_public_copy": "Perimeter Center is closely tied to Atlanta’s north-side freeway network and suburban office market.",
+      "evidence_summary": "Supported by reviewed representative-building/page signals rather than broad raw lineage rows; representative-building/page signals agree; neighborhood diversity score 58; true provenance coverage 21.3%",
+      "cautions": [
+        "Signal is currently supported by reviewed page/profile or representative-building signals, not broad raw lineage text.",
+        "Requires editorial review before public use.",
+        "Raw lineage true-provenance coverage is thin."
+      ],
+      "recommended_action": "hold",
+      "editorial_review_notes": [
+        "Hold for now unless an editor can confirm with additional source evidence.",
+        "Needs raw description or broader lineage support before public use.",
+        "True provenance coverage is thin."
+      ],
+      "editorial_status": "pending_review"
+    }
+  ]
+}

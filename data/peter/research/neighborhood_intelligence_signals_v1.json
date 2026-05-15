@@ -1,0 +1,874 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-15T15:48:22.257Z",
+  "scope": "Five reviewed Neighborhood Intelligence prototype pages only.",
+  "methodology": [
+    "Use representative buildings already attached to each neighborhood page.",
+    "Use high-confidence commercial area relationships where available.",
+    "Use reviewed page-level commercial profiles and space-type signals.",
+    "Use approved building semantic bridge signals only when matched to representative buildings.",
+    "Suppress transient listing claims, price language, availability language, and suite-level assertions."
+  ],
+  "confidence_model": {
+    "high": "Multiple support signals or reviewed commercial profile plus strong representative building pattern.",
+    "medium": "Useful but less complete support, usually from one reviewed profile or smaller building sample.",
+    "low": "Omitted from public output."
+  },
+  "targets": [
+    {
+      "canonical_path": "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "neighborhood_name": "Financial District",
+      "city": "San Francisco",
+      "state_abbr": "CA",
+      "commercial_area_id": "sf-financial-district",
+      "commercial_area_type": "downtown_core",
+      "extraction_status": "prototype_review",
+      "source_inputs": [
+        "neighborhoodPages",
+        "buildingPages",
+        "commercial_area_building_relationships_v1",
+        "active_building_semantic_bridge where available"
+      ],
+      "extracted_signals": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "category": "common_space_types",
+          "confidence": "high",
+          "score": 0.99,
+          "public_safe": true,
+          "evidence": [
+            "Office appears in representative building and area signals",
+            "83% of representative buildings are office-oriented",
+            "13 high-confidence building relationships"
+          ]
+        },
+        {
+          "key": "downtown_core",
+          "label": "Downtown core",
+          "category": "commercial_clustering",
+          "confidence": "high",
+          "score": 0.82,
+          "public_safe": true,
+          "evidence": [
+            "Area is classified as a downtown core or carries a downtown signal"
+          ]
+        },
+        {
+          "key": "retail_context",
+          "label": "Retail context",
+          "category": "common_space_types",
+          "confidence": "medium",
+          "score": 0.78,
+          "public_safe": true,
+          "evidence": [
+            "Retail appears in area profile, space type mix, or representative building context"
+          ]
+        },
+        {
+          "key": "professional_services",
+          "label": "Professional services fit",
+          "category": "tenant_fit",
+          "confidence": "medium",
+          "score": 0.76,
+          "public_safe": true,
+          "evidence": [
+            "Professional services appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "transit_oriented",
+          "label": "Transit-oriented",
+          "category": "access_orientation",
+          "confidence": "medium",
+          "score": 0.74,
+          "public_safe": true,
+          "evidence": [
+            "Transit-oriented appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "mid_size_spaces",
+          "label": "Mid-size building signals",
+          "category": "building_scale",
+          "confidence": "medium",
+          "score": 0.62,
+          "public_safe": true,
+          "evidence": [
+            "Representative buildings include mid-size space labels"
+          ]
+        }
+      ],
+      "omitted_signals": [
+        {
+          "signal": "current availability",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "asking rent",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "suite-level claims",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "furnished",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "plug-and-play",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "move-in ready",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "current parking",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        }
+      ],
+      "evidence_summary": {
+        "representative_building_count": 6,
+        "relationship_count": 17,
+        "high_confidence_relationship_count": 13,
+        "top_space_type_counts": [
+          {
+            "key": "office",
+            "count": 85
+          },
+          {
+            "key": "retail",
+            "count": 33
+          },
+          {
+            "key": "coworking",
+            "count": 11
+          }
+        ],
+        "top_size_labels": [
+          {
+            "key": "Small to mid-size spaces",
+            "count": 3
+          },
+          {
+            "key": "Small spaces",
+            "count": 2
+          },
+          {
+            "key": "Mid-size spaces",
+            "count": 1
+          }
+        ],
+        "top_user_fit_terms": [
+          {
+            "key": "Client-facing businesses",
+            "count": 5
+          },
+          {
+            "key": "Professional services",
+            "count": 5
+          },
+          {
+            "key": "Small to mid-size teams",
+            "count": 5
+          },
+          {
+            "key": "Customer-facing brands",
+            "count": 1
+          },
+          {
+            "key": "Service businesses",
+            "count": 1
+          }
+        ],
+        "approved_semantic_bridge_records": 0
+      },
+      "public_signal_chips": [
+        {
+          "key": "downtown_core",
+          "label": "Downtown core",
+          "confidence": "high"
+        },
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "canonical_path": "/commercial-real-estate/GA/atlanta/buckhead/",
+      "neighborhood_name": "Buckhead",
+      "city": "Atlanta",
+      "state_abbr": "GA",
+      "commercial_area_id": "atl-buckhead",
+      "commercial_area_type": "district",
+      "extraction_status": "prototype_review",
+      "source_inputs": [
+        "neighborhoodPages",
+        "buildingPages",
+        "commercial_area_building_relationships_v1",
+        "active_building_semantic_bridge where available"
+      ],
+      "extracted_signals": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "category": "common_space_types",
+          "confidence": "high",
+          "score": 0.87,
+          "public_safe": true,
+          "evidence": [
+            "Office appears in representative building and area signals",
+            "100% of representative buildings are office-oriented"
+          ]
+        },
+        {
+          "key": "professional_services",
+          "label": "Professional services fit",
+          "category": "tenant_fit",
+          "confidence": "medium",
+          "score": 0.76,
+          "public_safe": true,
+          "evidence": [
+            "Professional services appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "financial_services",
+          "label": "Financial services fit",
+          "category": "tenant_fit",
+          "confidence": "medium",
+          "score": 0.72,
+          "public_safe": true,
+          "evidence": [
+            "Financial services appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "retail_context",
+          "label": "Retail context",
+          "category": "common_space_types",
+          "confidence": "medium",
+          "score": 0.57,
+          "public_safe": true,
+          "evidence": [
+            "Retail appears in area profile, space type mix, or representative building context"
+          ]
+        }
+      ],
+      "omitted_signals": [
+        {
+          "signal": "current availability",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "asking rent",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "suite-level claims",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "furnished",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "plug-and-play",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "move-in ready",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "current parking",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        }
+      ],
+      "evidence_summary": {
+        "representative_building_count": 6,
+        "relationship_count": 0,
+        "high_confidence_relationship_count": 0,
+        "top_space_type_counts": [
+          {
+            "key": "office",
+            "count": 21
+          },
+          {
+            "key": "coworking",
+            "count": 6
+          },
+          {
+            "key": "retail",
+            "count": 1
+          }
+        ],
+        "top_size_labels": [
+          {
+            "key": "Small spaces",
+            "count": 4
+          },
+          {
+            "key": "8,551 SF observed size signal",
+            "count": 1
+          },
+          {
+            "key": "969 to 25,470 SF observed range",
+            "count": 1
+          }
+        ],
+        "top_user_fit_terms": [
+          {
+            "key": "Client-facing businesses",
+            "count": 6
+          },
+          {
+            "key": "Professional services",
+            "count": 6
+          },
+          {
+            "key": "Small to mid-size teams",
+            "count": 6
+          }
+        ],
+        "approved_semantic_bridge_records": 0
+      },
+      "public_signal_chips": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "canonical_path": "/commercial-real-estate/CA/los-angeles/arts-district/",
+      "neighborhood_name": "Arts District",
+      "city": "Los Angeles",
+      "state_abbr": "CA",
+      "commercial_area_id": "la-arts-district",
+      "commercial_area_type": "district",
+      "extraction_status": "prototype_review",
+      "source_inputs": [
+        "neighborhoodPages",
+        "buildingPages",
+        "commercial_area_building_relationships_v1",
+        "active_building_semantic_bridge where available"
+      ],
+      "extracted_signals": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "category": "common_space_types",
+          "confidence": "high",
+          "score": 0.79,
+          "public_safe": true,
+          "evidence": [
+            "Office appears in representative building and area signals",
+            "60% of representative buildings are office-oriented"
+          ]
+        },
+        {
+          "key": "creative_office",
+          "label": "Creative office",
+          "category": "tenant_fit",
+          "confidence": "high",
+          "score": 0.78,
+          "public_safe": true,
+          "evidence": [
+            "Creative office appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "industrial_or_flex_context",
+          "label": "Industrial or flex context",
+          "category": "building_character",
+          "confidence": "medium",
+          "score": 0.74,
+          "public_safe": true,
+          "evidence": [
+            "Industrial, warehouse, or flex signals appear in representative building patterns"
+          ]
+        },
+        {
+          "key": "warehouse_context",
+          "label": "Warehouse context",
+          "category": "building_character",
+          "confidence": "medium",
+          "score": 0.72,
+          "public_safe": true,
+          "evidence": [
+            "Warehouse appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "large_format_spaces",
+          "label": "Large-format building signals",
+          "category": "building_scale",
+          "confidence": "medium",
+          "score": 0.62,
+          "public_safe": true,
+          "evidence": [
+            "Representative buildings include large-format size labels"
+          ]
+        },
+        {
+          "key": "mid_size_spaces",
+          "label": "Mid-size building signals",
+          "category": "building_scale",
+          "confidence": "medium",
+          "score": 0.62,
+          "public_safe": true,
+          "evidence": [
+            "Representative buildings include mid-size space labels"
+          ]
+        },
+        {
+          "key": "retail_context",
+          "label": "Retail context",
+          "category": "common_space_types",
+          "confidence": "medium",
+          "score": 0.57,
+          "public_safe": true,
+          "evidence": [
+            "Retail appears in area profile, space type mix, or representative building context"
+          ]
+        }
+      ],
+      "omitted_signals": [
+        {
+          "signal": "current availability",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "asking rent",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "suite-level claims",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "furnished",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "plug-and-play",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "move-in ready",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "current parking",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        }
+      ],
+      "evidence_summary": {
+        "representative_building_count": 5,
+        "relationship_count": 0,
+        "high_confidence_relationship_count": 0,
+        "top_space_type_counts": [
+          {
+            "key": "office",
+            "count": 13
+          },
+          {
+            "key": "industrial",
+            "count": 9
+          },
+          {
+            "key": "retail",
+            "count": 1
+          }
+        ],
+        "top_size_labels": [
+          {
+            "key": "Mid-size spaces",
+            "count": 2
+          },
+          {
+            "key": "Small to mid-size spaces",
+            "count": 2
+          },
+          {
+            "key": "Large-format spaces",
+            "count": 1
+          }
+        ],
+        "top_user_fit_terms": [
+          {
+            "key": "Client-facing businesses",
+            "count": 3
+          },
+          {
+            "key": "Professional services",
+            "count": 3
+          },
+          {
+            "key": "Small to mid-size teams",
+            "count": 3
+          },
+          {
+            "key": "Distribution and logistics",
+            "count": 2
+          },
+          {
+            "key": "Light industrial operations",
+            "count": 2
+          }
+        ],
+        "approved_semantic_bridge_records": 0
+      },
+      "public_signal_chips": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence": "high"
+        },
+        {
+          "key": "creative_office",
+          "label": "Creative office",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "canonical_path": "/commercial-real-estate/TX/dallas/uptown/",
+      "neighborhood_name": "Uptown",
+      "city": "Dallas",
+      "state_abbr": "TX",
+      "commercial_area_id": "dallas-uptown",
+      "commercial_area_type": "district",
+      "extraction_status": "prototype_review",
+      "source_inputs": [
+        "neighborhoodPages",
+        "buildingPages",
+        "commercial_area_building_relationships_v1",
+        "active_building_semantic_bridge where available"
+      ],
+      "extracted_signals": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "category": "common_space_types",
+          "confidence": "high",
+          "score": 0.86,
+          "public_safe": true,
+          "evidence": [
+            "Office appears in representative building and area signals",
+            "100% of representative buildings are office-oriented"
+          ]
+        },
+        {
+          "key": "transit_oriented",
+          "label": "Transit-oriented",
+          "category": "access_orientation",
+          "confidence": "medium",
+          "score": 0.74,
+          "public_safe": true,
+          "evidence": [
+            "Transit-oriented appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "retail_context",
+          "label": "Retail context",
+          "category": "common_space_types",
+          "confidence": "medium",
+          "score": 0.57,
+          "public_safe": true,
+          "evidence": [
+            "Retail appears in area profile, space type mix, or representative building context"
+          ]
+        }
+      ],
+      "omitted_signals": [
+        {
+          "signal": "current availability",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "asking rent",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "suite-level claims",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "furnished",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "plug-and-play",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "move-in ready",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "current parking",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        }
+      ],
+      "evidence_summary": {
+        "representative_building_count": 6,
+        "relationship_count": 0,
+        "high_confidence_relationship_count": 0,
+        "top_space_type_counts": [
+          {
+            "key": "office",
+            "count": 25
+          },
+          {
+            "key": "coworking",
+            "count": 10
+          },
+          {
+            "key": "retail",
+            "count": 1
+          }
+        ],
+        "top_size_labels": [
+          {
+            "key": "Small spaces",
+            "count": 6
+          }
+        ],
+        "top_user_fit_terms": [
+          {
+            "key": "Client-facing businesses",
+            "count": 6
+          },
+          {
+            "key": "Professional services",
+            "count": 6
+          },
+          {
+            "key": "Small to mid-size teams",
+            "count": 6
+          }
+        ],
+        "approved_semantic_bridge_records": 0
+      },
+      "public_signal_chips": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "canonical_path": "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+      "neighborhood_name": "Kearny Mesa",
+      "city": "San Diego",
+      "state_abbr": "CA",
+      "commercial_area_id": "sd-kearny-mesa",
+      "commercial_area_type": "district",
+      "extraction_status": "prototype_review",
+      "source_inputs": [
+        "neighborhoodPages",
+        "buildingPages",
+        "commercial_area_building_relationships_v1",
+        "active_building_semantic_bridge where available"
+      ],
+      "extracted_signals": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "category": "common_space_types",
+          "confidence": "high",
+          "score": 0.81,
+          "public_safe": true,
+          "evidence": [
+            "Office appears in representative building and area signals",
+            "67% of representative buildings are office-oriented"
+          ]
+        },
+        {
+          "key": "semantic_warehouse_or_distribution_fit",
+          "label": "Warehouse or distribution fit",
+          "category": "building_semantics",
+          "confidence": "high",
+          "score": 0.79,
+          "public_safe": true,
+          "evidence": [
+            "Approved building semantic bridge signal on 3914 Murphy Canyon Rd"
+          ]
+        },
+        {
+          "key": "freeway_access",
+          "label": "Freeway access context",
+          "category": "access_orientation",
+          "confidence": "high",
+          "score": 0.78,
+          "public_safe": true,
+          "evidence": [
+            "Freeway access appears in reviewed commercial profile or relationship signals"
+          ]
+        },
+        {
+          "key": "suburban_office",
+          "label": "Suburban office pattern",
+          "category": "building_character",
+          "confidence": "medium",
+          "score": 0.74,
+          "public_safe": true,
+          "evidence": [
+            "Suburban office appears in reviewed commercial profile signals"
+          ]
+        },
+        {
+          "key": "industrial_or_flex_context",
+          "label": "Industrial or flex context",
+          "category": "building_character",
+          "confidence": "medium",
+          "score": 0.72,
+          "public_safe": true,
+          "evidence": [
+            "Industrial, warehouse, or flex signals appear in representative building patterns"
+          ]
+        },
+        {
+          "key": "large_format_spaces",
+          "label": "Large-format building signals",
+          "category": "building_scale",
+          "confidence": "medium",
+          "score": 0.62,
+          "public_safe": true,
+          "evidence": [
+            "Representative buildings include large-format size labels"
+          ]
+        },
+        {
+          "key": "mid_size_spaces",
+          "label": "Mid-size building signals",
+          "category": "building_scale",
+          "confidence": "medium",
+          "score": 0.62,
+          "public_safe": true,
+          "evidence": [
+            "Representative buildings include mid-size space labels"
+          ]
+        },
+        {
+          "key": "retail_context",
+          "label": "Retail context",
+          "category": "common_space_types",
+          "confidence": "medium",
+          "score": 0.57,
+          "public_safe": true,
+          "evidence": [
+            "Retail appears in area profile, space type mix, or representative building context"
+          ]
+        }
+      ],
+      "omitted_signals": [
+        {
+          "signal": "current availability",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "asking rent",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "suite-level claims",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "furnished",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "plug-and-play",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "move-in ready",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        },
+        {
+          "signal": "current parking",
+          "reason": "Transient, listing-level, pricing, or current-condition language is not public-safe for neighborhood identity."
+        }
+      ],
+      "evidence_summary": {
+        "representative_building_count": 6,
+        "relationship_count": 0,
+        "high_confidence_relationship_count": 0,
+        "top_space_type_counts": [
+          {
+            "key": "office",
+            "count": 17
+          },
+          {
+            "key": "industrial",
+            "count": 9
+          },
+          {
+            "key": "retail",
+            "count": 1
+          }
+        ],
+        "top_size_labels": [
+          {
+            "key": "Small to mid-size spaces",
+            "count": 3
+          },
+          {
+            "key": "Large spaces",
+            "count": 2
+          },
+          {
+            "key": "Large-format spaces",
+            "count": 1
+          }
+        ],
+        "top_user_fit_terms": [
+          {
+            "key": "Client-facing businesses",
+            "count": 4
+          },
+          {
+            "key": "Professional services",
+            "count": 4
+          },
+          {
+            "key": "Small to mid-size teams",
+            "count": 4
+          },
+          {
+            "key": "Distribution and logistics",
+            "count": 2
+          },
+          {
+            "key": "Light industrial operations",
+            "count": 2
+          }
+        ],
+        "approved_semantic_bridge_records": 1
+      },
+      "public_signal_chips": [
+        {
+          "key": "office_oriented",
+          "label": "Office-oriented",
+          "confidence": "high"
+        },
+        {
+          "key": "freeway_access",
+          "label": "Freeway access context",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
