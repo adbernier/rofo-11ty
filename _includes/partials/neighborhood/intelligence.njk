@@ -13,6 +13,30 @@
       <p class="neighborhood-intelligence__lead">{{ intelligence.headline }}</p>
     {% endif %}
 
+    <div class="neighborhood-intelligence__summary">
+      {% if neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
+        <div>
+          <h3>Common space types</h3>
+          <div class="neighborhood-intelligence__chips">
+            {% for type in neighborhood.approximate_space_types %}
+              <span>{{ type | capitalize }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if intelligence.fit_chips and intelligence.fit_chips.length %}
+        <div>
+          <h3>Useful for</h3>
+          <div class="neighborhood-intelligence__chips">
+            {% for chip in intelligence.fit_chips %}
+              <span>{{ chip }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
     {% if intelligence.modules and intelligence.modules.length %}
       <div class="neighborhood-intelligence__grid">
         {% for module in intelligence.modules %}
@@ -26,17 +50,6 @@
             <p>{{ module.text }}</p>
           </article>
         {% endfor %}
-      </div>
-    {% endif %}
-
-    {% if intelligence.fit_chips and intelligence.fit_chips.length %}
-      <div class="neighborhood-intelligence__block">
-        <h3>Useful for comparing</h3>
-        <div class="neighborhood-intelligence__chips">
-          {% for chip in intelligence.fit_chips %}
-            <span>{{ chip }}</span>
-          {% endfor %}
-        </div>
       </div>
     {% endif %}
 

@@ -79,59 +79,59 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        <section class="city-card">
-          <div class="eyebrow">At a Glance</div>
-          <h2>{{ neighborhood.name }} at a glance</h2>
-          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-            <div class="neighborhood-mini-card">
-              <h3>Buildings</h3>
-              <p>{{ neighborhood.approximate_building_count }} selected commercial buildings</p>
-            </div>
-            <div class="neighborhood-mini-card">
-              <h3>Space types</h3>
-              <p>
-                {% if hasSpaceTypes %}
-                  {% for type in neighborhood.approximate_space_types %}
-                    {{ type | capitalize }}{% if not loop.last %}, {% endif %}
-                  {% endfor %}
-                {% else %}
-                  Office, retail, and other commercial space
-                {% endif %}
-              </p>
-            </div>
-            <div class="neighborhood-mini-card">
-              <h3>Nearby areas</h3>
-              <p>
-                {% if hasNearby %}
-                  {{ neighborhood.nearby_neighborhoods.length }} nearby areas
-                {% else %}
-                  Broader {{ neighborhood.city }} market
-                {% endif %}
-              </p>
-            </div>
-          </div>
-
-          {% if hasSignals %}
-            <div class="semantic-chip-row neighborhood-chip-row">
-              {% for signal in neighborhood.approximate_semantic_signals %}
-                <span class="semantic-chip">{{ signal }}</span>
-              {% endfor %}
-            </div>
-            <p class="semantic-footnote">
-              Common signals may reflect historical or contextual patterns. They do not represent live availability.
-            </p>
-          {% else %}
-            <div class="neighborhood-context-fallback">
-              <h3>Commercial context</h3>
-              <p>
-                Review buildings, space types, and nearby areas as you compare {{ neighborhood.name }} with the broader {{ neighborhood.city }} market.
-              </p>
-            </div>
-          {% endif %}
-        </section>
-
         {% if neighborhood.neighborhood_intelligence %}
           {% include "partials/neighborhood/intelligence.njk" %}
+        {% else %}
+          <section class="city-card">
+            <div class="eyebrow">At a Glance</div>
+            <h2>{{ neighborhood.name }} at a glance</h2>
+            <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+              <div class="neighborhood-mini-card">
+                <h3>Buildings</h3>
+                <p>{{ neighborhood.approximate_building_count }} selected commercial buildings</p>
+              </div>
+              <div class="neighborhood-mini-card">
+                <h3>Space types</h3>
+                <p>
+                  {% if hasSpaceTypes %}
+                    {% for type in neighborhood.approximate_space_types %}
+                      {{ type | capitalize }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    Office, retail, and other commercial space
+                  {% endif %}
+                </p>
+              </div>
+              <div class="neighborhood-mini-card">
+                <h3>Nearby areas</h3>
+                <p>
+                  {% if hasNearby %}
+                    {{ neighborhood.nearby_neighborhoods.length }} nearby areas
+                  {% else %}
+                    Broader {{ neighborhood.city }} market
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+
+            {% if hasSignals %}
+              <div class="semantic-chip-row neighborhood-chip-row">
+                {% for signal in neighborhood.approximate_semantic_signals %}
+                  <span class="semantic-chip">{{ signal }}</span>
+                {% endfor %}
+              </div>
+              <p class="semantic-footnote">
+                Common signals may reflect historical or contextual patterns. They do not represent live availability.
+              </p>
+            {% else %}
+              <div class="neighborhood-context-fallback">
+                <h3>Commercial context</h3>
+                <p>
+                  Review buildings, space types, and nearby areas as you compare {{ neighborhood.name }} with the broader {{ neighborhood.city }} market.
+                </p>
+              </div>
+            {% endif %}
+          </section>
         {% endif %}
 
         <section class="city-card">

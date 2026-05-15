@@ -6,11 +6,6 @@ module.exports = {
     headline: "Downtown office core with strong client access and professional service context.",
     modules: [
       {
-        title: "Commercial character",
-        text: "Dense downtown office district with retail and service activity at the street level.",
-        confidence: "high",
-      },
-      {
         title: "Building character",
         text: "Primarily office towers and established downtown buildings, with smaller professional buildings toward nearby Jackson Square.",
         confidence: "high",
@@ -18,6 +13,11 @@ module.exports = {
       {
         title: "Common space types",
         text: "Office, retail, and coworking are the clearest signals in Rofo's current data.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Useful for teams that need downtown credibility, client access, and a professional office setting.",
         confidence: "high",
       },
       {
@@ -61,11 +61,6 @@ module.exports = {
     headline: "Established Atlanta business district with office, retail, and professional service orientation.",
     modules: [
       {
-        title: "Commercial character",
-        text: "Office and retail-oriented district with a strong business and client-facing identity.",
-        confidence: "high",
-      },
-      {
         title: "Building character",
         text: "Representative buildings suggest a mix of larger office properties and retail-adjacent commercial settings.",
         confidence: "medium",
@@ -73,6 +68,11 @@ module.exports = {
       {
         title: "Common space types",
         text: "Office and retail are the clearest current signals for this area.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Useful for professional service, financial service, and client-facing office users comparing north Atlanta locations.",
         confidence: "high",
       },
       {
@@ -116,11 +116,6 @@ module.exports = {
     headline: "Creative commercial district with warehouse, office, retail, and mixed-use signals.",
     modules: [
       {
-        title: "Commercial character",
-        text: "Creative office and mixed commercial activity near Downtown Los Angeles and Little Tokyo.",
-        confidence: "high",
-      },
-      {
         title: "Building character",
         text: "Converted warehouse, industrial, retail, and creative office signals are stronger here than in many nearby districts.",
         confidence: "high",
@@ -128,6 +123,11 @@ module.exports = {
       {
         title: "Common space types",
         text: "Office, industrial, and retail are the clearest current signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Useful for creative office, design, showroom, production, and retail-adjacent users.",
         confidence: "high",
       },
       {
@@ -171,11 +171,6 @@ module.exports = {
     headline: "Mixed office and retail district close to Downtown Dallas and the Arts District.",
     modules: [
       {
-        title: "Commercial character",
-        text: "Office and retail-oriented district with mixed-use commercial context near the Dallas core.",
-        confidence: "high",
-      },
-      {
         title: "Building character",
         text: "Representative buildings suggest a mix of office buildings, retail context, and walkable district activity.",
         confidence: "medium",
@@ -183,6 +178,11 @@ module.exports = {
       {
         title: "Common space types",
         text: "Office and retail are the clearest current signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Useful for office users, retail-adjacent businesses, and teams comparing downtown-adjacent Dallas districts.",
         confidence: "high",
       },
       {
@@ -226,11 +226,6 @@ module.exports = {
     headline: "Central San Diego business district with office, industrial, retail, and freeway access signals.",
     modules: [
       {
-        title: "Commercial character",
-        text: "Practical office, industrial, and retail district serving businesses that compare central San Diego locations.",
-        confidence: "high",
-      },
-      {
         title: "Building character",
         text: "Representative buildings suggest suburban office, flex, and industrial-adjacent commercial patterns.",
         confidence: "high",
@@ -238,6 +233,11 @@ module.exports = {
       {
         title: "Common space types",
         text: "Office, industrial, and retail are the clearest current signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Useful for office, flex, service, and light industrial users that prioritize central San Diego access.",
         confidence: "high",
       },
       {
