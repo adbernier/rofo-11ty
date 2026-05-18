@@ -397,38 +397,54 @@ const curatedNearbyByKey = {
   "CO/denver/baker": ["santa-fe-arts-district", "capitol-hill", "cherry-creek", "sun-valley", "central-business-district"]
 };
 
+const displayNameWithArticleByKey = {
+  "CA/san-francisco/financial-district": "the Financial District",
+  "MA/boston/financial-district": "the Financial District",
+  "NY/new-york/financial-district": "the Financial District",
+  "NY/new-york/upper-west-side": "the Upper West Side",
+  "NY/new-york/upper-east-side": "the Upper East Side",
+  "NY/new-york/west-village": "the West Village",
+  "NY/new-york/garment-district": "the Garment District",
+  "NY/new-york/flatiron-district": "the Flatiron District",
+  "NY/new-york/plaza-district": "the Plaza District",
+};
+
+function displayNameWithArticleFor(page) {
+  return displayNameWithArticleByKey[pageKey(page)] || "";
+}
+
 const nearbyComparisonNotesByKey = {
   "GA/atlanta/buckhead": {
-    midtown: "Denser, more transit-oriented, and more mixed-use.",
-    "west-midtown": "More creative, adaptive-reuse, and showroom-oriented.",
-    "perimeter-center": "More suburban, freeway-oriented, and parking-driven.",
-    "cumberland-galleria": "Northwest office-retail node with event and freeway adjacency.",
-    "old-fourth-ward": "Eastside mixed-use alternative with stronger neighborhood retail character.",
+    midtown: "Denser and more transit-oriented, with stronger university and apartment overlap.",
+    "west-midtown": "More adaptive-reuse, showroom, and creative-commercial.",
+    "perimeter-center": "More suburban and parking-driven, with stronger freeway commute logic.",
+    "cumberland-galleria": "Northwest office-retail node with event, ballpark, and freeway adjacency.",
+    "old-fourth-ward": "Eastside mixed-use alternative with stronger neighborhood retail and food context.",
   },
   "GA/atlanta/midtown": {
     "old-fourth-ward": "More neighborhood-scaled, food-oriented, and eastside mixed-use.",
-    "west-midtown": "More adaptive-reuse, showroom, and creative-commercial.",
-    "downtown-atlanta": "More civic, institutional, and traditional CBD-oriented.",
-    "inman-park": "More neighborhood retail and restaurant-led.",
-    buckhead: "More executive, northside, and client-facing.",
+    "west-midtown": "More adaptive-reuse, showroom-oriented, and car-oriented.",
+    "downtown-atlanta": "More civic, legal, government, and traditional CBD-oriented.",
+    "inman-park": "More neighborhood retail and restaurant-led, with less office scale.",
+    buckhead: "More executive-facing, northside, and client-oriented.",
   },
   "GA/atlanta/downtown-atlanta": {
     "south-downtown": "Smaller-scale historic blocks and downtown-adjacent repositioning.",
-    "old-fourth-ward": "Eastside mixed-use and retail activity.",
-    "inman-park": "Neighborhood retail and restaurant-led commercial setting.",
-    midtown: "Denser mixed-use office district with stronger residential overlap.",
-    "west-midtown": "Creative, showroom, and adaptive-reuse commercial character.",
+    "old-fourth-ward": "Eastside mixed-use alternative with stronger food and neighborhood retail context.",
+    "inman-park": "Neighborhood retail and restaurant-led setting with less institutional office context.",
+    midtown: "Denser mixed-use office district with stronger residential and university overlap.",
+    "west-midtown": "More creative-commercial, showroom, and adaptive-reuse oriented.",
   },
   "GA/atlanta/perimeter-center": {
-    buckhead: "More established urban business address and client-facing retail context.",
-    "cumberland-galleria": "Another suburban office-retail node with northwest metro access.",
+    buckhead: "More established urban business address with stronger client-facing retail context.",
+    "cumberland-galleria": "Another suburban office-retail node, oriented to northwest metro access.",
     midtown: "More central, walkable, transit-oriented, and mixed-use.",
   },
   "GA/atlanta/west-midtown": {
-    midtown: "More vertical, transit-oriented, and institutional.",
-    "downtown-atlanta": "More civic, institutional, and transit-connected.",
+    midtown: "More vertical and transit-oriented, with stronger institutional and office-tower context.",
+    "downtown-atlanta": "More civic, institutional, transit-connected, and traditional CBD-oriented.",
     "old-fourth-ward": "Eastside food, retail, and neighborhood mixed-use alternative.",
-    "south-downtown": "Historic downtown-adjacent setting with smaller-scale blocks.",
+    "south-downtown": "Historic downtown-adjacent setting with smaller-scale blocks and repositioning potential.",
     buckhead: "More polished northside office and client-facing business context.",
   },
 };
@@ -680,6 +696,10 @@ for (const page of allPages) {
     page.city_nav_priority = page.representative_buildings?.length ? 3 : 7;
   }
 
+  const displayNameWithArticle = displayNameWithArticleFor(page);
+  if (!page.display_name_with_article && displayNameWithArticle) {
+    page.display_name_with_article = displayNameWithArticle;
+  }
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.approved_editorial_signal =
