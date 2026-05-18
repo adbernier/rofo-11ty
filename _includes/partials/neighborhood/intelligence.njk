@@ -3,7 +3,6 @@
   {% set isAtlantaEditorial = neighborhood.approved_editorial_signal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
   {% if isAtlantaEditorial %}
     <section class="city-card neighborhood-intelligence neighborhood-intelligence--editorial" aria-labelledby="neighborhood-intelligence-heading">
-      <div class="eyebrow">District interpretation</div>
       <h2 id="neighborhood-intelligence-heading">How to read {{ neighborhood.name }}</h2>
 
       {% if intelligence.headline %}
