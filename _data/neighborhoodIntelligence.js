@@ -69,11 +69,11 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office and retail signals.",
-    headline: "Established Atlanta business district with office, retail, and professional service orientation.",
+    headline: "North Atlanta office district built around executive access, client-facing presence, and high-service retail context.",
     modules: [
       {
         title: "Building character",
-        text: "Representative buildings suggest a mix of larger office properties and retail-adjacent commercial settings.",
+        text: "Buckhead reads as a polished office and retail district: larger office properties, hotel and restaurant support, and commercial settings that work for meetings, clients, and regional executives.",
         confidence: "medium",
       },
       {
@@ -83,12 +83,12 @@ const intelligence = {
       },
       {
         title: "Business fit",
-        text: "Useful for professional service, financial service, and client-facing office users comparing north Atlanta locations.",
+        text: "Companies choose Buckhead when they want a northside Atlanta address, access to affluent residential areas, and a business environment that feels more executive than startup-oriented.",
         confidence: "high",
       },
       {
         title: "Access pattern",
-        text: "Useful for businesses comparing northern Atlanta districts such as Midtown, Perimeter Center, and Cumberland.",
+        text: "Compared with Midtown, Buckhead is less campus-like and less transit-led; compared with Perimeter Center, it offers a more established urban business address.",
         confidence: "medium",
       },
     ],
@@ -96,7 +96,7 @@ const intelligence = {
       "Professional services",
       "Financial services",
       "Client-facing offices",
-      "Retail-adjacent businesses",
+      "Executive access",
       "North Atlanta market users",
     ],
     building_scale_patterns: [
@@ -108,15 +108,235 @@ const intelligence = {
     nearby_alternatives: [
       {
         label: "Midtown",
-        note: "Compare for a more central Atlanta office and mixed-use setting.",
+        note: "Compare for denser, more transit-oriented office and institutional surroundings.",
       },
       {
         label: "Perimeter Center",
-        note: "Compare for suburban office and regional access patterns.",
+        note: "Compare for larger suburban office settings and stronger freeway orientation.",
       },
       {
         label: "Cumberland / Galleria",
-        note: "Compare for another major northside office and retail district.",
+        note: "Compare for northwest access, office parks, retail, and event-adjacent activity.",
+      },
+    ],
+  },
+  "/commercial-real-estate/GA/atlanta/midtown/": {
+    status: "prototype",
+    confidence: "high",
+    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office, institutional, retail, and mixed-use signals.",
+    headline: "Central Atlanta district where office, university, arts, apartment, and street-level activity overlap.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Midtown has a denser, more vertical commercial pattern than Buckhead, with office towers, mixed-use blocks, institutional anchors, hotels, and walkable retail clustered near Peachtree and transit.",
+        confidence: "high",
+      },
+      {
+        title: "Common space types",
+        text: "Office, retail, hospitality, and mixed-use commercial settings are the clearest signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Companies choose Midtown for central visibility, transit access, talent proximity, and a business environment that can support clients, employees, and after-work activity in the same district.",
+        confidence: "high",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Buckhead, Midtown trends denser, younger, and more transit-oriented; compared with Downtown, it feels less civic and more mixed-use.",
+        confidence: "high",
+      },
+    ],
+    fit_chips: [
+      "Transit-oriented teams",
+      "Client-facing offices",
+      "Talent-access users",
+      "Institution-adjacent businesses",
+      "Mixed-use district users",
+    ],
+    building_scale_patterns: [
+      "Office towers",
+      "Mixed-use blocks",
+      "Institutional adjacency",
+      "Street-level retail activity",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Buckhead",
+        note: "Compare for a more executive northside office address.",
+      },
+      {
+        label: "Downtown Atlanta",
+        note: "Compare for civic, government, convention, and traditional CBD context.",
+      },
+      {
+        label: "West Midtown",
+        note: "Compare for adaptive-reuse, showroom, and creative office character.",
+      },
+    ],
+  },
+  "/commercial-real-estate/GA/atlanta/downtown-atlanta/": {
+    status: "prototype",
+    confidence: "high",
+    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office, civic, institutional, and hospitality signals.",
+    headline: "Atlanta's civic and institutional core, with traditional office, government, hospitality, and event-driven demand nearby.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Downtown Atlanta reads as a classic central business district: office buildings, civic institutions, hotels, convention activity, and transit access packed into a more formal urban grid.",
+        confidence: "high",
+      },
+      {
+        title: "Common space types",
+        text: "Office, civic-adjacent services, hospitality, and street-level retail are the clearest signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Companies choose Downtown when proximity to courts, government, universities, hotels, MARTA, or convention activity matters more than a polished northside office setting.",
+        confidence: "high",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Midtown, Downtown is more civic and institutional; compared with West Midtown, it is more transit-connected and less adaptive-reuse oriented.",
+        confidence: "high",
+      },
+    ],
+    fit_chips: [
+      "Civic-adjacent users",
+      "Legal and professional services",
+      "Transit-oriented teams",
+      "Hospitality-adjacent businesses",
+      "Institutional users",
+    ],
+    building_scale_patterns: [
+      "CBD office buildings",
+      "Civic and institutional anchors",
+      "Hotel and convention context",
+      "Transit-connected blocks",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Midtown",
+        note: "Compare for a denser mixed-use office district with stronger residential and institutional overlap.",
+      },
+      {
+        label: "South Downtown",
+        note: "Compare for smaller-scale historic blocks and downtown-adjacent repositioning.",
+      },
+      {
+        label: "West Midtown",
+        note: "Compare for creative, showroom, and adaptive-reuse commercial settings.",
+      },
+    ],
+  },
+  "/commercial-real-estate/GA/atlanta/perimeter-center/": {
+    status: "prototype",
+    confidence: "high",
+    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable suburban office, retail, and freeway access signals.",
+    headline: "Suburban office node where larger floorplates, freeway access, and regional parking patterns matter.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Perimeter Center is organized around larger office properties, retail concentration, hotels, and auto-accessible campuses near I-285 and GA 400 rather than a walkable downtown grid.",
+        confidence: "high",
+      },
+      {
+        title: "Common space types",
+        text: "Office and retail are the clearest signals, with a stronger suburban access pattern than central Atlanta districts.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Companies choose Perimeter Center for regional reach, parking, larger office requirements, and access to north metro employees without committing to Midtown or Downtown.",
+        confidence: "high",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Buckhead, Perimeter Center is more freeway- and campus-oriented; compared with Midtown, it is less urban but often easier for regional car commutes.",
+        confidence: "high",
+      },
+    ],
+    fit_chips: [
+      "Regional office users",
+      "Larger teams",
+      "Parking-sensitive tenants",
+      "North metro access",
+      "Suburban office users",
+    ],
+    building_scale_patterns: [
+      "Larger office properties",
+      "Auto-accessible campuses",
+      "Retail and hotel support",
+      "Freeway-oriented submarket",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Buckhead",
+        note: "Compare for a more established urban business address and client-facing setting.",
+      },
+      {
+        label: "Cumberland / Galleria",
+        note: "Compare for northwest metro access and another major suburban office-retail node.",
+      },
+      {
+        label: "Midtown",
+        note: "Compare for transit, central visibility, and a denser mixed-use environment.",
+      },
+    ],
+  },
+  "/commercial-real-estate/GA/atlanta/west-midtown/": {
+    status: "prototype",
+    confidence: "high",
+    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable industrial, flex, showroom, retail, and office signals.",
+    headline: "Westside commercial district with adaptive-reuse, showroom, creative office, food, and light industrial character.",
+    modules: [
+      {
+        title: "Building character",
+        text: "West Midtown is less formal than Midtown or Buckhead, with converted industrial buildings, showroom-oriented spaces, creative offices, restaurants, and service uses mixed into a westside street grid.",
+        confidence: "high",
+      },
+      {
+        title: "Common space types",
+        text: "Flex, showroom, office, retail, and industrial-adjacent space are the clearest signals.",
+        confidence: "high",
+      },
+      {
+        title: "Business fit",
+        text: "Companies choose West Midtown when brand, design, food and beverage proximity, production-adjacent space, or a less conventional office environment matters.",
+        confidence: "high",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Midtown, West Midtown is more adaptive-reuse and car-oriented; compared with Downtown, it is less civic and more creative-commercial.",
+        confidence: "high",
+      },
+    ],
+    fit_chips: [
+      "Creative office users",
+      "Showroom businesses",
+      "Design and production teams",
+      "Food-adjacent brands",
+      "Flex-space users",
+    ],
+    building_scale_patterns: [
+      "Converted industrial buildings",
+      "Showroom and flex context",
+      "Creative office character",
+      "Restaurant and retail adjacency",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Midtown",
+        note: "Compare for a more vertical, transit-oriented office and mixed-use district.",
+      },
+      {
+        label: "Downtown Atlanta",
+        note: "Compare for civic, institutional, and traditional CBD context.",
+      },
+      {
+        label: "Old Fourth Ward",
+        note: "Compare for eastside retail, food, and neighborhood mixed-use activity.",
       },
     ],
   },

@@ -196,7 +196,7 @@ eleventyComputed:
               {% for nearby in neighborhood.nearby_neighborhoods %}
                 <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ nearby.url }}">
                   <h3>{{ nearby.name }}</h3>
-                  <p>{{ nearby.city }}, {{ nearby.state_abbr }}</p>
+                  <p>{{ nearby.note or (nearby.city + ", " + nearby.state_abbr) }}</p>
                 </a>
               {% endfor %}
             </div>

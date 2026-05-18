@@ -397,6 +397,42 @@ const curatedNearbyByKey = {
   "CO/denver/baker": ["santa-fe-arts-district", "capitol-hill", "cherry-creek", "sun-valley", "central-business-district"]
 };
 
+const nearbyComparisonNotesByKey = {
+  "GA/atlanta/buckhead": {
+    midtown: "Denser, more transit-oriented, and more mixed-use.",
+    "west-midtown": "More creative, adaptive-reuse, and showroom-oriented.",
+    "perimeter-center": "More suburban, freeway-oriented, and parking-driven.",
+    "cumberland-galleria": "Northwest office-retail node with event and freeway adjacency.",
+    "old-fourth-ward": "Eastside mixed-use alternative with stronger neighborhood retail character.",
+  },
+  "GA/atlanta/midtown": {
+    "old-fourth-ward": "More neighborhood-scaled, food-oriented, and eastside mixed-use.",
+    "west-midtown": "More adaptive-reuse, showroom, and creative-commercial.",
+    "downtown-atlanta": "More civic, institutional, and traditional CBD-oriented.",
+    "inman-park": "More neighborhood retail and restaurant-led.",
+    buckhead: "More executive, northside, and client-facing.",
+  },
+  "GA/atlanta/downtown-atlanta": {
+    "south-downtown": "Smaller-scale historic blocks and downtown-adjacent repositioning.",
+    "old-fourth-ward": "Eastside mixed-use and retail activity.",
+    "inman-park": "Neighborhood retail and restaurant-led commercial setting.",
+    midtown: "Denser mixed-use office district with stronger residential overlap.",
+    "west-midtown": "Creative, showroom, and adaptive-reuse commercial character.",
+  },
+  "GA/atlanta/perimeter-center": {
+    buckhead: "More established urban business address and client-facing retail context.",
+    "cumberland-galleria": "Another suburban office-retail node with northwest metro access.",
+    midtown: "More central, walkable, transit-oriented, and mixed-use.",
+  },
+  "GA/atlanta/west-midtown": {
+    midtown: "More vertical, transit-oriented, and institutional.",
+    "downtown-atlanta": "More civic, institutional, and transit-connected.",
+    "old-fourth-ward": "Eastside food, retail, and neighborhood mixed-use alternative.",
+    "south-downtown": "Historic downtown-adjacent setting with smaller-scale blocks.",
+    buckhead: "More polished northside office and client-facing business context.",
+  },
+};
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -687,6 +723,7 @@ for (const page of allPages) {
       city: candidate.city,
       state_abbr: candidate.state_abbr,
       url: candidate.canonical_neighborhood_path,
+      note: nearbyComparisonNotesByKey[pageKey(page)]?.[candidate.slug || slugify(candidate.name)] || "",
     }));
 
   if (curatedNearby.length) {
