@@ -178,6 +178,20 @@ function pageKey(page) {
   ].join("/");
 }
 
+function neighborhoodImagePathFor(page) {
+  const relativePath = [
+    "assets",
+    "images",
+    "neighborhoods",
+    clean(page.state_abbr).toUpperCase(),
+    slugify(page.city),
+    `${page.slug || slugify(page.name)}.webp`,
+  ];
+  const imagePath = path.join(process.cwd(), ...relativePath);
+
+  return fs.existsSync(imagePath) ? `/${relativePath.join("/")}` : "";
+}
+
 const curatedNearbyByKey = {
   "NY/new-york/financial-district": ["tribeca", "soho", "civic-center", "dumbo", "downtown-brooklyn"],
   "NY/new-york/tribeca": ["soho", "financial-district", "civic-center", "west-village", "dumbo"],
@@ -700,6 +714,8 @@ for (const page of allPages) {
   if (!page.display_name_with_article && displayNameWithArticle) {
     page.display_name_with_article = displayNameWithArticle;
   }
+  page.neighborhood_image_path =
+    page.neighborhood_image_path || neighborhoodImagePathFor(page);
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.approved_editorial_signal =

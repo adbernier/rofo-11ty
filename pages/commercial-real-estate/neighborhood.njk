@@ -68,6 +68,18 @@ eleventyComputed:
       {% endif %}
     </div>
 
+    {% if neighborhood.neighborhood_image_path %}
+      <figure class="neighborhood-image-block">
+        <img
+          src="{{ neighborhood.neighborhood_image_path }}"
+          alt="{{ neighborhood.name }} commercial streetscape in {{ neighborhood.city }}, {{ neighborhood.state_abbr }}"
+          width="1600"
+          height="900"
+          loading="lazy"
+        >
+      </figure>
+    {% endif %}
+
     <div class="neighborhood-layout">
       <div class="neighborhood-main">
         {% if not hasMapHero %}
