@@ -1,8 +1,12 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set buildingPath = building.building_path %}
+{% set isNeighborhoodBuildingCard = building_card_variant == "neighborhood" %}
 {% set buildingTitle = building.address or building.display_name or building.name %}
+{% set buildingDisplayTitle = building.short_display_name if isNeighborhoodBuildingCard and building.short_display_name else buildingTitle %}
+{% set buildingMetaType = building.editorial_type_label if isNeighborhoodBuildingCard and building.editorial_type_label else building.type %}
+{% set buildingMetaDetail = building.editorial_descriptor if isNeighborhoodBuildingCard and building.editorial_descriptor else building.size_label %}
 
-<article class="building-card-compact">
+<article class="building-card-compact{% if isNeighborhoodBuildingCard %} building-card-compact--neighborhood{% endif %}">
 
   <div class="building-card-compact__media">
     <a
@@ -21,15 +25,15 @@
     <div class="building-card-compact__overlay">
       <h3 class="building-card-compact__title">
         <a href="{{ buildingPath }}">
-          {{ buildingTitle }}
+          {{ buildingDisplayTitle }}
         </a>
       </h3>
 
-      {% if building.type or building.size_label %}
+      {% if buildingMetaType or buildingMetaDetail %}
         <p class="building-card-compact__meta">
-          {% if building.type %}{{ building.type }}{% endif %}
-          {% if building.type and building.size_label %} • {% endif %}
-          {% if building.size_label %}{{ building.size_label }}{% endif %}
+          {% if buildingMetaType %}{{ buildingMetaType }}{% endif %}
+          {% if buildingMetaType and buildingMetaDetail %} · {% endif %}
+          {% if buildingMetaDetail %}{{ buildingMetaDetail }}{% endif %}
         </p>
       {% endif %}
 

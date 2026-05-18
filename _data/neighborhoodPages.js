@@ -94,13 +94,57 @@ function hasUsableAddress(address) {
   );
 }
 
+function shortBuildingLabel(value) {
+  return cleanBuildingName(value)
+    .replace(/,\s*(Buckhead|Midtown|Downtown Atlanta|Perimeter Center|West Midtown)$/i, "")
+    .replace(/\bNortheast\b/g, "NE")
+    .replace(/\bNorthwest\b/g, "NW")
+    .replace(/\bSoutheast\b/g, "SE")
+    .replace(/\bSouthwest\b/g, "SW")
+    .replace(/\bRoad\b/g, "Rd")
+    .replace(/\bStreet\b/g, "St")
+    .replace(/\bAvenue\b/g, "Ave")
+    .replace(/\bParkway\b/g, "Pkwy")
+    .replace(/\bCenter\b/g, "Ctr")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function editorialTypeLabel(value) {
+  const label = clean(value);
+  const readableLabel = /\bspace\b/i.test(label) ? label : typeLabel(label);
+
+  return readableLabel.replace(/\bSpace\b/g, "space");
+}
+
+function editorialBuildingDescriptor(building) {
+  const type = clean(building.type || building.primary_type_label).toLowerCase();
+  const sizeLabel = clean(building.size_label).toLowerCase();
+  const name = clean(`${building.name || ""} ${building.display_name || ""}`).toLowerCase();
+
+  if (type.includes("industrial")) return "Large-format space";
+  if (name.match(/\b(concourse|plaza|promenade|meridian|colony square|tower)\b/)) return "Office tower";
+  if (sizeLabel.includes("small")) return "Small suites";
+  if (sizeLabel.includes("mid")) return "Mid-size suites";
+  if (sizeLabel.includes("large") || sizeLabel.includes("range")) return "Larger floorplates";
+  if (type.includes("office")) return "Office building";
+  if (type.includes("retail")) return "Street-level context";
+  if (type.includes("flex")) return "Flexible layouts";
+
+  return "Commercial example";
+}
+
 function normalizeRepresentativeBuilding(building) {
   const address = cleanBuildingName(building.address);
   const name = cleanBuildingName(building.display_name || building.name);
+  const displayName = hasUsableAddress(address) ? address : name;
 
   return {
     ...building,
-    display_name: hasUsableAddress(address) ? address : name,
+    display_name: displayName,
+    short_display_name: shortBuildingLabel(displayName),
+    editorial_type_label: editorialTypeLabel(building.type || building.primary_type_label || "commercial"),
+    editorial_descriptor: editorialBuildingDescriptor(building),
   };
 }
 

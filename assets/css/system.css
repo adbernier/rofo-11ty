@@ -3096,6 +3096,63 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-page-review .neighborhood-building-grid {
   margin-top: 18px;
+  gap: 18px;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood {
+  height: auto;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__media {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__image {
+  aspect-ratio: 16 / 10;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__overlay {
+  position: static;
+  padding: 10px 2px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  gap: 4px;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__title {
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 760;
+  line-height: 1.22;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__meta {
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood .building-presented-by {
+  display: none;
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood:hover .building-card-compact__image {
+  transform: scale(1.012);
+}
+
+.neighborhood-building-grid .building-card-compact--neighborhood:hover .building-card-compact__title a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .neighborhood-page-review .neighborhood-context-fallback {

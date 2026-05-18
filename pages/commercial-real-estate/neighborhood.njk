@@ -167,6 +167,7 @@ eleventyComputed:
             <div class="building-grid neighborhood-building-grid">
               {% for b in neighborhood.representative_buildings %}
                 {% set building = b %}
+                {% set building_card_variant = "neighborhood" %}
                 {% include "partials/shared/building-card-compact.njk" %}
               {% endfor %}
             </div>
