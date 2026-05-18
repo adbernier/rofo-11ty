@@ -69,21 +69,21 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office and retail signals.",
-    headline: "Executive-facing north Atlanta office district with client access, polished retail support, and proximity to affluent residential areas.",
+    headline: "North Atlanta office district for executive access, client meetings, professional services, and high-service retail support.",
     modules: [
       {
         title: "Building character",
-        text: "Buckhead is built around larger office properties, hotel and restaurant support, and commercial settings that work for client meetings, professional services, and regional executives.",
+        text: "Buckhead is built around larger office properties, hotels, restaurants, and client-facing commercial settings near affluent northside residential areas.",
         confidence: "medium",
       },
       {
         title: "Common space types",
-        text: "Office and retail anchor the commercial pattern, with hospitality and service uses supporting the workday.",
+        text: "Office and retail anchor the pattern, with hospitality and service uses supporting meetings, workday errands, and executive routines.",
         confidence: "high",
       },
       {
         title: "Business fit",
-        text: "Companies choose Buckhead when they want a northside Atlanta address, executive accessibility, and a client-facing environment that reads more established than experimental.",
+        text: "Companies choose Buckhead when they want a northside Atlanta address, executive accessibility, and a business environment that reads established rather than experimental.",
         confidence: "high",
       },
       {
@@ -124,21 +124,21 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office, institutional, retail, and mixed-use signals.",
-    headline: "Transit-oriented mixed-use office district where business, university, arts, hotel, and apartment activity overlap.",
+    headline: "Central Atlanta office and mixed-use district where transit, universities, arts, hotels, apartments, and street-level activity overlap.",
     modules: [
       {
         title: "Building character",
-        text: "Midtown has a denser, more vertical pattern than Buckhead, with office towers, mixed-use blocks, institutional anchors, hotels, and walkable retail clustered near Peachtree and MARTA.",
+        text: "Midtown has a denser, more vertical pattern than Buckhead, with office towers, mixed-use blocks, institutional anchors, hotels, and walkable retail clustered around Peachtree and MARTA.",
         confidence: "high",
       },
       {
         title: "Common space types",
-        text: "Office, retail, hospitality, and mixed-use commercial settings shape the district.",
+        text: "Office, retail, hospitality, and mixed-use commercial settings sit close together, so the district can support work, visitors, employees, and after-hours activity.",
         confidence: "high",
       },
       {
         title: "Business fit",
-        text: "Companies choose Midtown for central visibility, transit access, talent proximity, and an environment where clients, employees, and after-work activity can stay in the same district.",
+        text: "Companies choose Midtown for central visibility, transit access, talent proximity, and a setting that feels more urban and mixed-use than Buckhead or Perimeter Center.",
         confidence: "high",
       },
       {
@@ -179,7 +179,7 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable office, civic, institutional, and hospitality signals.",
-    headline: "Institutional downtown core with office, government, legal, hotel, university, transit, and event-driven demand nearby.",
+    headline: "Atlanta's institutional downtown core, shaped by office, government, legal, university, hotel, transit, and event-driven demand.",
     modules: [
       {
         title: "Building character",
@@ -188,7 +188,7 @@ const intelligence = {
       },
       {
         title: "Common space types",
-        text: "Office, civic-adjacent services, hospitality, and street-level retail shape the commercial mix.",
+        text: "Office, civic-adjacent services, hospitality, universities, and street-level retail shape a commercial mix that is more institutional than lifestyle-oriented.",
         confidence: "high",
       },
       {
@@ -234,7 +234,7 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable suburban office, retail, and freeway access signals.",
-    headline: "Regional suburban office node where larger floorplates, freeway access, parking, and north metro commute patterns matter.",
+    headline: "Regional suburban office node for larger floorplates, parking, freeway access, and north metro commute patterns.",
     modules: [
       {
         title: "Building character",
@@ -243,12 +243,12 @@ const intelligence = {
       },
       {
         title: "Common space types",
-        text: "Office and retail dominate, with a stronger suburban access pattern than central Atlanta districts.",
+        text: "Office and retail dominate, with parking, direct freeway access, and campus-style buildings playing a larger role than street-level walkability.",
         confidence: "high",
       },
       {
         title: "Business fit",
-        text: "Companies choose Perimeter Center for regional reach, parking, larger office requirements, and access to north metro employees without moving into Midtown or Downtown.",
+        text: "Companies choose Perimeter Center for regional reach, larger office requirements, and access to north metro employees without moving into Midtown or Downtown.",
         confidence: "high",
       },
       {
@@ -289,7 +289,7 @@ const intelligence = {
     status: "prototype",
     confidence: "high",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable industrial, flex, showroom, retail, and office signals.",
-    headline: "Westside creative-commercial district with adaptive reuse, showroom, food, office, flex, and light industrial character.",
+    headline: "Westside creative-commercial district with adaptive reuse, showroom, restaurant, office, flex, and light industrial character.",
     modules: [
       {
         title: "Building character",
@@ -298,7 +298,7 @@ const intelligence = {
       },
       {
         title: "Common space types",
-        text: "Flex, showroom, office, retail, and industrial-adjacent space define the commercial texture.",
+        text: "Flex, showroom, office, retail, restaurant, and production-adjacent uses define the commercial texture.",
         confidence: "high",
       },
       {

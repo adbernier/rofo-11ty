@@ -28,6 +28,7 @@ eleventyComputed:
 {% set neighborhoodDisplayNameWithArticle = neighborhood.display_name_with_article or neighborhood.name %}
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
+{% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -148,7 +149,7 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        {% if approvedEditorialSignal %}
+        {% if approvedEditorialSignal and not isAtlantaEditorialPilot %}
           <section class="city-card neighborhood-approved-signal" aria-labelledby="neighborhood-approved-signal-heading">
             <div class="eyebrow">Commercial area context</div>
             <h2 id="neighborhood-approved-signal-heading">{{ approvedEditorialSignal.approved_public_label }}</h2>
@@ -256,7 +257,7 @@ eleventyComputed:
               See current spaces, asking rents, and nearby alternatives in {{ neighborhoodDisplayNameWithArticle }}.
             </span>
             <span class="neighborhood-briefing-card__button">Request availability report</span>
-            <span class="neighborhood-briefing-card__reassurance">No obligation. A local market resource will follow up with relevant options.</span>
+            <span class="neighborhood-briefing-card__reassurance">No obligation. We’ll help you compare relevant spaces and nearby alternatives.</span>
           </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
             <input type="hidden" name="source" value="rofo-neighborhood-page">

@@ -13,7 +13,7 @@
       {% if intelligence.modules and intelligence.modules.length %}
         <div class="neighborhood-intelligence__editorial-body">
           {% for module in intelligence.modules %}
-            {% if module.title == "Building character" or module.title == "Business fit" %}
+            {% if module.title == "Building character" or module.title == "Common space types" or module.title == "Business fit" %}
               <p>{{ module.text }}</p>
             {% endif %}
           {% endfor %}
