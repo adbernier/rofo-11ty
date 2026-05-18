@@ -48,7 +48,7 @@ eleventyComputed:
             {% endif %}
           </div>
           <div class="button-row">
-            <a class="btn-primary" href="#neighborhood-contact-form">Get help finding space</a>
+            <a class="btn-primary" href="#neighborhood-contact-form">Get current availability</a>
             <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
           </div>
         </div>
@@ -235,13 +235,16 @@ eleventyComputed:
           </div>
         {% endif %}
 
-        <div id="neighborhood-contact-form" class="city-form city-card neighborhood-lead-form">
-          <div class="eyebrow">Get help finding space</div>
-          <h2>Find space in {{ neighborhood.name }}</h2>
-          <p>
-            Tell us what you’re looking for. Rofo can help you compare {{ neighborhood.name }} with nearby areas and the broader {{ neighborhood.city }} market.
-          </p>
-
+        <details id="neighborhood-contact-form" class="city-form city-card neighborhood-lead-form neighborhood-briefing-card">
+          <summary>
+            <span class="eyebrow">Current availability</span>
+            <span class="neighborhood-briefing-card__headline">Get current availability in {{ neighborhood.name }}</span>
+            <span class="neighborhood-briefing-card__body">
+              See current spaces, asking rents, and nearby alternatives in {{ neighborhood.name }}.
+            </span>
+            <span class="neighborhood-briefing-card__button">Request availability briefing</span>
+            <span class="neighborhood-briefing-card__reassurance">No obligation. A local market resource will follow up with relevant options.</span>
+          </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
             <input type="hidden" name="source" value="rofo-neighborhood-page">
             <input type="hidden" name="lead_type" value="neighborhood">
@@ -266,27 +269,27 @@ eleventyComputed:
             <div class="form-stack">
               <div class="field">
                 <label for="neighborhood-lead-name">Name</label>
-                <input id="neighborhood-lead-name" name="name" type="text" placeholder="Your name" required>
+                <input id="neighborhood-lead-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
               </div>
             </div>
 
             <div class="form-stack">
               <div class="field">
                 <label for="neighborhood-lead-email">Email</label>
-                <input id="neighborhood-lead-email" name="email" type="email" placeholder="you@example.com" required>
+                <input id="neighborhood-lead-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
               </div>
             </div>
 
             <div class="form-stack">
               <div class="field">
                 <label for="neighborhood-lead-phone">Phone</label>
-                <input id="neighborhood-lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
+                <input id="neighborhood-lead-phone" name="phone" type="tel" placeholder="Best phone number" autocomplete="tel" required>
               </div>
             </div>
 
             <div class="form-stack">
               <div class="field">
-                <label for="neighborhood-lead-space-type">What type of space do you need?</label>
+                <label for="neighborhood-lead-space-type">Space type</label>
                 <select id="neighborhood-lead-space-type" name="space_type" required>
                   <option value="">Select one</option>
                   <option>Office Space</option>
@@ -301,7 +304,7 @@ eleventyComputed:
 
             <div class="form-stack">
               <div class="field">
-                <label for="neighborhood-lead-size">Space size</label>
+                <label for="neighborhood-lead-size">Approximate size</label>
                 <select id="neighborhood-lead-size" name="space_needed" required>
                   <option value="">Select one</option>
                   <option>Under 1,000 sqft</option>
@@ -314,12 +317,26 @@ eleventyComputed:
               </div>
             </div>
 
+            <div class="form-stack">
+              <div class="field">
+                <label for="neighborhood-lead-timing">Timing</label>
+                <select id="neighborhood-lead-timing" name="timing" required>
+                  <option value="">Select one</option>
+                  <option>As soon as possible</option>
+                  <option>1–3 months</option>
+                  <option>3–6 months</option>
+                  <option>6+ months</option>
+                  <option>Still researching</option>
+                </select>
+              </div>
+            </div>
+
             <div class="field">
-              <label for="neighborhood-lead-notes">Other requirements for your space <span class="optional">(optional)</span></label>
+              <label for="neighborhood-lead-notes">Briefing notes <span class="optional">(optional)</span></label>
               <textarea
                 id="neighborhood-lead-notes"
                 name="notes"
-                placeholder="Example: office near transit, flexible timing, compare nearby areas"
+                placeholder="Example: preferred blocks, budget range, transit needs, nearby areas to compare"
               ></textarea>
             </div>
 
@@ -328,13 +345,28 @@ eleventyComputed:
                 <input type="checkbox" name="human_check" required>
                 I’m a real person looking for space
               </label>
-              <button class="btn-primary" type="submit">Get help finding space in {{ neighborhood.name }}</button>
+              <button class="btn-primary" type="submit">Request availability briefing</button>
             </div>
 
-            <p class="form-note">✓ Compare nearby areas • ✓ Understand market context • ✓ Connect with trusted local help</p>
+            <p class="form-note">Current spaces, asking rents, recent context, and nearby alternatives for {{ neighborhood.name }}.</p>
           </form>
-        </div>
+        </details>
       </aside>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var details = document.getElementById("neighborhood-contact-form");
+    if (!details) return;
+
+    function openBriefingCard() {
+      if (window.location.hash !== "#neighborhood-contact-form") return;
+      details.open = true;
+    }
+
+    openBriefingCard();
+    window.addEventListener("hashchange", openBriefingCard);
+  })();
+</script>

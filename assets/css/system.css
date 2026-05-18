@@ -3489,6 +3489,101 @@ section.market-page--space-type .market-links a {
   width: 100%;
 }
 
+.neighborhood-briefing-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.neighborhood-briefing-card summary {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.neighborhood-briefing-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.neighborhood-briefing-card__headline {
+  color: #0f172a;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 16ch;
+}
+
+.neighborhood-briefing-card__body,
+.neighborhood-briefing-card__reassurance {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.neighborhood-briefing-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--rofo-blue);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.neighborhood-briefing-card__reassurance {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.neighborhood-briefing-card[open] summary {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.neighborhood-briefing-card[open] .neighborhood-briefing-card__button {
+  display: none;
+}
+
+.neighborhood-briefing-card form {
+  padding: 20px 22px 22px;
+}
+
+.neighborhood-lead-form .form-stack {
+  margin-bottom: 10px;
+}
+
+.neighborhood-lead-form .field label {
+  color: #334155;
+  font-size: 12px;
+}
+
+.neighborhood-lead-form .field input,
+.neighborhood-lead-form .field select,
+.neighborhood-lead-form .field textarea {
+  border-radius: 8px;
+}
+
+.neighborhood-lead-form .field textarea {
+  min-height: 96px;
+}
+
+.neighborhood-lead-form .btn-row {
+  gap: 10px;
+}
+
+.neighborhood-lead-form .btn-row label {
+  color: #475569;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
 @media (max-width: 1020px) {
   .neighborhood-map-card__figure svg {
     min-height: 300px;
@@ -3549,6 +3644,10 @@ section.market-page--space-type .market-links a {
     padding: 20px;
   }
 
+  .neighborhood-public .neighborhood-briefing-card {
+    padding: 0;
+  }
+
   .neighborhood-hero h1 {
     max-width: none;
   }
@@ -3557,8 +3656,15 @@ section.market-page--space-type .market-links a {
   .neighborhood-hero__actions .btn-primary,
   .neighborhood-hero__actions .btn-secondary,
   .neighborhood-sticky-card .btn-primary,
-  .neighborhood-prototype-form .btn-primary {
+  .neighborhood-prototype-form .btn-primary,
+  .neighborhood-briefing-card__button {
     width: 100%;
+  }
+
+  .neighborhood-briefing-card summary,
+  .neighborhood-briefing-card form {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .neighborhood-signal-grid,

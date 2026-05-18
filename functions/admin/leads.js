@@ -147,6 +147,7 @@ function renderLeadCard(row, token) {
         ${field("State", lead.state)}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
         ${field("Space needed", lead.space_needed)}
+        ${field("Timing", lead.move_timing)}
         ${field("Source", lead.source)}
         ${field("Page type", lead.page_type)}
         ${linkField("Page URL", lead.page_url || lead.rofo_source)}

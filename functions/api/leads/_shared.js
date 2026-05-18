@@ -125,6 +125,7 @@ export function buildLeadPayload(formFields, request) {
     routing_county: normalizeRouteValue(formFields.routing_county),
     routing_space_type: normalizeSpaceType(formFields.routing_space_type),
     space_needed: normalizeField(formFields.space_needed || formFields.size),
+    move_timing: normalizeField(formFields.timing || formFields.move_timing),
     requirements: normalizeField(formFields.requirements || formFields.message || formFields.notes),
     page_type: normalizeField(formFields.page_type),
     page_url: normalizeField(formFields.page_url),
@@ -509,6 +510,7 @@ export function buildOfficeFinderPayload(lead, env) {
     lead.requirements,
     neighborhoodContext,
     lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
+    lead.move_timing && `Timing: ${lead.move_timing}`,
     spaceType && `Requested/page space type: ${spaceType}`,
     lead.page_type && `Page type: ${lead.page_type}`,
     lead.source && `Source: ${lead.source}`,
@@ -1242,6 +1244,7 @@ function buildApprovalEmailHtml(record, urls, officeFinderMissing) {
                     ${buildEmailField("State", escapeHtml(lead.state))}
                     ${buildEmailField("Space type", escapeHtml(spaceType))}
                     ${buildEmailField("Space needed", escapeHtml(lead.space_needed))}
+                    ${lead.move_timing ? buildEmailField("Timing", escapeHtml(lead.move_timing)) : ""}
                     ${neighborhoodContext ? buildEmailField("Neighborhood / Area", escapeHtml(neighborhoodContext)) : ""}
                     ${buildEmailField("Page type", escapeHtml(lead.page_type))}
                     ${buildEmailField("Source", escapeHtml(lead.source))}
@@ -1312,6 +1315,7 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
     `State: ${lead.state || ""}`,
     `Space type: ${spaceType}`,
     `Space needed: ${lead.space_needed || ""}`,
+    lead.move_timing ? `Timing: ${lead.move_timing}` : "",
     neighborhoodContext ? `Neighborhood / Area: ${neighborhoodContext}` : "",
     `Page type: ${lead.page_type || ""}`,
     `Source: ${lead.source || ""}`,
@@ -1368,6 +1372,7 @@ export async function sendApprovalEmail(env, request, record, token) {
     neighborhoodContext ? `Neighborhood / Area: ${neighborhoodContext}` : "",
     `Space type: ${spaceType}`,
     `Space size: ${lead.space_needed || ""}`,
+    lead.move_timing ? `Timing: ${lead.move_timing}` : "",
     lead.spam_score ? `Spam score: ${lead.spam_score}` : "",
     "",
     "NOTES",
@@ -1406,6 +1411,7 @@ export async function sendApprovalEmail(env, request, record, token) {
                   ${neighborhoodContext ? buildEmailField("Neighborhood / Area", escapeHtml(neighborhoodContext)) : ""}
                   ${buildEmailField("Space type", escapeHtml(spaceType))}
                   ${buildEmailField("Space size", escapeHtml(lead.space_needed))}
+                  ${lead.move_timing ? buildEmailField("Timing", escapeHtml(lead.move_timing)) : ""}
                   ${lead.spam_score ? buildEmailField("Spam score", escapeHtml(lead.spam_score)) : ""}
                 </table>
                 <div style="margin:0 0 18px;padding:13px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
@@ -1469,6 +1475,7 @@ export async function sendBrokerLeadEmail(env, record) {
     `State: ${lead.state || ""}`,
     `Space type: ${lead.effective_space_type || lead.space_type || ""}`,
     `Space needed: ${lead.space_needed || ""}`,
+    `Timing: ${lead.move_timing || ""}`,
     `Requirements: ${lead.requirements || ""}`,
     `Page type: ${lead.page_type || ""}`,
     `Page URL: ${lead.page_url || ""}`,
