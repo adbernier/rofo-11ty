@@ -648,5 +648,24 @@
     "approximate_centroid": { "lat": 41.8938, "lng": -87.6466 },
     "commercial_profile": ["office", "creative_office", "mixed_use", "transit_oriented"],
     "notes": "Recognized district between River North and West Loop. Needs local source validation and adjacency review."
+  },
+  {
+    "id": "ba-downtown-palo-alto",
+    "canonical_name": "Downtown Palo Alto",
+    "city": "Palo Alto",
+    "state_abbr": "CA",
+    "area_type": "downtown_core",
+    "aliases": ["Downtown Palo Alto", "University Avenue", "Hamilton Avenue", "Lytton Avenue"],
+    "source_types": ["bay_area_raw_corpus", "editorial_review"],
+    "source_confidence": "medium",
+    "approximate_centroid": { "lat": 37.4458, "lng": -122.1614 },
+    "commercial_profile": ["office", "retail", "startup", "professional_services", "transit_oriented"],
+    "representative_building_paths": [
+      "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+      "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+      "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+      "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/"
+    ],
+    "notes": "Bay Area pilot district. Keep focused on University, Hamilton, Lytton, Caltrain-adjacent downtown office and retail context; do not fold in California Avenue, Stanford Research Park, or Town & Country as core representative examples."
   }
 ]

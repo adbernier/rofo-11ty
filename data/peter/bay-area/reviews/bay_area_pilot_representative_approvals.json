@@ -1,0 +1,146 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-18",
+  "status": "pilot_launch_preparation",
+  "review_note": "Approved representative buildings are presentation examples only. They should support the editorial identity but should not be treated as the intelligence source.",
+  "districts": [
+    {
+      "id": "ba-downtown-oakland",
+      "district": "Downtown Oakland",
+      "approval_status": "approved_for_pilot",
+      "approved_examples": [
+        {
+          "label": "1333 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+          "type": "Office Space",
+          "display_role": "Core Broadway office example",
+          "approval_note": "Strongly aligned with institutional downtown office identity."
+        },
+        {
+          "label": "505 14th St",
+          "path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+          "type": "Office Space",
+          "display_role": "Civic-adjacent downtown office example",
+          "approval_note": "Good fit for City Center/civic core orientation."
+        },
+        {
+          "label": "300 Frank H Ogawa Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+          "type": "Office Space",
+          "display_role": "City Center / civic core example",
+          "approval_note": "Best civic-core grounding example."
+        },
+        {
+          "label": "1440 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+          "type": "Office Space",
+          "display_role": "Broadway office corridor example",
+          "approval_note": "Useful for Broadway office fabric."
+        }
+      ],
+      "excluded_or_deferred_examples": [
+        {
+          "label": "2201 Broadway",
+          "reason": "Assignment conflict between raw extraction and current page data. Keep with Uptown context after cleanup."
+        }
+      ],
+      "remaining_gap": "Office-heavy set is acceptable for pilot, but later version should add one historic or street-level mixed-use downtown example if available."
+    },
+    {
+      "id": "ba-uptown-oakland",
+      "district": "Uptown Oakland",
+      "approval_status": "approved_for_pilot_with_boundary_note",
+      "approved_examples": [
+        {
+          "label": "1 Kaiser Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+          "type": "Office Space",
+          "display_role": "Lake Merritt / major office example",
+          "approval_note": "Supports Uptown's Lake Merritt and larger-office context."
+        },
+        {
+          "label": "2101 Webster St",
+          "path": "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
+          "type": "Office Space",
+          "display_role": "Uptown office building",
+          "approval_note": "Good Franklin/Webster fabric example."
+        },
+        {
+          "label": "1970 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1970-broadway/",
+          "type": "Office Space",
+          "display_role": "Broadway corridor example",
+          "approval_note": "Helps distinguish Uptown's Broadway axis."
+        },
+        {
+          "label": "415 20th St",
+          "path": "/commercial-real-estate/building/CA/oakland/415-20th-st/",
+          "type": "Office Space",
+          "display_role": "Smaller office example",
+          "approval_note": "Adds some scale variation within an office-heavy set."
+        }
+      ],
+      "excluded_or_deferred_examples": [
+        {
+          "label": "2201 Broadway",
+          "reason": "Useful but boundary-conflicted. Do not use until Downtown/Uptown assignment is resolved."
+        },
+        {
+          "label": "Lake Merritt Plaza",
+          "reason": "Strong raw candidate but no current public building path found."
+        }
+      ],
+      "remaining_gap": "Needs a stronger mixed-use, arts-adjacent, or street-level support example if a reliable building page becomes available."
+    },
+    {
+      "id": "ba-downtown-palo-alto",
+      "district": "Downtown Palo Alto",
+      "approval_status": "approved_for_pilot_entity_creation",
+      "approved_examples": [
+        {
+          "label": "530 Lytton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+          "type": "Office Space",
+          "display_role": "Downtown office example",
+          "approval_note": "Strong downtown/Lytton alignment."
+        },
+        {
+          "label": "228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+          "type": "Office Space",
+          "display_role": "Hamilton Avenue office example",
+          "approval_note": "Clear compact downtown professional-office example."
+        },
+        {
+          "label": "200-228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+          "type": "Retail Space",
+          "display_role": "Retail-supported downtown block",
+          "approval_note": "Adds street-level commercial texture."
+        },
+        {
+          "label": "400 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
+          "type": "Office Space",
+          "display_role": "Professional office example",
+          "approval_note": "Supports premium walkable professional-office context."
+        }
+      ],
+      "excluded_or_deferred_examples": [
+        {
+          "label": "Town & Country Village",
+          "reason": "Edge-of-downtown medium-confidence candidate. Better as context than a core example."
+        },
+        {
+          "label": "California Avenue examples",
+          "reason": "Should remain a nearby corridor comparison, not part of Downtown Palo Alto."
+        },
+        {
+          "label": "Stanford Research Park / campus examples",
+          "reason": "Would blur downtown with campus/R&D geography."
+        }
+      ],
+      "remaining_gap": "Candidate set is acceptable for pilot; image choice should carry more of the walkable downtown character."
+    }
+  ]
+}

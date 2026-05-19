@@ -1,0 +1,253 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-18",
+  "status": "candidate_review_only",
+  "review_note": "Representative buildings are presentation examples only. Selection is based on visible page availability plus alignment with raw-corpus district identity.",
+  "districts": [
+    {
+      "id": "ba-downtown-oakland",
+      "district": "Downtown Oakland",
+      "candidate_status": "usable_with_minor_diversity_gap",
+      "recommended_candidates": [
+        {
+          "label": "1333 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+          "type": "Office Space",
+          "role": "Core Broadway office example",
+          "raw_corpus_alignment": "High-confidence raw candidate with 106 listing rows near reviewed centroid.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "505 14th St",
+          "path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+          "type": "Office Space",
+          "role": "Civic-adjacent downtown office example",
+          "raw_corpus_alignment": "High-confidence raw candidate with 106 listing rows near reviewed centroid.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "300 Frank H Ogawa Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+          "type": "Office Space",
+          "role": "City Center / civic core example",
+          "raw_corpus_alignment": "Matches institutional downtown positioning.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "1440 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+          "type": "Office Space",
+          "role": "Broadway office corridor example",
+          "raw_corpus_alignment": "Existing page example aligned with office-core story.",
+          "review_status": "recommended"
+        }
+      ],
+      "weak_or_misleading_examples": [
+        {
+          "label": "2201 Broadway",
+          "reason": "Raw extractor assigns it to Downtown Oakland by explicit building name, but published page data treats it as Uptown Oakland. Keep out of Downtown Oakland representative set until boundary assignment is resolved."
+        }
+      ],
+      "diversity_notes": [
+        "The candidate set is office-heavy, which matches the district identity.",
+        "Add one historic or street-level mixed-use downtown example later if a strong page candidate exists."
+      ]
+    },
+    {
+      "id": "ba-uptown-oakland",
+      "district": "Uptown Oakland",
+      "candidate_status": "usable_boundary_review_required",
+      "recommended_candidates": [
+        {
+          "label": "1 Kaiser Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+          "type": "Office Space",
+          "role": "Lake Merritt / major office example",
+          "raw_corpus_alignment": "High-confidence raw Uptown candidate; supports larger office and Lake Merritt context.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "2101 Webster St",
+          "path": "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
+          "type": "Office Space",
+          "role": "Uptown office building",
+          "raw_corpus_alignment": "High-confidence raw candidate near Uptown centroid.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "1970 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1970-broadway/",
+          "type": "Office Space",
+          "role": "Broadway corridor example",
+          "raw_corpus_alignment": "Supports Broadway/Uptown office corridor positioning.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "415 20th St",
+          "path": "/commercial-real-estate/building/CA/oakland/415-20th-st/",
+          "type": "Office Space",
+          "role": "Smaller office example",
+          "raw_corpus_alignment": "Useful for reducing large-building monotony.",
+          "review_status": "recommended"
+        }
+      ],
+      "weak_or_misleading_examples": [
+        {
+          "label": "2201 Broadway",
+          "reason": "Useful Uptown example in published data, but raw corpus also flags it in Downtown Oakland because of legacy naming. Keep for Uptown only after assignment cleanup."
+        },
+        {
+          "label": "Lake Merritt Plaza",
+          "reason": "Strong raw signal, but no matching public building page was found in current buildingPages output."
+        }
+      ],
+      "diversity_notes": [
+        "Published examples are concentrated on Broadway/Franklin/Webster and all read as office.",
+        "The page needs one mixed-use or street-level context example if a reliable public building page becomes available."
+      ]
+    },
+    {
+      "id": "ba-downtown-palo-alto",
+      "district": "Downtown Palo Alto",
+      "candidate_status": "usable_entity_creation_required",
+      "recommended_candidates": [
+        {
+          "label": "530 Lytton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+          "type": "Office Space",
+          "role": "Downtown office example",
+          "raw_corpus_alignment": "High-confidence explicit Downtown Lytton raw candidate with 33 listing rows.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+          "type": "Office Space",
+          "role": "Hamilton Avenue office example",
+          "raw_corpus_alignment": "High-confidence explicit Hamilton Avenue raw candidate with 28 listing rows.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "200-228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+          "type": "Retail Space",
+          "role": "Retail-supported downtown block",
+          "raw_corpus_alignment": "Supports walkable downtown and retail-adjacent context.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "400 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
+          "type": "Office Space",
+          "role": "Professional office example",
+          "raw_corpus_alignment": "Supports downtown professional office positioning.",
+          "review_status": "recommended"
+        }
+      ],
+      "weak_or_misleading_examples": [
+        {
+          "label": "Town & Country Village",
+          "reason": "Strong raw listing count but medium-confidence assignment and edge-of-downtown geography. Use as nearby context, not a primary Downtown Palo Alto example."
+        },
+        {
+          "label": "California Avenue buildings",
+          "reason": "Useful nearby comparison context but should not be folded into Downtown Palo Alto."
+        }
+      ],
+      "diversity_notes": [
+        "Candidate mix includes office plus a retail-supported downtown block.",
+        "Avoid campus/R&D examples that would blur the district with Stanford Research Park or broader Palo Alto."
+      ]
+    },
+    {
+      "id": "ba-south-san-francisco-biotech-corridor",
+      "district": "South San Francisco Biotech Corridor",
+      "candidate_status": "thin_public_examples_raw_support_strong",
+      "recommended_candidates": [
+        {
+          "label": "90 S Spruce Ave",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/90-s-spruce-ave/",
+          "type": "Office Space",
+          "role": "Corridor office/flex example",
+          "raw_corpus_alignment": "High-confidence raw candidate with 32 listing rows, though public page labels it office.",
+          "review_status": "recommended_with_note"
+        },
+        {
+          "label": "11 Airport Blvd",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/11-airport-blvd/",
+          "type": "Office Space",
+          "role": "Airport/freeway access example",
+          "raw_corpus_alignment": "High-confidence corridor candidate; supports access pattern more than biotech identity.",
+          "review_status": "recommended_with_note"
+        },
+        {
+          "label": "100 Produce Ave",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/100-produce-ave/",
+          "type": "Office Space",
+          "role": "Industrial-adjacent commercial example",
+          "raw_corpus_alignment": "Potentially useful for corridor texture, but needs manual verification.",
+          "review_status": "review_before_use"
+        }
+      ],
+      "weak_or_misleading_examples": [
+        {
+          "label": "200 Linden Ave",
+          "reason": "Retail/downtown South San Francisco context; likely misleading for a biotech corridor page."
+        },
+        {
+          "label": "2228 Westborough Blvd",
+          "reason": "Likely too far from Oyster Point/Gateway/Lindenville biotech corridor identity."
+        }
+      ],
+      "diversity_notes": [
+        "Raw corpus strongly supports office plus industrial/flex context, but current public building pages do not strongly express lab/life-science identity.",
+        "Before launch, add or verify at least one Oyster Point/Gateway/lab/flex representative example if a canonical building page can be generated."
+      ]
+    },
+    {
+      "id": "ba-jack-london-square",
+      "district": "Jack London Square",
+      "candidate_status": "usable_but_needs_more_examples",
+      "recommended_candidates": [
+        {
+          "label": "66 Franklin St",
+          "path": "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+          "type": "Office Space",
+          "role": "Waterfront district office/retail example",
+          "raw_corpus_alignment": "High-confidence explicit Jack London Square candidate.",
+          "review_status": "recommended"
+        },
+        {
+          "label": "230 Madison St",
+          "path": "/commercial-real-estate/building/CA/oakland/230-madison-st/",
+          "type": "Industrial Space",
+          "role": "Industrial/service-commercial texture",
+          "raw_corpus_alignment": "Useful for non-office texture; verify precise fit before public launch.",
+          "review_status": "recommended_with_note"
+        },
+        {
+          "label": "105 2nd St",
+          "path": "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
+          "type": "Industrial Space",
+          "role": "Warehouse-adjacent example",
+          "raw_corpus_alignment": "Likely supports waterfront/warehouse context, but no current commercial_area assignment in buildingPages.",
+          "review_status": "review_before_use"
+        }
+      ],
+      "weak_or_misleading_examples": [
+        {
+          "label": "Embarcadero West / Linden examples",
+          "reason": "Raw candidates are medium-confidence and may drift west of the intended Jack London Square frame. Review before using."
+        },
+        {
+          "label": "Generic downtown office examples",
+          "reason": "Would make Jack London Square read like Downtown Oakland instead of waterfront/service-commercial geography."
+        }
+      ],
+      "diversity_notes": [
+        "Needs more visible examples before becoming fully polished.",
+        "Current recommended set at least separates office/waterfront from industrial/service-commercial texture."
+      ]
+    }
+  ]
+}

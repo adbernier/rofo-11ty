@@ -505,6 +505,153 @@ const intelligence = {
       },
     ],
   },
+  "/commercial-real-estate/CA/oakland/downtown-oakland/": {
+    status: "editorial",
+    confidence: "reviewed",
+    headline: "East Bay institutional business core with BART access, civic adjacency, and professional office depth.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Downtown Oakland is the East Bay's formal business core: civic institutions, BART access, professional office buildings, and older downtown blocks clustered around Broadway and City Center.",
+      },
+      {
+        title: "Common space types",
+        text: "The public story should emphasize office and professional-service context, with street-level retail as support rather than the main identity.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits organizations that want regional transit access, public-sector or nonprofit adjacency, and a practical East Bay alternative to San Francisco's Financial District.",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Uptown, Downtown Oakland reads more institutional and office-oriented. Compared with Jack London Square, it is less waterfront and more civic and transit focused.",
+      },
+    ],
+    fit_chips: [
+      "Legal and professional services",
+      "Nonprofits and civic-adjacent teams",
+      "Transit-oriented office users",
+      "East Bay regional headquarters",
+    ],
+    building_scale_patterns: [
+      "Downtown office buildings",
+      "Civic and institutional blocks",
+      "Broadway office corridor",
+      "Street-level retail support",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Uptown Oakland",
+        note: "More mixed-use and smaller-company oriented, with stronger Uptown arts and retail context.",
+      },
+      {
+        label: "Jack London Square",
+        note: "More waterfront and warehouse-adjacent, with service-commercial and adaptive texture.",
+      },
+      {
+        label: "San Francisco Financial District",
+        note: "More traditional regional CBD setting across the bay, usually with stronger client-facing downtown presence.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/uptown-oakland/": {
+    status: "editorial",
+    confidence: "reviewed",
+    headline: "Mixed-use Oakland office district for smaller-company, arts-adjacent, and transit-oriented teams.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Uptown Oakland is the more mixed-use counterpart to Downtown Oakland, with office buildings, arts venues, food, apartments, BART access, and Lake Merritt-adjacent commercial blocks sharing a tighter urban setting.",
+      },
+      {
+        title: "Common space types",
+        text: "Office remains the clearest commercial pattern, but the district should read through its mixed-use setting rather than as another formal downtown core.",
+      },
+      {
+        title: "Business fit",
+        text: "It works for teams that want East Bay access and professional office options without the formality of the civic downtown core.",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Downtown Oakland, Uptown feels less institutional and more mixed-use. Compared with Jack London Square, it is less waterfront and more Broadway, Franklin, Webster, and Lake Merritt oriented.",
+      },
+    ],
+    fit_chips: [
+      "Small and mid-sized office users",
+      "Creative and professional service teams",
+      "Nonprofit organizations",
+      "East Bay access with street-level context",
+    ],
+    building_scale_patterns: [
+      "Mid-rise office buildings",
+      "Broadway and Franklin office fabric",
+      "Lake Merritt-adjacent commercial blocks",
+      "Food, arts, and retail support",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Downtown Oakland",
+        note: "More formal, civic, and traditional office-core oriented.",
+      },
+      {
+        label: "Jack London Square",
+        note: "More waterfront and service-commercial, with warehouse-adjacent texture.",
+      },
+      {
+        label: "Temescal",
+        note: "More neighborhood retail and small-business oriented north of Uptown.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/": {
+    status: "editorial",
+    confidence: "reviewed",
+    headline: "Walkable Peninsula downtown for startup, professional service, and client-facing office users.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Downtown Palo Alto is a compact Peninsula business district where low-rise office buildings, restaurants, retail, Caltrain access, and startup/professional-service demand sit close together.",
+      },
+      {
+        title: "Common space types",
+        text: "Office and retail-supported commercial blocks shape the core pattern, with smaller professional buildings around Hamilton, Lytton, and University Avenue.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits teams that want a walkable client-facing address rather than a campus or highway-corridor office setting.",
+      },
+      {
+        title: "Access pattern",
+        text: "Compared with Mountain View, Downtown Palo Alto is more downtown-oriented and client-facing. Compared with Redwood City, it is smaller and more tightly tied to startup, venture, and professional-service routines.",
+      },
+    ],
+    fit_chips: [
+      "Startup and venture-adjacent teams",
+      "Professional service firms",
+      "Client-facing Peninsula offices",
+      "Walkability-focused office users",
+    ],
+    building_scale_patterns: [
+      "Low-rise downtown office buildings",
+      "Retail-supported commercial streets",
+      "Hamilton and Lytton office blocks",
+      "Caltrain-adjacent downtown fabric",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Mountain View / Castro-Whisman",
+        note: "More R&D and startup-corridor oriented, with broader Castro and Whisman context.",
+      },
+      {
+        label: "Redwood City Downtown",
+        note: "More civic and mid-Peninsula downtown oriented, with a larger entertainment and Caltrain-adjacent core.",
+      },
+      {
+        label: "California Avenue",
+        note: "More local and secondary commercial corridor compared with the University Avenue downtown core.",
+      },
+    ],
+  },
 };
 
 if (fs.existsSync(extractedSignalsPath)) {

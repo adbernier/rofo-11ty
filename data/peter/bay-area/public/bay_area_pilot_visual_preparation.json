@@ -1,0 +1,93 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-18",
+  "status": "pilot_launch_preparation",
+  "shared_requirements": {
+    "image_path_convention": "assets/images/neighborhoods/{STATE}/{city-slug}/{neighborhood-slug}.webp",
+    "image_dimensions": "1600x900",
+    "placement": "Below compact hero and above editorial content",
+    "map_purpose": "Orient users to the district and nearby alternatives; do not imply precise boundaries.",
+    "avoid": [
+      "dashboard overlays",
+      "source or confidence labels",
+      "generic skyline images",
+      "residential-only imagery",
+      "inventory-style building grids"
+    ]
+  },
+  "districts": [
+    {
+      "id": "ba-downtown-oakland",
+      "district": "Downtown Oakland",
+      "map_hero": {
+        "title": "Downtown Oakland",
+        "subtitle": "East Bay institutional business core with BART, civic, and professional office context.",
+        "orientation_label": "East Bay business core",
+        "primary_focus": "Broadway / City Center / civic core",
+        "nearby": ["Uptown Oakland", "Jack London Square", "Old Oakland", "Lake Merritt"],
+        "regional_context": ["San Francisco Financial District", "Bay Bridge"],
+        "access_labels": ["BART", "I-880", "Broadway"],
+        "qa_note": "Must not read as all of Oakland."
+      },
+      "image_requirement": {
+        "target_path": "assets/images/neighborhoods/CA/oakland/downtown-oakland.webp",
+        "alt_text": "Downtown Oakland commercial streetscape in Oakland, CA",
+        "desired_subject": "Broadway, City Center, or civic-core office streetscape with visible commercial buildings.",
+        "placeholder_status": "needed",
+        "avoid": ["lake-only scenery", "residential streets", "distant skyline"]
+      }
+    },
+    {
+      "id": "ba-uptown-oakland",
+      "district": "Uptown Oakland",
+      "map_hero": {
+        "title": "Uptown Oakland",
+        "subtitle": "Mixed-use Oakland office district with Broadway, Lake Merritt, arts, food, and BART context.",
+        "orientation_label": "North of downtown",
+        "primary_focus": "Broadway / Franklin / Webster / Lake Merritt edge",
+        "nearby": ["Downtown Oakland", "Lake Merritt", "Temescal", "Jack London Square"],
+        "regional_context": ["Berkeley"],
+        "access_labels": ["19th St BART", "Broadway", "I-980"],
+        "qa_note": "Must distinguish Uptown from Downtown Oakland."
+      },
+      "image_requirement": {
+        "target_path": "assets/images/neighborhoods/CA/oakland/uptown-oakland.webp",
+        "alt_text": "Uptown Oakland commercial streetscape in Oakland, CA",
+        "desired_subject": "Broadway or Uptown mixed-use commercial blocks with office, storefront, and street activity.",
+        "placeholder_status": "needed",
+        "avoid": ["pure nightlife imagery", "residential-only blocks", "Lake Merritt-only scenery"]
+      }
+    },
+    {
+      "id": "ba-downtown-palo-alto",
+      "district": "Downtown Palo Alto",
+      "map_hero": {
+        "title": "Downtown Palo Alto",
+        "subtitle": "Walkable Peninsula downtown with startup, professional office, retail, and Caltrain context.",
+        "orientation_label": "Peninsula downtown",
+        "primary_focus": "University Avenue / Hamilton Avenue / Lytton Avenue",
+        "nearby": ["Mountain View / Castro-Whisman", "Redwood City Downtown", "Menlo Park", "California Avenue"],
+        "regional_context": ["Caltrain corridor", "El Camino Real"],
+        "access_labels": ["Caltrain", "University Ave", "El Camino Real"],
+        "qa_note": "Do not fold Stanford Research Park or California Avenue into the core district."
+      },
+      "image_requirement": {
+        "target_path": "assets/images/neighborhoods/CA/palo-alto/downtown-palo-alto.webp",
+        "alt_text": "Downtown Palo Alto commercial streetscape in Palo Alto, CA",
+        "desired_subject": "University Avenue, Hamilton Avenue, or Lytton Avenue low-rise office and retail streetscape.",
+        "placeholder_status": "needed",
+        "avoid": ["Stanford campus imagery", "tech-campus imagery", "pure residential streets"]
+      }
+    }
+  ],
+  "deferred_visual_notes": [
+    {
+      "district": "South San Francisco Biotech Corridor",
+      "reason": "Needs image and representative examples that clearly show life science/flex campus or Oyster Point/Gateway corridor context."
+    },
+    {
+      "district": "Jack London Square",
+      "reason": "Needs image that shows waterfront commercial plus warehouse/service-commercial texture without becoming marina-only scenery."
+    }
+  ]
+}

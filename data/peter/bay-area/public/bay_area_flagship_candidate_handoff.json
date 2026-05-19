@@ -1,0 +1,428 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-18",
+  "status": "candidate_review_only",
+  "scope": "First Bay Area flagship editorial tranche. Not published.",
+  "principles": [
+    "Representative buildings are presentation examples only.",
+    "District intelligence comes from the broader raw corpus, assignment review, diversity review, spatial patterns, and editorial review.",
+    "Public copy should be restrained, spatial, comparison-oriented, and free of source/provenance/confidence language."
+  ],
+  "districts": [
+    {
+      "id": "ba-downtown-oakland",
+      "canonical_name": "Downtown Oakland",
+      "slug": "downtown-oakland",
+      "city": "Oakland",
+      "state_abbr": "CA",
+      "area_type": "downtown_core",
+      "recommended_status": "candidate_editorial_review",
+      "commercial_profile": ["office", "downtown", "transit_oriented", "professional_services", "civic_context"],
+      "raw_corpus_review": {
+        "raw_building_count": 804,
+        "listing_row_count": 1725,
+        "assignment_quality": "Strong high-confidence assignment set with limited medium-confidence drift.",
+        "diversity_note": "Large building/contact breadth, but original company/provenance coverage is thin and LMS dominates the listing layer. Keep source caveats internal."
+      },
+      "positioning": {
+        "headline": "East Bay institutional business core with BART access, civic adjacency, and professional office depth.",
+        "summary": "Downtown Oakland is the formal business core of the East Bay, centered on Broadway, City Center, civic institutions, BART access, and older downtown office buildings.",
+        "best_fit": [
+          "Legal, nonprofit, civic-adjacent, and professional service teams",
+          "Organizations that need regional transit access",
+          "Companies comparing East Bay value with San Francisco CBD presence"
+        ],
+        "built_form": [
+          "Downtown office buildings",
+          "Civic and institutional blocks",
+          "BART-oriented commercial core",
+          "Street-level retail support"
+        ],
+        "access_pattern": "BART-first downtown access with regional East Bay and San Francisco comparison value."
+      },
+      "editorial_interpretation_input": {
+        "heading": "How to read Downtown Oakland",
+        "opening_statement": "Downtown Oakland is the East Bay's formal business core: civic institutions, BART access, professional office buildings, and older downtown blocks clustered around Broadway and City Center.",
+        "paragraphs": [
+          "It fits organizations that want regional transit access, public-sector or nonprofit adjacency, and a more practical East Bay alternative to San Francisco's Financial District.",
+          "Compared with Uptown, Downtown Oakland reads more institutional and office-oriented. Compared with Jack London Square, it is less waterfront and more civic and transit focused."
+        ],
+        "avoid": ["generic downtown language", "live availability claims", "source/provenance language"]
+      },
+      "nearby_comparisons": [
+        {
+          "district": "Uptown Oakland",
+          "relationship_type": "adjacent",
+          "public_note": "More mixed-use and smaller-company oriented, with stronger Uptown arts and retail context."
+        },
+        {
+          "district": "Jack London Square",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More waterfront and warehouse-adjacent, with service-commercial and adaptive texture."
+        },
+        {
+          "district": "Old Oakland",
+          "relationship_type": "adjacent",
+          "public_note": "Smaller-scale historic blocks just west of the formal downtown core."
+        },
+        {
+          "district": "San Francisco Financial District",
+          "relationship_type": "same_tenant_search_pattern",
+          "public_note": "More traditional regional CBD setting across the bay, usually with stronger client-facing downtown presence."
+        }
+      ],
+      "representative_building_candidates": [
+        {
+          "label": "1333 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+          "role": "Downtown office building"
+        },
+        {
+          "label": "505 14th St",
+          "path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+          "role": "Civic-adjacent office building"
+        },
+        {
+          "label": "300 Frank H Ogawa Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+          "role": "City Center / civic core example"
+        },
+        {
+          "label": "1440 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+          "role": "Broadway office corridor example"
+        }
+      ]
+    },
+    {
+      "id": "ba-uptown-oakland",
+      "canonical_name": "Uptown Oakland",
+      "slug": "uptown-oakland",
+      "city": "Oakland",
+      "state_abbr": "CA",
+      "area_type": "district",
+      "recommended_status": "candidate_editorial_review_boundary_caution",
+      "commercial_profile": ["office", "mixed_use", "creative_office", "transit_oriented", "retail"],
+      "raw_corpus_review": {
+        "raw_building_count": 1093,
+        "listing_row_count": 1252,
+        "assignment_quality": "Strong support, but medium-confidence assignments exceed high-confidence assignments, so boundary review is required.",
+        "diversity_note": "Strong contact breadth and office signal; original provenance is thin and LMS dominates listing rows."
+      },
+      "positioning": {
+        "headline": "Mixed-use Oakland office district for smaller-company, arts-adjacent, and transit-oriented teams.",
+        "summary": "Uptown Oakland sits just north of the formal downtown core, with Broadway, Franklin, Webster, Lake Merritt, arts venues, food, and BART-accessible office buildings shaping a more mixed-use commercial environment.",
+        "best_fit": [
+          "Smaller and mid-sized office users",
+          "Creative, nonprofit, and professional teams seeking East Bay access",
+          "Companies that want more street-level context than a formal CBD"
+        ],
+        "built_form": [
+          "Mid-rise office buildings",
+          "Mixed-use commercial blocks",
+          "Arts and food-adjacent streets",
+          "Lake Merritt and Broadway office context"
+        ],
+        "access_pattern": "Transit-oriented East Bay access with a more mixed-use feel than Downtown Oakland."
+      },
+      "editorial_interpretation_input": {
+        "heading": "How to read Uptown Oakland",
+        "opening_statement": "Uptown Oakland is the more mixed-use counterpart to Downtown Oakland, with office buildings, arts venues, food, apartments, BART access, and Lake Merritt-adjacent commercial blocks sharing a tighter urban setting.",
+        "paragraphs": [
+          "It works for teams that want East Bay access and professional office options without the formality of the civic downtown core.",
+          "Compared with Downtown Oakland, Uptown feels less institutional and more mixed-use. Compared with Jack London Square, it is less waterfront and more Broadway/Lake Merritt oriented."
+        ],
+        "avoid": ["positioning it as a second Downtown Oakland", "overstating creative/adaptive reuse without representative examples"]
+      },
+      "nearby_comparisons": [
+        {
+          "district": "Downtown Oakland",
+          "relationship_type": "adjacent",
+          "public_note": "More formal, civic, and traditional office-core oriented."
+        },
+        {
+          "district": "Jack London Square",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More waterfront and service-commercial, with warehouse-adjacent texture."
+        },
+        {
+          "district": "Temescal",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More neighborhood retail and small-business oriented north of Uptown."
+        },
+        {
+          "district": "Berkeley",
+          "relationship_type": "same_tenant_search_pattern",
+          "public_note": "More university-adjacent and North East Bay oriented."
+        }
+      ],
+      "representative_building_candidates": [
+        {
+          "label": "1 Kaiser Plz",
+          "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+          "role": "Lake Merritt / major office example"
+        },
+        {
+          "label": "2101 Webster St",
+          "path": "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
+          "role": "Uptown office building"
+        },
+        {
+          "label": "1970 Broadway",
+          "path": "/commercial-real-estate/building/CA/oakland/1970-broadway/",
+          "role": "Broadway corridor example"
+        },
+        {
+          "label": "415 20th St",
+          "path": "/commercial-real-estate/building/CA/oakland/415-20th-st/",
+          "role": "Smaller office example"
+        }
+      ]
+    },
+    {
+      "id": "ba-downtown-palo-alto",
+      "canonical_name": "Downtown Palo Alto",
+      "slug": "downtown-palo-alto",
+      "city": "Palo Alto",
+      "state_abbr": "CA",
+      "area_type": "downtown_core",
+      "recommended_status": "candidate_entity_creation",
+      "commercial_profile": ["office", "retail", "startup", "professional_services", "transit_oriented"],
+      "raw_corpus_review": {
+        "raw_building_count": 135,
+        "listing_row_count": 373,
+        "assignment_quality": "Compact and mostly high-confidence. Town & Country and edge-of-downtown examples need manual review.",
+        "diversity_note": "Good contact breadth, but original company/provenance coverage is absent in this extract and LMS dominates listing rows."
+      },
+      "positioning": {
+        "headline": "Premium walkable Peninsula downtown for startup, professional service, and client-facing office users.",
+        "summary": "Downtown Palo Alto combines University Avenue, Hamilton/Lytton office blocks, retail, restaurants, Caltrain access, and older low-rise commercial fabric in a compact Peninsula setting.",
+        "best_fit": [
+          "Startup and venture-adjacent teams",
+          "Professional services that want a client-facing Peninsula address",
+          "Small and mid-sized teams prioritizing walkability and downtown presence"
+        ],
+        "built_form": [
+          "Low-rise downtown office buildings",
+          "Retail-supported commercial streets",
+          "Caltrain-adjacent blocks",
+          "Smaller professional suites"
+        ],
+        "access_pattern": "Walkable downtown and Caltrain access, with stronger client-facing context than nearby R&D corridors."
+      },
+      "editorial_interpretation_input": {
+        "heading": "How to read Downtown Palo Alto",
+        "opening_statement": "Downtown Palo Alto is a compact Peninsula business district where low-rise office buildings, restaurants, retail, Caltrain access, and startup/professional-service demand sit close together.",
+        "paragraphs": [
+          "It fits teams that want a walkable client-facing address rather than a campus or highway-corridor office setting.",
+          "Compared with Mountain View, Downtown Palo Alto is more premium and downtown-oriented. Compared with Redwood City, it is smaller and more tightly tied to startup, venture, and professional-service routines."
+        ],
+        "avoid": ["Silicon Valley hype language", "calling it premier without grounding", "blurring with Stanford Research Park or California Avenue"]
+      },
+      "nearby_comparisons": [
+        {
+          "district": "Mountain View / Castro-Whisman",
+          "relationship_type": "same_tenant_search_pattern",
+          "public_note": "More R&D and startup-corridor oriented, with broader Castro and Whisman context."
+        },
+        {
+          "district": "Redwood City Downtown",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More civic and mid-Peninsula downtown oriented, with a larger entertainment and Caltrain-adjacent core."
+        },
+        {
+          "district": "Menlo Park",
+          "relationship_type": "nearby_alternative",
+          "public_note": "Nearby affluent Peninsula alternative with smaller downtown and business-park context."
+        },
+        {
+          "district": "California Avenue",
+          "relationship_type": "adjacent",
+          "public_note": "More local and secondary commercial corridor compared with the University Avenue downtown core."
+        }
+      ],
+      "representative_building_candidates": [
+        {
+          "label": "530 Lytton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+          "role": "Downtown office example"
+        },
+        {
+          "label": "228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+          "role": "Hamilton Avenue office example"
+        },
+        {
+          "label": "200-228 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+          "role": "Retail-supported downtown block"
+        },
+        {
+          "label": "400 Hamilton Ave",
+          "path": "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
+          "role": "Professional office example"
+        }
+      ]
+    },
+    {
+      "id": "ba-south-san-francisco-biotech-corridor",
+      "canonical_name": "South San Francisco Biotech Corridor",
+      "slug": "south-san-francisco-biotech-corridor",
+      "city": "South San Francisco",
+      "state_abbr": "CA",
+      "area_type": "corridor",
+      "recommended_status": "candidate_entity_creation_representative_review",
+      "commercial_profile": ["office", "life_science", "industrial", "flex", "airport_access", "freeway_access"],
+      "raw_corpus_review": {
+        "raw_building_count": 1298,
+        "listing_row_count": 936,
+        "assignment_quality": "Strong raw support with high-confidence Oyster Point and Gateway examples, plus some medium-confidence corridor drift.",
+        "diversity_note": "The raw mix supports office plus industrial/flex context; original provenance remains thin and source concentration must stay internal."
+      },
+      "positioning": {
+        "headline": "Life science and flex-commercial corridor shaped by Oyster Point, Gateway, industrial support space, and 101/airport access.",
+        "summary": "The South San Francisco Biotech Corridor should read as ecosystem geography: lab, office, R&D, industrial support, and airport/freeway access concentrated around Oyster Point, Gateway, Lindenville, and nearby 101-adjacent blocks.",
+        "best_fit": [
+          "Life science and lab-adjacent users",
+          "R&D, flex, and technical office teams",
+          "Companies comparing Mission Bay with Peninsula lab/flex access"
+        ],
+        "built_form": [
+          "Life science and office campuses",
+          "Flex and industrial support buildings",
+          "Gateway and Oyster Point business parks",
+          "Airport and 101-oriented commercial blocks"
+        ],
+        "access_pattern": "Freeway and airport-oriented Peninsula access, with less urban street life than Mission Bay."
+      },
+      "editorial_interpretation_input": {
+        "heading": "How to read South San Francisco Biotech Corridor",
+        "opening_statement": "The South San Francisco Biotech Corridor is not a generic office market; it is a lab, R&D, flex, and industrial-support geography shaped by Oyster Point, Gateway, Lindenville, 101 access, and proximity to the airport.",
+        "paragraphs": [
+          "It fits companies that need technical space, campus or business-park settings, and operational access more than a traditional downtown office address.",
+          "Compared with Mission Bay, South San Francisco is more freeway and campus-oriented. Compared with Downtown Palo Alto or Redwood City, it is less client-facing and more tied to life science, flex, and industrial support patterns."
+        ],
+        "avoid": ["generic office inventory framing", "overstating lab availability from historical rows", "collapsing it into all of South San Francisco"]
+      },
+      "nearby_comparisons": [
+        {
+          "district": "Mission Bay",
+          "relationship_type": "same_tenant_search_pattern",
+          "public_note": "More urban and San Francisco-oriented life science setting."
+        },
+        {
+          "district": "Redwood City Downtown",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More downtown and professional-office oriented, with Caltrain and civic context."
+        },
+        {
+          "district": "Brisbane",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More industrial and logistics-adjacent, with north Peninsula access."
+        },
+        {
+          "district": "Downtown Palo Alto",
+          "relationship_type": "contrast",
+          "public_note": "More walkable and client-facing, with less lab/flex orientation."
+        }
+      ],
+      "representative_building_candidates": [
+        {
+          "label": "90 S Spruce Ave",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/90-s-spruce-ave/",
+          "role": "Corridor office/flex example"
+        },
+        {
+          "label": "11 Airport Blvd",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/11-airport-blvd/",
+          "role": "Airport/freeway access example"
+        },
+        {
+          "label": "100 Produce Ave",
+          "path": "/commercial-real-estate/building/CA/south-san-francisco/100-produce-ave/",
+          "role": "Industrial-adjacent commercial example"
+        }
+      ]
+    },
+    {
+      "id": "ba-jack-london-square",
+      "canonical_name": "Jack London Square",
+      "slug": "jack-london-square",
+      "city": "Oakland",
+      "state_abbr": "CA",
+      "area_type": "district",
+      "recommended_status": "candidate_editorial_review_representative_review",
+      "commercial_profile": ["office", "waterfront", "mixed_use", "industrial", "retail", "creative_office"],
+      "raw_corpus_review": {
+        "raw_building_count": 404,
+        "listing_row_count": 589,
+        "assignment_quality": "Strong raw support with waterfront-address examples; several medium-confidence west/port-adjacent examples need review.",
+        "diversity_note": "Raw mix is office-heavy but includes industrial and retail context. Published representative depth is still thin."
+      },
+      "positioning": {
+        "headline": "Waterfront Oakland commercial district with office, service-commercial, warehouse-adjacent, and adaptive texture.",
+        "summary": "Jack London Square should read as Oakland's waterfront commercial alternative: office and retail near the estuary, older warehouse and service-commercial blocks, ferry/rail/port adjacency, and a different physical feel from Downtown or Uptown.",
+        "best_fit": [
+          "Teams seeking waterfront identity near downtown Oakland",
+          "Creative, service-commercial, and operations-adjacent users",
+          "Companies comparing downtown office with adaptive or waterfront context"
+        ],
+        "built_form": [
+          "Waterfront office and retail",
+          "Warehouse-adjacent blocks",
+          "Service-commercial and industrial texture",
+          "Lower-rise commercial fabric"
+        ],
+        "access_pattern": "Downtown-adjacent waterfront access with ferry, rail, port, and I-880 context."
+      },
+      "editorial_interpretation_input": {
+        "heading": "How to read Jack London Square",
+        "opening_statement": "Jack London Square is Oakland's waterfront commercial district, where office and retail sit near warehouse-adjacent blocks, service-commercial streets, ferry access, rail lines, and the port edge.",
+        "paragraphs": [
+          "It fits users that want Oakland access with a less formal, more physical commercial setting than Downtown or Uptown.",
+          "Compared with Downtown Oakland, Jack London Square is more waterfront and service-commercial. Compared with Uptown, it is less arts-and-Broadway oriented and more tied to the estuary, warehouse texture, and operational access."
+        ],
+        "avoid": ["generic downtown framing", "hiding the industrial/service context", "using only office-tower examples"]
+      },
+      "nearby_comparisons": [
+        {
+          "district": "Downtown Oakland",
+          "relationship_type": "nearby_alternative",
+          "public_note": "More formal, civic, and BART-oriented office core."
+        },
+        {
+          "district": "Old Oakland",
+          "relationship_type": "adjacent",
+          "public_note": "More historic downtown-adjacent, with smaller blocks and retail context."
+        },
+        {
+          "district": "West Oakland",
+          "relationship_type": "more_industrial_flex_alternative",
+          "public_note": "More industrial and logistics-oriented west of downtown."
+        },
+        {
+          "district": "Alameda",
+          "relationship_type": "nearby_alternative",
+          "public_note": "Nearby island alternative with waterfront, office, flex, and adaptive reuse context."
+        }
+      ],
+      "representative_building_candidates": [
+        {
+          "label": "66 Franklin St",
+          "path": "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+          "role": "Waterfront district office/retail example"
+        },
+        {
+          "label": "230 Madison St",
+          "path": "/commercial-real-estate/building/CA/oakland/230-madison-st/",
+          "role": "Industrial/service-commercial texture"
+        },
+        {
+          "label": "105 2nd St",
+          "path": "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
+          "role": "Warehouse-adjacent example"
+        }
+      ]
+    }
+  ]
+}

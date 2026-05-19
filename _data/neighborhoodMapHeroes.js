@@ -28,6 +28,76 @@ function sfHero(slug, config) {
   ];
 }
 
+const bayAreaBase = {
+  city_label: "Bay Area",
+  basemap: "bay-area-pilot-v1",
+  map_region_label: "San Francisco Bay",
+  map_region_label_position: { x: 736, y: 260 },
+  water_paths: [
+    "M 664 0 C 620 92 628 188 680 276 C 742 382 724 516 664 720 H 920 V 0 Z"
+  ],
+  transit_or_freeway_labels: [
+    { label: "BART", x: 410, y: 326 },
+    { label: "101", x: 604, y: 510 },
+    { label: "880", x: 330, y: 420 }
+  ]
+};
+
+const bayAreaColors = {
+  green: "green",
+  blue: "blue",
+  purple: "purple",
+  yellow: "yellow"
+};
+
+function bayAreaHero(citySlug, slug, config) {
+  return [
+    `CA/${citySlug}/${slug}`,
+    {
+      ...bayAreaBase,
+      ...config,
+      map_alt:
+        config.map_alt ||
+        `Abstract orientation map highlighting ${config.title} in the Bay Area near surrounding commercial districts.`
+    }
+  ];
+}
+
+function bayAreaSimpleHero(citySlug, slug, config) {
+  const nearby = config.nearby || [];
+
+  return bayAreaHero(citySlug, slug, {
+    title: config.title,
+    subtitle: config.subtitle,
+    descriptor: config.descriptor,
+    orientation_label: config.orientation_label,
+    accessibility_label: config.accessibility_label || config.orientation_label,
+    accessibility_note:
+      config.accessibility_note ||
+      `Useful for comparing ${config.title} with nearby Bay Area commercial districts.`,
+    approximate_polygon: config.approximate_polygon,
+    label_position: config.label_position,
+    nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
+      label: item.label,
+      time: item.time || item.note || "nearby",
+      color: item.color || Object.values(bayAreaColors)[index % 4]
+    })),
+    nearby_districts: (config.nearby_districts || nearby).slice(0, 5).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      emphasis: index === 0
+    })),
+    anchor_points: (config.anchor_points || nearby).slice(0, 4).map((item, index) => ({
+      label: item.label,
+      x: item.x,
+      y: item.y,
+      color: item.color || Object.values(bayAreaColors)[index % 4]
+    })),
+    transit_or_freeway_labels: config.transit_or_freeway_labels || bayAreaBase.transit_or_freeway_labels
+  });
+}
+
 const nycBase = {
   city_label: "New York",
   basemap: "nyc-manhattan-brooklyn-v1",
@@ -801,6 +871,66 @@ const atlantaMapConfigs = [
   ["hartsfield-jackson-airport-area", { title: "Hartsfield-Jackson Airport Area", subtitle: "Airport-area commercial district with logistics, hospitality, service, and transportation context.", orientation_label: "Airport submarket", x: 530, y: 674, nearby: [{ label: "South Downtown", x: 482, y: 524 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Fulton Industrial", x: 188, y: 560 }, { label: "I-75/85", x: 470, y: 354 }] }],
   ["south-downtown", { title: "South Downtown", subtitle: "South of downtown district with civic, office-adjacent, retail, and mixed commercial context.", orientation_label: "South of downtown", x: 482, y: 524, nearby: [{ label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Inman Park", x: 648, y: 470 }, { label: "Fulton Industrial", x: 188, y: 560 }] }],
   ["inman-park", { title: "Inman Park", subtitle: "Eastside Atlanta neighborhood with retail, food, services, and mixed commercial context.", orientation_label: "Eastside Atlanta", x: 648, y: 470, nearby: [{ label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }] }]
+];
+
+const bayAreaPilotMapConfigs = [
+  ["oakland", "downtown-oakland", {
+    title: "Downtown Oakland",
+    subtitle: "East Bay institutional business core with BART, civic, and professional office context.",
+    descriptor: "Near Uptown Oakland, Old Oakland, Jack London Square, and Lake Merritt.",
+    orientation_label: "East Bay business core",
+    approximate_polygon: "338,300 430,292 470,366 430,438 328,426 292,352",
+    label_position: { x: 336, y: 366 },
+    nearby: [
+      { label: "Uptown Oakland", x: 388, y: 250 },
+      { label: "Jack London Square", x: 370, y: 500 },
+      { label: "Old Oakland", x: 282, y: 388 },
+      { label: "Lake Merritt", x: 508, y: 330 }
+    ],
+    transit_or_freeway_labels: [
+      { label: "BART", x: 398, y: 336 },
+      { label: "880", x: 314, y: 506 },
+      { label: "Bay Bridge", x: 190, y: 244 }
+    ]
+  }],
+  ["oakland", "uptown-oakland", {
+    title: "Uptown Oakland",
+    subtitle: "Mixed-use Oakland office district with Broadway, Lake Merritt, arts, food, and BART context.",
+    descriptor: "North of Downtown Oakland, near Lake Merritt and the Broadway office corridor.",
+    orientation_label: "North of downtown",
+    approximate_polygon: "338,210 456,212 500,288 460,364 334,352 286,274",
+    label_position: { x: 346, y: 286 },
+    nearby: [
+      { label: "Downtown Oakland", x: 382, y: 390 },
+      { label: "Lake Merritt", x: 520, y: 318 },
+      { label: "Temescal", x: 366, y: 128 },
+      { label: "Jack London Square", x: 370, y: 500 }
+    ],
+    transit_or_freeway_labels: [
+      { label: "19th St BART", x: 390, y: 286 },
+      { label: "Broadway", x: 438, y: 248 },
+      { label: "980", x: 276, y: 328 }
+    ]
+  }],
+  ["palo-alto", "downtown-palo-alto", {
+    title: "Downtown Palo Alto",
+    subtitle: "Walkable Peninsula downtown with startup, professional office, retail, and Caltrain context.",
+    descriptor: "Near Menlo Park, California Avenue, Mountain View, and Redwood City.",
+    orientation_label: "Peninsula downtown",
+    approximate_polygon: "520,460 620,438 674,502 626,578 516,574 468,508",
+    label_position: { x: 516, y: 520 },
+    nearby: [
+      { label: "Menlo Park", x: 510, y: 408 },
+      { label: "California Ave", x: 620, y: 612 },
+      { label: "Mountain View", x: 724, y: 604 },
+      { label: "Redwood City", x: 454, y: 360 }
+    ],
+    transit_or_freeway_labels: [
+      { label: "Caltrain", x: 584, y: 520 },
+      { label: "El Camino", x: 544, y: 590 },
+      { label: "101", x: 704, y: 470 }
+    ]
+  }]
 ];
 
 const sandiegoMapConfigs = [
@@ -2297,6 +2427,7 @@ module.exports = Object.fromEntries([
   ...bostonMapConfigs.map(([slug, config]) => bostonCompactHero(slug, config)),
   ...dcMapConfigs.map(([slug, config]) => dcCompactHero(slug, config)),
   ...atlantaMapConfigs.map(([slug, config]) => atlantaCompactHero(slug, config)),
+  ...bayAreaPilotMapConfigs.map(([citySlug, slug, config]) => bayAreaSimpleHero(citySlug, slug, config)),
   ...sandiegoMapConfigs.map(([slug, config]) => sandiegoCompactHero(slug, config)),
   ...nashvilleMapConfigs.map(([slug, config]) => nashvilleCompactHero(slug, config)),
   ...denverMapConfigs.map(([slug, config]) => denverCompactHero(slug, config))

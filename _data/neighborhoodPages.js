@@ -416,6 +416,8 @@ const curatedNearbyByKey = {
   "GA/atlanta/hartsfield-jackson-airport-area": ["south-downtown", "downtown-atlanta", "fulton-industrial"],
   "GA/atlanta/south-downtown": ["downtown-atlanta", "old-fourth-ward", "inman-park", "midtown", "west-midtown"],
   "GA/atlanta/inman-park": ["old-fourth-ward", "downtown-atlanta", "midtown", "south-downtown", "west-midtown"],
+  "CA/oakland/downtown-oakland": ["uptown-oakland", "jack-london-square", "old-oakland", "lake-merritt"],
+  "CA/oakland/uptown-oakland": ["downtown-oakland", "jack-london-square", "lake-merritt", "old-oakland"],
   "CA/san-diego/downtown-san-diego": ["east-village", "little-italy", "bankers-hill", "barrio-logan", "liberty-station"],
   "CA/san-diego/east-village": ["downtown-san-diego", "barrio-logan", "little-italy", "bankers-hill", "liberty-station"],
   "CA/san-diego/little-italy": ["bankers-hill", "downtown-san-diego", "east-village", "liberty-station", "barrio-logan"],
@@ -505,6 +507,34 @@ const nearbyComparisonNotesByKey = {
     "south-downtown": "Historic downtown-adjacent setting with smaller-scale blocks and repositioning potential.",
     buckhead: "More polished northside office and client-facing business context.",
   },
+  "CA/oakland/downtown-oakland": {
+    "uptown-oakland": "More mixed-use and smaller-company oriented, with stronger Uptown arts and retail context.",
+    "jack-london-square": "More waterfront and warehouse-adjacent, with service-commercial and adaptive texture.",
+    "old-oakland": "Smaller-scale historic blocks just west of the formal downtown core.",
+    "lake-merritt": "More Lake Merritt-adjacent, with less formal civic and office-core context.",
+  },
+  "CA/oakland/uptown-oakland": {
+    "downtown-oakland": "More formal, civic, and traditional office-core oriented.",
+    "jack-london-square": "More waterfront and service-commercial, with warehouse-adjacent texture.",
+    temescal: "More neighborhood retail and small-business oriented north of Uptown.",
+    "lake-merritt": "More lake-adjacent and residential mixed-use, with less Broadway office concentration.",
+    "old-oakland": "Smaller historic downtown-adjacent blocks with less Uptown arts and Broadway office context.",
+  },
+};
+
+const representativeBuildingPathOverridesByAreaId = {
+  "oak-downtown-oakland": [
+    "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+    "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+    "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+    "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+  ],
+  "oak-uptown": [
+    "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+    "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
+    "/commercial-real-estate/building/CA/oakland/1970-broadway/",
+    "/commercial-real-estate/building/CA/oakland/415-20th-st/",
+  ],
 };
 
 function distanceKm(a, b) {
@@ -620,7 +650,13 @@ function commercialPageFor(area) {
 
   const summary = areaSummaryById.get(area.id);
   const relationshipBuildings = representativeBuildingsFor(area.id);
-  const representative_buildings = relationshipBuildings.length
+  const overrideBuildings = representativeBuildingsFromPaths(
+    representativeBuildingPathOverridesByAreaId[area.id] || [],
+    area.id
+  );
+  const representative_buildings = overrideBuildings.length
+    ? overrideBuildings
+    : relationshipBuildings.length
     ? relationshipBuildings
     : representativeBuildingsFromPaths(area.representative_building_paths || [], area.id);
 
