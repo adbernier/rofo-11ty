@@ -2750,8 +2750,10 @@ section.market-page--space-type .market-links a {
   overflow: hidden;
   border: 1px solid #dbe4ef;
   border-radius: 18px;
-  background: #edf5fb;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+  background: linear-gradient(180deg, #f7faf8, #eef6f8);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.72),
+    inset 0 -36px 80px rgba(15, 23, 42, 0.035);
 }
 
 .neighborhood-map-card__figure svg {
@@ -2763,41 +2765,43 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-map-hero__map-title {
   fill: #1359d8;
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 23px;
+  font-weight: 760;
+  letter-spacing: 0.055em;
   text-anchor: middle;
 }
 
 .neighborhood-map-hero__district {
-  fill: #20324d;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  fill: #334155;
+  font-size: 14px;
+  font-weight: 680;
+  letter-spacing: 0.045em;
+  opacity: 0.82;
   text-anchor: middle;
   text-transform: uppercase;
 }
 
 .neighborhood-map-hero__district--emphasis {
-  fill: #30935a;
-  font-size: 24px;
-  font-weight: 800;
+  fill: #21734c;
+  font-size: 17px;
+  font-weight: 760;
+  opacity: 0.9;
 }
 
 .neighborhood-map-hero__route {
-  fill: #334155;
-  font-size: 13px;
-  font-weight: 800;
+  fill: #475569;
+  font-size: 11px;
+  font-weight: 760;
   text-anchor: middle;
 }
 
 .neighborhood-map-hero__water {
-  fill: #3d7fb8;
-  font-size: 16px;
+  fill: #4c86ad;
+  font-size: 13px;
   font-style: italic;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  opacity: 0.82;
+  font-weight: 680;
+  letter-spacing: 0.095em;
+  opacity: 0.72;
   text-transform: uppercase;
 }
 

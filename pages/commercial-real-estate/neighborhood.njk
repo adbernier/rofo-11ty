@@ -26,7 +26,7 @@ eleventyComputed:
 {% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
 {% set areaTermDisplay = areaTerm | capitalize %}
 {% set neighborhoodDisplayNameWithArticle = neighborhood.display_name_with_article or neighborhood.name %}
-{% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero %}
+{% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
 

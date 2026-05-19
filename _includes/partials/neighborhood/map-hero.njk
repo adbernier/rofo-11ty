@@ -18,11 +18,20 @@
           <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.72" />
         </pattern>
         <linearGradient id="map-water" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#e7f5ff" />
-          <stop offset="100%" stop-color="#cfe8f7" />
+          <stop offset="0%" stop-color="#edf8ff" />
+          <stop offset="100%" stop-color="#d6edf8" />
         </linearGradient>
+        <radialGradient id="map-influence" cx="50%" cy="50%" r="58%">
+          <stop offset="0%" stop-color="#2f6feb" stop-opacity="0.24" />
+          <stop offset="58%" stop-color="#2f6feb" stop-opacity="0.11" />
+          <stop offset="100%" stop-color="#2f6feb" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="map-focus" cx="50%" cy="50%" r="56%">
+          <stop offset="0%" stop-color="#1359d8" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#1359d8" stop-opacity="0.05" />
+        </radialGradient>
         <filter id="map-soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12" />
+          <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.1" />
         </filter>
         <filter id="map-neighborhood-glow" x="-12%" y="-12%" width="124%" height="124%">
           <feGaussianBlur stdDeviation="5" result="softGlow" />
@@ -30,35 +39,93 @@
         </filter>
       </defs>
 
-      <rect width="920" height="720" fill="#f8faf7" />
-      {% if hero.water_paths %}
+      <rect width="920" height="720" fill="#f9faf7" />
+      {% if hero.water_paths and hero.water_paths.length %}
         {% for waterPath in hero.water_paths %}
-          <path d="{{ waterPath }}" fill="url(#map-water)" />
+          <path d="{{ waterPath }}" fill="url(#map-water)" stroke="#bfddeb" stroke-width="1.5" stroke-opacity="0.52" />
         {% endfor %}
-      {% else %}
-        <path d="M 680 0 C 650 96 678 166 710 220 C 742 275 736 344 720 402 C 696 492 724 596 796 720 L 920 720 L 920 0 Z" fill="url(#map-water)" />
+      {% elif not hero.suppress_default_water %}
+        <path d="M 680 0 C 650 96 678 166 710 220 C 742 275 736 344 720 402 C 696 492 724 596 796 720 L 920 720 L 920 0 Z" fill="url(#map-water)" stroke="#bfddeb" stroke-width="1.5" stroke-opacity="0.52" />
       {% endif %}
-      <path d="M 0 0 H 720 V 720 H 0 Z" fill="url(#map-grid)" opacity="0.72" />
+      <path d="M 0 0 H 720 V 720 H 0 Z" fill="url(#map-grid)" opacity="{% if hero.map_system == 'v3' %}0.32{% else %}0.72{% endif %}" />
 
-      <g opacity="0.58">
-        <path d="M 0 180 C 142 204 205 246 288 286 C 386 334 498 296 578 248 C 640 210 694 206 742 226" fill="none" stroke="#d3d9e2" stroke-width="10" />
-        <path d="M 120 720 C 222 608 300 544 368 466 C 444 378 474 300 432 208 C 392 120 360 82 350 0" fill="none" stroke="#cfd6df" stroke-width="12" />
-        <path d="M 292 720 C 402 625 510 576 614 526 C 686 492 730 464 814 460" fill="none" stroke="#cfd6df" stroke-width="8" />
-        <path d="M 280 0 C 330 68 376 126 424 198 C 472 272 514 350 548 452 C 574 532 610 620 684 720" fill="none" stroke="#9fa8b4" stroke-width="4" stroke-dasharray="8 10" />
-      </g>
+      {% if hero.context_areas %}
+        <g opacity="0.58">
+          {% for area in hero.context_areas %}
+            <path d="{{ area.d }}" fill="{{ area.fill or '#d5ead4' }}" opacity="{{ area.opacity or '0.82' }}" />
+          {% endfor %}
+        </g>
+      {% endif %}
 
-      <g opacity="0.56">
-        <path d="M 456 350 L 508 322 L 560 340 L 566 406 L 508 428 L 448 406 Z" fill="#b9dfc0" />
-        <path d="M 332 418 L 402 394 L 438 460 L 370 500 Z" fill="#c8e6c9" />
-        <path d="M 596 74 L 626 52 L 652 82 L 624 104 Z" fill="#c7e3c5" />
-        <path d="M 658 522 L 722 496 L 766 570 L 690 608 Z" fill="#d5ead4" />
-      </g>
+      {% if hero.context_paths %}
+        <g>
+          {% for contextPath in hero.context_paths %}
+            <path
+              d="{{ contextPath.d }}"
+              fill="none"
+              stroke="{{ contextPath.stroke or '#cfd6df' }}"
+              stroke-width="{{ contextPath.width or 8 }}"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="{{ contextPath.opacity or '0.62' }}"
+              {% if contextPath.dasharray %}stroke-dasharray="{{ contextPath.dasharray }}"{% endif %}
+            />
+          {% endfor %}
+        </g>
+      {% elif not hero.suppress_generic_context %}
+        <g opacity="0.58">
+          <path d="M 0 180 C 142 204 205 246 288 286 C 386 334 498 296 578 248 C 640 210 694 206 742 226" fill="none" stroke="#d3d9e2" stroke-width="10" />
+          <path d="M 120 720 C 222 608 300 544 368 466 C 444 378 474 300 432 208 C 392 120 360 82 350 0" fill="none" stroke="#cfd6df" stroke-width="12" />
+          <path d="M 292 720 C 402 625 510 576 614 526 C 686 492 730 464 814 460" fill="none" stroke="#cfd6df" stroke-width="8" />
+          <path d="M 280 0 C 330 68 376 126 424 198 C 472 272 514 350 548 452 C 574 532 610 620 684 720" fill="none" stroke="#9fa8b4" stroke-width="4" stroke-dasharray="8 10" />
+        </g>
 
-      <g filter="url(#map-soft-shadow)">
-        <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#2f6feb" stroke-width="14" opacity="0.18" filter="url(#map-neighborhood-glow)" />
-        <polygon points="{{ hero.approximate_polygon }}" fill="#cfe3ff" fill-opacity="0.82" stroke="#1359d8" stroke-width="3.5" />
-        <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.86" />
-      </g>
+        <g opacity="0.56">
+          <path d="M 456 350 L 508 322 L 560 340 L 566 406 L 508 428 L 448 406 Z" fill="#b9dfc0" />
+          <path d="M 332 418 L 402 394 L 438 460 L 370 500 Z" fill="#c8e6c9" />
+          <path d="M 596 74 L 626 52 L 652 82 L 624 104 Z" fill="#c7e3c5" />
+          <path d="M 658 522 L 722 496 L 766 570 L 690 608 Z" fill="#d5ead4" />
+        </g>
+      {% endif %}
+
+      {% if (hero.map_system == "v2" or hero.map_system == "v3") and hero.center_point %}
+        <g{% if hero.map_system != "v3" %} filter="url(#map-soft-shadow)"{% endif %}>
+          <circle
+            cx="{{ hero.center_point.x }}"
+            cy="{{ hero.center_point.y }}"
+            r="{{ hero.influence_radius or 72 }}"
+            fill="{% if hero.map_system == 'v3' %}url(#map-influence){% else %}#cfe3ff{% endif %}"
+            fill-opacity="{% if hero.map_system == 'v3' %}1{% else %}0.34{% endif %}"
+            stroke="#2f6feb"
+            stroke-width="{% if hero.map_system == 'v3' %}1.4{% else %}2.5{% endif %}"
+            stroke-opacity="{% if hero.map_system == 'v3' %}0.16{% else %}0.34{% endif %}"
+          />
+          <circle
+            cx="{{ hero.center_point.x }}"
+            cy="{{ hero.center_point.y }}"
+            r="{{ hero.focus_radius or 24 }}"
+            fill="{% if hero.map_system == 'v3' %}url(#map-focus){% else %}#2f6feb{% endif %}"
+            fill-opacity="{% if hero.map_system == 'v3' %}1{% else %}0.14{% endif %}"
+            stroke="#1359d8"
+            stroke-width="{% if hero.map_system == 'v3' %}1.2{% else %}2{% endif %}"
+            stroke-opacity="{% if hero.map_system == 'v3' %}0.22{% else %}0.5{% endif %}"
+          />
+          <circle
+            cx="{{ hero.center_point.x }}"
+            cy="{{ hero.center_point.y }}"
+            r="{% if hero.map_system == 'v3' %}5.5{% else %}8{% endif %}"
+            fill="#1359d8"
+            stroke="#ffffff"
+            stroke-width="{% if hero.map_system == 'v3' %}2.5{% else %}3{% endif %}"
+          />
+        </g>
+      {% else %}
+        <g filter="url(#map-soft-shadow)">
+          <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#2f6feb" stroke-width="14" opacity="0.18" filter="url(#map-neighborhood-glow)" />
+          <polygon points="{{ hero.approximate_polygon }}" fill="#cfe3ff" fill-opacity="0.82" stroke="#1359d8" stroke-width="3.5" />
+          <polygon points="{{ hero.approximate_polygon }}" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.86" />
+        </g>
+      {% endif %}
 
       <text x="{{ hero.label_position.x }}" y="{{ hero.label_position.y }}" class="neighborhood-map-hero__map-title">{{ hero.title | upper }}</text>
 
@@ -67,12 +134,12 @@
       {% endfor %}
 
       {% for marker in hero.anchor_points %}
-        <circle cx="{{ marker.x }}" cy="{{ marker.y }}" r="8" class="neighborhood-map-hero__marker neighborhood-map-hero__marker--{{ marker.color }}" />
+        <circle cx="{{ marker.x }}" cy="{{ marker.y }}" r="{% if hero.map_system == 'v3' %}5{% else %}8{% endif %}" class="neighborhood-map-hero__marker neighborhood-map-hero__marker--{{ marker.color }}" />
       {% endfor %}
 
       {% for label in hero.transit_or_freeway_labels %}
         <g>
-          <circle cx="{{ label.x }}" cy="{{ label.y }}" r="18" fill="#fff" stroke="#94a3b8" stroke-width="2" />
+          <circle cx="{{ label.x }}" cy="{{ label.y }}" r="{% if hero.map_system == 'v3' %}15{% else %}18{% endif %}" fill="#fff" stroke="#94a3b8" stroke-width="{% if hero.map_system == 'v3' %}1.4{% else %}2{% endif %}" opacity="{% if hero.map_system == 'v3' %}0.9{% else %}1{% endif %}" />
           <text x="{{ label.x }}" y="{{ label.y + 5 }}" class="neighborhood-map-hero__route">{{ label.label }}</text>
         </g>
       {% endfor %}

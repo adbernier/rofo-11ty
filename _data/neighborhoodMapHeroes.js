@@ -1,6 +1,20 @@
 const sfBase = {
   city_label: "San Francisco",
-  basemap: "sf-east-central-v1",
+  basemap: "sf-peninsula-shoreline-v3",
+  suppress_generic_context: true,
+  water_paths: [
+    "M 646 0 C 686 78 674 154 704 236 C 730 306 720 372 704 442 C 688 516 704 594 674 654 C 656 690 646 712 644 720 H 920 V 0 Z",
+    "M 0 0 H 104 C 82 68 74 146 86 226 C 98 302 128 350 120 420 C 110 506 94 602 58 720 H 0 Z"
+  ],
+  context_areas: [
+    { d: "M 214 352 C 260 330 316 342 338 386 C 362 434 324 492 268 484 C 216 476 182 384 214 352", fill: "#d6ead4", opacity: "0.72" }
+  ],
+  context_paths: [
+    { d: "M 466 0 C 468 92 476 180 496 284 C 514 380 516 498 504 720", stroke: "#b8c2ce", width: 7, opacity: "0.48" },
+    { d: "M 344 0 C 350 94 372 190 414 286 C 456 380 456 524 424 720", stroke: "#c7d0da", width: 5, opacity: "0.44" },
+    { d: "M 590 0 C 616 86 616 174 634 262 C 654 358 638 520 596 720", stroke: "#9aa6b5", width: 3, opacity: "0.54", dasharray: "7 10" },
+    { d: "M 218 190 C 306 166 432 160 596 184", stroke: "#d5dbe4", width: 5, opacity: "0.44" }
+  ],
   transit_or_freeway_labels: [
     { label: "101", x: 420, y: 202 },
     { label: "280", x: 316, y: 664 }
@@ -15,11 +29,27 @@ const sfColors = {
   yellow: "yellow"
 };
 
+function v3Defaults(config, radius = 68) {
+  if (!config || config.suppress_map_hero) return {};
+  if (config.map_system) return {};
+
+  const center = config.center_point || config.label_position || (Number.isFinite(config.x) && Number.isFinite(config.y) ? { x: config.x, y: config.y } : null);
+  if (!center) return {};
+
+  return {
+    map_system: "v3",
+    center_point: center,
+    influence_radius: config.influence_radius || radius,
+    focus_radius: config.focus_radius || 22
+  };
+}
+
 function sfHero(slug, config) {
   return [
     `CA/san-francisco/${slug}`,
     {
       ...sfBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -30,11 +60,11 @@ function sfHero(slug, config) {
 
 const bayAreaBase = {
   city_label: "Bay Area",
-  basemap: "bay-area-pilot-v1",
+  basemap: "bay-area-pilot-v3",
   map_region_label: "San Francisco Bay",
   map_region_label_position: { x: 736, y: 260 },
   water_paths: [
-    "M 664 0 C 620 92 628 188 680 276 C 742 382 724 516 664 720 H 920 V 0 Z"
+    "M 664 0 C 626 82 628 158 658 238 C 698 342 736 414 710 520 C 692 596 672 664 662 720 H 920 V 0 Z"
   ],
   transit_or_freeway_labels: [
     { label: "BART", x: 410, y: 326 },
@@ -55,6 +85,7 @@ function bayAreaHero(citySlug, slug, config) {
     `CA/${citySlug}/${slug}`,
     {
       ...bayAreaBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -75,8 +106,20 @@ function bayAreaSimpleHero(citySlug, slug, config) {
     accessibility_note:
       config.accessibility_note ||
       `Useful for comparing ${config.title} with nearby Bay Area commercial districts.`,
+    ...(config.map_system ? { map_system: config.map_system } : {}),
+    ...(config.center_point ? { center_point: config.center_point } : {}),
+    ...(config.influence_radius ? { influence_radius: config.influence_radius } : {}),
+    ...(config.focus_radius ? { focus_radius: config.focus_radius } : {}),
     approximate_polygon: config.approximate_polygon,
     label_position: config.label_position,
+    ...(config.suppress_generic_context !== undefined ? { suppress_generic_context: config.suppress_generic_context } : {}),
+    ...(config.water_paths ? { water_paths: config.water_paths } : {}),
+    ...(config.context_areas ? { context_areas: config.context_areas } : {}),
+    ...(config.context_paths ? { context_paths: config.context_paths } : {}),
+    ...(config.map_region_label ? { map_region_label: config.map_region_label } : {}),
+    ...(config.map_region_label_position ? { map_region_label_position: config.map_region_label_position } : {}),
+    ...(config.secondary_map_region_label ? { secondary_map_region_label: config.secondary_map_region_label } : {}),
+    ...(config.secondary_map_region_label_position ? { secondary_map_region_label_position: config.secondary_map_region_label_position } : {}),
     nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
       label: item.label,
       time: item.time || item.note || "nearby",
@@ -100,14 +143,26 @@ function bayAreaSimpleHero(citySlug, slug, config) {
 
 const nycBase = {
   city_label: "New York",
-  basemap: "nyc-manhattan-brooklyn-v1",
+  basemap: "nyc-manhattan-brooklyn-v3",
+  suppress_generic_context: true,
   map_region_label: "East River",
   map_region_label_position: { x: 612, y: 220 },
   secondary_map_region_label: "Hudson River",
   secondary_map_region_label_position: { x: 92, y: 260 },
   water_paths: [
-    "M 0 0 H 168 C 132 104 122 210 138 320 C 154 430 130 560 86 720 H 0 Z",
-    "M 548 0 C 520 120 526 214 562 300 C 606 406 612 526 556 720 H 920 V 0 Z"
+    "M 0 0 H 150 C 124 88 120 190 136 296 C 148 378 168 438 152 512 C 136 590 108 658 84 720 H 0 Z",
+    "M 502 0 C 486 100 496 202 526 300 C 558 402 584 492 566 590 C 558 636 552 678 548 720 H 626 C 652 628 668 536 646 436 C 626 346 590 262 588 166 C 586 98 596 40 612 0 Z"
+  ],
+  context_areas: [
+    { d: "M 340 0 L 418 0 L 442 138 L 408 256 L 344 240 L 316 112 Z", fill: "#d6ead4", opacity: "0.86" }
+  ],
+  context_paths: [
+    { d: "M 270 0 C 292 138 318 286 342 430 C 360 546 372 642 380 720", stroke: "#b8c2ce", width: 7, opacity: "0.46" },
+    { d: "M 440 0 C 430 128 430 250 452 370 C 474 490 462 612 430 720", stroke: "#c7d0da", width: 5, opacity: "0.44" },
+    { d: "M 312 0 C 332 122 354 266 378 414 C 398 536 408 636 414 720", stroke: "#9aa6b5", width: 3, opacity: "0.54", dasharray: "7 10" },
+    { d: "M 604 420 C 660 462 710 520 754 628", stroke: "#c7d0da", width: 6, opacity: "0.42" },
+    { d: "M 420 570 C 500 536 592 524 678 548", stroke: "#b8c2ce", width: 4, opacity: "0.42" },
+    { d: "M 456 500 C 540 478 628 454 734 434", stroke: "#b8c2ce", width: 3, opacity: "0.36" }
   ],
   transit_or_freeway_labels: [
     { label: "FDR", x: 560, y: 218 },
@@ -127,6 +182,7 @@ function nycHero(slug, config) {
     `NY/new-york/${slug}`,
     {
       ...nycBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -147,8 +203,20 @@ function nycSimpleHero(slug, config) {
     accessibility_note:
       config.accessibility_note ||
       `Useful for comparing ${config.title} with nearby New York commercial districts.`,
+    ...(config.map_system ? { map_system: config.map_system } : {}),
+    ...(config.center_point ? { center_point: config.center_point } : {}),
+    ...(config.influence_radius ? { influence_radius: config.influence_radius } : {}),
+    ...(config.focus_radius ? { focus_radius: config.focus_radius } : {}),
     approximate_polygon: config.approximate_polygon,
     label_position: config.label_position,
+    ...(config.suppress_generic_context !== undefined ? { suppress_generic_context: config.suppress_generic_context } : {}),
+    ...(config.water_paths ? { water_paths: config.water_paths } : {}),
+    ...(config.context_areas ? { context_areas: config.context_areas } : {}),
+    ...(config.context_paths ? { context_paths: config.context_paths } : {}),
+    ...(config.map_region_label ? { map_region_label: config.map_region_label } : {}),
+    ...(config.map_region_label_position ? { map_region_label_position: config.map_region_label_position } : {}),
+    ...(config.secondary_map_region_label ? { secondary_map_region_label: config.secondary_map_region_label } : {}),
+    ...(config.secondary_map_region_label_position ? { secondary_map_region_label_position: config.secondary_map_region_label_position } : {}),
     nearby_landmarks: nearby.slice(0, 4).map((item, index) => ({
       label: item.label,
       time: item.time || item.note || "nearby",
@@ -196,6 +264,7 @@ function chicagoHero(slug, config) {
     `IL/chicago/${slug}`,
     {
       ...chicagoBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -241,6 +310,7 @@ function chicagoSimpleHero(slug, config) {
 const laBase = {
   city_label: "Los Angeles",
   basemap: "los-angeles-v1",
+  suppress_default_water: true,
   map_region_label: "Westside",
   map_region_label_position: { x: 168, y: 360 },
   secondary_map_region_label: "Downtown",
@@ -265,6 +335,7 @@ function laHero(slug, config) {
     `CA/los-angeles/${slug}`,
     {
       ...laBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -329,8 +400,20 @@ function compactCityHero(cityHero, colors, slug, config) {
     orientation_label: config.orientation_label,
     accessibility_label: config.orientation_label,
     accessibility_note: `Useful for comparing ${config.title} with nearby commercial areas.`,
+    ...(config.map_system ? { map_system: config.map_system } : {}),
+    ...(config.center_point ? { center_point: config.center_point } : {}),
+    ...(config.influence_radius ? { influence_radius: config.influence_radius } : {}),
+    ...(config.focus_radius ? { focus_radius: config.focus_radius } : {}),
     approximate_polygon: boxPolygon(config.x, config.y, config.width, config.height),
     label_position: { x: config.x, y: config.y + 6 },
+    ...(config.suppress_generic_context !== undefined ? { suppress_generic_context: config.suppress_generic_context } : {}),
+    ...(config.water_paths ? { water_paths: config.water_paths } : {}),
+    ...(config.context_areas ? { context_areas: config.context_areas } : {}),
+    ...(config.context_paths ? { context_paths: config.context_paths } : {}),
+    ...(config.map_region_label ? { map_region_label: config.map_region_label } : {}),
+    ...(config.map_region_label_position ? { map_region_label_position: config.map_region_label_position } : {}),
+    ...(config.secondary_map_region_label ? { secondary_map_region_label: config.secondary_map_region_label } : {}),
+    ...(config.secondary_map_region_label_position ? { secondary_map_region_label_position: config.secondary_map_region_label_position } : {}),
     nearby_landmarks: nearby.slice(0, 4).map((item) => ({
       label: item.label,
       time: "nearby",
@@ -385,6 +468,7 @@ function miamiHero(slug, config) {
     `FL/miami/${slug}`,
     {
       ...miamiBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -427,6 +511,7 @@ function dallasHero(slug, config) {
     `TX/dallas/${slug}`,
     {
       ...dallasBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -470,6 +555,7 @@ function seattleHero(slug, config) {
     `WA/seattle/${slug}`,
     {
       ...seattleBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -512,6 +598,7 @@ function bostonHero(slug, config) {
     `MA/boston/${slug}`,
     {
       ...bostonBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -554,6 +641,7 @@ function dcHero(slug, config) {
     `DC/washington/${slug}`,
     {
       ...dcBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -568,11 +656,21 @@ function dcCompactHero(slug, config) {
 
 const atlantaBase = {
   city_label: "Atlanta",
-  basemap: "atlanta-core-v1",
+  basemap: "atlanta-freeway-corridors-v3",
+  suppress_generic_context: true,
+  suppress_default_water: true,
   map_region_label: "Downtown connector",
   map_region_label_position: { x: 470, y: 382 },
   secondary_map_region_label: "Northside markets",
   secondary_map_region_label_position: { x: 532, y: 104 },
+  context_paths: [
+    { d: "M 458 720 C 452 604 456 492 470 378 C 486 252 506 124 530 0", stroke: "#b8c2ce", width: 8, opacity: "0.46" },
+    { d: "M 392 720 C 410 584 432 480 468 374 C 506 262 562 140 650 0", stroke: "#c7d0da", width: 5, opacity: "0.42" },
+    { d: "M 0 536 C 150 520 298 514 460 532 C 604 548 752 540 920 514", stroke: "#d5dbe4", width: 5, opacity: "0.36" },
+    { d: "M 190 116 C 346 92 510 76 702 88 C 790 94 862 112 920 138", stroke: "#d5dbe4", width: 6, opacity: "0.4" },
+    { d: "M 514 0 C 520 118 528 222 536 330", stroke: "#9aa6b5", width: 3, opacity: "0.54", dasharray: "7 10" },
+    { d: "M 442 560 C 452 470 466 380 488 288 C 504 220 514 154 520 84", stroke: "#9aa6b5", width: 3, opacity: "0.46", dasharray: "7 10" }
+  ],
   transit_or_freeway_labels: [
     { label: "75/85", x: 470, y: 354 },
     { label: "20", x: 460, y: 532 },
@@ -593,6 +691,7 @@ function atlantaHero(slug, config) {
     `GA/atlanta/${slug}`,
     {
       ...atlantaBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -636,6 +735,7 @@ function sandiegoHero(slug, config) {
     `CA/san-diego/${slug}`,
     {
       ...sandiegoBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -678,6 +778,7 @@ function nashvilleHero(slug, config) {
     `TN/nashville/${slug}`,
     {
       ...nashvilleBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -693,6 +794,7 @@ function nashvilleCompactHero(slug, config) {
 const denverBase = {
   city_label: "Denver",
   basemap: "denver-core-v1",
+  suppress_default_water: true,
   map_region_label: "Downtown grid",
   map_region_label_position: { x: 430, y: 310 },
   secondary_map_region_label: "DTC corridor",
@@ -717,6 +819,7 @@ function denverHero(slug, config) {
     `CO/denver/${slug}`,
     {
       ...denverBase,
+      ...v3Defaults(config),
       ...config,
       map_alt:
         config.map_alt ||
@@ -860,7 +963,7 @@ const dcMapConfigs = [
 ];
 
 const atlantaMapConfigs = [
-  ["buckhead", { title: "Buckhead", subtitle: "North Atlanta business district with office, retail, hospitality, and mixed commercial context.", orientation_label: "North Atlanta", x: 520, y: 142, nearby: [{ label: "Midtown", x: 476, y: 316 }, { label: "Perimeter Center", x: 660, y: 86 }, { label: "West Midtown", x: 344, y: 336 }, { label: "GA 400", x: 520, y: 164 }] }],
+  ["buckhead", { title: "Buckhead", subtitle: "North Atlanta business district with office, retail, hospitality, and mixed commercial context.", orientation_label: "North Atlanta freeway-commercial node", map_system: "v3", center_point: { x: 520, y: 142 }, influence_radius: 82, focus_radius: 24, x: 520, y: 142, width: 150, height: 110, nearby: [{ label: "Midtown", x: 476, y: 316 }, { label: "Perimeter Center", x: 660, y: 86 }, { label: "West Midtown", x: 344, y: 336 }, { label: "GA 400", x: 520, y: 164 }] }],
   ["midtown", { title: "Midtown", subtitle: "Central Atlanta district with office, institutional, retail, hospitality, and mixed-use context.", orientation_label: "Central Atlanta", x: 476, y: 316, nearby: [{ label: "Downtown Atlanta", x: 486, y: 454 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "West Midtown", x: 344, y: 336 }, { label: "Buckhead", x: 520, y: 142 }] }],
   ["downtown-atlanta", { title: "Downtown Atlanta", subtitle: "Central Atlanta business district with office, civic, hospitality, and institutional context.", orientation_label: "Downtown core", x: 486, y: 454, nearby: [{ label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }, { label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Inman Park", x: 648, y: 470 }] }],
   ["perimeter-center", { title: "Perimeter Center", subtitle: "North Atlanta office and retail submarket near the perimeter and GA 400.", orientation_label: "North perimeter market", x: 660, y: 86, nearby: [{ label: "Buckhead", x: 520, y: 142 }, { label: "Cumberland", x: 238, y: 122 }, { label: "Midtown", x: 476, y: 316 }, { label: "285", x: 650, y: 92 }] }],
@@ -873,13 +976,60 @@ const atlantaMapConfigs = [
   ["inman-park", { title: "Inman Park", subtitle: "Eastside Atlanta neighborhood with retail, food, services, and mixed commercial context.", orientation_label: "Eastside Atlanta", x: 648, y: 470, nearby: [{ label: "Old Fourth Ward", x: 596, y: 382 }, { label: "Downtown Atlanta", x: 486, y: 454 }, { label: "South Downtown", x: 482, y: 524 }, { label: "Midtown", x: 476, y: 316 }] }]
 ];
 
+const oaklandMapContext = {
+  suppress_generic_context: true,
+  water_paths: [
+    "M 0 0 H 220 C 190 78 168 164 174 252 C 180 338 174 414 136 494 C 104 560 82 628 68 720 H 0 Z"
+  ],
+  map_region_label: "San Francisco Bay",
+  map_region_label_position: { x: 96, y: 292 },
+  secondary_map_region_label: "Lake Merritt",
+  secondary_map_region_label_position: { x: 592, y: 318 },
+  context_areas: [
+    { d: "M 540 278 C 584 244 646 266 664 316 C 684 370 638 422 584 410 C 526 398 494 316 540 278", fill: "#cfe8f7", opacity: "0.9" },
+    { d: "M 238 356 C 272 330 318 334 346 366 C 370 394 356 440 318 452 C 276 466 226 424 238 356", fill: "#d6ead4", opacity: "0.6" }
+  ],
+  context_paths: [
+    { d: "M 330 0 C 346 116 360 224 372 340 C 386 474 392 596 398 720", stroke: "#9aa6b5", width: 3, opacity: "0.56", dasharray: "7 10" },
+    { d: "M 292 0 C 294 116 306 232 330 350 C 354 468 368 584 370 720", stroke: "#b8c2ce", width: 6, opacity: "0.46" },
+    { d: "M 204 0 C 214 128 224 258 236 382 C 248 500 270 612 304 720", stroke: "#c7d0da", width: 7, opacity: "0.4" },
+    { d: "M 126 540 C 218 520 310 504 418 496 C 500 490 588 476 686 450", stroke: "#c7d0da", width: 5, opacity: "0.38" },
+    { d: "M 258 388 C 336 374 430 364 542 342", stroke: "#b8c2ce", width: 4, opacity: "0.4" }
+  ]
+};
+
+const paloAltoMapContext = {
+  suppress_generic_context: true,
+  water_paths: [
+    "M 690 0 C 654 102 650 214 692 332 C 724 424 744 516 712 604 C 694 652 682 690 678 720 H 920 V 0 Z"
+  ],
+  map_region_label: "San Francisco Bay",
+  map_region_label_position: { x: 748, y: 204 },
+  secondary_map_region_label: "Peninsula",
+  secondary_map_region_label_position: { x: 426, y: 384 },
+  context_areas: [
+    { d: "M 470 390 C 520 370 572 392 586 440 C 602 492 558 542 506 532 C 456 522 430 420 470 390", fill: "#d6ead4", opacity: "0.55" }
+  ],
+  context_paths: [
+    { d: "M 246 0 C 306 120 366 232 430 338 C 506 466 598 592 704 720", stroke: "#c7d0da", width: 6, opacity: "0.42" },
+    { d: "M 322 0 C 376 116 430 230 492 340 C 566 472 648 598 748 720", stroke: "#b8c2ce", width: 5, opacity: "0.42" },
+    { d: "M 362 0 C 416 114 476 238 536 352 C 604 482 686 608 784 720", stroke: "#9aa6b5", width: 3, opacity: "0.54", dasharray: "7 10" },
+    { d: "M 440 0 C 492 120 540 226 592 326 C 646 430 696 536 742 654", stroke: "#d5dbe4", width: 5, opacity: "0.34" }
+  ]
+};
+
 const bayAreaPilotMapConfigs = [
   ["oakland", "downtown-oakland", {
+    ...oaklandMapContext,
+    map_system: "v3",
+    center_point: { x: 382, y: 374 },
+    influence_radius: 74,
+    focus_radius: 24,
     title: "Downtown Oakland",
     subtitle: "East Bay institutional business core with BART, civic, and professional office context.",
     descriptor: "Near Uptown Oakland, Old Oakland, Jack London Square, and Lake Merritt.",
     orientation_label: "East Bay business core",
-    approximate_polygon: "338,300 430,292 470,366 430,438 328,426 292,352",
+    approximate_polygon: "326,314 432,300 480,374 436,444 320,430 280,360",
     label_position: { x: 336, y: 366 },
     nearby: [
       { label: "Uptown Oakland", x: 388, y: 250 },
@@ -894,11 +1044,16 @@ const bayAreaPilotMapConfigs = [
     ]
   }],
   ["oakland", "uptown-oakland", {
+    ...oaklandMapContext,
+    map_system: "v3",
+    center_point: { x: 390, y: 292 },
+    influence_radius: 72,
+    focus_radius: 24,
     title: "Uptown Oakland",
     subtitle: "Mixed-use Oakland office district with Broadway, Lake Merritt, arts, food, and BART context.",
     descriptor: "North of Downtown Oakland, near Lake Merritt and the Broadway office corridor.",
     orientation_label: "North of downtown",
-    approximate_polygon: "338,210 456,212 500,288 460,364 334,352 286,274",
+    approximate_polygon: "330,218 456,218 506,292 462,366 334,354 286,278",
     label_position: { x: 346, y: 286 },
     nearby: [
       { label: "Downtown Oakland", x: 382, y: 390 },
@@ -912,12 +1067,41 @@ const bayAreaPilotMapConfigs = [
       { label: "980", x: 276, y: 328 }
     ]
   }],
+  ["oakland", "jack-london-square", {
+    ...oaklandMapContext,
+    map_system: "v3",
+    center_point: { x: 362, y: 548 },
+    influence_radius: 76,
+    focus_radius: 24,
+    title: "Jack London Square",
+    subtitle: "Oakland waterfront district with warehouse-adjacent, service-commercial, office, food, and visitor context.",
+    descriptor: "South of Downtown Oakland along the waterfront, near Old Oakland and the Broadway corridor.",
+    orientation_label: "Oakland waterfront",
+    approximate_polygon: "276,490 430,468 500,520 466,598 298,620 218,552",
+    label_position: { x: 352, y: 548 },
+    nearby: [
+      { label: "Downtown Oakland", x: 382, y: 374 },
+      { label: "Old Oakland", x: 282, y: 420 },
+      { label: "Uptown Oakland", x: 388, y: 250 },
+      { label: "Emeryville", x: 260, y: 112 }
+    ],
+    transit_or_freeway_labels: [
+      { label: "880", x: 306, y: 538 },
+      { label: "Amtrak", x: 432, y: 548 },
+      { label: "BART", x: 388, y: 368 }
+    ]
+  }],
   ["palo-alto", "downtown-palo-alto", {
+    ...paloAltoMapContext,
+    map_system: "v3",
+    center_point: { x: 550, y: 482 },
+    influence_radius: 70,
+    focus_radius: 23,
     title: "Downtown Palo Alto",
     subtitle: "Walkable Peninsula downtown with startup, professional office, retail, and Caltrain context.",
     descriptor: "Near Menlo Park, California Avenue, Mountain View, and Redwood City.",
     orientation_label: "Peninsula downtown",
-    approximate_polygon: "520,460 620,438 674,502 626,578 516,574 468,508",
+    approximate_polygon: "486,414 586,394 648,462 616,536 500,546 442,482",
     label_position: { x: 516, y: 520 },
     nearby: [
       { label: "Menlo Park", x: 510, y: 408 },
@@ -1331,6 +1515,10 @@ module.exports = Object.fromEntries([
     orientation_label: "Lower Manhattan",
     accessibility_label: "Downtown core",
     accessibility_note: "Useful for comparing Lower Manhattan with nearby Brooklyn and west side districts.",
+    map_system: "v3",
+    center_point: { x: 404, y: 590 },
+    influence_radius: 72,
+    focus_radius: 24,
     approximate_polygon: "352,520 444,500 486,584 452,664 354,646 316,574",
     label_position: { x: 404, y: 586 },
     nearby_landmarks: [
@@ -1631,6 +1819,10 @@ module.exports = Object.fromEntries([
     orientation_label: "Brooklyn waterfront",
     accessibility_label: "Brooklyn waterfront district",
     accessibility_note: "Useful for comparing Brooklyn waterfront and Downtown Brooklyn commercial areas.",
+    map_system: "v3",
+    center_point: { x: 660, y: 550 },
+    influence_radius: 68,
+    focus_radius: 22,
     approximate_polygon: "604,500 704,486 746,540 714,600 612,606 566,548",
     label_position: { x: 660, y: 550 },
     nearby_landmarks: [
