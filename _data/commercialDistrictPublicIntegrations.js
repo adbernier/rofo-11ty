@@ -1,4 +1,30 @@
 const integrationsByPath = {
+  "/commercial-real-estate/CA/san-francisco/financial-district/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Explore nearby commercial districts",
+    intro:
+      "Use these nearby districts to compare the Financial District's formal downtown business setting with other San Francisco and East Bay commercial districts.",
+    districts: [
+      {
+        name: "SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/soma/",
+        note:
+          "A broader mixed-use commercial district with more creative, technology, and larger-block office context south of Market Street.",
+      },
+      {
+        name: "Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        note:
+          "Smaller-scale and more boutique, with historic commercial buildings close to the downtown core.",
+      },
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        note:
+          "An East Bay business district with civic adjacency, BART access, and a practical cross-bay office setting.",
+      },
+    ],
+  },
   "/commercial-real-estate/CA/oakland/downtown-oakland/": {
     eyebrow: "Nearby commercial districts",
     heading: "Explore nearby commercial districts",
@@ -47,6 +73,32 @@ const integrationsByPath = {
         name: "Temescal",
         note:
           "More neighborhood retail and small-business oriented north of Uptown, with less formal office concentration.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/jack-london-square/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Explore nearby commercial districts",
+    intro:
+      "Compare Jack London Square with nearby Oakland districts that offer different balances of waterfront context, civic office concentration, and mixed-use street life.",
+    districts: [
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        note:
+          "More civic, institutional, and transit-focused, with stronger Broadway and City Center office context.",
+      },
+      {
+        name: "Uptown Oakland",
+        url: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        note:
+          "More mixed-use and arts-adjacent, with BART access, food, apartments, and Lake Merritt-adjacent office blocks.",
+      },
+      {
+        name: "Old Oakland",
+        url: "/commercial-real-estate/CA/oakland/old-oakland/",
+        note:
+          "Smaller-scale and historic, with downtown-adjacent commercial blocks just north of the waterfront district.",
       },
     ],
   },

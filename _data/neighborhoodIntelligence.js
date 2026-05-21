@@ -11,30 +11,26 @@ const extractedSignalsPath = path.join(
 
 const intelligence = {
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
-    status: "prototype",
-    confidence: "high",
+    status: "editorial",
+    confidence: "reviewed",
     source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable historical signals.",
-    headline: "Downtown office core with strong client access and professional service context.",
+    headline: "Traditional San Francisco business district for client-facing office, professional services, downtown transit, and formal commercial presence.",
     modules: [
       {
         title: "Building character",
-        text: "Primarily office towers and established downtown buildings, with smaller professional buildings toward nearby Jackson Square.",
-        confidence: "high",
+        text: "The Financial District is San Francisco's formal downtown office core, with established office towers, historic commercial buildings, transit-served blocks, and smaller professional buildings toward Jackson Square.",
       },
       {
         title: "Common space types",
-        text: "Office, retail, and coworking are the clearest signals in Rofo's current data.",
-        confidence: "high",
+        text: "Office is the clearest commercial pattern, supported by street-level retail, coworking, hospitality, and services that support daily business routines.",
       },
       {
         title: "Business fit",
-        text: "Useful for teams that need downtown credibility, client access, and a professional office setting.",
-        confidence: "high",
+        text: "It fits teams that need a downtown business address, client access, transit reach, and a professional setting that reads more formal than mixed-use districts south of Market Street.",
       },
       {
         title: "Access pattern",
-        text: "Strong transit orientation and easy access to the broader downtown San Francisco market.",
-        confidence: "high",
+        text: "The district is oriented around downtown transit, walkable client access, and cross-bay business relationships rather than campus or corridor-style office geography.",
       },
     ],
     fit_chips: [
@@ -62,6 +58,57 @@ const intelligence = {
       {
         label: "SoMa",
         note: "Compare for a broader mix of office, creative, and larger floorplate options.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/jack-london-square/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed district graph signals, existing Oakland district relationships, representative examples, and waterfront commercial geography review.",
+    headline: "Oakland waterfront commercial district with service-commercial, adaptive, warehouse-adjacent, and visitor-facing texture.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Jack London Square sits between Oakland's downtown core and the waterfront, with lower-scale commercial buildings, warehouse-adjacent blocks, service uses, food, and visitor-facing activity shaping the district texture.",
+      },
+      {
+        title: "Common space types",
+        text: "Office and service-commercial uses are the safest public read today, with industrial and adaptive signals treated as supporting texture rather than a live inventory claim.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits teams that want Oakland access with a less formal business setting, waterfront orientation, and a stronger adaptive-commercial feel than the civic downtown core.",
+      },
+      {
+        title: "Access pattern",
+        text: "The district is best understood through its waterfront, rail, freeway, and downtown-adjacent relationships, rather than as another central office core.",
+      },
+    ],
+    fit_chips: [
+      "Waterfront commercial context",
+      "Adaptive office texture",
+      "Service-commercial users",
+      "Food and visitor support",
+      "Downtown-adjacent access",
+    ],
+    building_scale_patterns: [
+      "Lower-scale commercial buildings",
+      "Warehouse-adjacent texture",
+      "Waterfront commercial blocks",
+      "Service and visitor-facing uses",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Downtown Oakland",
+        note: "More civic, institutional, and transit-focused, with stronger Broadway office concentration.",
+      },
+      {
+        label: "Uptown Oakland",
+        note: "More mixed-use, arts-adjacent, and Lake Merritt oriented.",
+      },
+      {
+        label: "Old Oakland",
+        note: "Smaller-scale historic commercial blocks just north of the waterfront district.",
       },
     ],
   },
