@@ -1,4 +1,5 @@
 {% set intelligence = neighborhood.neighborhood_intelligence %}
+{% set hasDedicatedCommercialDistricts = neighborhood.public_commercial_districts and neighborhood.public_commercial_districts.districts and neighborhood.public_commercial_districts.districts.length %}
 {% if intelligence %}
   {% set isEditorial = (neighborhood.approved_editorial_signal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA") or intelligence.status == "editorial" %}
   {% if isEditorial %}
@@ -29,7 +30,7 @@
         </div>
       {% endif %}
 
-      {% if intelligence.nearby_alternatives and intelligence.nearby_alternatives.length %}
+      {% if intelligence.nearby_alternatives and intelligence.nearby_alternatives.length and not hasDedicatedCommercialDistricts %}
         <div class="neighborhood-intelligence__nearby">
           <h3>Nearby comparisons</h3>
           <ul>
@@ -117,7 +118,7 @@
           </div>
         {% endif %}
 
-        {% if intelligence.nearby_alternatives and intelligence.nearby_alternatives.length %}
+        {% if intelligence.nearby_alternatives and intelligence.nearby_alternatives.length and not hasDedicatedCommercialDistricts %}
           <div class="neighborhood-intelligence__block">
             <h3>Nearby alternatives</h3>
             <ul>
