@@ -1,0 +1,37 @@
+{
+  "node_id": "city:126",
+  "name": "Santa Rosa",
+  "type": "city",
+  "city": "Santa Rosa",
+  "state_abbr": "CA",
+  "canonical_path": "/commercial-real-estate/CA/santa-rosa/",
+  "identity_status": "draft_internal",
+  "commercial_identity_summary": "Santa Rosa is represented in Geography Graph V1 as a suburban commercial node with multiple reviewed nearby relationships. Current support is city-level, so the identity should guide comparison planning rather than final public prose.",
+  "environment_type": "suburban commercial node",
+  "likely_tenant_orientation": "businesses seeking a practical suburban location with nearby market alternatives",
+  "access_pattern": "legacy same-market relationship",
+  "built_form_signals": [
+    "city-level geocode available",
+    "district-level built form not evaluated in this V1 layer"
+  ],
+  "nearby_relationship_context": "Nearby relationship context currently includes Healdsburg, Petaluma, Rohnert Park, Sebastopol, Cotati, Windsor, Sonoma, Calistoga, Clearlake, St Helena.",
+  "comparison_positioning_notes": [
+    "Nearby geography candidates: Cotati, Windsor, Healdsburg, Petaluma."
+  ],
+  "editorial_cautions": [
+    "Internal editorial scaffold only; do not publish directly.",
+    "Do not infer current availability, rents, rankings, or inventory depth.",
+    "Do not infer district-level identity from city-level relationship data.",
+    "No market snapshot support found for this node.",
+    "Raw corpus support has not been evaluated for these relationships."
+  ],
+  "supporting_sources": [
+    "data/geography/nodes.json",
+    "data/geography/public_relationship_candidates.json",
+    "data/geography/relationships.enriched.json",
+    "generated/geography/comparison-intelligence/",
+    "_data/cities.generated.json"
+  ],
+  "confidence_level": "medium",
+  "public_ready": false
+}

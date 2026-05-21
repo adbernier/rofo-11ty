@@ -1,0 +1,215 @@
+[
+  {
+    "source_district_id": "district:ca:palo-alto:downtown-palo-alto",
+    "target_district_id": "district:ca:mountain-view:tech-corridor",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Downtown Palo Alto is walkable, client-facing, and Caltrain-adjacent; Mountain View Tech Corridor is broader and more R&D/corridor oriented.",
+    "editorial_use": "Use as a primary Peninsula comparison after Mountain View corridor segmentation.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Downtown Palo Alto neighborhood intelligence",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ca:palo-alto:downtown-palo-alto",
+    "target_district_id": "district:ca:sunnyvale:sunnyvale-core",
+    "relationship_type": "nearby_alternative",
+    "relationship_reason": "Sunnyvale is a nearby South Bay alternative, but current support is city-level and needs district segmentation.",
+    "editorial_use": "Use as nearby orientation only until Sunnyvale Core is validated.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Sunnyvale identity signals",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:san-francisco:soma",
+    "target_district_id": "district:ca:san-francisco:mission-bay",
+    "relationship_type": "nearby_alternative",
+    "relationship_reason": "SoMa and Mission Bay are adjacent San Francisco commercial district references, but both require dedicated corpus review.",
+    "editorial_use": "Hold for San Francisco district extraction before public comparison copy.",
+    "confidence_level": "low",
+    "supporting_evidence": [
+      "Flagship Bay Area review",
+      "map hero references"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:san-francisco:soma",
+    "target_district_id": "district:ca:san-francisco:financial-district-sf",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "SoMa likely contrasts with the more traditional Financial District core, but SoMa is too broad for final public copy without segmentation.",
+    "editorial_use": "Use as internal comparison planning only.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "SF market snapshot notable areas",
+      "market guide references"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:san-francisco:mission-bay",
+    "target_district_id": "district:ca:south-san-francisco:biotech-corridor",
+    "relationship_type": "complementary_environment",
+    "relationship_reason": "Both may support life-science or institution-adjacent comparison logic, but Mission Bay and South San Francisco require separate corpus validation.",
+    "editorial_use": "Use as future ecosystem comparison after corpus review.",
+    "confidence_level": "low",
+    "supporting_evidence": [
+      "Flagship Bay Area review",
+      "raw South San Francisco legacy description"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:oakland:downtown-oakland",
+    "target_district_id": "district:ca:oakland:uptown-oakland",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Downtown Oakland is more civic, institutional, and office-core oriented; Uptown Oakland is more mixed-use, arts-adjacent, and smaller-company oriented.",
+    "editorial_use": "Use as a primary Oakland district comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Downtown Oakland and Uptown Oakland neighborhood intelligence",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ca:oakland:uptown-oakland",
+    "target_district_id": "district:ca:oakland:downtown-oakland",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Uptown Oakland is less institutional and more mixed-use; Downtown Oakland is more formal, civic, and traditional office-core oriented.",
+    "editorial_use": "Use as a primary Oakland district comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Downtown Oakland and Uptown Oakland neighborhood intelligence",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ca:oakland:downtown-oakland",
+    "target_district_id": "district:ca:oakland:jack-london-square",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Downtown Oakland is civic and transit focused; Jack London Square is more waterfront, service-commercial, and warehouse-adjacent.",
+    "editorial_use": "Use as a primary Oakland district comparison after Jack London corpus review.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Downtown Oakland neighborhood intelligence",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:oakland:uptown-oakland",
+    "target_district_id": "district:ca:oakland:jack-london-square",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Uptown Oakland is Broadway/Lake Merritt mixed-use office context; Jack London Square is more waterfront and warehouse-adjacent.",
+    "editorial_use": "Use as Oakland orientation after Jack London corpus review.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Uptown Oakland neighborhood intelligence",
+      "Flagship Bay Area review"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ca:oakland:downtown-oakland",
+    "target_district_id": "district:ca:san-francisco:financial-district-sf",
+    "relationship_type": "urban_vs_suburban",
+    "relationship_reason": "Both are downtown business cores, but Financial District SF is the more traditional regional CBD while Downtown Oakland is an East Bay civic and transit core.",
+    "editorial_use": "Use carefully as cross-bay CBD comparison; avoid ranking language.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Downtown Oakland neighborhood intelligence comparison note"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:buckhead",
+    "target_district_id": "district:ga:atlanta:midtown-atlanta",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Buckhead is more executive-facing and northside-oriented; Midtown is denser, more transit-oriented, and more mixed-use.",
+    "editorial_use": "Use as a primary Atlanta comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:midtown-atlanta",
+    "target_district_id": "district:ga:atlanta:buckhead",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Midtown is denser and more transit-oriented; Buckhead is more executive-facing and northside-oriented.",
+    "editorial_use": "Use as a primary Atlanta comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:buckhead",
+    "target_district_id": "district:ga:atlanta:perimeter-center",
+    "relationship_type": "urban_vs_suburban",
+    "relationship_reason": "Buckhead offers a more established urban business address; Perimeter Center is more freeway-, parking-, and campus-oriented.",
+    "editorial_use": "Use as north Atlanta office comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:perimeter-center",
+    "target_district_id": "district:ga:atlanta:cumberland-galleria",
+    "relationship_type": "nearby_alternative",
+    "relationship_reason": "Both are major suburban office-retail nodes with regional freeway orientation, serving different sides of the north metro.",
+    "editorial_use": "Use as suburban node comparison after Cumberland/Galleria corpus review.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence nearby alternative notes"
+    ],
+    "validation_status": "needs_editorial_review"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:midtown-atlanta",
+    "target_district_id": "district:ga:atlanta:downtown-atlanta",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Midtown is mixed-use and institution-adjacent; Downtown Atlanta is more civic, legal, government, university, hotel, and convention oriented.",
+    "editorial_use": "Use as central Atlanta comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:downtown-atlanta",
+    "target_district_id": "district:ga:atlanta:midtown-atlanta",
+    "relationship_type": "commercial_comparison",
+    "relationship_reason": "Downtown Atlanta is more civic and institutional; Midtown is denser, more mixed-use, and more transit-oriented around Peachtree/MARTA.",
+    "editorial_use": "Use as central Atlanta comparison.",
+    "confidence_level": "high",
+    "supporting_evidence": [
+      "Atlanta neighborhood intelligence"
+    ],
+    "validation_status": "editorial_seed"
+  },
+  {
+    "source_district_id": "district:ga:atlanta:buckhead",
+    "target_district_id": "district:ga:atlanta:cumberland-galleria",
+    "relationship_type": "nearby_alternative",
+    "relationship_reason": "Cumberland/Galleria provides northwest access, office parks, retail, and event-adjacent activity compared with Buckhead’s executive northside address.",
+    "editorial_use": "Use as north/northwest Atlanta alternative after Cumberland/Galleria review.",
+    "confidence_level": "medium",
+    "supporting_evidence": [
+      "Buckhead nearby alternative notes"
+    ],
+    "validation_status": "needs_editorial_review"
+  }
+]

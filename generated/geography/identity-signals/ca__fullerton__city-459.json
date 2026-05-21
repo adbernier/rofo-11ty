@@ -1,0 +1,38 @@
+{
+  "node_id": "city:459",
+  "name": "Fullerton",
+  "type": "city",
+  "city": "Fullerton",
+  "state_abbr": "CA",
+  "canonical_path": "/commercial-real-estate/CA/fullerton/",
+  "identity_status": "draft_internal",
+  "commercial_identity_summary": "Fullerton is represented in Geography Graph V1 as a nearby city market with multiple reviewed nearby relationships. Current support is city-level, so the identity should guide comparison planning rather than final public prose.",
+  "environment_type": "nearby city market",
+  "likely_tenant_orientation": "users orienting across nearby city markets before choosing a more specific district or building type",
+  "access_pattern": "same-market comparison corridor",
+  "built_form_signals": [
+    "existing market snapshot found, but subarea language appears generic",
+    "city-level geocode available",
+    "district-level built form not evaluated in this V1 layer"
+  ],
+  "nearby_relationship_context": "Nearby relationship context currently includes La Mirada, La Habra, Yorba Linda, La Palma, Buena Park, Placentia, Orange, Anaheim, Brea.",
+  "comparison_positioning_notes": [
+    "Nearby geography candidates: Anaheim, Orange."
+  ],
+  "editorial_cautions": [
+    "Internal editorial scaffold only; do not publish directly.",
+    "Do not infer current availability, rents, rankings, or inventory depth.",
+    "Do not infer district-level identity from city-level relationship data.",
+    "Raw corpus support has not been evaluated for these relationships."
+  ],
+  "supporting_sources": [
+    "data/geography/nodes.json",
+    "data/geography/public_relationship_candidates.json",
+    "data/geography/relationships.enriched.json",
+    "generated/geography/comparison-intelligence/",
+    "_data/marketSnapshots.generated.js",
+    "_data/cities.generated.json"
+  ],
+  "confidence_level": "medium",
+  "public_ready": false
+}

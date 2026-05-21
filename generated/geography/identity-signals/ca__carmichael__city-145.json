@@ -1,0 +1,39 @@
+{
+  "node_id": "city:145",
+  "name": "Carmichael",
+  "type": "city",
+  "city": "Carmichael",
+  "state_abbr": "CA",
+  "canonical_path": "/commercial-real-estate/CA/carmichael/",
+  "identity_status": "draft_internal",
+  "commercial_identity_summary": "Carmichael has existing market-snapshot context and should be treated as a multi-district commercial market. Use the snapshot as orientation only; keep final public copy tied to current editorial review.",
+  "environment_type": "multi-district commercial market",
+  "likely_tenant_orientation": "tenant orientation requires submarket comparison, commute review, and building-quality review",
+  "access_pattern": "same-market comparison corridor",
+  "built_form_signals": [
+    "notable subareas referenced in existing market snapshot: Manzanita Ave, Fair Oaks Blvd, 4708-4794 Manzanita Ave, 6720-6728 Fair Oaks Blvd",
+    "city-level geocode available",
+    "district-level built form not evaluated in this V1 layer"
+  ],
+  "nearby_relationship_context": "Nearby relationship context currently includes Antelope, Fair Oaks, Sacramento, Citrus Heights, Orangevale, North Highlands, Folsom, Gold River, Rancho Cordova, West Sacramento.",
+  "comparison_positioning_notes": [
+    "Nearby geography candidates: Sacramento."
+  ],
+  "editorial_cautions": [
+    "Internal editorial scaffold only; do not publish directly.",
+    "Do not infer current availability, rents, rankings, or inventory depth.",
+    "Do not infer district-level identity from city-level relationship data.",
+    "Support is thin; use only for planning or future corpus review.",
+    "Raw corpus support has not been evaluated for these relationships."
+  ],
+  "supporting_sources": [
+    "data/geography/nodes.json",
+    "data/geography/public_relationship_candidates.json",
+    "data/geography/relationships.enriched.json",
+    "generated/geography/comparison-intelligence/",
+    "_data/marketSnapshots.generated.js",
+    "_data/cities.generated.json"
+  ],
+  "confidence_level": "low",
+  "public_ready": false
+}

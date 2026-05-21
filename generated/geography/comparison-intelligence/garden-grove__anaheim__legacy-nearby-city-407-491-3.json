@@ -1,0 +1,68 @@
+{
+  "id": "comparison-intelligence:legacy-nearby-city:407:491:3",
+  "relationship_id": "legacy-nearby-city:407:491:3",
+  "source": {
+    "id": "city:407",
+    "name": "Garden Grove",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/garden-grove/",
+    "metro_or_market": "legacy-region:11",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "target": {
+    "id": "city:491",
+    "name": "Anaheim",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/anaheim/",
+    "metro_or_market": "legacy-region:11",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "relationship": {
+    "type": "nearby_to",
+    "computed_distance_miles": 4.6,
+    "is_reciprocal": true,
+    "same_state": true,
+    "same_metro_or_market": true,
+    "source_validation_status": "seed_unvalidated",
+    "corpus_support_status": "not_evaluated",
+    "public_use_recommendation": "strong_candidate",
+    "editorial_status": "unreviewed",
+    "publication_status": "not_published"
+  },
+  "editorial_intelligence": {
+    "positioning_summary": "Anaheim is a nearby geography candidate for Garden Grove, sitting about 4.6 miles away within the same legacy geography bucket. Treat the relationship as a geography prompt for editorial review, not as a market ranking or inventory claim.",
+    "environment_differences": [
+      "Garden Grove and Anaheim are very close geographically, so the first public use should be nearby orientation rather than a strong commercial contrast.",
+      "Any stronger distinction should come from corpus review, built-form differences, or editorial knowledge of how businesses compare the two places."
+    ],
+    "likely_tenant_fit": "Best treated as a nearby-market path for users who are still orienting geographically. Source coverage shows moderate historical Rofo coverage; target coverage shows moderate historical Rofo coverage.",
+    "nearby_alternative_note": "Anaheim can be shown as near Garden Grove, but should not be framed as a distinct commercial alternative until the rationale is reviewed.",
+    "public_label_suggestion": "Anaheim near Garden Grove",
+    "editorial_cautions": [
+      "Do not expose validation scores publicly.",
+      "Do not imply current availability or inventory depth from this relationship.",
+      "Do not describe commercial identity without corpus or editorial support.",
+      "Raw corpus support has not been evaluated.",
+      "Strong candidate means strong geography signal, not automatic public comparison copy."
+    ]
+  },
+  "generation_notes": {
+    "generated_by": "scripts/geography/generate_comparison_intelligence.js",
+    "generated_at": "2026-05-21T15:23:55.726Z",
+    "tone": "calm, editorial, geography-first, non-dashboard",
+    "source_files": [
+      "data/geography/public_relationship_candidates.json",
+      "data/geography/relationships.enriched.json",
+      "data/geography/nodes.json",
+      "data/geography/aliases.json"
+    ],
+    "limitations": [
+      "City-level geography only; district-level commercial identity still requires review.",
+      "No current availability, listing, rent, or ranking claims are generated.",
+      "Representative buildings are not used as an intelligence source."
+    ]
+  },
+  "output_file": "garden-grove__anaheim__legacy-nearby-city-407-491-3.json"
+}

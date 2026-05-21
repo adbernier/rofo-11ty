@@ -1,0 +1,38 @@
+{
+  "node_id": "city:39",
+  "name": "Oakland",
+  "type": "city",
+  "city": "Oakland",
+  "state_abbr": "CA",
+  "canonical_path": "/commercial-real-estate/CA/oakland/",
+  "identity_status": "draft_internal",
+  "commercial_identity_summary": "Oakland has existing market-snapshot context and should be treated as a multi-district commercial market. Use the snapshot as orientation only; keep final public copy tied to current editorial review.",
+  "environment_type": "multi-district commercial market",
+  "likely_tenant_orientation": "tenant orientation requires submarket comparison, commute review, and building-quality review",
+  "access_pattern": "same-market comparison corridor",
+  "built_form_signals": [
+    "notable subareas referenced in existing market snapshot: Downtown Oakland, Uptown, Jack London Square, Temescal",
+    "city-level geocode available",
+    "district-level built form not evaluated in this V1 layer"
+  ],
+  "nearby_relationship_context": "Nearby relationship context currently includes Orinda, Alameda, San Lorenzo, Castro Valley, Emeryville, Berkeley, San Leandro, El Cerrito.",
+  "comparison_positioning_notes": [
+    "Nearby geography candidates: San Lorenzo."
+  ],
+  "editorial_cautions": [
+    "Internal editorial scaffold only; do not publish directly.",
+    "Do not infer current availability, rents, rankings, or inventory depth.",
+    "Do not infer district-level identity from city-level relationship data.",
+    "Raw corpus support has not been evaluated for these relationships."
+  ],
+  "supporting_sources": [
+    "data/geography/nodes.json",
+    "data/geography/public_relationship_candidates.json",
+    "data/geography/relationships.enriched.json",
+    "generated/geography/comparison-intelligence/",
+    "_data/marketSnapshots.generated.js",
+    "_data/cities.generated.json"
+  ],
+  "confidence_level": "high",
+  "public_ready": false
+}

@@ -1,0 +1,68 @@
+{
+  "id": "comparison-intelligence:legacy-nearby-city:457:482:4",
+  "relationship_id": "legacy-nearby-city:457:482:4",
+  "source": {
+    "id": "city:457",
+    "name": "Costa Mesa",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/costa-mesa/",
+    "metro_or_market": "legacy-region:11",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "target": {
+    "id": "city:482",
+    "name": "Irvine",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/irvine/",
+    "metro_or_market": "legacy-region:11",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "relationship": {
+    "type": "nearby_to",
+    "computed_distance_miles": 7.5,
+    "is_reciprocal": true,
+    "same_state": true,
+    "same_metro_or_market": true,
+    "source_validation_status": "seed_unvalidated",
+    "corpus_support_status": "not_evaluated",
+    "public_use_recommendation": "strong_candidate",
+    "editorial_status": "unreviewed",
+    "publication_status": "not_published"
+  },
+  "editorial_intelligence": {
+    "positioning_summary": "Irvine is a nearby geography candidate for Costa Mesa, sitting about 7.5 miles away within the same legacy geography bucket. Treat the relationship as a geography prompt for editorial review, not as a market ranking or inventory claim.",
+    "environment_differences": [
+      "Costa Mesa and Irvine appear close enough to support nearby-market navigation.",
+      "Public comparison copy should wait for a clearer commercial rationale from corpus or editorial review."
+    ],
+    "likely_tenant_fit": "Best treated as a nearby-market path for users who are still orienting geographically. Source coverage shows moderate historical Rofo coverage; target coverage shows moderate historical Rofo coverage.",
+    "nearby_alternative_note": "Irvine can be shown as near Costa Mesa, but should not be framed as a distinct commercial alternative until the rationale is reviewed.",
+    "public_label_suggestion": "Irvine near Costa Mesa",
+    "editorial_cautions": [
+      "Do not expose validation scores publicly.",
+      "Do not imply current availability or inventory depth from this relationship.",
+      "Do not describe commercial identity without corpus or editorial support.",
+      "Raw corpus support has not been evaluated.",
+      "Strong candidate means strong geography signal, not automatic public comparison copy."
+    ]
+  },
+  "generation_notes": {
+    "generated_by": "scripts/geography/generate_comparison_intelligence.js",
+    "generated_at": "2026-05-21T15:23:55.740Z",
+    "tone": "calm, editorial, geography-first, non-dashboard",
+    "source_files": [
+      "data/geography/public_relationship_candidates.json",
+      "data/geography/relationships.enriched.json",
+      "data/geography/nodes.json",
+      "data/geography/aliases.json"
+    ],
+    "limitations": [
+      "City-level geography only; district-level commercial identity still requires review.",
+      "No current availability, listing, rent, or ranking claims are generated.",
+      "Representative buildings are not used as an intelligence source."
+    ]
+  },
+  "output_file": "costa-mesa__irvine__legacy-nearby-city-457-482-4.json"
+}

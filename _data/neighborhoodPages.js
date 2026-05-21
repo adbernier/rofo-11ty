@@ -58,6 +58,7 @@ const buildingPages = require("./buildingPages.js");
 const neighborhoodMapHeroes = require("./neighborhoodMapHeroes.js");
 const neighborhoodIntelligence = require("./neighborhoodIntelligence.js");
 const atlantaApprovedEditorialSignals = require("./atlantaApprovedEditorialSignals.js");
+const commercialDistrictPublicIntegrations = require("./commercialDistrictPublicIntegrations.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const allowlistByPath = new Map(
   allowlist.map((item) => [item.canonical_neighborhood_path, item])
@@ -798,6 +799,8 @@ for (const page of allPages) {
     page.neighborhood_image_path || neighborhoodImagePathFor(page);
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
+  page.public_commercial_districts =
+    commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
   page.approved_editorial_signal =
     clean(page.city).toLowerCase() === "atlanta" && clean(page.state_abbr).toUpperCase() === "GA"
       ? atlantaApprovedEditorialSignals.byPath[page.canonical_neighborhood_path] || null

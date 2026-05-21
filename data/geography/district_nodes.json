@@ -1,0 +1,444 @@
+[
+  {
+    "id": "district:ca:palo-alto:downtown-palo-alto",
+    "name": "Downtown Palo Alto",
+    "slug": "downtown-palo-alto",
+    "type": "district",
+    "parent_city": "Palo Alto",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    "commercial_identity_summary": "Compact Peninsula downtown where low-rise office, restaurants, retail, Caltrain access, and startup/professional-service routines sit close together.",
+    "environment_type": "walkable downtown district",
+    "likely_tenant_orientation": "startup, venture-adjacent, professional service, and client-facing office users seeking a walkable Peninsula address",
+    "access_pattern": "Caltrain-adjacent downtown fabric with regional Peninsula comparison value",
+    "built_form_signals": [
+      "low-rise downtown office buildings",
+      "retail-supported commercial streets",
+      "Hamilton and Lytton office blocks",
+      "University Avenue client-facing context"
+    ],
+    "nearby_relationship_context": "Most useful against Mountain View / Castro-Whisman, Redwood City Downtown, and California Avenue.",
+    "editorial_positioning": "More downtown-oriented and client-facing than Mountain View corridor settings; smaller and more startup/professional-service oriented than Redwood City Downtown.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js reviewed district record",
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "Palo Alto city identity scaffold"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:san-francisco:soma",
+    "name": "SoMa",
+    "slug": "soma",
+    "type": "district",
+    "parent_city": "San Francisco",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Broad San Francisco commercial district reference that likely needs internal segmentation before public flagship use.",
+    "environment_type": "urban mixed-use commercial district",
+    "likely_tenant_orientation": "office, creative, startup, service, and visitor-facing users depending on the specific SoMa edge",
+    "access_pattern": "downtown-adjacent San Francisco grid with freeway, transit, Mission Bay, and waterfront relationships",
+    "built_form_signals": [
+      "broad district with multiple edges",
+      "downtown and Market Street adjacency",
+      "South Park and ballpark edge context",
+      "Mission Bay and Dogpatch adjacency"
+    ],
+    "nearby_relationship_context": "Likely compared with Mission Bay, Financial District SF, Civic Center, Dogpatch, and South Park.",
+    "editorial_positioning": "Potentially strong district, but too broad for one undifferentiated public identity without segmentation.",
+    "supporting_evidence": [
+      "data/geography/reports/flagship_market_review_bay_area_v1.md reference-only review",
+      "_data/neighborhoodMapHeroes.js references",
+      "_data/raw/market-snapshots.csv notable areas",
+      "_data/raw/market-guides/office-guides.json area references"
+    ],
+    "validation_status": "needs_district_corpus_review",
+    "confidence_level": "low",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:san-francisco:mission-bay",
+    "name": "Mission Bay",
+    "slug": "mission-bay",
+    "type": "district",
+    "parent_city": "San Francisco",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "San Francisco waterfront and institutional district candidate with UCSF, Dogpatch, SoMa, and Central Waterfront adjacency requiring dedicated corpus review.",
+    "environment_type": "waterfront institutional mixed-use district",
+    "likely_tenant_orientation": "institution-adjacent, life-science, office, medical, and service users where district evidence supports the use case",
+    "access_pattern": "waterfront and 280-oriented San Francisco district with SoMa, Dogpatch, and Central Waterfront relationships",
+    "built_form_signals": [
+      "waterfront district context",
+      "institutional adjacency signals require validation",
+      "large-format mixed-use and office/lab potential requires corpus review"
+    ],
+    "nearby_relationship_context": "Likely compared with SoMa, Dogpatch, and Central Waterfront.",
+    "editorial_positioning": "Useful future flagship candidate, but current support is reference-level rather than a complete identity record.",
+    "supporting_evidence": [
+      "data/geography/reports/flagship_market_review_bay_area_v1.md reference-only review",
+      "_data/neighborhoodMapHeroes.js references",
+      "_data/raw/market-snapshots.csv notable areas",
+      "_data/raw/market-guides/office-guides.json area references"
+    ],
+    "validation_status": "needs_district_corpus_review",
+    "confidence_level": "low",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:san-francisco:financial-district-sf",
+    "name": "Financial District SF",
+    "slug": "financial-district-sf",
+    "type": "district",
+    "parent_city": "San Francisco",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Traditional regional CBD reference for client-facing office, professional services, downtown transit, and formal business presence.",
+    "environment_type": "dense downtown core",
+    "likely_tenant_orientation": "regional headquarters, professional services, finance, legal, and client-facing office users",
+    "access_pattern": "downtown transit and waterfront-adjacent core with cross-bay comparison value",
+    "built_form_signals": [
+      "traditional CBD office towers",
+      "client-facing downtown setting",
+      "transit-connected core",
+      "Jackson Square and Embarcadero adjacency"
+    ],
+    "nearby_relationship_context": "Useful comparison against Downtown Oakland, SoMa, Jackson Square, and other San Francisco downtown districts.",
+    "editorial_positioning": "More traditional regional CBD setting than SoMa, Mission Bay, or Oakland district alternatives.",
+    "supporting_evidence": [
+      "_data/neighborhoodMapHeroes.js references",
+      "_data/raw/market-snapshots.csv notable areas",
+      "_data/raw/market-guides/office-guides.json area references",
+      "Downtown Oakland neighborhood intelligence comparison note"
+    ],
+    "validation_status": "editorial_seed_needs_corpus_review",
+    "confidence_level": "medium",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:oakland:downtown-oakland",
+    "name": "Downtown Oakland",
+    "slug": "downtown-oakland",
+    "type": "district",
+    "parent_city": "Oakland",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/downtown-oakland/",
+    "commercial_identity_summary": "East Bay institutional business core with BART access, civic adjacency, Broadway/City Center office fabric, and professional-service depth.",
+    "environment_type": "institutional downtown core",
+    "likely_tenant_orientation": "legal, nonprofit, civic-adjacent, transit-oriented, and East Bay regional office users",
+    "access_pattern": "BART-oriented downtown core with civic, office, and cross-bay comparison value",
+    "built_form_signals": [
+      "downtown office buildings",
+      "civic and institutional blocks",
+      "Broadway office corridor",
+      "street-level retail support"
+    ],
+    "nearby_relationship_context": "Most useful against Uptown Oakland, Jack London Square, and San Francisco Financial District.",
+    "editorial_positioning": "More institutional and office-oriented than Uptown Oakland; less waterfront and more civic/transit focused than Jack London Square.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js reviewed district record",
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "Oakland city identity scaffold"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:oakland:uptown-oakland",
+    "name": "Uptown Oakland",
+    "slug": "uptown-oakland",
+    "type": "district",
+    "parent_city": "Oakland",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/uptown-oakland/",
+    "commercial_identity_summary": "Mixed-use Oakland office district with arts, food, apartments, Lake Merritt adjacency, BART access, and smaller-company/professional office fit.",
+    "environment_type": "transit-oriented mixed-use district",
+    "likely_tenant_orientation": "small and mid-sized office users, creative and professional service teams, nonprofits, and East Bay teams wanting street-level context",
+    "access_pattern": "BART-oriented mixed-use district near Broadway, Franklin, Webster, and Lake Merritt",
+    "built_form_signals": [
+      "mid-rise office buildings",
+      "Broadway and Franklin office fabric",
+      "Lake Merritt-adjacent commercial blocks",
+      "food, arts, and retail support"
+    ],
+    "nearby_relationship_context": "Most useful against Downtown Oakland, Jack London Square, and Temescal.",
+    "editorial_positioning": "Less institutional than Downtown Oakland; less waterfront and more Broadway/Lake Merritt oriented than Jack London Square.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js reviewed district record",
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "Oakland city identity scaffold"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:oakland:jack-london-square",
+    "name": "Jack London Square",
+    "slug": "jack-london-square",
+    "type": "district",
+    "parent_city": "Oakland",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/jack-london-square/",
+    "commercial_identity_summary": "Waterfront Oakland district candidate with service-commercial, adaptive, warehouse-adjacent, and visitor-facing texture.",
+    "environment_type": "waterfront commercial district",
+    "likely_tenant_orientation": "service-commercial, creative, food-adjacent, adaptive-office, and waterfront-oriented users where corpus support confirms fit",
+    "access_pattern": "waterfront and rail/freeway-adjacent district south of Downtown and Uptown Oakland",
+    "built_form_signals": [
+      "waterfront commercial context",
+      "warehouse-adjacent texture",
+      "service-commercial signals",
+      "adaptive-use potential requires validation"
+    ],
+    "nearby_relationship_context": "Most useful against Downtown Oakland and Uptown Oakland for Oakland district differentiation.",
+    "editorial_positioning": "More waterfront and warehouse-adjacent than Downtown or Uptown Oakland.",
+    "supporting_evidence": [
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "Downtown Oakland and Uptown Oakland neighborhood intelligence comparison notes",
+      "Bay Area pilot review artifacts referenced by prior workflow"
+    ],
+    "validation_status": "editorial_seed_needs_corpus_review",
+    "confidence_level": "medium",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:south-san-francisco:biotech-corridor",
+    "name": "South San Francisco Biotech Corridor",
+    "slug": "south-san-francisco-biotech-corridor",
+    "type": "district",
+    "parent_city": "South San Francisco",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Peninsula life-science and office/industrial corridor candidate around east-of-101 South San Francisco patterns, requiring district-level corpus validation.",
+    "environment_type": "campus/R&D district",
+    "likely_tenant_orientation": "life-science, laboratory, R&D, office, and industrial-adjacent users after corpus support is confirmed",
+    "access_pattern": "Highway 101 and airport-adjacent Peninsula corridor with Oyster Point, Gateway, East Grand, and Airport Boulevard review needs",
+    "built_form_signals": [
+      "office park and industrial district signals",
+      "east-of-101 corridor context",
+      "life-science ecosystem cues require current validation"
+    ],
+    "nearby_relationship_context": "Likely compared with Brisbane/Sierra Point, Mission Bay, San Bruno, and broader Peninsula alternatives.",
+    "editorial_positioning": "Should read as ecosystem geography, not generic office inventory or citywide South San Francisco.",
+    "supporting_evidence": [
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "_data/raw/rofo_top_1200_cities_2026-04-14_103326.csv legacy South San Francisco description",
+      "_data/raw/market-snapshots.draft.csv"
+    ],
+    "validation_status": "needs_district_corpus_review",
+    "confidence_level": "medium",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:sunnyvale:sunnyvale-core",
+    "name": "Sunnyvale Core",
+    "slug": "sunnyvale-core",
+    "type": "district",
+    "parent_city": "Sunnyvale",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Sunnyvale commercial core candidate for South Bay office, R&D, service, and downtown/corridor comparison work; needs district segmentation before public use.",
+    "environment_type": "suburban commercial node",
+    "likely_tenant_orientation": "technology, R&D, professional service, and practical South Bay office users depending on subarea",
+    "access_pattern": "South Bay corridor context near Mountain View, Santa Clara, and San Jose",
+    "built_form_signals": [
+      "downtown Sunnyvale reference in market guides",
+      "R&D and office corridor signals",
+      "city-level support is stronger than district-level support"
+    ],
+    "nearby_relationship_context": "Likely compared with Mountain View Tech Corridor, Santa Clara, and San Jose submarkets.",
+    "editorial_positioning": "Useful nearby alternative, but current evidence mostly supports city-level nearness rather than a single commercial core identity.",
+    "supporting_evidence": [
+      "generated/geography/identity-signals/ca__sunnyvale__city-81.json",
+      "generated/geography/comparison-intelligence/",
+      "_data/raw/market-guides/office-guides.json",
+      "_data/raw/market-guides/industrial-guides.json"
+    ],
+    "validation_status": "needs_district_segmentation",
+    "confidence_level": "low",
+    "public_ready": false
+  },
+  {
+    "id": "district:ca:mountain-view:tech-corridor",
+    "name": "Mountain View Tech Corridor",
+    "slug": "mountain-view-tech-corridor",
+    "type": "district",
+    "parent_city": "Mountain View",
+    "parent_metro": "Bay Area",
+    "state_abbr": "CA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Mountain View corridor candidate spanning Castro/Whisman/North Bayshore style signals; needs segmentation before public flagship use.",
+    "environment_type": "startup/R&D corridor",
+    "likely_tenant_orientation": "startup, technology, R&D, professional service, and corridor-oriented office users where district evidence supports the distinction",
+    "access_pattern": "Peninsula/South Bay corridor with Caltrain, Highway 101, Highway 85, Castro Street, Whisman, and North Bayshore context",
+    "built_form_signals": [
+      "downtown Mountain View reference",
+      "Whisman corridor references",
+      "North Bayshore reference in guides",
+      "city-level technology/R&D cues require district assignment"
+    ],
+    "nearby_relationship_context": "Likely compared with Downtown Palo Alto, Sunnyvale Core, and Santa Clara.",
+    "editorial_positioning": "Broader and more corridor/R&D-oriented than Downtown Palo Alto; needs narrower public naming before launch.",
+    "supporting_evidence": [
+      "generated/geography/identity-signals/ca__mountain-view__city-76.json",
+      "data/geography/reports/flagship_market_review_bay_area_v1.md",
+      "_data/raw/market-guides/office-guides.json",
+      "_data/raw/market-guides/industrial-guides.json"
+    ],
+    "validation_status": "needs_district_segmentation",
+    "confidence_level": "medium",
+    "public_ready": false
+  },
+  {
+    "id": "district:ga:atlanta:buckhead",
+    "name": "Buckhead",
+    "slug": "buckhead",
+    "type": "district",
+    "parent_city": "Atlanta",
+    "parent_metro": "Atlanta",
+    "state_abbr": "GA",
+    "canonical_path": "/commercial-real-estate/GA/atlanta/buckhead/",
+    "commercial_identity_summary": "North Atlanta office district for executive access, client meetings, professional services, and high-service retail support.",
+    "environment_type": "executive suburban-urban office district",
+    "likely_tenant_orientation": "professional services, financial services, client-facing offices, executive-access users, and north Atlanta market users",
+    "access_pattern": "north Atlanta business district with stronger executive and auto-oriented patterns than transit-led central districts",
+    "built_form_signals": [
+      "larger office buildings",
+      "retail and mixed-use context",
+      "established business district setting",
+      "hotel and service support"
+    ],
+    "nearby_relationship_context": "Most useful against Midtown Atlanta, Perimeter Center, and Cumberland/Galleria.",
+    "editorial_positioning": "Less transit-led and more executive-facing than Midtown; more established urban business address than Perimeter Center.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js Atlanta pilot reviewed record"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ga:atlanta:midtown-atlanta",
+    "name": "Midtown Atlanta",
+    "slug": "midtown-atlanta",
+    "type": "district",
+    "parent_city": "Atlanta",
+    "parent_metro": "Atlanta",
+    "state_abbr": "GA",
+    "canonical_path": "/commercial-real-estate/GA/atlanta/midtown/",
+    "commercial_identity_summary": "Central Atlanta office and mixed-use district where transit, universities, arts, hotels, apartments, and street-level activity overlap.",
+    "environment_type": "transit-oriented mixed-use district",
+    "likely_tenant_orientation": "transit-oriented teams, client-facing offices, talent-access users, institution-adjacent businesses, and mixed-use district users",
+    "access_pattern": "central Peachtree/MARTA-oriented district with institutional and mixed-use overlap",
+    "built_form_signals": [
+      "office towers",
+      "mixed-use blocks",
+      "institutional adjacency",
+      "street-level retail activity"
+    ],
+    "nearby_relationship_context": "Most useful against Buckhead, Downtown Atlanta, and West Midtown.",
+    "editorial_positioning": "Denser and more transit-oriented than Buckhead; less civic and more mixed-use than Downtown Atlanta.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js Atlanta pilot reviewed record"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ga:atlanta:cumberland-galleria",
+    "name": "Cumberland/Galleria",
+    "slug": "cumberland-galleria",
+    "type": "district",
+    "parent_city": "Atlanta",
+    "parent_metro": "Atlanta",
+    "state_abbr": "GA",
+    "canonical_path": null,
+    "commercial_identity_summary": "Northwest metro office, retail, hotel, and event-adjacent commercial node around Cumberland and the Galleria area.",
+    "environment_type": "suburban commercial node",
+    "likely_tenant_orientation": "regional office users, northwest metro access users, retail/hospitality-adjacent businesses, and event-adjacent service users",
+    "access_pattern": "northwest freeway-oriented node with office park, retail, hotel, and event-district relationships",
+    "built_form_signals": [
+      "suburban office buildings",
+      "retail and hotel support",
+      "freeway access",
+      "event-adjacent commercial context"
+    ],
+    "nearby_relationship_context": "Most useful against Buckhead and Perimeter Center as another north-metro office/retail node.",
+    "editorial_positioning": "More northwest and event-adjacent than Buckhead; comparable to Perimeter Center as a major suburban office-retail node but with different regional access.",
+    "supporting_evidence": [
+      "Buckhead and Perimeter Center nearby alternative notes in _data/neighborhoodIntelligence.js"
+    ],
+    "validation_status": "editorial_seed_needs_corpus_review",
+    "confidence_level": "medium",
+    "public_ready": false
+  },
+  {
+    "id": "district:ga:atlanta:downtown-atlanta",
+    "name": "Downtown Atlanta",
+    "slug": "downtown-atlanta",
+    "type": "district",
+    "parent_city": "Atlanta",
+    "parent_metro": "Atlanta",
+    "state_abbr": "GA",
+    "canonical_path": "/commercial-real-estate/GA/atlanta/downtown-atlanta/",
+    "commercial_identity_summary": "Atlanta's institutional downtown core, shaped by office, government, legal, university, hotel, transit, and event-driven demand.",
+    "environment_type": "institutional downtown core",
+    "likely_tenant_orientation": "civic-adjacent users, legal and professional services, transit-oriented teams, hospitality-adjacent businesses, and institutional users",
+    "access_pattern": "MARTA-connected central business district with courts, government, universities, hotels, and convention activity",
+    "built_form_signals": [
+      "CBD office buildings",
+      "civic and institutional anchors",
+      "hotel and convention context",
+      "transit-connected blocks"
+    ],
+    "nearby_relationship_context": "Most useful against Midtown Atlanta, South Downtown, and West Midtown.",
+    "editorial_positioning": "More civic and institutional than Midtown; more transit-connected and less adaptive-reuse oriented than West Midtown.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js Atlanta pilot reviewed record"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  },
+  {
+    "id": "district:ga:atlanta:perimeter-center",
+    "name": "Perimeter Center",
+    "slug": "perimeter-center",
+    "type": "district",
+    "parent_city": "Atlanta",
+    "parent_metro": "Atlanta",
+    "state_abbr": "GA",
+    "canonical_path": "/commercial-real-estate/GA/atlanta/perimeter-center/",
+    "commercial_identity_summary": "Regional suburban office node for larger floorplates, parking, freeway access, and north metro commute patterns.",
+    "environment_type": "suburban commercial node",
+    "likely_tenant_orientation": "regional office users, larger teams, parking-sensitive tenants, north metro access users, and suburban office users",
+    "access_pattern": "I-285 and GA 400-oriented commercial node with office, retail, hotel, and campus patterns",
+    "built_form_signals": [
+      "larger office properties",
+      "auto-accessible campuses",
+      "retail and hotel support",
+      "freeway-oriented submarket"
+    ],
+    "nearby_relationship_context": "Most useful against Buckhead, Cumberland/Galleria, and Midtown Atlanta.",
+    "editorial_positioning": "More freeway- and campus-oriented than Buckhead; less urban but often easier for regional car commutes than Midtown.",
+    "supporting_evidence": [
+      "_data/neighborhoodIntelligence.js Atlanta pilot reviewed record"
+    ],
+    "validation_status": "reviewed_editorial_seed",
+    "confidence_level": "high",
+    "public_ready": false
+  }
+]

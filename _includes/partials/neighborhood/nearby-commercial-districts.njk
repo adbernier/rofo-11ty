@@ -1,0 +1,27 @@
+{% set districtIntegration = neighborhood.public_commercial_districts %}
+{% if districtIntegration and districtIntegration.districts and districtIntegration.districts.length %}
+  <section class="city-card neighborhood-commercial-districts" aria-labelledby="nearby-commercial-districts-heading">
+    <div class="eyebrow">{{ districtIntegration.eyebrow or "Nearby commercial districts" }}</div>
+    <h2 id="nearby-commercial-districts-heading">{{ districtIntegration.heading or "Explore nearby commercial districts" }}</h2>
+    {% if districtIntegration.intro %}
+      <p>{{ districtIntegration.intro }}</p>
+    {% endif %}
+    <div class="neighborhood-comparison-grid neighborhood-commercial-districts__grid">
+      {% for district in districtIntegration.districts %}
+        {% if district.name and district.note %}
+          {% if district.url %}
+            <a class="neighborhood-comparison-card neighborhood-commercial-districts__card neighborhood-link-card" href="{{ district.url }}">
+              <h3>{{ district.name }}</h3>
+              <p>{{ district.note }}</p>
+            </a>
+          {% else %}
+            <div class="neighborhood-comparison-card neighborhood-commercial-districts__card">
+              <h3>{{ district.name }}</h3>
+              <p>{{ district.note }}</p>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

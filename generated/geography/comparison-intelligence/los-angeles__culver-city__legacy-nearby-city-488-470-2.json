@@ -1,0 +1,68 @@
+{
+  "id": "comparison-intelligence:legacy-nearby-city:488:470:2",
+  "relationship_id": "legacy-nearby-city:488:470:2",
+  "source": {
+    "id": "city:488",
+    "name": "Los Angeles",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/los-angeles/",
+    "metro_or_market": "legacy-region:8",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "target": {
+    "id": "city:470",
+    "name": "Culver City",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/culver-city/",
+    "metro_or_market": "legacy-region:8",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "relationship": {
+    "type": "nearby_to",
+    "computed_distance_miles": 9.2,
+    "is_reciprocal": true,
+    "same_state": true,
+    "same_metro_or_market": true,
+    "source_validation_status": "seed_unvalidated",
+    "corpus_support_status": "not_evaluated",
+    "public_use_recommendation": "strong_candidate",
+    "editorial_status": "unreviewed",
+    "publication_status": "not_published"
+  },
+  "editorial_intelligence": {
+    "positioning_summary": "Culver City is a nearby geography candidate for Los Angeles, sitting about 9.2 miles away within the same legacy geography bucket. Treat the relationship as a geography prompt for editorial review, not as a market ranking or inventory claim.",
+    "environment_differences": [
+      "Los Angeles and Culver City appear close enough to support nearby-market navigation.",
+      "Public comparison copy should wait for a clearer commercial rationale from corpus or editorial review."
+    ],
+    "likely_tenant_fit": "Best treated as a nearby-market path for users who are still orienting geographically. Source coverage shows strong historical Rofo coverage; target coverage shows limited historical Rofo coverage.",
+    "nearby_alternative_note": "Culver City can be shown as near Los Angeles, but should not be framed as a distinct commercial alternative until the rationale is reviewed.",
+    "public_label_suggestion": "Culver City near Los Angeles",
+    "editorial_cautions": [
+      "Do not expose validation scores publicly.",
+      "Do not imply current availability or inventory depth from this relationship.",
+      "Do not describe commercial identity without corpus or editorial support.",
+      "Raw corpus support has not been evaluated.",
+      "Strong candidate means strong geography signal, not automatic public comparison copy."
+    ]
+  },
+  "generation_notes": {
+    "generated_by": "scripts/geography/generate_comparison_intelligence.js",
+    "generated_at": "2026-05-21T15:23:55.752Z",
+    "tone": "calm, editorial, geography-first, non-dashboard",
+    "source_files": [
+      "data/geography/public_relationship_candidates.json",
+      "data/geography/relationships.enriched.json",
+      "data/geography/nodes.json",
+      "data/geography/aliases.json"
+    ],
+    "limitations": [
+      "City-level geography only; district-level commercial identity still requires review.",
+      "No current availability, listing, rent, or ranking claims are generated.",
+      "Representative buildings are not used as an intelligence source."
+    ]
+  },
+  "output_file": "los-angeles__culver-city__legacy-nearby-city-488-470-2.json"
+}

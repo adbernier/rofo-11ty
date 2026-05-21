@@ -1,0 +1,37 @@
+[
+  {
+    "type": "nearby_to",
+    "public_use": "candidate_only",
+    "description": "A spatially nearby geography candidate. In V1 this is usually seeded by legacy city adjacency and must be validated before public use."
+  },
+  {
+    "type": "alternative_to",
+    "public_use": "editorial_approved_only",
+    "description": "A geography that may serve a similar tenant/search need with a meaningful commercial distinction."
+  },
+  {
+    "type": "complementary_to",
+    "public_use": "editorial_approved_only",
+    "description": "A related geography that complements the source rather than substituting for it."
+  },
+  {
+    "type": "connected_to",
+    "public_use": "editorial_approved_only",
+    "description": "A geography connected through transit, freeway, corridor, waterfront, institutional, or business-ecosystem logic."
+  },
+  {
+    "type": "similar_identity_to",
+    "public_use": "editorial_approved_only",
+    "description": "A geography with similar commercial identity, built form, or tenant-fit pattern."
+  },
+  {
+    "type": "legacy_related_to",
+    "public_use": "internal_candidate_only",
+    "description": "A legacy relationship preserved for lineage or search-discovery analysis."
+  },
+  {
+    "type": "needs_review",
+    "public_use": "internal_only",
+    "description": "A relationship or node reference that cannot be safely interpreted without additional review."
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "id": "comparison-intelligence:legacy-nearby-city:485:475:3",
+  "relationship_id": "legacy-nearby-city:485:475:3",
+  "source": {
+    "id": "city:485",
+    "name": "Oceanside",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oceanside/",
+    "metro_or_market": "legacy-region:9",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "target": {
+    "id": "city:475",
+    "name": "Escondido",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/escondido/",
+    "metro_or_market": "legacy-region:9",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "relationship": {
+    "type": "nearby_to",
+    "computed_distance_miles": 17.2,
+    "is_reciprocal": true,
+    "same_state": true,
+    "same_metro_or_market": true,
+    "source_validation_status": "seed_unvalidated",
+    "corpus_support_status": "not_evaluated",
+    "public_use_recommendation": "strong_candidate",
+    "editorial_status": "unreviewed",
+    "publication_status": "not_published"
+  },
+  "editorial_intelligence": {
+    "positioning_summary": "Escondido is a nearby geography candidate for Oceanside, sitting about 17.2 miles away within the same legacy geography bucket. Treat the relationship as a geography prompt for editorial review, not as a market ranking or inventory claim.",
+    "environment_differences": [
+      "Oceanside and Escondido appear close enough to support nearby-market navigation.",
+      "Public comparison copy should wait for a clearer commercial rationale from corpus or editorial review."
+    ],
+    "likely_tenant_fit": "Best treated as a nearby-market path for users who are still orienting geographically. Source coverage shows limited historical Rofo coverage; target coverage shows moderate historical Rofo coverage.",
+    "nearby_alternative_note": "Escondido can be shown as near Oceanside, but should not be framed as a distinct commercial alternative until the rationale is reviewed.",
+    "public_label_suggestion": "Escondido near Oceanside",
+    "editorial_cautions": [
+      "Do not expose validation scores publicly.",
+      "Do not imply current availability or inventory depth from this relationship.",
+      "Do not describe commercial identity without corpus or editorial support.",
+      "Raw corpus support has not been evaluated.",
+      "Strong candidate means strong geography signal, not automatic public comparison copy."
+    ]
+  },
+  "generation_notes": {
+    "generated_by": "scripts/geography/generate_comparison_intelligence.js",
+    "generated_at": "2026-05-21T15:23:55.768Z",
+    "tone": "calm, editorial, geography-first, non-dashboard",
+    "source_files": [
+      "data/geography/public_relationship_candidates.json",
+      "data/geography/relationships.enriched.json",
+      "data/geography/nodes.json",
+      "data/geography/aliases.json"
+    ],
+    "limitations": [
+      "City-level geography only; district-level commercial identity still requires review.",
+      "No current availability, listing, rent, or ranking claims are generated.",
+      "Representative buildings are not used as an intelligence source."
+    ]
+  },
+  "output_file": "oceanside__escondido__legacy-nearby-city-485-475-3.json"
+}

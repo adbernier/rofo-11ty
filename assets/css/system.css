@@ -3393,6 +3393,22 @@ section.market-page--space-type .market-links a {
   line-height: 1.62;
 }
 
+.neighborhood-commercial-districts h2 {
+  max-width: 720px;
+}
+
+.neighborhood-commercial-districts > p {
+  max-width: 760px;
+}
+
+.neighborhood-commercial-districts__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.neighborhood-commercial-districts__card {
+  border-radius: 10px;
+}
+
 .neighborhood-approved-signal__note {
   margin-top: 14px !important;
   color: #64748b !important;

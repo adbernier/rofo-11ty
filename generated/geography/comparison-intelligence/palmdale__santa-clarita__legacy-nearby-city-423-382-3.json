@@ -1,0 +1,67 @@
+{
+  "id": "comparison-intelligence:legacy-nearby-city:423:382:3",
+  "relationship_id": "legacy-nearby-city:423:382:3",
+  "source": {
+    "id": "city:423",
+    "name": "Palmdale",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/palmdale/",
+    "metro_or_market": "legacy-region:8",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "target": {
+    "id": "city:382",
+    "name": "Santa Clarita",
+    "type": "city",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/santa-clarita/",
+    "metro_or_market": "legacy-region:8",
+    "node_validation_status": "canonical_city_resolved"
+  },
+  "relationship": {
+    "type": "nearby_to",
+    "computed_distance_miles": 25,
+    "is_reciprocal": true,
+    "same_state": true,
+    "same_metro_or_market": true,
+    "source_validation_status": "seed_unvalidated",
+    "corpus_support_status": "not_evaluated",
+    "public_use_recommendation": "comparison_candidate",
+    "editorial_status": "unreviewed",
+    "publication_status": "not_published"
+  },
+  "editorial_intelligence": {
+    "positioning_summary": "Santa Clarita is a market comparison candidate for Palmdale, sitting about 25 miles away within the same legacy geography bucket. Treat the relationship as a geography prompt for editorial review, not as a market ranking or inventory claim.",
+    "environment_differences": [
+      "Palmdale and Santa Clarita are far enough apart to support a real comparison, but close enough to belong in the same regional decision set.",
+      "Santa Clarita should be reviewed as a nearby alternative with its own access pattern, tenant base, and commercial identity rather than as a substitute for Palmdale."
+    ],
+    "likely_tenant_fit": "Potentially useful for businesses comparing nearby markets with different access, cost, client-proximity, or workforce tradeoffs. Source coverage shows moderate historical Rofo coverage; target coverage shows moderate historical Rofo coverage.",
+    "nearby_alternative_note": "Santa Clarita may be a useful nearby alternative to Palmdale after editorial review explains the practical business difference.",
+    "public_label_suggestion": "Compare Palmdale with Santa Clarita",
+    "editorial_cautions": [
+      "Do not expose validation scores publicly.",
+      "Do not imply current availability or inventory depth from this relationship.",
+      "Do not describe commercial identity without corpus or editorial support.",
+      "Raw corpus support has not been evaluated."
+    ]
+  },
+  "generation_notes": {
+    "generated_by": "scripts/geography/generate_comparison_intelligence.js",
+    "generated_at": "2026-05-21T15:23:55.773Z",
+    "tone": "calm, editorial, geography-first, non-dashboard",
+    "source_files": [
+      "data/geography/public_relationship_candidates.json",
+      "data/geography/relationships.enriched.json",
+      "data/geography/nodes.json",
+      "data/geography/aliases.json"
+    ],
+    "limitations": [
+      "City-level geography only; district-level commercial identity still requires review.",
+      "No current availability, listing, rent, or ranking claims are generated.",
+      "Representative buildings are not used as an intelligence source."
+    ]
+  },
+  "output_file": "palmdale__santa-clarita__legacy-nearby-city-423-382-3.json"
+}
