@@ -208,6 +208,25 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
   };
 }
 
+function districtLocatorMapFor(page) {
+  if (
+    page.slug === "soma" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      eyebrow: "Area map",
+      title: "SoMa in context",
+      copy:
+        "A simplified view of SoMa’s position between Market Street, the Financial District, Mission Bay, and the waterfront.",
+      alt:
+        "Simplified contextual map showing SoMa between Market Street, the Financial District, Mission Bay, the Mission, and the San Francisco waterfront.",
+    };
+  }
+
+  return null;
+}
+
 function clean(value) {
   return String(value || "").trim();
 }
@@ -866,6 +885,7 @@ for (const page of allPages) {
     clean(page.state_abbr).toUpperCase() === "CA"
       ? curatedDistrictMediaBySlug.soma || null
       : null;
+  page.district_locator_map = districtLocatorMapFor(page);
   page.approved_editorial_signal =
     clean(page.city).toLowerCase() === "atlanta" && clean(page.state_abbr).toUpperCase() === "GA"
       ? atlantaApprovedEditorialSignals.byPath[page.canonical_neighborhood_path] || null

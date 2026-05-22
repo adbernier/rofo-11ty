@@ -1,0 +1,72 @@
+{% set locator = neighborhood.district_locator_map %}
+{% if locator %}
+  <section class="city-card neighborhood-locator-map" aria-labelledby="neighborhood-locator-map-title">
+    <div class="neighborhood-locator-map__copy">
+      <div class="eyebrow">{{ locator.eyebrow }}</div>
+      <h2 id="neighborhood-locator-map-title">{{ locator.title }}</h2>
+      <p>{{ locator.copy }}</p>
+    </div>
+
+    <figure class="neighborhood-locator-map__figure">
+      <svg viewBox="0 0 960 540" role="img" aria-labelledby="soma-locator-title soma-locator-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="soma-locator-title">SoMa contextual district locator map</title>
+        <desc id="soma-locator-desc">{{ locator.alt }}</desc>
+        <defs>
+          <linearGradient id="soma-locator-water" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e9f6fb" />
+            <stop offset="100%" stop-color="#d7edf5" />
+          </linearGradient>
+          <linearGradient id="soma-locator-district" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d7e8ff" />
+            <stop offset="100%" stop-color="#bcd6ff" />
+          </linearGradient>
+          <pattern id="soma-locator-grid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+            <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.5" />
+          </pattern>
+          <filter id="soma-locator-soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12" />
+          </filter>
+        </defs>
+
+        <rect width="960" height="540" rx="24" fill="#f8faf7" />
+        <path d="M 744 0 C 716 52 704 108 722 166 C 744 238 820 272 822 346 C 824 426 770 478 748 540 L 960 540 L 960 0 Z" fill="url(#soma-locator-water)" />
+        <path d="M 0 0 H 766 C 734 64 724 114 742 164 C 768 238 838 280 832 356 C 826 432 784 486 768 540 H 0 Z" fill="url(#soma-locator-grid)" opacity="0.46" />
+
+        <g class="neighborhood-locator-map__context">
+          <path d="M 50 112 C 190 104 346 106 506 124 C 606 136 686 134 748 112" />
+          <path d="M 104 402 C 222 362 352 330 492 306 C 602 288 694 274 772 252" />
+          <path d="M 454 470 C 498 392 528 318 546 248 C 562 184 572 118 580 44" />
+          <path d="M 138 52 C 250 128 338 198 410 264 C 486 334 548 412 596 520" class="neighborhood-locator-map__transit" />
+        </g>
+
+        <g class="neighborhood-locator-map__waterfront">
+          <path d="M 748 112 C 768 170 828 224 824 292 C 818 376 782 438 768 540" />
+          <path d="M 748 116 C 818 86 884 70 960 60" class="neighborhood-locator-map__bridge" />
+        </g>
+
+        <g class="neighborhood-locator-map__districts">
+          <path d="M 358 114 L 574 92 L 674 166 L 654 268 L 548 334 L 340 312 L 228 224 Z" class="neighborhood-locator-map__soma" filter="url(#soma-locator-soft-shadow)" />
+          <path d="M 562 86 L 696 66 L 738 116 L 670 168 L 576 144 Z" />
+          <path d="M 474 330 L 656 284 L 736 362 L 674 472 L 500 452 Z" />
+          <path d="M 146 248 L 292 224 L 342 312 L 260 414 L 112 388 Z" />
+          <path d="M 268 120 L 356 116 L 304 224 L 204 218 Z" />
+        </g>
+
+        <g class="neighborhood-locator-map__labels">
+          <text x="438" y="222" class="neighborhood-locator-map__label neighborhood-locator-map__label--primary">SoMa</text>
+          <text x="574" y="122" class="neighborhood-locator-map__label">Financial District</text>
+          <text x="548" y="398" class="neighborhood-locator-map__label">Mission Bay</text>
+          <text x="154" y="344" class="neighborhood-locator-map__label">Mission</text>
+          <text x="222" y="180" class="neighborhood-locator-map__label">Yerba Buena</text>
+          <text x="78" y="98" class="neighborhood-locator-map__street">Market St</text>
+          <text x="704" y="78" class="neighborhood-locator-map__street">Bay Bridge</text>
+          <text x="760" y="402" class="neighborhood-locator-map__water-label">Waterfront</text>
+        </g>
+
+        <g class="neighborhood-locator-map__note">
+          <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
+        </g>
+      </svg>
+    </figure>
+  </section>
+{% endif %}

@@ -3465,6 +3465,120 @@ section.market-page--space-type .market-links a {
   line-height: 1.35;
 }
 
+.neighborhood-locator-map {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.48fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.neighborhood-locator-map > * {
+  min-width: 0;
+}
+
+.neighborhood-locator-map__copy h2 {
+  margin-bottom: 10px;
+}
+
+.neighborhood-locator-map__copy p {
+  max-width: 390px;
+  color: #475569;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.neighborhood-locator-map__figure {
+  margin: 0;
+}
+
+.neighborhood-locator-map svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 280px;
+  border: 1px solid #dbe3ee;
+  border-radius: 14px;
+  background: #f8faf7;
+}
+
+.neighborhood-locator-map__context path {
+  fill: none;
+  stroke: #cbd5df;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.52;
+}
+
+.neighborhood-locator-map__context .neighborhood-locator-map__transit {
+  stroke: #9aa7b7;
+  stroke-width: 3;
+  stroke-dasharray: 8 10;
+  opacity: 0.62;
+}
+
+.neighborhood-locator-map__waterfront path {
+  fill: none;
+  stroke: #9dcadd;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.66;
+}
+
+.neighborhood-locator-map__waterfront .neighborhood-locator-map__bridge {
+  stroke: #b8c2cf;
+  stroke-width: 5;
+  opacity: 0.58;
+}
+
+.neighborhood-locator-map__districts path {
+  fill: #eef3ed;
+  stroke: #d6dfd5;
+  stroke-width: 1.5;
+  opacity: 0.9;
+}
+
+.neighborhood-locator-map__districts .neighborhood-locator-map__soma {
+  fill: url(#soma-locator-district);
+  stroke: #2563eb;
+  stroke-width: 2.5;
+  opacity: 0.96;
+}
+
+.neighborhood-locator-map__label {
+  fill: #334155;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.neighborhood-locator-map__label--primary {
+  fill: #0f3f9f;
+  font-size: 33px;
+  font-weight: 850;
+}
+
+.neighborhood-locator-map__street,
+.neighborhood-locator-map__water-label,
+.neighborhood-locator-map__note text {
+  fill: #64748b;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.neighborhood-locator-map__water-label {
+  fill: #3f7890;
+}
+
+.neighborhood-locator-map__note text {
+  fill: #7a8797;
+  font-size: 14px;
+  font-weight: 650;
+}
+
 .neighborhood-approved-signal__note {
   margin-top: 14px !important;
   color: #64748b !important;
@@ -3756,6 +3870,7 @@ section.market-page--space-type .market-links a {
   .neighborhood-intelligence__grid,
   .neighborhood-intelligence__summary,
   .neighborhood-intelligence__split,
+  .neighborhood-locator-map,
   .neighborhood-curated-media__layout,
   .neighborhood-card-grid--compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3770,6 +3885,21 @@ section.market-page--space-type .market-links a {
   .neighborhood-prototype,
   .neighborhood-public {
     padding-bottom: 48px;
+  }
+
+  .neighborhood-public .city-shell {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: calc(100vw - 32px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .neighborhood-public .city-card,
+  .neighborhood-public .city-sidecard {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
   }
 
   .neighborhood-map-card {
@@ -3807,10 +3937,13 @@ section.market-page--space-type .market-links a {
   .neighborhood-hero__actions,
   .neighborhood-hero__actions .btn-primary,
   .neighborhood-hero__actions .btn-secondary,
+  .neighborhood-public .button-row .btn-primary,
+  .neighborhood-public .button-row .btn-secondary,
   .neighborhood-sticky-card .btn-primary,
   .neighborhood-prototype-form .btn-primary,
   .neighborhood-briefing-card__button {
     width: 100%;
+    box-sizing: border-box;
   }
 
   .neighborhood-briefing-card summary,
@@ -3825,6 +3958,7 @@ section.market-page--space-type .market-links a {
   .neighborhood-intelligence__grid,
   .neighborhood-intelligence__summary,
   .neighborhood-intelligence__split,
+  .neighborhood-locator-map,
   .neighborhood-curated-media__layout,
   .neighborhood-curated-media__supporting,
   .neighborhood-card-grid,
@@ -3841,6 +3975,22 @@ section.market-page--space-type .market-links a {
 
   .neighborhood-intelligence__confidence {
     width: fit-content;
+  }
+
+  .neighborhood-locator-map svg {
+    min-height: 230px;
+  }
+
+  .neighborhood-locator-map__copy p {
+    max-width: none;
+  }
+
+  .neighborhood-locator-map__label {
+    font-size: 20px;
+  }
+
+  .neighborhood-locator-map__label--primary {
+    font-size: 31px;
   }
 }
 
