@@ -146,6 +146,8 @@ eleventyComputed:
           </section>
         {% endif %}
 
+        {% include "partials/neighborhood/curated-district-media.njk" %}
+
         {% if approvedEditorialSignal and not isAtlantaEditorialPilot %}
           <section class="city-card neighborhood-approved-signal" aria-labelledby="neighborhood-approved-signal-heading">
             <div class="eyebrow">Commercial area context</div>

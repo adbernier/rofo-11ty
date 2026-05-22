@@ -1,0 +1,46 @@
+{% set media = neighborhood.curated_district_media %}
+{% if media and media.primary %}
+  <section class="city-card neighborhood-curated-media" aria-label="{{ media.eyebrow }}">
+    <div class="eyebrow">{{ media.eyebrow }}</div>
+    {% if media.heading %}
+      <h2>{{ media.heading }}</h2>
+    {% endif %}
+    <p>{{ media.caption }}</p>
+
+    <div class="neighborhood-curated-media__layout">
+      <figure class="neighborhood-curated-media__primary">
+        {% if media.primary.canonical_building_path %}
+          <a href="{{ media.primary.canonical_building_path }}">
+        {% endif %}
+            <img
+              src="{{ media.primary.src }}"
+              alt="{{ media.primary.alt }}"
+              loading="lazy"
+            >
+        {% if media.primary.canonical_building_path %}
+          </a>
+        {% endif %}
+      </figure>
+
+      {% if media.supporting and media.supporting.length %}
+        <div class="neighborhood-curated-media__supporting">
+          {% for image in media.supporting %}
+            <figure class="neighborhood-curated-media__thumb">
+              {% if image.canonical_building_path %}
+                <a href="{{ image.canonical_building_path }}">
+              {% endif %}
+                  <img
+                    src="{{ image.thumb_src or image.src }}"
+                    alt="{{ image.alt }}"
+                    loading="lazy"
+                  >
+              {% if image.canonical_building_path %}
+                </a>
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

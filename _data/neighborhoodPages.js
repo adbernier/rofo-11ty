@@ -43,6 +43,13 @@ const priorityMarketAreasPath = path.join(
   "research",
   "priority_market_commercial_area_entities_v1.json"
 );
+const curatedDistrictMediaExportPath = path.join(
+  process.cwd(),
+  "data",
+  "media",
+  "generated",
+  "curated_district_media_export_v1.json"
+);
 
 const pages = JSON.parse(fs.readFileSync(pageDataPath, "utf8"));
 const allowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8"));
@@ -54,12 +61,16 @@ const nycCandidates = fs.existsSync(nycCandidatesPath)
 const priorityMarketAreas = fs.existsSync(priorityMarketAreasPath)
   ? JSON.parse(fs.readFileSync(priorityMarketAreasPath, "utf8"))
   : [];
+const curatedDistrictMediaExport = fs.existsSync(curatedDistrictMediaExportPath)
+  ? JSON.parse(fs.readFileSync(curatedDistrictMediaExportPath, "utf8"))
+  : null;
 const buildingPages = require("./buildingPages.js");
 const neighborhoodMapHeroes = require("./neighborhoodMapHeroes.js");
 const neighborhoodIntelligence = require("./neighborhoodIntelligence.js");
 const atlantaApprovedEditorialSignals = require("./atlantaApprovedEditorialSignals.js");
 const commercialDistrictPublicIntegrations = require("./commercialDistrictPublicIntegrations.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
+const curatedDistrictMediaBySlug = curatedDistrictMediaForPublicUse(curatedDistrictMediaExport);
 const allowlistByPath = new Map(
   allowlist.map((item) => [item.canonical_neighborhood_path, item])
 );
@@ -146,6 +157,54 @@ function normalizeRepresentativeBuilding(building) {
     short_display_name: shortBuildingLabel(displayName),
     editorial_type_label: editorialTypeLabel(building.type || building.primary_type_label || "commercial"),
     editorial_descriptor: editorialBuildingDescriptor(building),
+  };
+}
+
+function displayMediaLabel(asset) {
+  return clean(asset.building_name) || clean(asset.address) || clean(asset.district_name);
+}
+
+function curatedDistrictMediaForPublicUse(exportManifest) {
+  if (!exportManifest || !exportManifest.districts) return {};
+
+  const soma = exportManifest.districts.soma;
+  if (!soma || !Array.isArray(soma.assets) || !soma.assets.length) return {};
+
+  const assets = soma.assets
+    .filter((asset) =>
+      asset &&
+      asset.exported &&
+      asset.output_url_path &&
+      String(asset.output_url_path).endsWith(".webp")
+    )
+    .slice(0, 5)
+    .map((asset) => {
+      const label = displayMediaLabel(asset);
+      const canonicalPath = clean(asset.canonical_building_path);
+      return {
+        district_slug: asset.district_slug,
+        district_name: asset.district_name || "SoMa",
+        label,
+        building_id: asset.building_id,
+        building_name: clean(asset.building_name),
+        address: clean(asset.address),
+        src: asset.output_url_path,
+        thumb_src: asset.thumbnail_url_path || asset.output_url_path,
+        canonical_building_path: canonicalPath && buildingByPath.has(canonicalPath) ? canonicalPath : "",
+        alt: `${label} in the SoMa commercial district, San Francisco`,
+      };
+    });
+
+  if (!assets.length) return {};
+
+  return {
+    soma: {
+      eyebrow: "Views of SoMa",
+      heading: "",
+      caption: "A few views that capture SoMa’s mix of converted warehouses, creative offices, and dense urban fabric.",
+      primary: assets[0],
+      supporting: assets.slice(1, 5),
+    },
   };
 }
 
@@ -801,6 +860,12 @@ for (const page of allPages) {
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.public_commercial_districts =
     commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
+  page.curated_district_media =
+    page.slug === "soma" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+      ? curatedDistrictMediaBySlug.soma || null
+      : null;
   page.approved_editorial_signal =
     clean(page.city).toLowerCase() === "atlanta" && clean(page.state_abbr).toUpperCase() === "GA"
       ? atlantaApprovedEditorialSignals.byPath[page.canonical_neighborhood_path] || null
