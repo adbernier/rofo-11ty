@@ -221,6 +221,25 @@ function districtLocatorMapFor(page) {
         "A simplified view of SoMa’s position between Market Street, the Financial District, Mission Bay, and the waterfront.",
       alt:
         "Simplified contextual map showing SoMa between Market Street, the Financial District, Mission Bay, the Mission, and the San Francisco waterfront.",
+      promote_to_identity: true,
+    };
+  }
+
+  return null;
+}
+
+function districtIdentityFor(page) {
+  if (
+    page.slug === "soma" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      eyebrow: "District Guide",
+      title: "SoMa Commercial District",
+      lead:
+        "Understand SoMa as a broad central San Francisco commercial district shaped by Market Street, larger blocks, creative offices, converted warehouses, Mission Bay, and the waterfront.",
+      guide_label: "District guide",
     };
   }
 
@@ -886,6 +905,13 @@ for (const page of allPages) {
       ? curatedDistrictMediaBySlug.soma || null
       : null;
   page.district_locator_map = districtLocatorMapFor(page);
+  if (page.district_locator_map && page.district_locator_map.promote_to_identity && page.map_hero) {
+    page.map_hero = {
+      ...page.map_hero,
+      suppress_map_hero: true,
+    };
+  }
+  page.district_identity = districtIdentityFor(page);
   page.approved_editorial_signal =
     clean(page.city).toLowerCase() === "atlanta" && clean(page.state_abbr).toUpperCase() === "GA"
       ? atlantaApprovedEditorialSignals.byPath[page.canonical_neighborhood_path] || null

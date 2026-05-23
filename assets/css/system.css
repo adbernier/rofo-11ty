@@ -2822,6 +2822,19 @@ section.market-page--space-type .market-links a {
   margin-top: 16px;
 }
 
+.city-page .city-hero--district-identity {
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 16px;
+}
+
+.city-page .city-hero--district-identity > .city-card {
+  padding: 26px 28px;
+}
+
+.city-page .city-hero--district-identity .lead {
+  max-width: 760px;
+}
+
 .neighborhood-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
@@ -3474,6 +3487,14 @@ section.market-page--space-type .market-links a {
   overflow: hidden;
 }
 
+.neighborhood-locator-map--identity {
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding: 26px;
+}
+
 .neighborhood-locator-map > * {
   min-width: 0;
 }
@@ -3489,6 +3510,11 @@ section.market-page--space-type .market-links a {
   line-height: 1.6;
 }
 
+.neighborhood-locator-map--identity .neighborhood-locator-map__copy p {
+  max-width: 430px;
+  font-size: 1rem;
+}
+
 .neighborhood-locator-map__figure {
   margin: 0;
 }
@@ -3501,6 +3527,11 @@ section.market-page--space-type .market-links a {
   border: 1px solid #dbe3ee;
   border-radius: 14px;
   background: #f8faf7;
+}
+
+.neighborhood-locator-map--identity svg {
+  min-height: 340px;
+  border-radius: 16px;
 }
 
 .neighborhood-locator-map__context path {
@@ -3979,6 +4010,15 @@ section.market-page--space-type .market-links a {
 
   .neighborhood-locator-map svg {
     min-height: 230px;
+  }
+
+  .city-page .city-hero--district-identity > .city-card,
+  .neighborhood-locator-map--identity {
+    padding: 20px;
+  }
+
+  .neighborhood-locator-map--identity svg {
+    min-height: 250px;
   }
 
   .neighborhood-locator-map__copy p {

@@ -1,6 +1,6 @@
 {% set locator = neighborhood.district_locator_map %}
 {% if locator %}
-  <section class="city-card neighborhood-locator-map" aria-labelledby="neighborhood-locator-map-title">
+  <section class="city-card neighborhood-locator-map{% if locator.promote_to_identity %} neighborhood-locator-map--identity{% endif %}" aria-labelledby="neighborhood-locator-map-title">
     <div class="neighborhood-locator-map__copy">
       <div class="eyebrow">{{ locator.eyebrow }}</div>
       <h2 id="neighborhood-locator-map-title">{{ locator.title }}</h2>
