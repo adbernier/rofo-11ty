@@ -1,10 +1,11 @@
 {% set intelligence = neighborhood.neighborhood_intelligence %}
 {% set hasDedicatedCommercialDistricts = neighborhood.public_commercial_districts and neighborhood.public_commercial_districts.districts and neighborhood.public_commercial_districts.districts.length %}
+{% set neighborhoodDisplayNameWithArticle = neighborhood.display_name_with_article or neighborhood.name %}
 {% if intelligence %}
   {% set isEditorial = (neighborhood.approved_editorial_signal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA") or intelligence.status == "editorial" %}
   {% if isEditorial %}
     <section class="city-card neighborhood-intelligence neighborhood-intelligence--editorial" aria-labelledby="neighborhood-intelligence-heading">
-      <h2 id="neighborhood-intelligence-heading">How to read {{ neighborhood.name }}</h2>
+      <h2 id="neighborhood-intelligence-heading">How to read {{ neighborhoodDisplayNameWithArticle }}</h2>
 
       {% if intelligence.headline %}
         <p class="neighborhood-intelligence__lead">{{ intelligence.headline }}</p>
@@ -13,7 +14,7 @@
       {% if intelligence.modules and intelligence.modules.length %}
         <div class="neighborhood-intelligence__editorial-body">
           {% for module in intelligence.modules %}
-            {% if module.title == "Building character" or module.title == "Common space types" or module.title == "Business fit" %}
+            {% if module.title == "Building character" or module.title == "Common space types" or module.title == "Business fit" or module.title == "Access pattern" or module.title == "Edges to read" %}
               <p>{{ module.text }}</p>
             {% endif %}
           {% endfor %}
@@ -46,7 +47,7 @@
       <div class="neighborhood-intelligence__header">
         <div>
           <div class="eyebrow">Neighborhood Intelligence</div>
-          <h2 id="neighborhood-intelligence-heading">{{ neighborhood.name }} commercial profile</h2>
+          <h2 id="neighborhood-intelligence-heading">{{ neighborhoodDisplayNameWithArticle }} commercial profile</h2>
         </div>
         <span class="neighborhood-intelligence__confidence">{{ intelligence.confidence | capitalize }} confidence</span>
       </div>

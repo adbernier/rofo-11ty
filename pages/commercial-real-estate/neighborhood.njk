@@ -6,8 +6,8 @@ pagination:
   alias: neighborhood
 permalink: "{{ neighborhood.canonical_neighborhood_path }}"
 eleventyComputed:
-  title: "Commercial Real Estate in {{ neighborhood.name | safe }}, {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
-  description: "Explore commercial real estate context, buildings, and common business environments in {{ neighborhood.name | safe }}, {{ neighborhood.city }}."
+  title: "Commercial Real Estate in {{ (neighborhood.display_name_with_article or neighborhood.name) | safe }}, {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
+  description: "Explore commercial real estate context, buildings, and common business environments in {{ (neighborhood.display_name_with_article or neighborhood.name) | safe }}, {{ neighborhood.city }}."
   canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
   robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
 ---
@@ -26,6 +26,7 @@ eleventyComputed:
 {% set areaTerm = neighborhood.commercial_area_type_label or "neighborhood" %}
 {% set areaTermDisplay = areaTerm | capitalize %}
 {% set neighborhoodDisplayNameWithArticle = neighborhood.display_name_with_article or neighborhood.name %}
+{% set neighborhoodDisplayNameSentence = neighborhood.display_name_with_article_sentence or neighborhood.name %}
 {% set hasIdentityLocatorMap = neighborhood.district_locator_map and neighborhood.district_locator_map.promote_to_identity %}
 {% set districtIdentity = neighborhood.district_identity %}
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
@@ -42,7 +43,7 @@ eleventyComputed:
           <div class="eyebrow">{{ districtIdentity.eyebrow or (areaTermDisplay + " Guide") }}</div>
           <h1>{{ districtIdentity.title or ("Commercial Real Estate in " + neighborhood.name) }}</h1>
           <p class="lead">
-            {{ districtIdentity.lead or ("Explore commercial buildings, nearby areas, and related space types in " + neighborhood.name + ", " + neighborhood.city + ".") }}
+            {{ districtIdentity.lead or ("Explore commercial buildings, nearby areas, and related space types in " + neighborhoodDisplayNameWithArticle + ", " + neighborhood.city + ".") }}
           </p>
           <div class="pill-row">
             <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
@@ -60,9 +61,9 @@ eleventyComputed:
       {% elif not hasIdentityLocatorMap %}
         <div class="city-sidecard neighborhood-review-note">
           <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
-          <h2>Explore {{ neighborhood.name }}</h2>
+          <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
           <p>
-            Use this page as a starting point for comparing {{ neighborhood.name }} with the broader {{ neighborhood.city }} commercial real estate market.
+            Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with the broader {{ neighborhood.city }} commercial real estate market.
           </p>
         </div>
       {% endif %}
@@ -93,9 +94,9 @@ eleventyComputed:
         {% if not hasMapHero %}
           <section class="city-card">
             <div class="eyebrow">Neighborhood Overview</div>
-            <h2>{{ neighborhood.name }} commercial real estate</h2>
+            <h2>Commercial real estate in {{ neighborhoodDisplayNameWithArticle }}</h2>
             <p>
-              {{ neighborhood.name }} is part of the broader {{ neighborhood.city }} commercial real estate market.
+              {{ neighborhoodDisplayNameSentence }} is part of the broader {{ neighborhood.city }} commercial real estate market.
               Use this page to compare buildings in the area, review related space types, and explore nearby commercial areas.
             </p>
           </section>
@@ -106,7 +107,7 @@ eleventyComputed:
         {% else %}
           <section class="city-card">
             <div class="eyebrow">At a Glance</div>
-            <h2>{{ neighborhood.name }} at a glance</h2>
+            <h2>{{ neighborhoodDisplayNameSentence }} at a glance</h2>
             <div class="neighborhood-card-grid neighborhood-card-grid--compact">
               <div class="neighborhood-mini-card">
                 <h3>Representative setting</h3>
@@ -149,7 +150,7 @@ eleventyComputed:
               <div class="neighborhood-context-fallback">
                 <h3>Commercial context</h3>
                 <p>
-                  Review buildings, space types, and nearby areas as you compare {{ neighborhood.name }} with the broader {{ neighborhood.city }} market.
+                  Review buildings, space types, and nearby areas as you compare {{ neighborhoodDisplayNameWithArticle }} with the broader {{ neighborhood.city }} market.
                 </p>
               </div>
             {% endif %}
@@ -171,7 +172,7 @@ eleventyComputed:
         <section class="city-card">
           <div class="eyebrow">Representative Buildings</div>
           {% if hasBuildings %}
-            <h2>Representative buildings in {{ neighborhood.name }}</h2>
+            <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
             <p>
               Selected examples that help ground the area's commercial texture.
             </p>
@@ -183,9 +184,9 @@ eleventyComputed:
               {% endfor %}
             </div>
           {% else %}
-            <h2>Explore opportunities in {{ neighborhood.name }}</h2>
+            <h2>Explore opportunities in {{ neighborhoodDisplayNameWithArticle }}</h2>
             <p>
-              Use this page as a starting point for comparing {{ neighborhood.name }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
+              Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
             </p>
             <div class="button-row">
               <a class="btn-primary" href="{{ cityLeadUrl }}">Get help exploring this area</a>
@@ -215,7 +216,7 @@ eleventyComputed:
           <div class="eyebrow">Nearby Neighborhoods</div>
           <h2>Nearby areas</h2>
           <p>
-            Compare {{ neighborhood.name }} with nearby {{ neighborhood.city }} neighborhoods and commercial districts.
+            Compare {{ neighborhoodDisplayNameWithArticle }} with nearby {{ neighborhood.city }} neighborhoods and commercial districts.
           </p>
           {% if hasNearby %}
             <div class="neighborhood-comparison-grid">
@@ -248,9 +249,9 @@ eleventyComputed:
         {% if not hasMapHero %}
           <div class="city-card neighborhood-sticky-card">
             <div class="eyebrow">Neighborhood Context</div>
-            <h2>Explore {{ neighborhood.name }}</h2>
+            <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
             <p>
-              Use this page as a starting point for comparing {{ neighborhood.name }} with other parts of {{ neighborhood.city }}.
+              Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with other parts of {{ neighborhood.city }}.
             </p>
             <ul class="mini-list">
               <li>Buildings in this area</li>

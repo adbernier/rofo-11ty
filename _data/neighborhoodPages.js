@@ -225,6 +225,23 @@ function districtLocatorMapFor(page) {
     };
   }
 
+  if (
+    page.slug === "financial-district" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      variant: "financial_district_sf",
+      eyebrow: "Area map",
+      title: "Financial District in context",
+      copy:
+        "A simplified view of the Financial District’s position between the Embarcadero, Jackson Square, Union Square, Market Street, and SoMa.",
+      alt:
+        "Simplified contextual map showing San Francisco's Financial District near the Embarcadero, Jackson Square, Union Square, Market Street, SoMa, and the Bay Bridge.",
+      promote_to_identity: true,
+    };
+  }
+
   return null;
 }
 
@@ -243,7 +260,46 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (
+    page.slug === "financial-district" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      eyebrow: "District Guide",
+      title: "Financial District SF",
+      lead:
+        "Understand the Financial District as San Francisco’s formal downtown business core: vertical office buildings, historic commercial blocks, transit access, client-facing services, and a tighter office-oriented setting than SoMa.",
+      guide_label: "Business district guide",
+    };
+  }
+
   return null;
+}
+
+function representativeBuildingRolesFor(page) {
+  if (
+    page.slug === "financial-district" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/":
+        "Transit and street-level business core",
+      "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/":
+        "Vertical downtown office form",
+      "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/":
+        "Montgomery Street office corridor",
+      "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/":
+        "Jackson Square edge office texture",
+      "/commercial-real-estate/building/CA/san-francisco/333-kearny-st/":
+        "Historic core edge example",
+      "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/":
+        "Smaller client-facing office block",
+    };
+  }
+
+  return {};
 }
 
 function clean(value) {
@@ -571,6 +627,13 @@ function displayNameWithArticleFor(page) {
   return displayNameWithArticleByKey[pageKey(page)] || "";
 }
 
+function sentenceStartName(value) {
+  const label = clean(value);
+  if (!label) return "";
+
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+
 const nearbyComparisonNotesByKey = {
   "GA/atlanta/buckhead": {
     midtown: "Denser and more transit-oriented, with stronger university and apartment overlap.",
@@ -892,6 +955,10 @@ for (const page of allPages) {
   if (!page.display_name_with_article && displayNameWithArticle) {
     page.display_name_with_article = displayNameWithArticle;
   }
+  page.uses_definite_article = Boolean(page.display_name_with_article);
+  page.display_name_with_article_sentence = sentenceStartName(
+    page.display_name_with_article || page.name
+  );
   page.neighborhood_image_path =
     page.neighborhood_image_path || neighborhoodImagePathFor(page);
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
@@ -912,6 +979,14 @@ for (const page of allPages) {
     };
   }
   page.district_identity = districtIdentityFor(page);
+  const representativeBuildingRoles = representativeBuildingRolesFor(page);
+  if (page.representative_buildings && Object.keys(representativeBuildingRoles).length) {
+    page.representative_buildings = page.representative_buildings.map((building) => ({
+      ...building,
+      editorial_descriptor:
+        representativeBuildingRoles[building.building_path] || building.editorial_descriptor,
+    }));
+  }
   page.approved_editorial_signal =
     clean(page.city).toLowerCase() === "atlanta" && clean(page.state_abbr).toUpperCase() === "GA"
       ? atlantaApprovedEditorialSignals.byPath[page.canonical_neighborhood_path] || null
