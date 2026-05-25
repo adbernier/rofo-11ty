@@ -452,6 +452,27 @@ function representativeBuildingRolesFor(page) {
   const pagePath = page.canonical_neighborhood_path;
 
   if (
+    page.slug === "soma" &&
+    clean(page.city).toLowerCase() === "san francisco" &&
+    clean(page.state_abbr).toUpperCase() === "CA"
+  ) {
+    return {
+      "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/":
+        "Central SoMa office transition",
+      "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/":
+        "Townsend corridor office context",
+      "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/":
+        "Flex / production-commercial edge",
+      "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/":
+        "Historic industrial-commercial form",
+      "/commercial-real-estate/building/CA/san-francisco/545-folsom-st/":
+        "Central SoMa street-level commercial context",
+      "/commercial-real-estate/building/CA/san-francisco/565-4th-st/":
+        "Central SoMa office and retail transition",
+    };
+  }
+
+  if (
     page.slug === "financial-district" &&
     clean(page.city).toLowerCase() === "san francisco" &&
     clean(page.state_abbr).toUpperCase() === "CA"
@@ -944,6 +965,14 @@ const nearbyComparisonNotesByKey = {
 };
 
 const representativeBuildingPathOverridesByAreaId = {
+  "sf-soma": [
+    "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
+    "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
+    "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/",
+    "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/",
+    "/commercial-real-estate/building/CA/san-francisco/545-folsom-st/",
+    "/commercial-real-estate/building/CA/san-francisco/565-4th-st/",
+  ],
   "oak-downtown-oakland": [
     "/commercial-real-estate/building/CA/oakland/1333-broadway/",
     "/commercial-real-estate/building/CA/oakland/505-14th-st/",
