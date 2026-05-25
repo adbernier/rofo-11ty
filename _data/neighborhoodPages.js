@@ -209,6 +209,8 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
 }
 
 function districtLocatorMapFor(page) {
+  const pagePath = page.canonical_neighborhood_path;
+
   if (
     page.slug === "soma" &&
     clean(page.city).toLowerCase() === "san francisco" &&
@@ -242,10 +244,67 @@ function districtLocatorMapFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
+    return {
+      variant: "oakland_core",
+      primary: "downtown-oakland",
+      eyebrow: "Area map",
+      title: "Downtown Oakland in context",
+      copy:
+        "A simplified view of Downtown Oakland’s position around Broadway, City Center, BART, Uptown, Lake Merritt, Old Oakland, and Jack London Square.",
+      alt:
+        "Simplified contextual map showing Downtown Oakland near Uptown Oakland, Lake Merritt, Old Oakland, Jack London Square, Broadway, and BART.",
+      promote_to_identity: true,
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/uptown-oakland/") {
+    return {
+      variant: "oakland_core",
+      primary: "uptown-oakland",
+      eyebrow: "Area map",
+      title: "Uptown Oakland in context",
+      copy:
+        "A simplified view of Uptown Oakland’s position north of Downtown Oakland, near Broadway, Lake Merritt, BART, and the arts-adjacent mixed-use core.",
+      alt:
+        "Simplified contextual map showing Uptown Oakland near Downtown Oakland, Lake Merritt, Broadway, BART, Old Oakland, and Jack London Square.",
+      promote_to_identity: true,
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/jack-london-square/") {
+    return {
+      variant: "oakland_core",
+      primary: "jack-london-square",
+      eyebrow: "Area map",
+      title: "Jack London Square in context",
+      copy:
+        "A simplified view of Jack London Square’s waterfront position south of Downtown Oakland and Old Oakland, with rail, ferry, and adaptive-commercial context.",
+      alt:
+        "Simplified contextual map showing Jack London Square along the Oakland waterfront near Downtown Oakland, Old Oakland, Uptown Oakland, Broadway, and Lake Merritt.",
+      promote_to_identity: true,
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/") {
+    return {
+      variant: "downtown_palo_alto",
+      eyebrow: "Area map",
+      title: "Downtown Palo Alto in context",
+      copy:
+        "A simplified view of Downtown Palo Alto’s position around University Avenue, Hamilton, Lytton, Caltrain, Stanford, and the broader Peninsula commercial corridor.",
+      alt:
+        "Simplified contextual map showing Downtown Palo Alto near University Avenue, Hamilton Avenue, Lytton Avenue, Caltrain, Stanford, El Camino Real, and California Avenue.",
+      promote_to_identity: true,
+    };
+  }
+
   return null;
 }
 
 function districtIdentityFor(page) {
+  const pagePath = page.canonical_neighborhood_path;
+
   if (
     page.slug === "soma" &&
     clean(page.city).toLowerCase() === "san francisco" &&
@@ -274,10 +333,52 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Downtown Oakland Commercial District",
+      lead:
+        "Understand Downtown Oakland as the East Bay’s civic, transit, and business core: BART-centered, practical, office-oriented, and closely tied to Broadway, City Center, and public-sector adjacency.",
+      guide_label: "Business district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/uptown-oakland/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Uptown Oakland Commercial District",
+      lead:
+        "Understand Uptown Oakland as Downtown Oakland’s mixed-use counterpart: arts-adjacent, smaller-company friendly, transit-connected, and more textured by food, housing, and street-level activity.",
+      guide_label: "District guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/jack-london-square/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Jack London Square Commercial District",
+      lead:
+        "Understand Jack London Square as Oakland’s waterfront adaptive-commercial district, where office, service, food and beverage, visitor activity, rail, ferry, and warehouse-adjacent blocks shape the business setting.",
+      guide_label: "Waterfront district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Downtown Palo Alto Commercial District",
+      lead:
+        "Understand Downtown Palo Alto as a walkable Peninsula professional district: Caltrain-adjacent, client-facing, startup and venture-oriented, and distinct from campus or highway-corridor office geography.",
+      guide_label: "Peninsula district guide",
+    };
+  }
+
   return null;
 }
 
 function representativeBuildingRolesFor(page) {
+  const pagePath = page.canonical_neighborhood_path;
+
   if (
     page.slug === "financial-district" &&
     clean(page.city).toLowerCase() === "san francisco" &&
@@ -296,6 +397,56 @@ function representativeBuildingRolesFor(page) {
         "Historic core edge example",
       "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/":
         "Smaller client-facing office block",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
+    return {
+      "/commercial-real-estate/building/CA/oakland/1333-broadway/":
+        "Broadway office-core example",
+      "/commercial-real-estate/building/CA/oakland/505-14th-st/":
+        "City Center and BART-oriented office setting",
+      "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/":
+        "Civic core office adjacency",
+      "/commercial-real-estate/building/CA/oakland/1440-broadway/":
+        "Downtown mid-rise office fabric",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/uptown-oakland/") {
+    return {
+      "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/":
+        "Lake Merritt edge office setting",
+      "/commercial-real-estate/building/CA/oakland/2101-webster-st/":
+        "Uptown office and mixed-use edge",
+      "/commercial-real-estate/building/CA/oakland/1970-broadway/":
+        "Broadway arts-adjacent office corridor",
+      "/commercial-real-estate/building/CA/oakland/415-20th-st/":
+        "Smaller-company Uptown office fabric",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/jack-london-square/") {
+    return {
+      "/commercial-real-estate/building/CA/oakland/66-franklin-st/":
+        "Waterfront office and visitor-facing edge",
+      "/commercial-real-estate/building/CA/oakland/230-madison-st/":
+        "Warehouse-adjacent adaptive commercial texture",
+      "/commercial-real-estate/building/CA/oakland/105-2nd-st/":
+        "Lower-scale waterfront commercial block",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/") {
+    return {
+      "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/":
+        "Lytton Avenue professional office fabric",
+      "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/":
+        "Hamilton Avenue client-facing office setting",
+      "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/":
+        "Retail-supported downtown commercial block",
+      "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/":
+        "Compact Peninsula office example",
     };
   }
 
@@ -695,6 +846,11 @@ const representativeBuildingPathOverridesByAreaId = {
     "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
     "/commercial-real-estate/building/CA/oakland/1970-broadway/",
     "/commercial-real-estate/building/CA/oakland/415-20th-st/",
+  ],
+  "oak-jack-london-square": [
+    "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+    "/commercial-real-estate/building/CA/oakland/230-madison-st/",
+    "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
   ],
 };
 

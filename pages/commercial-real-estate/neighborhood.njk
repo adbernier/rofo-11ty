@@ -93,7 +93,7 @@ eleventyComputed:
 
     <div class="neighborhood-layout">
       <div class="neighborhood-main">
-        {% if not hasMapHero %}
+        {% if not hasMapHero and not isDistrictIdentityPage %}
           <section class="city-card">
             <div class="eyebrow">Neighborhood Overview</div>
             <h2>Commercial real estate in {{ neighborhoodDisplayNameWithArticle }}</h2>
@@ -169,7 +169,9 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
+        {% if not isDistrictIdentityPage %}
+          {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
+        {% endif %}
 
         <section class="city-card">
           <div class="eyebrow">Representative Buildings</div>
@@ -196,6 +198,10 @@ eleventyComputed:
             </div>
           {% endif %}
         </section>
+
+        {% if isDistrictIdentityPage %}
+          {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
+        {% endif %}
 
         <section class="city-card">
           <div class="eyebrow">Related Space Types</div>

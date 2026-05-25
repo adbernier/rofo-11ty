@@ -68,6 +68,115 @@
           <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
         </g>
       </svg>
+      {% elif locator.variant == "oakland_core" %}
+      <svg viewBox="0 0 960 540" role="img" aria-labelledby="oakland-core-locator-title oakland-core-locator-desc" preserveAspectRatio="xMidYMid meet" style="--district-locator-fill: url(#oakland-core-locator-district);">
+        <title id="oakland-core-locator-title">{% if locator.primary == "downtown-oakland" %}Downtown Oakland contextual district locator map{% elif locator.primary == "uptown-oakland" %}Uptown Oakland contextual district locator map{% else %}Jack London Square contextual district locator map{% endif %}</title>
+        <desc id="oakland-core-locator-desc">{{ locator.alt }}</desc>
+        <defs>
+          <linearGradient id="oakland-core-locator-water" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e8f4f3" />
+            <stop offset="100%" stop-color="#d4e9e6" />
+          </linearGradient>
+          <linearGradient id="oakland-core-locator-district" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#dfeadf" />
+            <stop offset="100%" stop-color="#c4d8bf" />
+          </linearGradient>
+          <pattern id="oakland-core-locator-grid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+            <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.52" />
+          </pattern>
+          <filter id="oakland-core-locator-soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12" />
+          </filter>
+        </defs>
+
+        <rect width="960" height="540" rx="24" fill="#f8faf7" />
+        <path d="M 0 382 C 96 346 176 342 260 374 C 360 412 456 426 566 396 C 704 360 822 386 960 340 L 960 540 L 0 540 Z" fill="url(#oakland-core-locator-water)" />
+        <path d="M 0 0 H 960 V 540 H 0 Z" fill="url(#oakland-core-locator-grid)" opacity="0.42" />
+
+        <g class="neighborhood-locator-map__context">
+          <path d="M 446 44 C 430 134 418 230 408 326 C 400 400 392 464 382 526" />
+          <path d="M 272 90 C 350 164 414 236 466 306 C 520 378 574 448 638 520" />
+          <path d="M 168 266 C 270 246 376 238 486 240 C 604 244 714 230 830 198" />
+          <path d="M 206 80 C 296 160 362 244 404 332 C 432 392 456 450 484 520" class="neighborhood-locator-map__transit" />
+        </g>
+
+        <g class="neighborhood-locator-map__waterfront">
+          <path d="M 0 382 C 116 356 196 366 286 400 C 390 438 506 436 626 400 C 734 368 842 376 960 340" />
+          <path d="M 72 420 C 174 408 254 420 342 454" class="neighborhood-locator-map__bridge" />
+        </g>
+
+        <g class="neighborhood-locator-map__districts">
+          <path d="M 330 224 L 512 214 L 590 292 L 544 376 L 370 388 L 284 314 Z"{% if locator.primary == 'downtown-oakland' %} class="neighborhood-locator-map__primary-district" filter="url(#oakland-core-locator-soft-shadow)"{% endif %} />
+          <path d="M 350 104 L 534 92 L 596 154 L 512 214 L 330 224 L 280 162 Z"{% if locator.primary == 'uptown-oakland' %} class="neighborhood-locator-map__primary-district" filter="url(#oakland-core-locator-soft-shadow)"{% endif %} />
+          <path d="M 300 388 L 542 378 L 650 438 L 596 514 L 306 508 L 214 448 Z"{% if locator.primary == 'jack-london-square' %} class="neighborhood-locator-map__primary-district" filter="url(#oakland-core-locator-soft-shadow)"{% endif %} />
+          <path d="M 214 266 L 330 224 L 284 314 L 202 344 L 148 310 Z" />
+          <path d="M 610 146 C 694 132 776 142 842 188 C 800 248 718 276 622 264 L 590 202 Z" />
+        </g>
+
+        <g class="neighborhood-locator-map__labels">
+          <text x="382" y="310" class="neighborhood-locator-map__label{% if locator.primary == 'downtown-oakland' %} neighborhood-locator-map__label--primary{% endif %}">Downtown Oakland</text>
+          <text x="382" y="160" class="neighborhood-locator-map__label{% if locator.primary == 'uptown-oakland' %} neighborhood-locator-map__label--primary{% endif %}">Uptown Oakland</text>
+          <text x="332" y="452" class="neighborhood-locator-map__label{% if locator.primary == 'jack-london-square' %} neighborhood-locator-map__label--primary{% endif %}">Jack London Square</text>
+          <text x="172" y="306" class="neighborhood-locator-map__label">Old Oakland</text>
+          <text x="646" y="208" class="neighborhood-locator-map__label">Lake Merritt</text>
+          <text x="438" y="68" class="neighborhood-locator-map__street">Broadway</text>
+          <text x="156" y="112" class="neighborhood-locator-map__street">BART</text>
+          <text x="52" y="474" class="neighborhood-locator-map__water-label">Waterfront</text>
+        </g>
+
+        <g class="neighborhood-locator-map__note">
+          <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
+        </g>
+      </svg>
+      {% elif locator.variant == "downtown_palo_alto" %}
+      <svg viewBox="0 0 960 540" role="img" aria-labelledby="downtown-palo-alto-locator-title downtown-palo-alto-locator-desc" preserveAspectRatio="xMidYMid meet" style="--district-locator-fill: url(#downtown-palo-alto-locator-district);">
+        <title id="downtown-palo-alto-locator-title">Downtown Palo Alto contextual district locator map</title>
+        <desc id="downtown-palo-alto-locator-desc">{{ locator.alt }}</desc>
+        <defs>
+          <linearGradient id="downtown-palo-alto-locator-district" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e8dfcf" />
+            <stop offset="100%" stop-color="#d2c3aa" />
+          </linearGradient>
+          <pattern id="downtown-palo-alto-locator-grid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)">
+            <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.5" />
+          </pattern>
+          <filter id="downtown-palo-alto-locator-soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12" />
+          </filter>
+        </defs>
+
+        <rect width="960" height="540" rx="24" fill="#f8faf7" />
+        <path d="M 0 0 H 960 V 540 H 0 Z" fill="url(#downtown-palo-alto-locator-grid)" opacity="0.42" />
+
+        <g class="neighborhood-locator-map__context">
+          <path d="M 128 462 C 252 386 362 318 456 256 C 548 196 654 122 786 34" />
+          <path d="M 98 294 C 238 276 370 268 492 270 C 626 272 748 256 884 220" />
+          <path d="M 244 520 C 330 410 400 326 454 268 C 516 202 584 126 658 38" class="neighborhood-locator-map__transit" />
+          <path d="M 428 56 C 466 152 506 236 548 308 C 596 390 646 458 704 514" />
+        </g>
+
+        <g class="neighborhood-locator-map__districts">
+          <path d="M 350 160 L 570 144 L 662 224 L 598 330 L 390 352 L 272 260 Z" class="neighborhood-locator-map__primary-district" filter="url(#downtown-palo-alto-locator-soft-shadow)" />
+          <path d="M 168 70 L 322 74 L 350 160 L 272 260 L 142 238 L 96 142 Z" />
+          <path d="M 610 330 L 756 304 L 846 374 L 792 474 L 646 468 L 598 386 Z" />
+          <path d="M 650 86 L 800 52 L 870 122 L 780 202 L 662 224 L 590 154 Z" />
+        </g>
+
+        <g class="neighborhood-locator-map__labels">
+          <text x="382" y="250" class="neighborhood-locator-map__label neighborhood-locator-map__label--primary">Downtown Palo Alto</text>
+          <text x="154" y="156" class="neighborhood-locator-map__label">Stanford edge</text>
+          <text x="650" y="390" class="neighborhood-locator-map__label">California Ave</text>
+          <text x="678" y="146" class="neighborhood-locator-map__label">Menlo Park edge</text>
+          <text x="174" y="426" class="neighborhood-locator-map__street">El Camino Real</text>
+          <text x="288" y="486" class="neighborhood-locator-map__street">Caltrain</text>
+          <text x="496" y="120" class="neighborhood-locator-map__street">University Ave</text>
+          <text x="102" y="292" class="neighborhood-locator-map__street">Hamilton / Lytton</text>
+        </g>
+
+        <g class="neighborhood-locator-map__note">
+          <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
+        </g>
+      </svg>
       {% else %}
       <svg viewBox="0 0 960 540" role="img" aria-labelledby="soma-locator-title soma-locator-desc" preserveAspectRatio="xMidYMid meet">
         <title id="soma-locator-title">SoMa contextual district locator map</title>

@@ -57,18 +57,21 @@ const integrationsByPath = {
       {
         name: "Uptown Oakland",
         url: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        relationship_type: "Mixed-use contrast",
         note:
           "More mixed-use and smaller-company oriented, with stronger arts, food, and Lake Merritt-adjacent context.",
       },
       {
         name: "Jack London Square",
         url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront contrast",
         note:
           "More waterfront and warehouse-adjacent, with service-commercial and adaptive commercial texture.",
       },
       {
         name: "Financial District SF",
         url: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        relationship_type: "Cross-bay comparison",
         note:
           "A more traditional regional business district across the bay, with stronger downtown client-facing office presence.",
       },
@@ -83,17 +86,20 @@ const integrationsByPath = {
       {
         name: "Downtown Oakland",
         url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Formal core contrast",
         note:
           "More formal, civic, and traditional office-core oriented, with stronger Broadway and City Center context.",
       },
       {
         name: "Jack London Square",
         url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront contrast",
         note:
           "More waterfront and service-commercial, with warehouse-adjacent texture south of the downtown core.",
       },
       {
         name: "Temescal",
+        relationship_type: "Neighborhood-commercial contrast",
         note:
           "More neighborhood retail and small-business oriented north of Uptown, with less formal office concentration.",
       },
@@ -108,18 +114,21 @@ const integrationsByPath = {
       {
         name: "Downtown Oakland",
         url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Civic core contrast",
         note:
           "More civic, institutional, and transit-focused, with stronger Broadway and City Center office context.",
       },
       {
         name: "Uptown Oakland",
         url: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        relationship_type: "Mixed-use contrast",
         note:
           "More mixed-use and arts-adjacent, with BART access, food, apartments, and Lake Merritt-adjacent office blocks.",
       },
       {
         name: "Old Oakland",
         url: "/commercial-real-estate/CA/oakland/old-oakland/",
+        relationship_type: "Historic edge",
         note:
           "Smaller-scale and historic, with downtown-adjacent commercial blocks just north of the waterfront district.",
       },
@@ -133,16 +142,19 @@ const integrationsByPath = {
     districts: [
       {
         name: "Mountain View / Castro-Whisman",
+        relationship_type: "Corridor alternative",
         note:
           "More corridor- and R&D-oriented than Downtown Palo Alto, with broader Mountain View startup and office context.",
       },
       {
         name: "Redwood City Downtown",
+        relationship_type: "Mid-Peninsula comparison",
         note:
           "A larger mid-Peninsula downtown with stronger civic, entertainment, and Caltrain-adjacent commercial context.",
       },
       {
         name: "California Avenue",
+        relationship_type: "Local Palo Alto contrast",
         note:
           "A more local Palo Alto commercial district compared with the tighter University Avenue downtown core.",
       },
