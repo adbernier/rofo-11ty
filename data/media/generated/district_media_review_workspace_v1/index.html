@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>District Media Review Workspace V1</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="eyebrow">Internal editorial</div>
+        <h1>District media review</h1>
+      </div>
+      <label class="field-label" for="districtSelect">District</label>
+      <select id="districtSelect" class="select"></select>
+      <div id="districtStats" class="stats"></div>
+      <div class="actions">
+        <button id="exportReview" class="button">Export review state</button>
+        <button id="clearFilters" class="button subtle">Clear filters</button>
+      </div>
+      <div class="filters">
+        <label><input type="checkbox" id="imagesOnly"> With images</label>
+        <label><input type="checkbox" id="needsReviewOnly"> Unreviewed</label>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <div>
+          <div id="districtKicker" class="eyebrow">Commercial district</div>
+          <h2 id="districtTitle"></h2>
+        </div>
+        <div id="reviewCounts" class="review-counts"></div>
+      </header>
+      <section id="candidateGroups" class="candidate-groups"></section>
+    </main>
+  </div>
+  <script src="./workspace-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

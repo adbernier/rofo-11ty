@@ -29,6 +29,8 @@ eleventyComputed:
 {% set neighborhoodDisplayNameSentence = neighborhood.display_name_with_article_sentence or neighborhood.name %}
 {% set hasIdentityLocatorMap = neighborhood.district_locator_map and neighborhood.district_locator_map.promote_to_identity %}
 {% set districtIdentity = neighborhood.district_identity %}
+{% set hasDedicatedCommercialDistricts = neighborhood.public_commercial_districts and neighborhood.public_commercial_districts.districts and neighborhood.public_commercial_districts.districts.length %}
+{% set isDistrictIdentityPage = districtIdentity or hasIdentityLocatorMap or hasDedicatedCommercialDistricts %}
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
@@ -212,25 +214,27 @@ eleventyComputed:
           {% endif %}
         </section>
 
-        <section class="city-card">
-          <div class="eyebrow">Nearby Neighborhoods</div>
-          <h2>Nearby areas</h2>
-          <p>
-            Compare {{ neighborhoodDisplayNameWithArticle }} with nearby {{ neighborhood.city }} neighborhoods and commercial districts.
-          </p>
-          {% if hasNearby %}
-            <div class="neighborhood-comparison-grid">
-              {% for nearby in neighborhood.nearby_neighborhoods %}
-                <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ nearby.url }}">
-                  <h3>{{ nearby.name }}</h3>
-                  <p>{{ nearby.note or (nearby.city + ", " + nearby.state_abbr) }}</p>
-                </a>
-              {% endfor %}
-            </div>
-          {% else %}
-            <p>Use the broader {{ neighborhood.city }} market page to compare nearby commercial areas.</p>
-          {% endif %}
-        </section>
+        {% if not hasDedicatedCommercialDistricts %}
+          <section class="city-card">
+            <div class="eyebrow">Nearby Neighborhoods</div>
+            <h2>Nearby areas</h2>
+            <p>
+              Compare {{ neighborhoodDisplayNameWithArticle }} with nearby {{ neighborhood.city }} neighborhoods and commercial districts.
+            </p>
+            {% if hasNearby %}
+              <div class="neighborhood-comparison-grid">
+                {% for nearby in neighborhood.nearby_neighborhoods %}
+                  <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ nearby.url }}">
+                    <h3>{{ nearby.name }}</h3>
+                    <p>{{ nearby.note or (nearby.city + ", " + nearby.state_abbr) }}</p>
+                  </a>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p>Use the broader {{ neighborhood.city }} market page to compare nearby commercial areas.</p>
+            {% endif %}
+          </section>
+        {% endif %}
 
         <section class="city-card">
           <div class="eyebrow">Broader Market</div>
@@ -248,7 +252,7 @@ eleventyComputed:
       <aside class="neighborhood-sidebar">
         {% if not hasMapHero %}
           <div class="city-card neighborhood-sticky-card">
-            <div class="eyebrow">Neighborhood Context</div>
+            <div class="eyebrow">{% if isDistrictIdentityPage %}District Context{% else %}Neighborhood Context{% endif %}</div>
             <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
             <p>
               Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with other parts of {{ neighborhood.city }}.

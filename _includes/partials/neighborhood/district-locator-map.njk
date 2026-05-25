@@ -8,6 +8,67 @@
     </div>
 
     <figure class="neighborhood-locator-map__figure">
+      {% if locator.variant == "financial_district_sf" %}
+      <svg viewBox="0 0 960 540" role="img" aria-labelledby="financial-district-locator-title financial-district-locator-desc" preserveAspectRatio="xMidYMid meet">
+        <title id="financial-district-locator-title">Financial District SF contextual district locator map</title>
+        <desc id="financial-district-locator-desc">{{ locator.alt }}</desc>
+        <defs>
+          <linearGradient id="financial-district-locator-water" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e9f6fb" />
+            <stop offset="100%" stop-color="#d7edf5" />
+          </linearGradient>
+          <linearGradient id="financial-district-locator-district" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#dbe7f8" />
+            <stop offset="100%" stop-color="#b8cdea" />
+          </linearGradient>
+          <pattern id="financial-district-locator-grid" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+            <path d="M 34 0 L 0 0 0 34" fill="none" stroke="#dfe6ee" stroke-width="1" opacity="0.5" />
+          </pattern>
+          <filter id="financial-district-locator-soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
+            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12" />
+          </filter>
+        </defs>
+
+        <rect width="960" height="540" rx="24" fill="#f8faf7" />
+        <path d="M 704 0 C 680 54 674 114 692 170 C 718 248 792 284 790 356 C 788 428 736 486 720 540 L 960 540 L 960 0 Z" fill="url(#financial-district-locator-water)" />
+        <path d="M 0 0 H 724 C 696 68 694 124 714 174 C 742 244 810 286 806 358 C 802 428 758 488 742 540 H 0 Z" fill="url(#financial-district-locator-grid)" opacity="0.44" />
+
+        <g class="neighborhood-locator-map__context">
+          <path d="M 42 148 C 184 126 316 118 448 126 C 566 132 662 126 742 104" />
+          <path d="M 86 392 C 210 346 340 316 480 292 C 584 274 672 250 758 216" />
+          <path d="M 374 510 C 430 414 466 326 486 250 C 506 176 520 98 530 30" />
+          <path d="M 96 64 C 218 134 318 206 398 280 C 474 350 536 432 592 520" class="neighborhood-locator-map__transit" />
+        </g>
+
+        <g class="neighborhood-locator-map__waterfront">
+          <path d="M 700 86 C 718 156 784 214 788 286 C 792 374 744 458 724 540" />
+          <path d="M 700 90 C 786 64 858 50 960 44" class="neighborhood-locator-map__bridge" />
+        </g>
+
+        <g class="neighborhood-locator-map__districts">
+          <path d="M 478 58 L 640 58 L 704 118 L 656 206 L 512 224 L 420 160 Z" class="neighborhood-locator-map__financial-district" filter="url(#financial-district-locator-soft-shadow)" />
+          <path d="M 356 58 L 478 58 L 420 160 L 314 158 L 292 104 Z" />
+          <path d="M 292 160 L 420 160 L 512 224 L 464 324 L 318 308 L 216 232 Z" />
+          <path d="M 512 224 L 656 206 L 742 284 L 694 402 L 532 384 L 464 324 Z" />
+          <path d="M 198 92 L 292 104 L 314 158 L 236 214 L 148 182 Z" />
+        </g>
+
+        <g class="neighborhood-locator-map__labels">
+          <text x="542" y="138" class="neighborhood-locator-map__label neighborhood-locator-map__label--primary">Financial District</text>
+          <text x="328" y="116" class="neighborhood-locator-map__label">Jackson Square</text>
+          <text x="322" y="248" class="neighborhood-locator-map__label">SoMa</text>
+          <text x="548" y="324" class="neighborhood-locator-map__label">Mission Bay</text>
+          <text x="160" y="158" class="neighborhood-locator-map__label">Union Square</text>
+          <text x="92" y="112" class="neighborhood-locator-map__street">Market St</text>
+          <text x="700" y="72" class="neighborhood-locator-map__street">Bay Bridge</text>
+          <text x="720" y="238" class="neighborhood-locator-map__water-label">Embarcadero</text>
+        </g>
+
+        <g class="neighborhood-locator-map__note">
+          <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
+        </g>
+      </svg>
+      {% else %}
       <svg viewBox="0 0 960 540" role="img" aria-labelledby="soma-locator-title soma-locator-desc" preserveAspectRatio="xMidYMid meet">
         <title id="soma-locator-title">SoMa contextual district locator map</title>
         <desc id="soma-locator-desc">{{ locator.alt }}</desc>
@@ -67,6 +128,7 @@
           <text x="34" y="508">Simplified contextual map, not a legal boundary</text>
         </g>
       </svg>
+      {% endif %}
     </figure>
   </section>
 {% endif %}

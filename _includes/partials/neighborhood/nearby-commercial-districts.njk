@@ -11,11 +11,17 @@
         {% if district.name and district.note %}
           {% if district.url %}
             <a class="neighborhood-comparison-card neighborhood-commercial-districts__card neighborhood-link-card" href="{{ district.url }}">
+              {% if district.relationship_type %}
+                <span class="neighborhood-commercial-districts__type">{{ district.relationship_type }}</span>
+              {% endif %}
               <h3>{{ district.name }}</h3>
               <p>{{ district.note }}</p>
             </a>
           {% else %}
             <div class="neighborhood-comparison-card neighborhood-commercial-districts__card">
+              {% if district.relationship_type %}
+                <span class="neighborhood-commercial-districts__type">{{ district.relationship_type }}</span>
+              {% endif %}
               <h3>{{ district.name }}</h3>
               <p>{{ district.note }}</p>
             </div>

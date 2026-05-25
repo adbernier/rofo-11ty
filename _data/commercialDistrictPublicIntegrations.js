@@ -1,27 +1,50 @@
 const integrationsByPath = {
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
     eyebrow: "Nearby commercial districts",
-    heading: "Explore nearby commercial districts",
+    heading: "Compare nearby downtown districts",
     intro:
-      "Use these nearby districts to compare the Financial District's formal downtown business setting with other San Francisco and East Bay commercial districts.",
+      "Use these relationships to read the Financial District as San Francisco's formal downtown office core, and to compare it with nearby districts that shift toward mixed-use, boutique, visitor-facing, waterfront, or cross-bay business settings.",
     districts: [
       {
         name: "SoMa",
         url: "/commercial-real-estate/CA/san-francisco/soma/",
+        relationship_type: "Commercial contrast",
         note:
-          "A broader mixed-use commercial district with more creative, technology, and larger-block office context south of Market Street.",
+          "Broader, more mixed-use, and more adaptive-commercial south of Market Street; useful as the clearest contrast to the Financial District's tighter office-core form.",
       },
       {
         name: "Jackson Square",
         url: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        relationship_type: "Adjacent edge",
         note:
-          "Smaller-scale and more boutique, with historic commercial buildings close to the downtown core.",
+          "Immediately north and smaller-scale, with historic commercial buildings and a more boutique office texture near the formal downtown core.",
+      },
+      {
+        name: "Embarcadero",
+        relationship_type: "Urban context",
+        note:
+          "The waterfront and ferry edge of the district, important for transit access, client meetings, and the Financial District's eastern downtown identity.",
+      },
+      {
+        name: "Union Square",
+        url: "/commercial-real-estate/CA/san-francisco/union-square/",
+        relationship_type: "Visitor-facing contrast",
+        note:
+          "A nearby retail, hotel, and visitor-serving district that contrasts with the Financial District's office and professional-service concentration.",
+      },
+      {
+        name: "Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        relationship_type: "Search alternative",
+        note:
+          "A newer southern waterfront district to compare when teams want modern office, institutional, or life-science-adjacent context rather than a traditional downtown core.",
       },
       {
         name: "Downtown Oakland",
         url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Cross-bay comparison",
         note:
-          "An East Bay business district with civic adjacency, BART access, and a practical cross-bay office setting.",
+          "An East Bay business district with civic adjacency, BART access, and a practical cross-bay comparison for formal office and professional-service users.",
       },
     ],
   },

@@ -13,24 +13,28 @@ const intelligence = {
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
     status: "editorial",
     confidence: "reviewed",
-    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable historical signals.",
-    headline: "Traditional San Francisco business district for client-facing office, professional services, downtown transit, and formal commercial presence.",
+    source_note: "Based on reviewed commercial area data, representative buildings, nearby district links, and durable downtown business district signals.",
+    headline: "San Francisco's formal downtown office core: vertical, transit-centered, client-facing, and more concentrated than the mixed-use districts south of Market Street.",
     modules: [
       {
         title: "Building character",
-        text: "The Financial District is San Francisco's formal downtown office core, with established office towers, historic commercial buildings, transit-served blocks, and smaller professional buildings toward Jackson Square.",
+        text: "The Financial District is defined by established office towers, older commercial buildings, dense downtown blocks, and a sharper vertical profile than SoMa's broader warehouse, creative-office, and mixed-use pattern.",
       },
       {
         title: "Common space types",
-        text: "Office is the clearest commercial pattern, supported by street-level retail, coworking, hospitality, and services that support daily business routines.",
+        text: "Office is the clearest commercial pattern, supported by street-level retail, coworking, hospitality, and services that support client meetings and daily downtown business routines.",
       },
       {
         title: "Business fit",
-        text: "It fits teams that need a downtown business address, client access, transit reach, and a professional setting that reads more formal than mixed-use districts south of Market Street.",
+        text: "It fits organizations that need a formal downtown address, client access, transit reach, and proximity to finance, legal, professional-service, and executive meeting patterns.",
       },
       {
         title: "Access pattern",
-        text: "The district is oriented around downtown transit, walkable client access, and cross-bay business relationships rather than campus or corridor-style office geography.",
+        text: "The district is oriented around BART, Muni, ferry, and walkable downtown access rather than campus-style office geography or car-oriented corridors.",
+      },
+      {
+        title: "Edges to read",
+        text: "Jackson Square softens the district into smaller historic commercial blocks; the Embarcadero adds waterfront and ferry context; SoMa marks the transition into broader mixed-use and adaptive commercial geography.",
       },
     ],
     fit_chips: [
@@ -41,10 +45,11 @@ const intelligence = {
       "Transit-focused teams",
     ],
     building_scale_patterns: [
-      "Larger office buildings",
+      "Vertical office buildings",
       "Downtown towers",
+      "Historic commercial blocks",
       "Street-level retail context",
-      "Nearby boutique office pockets",
+      "Transit-served business streets",
     ],
     nearby_alternatives: [
       {

@@ -3422,6 +3422,16 @@ section.market-page--space-type .market-links a {
   border-radius: 10px;
 }
 
+.neighborhood-commercial-districts__type {
+  display: block;
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .neighborhood-curated-media h2 {
   max-width: 720px;
 }
@@ -3574,6 +3584,13 @@ section.market-page--space-type .market-links a {
 .neighborhood-locator-map__districts .neighborhood-locator-map__soma {
   fill: url(#soma-locator-district);
   stroke: #2563eb;
+  stroke-width: 2.5;
+  opacity: 0.96;
+}
+
+.neighborhood-locator-map__districts .neighborhood-locator-map__financial-district {
+  fill: url(#financial-district-locator-district);
+  stroke: #1d4f91;
   stroke-width: 2.5;
   opacity: 0.96;
 }
