@@ -1,0 +1,1215 @@
+{
+  "generated_at": "2026-05-25T17:56:39.751Z",
+  "purpose": "Focused internal diagnostic audit of SoMa and Mission Bay raw commercial building/listing coverage.",
+  "guardrails": [
+    "Internal diagnostic only.",
+    "Do not imply current availability.",
+    "Do not publish or mass-generate representative buildings from this file.",
+    "Do not delete archive infrastructure based on this workspace-only audit."
+  ],
+  "source_files": {
+    "raw_listings_json": "_data/raw-listings.json",
+    "public_building_pages": "_data/buildingPages.js",
+    "district_universe": "data/media/generated/district_building_universe_v1.json",
+    "image_review_manifest": "data/media/generated/representative_image_review_manifest_v1.json",
+    "curated_media_export": "data/media/generated/curated_district_media_export_v1.json",
+    "pdf_manifest": "data/media/generated/pdfs_sample_manifest.json",
+    "raw_csv_listings": "data/peter/raw/rofo_listings.csv"
+  },
+  "districts": [
+    {
+      "district": {
+        "slug": "soma",
+        "name": "SoMa",
+        "city": "San Francisco",
+        "state": "CA",
+        "area_id": "sf-soma"
+      },
+      "raw_coverage_metrics": {
+        "raw_building_associations_from_universe": 4741,
+        "total_raw_records_observed": 12981,
+        "raw_listing_records_from_enriched_json": 68,
+        "raw_listing_rows_from_legacy_csv_by_building_id": 8172,
+        "unique_addresses_from_universe": 4331,
+        "unique_addresses_from_enriched_raw_listings": 7,
+        "unique_building_candidates": 4331,
+        "existing_public_building_pages": 42,
+        "current_public_representative_count": 1,
+        "candidate_file_rows": 25,
+        "strong_public_candidates_from_candidate_file": 1,
+        "records_with_any_image_signal": 83,
+        "records_with_original_images": 85,
+        "original_image_count_from_universe": 180,
+        "review_manifest_buildings_with_originals": 22,
+        "review_manifest_original_images": 52,
+        "records_with_raw_listing_hero_images": 0,
+        "curated_exported_assets": 11,
+        "records_with_pdfs": 0,
+        "pdf_source_accessible": false,
+        "records_with_descriptions": 68,
+        "description_quality_counts": {
+          "rich": 68,
+          "usable": 0,
+          "thin": 0,
+          "missing": 0
+        },
+        "records_with_lat_lng": 4741,
+        "records_with_company_or_source_metadata": 8240,
+        "unique_source_companies_from_enriched_json": 1
+      },
+      "quality_structure_analysis": {
+        "raw_listing_duplicate_address_clusters": 7,
+        "raw_listing_duplicate_address_records": 61,
+        "raw_listing_duplicate_address_rate": 89.7,
+        "likely_suite_level_rows": 68,
+        "likely_suite_level_rate": 100,
+        "missing_or_thin_description_rate": 0,
+        "original_image_building_coverage_rate_of_universe": 1.8,
+        "raw_listing_hero_image_record_rate": 0,
+        "source_layer_distribution": [
+          {
+            "key": "lat_lng_proximity",
+            "count": 4741
+          },
+          {
+            "key": "building_signals_metadata",
+            "count": 4741
+          },
+          {
+            "key": "bay_area_neighborhood_assignment",
+            "count": 1045
+          },
+          {
+            "key": "representative_building_seed",
+            "count": 20
+          }
+        ],
+        "assignment_confidence_distribution": [
+          {
+            "key": "missing",
+            "count": 3696
+          },
+          {
+            "key": "high",
+            "count": 1041
+          },
+          {
+            "key": "medium",
+            "count": 4
+          }
+        ],
+        "assignment_distance_buckets": {
+          "under_0_5km": 936,
+          "0_5_to_1_0km": 997,
+          "1_0_to_1_5km": 1755,
+          "over_1_5km": 1053,
+          "missing": 0
+        },
+        "top_duplicate_address_clusters": [
+          {
+            "address_key": "201 mission st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "315 montgomery st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "50 california st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "505 montgomery st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "580 california st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "795 folsom st|san francisco|CA",
+            "record_count": 11
+          },
+          {
+            "address_key": "1390 market st|san francisco|CA",
+            "record_count": 2
+          }
+        ],
+        "top_legacy_csv_sources": [
+          {
+            "key": "LMS",
+            "count": 7993
+          },
+          {
+            "key": "USR",
+            "count": 179
+          }
+        ],
+        "top_legacy_csv_space_types": [
+          {
+            "key": "1",
+            "count": 6983
+          },
+          {
+            "key": "2",
+            "count": 918
+          },
+          {
+            "key": "3",
+            "count": 155
+          },
+          {
+            "key": "13",
+            "count": 76
+          },
+          {
+            "key": "10",
+            "count": 32
+          },
+          {
+            "key": "8",
+            "count": 2
+          },
+          {
+            "key": "11",
+            "count": 2
+          },
+          {
+            "key": "12",
+            "count": 2
+          },
+          {
+            "key": "0",
+            "count": 1
+          },
+          {
+            "key": "9",
+            "count": 1
+          }
+        ],
+        "top_legacy_csv_statuses": [
+          {
+            "key": "2",
+            "count": 6786
+          },
+          {
+            "key": "1",
+            "count": 804
+          },
+          {
+            "key": "-1",
+            "count": 399
+          },
+          {
+            "key": "0",
+            "count": 183
+          }
+        ]
+      },
+      "district_matching_analysis": {
+        "current_matching_sources": [
+          "commercial_area_building_relationships_v1 reviewed/approximate relationships",
+          "district_building_universe_v1 broad internal associations",
+          "bay_area_neighborhood_assignment and raw-corpus area assignment layers where available",
+          "lat_lng_proximity to reviewed district centers",
+          "building_signals metadata",
+          "public building commercial_area assignment where available",
+          "address/path joins into _data/raw-listings.json and _data/buildingPages.js"
+        ],
+        "likely_false_positive_risk": 4741,
+        "likely_false_negative_risk_notes": [
+          "The enriched raw listing JSON has no lat/lng fields, so district joining depends on address/path matches into the universe.",
+          "The SoMa/Mission Bay split is sensitive around Townsend, South Park, China Basin, Showplace Square, and Potrero/Design District edges.",
+          "Mission Bay institutional/life-science buildings may be underrepresented if they have limited historical listings, missing commercial-area metadata, or no listing-building relationship row.",
+          "Older raw CSV sources include coordinates, but descriptions and public suitability signals live in separate exports and are not fully joined in public data."
+        ],
+        "source_layer_distribution": [
+          {
+            "key": "lat_lng_proximity",
+            "count": 4741
+          },
+          {
+            "key": "building_signals_metadata",
+            "count": 4741
+          },
+          {
+            "key": "bay_area_neighborhood_assignment",
+            "count": 1045
+          },
+          {
+            "key": "representative_building_seed",
+            "count": 20
+          }
+        ],
+        "assignment_distance_buckets": {
+          "under_0_5km": 936,
+          "0_5_to_1_0km": 997,
+          "1_0_to_1_5km": 1755,
+          "over_1_5km": 1053,
+          "missing": 0
+        }
+      },
+      "hidden_underutilized_assets": {
+        "image_rich_weak_metadata": [
+          {
+            "name": "145 9th St",
+            "address": "145 9th St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/145-9th-st/",
+            "original_image_count": 5,
+            "historical_listing_count": 3,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "414 Brannan St",
+            "address": "414 Brannan St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 6,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "609 Mission St",
+            "address": "609 Mission St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/609-mission-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "One Kearny",
+            "address": "1 Kearny St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-kearny-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 23,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "146 11th St",
+            "address": "146 11th St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/146-11th-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 2,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "60 Spear St",
+            "address": "60 Spear St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/60-spear-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 5,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "699 2nd St",
+            "address": "699 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 17,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "156 2nd St",
+            "address": "156 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 65,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "144 2nd St",
+            "address": "144 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 66,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "370 4th St",
+            "address": "370 4th St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/370-4th-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "355 Bryant St",
+            "address": "355 Bryant St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/355-bryant-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 2,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "Paramount Building",
+            "address": "689 3rd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/paramount-building/",
+            "original_image_count": 3,
+            "historical_listing_count": 9,
+            "metadata_issue": "missing public/enriched description"
+          }
+        ],
+        "high_listing_activity_not_strong_public_candidates": [
+          {
+            "name": "330 Townsend St",
+            "address": "330 Townsend St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/330-townsend-st/",
+            "historical_listing_count": 366,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.578,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "490 Post Street, Suite 1124",
+            "address": "490 Post St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/490-post-st/",
+            "historical_listing_count": 317,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.236,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "One Embarcadero Center",
+            "address": "1 Embarcadero Ctr",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-embarcadero-ctr/",
+            "historical_listing_count": 92,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.698,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "44 Montgomery",
+            "address": "44 Montgomery St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/",
+            "historical_listing_count": 91,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.169,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "50 California Street",
+            "address": "50 California St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
+            "historical_listing_count": 90,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.682,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "The Russ Building",
+            "address": "235 Montgomery St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/235-montgomery-st/",
+            "historical_listing_count": 85,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.351,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "101 California St",
+            "address": "101 California St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
+            "historical_listing_count": 80,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.56,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "One Market Street",
+            "address": "1 Market St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-market-st/",
+            "historical_listing_count": 76,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.693,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "535 Mission Street",
+            "address": "535 Mission St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/535-mission-st/",
+            "historical_listing_count": 75,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.115,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "144 2nd St",
+            "address": "144 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+            "historical_listing_count": 66,
+            "source_layers": [
+              "bay_area_neighborhood_assignment",
+              "representative_building_seed",
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.396,
+            "has_original_images": true,
+            "original_image_count": 3,
+            "representative_building_seed": true
+          }
+        ],
+        "representative_term_matches": [
+          {
+            "name": "315 Montgomery",
+            "address": "315 Montgomery St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 11
+          },
+          {
+            "name": "SOMA",
+            "address": "795 Folsom St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 11
+          },
+          {
+            "name": "Pacific Gateway Bldg.",
+            "address": "201 Mission St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/201-mission-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 10
+          },
+          {
+            "name": "50 California Street",
+            "address": "50 California St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 10
+          },
+          {
+            "name": "505 Montgomery",
+            "address": "505 Montgomery St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 10
+          },
+          {
+            "name": "580 California",
+            "address": "580 California St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/580-california-st/",
+            "source_company": "Regus",
+            "term_signal": "tech",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 10
+          },
+          {
+            "name": "Fox Plaza",
+            "address": "1390 Market St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1390-market-st/",
+            "source_company": "Regus",
+            "term_signal": "creative",
+            "has_hero_image": false,
+            "description_quality": "rich",
+            "record_count": 2
+          }
+        ],
+        "candidate_rows_not_in_strong_recommendations": [
+          {
+            "name": "315 Montgomery",
+            "address": "315 Montgomery St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "original_image_index:3",
+            "description_data_quality_signal": "rich"
+          },
+          {
+            "name": "144 2nd St",
+            "address": "144 2nd St",
+            "recommendation": "possible_public_candidate",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "original_image_index:3",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "156 2nd St",
+            "address": "156 2nd St",
+            "recommendation": "possible_public_candidate",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "original_image_index:3",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "699 2nd St",
+            "address": "699 2nd St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "original_image_index:3",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "140 2nd St",
+            "address": "140 2nd St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "334 Brannan St",
+            "address": "334 Brannan St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "390 4th St",
+            "address": "390 4th St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "118 King St",
+            "address": "118 King St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "640 2nd",
+            "address": "640 2nd St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "649 Mission St",
+            "address": "649 Mission St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          }
+        ]
+      },
+      "candidate_funnel_analysis": {
+        "universe_buildings": 4741,
+        "selected_candidate_rows": 25,
+        "selection_rate_from_universe_to_candidate_file": 0.5,
+        "strong_public_candidates": 1,
+        "strong_candidate_rate_from_universe": 0,
+        "current_filtering_interpretation": "The current candidate process intentionally caps each district at 25 rows and requires reviewed/seeded district association before possible public recommendation. It also penalizes proximity-only associations and thin descriptions.",
+        "diagnosis": "SoMa is not truly shallow in the raw corpus. It has very large broad coverage, but most records are proximity-based, suite/listing-heavy, thinly described, or lack reviewed representative-role assignment. The one strong public candidate reflects conservative filtering and weak reviewed relationship depth, not lack of raw building associations."
+      }
+    },
+    {
+      "district": {
+        "slug": "mission-bay",
+        "name": "Mission Bay",
+        "city": "San Francisco",
+        "state": "CA",
+        "area_id": "sf-mission-bay"
+      },
+      "raw_coverage_metrics": {
+        "raw_building_associations_from_universe": 711,
+        "total_raw_records_observed": 1963,
+        "raw_listing_records_from_enriched_json": 0,
+        "raw_listing_rows_from_legacy_csv_by_building_id": 1252,
+        "unique_addresses_from_universe": 662,
+        "unique_addresses_from_enriched_raw_listings": 0,
+        "unique_building_candidates": 662,
+        "existing_public_building_pages": 6,
+        "current_public_representative_count": 3,
+        "candidate_file_rows": 25,
+        "strong_public_candidates_from_candidate_file": 3,
+        "records_with_any_image_signal": 10,
+        "records_with_original_images": 11,
+        "original_image_count_from_universe": 33,
+        "review_manifest_buildings_with_originals": 2,
+        "review_manifest_original_images": 6,
+        "records_with_raw_listing_hero_images": 0,
+        "curated_exported_assets": 0,
+        "records_with_pdfs": 0,
+        "pdf_source_accessible": false,
+        "records_with_descriptions": 0,
+        "description_quality_counts": {
+          "rich": 0,
+          "usable": 0,
+          "thin": 0,
+          "missing": 0
+        },
+        "records_with_lat_lng": 711,
+        "records_with_company_or_source_metadata": 1252,
+        "unique_source_companies_from_enriched_json": 0
+      },
+      "quality_structure_analysis": {
+        "raw_listing_duplicate_address_clusters": 0,
+        "raw_listing_duplicate_address_records": 0,
+        "raw_listing_duplicate_address_rate": 0,
+        "likely_suite_level_rows": 0,
+        "likely_suite_level_rate": 0,
+        "missing_or_thin_description_rate": 0,
+        "original_image_building_coverage_rate_of_universe": 1.5,
+        "raw_listing_hero_image_record_rate": 0,
+        "source_layer_distribution": [
+          {
+            "key": "building_signals_metadata",
+            "count": 711
+          },
+          {
+            "key": "lat_lng_proximity",
+            "count": 707
+          },
+          {
+            "key": "bay_area_neighborhood_assignment",
+            "count": 211
+          },
+          {
+            "key": "representative_building_seed",
+            "count": 10
+          }
+        ],
+        "assignment_confidence_distribution": [
+          {
+            "key": "missing",
+            "count": 500
+          },
+          {
+            "key": "high",
+            "count": 197
+          },
+          {
+            "key": "medium",
+            "count": 14
+          }
+        ],
+        "assignment_distance_buckets": {
+          "under_0_5km": 113,
+          "0_5_to_1_0km": 253,
+          "1_0_to_1_5km": 345,
+          "over_1_5km": 0,
+          "missing": 0
+        },
+        "top_duplicate_address_clusters": [],
+        "top_legacy_csv_sources": [
+          {
+            "key": "LMS",
+            "count": 1251
+          },
+          {
+            "key": "USR",
+            "count": 1
+          }
+        ],
+        "top_legacy_csv_space_types": [
+          {
+            "key": "1",
+            "count": 1028
+          },
+          {
+            "key": "2",
+            "count": 123
+          },
+          {
+            "key": "3",
+            "count": 81
+          },
+          {
+            "key": "13",
+            "count": 16
+          },
+          {
+            "key": "10",
+            "count": 2
+          },
+          {
+            "key": "8",
+            "count": 1
+          },
+          {
+            "key": "12",
+            "count": 1
+          }
+        ],
+        "top_legacy_csv_statuses": [
+          {
+            "key": "2",
+            "count": 1095
+          },
+          {
+            "key": "1",
+            "count": 120
+          },
+          {
+            "key": "-1",
+            "count": 25
+          },
+          {
+            "key": "0",
+            "count": 12
+          }
+        ]
+      },
+      "district_matching_analysis": {
+        "current_matching_sources": [
+          "commercial_area_building_relationships_v1 reviewed/approximate relationships",
+          "district_building_universe_v1 broad internal associations",
+          "bay_area_neighborhood_assignment and raw-corpus area assignment layers where available",
+          "lat_lng_proximity to reviewed district centers",
+          "building_signals metadata",
+          "public building commercial_area assignment where available",
+          "address/path joins into _data/raw-listings.json and _data/buildingPages.js"
+        ],
+        "likely_false_positive_risk": 707,
+        "likely_false_negative_risk_notes": [
+          "The enriched raw listing JSON has no lat/lng fields, so district joining depends on address/path matches into the universe.",
+          "The SoMa/Mission Bay split is sensitive around Townsend, South Park, China Basin, Showplace Square, and Potrero/Design District edges.",
+          "Mission Bay institutional/life-science buildings may be underrepresented if they have limited historical listings, missing commercial-area metadata, or no listing-building relationship row.",
+          "Older raw CSV sources include coordinates, but descriptions and public suitability signals live in separate exports and are not fully joined in public data."
+        ],
+        "source_layer_distribution": [
+          {
+            "key": "building_signals_metadata",
+            "count": 711
+          },
+          {
+            "key": "lat_lng_proximity",
+            "count": 707
+          },
+          {
+            "key": "bay_area_neighborhood_assignment",
+            "count": 211
+          },
+          {
+            "key": "representative_building_seed",
+            "count": 10
+          }
+        ],
+        "assignment_distance_buckets": {
+          "under_0_5km": 113,
+          "0_5_to_1_0km": 253,
+          "1_0_to_1_5km": 345,
+          "over_1_5km": 0,
+          "missing": 0
+        }
+      },
+      "hidden_underutilized_assets": {
+        "image_rich_weak_metadata": [
+          {
+            "name": "414 Brannan St",
+            "address": "414 Brannan St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
+            "original_image_count": 4,
+            "historical_listing_count": 6,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "640 Tennessee St",
+            "address": "640 Tennessee St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/640-tennessee-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "535 Minnesota St",
+            "address": "535 Minnesota St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/535-minnesota-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "210 King St",
+            "address": "210 King St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/210-king-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 2,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "Paramount Building",
+            "address": "689 3rd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/689-3rd-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 9,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "699 2nd St",
+            "address": "699 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 17,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "525 6th St",
+            "address": "525 6th St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/525-6th-st/",
+            "original_image_count": 3,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          },
+          {
+            "name": "699 2nd St",
+            "address": "699 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
+            "original_image_count": 2,
+            "historical_listing_count": 1,
+            "metadata_issue": "missing public/enriched description"
+          }
+        ],
+        "high_listing_activity_not_strong_public_candidates": [
+          {
+            "name": "330 Townsend St",
+            "address": "330 Townsend St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/330-townsend-st/",
+            "historical_listing_count": 366,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.799,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "350 Rhode Island St",
+            "address": "350 Rhode Island St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/350-rhode-island-st/",
+            "historical_listing_count": 65,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.171,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "Skyline Tower",
+            "address": "185 Berry St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/185-berry-st/",
+            "historical_listing_count": 60,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.614,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "332 Townsend St",
+            "address": "332 Townsend St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/332-townsend-st/",
+            "historical_listing_count": 44,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.797,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "251 Rhode Island St",
+            "address": "251 Rhode Island St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/251-rhode-island-st/",
+            "historical_listing_count": 37,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.085,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "250 King St",
+            "address": "250 King St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/250-king-st/",
+            "historical_listing_count": 35,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.774,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "118 King St",
+            "address": "118 King St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/118-king-st/",
+            "historical_listing_count": 31,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.027,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "640 2nd",
+            "address": "640 2nd St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/640-2nd-st/",
+            "historical_listing_count": 30,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.165,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "650 Townsend St",
+            "address": "650 Townsend St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/650-townsend-st/",
+            "historical_listing_count": 28,
+            "source_layers": [
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 1.038,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": false
+          },
+          {
+            "name": "1800 Owens St",
+            "address": "1800 Owens St",
+            "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
+            "historical_listing_count": 26,
+            "source_layers": [
+              "bay_area_neighborhood_assignment",
+              "representative_building_seed",
+              "lat_lng_proximity",
+              "building_signals_metadata"
+            ],
+            "assignment_distance_km": 0.471,
+            "has_original_images": false,
+            "original_image_count": 0,
+            "representative_building_seed": true
+          }
+        ],
+        "representative_term_matches": [],
+        "candidate_rows_not_in_strong_recommendations": [
+          {
+            "name": "1800 Owens St",
+            "address": "1800 Owens St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "70 Pier Bldg 102",
+            "address": "70 Pier Bldg 102",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "thin"
+          },
+          {
+            "name": "699 2nd St",
+            "address": "699 2nd St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "original_image_index:3",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "500 Terry Francois Blvd",
+            "address": "500 Terry Francois Blvd",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "100 Hooper St",
+            "address": "100 Hooper St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "330 Townsend St",
+            "address": "330 Townsend St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "350 Rhode Island St",
+            "address": "350 Rhode Island St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "Skyline Tower",
+            "address": "185 Berry St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "332 Townsend St",
+            "address": "332 Townsend St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          },
+          {
+            "name": "251 Rhode Island St",
+            "address": "251 Rhode Island St",
+            "recommendation": "internal_only",
+            "caution_notes": [
+              "thin source description",
+              "district association depends mainly on proximity"
+            ],
+            "image_availability": "none_known",
+            "description_data_quality_signal": "missing"
+          }
+        ]
+      },
+      "candidate_funnel_analysis": {
+        "universe_buildings": 711,
+        "selected_candidate_rows": 25,
+        "selection_rate_from_universe_to_candidate_file": 3.5,
+        "strong_public_candidates": 3,
+        "strong_candidate_rate_from_universe": 0.4,
+        "current_filtering_interpretation": "The current candidate process intentionally caps each district at 25 rows and requires reviewed/seeded district association before possible public recommendation. It also penalizes proximity-only associations and thin descriptions.",
+        "diagnosis": "Mission Bay has materially smaller coverage than SoMa, but it is not empty. The weak public-candidate count appears to come from limited reviewed relationships, low image coverage, thin descriptions, and the fact that institutional/life-science identity is poorly captured by ordinary office listing rows."
+      }
+    }
+  ]
+}
