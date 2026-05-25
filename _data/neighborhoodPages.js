@@ -244,6 +244,34 @@ function districtLocatorMapFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/mission-bay/") {
+    return {
+      variant: "sf_central_context",
+      primary: "mission-bay",
+      eyebrow: "Area map",
+      title: "Mission Bay in context",
+      copy:
+        "A simplified view of Mission Bay’s position south of SoMa, near Dogpatch, Design District / Showplace Square, the waterfront, and the downtown office core.",
+      alt:
+        "Simplified contextual map showing Mission Bay south of SoMa, near Dogpatch, Design District and Showplace Square, the waterfront, and the Financial District.",
+      promote_to_identity: true,
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/jackson-square/") {
+    return {
+      variant: "sf_central_context",
+      primary: "jackson-square",
+      eyebrow: "Area map",
+      title: "Jackson Square in context",
+      copy:
+        "A simplified view of Jackson Square’s position at the northern edge of the Financial District, near the Embarcadero, North Beach, Chinatown, and SoMa.",
+      alt:
+        "Simplified contextual map showing Jackson Square near the Financial District, Embarcadero, North Beach, Chinatown, SoMa, and the waterfront.",
+      promote_to_identity: true,
+    };
+  }
+
   if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
     return {
       variant: "oakland_core",
@@ -282,6 +310,20 @@ function districtLocatorMapFor(page) {
         "A simplified view of Jack London Square’s waterfront position south of Downtown Oakland and Old Oakland, with rail, ferry, and adaptive-commercial context.",
       alt:
         "Simplified contextual map showing Jack London Square along the Oakland waterfront near Downtown Oakland, Old Oakland, Uptown Oakland, Broadway, and Lake Merritt.",
+      promote_to_identity: true,
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/old-oakland/") {
+    return {
+      variant: "oakland_core",
+      primary: "old-oakland",
+      eyebrow: "Area map",
+      title: "Old Oakland in context",
+      copy:
+        "A simplified view of Old Oakland’s position between Downtown Oakland, Uptown Oakland, Jack London Square, Broadway, BART, and the waterfront.",
+      alt:
+        "Simplified contextual map showing Old Oakland between Downtown Oakland, Uptown Oakland, Jack London Square, Broadway, BART, Lake Merritt, and the waterfront.",
       promote_to_identity: true,
     };
   }
@@ -333,6 +375,26 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/mission-bay/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Mission Bay Commercial District",
+      lead:
+        "Understand Mission Bay as San Francisco’s newer institutional and life-science-oriented commercial district, shaped by UCSF gravity, modern office and lab-adjacent buildings, larger development parcels, and waterfront adjacency south of SoMa.",
+      guide_label: "Institutional district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/jackson-square/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Jackson Square Commercial District",
+      lead:
+        "Understand Jackson Square as a historic boutique office district at the edge of the Financial District, with smaller-scale commercial buildings, design and professional-service texture, and downtown access without a tower-core feel.",
+      guide_label: "Boutique district guide",
+    };
+  }
+
   if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
     return {
       eyebrow: "District Guide",
@@ -360,6 +422,16 @@ function districtIdentityFor(page) {
       lead:
         "Understand Jack London Square as Oakland’s waterfront adaptive-commercial district, where office, service, food and beverage, visitor activity, rail, ferry, and warehouse-adjacent blocks shape the business setting.",
       guide_label: "Waterfront district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/old-oakland/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Old Oakland Commercial District",
+      lead:
+        "Understand Old Oakland as a historic downtown transition district connecting Oakland’s civic office core and Jack London Square, with smaller-scale commercial blocks, retail-office texture, and downtown-edge access.",
+      guide_label: "Historic district guide",
     };
   }
 
@@ -400,6 +472,34 @@ function representativeBuildingRolesFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/mission-bay/") {
+    return {
+      "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/":
+        "SoMa-to-Mission Bay modern office edge",
+      "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/":
+        "Potrero and life-science-adjacent office edge",
+      "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/":
+        "Newer Mission Bay commercial block",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/jackson-square/") {
+    return {
+      "/commercial-real-estate/building/CA/san-francisco/75-broadway/":
+        "Boutique office edge near the downtown core",
+      "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/":
+        "Embarcadero and Financial District edge",
+      "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/":
+        "Historic street-level commercial texture",
+      "/commercial-real-estate/building/CA/san-francisco/50-california-st/":
+        "Formal office-core adjacency",
+      "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/":
+        "Waterfront-edge retail support",
+      "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/":
+        "Small-format downtown edge example",
+    };
+  }
+
   if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
     return {
       "/commercial-real-estate/building/CA/oakland/1333-broadway/":
@@ -434,6 +534,15 @@ function representativeBuildingRolesFor(page) {
         "Warehouse-adjacent adaptive commercial texture",
       "/commercial-real-estate/building/CA/oakland/105-2nd-st/":
         "Lower-scale waterfront commercial block",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/oakland/old-oakland/") {
+    return {
+      "/commercial-real-estate/building/CA/oakland/1111-broadway/":
+        "Downtown edge office example",
+      "/commercial-real-estate/building/CA/oakland/1221-broadway/":
+        "Broadway transition toward the civic core",
     };
   }
 

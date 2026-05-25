@@ -1,4 +1,78 @@
 const integrationsByPath = {
+  "/commercial-real-estate/CA/san-francisco/mission-bay/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare nearby commercial districts",
+    intro:
+      "Use these relationships to read Mission Bay as a newer institutional and life-science-oriented commercial district, and to compare it with adaptive, boutique, and downtown office alternatives nearby.",
+    districts: [
+      {
+        name: "SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/soma/",
+        relationship_type: "Adaptive contrast",
+        note:
+          "Broader and more adaptive-commercial, with older warehouse-office texture, larger mixed-use blocks, and stronger central San Francisco overlap.",
+      },
+      {
+        name: "Dogpatch",
+        relationship_type: "Southern edge",
+        note:
+          "More neighborhood-scaled and production-adjacent south of Mission Bay, useful for understanding the shift toward Central Waterfront commercial geography.",
+      },
+      {
+        name: "Design District / Showplace Square",
+        relationship_type: "Showroom and flex contrast",
+        note:
+          "More showroom, flex, and adaptive-industrial than Mission Bay's newer institutional and life-science-oriented setting.",
+      },
+      {
+        name: "Financial District SF",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        relationship_type: "Downtown core contrast",
+        note:
+          "More formal, vertical, and client-facing, with traditional office-core geography rather than newer institutional waterfront development.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-francisco/jackson-square/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare nearby downtown-edge districts",
+    intro:
+      "Use these relationships to read Jackson Square as a historic boutique office edge near the Financial District, not as a generic historic or visitor district.",
+    districts: [
+      {
+        name: "Financial District SF",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        relationship_type: "Office-core contrast",
+        note:
+          "More formal, vertical, and transit-centered immediately south of Jackson Square, with stronger large-office and client-facing downtown identity.",
+      },
+      {
+        name: "Embarcadero",
+        relationship_type: "Waterfront edge",
+        note:
+          "Adds ferry, waterfront, and downtown edge context to Jackson Square's smaller historic commercial fabric.",
+      },
+      {
+        name: "North Beach",
+        relationship_type: "Neighborhood edge",
+        note:
+          "More neighborhood-commercial and visitor-facing to the north, with less direct office-core identity.",
+      },
+      {
+        name: "Chinatown",
+        relationship_type: "Historic urban context",
+        note:
+          "A dense historic district nearby that helps explain the northern downtown edge, but differs from Jackson Square's boutique office role.",
+      },
+      {
+        name: "SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/soma/",
+        relationship_type: "Scale and form contrast",
+        note:
+          "Broader and more mixed-use south of Market Street, with larger adaptive and creative-office environments.",
+      },
+    ],
+  },
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
     eyebrow: "Nearby commercial districts",
     heading: "Compare nearby downtown districts",
@@ -131,6 +205,41 @@ const integrationsByPath = {
         relationship_type: "Historic edge",
         note:
           "Smaller-scale and historic, with downtown-adjacent commercial blocks just north of the waterfront district.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/old-oakland/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare nearby Oakland districts",
+    intro:
+      "Use these relationships to read Old Oakland as historic downtown connective tissue between Oakland's civic office core and waterfront commercial districts.",
+    districts: [
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Civic core contrast",
+        note:
+          "More formal, institutional, and BART-centered, with stronger Broadway and City Center office concentration.",
+      },
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront transition",
+        note:
+          "More waterfront and adaptive-commercial to the south, making Old Oakland a useful transition district between downtown and the estuary edge.",
+      },
+      {
+        name: "Uptown Oakland",
+        url: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        relationship_type: "Mixed-use contrast",
+        note:
+          "More arts-adjacent and Lake Merritt oriented, with a different office, food, housing, and street-level mix north of the core.",
+      },
+      {
+        name: "Lake Merritt",
+        relationship_type: "Urban context",
+        note:
+          "A nearby mixed-use and civic-residential edge that contrasts with Old Oakland's historic commercial transition role.",
       },
     ],
   },

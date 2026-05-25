@@ -10,6 +10,108 @@ const extractedSignalsPath = path.join(
 );
 
 const intelligence = {
+  "/commercial-real-estate/CA/san-francisco/mission-bay/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed Bay Area district positioning, commercial area graph signals, representative buildings, and Mission Bay's durable institutional and life-science-oriented commercial context.",
+    headline: "Newer institutional and life-science-oriented commercial district south of SoMa, with modern office form, larger development parcels, and waterfront adjacency.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Mission Bay reads through newer development parcels, institutional anchors, medical and life-science gravity, and modern office buildings rather than the older warehouse and adaptive fabric that defines much of SoMa.",
+      },
+      {
+        title: "Common space types",
+        text: "Office, lab-adjacent, institutional, and modern mixed-use commercial settings are the safest public read, with retail and food serving the district rather than defining it.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits teams that want proximity to UCSF, medical and life-science activity, newer building formats, and a southern waterfront setting distinct from traditional downtown office geography.",
+      },
+      {
+        title: "Access pattern",
+        text: "The district is shaped by Caltrain/South Beach proximity, Mission Creek, the waterfront, and north-south movement between SoMa, Dogpatch, and the Central Waterfront.",
+      },
+    ],
+    fit_chips: [
+      "Life-science-adjacent users",
+      "Institutional office users",
+      "Modern office teams",
+      "Medical ecosystem adjacency",
+      "Waterfront-oriented access",
+    ],
+    building_scale_patterns: [
+      "Modern office and institutional buildings",
+      "Larger development parcels",
+      "Lab-adjacent commercial context",
+      "Waterfront mixed-use blocks",
+    ],
+    nearby_alternatives: [
+      {
+        label: "SoMa",
+        note: "Broader, more adaptive, and more mixed-use, with older warehouse-office texture.",
+      },
+      {
+        label: "Dogpatch",
+        note: "More neighborhood-scaled and production-adjacent south of Mission Bay.",
+      },
+      {
+        label: "Design District / Showplace Square",
+        note: "More showroom, flex, and adaptive-commercial than institutional.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-francisco/jackson-square/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed commercial district positioning, representative building candidates, and Jackson Square's durable historic boutique office relationship to the Financial District.",
+    headline: "Historic boutique commercial district at the edge of the Financial District, with smaller-scale office, design, and professional-service texture.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Jackson Square is best read as a softer downtown edge: smaller historic commercial buildings, narrow blocks, and boutique office settings close to the Financial District without matching its tower profile.",
+      },
+      {
+        title: "Common space types",
+        text: "Boutique office, design-oriented commercial uses, professional services, and street-level retail support the district's identity more than large-floorplate downtown office inventory.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits teams that want downtown access and client proximity, but prefer a smaller-scale, character-rich setting over a formal Financial District tower.",
+      },
+      {
+        title: "Access pattern",
+        text: "The district sits between the Financial District, North Beach, Chinatown, and the Embarcadero, so its value is partly in edge access rather than being a standalone office core.",
+      },
+    ],
+    fit_chips: [
+      "Boutique office users",
+      "Design and professional services",
+      "Client-facing small teams",
+      "Historic commercial settings",
+      "Downtown edge access",
+    ],
+    building_scale_patterns: [
+      "Historic low- and mid-rise commercial buildings",
+      "Boutique office blocks",
+      "Street-level retail support",
+      "Financial District edge buildings",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Financial District",
+        note: "More formal, vertical, and office-core oriented immediately to the south.",
+      },
+      {
+        label: "Embarcadero",
+        note: "More waterfront and ferry-oriented along the downtown edge.",
+      },
+      {
+        label: "SoMa",
+        note: "Broader and more mixed-use, with larger adaptive and creative-office settings.",
+      },
+    ],
+  },
   "/commercial-real-estate/CA/san-francisco/financial-district/": {
     status: "editorial",
     confidence: "reviewed",
@@ -114,6 +216,57 @@ const intelligence = {
       {
         label: "Old Oakland",
         note: "Smaller-scale historic commercial blocks just north of the waterfront district.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/old-oakland/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed Oakland district relationships, commercial area graph signals, and available representative building candidates.",
+    headline: "Historic downtown transition district connecting Downtown Oakland, Old Oakland's retail-office fabric, and the route toward Jack London Square.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Old Oakland should be read as connective commercial fabric: historic low-rise blocks, retail-office texture, and a downtown edge condition between the civic office core and the waterfront.",
+      },
+      {
+        title: "Common space types",
+        text: "Retail-supported office, smaller commercial buildings, and historic mixed-use blocks are more important to the public story than a large inventory claim.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits users who want Oakland downtown access with a smaller-scale historic setting and stronger street-level context than the formal Broadway office core.",
+      },
+      {
+        title: "Access pattern",
+        text: "The district works as a transition between BART-oriented Downtown Oakland and Jack London Square, with Uptown serving as a different mixed-use comparison to the north.",
+      },
+    ],
+    fit_chips: [
+      "Historic commercial blocks",
+      "Retail-supported office",
+      "Downtown edge users",
+      "Small professional services",
+      "Oakland connective geography",
+    ],
+    building_scale_patterns: [
+      "Historic low-rise commercial blocks",
+      "Downtown-edge office buildings",
+      "Street-level retail support",
+      "Transition blocks toward the waterfront",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Downtown Oakland",
+        note: "More civic, institutional, and office-core oriented.",
+      },
+      {
+        label: "Jack London Square",
+        note: "More waterfront and adaptive-commercial south of the downtown edge.",
+      },
+      {
+        label: "Uptown Oakland",
+        note: "More arts-adjacent, mixed-use, and Lake Merritt oriented.",
       },
     ],
   },
