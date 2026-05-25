@@ -1,0 +1,882 @@
+{
+  "generated_at": "2026-05-25T17:17:20.238Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "downtown-palo-alto",
+    "name": "Downtown Palo Alto",
+    "city": "Palo Alto",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    "area_ids": [
+      "ba-downtown-palo-alto"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 1,
+    "possible_public_candidates": 3,
+    "internal_only": 21,
+    "reject": 0,
+    "with_existing_public_page": 4,
+    "with_image_signal": 1
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "Hamilton Avenue",
+      "address": "228 Hamilton Ave",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+      "likely_representative_role": "Hamilton Avenue client-facing office setting",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "Downtown Lytton Avenue",
+      "address": "530 Lytton Ave",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+      "likely_representative_role": "Lytton Avenue professional office fabric",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "200-228 Hamilton Ave",
+      "address": "200-228 Hamilton Ave",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+      "likely_representative_role": "Retail-supported downtown commercial block",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "400 Hamilton Avenue",
+      "address": "400 Hamilton Ave",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
+      "likely_representative_role": "Compact Peninsula office example",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Hamilton Avenue",
+      "address": "228 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+      "source_file": "_data/neighborhoodPages.js",
+      "source_type": [
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44411087,
+      "longitude": -122.1611099,
+      "space_building_type": "Office space",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Hamilton Avenue client-facing office setting",
+      "reason_for_inclusion": "current public representative seed; appears in broad internal district-building universe; canonical public building page exists; image signal available; 28 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 102
+    },
+    {
+      "name": "Downtown Lytton Avenue",
+      "address": "530 Lytton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+      "source_file": "_data/neighborhoodPages.js",
+      "source_type": [
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44927979,
+      "longitude": -122.1598892,
+      "space_building_type": "Office space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "33 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Lytton Avenue professional office fabric",
+      "reason_for_inclusion": "current public representative seed; appears in broad internal district-building universe; canonical public building page exists; 33 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 62
+    },
+    {
+      "name": "200-228 Hamilton Ave",
+      "address": "200-228 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/",
+      "source_file": "_data/neighborhoodPages.js",
+      "source_type": [
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "Retail space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Retail-supported downtown commercial block",
+      "reason_for_inclusion": "current public representative seed; canonical public building page exists",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 54
+    },
+    {
+      "name": "400 Hamilton Avenue",
+      "address": "400 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
+      "source_file": "_data/neighborhoodPages.js",
+      "source_type": [
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44659042,
+      "longitude": -122.1582794,
+      "space_building_type": "Office space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "3 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Compact Peninsula office example",
+      "reason_for_inclusion": "current public representative seed; appears in broad internal district-building universe; canonical public building page exists; 3 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 54
+    },
+    {
+      "name": "200 Hamilton Ave",
+      "address": "200 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44398117,
+      "longitude": -122.1611633,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "18 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 18 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 31
+    },
+    {
+      "name": "558-560 Waverley",
+      "address": "560 Waverley St",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/560-waverley-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44636917,
+      "longitude": -122.1597671,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 11 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 24
+    },
+    {
+      "name": "201-225 Hamilton Avenue",
+      "address": "225 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/225-hamilton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44419861,
+      "longitude": -122.1615676,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 11 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 24
+    },
+    {
+      "name": "101 Lytton Ave",
+      "address": "101 Lytton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44426727,
+      "longitude": -122.1652984,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "9 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 9 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 22
+    },
+    {
+      "name": "Town & Country Village",
+      "address": "855 El Camino Real",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/855-el-camino-real/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.43843842,
+      "longitude": -122.1589965,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "37 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 37 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "550 Hamilton Ave",
+      "address": "550 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/550-hamilton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44810486,
+      "longitude": -122.1574096,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "24 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 24 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "420 Florence St",
+      "address": "420 Florence St",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/420-florence-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44691849,
+      "longitude": -122.1620178,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 7 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 20
+    },
+    {
+      "name": "Palo Alto Office Center",
+      "address": "525 University Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44881058,
+      "longitude": -122.159172,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "23 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 23 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 20
+    },
+    {
+      "name": "540 Bryant St",
+      "address": "540 Bryant St",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/540-bryant-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44524002,
+      "longitude": -122.1610031,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "5 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 5 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 18
+    },
+    {
+      "name": "250 University Ave",
+      "address": "250 University Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/250-university-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44525909,
+      "longitude": -122.1617279,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 17
+    },
+    {
+      "name": "229 Forest Ave",
+      "address": "229 Forest Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/229-forest-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44358063,
+      "longitude": -122.1600418,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 17
+    },
+    {
+      "name": "459 Hamilton Ave",
+      "address": "459 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/459-hamilton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.44721985,
+      "longitude": -122.1586227,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 17
+    },
+    {
+      "name": "Palo Alto Office Center",
+      "address": "435 Tasso St",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/435-tasso-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44942856,
+      "longitude": -122.1590271,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "14 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 14 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 11
+    },
+    {
+      "name": "905 Middlefield Rd",
+      "address": "905 Middlefield Rd",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/905-middlefield-rd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44760895,
+      "longitude": -122.1514434,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 7 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 4
+    },
+    {
+      "name": "835 Middlefield Rd",
+      "address": "835 Middlefield Rd",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/835-middlefield-rd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44813156,
+      "longitude": -122.1522064,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 6 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 3
+    },
+    {
+      "name": "540 University Ave",
+      "address": "540 University Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/540-university-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44871902,
+      "longitude": -122.158432,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "5 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 5 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 2
+    },
+    {
+      "name": "575 Middlefield Rd",
+      "address": "575 Middlefield Rd",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/575-middlefield-rd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.45027161,
+      "longitude": -122.1555633,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "5 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 5 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 2
+    },
+    {
+      "name": "575 High St",
+      "address": "575 High St",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/575-high-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44356918,
+      "longitude": -122.1622161,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 1
+    },
+    {
+      "name": "102 University Ave",
+      "address": "102 University Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/102-university-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44351959,
+      "longitude": -122.1634292,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 1
+    },
+    {
+      "name": "151 University Ave",
+      "address": "151 University Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/151-university-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44437027,
+      "longitude": -122.1634979,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "3 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 3 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 0
+    },
+    {
+      "name": "555 Hamilton Ave",
+      "address": "555 Hamilton Ave",
+      "city": "Palo Alto",
+      "state": "CA",
+      "district_slug": "downtown-palo-alto",
+      "district_name": "Downtown Palo Alto",
+      "canonical_building_path": "/commercial-real-estate/building/CA/palo-alto/555-hamilton-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.44841003,
+      "longitude": -122.157402,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "3 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Startup/professional downtown building",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 3 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 0
+    }
+  ]
+}

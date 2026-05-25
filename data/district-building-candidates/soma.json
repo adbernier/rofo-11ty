@@ -1,0 +1,860 @@
+{
+  "generated_at": "2026-05-25T17:17:20.233Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "soma",
+    "name": "SoMa",
+    "city": "San Francisco",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/san-francisco/soma/",
+    "area_ids": [
+      "sf-soma"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 1,
+    "possible_public_candidates": 2,
+    "internal_only": 22,
+    "reject": 0,
+    "with_existing_public_page": 4,
+    "with_image_signal": 13
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "SOMA",
+      "address": "795 Folsom St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
+      "likely_representative_role": "Office building",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "144 2nd St",
+      "address": "144 2nd St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "156 2nd St",
+      "address": "156 2nd St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "SOMA",
+      "address": "795 Folsom St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78227997,
+      "longitude": -122.4005966,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "31 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Office building",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 31 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 132
+    },
+    {
+      "name": "315 Montgomery",
+      "address": "315 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79214096,
+      "longitude": -122.4028472,
+      "space_building_type": "Office Space",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 11 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 50
+    },
+    {
+      "name": "144 2nd St",
+      "address": "144 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78720093,
+      "longitude": -122.399208,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "66 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 66 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 49
+    },
+    {
+      "name": "156 2nd St",
+      "address": "156 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78713989,
+      "longitude": -122.3990325,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "65 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 65 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 49
+    },
+    {
+      "name": "699 2nd St",
+      "address": "699 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78059769,
+      "longitude": -122.3902511,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "17 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 17 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 42
+    },
+    {
+      "name": "140 2nd St",
+      "address": "140 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/140-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78728867,
+      "longitude": -122.3993606,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "53 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 53 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "334 Brannan St",
+      "address": "334 Brannan St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/334-brannan-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78141022,
+      "longitude": -122.393013,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "40 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 40 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "390 4th St",
+      "address": "390 4th St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/390-4th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78089142,
+      "longitude": -122.4000396,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "39 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 39 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "118 King St",
+      "address": "118 King St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/118-king-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77983093,
+      "longitude": -122.3906173,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "31 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 31 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "640 2nd",
+      "address": "640 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/640-2nd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78107071,
+      "longitude": -122.3917007,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "30 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 30 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "649 Mission St",
+      "address": "649 Mission St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/649-mission-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78684998,
+      "longitude": -122.4007034,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "29 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 29 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "116 New Montgomery St",
+      "address": "116 New Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/116-new-montgomery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78704071,
+      "longitude": -122.4004287,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "29 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 29 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "600 Townsend St",
+      "address": "600 Townsend St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77170181,
+      "longitude": -122.4026794,
+      "space_building_type": "Office Space",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "10 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 10 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "875 Howard St",
+      "address": "875 Howard St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/875-howard-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78168106,
+      "longitude": -122.4040985,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "22 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 22 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 35
+    },
+    {
+      "name": "The Russ Building",
+      "address": "235 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/235-montgomery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79141998,
+      "longitude": -122.4026031,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "65 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 65 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "100 Pine St",
+      "address": "100 Pine St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79246902,
+      "longitude": -122.3989105,
+      "space_building_type": "",
+      "image_availability": "original_image_index:2",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "52 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 52 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "995 Market St",
+      "address": "995 Market St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/995-market-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78223038,
+      "longitude": -122.4099502,
+      "space_building_type": "",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "34 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 34 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "717 Market St",
+      "address": "717 Market St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/717-market-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78702164,
+      "longitude": -122.4039382,
+      "space_building_type": "",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "32 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 32 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "100 1st St",
+      "address": "100 1st St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/100-1st-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78932953,
+      "longitude": -122.3973999,
+      "space_building_type": "",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "26 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 26 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "22 Battery St",
+      "address": "22 Battery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/22-battery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.7915802,
+      "longitude": -122.3993606,
+      "space_building_type": "",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "25 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 25 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "303 2nd St",
+      "address": "303 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/303-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78533936,
+      "longitude": -122.3954467,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "19 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 19 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 32
+    },
+    {
+      "name": "One Kearny",
+      "address": "1 Kearny St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-kearny-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78770828,
+      "longitude": -122.4038467,
+      "space_building_type": "",
+      "image_availability": "original_image_index:4",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "23 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 23 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 32
+    },
+    {
+      "name": "215 2nd St",
+      "address": "215 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/215-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78668976,
+      "longitude": -122.3977432,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "18 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 18 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 31
+    },
+    {
+      "name": "425 2nd St",
+      "address": "425 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/425-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78411865,
+      "longitude": -122.3944091,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "17 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 17 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 30
+    },
+    {
+      "name": "99 Rhode Island St",
+      "address": "99 Rhode Island St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "soma",
+      "district_name": "SoMa",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.76897049,
+      "longitude": -122.4024734,
+      "space_building_type": "Office Space",
+      "image_availability": "original_image_index:5",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Converted warehouse / creative office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 29
+    }
+  ]
+}

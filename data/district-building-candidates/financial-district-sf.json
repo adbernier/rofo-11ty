@@ -1,0 +1,880 @@
+{
+  "generated_at": "2026-05-25T17:17:20.235Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "financial-district-sf",
+    "name": "Financial District SF",
+    "city": "San Francisco",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/san-francisco/financial-district/",
+    "area_ids": [
+      "sf-financial-district"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 7,
+    "possible_public_candidates": 7,
+    "internal_only": 11,
+    "reject": 0,
+    "with_existing_public_page": 19,
+    "with_image_signal": 6
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "One Sansome St",
+      "address": "1 Sansome St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
+      "likely_representative_role": "Transit and street-level business core",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "44 Montgomery",
+      "address": "44 Montgomery St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/",
+      "likely_representative_role": "Vertical downtown office form",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "315 Montgomery",
+      "address": "315 Montgomery St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/",
+      "likely_representative_role": "Montgomery Street office corridor",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "333 Kearny St",
+      "address": "333 Kearny St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/333-kearny-st/",
+      "likely_representative_role": "Historic core edge example",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "212 Sutter St",
+      "address": "212 Sutter St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/",
+      "likely_representative_role": "Smaller client-facing office block",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "325 Kearny St",
+      "address": "325 Kearny St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/",
+      "likely_representative_role": "Jackson Square edge office texture",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "580 California",
+      "address": "580 California St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/580-california-st/",
+      "likely_representative_role": "Vertical downtown office form",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "505 Montgomery",
+      "address": "505 Montgomery St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/",
+      "likely_representative_role": "Vertical downtown office form",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "One Sansome St",
+      "address": "1 Sansome St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79048157,
+      "longitude": -122.4009399,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "53 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Transit and street-level business core",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 53 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 133
+    },
+    {
+      "name": "44 Montgomery",
+      "address": "44 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78981018,
+      "longitude": -122.4017715,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "91 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 91 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 133
+    },
+    {
+      "name": "315 Montgomery",
+      "address": "315 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79214096,
+      "longitude": -122.4028472,
+      "space_building_type": "office, coworking",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "33 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Montgomery Street office corridor",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 33 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 128
+    },
+    {
+      "name": "333 Kearny St",
+      "address": "333 Kearny St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/333-kearny-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79130936,
+      "longitude": -122.4043502,
+      "space_building_type": "office",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic core edge example",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 4 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 109
+    },
+    {
+      "name": "212 Sutter St",
+      "address": "212 Sutter St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Smaller client-facing office block",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 6 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 102
+    },
+    {
+      "name": "325 Kearny St",
+      "address": "325 Kearny St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "5 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Jackson Square edge office texture",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 5 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 101
+    },
+    {
+      "name": "580 California",
+      "address": "580 California St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/580-california-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79296875,
+      "longitude": -122.4041366,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "56 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 56 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 96
+    },
+    {
+      "name": "505 Montgomery",
+      "address": "505 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79405975,
+      "longitude": -122.4032135,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "48 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 48 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 84
+    },
+    {
+      "name": "Pacific Gateway Bldg.",
+      "address": "201 Mission St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/201-mission-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79103088,
+      "longitude": -122.3947601,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "62 historical listing signal(s)",
+      "description_data_quality_signal": "usable",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 62 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 75
+    },
+    {
+      "name": "650 California St",
+      "address": "650 California St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/650-california-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "10 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 10 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 70
+    },
+    {
+      "name": "545 Folsom St",
+      "address": "545 Folsom St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/545-folsom-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78651047,
+      "longitude": -122.3952484,
+      "space_building_type": "retail",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 1 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 70
+    },
+    {
+      "name": "600 California St",
+      "address": "600 California St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/600-california-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 6 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 66
+    },
+    {
+      "name": "415 Mission St",
+      "address": "415 Mission St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/415-mission-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 1 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 61
+    },
+    {
+      "name": "1100 Grant Ave",
+      "address": "1100 Grant Ave",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79703903,
+      "longitude": -122.4066772,
+      "space_building_type": "Retail Space",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "35 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 35 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 51
+    },
+    {
+      "name": "The Russ Building",
+      "address": "235 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/the-russ-building/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79141998,
+      "longitude": -122.4026031,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "85 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 85 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 49
+    },
+    {
+      "name": "1839 Lombard St",
+      "address": "1839 Lombard St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1839-lombard-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 46
+    },
+    {
+      "name": "2156 Chestnut St",
+      "address": "2156 Chestnut St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/2156-chestnut-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 46
+    },
+    {
+      "name": "3717 Buchanan St",
+      "address": "3717 Buchanan St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/3717-buchanan-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 45
+    },
+    {
+      "name": "3749 Buchanan St",
+      "address": "3749 Buchanan St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/3749-buchanan-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 45
+    },
+    {
+      "name": "2 Embarcadero Ctr",
+      "address": "2 Embarcadero Ctr",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79478836,
+      "longitude": -122.398468,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "44 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 44 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "575 Market St",
+      "address": "575 Market St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/575-market-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.78968811,
+      "longitude": -122.4005127,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "57 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 57 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "180 Montgomery St",
+      "address": "180 Montgomery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/180-montgomery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79074097,
+      "longitude": -122.4019699,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "53 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 53 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "275 Battery St",
+      "address": "275 Battery St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/275-battery-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79386139,
+      "longitude": -122.4003677,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "44 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 44 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "100 Bush St",
+      "address": "100 Bush St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/100-bush-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79156113,
+      "longitude": -122.3999633,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "40 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 40 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "144 2nd St",
+      "address": "144 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "financial-district-sf",
+      "district_name": "Financial District SF",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78720093,
+      "longitude": -122.399208,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "66 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Vertical downtown office form",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 66 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    }
+  ]
+}

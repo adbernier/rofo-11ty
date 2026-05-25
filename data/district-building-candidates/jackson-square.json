@@ -1,0 +1,466 @@
+{
+  "generated_at": "2026-05-25T17:17:20.238Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "jackson-square",
+    "name": "Jackson Square",
+    "city": "San Francisco",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    "area_ids": [
+      "sf-jackson-square"
+    ]
+  },
+  "counts": {
+    "candidates": 13,
+    "strong_public_candidates": 7,
+    "possible_public_candidates": 4,
+    "internal_only": 2,
+    "reject": 0,
+    "with_existing_public_page": 13,
+    "with_image_signal": 3
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "2 Embarcadero Ctr",
+      "address": "2 Embarcadero Ctr",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
+      "likely_representative_role": "Embarcadero and Financial District edge",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "50 California St",
+      "address": "50 California St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
+      "likely_representative_role": "Formal office-core adjacency",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": []
+    },
+    {
+      "name": "33 Drumm St",
+      "address": "33 Drumm St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
+      "likely_representative_role": "Waterfront-edge retail support",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "27 Drumm St",
+      "address": "27 Drumm St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
+      "likely_representative_role": "Small-format downtown edge example",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "Golden Gate Ð 75 Broadway",
+      "address": "75 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/75-broadway/",
+      "likely_representative_role": "Boutique office edge near the downtown core",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "924 Sansome St",
+      "address": "924 Sansome St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/",
+      "likely_representative_role": "Historic street-level commercial texture",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "1100 Grant Ave",
+      "address": "1100 Grant Ave",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+      "likely_representative_role": "Historic boutique office",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "145 Jefferson St",
+      "address": "145 Jefferson St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/145-jefferson-st/",
+      "likely_representative_role": "Historic boutique office",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "2 Embarcadero Ctr",
+      "address": "2 Embarcadero Ctr",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "44 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Embarcadero and Financial District edge",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 44 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 120
+    },
+    {
+      "name": "50 California St",
+      "address": "50 California St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "90 historical listing signal(s)",
+      "description_data_quality_signal": "usable",
+      "likely_representative_role": "Formal office-core adjacency",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 90 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [],
+      "internal_review_score": 114
+    },
+    {
+      "name": "33 Drumm St",
+      "address": "33 Drumm St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-edge retail support",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; image signal available; 1 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 109
+    },
+    {
+      "name": "27 Drumm St",
+      "address": "27 Drumm St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Small-format downtown edge example",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; image signal available; 1 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 109
+    },
+    {
+      "name": "Golden Gate Ð 75 Broadway",
+      "address": "75 Broadway",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/75-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "33 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Boutique office edge near the downtown core",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 33 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 107
+    },
+    {
+      "name": "924 Sansome St",
+      "address": "924 Sansome St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic street-level commercial texture",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 2 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 98
+    },
+    {
+      "name": "1100 Grant Ave",
+      "address": "1100 Grant Ave",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "35 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; image signal available; 35 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 96
+    },
+    {
+      "name": "145 Jefferson St",
+      "address": "145 Jefferson St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/145-jefferson-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "12 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 12 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 56
+    },
+    {
+      "name": "890 Jackson Medical Dental Building",
+      "address": "890 Jackson St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/890-jackson-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "10 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 10 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 54
+    },
+    {
+      "name": "Hyatt - Fisherman's Wharf",
+      "address": "555 North Point St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/555-north-point-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 7 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 51
+    },
+    {
+      "name": "1606 Stockton St",
+      "address": "1606 Stockton St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1606-stockton-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 6 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 50
+    },
+    {
+      "name": "Wax Museum Building",
+      "address": "2875 Mason St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/2875-mason-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 46
+    },
+    {
+      "name": "165 Jefferson St",
+      "address": "165 Jefferson St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "jackson-square",
+      "district_name": "Jackson Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/165-jefferson-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "retail",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Historic boutique office",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; canonical public building page exists; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 45
+    }
+  ]
+}

@@ -1,0 +1,850 @@
+{
+  "generated_at": "2026-05-25T17:17:20.237Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "jack-london-square",
+    "name": "Jack London Square",
+    "city": "Oakland",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/jack-london-square/",
+    "area_ids": [
+      "oak-jack-london-square"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 1,
+    "possible_public_candidates": 2,
+    "internal_only": 22,
+    "reject": 0,
+    "with_existing_public_page": 11,
+    "with_image_signal": 1
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "Jack London Square",
+      "address": "66 Franklin St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+      "likely_representative_role": "Waterfront office and visitor-facing edge",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity",
+        "possible coworking/provider-specific artifact"
+      ]
+    },
+    {
+      "name": "230 Madison St",
+      "address": "230 Madison St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/230-madison-st/",
+      "likely_representative_role": "Warehouse-adjacent adaptive commercial texture",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    },
+    {
+      "name": "105 2nd St",
+      "address": "105 2nd St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
+      "likely_representative_role": "Lower-scale waterfront commercial block",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Jack London Square",
+      "address": "66 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79465485,
+      "longitude": -122.2755279,
+      "space_building_type": "office, coworking",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "14 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Waterfront office and visitor-facing edge",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 14 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity",
+        "possible coworking/provider-specific artifact"
+      ],
+      "internal_review_score": 130
+    },
+    {
+      "name": "230 Madison St",
+      "address": "230 Madison St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/230-madison-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "industrial",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Warehouse-adjacent adaptive commercial texture",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; canonical public building page exists; 4 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 84
+    },
+    {
+      "name": "105 2nd St",
+      "address": "105 2nd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
+      "source_file": "_data/neighborhoodPages.js",
+      "source_type": [
+        "current_public_representative"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "space_building_type": "Industrial space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Lower-scale waterfront commercial block",
+      "reason_for_inclusion": "current public representative seed; canonical public building page exists",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 54
+    },
+    {
+      "name": "Oakland City Center",
+      "address": "505 14th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80469894,
+      "longitude": -122.272911,
+      "space_building_type": "Office Space",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "106 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 106 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 50
+    },
+    {
+      "name": "1333 Broadway",
+      "address": "1333 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80414963,
+      "longitude": -122.2718963,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "106 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 106 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "1300 Clay St",
+      "address": "1300 Clay St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-clay-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80472946,
+      "longitude": -122.2735672,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "37 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 37 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "City Center",
+      "address": "1440 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80471039,
+      "longitude": -122.2705535,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "29 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 29 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "1221 Broadway",
+      "address": "1221 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1221-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80347824,
+      "longitude": -122.2723693,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 28 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "The Rotunda",
+      "address": "300 Frank H Ogawa Plz",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80577087,
+      "longitude": -122.2710189,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 28 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "160 Franklin St",
+      "address": "160 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79521942,
+      "longitude": -122.275032,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "154 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 154 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "Jack London Park",
+      "address": "520 3rd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/520-3rd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79782104,
+      "longitude": -122.2775116,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "42 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 42 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "111 Myrtle",
+      "address": "101 Myrtle St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/101-myrtle-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79948044,
+      "longitude": -122.2857666,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "32 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 32 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "424 3rd St",
+      "address": "424 3rd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79669952,
+      "longitude": -122.2751007,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "31 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 31 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "Embarcadero West",
+      "address": "110 Linden St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/110-linden-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79959869,
+      "longitude": -122.2868194,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "26 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 26 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "Water Street Two",
+      "address": "70 Washington St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/70-washington-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79558182,
+      "longitude": -122.278038,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "21 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 21 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 34
+    },
+    {
+      "name": "Embarcadero West",
+      "address": "119 Filbert St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79912186,
+      "longitude": -122.2865905,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "20 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 20 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 33
+    },
+    {
+      "name": "1300 Broadway",
+      "address": "1300 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80366898,
+      "longitude": -122.2711868,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "16 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 16 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 31
+    },
+    {
+      "name": "580 2nd St",
+      "address": "580 2nd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/580-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.79756927,
+      "longitude": -122.2790298,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "15 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 15 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 28
+    },
+    {
+      "name": "985 3rd St",
+      "address": "985 3rd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/985-3rd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80012894,
+      "longitude": -122.2857132,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "14 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 14 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 27
+    },
+    {
+      "name": "1111 Broadway",
+      "address": "1111 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1111-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80281067,
+      "longitude": -122.2727966,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 11 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 26
+    },
+    {
+      "name": "1000 Broadway",
+      "address": "1000 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1000-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80160904,
+      "longitude": -122.2720871,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "68 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 68 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "1330 Broadway",
+      "address": "1330 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1330-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80390167,
+      "longitude": -122.2707977,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "54 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 54 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "405 14 th St.",
+      "address": "405 14th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/405-14th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80371094,
+      "longitude": -122.2703399,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "54 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 54 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "Central Building",
+      "address": "436 14th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/436-14th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80438995,
+      "longitude": -122.2706527,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "50 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 50 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "Oakland Tribune Building",
+      "address": "409 13th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "jack-london-square",
+      "district_name": "Jack London Square",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/409-13th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80310822,
+      "longitude": -122.2709732,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "47 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Waterfront-adjacent commercial",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 47 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    }
+  ]
+}

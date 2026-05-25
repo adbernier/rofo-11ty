@@ -1,0 +1,845 @@
+{
+  "generated_at": "2026-05-25T17:17:20.238Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "mission-bay",
+    "name": "Mission Bay",
+    "city": "San Francisco",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+    "area_ids": [
+      "sf-mission-bay"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 3,
+    "possible_public_candidates": 0,
+    "internal_only": 22,
+    "reject": 0,
+    "with_existing_public_page": 4,
+    "with_image_signal": 6
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "600 Townsend St",
+      "address": "600 Townsend St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
+      "likely_representative_role": "SoMa-to-Mission Bay modern office edge",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "99 Rhode Island St",
+      "address": "99 Rhode Island St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
+      "likely_representative_role": "Potrero and life-science-adjacent office edge",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "54 Jeff Adachi Way",
+      "address": "54 Jeff Adachi Way",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
+      "likely_representative_role": "Newer Mission Bay commercial block",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "600 Townsend St",
+      "address": "600 Townsend St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77170181,
+      "longitude": -122.4026794,
+      "space_building_type": "office",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "10 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "SoMa-to-Mission Bay modern office edge",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 10 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 99
+    },
+    {
+      "name": "99 Rhode Island St",
+      "address": "99 Rhode Island St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.76897049,
+      "longitude": -122.4024734,
+      "space_building_type": "office",
+      "image_availability": "original_image_index:5",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Potrero and life-science-adjacent office edge",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 2 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 91
+    },
+    {
+      "name": "54 Jeff Adachi Way",
+      "address": "54 Jeff Adachi Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77394867,
+      "longitude": -122.4035263,
+      "space_building_type": "office",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Newer Mission Bay commercial block",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 1 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 90
+    },
+    {
+      "name": "1800 Owens St",
+      "address": "1800 Owens St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.76657867,
+      "longitude": -122.3927993,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "26 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 26 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "70 Pier Bldg 102",
+      "address": "70 Pier Bldg 102",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.75896072,
+      "longitude": -122.3834915,
+      "space_building_type": "Retail Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 27
+    },
+    {
+      "name": "699 2nd St",
+      "address": "699 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78059769,
+      "longitude": -122.3902511,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "17 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 17 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 26
+    },
+    {
+      "name": "500 Terry Francois Blvd",
+      "address": "500 Terry Francois Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77046967,
+      "longitude": -122.3870773,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "9 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 9 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 22
+    },
+    {
+      "name": "100 Hooper St",
+      "address": "100 Hooper St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/100-hooper-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.76897049,
+      "longitude": -122.39859,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "8 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 8 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "330 Townsend St",
+      "address": "330 Townsend St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/330-townsend-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77669907,
+      "longitude": -122.3959121,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "366 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 366 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "350 Rhode Island St",
+      "address": "350 Rhode Island St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/350-rhode-island-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.76556015,
+      "longitude": -122.4028015,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "65 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 65 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "Skyline Tower",
+      "address": "185 Berry St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/185-berry-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.7759285,
+      "longitude": -122.3929214,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "60 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 60 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "332 Townsend St",
+      "address": "332 Townsend St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/332-townsend-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77667999,
+      "longitude": -122.3958969,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "44 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 44 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "251 Rhode Island St",
+      "address": "251 Rhode Island St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/251-rhode-island-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.76675034,
+      "longitude": -122.4024429,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "37 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 37 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "250 King St",
+      "address": "250 King St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/250-king-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77735901,
+      "longitude": -122.3932189,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "35 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 35 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "118 King St",
+      "address": "118 King St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/118-king-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77983093,
+      "longitude": -122.3906173,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "31 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 31 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "640 2nd",
+      "address": "640 2nd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/640-2nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78107071,
+      "longitude": -122.3917007,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "30 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 30 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "650 Townsend St",
+      "address": "650 Townsend St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/650-townsend-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77103043,
+      "longitude": -122.402893,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 28 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "643 7th St",
+      "address": "643 7th St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/643-7th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.7726593,
+      "longitude": -122.4023208,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "24 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 24 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "550 Terry A Francois Blvd",
+      "address": "550 Terry A Francois Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/550-terry-a-francois-blvd/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.76942825,
+      "longitude": -122.3869781,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 6 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 19
+    },
+    {
+      "name": "Paramount Building",
+      "address": "689 3rd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/689-3rd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77915955,
+      "longitude": -122.3927383,
+      "space_building_type": "",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "9 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 9 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 18
+    },
+    {
+      "name": "414 Brannan St",
+      "address": "414 Brannan St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.77993011,
+      "longitude": -122.3948669,
+      "space_building_type": "",
+      "image_availability": "original_image_index:4",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available; 6 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 15
+    },
+    {
+      "name": "555 Mission Rock St",
+      "address": "555 Mission Rock St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77238846,
+      "longitude": -122.3907928,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 14
+    },
+    {
+      "name": "1201 4th St",
+      "address": "1201 4th St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1201-4th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77275848,
+      "longitude": -122.3912735,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 14
+    },
+    {
+      "name": "1455 3rd Street",
+      "address": "1455 3rd St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1455-3rd-street/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77109909,
+      "longitude": -122.3891906,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 14
+    },
+    {
+      "name": "1155 4th St",
+      "address": "1155 4th St",
+      "city": "San Francisco",
+      "state": "CA",
+      "district_slug": "mission-bay",
+      "district_name": "Mission Bay",
+      "canonical_building_path": "/commercial-real-estate/building/CA/san-francisco/1155-4th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.77325821,
+      "longitude": -122.3909378,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "1 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Institutional/life-science office",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 1 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 14
+    }
+  ]
+}

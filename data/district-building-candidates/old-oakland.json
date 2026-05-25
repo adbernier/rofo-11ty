@@ -1,0 +1,858 @@
+{
+  "generated_at": "2026-05-25T17:17:20.239Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "old-oakland",
+    "name": "Old Oakland",
+    "city": "Oakland",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/old-oakland/",
+    "area_ids": [
+      "oak-old-oakland"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 2,
+    "possible_public_candidates": 0,
+    "internal_only": 23,
+    "reject": 0,
+    "with_existing_public_page": 2,
+    "with_image_signal": 1
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "1221 Broadway",
+      "address": "1221 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1221-broadway/",
+      "likely_representative_role": "Broadway transition toward the civic core",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1111 Broadway",
+      "address": "1111 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1111-broadway/",
+      "likely_representative_role": "Downtown edge office example",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "1221 Broadway",
+      "address": "1221 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1221-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80347824,
+      "longitude": -122.2723693,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Broadway transition toward the civic core",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 28 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 117
+    },
+    {
+      "name": "1111 Broadway",
+      "address": "1111 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1111-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80281067,
+      "longitude": -122.2727966,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Downtown edge office example",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 11 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 104
+    },
+    {
+      "name": "1000 Broadway",
+      "address": "1000 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1000-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80160904,
+      "longitude": -122.2720871,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "68 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 68 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "555 City Center",
+      "address": "555 12th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/555-12th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.8037796,
+      "longitude": -122.2752609,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "42 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 42 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "1212 Broadway",
+      "address": "1212 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1212-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80300903,
+      "longitude": -122.2714996,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "39 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 39 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "601 12th St",
+      "address": "601 12th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/601-12th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80424118,
+      "longitude": -122.2764434,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "37 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 37 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "City Square",
+      "address": "500 12th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/500-12th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80387115,
+      "longitude": -122.2732696,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "25 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 25 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "900 Market St",
+      "address": "900 Market St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/900-market-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80432892,
+      "longitude": -122.2812423,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "24 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 24 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "530 8th St",
+      "address": "530 8th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/530-8th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80115891,
+      "longitude": -122.2755279,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "18 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 18 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 15
+    },
+    {
+      "name": "Arlington Building",
+      "address": "484 9th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/484-9th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80141068,
+      "longitude": -122.2740097,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "14 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 14 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 11
+    },
+    {
+      "name": "577 5th St",
+      "address": "577 5th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/577-5th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79912186,
+      "longitude": -122.2782821,
+      "space_building_type": "",
+      "image_availability": "original_image_index:2",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; image signal available",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 9
+    },
+    {
+      "name": "Delger Block - Retail",
+      "address": "969 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/969-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80147171,
+      "longitude": -122.2733764,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "10 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 10 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 7
+    },
+    {
+      "name": "831 Broadway",
+      "address": "831 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/831-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80076981,
+      "longitude": -122.2737579,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "8 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 8 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 5
+    },
+    {
+      "name": "City Square",
+      "address": "1200 Clay St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1200-clay-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80410004,
+      "longitude": -122.2738723,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 7 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 4
+    },
+    {
+      "name": "570 10th St",
+      "address": "570 10th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/570-10th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80286026,
+      "longitude": -122.2754135,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 7 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 4
+    },
+    {
+      "name": "827 Broadway",
+      "address": "827 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/827-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80076981,
+      "longitude": -122.2737579,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "7 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 7 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 4
+    },
+    {
+      "name": "1220 Broadway",
+      "address": "1220 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1220-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80325317,
+      "longitude": -122.2716522,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 6 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 3
+    },
+    {
+      "name": "1001 Broadway",
+      "address": "1001 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1001-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80167007,
+      "longitude": -122.2731475,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "6 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 6 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 3
+    },
+    {
+      "name": "Key Building",
+      "address": "1100 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1100-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80255127,
+      "longitude": -122.2718963,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 1
+    },
+    {
+      "name": "Swan's Marketplace",
+      "address": "538 9th Street",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/538-9th-street/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80171967,
+      "longitude": -122.2754592,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 1
+    },
+    {
+      "name": "452 8th St",
+      "address": "452 8th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/452-8th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80038071,
+      "longitude": -122.2738876,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "4 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 4 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 1
+    },
+    {
+      "name": "464 7th St",
+      "address": "464 7th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/464-7th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79994965,
+      "longitude": -122.2746124,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": -1
+    },
+    {
+      "name": "410 7th St",
+      "address": "410 7th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/410-7th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79946136,
+      "longitude": -122.2733612,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": -1
+    },
+    {
+      "name": "825 Broadway",
+      "address": "825 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/825-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80076981,
+      "longitude": -122.2737579,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": -1
+    },
+    {
+      "name": "Gladstone Building",
+      "address": "471 9th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "old-oakland",
+      "district_name": "Old Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/471-9th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80086136,
+      "longitude": -122.274002,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "2 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "Historic downtown transition",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 2 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": -1
+    }
+  ]
+}

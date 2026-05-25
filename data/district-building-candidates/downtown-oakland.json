@@ -1,0 +1,931 @@
+{
+  "generated_at": "2026-05-25T17:17:20.236Z",
+  "purpose": "Internal District Building Candidate Universe for editorial review. Not a listings feed and not a publication queue.",
+  "guardrails": [
+    "Do not imply current availability.",
+    "Do not mass-publish building pages from this file.",
+    "Use candidates to explain district form, not to create listing grids.",
+    "Manual review is required before changing public representative buildings."
+  ],
+  "district": {
+    "slug": "downtown-oakland",
+    "name": "Downtown Oakland",
+    "city": "Oakland",
+    "state": "CA",
+    "canonical_path": "/commercial-real-estate/CA/oakland/downtown-oakland/",
+    "area_ids": [
+      "oak-downtown-oakland"
+    ]
+  },
+  "counts": {
+    "candidates": 25,
+    "strong_public_candidates": 5,
+    "possible_public_candidates": 4,
+    "internal_only": 16,
+    "reject": 0,
+    "with_existing_public_page": 16,
+    "with_image_signal": 2
+  },
+  "recommended_public_representatives": [
+    {
+      "name": "Oakland City Center",
+      "address": "505 14th St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+      "likely_representative_role": "City Center and BART-oriented office setting",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1333 Broadway",
+      "address": "1333 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+      "likely_representative_role": "Broadway office-core example",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "300 Frank H Ogawa Plz",
+      "address": "300 Frank H Ogawa Plz",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+      "likely_representative_role": "Civic core office adjacency",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1440 Broadway",
+      "address": "1440 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+      "likely_representative_role": "Downtown mid-rise office fabric",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1814 Franklin St",
+      "address": "1814 Franklin St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1814-franklin-st/",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1300 Clay St",
+      "address": "1300 Clay St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-clay-st/",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "610 16th St",
+      "address": "610 16th St",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/610-16th-st/",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    },
+    {
+      "name": "1300 Broadway",
+      "address": "1300 Broadway",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-broadway/",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Oakland City Center",
+      "address": "505 14th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/505-14th-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80469894,
+      "longitude": -122.272911,
+      "space_building_type": "office, coworking",
+      "image_availability": "original_image_index:3",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "106 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "City Center and BART-oriented office setting",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; image signal available; 106 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 144
+    },
+    {
+      "name": "1333 Broadway",
+      "address": "1333 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1333-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80414963,
+      "longitude": -122.2718963,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "106 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Broadway office-core example",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 106 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 133
+    },
+    {
+      "name": "300 Frank H Ogawa Plz",
+      "address": "300 Frank H Ogawa Plz",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/300-frank-h-ogawa-plz/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80577087,
+      "longitude": -122.2710189,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Civic core office adjacency",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 28 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 117
+    },
+    {
+      "name": "1440 Broadway",
+      "address": "1440 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1440-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "current_public_representative",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80471039,
+      "longitude": -122.2705535,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "29 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "Downtown mid-rise office fabric",
+      "reason_for_inclusion": "current public representative seed; reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 29 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 117
+    },
+    {
+      "name": "1814 Franklin St",
+      "address": "1814 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1814-franklin-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80691147,
+      "longitude": -122.2675094,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "84 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 84 historical listing signal(s)",
+      "publish_recommendation": "strong_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 97
+    },
+    {
+      "name": "1300 Clay St",
+      "address": "1300 Clay St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-clay-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80472946,
+      "longitude": -122.2735672,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "37 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 37 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 81
+    },
+    {
+      "name": "610 16th St",
+      "address": "610 16th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/610-16th-st/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80741882,
+      "longitude": -122.2742004,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "17 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 17 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 74
+    },
+    {
+      "name": "1300 Broadway",
+      "address": "1300 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1300-broadway/",
+      "source_file": "data/peter/research/commercial_area_building_relationships_v1.json",
+      "source_type": [
+        "reviewed_relationship",
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80366898,
+      "longitude": -122.2711868,
+      "space_building_type": "office",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "16 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "reviewed commercial-area building relationship; appears in broad internal district-building universe; canonical public building page exists; 16 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 73
+    },
+    {
+      "name": "Wells Fargo Bank Center",
+      "address": "1901 Harrison St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/wells-fargo-bank-center/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80677032,
+      "longitude": -122.2656402,
+      "space_building_type": "Office Space",
+      "image_availability": "original_image_index:1",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "74 historical listing signal(s)",
+      "description_data_quality_signal": "usable",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; image signal available; 74 historical listing signal(s)",
+      "publish_recommendation": "possible_public_candidate",
+      "caution_notes": [
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 61
+    },
+    {
+      "name": "Downtown Oakland",
+      "address": "2201 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/2201-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.81121063,
+      "longitude": -122.2674789,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "99 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 99 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "1 Kaiser Plz",
+      "address": "1 Kaiser Plz",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80995941,
+      "longitude": -122.2640228,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "61 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 61 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "Center Twenty-One",
+      "address": "2101 Webster St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/2101-webster-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.81027985,
+      "longitude": -122.2659988,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "43 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 43 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "2100Franklin Street",
+      "address": "2100 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/2100franklin-street/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80992126,
+      "longitude": -122.2665634,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "33 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 33 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "1221 Broadway",
+      "address": "1221 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1221-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80347824,
+      "longitude": -122.2723693,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "28 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 28 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 39
+    },
+    {
+      "name": "Lake Merritt Plaza",
+      "address": "1999 Harrison St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/lake-merritt-plaza/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80776978,
+      "longitude": -122.2652816,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "213 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 213 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "Kaiser Center",
+      "address": "300 Lakeside Dr",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/kaiser-center/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80892944,
+      "longitude": -122.2646865,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "70 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 70 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "1000 Broadway",
+      "address": "1000 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1000-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80160904,
+      "longitude": -122.2720871,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "68 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 68 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "1611 Telegraph Ave",
+      "address": "1611 Telegraph Ave",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1611-telegraph-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80636978,
+      "longitude": -122.2706985,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "58 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 58 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "1330 Broadway",
+      "address": "1330 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1330-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80390167,
+      "longitude": -122.2707977,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "54 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 54 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "405 14 th St.",
+      "address": "405 14th St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/405-14th-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "representative_building_seed",
+        "proximity_only",
+        "building_signals_metadata",
+        "representative_seed"
+      ],
+      "latitude": 37.80371094,
+      "longitude": -122.2703399,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "54 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 54 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 37
+    },
+    {
+      "name": "Jack London Square",
+      "address": "66 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79465485,
+      "longitude": -122.2755279,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "14 historical listing signal(s)",
+      "description_data_quality_signal": "rich",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 14 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "district association depends mainly on proximity",
+        "possible coworking/provider-specific artifact"
+      ],
+      "internal_review_score": 36
+    },
+    {
+      "name": "1111 Broadway",
+      "address": "1111 Broadway",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1111-broadway/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_raw_corpus_area_assignment",
+        "bay_area_neighborhood_assignment",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.80281067,
+      "longitude": -122.2727966,
+      "space_building_type": "Office Space",
+      "image_availability": "none_known",
+      "existing_public_page_status": "public_building_page_exists",
+      "listing_history_signal": "11 historical listing signal(s)",
+      "description_data_quality_signal": "thin",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; canonical public building page exists; 11 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 26
+    },
+    {
+      "name": "1658 34th Ave",
+      "address": "1658 34th Ave",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/1658-34th-ave/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "bay_area_neighborhood_assignment",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.78052139,
+      "longitude": -122.2215576,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "15 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 15 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description"
+      ],
+      "internal_review_score": 22
+    },
+    {
+      "name": "160 Franklin St",
+      "address": "160 Franklin St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.79521942,
+      "longitude": -122.275032,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "154 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 154 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    },
+    {
+      "name": "Plaza 360",
+      "address": "360 22nd St",
+      "city": "Oakland",
+      "state": "CA",
+      "district_slug": "downtown-oakland",
+      "district_name": "Downtown Oakland",
+      "canonical_building_path": "/commercial-real-estate/building/CA/oakland/360-22nd-st/",
+      "source_file": "data/media/generated/district_building_universe_v1.json",
+      "source_type": [
+        "internal_universe",
+        "proximity_only",
+        "building_signals_metadata"
+      ],
+      "latitude": 37.81095886,
+      "longitude": -122.2659378,
+      "space_building_type": "",
+      "image_availability": "none_known",
+      "existing_public_page_status": "no_public_building_page_found",
+      "listing_history_signal": "81 historical listing signal(s)",
+      "description_data_quality_signal": "missing",
+      "likely_representative_role": "BART/transit-oriented business core",
+      "reason_for_inclusion": "appears in broad internal district-building universe; 81 historical listing signal(s)",
+      "publish_recommendation": "internal_only",
+      "caution_notes": [
+        "thin source description",
+        "district association depends mainly on proximity"
+      ],
+      "internal_review_score": 21
+    }
+  ]
+}
