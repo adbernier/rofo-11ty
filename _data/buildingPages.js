@@ -195,6 +195,6 @@ module.exports = uniqueBuildings.map((building) =>
   applyEnrichment({
     ...building,
     related_buildings: getRelatedBuildings(building),
-    commercial_area: highConfidenceAreaByBuildingPath.get(building.building_path) || null,
+    commercial_area: highConfidenceAreaByBuildingPath.get(building.building_path) || building.commercial_area || null,
   })
 );

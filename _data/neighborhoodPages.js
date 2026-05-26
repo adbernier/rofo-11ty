@@ -457,18 +457,18 @@ function representativeBuildingRolesFor(page) {
     clean(page.state_abbr).toUpperCase() === "CA"
   ) {
     return {
-      "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/":
-        "Central SoMa office transition",
+      "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/":
+        "Converted warehouse / creative office texture",
+      "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/":
+        "South Park creative office cluster",
+      "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/":
+        "China Basin / 2nd Street edge",
       "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/":
         "Townsend corridor office context",
       "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/":
         "Flex / production-commercial edge",
       "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/":
         "Historic industrial-commercial form",
-      "/commercial-real-estate/building/CA/san-francisco/545-folsom-st/":
-        "Central SoMa street-level commercial context",
-      "/commercial-real-estate/building/CA/san-francisco/565-4th-st/":
-        "Central SoMa office and retail transition",
     };
   }
 
@@ -495,6 +495,12 @@ function representativeBuildingRolesFor(page) {
 
   if (pagePath === "/commercial-real-estate/CA/san-francisco/mission-bay/") {
     return {
+      "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/":
+        "Institutional / life-science office",
+      "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/":
+        "Waterfront-adjacent commercial",
+      "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/":
+        "Modern mixed-use commercial",
       "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/":
         "SoMa-to-Mission Bay modern office edge",
       "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/":
@@ -512,8 +518,8 @@ function representativeBuildingRolesFor(page) {
         "Embarcadero and Financial District edge",
       "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/":
         "Historic street-level commercial texture",
-      "/commercial-real-estate/building/CA/san-francisco/50-california-st/":
-        "Formal office-core adjacency",
+      "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/":
+        "Historic boutique office",
       "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/":
         "Waterfront-edge retail support",
       "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/":
@@ -549,6 +555,10 @@ function representativeBuildingRolesFor(page) {
 
   if (pagePath === "/commercial-real-estate/CA/oakland/jack-london-square/") {
     return {
+      "/commercial-real-estate/building/CA/oakland/160-franklin-st/":
+        "Waterfront-adjacent commercial",
+      "/commercial-real-estate/building/CA/oakland/424-3rd-st/":
+        "Adaptive commercial building",
       "/commercial-real-estate/building/CA/oakland/66-franklin-st/":
         "Waterfront office and visitor-facing edge",
       "/commercial-real-estate/building/CA/oakland/230-madison-st/":
@@ -560,6 +570,10 @@ function representativeBuildingRolesFor(page) {
 
   if (pagePath === "/commercial-real-estate/CA/oakland/old-oakland/") {
     return {
+      "/commercial-real-estate/building/CA/oakland/1000-broadway/":
+        "Historic downtown transition",
+      "/commercial-real-estate/building/CA/oakland/1212-broadway/":
+        "Broadway transit-oriented edge",
       "/commercial-real-estate/building/CA/oakland/1111-broadway/":
         "Downtown edge office example",
       "/commercial-real-estate/building/CA/oakland/1221-broadway/":
@@ -569,12 +583,14 @@ function representativeBuildingRolesFor(page) {
 
   if (pagePath === "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/") {
     return {
+      "/commercial-real-estate/building/CA/palo-alto/525-university-ave/":
+        "University Avenue professional office",
+      "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/":
+        "Caltrain-oriented professional office",
       "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/":
         "Lytton Avenue professional office fabric",
       "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/":
         "Hamilton Avenue client-facing office setting",
-      "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/":
-        "Retail-supported downtown commercial block",
       "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/":
         "Compact Peninsula office example",
     };
@@ -966,12 +982,28 @@ const nearbyComparisonNotesByKey = {
 
 const representativeBuildingPathOverridesByAreaId = {
   "sf-soma": [
-    "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
+    "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
+    "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
+    "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
     "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
     "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/",
     "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/",
-    "/commercial-real-estate/building/CA/san-francisco/545-folsom-st/",
-    "/commercial-real-estate/building/CA/san-francisco/565-4th-st/",
+  ],
+  "sf-mission-bay": [
+    "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
+    "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/",
+    "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
+    "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/",
+    "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
+    "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
+  ],
+  "sf-jackson-square": [
+    "/commercial-real-estate/building/CA/san-francisco/75-broadway/",
+    "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
+    "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/",
+    "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+    "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
+    "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
   ],
   "oak-downtown-oakland": [
     "/commercial-real-estate/building/CA/oakland/1333-broadway/",
@@ -986,9 +1018,24 @@ const representativeBuildingPathOverridesByAreaId = {
     "/commercial-real-estate/building/CA/oakland/415-20th-st/",
   ],
   "oak-jack-london-square": [
+    "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+    "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
     "/commercial-real-estate/building/CA/oakland/66-franklin-st/",
     "/commercial-real-estate/building/CA/oakland/230-madison-st/",
     "/commercial-real-estate/building/CA/oakland/105-2nd-st/",
+  ],
+  "oak-old-oakland": [
+    "/commercial-real-estate/building/CA/oakland/1000-broadway/",
+    "/commercial-real-estate/building/CA/oakland/1212-broadway/",
+    "/commercial-real-estate/building/CA/oakland/1111-broadway/",
+    "/commercial-real-estate/building/CA/oakland/1221-broadway/",
+  ],
+  "ba-downtown-palo-alto": [
+    "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
+    "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+    "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/",
+    "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/",
+    "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/",
   ],
 };
 

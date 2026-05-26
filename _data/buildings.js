@@ -2,6 +2,7 @@ const legacyBuildings = require("../data-sources/reference/buildings-live-before
 const companyBuildings = require("../data-sources/reference/company-buildings.json");
 const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.js");
 const ecosystemPublicBuildings = require("./ecosystemPublicBuildings.js");
+const representativeBuildingPageExpansions = require("./representativeBuildingPageExpansions.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
@@ -581,6 +582,14 @@ for (const building of ecosystemPublicBuildings) {
     },
     "ecosystem-public"
   );
+  const key = buildingKey(normalized);
+  if (!key || merged.has(key)) continue;
+
+  merged.set(key, normalized);
+}
+
+for (const building of representativeBuildingPageExpansions) {
+  const normalized = normalizeBuilding(building, "editorial-representative-expansion");
   const key = buildingKey(normalized);
   if (!key || merged.has(key)) continue;
 
