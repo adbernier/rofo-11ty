@@ -39,6 +39,7 @@ function building({
   const city_slug = slugify(city);
   const building_slug = slugify(address);
   const label = `${address} in ${city}`;
+  const roleSentence = String(role || "commercial district context");
 
   return {
     address,
@@ -54,6 +55,7 @@ function building({
     space_type: primary_space_type,
     raw_space_types: [primary_space_type],
     source: "editorial-representative-expansion",
+    editorial_representative: true,
     primary_source: "Rofo editorial review",
     source_companies: [],
     source_count: 0,
@@ -64,6 +66,8 @@ function building({
     postal: "",
     image_urls: [],
     hero_image: "",
+    meta_title: `${address} | ${district.name} Representative Building | Rofo`,
+    meta_description: `${address} is a representative ${district.name} commercial building in ${city}, useful for understanding ${roleSentence} and nearby district context.`,
     teaser: `${label} is included as a representative commercial building for understanding ${district.name}.`,
     building_description: description,
     about_context: about,

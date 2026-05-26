@@ -1,26 +1,43 @@
 <section class="help-card help-card--compact">
-  <div class="help-card__eyebrow">Before you lease</div>
-  <h2 class="help-card__title">What to evaluate about this space</h2>
+  {% if building.editorial_representative %}
+    <div class="help-card__eyebrow">District context</div>
+    <h2 class="help-card__title">How to read this building</h2>
+  {% else %}
+    <div class="help-card__eyebrow">Before you lease</div>
+    <h2 class="help-card__title">What to evaluate about this space</h2>
+  {% endif %}
 
   <div class="help-card__grid help-card__grid--tight">
     <div class="help-card__item">
-      <h3>Layout fit</h3>
+      <h3>{% if building.editorial_representative %}District role{% else %}Layout fit{% endif %}</h3>
       <p>
-        Make sure the layout supports your workflow, staffing, or customer experience.
+        {% if building.editorial_representative %}
+          Use the building as a reference point for the district's commercial form, not as a statement about current availability.
+        {% else %}
+          Make sure the layout supports your workflow, staffing, or customer experience.
+        {% endif %}
       </p>
     </div>
 
     <div class="help-card__item">
-      <h3>Total cost</h3>
+      <h3>{% if building.editorial_representative %}Street context{% else %}Total cost{% endif %}</h3>
       <p>
-        Ask about operating expenses, deposits, improvements, and utilities—not just rent.
+        {% if building.editorial_representative %}
+          Compare the surrounding blocks, transit access, nearby services, and relationship to adjacent districts.
+        {% else %}
+          Ask about operating expenses, deposits, improvements, and utilities—not just rent.
+        {% endif %}
       </p>
     </div>
 
     <div class="help-card__item">
-      <h3>Access and visibility</h3>
+      <h3>{% if building.editorial_representative %}Commercial fit{% else %}Access and visibility{% endif %}</h3>
       <p>
-        Consider parking, foot traffic, loading access, and how easy the space is to reach.
+        {% if building.editorial_representative %}
+          Read the role label as commercial geography guidance, not as a complete inventory or ranking.
+        {% else %}
+          Consider parking, foot traffic, loading access, and how easy the space is to reach.
+        {% endif %}
       </p>
     </div>
   </div>

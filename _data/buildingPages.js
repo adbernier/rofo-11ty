@@ -176,19 +176,32 @@ const buildingsByCity = uniqueBuildings.reduce((lookup, building) => {
   return lookup;
 }, new Map());
 
+function buildingAreaId(building) {
+  return (
+    highConfidenceAreaByBuildingPath.get(building.building_path)?.id ||
+    building.commercial_area?.id ||
+    ""
+  );
+}
+
 function getRelatedBuildings(building) {
   const currentIdentity = buildingIdentity(building);
   const cityBuildings = (buildingsByCity.get(cityKey(building)) || [])
     .filter((candidate) => buildingIdentity(candidate) !== currentIdentity);
+  const areaId = buildingAreaId(building);
+  const sameArea = areaId
+    ? cityBuildings.filter((candidate) => buildingAreaId(candidate) === areaId)
+    : [];
+  const outsideArea = cityBuildings.filter((candidate) => !sameArea.includes(candidate));
 
-  const sameType = cityBuildings.filter((candidate) =>
+  const sameType = outsideArea.filter((candidate) =>
     candidate.space_type_slug &&
     building.space_type_slug &&
     candidate.space_type_slug === building.space_type_slug
   );
-  const fallback = cityBuildings.filter((candidate) => !sameType.includes(candidate));
+  const fallback = outsideArea.filter((candidate) => !sameType.includes(candidate));
 
-  return [...sameType, ...fallback].slice(0, 5).map(relatedBuildingSummary);
+  return [...sameArea, ...sameType, ...fallback].slice(0, 5).map(relatedBuildingSummary);
 }
 
 module.exports = uniqueBuildings.map((building) =>

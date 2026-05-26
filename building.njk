@@ -7,9 +7,9 @@ pagination:
 permalink: "/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_slug }}/{{ building.building_slug }}/index.html"
 eleventyComputed:
   title: >
-    {{ building.address }} in {{ building.city }}, {{ building.state_abbr }} | Commercial Real Estate | Rofo
+    {{ building.meta_title or building.address + " in " + building.city + ", " + building.state_abbr + " | Commercial Real Estate | Rofo" }}
   description: >
-    {{ building.address }} is a flexible {{ building.type | lower }} location in {{ building.city }}, {{ building.state_abbr }}.
+    {{ building.meta_description or building.address + " is a flexible " + (building.type | lower) + " location in " + building.city + ", " + building.state_abbr + "." }}
 ---
 
 {% set placeholderSrc = building | buildingPlaceholder %}
