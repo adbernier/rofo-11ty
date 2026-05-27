@@ -165,10 +165,36 @@ function displayMediaLabel(asset) {
 }
 
 function curatedDistrictMediaForPublicUse(exportManifest) {
-  if (!exportManifest || !exportManifest.districts) return {};
+  const media = {
+    "jackson-square": {
+      eyebrow: "Views of Jackson Square",
+      heading: "",
+      caption: "A few views that show Jackson Square’s smaller-scale historic commercial blocks at the edge of San Francisco’s downtown office core.",
+      primary: {
+        district_slug: "jackson-square",
+        district_name: "Jackson Square",
+        label: "Jackson Square historic commercial block",
+        src: "/assets/images/districts/jackson-square/streetscape.webp",
+        thumb_src: "/assets/images/districts/jackson-square/streetscape.webp",
+        canonical_building_path: "",
+        alt: "Street-level commercial buildings in Jackson Square near San Francisco’s downtown core",
+      },
+      supporting: [
+        {
+          district_slug: "jackson-square",
+          district_name: "Jackson Square",
+          label: "Jackson Square historic block and downtown edge",
+          src: "/assets/images/districts/jackson-square/historic-block-transamerica.webp",
+          thumb_src: "/assets/images/districts/jackson-square/historic-block-transamerica.webp",
+          canonical_building_path: "",
+          alt: "Historic Jackson Square commercial block with the downtown San Francisco skyline nearby",
+        },
+      ],
+    },
+  };
 
-  const soma = exportManifest.districts.soma;
-  if (!soma || !Array.isArray(soma.assets) || !soma.assets.length) return {};
+  const soma = exportManifest?.districts?.soma;
+  if (!soma || !Array.isArray(soma.assets) || !soma.assets.length) return media;
 
   const assets = soma.assets
     .filter((asset) =>
@@ -195,17 +221,17 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
       };
     });
 
-  if (!assets.length) return {};
+  if (!assets.length) return media;
 
-  return {
-    soma: {
-      eyebrow: "Views of SoMa",
-      heading: "",
-      caption: "A few views that capture SoMa’s mix of converted warehouses, creative offices, and dense urban fabric.",
-      primary: assets[0],
-      supporting: assets.slice(1, 5),
-    },
+  media.soma = {
+    eyebrow: "Views of SoMa",
+    heading: "",
+    caption: "A few views that capture SoMa’s mix of converted warehouses, creative offices, and dense urban fabric.",
+    primary: assets[0],
+    supporting: assets.slice(1, 5),
   };
+
+  return media;
 }
 
 function districtLocatorMapFor(page) {
@@ -1302,6 +1328,12 @@ for (const page of allPages) {
   );
   page.neighborhood_image_path =
     page.neighborhood_image_path || neighborhoodImagePathFor(page);
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/jackson-square/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/jackson-square/hero.webp";
+  }
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.public_commercial_districts =
@@ -1311,6 +1343,8 @@ for (const page of allPages) {
     clean(page.city).toLowerCase() === "san francisco" &&
     clean(page.state_abbr).toUpperCase() === "CA"
       ? curatedDistrictMediaBySlug.soma || null
+      : page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/jackson-square/"
+      ? curatedDistrictMediaBySlug["jackson-square"] || null
       : null;
   page.district_locator_map = districtLocatorMapFor(page);
   if (page.district_locator_map && page.district_locator_map.promote_to_identity && page.map_hero) {
