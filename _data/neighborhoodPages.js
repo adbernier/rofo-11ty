@@ -166,6 +166,21 @@ function displayMediaLabel(asset) {
 
 function curatedDistrictMediaForPublicUse(exportManifest) {
   const media = {
+    "financial-district": {
+      eyebrow: "Views of the Financial District",
+      heading: "",
+      caption: "A few views that show the Financial District’s vertical office core, street-level business setting, and downtown San Francisco context.",
+      primary: {
+        district_slug: "financial-district",
+        district_name: "Financial District",
+        label: "Financial District street-level office core",
+        src: "/assets/images/districts/financial-district-sf/battery-market-streetscape.webp",
+        thumb_src: "/assets/images/districts/financial-district-sf/battery-market-streetscape.webp",
+        canonical_building_path: "",
+        alt: "Street-level office and business context near Battery and Market in San Francisco’s Financial District",
+      },
+      supporting: [],
+    },
     "jackson-square": {
       eyebrow: "Views of Jackson Square",
       heading: "",
@@ -190,6 +205,55 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
           alt: "Historic Jackson Square commercial block with the downtown San Francisco skyline nearby",
         },
       ],
+    },
+    "mission-bay": {
+      eyebrow: "Views of Mission Bay",
+      heading: "",
+      caption: "A few views that show Mission Bay’s newer institutional, life-science, office, and waterfront-adjacent commercial environment.",
+      primary: {
+        district_slug: "mission-bay",
+        district_name: "Mission Bay",
+        label: "Mission Bay commercial streetscape",
+        src: "/assets/images/districts/mission-bay/mission-bay-streetscape.webp",
+        thumb_src: "/assets/images/districts/mission-bay/mission-bay-streetscape.webp",
+        canonical_building_path: "",
+        alt: "Modern commercial streetscape in Mission Bay near San Francisco’s life-science and institutional district",
+      },
+      supporting: [
+        {
+          district_slug: "mission-bay",
+          district_name: "Mission Bay",
+          label: "Mission Bay office context",
+          src: "/assets/images/districts/mission-bay/mission-bay-office.webp",
+          thumb_src: "/assets/images/districts/mission-bay/mission-bay-office.webp",
+          canonical_building_path: "",
+          alt: "Modern office building context in San Francisco’s Mission Bay commercial district",
+        },
+        {
+          district_slug: "mission-bay",
+          district_name: "Mission Bay",
+          label: "Mission Bay waterfront edge",
+          src: "/assets/images/districts/mission-bay/china-basin-waterline.webp",
+          thumb_src: "/assets/images/districts/mission-bay/china-basin-waterline.webp",
+          canonical_building_path: "",
+          alt: "Waterfront-adjacent commercial context along the China Basin edge of Mission Bay",
+        },
+      ],
+    },
+    soma: {
+      eyebrow: "Views of SoMa",
+      heading: "",
+      caption: "A few views that capture SoMa’s mix of converted warehouses, creative offices, and dense urban fabric.",
+      primary: {
+        district_slug: "soma",
+        district_name: "SoMa",
+        label: "South Park office context",
+        src: "/assets/images/districts/soma/south-park-office.webp",
+        thumb_src: "/assets/images/districts/soma/south-park-office.webp",
+        canonical_building_path: "",
+        alt: "South Park office and commercial context in San Francisco’s SoMa district",
+      },
+      supporting: [],
     },
   };
 
@@ -223,12 +287,22 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
 
   if (!assets.length) return media;
 
+  const southParkOfficeImage = {
+    district_slug: "soma",
+    district_name: "SoMa",
+    label: "South Park office context",
+    src: "/assets/images/districts/soma/south-park-office.webp",
+    thumb_src: "/assets/images/districts/soma/south-park-office.webp",
+    canonical_building_path: "",
+    alt: "South Park office and commercial context in San Francisco’s SoMa district",
+  };
+
   media.soma = {
     eyebrow: "Views of SoMa",
     heading: "",
     caption: "A few views that capture SoMa’s mix of converted warehouses, creative offices, and dense urban fabric.",
     primary: assets[0],
-    supporting: assets.slice(1, 5),
+    supporting: [southParkOfficeImage, ...assets.slice(1, 4)],
   };
 
   return media;
@@ -1329,10 +1403,28 @@ for (const page of allPages) {
   page.neighborhood_image_path =
     page.neighborhood_image_path || neighborhoodImagePathFor(page);
   if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/soma/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/soma/hero.webp";
+  }
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/financial-district/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/financial-district-sf/hero.webp";
+  }
+  if (
     page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/jackson-square/"
   ) {
     page.neighborhood_image_path =
       page.neighborhood_image_path || "/assets/images/districts/jackson-square/hero.webp";
+  }
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/mission-bay/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/mission-bay/hero.webp";
   }
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
@@ -1343,8 +1435,12 @@ for (const page of allPages) {
     clean(page.city).toLowerCase() === "san francisco" &&
     clean(page.state_abbr).toUpperCase() === "CA"
       ? curatedDistrictMediaBySlug.soma || null
+      : page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/financial-district/"
+      ? curatedDistrictMediaBySlug["financial-district"] || null
       : page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/jackson-square/"
       ? curatedDistrictMediaBySlug["jackson-square"] || null
+      : page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/mission-bay/"
+      ? curatedDistrictMediaBySlug["mission-bay"] || null
       : null;
   page.district_locator_map = districtLocatorMapFor(page);
   if (page.district_locator_map && page.district_locator_map.promote_to_identity && page.map_hero) {
