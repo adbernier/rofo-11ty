@@ -67,18 +67,22 @@ eleventyComputed:
         <section class="city-card">
           <div class="eyebrow">Business fit</div>
           <h2>Best fit by district</h2>
-          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-            <div class="neighborhood-mini-card">
-              <h3>{{ comparison.district_a.primary_archetype_label }}</h3>
-              <ul class="mini-list">
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel">
+              <h3>{{ comparison.district_a_name }}</h3>
+              <p class="location-comparison-panel__meta">{{ comparison.district_a.primary_archetype_label }}</p>
+              <p>{{ comparison.district_a.commercial_thesis }}</p>
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_a.best_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}
               </ul>
             </div>
-            <div class="neighborhood-mini-card">
-              <h3>{{ comparison.district_b.primary_archetype_label }}</h3>
-              <ul class="mini-list">
+            <div class="location-comparison-panel">
+              <h3>{{ comparison.district_b_name }}</h3>
+              <p class="location-comparison-panel__meta">{{ comparison.district_b.primary_archetype_label }}</p>
+              <p>{{ comparison.district_b.commercial_thesis }}</p>
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_b.best_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}
@@ -90,18 +94,18 @@ eleventyComputed:
         <section class="city-card">
           <div class="eyebrow">Office context</div>
           <h2>How to think about office fit</h2>
-          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-            <div class="neighborhood-mini-card">
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel">
               <h3>{{ comparison.district_a_name }} tends to work better for</h3>
-              <ul class="mini-list">
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_a.best_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}
               </ul>
             </div>
-            <div class="neighborhood-mini-card">
+            <div class="location-comparison-panel">
               <h3>{{ comparison.district_b_name }} tends to work better for</h3>
-              <ul class="mini-list">
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_b.best_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}
@@ -113,18 +117,18 @@ eleventyComputed:
         <section class="city-card">
           <div class="eyebrow">Decision guidance</div>
           <h2>Less ideal for</h2>
-          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-            <div class="neighborhood-mini-card">
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel location-comparison-panel--quiet">
               <h3>{{ comparison.district_a_name }}</h3>
-              <ul class="mini-list">
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_a.poor_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}
               </ul>
             </div>
-            <div class="neighborhood-mini-card">
+            <div class="location-comparison-panel location-comparison-panel--quiet">
               <h3>{{ comparison.district_b_name }}</h3>
-              <ul class="mini-list">
+              <ul class="mini-list location-comparison-panel__list">
                 {% for item in comparison.district_b.poor_fit_businesses %}
                   <li>{{ item }}</li>
                 {% endfor %}

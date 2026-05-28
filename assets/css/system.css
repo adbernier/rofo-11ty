@@ -3080,6 +3080,72 @@ section.market-page--space-type .market-links a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.location-comparison-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.location-comparison-panel {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.location-comparison-panel--quiet {
+  background: #f8fafc;
+}
+
+.location-comparison-panel h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.location-comparison-panel p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.location-comparison-panel p.location-comparison-panel__meta {
+  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.location-comparison-panel__list {
+  margin-top: 14px;
+}
+
+.location-comparison-panel__list li {
+  position: relative;
+  margin-bottom: 9px;
+  padding-left: 16px;
+  color: #334155;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.location-comparison-panel__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #94a3b8;
+}
+
 .neighborhood-check-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4016,6 +4082,7 @@ section.market-page--space-type .market-links a {
   .neighborhood-locator-map,
   .neighborhood-curated-media__layout,
   .neighborhood-curated-media__supporting,
+  .location-comparison-panel-grid,
   .neighborhood-card-grid,
   .neighborhood-card-grid--compact,
   .neighborhood-comparison-grid,
