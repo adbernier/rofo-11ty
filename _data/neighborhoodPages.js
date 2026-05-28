@@ -69,6 +69,7 @@ const neighborhoodMapHeroes = require("./neighborhoodMapHeroes.js");
 const neighborhoodIntelligence = require("./neighborhoodIntelligence.js");
 const atlantaApprovedEditorialSignals = require("./atlantaApprovedEditorialSignals.js");
 const commercialDistrictPublicIntegrations = require("./commercialDistrictPublicIntegrations.js");
+const commercialLocationModel = require("./commercialLocationModel.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const curatedDistrictMediaBySlug = curatedDistrictMediaForPublicUse(curatedDistrictMediaExport);
 const allowlistByPath = new Map(
@@ -1430,6 +1431,8 @@ for (const page of allPages) {
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.public_commercial_districts =
     commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
+  page.commercial_location_model =
+    commercialLocationModel.byPath[page.canonical_neighborhood_path] || null;
   page.curated_district_media =
     page.slug === "soma" &&
     clean(page.city).toLowerCase() === "san francisco" &&

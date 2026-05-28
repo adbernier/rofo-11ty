@@ -1,0 +1,56 @@
+{% set locationModel = neighborhood.commercial_location_model %}
+{% if locationModel %}
+  <section class="city-card neighborhood-location-decision" aria-labelledby="location-decision-heading">
+    <div class="eyebrow">Location fit</div>
+    <h2 id="location-decision-heading">Where {{ neighborhoodDisplayNameWithArticle }} fits</h2>
+    <p>{{ locationModel.commercial_thesis }}</p>
+
+    <div class="pill-row">
+      <span class="pill">{{ locationModel.primary_archetype_label }}</span>
+      {% for label in locationModel.secondary_archetype_labels %}
+        <span class="pill">{{ label }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+      <div class="neighborhood-mini-card">
+        <h3>Best fit</h3>
+        <ul class="mini-list">
+          {% for item in locationModel.best_fit_businesses %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="neighborhood-mini-card">
+        <h3>Less ideal for</h3>
+        <ul class="mini-list">
+          {% for item in locationModel.poor_fit_businesses %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    {% if locationModel.compare_with and locationModel.compare_with.length %}
+      <div class="neighborhood-location-decision__compare">
+        <h3>Compare with</h3>
+        <div class="neighborhood-comparison-grid">
+          {% for comparison in locationModel.compare_with %}
+            {% if comparison.comparison_path or comparison.district_path %}
+              <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ comparison.comparison_path or comparison.district_path }}">
+                <h3>{{ comparison.district_name }}</h3>
+                <p>{{ comparison.reason }}</p>
+              </a>
+            {% else %}
+              <div class="neighborhood-comparison-card">
+                <h3>{{ comparison.district_name }}</h3>
+                <p>{{ comparison.reason }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

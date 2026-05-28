@@ -1,0 +1,490 @@
+const districts = {
+  "/commercial-real-estate/CA/san-francisco/soma/": {
+    primary_archetype: "adaptive_warehouse_office_district",
+    secondary_archetypes: ["mixed_use_startup_district", "central_city_creative_office"],
+    commercial_thesis:
+      "SoMa is a broad central San Francisco commercial district for teams that want adaptive office buildings, creative-commercial texture, and proximity to downtown, Mission Bay, South Park, and the waterfront without a formal tower-core feel.",
+    best_fit_businesses: [
+      "Creative office and technology teams comparing adaptive buildings",
+      "Companies that want central San Francisco access without Financial District formality",
+      "Teams that value South Park, Townsend, Mission Bay, and waterfront adjacency",
+    ],
+    poor_fit_businesses: [
+      "Companies that need a polished traditional tower-core address",
+      "Lab-heavy users that need stronger institutional or life-science adjacency",
+      "Retailers that depend on destination shopping foot traffic",
+    ],
+    compare_with: [
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-financial-district/",
+        reason: "Compare if you are choosing between adaptive creative-office texture and a formal downtown office core.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+        reason: "Compare if institutional, life-science, or newer large-parcel office context matters.",
+      },
+      {
+        district_name: "Jackson Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        reason: "Compare if a smaller historic boutique office setting near downtown is more appropriate.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "creative_adaptive",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["creative", "startup", "professional_services", "small_business"],
+      commute_pattern: ["walkable_urban", "transit_oriented", "regional_downtown_access"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "warehouse_adaptive",
+      truck_access: "low",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["warehouse_conversion", "showroom_flex", "office_warehouse"],
+      tenant_fit: ["creative_office", "maker_production", "showroom", "service_commercial"],
+    },
+    confidence_level: "high",
+    review_status: "flagship",
+  },
+  "/commercial-real-estate/CA/san-francisco/financial-district/": {
+    primary_archetype: "formal_downtown_office_core",
+    secondary_archetypes: ["transit_oriented_business_core", "client_facing_services_core"],
+    commercial_thesis:
+      "The Financial District is San Francisco's most formal downtown office core, defined by vertical office buildings, transit concentration, client-facing business services, and tighter office density than SoMa.",
+    best_fit_businesses: [
+      "Finance, legal, consulting, and professional-service firms that benefit from a formal downtown address",
+      "Client-facing teams that value transit access and central business services",
+      "Companies comparing vertical office buildings and traditional office-core environments",
+    ],
+    poor_fit_businesses: [
+      "Creative teams seeking warehouse or adaptive office texture",
+      "Life-science users that need Mission Bay institutional adjacency",
+      "Businesses that need production, loading, or flexible industrial formats",
+    ],
+    compare_with: [
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-financial-district/",
+        reason: "Compare if you are weighing formal downtown office identity against SoMa's adaptive commercial fabric.",
+      },
+      {
+        district_name: "Jackson Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        reason: "Compare if smaller historic boutique office blocks could work better than tower-core buildings.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        reason: "Compare if newer institutional or life-science adjacency is more important than formal CBD access.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "formal_core",
+      client_facing_strength: "high",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "high_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["finance_legal", "professional_services", "enterprise", "client_facing"],
+      commute_pattern: ["bart", "muni", "ferry", "walkable_urban"],
+    },
+    confidence_level: "high",
+    review_status: "flagship",
+  },
+  "/commercial-real-estate/CA/san-francisco/mission-bay/": {
+    primary_archetype: "life_science_institutional_district",
+    secondary_archetypes: ["modern_mixed_use_office_district", "waterfront_adjacent_commercial"],
+    commercial_thesis:
+      "Mission Bay is San Francisco's newer institutional and life-science-oriented commercial district, shaped by UCSF, modern office and lab-adjacent buildings, larger parcels, and waterfront adjacency south of SoMa.",
+    best_fit_businesses: [
+      "Life-science, medical, research-adjacent, and institutional office users",
+      "Teams that want newer development parcels and modern office environments",
+      "Companies comparing SoMa access with stronger institutional gravity",
+    ],
+    poor_fit_businesses: [
+      "Companies seeking historic boutique office character",
+      "Traditional client-facing firms that need the Financial District's formal office core",
+      "Small creative teams that prefer adaptive warehouse-office texture",
+    ],
+    compare_with: [
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+        reason: "Compare if you are choosing between adaptive central-city office texture and newer institutional office context.",
+      },
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        reason: "Compare if formal downtown access matters more than life-science or institutional adjacency.",
+      },
+      {
+        district_name: "Dogpatch",
+        district_path: "",
+        reason: "Compare later for a more industrial/adaptive waterfront edge south of Mission Bay.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "institutional",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "large",
+      tenant_fit: ["life_science_adjacent", "medical", "research", "modern_office"],
+      commute_pattern: ["muni", "caltrain_access", "walkable_urban", "waterfront"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "flex_office",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["lab_adjacent_office", "modern_flex", "service_commercial"],
+      tenant_fit: ["life_science_adjacent", "medical_service", "production_support"],
+    },
+    confidence_level: "high",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/jackson-square/": {
+    primary_archetype: "historic_boutique_office_district",
+    secondary_archetypes: ["financial_district_edge", "professional_services_boutique"],
+    commercial_thesis:
+      "Jackson Square is a smaller historic boutique office district at the edge of the Financial District, useful for professional-service, design, and client-facing users that want downtown access without a tower-core feel.",
+    best_fit_businesses: [
+      "Boutique professional-service and design-oriented office users",
+      "Client-facing teams that want downtown access in smaller historic buildings",
+      "Businesses comparing Financial District adjacency without full CBD formality",
+    ],
+    poor_fit_businesses: [
+      "Large tenants needing broad modern floorplates",
+      "Life-science or institutional users",
+      "Warehouse, logistics, or production users",
+    ],
+    compare_with: [
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        reason: "Compare if formal tower-core office identity is more important than boutique historic character.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if adaptive creative-office scale and broader central-city texture matter more.",
+      },
+      {
+        district_name: "Embarcadero",
+        district_path: "",
+        reason: "Compare later for waterfront-edge office and visitor-facing commercial context.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "historic_boutique",
+      client_facing_strength: "high",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "low_rise",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "design", "boutique_office", "client_facing"],
+      commute_pattern: ["walkable_urban", "transit_oriented", "downtown_edge"],
+    },
+    confidence_level: "high",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/oakland/downtown-oakland/": {
+    primary_archetype: "transit_centered_civic_business_core",
+    secondary_archetypes: ["secondary_downtown_office_core", "bart_centered_office_core"],
+    commercial_thesis:
+      "Downtown Oakland is the East Bay's civic, BART-centered, and practical business core, with Broadway office buildings, public-sector adjacency, and cross-bay comparison value against San Francisco's downtown core.",
+    best_fit_businesses: [
+      "East Bay office users that value BART access and downtown services",
+      "Professional-service, nonprofit, civic, and public-sector adjacent teams",
+      "Companies comparing practical East Bay office settings with San Francisco CBD costs and commute patterns",
+    ],
+    poor_fit_businesses: [
+      "Teams seeking waterfront adaptive-commercial identity",
+      "Small companies that prefer Uptown's mixed-use texture",
+      "Warehouse or logistics users needing industrial formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Uptown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-uptown-oakland/",
+        reason: "Compare if you are choosing between a formal civic/business core and a more mixed-use arts-adjacent district.",
+      },
+      {
+        district_name: "Jack London Square",
+        district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        reason: "Compare if waterfront, adaptive, or service-commercial context matters more than Broadway/BART office access.",
+      },
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        reason: "Compare if cross-bay downtown office tradeoffs are part of the decision.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "secondary_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["professional_services", "public_sector", "nonprofit", "east_bay_office"],
+      commute_pattern: ["bart", "walkable_urban", "cross_bay_access"],
+    },
+    confidence_level: "high",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/oakland/uptown-oakland/": {
+    primary_archetype: "mixed_use_startup_district",
+    secondary_archetypes: ["arts_adjacent_office_district", "bart_adjacent_neighborhood_commercial"],
+    commercial_thesis:
+      "Uptown Oakland is Downtown Oakland's mixed-use, arts-adjacent counterpart, better suited to smaller companies and teams that value street-level texture, food, housing, and transit access over a formal civic office core.",
+    best_fit_businesses: [
+      "Smaller office users that want a mixed-use East Bay setting",
+      "Creative, nonprofit, and professional teams comparing Broadway access with street-level activity",
+      "Companies that want BART access without the more formal Downtown Oakland core",
+    ],
+    poor_fit_businesses: [
+      "Users that need the strongest civic or public-sector adjacency",
+      "Large tenants seeking conventional downtown office concentration",
+      "Warehouse/flex users needing loading or production formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-uptown-oakland/",
+        reason: "Compare if the choice is between formal Broadway/civic office context and a more mixed-use district.",
+      },
+      {
+        district_name: "Jack London Square",
+        district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        reason: "Compare if waterfront or adaptive service-commercial texture may be a better fit.",
+      },
+      {
+        district_name: "Temescal",
+        district_path: "",
+        reason: "Compare later for a smaller neighborhood-commercial alternative north of Uptown.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "startup_mixed_use",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "small",
+      tenant_fit: ["small_business", "creative", "nonprofit", "professional_services"],
+      commute_pattern: ["bart", "walkable_urban", "east_bay_access"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/oakland/jack-london-square/": {
+    primary_archetype: "adaptive_industrial_commercial_district",
+    secondary_archetypes: ["waterfront_adaptive_commercial", "service_commercial_office_edge"],
+    commercial_thesis:
+      "Jack London Square is Oakland's waterfront adaptive-commercial district, where office, service, food and beverage, rail, ferry, and warehouse-adjacent blocks create a less formal alternative to Downtown Oakland.",
+    best_fit_businesses: [
+      "Office and service-commercial users that value waterfront or adaptive context",
+      "Creative, food and beverage, and visitor-facing commercial businesses",
+      "Teams comparing Oakland's downtown core with a lower-scale waterfront setting",
+    ],
+    poor_fit_businesses: [
+      "Companies that need the strongest BART/civic office concentration",
+      "Formal client-facing office users that prefer a traditional downtown core",
+      "Large logistics users needing deeper industrial infrastructure",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        reason: "Compare if BART-centered office core access may matter more than waterfront/adaptive texture.",
+      },
+      {
+        district_name: "Uptown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        reason: "Compare if mixed-use arts-adjacent office context is a better match.",
+      },
+      {
+        district_name: "Old Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/old-oakland/",
+        reason: "Compare if historic downtown transition blocks fit better than the waterfront edge.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "creative_adaptive",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["creative", "service_commercial", "small_business", "visitor_facing"],
+      commute_pattern: ["ferry", "rail_adjacent", "walkable_urban"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "adaptive_industrial_commercial",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["warehouse_conversion", "service_commercial", "office_warehouse"],
+      tenant_fit: ["service_industrial", "maker_production", "food_beverage_production", "showroom"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/": {
+    primary_archetype: "caltrain_oriented_professional_district",
+    secondary_archetypes: ["walkable_peninsula_startup_district", "client_facing_professional_core"],
+    commercial_thesis:
+      "Downtown Palo Alto is a walkable Peninsula professional district shaped by University Avenue, Caltrain, Stanford adjacency, startups, venture capital, restaurants, and client-facing office use.",
+    best_fit_businesses: [
+      "Professional-service, startup, and venture-adjacent office users",
+      "Teams that value Caltrain access and a walkable Peninsula downtown",
+      "Client-facing businesses comparing downtown settings with campus or highway-corridor offices",
+    ],
+    poor_fit_businesses: [
+      "Large tenants that need campus-scale office environments",
+      "Warehouse/flex users or production users",
+      "Companies prioritizing lower-cost suburban office supply over walkable downtown context",
+    ],
+    compare_with: [
+      {
+        district_name: "Redwood City Downtown",
+        district_path: "",
+        reason: "Compare later for another Caltrain-oriented Peninsula downtown with different cost and civic context.",
+      },
+      {
+        district_name: "Mountain View / Castro-Whisman",
+        district_path: "",
+        reason: "Compare later for a stronger startup/campus-transition environment.",
+      },
+      {
+        district_name: "California Avenue",
+        district_path: "",
+        reason: "Compare later for a smaller Palo Alto commercial alternative.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "professional_services",
+      client_facing_strength: "high",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "low_rise",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "startup", "venture_adjacent", "client_facing"],
+      commute_pattern: ["caltrain", "walkable_urban", "peninsula_access"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/oakland/old-oakland/": {
+    primary_archetype: "historic_downtown_transition_district",
+    secondary_archetypes: ["retail_office_transition", "downtown_edge_commercial"],
+    commercial_thesis:
+      "Old Oakland is a historic downtown transition district connecting Oakland's Broadway office core and Jack London Square, with smaller-scale commercial blocks and retail-office texture.",
+    best_fit_businesses: [
+      "Small professional-service users that want historic downtown character",
+      "Retail-office and service businesses that benefit from downtown edge access",
+      "Teams comparing Downtown Oakland, Uptown, and Jack London Square",
+    ],
+    poor_fit_businesses: [
+      "Large office users needing strong tower-core identity",
+      "Companies that need the strongest waterfront or ferry context",
+      "Warehouse/flex users that need deeper industrial infrastructure",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        reason: "Compare if formal Broadway office access matters more than historic transition-block character.",
+      },
+      {
+        district_name: "Jack London Square",
+        district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        reason: "Compare if waterfront and adaptive service-commercial context is more important.",
+      },
+      {
+        district_name: "Uptown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        reason: "Compare if mixed-use arts-adjacent office texture is a better fit.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "historic_transition",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "low_rise",
+      floorplate_pattern: "small",
+      tenant_fit: ["small_business", "professional_services", "service_business", "retail_office"],
+      commute_pattern: ["bart", "walkable_urban", "downtown_edge"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+};
+
+const archetypeLabels = {
+  adaptive_warehouse_office_district: "Adaptive warehouse-office district",
+  mixed_use_startup_district: "Mixed-use startup district",
+  central_city_creative_office: "Central-city creative office",
+  formal_downtown_office_core: "Formal downtown office core",
+  transit_oriented_business_core: "Transit-oriented business core",
+  client_facing_services_core: "Client-facing services core",
+  life_science_institutional_district: "Life-science / institutional district",
+  modern_mixed_use_office_district: "Modern mixed-use office district",
+  waterfront_adjacent_commercial: "Waterfront-adjacent commercial",
+  historic_boutique_office_district: "Historic boutique office district",
+  financial_district_edge: "Financial District edge",
+  professional_services_boutique: "Professional-services boutique",
+  transit_centered_civic_business_core: "Transit-centered civic/business core",
+  secondary_downtown_office_core: "Secondary downtown office core",
+  bart_centered_office_core: "BART-centered office core",
+  arts_adjacent_office_district: "Arts-adjacent office district",
+  bart_adjacent_neighborhood_commercial: "BART-adjacent neighborhood commercial",
+  adaptive_industrial_commercial_district: "Adaptive industrial-commercial district",
+  waterfront_adaptive_commercial: "Waterfront adaptive-commercial",
+  service_commercial_office_edge: "Service-commercial office edge",
+  caltrain_oriented_professional_district: "Caltrain-oriented professional district",
+  walkable_peninsula_startup_district: "Walkable Peninsula startup district",
+  client_facing_professional_core: "Client-facing professional core",
+  historic_downtown_transition_district: "Historic downtown transition district",
+  retail_office_transition: "Retail-office transition",
+  downtown_edge_commercial: "Downtown-edge commercial",
+};
+
+function withLabels(model) {
+  if (!model) return null;
+
+  return {
+    ...model,
+    primary_archetype_label: archetypeLabels[model.primary_archetype] || model.primary_archetype,
+    secondary_archetype_labels: (model.secondary_archetypes || []).map(
+      (archetype) => archetypeLabels[archetype] || archetype
+    ),
+  };
+}
+
+module.exports = {
+  districts,
+  archetypeLabels,
+  byPath: Object.fromEntries(Object.entries(districts).map(([key, value]) => [key, withLabels(value)])),
+};

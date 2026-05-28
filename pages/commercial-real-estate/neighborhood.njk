@@ -52,7 +52,7 @@ eleventyComputed:
             <span class="pill">{{ districtIdentity.guide_label or (areaTermDisplay + " guide") }}</span>
           </div>
           <div class="button-row">
-            <a class="btn-primary" href="#neighborhood-contact-form">Get current availability</a>
+            <a class="btn-primary" href="#neighborhood-contact-form">{% if neighborhood.commercial_location_model %}Get help choosing this district{% else %}Get current availability{% endif %}</a>
             <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
           </div>
         </div>
@@ -158,6 +158,8 @@ eleventyComputed:
             {% endif %}
           </section>
         {% endif %}
+
+        {% include "partials/neighborhood/location-decision.njk" %}
 
         {% include "partials/neighborhood/curated-district-media.njk" %}
 
@@ -274,12 +276,16 @@ eleventyComputed:
 
         <details id="neighborhood-contact-form" class="city-form city-card neighborhood-lead-form neighborhood-briefing-card">
           <summary>
-            <span class="eyebrow">Current availability</span>
-            <span class="neighborhood-briefing-card__headline">Get current availability in {{ neighborhoodDisplayNameWithArticle }}</span>
+            <span class="eyebrow">{% if neighborhood.commercial_location_model %}Location decision help{% else %}Current availability{% endif %}</span>
+            <span class="neighborhood-briefing-card__headline">{% if neighborhood.commercial_location_model %}Get help evaluating {{ neighborhoodDisplayNameWithArticle }}{% else %}Get current availability in {{ neighborhoodDisplayNameWithArticle }}{% endif %}</span>
             <span class="neighborhood-briefing-card__body">
-              See current spaces, asking rents, and nearby alternatives in {{ neighborhoodDisplayNameWithArticle }}.
+              {% if neighborhood.commercial_location_model %}
+                Compare fit, nearby alternatives, and current options for your business.
+              {% else %}
+                See current spaces, asking rents, and nearby alternatives in {{ neighborhoodDisplayNameWithArticle }}.
+              {% endif %}
             </span>
-            <span class="neighborhood-briefing-card__button">Request availability report</span>
+            <span class="neighborhood-briefing-card__button">{% if neighborhood.commercial_location_model %}Request location guidance{% else %}Request availability report{% endif %}</span>
             <span class="neighborhood-briefing-card__reassurance">No obligation. We’ll help you compare relevant spaces and nearby alternatives.</span>
           </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
@@ -296,6 +302,11 @@ eleventyComputed:
             <input type="hidden" name="neighborhood_path" value="{{ neighborhood.canonical_neighborhood_path }}">
             <input type="hidden" name="commercial_area_id" value="{{ neighborhood.commercial_area_id or '' }}">
             <input type="hidden" name="commercial_area_type" value="{{ neighborhood.commercial_area_type or '' }}">
+            {% if neighborhood.commercial_location_model %}
+              <input type="hidden" name="location_decision_selected_district" value="{{ neighborhood.name }}">
+              <input type="hidden" name="location_decision_primary_archetype" value="{{ neighborhood.commercial_location_model.primary_archetype }}">
+              <input type="hidden" name="location_decision_compared_districts" value="{% for comparison in neighborhood.commercial_location_model.compare_with %}{{ comparison.district_name }}{% if not loop.last %}, {% endif %}{% endfor %}">
+            {% endif %}
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
             <input type="text" name="company_website" style="display:none;">
             <input type="hidden" name="form_start_time" value="">
@@ -336,6 +347,9 @@ eleventyComputed:
                   <option>Flex Space</option>
                   <option>Not Sure</option>
                 </select>
+                {% if neighborhood.commercial_location_model %}
+                  <input type="hidden" name="location_decision_business_use_case" value="captured_from_space_type">
+                {% endif %}
               </div>
             </div>
 
@@ -382,10 +396,10 @@ eleventyComputed:
                 <input type="checkbox" name="human_check" required>
                 I’m a real person looking for space
               </label>
-              <button class="btn-primary" type="submit">Request availability report</button>
+              <button class="btn-primary" type="submit">{% if neighborhood.commercial_location_model %}Request location guidance{% else %}Request availability report{% endif %}</button>
             </div>
 
-            <p class="form-note">Current spaces, asking rents, recent context, and nearby alternatives for {{ neighborhoodDisplayNameWithArticle }}.</p>
+            <p class="form-note">{% if neighborhood.commercial_location_model %}Location fit, current options, and nearby alternatives for {{ neighborhoodDisplayNameWithArticle }}.{% else %}Current spaces, asking rents, recent context, and nearby alternatives for {{ neighborhoodDisplayNameWithArticle }}.{% endif %}</p>
           </form>
         </details>
       </aside>
