@@ -81,12 +81,20 @@ const districts = {
       {
         district_name: "Jackson Square",
         district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
         reason: "Compare if smaller historic boutique office blocks could work better than tower-core buildings.",
       },
       {
         district_name: "Mission Bay",
         district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-mission-bay/",
         reason: "Compare if newer institutional or life-science adjacency is more important than formal CBD access.",
+      },
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-downtown-oakland/",
+        reason: "Compare if cross-bay downtown office tradeoffs are part of the decision.",
       },
     ],
     office_profile: {
@@ -127,6 +135,7 @@ const districts = {
       {
         district_name: "Financial District SF",
         district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-mission-bay/",
         reason: "Compare if formal downtown access matters more than life-science or institutional adjacency.",
       },
       {
@@ -177,6 +186,7 @@ const districts = {
       {
         district_name: "Financial District SF",
         district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
         reason: "Compare if formal tower-core office identity is more important than boutique historic character.",
       },
       {
@@ -228,12 +238,20 @@ const districts = {
       {
         district_name: "Jack London Square",
         district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-jack-london-square/",
         reason: "Compare if waterfront, adaptive, or service-commercial context matters more than Broadway/BART office access.",
       },
       {
         district_name: "Financial District SF",
         district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-downtown-oakland/",
         reason: "Compare if cross-bay downtown office tradeoffs are part of the decision.",
+      },
+      {
+        district_name: "Old Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/old-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-old-oakland/",
+        reason: "Compare if historic transition-block character could fit better than the formal Broadway office core.",
       },
     ],
     office_profile: {
@@ -314,6 +332,7 @@ const districts = {
       {
         district_name: "Downtown Oakland",
         district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-jack-london-square/",
         reason: "Compare if BART-centered office core access may matter more than waterfront/adaptive texture.",
       },
       {
@@ -414,6 +433,7 @@ const districts = {
       {
         district_name: "Downtown Oakland",
         district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-old-oakland/",
         reason: "Compare if formal Broadway office access matters more than historic transition-block character.",
       },
       {
