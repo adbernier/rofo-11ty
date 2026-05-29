@@ -30,7 +30,20 @@ const districts = {
       {
         district_name: "Jackson Square",
         district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
         reason: "Compare if a smaller historic boutique office setting near downtown is more appropriate.",
+      },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-soma/",
+        reason: "Compare if Peninsula professional/startup context may fit better than central San Francisco adaptive office geography.",
+      },
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-downtown-oakland/",
+        reason: "Compare if East Bay BART-centered office access could fit better than SoMa's San Francisco adaptive office environment.",
       },
     ],
     office_profile: {
@@ -96,6 +109,12 @@ const districts = {
         comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-downtown-oakland/",
         reason: "Compare if cross-bay downtown office tradeoffs are part of the decision.",
       },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-financial-district/",
+        reason: "Compare if Peninsula professional context may fit better than San Francisco CBD identity.",
+      },
     ],
     office_profile: {
       office_orientation: "formal_core",
@@ -142,6 +161,12 @@ const districts = {
         district_name: "Dogpatch",
         district_path: "",
         reason: "Compare later for a more industrial/adaptive waterfront edge south of Mission Bay.",
+      },
+      {
+        district_name: "Jackson Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
+        reason: "Compare if smaller historic boutique office context may fit better than newer institutional geography.",
       },
     ],
     office_profile: {
@@ -192,7 +217,14 @@ const districts = {
       {
         district_name: "SoMa",
         district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
         reason: "Compare if adaptive creative-office scale and broader central-city texture matter more.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
+        reason: "Compare if newer institutional or life-science office context could fit better than boutique historic character.",
       },
       {
         district_name: "Embarcadero",
@@ -253,6 +285,12 @@ const districts = {
         comparison_path: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-old-oakland/",
         reason: "Compare if historic transition-block character could fit better than the formal Broadway office core.",
       },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-downtown-oakland/",
+        reason: "Compare if San Francisco adaptive office context may fit better than East Bay civic/BART-centered office geography.",
+      },
     ],
     office_profile: {
       office_orientation: "secondary_downtown",
@@ -292,6 +330,7 @@ const districts = {
       {
         district_name: "Jack London Square",
         district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        comparison_path: "/commercial-real-estate/CA/oakland/uptown-oakland-vs-jack-london-square/",
         reason: "Compare if waterfront or adaptive service-commercial texture may be a better fit.",
       },
       {
@@ -338,6 +377,7 @@ const districts = {
       {
         district_name: "Uptown Oakland",
         district_path: "/commercial-real-estate/CA/oakland/uptown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/uptown-oakland-vs-jack-london-square/",
         reason: "Compare if mixed-use arts-adjacent office context is a better match.",
       },
       {
@@ -385,6 +425,18 @@ const districts = {
       "Companies prioritizing lower-cost suburban office supply over walkable downtown context",
     ],
     compare_with: [
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-soma/",
+        reason: "Compare if central San Francisco adaptive office context may fit better than Peninsula downtown professional geography.",
+      },
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-financial-district/",
+        reason: "Compare if San Francisco CBD identity may fit better than a walkable Peninsula professional district.",
+      },
       {
         district_name: "Redwood City Downtown",
         district_path: "",

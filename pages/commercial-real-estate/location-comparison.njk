@@ -42,14 +42,24 @@ eleventyComputed:
         <section class="city-card">
           <div class="eyebrow">Quick read</div>
           <h2>Which district fits better?</h2>
-          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-            <div class="neighborhood-mini-card">
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel location-comparison-panel--summary">
               <h3><a class="building-link" href="{{ comparison.district_a_path }}">{{ comparison.district_a_name }}</a></h3>
-              <p>{{ comparison.verdict_a }}</p>
+              <p class="location-comparison-panel__prompt">Choose this district if:</p>
+              <ul class="mini-list location-comparison-panel__list">
+                {% for item in comparison.district_a.best_fit_businesses %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
             </div>
-            <div class="neighborhood-mini-card">
+            <div class="location-comparison-panel location-comparison-panel--summary">
               <h3><a class="building-link" href="{{ comparison.district_b_path }}">{{ comparison.district_b_name }}</a></h3>
-              <p>{{ comparison.verdict_b }}</p>
+              <p class="location-comparison-panel__prompt">Choose this district if:</p>
+              <ul class="mini-list location-comparison-panel__list">
+                {% for item in comparison.district_b.best_fit_businesses %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
             </div>
           </div>
         </section>
