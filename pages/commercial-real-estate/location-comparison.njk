@@ -155,6 +155,21 @@ eleventyComputed:
             <a class="btn-secondary" href="{{ comparison.district_b_path }}">{{ comparison.district_b_detail_cta }}</a>
           </div>
         </section>
+
+        {% if comparison.related_alternatives and comparison.related_alternatives.length %}
+          <section class="city-card">
+            <div class="eyebrow">Related location decisions</div>
+            <h2>Businesses comparing these districts also evaluate</h2>
+            <div class="neighborhood-comparison-grid">
+              {% for alternative in comparison.related_alternatives %}
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ alternative.url }}">
+                  <h3>{{ alternative.district_name }}</h3>
+                  <p>{{ alternative.reason }}</p>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
       </div>
 
       <aside class="neighborhood-sidebar">

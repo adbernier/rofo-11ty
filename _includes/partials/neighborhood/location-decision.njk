@@ -34,12 +34,12 @@
 
     {% if locationModel.compare_with and locationModel.compare_with.length %}
       <div class="neighborhood-location-decision__compare">
-        <h3>Compare with</h3>
+        <h3>Businesses comparing this district also evaluate</h3>
         <div class="neighborhood-comparison-grid">
           {% for comparison in locationModel.compare_with %}
             {% if comparison.comparison_path or comparison.district_path %}
               <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ comparison.comparison_path or comparison.district_path }}">
-                <h3>{{ comparison.district_name }}</h3>
+                <h3>Compare {{ neighborhoodDisplayNameWithArticle }} with {{ comparison.district_name }}</h3>
                 <p>{{ comparison.reason }}</p>
               </a>
             {% else %}

@@ -336,6 +336,37 @@ const detailCtaByArchetype = {
   historic_downtown_transition_district: "historic downtown transition context",
 };
 
+const metaFocusBySlug = {
+  "soma-vs-financial-district":
+    "adaptive creative-office texture versus formal downtown office-core identity",
+  "soma-vs-mission-bay":
+    "adaptive central San Francisco office context versus newer institutional and life-science geography",
+  "downtown-oakland-vs-uptown-oakland":
+    "BART-centered civic/business core versus mixed-use arts-adjacent Oakland office context",
+  "financial-district-vs-jackson-square":
+    "formal San Francisco CBD office identity versus boutique historic downtown-edge office character",
+  "downtown-oakland-vs-jack-london-square":
+    "BART-centered Oakland office concentration versus waterfront adaptive-commercial context",
+  "financial-district-vs-mission-bay":
+    "formal downtown office core versus newer institutional and life-science-oriented office setting",
+  "downtown-oakland-vs-old-oakland":
+    "Broadway civic/business core versus smaller historic downtown transition blocks",
+  "financial-district-vs-downtown-oakland":
+    "San Francisco CBD identity versus East Bay BART-centered downtown practicality",
+  "soma-vs-jackson-square":
+    "broad adaptive SoMa office geography versus smaller boutique historic downtown-edge office context",
+  "mission-bay-vs-jackson-square":
+    "modern institutional and life-science geography versus boutique historic professional office context",
+  "downtown-palo-alto-vs-soma":
+    "walkable Peninsula professional office context versus central San Francisco adaptive office geography",
+  "downtown-palo-alto-vs-financial-district":
+    "Peninsula professional and startup-adjacent context versus San Francisco CBD office identity",
+  "uptown-oakland-vs-jack-london-square":
+    "mixed-use BART-adjacent Oakland office context versus waterfront adaptive-commercial setting",
+  "soma-vs-downtown-oakland":
+    "San Francisco adaptive office context versus East Bay BART-centered business core",
+};
+
 function districtSummary(path) {
   const model = commercialLocationModel.byPath[path];
   if (!model) return null;
@@ -346,20 +377,52 @@ function districtSummary(path) {
   };
 }
 
+function relatedAlternatives(comparison, districtA, districtB) {
+  const excludedPaths = new Set([comparison.district_a_path, comparison.district_b_path]);
+  const seenUrls = new Set([comparison.path]);
+  const alternatives = [];
+
+  for (const district of [districtA, districtB]) {
+    for (const item of district.compare_with || []) {
+      const url = item.comparison_path || item.district_path;
+      if (!url || seenUrls.has(url) || excludedPaths.has(item.district_path)) continue;
+
+      seenUrls.add(url);
+      alternatives.push({
+        district_name: item.district_name,
+        source_district_name:
+          district.path === comparison.district_a_path
+            ? comparison.district_a_name
+            : comparison.district_b_name,
+        url,
+        reason: item.reason,
+      });
+
+      if (alternatives.length >= 4) return alternatives;
+    }
+  }
+
+  return alternatives;
+}
+
 module.exports = comparisons.map((comparison) => {
   const districtA = districtSummary(comparison.district_a_path);
   const districtB = districtSummary(comparison.district_b_path);
+  const metaFocus = metaFocusBySlug[comparison.slug];
 
   return {
     ...comparison,
     district_a: districtA,
     district_b: districtB,
+    related_alternatives: relatedAlternatives(comparison, districtA, districtB),
     compared_districts_value: `${comparison.district_a_name},${comparison.district_b_name}`,
     district_a_detail_cta:
       `Explore ${comparison.district_a_name} ${detailCtaByArchetype[districtA.primary_archetype] || "commercial context"}`,
     district_b_detail_cta:
       `Explore ${comparison.district_b_name} ${detailCtaByArchetype[districtB.primary_archetype] || "commercial context"}`,
     page_title: `${comparison.title} | Commercial Location Comparison | Rofo`,
-    meta_description: `Compare ${comparison.title} for business location fit, office context, representative commercial environments, and nearby district alternatives.`,
+    meta_description: metaFocus
+      ? `Compare ${comparison.title}: ${metaFocus} for business location fit and office context.`
+      : `Compare ${comparison.title} for business location fit, office context, representative commercial environments, and nearby district alternatives.`,
   };
 });
