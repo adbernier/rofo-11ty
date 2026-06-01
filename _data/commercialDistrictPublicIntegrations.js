@@ -341,6 +341,343 @@ const integrationsByPath = {
 };
 
 Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/san-diego/downtown-san-diego/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central San Diego office alternatives",
+    intro:
+      "Use these relationships to compare Downtown San Diego's civic office role with nearby suburban and North City office districts.",
+    districts: [
+      {
+        name: "Mission Valley",
+        url: "/commercial-real-estate/CA/san-diego/mission-valley/",
+        relationship_type: "Central suburban office contrast",
+        note: "More parking-oriented and freeway-practical than downtown.",
+      },
+      {
+        name: "UTC / University City",
+        url: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+        relationship_type: "North City office alternative",
+        note: "More suburban, medical, and life-science-adjacent.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/mission-valley/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central San Diego office districts",
+    intro:
+      "Compare Mission Valley with downtown, North City, and central office/flex districts when access and parking matter.",
+    districts: [
+      {
+        name: "Downtown San Diego",
+        url: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+        relationship_type: "Urban office-core contrast",
+        note: "More civic, walkable, and client-facing.",
+      },
+      {
+        name: "UTC / University City",
+        url: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+        relationship_type: "North City office contrast",
+        note: "More life-science-adjacent and high-identity suburban office.",
+      },
+      {
+        name: "Kearny Mesa",
+        url: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+        relationship_type: "Office/flex alternative",
+        note: "More service-commercial, showroom, and light flex oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/utc-university-city/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare North City office and life-science settings",
+    intro:
+      "Use these relationships to compare UTC / University City with R&D/flex, institutional, and central office alternatives.",
+    districts: [
+      {
+        name: "Sorrento Mesa",
+        url: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        relationship_type: "R&D/flex contrast",
+        note: "More technology, life-science support, and functional business-park oriented.",
+      },
+      {
+        name: "Mission Valley",
+        url: "/commercial-real-estate/CA/san-diego/mission-valley/",
+        relationship_type: "Central office alternative",
+        note: "More central and freeway-practical.",
+      },
+      {
+        name: "Torrey Pines / La Jolla",
+        url: "/commercial-real-estate/CA/la-jolla/torrey-pines-la-jolla/",
+        relationship_type: "Institutional life-science comparison",
+        note: "More coastal, research, and UCSD/Torrey Pines oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/sorrento-mesa/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare San Diego R&D and life-science alternatives",
+    intro:
+      "Compare Sorrento Mesa with adjacent office, institutional, industrial/flex, and North County innovation districts.",
+    districts: [
+      {
+        name: "UTC / University City",
+        url: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+        relationship_type: "Office/medical contrast",
+        note: "More polished, retail-supported, and office-oriented.",
+      },
+      {
+        name: "Torrey Pines / La Jolla",
+        url: "/commercial-real-estate/CA/la-jolla/torrey-pines-la-jolla/",
+        relationship_type: "Institutional life-science contrast",
+        note: "More coastal and research-institution oriented.",
+      },
+      {
+        name: "Miramar",
+        url: "/commercial-real-estate/CA/san-diego/miramar/",
+        relationship_type: "Industrial/flex alternative",
+        note: "More warehouse/flex and service-industrial oriented.",
+      },
+      {
+        name: "Carlsbad",
+        url: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+        relationship_type: "North County alternative",
+        note: "More North County office/R&D and manufacturing oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/la-jolla/torrey-pines-la-jolla/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare life-science and research districts",
+    intro:
+      "Compare Torrey Pines / La Jolla with nearby R&D/flex and North City office districts when institutional research context matters.",
+    districts: [
+      {
+        name: "Sorrento Mesa",
+        url: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        relationship_type: "R&D/flex contrast",
+        note: "More functional and business-park oriented.",
+      },
+      {
+        name: "UTC / University City",
+        url: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+        relationship_type: "Office/medical alternative",
+        note: "Broader North City office, medical, and retail-supported context.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/kearny-mesa/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central office/flex and industrial districts",
+    intro:
+      "Use these relationships to compare Kearny Mesa with central office, industrial/flex, and R&D/flex alternatives.",
+    districts: [
+      {
+        name: "Miramar",
+        url: "/commercial-real-estate/CA/san-diego/miramar/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More warehouse/flex and operational.",
+      },
+      {
+        name: "Mission Valley",
+        url: "/commercial-real-estate/CA/san-diego/mission-valley/",
+        relationship_type: "Office corridor comparison",
+        note: "More conventional office and medical office oriented.",
+      },
+      {
+        name: "Sorrento Mesa",
+        url: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        relationship_type: "R&D/flex alternative",
+        note: "More technology and life-science oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/miramar/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare San Diego industrial/flex alternatives",
+    intro:
+      "Compare Miramar with nearby service-commercial, R&D/flex, and border-logistics districts.",
+    districts: [
+      {
+        name: "Kearny Mesa",
+        url: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+        relationship_type: "Central office/flex comparison",
+        note: "More central and mixed office/showroom/service-commercial oriented.",
+      },
+      {
+        name: "Sorrento Mesa",
+        url: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        relationship_type: "R&D/flex comparison",
+        note: "More life-science and technology oriented.",
+      },
+      {
+        name: "Otay Mesa",
+        url: "/commercial-real-estate/CA/san-diego/otay-mesa/",
+        relationship_type: "Border logistics contrast",
+        note: "More cross-border logistics and large industrial oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-diego/otay-mesa/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare South Bay industrial and service markets",
+    intro:
+      "Use these relationships to compare Otay Mesa's border logistics role with South Bay service and central industrial alternatives.",
+    districts: [
+      {
+        name: "Chula Vista",
+        url: "/commercial-real-estate/CA/chula-vista/chula-vista/",
+        relationship_type: "South Bay service contrast",
+        note: "More local office, medical, and customer-facing.",
+      },
+      {
+        name: "Miramar",
+        url: "/commercial-real-estate/CA/san-diego/miramar/",
+        relationship_type: "Central industrial alternative",
+        note: "More central/north industrial and flex oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/chula-vista/chula-vista/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare South Bay commercial alternatives",
+    intro:
+      "Compare Chula Vista with nearby South Bay logistics and central San Diego office alternatives.",
+    districts: [
+      {
+        name: "Otay Mesa",
+        url: "/commercial-real-estate/CA/san-diego/otay-mesa/",
+        relationship_type: "Border industrial contrast",
+        note: "More logistics, distribution, and warehouse oriented.",
+      },
+      {
+        name: "Downtown San Diego",
+        url: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+        relationship_type: "Urban office-core contrast",
+        note: "More central, civic, and client-facing.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/carlsbad/carlsbad/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare North County and San Diego innovation markets",
+    intro:
+      "Compare Carlsbad with coastal North County, inland North County, and central San Diego R&D/flex alternatives.",
+    districts: [
+      {
+        name: "Oceanside",
+        url: "/commercial-real-estate/CA/oceanside/oceanside/",
+        relationship_type: "Coastal local-service contrast",
+        note: "More local-service and lighter industrial than Carlsbad's office/R&D business-park setting.",
+      },
+      {
+        name: "Sorrento Mesa",
+        url: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        relationship_type: "Core R&D/flex comparison",
+        note: "More central to San Diego's life-science and technology geography.",
+      },
+      {
+        name: "Vista",
+        url: "/commercial-real-estate/CA/vista/vista/",
+        relationship_type: "Industrial/flex alternative",
+        note: "More inland and operational.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oceanside/oceanside/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare coastal North County commercial markets",
+    intro:
+      "Use these relationships to compare Oceanside with nearby North County office/R&D and industrial/flex markets.",
+    districts: [
+      {
+        name: "Carlsbad",
+        url: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+        relationship_type: "Office/R&D contrast",
+        note: "More established as an office/R&D and manufacturing business-park market.",
+      },
+      {
+        name: "Vista",
+        url: "/commercial-real-estate/CA/vista/vista/",
+        relationship_type: "Industrial/flex alternative",
+        note: "More inland and operational.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/vista/vista/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare inland North County industrial/flex markets",
+    intro:
+      "Compare Vista with nearby North County service-office, coastal, and business-park alternatives.",
+    districts: [
+      {
+        name: "San Marcos",
+        url: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+        relationship_type: "Service-office comparison",
+        note: "More medical, education-adjacent, and local-service oriented.",
+      },
+      {
+        name: "Carlsbad",
+        url: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+        relationship_type: "Office/R&D contrast",
+        note: "More coastal, office/R&D, and business-park oriented.",
+      },
+      {
+        name: "Oceanside",
+        url: "/commercial-real-estate/CA/oceanside/oceanside/",
+        relationship_type: "Coastal local-service alternative",
+        note: "More coastal and customer-facing.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-marcos/san-marcos/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare inland North County service markets",
+    intro:
+      "Compare San Marcos with nearby North County industrial/flex and inland service-office alternatives.",
+    districts: [
+      {
+        name: "Vista",
+        url: "/commercial-real-estate/CA/vista/vista/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More operational and industrial/flex oriented.",
+      },
+      {
+        name: "Escondido",
+        url: "/commercial-real-estate/CA/escondido/escondido/",
+        relationship_type: "Inland service-market comparison",
+        note: "More inland, civic, and local-service oriented.",
+      },
+      {
+        name: "Carlsbad",
+        url: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+        relationship_type: "Office/R&D alternative",
+        note: "More coastal and business-park oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/escondido/escondido/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare inland North County commercial markets",
+    intro:
+      "Use these relationships to compare Escondido's inland service-office role with nearby North County alternatives.",
+    districts: [
+      {
+        name: "San Marcos",
+        url: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+        relationship_type: "Service-office comparison",
+        note: "More Highway 78, medical, education-adjacent, and balanced light flex oriented.",
+      },
+      {
+        name: "Vista",
+        url: "/commercial-real-estate/CA/vista/vista/",
+        relationship_type: "Industrial/flex alternative",
+        note: "More operational and industrial/flex oriented.",
+      },
+    ],
+  },
+});
+
+Object.assign(integrationsByPath, {
   "/commercial-real-estate/CA/san-jose/north-san-jose/": {
     eyebrow: "Nearby commercial districts",
     heading: "Compare South Bay alternatives",

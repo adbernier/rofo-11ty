@@ -1047,6 +1047,239 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  {
+    slug: "downtown-san-diego-vs-mission-valley",
+    title: "Downtown San Diego vs Mission Valley",
+    short_title: "Downtown San Diego vs Mission Valley",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/downtown-san-diego-vs-mission-valley/",
+    district_a_name: "Downtown San Diego",
+    district_b_name: "Mission Valley",
+    district_a_path: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/mission-valley/",
+    verdict_a:
+      "Choose Downtown San Diego if civic identity, client-facing office context, transit, and urban amenities matter most.",
+    verdict_b:
+      "Choose Mission Valley if central freeway access, parking, medical office, and suburban office practicality are stronger requirements.",
+    comparison_notes: [
+      "Downtown is the stronger civic and traditional office choice.",
+      "Mission Valley is more parking-oriented, suburban, and central by freeway.",
+      "This is the core urban-office versus central-suburban-office San Diego comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "mission-valley-vs-utc-university-city",
+    title: "Mission Valley vs UTC / University City",
+    short_title: "Mission Valley vs UTC / University City",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/mission-valley-vs-utc-university-city/",
+    district_a_name: "Mission Valley",
+    district_b_name: "UTC / University City",
+    district_a_path: "/commercial-real-estate/CA/san-diego/mission-valley/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    verdict_a:
+      "Choose Mission Valley if central San Diego access, parking, and practical professional office context matter most.",
+    verdict_b:
+      "Choose UTC / University City if North City identity, medical office, UCSD adjacency, and higher-end suburban office context matter more.",
+    comparison_notes: [
+      "Mission Valley is more central and freeway-practical.",
+      "UTC / University City is more North City, life-science-adjacent, and high-identity office oriented.",
+      "Both are office-relevant, but they solve different commute and client geographies.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "utc-university-city-vs-sorrento-mesa",
+    title: "UTC / University City vs Sorrento Mesa",
+    short_title: "UTC / University City vs Sorrento Mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/",
+    district_a_name: "UTC / University City",
+    district_b_name: "Sorrento Mesa",
+    district_a_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    verdict_a:
+      "Choose UTC / University City if polished North City office, medical, retail, and UCSD-adjacent context matter most.",
+    verdict_b:
+      "Choose Sorrento Mesa if R&D/flex, technology, life-science support, and more functional business-park formats are the priority.",
+    comparison_notes: [
+      "UTC / University City is more office, medical, and amenity-oriented.",
+      "Sorrento Mesa is more R&D/flex and technology/life-science operating oriented.",
+      "This is one of San Diego's most useful office versus R&D/flex comparisons.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "sorrento-mesa-vs-torrey-pines",
+    title: "Sorrento Mesa vs Torrey Pines",
+    short_title: "Sorrento Mesa vs Torrey Pines",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/sorrento-mesa-vs-torrey-pines/",
+    district_a_name: "Sorrento Mesa",
+    district_b_name: "Torrey Pines / La Jolla",
+    district_a_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    district_b_path: "/commercial-real-estate/CA/la-jolla/torrey-pines-la-jolla/",
+    verdict_a:
+      "Choose Sorrento Mesa if R&D/flex functionality, technology buildings, and operational life-science support matter most.",
+    verdict_b:
+      "Choose Torrey Pines / La Jolla if institutional research identity, coastal life-science context, and UCSD adjacency are stronger fit signals.",
+    comparison_notes: [
+      "Sorrento Mesa is more functional and business-park oriented.",
+      "Torrey Pines / La Jolla is more institutional, coastal, and research-oriented.",
+      "The comparison helps life-science and research-adjacent users separate operating format from identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "kearny-mesa-vs-miramar",
+    title: "Kearny Mesa vs Miramar",
+    short_title: "Kearny Mesa vs Miramar",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/",
+    district_a_name: "Kearny Mesa",
+    district_b_name: "Miramar",
+    district_a_path: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/miramar/",
+    verdict_a:
+      "Choose Kearny Mesa if central office/flex, showroom, service-commercial, and client access need to overlap.",
+    verdict_b:
+      "Choose Miramar if warehouse/flex, contractor, distribution, and industrial functionality matter more.",
+    comparison_notes: [
+      "Kearny Mesa is more central office/flex and service-commercial.",
+      "Miramar is stronger for industrial/flex and operational users.",
+      "This is a practical central San Diego flex and service-industrial comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "otay-mesa-vs-chula-vista",
+    title: "Otay Mesa vs Chula Vista",
+    short_title: "Otay Mesa vs Chula Vista",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/otay-mesa-vs-chula-vista/",
+    district_a_name: "Otay Mesa",
+    district_b_name: "Chula Vista",
+    district_a_path: "/commercial-real-estate/CA/san-diego/otay-mesa/",
+    district_b_path: "/commercial-real-estate/CA/chula-vista/chula-vista/",
+    verdict_a:
+      "Choose Otay Mesa if border logistics, distribution, manufacturing, and warehouse functionality are the priority.",
+    verdict_b:
+      "Choose Chula Vista if South Bay medical, professional, local-service, and customer-facing access matter more.",
+    comparison_notes: [
+      "Otay Mesa is a border logistics and industrial decision.",
+      "Chula Vista is a South Bay service-office and local commercial decision.",
+      "This comparison separates operational requirements from local customer/service geography.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "carlsbad-vs-oceanside",
+    title: "Carlsbad vs Oceanside",
+    short_title: "Carlsbad vs Oceanside",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    city_slug: "carlsbad",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-oceanside/",
+    district_a_name: "Carlsbad",
+    district_b_name: "Oceanside",
+    district_a_path: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+    district_b_path: "/commercial-real-estate/CA/oceanside/oceanside/",
+    verdict_a:
+      "Choose Carlsbad if North County office/R&D, life-science support, manufacturing, and business-park identity matter most.",
+    verdict_b:
+      "Choose Oceanside if coastal North County local-service, retail-support, and lighter industrial access are a better fit.",
+    comparison_notes: [
+      "Carlsbad is more office/R&D and manufacturing-business-park oriented.",
+      "Oceanside is more local-service and coastal North County oriented.",
+      "The decision often turns on business-park identity versus local market access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "carlsbad-vs-sorrento-mesa",
+    title: "Carlsbad vs Sorrento Mesa",
+    short_title: "Carlsbad vs Sorrento Mesa",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    city_slug: "carlsbad",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-sorrento-mesa/",
+    district_a_name: "Carlsbad",
+    district_b_name: "Sorrento Mesa",
+    district_a_path: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    verdict_a:
+      "Choose Carlsbad if North County labor, coastal access, office/R&D, and manufacturing-business-park context matter most.",
+    verdict_b:
+      "Choose Sorrento Mesa if central North City R&D/flex and life-science/technology ecosystem proximity matter more.",
+    comparison_notes: [
+      "Carlsbad is the stronger North County business-park and manufacturing/R&D alternative.",
+      "Sorrento Mesa is more central to San Diego's North City life-science and technology geography.",
+      "This comparison is useful for companies weighing North County against core San Diego innovation corridors.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "vista-vs-san-marcos",
+    title: "Vista vs San Marcos",
+    short_title: "Vista vs San Marcos",
+    city: "Vista",
+    state_abbr: "CA",
+    city_slug: "vista",
+    path: "/commercial-real-estate/CA/vista/vista-vs-san-marcos/",
+    district_a_name: "Vista",
+    district_b_name: "San Marcos",
+    district_a_path: "/commercial-real-estate/CA/vista/vista/",
+    district_b_path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+    verdict_a:
+      "Choose Vista if industrial/flex, contractor, light manufacturing, and operational building utility matter most.",
+    verdict_b:
+      "Choose San Marcos if medical, education-adjacent, local-service, and lighter office/flex context matter more.",
+    comparison_notes: [
+      "Vista is more industrial/flex and operations-oriented.",
+      "San Marcos is more service-office, medical, and education-adjacent.",
+      "This is a useful inland North County functionality versus service-market comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "escondido-vs-san-marcos",
+    title: "Escondido vs San Marcos",
+    short_title: "Escondido vs San Marcos",
+    city: "Escondido",
+    state_abbr: "CA",
+    city_slug: "escondido",
+    path: "/commercial-real-estate/CA/escondido/escondido-vs-san-marcos/",
+    district_a_name: "Escondido",
+    district_b_name: "San Marcos",
+    district_a_path: "/commercial-real-estate/CA/escondido/escondido/",
+    district_b_path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+    verdict_a:
+      "Choose Escondido if inland North County local-service, medical, and civic/customer access are the priority.",
+    verdict_b:
+      "Choose San Marcos if Highway 78, medical/education adjacency, and balanced service-office/light flex context fit better.",
+    comparison_notes: [
+      "Escondido is more inland and local-service oriented.",
+      "San Marcos is more balanced between service office, medical, education, and light flex.",
+      "The comparison helps users choose an inland North County service geography.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -1092,6 +1325,20 @@ const detailCtaByArchetype = {
   eastern_suburban_professional_office_market: "eastern Sacramento professional office context",
   placer_county_office_medical_core: "Placer County office and medical context",
   south_sacramento_suburban_service_market: "south Sacramento service-commercial context",
+  san_diego_downtown_office_core: "San Diego downtown office context",
+  central_suburban_office_corridor: "central suburban office context",
+  north_city_office_life_science_core: "North City office and life-science context",
+  life_science_rd_flex_district: "life-science R&D/flex context",
+  coastal_life_science_institutional_district: "coastal life-science context",
+  central_san_diego_office_flex_market: "central San Diego office/flex context",
+  san_diego_industrial_flex_corridor: "San Diego industrial/flex context",
+  border_logistics_industrial_market: "border logistics and industrial context",
+  south_bay_service_office_market: "South Bay service-office context",
+  north_county_office_rd_industrial_market: "North County office/R&D context",
+  north_county_coastal_service_industrial_market: "North County coastal service context",
+  north_county_industrial_flex_market: "North County industrial/flex context",
+  north_county_service_office_flex_market: "North County service office/flex context",
+  inland_north_county_service_office_market: "inland North County service-office context",
 };
 
 const metaFocusBySlug = {
@@ -1185,6 +1432,26 @@ const metaFocusBySlug = {
     "Placer County office and medical market versus eastern Sacramento professional office context",
   "roseville-vs-downtown-sacramento":
     "suburban Placer County office/medical access versus Sacramento civic downtown office identity",
+  "downtown-san-diego-vs-mission-valley":
+    "Downtown San Diego civic office identity versus Mission Valley central suburban office practicality",
+  "mission-valley-vs-utc-university-city":
+    "Mission Valley central suburban office access versus UTC / University City North City office and life-science adjacency",
+  "utc-university-city-vs-sorrento-mesa":
+    "UTC / University City polished North City office context versus Sorrento Mesa R&D/flex and life-science operating geography",
+  "sorrento-mesa-vs-torrey-pines":
+    "Sorrento Mesa R&D/flex functionality versus Torrey Pines / La Jolla institutional coastal life-science identity",
+  "kearny-mesa-vs-miramar":
+    "Kearny Mesa central office/flex and service-commercial context versus Miramar industrial/flex functionality",
+  "otay-mesa-vs-chula-vista":
+    "Otay Mesa border logistics and industrial functionality versus Chula Vista South Bay service-office context",
+  "carlsbad-vs-oceanside":
+    "Carlsbad North County office/R&D and manufacturing context versus Oceanside coastal local-service market",
+  "carlsbad-vs-sorrento-mesa":
+    "Carlsbad North County office/R&D and manufacturing context versus Sorrento Mesa central life-science and technology R&D/flex geography",
+  "vista-vs-san-marcos":
+    "Vista North County industrial/flex utility versus San Marcos service-office, medical, and light flex context",
+  "escondido-vs-san-marcos":
+    "Escondido inland North County service-office context versus San Marcos medical, education-adjacent, and light flex market",
 };
 
 function districtSummary(path) {
@@ -1247,6 +1514,11 @@ const warehouseFlexComparisonSlugs = new Set([
   "downtown-sacramento-vs-west-sacramento",
   "west-sacramento-vs-power-inn-industrial",
   "rancho-cordova-vs-folsom",
+  "utc-university-city-vs-sorrento-mesa",
+  "kearny-mesa-vs-miramar",
+  "otay-mesa-vs-chula-vista",
+  "carlsbad-vs-sorrento-mesa",
+  "vista-vs-san-marcos",
 ]);
 
 module.exports = comparisons.map((comparison) => {

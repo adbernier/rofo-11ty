@@ -657,6 +657,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_san_diego_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the San Diego commercial geography graph, with context for office, industrial/flex, life science, logistics, North County, and nearby market comparisons.`,
+      guide_label: "San Diego district guide",
+    };
+  }
+
   return null;
 }
 
@@ -1067,6 +1080,129 @@ function representativeBuildingRolesFor(page) {
         "Laguna Springs professional office",
       "/commercial-real-estate/building/CA/elk-grove/9615-laguna-springs-dr/":
         "Elk Grove suburban office context",
+    };
+  }
+
+  if (page.public_san_diego_v1) {
+    return {
+      "/commercial-real-estate/building/CA/san-diego/402-w-broadway/":
+        "Downtown San Diego office core",
+      "/commercial-real-estate/building/CA/san-diego/501-w-broadway/":
+        "Broadway client-facing office",
+      "/commercial-real-estate/building/CA/san-diego/600-b-st/":
+        "Civic downtown office context",
+      "/commercial-real-estate/building/CA/san-diego/350-10th-avenue/":
+        "East Village downtown office edge",
+      "/commercial-real-estate/building/CA/san-diego/770-first-avenue/":
+        "Downtown professional office block",
+      "/commercial-real-estate/building/CA/san-diego/1420-kettner-blvd/":
+        "Little Italy mixed-use office context",
+      "/commercial-real-estate/building/CA/san-diego/1025-w-laurel-st/":
+        "Downtown-edge professional office",
+      "/commercial-real-estate/building/CA/san-diego/2515-camino-del-rio-s/":
+        "Mission Valley office corridor",
+      "/commercial-real-estate/building/CA/san-diego/2650-camino-del-rio-n/":
+        "Mission Valley professional office",
+      "/commercial-real-estate/building/CA/san-diego/3111-camino-del-rio-n/":
+        "Mission Valley central office node",
+      "/commercial-real-estate/building/CA/san-diego/3333-camino-del-rio-s/":
+        "Camino del Rio office context",
+      "/commercial-real-estate/building/CA/san-diego/9635-granite-ridge-dr/":
+        "Mission Valley / Stonecrest suburban office",
+      "/commercial-real-estate/building/CA/san-diego/4660-la-jolla-village-dr/":
+        "UTC / University City office core",
+      "/commercial-real-estate/building/CA/san-diego/4445-eastgate-mall-suite-200/":
+        "UTC corporate office context",
+      "/commercial-real-estate/building/CA/san-diego/8910-university-center-ln/":
+        "University Center office node",
+      "/commercial-real-estate/building/CA/san-diego/12707-and-12777-high-bluff-drive/":
+        "Del Mar Heights client-facing office",
+      "/commercial-real-estate/building/CA/san-diego/10130-sorrento-valley-rd/":
+        "Sorrento Valley R&D/flex context",
+      "/commercial-real-estate/building/CA/san-diego/11211-sorrento-valley-rd/":
+        "Sorrento Mesa technology office/flex",
+      "/commercial-real-estate/building/CA/san-diego/5440-morehouse-dr/":
+        "Sorrento Mesa technology office",
+      "/commercial-real-estate/building/CA/san-diego/6370-lusk-blvd/":
+        "Sorrento Mesa R&D/flex setting",
+      "/commercial-real-estate/building/CA/san-diego/9920-pacific-heights-blvd/":
+        "Pacific Heights R&D office context",
+      "/commercial-real-estate/building/CA/la-jolla/888-prospect-st/":
+        "La Jolla coastal professional office",
+      "/commercial-real-estate/building/CA/la-jolla/1200-prospect-st/":
+        "La Jolla specialty office context",
+      "/commercial-real-estate/building/CA/san-diego/3914-murphy-canyon-rd/":
+        "Kearny Mesa office/flex context",
+      "/commercial-real-estate/building/CA/san-diego/5205-kearny-villa-way/":
+        "Kearny Villa service-commercial corridor",
+      "/commercial-real-estate/building/CA/san-diego/3710-ruffin-rd/":
+        "Kearny Mesa central flex corridor",
+      "/commercial-real-estate/building/CA/san-diego/4000-ruffin-rd/":
+        "Ruffin Road office/flex setting",
+      "/commercial-real-estate/building/CA/san-diego/7240-clairemont-mesa-blvd/":
+        "Clairemont Mesa office/flex corridor",
+      "/commercial-real-estate/building/CA/san-diego/6906-miramar-rd/":
+        "Miramar industrial/flex corridor",
+      "/commercial-real-estate/building/CA/san-diego/7055-carroll-rd/":
+        "Miramar warehouse/flex setting",
+      "/commercial-real-estate/building/CA/san-diego/7545-carroll-rd/":
+        "Miramar service-industrial context",
+      "/commercial-real-estate/building/CA/san-diego/8250-camino-santa-fe/":
+        "Miramar office/industrial flex",
+      "/commercial-real-estate/building/CA/san-diego/7310-otay-crossings-ct/":
+        "Otay Mesa border logistics context",
+      "/commercial-real-estate/building/CA/san-diego/7880-airway-rd/":
+        "Otay Mesa business park logistics",
+      "/commercial-real-estate/building/CA/san-diego/9505-airway-rd/":
+        "Airway Road industrial/logistics setting",
+      "/commercial-real-estate/building/CA/san-diego/7615-siempre-viva-rd/":
+        "Border industrial corridor",
+      "/commercial-real-estate/building/CA/chula-vista/333-h-st/":
+        "Chula Vista civic/service office",
+      "/commercial-real-estate/building/CA/chula-vista/303-h-st/":
+        "H Street professional office",
+      "/commercial-real-estate/building/CA/chula-vista/876-broadway/":
+        "South Bay local commercial block",
+      "/commercial-real-estate/building/CA/chula-vista/2402-main-st/":
+        "Chula Vista light service-commercial",
+      "/commercial-real-estate/building/CA/carlsbad/1815-aston-ave/":
+        "Carlsbad office/R&D business park",
+      "/commercial-real-estate/building/CA/carlsbad/1902-wright-place/":
+        "Carlsbad corporate office context",
+      "/commercial-real-estate/building/CA/carlsbad/1945-camino-vida-roble/":
+        "Carlsbad commerce center",
+      "/commercial-real-estate/building/CA/carlsbad/2300-faraday-ave/":
+        "Faraday Avenue R&D/office",
+      "/commercial-real-estate/building/CA/carlsbad/701-palomar-airport-rd/":
+        "Palomar Airport Road office context",
+      "/commercial-real-estate/building/CA/oceanside/2204-s-el-camino-real/":
+        "Oceanside local office/service corridor",
+      "/commercial-real-estate/building/CA/oceanside/2821-oceanside-blvd/":
+        "Oceanside Boulevard commercial context",
+      "/commercial-real-estate/building/CA/oceanside/4755-oceanside-blvd/":
+        "Oceanside light industrial/service edge",
+      "/commercial-real-estate/building/CA/oceanside/815-mission-ave/":
+        "Oceanside downtown local commercial",
+      "/commercial-real-estate/building/CA/vista/1120-sycamore-ave/":
+        "Vista industrial/flex business park",
+      "/commercial-real-estate/building/CA/vista/1235-activity-dr/":
+        "Vista operations and industrial context",
+      "/commercial-real-estate/building/CA/vista/2630-business-park-dr/":
+        "Vista business park industrial/flex",
+      "/commercial-real-estate/building/CA/vista/2640-progress-st/":
+        "Progress Street industrial/flex setting",
+      "/commercial-real-estate/building/CA/san-marcos/1284-w-san-marcos-blvd/":
+        "San Marcos Boulevard service office",
+      "/commercial-real-estate/building/CA/san-marcos/208-w-san-marcos-blvd/":
+        "San Marcos local professional office",
+      "/commercial-real-estate/building/CA/san-marcos/6-creekside-dr/":
+        "San Marcos office/service node",
+      "/commercial-real-estate/building/CA/escondido/500-la-terraza-blvd/":
+        "Escondido professional office",
+      "/commercial-real-estate/building/CA/escondido/300-w-grand-ave/":
+        "Downtown Escondido local commercial",
+      "/commercial-real-estate/building/CA/escondido/1955-citracado-parway/":
+        "Escondido medical/professional corridor",
     };
   }
 
@@ -2141,6 +2277,276 @@ const sacramentoDistrictDefinitions = [
   },
 ];
 
+const sanDiegoDistrictDefinitions = [
+  {
+    id: "sd-downtown-san-diego",
+    name: "Downtown San Diego",
+    slug: "downtown-san-diego",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+    centroid_lat: 32.717,
+    centroid_lng: -117.163,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["downtown", "professional_services", "client_facing", "transit_oriented", "civic_business"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/402-w-broadway/",
+      "/commercial-real-estate/building/CA/san-diego/501-w-broadway/",
+      "/commercial-real-estate/building/CA/san-diego/600-b-st/",
+      "/commercial-real-estate/building/CA/san-diego/350-10th-avenue/",
+      "/commercial-real-estate/building/CA/san-diego/770-first-avenue/",
+    ],
+  },
+  {
+    id: "sd-mission-valley",
+    name: "Mission Valley",
+    slug: "mission-valley",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/mission-valley/",
+    centroid_lat: 32.77,
+    centroid_lng: -117.158,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["suburban_office", "medical", "central_san_diego", "freeway_access"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/2515-camino-del-rio-s/",
+      "/commercial-real-estate/building/CA/san-diego/2650-camino-del-rio-n/",
+      "/commercial-real-estate/building/CA/san-diego/3111-camino-del-rio-n/",
+      "/commercial-real-estate/building/CA/san-diego/3333-camino-del-rio-s/",
+      "/commercial-real-estate/building/CA/san-diego/9635-granite-ridge-dr/",
+    ],
+  },
+  {
+    id: "sd-utc-university-city",
+    name: "UTC / University City",
+    slug: "utc-university-city",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    centroid_lat: 32.872,
+    centroid_lng: -117.213,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "life_science"],
+    profile: ["office", "life_science", "medical", "ucsd", "north_city"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/4660-la-jolla-village-dr/",
+      "/commercial-real-estate/building/CA/san-diego/4445-eastgate-mall-suite-200/",
+      "/commercial-real-estate/building/CA/san-diego/8910-university-center-ln/",
+      "/commercial-real-estate/building/CA/san-diego/12707-and-12777-high-bluff-drive/",
+    ],
+  },
+  {
+    id: "sd-sorrento-mesa",
+    name: "Sorrento Mesa",
+    slug: "sorrento-mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    centroid_lat: 32.902,
+    centroid_lng: -117.19,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "life_science", "industrial"],
+    profile: ["life_science", "rd_flex", "technology", "office_flex", "north_city"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/10130-sorrento-valley-rd/",
+      "/commercial-real-estate/building/CA/san-diego/11211-sorrento-valley-rd/",
+      "/commercial-real-estate/building/CA/san-diego/5440-morehouse-dr/",
+      "/commercial-real-estate/building/CA/san-diego/6370-lusk-blvd/",
+      "/commercial-real-estate/building/CA/san-diego/9920-pacific-heights-blvd/",
+    ],
+  },
+  {
+    id: "sd-torrey-pines-la-jolla",
+    name: "Torrey Pines / La Jolla",
+    slug: "torrey-pines-la-jolla",
+    city: "La Jolla",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/la-jolla/torrey-pines-la-jolla/",
+    centroid_lat: 32.879,
+    centroid_lng: -117.243,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "life_science"],
+    profile: ["life_science", "institutional", "medical", "coastal_office", "ucsd"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/la-jolla/888-prospect-st/",
+      "/commercial-real-estate/building/CA/la-jolla/1200-prospect-st/",
+    ],
+  },
+  {
+    id: "sd-kearny-mesa",
+    name: "Kearny Mesa",
+    slug: "kearny-mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+    centroid_lat: 32.825,
+    centroid_lng: -117.148,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "flex", "industrial", "retail"],
+    profile: ["office_flex", "service_commercial", "showroom", "central_san_diego"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/3914-murphy-canyon-rd/",
+      "/commercial-real-estate/building/CA/san-diego/5205-kearny-villa-way/",
+      "/commercial-real-estate/building/CA/san-diego/3710-ruffin-rd/",
+      "/commercial-real-estate/building/CA/san-diego/4000-ruffin-rd/",
+      "/commercial-real-estate/building/CA/san-diego/7240-clairemont-mesa-blvd/",
+    ],
+  },
+  {
+    id: "sd-miramar",
+    name: "Miramar",
+    slug: "miramar",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/miramar/",
+    centroid_lat: 32.889,
+    centroid_lng: -117.145,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["warehouse", "industrial_flex", "service_commercial", "rd_flex", "north_city"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/6906-miramar-rd/",
+      "/commercial-real-estate/building/CA/san-diego/7055-carroll-rd/",
+      "/commercial-real-estate/building/CA/san-diego/7545-carroll-rd/",
+      "/commercial-real-estate/building/CA/san-diego/8250-camino-santa-fe/",
+    ],
+  },
+  {
+    id: "sd-otay-mesa",
+    name: "Otay Mesa",
+    slug: "otay-mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-diego/otay-mesa/",
+    centroid_lat: 32.558,
+    centroid_lng: -116.969,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["warehouse", "logistics", "border", "manufacturing", "industrial_flex"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-diego/7310-otay-crossings-ct/",
+      "/commercial-real-estate/building/CA/san-diego/7880-airway-rd/",
+      "/commercial-real-estate/building/CA/san-diego/9505-airway-rd/",
+      "/commercial-real-estate/building/CA/san-diego/7615-siempre-viva-rd/",
+    ],
+  },
+  {
+    id: "sd-chula-vista",
+    name: "Chula Vista",
+    slug: "chula-vista",
+    city: "Chula Vista",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/chula-vista/chula-vista/",
+    centroid_lat: 32.64,
+    centroid_lng: -117.084,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail", "flex"],
+    profile: ["south_bay", "local_services", "medical", "professional_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/chula-vista/333-h-st/",
+      "/commercial-real-estate/building/CA/chula-vista/303-h-st/",
+      "/commercial-real-estate/building/CA/chula-vista/876-broadway/",
+      "/commercial-real-estate/building/CA/chula-vista/2402-main-st/",
+    ],
+  },
+  {
+    id: "sd-carlsbad",
+    name: "Carlsbad",
+    slug: "carlsbad",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad/",
+    centroid_lat: 33.132,
+    centroid_lng: -117.28,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "flex", "life_science"],
+    profile: ["north_county", "rd_flex", "manufacturing", "office", "coastal_access"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/carlsbad/1815-aston-ave/",
+      "/commercial-real-estate/building/CA/carlsbad/1902-wright-place/",
+      "/commercial-real-estate/building/CA/carlsbad/1945-camino-vida-roble/",
+      "/commercial-real-estate/building/CA/carlsbad/2300-faraday-ave/",
+      "/commercial-real-estate/building/CA/carlsbad/701-palomar-airport-rd/",
+    ],
+  },
+  {
+    id: "sd-oceanside",
+    name: "Oceanside",
+    slug: "oceanside",
+    city: "Oceanside",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/oceanside/oceanside/",
+    centroid_lat: 33.195,
+    centroid_lng: -117.379,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "retail", "flex"],
+    profile: ["north_county", "coastal", "local_services", "light_industrial"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/oceanside/2204-s-el-camino-real/",
+      "/commercial-real-estate/building/CA/oceanside/2821-oceanside-blvd/",
+      "/commercial-real-estate/building/CA/oceanside/4755-oceanside-blvd/",
+      "/commercial-real-estate/building/CA/oceanside/815-mission-ave/",
+    ],
+  },
+  {
+    id: "sd-vista",
+    name: "Vista",
+    slug: "vista",
+    city: "Vista",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/vista/vista/",
+    centroid_lat: 33.2,
+    centroid_lng: -117.242,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["north_county", "industrial_flex", "service_commercial", "manufacturing"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/vista/1120-sycamore-ave/",
+      "/commercial-real-estate/building/CA/vista/1235-activity-dr/",
+      "/commercial-real-estate/building/CA/vista/2630-business-park-dr/",
+      "/commercial-real-estate/building/CA/vista/2640-progress-st/",
+    ],
+  },
+  {
+    id: "sd-san-marcos",
+    name: "San Marcos",
+    slug: "san-marcos",
+    city: "San Marcos",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+    centroid_lat: 33.142,
+    centroid_lng: -117.166,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "flex", "retail"],
+    profile: ["north_county", "medical", "education_adjacent", "local_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-marcos/1284-w-san-marcos-blvd/",
+      "/commercial-real-estate/building/CA/san-marcos/208-w-san-marcos-blvd/",
+      "/commercial-real-estate/building/CA/san-marcos/6-creekside-dr/",
+    ],
+  },
+  {
+    id: "sd-escondido",
+    name: "Escondido",
+    slug: "escondido",
+    city: "Escondido",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/escondido/escondido/",
+    centroid_lat: 33.119,
+    centroid_lng: -117.086,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["north_county", "inland", "local_services", "medical", "civic_business"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/escondido/500-la-terraza-blvd/",
+      "/commercial-real-estate/building/CA/escondido/300-w-grand-ave/",
+      "/commercial-real-estate/building/CA/escondido/1955-citracado-parway/",
+    ],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -2281,6 +2687,42 @@ function sacramentoDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_sacramento_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function sanDiegoDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "san_diego_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_san_diego_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -2515,6 +2957,7 @@ const southBayPages = southBayDistrictDefinitions.map(southBayDistrictPageFor);
 const eastBayPages = eastBayDistrictDefinitions.map(eastBayDistrictPageFor);
 const northBayPages = northBayDistrictDefinitions.map(northBayDistrictPageFor);
 const sacramentoPages = sacramentoDistrictDefinitions.map(sacramentoDistrictPageFor);
+const sanDiegoPages = sanDiegoDistrictDefinitions.map(sanDiegoDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -2558,6 +3001,13 @@ for (const page of northBayPages) {
 }
 
 for (const page of sacramentoPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of sanDiegoPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
