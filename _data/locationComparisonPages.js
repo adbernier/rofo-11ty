@@ -1280,6 +1280,285 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  {
+    slug: "irvine-spectrum-vs-irvine-business-complex",
+    title: "Irvine Spectrum vs Irvine Business Complex",
+    short_title: "Irvine Spectrum vs Irvine Business Complex",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "Irvine Business Complex",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+    verdict_a:
+      "Choose Irvine Spectrum if R&D, office/flex, larger business-park formats, and Spectrum identity matter most.",
+    verdict_b:
+      "Choose Irvine Business Complex if airport-adjacent professional office access and central OC client reach are stronger priorities.",
+    comparison_notes: [
+      "Irvine Spectrum is stronger for office/R&D and business-park functionality.",
+      "Irvine Business Complex is more airport-adjacent, professional-service, and central OC office oriented.",
+      "This is the core Irvine decision between operating flexibility and airport-area office access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-spectrum-vs-south-coast-metro",
+    title: "Irvine Spectrum vs South Coast Metro",
+    short_title: "Irvine Spectrum vs South Coast Metro",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-south-coast-metro/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "South Coast Metro",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+    verdict_a:
+      "Choose Irvine Spectrum if technology, R&D, office/flex, and South County/Irvine access are central to the requirement.",
+    verdict_b:
+      "Choose South Coast Metro if central OC client-facing office, retail, hospitality, and arts/cultural adjacency matter more.",
+    comparison_notes: [
+      "Irvine Spectrum is more business-park, R&D, and office/flex oriented.",
+      "South Coast Metro is more central, client-facing, retail-supported, and hospitality-adjacent.",
+      "The comparison helps users choose between Irvine operating identity and central OC office presence.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "newport-center-vs-south-coast-metro",
+    title: "Newport Center vs South Coast Metro",
+    short_title: "Newport Center vs South Coast Metro",
+    city: "Newport Beach",
+    state_abbr: "CA",
+    city_slug: "newport-beach",
+    path: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/",
+    district_a_name: "Newport Center / Fashion Island",
+    district_b_name: "South Coast Metro",
+    district_a_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+    district_b_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+    verdict_a:
+      "Choose Newport Center if coastal prestige, client-facing professional identity, and finance/legal/wealth context matter most.",
+    verdict_b:
+      "Choose South Coast Metro if central OC access, larger office settings, hospitality, and retail adjacency are the better fit.",
+    comparison_notes: [
+      "Newport Center is more coastal, prestige-oriented, and professional-service focused.",
+      "South Coast Metro is more central OC, retail-supported, and regional office oriented.",
+      "This is a strong client-facing office identity comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "costa-mesa-vs-irvine",
+    title: "Costa Mesa vs Irvine",
+    short_title: "Costa Mesa vs Irvine",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    city_slug: "costa-mesa",
+    path: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-irvine/",
+    district_a_name: "Costa Mesa",
+    district_b_name: "Irvine Business Complex",
+    district_a_path: "/commercial-real-estate/CA/costa-mesa/costa-mesa/",
+    district_b_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+    verdict_a:
+      "Choose Costa Mesa if creative services, smaller professional office settings, and coastal-central OC texture matter most.",
+    verdict_b:
+      "Choose Irvine if airport-area office identity, regional professional services, and more conventional office formats fit better.",
+    comparison_notes: [
+      "Costa Mesa is more mixed, local-service, and creative-commercial in feel.",
+      "Irvine Business Complex is more conventional, airport-adjacent, and professional-office oriented.",
+      "This comparison keeps the common Costa Mesa versus Irvine decision grounded in business fit.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "anaheim-vs-santa-ana",
+    title: "Anaheim vs Santa Ana",
+    short_title: "Anaheim vs Santa Ana",
+    city: "Anaheim",
+    state_abbr: "CA",
+    city_slug: "anaheim",
+    path: "/commercial-real-estate/CA/anaheim/anaheim-vs-santa-ana/",
+    district_a_name: "Anaheim",
+    district_b_name: "Santa Ana",
+    district_a_path: "/commercial-real-estate/CA/anaheim/anaheim/",
+    district_b_path: "/commercial-real-estate/CA/santa-ana/santa-ana/",
+    verdict_a:
+      "Choose Anaheim if North OC industrial/flex, manufacturing, distribution, and La Palma-area corridors are the priority.",
+    verdict_b:
+      "Choose Santa Ana if central OC service-commercial, lighter industrial, and Irvine/Costa Mesa proximity matter more.",
+    comparison_notes: [
+      "Anaheim is generally stronger for deeper North OC industrial/flex requirements.",
+      "Santa Ana is more central OC and service-commercial oriented.",
+      "This is a practical industrial/service location comparison rather than a city-brand comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "anaheim-vs-fullerton",
+    title: "Anaheim vs Fullerton",
+    short_title: "Anaheim vs Fullerton",
+    city: "Anaheim",
+    state_abbr: "CA",
+    city_slug: "anaheim",
+    path: "/commercial-real-estate/CA/anaheim/anaheim-vs-fullerton/",
+    district_a_name: "Anaheim",
+    district_b_name: "Fullerton",
+    district_a_path: "/commercial-real-estate/CA/anaheim/anaheim/",
+    district_b_path: "/commercial-real-estate/CA/fullerton/fullerton/",
+    verdict_a:
+      "Choose Anaheim if deeper industrial/flex, warehouse, and North OC distribution corridors matter most.",
+    verdict_b:
+      "Choose Fullerton if local office, education-adjacent, service-commercial, and smaller North OC industrial settings fit better.",
+    comparison_notes: [
+      "Anaheim has stronger industrial/flex depth.",
+      "Fullerton adds local commercial and education-adjacent context.",
+      "This comparison is useful for North OC users balancing industrial utility and local-market fit.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "fullerton-vs-buena-park",
+    title: "Fullerton vs Buena Park",
+    short_title: "Fullerton vs Buena Park",
+    city: "Fullerton",
+    state_abbr: "CA",
+    city_slug: "fullerton",
+    path: "/commercial-real-estate/CA/fullerton/fullerton-vs-buena-park/",
+    district_a_name: "Fullerton",
+    district_b_name: "Buena Park",
+    district_a_path: "/commercial-real-estate/CA/fullerton/fullerton/",
+    district_b_path: "/commercial-real-estate/CA/buena-park/buena-park/",
+    verdict_a:
+      "Choose Fullerton if North OC local office, service-commercial, and education-adjacent context matter more.",
+    verdict_b:
+      "Choose Buena Park if 5/91 corridor access, service-industrial utility, and northwest OC logistics adjacency are stronger needs.",
+    comparison_notes: [
+      "Fullerton is more balanced between local office, service commercial, and lighter industrial.",
+      "Buena Park is more corridor-oriented for service-industrial and logistics-adjacent users.",
+      "This comparison helps keep Northwest OC industrial choices from feeling interchangeable.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "santa-ana-vs-garden-grove",
+    title: "Santa Ana vs Garden Grove",
+    short_title: "Santa Ana vs Garden Grove",
+    city: "Santa Ana",
+    state_abbr: "CA",
+    city_slug: "santa-ana",
+    path: "/commercial-real-estate/CA/santa-ana/santa-ana-vs-garden-grove/",
+    district_a_name: "Santa Ana",
+    district_b_name: "Garden Grove",
+    district_a_path: "/commercial-real-estate/CA/santa-ana/santa-ana/",
+    district_b_path: "/commercial-real-estate/CA/garden-grove/garden-grove/",
+    verdict_a:
+      "Choose Santa Ana if central OC industrial/service access and Irvine/Costa Mesa adjacency are important.",
+    verdict_b:
+      "Choose Garden Grove if West/Central OC local service, retail, and light service-commercial context fit better.",
+    comparison_notes: [
+      "Santa Ana is more central and industrial/service-commercial oriented.",
+      "Garden Grove is more local-service and west-central OC oriented.",
+      "The comparison is useful for businesses that need central OC reach without Irvine office identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "lake-forest-vs-irvine-spectrum",
+    title: "Lake Forest vs Irvine Spectrum",
+    short_title: "Lake Forest vs Irvine Spectrum",
+    city: "Lake Forest",
+    state_abbr: "CA",
+    city_slug: "lake-forest",
+    path: "/commercial-real-estate/CA/lake-forest/lake-forest-vs-irvine-spectrum/",
+    district_a_name: "Lake Forest",
+    district_b_name: "Irvine Spectrum",
+    district_a_path: "/commercial-real-estate/CA/lake-forest/lake-forest/",
+    district_b_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    verdict_a:
+      "Choose Lake Forest if South OC office/flex, industrial/flex, and operating practicality matter most.",
+    verdict_b:
+      "Choose Irvine Spectrum if Irvine identity, larger office/R&D formats, and retail-supported business district context fit better.",
+    comparison_notes: [
+      "Lake Forest is more operational and South County office/flex oriented.",
+      "Irvine Spectrum carries stronger regional identity and office/R&D visibility.",
+      "This is one of the clearest South OC office/flex tradeoffs.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "brea-vs-anaheim",
+    title: "Brea vs Anaheim",
+    short_title: "Brea vs Anaheim",
+    city: "Brea",
+    state_abbr: "CA",
+    city_slug: "brea",
+    path: "/commercial-real-estate/CA/brea/brea-vs-anaheim/",
+    district_a_name: "Brea",
+    district_b_name: "Anaheim",
+    district_a_path: "/commercial-real-estate/CA/brea/brea/",
+    district_b_path: "/commercial-real-estate/CA/anaheim/anaheim/",
+    verdict_a:
+      "Choose Brea if North OC office, medical, retail, and office/industrial edge context matter more.",
+    verdict_b:
+      "Choose Anaheim if deeper industrial/flex, warehouse, and distribution corridors are the priority.",
+    comparison_notes: [
+      "Brea is more office, medical, retail, and edge-industrial oriented.",
+      "Anaheim is stronger for deeper industrial/flex utility.",
+      "The comparison clarifies a common North OC office/industrial edge decision.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "mission-viejo-vs-laguna-hills",
+    title: "Mission Viejo vs Laguna Hills",
+    short_title: "Mission Viejo vs Laguna Hills",
+    city: "Mission Viejo",
+    state_abbr: "CA",
+    city_slug: "mission-viejo",
+    path: "/commercial-real-estate/CA/mission-viejo/mission-viejo-vs-laguna-hills/",
+    district_a_name: "Mission Viejo",
+    district_b_name: "Laguna Hills",
+    district_a_path: "/commercial-real-estate/CA/mission-viejo/mission-viejo/",
+    district_b_path: "/commercial-real-estate/CA/laguna-hills/laguna-hills/",
+    verdict_a:
+      "Choose Mission Viejo if inland/coastal South County professional, medical, and local-service reach matters most.",
+    verdict_b:
+      "Choose Laguna Hills if medical office, wellness, and I-5 healthcare corridor context are stronger priorities.",
+    comparison_notes: [
+      "Mission Viejo is more broad South County professional/local-service oriented.",
+      "Laguna Hills is more medical and wellness corridor oriented.",
+      "This comparison supports South OC service and medical office decisions.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "san-clemente-vs-mission-viejo",
+    title: "San Clemente vs Mission Viejo",
+    short_title: "San Clemente vs Mission Viejo",
+    city: "San Clemente",
+    state_abbr: "CA",
+    city_slug: "san-clemente",
+    path: "/commercial-real-estate/CA/san-clemente/san-clemente-vs-mission-viejo/",
+    district_a_name: "San Clemente",
+    district_b_name: "Mission Viejo",
+    district_a_path: "/commercial-real-estate/CA/san-clemente/san-clemente/",
+    district_b_path: "/commercial-real-estate/CA/mission-viejo/mission-viejo/",
+    verdict_a:
+      "Choose San Clemente if coastal South County customers, local service, wellness, and retail-support context matter most.",
+    verdict_b:
+      "Choose Mission Viejo if broader South County medical/professional access and inland/coastal reach fit better.",
+    comparison_notes: [
+      "San Clemente is more coastal and local-service oriented.",
+      "Mission Viejo is more broad South County professional and medical-service oriented.",
+      "This comparison should stay light because both are service-market decisions, not deep industrial markets.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -1339,6 +1618,27 @@ const detailCtaByArchetype = {
   north_county_industrial_flex_market: "North County industrial/flex context",
   north_county_service_office_flex_market: "North County service office/flex context",
   inland_north_county_service_office_market: "inland North County service-office context",
+  oc_office_rd_mixed_commercial_core: "Orange County office/R&D context",
+  airport_adjacent_oc_office_core: "airport-adjacent Orange County office context",
+  coastal_client_facing_office_core: "coastal client-facing office context",
+  oc_mixed_use_service_office_market: "Costa Mesa mixed commercial context",
+  central_oc_office_retail_core: "central Orange County office-retail context",
+  event_adjacent_oc_mixed_use_office_node: "Anaheim Platinum Triangle context",
+  north_oc_industrial_flex_market: "North Orange County industrial/flex context",
+  civic_downtown_professional_core: "civic downtown professional context",
+  central_oc_industrial_service_market: "central Orange County industrial/service context",
+  coastal_local_service_office_market: "coastal local-service office context",
+  central_south_oc_service_office_market: "central/South Orange County service office context",
+  central_oc_medical_professional_core: "central Orange County medical/professional context",
+  north_oc_industrial_service_market: "North Orange County industrial/service context",
+  northwest_oc_industrial_service_market: "Northwest Orange County industrial/service context",
+  west_oc_service_commercial_market: "West Orange County service-commercial context",
+  south_oc_industrial_flex_market: "South Orange County industrial/flex context",
+  south_oc_business_park_industrial_market: "South Orange County business park context",
+  north_oc_office_industrial_edge: "North Orange County office/industrial edge context",
+  south_oc_medical_service_office_market: "South Orange County medical/service office context",
+  south_oc_professional_medical_market: "South Orange County professional/medical context",
+  coastal_south_oc_service_office_market: "coastal South Orange County service office context",
 };
 
 const metaFocusBySlug = {
@@ -1452,6 +1752,30 @@ const metaFocusBySlug = {
     "Vista North County industrial/flex utility versus San Marcos service-office, medical, and light flex context",
   "escondido-vs-san-marcos":
     "Escondido inland North County service-office context versus San Marcos medical, education-adjacent, and light flex market",
+  "irvine-spectrum-vs-irvine-business-complex":
+    "Irvine Spectrum office/R&D and office/flex functionality versus Irvine Business Complex airport-adjacent professional office access",
+  "irvine-spectrum-vs-south-coast-metro":
+    "Irvine office/R&D business-park identity versus central Orange County client-facing office and retail-supported context",
+  "newport-center-vs-south-coast-metro":
+    "Newport Center coastal client-facing office prestige versus South Coast Metro central Orange County office-retail context",
+  "costa-mesa-vs-irvine":
+    "Costa Mesa mixed local commercial and creative office context versus Irvine airport-adjacent professional office identity",
+  "anaheim-vs-santa-ana":
+    "Anaheim North Orange County industrial/flex depth versus Santa Ana central Orange County service-industrial access",
+  "anaheim-vs-fullerton":
+    "Anaheim industrial/flex and warehouse depth versus Fullerton local office, service-commercial, and lighter industrial context",
+  "fullerton-vs-buena-park":
+    "Fullerton local office and service-commercial context versus Buena Park northwest Orange County service-industrial corridor access",
+  "santa-ana-vs-garden-grove":
+    "Santa Ana central Orange County industrial/service access versus Garden Grove west-central local service-commercial context",
+  "lake-forest-vs-irvine-spectrum":
+    "Lake Forest South Orange County office/flex functionality versus Irvine Spectrum office/R&D identity",
+  "brea-vs-anaheim":
+    "Brea North Orange County office/medical and industrial edge versus Anaheim deeper industrial/flex utility",
+  "mission-viejo-vs-laguna-hills":
+    "Mission Viejo South County professional and medical access versus Laguna Hills healthcare and wellness corridor context",
+  "san-clemente-vs-mission-viejo":
+    "San Clemente coastal South County local-service context versus Mission Viejo broader South County professional and medical market",
 };
 
 function districtSummary(path) {
@@ -1519,6 +1843,13 @@ const warehouseFlexComparisonSlugs = new Set([
   "otay-mesa-vs-chula-vista",
   "carlsbad-vs-sorrento-mesa",
   "vista-vs-san-marcos",
+  "irvine-spectrum-vs-irvine-business-complex",
+  "anaheim-vs-santa-ana",
+  "anaheim-vs-fullerton",
+  "fullerton-vs-buena-park",
+  "santa-ana-vs-garden-grove",
+  "lake-forest-vs-irvine-spectrum",
+  "brea-vs-anaheim",
 ]);
 
 module.exports = comparisons.map((comparison) => {

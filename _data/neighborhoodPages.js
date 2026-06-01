@@ -670,6 +670,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_orange_county_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the Orange County commercial geography graph, with context for office, industrial/flex, service commercial, regional retail, and nearby market comparisons.`,
+      guide_label: "Orange County district guide",
+    };
+  }
+
   return null;
 }
 
@@ -1203,6 +1216,109 @@ function representativeBuildingRolesFor(page) {
         "Downtown Escondido local commercial",
       "/commercial-real-estate/building/CA/escondido/1955-citracado-parway/":
         "Escondido medical/professional corridor",
+    };
+  }
+
+  if (page.public_orange_county_v1) {
+    return {
+      "/commercial-real-estate/building/CA/irvine/200-spectrum-center-dr/":
+        "Irvine Spectrum office tower context",
+      "/commercial-real-estate/building/CA/irvine/400-spectrum-center-dr/":
+        "Spectrum business district office form",
+      "/commercial-real-estate/building/CA/irvine/7545-irvine-center-dr/":
+        "Irvine Center Drive office/flex edge",
+      "/commercial-real-estate/building/CA/irvine/8001-irvine-center-dr/":
+        "Spectrum office/R&D corridor",
+      "/commercial-real-estate/building/CA/irvine/530-technology-dr/":
+        "Technology Drive office/flex context",
+      "/commercial-real-estate/building/CA/irvine/17875-von-karman-ave/":
+        "Von Karman airport-area office",
+      "/commercial-real-estate/building/CA/irvine/17901-vonkarman-avenue/":
+        "Irvine Business Complex office fabric",
+      "/commercial-real-estate/building/CA/irvine/19800-macarthur-blvd/":
+        "John Wayne Airport-adjacent office",
+      "/commercial-real-estate/building/CA/irvine/2211-michelson-dr/":
+        "Michelson corridor professional office",
+      "/commercial-real-estate/building/CA/irvine/3333-michelson-dr/":
+        "Irvine corporate office context",
+      "/commercial-real-estate/building/CA/newport-beach/4041-macarthur-blvd/":
+        "Newport Beach client-facing office",
+      "/commercial-real-estate/building/CA/newport-beach/4695-macarthur-ct/":
+        "MacArthur office corridor",
+      "/commercial-real-estate/building/CA/newport-beach/5000-birch-street-west-tower/":
+        "Airport/coastal professional office",
+      "/commercial-real-estate/building/CA/newport-beach/895-dove-st/":
+        "Dove Street professional office",
+      "/commercial-real-estate/building/CA/costa-mesa/2037-harbor-blvd/":
+        "Costa Mesa local commercial corridor",
+      "/commercial-real-estate/building/CA/costa-mesa/2075-newport-blvd/":
+        "Newport Boulevard service office",
+      "/commercial-real-estate/building/CA/costa-mesa/3420-bristol-st/":
+        "Bristol Street central OC office",
+      "/commercial-real-estate/building/CA/costa-mesa/555-anton-blvd/":
+        "South Coast Metro office core",
+      "/commercial-real-estate/building/CA/costa-mesa/600-anton-blvd/":
+        "Anton Boulevard client-facing office",
+      "/commercial-real-estate/building/CA/costa-mesa/695-town-center-dr/":
+        "Town Center Drive office context",
+      "/commercial-real-estate/building/CA/anaheim/2400-e-katella-ave/":
+        "Platinum Triangle event-adjacent office",
+      "/commercial-real-estate/building/CA/anaheim/1701-s-state-college-blvd/":
+        "State College commercial corridor",
+      "/commercial-real-estate/building/CA/anaheim/1425-s-state-college-blvd/":
+        "Anaheim mixed commercial edge",
+      "/commercial-real-estate/building/CA/anaheim/1601-s-sinclair-st/":
+        "Anaheim industrial/flex building",
+      "/commercial-real-estate/building/CA/anaheim/2671-la-palma-ave/":
+        "La Palma industrial corridor",
+      "/commercial-real-estate/building/CA/anaheim/3071-e-coronado-st/":
+        "East Anaheim industrial/flex context",
+      "/commercial-real-estate/building/CA/anaheim/4222-e-la-palma-ave/":
+        "North OC warehouse/flex corridor",
+      "/commercial-real-estate/building/CA/anaheim/5455-e-la-palma-ave/":
+        "Anaheim service-industrial corridor",
+      "/commercial-real-estate/building/CA/anaheim/5475-e-la-palma-ave/":
+        "La Palma warehouse/flex edge",
+      "/commercial-real-estate/building/CA/santa-ana/401-s-grand-ave/":
+        "Downtown Santa Ana civic office edge",
+      "/commercial-real-estate/building/CA/santa-ana/1616-e-4th-st/":
+        "Santa Ana office/service commercial",
+      "/commercial-real-estate/building/CA/santa-ana/1261-e-dyer-rd/":
+        "Dyer Road industrial/service corridor",
+      "/commercial-real-estate/building/CA/santa-ana/1018-e-chestnut-ave/":
+        "Santa Ana service-industrial building",
+      "/commercial-real-estate/building/CA/santa-ana/2900-s-harbor-blvd/":
+        "Harbor Boulevard commercial corridor",
+      "/commercial-real-estate/building/CA/tustin/17452-irvine-blvd/":
+        "Tustin local professional office",
+      "/commercial-real-estate/building/CA/orange/333-city-blvd-w/":
+        "City Drive office/medical context",
+      "/commercial-real-estate/building/CA/orange/1100-town-and-country-road/":
+        "Orange professional office corridor",
+      "/commercial-real-estate/building/CA/orange/2100-w-orangewood-ave/":
+        "Orangewood commercial corridor",
+      "/commercial-real-estate/building/CA/orange/2390-n-american-way/":
+        "North Orange office/flex context",
+      "/commercial-real-estate/building/CA/orange/2442-n-american-way/":
+        "North Orange business park edge",
+      "/commercial-real-estate/building/CA/buena-park/6700-8th-street/":
+        "Northwest OC service-commercial building",
+      "/commercial-real-estate/building/CA/garden-grove/12361-12465-lewis-st/":
+        "Garden Grove service-commercial corridor",
+      "/commercial-real-estate/building/CA/garden-grove/9802-katella-ave/":
+        "Katella commercial corridor",
+      "/commercial-real-estate/building/CA/lake-forest/22722-lambert-st/":
+        "South OC office/flex building",
+      "/commercial-real-estate/building/CA/brea/135-s-state-college-blvd/":
+        "Brea office/industrial edge",
+      "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/":
+        "Laguna Hills medical/professional office",
+      "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/":
+        "Avenida de la Carlota office corridor",
+      "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/":
+        "South OC commerce center context",
+      "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/":
+        "Mission Viejo professional office",
     };
   }
 
@@ -2547,6 +2663,370 @@ const sanDiegoDistrictDefinitions = [
   },
 ];
 
+const orangeCountyDistrictDefinitions = [
+  {
+    id: "oc-irvine-spectrum",
+    name: "Irvine Spectrum",
+    slug: "irvine-spectrum",
+    city: "Irvine",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    centroid_lat: 33.653,
+    centroid_lng: -117.75,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial", "retail"],
+    profile: ["office", "rd_flex", "technology", "retail", "business_park"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/irvine/200-spectrum-center-dr/",
+      "/commercial-real-estate/building/CA/irvine/400-spectrum-center-dr/",
+      "/commercial-real-estate/building/CA/irvine/7545-irvine-center-dr/",
+      "/commercial-real-estate/building/CA/irvine/8001-irvine-center-dr/",
+      "/commercial-real-estate/building/CA/irvine/530-technology-dr/",
+    ],
+  },
+  {
+    id: "oc-irvine-business-complex",
+    name: "Irvine Business Complex",
+    slug: "irvine-business-complex",
+    city: "Irvine",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+    centroid_lat: 33.684,
+    centroid_lng: -117.854,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["office", "professional_services", "airport_access", "client_facing"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/irvine/17875-von-karman-ave/",
+      "/commercial-real-estate/building/CA/irvine/17901-vonkarman-avenue/",
+      "/commercial-real-estate/building/CA/irvine/19800-macarthur-blvd/",
+      "/commercial-real-estate/building/CA/irvine/2211-michelson-dr/",
+      "/commercial-real-estate/building/CA/irvine/3333-michelson-dr/",
+    ],
+  },
+  {
+    id: "oc-newport-center-fashion-island",
+    name: "Newport Center / Fashion Island",
+    slug: "newport-center-fashion-island",
+    city: "Newport Beach",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+    centroid_lat: 33.615,
+    centroid_lng: -117.873,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["office", "client_facing", "professional_services", "retail", "coastal"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/newport-beach/4041-macarthur-blvd/",
+      "/commercial-real-estate/building/CA/newport-beach/4695-macarthur-ct/",
+      "/commercial-real-estate/building/CA/newport-beach/5000-birch-street-west-tower/",
+      "/commercial-real-estate/building/CA/newport-beach/895-dove-st/",
+    ],
+  },
+  {
+    id: "oc-costa-mesa",
+    name: "Costa Mesa",
+    slug: "costa-mesa",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/costa-mesa/costa-mesa/",
+    centroid_lat: 33.641,
+    centroid_lng: -117.918,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "medical"],
+    profile: ["office", "creative_services", "local_services", "retail", "coastal"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/costa-mesa/2037-harbor-blvd/",
+      "/commercial-real-estate/building/CA/costa-mesa/2075-newport-blvd/",
+      "/commercial-real-estate/building/CA/costa-mesa/3420-bristol-st/",
+    ],
+  },
+  {
+    id: "oc-south-coast-metro",
+    name: "South Coast Metro",
+    slug: "south-coast-metro",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+    centroid_lat: 33.692,
+    centroid_lng: -117.886,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "medical"],
+    profile: ["office", "client_facing", "retail", "hospitality", "central_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/costa-mesa/555-anton-blvd/",
+      "/commercial-real-estate/building/CA/costa-mesa/600-anton-blvd/",
+      "/commercial-real-estate/building/CA/costa-mesa/695-town-center-dr/",
+      "/commercial-real-estate/building/CA/costa-mesa/3420-bristol-st/",
+    ],
+  },
+  {
+    id: "oc-anaheim-platinum-triangle",
+    name: "Anaheim Platinum Triangle",
+    slug: "anaheim-platinum-triangle",
+    city: "Anaheim",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/anaheim/anaheim-platinum-triangle/",
+    centroid_lat: 33.806,
+    centroid_lng: -117.886,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "commercial"],
+    profile: ["office", "event_adjacent", "mixed_use", "transit_oriented"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/anaheim/2400-e-katella-ave/",
+      "/commercial-real-estate/building/CA/anaheim/1701-s-state-college-blvd/",
+      "/commercial-real-estate/building/CA/anaheim/1425-s-state-college-blvd/",
+    ],
+  },
+  {
+    id: "oc-anaheim",
+    name: "Anaheim",
+    slug: "anaheim",
+    city: "Anaheim",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/anaheim/anaheim/",
+    centroid_lat: 33.858,
+    centroid_lng: -117.844,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["industrial_flex", "warehouse", "manufacturing", "service_commercial"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/anaheim/1601-s-sinclair-st/",
+      "/commercial-real-estate/building/CA/anaheim/2671-la-palma-ave/",
+      "/commercial-real-estate/building/CA/anaheim/3071-e-coronado-st/",
+      "/commercial-real-estate/building/CA/anaheim/4222-e-la-palma-ave/",
+      "/commercial-real-estate/building/CA/anaheim/5455-e-la-palma-ave/",
+      "/commercial-real-estate/building/CA/anaheim/5475-e-la-palma-ave/",
+    ],
+  },
+  {
+    id: "oc-downtown-santa-ana",
+    name: "Downtown Santa Ana",
+    slug: "downtown-santa-ana",
+    city: "Santa Ana",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/santa-ana/downtown-santa-ana/",
+    centroid_lat: 33.746,
+    centroid_lng: -117.867,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "medical"],
+    profile: ["downtown", "civic_business", "professional_services", "local_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/santa-ana/401-s-grand-ave/",
+      "/commercial-real-estate/building/CA/santa-ana/1616-e-4th-st/",
+    ],
+  },
+  {
+    id: "oc-santa-ana",
+    name: "Santa Ana",
+    slug: "santa-ana",
+    city: "Santa Ana",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/santa-ana/santa-ana/",
+    centroid_lat: 33.716,
+    centroid_lng: -117.867,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["industrial_flex", "service_commercial", "central_oc", "local_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/santa-ana/1261-e-dyer-rd/",
+      "/commercial-real-estate/building/CA/santa-ana/1018-e-chestnut-ave/",
+      "/commercial-real-estate/building/CA/santa-ana/2900-s-harbor-blvd/",
+    ],
+  },
+  {
+    id: "oc-huntington-beach",
+    name: "Huntington Beach",
+    slug: "huntington-beach",
+    city: "Huntington Beach",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/huntington-beach/huntington-beach/",
+    centroid_lat: 33.66,
+    centroid_lng: -117.999,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "medical"],
+    profile: ["coastal", "local_services", "medical", "retail"],
+    representative_building_paths: [],
+  },
+  {
+    id: "oc-tustin",
+    name: "Tustin",
+    slug: "tustin",
+    city: "Tustin",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/tustin/tustin/",
+    centroid_lat: 33.745,
+    centroid_lng: -117.826,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["office", "local_services", "medical", "central_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/tustin/17452-irvine-blvd/",
+    ],
+  },
+  {
+    id: "oc-orange",
+    name: "Orange",
+    slug: "orange",
+    city: "Orange",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/orange/orange/",
+    centroid_lat: 33.787,
+    centroid_lng: -117.852,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "industrial", "retail"],
+    profile: ["office", "medical", "professional_services", "service_commercial"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/orange/333-city-blvd-w/",
+      "/commercial-real-estate/building/CA/orange/1100-town-and-country-road/",
+      "/commercial-real-estate/building/CA/orange/2100-w-orangewood-ave/",
+      "/commercial-real-estate/building/CA/orange/2390-n-american-way/",
+      "/commercial-real-estate/building/CA/orange/2442-n-american-way/",
+    ],
+  },
+  {
+    id: "oc-fullerton",
+    name: "Fullerton",
+    slug: "fullerton",
+    city: "Fullerton",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/fullerton/fullerton/",
+    centroid_lat: 33.872,
+    centroid_lng: -117.925,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office", "retail"],
+    profile: ["industrial_flex", "education_adjacent", "local_services", "north_oc"],
+    representative_building_paths: [],
+  },
+  {
+    id: "oc-buena-park",
+    name: "Buena Park",
+    slug: "buena-park",
+    city: "Buena Park",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/buena-park/buena-park/",
+    centroid_lat: 33.867,
+    centroid_lng: -117.999,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "retail"],
+    profile: ["industrial_flex", "service_commercial", "north_oc", "logistics"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/buena-park/6700-8th-street/",
+    ],
+  },
+  {
+    id: "oc-garden-grove",
+    name: "Garden Grove",
+    slug: "garden-grove",
+    city: "Garden Grove",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/garden-grove/garden-grove/",
+    centroid_lat: 33.774,
+    centroid_lng: -117.941,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "retail"],
+    profile: ["service_commercial", "local_services", "retail", "west_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/garden-grove/12361-12465-lewis-st/",
+      "/commercial-real-estate/building/CA/garden-grove/9802-katella-ave/",
+    ],
+  },
+  {
+    id: "oc-lake-forest",
+    name: "Lake Forest",
+    slug: "lake-forest",
+    city: "Lake Forest",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/lake-forest/lake-forest/",
+    centroid_lat: 33.646,
+    centroid_lng: -117.687,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["industrial_flex", "business_park", "south_oc", "service_commercial"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/lake-forest/22722-lambert-st/",
+    ],
+  },
+  {
+    id: "oc-foothill-ranch",
+    name: "Foothill Ranch",
+    slug: "foothill-ranch",
+    city: "Foothill Ranch",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/foothill-ranch/foothill-ranch/",
+    centroid_lat: 33.686,
+    centroid_lng: -117.66,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["business_park", "industrial_flex", "south_oc", "corporate_campus"],
+    representative_building_paths: [],
+  },
+  {
+    id: "oc-brea",
+    name: "Brea",
+    slug: "brea",
+    city: "Brea",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/brea/brea/",
+    centroid_lat: 33.916,
+    centroid_lng: -117.9,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "medical", "retail"],
+    profile: ["office", "industrial_flex", "medical", "north_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/brea/135-s-state-college-blvd/",
+    ],
+  },
+  {
+    id: "oc-laguna-hills",
+    name: "Laguna Hills",
+    slug: "laguna-hills",
+    city: "Laguna Hills",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/laguna-hills/laguna-hills/",
+    centroid_lat: 33.594,
+    centroid_lng: -117.705,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["medical", "professional_services", "local_services", "south_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/",
+      "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/",
+      "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/",
+    ],
+  },
+  {
+    id: "oc-mission-viejo",
+    name: "Mission Viejo",
+    slug: "mission-viejo",
+    city: "Mission Viejo",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/mission-viejo/mission-viejo/",
+    centroid_lat: 33.6,
+    centroid_lng: -117.672,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["medical", "professional_services", "local_services", "south_oc"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/",
+    ],
+  },
+  {
+    id: "oc-san-clemente",
+    name: "San Clemente",
+    slug: "san-clemente",
+    city: "San Clemente",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-clemente/san-clemente/",
+    centroid_lat: 33.427,
+    centroid_lng: -117.612,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "medical"],
+    profile: ["coastal", "local_services", "medical", "retail"],
+    representative_building_paths: [],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -2723,6 +3203,42 @@ function sanDiegoDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_san_diego_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function orangeCountyDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "orange_county_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_orange_county_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -2958,6 +3474,7 @@ const eastBayPages = eastBayDistrictDefinitions.map(eastBayDistrictPageFor);
 const northBayPages = northBayDistrictDefinitions.map(northBayDistrictPageFor);
 const sacramentoPages = sacramentoDistrictDefinitions.map(sacramentoDistrictPageFor);
 const sanDiegoPages = sanDiegoDistrictDefinitions.map(sanDiegoDistrictPageFor);
+const orangeCountyPages = orangeCountyDistrictDefinitions.map(orangeCountyDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -3008,6 +3525,13 @@ for (const page of sacramentoPages) {
 }
 
 for (const page of sanDiegoPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of orangeCountyPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

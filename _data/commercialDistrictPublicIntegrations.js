@@ -1,3 +1,5 @@
+const commercialLocationModel = require("./commercialLocationModel.js");
+
 const integrationsByPath = {
   "/commercial-real-estate/CA/san-francisco/mission-bay/": {
     eyebrow: "Nearby commercial districts",
@@ -1512,6 +1514,55 @@ Object.assign(integrationsByPath, {
     ],
   },
 });
+
+const orangeCountyIntegrationPages = [
+  ["Irvine Spectrum", "/commercial-real-estate/CA/irvine/irvine-spectrum/"],
+  ["Irvine Business Complex", "/commercial-real-estate/CA/irvine/irvine-business-complex/"],
+  ["Newport Center / Fashion Island", "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/"],
+  ["Costa Mesa", "/commercial-real-estate/CA/costa-mesa/costa-mesa/"],
+  ["South Coast Metro", "/commercial-real-estate/CA/costa-mesa/south-coast-metro/"],
+  ["Anaheim Platinum Triangle", "/commercial-real-estate/CA/anaheim/anaheim-platinum-triangle/"],
+  ["Anaheim", "/commercial-real-estate/CA/anaheim/anaheim/"],
+  ["Downtown Santa Ana", "/commercial-real-estate/CA/santa-ana/downtown-santa-ana/"],
+  ["Santa Ana", "/commercial-real-estate/CA/santa-ana/santa-ana/"],
+  ["Huntington Beach", "/commercial-real-estate/CA/huntington-beach/huntington-beach/"],
+  ["Tustin", "/commercial-real-estate/CA/tustin/tustin/"],
+  ["Orange", "/commercial-real-estate/CA/orange/orange/"],
+  ["Fullerton", "/commercial-real-estate/CA/fullerton/fullerton/"],
+  ["Buena Park", "/commercial-real-estate/CA/buena-park/buena-park/"],
+  ["Garden Grove", "/commercial-real-estate/CA/garden-grove/garden-grove/"],
+  ["Lake Forest", "/commercial-real-estate/CA/lake-forest/lake-forest/"],
+  ["Foothill Ranch", "/commercial-real-estate/CA/foothill-ranch/foothill-ranch/"],
+  ["Brea", "/commercial-real-estate/CA/brea/brea/"],
+  ["Laguna Hills", "/commercial-real-estate/CA/laguna-hills/laguna-hills/"],
+  ["Mission Viejo", "/commercial-real-estate/CA/mission-viejo/mission-viejo/"],
+  ["San Clemente", "/commercial-real-estate/CA/san-clemente/san-clemente/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    orangeCountyIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Orange County commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Orange County's office, industrial/flex, service-commercial, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
 
 module.exports = {
   byPath: integrationsByPath,
