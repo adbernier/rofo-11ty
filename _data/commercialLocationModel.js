@@ -761,6 +761,564 @@ const districts = {
 };
 
 Object.assign(districts, {
+  "/commercial-real-estate/CA/sacramento/downtown-sacramento/": {
+    primary_archetype: "sacramento_downtown_office_core",
+    secondary_archetypes: ["civic_business_core", "transit_oriented_business_core"],
+    commercial_thesis:
+      "Downtown Sacramento is the region's civic, government, professional-service, and traditional office core, anchored by state government, transit, and central-city business services.",
+    best_fit_businesses: [
+      "Government-adjacent, legal, consulting, finance, nonprofit, and professional-service users",
+      "Teams that need a recognizable central Sacramento office address",
+      "Businesses comparing downtown civic access with Midtown, Natomas, West Sacramento, or suburban office markets",
+    ],
+    poor_fit_businesses: [
+      "Warehouse/flex users needing loading, yards, or industrial building formats",
+      "Companies prioritizing suburban parking and freeway-first access",
+      "Retail-first users that need neighborhood foot traffic more than civic office context",
+    ],
+    compare_with: [
+      {
+        district_name: "Midtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-midtown-sacramento/",
+        reason: "Compare if a more mixed-use, smaller-office, and neighborhood-commercial setting may fit better.",
+      },
+      {
+        district_name: "Natomas",
+        district_path: "/commercial-real-estate/CA/sacramento/natomas/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-natomas/",
+        reason: "Compare if airport access, parking, and suburban office practicality matter more than civic downtown identity.",
+      },
+      {
+        district_name: "West Sacramento Industrial",
+        district_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-west-sacramento/",
+        reason: "Compare if industrial/flex or river-adjacent operational geography is part of the location decision.",
+      },
+      {
+        district_name: "Roseville Commercial Core",
+        district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
+        reason: "Compare if a suburban Placer County office and medical/professional market may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "civic_downtown",
+      client_facing_strength: "high",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["government_adjacent", "legal", "professional_services", "nonprofit", "finance"],
+      commute_pattern: ["downtown_sacramento", "light_rail", "i5", "highway_50"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sacramento/midtown-sacramento/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["local_service_business_core", "medical_office_service_corridor"],
+    commercial_thesis:
+      "Midtown Sacramento is a mixed-use professional, medical, creative, and local-service district east of downtown, with smaller building formats and more neighborhood-commercial texture than the civic core.",
+    best_fit_businesses: [
+      "Small professional-service, medical, wellness, design, nonprofit, and creative office users",
+      "Businesses that want central Sacramento access without a formal downtown office feel",
+      "Teams comparing walkable mixed-use context against downtown or East Sacramento/Alhambra",
+    ],
+    poor_fit_businesses: [
+      "Large office users needing conventional tower floorplates",
+      "Warehouse/flex or industrial users",
+      "Companies that need airport-proximate suburban office access",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-midtown-sacramento/",
+        reason: "Compare if formal civic/professional downtown identity may matter more than Midtown texture.",
+      },
+      {
+        district_name: "East Sacramento / Alhambra Corridor",
+        district_path: "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+        reason: "Compare if medical office and corridor access matter more than Midtown mixed-use context.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "mixed_use_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small",
+      tenant_fit: ["small_office", "medical_office", "wellness", "nonprofit", "creative_services"],
+      commute_pattern: ["central_sacramento", "midtown", "grid", "bike_walk_local"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/": {
+    primary_archetype: "medical_office_service_corridor",
+    secondary_archetypes: ["mixed_use_professional_district", "local_service_business_core"],
+    commercial_thesis:
+      "East Sacramento / Alhambra Corridor is a central Sacramento medical office, professional-service, and neighborhood-commercial corridor, useful for users that want central access without a downtown tower environment.",
+    best_fit_businesses: [
+      "Medical office, healthcare-adjacent, wellness, professional-service, and local-service users",
+      "Teams that want central Sacramento access with smaller commercial formats",
+      "Businesses comparing Midtown texture with more corridor-oriented medical/professional space",
+    ],
+    poor_fit_businesses: [
+      "Large civic or government-adjacent office users",
+      "Industrial/flex users needing loading and yard functionality",
+      "Suburban office users prioritizing large parking ratios and freeway-first access",
+    ],
+    compare_with: [
+      {
+        district_name: "Midtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+        reason: "Compare if more mixed-use neighborhood-commercial identity matters.",
+      },
+      {
+        district_name: "Arden / Point West",
+        district_path: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+        reason: "Compare if a larger suburban office/medical corridor may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "medical_professional_corridor",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "wellness", "professional_services", "local_services"],
+      commute_pattern: ["central_sacramento", "alhambra", "east_sacramento", "business_80"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/sacramento/natomas/": {
+    primary_archetype: "airport_adjacent_suburban_office_market",
+    secondary_archetypes: ["service_commercial_office_edge", "suburban_office_corridor"],
+    commercial_thesis:
+      "Natomas is a north Sacramento suburban office, service-commercial, and airport-access market, useful for users that need parking, freeway access, and regional reach rather than downtown walkability.",
+    best_fit_businesses: [
+      "Professional-service, regional office, medical office, back-office, and service-commercial users",
+      "Companies that value airport, I-5, I-80, and North Sacramento access",
+      "Teams comparing suburban office practicality against Downtown Sacramento or Arden / Point West",
+    ],
+    poor_fit_businesses: [
+      "Firms that need formal downtown/state government adjacency",
+      "Industrial users needing deeper warehouse/flex inventory",
+      "Businesses that require a dense mixed-use or main-street setting",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-natomas/",
+        reason: "Compare if civic downtown identity matters more than airport and freeway access.",
+      },
+      {
+        district_name: "Arden / Point West",
+        district_path: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-arden-point-west/",
+        reason: "Compare if a more established suburban office and medical corridor may fit better.",
+      },
+      {
+        district_name: "Power Inn Industrial",
+        district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        reason: "Compare if functional industrial/flex buildings matter more than suburban office access.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "airport_adjacent_suburban",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "medical_office", "back_office", "service_business"],
+      commute_pattern: ["i5", "i80", "airport", "north_sacramento"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "service_commercial_edge",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["service_commercial", "office_flex", "light_industrial"],
+      tenant_fit: ["service_businesses", "regional_support", "contractors"],
+      decision_context:
+        "Natomas can support lighter service-commercial needs, but users needing deeper warehouse/flex inventory should also compare Power Inn or West Sacramento.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sacramento/arden-point-west/": {
+    primary_archetype: "suburban_office_medical_corridor",
+    secondary_archetypes: ["medical_office_service_corridor", "suburban_downtown_office_retail_core"],
+    commercial_thesis:
+      "Arden / Point West is a Sacramento suburban office, medical office, and service-commercial corridor shaped by Exposition, Howe, River Park, and Business 80 access.",
+    best_fit_businesses: [
+      "Medical office, professional-service, regional office, and client-facing suburban office users",
+      "Teams that want central Sacramento reach with parking and corridor convenience",
+      "Businesses comparing Natomas, East Sacramento/Alhambra, and Downtown Sacramento",
+    ],
+    poor_fit_businesses: [
+      "Warehouse/flex users needing industrial formats",
+      "Companies that require downtown government adjacency",
+      "Users seeking a walkable mixed-use district like Midtown",
+    ],
+    compare_with: [
+      {
+        district_name: "Natomas",
+        district_path: "/commercial-real-estate/CA/sacramento/natomas/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-arden-point-west/",
+        reason: "Compare if airport and North Sacramento access may matter more than Arden / Point West office corridor context.",
+      },
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        reason: "Compare if formal civic downtown identity is more important.",
+      },
+      {
+        district_name: "East Sacramento / Alhambra Corridor",
+        district_path: "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+        reason: "Compare if a smaller medical/professional corridor may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "suburban_medical_office_corridor",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "regional_office", "client_services"],
+      commute_pattern: ["business_80", "arden", "point_west", "central_sacramento"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sacramento/power-inn-industrial/": {
+    primary_archetype: "sacramento_industrial_flex_corridor",
+    secondary_archetypes: ["service_commercial_industrial_market", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "Power Inn Industrial is a Sacramento industrial, warehouse/flex, contractor, and service-commercial corridor with functional building formats and Highway 50/South Sacramento access.",
+    best_fit_businesses: [
+      "Warehouse/flex, contractor, light industrial, distribution, and service-commercial users",
+      "Businesses that need operational buildings rather than office district identity",
+      "Users comparing Sacramento industrial options with West Sacramento or Rancho Cordova",
+    ],
+    poor_fit_businesses: [
+      "Client-facing professional firms seeking polished office identity",
+      "Retail or restaurant users dependent on lifestyle visibility",
+      "Downtown/state-government-adjacent office users",
+    ],
+    compare_with: [
+      {
+        district_name: "West Sacramento Industrial",
+        district_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+        comparison_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-vs-power-inn-industrial/",
+        reason: "Compare if river/port-adjacent West Sacramento industrial access may fit better.",
+      },
+      {
+        district_name: "Rancho Cordova",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        reason: "Compare if Highway 50 office/flex and suburban office context may fit better.",
+      },
+      {
+        district_name: "Natomas",
+        district_path: "/commercial-real-estate/CA/sacramento/natomas/",
+        reason: "Compare if airport-adjacent suburban office and service-commercial access matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["operations_office", "contractor", "service_business", "industrial_support"],
+      commute_pattern: ["highway_50", "power_inn", "south_sacramento", "sacramento_industrial"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "warehouse_flex",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "office_warehouse", "industrial_flex", "service_commercial"],
+      tenant_fit: ["warehouse", "contractor", "distribution", "light_manufacturing", "service_industrial"],
+      decision_context: [
+        "Industrial and service users comparing Sacramento operational corridors",
+        "Businesses that need functional warehouse/flex buildings more than office identity",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/": {
+    primary_archetype: "river_port_industrial_flex_market",
+    secondary_archetypes: ["service_commercial_industrial_market", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "West Sacramento Industrial is a river- and port-adjacent industrial, warehouse/flex, and service-commercial market immediately across from Downtown Sacramento.",
+    best_fit_businesses: [
+      "Warehouse/flex, distribution, contractor, food/ag, light industrial, and service-commercial users",
+      "Businesses that need Sacramento access with operational building formats",
+      "Users comparing West Sacramento industrial with Power Inn, Downtown Sacramento, or regional alternatives",
+    ],
+    poor_fit_businesses: [
+      "Professional-service users that need downtown office identity",
+      "Medical office or client-facing suburban office users",
+      "Retail-first businesses seeking polished consumer districts",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-west-sacramento/",
+        reason: "Compare if civic office identity matters more than industrial/flex functionality.",
+      },
+      {
+        district_name: "Power Inn Industrial",
+        district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        comparison_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-vs-power-inn-industrial/",
+        reason: "Compare if South Sacramento and Highway 50 industrial access may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["operations_office", "service_business", "industrial_support"],
+      commute_pattern: ["i80", "i5", "downtown_sacramento_edge", "west_sacramento"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "river_port_industrial",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "yard", "service_commercial"],
+      tenant_fit: ["distribution", "contractor", "food_ag", "light_industrial", "service_industrial"],
+      decision_context:
+        "West Sacramento is one of the clearest Sacramento-area choices for operational users needing warehouse/flex, industrial access, and proximity to the urban core.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/": {
+    primary_archetype: "highway_50_office_flex_market",
+    secondary_archetypes: ["suburban_business_park", "sacramento_industrial_flex_corridor"],
+    commercial_thesis:
+      "Rancho Cordova Commercial Core is a Highway 50 office, flex, industrial, insurance/back-office, and service-commercial market with larger suburban formats east of Sacramento.",
+    best_fit_businesses: [
+      "Back-office, insurance, professional-service, office/flex, contractor, and light industrial users",
+      "Companies needing Highway 50 access, parking, and larger suburban buildings",
+      "Users comparing Rancho Cordova with Folsom, Power Inn, or Sacramento's core",
+    ],
+    poor_fit_businesses: [
+      "Small firms needing downtown civic adjacency or walkable Midtown context",
+      "Retail-first businesses seeking a main-street district",
+      "Users that need the stronger Placer County identity of Roseville",
+    ],
+    compare_with: [
+      {
+        district_name: "Folsom Commercial Core",
+        district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
+        reason: "Compare if a more polished eastern Sacramento office and professional setting may fit better.",
+      },
+      {
+        district_name: "Power Inn Industrial",
+        district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        reason: "Compare if more functional industrial/flex inventory is the priority.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "highway_50_suburban_office_flex",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["back_office", "insurance", "professional_services", "operations", "office_flex"],
+      commute_pattern: ["highway_50", "light_rail", "rancho_cordova", "east_sacramento_region"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "office_flex_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "light_industrial", "service_commercial"],
+      tenant_fit: ["contractors", "service_businesses", "operations", "light_industrial"],
+      decision_context:
+        "Rancho Cordova is useful when office/flex and suburban operating context matter more than pure industrial depth.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/folsom/folsom-commercial-core/": {
+    primary_archetype: "eastern_suburban_professional_office_market",
+    secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
+    commercial_thesis:
+      "Folsom Commercial Core is an eastern Sacramento suburban professional office, medical, technology-adjacent, and retail-supported market with a more polished client-facing profile than Rancho Cordova.",
+    best_fit_businesses: [
+      "Professional-service, medical office, technology-adjacent, and client-facing suburban office users",
+      "Teams that want eastern Sacramento/Highway 50 access with a stronger lifestyle and professional setting",
+      "Businesses comparing Folsom with Rancho Cordova or Roseville",
+    ],
+    poor_fit_businesses: [
+      "Industrial/flex users needing deeper warehouse functionality",
+      "Government-adjacent users requiring Downtown Sacramento",
+      "Back-office users prioritizing lowest-friction suburban formats over client-facing context",
+    ],
+    compare_with: [
+      {
+        district_name: "Rancho Cordova Commercial Core",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
+        reason: "Compare if Highway 50 office/flex practicality may fit better than Folsom's polished suburban profile.",
+      },
+      {
+        district_name: "Roseville Commercial Core",
+        district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
+        reason: "Compare if Placer County office/medical and retail gravity may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "eastern_suburban_professional",
+      client_facing_strength: "high",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "technology", "client_services"],
+      commute_pattern: ["highway_50", "folsom", "eastern_sacramento", "suburban_client_base"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/roseville/roseville-commercial-core/": {
+    primary_archetype: "placer_county_office_medical_core",
+    secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
+    commercial_thesis:
+      "Roseville Commercial Core is a Placer County office, medical office, retail-supported, and light business-park market, useful for companies comparing suburban Sacramento alternatives with Downtown Sacramento or Folsom.",
+    best_fit_businesses: [
+      "Medical office, professional-service, finance, insurance, regional office, and client-facing suburban users",
+      "Companies serving Placer County or northeast Sacramento customers and employees",
+      "Teams comparing Roseville with Folsom or Downtown Sacramento",
+    ],
+    poor_fit_businesses: [
+      "Users that need state government/civic adjacency",
+      "Industrial users needing deeper warehouse/flex formats",
+      "Companies centered on Highway 50 or South Sacramento access",
+    ],
+    compare_with: [
+      {
+        district_name: "Folsom Commercial Core",
+        district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
+        reason: "Compare if eastern Sacramento/Highway 50 professional office context may fit better.",
+      },
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
+        reason: "Compare if civic downtown Sacramento identity may matter more than Roseville's suburban market.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "placer_county_suburban_professional",
+      client_facing_strength: "high",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["medical_office", "professional_services", "finance", "insurance", "regional_office"],
+      commute_pattern: ["i80", "roseville", "placer_county", "northeast_sacramento"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_business_park",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "business_park", "light_industrial"],
+      tenant_fit: ["regional_support", "service_businesses", "light_operations"],
+      decision_context:
+        "Roseville can support lighter office/flex and business-park needs, but it is primarily a suburban office, medical, and client-service market in this V1 cluster.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/": {
+    primary_archetype: "south_sacramento_suburban_service_market",
+    secondary_archetypes: ["local_service_business_core", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Elk Grove Commercial Core is a south Sacramento suburban office, medical, local-service, and light office/flex market, useful for users serving Elk Grove and southern Sacramento County.",
+    best_fit_businesses: [
+      "Medical office, professional-service, local-service, education, and light office/flex users",
+      "Businesses serving Elk Grove and South Sacramento customers",
+      "Teams comparing local suburban service markets with Downtown Sacramento or Power Inn",
+    ],
+    poor_fit_businesses: [
+      "Companies needing a regional downtown office identity",
+      "Industrial users needing the stronger warehouse/flex depth of Power Inn or West Sacramento",
+      "Users serving primarily Placer County or Highway 50 customers",
+    ],
+    compare_with: [
+      {
+        district_name: "Power Inn Industrial",
+        district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        reason: "Compare if industrial/flex and operational building formats matter more than suburban service access.",
+      },
+      {
+        district_name: "Downtown Sacramento",
+        district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        reason: "Compare if central civic/professional office identity matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "suburban_local_service",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "education"],
+      commute_pattern: ["elk_grove", "south_sacramento", "highway_99", "i5"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_service_commercial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "service_commercial", "light_industrial"],
+      tenant_fit: ["local_services", "contractors", "light_operations"],
+      decision_context:
+        "Elk Grove can work for lighter service-commercial and office/flex needs tied to southern Sacramento County, but deeper industrial users should compare Power Inn or West Sacramento.",
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+});
+
+Object.assign(districts, {
   "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/": {
     primary_archetype: "marin_downtown_professional_core",
     secondary_archetypes: ["client_facing_professional_core", "local_service_business_core"],
@@ -1995,6 +2553,18 @@ const archetypeLabels = {
   north_bay_office_flex_market: "North Bay office/flex market",
   sonoma_office_light_industrial_core: "Sonoma office / light industrial core",
   sonoma_downtown_office_core: "Sonoma downtown office core",
+  sacramento_downtown_office_core: "Sacramento downtown office core",
+  mixed_use_professional_district: "Mixed-use professional district",
+  airport_adjacent_suburban_office_market: "Airport-adjacent suburban office market",
+  suburban_office_corridor: "Suburban office corridor",
+  suburban_office_medical_corridor: "Suburban office / medical corridor",
+  sacramento_industrial_flex_corridor: "Sacramento industrial/flex corridor",
+  last_mile_distribution_cluster: "Last-mile distribution cluster",
+  river_port_industrial_flex_market: "River/port industrial-flex market",
+  highway_50_office_flex_market: "Highway 50 office/flex market",
+  eastern_suburban_professional_office_market: "Eastern suburban professional office market",
+  placer_county_office_medical_core: "Placer County office / medical core",
+  south_sacramento_suburban_service_market: "South Sacramento suburban service market",
 };
 
 function withLabels(model) {

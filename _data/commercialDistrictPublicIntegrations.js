@@ -881,6 +881,301 @@ Object.assign(integrationsByPath, {
   },
 });
 
+Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/sacramento/downtown-sacramento/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sacramento office and regional alternatives",
+    intro:
+      "Use these relationships to place Downtown Sacramento within the region's civic office, suburban office, and industrial/flex geography.",
+    districts: [
+      {
+        name: "Midtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+        relationship_type: "Central-city office contrast",
+        note: "More mixed-use, smaller-format, and neighborhood-commercial than downtown's civic office core.",
+      },
+      {
+        name: "Natomas",
+        url: "/commercial-real-estate/CA/sacramento/natomas/",
+        relationship_type: "Suburban office alternative",
+        note: "More airport-adjacent, parking-oriented, and freeway-accessible.",
+      },
+      {
+        name: "West Sacramento Industrial",
+        url: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "Operational and warehouse/flex oriented across the river from downtown.",
+      },
+      {
+        name: "Roseville Commercial Core",
+        url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        relationship_type: "Regional suburban office alternative",
+        note: "More Placer County, medical/professional, and suburban client-service oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sacramento/midtown-sacramento/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central Sacramento office settings",
+    intro:
+      "Compare Midtown with nearby Sacramento districts when mixed-use professional context, medical office, and central-city access matter.",
+    districts: [
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Formal office-core contrast",
+        note: "More civic, government-adjacent, and traditional-office oriented.",
+      },
+      {
+        name: "East Sacramento / Alhambra Corridor",
+        url: "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+        relationship_type: "Medical/professional corridor",
+        note: "More corridor-oriented and medical/professional than Midtown's mixed-use texture.",
+      },
+      {
+        name: "Arden / Point West",
+        url: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+        relationship_type: "Suburban office corridor",
+        note: "More parking-oriented, medical/professional, and Business 80 accessible.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central medical and professional corridors",
+    intro:
+      "Use these relationships to compare East Sacramento / Alhambra with central and suburban Sacramento professional-service settings.",
+    districts: [
+      {
+        name: "Midtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+        relationship_type: "Mixed-use contrast",
+        note: "More neighborhood-commercial and mixed-use than the Alhambra corridor.",
+      },
+      {
+        name: "Arden / Point West",
+        url: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+        relationship_type: "Larger corridor alternative",
+        note: "More suburban office and medical corridor oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office contrast",
+        note: "More government-adjacent and traditional-office oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sacramento/natomas/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare airport-adjacent and suburban office alternatives",
+    intro:
+      "Compare Natomas with nearby Sacramento districts when airport access, parking, medical office, and freeway reach are part of the location decision.",
+    districts: [
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office-core contrast",
+        note: "More central, transit-connected, and government-adjacent.",
+      },
+      {
+        name: "Arden / Point West",
+        url: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+        relationship_type: "Suburban office corridor comparison",
+        note: "More established as a medical/professional office corridor.",
+      },
+      {
+        name: "Power Inn Industrial",
+        url: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More functional for warehouse/flex and service-industrial users.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sacramento/arden-point-west/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sacramento suburban office corridors",
+    intro:
+      "Use these relationships to compare Arden / Point West with airport-adjacent, central, and medical/professional Sacramento alternatives.",
+    districts: [
+      {
+        name: "Natomas",
+        url: "/commercial-real-estate/CA/sacramento/natomas/",
+        relationship_type: "Airport-access alternative",
+        note: "More airport- and I-5/I-80-oriented than Arden / Point West.",
+      },
+      {
+        name: "East Sacramento / Alhambra Corridor",
+        url: "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+        relationship_type: "Central medical/professional corridor",
+        note: "Smaller-scale and more central than Arden / Point West.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office-core contrast",
+        note: "More formal, central, and government-adjacent.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sacramento/power-inn-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sacramento industrial/flex corridors",
+    intro:
+      "Compare Power Inn with nearby operational markets when warehouse/flex, contractor, distribution, and service-commercial requirements matter.",
+    districts: [
+      {
+        name: "West Sacramento Industrial",
+        url: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+        relationship_type: "Industrial/flex comparison",
+        note: "More river/port and downtown-edge oriented.",
+      },
+      {
+        name: "Rancho Cordova Commercial Core",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        relationship_type: "Office/flex alternative",
+        note: "More Highway 50 office/flex and suburban office oriented.",
+      },
+      {
+        name: "Elk Grove Commercial Core",
+        url: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+        relationship_type: "South Sacramento service market",
+        note: "More local-service and suburban medical/professional oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sacramento operational and office alternatives",
+    intro:
+      "Use these relationships to compare West Sacramento's industrial/flex role with nearby office-core and industrial corridors.",
+    districts: [
+      {
+        name: "Power Inn Industrial",
+        url: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        relationship_type: "Industrial/flex alternative",
+        note: "More Highway 50 and South Sacramento oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Office-core contrast",
+        note: "More civic, professional, and traditional-office oriented.",
+      },
+      {
+        name: "Natomas",
+        url: "/commercial-real-estate/CA/sacramento/natomas/",
+        relationship_type: "Airport-access office alternative",
+        note: "More suburban office and airport-adjacent than West Sacramento's industrial setting.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Highway 50 office and flex alternatives",
+    intro:
+      "Compare Rancho Cordova with nearby eastern Sacramento and industrial/flex settings when office, back-office, and operational requirements overlap.",
+    districts: [
+      {
+        name: "Folsom Commercial Core",
+        url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        relationship_type: "Eastern Sacramento professional contrast",
+        note: "More polished, client-facing, and professional-service oriented.",
+      },
+      {
+        name: "Power Inn Industrial",
+        url: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More operational and warehouse/flex oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office contrast",
+        note: "More central and government-adjacent.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/folsom/folsom-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare eastern Sacramento office alternatives",
+    intro:
+      "Use these relationships to compare Folsom with nearby suburban and regional Sacramento office markets.",
+    districts: [
+      {
+        name: "Rancho Cordova Commercial Core",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        relationship_type: "Highway 50 office/flex comparison",
+        note: "More practical, back-office, and office/flex oriented.",
+      },
+      {
+        name: "Roseville Commercial Core",
+        url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        relationship_type: "Regional suburban office comparison",
+        note: "More Placer County and northeast Sacramento oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office-core contrast",
+        note: "More central, transit-connected, and government-adjacent.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/roseville/roseville-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare regional Sacramento office alternatives",
+    intro:
+      "Compare Roseville with Sacramento and eastern suburban alternatives when Placer County, office, medical office, and client access matter.",
+    districts: [
+      {
+        name: "Folsom Commercial Core",
+        url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        relationship_type: "Suburban office comparison",
+        note: "More Highway 50 and eastern Sacramento oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office-core contrast",
+        note: "More central, government-adjacent, and traditional-office oriented.",
+      },
+      {
+        name: "Rancho Cordova Commercial Core",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        relationship_type: "Office/flex alternative",
+        note: "More Highway 50 and office/flex oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare south Sacramento commercial alternatives",
+    intro:
+      "Use these relationships to compare Elk Grove's local service and suburban office role with nearby Sacramento office and industrial/flex markets.",
+    districts: [
+      {
+        name: "Power Inn Industrial",
+        url: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More operational and warehouse/flex oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Regional office-core contrast",
+        note: "More civic, central, and professional-office oriented.",
+      },
+      {
+        name: "Rancho Cordova Commercial Core",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        relationship_type: "Office/flex alternative",
+        note: "More Highway 50 and back-office/office-flex oriented.",
+      },
+    ],
+  },
+});
+
 module.exports = {
   byPath: integrationsByPath,
 };

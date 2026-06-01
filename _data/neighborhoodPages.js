@@ -644,6 +644,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_sacramento_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the Sacramento commercial geography graph, with context for office, industrial/flex, medical office, service commercial, and nearby market comparisons.`,
+      guide_label: "Sacramento district guide",
+    };
+  }
+
   return null;
 }
 
@@ -959,6 +972,101 @@ function representativeBuildingRolesFor(page) {
         "Santa Rosa office corridor context",
       "/commercial-real-estate/building/CA/santa-rosa/2527-guernville-road/":
         "Santa Rosa local service-commercial example",
+    };
+  }
+
+  if (page.public_sacramento_v1) {
+    return {
+      "/commercial-real-estate/building/CA/sacramento/1201-j-st/":
+        "Downtown Sacramento civic office core",
+      "/commercial-real-estate/building/CA/sacramento/1215-k-st/":
+        "K Street traditional office context",
+      "/commercial-real-estate/building/CA/sacramento/1225-8th-st/":
+        "Downtown government-adjacent office",
+      "/commercial-real-estate/building/CA/sacramento/1303-j-st/":
+        "J Street professional office block",
+      "/commercial-real-estate/building/CA/sacramento/1325-j-st/":
+        "Downtown Sacramento office fabric",
+      "/commercial-real-estate/building/CA/sacramento/1600-k-st/":
+        "Midtown edge professional office",
+      "/commercial-real-estate/building/CA/sacramento/1610-r-st/":
+        "R Street mixed-use office context",
+      "/commercial-real-estate/building/CA/sacramento/1651-alhambra-blvd/":
+        "Alhambra medical/professional corridor",
+      "/commercial-real-estate/building/CA/sacramento/1200-del-paso-rd/":
+        "Natomas suburban office context",
+      "/commercial-real-estate/building/CA/sacramento/1313-n-market-blvd/":
+        "Northgate / Natomas service-commercial edge",
+      "/commercial-real-estate/building/CA/sacramento/1326-n-market-blvd/":
+        "North Market industrial/service corridor",
+      "/commercial-real-estate/building/CA/sacramento/1415-n-market-blvd/":
+        "Northgate industrial park context",
+      "/commercial-real-estate/building/CA/sacramento/1111-exposition-blvd/":
+        "Arden / Point West office corridor",
+      "/commercial-real-estate/building/CA/sacramento/1111-howe-ave/":
+        "Howe Avenue professional office",
+      "/commercial-real-estate/building/CA/sacramento/1375-exposition-blvd/":
+        "Exposition Boulevard office setting",
+      "/commercial-real-estate/building/CA/sacramento/1425-river-park-dr/":
+        "Point West corporate office context",
+      "/commercial-real-estate/building/CA/sacramento/1451-river-plaza-drive/":
+        "River Park suburban office context",
+      "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/":
+        "Power Inn industrial/flex corridor",
+      "/commercial-real-estate/building/CA/sacramento/10265-old-placerville-rd/":
+        "Highway 50 service-industrial edge",
+      "/commercial-real-estate/building/CA/sacramento/1060-national-dr/":
+        "National Drive warehouse/flex context",
+      "/commercial-real-estate/building/CA/sacramento/1164-national-dr/":
+        "Power Inn office/warehouse fabric",
+      "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/":
+        "West Sacramento industrial corridor",
+      "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/":
+        "Ramco Street warehouse/flex context",
+      "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/":
+        "Industrial Boulevard operational setting",
+      "/commercial-real-estate/building/CA/west-sacramento/3950-industrial-blvd/":
+        "West Sacramento industrial/flex example",
+      "/commercial-real-estate/building/CA/west-sacramento/545-jefferson-blvd/":
+        "Jefferson Boulevard service-commercial edge",
+      "/commercial-real-estate/building/CA/rancho-cordova/10860-gold-center-dr/":
+        "Highway 50 suburban office context",
+      "/commercial-real-estate/building/CA/rancho-cordova/10940-white-rock-rd/":
+        "White Rock Road office/flex corridor",
+      "/commercial-real-estate/building/CA/rancho-cordova/11025-trade-center-dr/":
+        "Trade Center industrial/flex setting",
+      "/commercial-real-estate/building/CA/rancho-cordova/11171-sun-center-dr/":
+        "Sun Center suburban office node",
+      "/commercial-real-estate/building/CA/rancho-cordova/11300-trade-center-dr/":
+        "Rancho Cordova service-industrial context",
+      "/commercial-real-estate/building/CA/folsom/1024-iron-point-rd/":
+        "Iron Point professional office",
+      "/commercial-real-estate/building/CA/folsom/255-parkshore-dr/":
+        "Parkshore client-facing office context",
+      "/commercial-real-estate/building/CA/folsom/50-iron-point-cir/":
+        "Folsom suburban office setting",
+      "/commercial-real-estate/building/CA/folsom/620-coolidge-dr/":
+        "Parkshore professional office fabric",
+      "/commercial-real-estate/building/CA/folsom/2545-e-bidwell-st/":
+        "East Bidwell medical/professional office",
+      "/commercial-real-estate/building/CA/roseville/1512-eureka-rd/":
+        "Eureka Road medical/professional office",
+      "/commercial-real-estate/building/CA/roseville/1811-douglas-blvd/":
+        "Douglas Boulevard professional office",
+      "/commercial-real-estate/building/CA/roseville/1386-lead-hill-blvd/":
+        "Roseville business park context",
+      "/commercial-real-estate/building/CA/roseville/1000-enterprise-way/":
+        "Enterprise Way office/business park",
+      "/commercial-real-estate/building/CA/roseville/4000-foothills-blvd/":
+        "Foothills Boulevard office/flex edge",
+      "/commercial-real-estate/building/CA/elk-grove/10139-iron-rock-way/":
+        "Elk Grove office/flex business court",
+      "/commercial-real-estate/building/CA/elk-grove/3137-dwight-rd/":
+        "Laguna West business park context",
+      "/commercial-real-estate/building/CA/elk-grove/9245-laguna-springs-dr/":
+        "Laguna Springs professional office",
+      "/commercial-real-estate/building/CA/elk-grove/9615-laguna-springs-dr/":
+        "Elk Grove suburban office context",
     };
   }
 
@@ -1818,6 +1926,221 @@ const northBayDistrictDefinitions = [
   },
 ];
 
+const sacramentoDistrictDefinitions = [
+  {
+    id: "sac-downtown-sacramento",
+    name: "Downtown Sacramento",
+    slug: "downtown-sacramento",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+    centroid_lat: 38.579,
+    centroid_lng: -121.493,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["downtown", "civic_business", "professional_services", "transit_oriented", "government_adjacent"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/1201-j-st/",
+      "/commercial-real-estate/building/CA/sacramento/1215-k-st/",
+      "/commercial-real-estate/building/CA/sacramento/1225-8th-st/",
+      "/commercial-real-estate/building/CA/sacramento/1303-j-st/",
+      "/commercial-real-estate/building/CA/sacramento/1325-j-st/",
+    ],
+  },
+  {
+    id: "sac-midtown-sacramento",
+    name: "Midtown Sacramento",
+    slug: "midtown-sacramento",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+    centroid_lat: 38.573,
+    centroid_lng: -121.474,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["mixed_use", "professional_services", "medical", "creative_office", "local_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/1600-k-st/",
+      "/commercial-real-estate/building/CA/sacramento/1610-r-st/",
+      "/commercial-real-estate/building/CA/sacramento/1651-alhambra-blvd/",
+    ],
+  },
+  {
+    id: "sac-east-sacramento-alhambra",
+    name: "East Sacramento / Alhambra Corridor",
+    slug: "east-sacramento-alhambra-corridor",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+    centroid_lat: 38.57,
+    centroid_lng: -121.463,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["medical", "professional_services", "local_services", "central_sacramento"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/1651-alhambra-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/1600-k-st/",
+    ],
+  },
+  {
+    id: "sac-natomas",
+    name: "Natomas",
+    slug: "natomas",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/natomas/",
+    centroid_lat: 38.65,
+    centroid_lng: -121.51,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "flex"],
+    profile: ["suburban_office", "airport_access", "service_commercial", "highway_access"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/1200-del-paso-rd/",
+      "/commercial-real-estate/building/CA/sacramento/1313-n-market-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/1326-n-market-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/1415-n-market-blvd/",
+    ],
+  },
+  {
+    id: "sac-arden-point-west",
+    name: "Arden / Point West",
+    slug: "arden-point-west",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+    centroid_lat: 38.596,
+    centroid_lng: -121.431,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["suburban_office", "medical", "professional_services", "business_80"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/1111-exposition-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/1111-howe-ave/",
+      "/commercial-real-estate/building/CA/sacramento/1375-exposition-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/1425-river-park-dr/",
+      "/commercial-real-estate/building/CA/sacramento/1451-river-plaza-drive/",
+    ],
+  },
+  {
+    id: "sac-power-inn-industrial",
+    name: "Power Inn Industrial",
+    slug: "power-inn-industrial",
+    city: "Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+    centroid_lat: 38.535,
+    centroid_lng: -121.402,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["warehouse", "industrial_flex", "service_commercial", "highway_50"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
+      "/commercial-real-estate/building/CA/sacramento/10265-old-placerville-rd/",
+      "/commercial-real-estate/building/CA/sacramento/1060-national-dr/",
+      "/commercial-real-estate/building/CA/sacramento/1164-national-dr/",
+    ],
+  },
+  {
+    id: "sac-west-sacramento-industrial",
+    name: "West Sacramento Industrial",
+    slug: "west-sacramento-industrial",
+    city: "West Sacramento",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+    centroid_lat: 38.565,
+    centroid_lng: -121.55,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["warehouse", "industrial_flex", "service_commercial", "river_port", "downtown_edge"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
+      "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
+      "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
+      "/commercial-real-estate/building/CA/west-sacramento/3950-industrial-blvd/",
+      "/commercial-real-estate/building/CA/west-sacramento/545-jefferson-blvd/",
+    ],
+  },
+  {
+    id: "sac-rancho-cordova-commercial-core",
+    name: "Rancho Cordova Commercial Core",
+    slug: "rancho-cordova-commercial-core",
+    city: "Rancho Cordova",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+    centroid_lat: 38.59,
+    centroid_lng: -121.29,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial"],
+    profile: ["suburban_office", "industrial_flex", "highway_50", "back_office"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/rancho-cordova/10860-gold-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/10940-white-rock-rd/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11025-trade-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11171-sun-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11300-trade-center-dr/",
+    ],
+  },
+  {
+    id: "sac-folsom-commercial-core",
+    name: "Folsom Commercial Core",
+    slug: "folsom-commercial-core",
+    city: "Folsom",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+    centroid_lat: 38.65,
+    centroid_lng: -121.16,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["suburban_office", "medical", "professional_services", "highway_50", "client_facing"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/folsom/1024-iron-point-rd/",
+      "/commercial-real-estate/building/CA/folsom/255-parkshore-dr/",
+      "/commercial-real-estate/building/CA/folsom/50-iron-point-cir/",
+      "/commercial-real-estate/building/CA/folsom/620-coolidge-dr/",
+      "/commercial-real-estate/building/CA/folsom/2545-e-bidwell-st/",
+    ],
+  },
+  {
+    id: "sac-roseville-commercial-core",
+    name: "Roseville Commercial Core",
+    slug: "roseville-commercial-core",
+    city: "Roseville",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+    centroid_lat: 38.75,
+    centroid_lng: -121.27,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail", "flex"],
+    profile: ["suburban_office", "medical", "professional_services", "retail", "placer_county"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/roseville/1512-eureka-rd/",
+      "/commercial-real-estate/building/CA/roseville/1811-douglas-blvd/",
+      "/commercial-real-estate/building/CA/roseville/1386-lead-hill-blvd/",
+      "/commercial-real-estate/building/CA/roseville/1000-enterprise-way/",
+      "/commercial-real-estate/building/CA/roseville/4000-foothills-blvd/",
+    ],
+  },
+  {
+    id: "sac-elk-grove-commercial-core",
+    name: "Elk Grove Commercial Core",
+    slug: "elk-grove-commercial-core",
+    city: "Elk Grove",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+    centroid_lat: 38.42,
+    centroid_lng: -121.4,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail", "flex"],
+    profile: ["suburban_office", "medical", "local_services", "service_commercial", "south_sacramento"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/elk-grove/10139-iron-rock-way/",
+      "/commercial-real-estate/building/CA/elk-grove/3137-dwight-rd/",
+      "/commercial-real-estate/building/CA/elk-grove/9245-laguna-springs-dr/",
+      "/commercial-real-estate/building/CA/elk-grove/9615-laguna-springs-dr/",
+    ],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -1922,6 +2245,42 @@ function northBayDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_north_bay_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function sacramentoDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "sacramento_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_sacramento_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -2155,6 +2514,7 @@ const nycPages = nycCandidates
 const southBayPages = southBayDistrictDefinitions.map(southBayDistrictPageFor);
 const eastBayPages = eastBayDistrictDefinitions.map(eastBayDistrictPageFor);
 const northBayPages = northBayDistrictDefinitions.map(northBayDistrictPageFor);
+const sacramentoPages = sacramentoDistrictDefinitions.map(sacramentoDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -2191,6 +2551,13 @@ for (const page of eastBayPages) {
 }
 
 for (const page of northBayPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of sacramentoPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

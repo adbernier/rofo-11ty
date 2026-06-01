@@ -860,6 +860,193 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  {
+    slug: "downtown-sacramento-vs-midtown-sacramento",
+    title: "Downtown Sacramento vs Midtown Sacramento",
+    short_title: "Downtown Sacramento vs Midtown Sacramento",
+    city: "Sacramento",
+    state_abbr: "CA",
+    city_slug: "sacramento",
+    path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-midtown-sacramento/",
+    district_a_name: "Downtown Sacramento",
+    district_b_name: "Midtown Sacramento",
+    district_a_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+    verdict_a:
+      "Choose Downtown Sacramento if state government adjacency, civic identity, and traditional office context matter most.",
+    verdict_b:
+      "Choose Midtown Sacramento if smaller offices, medical/professional services, and mixed-use neighborhood texture are the better fit.",
+    comparison_notes: [
+      "Downtown Sacramento is the more formal civic and professional office core.",
+      "Midtown is more mixed-use, smaller-format, and neighborhood-commercial.",
+      "The decision usually turns on formal downtown identity versus flexible central-city texture.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-sacramento-vs-natomas",
+    title: "Downtown Sacramento vs Natomas",
+    short_title: "Downtown Sacramento vs Natomas",
+    city: "Sacramento",
+    state_abbr: "CA",
+    city_slug: "sacramento",
+    path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-natomas/",
+    district_a_name: "Downtown Sacramento",
+    district_b_name: "Natomas",
+    district_a_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/natomas/",
+    verdict_a:
+      "Choose Downtown Sacramento if civic access, transit, and a central professional identity are more important.",
+    verdict_b:
+      "Choose Natomas if airport access, parking, freeway reach, and suburban office practicality matter more.",
+    comparison_notes: [
+      "Downtown is stronger for government-adjacent and client-facing central office needs.",
+      "Natomas is stronger for airport-adjacent, parking-oriented, and regional-access office users.",
+      "This is a common central-office versus suburban-office decision.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-sacramento-vs-west-sacramento",
+    title: "Downtown Sacramento vs West Sacramento",
+    short_title: "Downtown Sacramento vs West Sacramento",
+    city: "Sacramento",
+    state_abbr: "CA",
+    city_slug: "sacramento",
+    path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-west-sacramento/",
+    district_a_name: "Downtown Sacramento",
+    district_b_name: "West Sacramento Industrial",
+    district_a_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+    district_b_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+    verdict_a:
+      "Choose Downtown Sacramento if the requirement is civic office identity, professional services, and central business access.",
+    verdict_b:
+      "Choose West Sacramento if industrial/flex buildings, distribution, contractor, or operational space matters more.",
+    comparison_notes: [
+      "Downtown Sacramento is an office and civic-core decision.",
+      "West Sacramento is an operational and industrial/flex decision across the river.",
+      "The comparison helps separate office identity from warehouse/flex functionality.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "natomas-vs-arden-point-west",
+    title: "Natomas vs Arden / Point West",
+    short_title: "Natomas vs Arden / Point West",
+    city: "Sacramento",
+    state_abbr: "CA",
+    city_slug: "sacramento",
+    path: "/commercial-real-estate/CA/sacramento/natomas-vs-arden-point-west/",
+    district_a_name: "Natomas",
+    district_b_name: "Arden / Point West",
+    district_a_path: "/commercial-real-estate/CA/sacramento/natomas/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/arden-point-west/",
+    verdict_a:
+      "Choose Natomas if airport access, I-5/I-80 reach, and parking-oriented suburban office context are priorities.",
+    verdict_b:
+      "Choose Arden / Point West if medical office, professional services, and Business 80 corridor access fit better.",
+    comparison_notes: [
+      "Natomas is more airport- and north-Sacramento-access oriented.",
+      "Arden / Point West is more established as a suburban office and medical/professional corridor.",
+      "Both can work for suburban office users, but they solve different access patterns.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "west-sacramento-vs-power-inn-industrial",
+    title: "West Sacramento vs Power Inn Industrial",
+    short_title: "West Sacramento vs Power Inn Industrial",
+    city: "West Sacramento",
+    state_abbr: "CA",
+    city_slug: "west-sacramento",
+    path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-vs-power-inn-industrial/",
+    district_a_name: "West Sacramento Industrial",
+    district_b_name: "Power Inn Industrial",
+    district_a_path: "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+    verdict_a:
+      "Choose West Sacramento if river/port-adjacent industrial access and proximity to the downtown edge matter most.",
+    verdict_b:
+      "Choose Power Inn Industrial if Highway 50, South Sacramento, and contractor/service-industrial access are the stronger fit.",
+    comparison_notes: [
+      "West Sacramento is more river, port, and downtown-edge industrial oriented.",
+      "Power Inn is more Highway 50 and South Sacramento industrial/flex oriented.",
+      "This is one of the clearest Sacramento warehouse/flex location comparisons.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "rancho-cordova-vs-folsom",
+    title: "Rancho Cordova vs Folsom",
+    short_title: "Rancho Cordova vs Folsom",
+    city: "Rancho Cordova",
+    state_abbr: "CA",
+    city_slug: "rancho-cordova",
+    path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
+    district_a_name: "Rancho Cordova Commercial Core",
+    district_b_name: "Folsom Commercial Core",
+    district_a_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+    verdict_a:
+      "Choose Rancho Cordova if Highway 50 office/flex, back-office, and practical suburban building formats matter most.",
+    verdict_b:
+      "Choose Folsom if a more polished eastern Sacramento professional, medical, and client-facing office setting is the priority.",
+    comparison_notes: [
+      "Rancho Cordova is more office/flex, back-office, and operational.",
+      "Folsom is more client-facing, professional, and lifestyle-supported.",
+      "The comparison is strongest for Highway 50 office and flex users.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "roseville-vs-folsom",
+    title: "Roseville vs Folsom",
+    short_title: "Roseville vs Folsom",
+    city: "Roseville",
+    state_abbr: "CA",
+    city_slug: "roseville",
+    path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
+    district_a_name: "Roseville Commercial Core",
+    district_b_name: "Folsom Commercial Core",
+    district_a_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+    verdict_a:
+      "Choose Roseville if Placer County access, medical/professional services, and northeast Sacramento customer reach matter most.",
+    verdict_b:
+      "Choose Folsom if Highway 50, eastern Sacramento, and a polished suburban professional setting are stronger requirements.",
+    comparison_notes: [
+      "Roseville is stronger for Placer County and I-80-oriented office/medical demand.",
+      "Folsom is stronger for Highway 50 and eastern Sacramento professional context.",
+      "Both are suburban alternatives to Downtown Sacramento, but they serve different regional geographies.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "roseville-vs-downtown-sacramento",
+    title: "Roseville vs Downtown Sacramento",
+    short_title: "Roseville vs Downtown Sacramento",
+    city: "Roseville",
+    state_abbr: "CA",
+    city_slug: "roseville",
+    path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
+    district_a_name: "Roseville Commercial Core",
+    district_b_name: "Downtown Sacramento",
+    district_a_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+    verdict_a:
+      "Choose Roseville if suburban Placer County access, medical/professional office, and parking-oriented convenience matter more.",
+    verdict_b:
+      "Choose Downtown Sacramento if state government adjacency, civic office identity, and central-city access are the priority.",
+    comparison_notes: [
+      "Roseville is a suburban regional office and medical/professional choice.",
+      "Downtown Sacramento is the region's civic and traditional office core.",
+      "The comparison helps users decide between suburban client geography and central Sacramento identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -894,6 +1081,17 @@ const detailCtaByArchetype = {
   north_bay_office_flex_market: "North Bay office/flex context",
   sonoma_office_light_industrial_core: "Sonoma office and light industrial context",
   sonoma_downtown_office_core: "Sonoma downtown office context",
+  sacramento_downtown_office_core: "Sacramento civic office context",
+  mixed_use_professional_district: "mixed-use professional context",
+  medical_office_service_corridor: "medical office and service corridor context",
+  airport_adjacent_suburban_office_market: "airport-adjacent office context",
+  suburban_office_medical_corridor: "suburban office and medical context",
+  sacramento_industrial_flex_corridor: "Sacramento industrial/flex context",
+  river_port_industrial_flex_market: "river and industrial/flex context",
+  highway_50_office_flex_market: "Highway 50 office/flex context",
+  eastern_suburban_professional_office_market: "eastern Sacramento professional office context",
+  placer_county_office_medical_core: "Placer County office and medical context",
+  south_sacramento_suburban_service_market: "south Sacramento service-commercial context",
 };
 
 const metaFocusBySlug = {
@@ -971,6 +1169,22 @@ const metaFocusBySlug = {
     "northern Marin office/flex practicality versus Sonoma County service-commercial and light industrial context",
   "santa-rosa-vs-petaluma":
     "Santa Rosa regional office and service hub context versus Petaluma light industrial/flex and local operations fit",
+  "downtown-sacramento-vs-midtown-sacramento":
+    "Sacramento civic office core versus mixed-use central-city professional and medical office context",
+  "downtown-sacramento-vs-natomas":
+    "central Sacramento civic office identity versus airport-adjacent suburban office practicality",
+  "downtown-sacramento-vs-west-sacramento":
+    "Sacramento civic office core versus river-adjacent industrial and warehouse/flex functionality",
+  "natomas-vs-arden-point-west":
+    "airport-adjacent suburban office access versus established Sacramento office and medical corridor context",
+  "west-sacramento-vs-power-inn-industrial":
+    "West Sacramento river and industrial access versus Power Inn Highway 50 industrial/flex utility",
+  "rancho-cordova-vs-folsom":
+    "Highway 50 office/flex practicality versus polished eastern Sacramento professional office context",
+  "roseville-vs-folsom":
+    "Placer County office and medical market versus eastern Sacramento professional office context",
+  "roseville-vs-downtown-sacramento":
+    "suburban Placer County office/medical access versus Sacramento civic downtown office identity",
 };
 
 function districtSummary(path) {
@@ -1030,6 +1244,9 @@ const warehouseFlexComparisonSlugs = new Set([
   "north-san-jose-vs-milpitas",
   "warm-springs-vs-ardenwood",
   "novato-vs-petaluma",
+  "downtown-sacramento-vs-west-sacramento",
+  "west-sacramento-vs-power-inn-industrial",
+  "rancho-cordova-vs-folsom",
 ]);
 
 module.exports = comparisons.map((comparison) => {
