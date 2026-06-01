@@ -1765,7 +1765,7 @@ const eastBayDistrictDefinitions = [
   },
   {
     id: "eb-emeryville-commercial-core",
-    name: "Emeryville Commercial Core",
+    name: "Emeryville",
     slug: "emeryville-commercial-core",
     city: "Emeryville",
     state_abbr: "CA",
@@ -1872,7 +1872,7 @@ const northBayDistrictDefinitions = [
   },
   {
     id: "nb-novato-commercial-core",
-    name: "Novato Commercial Core",
+    name: "Novato",
     slug: "novato-commercial-core",
     city: "Novato",
     state_abbr: "CA",
@@ -1891,7 +1891,7 @@ const northBayDistrictDefinitions = [
   },
   {
     id: "nb-petaluma-commercial-core",
-    name: "Petaluma Commercial Core",
+    name: "Petaluma",
     slug: "petaluma-commercial-core",
     city: "Petaluma",
     state_abbr: "CA",
@@ -2062,7 +2062,7 @@ const sacramentoDistrictDefinitions = [
   },
   {
     id: "sac-rancho-cordova-commercial-core",
-    name: "Rancho Cordova Commercial Core",
+    name: "Rancho Cordova",
     slug: "rancho-cordova-commercial-core",
     city: "Rancho Cordova",
     state_abbr: "CA",
@@ -2082,7 +2082,7 @@ const sacramentoDistrictDefinitions = [
   },
   {
     id: "sac-folsom-commercial-core",
-    name: "Folsom Commercial Core",
+    name: "Folsom",
     slug: "folsom-commercial-core",
     city: "Folsom",
     state_abbr: "CA",
@@ -2102,7 +2102,7 @@ const sacramentoDistrictDefinitions = [
   },
   {
     id: "sac-roseville-commercial-core",
-    name: "Roseville Commercial Core",
+    name: "Roseville",
     slug: "roseville-commercial-core",
     city: "Roseville",
     state_abbr: "CA",
@@ -2122,7 +2122,7 @@ const sacramentoDistrictDefinitions = [
   },
   {
     id: "sac-elk-grove-commercial-core",
-    name: "Elk Grove Commercial Core",
+    name: "Elk Grove",
     slug: "elk-grove-commercial-core",
     city: "Elk Grove",
     state_abbr: "CA",
@@ -2587,6 +2587,14 @@ for (const page of allPages) {
   page.display_name_with_article_sentence = sentenceStartName(
     page.display_name_with_article || page.name
   );
+  page.meta_place_label =
+    clean(page.name).toLowerCase() === clean(page.city).toLowerCase()
+      ? `${page.city}, ${page.state_abbr}`
+      : `${page.display_name_with_article || page.name}, ${page.city}, ${page.state_abbr}`;
+  page.meta_context_label =
+    clean(page.name).toLowerCase() === clean(page.city).toLowerCase()
+      ? page.city
+      : `${page.display_name_with_article || page.name}, ${page.city}`;
   page.neighborhood_image_path =
     page.neighborhood_image_path || neighborhoodImagePathFor(page);
   if (

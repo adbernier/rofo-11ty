@@ -292,7 +292,7 @@ const districts = {
         reason: "Compare if San Francisco adaptive office context may fit better than East Bay civic/BART-centered office geography.",
       },
       {
-        district_name: "Emeryville Commercial Core",
+        district_name: "Emeryville",
         district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/",
         reason: "Compare if a compact office/life-science node between Oakland and Berkeley may fit better than Downtown Oakland's civic core.",
@@ -796,7 +796,7 @@ Object.assign(districts, {
         reason: "Compare if industrial/flex or river-adjacent operational geography is part of the location decision.",
       },
       {
-        district_name: "Roseville Commercial Core",
+        district_name: "Roseville",
         district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
         reason: "Compare if a suburban Placer County office and medical/professional market may fit better.",
@@ -1119,7 +1119,7 @@ Object.assign(districts, {
     primary_archetype: "highway_50_office_flex_market",
     secondary_archetypes: ["suburban_business_park", "sacramento_industrial_flex_corridor"],
     commercial_thesis:
-      "Rancho Cordova Commercial Core is a Highway 50 office, flex, industrial, insurance/back-office, and service-commercial market with larger suburban formats east of Sacramento.",
+      "Rancho Cordova is a Highway 50 office, flex, industrial, insurance/back-office, and service-commercial market with larger suburban formats east of Sacramento.",
     best_fit_businesses: [
       "Back-office, insurance, professional-service, office/flex, contractor, and light industrial users",
       "Companies needing Highway 50 access, parking, and larger suburban buildings",
@@ -1132,7 +1132,7 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Folsom Commercial Core",
+        district_name: "Folsom",
         district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         reason: "Compare if a more polished eastern Sacramento office and professional setting may fit better.",
@@ -1172,7 +1172,7 @@ Object.assign(districts, {
     primary_archetype: "eastern_suburban_professional_office_market",
     secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
     commercial_thesis:
-      "Folsom Commercial Core is an eastern Sacramento suburban professional office, medical, technology-adjacent, and retail-supported market with a more polished client-facing profile than Rancho Cordova.",
+      "Folsom is an eastern Sacramento suburban professional office, medical, technology-adjacent, and retail-supported market with a more polished client-facing profile than Rancho Cordova.",
     best_fit_businesses: [
       "Professional-service, medical office, technology-adjacent, and client-facing suburban office users",
       "Teams that want eastern Sacramento/Highway 50 access with a stronger lifestyle and professional setting",
@@ -1185,13 +1185,13 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Rancho Cordova Commercial Core",
+        district_name: "Rancho Cordova",
         district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         reason: "Compare if Highway 50 office/flex practicality may fit better than Folsom's polished suburban profile.",
       },
       {
-        district_name: "Roseville Commercial Core",
+        district_name: "Roseville",
         district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
         reason: "Compare if Placer County office/medical and retail gravity may fit better.",
@@ -1214,7 +1214,7 @@ Object.assign(districts, {
     primary_archetype: "placer_county_office_medical_core",
     secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
     commercial_thesis:
-      "Roseville Commercial Core is a Placer County office, medical office, retail-supported, and light business-park market, useful for companies comparing suburban Sacramento alternatives with Downtown Sacramento or Folsom.",
+      "Roseville is a Placer County office, medical office, retail-supported, and light business-park market, useful for companies comparing suburban Sacramento alternatives with Downtown Sacramento or Folsom.",
     best_fit_businesses: [
       "Medical office, professional-service, finance, insurance, regional office, and client-facing suburban users",
       "Companies serving Placer County or northeast Sacramento customers and employees",
@@ -1227,7 +1227,7 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Folsom Commercial Core",
+        district_name: "Folsom",
         district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
         reason: "Compare if eastern Sacramento/Highway 50 professional office context may fit better.",
@@ -1268,7 +1268,7 @@ Object.assign(districts, {
     primary_archetype: "south_sacramento_suburban_service_market",
     secondary_archetypes: ["local_service_business_core", "service_commercial_industrial_market"],
     commercial_thesis:
-      "Elk Grove Commercial Core is a south Sacramento suburban office, medical, local-service, and light office/flex market, useful for users serving Elk Grove and southern Sacramento County.",
+      "Elk Grove is a south Sacramento suburban office, medical, local-service, and light office/flex market, useful for users serving Elk Grove and southern Sacramento County.",
     best_fit_businesses: [
       "Medical office, professional-service, local-service, education, and light office/flex users",
       "Businesses serving Elk Grove and South Sacramento customers",
@@ -1336,7 +1336,7 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Novato Commercial Core",
+        district_name: "Novato",
         district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
         reason: "Compare if a more office/flex and northern Marin service-commercial market may fit better than downtown San Rafael.",
@@ -1388,7 +1388,7 @@ Object.assign(districts, {
         reason: "Compare if downtown professional identity and walkability matter more than corridor access.",
       },
       {
-        district_name: "Novato Commercial Core",
+        district_name: "Novato",
         district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
         reason: "Compare if northern Marin office/flex and service-commercial space may be a better fit.",
@@ -1452,7 +1452,7 @@ Object.assign(districts, {
     primary_archetype: "north_bay_office_flex_market",
     secondary_archetypes: ["medical_office_service_corridor", "service_commercial_industrial_market"],
     commercial_thesis:
-      "Novato Commercial Core is a northern Marin office, medical office, service-commercial, and light office/flex market, more operational and corridor-oriented than downtown San Rafael.",
+      "Novato is a northern Marin office, medical office, service-commercial, and light office/flex market, more operational and corridor-oriented than downtown San Rafael.",
     best_fit_businesses: [
       "Medical office, professional-service, office/flex, and local service businesses serving northern Marin",
       "Companies that want Marin access with more corridor and parking practicality",
@@ -1471,7 +1471,7 @@ Object.assign(districts, {
         reason: "Compare if central Marin downtown professional identity matters more than Novato's office/flex practicality.",
       },
       {
-        district_name: "Petaluma Commercial Core",
+        district_name: "Petaluma",
         district_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
         reason: "Compare if Sonoma County service-commercial and light industrial/flex context may be a better fit.",
@@ -1511,7 +1511,7 @@ Object.assign(districts, {
     primary_archetype: "sonoma_office_light_industrial_core",
     secondary_archetypes: ["north_bay_office_flex_market", "local_service_business_core"],
     commercial_thesis:
-      "Petaluma Commercial Core is a Sonoma County office, service-commercial, and light industrial/flex market with Highway 101 access, local business depth, and a more operational profile than Marin's downtown professional districts.",
+      "Petaluma is a Sonoma County office, service-commercial, and light industrial/flex market with Highway 101 access, local business depth, and a more operational profile than Marin's downtown professional districts.",
     best_fit_businesses: [
       "Service-commercial, light industrial/flex, professional office, and local/regional operations users",
       "Businesses comparing Marin access with more Sonoma County operational practicality",
@@ -1524,7 +1524,7 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Novato Commercial Core",
+        district_name: "Novato",
         district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
         reason: "Compare if Marin access and smaller office/flex settings may fit better.",
@@ -1578,13 +1578,13 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Petaluma Commercial Core",
+        district_name: "Petaluma",
         district_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/santa-rosa/santa-rosa-vs-petaluma/",
         reason: "Compare if a smaller Sonoma County service-commercial and light industrial/flex market may fit better.",
       },
       {
-        district_name: "Novato Commercial Core",
+        district_name: "Novato",
         district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         reason: "Compare if northern Marin access matters more than Sonoma County hub identity.",
       },
@@ -2267,7 +2267,7 @@ Object.assign(districts, {
         reason: "Compare if waterfront adaptive-commercial context may fit better than West Oakland's industrial-transition setting.",
       },
       {
-        district_name: "Emeryville Commercial Core",
+        district_name: "Emeryville",
         district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         reason: "Compare if a more formal office, life-science, and mixed commercial node may fit better.",
       },
@@ -2316,7 +2316,7 @@ Object.assign(districts, {
     ],
     compare_with: [
       {
-        district_name: "Emeryville Commercial Core",
+        district_name: "Emeryville",
         district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
         reason: "Compare if office/life-science and mixed commercial supply in Emeryville may fit better than Berkeley's university-adjacent downtown.",
@@ -2344,7 +2344,7 @@ Object.assign(districts, {
     primary_archetype: "east_bay_life_science_office_core",
     secondary_archetypes: ["mixed_use_office_retail_node", "adaptive_industrial_commercial_district"],
     commercial_thesis:
-      "Emeryville Commercial Core is a compact East Bay office, life-science, retail, and adaptive-commercial node between Oakland and Berkeley, useful for teams comparing regional office access without a traditional downtown format.",
+      "Emeryville is a compact East Bay office, life-science, retail, and adaptive-commercial node between Oakland and Berkeley, useful for teams comparing regional office access without a traditional downtown format.",
     best_fit_businesses: [
       "Office, life-science-adjacent, R&D, and professional users that value central East Bay access",
       "Companies comparing Berkeley, Downtown Oakland, and Emeryville for East Bay office fit",

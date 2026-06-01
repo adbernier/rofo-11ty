@@ -150,7 +150,7 @@ const integrationsByPath = {
           "A more traditional regional business district across the bay, with stronger downtown client-facing office presence.",
       },
       {
-        name: "Emeryville Commercial Core",
+        name: "Emeryville",
         url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         relationship_type: "Office/life-science alternative",
         note:
@@ -639,7 +639,7 @@ Object.assign(integrationsByPath, {
         note: "More waterfront and visitor-facing, with adaptive commercial texture south of the downtown core.",
       },
       {
-        name: "Emeryville Commercial Core",
+        name: "Emeryville",
         url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         relationship_type: "Office/life-science alternative",
         note: "More mixed office, life-science, and retail-oriented between Oakland and Berkeley.",
@@ -653,7 +653,7 @@ Object.assign(integrationsByPath, {
       "Compare Downtown Berkeley's BART- and university-adjacent office context with nearby East Bay commercial alternatives.",
     districts: [
       {
-        name: "Emeryville Commercial Core",
+        name: "Emeryville",
         url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         relationship_type: "Office/life-science contrast",
         note: "More mixed office and life-science oriented, with less university-downtown character.",
@@ -742,7 +742,7 @@ Object.assign(integrationsByPath, {
       "Use these relationships to read Downtown San Rafael as a central Marin professional and civic commercial core, not just a generic downtown.",
     districts: [
       {
-        name: "Novato Commercial Core",
+        name: "Novato",
         url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         relationship_type: "Northern Marin office/flex contrast",
         note: "More corridor-oriented, parking-practical, and service-commercial than downtown San Rafael.",
@@ -774,7 +774,7 @@ Object.assign(integrationsByPath, {
         note: "More walkable, civic, and client-facing than the Terra Linda corridor.",
       },
       {
-        name: "Novato Commercial Core",
+        name: "Novato",
         url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         relationship_type: "Northern Marin corridor alternative",
         note: "More northern Marin office/flex and service-commercial oriented.",
@@ -806,7 +806,7 @@ Object.assign(integrationsByPath, {
         note: "More medical office and Civic Center corridor oriented.",
       },
       {
-        name: "Novato Commercial Core",
+        name: "Novato",
         url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         relationship_type: "Northern Marin office/flex contrast",
         note: "More operational and office/flex oriented than southern Marin's retail-adjacent corridor.",
@@ -826,7 +826,7 @@ Object.assign(integrationsByPath, {
         note: "More civic, downtown, and client-facing than Novato's corridor-oriented market.",
       },
       {
-        name: "Petaluma Commercial Core",
+        name: "Petaluma",
         url: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
         relationship_type: "Sonoma office/flex alternative",
         note: "More Sonoma County and light industrial/flex oriented.",
@@ -846,7 +846,7 @@ Object.assign(integrationsByPath, {
       "Compare Petaluma with nearby North Bay alternatives when light industrial/flex, office, local service, and Highway 101 access are part of the location decision.",
     districts: [
       {
-        name: "Novato Commercial Core",
+        name: "Novato",
         url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         relationship_type: "Northern Marin contrast",
         note: "More Marin-oriented and medical/professional-service focused than Petaluma.",
@@ -866,13 +866,13 @@ Object.assign(integrationsByPath, {
       "Use these relationships to compare Downtown Santa Rosa's regional office and service-hub role with nearby North Bay alternatives.",
     districts: [
       {
-        name: "Petaluma Commercial Core",
+        name: "Petaluma",
         url: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
         relationship_type: "Smaller operational market contrast",
         note: "More light industrial/flex and local service-commercial oriented than Santa Rosa's regional downtown role.",
       },
       {
-        name: "Novato Commercial Core",
+        name: "Novato",
         url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
         relationship_type: "Northern Marin alternative",
         note: "More Marin-oriented and corridor-practical than Santa Rosa's Sonoma County hub setting.",
@@ -907,7 +907,7 @@ Object.assign(integrationsByPath, {
         note: "Operational and warehouse/flex oriented across the river from downtown.",
       },
       {
-        name: "Roseville Commercial Core",
+        name: "Roseville",
         url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
         relationship_type: "Regional suburban office alternative",
         note: "More Placer County, medical/professional, and suburban client-service oriented.",
@@ -1031,13 +1031,13 @@ Object.assign(integrationsByPath, {
         note: "More river/port and downtown-edge oriented.",
       },
       {
-        name: "Rancho Cordova Commercial Core",
+        name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 office/flex and suburban office oriented.",
       },
       {
-        name: "Elk Grove Commercial Core",
+        name: "Elk Grove",
         url: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
         relationship_type: "South Sacramento service market",
         note: "More local-service and suburban medical/professional oriented.",
@@ -1077,7 +1077,7 @@ Object.assign(integrationsByPath, {
       "Compare Rancho Cordova with nearby eastern Sacramento and industrial/flex settings when office, back-office, and operational requirements overlap.",
     districts: [
       {
-        name: "Folsom Commercial Core",
+        name: "Folsom",
         url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
         relationship_type: "Eastern Sacramento professional contrast",
         note: "More polished, client-facing, and professional-service oriented.",
@@ -1103,13 +1103,13 @@ Object.assign(integrationsByPath, {
       "Use these relationships to compare Folsom with nearby suburban and regional Sacramento office markets.",
     districts: [
       {
-        name: "Rancho Cordova Commercial Core",
+        name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         relationship_type: "Highway 50 office/flex comparison",
         note: "More practical, back-office, and office/flex oriented.",
       },
       {
-        name: "Roseville Commercial Core",
+        name: "Roseville",
         url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
         relationship_type: "Regional suburban office comparison",
         note: "More Placer County and northeast Sacramento oriented.",
@@ -1129,7 +1129,7 @@ Object.assign(integrationsByPath, {
       "Compare Roseville with Sacramento and eastern suburban alternatives when Placer County, office, medical office, and client access matter.",
     districts: [
       {
-        name: "Folsom Commercial Core",
+        name: "Folsom",
         url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
         relationship_type: "Suburban office comparison",
         note: "More Highway 50 and eastern Sacramento oriented.",
@@ -1141,7 +1141,7 @@ Object.assign(integrationsByPath, {
         note: "More central, government-adjacent, and traditional-office oriented.",
       },
       {
-        name: "Rancho Cordova Commercial Core",
+        name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 and office/flex oriented.",
@@ -1167,7 +1167,7 @@ Object.assign(integrationsByPath, {
         note: "More civic, central, and professional-office oriented.",
       },
       {
-        name: "Rancho Cordova Commercial Core",
+        name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 and back-office/office-flex oriented.",
