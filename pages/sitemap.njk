@@ -56,6 +56,17 @@ eleventyExcludeFromCollections: true
   {% endif %}
   {% endfor %}
 
+  {% set comparisonUrls = [] %}
+  {% for comparison in locationComparisonPages %}
+  {% set comparisonLoc = siteUrl + comparison.path %}
+  {% if comparison.path and comparisonLoc not in comparisonUrls %}
+  <url>
+    <loc>{{ comparisonLoc }}</loc>
+  </url>
+  {% set comparisonUrls = (comparisonUrls.push(comparisonLoc), comparisonUrls) %}
+  {% endif %}
+  {% endfor %}
+
   {% set buildingUrls = [] %}
   {% for building in buildings %}
   {% set buildingLoc = siteUrl + "/commercial-real-estate/building/" + building.state_abbr + "/" + building.city_slug + "/" + building.building_slug + "/" %}

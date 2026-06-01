@@ -605,6 +605,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_south_bay_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the South Bay commercial geography graph, with context for office, R&D, flex, industrial, and nearby district comparisons.`,
+      guide_label: "South Bay district guide",
+    };
+  }
+
   return null;
 }
 
@@ -754,6 +767,105 @@ function representativeBuildingRolesFor(page) {
       "/commercial-real-estate/building/CA/palo-alto/400-hamilton-ave/":
         "Compact Peninsula office example",
     };
+  }
+
+  if (page.public_south_bay_v1) {
+    const rolesByPath = {
+      "/commercial-real-estate/building/CA/san-jose/2033-gateway-place/":
+        "Airport-adjacent office and technology corridor",
+      "/commercial-real-estate/building/CA/san-jose/2880-zanker-rd/":
+        "North San Jose R&D / office corridor",
+      "/commercial-real-estate/building/CA/san-jose/350-w-trimble-rd/":
+        "Industrial/flex edge near the technology corridor",
+      "/commercial-real-estate/building/CA/san-jose/1510-montague-expy/":
+        "Montague Expressway office/flex context",
+      "/commercial-real-estate/building/CA/san-jose/725-775-ridder-park-dr/":
+        "North San Jose business park setting",
+      "/commercial-real-estate/building/CA/san-jose/99-almaden-blvd/":
+        "Downtown San Jose office core",
+      "/commercial-real-estate/building/CA/san-jose/75-e-santa-clara-st/":
+        "Central downtown office address",
+      "/commercial-real-estate/building/CA/san-jose/18-n-1st-st/":
+        "Historic downtown street-level office context",
+      "/commercial-real-estate/building/CA/san-jose/45-n-san-pedro-st/":
+        "San Pedro downtown commercial block",
+      "/commercial-real-estate/building/CA/san-jose/333-w-san-carlos-st/":
+        "Downtown tower and convention edge",
+      "/commercial-real-estate/building/CA/santa-clara/2445-augustine-dr/":
+        "Santa Clara technology campus office",
+      "/commercial-real-estate/building/CA/santa-clara/3300-olcott-st/":
+        "Central Santa Clara office/tech corridor",
+      "/commercial-real-estate/building/CA/santa-clara/777-lawrence-expy/":
+        "Lawrence Expressway office/R&D context",
+      "/commercial-real-estate/building/CA/santa-clara/2300-walsh-ave/":
+        "Santa Clara R&D/flex business park",
+      "/commercial-real-estate/building/CA/santa-clara/4300-great-america-pkwy/":
+        "Great America Parkway office node",
+      "/commercial-real-estate/building/CA/santa-clara/5201-great-america-pkwy/":
+        "Tasman and Great America technology office context",
+      "/commercial-real-estate/building/CA/santa-clara/mission-college-blvd-and-montague-expy/":
+        "Mission College / Montague commercial edge",
+      "/commercial-real-estate/building/CA/sunnyvale/1277-borregas-ave/":
+        "Moffett Park technology office context",
+      "/commercial-real-estate/building/CA/sunnyvale/415-n-mary-ave/":
+        "North Sunnyvale office/R&D corridor",
+      "/commercial-real-estate/building/CA/sunnyvale/525-almanor-ave/":
+        "Sunnyvale technology campus edge",
+      "/commercial-real-estate/building/CA/sunnyvale/710-lakeway-drive-suite-200/":
+        "Moffett Park office suite artifact to review",
+      "/commercial-real-estate/building/CA/mountain-view/605-ellis-st/":
+        "Mountain View office/R&D edge",
+      "/commercial-real-estate/building/CA/mountain-view/1954-1958-old-middlefield-wy/":
+        "Old Middlefield technology corridor",
+      "/commercial-real-estate/building/CA/mountain-view/140-144-whisman-rd-s/":
+        "Whisman R&D/flex office context",
+      "/commercial-real-estate/building/CA/mountain-view/194-198-castro-st/":
+        "Castro Street downtown commercial block",
+      "/commercial-real-estate/building/CA/mountain-view/275-castro-st/":
+        "Downtown Mountain View office and retail texture",
+      "/commercial-real-estate/building/CA/mountain-view/785-castro-st/":
+        "Caltrain-oriented downtown office edge",
+      "/commercial-real-estate/building/CA/mountain-view/800-w-el-camino-real/":
+        "Downtown Mountain View professional office context",
+      "/commercial-real-estate/building/CA/palo-alto/2470-embarcadero-way/":
+        "Stanford Research Park office/R&D context",
+      "/commercial-real-estate/building/CA/palo-alto/2100-geng-rd/":
+        "Palo Alto research park campus edge",
+      "/commercial-real-estate/building/CA/palo-alto/2170-west-bayshore-road/":
+        "Research park and Baylands edge",
+      "/commercial-real-estate/building/CA/palo-alto/3101-park-blvd/":
+        "Park Boulevard R&D/professional office",
+      "/commercial-real-estate/building/CA/redwood-city/2065-broadway-st/":
+        "Downtown Redwood City Broadway office block",
+      "/commercial-real-estate/building/CA/redwood-city/2400-broadway/":
+        "Broadway downtown commercial context",
+      "/commercial-real-estate/building/CA/redwood-city/2504-el-camino-real/":
+        "El Camino downtown edge",
+      "/commercial-real-estate/building/CA/redwood-city/303-twin-dolphin-drive/":
+        "Redwood Shores comparison edge",
+      "/commercial-real-estate/building/CA/milpitas/720-montague-expy/":
+        "Montague industrial/flex corridor",
+      "/commercial-real-estate/building/CA/milpitas/750-e-calaveras-blvd/":
+        "Milpitas industrial and service-commercial edge",
+      "/commercial-real-estate/building/CA/milpitas/401-jacklin-rd/":
+        "Milpitas functional commercial block",
+      "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/":
+        "Warm Springs industrial and distribution context",
+      "/commercial-real-estate/building/CA/fremont/40861-albrae-st/":
+        "Fremont industrial/flex corridor",
+      "/commercial-real-estate/building/CA/fremont/5605-5639-auto-mall-pky/":
+        "Warm Springs / Auto Mall commercial edge",
+      "/commercial-real-estate/building/CA/fremont/43806-pacific-commons-boulevard/":
+        "Pacific Commons commercial support edge",
+      "/commercial-real-estate/building/CA/fremont/255-fourier-ave/":
+        "Ardenwood R&D/flex technology park",
+      "/commercial-real-estate/building/CA/fremont/4900-paseo-padre-pkwy/":
+        "Fremont technology office support context",
+      "/commercial-real-estate/building/CA/fremont/6036-6038-stevenson-blvd/":
+        "Fremont flex/service-commercial edge",
+    };
+
+    return rolesByPath;
   }
 
   return {};
@@ -1199,6 +1311,274 @@ const representativeBuildingPathOverridesByAreaId = {
   ],
 };
 
+const southBayDistrictDefinitions = [
+  {
+    id: "sb-north-san-jose",
+    name: "North San Jose",
+    slug: "north-san-jose",
+    city: "San Jose",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    centroid_lat: 37.408,
+    centroid_lng: -121.94,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "flex"],
+    profile: ["technology_office", "rd_flex", "industrial_flex", "airport_access"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-jose/2033-gateway-place/",
+      "/commercial-real-estate/building/CA/san-jose/2880-zanker-rd/",
+      "/commercial-real-estate/building/CA/san-jose/350-w-trimble-rd/",
+      "/commercial-real-estate/building/CA/san-jose/1510-montague-expy/",
+      "/commercial-real-estate/building/CA/san-jose/725-775-ridder-park-dr/",
+    ],
+  },
+  {
+    id: "sb-downtown-san-jose",
+    name: "Downtown San Jose",
+    slug: "downtown-san-jose",
+    city: "San Jose",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
+    centroid_lat: 37.335,
+    centroid_lng: -121.889,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["downtown_office", "civic_core", "caltrain", "light_rail"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-jose/99-almaden-blvd/",
+      "/commercial-real-estate/building/CA/san-jose/75-e-santa-clara-st/",
+      "/commercial-real-estate/building/CA/san-jose/333-w-san-carlos-st/",
+      "/commercial-real-estate/building/CA/san-jose/18-n-1st-st/",
+      "/commercial-real-estate/building/CA/san-jose/45-n-san-pedro-st/",
+    ],
+  },
+  {
+    id: "sb-santa-clara-office-tech-core",
+    name: "Santa Clara Tech Core",
+    slug: "santa-clara-office-tech-core",
+    city: "Santa Clara",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+    centroid_lat: 37.383,
+    centroid_lng: -121.978,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial"],
+    profile: ["technology_office", "rd_flex", "campus_office", "central_south_bay"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/santa-clara/2445-augustine-dr/",
+      "/commercial-real-estate/building/CA/santa-clara/3300-olcott-st/",
+      "/commercial-real-estate/building/CA/santa-clara/777-lawrence-expy/",
+      "/commercial-real-estate/building/CA/santa-clara/2300-walsh-ave/",
+      "/commercial-real-estate/building/CA/santa-clara/1841-pruneridge-ave/",
+    ],
+  },
+  {
+    id: "sb-great-america-tasman",
+    name: "Great America / Tasman",
+    slug: "great-america-tasman",
+    city: "Santa Clara",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/santa-clara/great-america-tasman/",
+    centroid_lat: 37.405,
+    centroid_lng: -121.974,
+    area_type: "district",
+    approximate_space_types: ["office", "retail", "flex"],
+    profile: ["technology_office", "light_rail", "event_adjacent", "campus_office"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/santa-clara/4300-great-america-pkwy/",
+      "/commercial-real-estate/building/CA/santa-clara/5201-great-america-pkwy/",
+      "/commercial-real-estate/building/CA/santa-clara/mission-college-blvd-and-montague-expy/",
+      "/commercial-real-estate/building/CA/santa-clara/3700-thomas-rd/",
+    ],
+  },
+  {
+    id: "sb-moffett-park",
+    name: "Moffett Park",
+    slug: "moffett-park",
+    city: "Sunnyvale",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+    centroid_lat: 37.412,
+    centroid_lng: -122.025,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial"],
+    profile: ["technology_campus", "innovation_district", "rd_flex", "route_237"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/sunnyvale/1277-borregas-ave/",
+      "/commercial-real-estate/building/CA/sunnyvale/415-n-mary-ave/",
+      "/commercial-real-estate/building/CA/sunnyvale/525-almanor-ave/",
+      "/commercial-real-estate/building/CA/sunnyvale/710-lakeway-drive-suite-200/",
+    ],
+  },
+  {
+    id: "sb-north-bayshore",
+    name: "North Bayshore",
+    slug: "north-bayshore",
+    city: "Mountain View",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+    centroid_lat: 37.424,
+    centroid_lng: -122.084,
+    area_type: "district",
+    approximate_space_types: ["office", "flex"],
+    profile: ["technology_campus", "innovation_district", "mountain_view", "large_employer_context"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/mountain-view/605-ellis-st/",
+      "/commercial-real-estate/building/CA/mountain-view/1954-1958-old-middlefield-wy/",
+      "/commercial-real-estate/building/CA/mountain-view/140-144-whisman-rd-s/",
+    ],
+  },
+  {
+    id: "sb-downtown-mountain-view",
+    name: "Downtown Mountain View",
+    slug: "downtown-mountain-view",
+    city: "Mountain View",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+    centroid_lat: 37.393,
+    centroid_lng: -122.079,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["caltrain", "downtown_office", "startup", "professional_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/mountain-view/194-198-castro-st/",
+      "/commercial-real-estate/building/CA/mountain-view/275-castro-st/",
+      "/commercial-real-estate/building/CA/mountain-view/785-castro-st/",
+      "/commercial-real-estate/building/CA/mountain-view/800-w-el-camino-real/",
+    ],
+  },
+  {
+    id: "sb-stanford-research-park",
+    name: "Stanford Research Park",
+    slug: "stanford-research-park",
+    city: "Palo Alto",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+    centroid_lat: 37.41,
+    centroid_lng: -122.148,
+    area_type: "district",
+    approximate_space_types: ["office", "flex"],
+    profile: ["research_park", "rd_office", "stanford", "campus_office"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/palo-alto/2470-embarcadero-way/",
+      "/commercial-real-estate/building/CA/palo-alto/2100-geng-rd/",
+      "/commercial-real-estate/building/CA/palo-alto/2170-west-bayshore-road/",
+      "/commercial-real-estate/building/CA/palo-alto/3101-park-blvd/",
+      "/commercial-real-estate/building/CA/palo-alto/1121-san-antonio-rd/",
+    ],
+  },
+  {
+    id: "sb-downtown-redwood-city",
+    name: "Downtown Redwood City",
+    slug: "downtown-redwood-city",
+    city: "Redwood City",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+    centroid_lat: 37.486,
+    centroid_lng: -122.232,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["caltrain", "downtown_office", "professional_services", "mid_peninsula"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/redwood-city/2065-broadway-st/",
+      "/commercial-real-estate/building/CA/redwood-city/2400-broadway/",
+      "/commercial-real-estate/building/CA/redwood-city/2504-el-camino-real/",
+      "/commercial-real-estate/building/CA/redwood-city/303-twin-dolphin-drive/",
+    ],
+  },
+  {
+    id: "sb-milpitas-industrial",
+    name: "Milpitas Industrial",
+    slug: "milpitas-industrial",
+    city: "Milpitas",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+    centroid_lat: 37.417,
+    centroid_lng: -121.903,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["warehouse", "industrial_flex", "service_commercial", "i880_237"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/milpitas/720-montague-expy/",
+      "/commercial-real-estate/building/CA/milpitas/750-e-calaveras-blvd/",
+      "/commercial-real-estate/building/CA/milpitas/401-jacklin-rd/",
+    ],
+  },
+  {
+    id: "sb-warm-springs",
+    name: "Warm Springs Innovation District",
+    slug: "warm-springs-innovation-district",
+    city: "Fremont",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+    centroid_lat: 37.503,
+    centroid_lng: -121.94,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["advanced_manufacturing", "rd_flex", "bart", "warm_springs"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
+      "/commercial-real-estate/building/CA/fremont/40861-albrae-st/",
+      "/commercial-real-estate/building/CA/fremont/5605-5639-auto-mall-pky/",
+      "/commercial-real-estate/building/CA/fremont/43806-pacific-commons-boulevard/",
+    ],
+  },
+  {
+    id: "sb-ardenwood",
+    name: "Ardenwood Technology Park",
+    slug: "ardenwood-technology-park",
+    city: "Fremont",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/fremont/ardenwood-technology-park/",
+    centroid_lat: 37.555,
+    centroid_lng: -122.06,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial"],
+    profile: ["rd_flex", "technology_park", "dumbarton_bridge", "fremont"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/fremont/255-fourier-ave/",
+      "/commercial-real-estate/building/CA/fremont/4900-paseo-padre-pkwy/",
+      "/commercial-real-estate/building/CA/fremont/6036-6038-stevenson-blvd/",
+    ],
+  },
+];
+
+function southBayDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "south_bay_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_south_bay_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -1425,6 +1805,8 @@ const nycPages = nycCandidates
   .map(nycPageFor)
   .filter(Boolean);
 
+const southBayPages = southBayDistrictDefinitions.map(southBayDistrictPageFor);
+
 const allPagesByPath = new Map();
 
 for (const page of existingPages) {
@@ -1439,6 +1821,13 @@ for (const page of commercialPages) {
 }
 
 for (const page of nycPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of southBayPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

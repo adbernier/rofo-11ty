@@ -250,22 +250,25 @@ const integrationsByPath = {
       "Compare Downtown Palo Alto with Peninsula districts and corridors that offer different balances of walkability, client presence, and R&D-oriented commercial context.",
     districts: [
       {
-        name: "Mountain View / Castro-Whisman",
+        name: "Downtown Mountain View",
+        url: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
         relationship_type: "Corridor alternative",
         note:
-          "More corridor- and R&D-oriented than Downtown Palo Alto, with broader Mountain View startup and office context.",
+          "Another Caltrain-oriented Peninsula downtown with broader Mountain View startup and office context.",
       },
       {
-        name: "Redwood City Downtown",
+        name: "Downtown Redwood City",
+        url: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
         relationship_type: "Mid-Peninsula comparison",
         note:
           "A larger mid-Peninsula downtown with stronger civic, entertainment, and Caltrain-adjacent commercial context.",
       },
       {
-        name: "California Avenue",
-        relationship_type: "Local Palo Alto contrast",
+        name: "Stanford Research Park",
+        url: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        relationship_type: "Local format contrast",
         note:
-          "A more local Palo Alto commercial district compared with the tighter University Avenue downtown core.",
+          "More R&D, research-park, and campus-oriented than Downtown Palo Alto's walkable professional office core.",
       },
     ],
   },
@@ -322,6 +325,285 @@ const integrationsByPath = {
     ],
   },
 };
+
+Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/san-jose/north-san-jose/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare South Bay alternatives",
+    intro:
+      "Use these relationships to read North San Jose as a broad office, R&D, and flex corridor rather than a downtown or neighborhood district.",
+    districts: [
+      {
+        name: "Santa Clara Tech Core",
+        url: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+        relationship_type: "Office/tech alternative",
+        note: "A more established Santa Clara technology-office and campus context west of North San Jose.",
+      },
+      {
+        name: "Moffett Park",
+        url: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        relationship_type: "Innovation-campus comparison",
+        note: "A more concentrated Sunnyvale innovation district for large office and technology-campus users.",
+      },
+      {
+        name: "Milpitas Industrial",
+        url: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More directly warehouse/flex and service-commercial along I-880 and 237.",
+      },
+      {
+        name: "Downtown San Jose",
+        url: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
+        relationship_type: "Urban core contrast",
+        note: "More walkable, transit-oriented, civic, and downtown-office oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-jose/downtown-san-jose/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare San Jose business settings",
+    intro:
+      "Compare Downtown San Jose's urban office and civic context with nearby South Bay technology and flex corridors.",
+    districts: [
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "Technology corridor contrast",
+        note: "Broader, more campus- and R&D/flex-oriented than the downtown core.",
+      },
+      {
+        name: "Santa Clara Tech Core",
+        url: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+        relationship_type: "Office/tech alternative",
+        note: "More campus-oriented and central South Bay technology-office focused.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare nearby technology districts",
+    intro:
+      "Use these districts to compare Santa Clara's technology-office core with adjacent South Bay office, R&D, and campus environments.",
+    districts: [
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "R&D/flex corridor contrast",
+        note: "Broader and more corridor-like, with stronger airport and mixed office/flex geography.",
+      },
+      {
+        name: "Moffett Park",
+        url: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        relationship_type: "Innovation-campus comparison",
+        note: "More concentrated as a Sunnyvale innovation and technology-campus district.",
+      },
+      {
+        name: "Great America / Tasman",
+        url: "/commercial-real-estate/CA/santa-clara/great-america-tasman/",
+        relationship_type: "Local node",
+        note: "A Santa Clara subdistrict around light rail, Great America Parkway, and large campus buildings.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/santa-clara/great-america-tasman/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Santa Clara nodes",
+    intro:
+      "Great America / Tasman works best as a focused relationship node within Santa Clara's broader office and technology geography.",
+    districts: [
+      {
+        name: "Santa Clara Tech Core",
+        url: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+        relationship_type: "Broader market context",
+        note: "The larger Santa Clara office/tech market beyond the Great America and Tasman node.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "Adjacent corridor",
+        note: "A nearby office, R&D, and flex corridor with stronger airport and San Jose access.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/sunnyvale/moffett-park/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare innovation-campus districts",
+    intro:
+      "Compare Moffett Park with nearby South Bay districts that offer different office, campus, and R&D/flex tradeoffs.",
+    districts: [
+      {
+        name: "North Bayshore",
+        url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        relationship_type: "Adjacent campus comparison",
+        note: "A Mountain View technology-campus district with stronger major-employer identity.",
+      },
+      {
+        name: "Santa Clara Tech Core",
+        url: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+        relationship_type: "Central South Bay alternative",
+        note: "A broader Santa Clara office/tech core with more central South Bay access.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "Corridor alternative",
+        note: "Larger and more mixed across office, R&D, flex, airport, and freeway access.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/mountain-view/north-bayshore/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Mountain View and Sunnyvale campus settings",
+    intro:
+      "Use these relationships to place North Bayshore within the South Bay technology-campus graph.",
+    districts: [
+      {
+        name: "Moffett Park",
+        url: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        relationship_type: "Adjacent innovation district",
+        note: "A nearby Sunnyvale campus district with broader innovation-district comparison value.",
+      },
+      {
+        name: "Downtown Mountain View",
+        url: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        relationship_type: "Downtown contrast",
+        note: "More walkable, Caltrain-oriented, and smaller-company friendly than North Bayshore.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Peninsula downtowns",
+    intro:
+      "Compare Downtown Mountain View with nearby Caltrain downtowns and campus-oriented alternatives.",
+    districts: [
+      {
+        name: "Downtown Palo Alto",
+        url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        relationship_type: "Peninsula downtown comparison",
+        note: "More Stanford- and venture-adjacent, with stronger client-facing professional identity.",
+      },
+      {
+        name: "Downtown Redwood City",
+        url: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+        relationship_type: "Mid-Peninsula alternative",
+        note: "A larger mid-Peninsula downtown with civic, Broadway, and Caltrain context.",
+      },
+      {
+        name: "North Bayshore",
+        url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        relationship_type: "Campus contrast",
+        note: "More large-campus and technology-employer oriented than the downtown core.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/palo-alto/stanford-research-park/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Palo Alto business settings",
+    intro:
+      "Use these relationships to compare research-park, downtown, and nearby technology-campus environments.",
+    districts: [
+      {
+        name: "Downtown Palo Alto",
+        url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        relationship_type: "Local format contrast",
+        note: "More walkable, Caltrain-oriented, and client-facing than Stanford Research Park.",
+      },
+      {
+        name: "North Bayshore",
+        url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        relationship_type: "Campus comparison",
+        note: "A larger technology-campus ecosystem in Mountain View.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Peninsula downtowns",
+    intro:
+      "Compare Downtown Redwood City with nearby Peninsula downtowns that offer different office identity, commute, and client-facing tradeoffs.",
+    districts: [
+      {
+        name: "Downtown Palo Alto",
+        url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        relationship_type: "Prestige/client-facing contrast",
+        note: "More Stanford- and venture-adjacent, with stronger Palo Alto professional identity.",
+      },
+      {
+        name: "Downtown Mountain View",
+        url: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        relationship_type: "Startup downtown comparison",
+        note: "More Mountain View technology-adjacent and startup-oriented around Castro Street.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/milpitas/milpitas-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare industrial and flex alternatives",
+    intro:
+      "Compare Milpitas Industrial with nearby South Bay and Fremont districts when warehouse/flex, service-commercial, and R&D/manufacturing requirements matter.",
+    districts: [
+      {
+        name: "Warm Springs Innovation District",
+        url: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        relationship_type: "Manufacturing/R&D comparison",
+        note: "More advanced-manufacturing and BART-adjacent than Milpitas' functional industrial/flex setting.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "Office/R&D contrast",
+        note: "More office and technology-corridor oriented, with stronger airport and San Jose access.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Fremont and South Bay industrial districts",
+    intro:
+      "Use these relationships to read Warm Springs as advanced manufacturing and R&D/flex geography, not just generic industrial space.",
+    districts: [
+      {
+        name: "Milpitas Industrial",
+        url: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+        relationship_type: "Industrial/flex contrast",
+        note: "More functional I-880/237 warehouse and service-commercial context.",
+      },
+      {
+        name: "Ardenwood Technology Park",
+        url: "/commercial-real-estate/CA/fremont/ardenwood-technology-park/",
+        relationship_type: "Fremont R&D/flex comparison",
+        note: "More Dumbarton Bridge and Peninsula-access oriented within Fremont.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        relationship_type: "South Bay office/R&D alternative",
+        note: "More office/R&D corridor and airport-access oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/fremont/ardenwood-technology-park/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Fremont R&D/flex alternatives",
+    intro:
+      "Compare Ardenwood with nearby districts when Dumbarton access, R&D/flex buildings, and Fremont technology-park context matter.",
+    districts: [
+      {
+        name: "Warm Springs Innovation District",
+        url: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        relationship_type: "Manufacturing/R&D comparison",
+        note: "More advanced-manufacturing and BART-adjacent within Fremont.",
+      },
+      {
+        name: "Milpitas Industrial",
+        url: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+        relationship_type: "South Bay industrial alternative",
+        note: "More I-880/237 industrial/flex utility and South Bay access.",
+      },
+    ],
+  },
+});
 
 module.exports = {
   byPath: integrationsByPath,

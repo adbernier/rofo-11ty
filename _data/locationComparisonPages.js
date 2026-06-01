@@ -394,6 +394,285 @@ const comparisons = [
   },
 ];
 
+comparisons.push(
+  {
+    slug: "north-san-jose-vs-santa-clara",
+    title: "North San Jose vs Santa Clara Tech Core",
+    short_title: "North San Jose vs Santa Clara Tech Core",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-santa-clara/",
+    district_a_name: "North San Jose",
+    district_b_name: "Santa Clara Tech Core",
+    district_a_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+    verdict_a:
+      "Choose North San Jose if broader R&D/flex geography, airport access, and larger-corridor technology space matter most.",
+    verdict_b:
+      "Choose Santa Clara Tech Core if a more established central South Bay office/tech core and campus-oriented setting are the better fit.",
+    comparison_notes: [
+      "Both work for technology and R&D users, but North San Jose reads as a broader corridor while Santa Clara Tech Core reads as a more concentrated office/tech market.",
+      "North San Jose is stronger for airport, 101/I-880, and larger mixed office/flex geography.",
+      "Santa Clara Tech Core is stronger when central South Bay campus identity and established tech-office context matter.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "north-san-jose-vs-moffett-park",
+    title: "North San Jose vs Moffett Park",
+    short_title: "North San Jose vs Moffett Park",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-moffett-park/",
+    district_a_name: "North San Jose",
+    district_b_name: "Moffett Park",
+    district_a_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+    verdict_a:
+      "Choose North San Jose if airport access, broad R&D/flex supply, and South Bay corridor flexibility matter most.",
+    verdict_b:
+      "Choose Moffett Park if a more concentrated Sunnyvale innovation-campus environment is the stronger signal.",
+    comparison_notes: [
+      "North San Jose is broader and more corridor-like; Moffett Park is more concentrated and campus-oriented.",
+      "North San Jose fits teams comparing office, R&D, and flex needs across a larger geography.",
+      "Moffett Park fits companies that want a clear Sunnyvale innovation district near Mountain View and major tech employers.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-san-jose-vs-north-san-jose",
+    title: "Downtown San Jose vs North San Jose",
+    short_title: "Downtown San Jose vs North San Jose",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/downtown-san-jose-vs-north-san-jose/",
+    district_a_name: "Downtown San Jose",
+    district_b_name: "North San Jose",
+    district_a_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    verdict_a:
+      "Choose Downtown San Jose if urban office identity, transit access, civic context, and walkable downtown activity matter most.",
+    verdict_b:
+      "Choose North San Jose if larger technology-campus, R&D, airport, and office/flex corridor geography are the priority.",
+    comparison_notes: [
+      "This is the clearest San Jose format decision: urban downtown office context versus larger-parcel technology corridor.",
+      "Downtown San Jose is stronger for civic, transit, university, convention, and walkable office needs.",
+      "North San Jose is stronger for office/R&D, flex, airport access, and campus-style building requirements.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "moffett-park-vs-north-bayshore",
+    title: "Moffett Park vs North Bayshore",
+    short_title: "Moffett Park vs North Bayshore",
+    city: "Sunnyvale",
+    state_abbr: "CA",
+    city_slug: "sunnyvale",
+    path: "/commercial-real-estate/CA/sunnyvale/moffett-park-vs-north-bayshore/",
+    district_a_name: "Moffett Park",
+    district_b_name: "North Bayshore",
+    district_a_path: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+    district_b_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+    verdict_a:
+      "Choose Moffett Park if Sunnyvale campus supply, 237/101 access, and a broader innovation district fit the requirement.",
+    verdict_b:
+      "Choose North Bayshore if Mountain View technology-campus identity and major-employer adjacency are the priority.",
+    comparison_notes: [
+      "Both are campus-oriented innovation districts, not downtown office environments.",
+      "Moffett Park usually offers broader Sunnyvale district comparison value across office and R&D/flex users.",
+      "North Bayshore is more tightly associated with Mountain View large-employer and campus geography.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-palo-alto-vs-downtown-mountain-view",
+    title: "Downtown Palo Alto vs Downtown Mountain View",
+    short_title: "Downtown Palo Alto vs Downtown Mountain View",
+    city: "Palo Alto",
+    state_abbr: "CA",
+    city_slug: "palo-alto",
+    path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-downtown-mountain-view/",
+    district_a_name: "Downtown Palo Alto",
+    district_b_name: "Downtown Mountain View",
+    district_a_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    district_b_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+    verdict_a:
+      "Choose Downtown Palo Alto if Stanford adjacency, venture/professional services, and stronger client-facing Peninsula identity matter most.",
+    verdict_b:
+      "Choose Downtown Mountain View if Caltrain access, startup context, and a practical walkable downtown near major tech employers fit better.",
+    comparison_notes: [
+      "Both are walkable Caltrain-oriented Peninsula downtowns.",
+      "Downtown Palo Alto carries stronger Stanford, venture, and client-facing professional identity.",
+      "Downtown Mountain View is often more practical for startup and technology-adjacent users that still want downtown texture.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "stanford-research-park-vs-downtown-palo-alto",
+    title: "Stanford Research Park vs Downtown Palo Alto",
+    short_title: "Stanford Research Park vs Downtown Palo Alto",
+    city: "Palo Alto",
+    state_abbr: "CA",
+    city_slug: "palo-alto",
+    path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/",
+    district_a_name: "Stanford Research Park",
+    district_b_name: "Downtown Palo Alto",
+    district_a_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+    district_b_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    verdict_a:
+      "Choose Stanford Research Park if research, R&D, institutional adjacency, and campus-oriented buildings matter most.",
+    verdict_b:
+      "Choose Downtown Palo Alto if walkability, Caltrain access, restaurants, and client-facing downtown identity are more important.",
+    comparison_notes: [
+      "This is a format decision within Palo Alto: research-park/campus geography versus walkable downtown office context.",
+      "Stanford Research Park is stronger for R&D, technology, and institutional users.",
+      "Downtown Palo Alto is stronger for professional services, startups, and teams that benefit from University Avenue and Caltrain.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "warm-springs-vs-milpitas-industrial",
+    title: "Warm Springs vs Milpitas Industrial",
+    short_title: "Warm Springs vs Milpitas Industrial",
+    city: "Fremont",
+    state_abbr: "CA",
+    city_slug: "fremont",
+    path: "/commercial-real-estate/CA/fremont/warm-springs-vs-milpitas-industrial/",
+    district_a_name: "Warm Springs",
+    district_b_name: "Milpitas Industrial",
+    district_a_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+    district_b_path: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+    verdict_a:
+      "Choose Warm Springs if advanced manufacturing, R&D/flex, BART adjacency, and Fremont innovation identity matter most.",
+    verdict_b:
+      "Choose Milpitas Industrial if practical I-880/237 warehouse, flex, and service-commercial access is the priority.",
+    comparison_notes: [
+      "Warm Springs has a stronger innovation and advanced manufacturing signal.",
+      "Milpitas Industrial is more directly functional for warehouse/flex and service-commercial users.",
+      "Both serve South Bay industrial/flex decisions, but they communicate different levels of technology and manufacturing identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "north-san-jose-vs-milpitas",
+    title: "North San Jose vs Milpitas Industrial",
+    short_title: "North San Jose vs Milpitas",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-milpitas/",
+    district_a_name: "North San Jose",
+    district_b_name: "Milpitas Industrial",
+    district_a_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
+    verdict_a:
+      "Choose North San Jose if office/R&D identity, airport access, and larger technology corridor context matter most.",
+    verdict_b:
+      "Choose Milpitas Industrial if warehouse/flex functionality, service-commercial access, and I-880/237 utility matter more.",
+    comparison_notes: [
+      "North San Jose works better when the decision includes office, R&D, and technology-campus identity.",
+      "Milpitas Industrial works better when the decision is more operational, warehouse/flex, or service-commercial.",
+      "The comparison helps separate South Bay technology corridor needs from functional industrial/flex needs.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "warm-springs-vs-ardenwood",
+    title: "Warm Springs vs Ardenwood",
+    short_title: "Warm Springs vs Ardenwood",
+    city: "Fremont",
+    state_abbr: "CA",
+    city_slug: "fremont",
+    path: "/commercial-real-estate/CA/fremont/warm-springs-vs-ardenwood/",
+    district_a_name: "Warm Springs",
+    district_b_name: "Ardenwood",
+    district_a_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+    district_b_path: "/commercial-real-estate/CA/fremont/ardenwood-technology-park/",
+    verdict_a:
+      "Choose Warm Springs if BART adjacency, advanced manufacturing, and Fremont innovation identity are central.",
+    verdict_b:
+      "Choose Ardenwood if R&D/flex buildings and Dumbarton Bridge/Peninsula access are more important.",
+    comparison_notes: [
+      "Warm Springs is more strongly associated with advanced manufacturing and BART-adjacent innovation geography.",
+      "Ardenwood is more bridge-adjacent and useful for Fremont users comparing East Bay buildings with Peninsula access.",
+      "Both fit R&D/flex decisions, but they solve different commute and ecosystem problems.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-redwood-city-vs-downtown-palo-alto",
+    title: "Downtown Redwood City vs Downtown Palo Alto",
+    short_title: "Downtown Redwood City vs Downtown Palo Alto",
+    city: "Redwood City",
+    state_abbr: "CA",
+    city_slug: "redwood-city",
+    path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-palo-alto/",
+    district_a_name: "Downtown Redwood City",
+    district_b_name: "Downtown Palo Alto",
+    district_a_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+    district_b_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    verdict_a:
+      "Choose Downtown Redwood City if a practical mid-Peninsula downtown with Caltrain, civic, and Broadway context fits best.",
+    verdict_b:
+      "Choose Downtown Palo Alto if Stanford adjacency, venture/professional services, and stronger prestige signaling matter more.",
+    comparison_notes: [
+      "Both are Caltrain-oriented Peninsula downtowns.",
+      "Downtown Redwood City is a practical mid-Peninsula business and civic downtown.",
+      "Downtown Palo Alto is more strongly tied to Stanford, venture networks, and client-facing professional identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-redwood-city-vs-downtown-mountain-view",
+    title: "Downtown Redwood City vs Downtown Mountain View",
+    short_title: "Downtown Redwood City vs Downtown Mountain View",
+    city: "Redwood City",
+    state_abbr: "CA",
+    city_slug: "redwood-city",
+    path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-mountain-view/",
+    district_a_name: "Downtown Redwood City",
+    district_b_name: "Downtown Mountain View",
+    district_a_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+    district_b_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+    verdict_a:
+      "Choose Downtown Redwood City if mid-Peninsula access, civic context, and Broadway downtown activity matter most.",
+    verdict_b:
+      "Choose Downtown Mountain View if startup context, Castro Street, and Mountain View technology adjacency matter more.",
+    comparison_notes: [
+      "Both are useful Peninsula downtown comparisons for office and professional users.",
+      "Downtown Redwood City leans more mid-Peninsula, civic, and Broadway-oriented.",
+      "Downtown Mountain View leans more startup and technology-adjacent near major Mountain View employers.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "santa-clara-vs-moffett-park",
+    title: "Santa Clara Tech Core vs Moffett Park",
+    short_title: "Santa Clara Tech Core vs Moffett Park",
+    city: "Santa Clara",
+    state_abbr: "CA",
+    city_slug: "santa-clara",
+    path: "/commercial-real-estate/CA/santa-clara/santa-clara-vs-moffett-park/",
+    district_a_name: "Santa Clara Tech Core",
+    district_b_name: "Moffett Park",
+    district_a_path: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
+    district_b_path: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+    verdict_a:
+      "Choose Santa Clara Tech Core if central South Bay office/tech supply, established campus context, and broader employer access matter most.",
+    verdict_b:
+      "Choose Moffett Park if a more concentrated Sunnyvale innovation-campus district is the stronger location signal.",
+    comparison_notes: [
+      "Santa Clara Tech Core is broader and more central within South Bay office/tech geography.",
+      "Moffett Park is more concentrated and innovation-campus oriented.",
+      "The decision often turns on whether a user needs practical central South Bay access or a more defined Sunnyvale campus environment.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -407,6 +686,16 @@ const detailCtaByArchetype = {
   advanced_manufacturing_rd_flex_market: "R&D and manufacturing context",
   tri_city_logistics_flex_market: "Tri-City logistics/flex context",
   north_i880_industrial_service_market: "North I-880 industrial context",
+  silicon_valley_innovation_office_district: "South Bay office and R&D context",
+  technology_campus_office_core: "technology campus context",
+  moffett_park_innovation_district: "Moffett Park innovation context",
+  north_bayshore_technology_district: "North Bayshore technology context",
+  caltrain_downtown_professional_district: "Caltrain downtown office context",
+  research_park_rd_office_district: "research park and R&D context",
+  peninsula_downtown_office_core: "Peninsula downtown office context",
+  i880_237_industrial_flex_corridor: "industrial/flex corridor context",
+  advanced_manufacturing_innovation_district: "advanced manufacturing context",
+  ardenwood_rd_flex_district: "Ardenwood R&D/flex context",
 };
 
 const metaFocusBySlug = {
@@ -444,6 +733,30 @@ const metaFocusBySlug = {
     "Hayward industrial depth versus compact Tri-City logistics and warehouse/flex access",
   "hayward-vs-san-leandro":
     "central East Bay warehouse/flex depth versus Oakland-adjacent North I-880 service-industrial access",
+  "north-san-jose-vs-santa-clara":
+    "North San Jose R and D/flex corridor geography versus Santa Clara office and technology campus context",
+  "north-san-jose-vs-moffett-park":
+    "broad South Bay office/R and D corridor access versus concentrated Sunnyvale innovation-campus geography",
+  "downtown-san-jose-vs-north-san-jose":
+    "urban San Jose downtown office context versus larger-parcel North San Jose technology and R and D corridor geography",
+  "moffett-park-vs-north-bayshore":
+    "Sunnyvale innovation district context versus Mountain View large-campus technology geography",
+  "downtown-palo-alto-vs-downtown-mountain-view":
+    "Stanford-adjacent Peninsula professional context versus Mountain View startup and Caltrain downtown context",
+  "stanford-research-park-vs-downtown-palo-alto":
+    "research park and R and D campus geography versus walkable Palo Alto downtown office identity",
+  "warm-springs-vs-milpitas-industrial":
+    "Fremont advanced manufacturing and BART-adjacent innovation context versus Milpitas industrial/flex utility",
+  "north-san-jose-vs-milpitas":
+    "South Bay office/R and D corridor context versus functional I-880/237 industrial and warehouse/flex access",
+  "warm-springs-vs-ardenwood":
+    "Warm Springs advanced manufacturing and BART adjacency versus Ardenwood R and D/flex and Dumbarton access",
+  "downtown-redwood-city-vs-downtown-palo-alto":
+    "mid-Peninsula downtown practicality versus Stanford-adjacent Palo Alto professional identity",
+  "downtown-redwood-city-vs-downtown-mountain-view":
+    "Redwood City mid-Peninsula business downtown versus Mountain View startup and technology-adjacent downtown",
+  "santa-clara-vs-moffett-park":
+    "Santa Clara central South Bay office/tech context versus Moffett Park innovation-campus concentration",
 };
 
 function districtSummary(path) {
@@ -495,11 +808,22 @@ function hasWarehouseFlexDecisionContext(districtA, districtB) {
   );
 }
 
+const warehouseFlexComparisonSlugs = new Set([
+  "hayward-vs-fremont",
+  "hayward-vs-union-city",
+  "hayward-vs-san-leandro",
+  "warm-springs-vs-milpitas-industrial",
+  "north-san-jose-vs-milpitas",
+  "warm-springs-vs-ardenwood",
+]);
+
 module.exports = comparisons.map((comparison) => {
   const districtA = districtSummary(comparison.district_a_path);
   const districtB = districtSummary(comparison.district_b_path);
   const metaFocus = metaFocusBySlug[comparison.slug];
-  const warehouseFlexComparison = hasWarehouseFlexDecisionContext(districtA, districtB);
+  const warehouseFlexComparison =
+    warehouseFlexComparisonSlugs.has(comparison.slug) &&
+    hasWarehouseFlexDecisionContext(districtA, districtB);
 
   return {
     ...comparison,
