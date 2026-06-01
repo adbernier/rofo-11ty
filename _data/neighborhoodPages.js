@@ -241,6 +241,65 @@ function curatedDistrictMediaForPublicUse(exportManifest) {
         },
       ],
     },
+    "downtown-oakland": {
+      eyebrow: "Views of Downtown Oakland",
+      heading: "",
+      caption: "A few views that show Downtown Oakland’s BART-centered civic and business core around Broadway, City Center, and nearby downtown commercial blocks.",
+      primary: {
+        district_slug: "downtown-oakland",
+        district_name: "Downtown Oakland",
+        label: "Downtown Oakland office core",
+        src: "/assets/images/districts/downtown-oakland/downtown-oakland-hero.webp",
+        thumb_src: "/assets/images/districts/downtown-oakland/downtown-oakland-hero.webp",
+        canonical_building_path: "",
+        alt: "Downtown Oakland commercial core with office and civic business context",
+      },
+      supporting: [
+        {
+          district_slug: "downtown-oakland",
+          district_name: "Downtown Oakland",
+          label: "Downtown Oakland district edge",
+          src: "/assets/images/districts/downtown-oakland/downtown-oakland-border.webp",
+          thumb_src: "/assets/images/districts/downtown-oakland/downtown-oakland-border.webp",
+          canonical_building_path: "",
+          alt: "Downtown Oakland commercial district edge near the central business core",
+        },
+      ],
+    },
+    "uptown-oakland": {
+      eyebrow: "Views of Uptown Oakland",
+      heading: "",
+      caption: "A few views that show Uptown Oakland’s mixed-use, arts-adjacent commercial setting north of Downtown Oakland.",
+      primary: {
+        district_slug: "uptown-oakland",
+        district_name: "Uptown Oakland",
+        label: "Uptown Oakland mixed-use commercial context",
+        src: "/assets/images/districts/uptown-oakland/uptown-oakland-hero.webp",
+        thumb_src: "/assets/images/districts/uptown-oakland/uptown-oakland-hero.webp",
+        canonical_building_path: "",
+        alt: "Uptown Oakland mixed-use commercial and office district context",
+      },
+      supporting: [
+        {
+          district_slug: "uptown-oakland",
+          district_name: "Uptown Oakland",
+          label: "Uptown Oakland Fox Theater area",
+          src: "/assets/images/districts/uptown-oakland/uptown-oakland-fox.webp",
+          thumb_src: "/assets/images/districts/uptown-oakland/uptown-oakland-fox.webp",
+          canonical_building_path: "",
+          alt: "Uptown Oakland commercial blocks near the Fox Theater area",
+        },
+        {
+          district_slug: "uptown-oakland",
+          district_name: "Uptown Oakland",
+          label: "Uptown Oakland district edge",
+          src: "/assets/images/districts/uptown-oakland/uptown-oakland-border.webp",
+          thumb_src: "/assets/images/districts/uptown-oakland/uptown-oakland-border.webp",
+          canonical_building_path: "",
+          alt: "Uptown Oakland commercial district edge near Downtown Oakland",
+        },
+      ],
+    },
     soma: {
       eyebrow: "Views of SoMa",
       heading: "",
@@ -1427,6 +1486,24 @@ for (const page of allPages) {
     page.neighborhood_image_path =
       page.neighborhood_image_path || "/assets/images/districts/mission-bay/hero.webp";
   }
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/oakland/downtown-oakland/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/downtown-oakland/downtown-oakland-hero.webp";
+  }
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/oakland/uptown-oakland/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/uptown-oakland/uptown-oakland-hero.webp";
+  }
+  if (
+    page.canonical_neighborhood_path === "/commercial-real-estate/CA/oakland/jack-london-square/"
+  ) {
+    page.neighborhood_image_path =
+      page.neighborhood_image_path || "/assets/images/districts/jack-london-square/jack-london-hero.webp";
+  }
   page.map_hero = neighborhoodMapHeroes[mapHeroKey(page)] || null;
   page.neighborhood_intelligence = neighborhoodIntelligence[page.canonical_neighborhood_path] || null;
   page.public_commercial_districts =
@@ -1444,6 +1521,10 @@ for (const page of allPages) {
       ? curatedDistrictMediaBySlug["jackson-square"] || null
       : page.canonical_neighborhood_path === "/commercial-real-estate/CA/san-francisco/mission-bay/"
       ? curatedDistrictMediaBySlug["mission-bay"] || null
+      : page.canonical_neighborhood_path === "/commercial-real-estate/CA/oakland/downtown-oakland/"
+      ? curatedDistrictMediaBySlug["downtown-oakland"] || null
+      : page.canonical_neighborhood_path === "/commercial-real-estate/CA/oakland/uptown-oakland/"
+      ? curatedDistrictMediaBySlug["uptown-oakland"] || null
       : null;
   page.district_locator_map = districtLocatorMapFor(page);
   if (page.district_locator_map && page.district_locator_map.promote_to_identity && page.map_hero) {
