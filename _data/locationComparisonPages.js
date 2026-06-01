@@ -186,6 +186,98 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "emeryville-vs-downtown-oakland",
+    title: "Emeryville vs Downtown Oakland",
+    short_title: "Emeryville vs Downtown Oakland",
+    city: "Oakland",
+    state_abbr: "CA",
+    city_slug: "oakland",
+    path: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/",
+    district_a_name: "Emeryville Commercial Core",
+    district_b_name: "Downtown Oakland",
+    district_a_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+    verdict_a:
+      "Choose Emeryville if compact East Bay office, life-science-adjacent, and mixed commercial context between Oakland and Berkeley matters most.",
+    verdict_b:
+      "Choose Downtown Oakland if BART-centered civic, public-sector, and broader downtown office identity are the priority.",
+    comparison_notes: [
+      "Emeryville is a compact mixed office/life-science node; Downtown Oakland is the larger civic and BART-centered East Bay business core.",
+      "Emeryville is stronger when teams want Oakland/Berkeley access without a formal downtown setting.",
+      "Downtown Oakland is stronger when transit concentration, civic services, and Broadway office identity matter.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "emeryville-vs-berkeley",
+    title: "Emeryville vs Downtown Berkeley",
+    short_title: "Emeryville vs Berkeley",
+    city: "Emeryville",
+    state_abbr: "CA",
+    city_slug: "emeryville",
+    path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
+    district_a_name: "Emeryville Commercial Core",
+    district_b_name: "Downtown Berkeley",
+    district_a_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+    verdict_a:
+      "Choose Emeryville if office, life-science-adjacent, R&D, and mixed commercial supply matter more than university-downtown character.",
+    verdict_b:
+      "Choose Downtown Berkeley if BART, UC Berkeley adjacency, Shattuck/University context, and smaller office or nonprofit fit matter more.",
+    comparison_notes: [
+      "Emeryville is more office/life-science and mixed commercial; Downtown Berkeley is more university-adjacent, BART-centered, and street-level downtown.",
+      "Emeryville works better for teams seeking a compact East Bay commercial node between Oakland and Berkeley.",
+      "Downtown Berkeley works better for education-adjacent, nonprofit, professional-service, and small office users.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "walnut-creek-vs-downtown-oakland",
+    title: "Walnut Creek vs Downtown Oakland",
+    short_title: "Walnut Creek vs Downtown Oakland",
+    city: "Oakland",
+    state_abbr: "CA",
+    city_slug: "oakland",
+    path: "/commercial-real-estate/CA/oakland/walnut-creek-vs-downtown-oakland/",
+    district_a_name: "Downtown Walnut Creek",
+    district_b_name: "Downtown Oakland",
+    district_a_path: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+    district_b_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+    verdict_a:
+      "Choose Downtown Walnut Creek if a polished suburban downtown, client-facing professional setting, BART, and retail amenities matter most.",
+    verdict_b:
+      "Choose Downtown Oakland if urban BART access, civic services, Broadway office concentration, and East Bay downtown identity matter more.",
+    comparison_notes: [
+      "Walnut Creek is a suburban downtown office-retail core; Downtown Oakland is an urban civic and business core.",
+      "Walnut Creek is stronger for Contra Costa, client-facing, medical, finance, and professional-service users.",
+      "Downtown Oakland is stronger for public-sector adjacency, urban transit, and cross-bay East Bay office access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "pleasanton-vs-walnut-creek",
+    title: "Pleasanton vs Walnut Creek",
+    short_title: "Pleasanton vs Walnut Creek",
+    city: "Pleasanton",
+    state_abbr: "CA",
+    city_slug: "pleasanton",
+    path: "/commercial-real-estate/CA/pleasanton/pleasanton-vs-walnut-creek/",
+    district_a_name: "Hacienda Business Park",
+    district_b_name: "Downtown Walnut Creek",
+    district_a_path: "/commercial-real-estate/CA/pleasanton/hacienda-business-park/",
+    district_b_path: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+    verdict_a:
+      "Choose Hacienda Business Park if larger suburban office floorplates, parking, I-580/I-680 access, and campus-style buildings matter most.",
+    verdict_b:
+      "Choose Downtown Walnut Creek if client-facing professional identity, walkable retail amenities, and a polished downtown setting matter more.",
+    comparison_notes: [
+      "Pleasanton/Hacienda is a suburban business-park decision; Walnut Creek is a suburban downtown decision.",
+      "Hacienda works better for larger office, back-office, technology, and regional operations users.",
+      "Downtown Walnut Creek works better for professional services, medical office, finance, and client-facing users.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "soma-vs-jackson-square",
     title: "SoMa vs Jackson Square",
     short_title: "SoMa vs Jackson Square",
@@ -696,6 +788,11 @@ const detailCtaByArchetype = {
   i880_237_industrial_flex_corridor: "industrial/flex corridor context",
   advanced_manufacturing_innovation_district: "advanced manufacturing context",
   ardenwood_rd_flex_district: "Ardenwood R&D/flex context",
+  urban_industrial_transition_district: "urban industrial-transition context",
+  university_adjacent_downtown_office: "university-adjacent downtown office context",
+  east_bay_life_science_office_core: "East Bay office and life-science context",
+  suburban_downtown_office_retail_core: "suburban downtown office context",
+  suburban_business_park: "business park office context",
 };
 
 const metaFocusBySlug = {
@@ -715,6 +812,14 @@ const metaFocusBySlug = {
     "Broadway civic/business core versus smaller historic downtown transition blocks",
   "financial-district-vs-downtown-oakland":
     "San Francisco CBD identity versus East Bay BART-centered downtown practicality",
+  "emeryville-vs-downtown-oakland":
+    "compact Emeryville office and life-science commercial node versus Downtown Oakland civic and BART-centered office core",
+  "emeryville-vs-berkeley":
+    "Emeryville mixed office/life-science context versus Downtown Berkeley university-adjacent office and BART context",
+  "walnut-creek-vs-downtown-oakland":
+    "Downtown Walnut Creek suburban office-retail core versus Downtown Oakland urban civic and BART-centered office core",
+  "pleasanton-vs-walnut-creek":
+    "Pleasanton business-park office format versus Downtown Walnut Creek client-facing suburban downtown office context",
   "soma-vs-jackson-square":
     "broad adaptive SoMa office geography versus smaller boutique historic downtown-edge office context",
   "mission-bay-vs-jackson-square":

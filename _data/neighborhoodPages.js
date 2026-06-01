@@ -618,6 +618,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_east_bay_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the East Bay commercial geography graph, with context for office, industrial/flex, and nearby business district comparisons.`,
+      guide_label: "East Bay district guide",
+    };
+  }
+
   return null;
 }
 
@@ -866,6 +879,39 @@ function representativeBuildingRolesFor(page) {
     };
 
     return rolesByPath;
+  }
+
+  if (page.public_east_bay_v1) {
+    return {
+      "/commercial-real-estate/building/CA/oakland/1410-7th-st/":
+        "West Oakland industrial-transition commercial block",
+      "/commercial-real-estate/building/CA/oakland/1440-7th-st/":
+        "West Oakland service-commercial edge",
+      "/commercial-real-estate/building/CA/oakland/1800-peralta-st/":
+        "Peralta industrial-adaptive context",
+      "/commercial-real-estate/building/CA/berkeley/2001-addison-st/":
+        "Downtown Berkeley civic and office context",
+      "/commercial-real-estate/building/CA/berkeley/2120-university-ave/":
+        "University Avenue commercial core",
+      "/commercial-real-estate/building/CA/emeryville/1900-powell-st/":
+        "Emeryville office and life-science node",
+      "/commercial-real-estate/building/CA/walnut-creek/2121-n-california-blvd/":
+        "Downtown Walnut Creek office core",
+      "/commercial-real-estate/building/CA/walnut-creek/1406-n-broadway/":
+        "Broadway professional office context",
+      "/commercial-real-estate/building/CA/walnut-creek/1556-mt-diablo-blvd/":
+        "Mt. Diablo client-facing commercial block",
+      "/commercial-real-estate/building/CA/walnut-creek/1255-treat-blvd/":
+        "Treat Boulevard office corridor contrast",
+      "/commercial-real-estate/building/CA/pleasanton/6200-stoneridge-mall-rd/":
+        "Hacienda-area suburban office setting",
+      "/commercial-real-estate/building/CA/pleasanton/4900-hopyard-rd/":
+        "Hopyard Road business park office",
+      "/commercial-real-estate/building/CA/pleasanton/6701-koll-center-pkwy/":
+        "Tri-Valley corporate office context",
+      "/commercial-real-estate/building/CA/pleasanton/5745-5775-johnson-dr/":
+        "Pleasanton commercial support edge",
+    };
   }
 
   return {};
@@ -1543,6 +1589,80 @@ const southBayDistrictDefinitions = [
   },
 ];
 
+const eastBayDistrictDefinitions = [
+  {
+    id: "eb-downtown-berkeley",
+    name: "Downtown Berkeley",
+    slug: "downtown-berkeley",
+    city: "Berkeley",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+    centroid_lat: 37.87,
+    centroid_lng: -122.269,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["university_adjacent", "bart", "downtown_office", "professional_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/berkeley/2001-addison-st/",
+      "/commercial-real-estate/building/CA/berkeley/2120-university-ave/",
+    ],
+  },
+  {
+    id: "eb-emeryville-commercial-core",
+    name: "Emeryville Commercial Core",
+    slug: "emeryville-commercial-core",
+    city: "Emeryville",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    centroid_lat: 37.838,
+    centroid_lng: -122.291,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "retail"],
+    profile: ["office", "life_science_support", "mixed_commercial", "oakland_berkeley_edge"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/emeryville/1900-powell-st/",
+    ],
+  },
+  {
+    id: "eb-downtown-walnut-creek",
+    name: "Downtown Walnut Creek",
+    slug: "downtown-walnut-creek",
+    city: "Walnut Creek",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+    centroid_lat: 37.9,
+    centroid_lng: -122.062,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["suburban_downtown", "professional_services", "client_facing", "bart"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/walnut-creek/2121-n-california-blvd/",
+      "/commercial-real-estate/building/CA/walnut-creek/1406-n-broadway/",
+      "/commercial-real-estate/building/CA/walnut-creek/1556-mt-diablo-blvd/",
+      "/commercial-real-estate/building/CA/walnut-creek/1255-treat-blvd/",
+    ],
+  },
+  {
+    id: "eb-hacienda-business-park",
+    name: "Hacienda Business Park",
+    slug: "hacienda-business-park",
+    city: "Pleasanton",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/pleasanton/hacienda-business-park/",
+    centroid_lat: 37.696,
+    centroid_lng: -121.9,
+    area_type: "district",
+    approximate_space_types: ["office", "flex"],
+    profile: ["suburban_business_park", "corporate_office", "tri_valley", "i580_i680"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/pleasanton/6200-stoneridge-mall-rd/",
+      "/commercial-real-estate/building/CA/pleasanton/4900-hopyard-rd/",
+      "/commercial-real-estate/building/CA/pleasanton/6701-koll-center-pkwy/",
+      "/commercial-real-estate/building/CA/pleasanton/5745-5775-johnson-dr/",
+    ],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -1575,6 +1695,42 @@ function southBayDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_south_bay_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function eastBayDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "east_bay_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_east_bay_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -1806,6 +1962,7 @@ const nycPages = nycCandidates
   .filter(Boolean);
 
 const southBayPages = southBayDistrictDefinitions.map(southBayDistrictPageFor);
+const eastBayPages = eastBayDistrictDefinitions.map(eastBayDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -1834,9 +1991,24 @@ for (const page of southBayPages) {
   });
 }
 
+for (const page of eastBayPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
 const allPages = Array.from(allPagesByPath.values());
+const eastBayV1ExistingPaths = new Set([
+  "/commercial-real-estate/CA/oakland/west-oakland/",
+]);
 
 for (const page of allPages) {
+  if (eastBayV1ExistingPaths.has(page.canonical_neighborhood_path)) {
+    page.public_east_bay_v1 = true;
+    page.suppress_nearby_neighborhoods = true;
+  }
+
   if (page.city_nav_priority == null) {
     page.city_nav_priority = page.representative_buildings?.length ? 3 : 7;
   }

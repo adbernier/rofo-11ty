@@ -149,6 +149,20 @@ const integrationsByPath = {
         note:
           "A more traditional regional business district across the bay, with stronger downtown client-facing office presence.",
       },
+      {
+        name: "Emeryville Commercial Core",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science alternative",
+        note:
+          "A compact mixed office and life-science-oriented node between Oakland and Berkeley.",
+      },
+      {
+        name: "Downtown Walnut Creek",
+        url: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+        relationship_type: "Suburban downtown contrast",
+        note:
+          "A more polished suburban downtown office and retail core for Contra Costa and client-facing users.",
+      },
     ],
   },
   "/commercial-real-estate/CA/oakland/uptown-oakland/": {
@@ -600,6 +614,121 @@ Object.assign(integrationsByPath, {
         url: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
         relationship_type: "South Bay industrial alternative",
         note: "More I-880/237 industrial/flex utility and South Bay access.",
+      },
+    ],
+  },
+});
+
+Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/oakland/west-oakland/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Oakland industrial-edge districts",
+    intro:
+      "Use these relationships to read West Oakland as urban industrial-transition geography near Downtown Oakland, Jack London Square, and Emeryville.",
+    districts: [
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Office-core contrast",
+        note: "More formal, BART-centered, civic, and downtown-office oriented.",
+      },
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront adaptive contrast",
+        note: "More waterfront and visitor-facing, with adaptive commercial texture south of the downtown core.",
+      },
+      {
+        name: "Emeryville Commercial Core",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science alternative",
+        note: "More mixed office, life-science, and retail-oriented between Oakland and Berkeley.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/berkeley/downtown-berkeley/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Berkeley and nearby East Bay districts",
+    intro:
+      "Compare Downtown Berkeley's BART- and university-adjacent office context with nearby East Bay commercial alternatives.",
+    districts: [
+      {
+        name: "Emeryville Commercial Core",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science contrast",
+        note: "More mixed office and life-science oriented, with less university-downtown character.",
+      },
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Larger business core",
+        note: "More formal, civic, and office-core oriented, with stronger regional downtown identity.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare nearby East Bay commercial districts",
+    intro:
+      "Use these districts to compare Emeryville's compact mixed office and life-science node with nearby Oakland and Berkeley settings.",
+    districts: [
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Civic office-core contrast",
+        note: "More formal, BART-centered, and public-sector adjacent than Emeryville.",
+      },
+      {
+        name: "Downtown Berkeley",
+        url: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+        relationship_type: "University downtown contrast",
+        note: "More university-adjacent and BART/walkability oriented around Shattuck and University.",
+      },
+      {
+        name: "West Oakland",
+        url: "/commercial-real-estate/CA/oakland/west-oakland/",
+        relationship_type: "Industrial edge",
+        note: "More service-commercial and industrial-transition oriented near the Oakland edge.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare East Bay office alternatives",
+    intro:
+      "Compare Downtown Walnut Creek with urban and suburban East Bay office settings that solve different commute, client, and building-format needs.",
+    districts: [
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Urban core contrast",
+        note: "More civic, BART-centered, and urban-office oriented than Walnut Creek's suburban downtown.",
+      },
+      {
+        name: "Hacienda Business Park",
+        url: "/commercial-real-estate/CA/pleasanton/hacienda-business-park/",
+        relationship_type: "Business-park contrast",
+        note: "More freeway, parking, and campus/floorplate oriented than downtown Walnut Creek.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/pleasanton/hacienda-business-park/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Tri-Valley and East Bay office settings",
+    intro:
+      "Use these relationships to read Hacienda Business Park as a suburban office and corporate-campus setting rather than a downtown district.",
+    districts: [
+      {
+        name: "Downtown Walnut Creek",
+        url: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+        relationship_type: "Suburban downtown contrast",
+        note: "More client-facing, walkable, and retail-supported than Hacienda's business-park format.",
+      },
+      {
+        name: "Downtown Oakland",
+        url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        relationship_type: "Urban core contrast",
+        note: "More BART-centered, civic, and urban-office oriented.",
       },
     ],
   },

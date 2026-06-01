@@ -291,6 +291,18 @@ const districts = {
         comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-downtown-oakland/",
         reason: "Compare if San Francisco adaptive office context may fit better than East Bay civic/BART-centered office geography.",
       },
+      {
+        district_name: "Emeryville Commercial Core",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/",
+        reason: "Compare if a compact office/life-science node between Oakland and Berkeley may fit better than Downtown Oakland's civic core.",
+      },
+      {
+        district_name: "Downtown Walnut Creek",
+        district_path: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+        comparison_path: "/commercial-real-estate/CA/oakland/walnut-creek-vs-downtown-oakland/",
+        reason: "Compare if a polished suburban downtown office and retail core may fit better than urban Downtown Oakland.",
+      },
     ],
     office_profile: {
       office_orientation: "secondary_downtown",
@@ -1383,6 +1395,249 @@ Object.assign(districts, {
   },
 });
 
+Object.assign(districts, {
+  "/commercial-real-estate/CA/oakland/west-oakland/": {
+    primary_archetype: "urban_industrial_transition_district",
+    secondary_archetypes: ["adaptive_industrial_commercial_district", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "West Oakland is an urban industrial-transition district shaped by warehouse, service-commercial, port-adjacent, and adaptive commercial uses between Downtown Oakland, Emeryville, and the bay.",
+    best_fit_businesses: [
+      "Service-commercial, light industrial, and production-adjacent users that value Oakland access",
+      "Creative or adaptive commercial users comparing lower-scale industrial blocks with Jack London Square or Emeryville",
+      "Businesses that need proximity to Downtown Oakland without a formal office-core setting",
+    ],
+    poor_fit_businesses: [
+      "Client-facing firms that need a polished downtown office identity",
+      "Retailers that depend on destination shopping or pedestrian visibility",
+      "Large office users seeking conventional tower or campus environments",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        reason: "Compare if BART-centered civic and office-core access matters more than industrial-transition texture.",
+      },
+      {
+        district_name: "Jack London Square",
+        district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        reason: "Compare if waterfront adaptive-commercial context may fit better than West Oakland's industrial-transition setting.",
+      },
+      {
+        district_name: "Emeryville Commercial Core",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        reason: "Compare if a more formal office, life-science, and mixed commercial node may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_adaptive",
+      client_facing_strength: "low",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["service_business", "creative", "production", "operations_office"],
+      commute_pattern: ["oakland_access", "port_adjacent", "i880", "downtown_edge"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "urban_service_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "service_commercial", "adaptive_industrial", "office_warehouse"],
+      tenant_fit: ["service_industrial", "production", "contractor", "creative_operations"],
+      decision_context: [
+        "Urban service-commercial users that want Oakland access without a downtown office format",
+        "Creative, production, or operations users comparing West Oakland with Jack London Square and Emeryville",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/berkeley/downtown-berkeley/": {
+    primary_archetype: "university_adjacent_downtown_office",
+    secondary_archetypes: ["bart_adjacent_neighborhood_commercial", "professional_services_boutique"],
+    commercial_thesis:
+      "Downtown Berkeley is a BART- and university-adjacent commercial district shaped by Shattuck Avenue, University Avenue, UC Berkeley, smaller office buildings, civic activity, and street-level retail.",
+    best_fit_businesses: [
+      "Professional-service, education-adjacent, nonprofit, and smaller office users",
+      "Businesses that value BART access, UC Berkeley adjacency, and downtown Berkeley foot traffic",
+      "Teams comparing East Bay downtown character with Emeryville or Downtown Oakland",
+    ],
+    poor_fit_businesses: [
+      "Large office users that need conventional tower or campus-scale floorplates",
+      "Warehouse/flex users needing loading, yard, or industrial building formats",
+      "Companies that need a more formal regional office-core identity",
+    ],
+    compare_with: [
+      {
+        district_name: "Emeryville Commercial Core",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
+        reason: "Compare if office/life-science and mixed commercial supply in Emeryville may fit better than Berkeley's university-adjacent downtown.",
+      },
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        reason: "Compare if a larger civic and BART-centered East Bay office core may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "university_adjacent_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "low_rise",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "education_adjacent", "nonprofit", "small_business"],
+      commute_pattern: ["bart", "walkable_downtown", "uc_berkeley", "east_bay_access"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/": {
+    primary_archetype: "east_bay_life_science_office_core",
+    secondary_archetypes: ["mixed_use_office_retail_node", "adaptive_industrial_commercial_district"],
+    commercial_thesis:
+      "Emeryville Commercial Core is a compact East Bay office, life-science, retail, and adaptive-commercial node between Oakland and Berkeley, useful for teams comparing regional office access without a traditional downtown format.",
+    best_fit_businesses: [
+      "Office, life-science-adjacent, R&D, and professional users that value central East Bay access",
+      "Companies comparing Berkeley, Downtown Oakland, and Emeryville for East Bay office fit",
+      "Teams that want mixed commercial amenities without relying on a formal CBD environment",
+    ],
+    poor_fit_businesses: [
+      "Firms that need a civic downtown or BART-centered office core",
+      "Small businesses that depend on a university main-street environment",
+      "Industrial users needing deeper warehouse, yard, or logistics infrastructure",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/",
+        reason: "Compare if BART-centered civic office identity may fit better than Emeryville's mixed office/life-science node.",
+      },
+      {
+        district_name: "Downtown Berkeley",
+        district_path: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
+        reason: "Compare if university adjacency and downtown Berkeley walkability may fit better.",
+      },
+      {
+        district_name: "West Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+        reason: "Compare if urban industrial-transition texture and Oakland edge access matter more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "mixed_office_life_science",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["office", "life_science_support", "rd", "professional_services"],
+      commute_pattern: ["east_bay_access", "oakland_berkeley", "i80", "amtrak_bart_shuttle"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "adaptive_commercial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["adaptive_industrial", "rd_flex", "office_warehouse"],
+      tenant_fit: ["rd", "life_science_support", "creative_operations"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/": {
+    primary_archetype: "suburban_downtown_office_retail_core",
+    secondary_archetypes: ["client_facing_professional_core", "bart_adjacent_neighborhood_commercial"],
+    commercial_thesis:
+      "Downtown Walnut Creek is an East Bay suburban downtown office and retail core, shaped by BART, Broadway Plaza, professional services, restaurants, and a more polished client-facing setting than Oakland's urban core.",
+    best_fit_businesses: [
+      "Professional-service, medical office, finance, and client-facing East Bay users",
+      "Companies that want a polished suburban downtown with retail and restaurant amenities",
+      "Teams comparing East Bay office identity across Walnut Creek, Downtown Oakland, and Pleasanton",
+    ],
+    poor_fit_businesses: [
+      "Warehouse/flex or industrial users needing operational building formats",
+      "Companies that require Oakland civic/public-sector adjacency",
+      "Creative users seeking adaptive industrial or waterfront commercial texture",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/walnut-creek-vs-downtown-oakland/",
+        reason: "Compare if urban BART/civic office context may fit better than Walnut Creek's suburban downtown profile.",
+      },
+      {
+        district_name: "Hacienda Business Park",
+        district_path: "/commercial-real-estate/CA/pleasanton/hacienda-business-park/",
+        comparison_path: "/commercial-real-estate/CA/pleasanton/pleasanton-vs-walnut-creek/",
+        reason: "Compare if a larger suburban business-park environment may fit better than downtown Walnut Creek.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "suburban_downtown_professional",
+      client_facing_strength: "high",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["professional_services", "medical_office", "finance", "client_facing"],
+      commute_pattern: ["bart", "i680", "suburban_downtown", "central_contra_costa"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/pleasanton/hacienda-business-park/": {
+    primary_archetype: "suburban_business_park",
+    secondary_archetypes: ["i580_i680_office_corridor", "corporate_campus_office"],
+    commercial_thesis:
+      "Hacienda Business Park is a Tri-Valley suburban office and corporate-campus district shaped by I-580/I-680 access, BART, larger floorplates, parking, and a very different format from downtown Walnut Creek or Downtown Oakland.",
+    best_fit_businesses: [
+      "Corporate office, back-office, technology, and regional operations users",
+      "Companies that need larger suburban floorplates, parking, and freeway access",
+      "Teams comparing Tri-Valley office/campus settings with Walnut Creek or Oakland",
+    ],
+    poor_fit_businesses: [
+      "Small client-facing firms that need walkable downtown retail and restaurant energy",
+      "Warehouse/flex users needing loading and industrial formats",
+      "Businesses that need Oakland civic or cross-bay urban office context",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Walnut Creek",
+        district_path: "/commercial-real-estate/CA/walnut-creek/downtown-walnut-creek/",
+        comparison_path: "/commercial-real-estate/CA/pleasanton/pleasanton-vs-walnut-creek/",
+        reason: "Compare if a more client-facing suburban downtown may fit better than a business-park format.",
+      },
+      {
+        district_name: "Downtown Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        reason: "Compare if urban BART-centered office identity may matter more than suburban campus functionality.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "suburban_business_park",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "large",
+      floorplate_pattern: "large",
+      tenant_fit: ["corporate_office", "back_office", "technology", "regional_operations"],
+      commute_pattern: ["i580", "i680", "bart", "tri_valley"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+});
+
 const archetypeLabels = {
   adaptive_warehouse_office_district: "Adaptive warehouse-office district",
   mixed_use_startup_district: "Mixed-use startup district",
@@ -1439,6 +1694,14 @@ const archetypeLabels = {
   advanced_manufacturing_innovation_district: "Advanced manufacturing innovation district",
   ardenwood_rd_flex_district: "Ardenwood R&D/flex district",
   dumbarton_bridge_technology_corridor: "Dumbarton Bridge technology corridor",
+  urban_industrial_transition_district: "Urban industrial-transition district",
+  university_adjacent_downtown_office: "University-adjacent downtown office",
+  east_bay_life_science_office_core: "East Bay office/life-science core",
+  mixed_use_office_retail_node: "Mixed office-retail node",
+  suburban_downtown_office_retail_core: "Suburban downtown office-retail core",
+  suburban_business_park: "Suburban business park",
+  i580_i680_office_corridor: "I-580 / I-680 office corridor",
+  corporate_campus_office: "Corporate campus office",
 };
 
 function withLabels(model) {
