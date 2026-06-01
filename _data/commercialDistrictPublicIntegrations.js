@@ -1564,6 +1564,51 @@ Object.assign(
   )
 );
 
+const inlandEmpireIntegrationPages = [
+  ["Ontario", "/commercial-real-estate/CA/ontario/ontario/"],
+  ["Ontario Airport Area", "/commercial-real-estate/CA/ontario/ontario-airport-area/"],
+  ["Rancho Cucamonga", "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/"],
+  ["Fontana", "/commercial-real-estate/CA/fontana/fontana/"],
+  ["Rialto", "/commercial-real-estate/CA/rialto/rialto/"],
+  ["Bloomington / Colton", "/commercial-real-estate/CA/colton/bloomington-colton/"],
+  ["San Bernardino", "/commercial-real-estate/CA/san-bernardino/san-bernardino/"],
+  ["Redlands", "/commercial-real-estate/CA/redlands/redlands/"],
+  ["Moreno Valley", "/commercial-real-estate/CA/moreno-valley/moreno-valley/"],
+  ["Riverside", "/commercial-real-estate/CA/riverside/riverside/"],
+  ["Downtown Riverside", "/commercial-real-estate/CA/riverside/downtown-riverside/"],
+  ["Corona", "/commercial-real-estate/CA/corona/corona/"],
+  ["Chino", "/commercial-real-estate/CA/chino/chino/"],
+  ["Pomona", "/commercial-real-estate/CA/pomona/pomona/"],
+  ["Jurupa Valley", "/commercial-real-estate/CA/jurupa-valley/jurupa-valley/"],
+  ["Eastvale", "/commercial-real-estate/CA/eastvale/eastvale/"],
+  ["Perris", "/commercial-real-estate/CA/perris/perris/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    inlandEmpireIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Inland Empire logistics markets",
+          intro:
+            `Use these relationships to place ${name} within Inland Empire warehouse, logistics, industrial/flex, truck-access, and freeway-corridor geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

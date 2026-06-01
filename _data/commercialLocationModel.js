@@ -4341,6 +4341,672 @@ for (const model of orangeCountyDistrictModels) {
   };
 }
 
+const inlandEmpireDistrictModels = [
+  {
+    path: "/commercial-real-estate/CA/ontario/ontario/",
+    primary_archetype: "inland_empire_logistics_hub",
+    secondary_archetypes: ["airport_adjacent_industrial_market", "warehouse_distribution_corridor"],
+    commercial_thesis:
+      "Ontario is a core Inland Empire logistics, warehouse, distribution, airport-adjacent, and regional business market with strong I-10, I-15, and Ontario International Airport access.",
+    best_fit_businesses: [
+      "Warehouse, distribution, logistics, service-industrial, and regional operations users",
+      "Businesses comparing airport-adjacent Inland Empire access with Rancho Cucamonga or Fontana",
+      "Teams that need a recognizable western Inland Empire logistics base",
+    ],
+    poor_fit_businesses: [
+      "Small client-facing office users that need Downtown Riverside",
+      "Coastal Orange County professional-service users",
+      "Companies needing the deepest heavy-truck corridors farther east or along Fontana/Rialto",
+    ],
+    compare_with: [
+      { district_name: "Rancho Cucamonga", district_path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-vs-rancho-cucamonga/", reason: "Compare if Rancho Cucamonga's office/industrial balance and I-15 orientation may fit better." },
+      { district_name: "Fontana", district_path: "/commercial-real-estate/CA/fontana/fontana/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-vs-fontana/", reason: "Compare if deeper truck-oriented warehouse and logistics corridors may fit better." },
+      { district_name: "Chino", district_path: "/commercial-real-estate/CA/chino/chino/", comparison_path: "/commercial-real-estate/CA/chino/chino-vs-ontario/", reason: "Compare if Chino's western IE industrial access may fit better." },
+      { district_name: "Ontario Airport Area", district_path: "/commercial-real-estate/CA/ontario/ontario-airport-area/", reason: "Compare if airport-area office/logistics context is the specific requirement." },
+    ],
+    office_profile: {
+      office_orientation: "airport_adjacent_regional",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "logistics_office", "service_business", "back_office"],
+      commute_pattern: ["i10", "i15", "ontario_airport", "western_inland_empire"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "airport_adjacent_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "distribution", "industrial_flex", "service_industrial"],
+      tenant_fit: ["logistics", "distribution", "3pl", "regional_operations", "service_industrial"],
+      decision_context:
+        "Ontario works best for users that need a recognizable western Inland Empire logistics base with airport, I-10, and I-15 access.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/ontario/ontario-airport-area/",
+    primary_archetype: "airport_adjacent_industrial_market",
+    secondary_archetypes: ["airport_adjacent_suburban_office_market", "warehouse_distribution_corridor"],
+    commercial_thesis:
+      "Ontario Airport Area is the airport-adjacent office, hotel, logistics, and industrial/flex node around Ontario International Airport, Guasti, and Inland Empire Boulevard.",
+    best_fit_businesses: [
+      "Logistics, air-cargo-adjacent, regional office, hotel-support, and service-commercial users",
+      "Companies that need Ontario Airport proximity more than a generic warehouse corridor",
+      "Teams comparing airport-area access with Rancho Cucamonga or broader Ontario",
+    ],
+    poor_fit_businesses: [
+      "Users needing lower-cost heavy industrial farther east",
+      "Downtown office users needing civic walkability",
+      "Retail-first users needing local main-street traffic",
+    ],
+    compare_with: [
+      { district_name: "Rancho Cucamonga", district_path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-airport-area-vs-rancho-cucamonga/", reason: "Compare if I-15 office/industrial balance and Rancho Cucamonga access may fit better." },
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", reason: "Compare if broader Ontario logistics geography matters more than the airport node." },
+      { district_name: "Fontana", district_path: "/commercial-real-estate/CA/fontana/fontana/", reason: "Compare if deeper truck-oriented warehouse corridors are the priority." },
+    ],
+    office_profile: {
+      office_orientation: "airport_adjacent",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "logistics_office", "hospitality_support", "service_business"],
+      commute_pattern: ["ontario_airport", "i10", "guasti", "inland_empire_boulevard"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "airport_adjacent_logistics",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "logistics_office", "airport_area_business_park"],
+      tenant_fit: ["air_cargo_support", "logistics", "regional_operations", "service_industrial"],
+      decision_context:
+        "Ontario Airport Area is the better fit when airport proximity and logistics-office adjacency matter more than pure industrial depth.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/",
+    primary_archetype: "ie_office_industrial_balanced_market",
+    secondary_archetypes: ["warehouse_distribution_corridor", "suburban_office_corridor"],
+    commercial_thesis:
+      "Rancho Cucamonga is a western Inland Empire office, industrial/flex, logistics, and service-commercial market shaped by I-10, I-15, Foothill, and airport-area proximity.",
+    best_fit_businesses: [
+      "Office/industrial, regional service, logistics support, professional-service, and flex users",
+      "Businesses comparing Ontario airport access with Fontana or Chino industrial corridors",
+      "Teams that want Inland Empire logistics access with a stronger office/service balance",
+    ],
+    poor_fit_businesses: [
+      "Users needing the deepest big-box warehouse corridors in Fontana, Rialto, or Moreno Valley",
+      "Downtown civic office users",
+      "Coastal client-facing firms",
+    ],
+    compare_with: [
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-vs-rancho-cucamonga/", reason: "Compare if Ontario airport and broader logistics identity may fit better." },
+      { district_name: "Ontario Airport Area", district_path: "/commercial-real-estate/CA/ontario/ontario-airport-area/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-airport-area-vs-rancho-cucamonga/", reason: "Compare if airport-area access is the primary requirement." },
+      { district_name: "Fontana", district_path: "/commercial-real-estate/CA/fontana/fontana/", reason: "Compare if deeper truck and warehouse corridors matter more." },
+    ],
+    office_profile: {
+      office_orientation: "office_industrial_service",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "service_business", "logistics_support", "professional_services"],
+      commute_pattern: ["i10", "i15", "foothill", "ontario_airport"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "western_ie_flex_logistics",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "warehouse", "service_industrial", "business_park"],
+      tenant_fit: ["logistics_support", "service_industrial", "regional_operations", "light_distribution"],
+      decision_context:
+        "Rancho Cucamonga is useful when office/service context and logistics access both matter.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/fontana/fontana/",
+    primary_archetype: "truck_oriented_logistics_corridor",
+    secondary_archetypes: ["warehouse_distribution_corridor", "heavy_industrial_logistics_market"],
+    commercial_thesis:
+      "Fontana is one of the Inland Empire's clearest truck-oriented logistics, warehouse, distribution, manufacturing, and freeway-corridor industrial markets.",
+    best_fit_businesses: [
+      "Warehouse, distribution, trucking, logistics, manufacturing, and service-industrial users",
+      "Businesses comparing big-box and truck access across Ontario, Rialto, Moreno Valley, and San Bernardino",
+      "Users that prioritize freeway and operational utility over office identity",
+    ],
+    poor_fit_businesses: [
+      "Client-facing professional office users",
+      "Retail-first users needing walkable customer districts",
+      "Companies needing a civic downtown setting",
+    ],
+    compare_with: [
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", comparison_path: "/commercial-real-estate/CA/ontario/ontario-vs-fontana/", reason: "Compare if airport-adjacent western IE logistics access may fit better." },
+      { district_name: "Rialto", district_path: "/commercial-real-estate/CA/rialto/rialto/", comparison_path: "/commercial-real-estate/CA/fontana/fontana-vs-rialto/", reason: "Compare if Rialto's east-west logistics corridor and San Bernardino adjacency may fit better." },
+      { district_name: "Moreno Valley", district_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/", comparison_path: "/commercial-real-estate/CA/fontana/fontana-vs-moreno-valley/", reason: "Compare if eastern IE big-box distribution geography may fit better." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "truck_oriented_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["warehouse", "distribution", "manufacturing", "service_industrial", "truck_terminal"],
+      tenant_fit: ["logistics", "distribution", "trucking", "manufacturing", "contractor"],
+      decision_context:
+        "Fontana is strongest when truck access, warehouse depth, and freeway-corridor industrial utility are the main decision drivers.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/rialto/rialto/",
+    primary_archetype: "ie_distribution_corridor",
+    secondary_archetypes: ["warehouse_distribution_corridor", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "Rialto is an Inland Empire warehouse, distribution, and logistics corridor between Fontana and San Bernardino, useful for users prioritizing freeway access and operational scale.",
+    best_fit_businesses: [
+      "Warehouse, distribution, logistics, service-industrial, and last-mile users",
+      "Businesses comparing Fontana, San Bernardino, and Bloomington/Colton industrial access",
+      "Teams that need central/eastern IE operational geography",
+    ],
+    poor_fit_businesses: [
+      "Traditional office users",
+      "Coastal or client-facing professional services",
+      "Retail-first users needing polished consumer districts",
+    ],
+    compare_with: [
+      { district_name: "Fontana", district_path: "/commercial-real-estate/CA/fontana/fontana/", comparison_path: "/commercial-real-estate/CA/fontana/fontana-vs-rialto/", reason: "Compare if Fontana's deeper truck-oriented corridor may fit better." },
+      { district_name: "San Bernardino", district_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/", comparison_path: "/commercial-real-estate/CA/rialto/rialto-vs-san-bernardino/", reason: "Compare if San Bernardino rail, airport, and broader eastern IE access may fit better." },
+      { district_name: "Bloomington / Colton", district_path: "/commercial-real-estate/CA/colton/bloomington-colton/", reason: "Compare if Colton/Bloomington rail and freeway junction context matters more." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "central_ie_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["warehouse", "distribution", "industrial_flex", "last_mile"],
+      tenant_fit: ["distribution", "3pl", "last_mile", "service_industrial"],
+      decision_context:
+        "Rialto is useful for warehouse and distribution users comparing Fontana's truck depth with San Bernardino's rail/airport geography.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/colton/bloomington-colton/",
+    primary_archetype: "rail_freeway_industrial_node",
+    secondary_archetypes: ["warehouse_distribution_corridor", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Bloomington / Colton is a rail, freeway, warehouse, logistics, and service-industrial node at the I-10/I-215 industrial junction between Rialto, San Bernardino, and Riverside.",
+    best_fit_businesses: [
+      "Warehouse, logistics, rail-adjacent, truck service, contractor, and service-industrial users",
+      "Businesses comparing Rialto, San Bernardino, and Riverside industrial access",
+      "Teams that need freeway-junction utility more than polished office context",
+    ],
+    poor_fit_businesses: [
+      "Client-facing office users",
+      "Retail-first users",
+      "Companies that need coastal or airport-area identity",
+    ],
+    compare_with: [
+      { district_name: "Rialto", district_path: "/commercial-real-estate/CA/rialto/rialto/", reason: "Compare if distribution corridor depth may matter more." },
+      { district_name: "San Bernardino", district_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/", reason: "Compare if airport/rail and broader eastern IE access may fit better." },
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", reason: "Compare if Riverside's office/service and industrial mix may fit better." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "rail_freeway_service_industrial",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["warehouse", "service_industrial", "yard", "industrial_flex"],
+      tenant_fit: ["rail_adjacent_operations", "truck_service", "contractor", "distribution"],
+      decision_context:
+        "Bloomington / Colton is strongest for users that value rail/freeway junction utility and service-industrial operating context.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/",
+    primary_archetype: "rail_airport_logistics_market",
+    secondary_archetypes: ["warehouse_distribution_corridor", "civic_business_core"],
+    commercial_thesis:
+      "San Bernardino is an eastern Inland Empire logistics, warehouse, rail, airport, civic, and service-commercial market with strong I-10, I-215, and San Bernardino International Airport relevance.",
+    best_fit_businesses: [
+      "Warehouse, logistics, rail/airport-adjacent, service-industrial, public-sector, and local office users",
+      "Businesses comparing Rialto, Redlands, Colton, and Moreno Valley",
+      "Teams that need eastern IE access and operational utility",
+    ],
+    poor_fit_businesses: [
+      "Prestige office users",
+      "Coastal professional services",
+      "Retail-first users needing high-income coastal customer geography",
+    ],
+    compare_with: [
+      { district_name: "Rialto", district_path: "/commercial-real-estate/CA/rialto/rialto/", comparison_path: "/commercial-real-estate/CA/rialto/rialto-vs-san-bernardino/", reason: "Compare if Rialto's distribution corridor may fit better." },
+      { district_name: "Redlands", district_path: "/commercial-real-estate/CA/redlands/redlands/", comparison_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino-vs-redlands/", reason: "Compare if Redlands' office/service and eastern IE professional context may fit better." },
+      { district_name: "Bloomington / Colton", district_path: "/commercial-real-estate/CA/colton/bloomington-colton/", reason: "Compare if rail/freeway junction industrial context matters more." },
+    ],
+    office_profile: {
+      office_orientation: "civic_service",
+      client_facing_strength: "low",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["public_sector", "local_services", "logistics_office", "professional_services"],
+      commute_pattern: ["i10", "i215", "san_bernardino_airport", "eastern_inland_empire"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "rail_airport_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["warehouse", "distribution", "rail_adjacent", "airport_adjacent_industrial"],
+      tenant_fit: ["logistics", "distribution", "rail_adjacent_operations", "service_industrial"],
+      decision_context:
+        "San Bernardino works for eastern IE users that need logistics depth plus rail, airport, civic, and service-commercial context.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/redlands/redlands/",
+    primary_archetype: "eastern_ie_office_logistics_edge",
+    secondary_archetypes: ["local_service_business_core", "warehouse_distribution_corridor"],
+    commercial_thesis:
+      "Redlands is an eastern Inland Empire office, medical, local-service, logistics-edge, and professional market that contrasts with the heavier industrial geography of San Bernardino and Moreno Valley.",
+    best_fit_businesses: [
+      "Professional-service, medical office, local-service, logistics support, and eastern IE regional users",
+      "Businesses comparing San Bernardino utility with a more polished eastern IE setting",
+      "Teams serving Redlands, Loma Linda, and eastern IE customers",
+    ],
+    poor_fit_businesses: [
+      "Heavy warehouse users needing Fontana, Rialto, or Moreno Valley",
+      "Airport-adjacent users needing Ontario",
+      "Coastal client-facing office users",
+    ],
+    compare_with: [
+      { district_name: "San Bernardino", district_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/", comparison_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino-vs-redlands/", reason: "Compare if San Bernardino's rail/airport and industrial utility may fit better." },
+      { district_name: "Moreno Valley", district_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/", reason: "Compare if larger eastern IE warehouse/distribution access matters more." },
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", reason: "Compare if broader office, civic, and industrial mix may fit better." },
+    ],
+    office_profile: {
+      office_orientation: "eastern_ie_professional_service",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "local_services", "logistics_support"],
+      commute_pattern: ["i10", "redlands", "loma_linda", "eastern_ie"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "logistics_edge",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "service_industrial", "light_distribution"],
+      tenant_fit: ["logistics_support", "service_industrial", "local_operations"],
+      decision_context:
+        "Redlands is better for eastern IE professional/service and logistics-support needs than pure big-box industrial requirements.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/",
+    primary_archetype: "eastern_ie_big_box_distribution_market",
+    secondary_archetypes: ["warehouse_distribution_corridor", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "Moreno Valley is an eastern Inland Empire big-box warehouse, distribution, logistics, and regional operations market with strong SR-60/I-215 access.",
+    best_fit_businesses: [
+      "Large warehouse, distribution, logistics, fulfillment, and regional operations users",
+      "Businesses comparing eastern IE industrial access with Riverside, Perris, Fontana, or San Bernardino",
+      "Teams prioritizing operational scale over office identity",
+    ],
+    poor_fit_businesses: [
+      "Traditional client-facing office users",
+      "Small professional services needing downtown context",
+      "Airport-adjacent users needing Ontario",
+    ],
+    compare_with: [
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", comparison_path: "/commercial-real-estate/CA/riverside/riverside-vs-moreno-valley/", reason: "Compare if Riverside's office/service and industrial mix may fit better." },
+      { district_name: "Perris", district_path: "/commercial-real-estate/CA/perris/perris/", comparison_path: "/commercial-real-estate/CA/perris/perris-vs-moreno-valley/", reason: "Compare if Perris' I-215 logistics and lower-cost industrial context may fit better." },
+      { district_name: "Fontana", district_path: "/commercial-real-estate/CA/fontana/fontana/", comparison_path: "/commercial-real-estate/CA/fontana/fontana-vs-moreno-valley/", reason: "Compare if western IE truck-oriented logistics may fit better." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "big_box_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["big_box_warehouse", "distribution", "fulfillment", "logistics"],
+      tenant_fit: ["distribution", "fulfillment", "3pl", "regional_operations"],
+      decision_context:
+        "Moreno Valley is strongest for eastern IE users prioritizing big-box warehouse and distribution scale.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/riverside/riverside/",
+    primary_archetype: "ie_civic_office_industrial_market",
+    secondary_archetypes: ["secondary_downtown_office_core", "warehouse_distribution_corridor"],
+    commercial_thesis:
+      "Riverside is the Inland Empire's major civic, office, medical, university-adjacent, service-commercial, and industrial market, balancing downtown identity with regional logistics access.",
+    best_fit_businesses: [
+      "Professional-service, civic, medical, university-adjacent, service-commercial, and industrial/flex users",
+      "Businesses comparing Riverside with Moreno Valley, Corona, Redlands, or San Bernardino",
+      "Teams that need Inland Empire office context plus warehouse/flex alternatives",
+    ],
+    poor_fit_businesses: [
+      "Pure big-box users that only need Moreno Valley, Fontana, or Perris",
+      "Airport-adjacent logistics users needing Ontario",
+      "Coastal client-facing office users",
+    ],
+    compare_with: [
+      { district_name: "Moreno Valley", district_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/", comparison_path: "/commercial-real-estate/CA/riverside/riverside-vs-moreno-valley/", reason: "Compare if big-box warehouse/distribution scale matters more." },
+      { district_name: "Corona", district_path: "/commercial-real-estate/CA/corona/corona/", comparison_path: "/commercial-real-estate/CA/riverside/riverside-vs-corona/", reason: "Compare if western IE and Orange County-adjacent access may fit better." },
+      { district_name: "Downtown Riverside", district_path: "/commercial-real-estate/CA/riverside/downtown-riverside/", reason: "Compare if civic/professional downtown context is the main requirement." },
+    ],
+    office_profile: {
+      office_orientation: "civic_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "public_sector", "education_adjacent", "local_services"],
+      commute_pattern: ["riverside", "sr91", "i215", "sr60"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "mixed_office_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "service_industrial", "warehouse", "office_flex"],
+      tenant_fit: ["service_industrial", "local_distribution", "contractor", "regional_operations"],
+      decision_context:
+        "Riverside is best when office/service and industrial/flex needs overlap in a major Inland Empire civic market.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/riverside/downtown-riverside/",
+    primary_archetype: "ie_downtown_civic_office_core",
+    secondary_archetypes: ["civic_business_core", "secondary_downtown_office_core"],
+    commercial_thesis:
+      "Downtown Riverside is the Inland Empire's civic and professional office core, useful for legal, government-adjacent, medical, education-adjacent, and local-service users.",
+    best_fit_businesses: [
+      "Legal, professional-service, civic, public-sector, medical, and education-adjacent office users",
+      "Businesses that need Riverside identity rather than pure warehouse access",
+      "Teams comparing downtown office context with Corona, Redlands, or broader Riverside",
+    ],
+    poor_fit_businesses: [
+      "Warehouse and truck-intensive users",
+      "Airport-adjacent logistics users",
+      "Companies needing large industrial yards",
+    ],
+    compare_with: [
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", reason: "Compare if broader Riverside industrial/flex and service-commercial access matters more." },
+      { district_name: "Corona", district_path: "/commercial-real-estate/CA/corona/corona/", reason: "Compare if western IE access and business-park context may fit better." },
+      { district_name: "Redlands", district_path: "/commercial-real-estate/CA/redlands/redlands/", reason: "Compare if eastern IE professional/service context may fit better." },
+    ],
+    office_profile: {
+      office_orientation: "downtown_civic",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["legal", "public_sector", "professional_services", "medical_office", "education_adjacent"],
+      commute_pattern: ["downtown_riverside", "metrolink", "sr91", "i215"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/corona/corona/",
+    primary_archetype: "western_ie_office_industrial_gateway",
+    secondary_archetypes: ["warehouse_distribution_corridor", "suburban_office_corridor"],
+    commercial_thesis:
+      "Corona is a western Inland Empire office, industrial/flex, logistics, service-commercial, and Orange County-adjacent gateway market along SR-91 and I-15.",
+    best_fit_businesses: [
+      "Industrial/flex, regional service, logistics, professional-service, and Orange County-adjacent users",
+      "Businesses comparing Riverside, Chino, and western IE access",
+      "Teams that value SR-91/I-15 access and customer geography across IE and OC",
+    ],
+    poor_fit_businesses: [
+      "Users needing the deepest eastern IE big-box distribution",
+      "Airport-adjacent users needing Ontario",
+      "Downtown civic office users",
+    ],
+    compare_with: [
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", comparison_path: "/commercial-real-estate/CA/riverside/riverside-vs-corona/", reason: "Compare if Riverside civic office and broader IE identity may fit better." },
+      { district_name: "Chino", district_path: "/commercial-real-estate/CA/chino/chino/", comparison_path: "/commercial-real-estate/CA/corona/corona-vs-chino/", reason: "Compare if Chino's western IE industrial access may fit better." },
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", reason: "Compare if airport-adjacent logistics access matters more." },
+    ],
+    office_profile: {
+      office_orientation: "western_ie_gateway",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "professional_services", "service_business", "logistics_support"],
+      commute_pattern: ["sr91", "i15", "orange_county_edge", "western_ie"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "western_ie_gateway_flex",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "warehouse", "service_industrial", "business_park"],
+      tenant_fit: ["service_industrial", "regional_operations", "logistics_support", "light_distribution"],
+      decision_context:
+        "Corona is useful when western IE industrial/flex access and Orange County adjacency both matter.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/chino/chino/",
+    primary_archetype: "western_ie_industrial_flex_market",
+    secondary_archetypes: ["warehouse_distribution_corridor", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Chino is a western Inland Empire industrial/flex, warehouse, service-commercial, and logistics market with strong access to Ontario, Pomona Valley, Corona, and Orange County-adjacent routes.",
+    best_fit_businesses: [
+      "Industrial/flex, warehouse, service-commercial, logistics, and contractor users",
+      "Businesses comparing western IE access with Ontario or Corona",
+      "Teams that need operational utility near Los Angeles/Orange County edges",
+    ],
+    poor_fit_businesses: [
+      "Prestige office users",
+      "Downtown civic office users",
+      "Big-box users needing eastern IE scale",
+    ],
+    compare_with: [
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", comparison_path: "/commercial-real-estate/CA/chino/chino-vs-ontario/", reason: "Compare if Ontario airport and broader logistics identity may fit better." },
+      { district_name: "Corona", district_path: "/commercial-real-estate/CA/corona/corona/", comparison_path: "/commercial-real-estate/CA/corona/corona-vs-chino/", reason: "Compare if SR-91/I-15 and Orange County-adjacent access may fit better." },
+      { district_name: "Pomona", district_path: "/commercial-real-estate/CA/pomona/pomona/", reason: "Compare if Pomona Valley and LA County edge access matters more." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "western_ie_industrial_flex",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "warehouse", "service_industrial", "contractor"],
+      tenant_fit: ["service_industrial", "contractor", "light_distribution", "logistics_support"],
+      decision_context:
+        "Chino is a strong western IE fit for industrial/flex users comparing Ontario airport access with Corona and Pomona Valley routes.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/pomona/pomona/",
+    primary_archetype: "pomona_valley_industrial_service_market",
+    secondary_archetypes: ["service_commercial_industrial_market", "local_service_business_core"],
+    commercial_thesis:
+      "Pomona is a Pomona Valley industrial, service-commercial, local office, and western Inland Empire/LA County edge market with useful access to Chino, Ontario, and the 10/57/71 corridors.",
+    best_fit_businesses: [
+      "Service-commercial, industrial/flex, local office, contractor, and Pomona Valley users",
+      "Businesses comparing Chino, Ontario, and LA County edge access",
+      "Teams that need western IE/LA County adjacency",
+    ],
+    poor_fit_businesses: [
+      "Large big-box distribution users",
+      "Prestige office users",
+      "Airport-specific logistics users",
+    ],
+    compare_with: [
+      { district_name: "Chino", district_path: "/commercial-real-estate/CA/chino/chino/", reason: "Compare if Chino industrial/flex access may fit better." },
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", reason: "Compare if airport and larger logistics identity matter more." },
+      { district_name: "Corona", district_path: "/commercial-real-estate/CA/corona/corona/", reason: "Compare if SR-91/I-15 western IE access may fit better." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "pomona_valley_service_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "service_industrial", "contractor", "local_warehouse"],
+      tenant_fit: ["contractor", "service_industrial", "local_distribution", "small_warehouse"],
+      decision_context:
+        "Pomona is useful as a western IE/LA County edge comparison, especially for service-industrial and smaller industrial/flex users.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/jurupa-valley/jurupa-valley/",
+    primary_archetype: "i15_sr60_industrial_corridor",
+    secondary_archetypes: ["warehouse_distribution_corridor", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Jurupa Valley is an I-15/SR-60 industrial, logistics, yard, contractor, and service-commercial corridor between Ontario, Riverside, Eastvale, and Fontana.",
+    best_fit_businesses: [
+      "Contractor, yard, service-industrial, logistics, warehouse, and truck-oriented users",
+      "Businesses comparing Ontario, Riverside, and Eastvale industrial access",
+      "Teams that need freeway corridor utility more than office identity",
+    ],
+    poor_fit_businesses: [
+      "Client-facing professional office users",
+      "Retail-first users",
+      "Civic downtown office users",
+    ],
+    compare_with: [
+      { district_name: "Eastvale", district_path: "/commercial-real-estate/CA/eastvale/eastvale/", reason: "Compare if newer logistics and western Riverside County access may fit better." },
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", reason: "Compare if office/service context matters more." },
+      { district_name: "Ontario", district_path: "/commercial-real-estate/CA/ontario/ontario/", reason: "Compare if airport-adjacent logistics identity is stronger." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "freeway_corridor_yard_industrial",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["yard", "service_industrial", "warehouse", "contractor", "industrial_flex"],
+      tenant_fit: ["contractor", "truck_service", "yard_user", "service_industrial", "logistics"],
+      decision_context:
+        "Jurupa Valley fits users that need I-15/SR-60 corridor utility, yard potential, and truck-oriented industrial context.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/eastvale/eastvale/",
+    primary_archetype: "western_riverside_logistics_edge",
+    secondary_archetypes: ["warehouse_distribution_corridor", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "Eastvale is a western Riverside County logistics, warehouse, retail-support, and service-commercial edge market between Ontario, Jurupa Valley, Chino, and Corona.",
+    best_fit_businesses: [
+      "Warehouse, logistics, last-mile, service-commercial, and regional operations users",
+      "Businesses comparing Ontario/Chino access with Riverside County growth corridors",
+      "Teams that need western Riverside County customer and logistics reach",
+    ],
+    poor_fit_businesses: [
+      "Traditional office users",
+      "Heavy industrial users needing Fontana/Rialto depth",
+      "Downtown civic office users",
+    ],
+    compare_with: [
+      { district_name: "Jurupa Valley", district_path: "/commercial-real-estate/CA/jurupa-valley/jurupa-valley/", reason: "Compare if more truck/yard-oriented corridor utility matters." },
+      { district_name: "Chino", district_path: "/commercial-real-estate/CA/chino/chino/", reason: "Compare if western IE industrial/flex access may fit better." },
+      { district_name: "Corona", district_path: "/commercial-real-estate/CA/corona/corona/", reason: "Compare if SR-91/I-15 gateway access matters more." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "western_riverside_logistics_edge",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "last_mile", "service_industrial", "retail_support"],
+      tenant_fit: ["last_mile", "regional_operations", "service_industrial", "logistics"],
+      decision_context:
+        "Eastvale is useful for users comparing western IE logistics access with western Riverside County growth and customer geography.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/perris/perris/",
+    primary_archetype: "i215_logistics_distribution_market",
+    secondary_archetypes: ["warehouse_distribution_corridor", "last_mile_distribution_cluster"],
+    commercial_thesis:
+      "Perris is an I-215 logistics, warehouse, distribution, industrial, and regional operations market south of Moreno Valley and Riverside.",
+    best_fit_businesses: [
+      "Warehouse, distribution, fulfillment, logistics, and regional operations users",
+      "Businesses comparing Moreno Valley, Riverside, and south/east IE industrial access",
+      "Teams prioritizing operating scale and I-215 logistics geography",
+    ],
+    poor_fit_businesses: [
+      "Client-facing office users",
+      "Airport-adjacent logistics users needing Ontario",
+      "Small professional-service users needing downtown context",
+    ],
+    compare_with: [
+      { district_name: "Moreno Valley", district_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/", comparison_path: "/commercial-real-estate/CA/perris/perris-vs-moreno-valley/", reason: "Compare if Moreno Valley's big-box warehouse scale and SR-60/I-215 access may fit better." },
+      { district_name: "Riverside", district_path: "/commercial-real-estate/CA/riverside/riverside/", reason: "Compare if Riverside office/service and industrial mix matters more." },
+      { district_name: "San Bernardino", district_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/", reason: "Compare if rail, airport, and eastern IE access matter more." },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "i215_distribution",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "high",
+      building_format: ["warehouse", "distribution", "fulfillment", "logistics"],
+      tenant_fit: ["distribution", "fulfillment", "3pl", "regional_operations"],
+      decision_context:
+        "Perris is strongest when I-215 logistics, operating scale, and eastern/southern IE warehouse access matter most.",
+    },
+  },
+];
+
+for (const model of inlandEmpireDistrictModels) {
+  districts[model.path] = {
+    ...model,
+    warehouse_flex_profile: model.warehouse_flex_profile
+      ? {
+          ...model.warehouse_flex_profile,
+          decision_context:
+            model.warehouse_flex_profile.decision_context ||
+            `${model.commercial_thesis} This market is most useful to compare when warehouse, logistics, industrial/flex, truck access, or freeway corridor geography matters.`,
+        }
+      : undefined,
+    confidence_level: model.confidence_level || "medium",
+    review_status: model.review_status || "generated",
+  };
+}
+
 const archetypeLabels = {
   adaptive_warehouse_office_district: "Adaptive warehouse-office district",
   mixed_use_startup_district: "Mixed-use startup district",
@@ -4461,6 +5127,25 @@ const archetypeLabels = {
   south_oc_professional_medical_market: "South Orange County professional/medical market",
   coastal_south_oc_service_office_market: "Coastal South Orange County service office market",
   creative_services_office_market: "Creative-services office market",
+  inland_empire_logistics_hub: "Inland Empire logistics hub",
+  airport_adjacent_industrial_market: "Airport-adjacent industrial market",
+  warehouse_distribution_corridor: "Warehouse/distribution corridor",
+  ie_office_industrial_balanced_market: "Inland Empire office/industrial market",
+  truck_oriented_logistics_corridor: "Truck-oriented logistics corridor",
+  heavy_industrial_logistics_market: "Heavy industrial logistics market",
+  ie_distribution_corridor: "Inland Empire distribution corridor",
+  rail_freeway_industrial_node: "Rail/freeway industrial node",
+  rail_airport_logistics_market: "Rail/airport logistics market",
+  eastern_ie_office_logistics_edge: "Eastern Inland Empire office/logistics edge",
+  eastern_ie_big_box_distribution_market: "Eastern Inland Empire big-box distribution market",
+  ie_civic_office_industrial_market: "Inland Empire civic office/industrial market",
+  ie_downtown_civic_office_core: "Inland Empire downtown civic office core",
+  western_ie_office_industrial_gateway: "Western Inland Empire office/industrial gateway",
+  western_ie_industrial_flex_market: "Western Inland Empire industrial/flex market",
+  pomona_valley_industrial_service_market: "Pomona Valley industrial/service market",
+  i15_sr60_industrial_corridor: "I-15 / SR-60 industrial corridor",
+  western_riverside_logistics_edge: "Western Riverside logistics edge",
+  i215_logistics_distribution_market: "I-215 logistics/distribution market",
 };
 
 function withLabels(model) {

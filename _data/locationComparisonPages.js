@@ -1559,6 +1559,285 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  {
+    slug: "ontario-vs-rancho-cucamonga",
+    title: "Ontario vs Rancho Cucamonga",
+    short_title: "Ontario vs Rancho Cucamonga",
+    city: "Ontario",
+    state_abbr: "CA",
+    city_slug: "ontario",
+    path: "/commercial-real-estate/CA/ontario/ontario-vs-rancho-cucamonga/",
+    district_a_name: "Ontario",
+    district_b_name: "Rancho Cucamonga",
+    district_a_path: "/commercial-real-estate/CA/ontario/ontario/",
+    district_b_path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/",
+    verdict_a:
+      "Choose Ontario if airport-adjacent logistics, western Inland Empire distribution identity, and I-10/I-15 access matter most.",
+    verdict_b:
+      "Choose Rancho Cucamonga if office/industrial balance, service-commercial context, and I-15 orientation are stronger priorities.",
+    comparison_notes: [
+      "Ontario is more airport/logistics anchored.",
+      "Rancho Cucamonga is more balanced between office, service commercial, and industrial/flex.",
+      "This is the core western Inland Empire logistics versus office/industrial balance comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "ontario-vs-fontana",
+    title: "Ontario vs Fontana",
+    short_title: "Ontario vs Fontana",
+    city: "Ontario",
+    state_abbr: "CA",
+    city_slug: "ontario",
+    path: "/commercial-real-estate/CA/ontario/ontario-vs-fontana/",
+    district_a_name: "Ontario",
+    district_b_name: "Fontana",
+    district_a_path: "/commercial-real-estate/CA/ontario/ontario/",
+    district_b_path: "/commercial-real-estate/CA/fontana/fontana/",
+    verdict_a:
+      "Choose Ontario if airport access, western IE logistics identity, and regional office/logistics overlap matter most.",
+    verdict_b:
+      "Choose Fontana if truck-oriented warehouse corridors, distribution depth, and industrial utility are the priority.",
+    comparison_notes: [
+      "Ontario is more airport-adjacent and mixed logistics/office oriented.",
+      "Fontana is more truck, warehouse, and heavy industrial/logistics oriented.",
+      "This is one of the clearest Inland Empire logistics fit decisions.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "fontana-vs-rialto",
+    title: "Fontana vs Rialto",
+    short_title: "Fontana vs Rialto",
+    city: "Fontana",
+    state_abbr: "CA",
+    city_slug: "fontana",
+    path: "/commercial-real-estate/CA/fontana/fontana-vs-rialto/",
+    district_a_name: "Fontana",
+    district_b_name: "Rialto",
+    district_a_path: "/commercial-real-estate/CA/fontana/fontana/",
+    district_b_path: "/commercial-real-estate/CA/rialto/rialto/",
+    verdict_a:
+      "Choose Fontana if deeper truck-oriented warehouse, manufacturing, and logistics corridors matter most.",
+    verdict_b:
+      "Choose Rialto if central/eastern IE distribution access between Fontana and San Bernardino is the better fit.",
+    comparison_notes: [
+      "Fontana is generally the stronger truck-oriented industrial corridor.",
+      "Rialto is a useful distribution corridor with San Bernardino adjacency.",
+      "The comparison helps users tune industrial geography within the central Inland Empire.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "rialto-vs-san-bernardino",
+    title: "Rialto vs San Bernardino",
+    short_title: "Rialto vs San Bernardino",
+    city: "Rialto",
+    state_abbr: "CA",
+    city_slug: "rialto",
+    path: "/commercial-real-estate/CA/rialto/rialto-vs-san-bernardino/",
+    district_a_name: "Rialto",
+    district_b_name: "San Bernardino",
+    district_a_path: "/commercial-real-estate/CA/rialto/rialto/",
+    district_b_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/",
+    verdict_a:
+      "Choose Rialto if distribution corridor utility and Fontana/San Bernardino midpoint access matter most.",
+    verdict_b:
+      "Choose San Bernardino if rail, airport, civic/service context, and broader eastern IE access fit better.",
+    comparison_notes: [
+      "Rialto is more narrowly distribution-corridor oriented.",
+      "San Bernardino adds rail, airport, civic, and broader service-industrial context.",
+      "This comparison is useful for users weighing central IE distribution against eastern IE infrastructure.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "san-bernardino-vs-redlands",
+    title: "San Bernardino vs Redlands",
+    short_title: "San Bernardino vs Redlands",
+    city: "San Bernardino",
+    state_abbr: "CA",
+    city_slug: "san-bernardino",
+    path: "/commercial-real-estate/CA/san-bernardino/san-bernardino-vs-redlands/",
+    district_a_name: "San Bernardino",
+    district_b_name: "Redlands",
+    district_a_path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/",
+    district_b_path: "/commercial-real-estate/CA/redlands/redlands/",
+    verdict_a:
+      "Choose San Bernardino if rail/airport logistics, industrial utility, and civic/service access are the priority.",
+    verdict_b:
+      "Choose Redlands if eastern IE professional, medical, local-service, and logistics-support context fit better.",
+    comparison_notes: [
+      "San Bernardino is more industrial, rail, airport, and civic/service oriented.",
+      "Redlands is more professional-service and eastern IE office/logistics edge oriented.",
+      "This comparison clarifies two very different eastern Inland Empire roles.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "riverside-vs-moreno-valley",
+    title: "Riverside vs Moreno Valley",
+    short_title: "Riverside vs Moreno Valley",
+    city: "Riverside",
+    state_abbr: "CA",
+    city_slug: "riverside",
+    path: "/commercial-real-estate/CA/riverside/riverside-vs-moreno-valley/",
+    district_a_name: "Riverside",
+    district_b_name: "Moreno Valley",
+    district_a_path: "/commercial-real-estate/CA/riverside/riverside/",
+    district_b_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/",
+    verdict_a:
+      "Choose Riverside if office, civic, service-commercial, medical, and industrial/flex context all matter.",
+    verdict_b:
+      "Choose Moreno Valley if big-box warehouse, fulfillment, and eastern IE distribution scale are the priority.",
+    comparison_notes: [
+      "Riverside is more balanced and civic/service oriented.",
+      "Moreno Valley is more big-box warehouse and distribution oriented.",
+      "This is a key eastern Inland Empire mixed-market versus logistics-scale comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "riverside-vs-corona",
+    title: "Riverside vs Corona",
+    short_title: "Riverside vs Corona",
+    city: "Riverside",
+    state_abbr: "CA",
+    city_slug: "riverside",
+    path: "/commercial-real-estate/CA/riverside/riverside-vs-corona/",
+    district_a_name: "Riverside",
+    district_b_name: "Corona",
+    district_a_path: "/commercial-real-estate/CA/riverside/riverside/",
+    district_b_path: "/commercial-real-estate/CA/corona/corona/",
+    verdict_a:
+      "Choose Riverside if civic office, medical, service-commercial, and broader IE identity matter most.",
+    verdict_b:
+      "Choose Corona if western IE industrial/flex, SR-91/I-15 access, and Orange County adjacency fit better.",
+    comparison_notes: [
+      "Riverside is stronger as a civic and mixed office/industrial market.",
+      "Corona is stronger as a western IE gateway with Orange County adjacency.",
+      "This comparison helps users choose between Inland Empire center and western gateway access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "chino-vs-ontario",
+    title: "Chino vs Ontario",
+    short_title: "Chino vs Ontario",
+    city: "Chino",
+    state_abbr: "CA",
+    city_slug: "chino",
+    path: "/commercial-real-estate/CA/chino/chino-vs-ontario/",
+    district_a_name: "Chino",
+    district_b_name: "Ontario",
+    district_a_path: "/commercial-real-estate/CA/chino/chino/",
+    district_b_path: "/commercial-real-estate/CA/ontario/ontario/",
+    verdict_a:
+      "Choose Chino if western IE industrial/flex, service-industrial, and LA/OC edge access matter most.",
+    verdict_b:
+      "Choose Ontario if airport-adjacent logistics, broader warehouse identity, and regional distribution access fit better.",
+    comparison_notes: [
+      "Chino is more western-edge industrial/flex and service-industrial oriented.",
+      "Ontario is more airport-adjacent and logistics hub oriented.",
+      "This is a practical western Inland Empire industrial location comparison.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "corona-vs-chino",
+    title: "Corona vs Chino",
+    short_title: "Corona vs Chino",
+    city: "Corona",
+    state_abbr: "CA",
+    city_slug: "corona",
+    path: "/commercial-real-estate/CA/corona/corona-vs-chino/",
+    district_a_name: "Corona",
+    district_b_name: "Chino",
+    district_a_path: "/commercial-real-estate/CA/corona/corona/",
+    district_b_path: "/commercial-real-estate/CA/chino/chino/",
+    verdict_a:
+      "Choose Corona if SR-91/I-15 gateway access and Orange County adjacency matter most.",
+    verdict_b:
+      "Choose Chino if western IE industrial/flex and Ontario/Pomona Valley access fit better.",
+    comparison_notes: [
+      "Corona is more of a western IE/Orange County-adjacent gateway.",
+      "Chino is more western IE industrial/flex and service-industrial oriented.",
+      "The comparison helps users choose between two western IE operating geographies.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "perris-vs-moreno-valley",
+    title: "Perris vs Moreno Valley",
+    short_title: "Perris vs Moreno Valley",
+    city: "Perris",
+    state_abbr: "CA",
+    city_slug: "perris",
+    path: "/commercial-real-estate/CA/perris/perris-vs-moreno-valley/",
+    district_a_name: "Perris",
+    district_b_name: "Moreno Valley",
+    district_a_path: "/commercial-real-estate/CA/perris/perris/",
+    district_b_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/",
+    verdict_a:
+      "Choose Perris if I-215 logistics, operating scale, and southern/eastern IE distribution access matter most.",
+    verdict_b:
+      "Choose Moreno Valley if SR-60/I-215 big-box distribution and eastern IE warehouse scale fit better.",
+    comparison_notes: [
+      "Perris is more I-215 and south/east IE logistics oriented.",
+      "Moreno Valley is more established as a big-box eastern IE distribution market.",
+      "This comparison is specifically for warehouse, distribution, and fulfillment users.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "ontario-airport-area-vs-rancho-cucamonga",
+    title: "Ontario Airport Area vs Rancho Cucamonga",
+    short_title: "Ontario Airport Area vs Rancho Cucamonga",
+    city: "Ontario",
+    state_abbr: "CA",
+    city_slug: "ontario",
+    path: "/commercial-real-estate/CA/ontario/ontario-airport-area-vs-rancho-cucamonga/",
+    district_a_name: "Ontario Airport Area",
+    district_b_name: "Rancho Cucamonga",
+    district_a_path: "/commercial-real-estate/CA/ontario/ontario-airport-area/",
+    district_b_path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/",
+    verdict_a:
+      "Choose Ontario Airport Area if airport proximity, logistics-office adjacency, and Guasti/Inland Empire Boulevard access matter most.",
+    verdict_b:
+      "Choose Rancho Cucamonga if I-15 orientation, office/industrial balance, and service-commercial context fit better.",
+    comparison_notes: [
+      "Ontario Airport Area is more airport-specific.",
+      "Rancho Cucamonga is more balanced and I-15 oriented.",
+      "This is a useful western IE choice when airport proximity is important but not the only requirement.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "fontana-vs-moreno-valley",
+    title: "Fontana vs Moreno Valley",
+    short_title: "Fontana vs Moreno Valley",
+    city: "Fontana",
+    state_abbr: "CA",
+    city_slug: "fontana",
+    path: "/commercial-real-estate/CA/fontana/fontana-vs-moreno-valley/",
+    district_a_name: "Fontana",
+    district_b_name: "Moreno Valley",
+    district_a_path: "/commercial-real-estate/CA/fontana/fontana/",
+    district_b_path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/",
+    verdict_a:
+      "Choose Fontana if truck-oriented western/central IE warehouse corridors and manufacturing/logistics utility matter most.",
+    verdict_b:
+      "Choose Moreno Valley if eastern IE big-box distribution, fulfillment, and operating scale fit better.",
+    comparison_notes: [
+      "Fontana is more truck-corridor and manufacturing/logistics oriented.",
+      "Moreno Valley is more eastern IE big-box distribution oriented.",
+      "This comparison helps users choose between two of the Inland Empire's strongest industrial geographies.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -1639,6 +1918,19 @@ const detailCtaByArchetype = {
   south_oc_medical_service_office_market: "South Orange County medical/service office context",
   south_oc_professional_medical_market: "South Orange County professional/medical context",
   coastal_south_oc_service_office_market: "coastal South Orange County service office context",
+  inland_empire_logistics_hub: "Inland Empire logistics context",
+  airport_adjacent_industrial_market: "airport-adjacent industrial context",
+  ie_office_industrial_balanced_market: "Inland Empire office/industrial context",
+  truck_oriented_logistics_corridor: "truck-oriented logistics context",
+  ie_distribution_corridor: "Inland Empire distribution corridor context",
+  rail_airport_logistics_market: "rail and airport logistics context",
+  eastern_ie_office_logistics_edge: "eastern Inland Empire office/logistics context",
+  eastern_ie_big_box_distribution_market: "eastern Inland Empire big-box distribution context",
+  ie_civic_office_industrial_market: "Inland Empire civic office/industrial context",
+  ie_downtown_civic_office_core: "Inland Empire downtown civic office context",
+  western_ie_office_industrial_gateway: "western Inland Empire office/industrial gateway context",
+  western_ie_industrial_flex_market: "western Inland Empire industrial/flex context",
+  i215_logistics_distribution_market: "I-215 logistics/distribution context",
 };
 
 const metaFocusBySlug = {
@@ -1776,6 +2068,30 @@ const metaFocusBySlug = {
     "Mission Viejo South County professional and medical access versus Laguna Hills healthcare and wellness corridor context",
   "san-clemente-vs-mission-viejo":
     "San Clemente coastal South County local-service context versus Mission Viejo broader South County professional and medical market",
+  "ontario-vs-rancho-cucamonga":
+    "Ontario airport-adjacent logistics hub versus Rancho Cucamonga office/industrial and I-15 service-commercial balance",
+  "ontario-vs-fontana":
+    "Ontario airport-adjacent logistics access versus Fontana truck-oriented warehouse and industrial corridor depth",
+  "fontana-vs-rialto":
+    "Fontana truck-oriented industrial and warehouse depth versus Rialto central Inland Empire distribution corridor access",
+  "rialto-vs-san-bernardino":
+    "Rialto distribution corridor utility versus San Bernardino rail, airport, civic, and eastern Inland Empire logistics context",
+  "san-bernardino-vs-redlands":
+    "San Bernardino rail and airport industrial utility versus Redlands eastern Inland Empire professional and logistics-edge context",
+  "riverside-vs-moreno-valley":
+    "Riverside civic office and industrial/flex mix versus Moreno Valley big-box warehouse and distribution scale",
+  "riverside-vs-corona":
+    "Riverside civic mixed-market context versus Corona western Inland Empire and Orange County-adjacent industrial/flex access",
+  "chino-vs-ontario":
+    "Chino western Inland Empire industrial/flex access versus Ontario airport-adjacent logistics identity",
+  "corona-vs-chino":
+    "Corona SR-91/I-15 western gateway access versus Chino western Inland Empire industrial/flex context",
+  "perris-vs-moreno-valley":
+    "Perris I-215 logistics and distribution access versus Moreno Valley eastern Inland Empire big-box warehouse scale",
+  "ontario-airport-area-vs-rancho-cucamonga":
+    "Ontario Airport Area logistics-office adjacency versus Rancho Cucamonga I-15 office/industrial balance",
+  "fontana-vs-moreno-valley":
+    "Fontana truck-oriented logistics corridors versus Moreno Valley eastern Inland Empire big-box distribution scale",
 };
 
 function districtSummary(path) {
@@ -1850,6 +2166,18 @@ const warehouseFlexComparisonSlugs = new Set([
   "santa-ana-vs-garden-grove",
   "lake-forest-vs-irvine-spectrum",
   "brea-vs-anaheim",
+  "ontario-vs-rancho-cucamonga",
+  "ontario-vs-fontana",
+  "fontana-vs-rialto",
+  "rialto-vs-san-bernardino",
+  "san-bernardino-vs-redlands",
+  "riverside-vs-moreno-valley",
+  "riverside-vs-corona",
+  "chino-vs-ontario",
+  "corona-vs-chino",
+  "perris-vs-moreno-valley",
+  "ontario-airport-area-vs-rancho-cucamonga",
+  "fontana-vs-moreno-valley",
 ]);
 
 module.exports = comparisons.map((comparison) => {

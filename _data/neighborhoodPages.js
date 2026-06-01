@@ -683,6 +683,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_inland_empire_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the Inland Empire commercial geography graph, with context for warehouse, logistics, industrial/flex, freeway access, and regional market comparisons.`,
+      guide_label: "Inland Empire district guide",
+    };
+  }
+
   return null;
 }
 
@@ -1319,6 +1332,65 @@ function representativeBuildingRolesFor(page) {
         "South OC commerce center context",
       "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/":
         "Mission Viejo professional office",
+    };
+  }
+
+  if (page.public_inland_empire_v1) {
+    return {
+      "/commercial-real-estate/building/CA/ontario/1477-e-cedar-ave/":
+        "Ontario industrial/service building",
+      "/commercial-real-estate/building/CA/ontario/2970-inland-empire-blvd/":
+        "Inland Empire Boulevard airport-area office",
+      "/commercial-real-estate/building/CA/ontario/3200-e-guasti-rd/":
+        "Guasti airport-area office context",
+      "/commercial-real-estate/building/CA/ontario/3281-e-guasti-rd/":
+        "Ontario Airport Area business corridor",
+      "/commercial-real-estate/building/CA/ontario/5505-concours/":
+        "Airport-adjacent office/logistics context",
+      "/commercial-real-estate/building/CA/ontario/875-w-state-st/":
+        "Ontario local industrial/service context",
+      "/commercial-real-estate/building/CA/rancho-cucamonga/9805-6th-st/":
+        "Rancho Cucamonga industrial/flex corridor",
+      "/commercial-real-estate/building/CA/fontana/10509-business-dr/":
+        "Fontana business/industrial corridor",
+      "/commercial-real-estate/building/CA/fontana/10840-cherry-ave/":
+        "Cherry Avenue industrial corridor",
+      "/commercial-real-estate/building/CA/fontana/14019-rose-ave/":
+        "Fontana warehouse/logistics context",
+      "/commercial-real-estate/building/CA/fontana/6260-mango-ave/":
+        "Truck-oriented industrial setting",
+      "/commercial-real-estate/building/CA/rialto/1110-w-base-line-rd/":
+        "Rialto local industrial/service edge",
+      "/commercial-real-estate/building/CA/colton/1200-1350-e-washington-st/":
+        "Colton freeway industrial corridor",
+      "/commercial-real-estate/building/CA/san-bernardino/1089-e-mill-st/":
+        "San Bernardino industrial corridor",
+      "/commercial-real-estate/building/CA/san-bernardino/2449-e-5th-st/":
+        "Eastern IE service-industrial context",
+      "/commercial-real-estate/building/CA/san-bernardino/5770-industrial-pkwy/":
+        "Industrial Parkway logistics setting",
+      "/commercial-real-estate/building/CA/san-bernardino/614-e-norman-rd/":
+        "San Bernardino warehouse/service building",
+      "/commercial-real-estate/building/CA/san-bernardino/634-e-norman-rd/":
+        "Norman Road industrial context",
+      "/commercial-real-estate/building/CA/moreno-valley/14200-rebecca-st/":
+        "Moreno Valley warehouse/distribution context",
+      "/commercial-real-estate/building/CA/moreno-valley/23880-23962-alessandro-blvd/":
+        "Alessandro Boulevard service-commercial corridor",
+      "/commercial-real-estate/building/CA/riverside/11801-pierce-st/":
+        "Riverside office/industrial edge",
+      "/commercial-real-estate/building/CA/riverside/7530-jurupa-ave/":
+        "Jurupa Avenue industrial/service corridor",
+      "/commercial-real-estate/building/CA/corona/1113-s-main-st/":
+        "Corona local commercial/office context",
+      "/commercial-real-estate/building/CA/corona/1141-california-ave/":
+        "Corona industrial/flex corridor",
+      "/commercial-real-estate/building/CA/corona/210-radio-rd/":
+        "Corona service-industrial setting",
+      "/commercial-real-estate/building/CA/chino/5236-faraday-ct/":
+        "Chino industrial/flex building",
+      "/commercial-real-estate/building/CA/pomona/228-e-monterey-ave/":
+        "Pomona Valley service-commercial building",
     };
   }
 
@@ -3027,6 +3099,289 @@ const orangeCountyDistrictDefinitions = [
   },
 ];
 
+const inlandEmpireDistrictDefinitions = [
+  {
+    id: "ie-ontario",
+    name: "Ontario",
+    slug: "ontario",
+    city: "Ontario",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/ontario/ontario/",
+    centroid_lat: 34.063,
+    centroid_lng: -117.65,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["logistics", "warehouse", "airport_access", "industrial_flex"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/ontario/1477-e-cedar-ave/",
+      "/commercial-real-estate/building/CA/ontario/875-w-state-st/",
+      "/commercial-real-estate/building/CA/ontario/2970-inland-empire-blvd/",
+    ],
+  },
+  {
+    id: "ie-ontario-airport-area",
+    name: "Ontario Airport Area",
+    slug: "ontario-airport-area",
+    city: "Ontario",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/ontario/ontario-airport-area/",
+    centroid_lat: 34.065,
+    centroid_lng: -117.6,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["airport_access", "logistics", "office", "warehouse"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/ontario/2970-inland-empire-blvd/",
+      "/commercial-real-estate/building/CA/ontario/3200-e-guasti-rd/",
+      "/commercial-real-estate/building/CA/ontario/3281-e-guasti-rd/",
+      "/commercial-real-estate/building/CA/ontario/5505-concours/",
+    ],
+  },
+  {
+    id: "ie-rancho-cucamonga",
+    name: "Rancho Cucamonga",
+    slug: "rancho-cucamonga",
+    city: "Rancho Cucamonga",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/rancho-cucamonga/rancho-cucamonga/",
+    centroid_lat: 34.106,
+    centroid_lng: -117.594,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office", "retail"],
+    profile: ["industrial_flex", "office", "logistics", "service_commercial"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/rancho-cucamonga/9805-6th-st/",
+    ],
+  },
+  {
+    id: "ie-fontana",
+    name: "Fontana",
+    slug: "fontana",
+    city: "Fontana",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/fontana/fontana/",
+    centroid_lat: 34.092,
+    centroid_lng: -117.435,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["logistics", "warehouse", "truck_access", "manufacturing"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/fontana/10509-business-dr/",
+      "/commercial-real-estate/building/CA/fontana/10840-cherry-ave/",
+      "/commercial-real-estate/building/CA/fontana/14019-rose-ave/",
+      "/commercial-real-estate/building/CA/fontana/6260-mango-ave/",
+    ],
+  },
+  {
+    id: "ie-rialto",
+    name: "Rialto",
+    slug: "rialto",
+    city: "Rialto",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/rialto/rialto/",
+    centroid_lat: 34.106,
+    centroid_lng: -117.37,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["warehouse", "logistics", "last_mile", "truck_access"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/rialto/1110-w-base-line-rd/",
+    ],
+  },
+  {
+    id: "ie-bloomington-colton",
+    name: "Bloomington / Colton",
+    slug: "bloomington-colton",
+    city: "Colton",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/colton/bloomington-colton/",
+    centroid_lat: 34.065,
+    centroid_lng: -117.32,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["rail", "freeway_access", "service_commercial", "warehouse"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/colton/1200-1350-e-washington-st/",
+    ],
+  },
+  {
+    id: "ie-san-bernardino",
+    name: "San Bernardino",
+    slug: "san-bernardino",
+    city: "San Bernardino",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-bernardino/san-bernardino/",
+    centroid_lat: 34.108,
+    centroid_lng: -117.289,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["logistics", "rail", "airport_access", "civic_business"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-bernardino/1089-e-mill-st/",
+      "/commercial-real-estate/building/CA/san-bernardino/2449-e-5th-st/",
+      "/commercial-real-estate/building/CA/san-bernardino/5770-industrial-pkwy/",
+      "/commercial-real-estate/building/CA/san-bernardino/614-e-norman-rd/",
+      "/commercial-real-estate/building/CA/san-bernardino/634-e-norman-rd/",
+    ],
+  },
+  {
+    id: "ie-redlands",
+    name: "Redlands",
+    slug: "redlands",
+    city: "Redlands",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/redlands/redlands/",
+    centroid_lat: 34.055,
+    centroid_lng: -117.182,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "industrial"],
+    profile: ["office", "medical", "local_services", "logistics"],
+    representative_building_paths: [],
+  },
+  {
+    id: "ie-moreno-valley",
+    name: "Moreno Valley",
+    slug: "moreno-valley",
+    city: "Moreno Valley",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/moreno-valley/moreno-valley/",
+    centroid_lat: 33.942,
+    centroid_lng: -117.229,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["warehouse", "logistics", "distribution", "last_mile"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/moreno-valley/14200-rebecca-st/",
+      "/commercial-real-estate/building/CA/moreno-valley/23880-23962-alessandro-blvd/",
+    ],
+  },
+  {
+    id: "ie-riverside",
+    name: "Riverside",
+    slug: "riverside",
+    city: "Riverside",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/riverside/riverside/",
+    centroid_lat: 33.981,
+    centroid_lng: -117.375,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "flex", "medical"],
+    profile: ["civic_business", "office", "industrial_flex", "medical"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/riverside/11801-pierce-st/",
+      "/commercial-real-estate/building/CA/riverside/7530-jurupa-ave/",
+    ],
+  },
+  {
+    id: "ie-downtown-riverside",
+    name: "Downtown Riverside",
+    slug: "downtown-riverside",
+    city: "Riverside",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/riverside/downtown-riverside/",
+    centroid_lat: 33.982,
+    centroid_lng: -117.373,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["downtown", "civic_business", "professional_services", "transit_oriented"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/riverside/11801-pierce-st/",
+    ],
+  },
+  {
+    id: "ie-corona",
+    name: "Corona",
+    slug: "corona",
+    city: "Corona",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/corona/corona/",
+    centroid_lat: 33.875,
+    centroid_lng: -117.566,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["industrial_flex", "office", "western_ie", "orange_county_edge"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/corona/1113-s-main-st/",
+      "/commercial-real-estate/building/CA/corona/1141-california-ave/",
+      "/commercial-real-estate/building/CA/corona/210-radio-rd/",
+    ],
+  },
+  {
+    id: "ie-chino",
+    name: "Chino",
+    slug: "chino",
+    city: "Chino",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/chino/chino/",
+    centroid_lat: 34.013,
+    centroid_lng: -117.69,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["industrial_flex", "warehouse", "service_commercial", "western_ie"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/chino/5236-faraday-ct/",
+    ],
+  },
+  {
+    id: "ie-pomona",
+    name: "Pomona",
+    slug: "pomona",
+    city: "Pomona",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/pomona/pomona/",
+    centroid_lat: 34.055,
+    centroid_lng: -117.75,
+    area_type: "district",
+    approximate_space_types: ["industrial", "flex", "office", "retail"],
+    profile: ["service_commercial", "industrial_flex", "local_services", "la_county_edge"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/pomona/228-e-monterey-ave/",
+    ],
+  },
+  {
+    id: "ie-jurupa-valley",
+    name: "Jurupa Valley",
+    slug: "jurupa-valley",
+    city: "Jurupa Valley",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/jurupa-valley/jurupa-valley/",
+    centroid_lat: 34.004,
+    centroid_lng: -117.464,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["truck_access", "yard", "warehouse", "service_commercial"],
+    representative_building_paths: [],
+  },
+  {
+    id: "ie-eastvale",
+    name: "Eastvale",
+    slug: "eastvale",
+    city: "Eastvale",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/eastvale/eastvale/",
+    centroid_lat: 33.963,
+    centroid_lng: -117.564,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "retail"],
+    profile: ["warehouse", "logistics", "last_mile", "western_riverside"],
+    representative_building_paths: [],
+  },
+  {
+    id: "ie-perris",
+    name: "Perris",
+    slug: "perris",
+    city: "Perris",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/perris/perris/",
+    centroid_lat: 33.783,
+    centroid_lng: -117.229,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["warehouse", "logistics", "distribution", "i215"],
+    representative_building_paths: [],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -3239,6 +3594,42 @@ function orangeCountyDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_orange_county_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function inlandEmpireDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "inland_empire_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_inland_empire_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -3475,6 +3866,7 @@ const northBayPages = northBayDistrictDefinitions.map(northBayDistrictPageFor);
 const sacramentoPages = sacramentoDistrictDefinitions.map(sacramentoDistrictPageFor);
 const sanDiegoPages = sanDiegoDistrictDefinitions.map(sanDiegoDistrictPageFor);
 const orangeCountyPages = orangeCountyDistrictDefinitions.map(orangeCountyDistrictPageFor);
+const inlandEmpirePages = inlandEmpireDistrictDefinitions.map(inlandEmpireDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -3532,6 +3924,13 @@ for (const page of sanDiegoPages) {
 }
 
 for (const page of orangeCountyPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of inlandEmpirePages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
