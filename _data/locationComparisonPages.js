@@ -22,7 +22,7 @@ const comparisons = [
       "SoMa works better for creative or startup teams that want central access without full CBD formality.",
       "The Financial District works better for traditional professional-service users that benefit from a recognized downtown business address.",
     ],
-    lead_prompt: "Get help choosing between SoMa and the Financial District",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "soma-vs-mission-bay",
@@ -45,7 +45,7 @@ const comparisons = [
       "SoMa is stronger for creative office and central-city flexibility.",
       "Mission Bay is stronger for life-science, medical, research-adjacent, and modern office environments.",
     ],
-    lead_prompt: "Get help choosing between SoMa and Mission Bay",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "downtown-oakland-vs-uptown-oakland",
@@ -68,7 +68,7 @@ const comparisons = [
       "Uptown Oakland is more mixed-use, arts-adjacent, and smaller-company friendly.",
       "Both can support East Bay office users, but they communicate different business environments.",
     ],
-    lead_prompt: "Get help choosing between Downtown Oakland and Uptown Oakland",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "financial-district-vs-jackson-square",
@@ -91,7 +91,7 @@ const comparisons = [
       "The Financial District is stronger for traditional professional-service users that benefit from scale, transit, and formal business identity.",
       "Jackson Square is stronger for boutique teams that want downtown adjacency in lower-scale historic commercial buildings.",
     ],
-    lead_prompt: "Get help choosing between the Financial District and Jackson Square",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "downtown-oakland-vs-jack-london-square",
@@ -114,7 +114,7 @@ const comparisons = [
       "Jack London Square is more waterfront-adjacent, adaptive, and service-commercial in character.",
       "The decision is often between practical East Bay office concentration and a lower-scale waterfront commercial environment.",
     ],
-    lead_prompt: "Get help choosing between Downtown Oakland and Jack London Square",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "financial-district-vs-mission-bay",
@@ -137,7 +137,7 @@ const comparisons = [
       "The Financial District is usually stronger for legal, finance, consulting, and traditional professional-service users.",
       "Mission Bay is usually stronger for research-adjacent, medical, life-science, and modern office users tied to UCSF or waterfront growth.",
     ],
-    lead_prompt: "Get help choosing between the Financial District and Mission Bay",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "downtown-oakland-vs-old-oakland",
@@ -160,7 +160,7 @@ const comparisons = [
       "Old Oakland is lower-scale, more historic, and more transitional between the Broadway core and Jack London Square.",
       "Both can work for East Bay office users, but Old Oakland reads as a smaller district environment rather than the main business core.",
     ],
-    lead_prompt: "Get help choosing between Downtown Oakland and Old Oakland",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "financial-district-vs-downtown-oakland",
@@ -183,7 +183,7 @@ const comparisons = [
       "The Financial District is stronger for firms that benefit from San Francisco's formal CBD identity and client-facing office concentration.",
       "Downtown Oakland is stronger for organizations prioritizing East Bay access, practical transit, public-sector adjacency, or a different cost and commute profile.",
     ],
-    lead_prompt: "Get help choosing between the Financial District and Downtown Oakland",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "soma-vs-jackson-square",
@@ -206,7 +206,7 @@ const comparisons = [
       "SoMa usually fits creative, technology, and flexible office users that want central access and mixed building types.",
       "Jackson Square usually fits boutique professional-service, design, and client-facing users that want downtown access in lower-scale buildings.",
     ],
-    lead_prompt: "Get help choosing between SoMa and Jackson Square",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "mission-bay-vs-jackson-square",
@@ -229,7 +229,7 @@ const comparisons = [
       "Jackson Square is older, smaller-scale, and more boutique professional-service oriented.",
       "This comparison is most useful when a user is deciding between modern institutional geography and downtown-edge historic office character.",
     ],
-    lead_prompt: "Get help choosing between Mission Bay and Jackson Square",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "downtown-palo-alto-vs-soma",
@@ -252,7 +252,7 @@ const comparisons = [
       "Downtown Palo Alto is stronger for teams tied to Peninsula clients, Stanford, Caltrain, or venture-adjacent networks.",
       "SoMa is stronger for users that want San Francisco centrality, mixed building types, and proximity to downtown, Mission Bay, South Park, and the waterfront.",
     ],
-    lead_prompt: "Get help choosing between Downtown Palo Alto and SoMa",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "downtown-palo-alto-vs-financial-district",
@@ -275,7 +275,7 @@ const comparisons = [
       "The Financial District is a larger formal CBD with stronger vertical office concentration and regional downtown identity.",
       "This comparison is useful for teams weighing Peninsula network access against San Francisco downtown presence.",
     ],
-    lead_prompt: "Get help choosing between Downtown Palo Alto and the Financial District",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "uptown-oakland-vs-jack-london-square",
@@ -298,7 +298,7 @@ const comparisons = [
       "Jack London Square is more waterfront-adjacent, adaptive, and service-commercial.",
       "Both can support smaller office and creative users, but they communicate different Oakland environments.",
     ],
-    lead_prompt: "Get help choosing between Uptown Oakland and Jack London Square",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "soma-vs-downtown-oakland",
@@ -321,7 +321,7 @@ const comparisons = [
       "SoMa is stronger for teams prioritizing San Francisco access and mixed creative-commercial building types.",
       "Downtown Oakland is stronger for teams prioritizing East Bay access, practical transit, public-sector adjacency, or cross-bay cost and commute tradeoffs.",
     ],
-    lead_prompt: "Get help choosing between SoMa and Downtown Oakland",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "hayward-vs-fremont",
@@ -344,7 +344,7 @@ const comparisons = [
       "Hayward tends to fit service-commercial, contractor, light industrial, and distribution users that prioritize functional access.",
       "Fremont tends to fit users that benefit from a deeper manufacturing and technology-adjacent industrial ecosystem.",
     ],
-    lead_prompt: "Get help choosing between Hayward and Fremont",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "hayward-vs-union-city",
@@ -367,7 +367,7 @@ const comparisons = [
       "Hayward is broader and usually more useful when users want more industrial depth and a central East Bay position.",
       "Union City is more compact and can work when practical I-880 access matters more than a large commercial identity.",
     ],
-    lead_prompt: "Get help choosing between Hayward and Union City",
+    lead_prompt: "Find locations that fit",
   },
   {
     slug: "hayward-vs-san-leandro",
@@ -390,7 +390,7 @@ const comparisons = [
       "Hayward tends to fit warehouse/flex users that want broad I-880 reach across the East Bay.",
       "San Leandro tends to fit service-commercial, contractor, and light industrial users that benefit from Oakland, airport, and North I-880 proximity.",
     ],
-    lead_prompt: "Get help choosing between Hayward and San Leandro",
+    lead_prompt: "Find locations that fit",
   },
 ];
 

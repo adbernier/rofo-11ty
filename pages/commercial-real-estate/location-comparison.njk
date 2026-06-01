@@ -30,7 +30,7 @@ eleventyComputed:
             Compare which commercial district is a better fit before narrowing to specific spaces.
           </p>
           <div class="button-row">
-            <a class="btn-primary" href="#comparison-contact-form">{{ comparison.lead_prompt }}</a>
+            <a class="btn-primary" href="#comparison-contact-form">Find locations that fit</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ comparison.state_abbr }}/{{ comparison.city_slug }}/market-guide/">Read market guide</a>
           </div>
         </div>
@@ -176,12 +176,12 @@ eleventyComputed:
         <details id="comparison-contact-form" class="city-form city-card neighborhood-lead-form neighborhood-briefing-card">
           <summary>
             <span class="eyebrow">Location decision help</span>
-            <span class="neighborhood-briefing-card__headline">{{ comparison.lead_prompt }}</span>
+            <span class="neighborhood-briefing-card__headline">Find locations that fit</span>
             <span class="neighborhood-briefing-card__body">
-              Share your use case and we’ll help compare location fit, current options, and nearby alternatives.
+              Tell us what matters and we’ll help compare locations, buildings, and alternatives that fit.
             </span>
-            <span class="neighborhood-briefing-card__button">Request location guidance</span>
-            <span class="neighborhood-briefing-card__reassurance">No obligation. We’ll help you compare relevant districts and spaces.</span>
+            <span class="neighborhood-briefing-card__button">Find locations that fit</span>
+            <span class="neighborhood-briefing-card__reassurance">No obligation. We’ll help compare relevant markets, buildings, and alternatives.</span>
           </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
             <input type="hidden" name="source" value="rofo-location-comparison-page">
@@ -252,7 +252,7 @@ eleventyComputed:
                 <input type="checkbox" name="human_check" required>
                 I’m a real person evaluating locations
               </label>
-              <button class="btn-primary" type="submit">Request location guidance</button>
+              <button class="btn-primary" type="submit">Find locations that fit</button>
             </div>
 
             <p class="form-note">District fit, current options, and nearby alternatives for {{ comparison.short_title }}.</p>
