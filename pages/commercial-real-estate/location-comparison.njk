@@ -102,13 +102,13 @@ eleventyComputed:
         </section>
 
         <section class="city-card">
-          <div class="eyebrow">Office context</div>
-          <h2>How to think about office fit</h2>
+          <div class="eyebrow">{{ comparison.decision_context_label }}</div>
+          <h2>{{ comparison.decision_context_heading }}</h2>
           <div class="location-comparison-panel-grid">
             <div class="location-comparison-panel">
               <h3>{{ comparison.district_a_name }} tends to work better for</h3>
               <ul class="mini-list location-comparison-panel__list">
-                {% for item in comparison.district_a.best_fit_businesses %}
+                {% for item in comparison.district_a_decision_context %}
                   <li>{{ item }}</li>
                 {% endfor %}
               </ul>
@@ -116,7 +116,7 @@ eleventyComputed:
             <div class="location-comparison-panel">
               <h3>{{ comparison.district_b_name }} tends to work better for</h3>
               <ul class="mini-list location-comparison-panel__list">
-                {% for item in comparison.district_b.best_fit_businesses %}
+                {% for item in comparison.district_b_decision_context %}
                   <li>{{ item }}</li>
                 {% endfor %}
               </ul>

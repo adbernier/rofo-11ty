@@ -106,6 +106,16 @@ eleventyComputed:
   {% endif %}
 {% endfor %}
 {% set displayBuildings = featuredBuildings if featuredBuildings.length else cityBuildings %}
+{% set cityLocationModelPath = "/commercial-real-estate/" + city.state_abbr + "/" + city.slug + "/" %}
+{% set cityLocationModel = commercialLocationModel.byPath[cityLocationModelPath] %}
+{% set cityLocationComparisons = [] %}
+{% if cityLocationModel and cityLocationModel.compare_with and cityLocationModel.compare_with.length %}
+  {% for comparison in cityLocationModel.compare_with %}
+    {% if comparison.comparison_path %}
+      {% set cityLocationComparisons = (cityLocationComparisons.push(comparison), cityLocationComparisons) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 <section class="city-page">
   <div class="city-shell">
@@ -177,6 +187,34 @@ eleventyComputed:
                 See leasing trends, average rents, neighborhood notes, and nearby market comparisons for {{ city.city }}.
               </p>
               <a class="building-link" href="{{ cityMarketGuide.url }}">View the {{ city.city }} Market Guide →</a>
+            </div>
+          {% endif %}
+
+          {% if cityLocationComparisons.length %}
+            <div class="city-card city-location-comparisons-card">
+              <div class="eyebrow">Location comparisons</div>
+              <h2>
+                {% if cityLocationModel.warehouse_flex_profile %}
+                  Compare nearby industrial markets
+                {% else %}
+                  Businesses comparing this market also evaluate
+                {% endif %}
+              </h2>
+              <p>
+                {% if cityLocationModel.warehouse_flex_profile %}
+                  Warehouse, flex, and service-commercial users often compare {{ city.city }} with nearby markets based on access, loading needs, building format, and operational fit.
+                {% else %}
+                  Businesses often compare {{ city.city }} with nearby markets before narrowing to specific buildings or spaces.
+                {% endif %}
+              </p>
+              <div class="neighborhood-comparison-grid">
+                {% for comparison in cityLocationComparisons %}
+                  <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ comparison.comparison_path }}">
+                    <h3>{{ city.city }} vs {{ comparison.district_name }}</h3>
+                    <p>{{ comparison.reason }}</p>
+                  </a>
+                {% endfor %}
+              </div>
             </div>
           {% endif %}
 

@@ -323,6 +323,75 @@ const comparisons = [
     ],
     lead_prompt: "Get help choosing between SoMa and Downtown Oakland",
   },
+  {
+    slug: "hayward-vs-fremont",
+    title: "Hayward vs Fremont",
+    short_title: "Hayward vs Fremont",
+    city: "Hayward",
+    state_abbr: "CA",
+    city_slug: "hayward",
+    path: "/commercial-real-estate/CA/hayward/hayward-vs-fremont/",
+    district_a_name: "Hayward",
+    district_b_name: "Fremont",
+    district_a_path: "/commercial-real-estate/CA/hayward/",
+    district_b_path: "/commercial-real-estate/CA/fremont/",
+    verdict_a:
+      "Choose Hayward if central East Bay warehouse/flex access, service-commercial practicality, and broad I-880 reach matter most.",
+    verdict_b:
+      "Choose Fremont if R&D, advanced manufacturing, clean-tech, life-science support, or stronger Silicon Valley industrial adjacency matter more.",
+    comparison_notes: [
+      "Hayward is the more central East Bay warehouse/flex decision; Fremont is more oriented toward R&D, advanced manufacturing, and South East Bay industrial identity.",
+      "Hayward tends to fit service-commercial, contractor, light industrial, and distribution users that prioritize functional access.",
+      "Fremont tends to fit users that benefit from a deeper manufacturing and technology-adjacent industrial ecosystem.",
+    ],
+    lead_prompt: "Get help choosing between Hayward and Fremont",
+  },
+  {
+    slug: "hayward-vs-union-city",
+    title: "Hayward vs Union City",
+    short_title: "Hayward vs Union City",
+    city: "Hayward",
+    state_abbr: "CA",
+    city_slug: "hayward",
+    path: "/commercial-real-estate/CA/hayward/hayward-vs-union-city/",
+    district_a_name: "Hayward",
+    district_b_name: "Union City",
+    district_a_path: "/commercial-real-estate/CA/hayward/",
+    district_b_path: "/commercial-real-estate/CA/union-city/",
+    verdict_a:
+      "Choose Hayward if a broader central East Bay industrial base, more varied warehouse/flex context, and north-south I-880 reach matter most.",
+    verdict_b:
+      "Choose Union City if a compact Tri-City logistics/flex position between Hayward and Fremont is enough for the operation.",
+    comparison_notes: [
+      "This is an adjacent-market warehouse/flex decision, not an office identity comparison.",
+      "Hayward is broader and usually more useful when users want more industrial depth and a central East Bay position.",
+      "Union City is more compact and can work when practical I-880 access matters more than a large commercial identity.",
+    ],
+    lead_prompt: "Get help choosing between Hayward and Union City",
+  },
+  {
+    slug: "hayward-vs-san-leandro",
+    title: "Hayward vs San Leandro",
+    short_title: "Hayward vs San Leandro",
+    city: "Hayward",
+    state_abbr: "CA",
+    city_slug: "hayward",
+    path: "/commercial-real-estate/CA/hayward/hayward-vs-san-leandro/",
+    district_a_name: "Hayward",
+    district_b_name: "San Leandro",
+    district_a_path: "/commercial-real-estate/CA/hayward/",
+    district_b_path: "/commercial-real-estate/CA/san-leandro/",
+    verdict_a:
+      "Choose Hayward if central East Bay warehouse/flex depth and a broader I-880 corridor position are the priority.",
+    verdict_b:
+      "Choose San Leandro if Oakland-adjacent access, airport-area proximity, and North I-880 service-commercial reach matter more.",
+    comparison_notes: [
+      "Hayward is more central to the East Bay industrial corridor; San Leandro is more Oakland-adjacent.",
+      "Hayward tends to fit warehouse/flex users that want broad I-880 reach across the East Bay.",
+      "San Leandro tends to fit service-commercial, contractor, and light industrial users that benefit from Oakland, airport, and North I-880 proximity.",
+    ],
+    lead_prompt: "Get help choosing between Hayward and San Leandro",
+  },
 ];
 
 const detailCtaByArchetype = {
@@ -334,6 +403,10 @@ const detailCtaByArchetype = {
   historic_boutique_office_district: "boutique office context",
   adaptive_industrial_commercial_district: "waterfront adaptive-commercial context",
   historic_downtown_transition_district: "historic downtown transition context",
+  i880_warehouse_flex_corridor: "warehouse/flex corridor context",
+  advanced_manufacturing_rd_flex_market: "R&D and manufacturing context",
+  tri_city_logistics_flex_market: "Tri-City logistics/flex context",
+  north_i880_industrial_service_market: "North I-880 industrial context",
 };
 
 const metaFocusBySlug = {
@@ -365,6 +438,12 @@ const metaFocusBySlug = {
     "mixed-use BART-adjacent Oakland office context versus waterfront adaptive-commercial setting",
   "soma-vs-downtown-oakland":
     "San Francisco adaptive office context versus East Bay BART-centered business core",
+  "hayward-vs-fremont":
+    "central East Bay warehouse/flex access versus Fremont R and D and advanced manufacturing context",
+  "hayward-vs-union-city":
+    "Hayward industrial depth versus compact Tri-City logistics and warehouse/flex access",
+  "hayward-vs-san-leandro":
+    "central East Bay warehouse/flex depth versus Oakland-adjacent North I-880 service-industrial access",
 };
 
 function districtSummary(path) {
@@ -405,15 +484,37 @@ function relatedAlternatives(comparison, districtA, districtB) {
   return alternatives;
 }
 
+function hasWarehouseFlexDecisionContext(districtA, districtB) {
+  return Boolean(
+    districtA &&
+      districtB &&
+      districtA.warehouse_flex_profile &&
+      districtB.warehouse_flex_profile &&
+      districtA.warehouse_flex_profile.decision_context &&
+      districtB.warehouse_flex_profile.decision_context
+  );
+}
+
 module.exports = comparisons.map((comparison) => {
   const districtA = districtSummary(comparison.district_a_path);
   const districtB = districtSummary(comparison.district_b_path);
   const metaFocus = metaFocusBySlug[comparison.slug];
+  const warehouseFlexComparison = hasWarehouseFlexDecisionContext(districtA, districtB);
 
   return {
     ...comparison,
     district_a: districtA,
     district_b: districtB,
+    decision_context_label: warehouseFlexComparison ? "Warehouse/flex context" : "Office context",
+    decision_context_heading: warehouseFlexComparison
+      ? "How to think about warehouse/flex fit"
+      : "How to think about office fit",
+    district_a_decision_context: warehouseFlexComparison
+      ? districtA.warehouse_flex_profile.decision_context
+      : districtA.best_fit_businesses,
+    district_b_decision_context: warehouseFlexComparison
+      ? districtB.warehouse_flex_profile.decision_context
+      : districtB.best_fit_businesses,
     related_alternatives: relatedAlternatives(comparison, districtA, districtB),
     compared_districts_value: `${comparison.district_a_name},${comparison.district_b_name}`,
     district_a_detail_cta:
@@ -422,7 +523,7 @@ module.exports = comparisons.map((comparison) => {
       `Explore ${comparison.district_b_name} ${detailCtaByArchetype[districtB.primary_archetype] || "commercial context"}`,
     page_title: `${comparison.title} | Commercial Location Comparison | Rofo`,
     meta_description: metaFocus
-      ? `Compare ${comparison.title}: ${metaFocus} for business location fit and office context.`
-      : `Compare ${comparison.title} for business location fit, office context, representative commercial environments, and nearby district alternatives.`,
+      ? `Compare ${comparison.title}: ${metaFocus} for business location fit and ${warehouseFlexComparison ? "warehouse/flex context" : "office context"}.`
+      : `Compare ${comparison.title} for business location fit, ${warehouseFlexComparison ? "warehouse/flex context" : "office context"}, representative commercial environments, and nearby district alternatives.`,
   };
 });
