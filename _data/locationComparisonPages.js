@@ -765,6 +765,101 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  {
+    slug: "san-rafael-vs-novato",
+    title: "San Rafael vs Novato",
+    short_title: "San Rafael vs Novato",
+    city: "San Rafael",
+    state_abbr: "CA",
+    city_slug: "san-rafael",
+    path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
+    district_a_name: "Downtown San Rafael",
+    district_b_name: "Novato Commercial Core",
+    district_a_path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+    district_b_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+    verdict_a:
+      "Choose Downtown San Rafael if central Marin professional identity, civic adjacency, and client-facing local services matter most.",
+    verdict_b:
+      "Choose Novato if northern Marin access, parking practicality, office/flex, and service-commercial settings are stronger fit signals.",
+    comparison_notes: [
+      "Downtown San Rafael is more civic, downtown, and professional-service oriented.",
+      "Novato is more corridor-oriented and can work better for local service, medical, and lighter office/flex users.",
+      "The decision often turns on whether a business needs central Marin downtown identity or northern Marin operational practicality.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "san-rafael-vs-larkspur-corte-madera",
+    title: "San Rafael vs Larkspur / Corte Madera",
+    short_title: "San Rafael vs Larkspur / Corte Madera",
+    city: "San Rafael",
+    state_abbr: "CA",
+    city_slug: "san-rafael",
+    path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-larkspur-corte-madera/",
+    district_a_name: "Downtown San Rafael",
+    district_b_name: "Larkspur / Corte Madera Corridor",
+    district_a_path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+    district_b_path: "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/",
+    verdict_a:
+      "Choose Downtown San Rafael if Marin downtown identity, professional services, and civic access are more important than corridor retail adjacency.",
+    verdict_b:
+      "Choose Larkspur / Corte Madera if southern Marin access, retail-adjacent services, and Highway 101 convenience matter more.",
+    comparison_notes: [
+      "Downtown San Rafael is the stronger civic and professional downtown choice.",
+      "Larkspur / Corte Madera is more corridor, retail-adjacent, and southern Marin oriented.",
+      "This is a useful comparison for medical, wellness, professional-service, and local-service businesses serving Marin clients.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "novato-vs-petaluma",
+    title: "Novato vs Petaluma",
+    short_title: "Novato vs Petaluma",
+    city: "Novato",
+    state_abbr: "CA",
+    city_slug: "novato",
+    path: "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
+    district_a_name: "Novato Commercial Core",
+    district_b_name: "Petaluma Commercial Core",
+    district_a_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+    verdict_a:
+      "Choose Novato if Marin access, medical office, and lighter office/flex practicality are the core requirements.",
+    verdict_b:
+      "Choose Petaluma if Sonoma County service-commercial depth, light industrial/flex, and local operations context matter more.",
+    comparison_notes: [
+      "Novato sits as a northern Marin office, medical, and service-commercial market.",
+      "Petaluma leans more Sonoma County, light industrial/flex, and operational.",
+      "The comparison helps businesses decide whether Marin client access or Sonoma County operating context is the stronger requirement.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "santa-rosa-vs-petaluma",
+    title: "Santa Rosa vs Petaluma",
+    short_title: "Santa Rosa vs Petaluma",
+    city: "Santa Rosa",
+    state_abbr: "CA",
+    city_slug: "santa-rosa",
+    path: "/commercial-real-estate/CA/santa-rosa/santa-rosa-vs-petaluma/",
+    district_a_name: "Downtown Santa Rosa",
+    district_b_name: "Petaluma Commercial Core",
+    district_a_path: "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+    district_b_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+    verdict_a:
+      "Choose Downtown Santa Rosa if a larger Sonoma County office, civic, medical, and service-business hub is the stronger signal.",
+    verdict_b:
+      "Choose Petaluma if a smaller Highway 101 service-commercial and light industrial/flex market is more practical.",
+    comparison_notes: [
+      "Downtown Santa Rosa is the more regional Sonoma County office and service hub.",
+      "Petaluma is smaller, more operational, and more useful for light industrial/flex or local service-commercial users.",
+      "The decision often turns on regional hub identity versus smaller-market operational fit.",
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -793,6 +888,12 @@ const detailCtaByArchetype = {
   east_bay_life_science_office_core: "East Bay office and life-science context",
   suburban_downtown_office_retail_core: "suburban downtown office context",
   suburban_business_park: "business park office context",
+  marin_downtown_professional_core: "Marin downtown professional context",
+  medical_office_service_corridor: "medical office and service corridor context",
+  marin_office_retail_corridor: "Marin office and retail corridor context",
+  north_bay_office_flex_market: "North Bay office/flex context",
+  sonoma_office_light_industrial_core: "Sonoma office and light industrial context",
+  sonoma_downtown_office_core: "Sonoma downtown office context",
 };
 
 const metaFocusBySlug = {
@@ -862,6 +963,14 @@ const metaFocusBySlug = {
     "Redwood City mid-Peninsula business downtown versus Mountain View startup and technology-adjacent downtown",
   "santa-clara-vs-moffett-park":
     "Santa Clara central South Bay office/tech context versus Moffett Park innovation-campus concentration",
+  "san-rafael-vs-novato":
+    "central Marin downtown professional identity versus northern Marin office/flex and service-commercial practicality",
+  "san-rafael-vs-larkspur-corte-madera":
+    "San Rafael civic downtown professional context versus southern Marin office-retail corridor access",
+  "novato-vs-petaluma":
+    "northern Marin office/flex practicality versus Sonoma County service-commercial and light industrial context",
+  "santa-rosa-vs-petaluma":
+    "Santa Rosa regional office and service hub context versus Petaluma light industrial/flex and local operations fit",
 };
 
 function districtSummary(path) {
@@ -920,6 +1029,7 @@ const warehouseFlexComparisonSlugs = new Set([
   "warm-springs-vs-milpitas-industrial",
   "north-san-jose-vs-milpitas",
   "warm-springs-vs-ardenwood",
+  "novato-vs-petaluma",
 ]);
 
 module.exports = comparisons.map((comparison) => {

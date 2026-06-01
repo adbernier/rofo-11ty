@@ -734,6 +734,153 @@ Object.assign(integrationsByPath, {
   },
 });
 
+Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare central Marin commercial alternatives",
+    intro:
+      "Use these relationships to read Downtown San Rafael as a central Marin professional and civic commercial core, not just a generic downtown.",
+    districts: [
+      {
+        name: "Novato Commercial Core",
+        url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        relationship_type: "Northern Marin office/flex contrast",
+        note: "More corridor-oriented, parking-practical, and service-commercial than downtown San Rafael.",
+      },
+      {
+        name: "Larkspur / Corte Madera Corridor",
+        url: "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/",
+        relationship_type: "Southern Marin corridor comparison",
+        note: "More retail-adjacent and Highway 101 corridor-oriented than San Rafael's civic downtown.",
+      },
+      {
+        name: "North San Rafael / Terra Linda",
+        url: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        relationship_type: "Medical/civic corridor edge",
+        note: "More corridor-oriented, with Civic Center and medical/professional office context.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Marin medical and service corridors",
+    intro:
+      "Compare North San Rafael / Terra Linda with nearby Marin districts when medical office, professional services, and Highway 101 access matter.",
+    districts: [
+      {
+        name: "Downtown San Rafael",
+        url: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        relationship_type: "Downtown professional contrast",
+        note: "More walkable, civic, and client-facing than the Terra Linda corridor.",
+      },
+      {
+        name: "Novato Commercial Core",
+        url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        relationship_type: "Northern Marin corridor alternative",
+        note: "More northern Marin office/flex and service-commercial oriented.",
+      },
+      {
+        name: "Larkspur / Corte Madera Corridor",
+        url: "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/",
+        relationship_type: "Southern Marin corridor comparison",
+        note: "More retail-adjacent and southern Marin client-access oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare southern and central Marin corridors",
+    intro:
+      "Use these relationships to compare the Larkspur / Corte Madera corridor with nearby Marin professional, medical, and local-service commercial settings.",
+    districts: [
+      {
+        name: "Downtown San Rafael",
+        url: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        relationship_type: "Central Marin downtown contrast",
+        note: "More civic, professional-downtown, and county-adjacent than Larkspur / Corte Madera.",
+      },
+      {
+        name: "North San Rafael / Terra Linda",
+        url: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        relationship_type: "Medical/civic corridor alternative",
+        note: "More medical office and Civic Center corridor oriented.",
+      },
+      {
+        name: "Novato Commercial Core",
+        url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        relationship_type: "Northern Marin office/flex contrast",
+        note: "More operational and office/flex oriented than southern Marin's retail-adjacent corridor.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/novato/novato-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Marin and Sonoma corridor markets",
+    intro:
+      "Use these relationships to compare Novato's northern Marin office/flex and service-commercial role with nearby Marin and Sonoma County alternatives.",
+    districts: [
+      {
+        name: "Downtown San Rafael",
+        url: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        relationship_type: "Central Marin downtown contrast",
+        note: "More civic, downtown, and client-facing than Novato's corridor-oriented market.",
+      },
+      {
+        name: "Petaluma Commercial Core",
+        url: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+        relationship_type: "Sonoma office/flex alternative",
+        note: "More Sonoma County and light industrial/flex oriented.",
+      },
+      {
+        name: "North San Rafael / Terra Linda",
+        url: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        relationship_type: "Medical corridor comparison",
+        note: "More central Marin and Civic Center-adjacent.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sonoma and northern Marin markets",
+    intro:
+      "Compare Petaluma with nearby North Bay alternatives when light industrial/flex, office, local service, and Highway 101 access are part of the location decision.",
+    districts: [
+      {
+        name: "Novato Commercial Core",
+        url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        relationship_type: "Northern Marin contrast",
+        note: "More Marin-oriented and medical/professional-service focused than Petaluma.",
+      },
+      {
+        name: "Downtown Santa Rosa",
+        url: "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+        relationship_type: "Regional Sonoma hub comparison",
+        note: "Larger, more regional, and more office/civic/service oriented than Petaluma.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Sonoma County commercial settings",
+    intro:
+      "Use these relationships to compare Downtown Santa Rosa's regional office and service-hub role with nearby North Bay alternatives.",
+    districts: [
+      {
+        name: "Petaluma Commercial Core",
+        url: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+        relationship_type: "Smaller operational market contrast",
+        note: "More light industrial/flex and local service-commercial oriented than Santa Rosa's regional downtown role.",
+      },
+      {
+        name: "Novato Commercial Core",
+        url: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        relationship_type: "Northern Marin alternative",
+        note: "More Marin-oriented and corridor-practical than Santa Rosa's Sonoma County hub setting.",
+      },
+    ],
+  },
+});
+
 module.exports = {
   byPath: integrationsByPath,
 };

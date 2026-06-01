@@ -631,6 +631,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_north_bay_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the North Bay commercial geography graph, with context for office, medical office, service commercial, light industrial/flex, and nearby market comparisons.`,
+      guide_label: "North Bay district guide",
+    };
+  }
+
   return null;
 }
 
@@ -911,6 +924,41 @@ function representativeBuildingRolesFor(page) {
         "Tri-Valley corporate office context",
       "/commercial-real-estate/building/CA/pleasanton/5745-5775-johnson-dr/":
         "Pleasanton commercial support edge",
+    };
+  }
+
+  if (page.public_north_bay_v1) {
+    return {
+      "/commercial-real-estate/building/CA/san-rafael/1200-4th-st/":
+        "Downtown San Rafael professional office block",
+      "/commercial-real-estate/building/CA/san-rafael/181-third-st/":
+        "Third Street local office and service-commercial edge",
+      "/commercial-real-estate/building/CA/san-rafael/369-e-third-st/":
+        "Downtown San Rafael service-commercial context",
+      "/commercial-real-estate/building/CA/san-rafael/992-998-4th-street/":
+        "Fourth Street town-center commercial block",
+      "/commercial-real-estate/building/CA/san-rafael/100-smith-ranch-rd/":
+        "North San Rafael medical and professional office context",
+      "/commercial-real-estate/building/CA/san-rafael/4040-civic-center-dr/":
+        "Civic Center / Terra Linda office corridor",
+      "/commercial-real-estate/building/CA/novato/15-leveroni-ct/":
+        "Novato office/flex business park",
+      "/commercial-real-estate/building/CA/novato/2-ranch-dr/":
+        "Novato office/flex corridor example",
+      "/commercial-real-estate/building/CA/novato/7250-redwood-drive/":
+        "Redwood Drive professional office context",
+      "/commercial-real-estate/building/CA/novato/951-953-front-st/":
+        "Downtown Novato local commercial block",
+      "/commercial-real-estate/building/CA/petaluma/755-baywood-dr/":
+        "Petaluma office/flex and waterfront-edge context",
+      "/commercial-real-estate/building/CA/petaluma/389-mcdowell-blvd-s/":
+        "Local service and retail-commercial support",
+      "/commercial-real-estate/building/CA/petaluma/401-kenilworth-dr/":
+        "Petaluma service-commercial block",
+      "/commercial-real-estate/building/CA/santa-rosa/3550-round-barn-blvd/":
+        "Santa Rosa office corridor context",
+      "/commercial-real-estate/building/CA/santa-rosa/2527-guernville-road/":
+        "Santa Rosa local service-commercial example",
     };
   }
 
@@ -1663,6 +1711,113 @@ const eastBayDistrictDefinitions = [
   },
 ];
 
+const northBayDistrictDefinitions = [
+  {
+    id: "nb-downtown-san-rafael",
+    name: "Downtown San Rafael",
+    slug: "downtown-san-rafael",
+    city: "San Rafael",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+    centroid_lat: 37.974,
+    centroid_lng: -122.531,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["downtown", "professional_services", "medical", "local_services", "central_marin"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-rafael/1200-4th-st/",
+      "/commercial-real-estate/building/CA/san-rafael/181-third-st/",
+      "/commercial-real-estate/building/CA/san-rafael/369-e-third-st/",
+      "/commercial-real-estate/building/CA/san-rafael/992-998-4th-street/",
+    ],
+  },
+  {
+    id: "nb-north-san-rafael-terra-linda",
+    name: "North San Rafael / Terra Linda",
+    slug: "north-san-rafael-terra-linda",
+    city: "San Rafael",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+    centroid_lat: 38.005,
+    centroid_lng: -122.546,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "flex"],
+    profile: ["medical", "professional_services", "suburban_office", "highway_101", "central_marin"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-rafael/100-smith-ranch-rd/",
+      "/commercial-real-estate/building/CA/san-rafael/4040-civic-center-dr/",
+    ],
+  },
+  {
+    id: "nb-larkspur-corte-madera-corridor",
+    name: "Larkspur / Corte Madera Corridor",
+    slug: "larkspur-corte-madera-corridor",
+    city: "Larkspur",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/",
+    centroid_lat: 37.932,
+    centroid_lng: -122.519,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["professional_services", "medical", "retail", "local_services", "southern_marin"],
+    representative_building_paths: [],
+  },
+  {
+    id: "nb-novato-commercial-core",
+    name: "Novato Commercial Core",
+    slug: "novato-commercial-core",
+    city: "Novato",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+    centroid_lat: 38.107,
+    centroid_lng: -122.569,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "medical", "flex", "industrial"],
+    profile: ["office", "medical", "industrial_flex", "service_commercial", "northern_marin"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/novato/15-leveroni-ct/",
+      "/commercial-real-estate/building/CA/novato/2-ranch-dr/",
+      "/commercial-real-estate/building/CA/novato/7250-redwood-drive/",
+      "/commercial-real-estate/building/CA/novato/951-953-front-st/",
+    ],
+  },
+  {
+    id: "nb-petaluma-commercial-core",
+    name: "Petaluma Commercial Core",
+    slug: "petaluma-commercial-core",
+    city: "Petaluma",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+    centroid_lat: 38.236,
+    centroid_lng: -122.64,
+    area_type: "commercial_corridor",
+    approximate_space_types: ["office", "industrial", "flex", "retail"],
+    profile: ["office", "industrial_flex", "service_commercial", "highway_101", "sonoma_county"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/petaluma/755-baywood-dr/",
+      "/commercial-real-estate/building/CA/petaluma/389-mcdowell-blvd-s/",
+      "/commercial-real-estate/building/CA/petaluma/401-kenilworth-dr/",
+    ],
+  },
+  {
+    id: "nb-downtown-santa-rosa",
+    name: "Downtown Santa Rosa",
+    slug: "downtown-santa-rosa",
+    city: "Santa Rosa",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+    centroid_lat: 38.44,
+    centroid_lng: -122.714,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "medical", "retail"],
+    profile: ["downtown", "professional_services", "medical", "local_services", "sonoma_county"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/santa-rosa/3550-round-barn-blvd/",
+      "/commercial-real-estate/building/CA/santa-rosa/2527-guernville-road/",
+    ],
+  },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -1731,6 +1886,42 @@ function eastBayDistrictPageFor(district) {
     public_phase_1: false,
     public_phase_2: true,
     public_east_bay_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
+function northBayDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "north_bay_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_north_bay_v1: true,
     city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
   };
 }
@@ -1963,6 +2154,7 @@ const nycPages = nycCandidates
 
 const southBayPages = southBayDistrictDefinitions.map(southBayDistrictPageFor);
 const eastBayPages = eastBayDistrictDefinitions.map(eastBayDistrictPageFor);
+const northBayPages = northBayDistrictDefinitions.map(northBayDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -1992,6 +2184,13 @@ for (const page of southBayPages) {
 }
 
 for (const page of eastBayPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of northBayPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

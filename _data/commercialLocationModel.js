@@ -761,6 +761,292 @@ const districts = {
 };
 
 Object.assign(districts, {
+  "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/": {
+    primary_archetype: "marin_downtown_professional_core",
+    secondary_archetypes: ["client_facing_professional_core", "local_service_business_core"],
+    commercial_thesis:
+      "Downtown San Rafael is Marin's central professional, civic, and local-service commercial core, shaped by Fourth Street, Third Street, county/civic adjacency, medical office, and practical central Marin access.",
+    best_fit_businesses: [
+      "Professional-service, medical office, legal, finance, and local-service users serving Marin clients",
+      "Teams that want a walkable Marin downtown rather than a highway corridor or business park",
+      "Businesses comparing central Marin identity against Novato or the Larkspur/Corte Madera corridor",
+    ],
+    poor_fit_businesses: [
+      "Warehouse/flex users needing loading, yards, or industrial building formats",
+      "Companies seeking larger suburban campus floorplates",
+      "Businesses that need a more regional Sonoma County or Highway 101 industrial/flex setting",
+    ],
+    compare_with: [
+      {
+        district_name: "Novato Commercial Core",
+        district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
+        reason: "Compare if a more office/flex and northern Marin service-commercial market may fit better than downtown San Rafael.",
+      },
+      {
+        district_name: "Larkspur / Corte Madera Corridor",
+        district_path: "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/",
+        comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-larkspur-corte-madera/",
+        reason: "Compare if southern Marin access, retail adjacency, and Highway 101 corridor context matter more.",
+      },
+      {
+        district_name: "North San Rafael / Terra Linda",
+        district_path: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        reason: "Compare if medical office, Civic Center, or corridor access matters more than downtown identity.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "marin_downtown_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "legal", "local_services"],
+      commute_pattern: ["central_marin", "highway_101", "smart_train", "local_client_base"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/": {
+    primary_archetype: "medical_office_service_corridor",
+    secondary_archetypes: ["marin_office_retail_corridor", "local_service_business_core"],
+    commercial_thesis:
+      "North San Rafael / Terra Linda is a Marin medical office, civic-adjacent, and service-commercial corridor around Civic Center and northern San Rafael, more corridor-oriented than downtown San Rafael.",
+    best_fit_businesses: [
+      "Medical office, healthcare-adjacent, professional-service, and local-service users",
+      "Teams prioritizing Highway 101 access and parking over downtown street context",
+      "Businesses comparing central Marin corridor access with Novato or downtown San Rafael",
+    ],
+    poor_fit_businesses: [
+      "Users that need a walkable downtown/client-facing address",
+      "Large industrial or warehouse users needing deeper operational formats",
+      "Companies seeking the stronger retail gravity of Larkspur/Corte Madera",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown San Rafael",
+        district_path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        reason: "Compare if downtown professional identity and walkability matter more than corridor access.",
+      },
+      {
+        district_name: "Novato Commercial Core",
+        district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
+        reason: "Compare if northern Marin office/flex and service-commercial space may be a better fit.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "medical_service_corridor",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "healthcare_services", "professional_services", "local_services"],
+      commute_pattern: ["highway_101", "central_marin", "terra_linda", "civic_center"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/larkspur/larkspur-corte-madera-corridor/": {
+    primary_archetype: "marin_office_retail_corridor",
+    secondary_archetypes: ["client_facing_professional_core", "local_service_business_core"],
+    commercial_thesis:
+      "The Larkspur / Corte Madera corridor is a southern Marin office, retail, and local-service commercial setting, useful for businesses comparing Highway 101 access, client convenience, and retail adjacency against San Rafael.",
+    best_fit_businesses: [
+      "Professional-service, wellness, medical office, and local-service users serving southern Marin clients",
+      "Businesses that benefit from retail adjacency and Highway 101 visibility/access",
+      "Teams comparing Marin commercial corridors rather than downtown or industrial settings",
+    ],
+    poor_fit_businesses: [
+      "Industrial/flex users needing functional warehouse formats",
+      "Companies seeking a stronger civic/professional downtown identity",
+      "Users that need a larger North Bay office/flex or Sonoma County operating base",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown San Rafael",
+        district_path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-larkspur-corte-madera/",
+        reason: "Compare if Marin downtown professional identity may matter more than southern Marin corridor access.",
+      },
+      {
+        district_name: "North San Rafael / Terra Linda",
+        district_path: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        reason: "Compare if medical office and Civic Center corridor context may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "marin_corridor_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "wellness", "local_services"],
+      commute_pattern: ["southern_marin", "highway_101", "retail_corridor", "client_access"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/novato/novato-commercial-core/": {
+    primary_archetype: "north_bay_office_flex_market",
+    secondary_archetypes: ["medical_office_service_corridor", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Novato Commercial Core is a northern Marin office, medical office, service-commercial, and light office/flex market, more operational and corridor-oriented than downtown San Rafael.",
+    best_fit_businesses: [
+      "Medical office, professional-service, office/flex, and local service businesses serving northern Marin",
+      "Companies that want Marin access with more corridor and parking practicality",
+      "Users comparing Marin and Sonoma County commercial options along Highway 101",
+    ],
+    poor_fit_businesses: [
+      "Firms that need a stronger downtown client-facing address",
+      "Large industrial users needing deeper warehouse/logistics supply",
+      "Businesses prioritizing southern Marin retail gravity or ferry-adjacent access",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown San Rafael",
+        district_path: "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+        comparison_path: "/commercial-real-estate/CA/san-rafael/san-rafael-vs-novato/",
+        reason: "Compare if central Marin downtown professional identity matters more than Novato's office/flex practicality.",
+      },
+      {
+        district_name: "Petaluma Commercial Core",
+        district_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
+        reason: "Compare if Sonoma County service-commercial and light industrial/flex context may be a better fit.",
+      },
+      {
+        district_name: "North San Rafael / Terra Linda",
+        district_path: "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+        reason: "Compare if central Marin medical/civic corridor access may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "north_bay_corridor_office",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "regional_operations"],
+      commute_pattern: ["highway_101", "northern_marin", "sonoma_access", "parking_oriented"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_office_flex_service",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "service_commercial", "light_industrial"],
+      tenant_fit: ["service_businesses", "light_operations", "contractors", "regional_support"],
+      decision_context:
+        "Novato can work for lighter office/flex and service-commercial needs where Marin access and Highway 101 practicality matter more than deep industrial inventory.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/": {
+    primary_archetype: "sonoma_office_light_industrial_core",
+    secondary_archetypes: ["north_bay_office_flex_market", "local_service_business_core"],
+    commercial_thesis:
+      "Petaluma Commercial Core is a Sonoma County office, service-commercial, and light industrial/flex market with Highway 101 access, local business depth, and a more operational profile than Marin's downtown professional districts.",
+    best_fit_businesses: [
+      "Service-commercial, light industrial/flex, professional office, and local/regional operations users",
+      "Businesses comparing Marin access with more Sonoma County operational practicality",
+      "Teams that want North Bay space options without relying on a dense urban office core",
+    ],
+    poor_fit_businesses: [
+      "Client-facing firms that need central Marin civic/professional identity",
+      "Large regional office users needing a stronger county-seat business core",
+      "Users that need polished southern Marin retail-adjacent office context",
+    ],
+    compare_with: [
+      {
+        district_name: "Novato Commercial Core",
+        district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
+        reason: "Compare if Marin access and smaller office/flex settings may fit better.",
+      },
+      {
+        district_name: "Downtown Santa Rosa",
+        district_path: "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+        comparison_path: "/commercial-real-estate/CA/santa-rosa/santa-rosa-vs-petaluma/",
+        reason: "Compare if a larger Sonoma County office and service hub may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "sonoma_service_office",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "local_services", "regional_operations", "medical_office"],
+      commute_pattern: ["highway_101", "sonoma_county", "north_bay", "local_workforce"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_industrial_service_commercial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["light_industrial", "office_flex", "service_commercial"],
+      tenant_fit: ["local_operations", "contractors", "production_support", "service_businesses"],
+      decision_context:
+        "Petaluma is useful for lighter operational users comparing Sonoma County service-commercial depth against Novato's Marin-oriented office/flex market.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/": {
+    primary_archetype: "sonoma_downtown_office_core",
+    secondary_archetypes: ["medical_office_service_corridor", "local_service_business_core"],
+    commercial_thesis:
+      "Downtown Santa Rosa is Sonoma County's larger downtown office, civic, medical, and service-business core, useful for businesses comparing a regional North Bay hub against Petaluma's smaller operational market.",
+    best_fit_businesses: [
+      "Professional-service, medical office, public-sector-adjacent, and regional service users",
+      "Businesses that need Sonoma County identity and a larger local customer/employee base",
+      "Teams comparing Santa Rosa's regional hub role with Petaluma's smaller office/flex market",
+    ],
+    poor_fit_businesses: [
+      "Marin-focused firms that need central or southern Marin client proximity",
+      "Users seeking smaller-scale Petaluma light industrial/flex context",
+      "Companies that need formal San Francisco or East Bay downtown identity",
+    ],
+    compare_with: [
+      {
+        district_name: "Petaluma Commercial Core",
+        district_path: "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/santa-rosa/santa-rosa-vs-petaluma/",
+        reason: "Compare if a smaller Sonoma County service-commercial and light industrial/flex market may fit better.",
+      },
+      {
+        district_name: "Novato Commercial Core",
+        district_path: "/commercial-real-estate/CA/novato/novato-commercial-core/",
+        reason: "Compare if northern Marin access matters more than Sonoma County hub identity.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "sonoma_regional_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["professional_services", "medical_office", "regional_services", "public_sector_adjacent"],
+      commute_pattern: ["sonoma_county", "highway_101", "county_seat", "regional_service_base"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+});
+
+Object.assign(districts, {
   "/commercial-real-estate/CA/san-jose/north-san-jose/": {
     primary_archetype: "silicon_valley_innovation_office_district",
     secondary_archetypes: ["rd_flex_office_corridor", "i880_237_industrial_flex_corridor"],
@@ -1702,6 +1988,13 @@ const archetypeLabels = {
   suburban_business_park: "Suburban business park",
   i580_i680_office_corridor: "I-580 / I-680 office corridor",
   corporate_campus_office: "Corporate campus office",
+  marin_downtown_professional_core: "Marin downtown professional core",
+  local_service_business_core: "Local-service business core",
+  medical_office_service_corridor: "Medical office / service corridor",
+  marin_office_retail_corridor: "Marin office-retail corridor",
+  north_bay_office_flex_market: "North Bay office/flex market",
+  sonoma_office_light_industrial_core: "Sonoma office / light industrial core",
+  sonoma_downtown_office_core: "Sonoma downtown office core",
 };
 
 function withLabels(model) {
