@@ -3613,6 +3613,34 @@ const seattleMetroDistrictDefinitions = [
   { id: "sea-lynnwood", name: "Lynnwood", slug: "lynnwood", city: "Lynnwood", state_abbr: "WA", path: "/commercial-real-estate/WA/lynnwood/lynnwood/", centroid_lat: 47.821, centroid_lng: -122.315, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["north_suburban", "medical", "local_services", "retail"], representative_building_paths: [] },
 ];
 
+const phoenixMetroDistrictDefinitions = [
+  { id: "phx-downtown-phoenix", name: "Downtown Phoenix", slug: "downtown-phoenix", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/downtown-phoenix/", centroid_lat: 33.448, centroid_lng: -112.073, area_type: "downtown_core", approximate_space_types: ["office", "medical", "retail"], profile: ["civic", "office", "healthcare_support", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1021-e-washington-st/", "/commercial-real-estate/building/AZ/phoenix/1027-e-washington-st/", "/commercial-real-estate/building/AZ/phoenix/106-e-buchanan-st/"] },
+  { id: "phx-midtown-phoenix", name: "Midtown Phoenix", slug: "midtown-phoenix", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/midtown-phoenix/", centroid_lat: 33.481, centroid_lng: -112.074, area_type: "corridor", approximate_space_types: ["office", "medical", "retail"], profile: ["medical_office", "professional_services", "light_rail", "central_phoenix"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/20-e-thomas-rd/", "/commercial-real-estate/building/AZ/phoenix/2111-e-highland-ave/", "/commercial-real-estate/building/AZ/phoenix/2141-e-highland-ave/"] },
+  { id: "phx-camelback-corridor", name: "Camelback Corridor", slug: "camelback-corridor", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/camelback-corridor/", centroid_lat: 33.509, centroid_lng: -112.041, area_type: "corridor", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "office", "finance", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1212-w-camelback-rd/", "/commercial-real-estate/building/AZ/phoenix/1951-w-camelback-rd/", "/commercial-real-estate/building/AZ/phoenix/2111-e-highland-ave/"] },
+  { id: "phx-biltmore-arcadia", name: "Biltmore / Arcadia", slug: "biltmore-arcadia", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/biltmore-arcadia/", centroid_lat: 33.51, centroid_lng: -111.988, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "medical", "wellness", "local_services"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1048-n-44th-st/", "/commercial-real-estate/building/AZ/phoenix/2048-n-44th-st/", "/commercial-real-estate/building/AZ/phoenix/11211-n-tatum-blvd/", "/commercial-real-estate/building/AZ/phoenix/11811-n-tatum-blvd/"] },
+  { id: "phx-scottsdale", name: "Scottsdale", slug: "scottsdale", city: "Scottsdale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/scottsdale/scottsdale/", centroid_lat: 33.494, centroid_lng: -111.926, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["regional_office", "client_facing", "hospitality", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/AZ/scottsdale/6991-e-camelback-rd/", "/commercial-real-estate/building/AZ/scottsdale/7150-e-camelback-rd/", "/commercial-real-estate/building/AZ/scottsdale/7047-e-greenway-pkwy/", "/commercial-real-estate/building/AZ/scottsdale/15169-n-scottsdale-rd/"] },
+  { id: "phx-old-town-scottsdale", name: "Old Town Scottsdale", slug: "old-town-scottsdale", city: "Scottsdale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/scottsdale/old-town-scottsdale/", centroid_lat: 33.493, centroid_lng: -111.928, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["mixed_use", "hospitality", "boutique_office", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/AZ/scottsdale/4343-n-scottsdale-rd/", "/commercial-real-estate/building/AZ/scottsdale/6991-e-camelback-rd/", "/commercial-real-estate/building/AZ/scottsdale/7150-e-camelback-rd/", "/commercial-real-estate/building/AZ/scottsdale/7272-e-indian-school-rd/"] },
+  { id: "phx-north-scottsdale", name: "North Scottsdale", slug: "north-scottsdale", city: "Scottsdale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/scottsdale/north-scottsdale/", centroid_lat: 33.63, centroid_lng: -111.922, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "medical", "professional_services", "customer_facing"], representative_building_paths: ["/commercial-real-estate/building/AZ/scottsdale/14080-n-northsight-blvd/", "/commercial-real-estate/building/AZ/scottsdale/15169-n-scottsdale-rd/", "/commercial-real-estate/building/AZ/scottsdale/15333-n-pima-rd/", "/commercial-real-estate/building/AZ/scottsdale/16000-n-80th-st/"] },
+  { id: "phx-tempe", name: "Tempe", slug: "tempe", city: "Tempe", state_abbr: "AZ", path: "/commercial-real-estate/AZ/tempe/tempe/", centroid_lat: 33.425, centroid_lng: -111.94, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["technology", "university_adjacent", "startup", "regional_office"], representative_building_paths: ["/commercial-real-estate/building/AZ/tempe/80-e-rio-salado-pkwy/", "/commercial-real-estate/building/AZ/tempe/1605-w-university-dr/", "/commercial-real-estate/building/AZ/tempe/1705-w-university-dr/", "/commercial-real-estate/building/AZ/tempe/410-n-scottsdale-rd/"] },
+  { id: "phx-mill-avenue-downtown-tempe", name: "Mill Avenue / Downtown Tempe", slug: "mill-avenue-downtown-tempe", city: "Tempe", state_abbr: "AZ", path: "/commercial-real-estate/AZ/tempe/mill-avenue-downtown-tempe/", centroid_lat: 33.425, centroid_lng: -111.94, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "university_adjacent", "walkable", "startup"], representative_building_paths: ["/commercial-real-estate/building/AZ/tempe/80-e-rio-salado-pkwy/", "/commercial-real-estate/building/AZ/tempe/64-e-broadway-rd/", "/commercial-real-estate/building/AZ/tempe/1605-w-university-dr/", "/commercial-real-estate/building/AZ/tempe/1705-w-university-dr/"] },
+  { id: "phx-mesa", name: "Mesa", slug: "mesa", city: "Mesa", state_abbr: "AZ", path: "/commercial-real-estate/AZ/mesa/mesa/", centroid_lat: 33.415, centroid_lng: -111.832, area_type: "district", approximate_space_types: ["office", "industrial", "medical"], profile: ["east_valley", "office", "industrial_flex", "medical"], representative_building_paths: ["/commercial-real-estate/building/AZ/mesa/104-e-1st-ave/", "/commercial-real-estate/building/AZ/mesa/1833-w-main-st/", "/commercial-real-estate/building/AZ/mesa/2266-s-dobson-rd/", "/commercial-real-estate/building/AZ/mesa/8200-e-germann-rd/"] },
+  { id: "phx-chandler", name: "Chandler", slug: "chandler", city: "Chandler", state_abbr: "AZ", path: "/commercial-real-estate/AZ/chandler/chandler/", centroid_lat: 33.306, centroid_lng: -111.842, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["semiconductor", "advanced_manufacturing", "technology", "rd_flex"], representative_building_paths: ["/commercial-real-estate/building/AZ/chandler/2425-s-stearman-dr/", "/commercial-real-estate/building/AZ/chandler/2701-insight-way/", "/commercial-real-estate/building/AZ/chandler/3100-west-ray-road/", "/commercial-real-estate/building/AZ/chandler/411-n-roosevelt-ave/"] },
+  { id: "phx-gilbert", name: "Gilbert", slug: "gilbert", city: "Gilbert", state_abbr: "AZ", path: "/commercial-real-estate/AZ/gilbert/gilbert/", centroid_lat: 33.352, centroid_lng: -111.789, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "medical", "local_services", "retail_support"], representative_building_paths: [] },
+  { id: "phx-glendale", name: "Glendale", slug: "glendale", city: "Glendale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/glendale/glendale/", centroid_lat: 33.538, centroid_lng: -112.186, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["west_valley", "local_services", "medical", "retail_support"], representative_building_paths: [] },
+  { id: "phx-peoria", name: "Peoria", slug: "peoria", city: "Peoria", state_abbr: "AZ", path: "/commercial-real-estate/AZ/peoria/peoria/", centroid_lat: 33.581, centroid_lng: -112.237, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["northwest_valley", "medical", "local_services", "retail_support"], representative_building_paths: [] },
+  { id: "phx-airport-sky-harbor", name: "Phoenix Airport / Sky Harbor Area", slug: "phoenix-airport-sky-harbor-area", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/phoenix-airport-sky-harbor-area/", centroid_lat: 33.435, centroid_lng: -112.011, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "service_industrial", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1021-e-washington-st/", "/commercial-real-estate/building/AZ/phoenix/1027-e-washington-st/", "/commercial-real-estate/building/AZ/phoenix/1048-n-44th-st/", "/commercial-real-estate/building/AZ/phoenix/2130-s-7th-st/"] },
+  { id: "phx-deer-valley", name: "Deer Valley", slug: "deer-valley", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/deer-valley/", centroid_lat: 33.688, centroid_lng: -112.083, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["advanced_manufacturing", "aerospace", "office_flex", "north_phoenix"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/20333-n-19th-avenue/", "/commercial-real-estate/building/AZ/phoenix/2205-w-whispering-wind-dr/", "/commercial-real-estate/building/AZ/phoenix/10851-n-black-canyon-fwy/", "/commercial-real-estate/building/AZ/phoenix/10000-n-31st-ave/"] },
+  { id: "phx-west-phoenix-industrial", name: "West Phoenix Industrial", slug: "west-phoenix-industrial", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/west-phoenix-industrial/", centroid_lat: 33.47, centroid_lng: -112.18, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "last_mile", "west_valley"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1002-s-56th-ave/", "/commercial-real-estate/building/AZ/phoenix/2135-s-11th-ave/", "/commercial-real-estate/building/AZ/phoenix/2145-s-11th-ave/"] },
+  { id: "phx-southwest-phoenix-industrial", name: "Southwest Phoenix Industrial", slug: "southwest-phoenix-industrial", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/", centroid_lat: 33.38, centroid_lng: -112.12, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "airport_access", "service_industrial"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/1002-s-56th-ave/", "/commercial-real-estate/building/AZ/phoenix/2130-s-7th-st/", "/commercial-real-estate/building/AZ/phoenix/2135-s-11th-ave/", "/commercial-real-estate/building/AZ/phoenix/2145-s-11th-ave/"] },
+  { id: "phx-tolleson", name: "Tolleson", slug: "tolleson", city: "Tolleson", state_abbr: "AZ", path: "/commercial-real-estate/AZ/tolleson/tolleson/", centroid_lat: 33.45, centroid_lng: -112.259, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "cold_storage", "food_logistics"], representative_building_paths: [] },
+  { id: "phx-goodyear", name: "Goodyear", slug: "goodyear", city: "Goodyear", state_abbr: "AZ", path: "/commercial-real-estate/AZ/goodyear/goodyear/", centroid_lat: 33.435, centroid_lng: -112.358, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["warehouse", "distribution", "fulfillment", "west_valley"], representative_building_paths: [] },
+  { id: "phx-avondale", name: "Avondale", slug: "avondale", city: "Avondale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/avondale/avondale/", centroid_lat: 33.435, centroid_lng: -112.349, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["west_valley", "local_services", "service_industrial", "retail_support"], representative_building_paths: [] },
+  { id: "phx-mesa-gateway-east-mesa", name: "Mesa Gateway / East Mesa", slug: "mesa-gateway-east-mesa", city: "Mesa", state_abbr: "AZ", path: "/commercial-real-estate/AZ/mesa/mesa-gateway-east-mesa/", centroid_lat: 33.307, centroid_lng: -111.658, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["airport_access", "aerospace", "advanced_manufacturing", "logistics"], representative_building_paths: ["/commercial-real-estate/building/AZ/mesa/8200-e-germann-rd/", "/commercial-real-estate/building/AZ/mesa/1234-s-power-rd/", "/commercial-real-estate/building/AZ/mesa/3707-e-southern-ave/"] },
+  { id: "phx-chandler-airpark", name: "Chandler Airpark", slug: "chandler-airpark", city: "Chandler", state_abbr: "AZ", path: "/commercial-real-estate/AZ/chandler/chandler-airpark/", centroid_lat: 33.27, centroid_lng: -111.81, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["aviation_adjacent", "rd_flex", "advanced_manufacturing", "engineering"], representative_building_paths: ["/commercial-real-estate/building/AZ/chandler/2425-s-stearman-dr/", "/commercial-real-estate/building/AZ/chandler/2701-insight-way/", "/commercial-real-estate/building/AZ/chandler/411-n-roosevelt-ave/"] },
+  { id: "phx-mesa-falcon-field", name: "Mesa / Falcon Field", slug: "mesa-falcon-field", city: "Mesa", state_abbr: "AZ", path: "/commercial-real-estate/AZ/mesa/mesa-falcon-field/", centroid_lat: 33.46, centroid_lng: -111.728, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["aerospace", "aviation_adjacent", "rd_flex", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/AZ/mesa/1234-s-power-rd/", "/commercial-real-estate/building/AZ/mesa/8200-e-germann-rd/", "/commercial-real-estate/building/AZ/mesa/3707-e-southern-ave/"] },
+  { id: "phx-north-phoenix-tsmc-corridor", name: "North Phoenix / TSMC Corridor", slug: "north-phoenix-tsmc-corridor", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/north-phoenix-tsmc-corridor/", centroid_lat: 33.85, centroid_lng: -112.12, area_type: "corridor", approximate_space_types: ["industrial", "flex"], profile: ["semiconductor", "advanced_manufacturing", "supplier", "north_phoenix"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/20333-n-19th-avenue/", "/commercial-real-estate/building/AZ/phoenix/2205-w-whispering-wind-dr/", "/commercial-real-estate/building/AZ/phoenix/20830-n-tatum-blvd/", "/commercial-real-estate/building/AZ/phoenix/20860-n-tatum-blvd/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -3937,6 +3965,42 @@ function seattleMetroDistrictPageFor(district) {
   };
 }
 
+function phoenixMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "phoenix_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_phoenix_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4172,6 +4236,7 @@ const orangeCountyPages = orangeCountyDistrictDefinitions.map(orangeCountyDistri
 const inlandEmpirePages = inlandEmpireDistrictDefinitions.map(inlandEmpireDistrictPageFor);
 const losAngelesPages = losAngelesDistrictDefinitions.map(losAngelesDistrictPageFor);
 const seattleMetroPages = seattleMetroDistrictDefinitions.map(seattleMetroDistrictPageFor);
+const phoenixMetroPages = phoenixMetroDistrictDefinitions.map(phoenixMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4250,6 +4315,13 @@ for (const page of losAngelesPages) {
 }
 
 for (const page of seattleMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of phoenixMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

@@ -1723,6 +1723,59 @@ Object.assign(
   )
 );
 
+const phoenixMetroIntegrationPages = [
+  ["Downtown Phoenix", "/commercial-real-estate/AZ/phoenix/downtown-phoenix/"],
+  ["Midtown Phoenix", "/commercial-real-estate/AZ/phoenix/midtown-phoenix/"],
+  ["Camelback Corridor", "/commercial-real-estate/AZ/phoenix/camelback-corridor/"],
+  ["Biltmore / Arcadia", "/commercial-real-estate/AZ/phoenix/biltmore-arcadia/"],
+  ["Scottsdale", "/commercial-real-estate/AZ/scottsdale/scottsdale/"],
+  ["Old Town Scottsdale", "/commercial-real-estate/AZ/scottsdale/old-town-scottsdale/"],
+  ["North Scottsdale", "/commercial-real-estate/AZ/scottsdale/north-scottsdale/"],
+  ["Tempe", "/commercial-real-estate/AZ/tempe/tempe/"],
+  ["Mill Avenue / Downtown Tempe", "/commercial-real-estate/AZ/tempe/mill-avenue-downtown-tempe/"],
+  ["Mesa", "/commercial-real-estate/AZ/mesa/mesa/"],
+  ["Chandler", "/commercial-real-estate/AZ/chandler/chandler/"],
+  ["Gilbert", "/commercial-real-estate/AZ/gilbert/gilbert/"],
+  ["Glendale", "/commercial-real-estate/AZ/glendale/glendale/"],
+  ["Peoria", "/commercial-real-estate/AZ/peoria/peoria/"],
+  ["Phoenix Airport / Sky Harbor Area", "/commercial-real-estate/AZ/phoenix/phoenix-airport-sky-harbor-area/"],
+  ["Deer Valley", "/commercial-real-estate/AZ/phoenix/deer-valley/"],
+  ["West Phoenix Industrial", "/commercial-real-estate/AZ/phoenix/west-phoenix-industrial/"],
+  ["Southwest Phoenix Industrial", "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/"],
+  ["Tolleson", "/commercial-real-estate/AZ/tolleson/tolleson/"],
+  ["Goodyear", "/commercial-real-estate/AZ/goodyear/goodyear/"],
+  ["Avondale", "/commercial-real-estate/AZ/avondale/avondale/"],
+  ["Mesa Gateway / East Mesa", "/commercial-real-estate/AZ/mesa/mesa-gateway-east-mesa/"],
+  ["Chandler Airpark", "/commercial-real-estate/AZ/chandler/chandler-airpark/"],
+  ["Mesa / Falcon Field", "/commercial-real-estate/AZ/mesa/mesa-falcon-field/"],
+  ["North Phoenix / TSMC Corridor", "/commercial-real-estate/AZ/phoenix/north-phoenix-tsmc-corridor/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    phoenixMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Phoenix Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Phoenix Metro office, industrial/flex, logistics, semiconductor, healthcare, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
