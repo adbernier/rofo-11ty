@@ -1834,6 +1834,67 @@ Object.assign(
   )
 );
 
+const dfwMetroIntegrationPages = [
+  ["Downtown Dallas", "/commercial-real-estate/TX/dallas/downtown-dallas/"],
+  ["Uptown Dallas", "/commercial-real-estate/TX/dallas/uptown-dallas/"],
+  ["Deep Ellum", "/commercial-real-estate/TX/dallas/deep-ellum/"],
+  ["Turtle Creek / Oak Lawn", "/commercial-real-estate/TX/dallas/turtle-creek-oak-lawn/"],
+  ["Knox / Henderson", "/commercial-real-estate/TX/dallas/knox-henderson/"],
+  ["North Dallas", "/commercial-real-estate/TX/dallas/north-dallas/"],
+  ["Addison", "/commercial-real-estate/TX/addison/addison/"],
+  ["Richardson", "/commercial-real-estate/TX/richardson/richardson/"],
+  ["Telecom Corridor", "/commercial-real-estate/TX/richardson/telecom-corridor/"],
+  ["Plano", "/commercial-real-estate/TX/plano/plano/"],
+  ["Legacy / Plano", "/commercial-real-estate/TX/plano/legacy-plano/"],
+  ["West Plano", "/commercial-real-estate/TX/plano/west-plano/"],
+  ["Frisco", "/commercial-real-estate/TX/frisco/frisco/"],
+  ["Allen", "/commercial-real-estate/TX/allen/allen/"],
+  ["McKinney", "/commercial-real-estate/TX/mckinney/mckinney/"],
+  ["Las Colinas", "/commercial-real-estate/TX/irving/las-colinas/"],
+  ["Irving", "/commercial-real-estate/TX/irving/irving/"],
+  ["Coppell", "/commercial-real-estate/TX/coppell/coppell/"],
+  ["Southlake", "/commercial-real-estate/TX/southlake/southlake/"],
+  ["Grapevine", "/commercial-real-estate/TX/grapevine/grapevine/"],
+  ["DFW Airport Area", "/commercial-real-estate/TX/irving/dfw-airport-area/"],
+  ["Alliance / North Fort Worth", "/commercial-real-estate/TX/fort-worth/alliance-north-fort-worth/"],
+  ["South Dallas Industrial", "/commercial-real-estate/TX/dallas/south-dallas-industrial/"],
+  ["Arlington", "/commercial-real-estate/TX/arlington/arlington/"],
+  ["Grand Prairie", "/commercial-real-estate/TX/grand-prairie/grand-prairie/"],
+  ["Garland Industrial", "/commercial-real-estate/TX/garland/garland-industrial/"],
+  ["Mesquite", "/commercial-real-estate/TX/mesquite/mesquite/"],
+  ["Carrollton", "/commercial-real-estate/TX/carrollton/carrollton/"],
+  ["Farmers Branch", "/commercial-real-estate/TX/farmers-branch/farmers-branch/"],
+  ["Downtown Fort Worth", "/commercial-real-estate/TX/fort-worth/downtown-fort-worth/"],
+  ["Cultural District", "/commercial-real-estate/TX/fort-worth/cultural-district/"],
+  ["West 7th", "/commercial-real-estate/TX/fort-worth/west-7th/"],
+  ["Fort Worth Industrial", "/commercial-real-estate/TX/fort-worth/fort-worth-industrial/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    dfwMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Dallas-Fort Worth commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within DFW office, corporate campus, industrial/flex, logistics, data center, manufacturing, airport, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
