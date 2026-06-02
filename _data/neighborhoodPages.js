@@ -3586,6 +3586,33 @@ const losAngelesDistrictDefinitions = [
   { id: "la-sherman-oaks", name: "Sherman Oaks", slug: "sherman-oaks", city: "Sherman Oaks", state_abbr: "CA", path: "/commercial-real-estate/CA/sherman-oaks/sherman-oaks/", centroid_lat: 34.151, centroid_lng: -118.449, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["professional_services", "medical", "local_services", "retail"], representative_building_paths: ["/commercial-real-estate/building/CA/sherman-oaks/13400-riverside-dr/", "/commercial-real-estate/building/CA/sherman-oaks/15233-ventura-blvd/"] },
 ];
 
+const seattleMetroDistrictDefinitions = [
+  { id: "sea-downtown-seattle", name: "Downtown Seattle", slug: "downtown-seattle", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/downtown-seattle/", centroid_lat: 47.608, centroid_lng: -122.334, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "transit_oriented", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/701-fifth-avenue/", "/commercial-real-estate/building/WA/seattle/1201-3rd-ave/", "/commercial-real-estate/building/WA/seattle/1420-fifth-avenue/", "/commercial-real-estate/building/WA/seattle/1600-7th-ave/"] },
+  { id: "sea-south-lake-union", name: "South Lake Union", slug: "south-lake-union", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/south-lake-union/", centroid_lat: 47.623, centroid_lng: -122.338, area_type: "district", approximate_space_types: ["office", "flex", "coworking"], profile: ["technology", "life_science", "research", "modern_office"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/600-stewart-st/", "/commercial-real-estate/building/WA/seattle/1600-7th-ave/"] },
+  { id: "sea-belltown", name: "Belltown", slug: "belltown", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/belltown/", centroid_lat: 47.615, centroid_lng: -122.345, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["mixed_use", "creative_office", "hospitality", "downtown_edge"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/2815-elliott-ave/", "/commercial-real-estate/building/WA/seattle/1601-2nd-ave/"] },
+  { id: "sea-pioneer-square", name: "Pioneer Square", slug: "pioneer-square", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/pioneer-square/", centroid_lat: 47.601, centroid_lng: -122.333, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["historic", "adaptive_reuse", "creative_office", "downtown_edge"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/506-second-avenue/", "/commercial-real-estate/building/WA/seattle/450-alaskan-way-s/", "/commercial-real-estate/building/WA/seattle/255-s-king-st/"] },
+  { id: "sea-fremont", name: "Fremont", slug: "fremont", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/fremont/", centroid_lat: 47.651, centroid_lng: -122.35, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["technology", "creative_office", "local_services", "neighborhood_commercial"], representative_building_paths: [] },
+  { id: "sea-ballard", name: "Ballard", slug: "ballard", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/ballard/", centroid_lat: 47.668, centroid_lng: -122.386, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["maritime", "maker", "creative_office", "local_services"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/1448-nw-market-st/", "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/"] },
+  { id: "sea-university-district", name: "University District", slug: "university-district", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/university-district/", centroid_lat: 47.661, centroid_lng: -122.313, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["university_adjacent", "research_support", "medical", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/10202-5th-ave-ne-2nd-floor/"] },
+  { id: "sea-sodo", name: "SoDo", slug: "sodo", city: "Seattle", state_abbr: "WA", path: "/commercial-real-estate/WA/seattle/sodo/", centroid_lat: 47.58, centroid_lng: -122.333, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "warehouse", "showroom", "port_proximate"], representative_building_paths: ["/commercial-real-estate/building/WA/seattle/255-s-king-st/", "/commercial-real-estate/building/WA/seattle/555-andover-park-w/"] },
+  { id: "sea-bellevue", name: "Bellevue", slug: "bellevue", city: "Bellevue", state_abbr: "WA", path: "/commercial-real-estate/WA/bellevue/bellevue/", centroid_lat: 47.61, centroid_lng: -122.201, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["eastside", "technology", "corporate", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/WA/bellevue/skyline-tower-10900-n-e-4th-street/", "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/", "/commercial-real-estate/building/WA/bellevue/11900-ne-1st-st/", "/commercial-real-estate/building/WA/bellevue/1400-112th-ave-se/", "/commercial-real-estate/building/WA/bellevue/3120-139th-ave-se/"] },
+  { id: "sea-downtown-bellevue", name: "Downtown Bellevue", slug: "downtown-bellevue", city: "Bellevue", state_abbr: "WA", path: "/commercial-real-estate/WA/bellevue/downtown-bellevue/", centroid_lat: 47.612, centroid_lng: -122.203, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["eastside", "office", "client_facing", "corporate"], representative_building_paths: ["/commercial-real-estate/building/WA/bellevue/skyline-tower-10900-n-e-4th-street/", "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/", "/commercial-real-estate/building/WA/bellevue/11900-ne-1st-st/"] },
+  { id: "sea-redmond", name: "Redmond", slug: "redmond", city: "Redmond", state_abbr: "WA", path: "/commercial-real-estate/WA/redmond/redmond/", centroid_lat: 47.674, centroid_lng: -122.121, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["technology", "campus", "rd_flex", "eastside"], representative_building_paths: ["/commercial-real-estate/building/WA/redmond/2525-152nd-ave-ne/"] },
+  { id: "sea-kirkland", name: "Kirkland", slug: "kirkland", city: "Kirkland", state_abbr: "WA", path: "/commercial-real-estate/WA/kirkland/kirkland/", centroid_lat: 47.676, centroid_lng: -122.206, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["eastside", "professional_services", "technology", "waterfront"], representative_building_paths: ["/commercial-real-estate/building/WA/kirkland/5400-carillon-point-building-5000/", "/commercial-real-estate/building/WA/kirkland/11335-ne-122nd-way/"] },
+  { id: "sea-issaquah", name: "Issaquah", slug: "issaquah", city: "Issaquah", state_abbr: "WA", path: "/commercial-real-estate/WA/issaquah/issaquah/", centroid_lat: 47.53, centroid_lng: -122.034, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["eastside", "suburban_office", "medical", "local_services"], representative_building_paths: [] },
+  { id: "sea-bothell", name: "Bothell", slug: "bothell", city: "Bothell", state_abbr: "WA", path: "/commercial-real-estate/WA/bothell/bothell/", centroid_lat: 47.762, centroid_lng: -122.205, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["life_science", "rd_flex", "biotech", "suburban_office"], representative_building_paths: ["/commercial-real-estate/building/WA/bothell/22722-29th-dr-se/"] },
+  { id: "sea-kent-valley", name: "Kent Valley", slug: "kent-valley", city: "Kent", state_abbr: "WA", path: "/commercial-real-estate/WA/kent/kent-valley/", centroid_lat: 47.385, centroid_lng: -122.241, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "logistics", "manufacturing"], representative_building_paths: ["/commercial-real-estate/building/WA/kent/7818-s-212th-st/"] },
+  { id: "sea-tukwila", name: "Tukwila", slug: "tukwila", city: "Tukwila", state_abbr: "WA", path: "/commercial-real-estate/WA/tukwila/tukwila/", centroid_lat: 47.475, centroid_lng: -122.272, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "retail"], profile: ["airport_access", "service_commercial", "warehouse", "regional_access"], representative_building_paths: [] },
+  { id: "sea-auburn", name: "Auburn", slug: "auburn", city: "Auburn", state_abbr: "WA", path: "/commercial-real-estate/WA/auburn/auburn/", centroid_lat: 47.307, centroid_lng: -122.229, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "manufacturing", "service_commercial", "south_valley"], representative_building_paths: [] },
+  { id: "sea-renton", name: "Renton", slug: "renton", city: "Renton", state_abbr: "WA", path: "/commercial-real-estate/WA/renton/renton/", centroid_lat: 47.482, centroid_lng: -122.217, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["aerospace", "service_commercial", "office", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/WA/renton/707-s-grady-way/"] },
+  { id: "sea-everett", name: "Everett", slug: "everett", city: "Everett", state_abbr: "WA", path: "/commercial-real-estate/WA/everett/everett/", centroid_lat: 47.979, centroid_lng: -122.202, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["north_sound", "aerospace", "regional_office", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/WA/everett/11400-airport-rd-suite-200/"] },
+  { id: "sea-everett-industrial", name: "Everett Industrial", slug: "everett-industrial", city: "Everett", state_abbr: "WA", path: "/commercial-real-estate/WA/everett/everett-industrial/", centroid_lat: 47.925, centroid_lng: -122.267, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["aerospace", "manufacturing", "industrial_flex", "north_sound"], representative_building_paths: ["/commercial-real-estate/building/WA/everett/11400-airport-rd-suite-200/"] },
+  { id: "sea-tacoma", name: "Tacoma", slug: "tacoma", city: "Tacoma", state_abbr: "WA", path: "/commercial-real-estate/WA/tacoma/tacoma/", centroid_lat: 47.252, centroid_lng: -122.444, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["south_sound", "port", "office", "logistics"], representative_building_paths: ["/commercial-real-estate/building/WA/tacoma/1201-pacific-ave/"] },
+  { id: "sea-tacoma-port-industrial", name: "Tacoma Port / Industrial", slug: "tacoma-port-industrial", city: "Tacoma", state_abbr: "WA", path: "/commercial-real-estate/WA/tacoma/tacoma-port-industrial/", centroid_lat: 47.266, centroid_lng: -122.405, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["port", "warehouse", "distribution", "heavy_industrial"], representative_building_paths: [] },
+  { id: "sea-fife", name: "Fife", slug: "fife", city: "Fife", state_abbr: "WA", path: "/commercial-real-estate/WA/fife/fife/", centroid_lat: 47.239, centroid_lng: -122.358, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["logistics", "warehouse", "service_commercial", "tacoma_adjacent"], representative_building_paths: [] },
+  { id: "sea-lynnwood", name: "Lynnwood", slug: "lynnwood", city: "Lynnwood", state_abbr: "WA", path: "/commercial-real-estate/WA/lynnwood/lynnwood/", centroid_lat: 47.821, centroid_lng: -122.315, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["north_suburban", "medical", "local_services", "retail"], representative_building_paths: [] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -3874,6 +3901,42 @@ function losAngelesDistrictPageFor(district) {
   };
 }
 
+function seattleMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "seattle_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_seattle_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4108,6 +4171,7 @@ const sanDiegoPages = sanDiegoDistrictDefinitions.map(sanDiegoDistrictPageFor);
 const orangeCountyPages = orangeCountyDistrictDefinitions.map(orangeCountyDistrictPageFor);
 const inlandEmpirePages = inlandEmpireDistrictDefinitions.map(inlandEmpireDistrictPageFor);
 const losAngelesPages = losAngelesDistrictDefinitions.map(losAngelesDistrictPageFor);
+const seattleMetroPages = seattleMetroDistrictDefinitions.map(seattleMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4179,6 +4243,13 @@ for (const page of inlandEmpirePages) {
 }
 
 for (const page of losAngelesPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of seattleMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

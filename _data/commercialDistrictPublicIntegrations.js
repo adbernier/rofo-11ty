@@ -1671,6 +1671,58 @@ Object.assign(
   )
 );
 
+const seattleMetroIntegrationPages = [
+  ["Downtown Seattle", "/commercial-real-estate/WA/seattle/downtown-seattle/"],
+  ["South Lake Union", "/commercial-real-estate/WA/seattle/south-lake-union/"],
+  ["Belltown", "/commercial-real-estate/WA/seattle/belltown/"],
+  ["Pioneer Square", "/commercial-real-estate/WA/seattle/pioneer-square/"],
+  ["Fremont", "/commercial-real-estate/WA/seattle/fremont/"],
+  ["Ballard", "/commercial-real-estate/WA/seattle/ballard/"],
+  ["University District", "/commercial-real-estate/WA/seattle/university-district/"],
+  ["SoDo", "/commercial-real-estate/WA/seattle/sodo/"],
+  ["Bellevue", "/commercial-real-estate/WA/bellevue/bellevue/"],
+  ["Downtown Bellevue", "/commercial-real-estate/WA/bellevue/downtown-bellevue/"],
+  ["Redmond", "/commercial-real-estate/WA/redmond/redmond/"],
+  ["Kirkland", "/commercial-real-estate/WA/kirkland/kirkland/"],
+  ["Issaquah", "/commercial-real-estate/WA/issaquah/issaquah/"],
+  ["Bothell", "/commercial-real-estate/WA/bothell/bothell/"],
+  ["Kent Valley", "/commercial-real-estate/WA/kent/kent-valley/"],
+  ["Tukwila", "/commercial-real-estate/WA/tukwila/tukwila/"],
+  ["Auburn", "/commercial-real-estate/WA/auburn/auburn/"],
+  ["Renton", "/commercial-real-estate/WA/renton/renton/"],
+  ["Everett", "/commercial-real-estate/WA/everett/everett/"],
+  ["Everett Industrial", "/commercial-real-estate/WA/everett/everett-industrial/"],
+  ["Tacoma", "/commercial-real-estate/WA/tacoma/tacoma/"],
+  ["Tacoma Port / Industrial", "/commercial-real-estate/WA/tacoma/tacoma-port-industrial/"],
+  ["Fife", "/commercial-real-estate/WA/fife/fife/"],
+  ["Lynnwood", "/commercial-real-estate/WA/lynnwood/lynnwood/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    seattleMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Seattle Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Seattle Metro office, tech, life science, industrial/flex, logistics, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
