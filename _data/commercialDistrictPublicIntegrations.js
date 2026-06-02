@@ -1895,6 +1895,68 @@ Object.assign(
   )
 );
 
+const chicagoMetroIntegrationPages = [
+  ["Loop", "/commercial-real-estate/IL/chicago/loop/"],
+  ["West Loop", "/commercial-real-estate/IL/chicago/west-loop/"],
+  ["Fulton Market", "/commercial-real-estate/IL/chicago/fulton-market/"],
+  ["River North", "/commercial-real-estate/IL/chicago/river-north/"],
+  ["Streeterville", "/commercial-real-estate/IL/chicago/streeterville/"],
+  ["Magnificent Mile", "/commercial-real-estate/IL/chicago/magnificent-mile/"],
+  ["South Loop", "/commercial-real-estate/IL/chicago/south-loop/"],
+  ["Lincoln Park", "/commercial-real-estate/IL/chicago/lincoln-park/"],
+  ["Wicker Park / Bucktown", "/commercial-real-estate/IL/chicago/wicker-park-bucktown/"],
+  ["Lincoln Yards", "/commercial-real-estate/IL/chicago/lincoln-yards/"],
+  ["Goose Island", "/commercial-real-estate/IL/chicago/goose-island/"],
+  ["Illinois Medical District", "/commercial-real-estate/IL/chicago/illinois-medical-district/"],
+  ["O'Hare Industrial", "/commercial-real-estate/IL/chicago/ohare-industrial/"],
+  ["Elk Grove Village", "/commercial-real-estate/IL/elk-grove-village/elk-grove-village/"],
+  ["Schaumburg", "/commercial-real-estate/IL/schaumburg/schaumburg/"],
+  ["Franklin Park", "/commercial-real-estate/IL/franklin-park/franklin-park/"],
+  ["Melrose Park", "/commercial-real-estate/IL/melrose-park/melrose-park/"],
+  ["Bedford Park", "/commercial-real-estate/IL/bedford-park/bedford-park/"],
+  ["Cicero", "/commercial-real-estate/IL/cicero/cicero/"],
+  ["Bridgeport / Stockyards", "/commercial-real-estate/IL/chicago/bridgeport-stockyards/"],
+  ["Back of the Yards", "/commercial-real-estate/IL/chicago/back-of-the-yards/"],
+  ["Calumet / South Chicago Industrial", "/commercial-real-estate/IL/chicago/calumet-south-chicago-industrial/"],
+  ["Joliet", "/commercial-real-estate/IL/joliet/joliet/"],
+  ["Bolingbrook", "/commercial-real-estate/IL/bolingbrook/bolingbrook/"],
+  ["Romeoville", "/commercial-real-estate/IL/romeoville/romeoville/"],
+  ["Oak Brook", "/commercial-real-estate/IL/oak-brook/oak-brook/"],
+  ["Naperville", "/commercial-real-estate/IL/naperville/naperville/"],
+  ["Rosemont", "/commercial-real-estate/IL/rosemont/rosemont/"],
+  ["Evanston", "/commercial-real-estate/IL/evanston/evanston/"],
+  ["Skokie", "/commercial-real-estate/IL/skokie/skokie/"],
+  ["Northbrook", "/commercial-real-estate/IL/northbrook/northbrook/"],
+  ["Deerfield", "/commercial-real-estate/IL/deerfield/deerfield/"],
+  ["Downers Grove", "/commercial-real-estate/IL/downers-grove/downers-grove/"],
+  ["Lisle", "/commercial-real-estate/IL/lisle/lisle/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    chicagoMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Chicago Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Chicago core office, Fulton Market/West Loop innovation, life science, O'Hare/Northwest industrial, suburban office, manufacturing, logistics, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

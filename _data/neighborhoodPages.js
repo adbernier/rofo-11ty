@@ -1883,6 +1883,11 @@ const displayNameWithArticleByKey = {
   "NY/new-york/garment-district": "the Garment District",
   "NY/new-york/flatiron-district": "the Flatiron District",
   "NY/new-york/plaza-district": "the Plaza District",
+  "IL/chicago/loop": "the Loop",
+  "IL/chicago/west-loop": "the West Loop",
+  "IL/chicago/south-loop": "the South Loop",
+  "IL/chicago/magnificent-mile": "the Magnificent Mile",
+  "IL/chicago/illinois-medical-district": "the Illinois Medical District",
 };
 
 function displayNameWithArticleFor(page) {
@@ -3710,6 +3715,43 @@ const dfwMetroDistrictDefinitions = [
   { id: "dfw-fort-worth-industrial", name: "Fort Worth Industrial", slug: "fort-worth-industrial", city: "Fort Worth", state_abbr: "TX", path: "/commercial-real-estate/TX/fort-worth/fort-worth-industrial/", centroid_lat: 32.77, centroid_lng: -97.24, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "manufacturing", "service_industrial", "logistics"], representative_building_paths: ["/commercial-real-estate/building/TX/fort-worth/2601-petty-pl/", "/commercial-real-estate/building/TX/fort-worth/405-e-bolt-st/", "/commercial-real-estate/building/TX/fort-worth/4500-mercantile-plaza-dr/", "/commercial-real-estate/building/TX/fort-worth/5601-bridge-st/"] },
 ];
 
+const chicagoMetroDistrictDefinitions = [
+  { id: "chi-loop", name: "Loop", slug: "loop", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/loop/", centroid_lat: 41.878, centroid_lng: -87.63, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "finance", "legal", "transit"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1-s-dearborn-st/", "/commercial-real-estate/building/IL/chicago/111-w-jackson-blvd/", "/commercial-real-estate/building/IL/chicago/125-s-wacker-dr/", "/commercial-real-estate/building/IL/chicago/203-n-lasalle-st/", "/commercial-real-estate/building/IL/chicago/55-e-monroe-st/"] },
+  { id: "chi-west-loop", name: "West Loop", slug: "west-loop", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/west-loop/", centroid_lat: 41.883, centroid_lng: -87.648, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["central_office", "commuter_access", "professional_services", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/10-south-riverside-plaza/", "/commercial-real-estate/building/IL/chicago/200-s-wacker-dr/", "/commercial-real-estate/building/IL/chicago/222-s-riverside-plz/", "/commercial-real-estate/building/IL/chicago/564-w-randolph-st/", "/commercial-real-estate/building/IL/chicago/625-w-adams-st/"] },
+  { id: "chi-fulton-market", name: "Fulton Market", slug: "fulton-market", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/fulton-market/", centroid_lat: 41.887, centroid_lng: -87.653, area_type: "district", approximate_space_types: ["office", "coworking", "retail", "flex"], profile: ["innovation", "creative_office", "adaptive_reuse", "restaurant_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/159-n-sangamon-st/", "/commercial-real-estate/building/IL/chicago/1612-w-fulton-st/", "/commercial-real-estate/building/IL/chicago/167-n-green-st/", "/commercial-real-estate/building/IL/chicago/220-n-green-st/"] },
+  { id: "chi-river-north", name: "River North", slug: "river-north", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/river-north/", centroid_lat: 41.893, centroid_lng: -87.633, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["client_facing", "hospitality", "design", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/330-n-wabash-ave/", "/commercial-real-estate/building/IL/chicago/401-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/448-n-la-salle-st/", "/commercial-real-estate/building/IL/chicago/515-n-state-st/"] },
+  { id: "chi-streeterville", name: "Streeterville", slug: "streeterville", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/streeterville/", centroid_lat: 41.895, centroid_lng: -87.62, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["medical", "lakefront", "client_facing", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/180-n-stetson-street/", "/commercial-real-estate/building/IL/chicago/401-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/605-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/875-n-michigan-ave/"] },
+  { id: "chi-magnificent-mile", name: "Magnificent Mile", slug: "magnificent-mile", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/magnificent-mile/", centroid_lat: 41.895, centroid_lng: -87.624, area_type: "corridor", approximate_space_types: ["office", "retail", "coworking"], profile: ["retail_visibility", "hospitality", "client_facing", "brand"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/401-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/605-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/875-n-michigan-ave/", "/commercial-real-estate/building/IL/chicago/980-n-michigan-ave/"] },
+  { id: "chi-south-loop", name: "South Loop", slug: "south-loop", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/south-loop/", centroid_lat: 41.861, centroid_lng: -87.625, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["downtown_edge", "education_adjacent", "mixed_use", "local_services"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1134-s-delano-ct-w/", "/commercial-real-estate/building/IL/chicago/1331-s-michigan-ave/"] },
+  { id: "chi-lincoln-park", name: "Lincoln Park", slug: "lincoln-park", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/lincoln-park/", centroid_lat: 41.921, centroid_lng: -87.651, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["neighborhood_commercial", "local_services", "medical", "education_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1500-n-halsted-st/", "/commercial-real-estate/building/IL/chicago/939-w-north-ave/"] },
+  { id: "chi-wicker-park-bucktown", name: "Wicker Park / Bucktown", slug: "wicker-park-bucktown", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/wicker-park-bucktown/", centroid_lat: 41.91, centroid_lng: -87.677, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["creative_office", "boutique_office", "storefront", "local_services"], representative_building_paths: [] },
+  { id: "chi-lincoln-yards", name: "Lincoln Yards", slug: "lincoln-yards", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/lincoln-yards/", centroid_lat: 41.916, centroid_lng: -87.654, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["emerging_innovation", "north_branch", "mixed_use", "life_science_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1500-n-halsted-st/", "/commercial-real-estate/building/IL/chicago/1918-n-mendell-st/"] },
+  { id: "chi-goose-island", name: "Goose Island", slug: "goose-island", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/goose-island/", centroid_lat: 41.906, centroid_lng: -87.653, area_type: "industrial_area", approximate_space_types: ["flex", "industrial", "office"], profile: ["rd_flex", "production", "adaptive_industrial", "north_branch"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1918-n-mendell-st/"] },
+  { id: "chi-illinois-medical-district", name: "Illinois Medical District", slug: "illinois-medical-district", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/illinois-medical-district/", centroid_lat: 41.871, centroid_lng: -87.669, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["medical", "life_science", "research", "institutional"], representative_building_paths: [] },
+  { id: "chi-ohare-industrial", name: "O'Hare Industrial", slug: "ohare-industrial", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/ohare-industrial/", centroid_lat: 41.979, centroid_lng: -87.896, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "warehouse", "service_industrial"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/5440-n-cumberland-ave/", "/commercial-real-estate/building/IL/chicago/8623-w-bryn-mawr-ave/", "/commercial-real-estate/building/IL/chicago/8770-w-bryn-mawr-ave/"] },
+  { id: "chi-elk-grove-village", name: "Elk Grove Village", slug: "elk-grove-village", city: "Elk Grove Village", state_abbr: "IL", path: "/commercial-real-estate/IL/elk-grove-village/elk-grove-village/", centroid_lat: 42.008, centroid_lng: -87.993, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_park", "warehouse", "manufacturing", "ohare_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/elk-grove-village/1221-jarvis-ave/", "/commercial-real-estate/building/IL/elk-grove-village/1872-brummel-ave/", "/commercial-real-estate/building/IL/elk-grove-village/2301-lunt-ave/", "/commercial-real-estate/building/IL/elk-grove-village/801-chase-ave/"] },
+  { id: "chi-schaumburg", name: "Schaumburg", slug: "schaumburg", city: "Schaumburg", state_abbr: "IL", path: "/commercial-real-estate/IL/schaumburg/schaumburg/", centroid_lat: 42.034, centroid_lng: -88.083, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["suburban_office", "medical", "retail_support", "office_flex"], representative_building_paths: ["/commercial-real-estate/building/IL/schaumburg/10-n-martingale-rd/", "/commercial-real-estate/building/IL/schaumburg/1100-e-woodfield-rd/", "/commercial-real-estate/building/IL/schaumburg/1375-e-woodfield-rd/", "/commercial-real-estate/building/IL/schaumburg/900-national-pkwy/"] },
+  { id: "chi-franklin-park", name: "Franklin Park", slug: "franklin-park", city: "Franklin Park", state_abbr: "IL", path: "/commercial-real-estate/IL/franklin-park/franklin-park/", centroid_lat: 41.936, centroid_lng: -87.874, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "manufacturing", "freight", "ohare_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/franklin-park/11130-king-st/"] },
+  { id: "chi-melrose-park", name: "Melrose Park", slug: "melrose-park", city: "Melrose Park", state_abbr: "IL", path: "/commercial-real-estate/IL/melrose-park/melrose-park/", centroid_lat: 41.9, centroid_lng: -87.86, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["manufacturing", "warehouse", "service_industrial", "west_suburban"], representative_building_paths: [] },
+  { id: "chi-bedford-park", name: "Bedford Park", slug: "bedford-park", city: "Bedford Park", state_abbr: "IL", path: "/commercial-real-estate/IL/bedford-park/bedford-park/", centroid_lat: 41.763, centroid_lng: -87.79, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "manufacturing", "freight", "midway_adjacent"], representative_building_paths: ["/commercial-real-estate/building/IL/bedford-park/6410-w-74th-st/"] },
+  { id: "chi-cicero", name: "Cicero", slug: "cicero", city: "Cicero", state_abbr: "IL", path: "/commercial-real-estate/IL/cicero/cicero/", centroid_lat: 41.845, centroid_lng: -87.753, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "retail"], profile: ["service_industrial", "warehouse_flex", "contractor", "close_in"], representative_building_paths: ["/commercial-real-estate/building/IL/cicero/1400-s-laramie-ave/"] },
+  { id: "chi-bridgeport-stockyards", name: "Bridgeport / Stockyards", slug: "bridgeport-stockyards", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/bridgeport-stockyards/", centroid_lat: 41.829, centroid_lng: -87.649, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "retail"], profile: ["industrial_transition", "food_production", "service_commercial", "adaptive_industrial"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/4130-s-morgan-st/"] },
+  { id: "chi-back-of-the-yards", name: "Back of the Yards", slug: "back-of-the-yards", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/back-of-the-yards/", centroid_lat: 41.807, centroid_lng: -87.662, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["manufacturing", "food_production", "service_industrial", "south_side"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/4130-s-morgan-st/", "/commercial-real-estate/building/IL/chicago/4600-s-kolin-ave/"] },
+  { id: "chi-calumet-south-chicago-industrial", name: "Calumet / South Chicago Industrial", slug: "calumet-south-chicago-industrial", city: "Chicago", state_abbr: "IL", path: "/commercial-real-estate/IL/chicago/calumet-south-chicago-industrial/", centroid_lat: 41.724, centroid_lng: -87.547, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["heavy_industrial", "logistics", "manufacturing", "southeast_chicago"], representative_building_paths: ["/commercial-real-estate/building/IL/chicago/1515-e-97th-pl/", "/commercial-real-estate/building/IL/chicago/8658-s-sacramento-ave/"] },
+  { id: "chi-joliet", name: "Joliet", slug: "joliet", city: "Joliet", state_abbr: "IL", path: "/commercial-real-estate/IL/joliet/joliet/", centroid_lat: 41.526, centroid_lng: -88.081, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["logistics", "warehouse", "intermodal", "manufacturing"], representative_building_paths: ["/commercial-real-estate/building/IL/joliet/1151-e-laraway-rd/"] },
+  { id: "chi-bolingbrook", name: "Bolingbrook", slug: "bolingbrook", city: "Bolingbrook", state_abbr: "IL", path: "/commercial-real-estate/IL/bolingbrook/bolingbrook/", centroid_lat: 41.699, centroid_lng: -88.068, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["i55_logistics", "warehouse", "office_flex", "service_industrial"], representative_building_paths: ["/commercial-real-estate/building/IL/bolingbrook/215-remington-blvd/", "/commercial-real-estate/building/IL/bolingbrook/396-remington-blvd/", "/commercial-real-estate/building/IL/bolingbrook/440-quadrangle-dr/"] },
+  { id: "chi-romeoville", name: "Romeoville", slug: "romeoville", city: "Romeoville", state_abbr: "IL", path: "/commercial-real-estate/IL/romeoville/romeoville/", centroid_lat: 41.647, centroid_lng: -88.09, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["i55_logistics", "warehouse", "manufacturing", "industrial_park"], representative_building_paths: ["/commercial-real-estate/building/IL/romeoville/1200-n-schmidt-rd/", "/commercial-real-estate/building/IL/romeoville/1250-windham-pkwy/", "/commercial-real-estate/building/IL/romeoville/1295-windham-pkwy/", "/commercial-real-estate/building/IL/romeoville/187-southcreek-pkwy/"] },
+  { id: "chi-oak-brook", name: "Oak Brook", slug: "oak-brook", city: "Oak Brook", state_abbr: "IL", path: "/commercial-real-estate/IL/oak-brook/oak-brook/", centroid_lat: 41.839, centroid_lng: -87.953, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "corporate", "professional_services", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/IL/oak-brook/1415-w-22nd-st/", "/commercial-real-estate/building/IL/oak-brook/1800-york-rd/", "/commercial-real-estate/building/IL/oak-brook/2625-butterfield-rd/", "/commercial-real-estate/building/IL/oak-brook/711-jorie-blvd/"] },
+  { id: "chi-naperville", name: "Naperville", slug: "naperville", city: "Naperville", state_abbr: "IL", path: "/commercial-real-estate/IL/naperville/naperville/", centroid_lat: 41.751, centroid_lng: -88.153, area_type: "district", approximate_space_types: ["office", "medical", "retail", "flex"], profile: ["west_suburban", "professional_services", "medical", "business_park"], representative_building_paths: ["/commercial-real-estate/building/IL/naperville/1100-e-warrenville-rd/", "/commercial-real-estate/building/IL/naperville/1415-w-diehl-rd/", "/commercial-real-estate/building/IL/naperville/50-s-main-st/", "/commercial-real-estate/building/IL/naperville/535-e-diehl-rd/"] },
+  { id: "chi-rosemont", name: "Rosemont", slug: "rosemont", city: "Rosemont", state_abbr: "IL", path: "/commercial-real-estate/IL/rosemont/rosemont/", centroid_lat: 41.986, centroid_lng: -87.873, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["airport_adjacent", "hospitality", "convention", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/IL/rosemont/5600-n-river-rd/"] },
+  { id: "chi-evanston", name: "Evanston", slug: "evanston", city: "Evanston", state_abbr: "IL", path: "/commercial-real-estate/IL/evanston/evanston/", centroid_lat: 42.045, centroid_lng: -87.68, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["university_adjacent", "professional_services", "medical", "north_shore"], representative_building_paths: ["/commercial-real-estate/building/IL/evanston/1603-orrington-ave/"] },
+  { id: "chi-skokie", name: "Skokie", slug: "skokie", city: "Skokie", state_abbr: "IL", path: "/commercial-real-estate/IL/skokie/skokie/", centroid_lat: 42.033, centroid_lng: -87.733, area_type: "district", approximate_space_types: ["office", "medical", "retail", "flex"], profile: ["north_suburban", "service_commercial", "medical", "light_flex"], representative_building_paths: ["/commercial-real-estate/building/IL/skokie/3500-oakton-st/", "/commercial-real-estate/building/IL/skokie/5250-old-orchard-rd/", "/commercial-real-estate/building/IL/skokie/5834-w-howard-st/"] },
+  { id: "chi-northbrook", name: "Northbrook", slug: "northbrook", city: "Northbrook", state_abbr: "IL", path: "/commercial-real-estate/IL/northbrook/northbrook/", centroid_lat: 42.128, centroid_lng: -87.829, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["north_shore", "office", "medical", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/IL/northbrook/5-revere-drive-one-northbrook-place/", "/commercial-real-estate/building/IL/northbrook/707-skokie-blvd/"] },
+  { id: "chi-deerfield", name: "Deerfield", slug: "deerfield", city: "Deerfield", state_abbr: "IL", path: "/commercial-real-estate/IL/deerfield/deerfield/", centroid_lat: 42.166, centroid_lng: -87.851, area_type: "district", approximate_space_types: ["office", "medical"], profile: ["corporate", "business_park", "medical", "north_suburban"], representative_building_paths: ["/commercial-real-estate/building/IL/deerfield/111-deer-lake-rd/", "/commercial-real-estate/building/IL/deerfield/1717-deerfield-rd/", "/commercial-real-estate/building/IL/deerfield/2801-lakeside-dr/", "/commercial-real-estate/building/IL/deerfield/3000-lakeside-dr/"] },
+  { id: "chi-downers-grove", name: "Downers Grove", slug: "downers-grove", city: "Downers Grove", state_abbr: "IL", path: "/commercial-real-estate/IL/downers-grove/downers-grove/", centroid_lat: 41.808, centroid_lng: -88.011, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["i88_office", "business_park", "professional_services", "office_flex"], representative_building_paths: ["/commercial-real-estate/building/IL/downers-grove/1431-opus-place/", "/commercial-real-estate/building/IL/downers-grove/2300-warrenville-rd/", "/commercial-real-estate/building/IL/downers-grove/3300-woodcreek-dr/"] },
+  { id: "chi-lisle", name: "Lisle", slug: "lisle", city: "Lisle", state_abbr: "IL", path: "/commercial-real-estate/IL/lisle/lisle/", centroid_lat: 41.801, centroid_lng: -88.075, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["i88_office", "business_park", "corporate_support", "office_flex"], representative_building_paths: ["/commercial-real-estate/building/IL/lisle/2200-cabot-dr/", "/commercial-real-estate/building/IL/lisle/2300-cabot-dr/", "/commercial-real-estate/building/IL/lisle/3030-warrenville-rd/", "/commercial-real-estate/building/IL/lisle/3333-warrenville-rd/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4142,6 +4184,42 @@ function dfwMetroDistrictPageFor(district) {
   };
 }
 
+function chicagoMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "chicago_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_chicago_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4380,6 +4458,7 @@ const seattleMetroPages = seattleMetroDistrictDefinitions.map(seattleMetroDistri
 const phoenixMetroPages = phoenixMetroDistrictDefinitions.map(phoenixMetroDistrictPageFor);
 const denverMetroPages = denverMetroDistrictDefinitions.map(denverMetroDistrictPageFor);
 const dfwMetroPages = dfwMetroDistrictDefinitions.map(dfwMetroDistrictPageFor);
+const chicagoMetroPages = chicagoMetroDistrictDefinitions.map(chicagoMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4479,6 +4558,13 @@ for (const page of denverMetroPages) {
 }
 
 for (const page of dfwMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of chicagoMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
