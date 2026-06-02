@@ -2014,6 +2014,65 @@ Object.assign(
   )
 );
 
+const bostonMetroIntegrationPages = [
+  ["Downtown Boston", "/commercial-real-estate/MA/boston/downtown-boston/"],
+  ["Financial District", "/commercial-real-estate/MA/boston/financial-district/"],
+  ["Back Bay", "/commercial-real-estate/MA/boston/back-bay/"],
+  ["Seaport", "/commercial-real-estate/MA/boston/seaport/"],
+  ["South Boston", "/commercial-real-estate/MA/boston/south-boston/"],
+  ["Fenway", "/commercial-real-estate/MA/boston/fenway/"],
+  ["Government Center", "/commercial-real-estate/MA/boston/government-center/"],
+  ["North Station", "/commercial-real-estate/MA/boston/north-station/"],
+  ["Kendall Square", "/commercial-real-estate/MA/cambridge/kendall-square/"],
+  ["East Cambridge", "/commercial-real-estate/MA/cambridge/east-cambridge/"],
+  ["Cambridge", "/commercial-real-estate/MA/cambridge/cambridge/"],
+  ["Harvard Square", "/commercial-real-estate/MA/cambridge/harvard-square/"],
+  ["Longwood Medical Area", "/commercial-real-estate/MA/boston/longwood-medical-area/"],
+  ["Allston / Brighton Innovation Corridor", "/commercial-real-estate/MA/boston/allston-brighton-innovation-corridor/"],
+  ["Waltham", "/commercial-real-estate/MA/waltham/waltham/"],
+  ["Watertown", "/commercial-real-estate/MA/watertown/watertown/"],
+  ["Burlington", "/commercial-real-estate/MA/burlington/burlington/"],
+  ["Lexington", "/commercial-real-estate/MA/lexington/lexington/"],
+  ["Bedford", "/commercial-real-estate/MA/bedford/bedford/"],
+  ["Woburn", "/commercial-real-estate/MA/woburn/woburn/"],
+  ["Newton", "/commercial-real-estate/MA/newton/newton/"],
+  ["Needham", "/commercial-real-estate/MA/needham/needham/"],
+  ["Framingham", "/commercial-real-estate/MA/framingham/framingham/"],
+  ["Quincy", "/commercial-real-estate/MA/quincy/quincy/"],
+  ["Route 128 Corridor", "/commercial-real-estate/MA/waltham/route-128-corridor/"],
+  ["Route 495 Corridor", "/commercial-real-estate/MA/framingham/route-495-corridor/"],
+  ["Braintree", "/commercial-real-estate/MA/braintree/braintree/"],
+  ["Chelsea", "/commercial-real-estate/MA/chelsea/chelsea/"],
+  ["Everett", "/commercial-real-estate/MA/everett/everett/"],
+  ["Wilmington", "/commercial-real-estate/MA/wilmington/wilmington/"],
+  ["Mansfield", "/commercial-real-estate/MA/mansfield/mansfield/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    bostonMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Boston Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Boston core office, Seaport innovation, Cambridge/Kendall biotech, Longwood healthcare, Route 128 suburban office, Route 495 industrial/flex, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

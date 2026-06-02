@@ -1888,6 +1888,9 @@ const displayNameWithArticleByKey = {
   "IL/chicago/south-loop": "the South Loop",
   "IL/chicago/magnificent-mile": "the Magnificent Mile",
   "IL/chicago/illinois-medical-district": "the Illinois Medical District",
+  "MA/boston/seaport": "the Seaport",
+  "MA/waltham/route-128-corridor": "the Route 128 Corridor",
+  "MA/framingham/route-495-corridor": "the Route 495 Corridor",
 };
 
 function displayNameWithArticleFor(page) {
@@ -3784,6 +3787,40 @@ const dcMetroDistrictDefinitions = [
   { id: "dc-college-park", name: "College Park", slug: "college-park", city: "College Park", state_abbr: "MD", path: "/commercial-real-estate/MD/college-park/college-park/", centroid_lat: 38.989, centroid_lng: -76.936, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["university_adjacent", "research", "technology", "startup"], representative_building_paths: ["/commercial-real-estate/building/MD/college-park/7761-diamondback-dr/"] },
 ];
 
+const bostonMetroDistrictDefinitions = [
+  { id: "bos-downtown-boston", name: "Downtown Boston", slug: "downtown-boston", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/downtown-boston/", centroid_lat: 42.358, centroid_lng: -71.058, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "finance", "legal", "transit"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/1-beacon-st/", "/commercial-real-estate/building/MA/boston/1-lincoln-st/", "/commercial-real-estate/building/MA/boston/101-arch-st/", "/commercial-real-estate/building/MA/boston/33-arch-st/"] },
+  { id: "bos-financial-district", name: "Financial District", slug: "financial-district", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/financial-district/", centroid_lat: 42.356, centroid_lng: -71.054, area_type: "downtown_core", approximate_space_types: ["office", "coworking"], profile: ["finance", "legal", "insurance", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/101-federal-st/", "/commercial-real-estate/building/MA/boston/75-state-st/", "/commercial-real-estate/building/MA/boston/470-atlantic-ave/", "/commercial-real-estate/building/MA/boston/711-atlantic-ave/"] },
+  { id: "bos-back-bay", name: "Back Bay", slug: "back-bay", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/back-bay/", centroid_lat: 42.35, centroid_lng: -71.081, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "professional_services", "retail_support", "medical_adjacent"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/501-boylston-st/", "/commercial-real-estate/building/MA/boston/75-arlington-st/", "/commercial-real-estate/building/MA/boston/800-boylston-st/", "/commercial-real-estate/building/MA/boston/361-newbury-st/"] },
+  { id: "bos-seaport", name: "Seaport", slug: "seaport", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/seaport/", centroid_lat: 42.35, centroid_lng: -71.043, area_type: "district", approximate_space_types: ["office", "coworking", "retail", "lab"], profile: ["modern_office", "waterfront", "innovation", "technology"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/1-marina-park-dr/", "/commercial-real-estate/building/MA/boston/77-sleeper-st/", "/commercial-real-estate/building/MA/boston/470-atlantic-ave/"] },
+  { id: "bos-south-boston", name: "South Boston", slug: "south-boston", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/south-boston/", centroid_lat: 42.338, centroid_lng: -71.044, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["waterfront_adjacent", "local_services", "mixed_use", "production_adjacent"], representative_building_paths: [] },
+  { id: "bos-fenway", name: "Fenway", slug: "fenway", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/fenway/", centroid_lat: 42.343, centroid_lng: -71.1, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["medical_adjacent", "education_adjacent", "mixed_use", "local_services"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/177-huntington-ave/"] },
+  { id: "bos-government-center", name: "Government Center", slug: "government-center", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/government-center/", centroid_lat: 42.36, centroid_lng: -71.059, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["civic", "legal", "public_sector", "transit"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/100-cambridge-st/", "/commercial-real-estate/building/MA/boston/1-beacon-st/"] },
+  { id: "bos-north-station", name: "North Station", slug: "north-station", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/north-station/", centroid_lat: 42.366, centroid_lng: -71.062, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["transit", "arena_adjacent", "mixed_use", "downtown_edge"], representative_building_paths: ["/commercial-real-estate/building/MA/boston/90-canal-st/", "/commercial-real-estate/building/MA/boston/200-portland-st/"] },
+  { id: "bos-kendall-square", name: "Kendall Square", slug: "kendall-square", city: "Cambridge", state_abbr: "MA", path: "/commercial-real-estate/MA/cambridge/kendall-square/", centroid_lat: 42.363, centroid_lng: -71.085, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["life_science", "biotech", "research", "technology"], representative_building_paths: ["/commercial-real-estate/building/MA/cambridge/245-first-street/", "/commercial-real-estate/building/MA/cambridge/625-massachusetts-ave/"] },
+  { id: "bos-east-cambridge", name: "East Cambridge", slug: "east-cambridge", city: "Cambridge", state_abbr: "MA", path: "/commercial-real-estate/MA/cambridge/east-cambridge/", centroid_lat: 42.371, centroid_lng: -71.083, area_type: "district", approximate_space_types: ["office", "lab", "retail"], profile: ["life_science", "mixed_office", "kendall_adjacent", "legal"], representative_building_paths: ["/commercial-real-estate/building/MA/cambridge/245-first-street/"] },
+  { id: "bos-cambridge", name: "Cambridge", slug: "cambridge", city: "Cambridge", state_abbr: "MA", path: "/commercial-real-estate/MA/cambridge/cambridge/", centroid_lat: 42.374, centroid_lng: -71.11, area_type: "district", approximate_space_types: ["office", "lab", "retail"], profile: ["research", "technology", "life_science", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/MA/cambridge/125-cambridge-park-dr/", "/commercial-real-estate/building/MA/cambridge/245-first-street/", "/commercial-real-estate/building/MA/cambridge/625-massachusetts-ave/", "/commercial-real-estate/building/MA/cambridge/one-mifflin-place/"] },
+  { id: "bos-harvard-square", name: "Harvard Square", slug: "harvard-square", city: "Cambridge", state_abbr: "MA", path: "/commercial-real-estate/MA/cambridge/harvard-square/", centroid_lat: 42.373, centroid_lng: -71.119, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["university_adjacent", "research", "boutique_office", "startup"], representative_building_paths: ["/commercial-real-estate/building/MA/cambridge/one-mifflin-place/", "/commercial-real-estate/building/MA/cambridge/625-massachusetts-ave/"] },
+  { id: "bos-longwood-medical-area", name: "Longwood Medical Area", slug: "longwood-medical-area", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/longwood-medical-area/", centroid_lat: 42.338, centroid_lng: -71.105, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["healthcare", "medical", "life_science", "research"], representative_building_paths: [] },
+  { id: "bos-allston-brighton-innovation-corridor", name: "Allston / Brighton Innovation Corridor", slug: "allston-brighton-innovation-corridor", city: "Boston", state_abbr: "MA", path: "/commercial-real-estate/MA/boston/allston-brighton-innovation-corridor/", centroid_lat: 42.355, centroid_lng: -71.13, area_type: "corridor", approximate_space_types: ["office", "lab", "flex"], profile: ["emerging_innovation", "university_adjacent", "life_science_adjacent", "startup"], representative_building_paths: [] },
+  { id: "bos-waltham", name: "Waltham", slug: "waltham", city: "Waltham", state_abbr: "MA", path: "/commercial-real-estate/MA/waltham/waltham/", centroid_lat: 42.376, centroid_lng: -71.235, area_type: "district", approximate_space_types: ["office", "medical", "flex", "lab"], profile: ["route128", "office", "biotech", "technology"], representative_building_paths: ["/commercial-real-estate/building/MA/waltham/303-wyman-st/"] },
+  { id: "bos-watertown", name: "Watertown", slug: "watertown", city: "Watertown", state_abbr: "MA", path: "/commercial-real-estate/MA/watertown/watertown/", centroid_lat: 42.37, centroid_lng: -71.18, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["life_science", "lab", "office_flex", "close_in"], representative_building_paths: [] },
+  { id: "bos-burlington", name: "Burlington", slug: "burlington", city: "Burlington", state_abbr: "MA", path: "/commercial-real-estate/MA/burlington/burlington/", centroid_lat: 42.504, centroid_lng: -71.195, area_type: "district", approximate_space_types: ["office", "medical", "retail", "flex"], profile: ["route128", "technology", "corporate", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/MA/burlington/1500-district-ave/"] },
+  { id: "bos-lexington", name: "Lexington", slug: "lexington", city: "Lexington", state_abbr: "MA", path: "/commercial-real-estate/MA/lexington/lexington/", centroid_lat: 42.447, centroid_lng: -71.225, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["rd", "biotech", "defense", "route128"], representative_building_paths: [] },
+  { id: "bos-bedford", name: "Bedford", slug: "bedford", city: "Bedford", state_abbr: "MA", path: "/commercial-real-estate/MA/bedford/bedford/", centroid_lat: 42.49, centroid_lng: -71.277, area_type: "district", approximate_space_types: ["office", "flex", "lab"], profile: ["rd", "defense", "technology", "office_flex"], representative_building_paths: [] },
+  { id: "bos-woburn", name: "Woburn", slug: "woburn", city: "Woburn", state_abbr: "MA", path: "/commercial-real-estate/MA/woburn/woburn/", centroid_lat: 42.479, centroid_lng: -71.152, area_type: "industrial_area", approximate_space_types: ["office", "flex", "industrial"], profile: ["industrial_flex", "office_flex", "service_commercial", "i93"], representative_building_paths: [] },
+  { id: "bos-newton", name: "Newton", slug: "newton", city: "Newton", state_abbr: "MA", path: "/commercial-real-estate/MA/newton/newton/", centroid_lat: 42.337, centroid_lng: -71.209, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["close_in_suburban", "professional_services", "medical", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/MA/newton/275-grove-st/"] },
+  { id: "bos-needham", name: "Needham", slug: "needham", city: "Needham", state_abbr: "MA", path: "/commercial-real-estate/MA/needham/needham/", centroid_lat: 42.281, centroid_lng: -71.237, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "professional_services", "medical", "technology"], representative_building_paths: [] },
+  { id: "bos-framingham", name: "Framingham", slug: "framingham", city: "Framingham", state_abbr: "MA", path: "/commercial-real-estate/MA/framingham/framingham/", centroid_lat: 42.279, centroid_lng: -71.417, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["metrowest", "professional_services", "medical", "local_services"], representative_building_paths: ["/commercial-real-estate/building/MA/framingham/945-concord-st/"] },
+  { id: "bos-quincy", name: "Quincy", slug: "quincy", city: "Quincy", state_abbr: "MA", path: "/commercial-real-estate/MA/quincy/quincy/", centroid_lat: 42.252, centroid_lng: -71.002, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["south_metro", "office", "medical", "transit"], representative_building_paths: ["/commercial-real-estate/building/MA/quincy/859-willard-st/"] },
+  { id: "bos-route-128-corridor", name: "Route 128 Corridor", slug: "route-128-corridor", city: "Waltham", state_abbr: "MA", path: "/commercial-real-estate/MA/waltham/route-128-corridor/", centroid_lat: 42.39, centroid_lng: -71.22, area_type: "corridor", approximate_space_types: ["office", "lab", "flex"], profile: ["route128", "office", "biotech", "technology", "rd_flex"], representative_building_paths: ["/commercial-real-estate/building/MA/waltham/303-wyman-st/", "/commercial-real-estate/building/MA/burlington/1500-district-ave/", "/commercial-real-estate/building/MA/newton/275-grove-st/"] },
+  { id: "bos-route-495-corridor", name: "Route 495 Corridor", slug: "route-495-corridor", city: "Framingham", state_abbr: "MA", path: "/commercial-real-estate/MA/framingham/route-495-corridor/", centroid_lat: 42.28, centroid_lng: -71.52, area_type: "corridor", approximate_space_types: ["industrial", "flex", "office"], profile: ["outer_corridor", "industrial_flex", "logistics", "office_park"], representative_building_paths: ["/commercial-real-estate/building/MA/framingham/945-concord-st/"] },
+  { id: "bos-braintree", name: "Braintree", slug: "braintree", city: "Braintree", state_abbr: "MA", path: "/commercial-real-estate/MA/braintree/braintree/", centroid_lat: 42.207, centroid_lng: -71.005, area_type: "district", approximate_space_types: ["office", "medical", "flex", "retail"], profile: ["south_suburban", "office_flex", "medical", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/MA/quincy/859-willard-st/"] },
+  { id: "bos-chelsea", name: "Chelsea", slug: "chelsea", city: "Chelsea", state_abbr: "MA", path: "/commercial-real-estate/MA/chelsea/chelsea/", centroid_lat: 42.391, centroid_lng: -71.033, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["urban_industrial", "last_mile", "food_production", "airport_adjacent"], representative_building_paths: [] },
+  { id: "bos-everett", name: "Everett", slug: "everett", city: "Everett", state_abbr: "MA", path: "/commercial-real-estate/MA/everett/everett/", centroid_lat: 42.408, centroid_lng: -71.054, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["urban_industrial", "service_commercial", "last_mile", "contractor"], representative_building_paths: [] },
+  { id: "bos-wilmington", name: "Wilmington", slug: "wilmington", city: "Wilmington", state_abbr: "MA", path: "/commercial-real-estate/MA/wilmington/wilmington/", centroid_lat: 42.546, centroid_lng: -71.174, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["north_suburban", "industrial_flex", "office_flex", "i93"], representative_building_paths: [] },
+  { id: "bos-mansfield", name: "Mansfield", slug: "mansfield", city: "Mansfield", state_abbr: "MA", path: "/commercial-real-estate/MA/mansfield/mansfield/", centroid_lat: 42.033, centroid_lng: -71.219, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["south_suburban", "industrial_flex", "logistics", "manufacturing"], representative_building_paths: [] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4288,6 +4325,42 @@ function dcMetroDistrictPageFor(district) {
   };
 }
 
+function bostonMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "boston_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_boston_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4528,6 +4601,7 @@ const denverMetroPages = denverMetroDistrictDefinitions.map(denverMetroDistrictP
 const dfwMetroPages = dfwMetroDistrictDefinitions.map(dfwMetroDistrictPageFor);
 const chicagoMetroPages = chicagoMetroDistrictDefinitions.map(chicagoMetroDistrictPageFor);
 const dcMetroPages = dcMetroDistrictDefinitions.map(dcMetroDistrictPageFor);
+const bostonMetroPages = bostonMetroDistrictDefinitions.map(bostonMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4641,6 +4715,13 @@ for (const page of chicagoMetroPages) {
 }
 
 for (const page of dcMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of bostonMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
