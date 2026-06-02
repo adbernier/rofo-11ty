@@ -3641,6 +3641,39 @@ const phoenixMetroDistrictDefinitions = [
   { id: "phx-north-phoenix-tsmc-corridor", name: "North Phoenix / TSMC Corridor", slug: "north-phoenix-tsmc-corridor", city: "Phoenix", state_abbr: "AZ", path: "/commercial-real-estate/AZ/phoenix/north-phoenix-tsmc-corridor/", centroid_lat: 33.85, centroid_lng: -112.12, area_type: "corridor", approximate_space_types: ["industrial", "flex"], profile: ["semiconductor", "advanced_manufacturing", "supplier", "north_phoenix"], representative_building_paths: ["/commercial-real-estate/building/AZ/phoenix/20333-n-19th-avenue/", "/commercial-real-estate/building/AZ/phoenix/2205-w-whispering-wind-dr/", "/commercial-real-estate/building/AZ/phoenix/20830-n-tatum-blvd/", "/commercial-real-estate/building/AZ/phoenix/20860-n-tatum-blvd/"] },
 ];
 
+const denverMetroDistrictDefinitions = [
+  { id: "den-downtown-denver", name: "Downtown Denver", slug: "downtown-denver", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/downtown-denver/", centroid_lat: 39.747, centroid_lng: -104.995, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "civic", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/1200-17th-st/", "/commercial-real-estate/building/CO/denver/999-18th-st/", "/commercial-real-estate/building/CO/denver/1600-broadway/", "/commercial-real-estate/building/CO/denver/1700-lincoln-st/"] },
+  { id: "den-lodo", name: "LoDo", slug: "lodo", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/lodo/", centroid_lat: 39.752, centroid_lng: -104.999, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["historic", "mixed_use", "hospitality", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/1400-sixteenth-street/", "/commercial-real-estate/building/CO/denver/1550-wewatta-st/", "/commercial-real-estate/building/CO/denver/2301-blake-st/", "/commercial-real-estate/building/CO/denver/1615-platte-st/"] },
+  { id: "den-rino", name: "RiNo", slug: "rino", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/rino/", centroid_lat: 39.765, centroid_lng: -104.984, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["creative_office", "adaptive_reuse", "production", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/2301-blake-st/", "/commercial-real-estate/building/CO/denver/3870-elm-st/", "/commercial-real-estate/building/CO/denver/5005-washington-st/", "/commercial-real-estate/building/CO/denver/5050-fox-st/"] },
+  { id: "den-cherry-creek", name: "Cherry Creek", slug: "cherry-creek", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/cherry-creek/", centroid_lat: 39.72, centroid_lng: -104.95, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "professional_services", "retail_adjacent", "medical"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/100-fillmore-place/", "/commercial-real-estate/building/CO/denver/205-detroit-st/", "/commercial-real-estate/building/CO/denver/250-fillmore-st/", "/commercial-real-estate/building/CO/denver/720-s-colorado-blvd/"] },
+  { id: "den-capitol-hill-civic-center", name: "Capitol Hill / Civic Center", slug: "capitol-hill-civic-center", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/capitol-hill-civic-center/", centroid_lat: 39.739, centroid_lng: -104.985, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["civic", "medical_office", "nonprofit", "local_services"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/1600-broadway/", "/commercial-real-estate/building/CO/denver/1700-lincoln-st/", "/commercial-real-estate/building/CO/denver/543-santa-fe-dr/"] },
+  { id: "den-five-points", name: "Five Points", slug: "five-points", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/five-points/", centroid_lat: 39.756, centroid_lng: -104.977, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["mixed_use", "arts_adjacent", "local_services", "creative_office"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/2301-blake-st/", "/commercial-real-estate/building/CO/denver/3870-elm-st/"] },
+  { id: "den-lower-highlands", name: "Lower Highlands", slug: "lower-highlands", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/lower-highlands/", centroid_lat: 39.759, centroid_lng: -105.011, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["neighborhood_commercial", "professional_services", "creative_office", "wellness"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/1615-platte-st/", "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/"] },
+  { id: "den-denver-tech-center", name: "Denver Tech Center", slug: "denver-tech-center", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/denver-tech-center/", centroid_lat: 39.623, centroid_lng: -104.899, area_type: "district", approximate_space_types: ["office", "coworking", "medical"], profile: ["suburban_office", "technology", "corporate", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/4600-s-syracuse-st/", "/commercial-real-estate/building/CO/denver/4643-s-ulster-st/", "/commercial-real-estate/building/CO/denver/7900-e-union-ave/", "/commercial-real-estate/building/CO/greenwood-village/5445-dtc-pkwy/"] },
+  { id: "den-greenwood-village", name: "Greenwood Village", slug: "greenwood-village", city: "Greenwood Village", state_abbr: "CO", path: "/commercial-real-estate/CO/greenwood-village/greenwood-village/", centroid_lat: 39.617, centroid_lng: -104.95, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["southeast_office", "professional_services", "finance", "medical"], representative_building_paths: ["/commercial-real-estate/building/CO/greenwood-village/5299-dtc-blvd/", "/commercial-real-estate/building/CO/greenwood-village/5445-dtc-pkwy/", "/commercial-real-estate/building/CO/greenwood-village/5675-dtc-blvd/", "/commercial-real-estate/building/CO/greenwood-village/6312-s-fiddlers-green-circle/"] },
+  { id: "den-inverness", name: "Inverness", slug: "inverness", city: "Englewood", state_abbr: "CO", path: "/commercial-real-estate/CO/englewood/inverness/", centroid_lat: 39.57, centroid_lng: -104.865, area_type: "district", approximate_space_types: ["office", "coworking", "medical"], profile: ["business_park", "corporate", "technology", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CO/englewood/109-inverness-dr-e/", "/commercial-real-estate/building/CO/englewood/313-inverness-way-s/", "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/", "/commercial-real-estate/building/CO/englewood/400-inverness-pkwy/"] },
+  { id: "den-centennial", name: "Centennial", slug: "centennial", city: "Centennial", state_abbr: "CO", path: "/commercial-real-estate/CO/centennial/centennial/", centroid_lat: 39.58, centroid_lng: -104.877, area_type: "district", approximate_space_types: ["office", "flex", "medical"], profile: ["suburban_office", "office_flex", "medical", "local_services"], representative_building_paths: ["/commercial-real-estate/building/CO/centennial/12508-12650-e-briarwood-ave/", "/commercial-real-estate/building/CO/centennial/15152-e-fremont-dr/", "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/", "/commercial-real-estate/building/CO/centennial/9100-e-panorama-dr/"] },
+  { id: "den-lone-tree", name: "Lone Tree", slug: "lone-tree", city: "Lone Tree", state_abbr: "CO", path: "/commercial-real-estate/CO/lone-tree/lone-tree/", centroid_lat: 39.536, centroid_lng: -104.897, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["south_i25", "medical", "professional_services", "retail_support"], representative_building_paths: [] },
+  { id: "den-meridian-lincoln-station", name: "Meridian / Lincoln Station", slug: "meridian-lincoln-station", city: "Englewood", state_abbr: "CO", path: "/commercial-real-estate/CO/englewood/meridian-lincoln-station/", centroid_lat: 39.55, centroid_lng: -104.868, area_type: "district", approximate_space_types: ["office", "coworking", "medical"], profile: ["business_park", "transit_oriented", "south_i25", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CO/englewood/8310-s-valley-hwy/", "/commercial-real-estate/building/CO/englewood/9800-mt-pyramid-ct/", "/commercial-real-estate/building/CO/englewood/6300-s-syracuse-way/"] },
+  { id: "den-boulder", name: "Boulder", slug: "boulder", city: "Boulder", state_abbr: "CO", path: "/commercial-real-estate/CO/boulder/boulder/", centroid_lat: 40.015, centroid_lng: -105.27, area_type: "district", approximate_space_types: ["office", "flex", "medical"], profile: ["technology", "research", "life_science", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/", "/commercial-real-estate/building/CO/boulder/4770-baseline-rd/"] },
+  { id: "den-downtown-boulder", name: "Downtown Boulder", slug: "downtown-boulder", city: "Boulder", state_abbr: "CO", path: "/commercial-real-estate/CO/boulder/downtown-boulder/", centroid_lat: 40.019, centroid_lng: -105.279, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "walkable", "startup", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/"] },
+  { id: "den-broomfield", name: "Broomfield", slug: "broomfield", city: "Broomfield", state_abbr: "CO", path: "/commercial-real-estate/CO/broomfield/broomfield/", centroid_lat: 39.92, centroid_lng: -105.087, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["us36_corridor", "technology", "aerospace_support", "suburban_office"], representative_building_paths: ["/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/", "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/", "/commercial-real-estate/building/CO/broomfield/8181-arista-place/"] },
+  { id: "den-interlocken", name: "Interlocken", slug: "interlocken", city: "Broomfield", state_abbr: "CO", path: "/commercial-real-estate/CO/broomfield/interlocken/", centroid_lat: 39.925, centroid_lng: -105.118, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["business_park", "technology", "corporate", "us36_corridor"], representative_building_paths: ["/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/", "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/"] },
+  { id: "den-flatiron-us-36-corridor", name: "Flatiron / US-36 Corridor", slug: "flatiron-us-36-corridor", city: "Broomfield", state_abbr: "CO", path: "/commercial-real-estate/CO/broomfield/flatiron-us-36-corridor/", centroid_lat: 39.94, centroid_lng: -105.16, area_type: "corridor", approximate_space_types: ["office", "flex"], profile: ["us36_corridor", "technology", "rd_flex", "aerospace_support"], representative_building_paths: ["/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/", "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/", "/commercial-real-estate/building/CO/louisville/699-ctc-blvd/"] },
+  { id: "den-louisville-superior", name: "Louisville / Superior", slug: "louisville-superior", city: "Louisville", state_abbr: "CO", path: "/commercial-real-estate/CO/louisville/louisville-superior/", centroid_lat: 39.98, centroid_lng: -105.15, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["boulder_adjacent", "office_flex", "local_services", "us36_corridor"], representative_building_paths: ["/commercial-real-estate/building/CO/louisville/699-ctc-blvd/"] },
+  { id: "den-airport-pena-corridor", name: "Denver Airport / Pena Boulevard Corridor", slug: "denver-airport-pena-boulevard-corridor", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/", centroid_lat: 39.856, centroid_lng: -104.673, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "warehouse", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/", "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/", "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/", "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/"] },
+  { id: "den-aurora", name: "Aurora", slug: "aurora", city: "Aurora", state_abbr: "CO", path: "/commercial-real-estate/CO/aurora/aurora/", centroid_lat: 39.729, centroid_lng: -104.832, area_type: "district", approximate_space_types: ["office", "industrial", "medical"], profile: ["east_metro", "medical", "industrial_flex", "aerospace_support"], representative_building_paths: ["/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/", "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/", "/commercial-real-estate/building/CO/aurora/3190-s-vaughn-way/", "/commercial-real-estate/building/CO/aurora/3250-abilene-st/"] },
+  { id: "den-northeast-denver-industrial", name: "Northeast Denver Industrial", slug: "northeast-denver-industrial", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/northeast-denver-industrial/", centroid_lat: 39.79, centroid_lng: -104.91, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "service_industrial", "airport_adjacent"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/", "/commercial-real-estate/building/CO/denver/4550-kingston-st/", "/commercial-real-estate/building/CO/denver/4665-paris-st/", "/commercial-real-estate/building/CO/denver/6804-e-48th-ave/"] },
+  { id: "den-commerce-city", name: "Commerce City", slug: "commerce-city", city: "Commerce City", state_abbr: "CO", path: "/commercial-real-estate/CO/commerce-city/commerce-city/", centroid_lat: 39.808, centroid_lng: -104.934, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "logistics", "manufacturing", "service_industrial"], representative_building_paths: [] },
+  { id: "den-north-washington-i25-industrial", name: "North Washington / I-25 Industrial", slug: "north-washington-i-25-industrial", city: "Denver", state_abbr: "CO", path: "/commercial-real-estate/CO/denver/north-washington-i-25-industrial/", centroid_lat: 39.82, centroid_lng: -104.99, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["service_industrial", "contractor", "warehouse_flex", "i25_access"], representative_building_paths: ["/commercial-real-estate/building/CO/denver/1550-e-73rd-ave/", "/commercial-real-estate/building/CO/denver/2300-e-76th-ave/", "/commercial-real-estate/building/CO/denver/470-e-76th-ave/", "/commercial-real-estate/building/CO/denver/500-e-76th-ave/"] },
+  { id: "den-thornton", name: "Thornton", slug: "thornton", city: "Thornton", state_abbr: "CO", path: "/commercial-real-estate/CO/thornton/thornton/", centroid_lat: 39.868, centroid_lng: -104.971, area_type: "district", approximate_space_types: ["office", "industrial", "medical"], profile: ["north_suburban", "local_services", "medical", "service_industrial"], representative_building_paths: [] },
+  { id: "den-westminster", name: "Westminster", slug: "westminster", city: "Westminster", state_abbr: "CO", path: "/commercial-real-estate/CO/westminster/westminster/", centroid_lat: 39.837, centroid_lng: -105.038, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["northwest_suburban", "professional_services", "medical", "local_services"], representative_building_paths: [] },
+  { id: "den-arvada", name: "Arvada", slug: "arvada", city: "Arvada", state_abbr: "CO", path: "/commercial-real-estate/CO/arvada/arvada/", centroid_lat: 39.802, centroid_lng: -105.087, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["west_suburban", "local_services", "medical", "retail_support"], representative_building_paths: [] },
+  { id: "den-lakewood", name: "Lakewood", slug: "lakewood", city: "Lakewood", state_abbr: "CO", path: "/commercial-real-estate/CO/lakewood/lakewood/", centroid_lat: 39.704, centroid_lng: -105.081, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["west_metro", "medical", "professional_services", "local_services"], representative_building_paths: ["/commercial-real-estate/building/CO/lakewood/200-union-blvd/"] },
+  { id: "den-golden", name: "Golden", slug: "golden", city: "Golden", state_abbr: "CO", path: "/commercial-real-estate/CO/golden/golden/", centroid_lat: 39.756, centroid_lng: -105.222, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["foothills", "technical", "university_adjacent", "rd_flex"], representative_building_paths: [] },
+  { id: "den-littleton", name: "Littleton", slug: "littleton", city: "Littleton", state_abbr: "CO", path: "/commercial-real-estate/CO/littleton/littleton/", centroid_lat: 39.613, centroid_lng: -105.017, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["southwest_suburban", "medical", "local_services", "light_flex"], representative_building_paths: ["/commercial-real-estate/building/CO/littleton/1745-shea-center-dr/", "/commercial-real-estate/building/CO/littleton/26-west-dry-creek-circle/", "/commercial-real-estate/building/CO/littleton/8100-southpark-way/", "/commercial-real-estate/building/CO/littleton/8160-blakeland-dr/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4001,6 +4034,42 @@ function phoenixMetroDistrictPageFor(district) {
   };
 }
 
+function denverMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "denver_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_denver_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4237,6 +4306,7 @@ const inlandEmpirePages = inlandEmpireDistrictDefinitions.map(inlandEmpireDistri
 const losAngelesPages = losAngelesDistrictDefinitions.map(losAngelesDistrictPageFor);
 const seattleMetroPages = seattleMetroDistrictDefinitions.map(seattleMetroDistrictPageFor);
 const phoenixMetroPages = phoenixMetroDistrictDefinitions.map(phoenixMetroDistrictPageFor);
+const denverMetroPages = denverMetroDistrictDefinitions.map(denverMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4322,6 +4392,13 @@ for (const page of seattleMetroPages) {
 }
 
 for (const page of phoenixMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of denverMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

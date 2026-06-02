@@ -1776,6 +1776,64 @@ Object.assign(
   )
 );
 
+const denverMetroIntegrationPages = [
+  ["Downtown Denver", "/commercial-real-estate/CO/denver/downtown-denver/"],
+  ["LoDo", "/commercial-real-estate/CO/denver/lodo/"],
+  ["RiNo", "/commercial-real-estate/CO/denver/rino/"],
+  ["Cherry Creek", "/commercial-real-estate/CO/denver/cherry-creek/"],
+  ["Capitol Hill / Civic Center", "/commercial-real-estate/CO/denver/capitol-hill-civic-center/"],
+  ["Five Points", "/commercial-real-estate/CO/denver/five-points/"],
+  ["Lower Highlands", "/commercial-real-estate/CO/denver/lower-highlands/"],
+  ["Denver Tech Center", "/commercial-real-estate/CO/denver/denver-tech-center/"],
+  ["Greenwood Village", "/commercial-real-estate/CO/greenwood-village/greenwood-village/"],
+  ["Inverness", "/commercial-real-estate/CO/englewood/inverness/"],
+  ["Centennial", "/commercial-real-estate/CO/centennial/centennial/"],
+  ["Lone Tree", "/commercial-real-estate/CO/lone-tree/lone-tree/"],
+  ["Meridian / Lincoln Station", "/commercial-real-estate/CO/englewood/meridian-lincoln-station/"],
+  ["Boulder", "/commercial-real-estate/CO/boulder/boulder/"],
+  ["Downtown Boulder", "/commercial-real-estate/CO/boulder/downtown-boulder/"],
+  ["Broomfield", "/commercial-real-estate/CO/broomfield/broomfield/"],
+  ["Interlocken", "/commercial-real-estate/CO/broomfield/interlocken/"],
+  ["Flatiron / US-36 Corridor", "/commercial-real-estate/CO/broomfield/flatiron-us-36-corridor/"],
+  ["Louisville / Superior", "/commercial-real-estate/CO/louisville/louisville-superior/"],
+  ["Denver Airport / Pena Boulevard Corridor", "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/"],
+  ["Aurora", "/commercial-real-estate/CO/aurora/aurora/"],
+  ["Northeast Denver Industrial", "/commercial-real-estate/CO/denver/northeast-denver-industrial/"],
+  ["Commerce City", "/commercial-real-estate/CO/commerce-city/commerce-city/"],
+  ["North Washington / I-25 Industrial", "/commercial-real-estate/CO/denver/north-washington-i-25-industrial/"],
+  ["Thornton", "/commercial-real-estate/CO/thornton/thornton/"],
+  ["Westminster", "/commercial-real-estate/CO/westminster/westminster/"],
+  ["Arvada", "/commercial-real-estate/CO/arvada/arvada/"],
+  ["Lakewood", "/commercial-real-estate/CO/lakewood/lakewood/"],
+  ["Golden", "/commercial-real-estate/CO/golden/golden/"],
+  ["Littleton", "/commercial-real-estate/CO/littleton/littleton/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    denverMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Denver Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Denver Metro office, tech, industrial/flex, logistics, life science, aerospace, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
