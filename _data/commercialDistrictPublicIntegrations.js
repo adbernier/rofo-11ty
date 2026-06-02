@@ -1609,6 +1609,68 @@ Object.assign(
   )
 );
 
+const losAngelesIntegrationPages = [
+  ["Downtown Los Angeles", "/commercial-real-estate/CA/los-angeles/downtown-los-angeles/"],
+  ["Financial District / Bunker Hill", "/commercial-real-estate/CA/los-angeles/financial-district-bunker-hill/"],
+  ["Arts District", "/commercial-real-estate/CA/los-angeles/arts-district/"],
+  ["Hollywood", "/commercial-real-estate/CA/los-angeles/hollywood/"],
+  ["Miracle Mile", "/commercial-real-estate/CA/los-angeles/miracle-mile/"],
+  ["Koreatown", "/commercial-real-estate/CA/los-angeles/koreatown/"],
+  ["Mid-Wilshire", "/commercial-real-estate/CA/los-angeles/mid-wilshire/"],
+  ["Culver City", "/commercial-real-estate/CA/culver-city/culver-city/"],
+  ["Westwood", "/commercial-real-estate/CA/los-angeles/westwood/"],
+  ["Century City", "/commercial-real-estate/CA/los-angeles/century-city/"],
+  ["Beverly Hills", "/commercial-real-estate/CA/beverly-hills/beverly-hills/"],
+  ["Santa Monica", "/commercial-real-estate/CA/santa-monica/santa-monica/"],
+  ["West LA", "/commercial-real-estate/CA/los-angeles/west-la/"],
+  ["Playa Vista", "/commercial-real-estate/CA/los-angeles/playa-vista/"],
+  ["El Segundo", "/commercial-real-estate/CA/el-segundo/el-segundo/"],
+  ["Burbank", "/commercial-real-estate/CA/burbank/burbank/"],
+  ["Burbank Media District", "/commercial-real-estate/CA/burbank/burbank-media-district/"],
+  ["Glendale", "/commercial-real-estate/CA/glendale/glendale/"],
+  ["Pasadena", "/commercial-real-estate/CA/pasadena/pasadena/"],
+  ["Vernon", "/commercial-real-estate/CA/vernon/vernon/"],
+  ["Commerce", "/commercial-real-estate/CA/commerce/commerce/"],
+  ["City of Industry", "/commercial-real-estate/CA/city-of-industry/city-of-industry/"],
+  ["Santa Fe Springs", "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs/"],
+  ["Downey", "/commercial-real-estate/CA/downey/downey/"],
+  ["Compton", "/commercial-real-estate/CA/compton/compton/"],
+  ["Carson", "/commercial-real-estate/CA/carson/carson/"],
+  ["Torrance", "/commercial-real-estate/CA/torrance/torrance/"],
+  ["Long Beach", "/commercial-real-estate/CA/long-beach/long-beach/"],
+  ["South Bay / LAX Industrial", "/commercial-real-estate/CA/los-angeles/south-bay-lax-industrial/"],
+  ["Warner Center", "/commercial-real-estate/CA/los-angeles/warner-center/"],
+  ["North Hollywood", "/commercial-real-estate/CA/north-hollywood/north-hollywood/"],
+  ["Studio City", "/commercial-real-estate/CA/studio-city/studio-city/"],
+  ["Van Nuys", "/commercial-real-estate/CA/van-nuys/van-nuys/"],
+  ["Sherman Oaks", "/commercial-real-estate/CA/sherman-oaks/sherman-oaks/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    losAngelesIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Los Angeles commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Los Angeles office, media/creative, industrial/flex, logistics, aerospace, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

@@ -696,6 +696,19 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (page.public_los_angeles_v1) {
+    const locationModel = commercialLocationModel.byPath[pagePath];
+
+    return {
+      eyebrow: "District Guide",
+      title: `${page.name} Commercial District`,
+      lead:
+        locationModel?.commercial_thesis ||
+        `Understand ${page.name} as part of the Los Angeles commercial geography graph, with context for office, media/creative, industrial/flex, logistics, aerospace, and nearby market comparisons.`,
+      guide_label: "Los Angeles district guide",
+    };
+  }
+
   return null;
 }
 
@@ -1391,6 +1404,159 @@ function representativeBuildingRolesFor(page) {
         "Chino industrial/flex building",
       "/commercial-real-estate/building/CA/pomona/228-e-monterey-ave/":
         "Pomona Valley service-commercial building",
+    };
+  }
+
+  if (page.public_los_angeles_v1) {
+    return {
+      "/commercial-real-estate/building/CA/los-angeles/1149-s-hill-st/":
+        "Downtown LA office/commercial fabric",
+      "/commercial-real-estate/building/CA/los-angeles/1150-s-hope-st/":
+        "South Park / DTLA office edge",
+      "/commercial-real-estate/building/CA/los-angeles/1150-s-olive-st/":
+        "DTLA mixed office context",
+      "/commercial-real-estate/building/CA/los-angeles/1100-mateo-st/":
+        "Arts District adaptive creative office",
+      "/commercial-real-estate/building/CA/los-angeles/1140-e-11th-st/":
+        "Downtown industrial-commercial edge",
+      "/commercial-real-estate/building/CA/los-angeles/1161-vine-st/":
+        "Hollywood media/office context",
+      "/commercial-real-estate/building/CA/los-angeles/10880-wilshire-blvd/":
+        "Wilshire/Westwood office corridor",
+      "/commercial-real-estate/building/CA/los-angeles/10914-kinross-ave/":
+        "Westwood village professional office",
+      "/commercial-real-estate/building/CA/los-angeles/1010-westwood-blvd/":
+        "Westwood professional office block",
+      "/commercial-real-estate/building/CA/los-angeles/10250-constellation-blvd/":
+        "Century City tower office context",
+      "/commercial-real-estate/building/CA/los-angeles/11601-wilshire-blvd/":
+        "West LA Wilshire office corridor",
+      "/commercial-real-estate/building/CA/los-angeles/11390-w-olympic-blvd/":
+        "West LA professional office corridor",
+      "/commercial-real-estate/building/CA/los-angeles/11500-w-olympic-blvd/":
+        "Olympic Boulevard Westside office",
+      "/commercial-real-estate/building/CA/los-angeles/10859-venice-blvd/":
+        "Westside service-commercial corridor",
+      "/commercial-real-estate/building/CA/culver-city/10000-washington-blvd/":
+        "Culver City media/creative office",
+      "/commercial-real-estate/building/CA/culver-city/10100-venice-blvd/":
+        "Culver City professional corridor",
+      "/commercial-real-estate/building/CA/culver-city/3050-la-cienega-place/":
+        "Hayden/La Cienega creative office edge",
+      "/commercial-real-estate/building/CA/culver-city/5700-buckingham-pkwy/":
+        "Culver City business park context",
+      "/commercial-real-estate/building/CA/culver-city/5833-perry-dr/":
+        "Westside office/creative campus context",
+      "/commercial-real-estate/building/CA/beverly-hills/8383-wilshire-blvd/":
+        "Beverly Hills Wilshire office",
+      "/commercial-real-estate/building/CA/beverly-hills/9465-wilshire-blvd/":
+        "Beverly Hills prestige office corridor",
+      "/commercial-real-estate/building/CA/santa-monica/225-santa-monica-blvd/":
+        "Downtown Santa Monica office context",
+      "/commercial-real-estate/building/CA/santa-monica/233-wilshire-blvd/":
+        "Santa Monica Wilshire office",
+      "/commercial-real-estate/building/CA/santa-monica/1221-colorado-ave/":
+        "Colorado Avenue creative/tech corridor",
+      "/commercial-real-estate/building/CA/santa-monica/1640-14th-st/":
+        "Santa Monica creative office edge",
+      "/commercial-real-estate/building/CA/santa-monica/1901-main-st/":
+        "Main Street coastal commercial context",
+      "/commercial-real-estate/building/CA/el-segundo/222-pacific-coast-highway/":
+        "El Segundo LAX/South Bay office",
+      "/commercial-real-estate/building/CA/el-segundo/400-continental-blvd/":
+        "El Segundo aerospace/business corridor",
+      "/commercial-real-estate/building/CA/burbank/4100-w-alameda-ave/":
+        "Burbank media district office",
+      "/commercial-real-estate/building/CA/burbank/4450-w-lakeside-dr/":
+        "Burbank studio-adjacent office",
+      "/commercial-real-estate/building/CA/burbank/2717-w-olive-ave/":
+        "Olive Avenue media/professional corridor",
+      "/commercial-real-estate/building/CA/burbank/2340-n-hollywood-way/":
+        "Hollywood Way airport/media edge",
+      "/commercial-real-estate/building/CA/burbank/303-n-glenoaks-blvd/":
+        "Burbank local office corridor",
+      "/commercial-real-estate/building/CA/glendale/201-n-brand-blvd/":
+        "Brand Boulevard office core",
+      "/commercial-real-estate/building/CA/glendale/450-n-brand-blvd/":
+        "Glendale regional office corridor",
+      "/commercial-real-estate/building/CA/glendale/611-n-brand-blvd/":
+        "North Brand professional office",
+      "/commercial-real-estate/building/CA/glendale/655-n-central-ave/":
+        "Central Avenue business district",
+      "/commercial-real-estate/building/CA/pasadena/117-e-colorado-blvd/":
+        "Old Pasadena professional office",
+      "/commercial-real-estate/building/CA/pasadena/155-n-lake-ave/":
+        "Lake Avenue office corridor",
+      "/commercial-real-estate/building/CA/pasadena/177-e-colorado-blvd/":
+        "Colorado Boulevard office/retail context",
+      "/commercial-real-estate/building/CA/pasadena/680-e-colorado-blvd/":
+        "Pasadena institutional/professional corridor",
+      "/commercial-real-estate/building/CA/vernon/2357-e-49th-st/":
+        "Vernon core industrial building",
+      "/commercial-real-estate/building/CA/vernon/2419-e-28th-st/":
+        "Vernon manufacturing/warehouse context",
+      "/commercial-real-estate/building/CA/vernon/2529-chambers-st/":
+        "Vernon service-industrial setting",
+      "/commercial-real-estate/building/CA/vernon/4890-s-alameda-st/":
+        "Alameda industrial corridor",
+      "/commercial-real-estate/building/CA/vernon/5300-s-santa-fe-ave/":
+        "Santa Fe Avenue industrial corridor",
+      "/commercial-real-estate/building/CA/commerce/2008-camfield-ave/":
+        "Commerce warehouse/service-industrial building",
+      "/commercial-real-estate/building/CA/commerce/5800-s-eastern-ave/":
+        "Eastern Avenue distribution corridor",
+      "/commercial-real-estate/building/CA/city-of-industry/1245-s-johnson-dr/":
+        "City of Industry industrial/logistics building",
+      "/commercial-real-estate/building/CA/compton/1165-w-walnut-st/":
+        "Compton industrial corridor",
+      "/commercial-real-estate/building/CA/compton/19009-s-alameda-st/":
+        "Alameda logistics/industrial context",
+      "/commercial-real-estate/building/CA/compton/3019-e-maria-st/":
+        "Compton warehouse/service-industrial",
+      "/commercial-real-estate/building/CA/compton/350-w-manville-st/":
+        "South LA industrial building",
+      "/commercial-real-estate/building/CA/carson/1211-e-artesia-blvd/":
+        "Carson port-adjacent commercial corridor",
+      "/commercial-real-estate/building/CA/carson/20620-leapwood-ave/":
+        "Carson industrial/logistics building",
+      "/commercial-real-estate/building/CA/carson/860-sandhill-ave/":
+        "South Bay service-industrial context",
+      "/commercial-real-estate/building/CA/torrance/21515-hawthorne-blvd/":
+        "Torrance South Bay office corridor",
+      "/commercial-real-estate/building/CA/torrance/3730-skypark-dr/":
+        "Torrance aerospace/office-industrial context",
+      "/commercial-real-estate/building/CA/torrance/350-crenshaw-blvd/":
+        "Torrance industrial/service corridor",
+      "/commercial-real-estate/building/CA/torrance/1597-sepulveda-blvd/":
+        "Sepulveda local commercial corridor",
+      "/commercial-real-estate/building/CA/long-beach/100-w-broadway/":
+        "Downtown Long Beach office core",
+      "/commercial-real-estate/building/CA/long-beach/111-w-ocean-blvd/":
+        "Long Beach waterfront office tower",
+      "/commercial-real-estate/building/CA/long-beach/3221-e-59th-st/":
+        "Long Beach industrial corridor",
+      "/commercial-real-estate/building/CA/long-beach/3253-e-south-st/":
+        "South Street service-commercial corridor",
+      "/commercial-real-estate/building/CA/woodland-hills/21900-burbank-blvd/":
+        "Warner Center corporate office",
+      "/commercial-real-estate/building/CA/woodland-hills/6303-owensmouth-ave/":
+        "Warner Center office corridor",
+      "/commercial-real-estate/building/CA/woodland-hills/6320-canoga-ave/":
+        "Canoga Avenue business district",
+      "/commercial-real-estate/building/CA/north-hollywood/4605-lankershim-blvd/":
+        "North Hollywood media/transit corridor",
+      "/commercial-real-estate/building/CA/north-hollywood/5161-lankershim-blvd/":
+        "Lankershim professional office",
+      "/commercial-real-estate/building/CA/north-hollywood/5250-lankershim-blvd/":
+        "NoHo mixed commercial context",
+      "/commercial-real-estate/building/CA/studio-city/4370-tujunga-ave/":
+        "Studio City boutique professional office",
+      "/commercial-real-estate/building/CA/van-nuys/16501-sherman-way/":
+        "Van Nuys service-commercial corridor",
+      "/commercial-real-estate/building/CA/sherman-oaks/13400-riverside-dr/":
+        "Sherman Oaks professional office",
+      "/commercial-real-estate/building/CA/sherman-oaks/15233-ventura-blvd/":
+        "Ventura Boulevard office corridor",
     };
   }
 
@@ -3382,6 +3548,43 @@ const inlandEmpireDistrictDefinitions = [
   },
 ];
 
+const losAngelesDistrictDefinitions = [
+  { id: "la-downtown-los-angeles", name: "Downtown Los Angeles", slug: "downtown-los-angeles", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/downtown-los-angeles/", centroid_lat: 34.05, centroid_lng: -118.25, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "office", "civic_business", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/1149-s-hill-st/", "/commercial-real-estate/building/CA/los-angeles/1150-s-hope-st/", "/commercial-real-estate/building/CA/los-angeles/1150-s-olive-st/"] },
+  { id: "la-financial-district-bunker-hill", name: "Financial District / Bunker Hill", slug: "financial-district-bunker-hill", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/financial-district-bunker-hill/", centroid_lat: 34.052, centroid_lng: -118.253, area_type: "downtown_core", approximate_space_types: ["office", "coworking"], profile: ["office", "client_facing", "professional_services", "downtown"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/1149-s-hill-st/", "/commercial-real-estate/building/CA/los-angeles/1150-s-olive-st/"] },
+  { id: "la-arts-district", name: "Arts District", slug: "arts-district", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/arts-district/", centroid_lat: 34.041, centroid_lng: -118.234, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["creative_office", "adaptive_reuse", "industrial_flex", "showroom"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/1100-mateo-st/", "/commercial-real-estate/building/CA/los-angeles/1140-e-11th-st/"] },
+  { id: "la-hollywood", name: "Hollywood", slug: "hollywood", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/hollywood/", centroid_lat: 34.101, centroid_lng: -118.329, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["media", "entertainment", "creative_office", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/1161-vine-st/"] },
+  { id: "la-miracle-mile", name: "Miracle Mile", slug: "miracle-mile", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/miracle-mile/", centroid_lat: 34.063, centroid_lng: -118.354, area_type: "commercial_corridor", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "medical", "media", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/10880-wilshire-blvd/"] },
+  { id: "la-koreatown", name: "Koreatown", slug: "koreatown", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/koreatown/", centroid_lat: 34.058, centroid_lng: -118.301, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["mixed_use", "transit_oriented", "local_services", "hospitality"], representative_building_paths: [] },
+  { id: "la-mid-wilshire", name: "Mid-Wilshire", slug: "mid-wilshire", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/mid-wilshire/", centroid_lat: 34.061, centroid_lng: -118.32, area_type: "commercial_corridor", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "medical", "professional_services", "institutional"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/10880-wilshire-blvd/"] },
+  { id: "la-culver-city", name: "Culver City", slug: "culver-city", city: "Culver City", state_abbr: "CA", path: "/commercial-real-estate/CA/culver-city/culver-city/", centroid_lat: 34.021, centroid_lng: -118.396, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["media", "creative_office", "technology", "production_adjacent"], representative_building_paths: ["/commercial-real-estate/building/CA/culver-city/10000-washington-blvd/", "/commercial-real-estate/building/CA/culver-city/10100-venice-blvd/", "/commercial-real-estate/building/CA/culver-city/3050-la-cienega-place/", "/commercial-real-estate/building/CA/culver-city/5700-buckingham-pkwy/", "/commercial-real-estate/building/CA/culver-city/5833-perry-dr/"] },
+  { id: "la-westwood", name: "Westwood", slug: "westwood", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/westwood/", centroid_lat: 34.063, centroid_lng: -118.445, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["medical", "institutional", "office", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/1010-westwood-blvd/", "/commercial-real-estate/building/CA/los-angeles/10880-wilshire-blvd/", "/commercial-real-estate/building/CA/los-angeles/10914-kinross-ave/"] },
+  { id: "la-century-city", name: "Century City", slug: "century-city", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/century-city/", centroid_lat: 34.058, centroid_lng: -118.417, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["office", "client_facing", "professional_services", "entertainment"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/10250-constellation-blvd/"] },
+  { id: "la-beverly-hills", name: "Beverly Hills", slug: "beverly-hills", city: "Beverly Hills", state_abbr: "CA", path: "/commercial-real-estate/CA/beverly-hills/beverly-hills/", centroid_lat: 34.073, centroid_lng: -118.4, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "professional_services", "medical", "retail"], representative_building_paths: ["/commercial-real-estate/building/CA/beverly-hills/8383-wilshire-blvd/", "/commercial-real-estate/building/CA/beverly-hills/9465-wilshire-blvd/"] },
+  { id: "la-santa-monica", name: "Santa Monica", slug: "santa-monica", city: "Santa Monica", state_abbr: "CA", path: "/commercial-real-estate/CA/santa-monica/santa-monica/", centroid_lat: 34.019, centroid_lng: -118.491, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["technology", "creative_office", "coastal", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/CA/santa-monica/225-santa-monica-blvd/", "/commercial-real-estate/building/CA/santa-monica/233-wilshire-blvd/", "/commercial-real-estate/building/CA/santa-monica/1221-colorado-ave/", "/commercial-real-estate/building/CA/santa-monica/1640-14th-st/", "/commercial-real-estate/building/CA/santa-monica/1901-main-st/"] },
+  { id: "la-west-la", name: "West LA", slug: "west-la", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/west-la/", centroid_lat: 34.044, centroid_lng: -118.443, area_type: "commercial_corridor", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "medical", "professional_services", "westside"], representative_building_paths: ["/commercial-real-estate/building/CA/los-angeles/11601-wilshire-blvd/", "/commercial-real-estate/building/CA/los-angeles/11390-w-olympic-blvd/", "/commercial-real-estate/building/CA/los-angeles/11500-w-olympic-blvd/", "/commercial-real-estate/building/CA/los-angeles/10859-venice-blvd/"] },
+  { id: "la-playa-vista", name: "Playa Vista", slug: "playa-vista", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/playa-vista/", centroid_lat: 33.976, centroid_lng: -118.417, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["technology", "media", "creative_office", "campus"], representative_building_paths: [] },
+  { id: "la-el-segundo", name: "El Segundo", slug: "el-segundo", city: "El Segundo", state_abbr: "CA", path: "/commercial-real-estate/CA/el-segundo/el-segundo/", centroid_lat: 33.919, centroid_lng: -118.416, area_type: "district", approximate_space_types: ["office", "flex", "industrial"], profile: ["aerospace", "airport_access", "rd_flex", "office"], representative_building_paths: ["/commercial-real-estate/building/CA/el-segundo/222-pacific-coast-highway/", "/commercial-real-estate/building/CA/el-segundo/400-continental-blvd/"] },
+  { id: "la-burbank", name: "Burbank", slug: "burbank", city: "Burbank", state_abbr: "CA", path: "/commercial-real-estate/CA/burbank/burbank/", centroid_lat: 34.181, centroid_lng: -118.309, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["media", "entertainment", "office", "production_adjacent"], representative_building_paths: ["/commercial-real-estate/building/CA/burbank/4100-w-alameda-ave/", "/commercial-real-estate/building/CA/burbank/4450-w-lakeside-dr/", "/commercial-real-estate/building/CA/burbank/2717-w-olive-ave/", "/commercial-real-estate/building/CA/burbank/2340-n-hollywood-way/", "/commercial-real-estate/building/CA/burbank/303-n-glenoaks-blvd/"] },
+  { id: "la-burbank-media-district", name: "Burbank Media District", slug: "burbank-media-district", city: "Burbank", state_abbr: "CA", path: "/commercial-real-estate/CA/burbank/burbank-media-district/", centroid_lat: 34.155, centroid_lng: -118.342, area_type: "district", approximate_space_types: ["office", "commercial"], profile: ["media", "studio", "production_adjacent", "creative_office"], representative_building_paths: ["/commercial-real-estate/building/CA/burbank/4100-w-alameda-ave/", "/commercial-real-estate/building/CA/burbank/4450-w-lakeside-dr/", "/commercial-real-estate/building/CA/burbank/2717-w-olive-ave/"] },
+  { id: "la-glendale", name: "Glendale", slug: "glendale", city: "Glendale", state_abbr: "CA", path: "/commercial-real-estate/CA/glendale/glendale/", centroid_lat: 34.147, centroid_lng: -118.255, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "professional_services", "medical", "regional_business"], representative_building_paths: ["/commercial-real-estate/building/CA/glendale/201-n-brand-blvd/", "/commercial-real-estate/building/CA/glendale/450-n-brand-blvd/", "/commercial-real-estate/building/CA/glendale/611-n-brand-blvd/", "/commercial-real-estate/building/CA/glendale/655-n-central-ave/"] },
+  { id: "la-pasadena", name: "Pasadena", slug: "pasadena", city: "Pasadena", state_abbr: "CA", path: "/commercial-real-estate/CA/pasadena/pasadena/", centroid_lat: 34.148, centroid_lng: -118.144, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "institutional", "professional_services", "medical"], representative_building_paths: ["/commercial-real-estate/building/CA/pasadena/117-e-colorado-blvd/", "/commercial-real-estate/building/CA/pasadena/155-n-lake-ave/", "/commercial-real-estate/building/CA/pasadena/177-e-colorado-blvd/", "/commercial-real-estate/building/CA/pasadena/680-e-colorado-blvd/"] },
+  { id: "la-vernon", name: "Vernon", slug: "vernon", city: "Vernon", state_abbr: "CA", path: "/commercial-real-estate/CA/vernon/vernon/", centroid_lat: 34.003, centroid_lng: -118.211, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial", "warehouse", "manufacturing", "logistics"], representative_building_paths: ["/commercial-real-estate/building/CA/vernon/2357-e-49th-st/", "/commercial-real-estate/building/CA/vernon/2419-e-28th-st/", "/commercial-real-estate/building/CA/vernon/2529-chambers-st/", "/commercial-real-estate/building/CA/vernon/4890-s-alameda-st/", "/commercial-real-estate/building/CA/vernon/5300-s-santa-fe-ave/"] },
+  { id: "la-commerce", name: "Commerce", slug: "commerce", city: "Commerce", state_abbr: "CA", path: "/commercial-real-estate/CA/commerce/commerce/", centroid_lat: 34.0, centroid_lng: -118.16, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "logistics", "freeway_access"], representative_building_paths: ["/commercial-real-estate/building/CA/commerce/2008-camfield-ave/", "/commercial-real-estate/building/CA/commerce/5800-s-eastern-ave/"] },
+  { id: "la-city-of-industry", name: "City of Industry", slug: "city-of-industry", city: "City of Industry", state_abbr: "CA", path: "/commercial-real-estate/CA/city-of-industry/city-of-industry/", centroid_lat: 34.02, centroid_lng: -117.959, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "logistics", "manufacturing", "distribution"], representative_building_paths: ["/commercial-real-estate/building/CA/city-of-industry/1245-s-johnson-dr/"] },
+  { id: "la-santa-fe-springs", name: "Santa Fe Springs", slug: "santa-fe-springs", city: "Santa Fe Springs", state_abbr: "CA", path: "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs/", centroid_lat: 33.947, centroid_lng: -118.084, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial", "warehouse", "manufacturing", "service_commercial"], representative_building_paths: [] },
+  { id: "la-downey", name: "Downey", slug: "downey", city: "Downey", state_abbr: "CA", path: "/commercial-real-estate/CA/downey/downey/", centroid_lat: 33.94, centroid_lng: -118.133, area_type: "district", approximate_space_types: ["office", "medical", "industrial", "retail"], profile: ["medical", "local_services", "service_commercial", "industrial_flex"], representative_building_paths: [] },
+  { id: "la-compton", name: "Compton", slug: "compton", city: "Compton", state_abbr: "CA", path: "/commercial-real-estate/CA/compton/compton/", centroid_lat: 33.895, centroid_lng: -118.22, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "logistics", "manufacturing", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/CA/compton/1165-w-walnut-st/", "/commercial-real-estate/building/CA/compton/19009-s-alameda-st/", "/commercial-real-estate/building/CA/compton/3019-e-maria-st/", "/commercial-real-estate/building/CA/compton/350-w-manville-st/"] },
+  { id: "la-carson", name: "Carson", slug: "carson", city: "Carson", state_abbr: "CA", path: "/commercial-real-estate/CA/carson/carson/", centroid_lat: 33.832, centroid_lng: -118.264, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["port_adjacent", "warehouse", "logistics", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/CA/carson/1211-e-artesia-blvd/", "/commercial-real-estate/building/CA/carson/20620-leapwood-ave/", "/commercial-real-estate/building/CA/carson/860-sandhill-ave/"] },
+  { id: "la-torrance", name: "Torrance", slug: "torrance", city: "Torrance", state_abbr: "CA", path: "/commercial-real-estate/CA/torrance/torrance/", centroid_lat: 33.835, centroid_lng: -118.34, area_type: "district", approximate_space_types: ["office", "industrial", "flex", "medical"], profile: ["aerospace", "industrial_flex", "office", "advanced_manufacturing"], representative_building_paths: ["/commercial-real-estate/building/CA/torrance/21515-hawthorne-blvd/", "/commercial-real-estate/building/CA/torrance/3730-skypark-dr/", "/commercial-real-estate/building/CA/torrance/350-crenshaw-blvd/", "/commercial-real-estate/building/CA/torrance/1597-sepulveda-blvd/"] },
+  { id: "la-long-beach", name: "Long Beach", slug: "long-beach", city: "Long Beach", state_abbr: "CA", path: "/commercial-real-estate/CA/long-beach/long-beach/", centroid_lat: 33.77, centroid_lng: -118.193, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["port", "logistics", "office", "waterfront"], representative_building_paths: ["/commercial-real-estate/building/CA/long-beach/100-w-broadway/", "/commercial-real-estate/building/CA/long-beach/111-w-ocean-blvd/", "/commercial-real-estate/building/CA/long-beach/3221-e-59th-st/", "/commercial-real-estate/building/CA/long-beach/3253-e-south-st/"] },
+  { id: "la-south-bay-lax-industrial", name: "South Bay / LAX Industrial", slug: "south-bay-lax-industrial", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/south-bay-lax-industrial/", centroid_lat: 33.94, centroid_lng: -118.38, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "industrial_flex", "aerospace", "logistics"], representative_building_paths: ["/commercial-real-estate/building/CA/el-segundo/222-pacific-coast-highway/", "/commercial-real-estate/building/CA/el-segundo/400-continental-blvd/"] },
+  { id: "la-warner-center", name: "Warner Center", slug: "warner-center", city: "Los Angeles", state_abbr: "CA", path: "/commercial-real-estate/CA/los-angeles/warner-center/", centroid_lat: 34.18, centroid_lng: -118.603, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "corporate", "medical", "suburban_office"], representative_building_paths: ["/commercial-real-estate/building/CA/woodland-hills/21900-burbank-blvd/", "/commercial-real-estate/building/CA/woodland-hills/6303-owensmouth-ave/", "/commercial-real-estate/building/CA/woodland-hills/6320-canoga-ave/"] },
+  { id: "la-north-hollywood", name: "North Hollywood", slug: "north-hollywood", city: "North Hollywood", state_abbr: "CA", path: "/commercial-real-estate/CA/north-hollywood/north-hollywood/", centroid_lat: 34.172, centroid_lng: -118.379, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["media", "transit_oriented", "creative_office", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/CA/north-hollywood/4605-lankershim-blvd/", "/commercial-real-estate/building/CA/north-hollywood/5161-lankershim-blvd/", "/commercial-real-estate/building/CA/north-hollywood/5250-lankershim-blvd/"] },
+  { id: "la-studio-city", name: "Studio City", slug: "studio-city", city: "Studio City", state_abbr: "CA", path: "/commercial-real-estate/CA/studio-city/studio-city/", centroid_lat: 34.143, centroid_lng: -118.395, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["media", "professional_services", "local_services", "wellness"], representative_building_paths: ["/commercial-real-estate/building/CA/studio-city/4370-tujunga-ave/"] },
+  { id: "la-van-nuys", name: "Van Nuys", slug: "van-nuys", city: "Van Nuys", state_abbr: "CA", path: "/commercial-real-estate/CA/van-nuys/van-nuys/", centroid_lat: 34.19, centroid_lng: -118.449, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "service_commercial", "airport_access", "local_services"], representative_building_paths: ["/commercial-real-estate/building/CA/van-nuys/16501-sherman-way/"] },
+  { id: "la-sherman-oaks", name: "Sherman Oaks", slug: "sherman-oaks", city: "Sherman Oaks", state_abbr: "CA", path: "/commercial-real-estate/CA/sherman-oaks/sherman-oaks/", centroid_lat: 34.151, centroid_lng: -118.449, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["professional_services", "medical", "local_services", "retail"], representative_building_paths: ["/commercial-real-estate/building/CA/sherman-oaks/13400-riverside-dr/", "/commercial-real-estate/building/CA/sherman-oaks/15233-ventura-blvd/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -3634,6 +3837,42 @@ function inlandEmpireDistrictPageFor(district) {
   };
 }
 
+function losAngelesDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "los_angeles_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_los_angeles_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -3867,6 +4106,7 @@ const sacramentoPages = sacramentoDistrictDefinitions.map(sacramentoDistrictPage
 const sanDiegoPages = sanDiegoDistrictDefinitions.map(sanDiegoDistrictPageFor);
 const orangeCountyPages = orangeCountyDistrictDefinitions.map(orangeCountyDistrictPageFor);
 const inlandEmpirePages = inlandEmpireDistrictDefinitions.map(inlandEmpireDistrictPageFor);
+const losAngelesPages = losAngelesDistrictDefinitions.map(losAngelesDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -3931,6 +4171,13 @@ for (const page of orangeCountyPages) {
 }
 
 for (const page of inlandEmpirePages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of losAngelesPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

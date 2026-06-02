@@ -1838,6 +1838,27 @@ comparisons.push(
   }
 );
 
+comparisons.push(
+  { slug: "downtown-la-vs-century-city", title: "Downtown LA vs Century City", short_title: "Downtown LA vs Century City", city: "Los Angeles", state_abbr: "CA", city_slug: "los-angeles", path: "/commercial-real-estate/CA/los-angeles/downtown-la-vs-century-city/", district_a_name: "Downtown Los Angeles", district_b_name: "Century City", district_a_path: "/commercial-real-estate/CA/los-angeles/downtown-los-angeles/", district_b_path: "/commercial-real-estate/CA/los-angeles/century-city/", verdict_a: "Choose Downtown LA if civic, legal, finance, transit, and central-city office identity matter most.", verdict_b: "Choose Century City if Westside client-facing office, entertainment-business, and prestige tower context fit better.", comparison_notes: ["Downtown LA is stronger for civic, legal, transit, and traditional urban office context.", "Century City is stronger for Westside client-facing professional and entertainment-business identity.", "This is one of LA's clearest office-core comparisons."], lead_prompt: "Find locations that fit" },
+  { slug: "downtown-la-vs-hollywood", title: "Downtown LA vs Hollywood", short_title: "Downtown LA vs Hollywood", city: "Los Angeles", state_abbr: "CA", city_slug: "los-angeles", path: "/commercial-real-estate/CA/los-angeles/downtown-la-vs-hollywood/", district_a_name: "Downtown Los Angeles", district_b_name: "Hollywood", district_a_path: "/commercial-real-estate/CA/los-angeles/downtown-los-angeles/", district_b_path: "/commercial-real-estate/CA/los-angeles/hollywood/", verdict_a: "Choose Downtown LA if civic/professional office identity and transit-oriented centrality matter most.", verdict_b: "Choose Hollywood if entertainment, media, hospitality, and production-adjacent identity fit better.", comparison_notes: ["Downtown LA is more formal and civic/professional.", "Hollywood is more entertainment/media and hospitality oriented.", "The comparison helps separate central office identity from industry identity."], lead_prompt: "Find locations that fit" },
+  { slug: "downtown-la-vs-culver-city", title: "Downtown LA vs Culver City", short_title: "Downtown LA vs Culver City", city: "Los Angeles", state_abbr: "CA", city_slug: "los-angeles", path: "/commercial-real-estate/CA/los-angeles/downtown-la-vs-culver-city/", district_a_name: "Downtown Los Angeles", district_b_name: "Culver City", district_a_path: "/commercial-real-estate/CA/los-angeles/downtown-los-angeles/", district_b_path: "/commercial-real-estate/CA/culver-city/culver-city/", verdict_a: "Choose Downtown LA if central civic, legal, finance, and transit context matter most.", verdict_b: "Choose Culver City if Westside creative, media, technology, and production-adjacent context fit better.", comparison_notes: ["Downtown LA is a formal central office/civic decision.", "Culver City is a Westside creative/media/tech decision.", "This comparison is useful for companies choosing between centrality and creative industry geography."], lead_prompt: "Find locations that fit" },
+  { slug: "century-city-vs-beverly-hills", title: "Century City vs Beverly Hills", short_title: "Century City vs Beverly Hills", city: "Los Angeles", state_abbr: "CA", city_slug: "los-angeles", path: "/commercial-real-estate/CA/los-angeles/century-city-vs-beverly-hills/", district_a_name: "Century City", district_b_name: "Beverly Hills", district_a_path: "/commercial-real-estate/CA/los-angeles/century-city/", district_b_path: "/commercial-real-estate/CA/beverly-hills/beverly-hills/", verdict_a: "Choose Century City if larger formal Westside tower office and corporate client-facing identity matter most.", verdict_b: "Choose Beverly Hills if boutique prestige, wealth, medical, wellness, or entertainment-service context fits better.", comparison_notes: ["Century City is the more formal Westside office core.", "Beverly Hills is more boutique, prestige, and service-oriented.", "This is a Westside client-facing office fit comparison."], lead_prompt: "Find locations that fit" },
+  { slug: "culver-city-vs-playa-vista", title: "Culver City vs Playa Vista", short_title: "Culver City vs Playa Vista", city: "Culver City", state_abbr: "CA", city_slug: "culver-city", path: "/commercial-real-estate/CA/culver-city/culver-city-vs-playa-vista/", district_a_name: "Culver City", district_b_name: "Playa Vista", district_a_path: "/commercial-real-estate/CA/culver-city/culver-city/", district_b_path: "/commercial-real-estate/CA/los-angeles/playa-vista/", verdict_a: "Choose Culver City if denser Westside creative/media and production-adjacent context matter most.", verdict_b: "Choose Playa Vista if campus-style tech/media office and larger-format Westside settings fit better.", comparison_notes: ["Culver City is more mixed and creative-commercial.", "Playa Vista is more campus-style tech/media.", "This is a core Westside creative versus campus-tech comparison."], lead_prompt: "Find locations that fit" },
+  { slug: "santa-monica-vs-culver-city", title: "Santa Monica vs Culver City", short_title: "Santa Monica vs Culver City", city: "Santa Monica", state_abbr: "CA", city_slug: "santa-monica", path: "/commercial-real-estate/CA/santa-monica/santa-monica-vs-culver-city/", district_a_name: "Santa Monica", district_b_name: "Culver City", district_a_path: "/commercial-real-estate/CA/santa-monica/santa-monica/", district_b_path: "/commercial-real-estate/CA/culver-city/culver-city/", verdict_a: "Choose Santa Monica if coastal tech/creative identity and client-facing Westside context matter most.", verdict_b: "Choose Culver City if media, production-adjacent, and central Westside creative context fit better.", comparison_notes: ["Santa Monica is more coastal and tech/creative client-facing.", "Culver City is more media, production, and adaptive creative-commercial.", "The comparison is a strong Westside office decision path."], lead_prompt: "Find locations that fit" },
+  { slug: "santa-monica-vs-west-la", title: "Santa Monica vs West LA", short_title: "Santa Monica vs West LA", city: "Santa Monica", state_abbr: "CA", city_slug: "santa-monica", path: "/commercial-real-estate/CA/santa-monica/santa-monica-vs-west-la/", district_a_name: "Santa Monica", district_b_name: "West LA", district_a_path: "/commercial-real-estate/CA/santa-monica/santa-monica/", district_b_path: "/commercial-real-estate/CA/los-angeles/west-la/", verdict_a: "Choose Santa Monica if coastal identity, tech/creative office, and walkable client-facing context matter most.", verdict_b: "Choose West LA if broader Westside professional, medical, and corridor access fit better.", comparison_notes: ["Santa Monica is more identity-driven and coastal.", "West LA is broader, more corridor-based, and professional-service oriented.", "This comparison helps users avoid treating the Westside as one market."], lead_prompt: "Find locations that fit" },
+  { slug: "el-segundo-vs-playa-vista", title: "El Segundo vs Playa Vista", short_title: "El Segundo vs Playa Vista", city: "El Segundo", state_abbr: "CA", city_slug: "el-segundo", path: "/commercial-real-estate/CA/el-segundo/el-segundo-vs-playa-vista/", district_a_name: "El Segundo", district_b_name: "Playa Vista", district_a_path: "/commercial-real-estate/CA/el-segundo/el-segundo/", district_b_path: "/commercial-real-estate/CA/los-angeles/playa-vista/", verdict_a: "Choose El Segundo if LAX, aerospace, defense, R&D/flex, and South Bay business context matter most.", verdict_b: "Choose Playa Vista if Westside campus-style tech/media identity fits better.", comparison_notes: ["El Segundo is stronger for aerospace, LAX, and technical office/industrial context.", "Playa Vista is stronger for Westside tech/media campus identity.", "This comparison separates adjacent but very different business geographies."], lead_prompt: "Find locations that fit" },
+  { slug: "burbank-vs-hollywood", title: "Burbank vs Hollywood", short_title: "Burbank vs Hollywood", city: "Burbank", state_abbr: "CA", city_slug: "burbank", path: "/commercial-real-estate/CA/burbank/burbank-vs-hollywood/", district_a_name: "Burbank", district_b_name: "Hollywood", district_a_path: "/commercial-real-estate/CA/burbank/burbank/", district_b_path: "/commercial-real-estate/CA/los-angeles/hollywood/", verdict_a: "Choose Burbank if studio, media infrastructure, production, and Valley access matter most.", verdict_b: "Choose Hollywood if entertainment identity, hospitality, and central media visibility fit better.", comparison_notes: ["Burbank is more studio/media operations oriented.", "Hollywood is more entertainment identity and mixed commercial oriented.", "This is a core LA media-location comparison."], lead_prompt: "Find locations that fit" },
+  { slug: "burbank-vs-glendale", title: "Burbank vs Glendale", short_title: "Burbank vs Glendale", city: "Burbank", state_abbr: "CA", city_slug: "burbank", path: "/commercial-real-estate/CA/burbank/burbank-vs-glendale/", district_a_name: "Burbank", district_b_name: "Glendale", district_a_path: "/commercial-real-estate/CA/burbank/burbank/", district_b_path: "/commercial-real-estate/CA/glendale/glendale/", verdict_a: "Choose Burbank if media, studio, entertainment, and production adjacency matter most.", verdict_b: "Choose Glendale if regional office, finance, insurance, medical, and professional-service context fit better.", comparison_notes: ["Burbank is more media/studio oriented.", "Glendale is more regional office and professional-service oriented.", "This comparison is a practical North LA business-location split."], lead_prompt: "Find locations that fit" },
+  { slug: "pasadena-vs-glendale", title: "Pasadena vs Glendale", short_title: "Pasadena vs Glendale", city: "Pasadena", state_abbr: "CA", city_slug: "pasadena", path: "/commercial-real-estate/CA/pasadena/pasadena-vs-glendale/", district_a_name: "Pasadena", district_b_name: "Glendale", district_a_path: "/commercial-real-estate/CA/pasadena/pasadena/", district_b_path: "/commercial-real-estate/CA/glendale/glendale/", verdict_a: "Choose Pasadena if institutional, medical, professional, nonprofit, and San Gabriel Valley context matter most.", verdict_b: "Choose Glendale if North LA regional office, finance, insurance, and professional-service context fit better.", comparison_notes: ["Pasadena is more institutional and SGV professional.", "Glendale is more regional office and finance/insurance oriented.", "This comparison clarifies two strong non-Westside office alternatives."], lead_prompt: "Find locations that fit" },
+  { slug: "vernon-vs-commerce", title: "Vernon vs Commerce", short_title: "Vernon vs Commerce", city: "Vernon", state_abbr: "CA", city_slug: "vernon", path: "/commercial-real-estate/CA/vernon/vernon-vs-commerce/", district_a_name: "Vernon", district_b_name: "Commerce", district_a_path: "/commercial-real-estate/CA/vernon/vernon/", district_b_path: "/commercial-real-estate/CA/commerce/commerce/", verdict_a: "Choose Vernon if core LA industrial, food, manufacturing, and warehouse utility matter most.", verdict_b: "Choose Commerce if I-5/I-710 distribution, logistics, and east LA freeway corridor access fit better.", comparison_notes: ["Vernon is more core industrial/manufacturing.", "Commerce is more freeway distribution/logistics corridor.", "This is a high-value central LA industrial comparison."], lead_prompt: "Find locations that fit" },
+  { slug: "commerce-vs-city-of-industry", title: "Commerce vs City of Industry", short_title: "Commerce vs City of Industry", city: "Commerce", state_abbr: "CA", city_slug: "commerce", path: "/commercial-real-estate/CA/commerce/commerce-vs-city-of-industry/", district_a_name: "Commerce", district_b_name: "City of Industry", district_a_path: "/commercial-real-estate/CA/commerce/commerce/", district_b_path: "/commercial-real-estate/CA/city-of-industry/city-of-industry/", verdict_a: "Choose Commerce if central/east LA I-5/I-710 distribution access matters most.", verdict_b: "Choose City of Industry if SGV industrial/logistics depth and larger regional industrial geography fit better.", comparison_notes: ["Commerce is closer to central LA distribution routes.", "City of Industry is broader SGV industrial/logistics geography.", "This comparison helps users choose between central LA and SGV industrial positions."], lead_prompt: "Find locations that fit" },
+  { slug: "santa-fe-springs-vs-city-of-industry", title: "Santa Fe Springs vs City of Industry", short_title: "Santa Fe Springs vs City of Industry", city: "Santa Fe Springs", state_abbr: "CA", city_slug: "santa-fe-springs", path: "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs-vs-city-of-industry/", district_a_name: "Santa Fe Springs", district_b_name: "City of Industry", district_a_path: "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs/", district_b_path: "/commercial-real-estate/CA/city-of-industry/city-of-industry/", verdict_a: "Choose Santa Fe Springs if southeast LA industrial/flex and I-5 corridor access matter most.", verdict_b: "Choose City of Industry if SGV warehouse, manufacturing, and logistics depth fit better.", comparison_notes: ["Santa Fe Springs is a southeast LA industrial/flex decision.", "City of Industry is a San Gabriel Valley industrial/logistics decision.", "This comparison is useful for operational users comparing LA industrial corridors."], lead_prompt: "Find locations that fit" },
+  { slug: "torrance-vs-el-segundo", title: "Torrance vs El Segundo", short_title: "Torrance vs El Segundo", city: "Torrance", state_abbr: "CA", city_slug: "torrance", path: "/commercial-real-estate/CA/torrance/torrance-vs-el-segundo/", district_a_name: "Torrance", district_b_name: "El Segundo", district_a_path: "/commercial-real-estate/CA/torrance/torrance/", district_b_path: "/commercial-real-estate/CA/el-segundo/el-segundo/", verdict_a: "Choose Torrance if South Bay office/industrial, aerospace, medical, and advanced manufacturing context matter most.", verdict_b: "Choose El Segundo if LAX-adjacent aerospace, defense, R&D, and office identity fit better.", comparison_notes: ["Torrance is broader South Bay office/industrial.", "El Segundo is more LAX/aerospace office and technical corridor.", "This comparison is key for South Bay office/industrial users."], lead_prompt: "Find locations that fit" },
+  { slug: "long-beach-vs-carson", title: "Long Beach vs Carson", short_title: "Long Beach vs Carson", city: "Long Beach", state_abbr: "CA", city_slug: "long-beach", path: "/commercial-real-estate/CA/long-beach/long-beach-vs-carson/", district_a_name: "Long Beach", district_b_name: "Carson", district_a_path: "/commercial-real-estate/CA/long-beach/long-beach/", district_b_path: "/commercial-real-estate/CA/carson/carson/", verdict_a: "Choose Long Beach if port-city office, waterfront business, medical, and logistics context matter most.", verdict_b: "Choose Carson if port-adjacent warehouse, distribution, and industrial utility fit better.", comparison_notes: ["Long Beach mixes port, office, waterfront, and industrial context.", "Carson is more directly port-adjacent industrial/logistics.", "This comparison separates port-city identity from port-industrial utility."], lead_prompt: "Find locations that fit" },
+  { slug: "warner-center-vs-burbank", title: "Warner Center vs Burbank", short_title: "Warner Center vs Burbank", city: "Los Angeles", state_abbr: "CA", city_slug: "los-angeles", path: "/commercial-real-estate/CA/los-angeles/warner-center-vs-burbank/", district_a_name: "Warner Center", district_b_name: "Burbank", district_a_path: "/commercial-real-estate/CA/los-angeles/warner-center/", district_b_path: "/commercial-real-estate/CA/burbank/burbank/", verdict_a: "Choose Warner Center if West Valley corporate office, medical, and regional business-park context matter most.", verdict_b: "Choose Burbank if media, studio, entertainment, and production adjacency fit better.", comparison_notes: ["Warner Center is more corporate and West Valley office oriented.", "Burbank is more media/studio oriented.", "This comparison helps users navigate Valley office alternatives."], lead_prompt: "Find locations that fit" },
+  { slug: "van-nuys-vs-north-hollywood", title: "Van Nuys vs North Hollywood", short_title: "Van Nuys vs North Hollywood", city: "Van Nuys", state_abbr: "CA", city_slug: "van-nuys", path: "/commercial-real-estate/CA/van-nuys/van-nuys-vs-north-hollywood/", district_a_name: "Van Nuys", district_b_name: "North Hollywood", district_a_path: "/commercial-real-estate/CA/van-nuys/van-nuys/", district_b_path: "/commercial-real-estate/CA/north-hollywood/north-hollywood/", verdict_a: "Choose Van Nuys if Valley industrial/flex, service-commercial, aviation-adjacent, and operations context matter most.", verdict_b: "Choose North Hollywood if media, creative, transit-adjacent, and mixed local office context fit better.", comparison_notes: ["Van Nuys is more industrial/service and operations oriented.", "North Hollywood is more media/creative and transit-adjacent.", "This is a useful central Valley industrial versus creative-office comparison."], lead_prompt: "Find locations that fit" }
+);
+
 const detailCtaByArchetype = {
   adaptive_warehouse_office_district: "adaptive office context",
   formal_downtown_office_core: "office core",
@@ -1931,6 +1952,40 @@ const detailCtaByArchetype = {
   western_ie_office_industrial_gateway: "western Inland Empire office/industrial gateway context",
   western_ie_industrial_flex_market: "western Inland Empire industrial/flex context",
   i215_logistics_distribution_market: "I-215 logistics/distribution context",
+  la_downtown_office_civic_core: "Downtown LA office/civic context",
+  la_financial_bunker_hill_office_core: "LA financial office context",
+  la_adaptive_creative_industrial_district: "adaptive creative-industrial context",
+  la_entertainment_media_office_district: "entertainment and media office context",
+  la_mid_city_office_media_corridor: "Mid-City office/media context",
+  la_dense_mixed_use_service_office_district: "dense mixed-use service office context",
+  la_wilshire_professional_office_corridor: "Wilshire professional office context",
+  la_westside_creative_media_tech_core: "Westside creative/media tech context",
+  la_university_medical_office_district: "university and medical office context",
+  la_westside_tower_office_core: "Westside tower office context",
+  la_boutique_prestige_office_market: "boutique prestige office context",
+  la_coastal_tech_creative_office_core: "coastal tech/creative office context",
+  la_westside_professional_office_corridor: "Westside professional office context",
+  la_campus_tech_media_district: "campus tech/media context",
+  la_lax_aerospace_office_industrial_market: "LAX aerospace office/industrial context",
+  la_studio_media_office_core: "studio/media office context",
+  la_studio_media_production_district: "studio/media production context",
+  la_regional_office_business_core: "regional office business context",
+  la_institutional_professional_office_core: "institutional professional office context",
+  la_core_industrial_logistics_market: "core industrial/logistics context",
+  la_i5_i710_distribution_market: "I-5 / I-710 distribution context",
+  la_sgv_industrial_logistics_market: "SGV industrial/logistics context",
+  la_southeast_industrial_flex_market: "southeast LA industrial/flex context",
+  la_southeast_service_office_industrial_market: "southeast LA service office/industrial context",
+  la_south_la_logistics_industrial_market: "South LA logistics/industrial context",
+  la_port_adjacent_industrial_market: "port-adjacent industrial context",
+  la_south_bay_office_industrial_market: "South Bay office/industrial context",
+  la_port_city_office_logistics_market: "port-city office/logistics context",
+  la_lax_south_bay_industrial_corridor: "LAX / South Bay industrial context",
+  la_valley_corporate_office_core: "Valley corporate office context",
+  la_valley_media_transit_office_node: "Valley media/transit office context",
+  la_boutique_media_professional_corridor: "boutique media/professional context",
+  la_valley_industrial_service_market: "Valley industrial/service context",
+  la_ventura_boulevard_professional_corridor: "Ventura Boulevard professional context",
 };
 
 const metaFocusBySlug = {
@@ -2092,6 +2147,42 @@ const metaFocusBySlug = {
     "Ontario Airport Area logistics-office adjacency versus Rancho Cucamonga I-15 office/industrial balance",
   "fontana-vs-moreno-valley":
     "Fontana truck-oriented logistics corridors versus Moreno Valley eastern Inland Empire big-box distribution scale",
+  "downtown-la-vs-century-city":
+    "Downtown LA civic and professional office core versus Century City Westside tower office identity",
+  "downtown-la-vs-hollywood":
+    "Downtown LA civic/professional office context versus Hollywood entertainment and media identity",
+  "downtown-la-vs-culver-city":
+    "Downtown LA central office/civic identity versus Culver City Westside creative and media-tech context",
+  "century-city-vs-beverly-hills":
+    "Century City formal Westside tower office context versus Beverly Hills boutique prestige office market",
+  "culver-city-vs-playa-vista":
+    "Culver City creative/media district context versus Playa Vista campus-style tech/media office setting",
+  "santa-monica-vs-culver-city":
+    "Santa Monica coastal tech/creative office identity versus Culver City media and production-adjacent context",
+  "santa-monica-vs-west-la":
+    "Santa Monica coastal tech/creative context versus broader West LA professional office corridor access",
+  "el-segundo-vs-playa-vista":
+    "El Segundo LAX aerospace office/industrial context versus Playa Vista Westside tech/media campus context",
+  "burbank-vs-hollywood":
+    "Burbank studio/media production context versus Hollywood entertainment and central media identity",
+  "burbank-vs-glendale":
+    "Burbank media/studio context versus Glendale regional office and professional-service business core",
+  "pasadena-vs-glendale":
+    "Pasadena institutional professional office context versus Glendale regional office business core",
+  "vernon-vs-commerce":
+    "Vernon core LA industrial/manufacturing context versus Commerce I-5/I-710 distribution access",
+  "commerce-vs-city-of-industry":
+    "Commerce central/east LA distribution access versus City of Industry SGV industrial/logistics depth",
+  "santa-fe-springs-vs-city-of-industry":
+    "Santa Fe Springs southeast LA industrial/flex context versus City of Industry SGV warehouse/logistics depth",
+  "torrance-vs-el-segundo":
+    "Torrance South Bay office/industrial and advanced manufacturing context versus El Segundo LAX aerospace office setting",
+  "long-beach-vs-carson":
+    "Long Beach port-city office/logistics context versus Carson port-adjacent industrial utility",
+  "warner-center-vs-burbank":
+    "Warner Center West Valley corporate office core versus Burbank studio/media office context",
+  "van-nuys-vs-north-hollywood":
+    "Van Nuys Valley industrial/service market versus North Hollywood media/transit office node",
 };
 
 function districtSummary(path) {
@@ -2178,6 +2269,13 @@ const warehouseFlexComparisonSlugs = new Set([
   "perris-vs-moreno-valley",
   "ontario-airport-area-vs-rancho-cucamonga",
   "fontana-vs-moreno-valley",
+  "el-segundo-vs-playa-vista",
+  "vernon-vs-commerce",
+  "commerce-vs-city-of-industry",
+  "santa-fe-springs-vs-city-of-industry",
+  "torrance-vs-el-segundo",
+  "long-beach-vs-carson",
+  "van-nuys-vs-north-hollywood",
 ]);
 
 module.exports = comparisons.map((comparison) => {
