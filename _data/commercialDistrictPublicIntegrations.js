@@ -2129,6 +2129,64 @@ Object.assign(
   )
 );
 
+const southFloridaIntegrationPages = [
+  ["Downtown Miami", "/commercial-real-estate/FL/miami/downtown-miami/"],
+  ["Brickell", "/commercial-real-estate/FL/miami/brickell/"],
+  ["Wynwood", "/commercial-real-estate/FL/miami/wynwood/"],
+  ["Design District", "/commercial-real-estate/FL/miami/design-district/"],
+  ["Edgewater", "/commercial-real-estate/FL/miami/edgewater/"],
+  ["Coral Gables", "/commercial-real-estate/FL/coral-gables/coral-gables/"],
+  ["Coconut Grove", "/commercial-real-estate/FL/miami/coconut-grove/"],
+  ["Miami Beach", "/commercial-real-estate/FL/miami-beach/miami-beach/"],
+  ["Doral", "/commercial-real-estate/FL/doral/doral/"],
+  ["Blue Lagoon / Airport Area", "/commercial-real-estate/FL/miami/blue-lagoon/"],
+  ["Medley", "/commercial-real-estate/FL/medley/medley/"],
+  ["Hialeah Industrial", "/commercial-real-estate/FL/hialeah/hialeah-industrial/"],
+  ["Miami Lakes", "/commercial-real-estate/FL/miami-lakes/miami-lakes/"],
+  ["Opa-locka / Miami Gardens", "/commercial-real-estate/FL/miami-gardens/opa-locka-miami-gardens/"],
+  ["PortMiami / Downtown Logistics", "/commercial-real-estate/FL/miami/portmiami-downtown-logistics/"],
+  ["Health District / Civic Center", "/commercial-real-estate/FL/miami/health-district-civic-center/"],
+  ["University of Miami Area", "/commercial-real-estate/FL/coral-gables/university-of-miami-area/"],
+  ["Downtown Fort Lauderdale", "/commercial-real-estate/FL/fort-lauderdale/downtown-fort-lauderdale/"],
+  ["Cypress Creek", "/commercial-real-estate/FL/fort-lauderdale/cypress-creek/"],
+  ["Plantation", "/commercial-real-estate/FL/plantation/plantation/"],
+  ["Sunrise", "/commercial-real-estate/FL/sunrise/sunrise/"],
+  ["Miramar", "/commercial-real-estate/FL/miramar/miramar/"],
+  ["Hollywood", "/commercial-real-estate/FL/hollywood/hollywood/"],
+  ["Pompano Beach", "/commercial-real-estate/FL/pompano-beach/pompano-beach/"],
+  ["Deerfield Beach", "/commercial-real-estate/FL/deerfield-beach/deerfield-beach/"],
+  ["West Palm Beach", "/commercial-real-estate/FL/west-palm-beach/west-palm-beach/"],
+  ["Boca Raton", "/commercial-real-estate/FL/boca-raton/boca-raton/"],
+  ["Delray Beach", "/commercial-real-estate/FL/delray-beach/delray-beach/"],
+  ["Boynton Beach", "/commercial-real-estate/FL/boynton-beach/boynton-beach/"],
+  ["Palm Beach Gardens", "/commercial-real-estate/FL/palm-beach-gardens/palm-beach-gardens/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    southFloridaIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare South Florida commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Miami core office and finance, airport and port logistics, healthcare, Broward office/industrial alternatives, and Palm Beach business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

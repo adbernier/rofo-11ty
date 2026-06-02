@@ -3852,6 +3852,39 @@ const atlantaMetroDistrictDefinitions = [
   { id: "atl-tyler-perry-studios-fort-mcpherson", name: "Tyler Perry Studios / Fort McPherson", slug: "tyler-perry-studios-fort-mcpherson", city: "Atlanta", state_abbr: "GA", path: "/commercial-real-estate/GA/atlanta/tyler-perry-studios-fort-mcpherson/", centroid_lat: 33.707, centroid_lng: -84.433, area_type: "district", approximate_space_types: ["office", "flex", "commercial"], profile: ["film", "production", "adaptive_reuse", "southwest_atlanta"], representative_building_paths: ["/commercial-real-estate/building/GA/atlanta/511-stephens-st-sw/"] },
 ];
 
+const southFloridaDistrictDefinitions = [
+  { id: "sofla-downtown-miami", name: "Downtown Miami", slug: "downtown-miami", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/downtown-miami/", centroid_lat: 25.775, centroid_lng: -80.19, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "office", "civic_business", "transit"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/201-s-biscayne-blvd/", "/commercial-real-estate/building/FL/miami/333-se-2nd-ave/"] },
+  { id: "sofla-brickell", name: "Brickell", slug: "brickell", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/brickell/", centroid_lat: 25.762, centroid_lng: -80.192, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["finance", "client_facing", "high_rise_office", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/1221-brickell-ave/", "/commercial-real-estate/building/FL/miami/601-brickell-key-dr/", "/commercial-real-estate/building/FL/miami/78-sw-7th-st/", "/commercial-real-estate/building/FL/miami/80-sw-8th-st/", "/commercial-real-estate/building/FL/miami/801-brickell-ave/"] },
+  { id: "sofla-wynwood", name: "Wynwood", slug: "wynwood", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/wynwood/", centroid_lat: 25.801, centroid_lng: -80.2, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["creative_office", "adaptive_reuse", "hospitality", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/218-nw-24th-st/", "/commercial-real-estate/building/FL/miami/360-nw-27th-st/"] },
+  { id: "sofla-design-district", name: "Design District", slug: "design-district", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/design-district/", centroid_lat: 25.813, centroid_lng: -80.193, area_type: "district", approximate_space_types: ["retail", "office", "commercial"], profile: ["design", "retail_support", "creative_office", "hospitality"], representative_building_paths: [] },
+  { id: "sofla-edgewater", name: "Edgewater", slug: "edgewater", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/edgewater/", centroid_lat: 25.803, centroid_lng: -80.188, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["mixed_use", "waterfront_adjacent", "downtown_edge", "local_services"], representative_building_paths: [] },
+  { id: "sofla-coral-gables", name: "Coral Gables", slug: "coral-gables", city: "Coral Gables", state_abbr: "FL", path: "/commercial-real-estate/FL/coral-gables/coral-gables/", centroid_lat: 25.749, centroid_lng: -80.263, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "professional_services", "medical", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/FL/coral-gables/1-alhambra-plaza/", "/commercial-real-estate/building/FL/coral-gables/2222-ponce-de-leon-blvd/", "/commercial-real-estate/building/FL/coral-gables/2332-galiano-st/", "/commercial-real-estate/building/FL/coral-gables/255-giralda-ave/"] },
+  { id: "sofla-coconut-grove", name: "Coconut Grove", slug: "coconut-grove", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/coconut-grove/", centroid_lat: 25.729, centroid_lng: -80.24, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["client_facing", "boutique_office", "hospitality", "waterfront_adjacent"], representative_building_paths: [] },
+  { id: "sofla-miami-beach", name: "Miami Beach", slug: "miami-beach", city: "Miami Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/miami-beach/miami-beach/", centroid_lat: 25.79, centroid_lng: -80.13, area_type: "district", approximate_space_types: ["office", "retail", "hospitality"], profile: ["hospitality", "tourism", "retail_support", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/FL/miami-beach/1688-meridian-ave/", "/commercial-real-estate/building/FL/miami-beach/429-lenox-ave/", "/commercial-real-estate/building/FL/miami/1111-lincoln-rd/"] },
+  { id: "sofla-doral", name: "Doral", slug: "doral", city: "Doral", state_abbr: "FL", path: "/commercial-real-estate/FL/doral/doral/", centroid_lat: 25.819, centroid_lng: -80.355, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["airport_access", "logistics", "office_flex", "warehouse"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/8216-nw-14th-st/", "/commercial-real-estate/building/FL/miami/8333-nw-53rd-st/"] },
+  { id: "sofla-blue-lagoon-airport-area", name: "Blue Lagoon / Airport Area", slug: "blue-lagoon", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/blue-lagoon/", centroid_lat: 25.783, centroid_lng: -80.29, area_type: "district", approximate_space_types: ["office", "coworking", "flex"], profile: ["airport_access", "office", "hospitality", "regional_business"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/5201-blue-lagoon-dr/", "/commercial-real-estate/building/FL/miami/5202-blue-lagoon-dr/", "/commercial-real-estate/building/FL/miami/5203-blue-lagoon-dr/", "/commercial-real-estate/building/FL/miami/5204-blue-lagoon-dr/", "/commercial-real-estate/building/FL/miami/5205-blue-lagoon-dr/", "/commercial-real-estate/building/FL/miami/6303-blue-lagoon-dr/"] },
+  { id: "sofla-medley", name: "Medley", slug: "medley", city: "Medley", state_abbr: "FL", path: "/commercial-real-estate/FL/medley/medley/", centroid_lat: 25.86, centroid_lng: -80.34, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "truck_access", "logistics"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/8216-nw-14th-st/"] },
+  { id: "sofla-hialeah-industrial", name: "Hialeah Industrial", slug: "hialeah-industrial", city: "Hialeah", state_abbr: "FL", path: "/commercial-real-estate/FL/hialeah/hialeah-industrial/", centroid_lat: 25.86, centroid_lng: -80.29, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial", "warehouse", "service_commercial", "airport_access"], representative_building_paths: [] },
+  { id: "sofla-miami-lakes", name: "Miami Lakes", slug: "miami-lakes", city: "Miami Lakes", state_abbr: "FL", path: "/commercial-real-estate/FL/miami-lakes/miami-lakes/", centroid_lat: 25.91, centroid_lng: -80.31, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["suburban_office", "office_flex", "industrial_flex", "northwest_miami"], representative_building_paths: ["/commercial-real-estate/building/FL/miami-lakes/7900-oak-ln/"] },
+  { id: "sofla-opa-locka-miami-gardens", name: "Opa-locka / Miami Gardens", slug: "opa-locka-miami-gardens", city: "Miami Gardens", state_abbr: "FL", path: "/commercial-real-estate/FL/miami-gardens/opa-locka-miami-gardens/", centroid_lat: 25.92, centroid_lng: -80.25, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_adjacent", "industrial_flex", "service_commercial", "northwest_miami"], representative_building_paths: [] },
+  { id: "sofla-portmiami-downtown-logistics", name: "PortMiami / Downtown Logistics", slug: "portmiami-downtown-logistics", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/portmiami-downtown-logistics/", centroid_lat: 25.777, centroid_lng: -80.173, area_type: "industrial_area", approximate_space_types: ["industrial", "office", "flex"], profile: ["port", "logistics", "downtown_edge", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/FL/miami/201-s-biscayne-blvd/", "/commercial-real-estate/building/FL/miami/333-se-2nd-ave/"] },
+  { id: "sofla-health-district-civic-center", name: "Health District / Civic Center", slug: "health-district-civic-center", city: "Miami", state_abbr: "FL", path: "/commercial-real-estate/FL/miami/health-district-civic-center/", centroid_lat: 25.79, centroid_lng: -80.213, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["healthcare", "medical", "civic", "education_adjacent"], representative_building_paths: [] },
+  { id: "sofla-university-of-miami-area", name: "University of Miami Area", slug: "university-of-miami-area", city: "Coral Gables", state_abbr: "FL", path: "/commercial-real-estate/FL/coral-gables/university-of-miami-area/", centroid_lat: 25.721, centroid_lng: -80.279, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["university_adjacent", "medical", "research", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/FL/coral-gables/1-alhambra-plaza/", "/commercial-real-estate/building/FL/coral-gables/2222-ponce-de-leon-blvd/"] },
+  { id: "sofla-downtown-fort-lauderdale", name: "Downtown Fort Lauderdale", slug: "downtown-fort-lauderdale", city: "Fort Lauderdale", state_abbr: "FL", path: "/commercial-real-estate/FL/fort-lauderdale/downtown-fort-lauderdale/", centroid_lat: 26.122, centroid_lng: -80.143, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "office", "legal", "waterfront_adjacent"], representative_building_paths: ["/commercial-real-estate/building/FL/fort-lauderdale/110-e-broward-blvd/", "/commercial-real-estate/building/FL/fort-lauderdale/501-e-las-olas-blvd/", "/commercial-real-estate/building/FL/fort-lauderdale/2598-e-sunrise-blvd/"] },
+  { id: "sofla-cypress-creek", name: "Cypress Creek", slug: "cypress-creek", city: "Fort Lauderdale", state_abbr: "FL", path: "/commercial-real-estate/FL/fort-lauderdale/cypress-creek/", centroid_lat: 26.203, centroid_lng: -80.15, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["suburban_office", "office_flex", "industrial_flex", "i95"], representative_building_paths: ["/commercial-real-estate/building/FL/fort-lauderdale/6750-n-andrews-ave/"] },
+  { id: "sofla-plantation", name: "Plantation", slug: "plantation", city: "Plantation", state_abbr: "FL", path: "/commercial-real-estate/FL/plantation/plantation/", centroid_lat: 26.127, centroid_lng: -80.253, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "medical", "professional_services", "broward"], representative_building_paths: ["/commercial-real-estate/building/FL/plantation/8201-peters-rd/", "/commercial-real-estate/building/FL/plantation/950-s-pine-island-rd/"] },
+  { id: "sofla-sunrise", name: "Sunrise", slug: "sunrise", city: "Sunrise", state_abbr: "FL", path: "/commercial-real-estate/FL/sunrise/sunrise/", centroid_lat: 26.167, centroid_lng: -80.28, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["suburban_office", "sawgrass", "retail_support", "regional_business"], representative_building_paths: ["/commercial-real-estate/building/FL/sunrise/1560-sawgrass-corporate-pkwy/"] },
+  { id: "sofla-miramar", name: "Miramar", slug: "miramar", city: "Miramar", state_abbr: "FL", path: "/commercial-real-estate/FL/miramar/miramar/", centroid_lat: 25.986, centroid_lng: -80.28, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["corporate", "logistics", "office_flex", "south_broward"], representative_building_paths: ["/commercial-real-estate/building/FL/miramar/3350-sw-148th-ave/"] },
+  { id: "sofla-hollywood", name: "Hollywood", slug: "hollywood", city: "Hollywood", state_abbr: "FL", path: "/commercial-real-estate/FL/hollywood/hollywood/", centroid_lat: 26.011, centroid_lng: -80.15, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["local_office", "medical", "hospitality", "south_broward"], representative_building_paths: ["/commercial-real-estate/building/FL/hollywood/4000-hollywood-blvd/"] },
+  { id: "sofla-pompano-beach", name: "Pompano Beach", slug: "pompano-beach", city: "Pompano Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/pompano-beach/pompano-beach/", centroid_lat: 26.237, centroid_lng: -80.125, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "service_commercial", "marine", "north_broward"], representative_building_paths: [] },
+  { id: "sofla-deerfield-beach", name: "Deerfield Beach", slug: "deerfield-beach", city: "Deerfield Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/deerfield-beach/deerfield-beach/", centroid_lat: 26.318, centroid_lng: -80.1, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["north_broward", "industrial_flex", "office", "regional_access"], representative_building_paths: [] },
+  { id: "sofla-west-palm-beach", name: "West Palm Beach", slug: "west-palm-beach", city: "West Palm Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/west-palm-beach/west-palm-beach/", centroid_lat: 26.714, centroid_lng: -80.055, area_type: "downtown_core", approximate_space_types: ["office", "medical", "retail"], profile: ["downtown", "finance", "professional_services", "palm_beach"], representative_building_paths: ["/commercial-real-estate/building/FL/west-palm-beach/777-s-flagler-dr/", "/commercial-real-estate/building/FL/west-palm-beach/2054-vista-pkwy/"] },
+  { id: "sofla-boca-raton", name: "Boca Raton", slug: "boca-raton", city: "Boca Raton", state_abbr: "FL", path: "/commercial-real-estate/FL/boca-raton/boca-raton/", centroid_lat: 26.368, centroid_lng: -80.128, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["corporate", "professional_services", "medical", "palm_beach"], representative_building_paths: ["/commercial-real-estate/building/FL/boca-raton/160-yamato-rd/", "/commercial-real-estate/building/FL/boca-raton/2255-glades-rd/", "/commercial-real-estate/building/FL/boca-raton/433-plaza-real/", "/commercial-real-estate/building/FL/boca-raton/10018-spanish-isles-blvd/"] },
+  { id: "sofla-delray-beach", name: "Delray Beach", slug: "delray-beach", city: "Delray Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/delray-beach/delray-beach/", centroid_lat: 26.461, centroid_lng: -80.073, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["local_office", "medical", "retail_support", "palm_beach"], representative_building_paths: ["/commercial-real-estate/building/FL/delray-beach/1615-1625-and-1690-s-congress-ave/"] },
+  { id: "sofla-boynton-beach", name: "Boynton Beach", slug: "boynton-beach", city: "Boynton Beach", state_abbr: "FL", path: "/commercial-real-estate/FL/boynton-beach/boynton-beach/", centroid_lat: 26.531, centroid_lng: -80.09, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["local_office", "medical", "service_commercial", "palm_beach"], representative_building_paths: [] },
+  { id: "sofla-palm-beach-gardens", name: "Palm Beach Gardens", slug: "palm-beach-gardens", city: "Palm Beach Gardens", state_abbr: "FL", path: "/commercial-real-estate/FL/palm-beach-gardens/palm-beach-gardens/", centroid_lat: 26.823, centroid_lng: -80.138, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["professional_services", "medical", "client_facing", "north_palm_beach"], representative_building_paths: ["/commercial-real-estate/building/FL/palm-beach-gardens/3801-pga-blvd/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4428,6 +4461,42 @@ function atlantaMetroDistrictPageFor(district) {
   };
 }
 
+function southFloridaDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "south_florida_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_south_florida_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4670,6 +4739,7 @@ const chicagoMetroPages = chicagoMetroDistrictDefinitions.map(chicagoMetroDistri
 const dcMetroPages = dcMetroDistrictDefinitions.map(dcMetroDistrictPageFor);
 const bostonMetroPages = bostonMetroDistrictDefinitions.map(bostonMetroDistrictPageFor);
 const atlantaMetroPages = atlantaMetroDistrictDefinitions.map(atlantaMetroDistrictPageFor);
+const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4797,6 +4867,13 @@ for (const page of bostonMetroPages) {
 }
 
 for (const page of atlantaMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of southFloridaPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
