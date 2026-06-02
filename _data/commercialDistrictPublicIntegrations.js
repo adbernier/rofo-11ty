@@ -2073,6 +2073,62 @@ Object.assign(
   )
 );
 
+const atlantaMetroIntegrationPages = [
+  ["Downtown Atlanta", "/commercial-real-estate/GA/atlanta/downtown-atlanta/"],
+  ["Midtown Atlanta", "/commercial-real-estate/GA/atlanta/midtown/"],
+  ["Buckhead", "/commercial-real-estate/GA/atlanta/buckhead/"],
+  ["West Midtown", "/commercial-real-estate/GA/atlanta/west-midtown/"],
+  ["Old Fourth Ward", "/commercial-real-estate/GA/atlanta/old-fourth-ward/"],
+  ["Atlantic Station", "/commercial-real-estate/GA/atlanta/atlantic-station/"],
+  ["Perimeter Center", "/commercial-real-estate/GA/atlanta/perimeter-center/"],
+  ["Cumberland / Galleria", "/commercial-real-estate/GA/atlanta/cumberland-galleria/"],
+  ["Central Perimeter", "/commercial-real-estate/GA/atlanta/central-perimeter/"],
+  ["Lenox / Phipps", "/commercial-real-estate/GA/atlanta/lenox-phipps/"],
+  ["Hartsfield-Jackson Airport Area", "/commercial-real-estate/GA/atlanta/hartsfield-jackson-airport-area/"],
+  ["South Atlanta Industrial", "/commercial-real-estate/GA/atlanta/south-atlanta-industrial/"],
+  ["Fulton Industrial Boulevard", "/commercial-real-estate/GA/atlanta/fulton-industrial/"],
+  ["I-85 Northeast / Norcross", "/commercial-real-estate/GA/norcross/i-85-northeast-norcross/"],
+  ["Gwinnett / Peachtree Corners", "/commercial-real-estate/GA/peachtree-corners/gwinnett-peachtree-corners/"],
+  ["Stone Mountain / Tucker", "/commercial-real-estate/GA/tucker/stone-mountain-tucker/"],
+  ["Forest Park", "/commercial-real-estate/GA/forest-park/forest-park/"],
+  ["College Park", "/commercial-real-estate/GA/college-park/college-park/"],
+  ["East Point", "/commercial-real-estate/GA/east-point/east-point/"],
+  ["Alpharetta", "/commercial-real-estate/GA/alpharetta/alpharetta/"],
+  ["Avalon / North Fulton", "/commercial-real-estate/GA/alpharetta/avalon-north-fulton/"],
+  ["Sandy Springs", "/commercial-real-estate/GA/sandy-springs/sandy-springs/"],
+  ["Roswell", "/commercial-real-estate/GA/roswell/roswell/"],
+  ["Marietta", "/commercial-real-estate/GA/marietta/marietta/"],
+  ["Smyrna", "/commercial-real-estate/GA/smyrna/smyrna/"],
+  ["Decatur", "/commercial-real-estate/GA/decatur/decatur/"],
+  ["Duluth", "/commercial-real-estate/GA/duluth/duluth/"],
+  ["Tyler Perry Studios / Fort McPherson", "/commercial-real-estate/GA/atlanta/tyler-perry-studios-fort-mcpherson/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    atlantaMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Atlanta Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Atlanta core office, Buckhead/Midtown/Perimeter, airport and logistics corridors, film/media, suburban corporate nodes, and industrial/flex geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
