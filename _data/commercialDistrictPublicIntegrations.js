@@ -1957,6 +1957,63 @@ Object.assign(
   )
 );
 
+const dcMetroIntegrationPages = [
+  ["Downtown DC", "/commercial-real-estate/DC/washington/downtown-dc/"],
+  ["East End / Penn Quarter", "/commercial-real-estate/DC/washington/east-end-penn-quarter/"],
+  ["Capitol Hill", "/commercial-real-estate/DC/washington/capitol-hill/"],
+  ["Dupont Circle", "/commercial-real-estate/DC/washington/dupont-circle/"],
+  ["West End", "/commercial-real-estate/DC/washington/west-end/"],
+  ["Georgetown", "/commercial-real-estate/DC/washington/georgetown/"],
+  ["NoMa", "/commercial-real-estate/DC/washington/noma/"],
+  ["Navy Yard", "/commercial-real-estate/DC/washington/navy-yard/"],
+  ["Capitol Riverfront", "/commercial-real-estate/DC/washington/capitol-riverfront/"],
+  ["K Street Corridor", "/commercial-real-estate/DC/washington/k-street-corridor/"],
+  ["Rosslyn", "/commercial-real-estate/VA/arlington/rosslyn/"],
+  ["Ballston", "/commercial-real-estate/VA/arlington/ballston/"],
+  ["Crystal City", "/commercial-real-estate/VA/arlington/crystal-city/"],
+  ["Pentagon City", "/commercial-real-estate/VA/arlington/pentagon-city/"],
+  ["National Landing", "/commercial-real-estate/VA/arlington/national-landing/"],
+  ["Tysons", "/commercial-real-estate/VA/tysons-corner/tysons/"],
+  ["Reston", "/commercial-real-estate/VA/reston/reston/"],
+  ["Herndon", "/commercial-real-estate/VA/herndon/herndon/"],
+  ["Fairfax", "/commercial-real-estate/VA/fairfax/fairfax/"],
+  ["Chantilly", "/commercial-real-estate/VA/chantilly/chantilly/"],
+  ["Dulles Corridor", "/commercial-real-estate/VA/herndon/dulles-corridor/"],
+  ["Ashburn", "/commercial-real-estate/VA/ashburn/ashburn/"],
+  ["Alexandria", "/commercial-real-estate/VA/alexandria/alexandria/"],
+  ["Springfield", "/commercial-real-estate/VA/springfield/springfield/"],
+  ["Bethesda", "/commercial-real-estate/MD/bethesda/bethesda/"],
+  ["Silver Spring", "/commercial-real-estate/MD/silver-spring/silver-spring/"],
+  ["Rockville", "/commercial-real-estate/MD/rockville/rockville/"],
+  ["Gaithersburg", "/commercial-real-estate/MD/gaithersburg/gaithersburg/"],
+  ["College Park", "/commercial-real-estate/MD/college-park/college-park/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    dcMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Washington DC Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within DC core office, government, defense, Northern Virginia technology, data center, Dulles Corridor, Maryland biotech, office/flex, and regional business geography.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

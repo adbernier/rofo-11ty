@@ -3752,6 +3752,38 @@ const chicagoMetroDistrictDefinitions = [
   { id: "chi-lisle", name: "Lisle", slug: "lisle", city: "Lisle", state_abbr: "IL", path: "/commercial-real-estate/IL/lisle/lisle/", centroid_lat: 41.801, centroid_lng: -88.075, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["i88_office", "business_park", "corporate_support", "office_flex"], representative_building_paths: ["/commercial-real-estate/building/IL/lisle/2200-cabot-dr/", "/commercial-real-estate/building/IL/lisle/2300-cabot-dr/", "/commercial-real-estate/building/IL/lisle/3030-warrenville-rd/", "/commercial-real-estate/building/IL/lisle/3333-warrenville-rd/"] },
 ];
 
+const dcMetroDistrictDefinitions = [
+  { id: "dc-downtown-dc", name: "Downtown DC", slug: "downtown-dc", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/downtown-dc/", centroid_lat: 38.902, centroid_lng: -77.033, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["government", "office", "law", "policy", "transit"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/1101-pennsylvania-ave-nw/", "/commercial-real-estate/building/DC/washington/1200-g-st-nw/", "/commercial-real-estate/building/DC/washington/1300-i-st-nw/", "/commercial-real-estate/building/DC/washington/700-k-st-nw/"] },
+  { id: "dc-east-end-penn-quarter", name: "East End / Penn Quarter", slug: "east-end-penn-quarter", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/east-end-penn-quarter/", centroid_lat: 38.898, centroid_lng: -77.023, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["central_office", "hospitality", "association", "cultural"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/601-pennsylvania-avenue-nw-south-building/", "/commercial-real-estate/building/DC/washington/1101-pennsylvania-ave-nw/", "/commercial-real-estate/building/DC/washington/1200-g-st-nw/"] },
+  { id: "dc-capitol-hill", name: "Capitol Hill", slug: "capitol-hill", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/capitol-hill/", centroid_lat: 38.889, centroid_lng: -77.009, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["government_affairs", "policy", "association", "legal"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/20-f-st-nw/", "/commercial-real-estate/building/DC/washington/200-massachusetts-ave-nw/", "/commercial-real-estate/building/DC/washington/601-pennsylvania-avenue-nw-south-building/"] },
+  { id: "dc-dupont-circle", name: "Dupont Circle", slug: "dupont-circle", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/dupont-circle/", centroid_lat: 38.91, centroid_lng: -77.044, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["boutique_office", "policy", "nonprofit", "embassy_adjacent"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/1701-rhode-island-ave-nw/", "/commercial-real-estate/building/DC/washington/2025-m-st-nw/", "/commercial-real-estate/building/DC/washington/1015-15th-st-nw/"] },
+  { id: "dc-west-end", name: "West End", slug: "west-end", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/west-end/", centroid_lat: 38.905, centroid_lng: -77.052, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "medical", "professional_services", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/2025-m-st-nw/", "/commercial-real-estate/building/DC/washington/1701-rhode-island-ave-nw/"] },
+  { id: "dc-georgetown", name: "Georgetown", slug: "georgetown", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/georgetown/", centroid_lat: 38.907, centroid_lng: -77.064, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["boutique_office", "retail_support", "university_adjacent", "client_facing"], representative_building_paths: [] },
+  { id: "dc-noma", name: "NoMa", slug: "noma", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/noma/", centroid_lat: 38.907, centroid_lng: -77.004, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["transit_oriented", "modern_office", "association", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/609-h-st-ne/", "/commercial-real-estate/building/DC/washington/200-massachusetts-ave-nw/"] },
+  { id: "dc-navy-yard", name: "Navy Yard", slug: "navy-yard", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/navy-yard/", centroid_lat: 38.875, centroid_lng: -77.005, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["waterfront", "government_adjacent", "modern_office", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/80-m-st-se/", "/commercial-real-estate/building/DC/washington/100-m-st-se/"] },
+  { id: "dc-capitol-riverfront", name: "Capitol Riverfront", slug: "capitol-riverfront", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/capitol-riverfront/", centroid_lat: 38.874, centroid_lng: -77.007, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["waterfront", "modern_office", "mixed_use", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/100-m-st-se/", "/commercial-real-estate/building/DC/washington/80-m-st-se/"] },
+  { id: "dc-k-street-corridor", name: "K Street Corridor", slug: "k-street-corridor", city: "Washington", state_abbr: "DC", path: "/commercial-real-estate/DC/washington/k-street-corridor/", centroid_lat: 38.902, centroid_lng: -77.041, area_type: "corridor", approximate_space_types: ["office", "coworking"], profile: ["law", "lobbying", "policy", "consulting"], representative_building_paths: ["/commercial-real-estate/building/DC/washington/1500-k-street-2nd-floor/", "/commercial-real-estate/building/DC/washington/1015-15th-street-nw-6th-floor/", "/commercial-real-estate/building/DC/washington/1100-15th-st-nw/"] },
+  { id: "dc-rosslyn", name: "Rosslyn", slug: "rosslyn", city: "Arlington", state_abbr: "VA", path: "/commercial-real-estate/VA/arlington/rosslyn/", centroid_lat: 38.895, centroid_lng: -77.072, area_type: "district", approximate_space_types: ["office", "coworking"], profile: ["federal_contracting", "defense", "transit", "high_rise_office"], representative_building_paths: ["/commercial-real-estate/building/VA/arlington/1101-wilson-blvd/", "/commercial-real-estate/building/VA/arlington/1201-wilson-blvd/", "/commercial-real-estate/building/VA/arlington/1655-north-fort-myer-drive/"] },
+  { id: "dc-ballston", name: "Ballston", slug: "ballston", city: "Arlington", state_abbr: "VA", path: "/commercial-real-estate/VA/arlington/ballston/", centroid_lat: 38.881, centroid_lng: -77.111, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["arlington_corridor", "technology", "research", "transit"], representative_building_paths: ["/commercial-real-estate/building/VA/arlington/4250-n-fairfax-dr/", "/commercial-real-estate/building/VA/arlington/901-n-glebe-rd/"] },
+  { id: "dc-crystal-city", name: "Crystal City", slug: "crystal-city", city: "Arlington", state_abbr: "VA", path: "/commercial-real-estate/VA/arlington/crystal-city/", centroid_lat: 38.857, centroid_lng: -77.05, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["defense", "airport_adjacent", "federal_contracting", "national_landing"], representative_building_paths: [] },
+  { id: "dc-pentagon-city", name: "Pentagon City", slug: "pentagon-city", city: "Arlington", state_abbr: "VA", path: "/commercial-real-estate/VA/arlington/pentagon-city/", centroid_lat: 38.862, centroid_lng: -77.059, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["pentagon_adjacent", "retail_support", "mixed_use", "transit"], representative_building_paths: [] },
+  { id: "dc-national-landing", name: "National Landing", slug: "national-landing", city: "Arlington", state_abbr: "VA", path: "/commercial-real-estate/VA/arlington/national-landing/", centroid_lat: 38.858, centroid_lng: -77.052, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["defense", "technology", "growth_market", "airport_adjacent"], representative_building_paths: [] },
+  { id: "dc-tysons", name: "Tysons", slug: "tysons", city: "Tysons Corner", state_abbr: "VA", path: "/commercial-real-estate/VA/tysons-corner/tysons/", centroid_lat: 38.918, centroid_lng: -77.222, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["corporate", "consulting", "technology", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/VA/tysons-corner/7921-jones-branch-dr/", "/commercial-real-estate/building/VA/tysons-corner/8245-boone-blvd/", "/commercial-real-estate/building/VA/vienna/8000-towers-crescent-dr/", "/commercial-real-estate/building/VA/vienna/8300-boone-blvd/"] },
+  { id: "dc-reston", name: "Reston", slug: "reston", city: "Reston", state_abbr: "VA", path: "/commercial-real-estate/VA/reston/reston/", centroid_lat: 38.958, centroid_lng: -77.357, area_type: "district", approximate_space_types: ["office", "flex", "coworking"], profile: ["technology", "cybersecurity", "government_contracting", "dulles_corridor"], representative_building_paths: ["/commercial-real-estate/building/VA/reston/11921-freedom-drive-two-fountain-square/", "/commercial-real-estate/building/VA/reston/11951-freedom-dr/", "/commercial-real-estate/building/VA/reston/12020-sunrise-valley-dr/", "/commercial-real-estate/building/VA/reston/1900-reston-metro-plaza/"] },
+  { id: "dc-herndon", name: "Herndon", slug: "herndon", city: "Herndon", state_abbr: "VA", path: "/commercial-real-estate/VA/herndon/herndon/", centroid_lat: 38.969, centroid_lng: -77.386, area_type: "district", approximate_space_types: ["office", "flex"], profile: ["dulles_corridor", "technology", "office_flex", "airport_adjacent"], representative_building_paths: ["/commercial-real-estate/building/VA/herndon/13800-coppermine-rd/", "/commercial-real-estate/building/VA/herndon/251-exchange-pl/", "/commercial-real-estate/building/VA/herndon/570-herndon-pkwy/"] },
+  { id: "dc-fairfax", name: "Fairfax", slug: "fairfax", city: "Fairfax", state_abbr: "VA", path: "/commercial-real-estate/VA/fairfax/fairfax/", centroid_lat: 38.857, centroid_lng: -77.331, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["suburban_office", "medical", "government_contracting", "education_adjacent"], representative_building_paths: ["/commercial-real-estate/building/VA/fairfax/11350-random-hills-rd/", "/commercial-real-estate/building/VA/fairfax/2700-prosperity-ave/", "/commercial-real-estate/building/VA/fairfax/3949-pender-dr/", "/commercial-real-estate/building/VA/fairfax/8280-willow-oaks-corporate-dr/"] },
+  { id: "dc-chantilly", name: "Chantilly", slug: "chantilly", city: "Chantilly", state_abbr: "VA", path: "/commercial-real-estate/VA/chantilly/chantilly/", centroid_lat: 38.894, centroid_lng: -77.431, area_type: "district", approximate_space_types: ["office", "flex", "industrial"], profile: ["defense", "aerospace", "office_flex", "dulles_access"], representative_building_paths: ["/commercial-real-estate/building/VA/chantilly/14100-sullyfield-cir/", "/commercial-real-estate/building/VA/chantilly/14101-sullyfield-cir/", "/commercial-real-estate/building/VA/chantilly/3901-stonecroft-blvd/", "/commercial-real-estate/building/VA/chantilly/4115-pleasant-valley-rd/"] },
+  { id: "dc-dulles-corridor", name: "Dulles Corridor", slug: "dulles-corridor", city: "Herndon", state_abbr: "VA", path: "/commercial-real-estate/VA/herndon/dulles-corridor/", centroid_lat: 38.951, centroid_lng: -77.445, area_type: "corridor", approximate_space_types: ["office", "flex", "industrial"], profile: ["technology", "data_center_adjacent", "airport_access", "office_flex"], representative_building_paths: ["/commercial-real-estate/building/VA/herndon/13800-coppermine-rd/", "/commercial-real-estate/building/VA/chantilly/3901-stonecroft-blvd/", "/commercial-real-estate/building/VA/ashburn/20130-lakeview-center-plaza/"] },
+  { id: "dc-ashburn", name: "Ashburn", slug: "ashburn", city: "Ashburn", state_abbr: "VA", path: "/commercial-real-estate/VA/ashburn/ashburn/", centroid_lat: 39.043, centroid_lng: -77.487, area_type: "district", approximate_space_types: ["office", "flex", "industrial"], profile: ["data_center", "technology", "cloud", "infrastructure"], representative_building_paths: ["/commercial-real-estate/building/VA/ashburn/19980-highland-vista-dr/", "/commercial-real-estate/building/VA/ashburn/20098-ashbrook-pl/", "/commercial-real-estate/building/VA/ashburn/20130-lakeview-center-plaza/", "/commercial-real-estate/building/VA/ashburn/44611-guilford-dr/"] },
+  { id: "dc-alexandria", name: "Alexandria", slug: "alexandria", city: "Alexandria", state_abbr: "VA", path: "/commercial-real-estate/VA/alexandria/alexandria/", centroid_lat: 38.805, centroid_lng: -77.047, area_type: "district", approximate_space_types: ["office", "medical", "flex", "retail"], profile: ["local_office", "federal_adjacent", "professional_services", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/VA/alexandria/2000-duke-st/", "/commercial-real-estate/building/VA/alexandria/211-n-union-st-suite-100/", "/commercial-real-estate/building/VA/alexandria/4823-eisenhower-ave/", "/commercial-real-estate/building/VA/alexandria/5600-general-washington-dr/"] },
+  { id: "dc-springfield", name: "Springfield", slug: "springfield", city: "Springfield", state_abbr: "VA", path: "/commercial-real-estate/VA/springfield/springfield/", centroid_lat: 38.789, centroid_lng: -77.187, area_type: "district", approximate_space_types: ["office", "flex", "industrial"], profile: ["i95_access", "office_flex", "service_industrial", "defense_adjacent"], representative_building_paths: ["/commercial-real-estate/building/VA/springfield/6608-electronic-dr/", "/commercial-real-estate/building/VA/springfield/7406-alban-station-ct/", "/commercial-real-estate/building/VA/springfield/8320-alban-road/"] },
+  { id: "dc-bethesda", name: "Bethesda", slug: "bethesda", city: "Bethesda", state_abbr: "MD", path: "/commercial-real-estate/MD/bethesda/bethesda/", centroid_lat: 38.985, centroid_lng: -77.095, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["life_science", "medical", "client_facing", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/MD/bethesda/3-bethesda-metro-ctr/", "/commercial-real-estate/building/MD/bethesda/6701-democracy-blvd/", "/commercial-real-estate/building/MD/bethesda/7272-wisconsin-ave/"] },
+  { id: "dc-silver-spring", name: "Silver Spring", slug: "silver-spring", city: "Silver Spring", state_abbr: "MD", path: "/commercial-real-estate/MD/silver-spring/silver-spring/", centroid_lat: 38.997, centroid_lng: -77.027, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["transit", "civic", "nonprofit", "medical"], representative_building_paths: ["/commercial-real-estate/building/MD/silver-spring/8403-colesville-rd/", "/commercial-real-estate/building/MD/silver-spring/12510-prosperity-dr/"] },
+  { id: "dc-rockville", name: "Rockville", slug: "rockville", city: "Rockville", state_abbr: "MD", path: "/commercial-real-estate/MD/rockville/rockville/", centroid_lat: 39.084, centroid_lng: -77.152, area_type: "district", approximate_space_types: ["office", "medical", "flex", "lab"], profile: ["biotech", "life_science", "rd_flex", "i270"], representative_building_paths: ["/commercial-real-estate/building/MD/rockville/11810-grand-park-ave/", "/commercial-real-estate/building/MD/rockville/11820-parklawn-dr/", "/commercial-real-estate/building/MD/rockville/199-e-montgomery-ave/", "/commercial-real-estate/building/MD/rockville/9201-corporate-blvd/"] },
+  { id: "dc-gaithersburg", name: "Gaithersburg", slug: "gaithersburg", city: "Gaithersburg", state_abbr: "MD", path: "/commercial-real-estate/MD/gaithersburg/gaithersburg/", centroid_lat: 39.143, centroid_lng: -77.201, area_type: "district", approximate_space_types: ["office", "medical", "flex", "lab"], profile: ["i270", "biotech", "life_science", "office_park"], representative_building_paths: ["/commercial-real-estate/building/MD/gaithersburg/9711-washingtonian-blvd/"] },
+  { id: "dc-college-park", name: "College Park", slug: "college-park", city: "College Park", state_abbr: "MD", path: "/commercial-real-estate/MD/college-park/college-park/", centroid_lat: 38.989, centroid_lng: -76.936, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["university_adjacent", "research", "technology", "startup"], representative_building_paths: ["/commercial-real-estate/building/MD/college-park/7761-diamondback-dr/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4220,6 +4252,42 @@ function chicagoMetroDistrictPageFor(district) {
   };
 }
 
+function dcMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "dc_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_dc_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4459,6 +4527,7 @@ const phoenixMetroPages = phoenixMetroDistrictDefinitions.map(phoenixMetroDistri
 const denverMetroPages = denverMetroDistrictDefinitions.map(denverMetroDistrictPageFor);
 const dfwMetroPages = dfwMetroDistrictDefinitions.map(dfwMetroDistrictPageFor);
 const chicagoMetroPages = chicagoMetroDistrictDefinitions.map(chicagoMetroDistrictPageFor);
+const dcMetroPages = dcMetroDistrictDefinitions.map(dcMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4565,6 +4634,13 @@ for (const page of dfwMetroPages) {
 }
 
 for (const page of chicagoMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of dcMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
