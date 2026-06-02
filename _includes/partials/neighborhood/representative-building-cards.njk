@@ -1,0 +1,37 @@
+{% set representativeBuildingCards = neighborhood.representative_building_cards %}
+{% if representativeBuildingCards and representativeBuildingCards.length %}
+  <section class="city-card representative-building-cards" aria-labelledby="representative-building-cards-heading">
+    <div class="eyebrow">Building Patterns</div>
+    <h2 id="representative-building-cards-heading">Examples of properties commonly found here</h2>
+    <p>
+      Representative property examples derived from historical listing and building signals. These cards describe common building patterns and do not indicate current availability.
+    </p>
+
+    <div class="representative-building-card-grid">
+      {% for buildingCard in representativeBuildingCards %}
+        <article class="representative-building-card">
+          <div class="representative-building-card__header">
+            <p class="representative-building-card__type">{{ buildingCard.building_type_summary }}</p>
+            <h3>{{ buildingCard.name }}</h3>
+            <p class="representative-building-card__address">{{ buildingCard.address }}</p>
+          </div>
+
+          {% if buildingCard.size %}
+            <p class="representative-building-card__meta">{{ buildingCard.size }}</p>
+          {% endif %}
+
+          <p class="representative-building-card__descriptor">{{ buildingCard.descriptor }}</p>
+          <p class="representative-building-card__reason">{{ buildingCard.representative_reason }}</p>
+
+          {% if buildingCard.keyword_tags and buildingCard.keyword_tags.length %}
+            <div class="representative-building-card__tags" aria-label="Commercial context signals">
+              {% for tag in buildingCard.keyword_tags %}
+                <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -19,6 +19,7 @@ eleventyComputed:
 ] %}
 {% set hasSignals = neighborhood.approximate_semantic_signals and neighborhood.approximate_semantic_signals.length %}
 {% set hasBuildings = neighborhood.representative_buildings and neighborhood.representative_buildings.length %}
+{% set hasRepresentativeBuildingCards = neighborhood.representative_building_cards and neighborhood.representative_building_cards.length %}
 {% set hasNearby = neighborhood.nearby_neighborhoods and neighborhood.nearby_neighborhoods.length %}
 {% set hasSpaceTypes = neighborhood.approximate_space_types and neighborhood.approximate_space_types.length %}
 {% set cityUrl = "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" %}
@@ -175,31 +176,35 @@ eleventyComputed:
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
         {% endif %}
 
-        <section class="city-card">
-          <div class="eyebrow">Representative Buildings</div>
-          {% if hasBuildings %}
-            <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
-            <p>
-              Selected examples that help ground the area's commercial texture.
-            </p>
-            <div class="building-grid neighborhood-building-grid">
-              {% for b in neighborhood.representative_buildings %}
-                {% set building = b %}
-                {% set building_card_variant = "neighborhood" %}
-                {% include "partials/shared/building-card-compact.njk" %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <h2>Explore opportunities in {{ neighborhoodDisplayNameWithArticle }}</h2>
-            <p>
-              Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
-            </p>
-            <div class="button-row">
-              <a class="btn-primary" href="{{ cityLeadUrl }}">Get help exploring this area</a>
-              <a class="btn-secondary" href="{{ cityUrl }}">View {{ neighborhood.city }} market</a>
-            </div>
-          {% endif %}
-        </section>
+        {% if hasBuildings or not hasRepresentativeBuildingCards %}
+          <section class="city-card">
+            <div class="eyebrow">Representative Buildings</div>
+            {% if hasBuildings %}
+              <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
+              <p>
+                Selected examples that help ground the area's commercial texture.
+              </p>
+              <div class="building-grid neighborhood-building-grid">
+                {% for b in neighborhood.representative_buildings %}
+                  {% set building = b %}
+                  {% set building_card_variant = "neighborhood" %}
+                  {% include "partials/shared/building-card-compact.njk" %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <h2>Explore opportunities in {{ neighborhoodDisplayNameWithArticle }}</h2>
+              <p>
+                Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
+              </p>
+              <div class="button-row">
+                <a class="btn-primary" href="{{ cityLeadUrl }}">Get help exploring this area</a>
+                <a class="btn-secondary" href="{{ cityUrl }}">View {{ neighborhood.city }} market</a>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+
+        {% include "partials/neighborhood/representative-building-cards.njk" %}
 
         {% if isDistrictIdentityPage %}
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}

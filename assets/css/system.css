@@ -3264,6 +3264,92 @@ section.market-page--space-type .market-links a {
   margin: 0;
 }
 
+.representative-building-cards > p {
+  max-width: 760px;
+}
+
+.representative-building-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.representative-building-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100%;
+  padding: 18px;
+  border: 1px solid #dbe3ee;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.representative-building-card__header {
+  display: grid;
+  gap: 5px;
+}
+
+.representative-building-card__type {
+  margin: 0;
+  color: #475569;
+  font-size: 0.76rem;
+  font-weight: 780;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.representative-building-card h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.28;
+}
+
+.representative-building-card__address,
+.representative-building-card__meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.representative-building-card__descriptor,
+.representative-building-card__reason {
+  margin: 0;
+  color: #334155;
+  font-size: 0.93rem;
+  line-height: 1.52;
+}
+
+.representative-building-card__reason {
+  color: #475569;
+}
+
+.representative-building-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 2px;
+}
+
+.representative-building-card__tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid #dbe3ee;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
 .neighborhood-intelligence {
   border-color: #dbeafe;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
