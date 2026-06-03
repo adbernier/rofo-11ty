@@ -3885,6 +3885,37 @@ const southFloridaDistrictDefinitions = [
   { id: "sofla-palm-beach-gardens", name: "Palm Beach Gardens", slug: "palm-beach-gardens", city: "Palm Beach Gardens", state_abbr: "FL", path: "/commercial-real-estate/FL/palm-beach-gardens/palm-beach-gardens/", centroid_lat: 26.823, centroid_lng: -80.138, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["professional_services", "medical", "client_facing", "north_palm_beach"], representative_building_paths: ["/commercial-real-estate/building/FL/palm-beach-gardens/3801-pga-blvd/"] },
 ];
 
+const philadelphiaMetroDistrictDefinitions = [
+  { id: "phl-center-city", name: "Center City", slug: "center-city", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/center-city/", centroid_lat: 39.952, centroid_lng: -75.165, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "legal", "transit"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/100-s-juniper-st/", "/commercial-real-estate/building/PA/philadelphia/1500-market-street-east-tower/", "/commercial-real-estate/building/PA/philadelphia/1650-market-st/", "/commercial-real-estate/building/PA/philadelphia/1900-market-st/", "/commercial-real-estate/building/PA/philadelphia/2001-market-st/"] },
+  { id: "phl-market-street-west", name: "Market Street West", slug: "market-street-west", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/market-street-west/", centroid_lat: 39.953, centroid_lng: -75.171, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["office", "finance", "legal", "transit"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/1500-market-street-east-tower/", "/commercial-real-estate/building/PA/philadelphia/1650-market-st/", "/commercial-real-estate/building/PA/philadelphia/1900-market-st/", "/commercial-real-estate/building/PA/philadelphia/2001-market-st/"] },
+  { id: "phl-market-east", name: "Market East", slug: "market-east", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/market-east/", centroid_lat: 39.952, centroid_lng: -75.156, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["transit", "retail_support", "civic_business", "downtown_edge"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/100-s-juniper-st/", "/commercial-real-estate/building/PA/philadelphia/1100-ludlow-st/"] },
+  { id: "phl-rittenhouse-square", name: "Rittenhouse Square", slug: "rittenhouse-square", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/rittenhouse-square/", centroid_lat: 39.949, centroid_lng: -75.171, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["client_facing", "professional_services", "retail_support", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/100-n-18th-st/", "/commercial-real-estate/building/PA/philadelphia/1900-market-st/", "/commercial-real-estate/building/PA/philadelphia/2001-market-st/"] },
+  { id: "phl-old-city", name: "Old City", slug: "old-city", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/old-city/", centroid_lat: 39.952, centroid_lng: -75.144, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["historic", "boutique_office", "creative_office", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/325-chestnut-st/"] },
+  { id: "phl-university-city", name: "University City", slug: "university-city", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/university-city/", centroid_lat: 39.953, centroid_lng: -75.192, area_type: "district", approximate_space_types: ["office", "lab", "medical"], profile: ["university_adjacent", "life_science", "healthcare", "research"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/2929-arch-st/", "/commercial-real-estate/building/PA/philadelphia/1-international-plaza/"] },
+  { id: "phl-schuylkill-yards", name: "Schuylkill Yards", slug: "schuylkill-yards", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/schuylkill-yards/", centroid_lat: 39.956, centroid_lng: -75.186, area_type: "district", approximate_space_types: ["office", "lab", "retail"], profile: ["life_science", "innovation", "university_adjacent", "transit"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/2929-arch-st/", "/commercial-real-estate/building/PA/philadelphia/2001-market-st/"] },
+  { id: "phl-navy-yard", name: "Navy Yard", slug: "navy-yard", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/navy-yard/", centroid_lat: 39.891, centroid_lng: -75.177, area_type: "district", approximate_space_types: ["office", "lab", "industrial", "flex"], profile: ["life_science", "office_flex", "industrial_flex", "waterfront"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/1-international-plaza/"] },
+  { id: "phl-south-philadelphia", name: "South Philadelphia", slug: "south-philadelphia", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/south-philadelphia/", centroid_lat: 39.922, centroid_lng: -75.17, area_type: "district", approximate_space_types: ["industrial", "flex", "retail", "office"], profile: ["service_commercial", "industrial_flex", "local_services", "port_adjacent"], representative_building_paths: [] },
+  { id: "phl-northern-liberties-fishtown", name: "Northern Liberties / Fishtown", slug: "northern-liberties-fishtown", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/northern-liberties-fishtown/", centroid_lat: 39.969, centroid_lng: -75.137, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["creative_office", "mixed_use", "hospitality", "local_services"], representative_building_paths: [] },
+  { id: "phl-penn-medicine-chop-area", name: "Penn Medicine / CHOP Area", slug: "penn-medicine-chop-area", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/penn-medicine-chop-area/", centroid_lat: 39.948, centroid_lng: -75.195, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["healthcare", "medical", "life_science", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/PA/philadelphia/1-international-plaza/", "/commercial-real-estate/building/PA/philadelphia/2929-arch-st/"] },
+  { id: "phl-port-south-industrial", name: "Philadelphia Port / South Philadelphia Industrial", slug: "philadelphia-port-south-philadelphia-industrial", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/philadelphia-port-south-philadelphia-industrial/", centroid_lat: 39.897, centroid_lng: -75.14, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["port", "logistics", "warehouse", "service_commercial"], representative_building_paths: [] },
+  { id: "phl-northeast-industrial", name: "Northeast Philadelphia Industrial", slug: "northeast-philadelphia-industrial", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/northeast-philadelphia-industrial/", centroid_lat: 40.042, centroid_lng: -75.02, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "warehouse", "service_commercial", "i95"], representative_building_paths: [] },
+  { id: "phl-i95-industrial-corridor", name: "I-95 Industrial Corridor", slug: "i-95-industrial-corridor", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/i-95-industrial-corridor/", centroid_lat: 39.98, centroid_lng: -75.08, area_type: "corridor", approximate_space_types: ["industrial", "flex"], profile: ["i95", "warehouse", "logistics", "service_commercial"], representative_building_paths: [] },
+  { id: "phl-airport-area", name: "Airport Area", slug: "airport-area", city: "Philadelphia", state_abbr: "PA", path: "/commercial-real-estate/PA/philadelphia/airport-area/", centroid_lat: 39.874, centroid_lng: -75.242, area_type: "industrial_area", approximate_space_types: ["office", "industrial", "flex"], profile: ["airport_access", "logistics", "office_flex", "hospitality"], representative_building_paths: [] },
+  { id: "phl-essington-tinicum", name: "Essington / Tinicum", slug: "essington-tinicum", city: "Essington", state_abbr: "PA", path: "/commercial-real-estate/PA/essington/essington-tinicum/", centroid_lat: 39.864, centroid_lng: -75.3, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_adjacent", "i95", "logistics", "service_commercial"], representative_building_paths: [] },
+  { id: "phl-camden-waterfront-industrial", name: "Camden Waterfront / Industrial", slug: "camden-waterfront-industrial", city: "Camden", state_abbr: "NJ", path: "/commercial-real-estate/NJ/camden/camden-waterfront-industrial/", centroid_lat: 39.944, centroid_lng: -75.12, area_type: "industrial_area", approximate_space_types: ["office", "industrial", "flex"], profile: ["waterfront", "industrial_flex", "south_jersey", "port_adjacent"], representative_building_paths: [] },
+  { id: "phl-king-of-prussia", name: "King of Prussia", slug: "king-of-prussia", city: "King of Prussia", state_abbr: "PA", path: "/commercial-real-estate/PA/king-of-prussia/king-of-prussia/", centroid_lat: 40.101, centroid_lng: -75.383, area_type: "district", approximate_space_types: ["office", "medical", "retail", "lab"], profile: ["suburban_office", "corporate", "life_science", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/PA/king-of-prussia/630-freedom-business-ctr-dr/"] },
+  { id: "phl-conshohocken", name: "Conshohocken", slug: "conshohocken", city: "Conshohocken", state_abbr: "PA", path: "/commercial-real-estate/PA/conshohocken/conshohocken/", centroid_lat: 40.079, centroid_lng: -75.301, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "regional_access", "professional_services", "schuylkill_corridor"], representative_building_paths: ["/commercial-real-estate/building/PA/conshohocken/200-barr-harbor-dr/"] },
+  { id: "phl-plymouth-meeting", name: "Plymouth Meeting", slug: "plymouth-meeting", city: "Plymouth Meeting", state_abbr: "PA", path: "/commercial-real-estate/PA/plymouth-meeting/plymouth-meeting/", centroid_lat: 40.102, centroid_lng: -75.275, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "medical", "regional_access", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/PA/plymouth-meeting/521-plymouth-rd/", "/commercial-real-estate/building/PA/plymouth-meeting/525-plymouth-rd/"] },
+  { id: "phl-bala-cynwyd", name: "Bala Cynwyd", slug: "bala-cynwyd", city: "Bala Cynwyd", state_abbr: "PA", path: "/commercial-real-estate/PA/bala-cynwyd/bala-cynwyd/", centroid_lat: 40.007, centroid_lng: -75.22, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "client_facing", "main_line_edge", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/PA/bala-cynwyd/150-monument-rd/"] },
+  { id: "phl-radnor", name: "Radnor", slug: "radnor", city: "Radnor", state_abbr: "PA", path: "/commercial-real-estate/PA/radnor/radnor/", centroid_lat: 40.043, centroid_lng: -75.36, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["main_line", "suburban_office", "corporate", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/PA/radnor/201-king-of-prussia-rd/"] },
+  { id: "phl-malvern", name: "Malvern", slug: "malvern", city: "Malvern", state_abbr: "PA", path: "/commercial-real-estate/PA/malvern/malvern/", centroid_lat: 40.037, centroid_lng: -75.514, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["suburban_office", "life_science", "technology", "route202"], representative_building_paths: ["/commercial-real-estate/building/PA/berwyn/1055-westlakes-dr/"] },
+  { id: "phl-wayne", name: "Wayne", slug: "wayne", city: "Wayne", state_abbr: "PA", path: "/commercial-real-estate/PA/wayne/wayne/", centroid_lat: 40.044, centroid_lng: -75.388, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["main_line", "professional_services", "suburban_office", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/PA/radnor/201-king-of-prussia-rd/", "/commercial-real-estate/building/PA/berwyn/1055-westlakes-dr/"] },
+  { id: "phl-fort-washington", name: "Fort Washington", slug: "fort-washington", city: "Fort Washington", state_abbr: "PA", path: "/commercial-real-estate/PA/fort-washington/fort-washington/", centroid_lat: 40.139, centroid_lng: -75.2, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["suburban_office", "office_flex", "turnpike", "medical"], representative_building_paths: ["/commercial-real-estate/building/PA/fort-washington/500-w-office-center-dr/"] },
+  { id: "phl-horsham", name: "Horsham", slug: "horsham", city: "Horsham", state_abbr: "PA", path: "/commercial-real-estate/PA/horsham/horsham/", centroid_lat: 40.178, centroid_lng: -75.128, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["office_flex", "suburban_office", "industrial_flex", "montgomery_county"], representative_building_paths: [] },
+  { id: "phl-cherry-hill", name: "Cherry Hill", slug: "cherry-hill", city: "Cherry Hill", state_abbr: "NJ", path: "/commercial-real-estate/NJ/cherry-hill/cherry-hill/", centroid_lat: 39.928, centroid_lng: -75.025, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["south_jersey", "suburban_office", "medical", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/NJ/cherry-hill/923-haddonfield-rd/"] },
+  { id: "phl-mount-laurel", name: "Mount Laurel", slug: "mount-laurel", city: "Mount Laurel", state_abbr: "NJ", path: "/commercial-real-estate/NJ/mount-laurel/mount-laurel/", centroid_lat: 39.934, centroid_lng: -74.89, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["south_jersey", "suburban_office", "office_flex", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/mount-laurel/309-fellowship-road-east-gate-center/", "/commercial-real-estate/building/NJ/mount-laurel/804-e-gate-dr/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4497,6 +4528,42 @@ function southFloridaDistrictPageFor(district) {
   };
 }
 
+function philadelphiaMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "philadelphia_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_philadelphia_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4740,6 +4807,7 @@ const dcMetroPages = dcMetroDistrictDefinitions.map(dcMetroDistrictPageFor);
 const bostonMetroPages = bostonMetroDistrictDefinitions.map(bostonMetroDistrictPageFor);
 const atlantaMetroPages = atlantaMetroDistrictDefinitions.map(atlantaMetroDistrictPageFor);
 const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistrictPageFor);
+const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadelphiaMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4874,6 +4942,13 @@ for (const page of atlantaMetroPages) {
 }
 
 for (const page of southFloridaPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of philadelphiaMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

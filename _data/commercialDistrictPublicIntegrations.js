@@ -2187,6 +2187,62 @@ Object.assign(
   )
 );
 
+const philadelphiaMetroIntegrationPages = [
+  ["Center City", "/commercial-real-estate/PA/philadelphia/center-city/"],
+  ["Market Street West", "/commercial-real-estate/PA/philadelphia/market-street-west/"],
+  ["Market East", "/commercial-real-estate/PA/philadelphia/market-east/"],
+  ["Rittenhouse Square", "/commercial-real-estate/PA/philadelphia/rittenhouse-square/"],
+  ["Old City", "/commercial-real-estate/PA/philadelphia/old-city/"],
+  ["University City", "/commercial-real-estate/PA/philadelphia/university-city/"],
+  ["Schuylkill Yards", "/commercial-real-estate/PA/philadelphia/schuylkill-yards/"],
+  ["Navy Yard", "/commercial-real-estate/PA/philadelphia/navy-yard/"],
+  ["South Philadelphia", "/commercial-real-estate/PA/philadelphia/south-philadelphia/"],
+  ["Northern Liberties / Fishtown", "/commercial-real-estate/PA/philadelphia/northern-liberties-fishtown/"],
+  ["Penn Medicine / CHOP Area", "/commercial-real-estate/PA/philadelphia/penn-medicine-chop-area/"],
+  ["Philadelphia Port / South Philadelphia Industrial", "/commercial-real-estate/PA/philadelphia/philadelphia-port-south-philadelphia-industrial/"],
+  ["Northeast Philadelphia Industrial", "/commercial-real-estate/PA/philadelphia/northeast-philadelphia-industrial/"],
+  ["I-95 Industrial Corridor", "/commercial-real-estate/PA/philadelphia/i-95-industrial-corridor/"],
+  ["Airport Area", "/commercial-real-estate/PA/philadelphia/airport-area/"],
+  ["Essington / Tinicum", "/commercial-real-estate/PA/essington/essington-tinicum/"],
+  ["Camden Waterfront / Industrial", "/commercial-real-estate/NJ/camden/camden-waterfront-industrial/"],
+  ["King of Prussia", "/commercial-real-estate/PA/king-of-prussia/king-of-prussia/"],
+  ["Conshohocken", "/commercial-real-estate/PA/conshohocken/conshohocken/"],
+  ["Plymouth Meeting", "/commercial-real-estate/PA/plymouth-meeting/plymouth-meeting/"],
+  ["Bala Cynwyd", "/commercial-real-estate/PA/bala-cynwyd/bala-cynwyd/"],
+  ["Radnor", "/commercial-real-estate/PA/radnor/radnor/"],
+  ["Malvern", "/commercial-real-estate/PA/malvern/malvern/"],
+  ["Wayne", "/commercial-real-estate/PA/wayne/wayne/"],
+  ["Fort Washington", "/commercial-real-estate/PA/fort-washington/fort-washington/"],
+  ["Horsham", "/commercial-real-estate/PA/horsham/horsham/"],
+  ["Cherry Hill", "/commercial-real-estate/NJ/cherry-hill/cherry-hill/"],
+  ["Mount Laurel", "/commercial-real-estate/NJ/mount-laurel/mount-laurel/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    philadelphiaMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Philadelphia Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Center City office, University City life science, Navy Yard and port logistics, suburban office corridors, and South Jersey alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
