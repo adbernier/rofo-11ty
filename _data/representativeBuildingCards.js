@@ -1,4 +1,10 @@
 const MAX_CARDS_PER_DISTRICT = 15;
+let representativeBuildingCardExpansions = { byDistrictPath: {} };
+try {
+  representativeBuildingCardExpansions = require("./representativeBuildingCardExpansions");
+} catch (error) {
+  if (error.code !== "MODULE_NOT_FOUND") throw error;
+}
 
 const WEIGHTS = {
   listing_frequency: 18,
@@ -299,21 +305,59 @@ const districtCards = {
   ],
 };
 
+function cardKey(card) {
+  return String(card.address || card.name || "")
+    .toLowerCase()
+    .replace(/[.,#]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function mergeGeneratedCards(baseCards, generatedCards) {
+  const seen = new Set();
+  return [...baseCards, ...generatedCards].filter((buildingCard) => {
+    const key = cardKey(buildingCard);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function materializeCards(cards) {
+  return cards
+    .map((buildingCard) => ({
+      ...buildingCard,
+      representative_score: representativeScore(buildingCard),
+    }))
+    .sort((a, b) => b.representative_score - a.representative_score)
+    .slice(0, MAX_CARDS_PER_DISTRICT);
+}
+
+const baseByDistrictPath = Object.fromEntries(
+  Object.entries(districtCards).map(([path, cards]) => [path, materializeCards(cards)])
+);
+
+const mergedDistrictCards = { ...districtCards };
+
+Object.entries(representativeBuildingCardExpansions.byDistrictPath || {}).forEach(
+  ([path, generatedCards]) => {
+    mergedDistrictCards[path] = mergeGeneratedCards(
+      mergedDistrictCards[path] || [],
+      generatedCards || []
+    );
+  }
+);
+
 const byDistrictPath = Object.fromEntries(
-  Object.entries(districtCards).map(([path, cards]) => [
+  Object.entries(mergedDistrictCards).map(([path, cards]) => [
     path,
-    cards
-      .map((buildingCard) => ({
-        ...buildingCard,
-        representative_score: representativeScore(buildingCard),
-      }))
-      .sort((a, b) => b.representative_score - a.representative_score)
-      .slice(0, MAX_CARDS_PER_DISTRICT),
+    materializeCards(cards),
   ])
 );
 
 module.exports = {
   byDistrictPath,
+  baseByDistrictPath,
   scoring: {
     max_cards_per_district: MAX_CARDS_PER_DISTRICT,
     weights: WEIGHTS,
