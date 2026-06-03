@@ -3916,6 +3916,30 @@ const philadelphiaMetroDistrictDefinitions = [
   { id: "phl-mount-laurel", name: "Mount Laurel", slug: "mount-laurel", city: "Mount Laurel", state_abbr: "NJ", path: "/commercial-real-estate/NJ/mount-laurel/mount-laurel/", centroid_lat: 39.934, centroid_lng: -74.89, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["south_jersey", "suburban_office", "office_flex", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/mount-laurel/309-fellowship-road-east-gate-center/", "/commercial-real-estate/building/NJ/mount-laurel/804-e-gate-dr/"] },
 ];
 
+const austinMetroDistrictDefinitions = [
+  { id: "aus-downtown-austin", name: "Downtown Austin", slug: "downtown-austin", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/downtown-austin/", centroid_lat: 30.267, centroid_lng: -97.743, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "startup", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/100-congress-ave/", "/commercial-real-estate/building/TX/austin/111-congress-ave/"] },
+  { id: "aus-cbd", name: "CBD", slug: "cbd", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/cbd/", centroid_lat: 30.269, centroid_lng: -97.742, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "formal_office", "finance", "legal"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/100-congress-ave/", "/commercial-real-estate/building/TX/austin/111-congress-ave/"] },
+  { id: "aus-rainey-street", name: "Rainey Street District", slug: "rainey-street-district", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/rainey-street-district/", centroid_lat: 30.258, centroid_lng: -97.738, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["mixed_use", "startup", "hospitality", "downtown_edge"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/100-congress-ave/"] },
+  { id: "aus-south-congress", name: "South Congress", slug: "south-congress", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/south-congress/", centroid_lat: 30.25, centroid_lng: -97.749, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["mixed_use", "retail_support", "creative_office", "local_services"], representative_building_paths: [] },
+  { id: "aus-east-austin", name: "East Austin", slug: "east-austin", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/east-austin/", centroid_lat: 30.264, centroid_lng: -97.719, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["startup", "creative_office", "adaptive_reuse", "mixed_use"], representative_building_paths: [] },
+  { id: "aus-domain", name: "The Domain", slug: "the-domain", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/the-domain/", centroid_lat: 30.402, centroid_lng: -97.726, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["tech", "suburban_office", "mixed_use", "corporate"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/10900-stonelake-blvd/", "/commercial-real-estate/building/TX/austin/10505-boyer-blvd/"] },
+  { id: "aus-north-austin", name: "North Austin", slug: "north-austin", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/north-austin/", centroid_lat: 30.378, centroid_lng: -97.711, area_type: "district", approximate_space_types: ["office", "flex", "industrial"], profile: ["tech", "office_flex", "suburban_office", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/10505-boyer-blvd/", "/commercial-real-estate/building/TX/austin/10900-stonelake-blvd/"] },
+  { id: "aus-university-innovation", name: "University / Innovation District", slug: "university-innovation-district", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/university-innovation-district/", centroid_lat: 30.286, centroid_lng: -97.735, area_type: "district", approximate_space_types: ["office", "lab", "coworking"], profile: ["university_adjacent", "startup", "research", "innovation"], representative_building_paths: [] },
+  { id: "aus-round-rock", name: "Round Rock", slug: "round-rock", city: "Round Rock", state_abbr: "TX", path: "/commercial-real-estate/TX/round-rock/round-rock/", centroid_lat: 30.508, centroid_lng: -97.679, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["suburban_office", "technology", "manufacturing", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/TX/round-rock/1-chisolm-trail-road/", "/commercial-real-estate/building/TX/round-rock/106-e-old-settlers-blvd/"] },
+  { id: "aus-cedar-park", name: "Cedar Park", slug: "cedar-park", city: "Cedar Park", state_abbr: "TX", path: "/commercial-real-estate/TX/cedar-park/cedar-park/", centroid_lat: 30.505, centroid_lng: -97.82, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "local_services", "medical", "northwest_growth"], representative_building_paths: ["/commercial-real-estate/building/TX/cedar-park/12800-anderson-mill-rd/"] },
+  { id: "aus-georgetown", name: "Georgetown", slug: "georgetown", city: "Georgetown", state_abbr: "TX", path: "/commercial-real-estate/TX/georgetown/georgetown/", centroid_lat: 30.633, centroid_lng: -97.678, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["north_growth", "suburban_office", "light_industrial", "local_services"], representative_building_paths: [] },
+  { id: "aus-pflugerville", name: "Pflugerville", slug: "pflugerville", city: "Pflugerville", state_abbr: "TX", path: "/commercial-real-estate/TX/pflugerville/pflugerville/", centroid_lat: 30.44, centroid_lng: -97.62, area_type: "district", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "logistics", "suburban_growth", "service_commercial"], representative_building_paths: [] },
+  { id: "aus-leander", name: "Leander", slug: "leander", city: "Leander", state_abbr: "TX", path: "/commercial-real-estate/TX/leander/leander/", centroid_lat: 30.579, centroid_lng: -97.854, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["northwest_growth", "local_services", "suburban_office", "medical"], representative_building_paths: [] },
+  { id: "aus-austin-airport-area", name: "Austin Airport Area", slug: "austin-airport-area", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/austin-airport-area/", centroid_lat: 30.203, centroid_lng: -97.666, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "industrial_flex", "service_commercial"], representative_building_paths: [] },
+  { id: "aus-southeast-industrial", name: "Southeast Austin Industrial", slug: "southeast-austin-industrial", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/southeast-austin-industrial/", centroid_lat: 30.205, centroid_lng: -97.725, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "warehouse", "logistics", "service_commercial"], representative_building_paths: [] },
+  { id: "aus-northeast-industrial", name: "Northeast Austin Industrial", slug: "northeast-austin-industrial", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/northeast-austin-industrial/", centroid_lat: 30.342, centroid_lng: -97.655, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "logistics", "office_flex", "service_commercial"], representative_building_paths: [] },
+  { id: "aus-parmer-corridor", name: "Parmer Corridor", slug: "parmer-corridor", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/parmer-corridor/", centroid_lat: 30.432, centroid_lng: -97.694, area_type: "corridor", approximate_space_types: ["office", "industrial", "flex"], profile: ["technology", "semiconductor", "office_flex", "rd"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/10900-stonelake-blvd/", "/commercial-real-estate/building/TX/austin/10505-boyer-blvd/"] },
+  { id: "aus-samsung-taylor-corridor", name: "Samsung / Taylor Corridor", slug: "samsung-taylor-corridor", city: "Taylor", state_abbr: "TX", path: "/commercial-real-estate/TX/taylor/samsung-taylor-corridor/", centroid_lat: 30.571, centroid_lng: -97.409, area_type: "corridor", approximate_space_types: ["industrial", "flex", "office"], profile: ["semiconductor", "advanced_manufacturing", "industrial_flex", "regional_growth"], representative_building_paths: [] },
+  { id: "aus-hutto", name: "Hutto", slug: "hutto", city: "Hutto", state_abbr: "TX", path: "/commercial-real-estate/TX/hutto/hutto/", centroid_lat: 30.542, centroid_lng: -97.546, area_type: "district", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "manufacturing", "suburban_growth", "service_commercial"], representative_building_paths: [] },
+  { id: "aus-kyle", name: "Kyle", slug: "kyle", city: "Kyle", state_abbr: "TX", path: "/commercial-real-estate/TX/kyle/kyle/", centroid_lat: 29.989, centroid_lng: -97.877, area_type: "district", approximate_space_types: ["industrial", "flex", "retail"], profile: ["south_growth", "logistics", "industrial_flex", "local_services"], representative_building_paths: [] },
+  { id: "aus-buda", name: "Buda", slug: "buda", city: "Buda", state_abbr: "TX", path: "/commercial-real-estate/TX/buda/buda/", centroid_lat: 30.085, centroid_lng: -97.841, area_type: "district", approximate_space_types: ["industrial", "flex", "retail"], profile: ["south_growth", "logistics", "industrial_flex", "service_commercial"], representative_building_paths: [] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4564,6 +4588,42 @@ function philadelphiaMetroDistrictPageFor(district) {
   };
 }
 
+function austinMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "austin_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_austin_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4808,6 +4868,7 @@ const bostonMetroPages = bostonMetroDistrictDefinitions.map(bostonMetroDistrictP
 const atlantaMetroPages = atlantaMetroDistrictDefinitions.map(atlantaMetroDistrictPageFor);
 const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistrictPageFor);
 const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadelphiaMetroDistrictPageFor);
+const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -4949,6 +5010,13 @@ for (const page of southFloridaPages) {
 }
 
 for (const page of philadelphiaMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of austinMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

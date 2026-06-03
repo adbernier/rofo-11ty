@@ -2243,6 +2243,55 @@ Object.assign(
   )
 );
 
+const austinMetroIntegrationPages = [
+  ["Downtown Austin", "/commercial-real-estate/TX/austin/downtown-austin/"],
+  ["CBD", "/commercial-real-estate/TX/austin/cbd/"],
+  ["Rainey Street District", "/commercial-real-estate/TX/austin/rainey-street-district/"],
+  ["South Congress", "/commercial-real-estate/TX/austin/south-congress/"],
+  ["East Austin", "/commercial-real-estate/TX/austin/east-austin/"],
+  ["The Domain", "/commercial-real-estate/TX/austin/the-domain/"],
+  ["North Austin", "/commercial-real-estate/TX/austin/north-austin/"],
+  ["University / Innovation District", "/commercial-real-estate/TX/austin/university-innovation-district/"],
+  ["Round Rock", "/commercial-real-estate/TX/round-rock/round-rock/"],
+  ["Cedar Park", "/commercial-real-estate/TX/cedar-park/cedar-park/"],
+  ["Georgetown", "/commercial-real-estate/TX/georgetown/georgetown/"],
+  ["Pflugerville", "/commercial-real-estate/TX/pflugerville/pflugerville/"],
+  ["Leander", "/commercial-real-estate/TX/leander/leander/"],
+  ["Austin Airport Area", "/commercial-real-estate/TX/austin/austin-airport-area/"],
+  ["Southeast Austin Industrial", "/commercial-real-estate/TX/austin/southeast-austin-industrial/"],
+  ["Northeast Austin Industrial", "/commercial-real-estate/TX/austin/northeast-austin-industrial/"],
+  ["Parmer Corridor", "/commercial-real-estate/TX/austin/parmer-corridor/"],
+  ["Samsung / Taylor Corridor", "/commercial-real-estate/TX/taylor/samsung-taylor-corridor/"],
+  ["Hutto", "/commercial-real-estate/TX/hutto/hutto/"],
+  ["Kyle", "/commercial-real-estate/TX/kyle/kyle/"],
+  ["Buda", "/commercial-real-estate/TX/buda/buda/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    austinMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Austin Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within downtown office, north Austin tech, suburban growth corridors, industrial/logistics areas, and semiconductor manufacturing alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
