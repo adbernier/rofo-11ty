@@ -3940,6 +3940,47 @@ const austinMetroDistrictDefinitions = [
   { id: "aus-buda", name: "Buda", slug: "buda", city: "Buda", state_abbr: "TX", path: "/commercial-real-estate/TX/buda/buda/", centroid_lat: 30.085, centroid_lng: -97.841, area_type: "district", approximate_space_types: ["industrial", "flex", "retail"], profile: ["south_growth", "logistics", "industrial_flex", "service_commercial"], representative_building_paths: [] },
 ];
 
+const houstonMetroDistrictDefinitions = [
+  { id: "hou-downtown-houston", name: "Downtown Houston", slug: "downtown-houston", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/downtown-houston/", centroid_lat: 29.76, centroid_lng: -95.369, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "energy", "civic"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/801-louisiana-st/", "/commercial-real-estate/building/TX/houston/1201-fannin-st/"] },
+  { id: "hou-cbd", name: "Houston CBD", slug: "houston-cbd", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/houston-cbd/", centroid_lat: 29.758, centroid_lng: -95.367, area_type: "district", approximate_space_types: ["office", "coworking"], profile: ["formal_office", "energy", "finance", "legal"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/801-louisiana-st/", "/commercial-real-estate/building/TX/houston/1201-fannin-st/"] },
+  { id: "hou-midtown", name: "Midtown Houston", slug: "midtown-houston", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/midtown-houston/", centroid_lat: 29.742, centroid_lng: -95.376, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["mixed_use", "medical_adjacent", "local_services", "central"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/2000-crawford-st/"] },
+  { id: "hou-montrose", name: "Montrose", slug: "montrose", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/montrose/", centroid_lat: 29.742, centroid_lng: -95.397, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["boutique_office", "creative_office", "local_services", "medical"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/4101-greenbriar-dr/"] },
+  { id: "hou-eado", name: "EaDo", slug: "eado", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/eado/", centroid_lat: 29.747, centroid_lng: -95.349, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["adaptive_reuse", "startup", "creative_office", "downtown_edge"], representative_building_paths: [] },
+  { id: "hou-heights", name: "The Heights", slug: "the-heights", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/the-heights/", centroid_lat: 29.803, centroid_lng: -95.398, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["local_services", "boutique_office", "retail_support", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/1415-north-loop-w/"] },
+  { id: "hou-greenway-plaza", name: "Greenway Plaza", slug: "greenway-plaza", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/greenway-plaza/", centroid_lat: 29.731, centroid_lng: -95.432, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["office", "client_facing", "central_west", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/3730-kirby-dr/", "/commercial-real-estate/building/TX/houston/4101-greenbriar-dr/"] },
+  { id: "hou-upper-kirby", name: "Upper Kirby", slug: "upper-kirby", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/upper-kirby/", centroid_lat: 29.734, centroid_lng: -95.419, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["client_facing", "boutique_office", "retail_support", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/3730-kirby-dr/", "/commercial-real-estate/building/TX/houston/4801-woodway-dr/"] },
+  { id: "hou-uptown-galleria", name: "Uptown / Galleria", slug: "uptown-galleria", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/uptown-galleria/", centroid_lat: 29.741, centroid_lng: -95.461, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["client_facing", "office", "retail_support", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/1980-post-oak-blvd/", "/commercial-real-estate/building/TX/houston/1700-post-oak-blvd/", "/commercial-real-estate/building/TX/houston/5847-san-felipe-st/"] },
+  { id: "hou-river-oaks-district", name: "River Oaks District", slug: "river-oaks-district", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/river-oaks-district/", centroid_lat: 29.742, centroid_lng: -95.453, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["client_facing", "retail_support", "wealth", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/1700-post-oak-blvd/", "/commercial-real-estate/building/TX/houston/4801-woodway-dr/"] },
+  { id: "hou-energy-corridor", name: "Energy Corridor", slug: "energy-corridor", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/energy-corridor/", centroid_lat: 29.785, centroid_lng: -95.634, area_type: "corridor", approximate_space_types: ["office", "flex"], profile: ["energy", "corporate", "campus", "west_houston"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/15730-park-row-dr/", "/commercial-real-estate/building/TX/houston/15740-park-row-dr/"] },
+  { id: "hou-westchase", name: "Westchase", slug: "westchase", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/westchase/", centroid_lat: 29.729, centroid_lng: -95.56, area_type: "district", approximate_space_types: ["office", "flex", "retail"], profile: ["suburban_office", "energy", "office_flex", "west_houston"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/2500-wilcrest-dr/", "/commercial-real-estate/building/TX/houston/2323-s-voss-rd/"] },
+  { id: "hou-memorial-city", name: "Memorial City", slug: "memorial-city", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/memorial-city/", centroid_lat: 29.781, centroid_lng: -95.544, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "medical", "retail_support", "west_houston"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/800-town-and-country-blvd/"] },
+  { id: "hou-citycentre", name: "CityCentre", slug: "citycentre", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/citycentre/", centroid_lat: 29.78, centroid_lng: -95.561, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["mixed_use", "suburban_office", "retail_support", "west_houston"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/800-town-and-country-blvd/"] },
+  { id: "hou-katy", name: "Katy", slug: "katy", city: "Katy", state_abbr: "TX", path: "/commercial-real-estate/TX/katy/katy/", centroid_lat: 29.785, centroid_lng: -95.824, area_type: "district", approximate_space_types: ["office", "medical", "retail", "industrial"], profile: ["west_growth", "suburban_office", "local_services", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/TX/katy/2717-commercial-center-blvd/", "/commercial-real-estate/building/TX/katy/29789-us-90/"] },
+  { id: "hou-the-woodlands", name: "The Woodlands", slug: "the-woodlands", city: "The Woodlands", state_abbr: "TX", path: "/commercial-real-estate/TX/the-woodlands/the-woodlands/", centroid_lat: 30.165, centroid_lng: -95.461, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["corporate", "suburban_office", "healthcare", "north_growth"], representative_building_paths: ["/commercial-real-estate/building/TX/the-woodlands/10210-grogans-mill-rd/", "/commercial-real-estate/building/TX/the-woodlands/1790-hughes-landing-blvd/", "/commercial-real-estate/building/TX/the-woodlands/2002-timberloch-place/", "/commercial-real-estate/building/TX/the-woodlands/21-waterway-ave/", "/commercial-real-estate/building/TX/the-woodlands/9595-six-pines-dr/"] },
+  { id: "hou-greenspoint", name: "Greenspoint", slug: "greenspoint", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/greenspoint/", centroid_lat: 29.945, centroid_lng: -95.412, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["airport_adjacent", "office_flex", "north_houston", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/340-350-n-sam-houston-pkwy-e/", "/commercial-real-estate/building/TX/houston/507-n-sam-houston-pkwy-e/"] },
+  { id: "hou-texas-medical-center", name: "Texas Medical Center", slug: "texas-medical-center", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/texas-medical-center/", centroid_lat: 29.706, centroid_lng: -95.401, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["healthcare", "life_science", "medical", "research"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/4101-greenbriar-dr/", "/commercial-real-estate/building/TX/houston/2000-crawford-st/"] },
+  { id: "hou-medical-center-museum-district", name: "Medical Center / Museum District", slug: "medical-center-museum-district", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/medical-center-museum-district/", centroid_lat: 29.721, centroid_lng: -95.389, area_type: "district", approximate_space_types: ["medical", "office", "retail"], profile: ["healthcare", "medical", "institutional", "central"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/4101-greenbriar-dr/", "/commercial-real-estate/building/TX/houston/2000-crawford-st/"] },
+  { id: "hou-pearland", name: "Pearland", slug: "pearland", city: "Pearland", state_abbr: "TX", path: "/commercial-real-estate/TX/pearland/pearland/", centroid_lat: 29.563, centroid_lng: -95.286, area_type: "district", approximate_space_types: ["office", "medical", "retail", "industrial"], profile: ["south_growth", "medical", "local_services", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/TX/pearland/11200-broadway-st/"] },
+  { id: "hou-port-houston", name: "Port Houston", slug: "port-houston", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/port-houston/", centroid_lat: 29.735, centroid_lng: -95.265, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["port", "logistics", "warehouse", "petrochemical"], representative_building_paths: [] },
+  { id: "hou-ship-channel-east-industrial", name: "Ship Channel / East Houston Industrial", slug: "ship-channel-east-houston-industrial", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/ship-channel-east-houston-industrial/", centroid_lat: 29.758, centroid_lng: -95.19, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["ship_channel", "petrochemical", "logistics", "manufacturing"], representative_building_paths: [] },
+  { id: "hou-pasadena", name: "Pasadena", slug: "pasadena", city: "Pasadena", state_abbr: "TX", path: "/commercial-real-estate/TX/pasadena/pasadena/", centroid_lat: 29.691, centroid_lng: -95.209, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["petrochemical", "industrial_flex", "ship_channel", "service_commercial"], representative_building_paths: [] },
+  { id: "hou-deer-park", name: "Deer Park", slug: "deer-park", city: "Deer Park", state_abbr: "TX", path: "/commercial-real-estate/TX/deer-park/deer-park/", centroid_lat: 29.705, centroid_lng: -95.123, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["petrochemical", "ship_channel", "industrial_services", "manufacturing"], representative_building_paths: [] },
+  { id: "hou-baytown", name: "Baytown", slug: "baytown", city: "Baytown", state_abbr: "TX", path: "/commercial-real-estate/TX/baytown/baytown/", centroid_lat: 29.736, centroid_lng: -94.978, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "retail"], profile: ["petrochemical", "port_adjacent", "logistics", "manufacturing"], representative_building_paths: [] },
+  { id: "hou-la-porte", name: "La Porte", slug: "la-porte", city: "La Porte", state_abbr: "TX", path: "/commercial-real-estate/TX/la-porte/la-porte/", centroid_lat: 29.665, centroid_lng: -95.019, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["ship_channel", "petrochemical", "port_adjacent", "industrial_services"], representative_building_paths: [] },
+  { id: "hou-channelview", name: "Channelview", slug: "channelview", city: "Channelview", state_abbr: "TX", path: "/commercial-real-estate/TX/channelview/channelview/", centroid_lat: 29.776, centroid_lng: -95.114, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["ship_channel", "petrochemical", "logistics", "service_commercial"], representative_building_paths: [] },
+  { id: "hou-north-industrial", name: "North Houston Industrial", slug: "north-houston-industrial", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/north-houston-industrial/", centroid_lat: 29.94, centroid_lng: -95.38, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "logistics", "airport_adjacent", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/507-n-sam-houston-pkwy-e/", "/commercial-real-estate/building/TX/houston/340-350-n-sam-houston-pkwy-e/"] },
+  { id: "hou-northwest-industrial", name: "Northwest Houston Industrial", slug: "northwest-houston-industrial", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/northwest-houston-industrial/", centroid_lat: 29.86, centroid_lng: -95.52, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "warehouse", "logistics", "northwest"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/13201-northwest-freeway/", "/commercial-real-estate/building/TX/houston/7676-hillmont-st/", "/commercial-real-estate/building/TX/houston/5600-northwest-central-dr/"] },
+  { id: "hou-south-industrial", name: "South Houston Industrial", slug: "south-houston-industrial", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/south-houston-industrial/", centroid_lat: 29.65, centroid_lng: -95.34, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "logistics", "hobby_access", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/2600-south-loop-w/"] },
+  { id: "hou-hobby-airport-area", name: "Hobby Airport Area", slug: "hobby-airport-area", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/hobby-airport-area/", centroid_lat: 29.645, centroid_lng: -95.278, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "industrial_flex", "service_commercial"], representative_building_paths: [] },
+  { id: "hou-bush-airport-area", name: "Bush Airport / IAH Area", slug: "bush-airport-iah-area", city: "Houston", state_abbr: "TX", path: "/commercial-real-estate/TX/houston/bush-airport-iah-area/", centroid_lat: 29.99, centroid_lng: -95.34, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "north_houston", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/TX/houston/507-n-sam-houston-pkwy-e/", "/commercial-real-estate/building/TX/houston/16770-imperial-valley-dr/"] },
+  { id: "hou-sugar-land", name: "Sugar Land", slug: "sugar-land", city: "Sugar Land", state_abbr: "TX", path: "/commercial-real-estate/TX/sugar-land/sugar-land/", centroid_lat: 29.619, centroid_lng: -95.635, area_type: "district", approximate_space_types: ["office", "medical", "industrial", "retail"], profile: ["suburban_office", "medical", "southwest_growth", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/TX/sugar-land/12808-w-airport-blvd/", "/commercial-real-estate/building/TX/sugar-land/14090-southwest-freeway/", "/commercial-real-estate/building/TX/sugar-land/1601-industrial-blvd/", "/commercial-real-estate/building/TX/sugar-land/2245-texas-dr/", "/commercial-real-estate/building/TX/sugar-land/three-sugar-creek-center/"] },
+  { id: "hou-stafford", name: "Stafford", slug: "stafford", city: "Stafford", state_abbr: "TX", path: "/commercial-real-estate/TX/stafford/stafford/", centroid_lat: 29.616, centroid_lng: -95.557, area_type: "district", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "southwest", "service_commercial", "office_flex"], representative_building_paths: [] },
+  { id: "hou-missouri-city", name: "Missouri City", slug: "missouri-city", city: "Missouri City", state_abbr: "TX", path: "/commercial-real-estate/TX/missouri-city/missouri-city/", centroid_lat: 29.618, centroid_lng: -95.537, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["local_services", "southwest_growth", "medical", "retail_support"], representative_building_paths: [] },
+  { id: "hou-cypress", name: "Cypress", slug: "cypress", city: "Cypress", state_abbr: "TX", path: "/commercial-real-estate/TX/cypress/cypress/", centroid_lat: 29.969, centroid_lng: -95.697, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["northwest_growth", "local_services", "medical", "suburban_office"], representative_building_paths: [] },
+  { id: "hou-spring", name: "Spring", slug: "spring", city: "Spring", state_abbr: "TX", path: "/commercial-real-estate/TX/spring/spring/", centroid_lat: 30.079, centroid_lng: -95.417, area_type: "district", approximate_space_types: ["office", "medical", "industrial"], profile: ["north_growth", "suburban_office", "medical", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/TX/spring/24624-interstate-45-north/"] },
+  { id: "hou-conroe", name: "Conroe", slug: "conroe", city: "Conroe", state_abbr: "TX", path: "/commercial-real-estate/TX/conroe/conroe/", centroid_lat: 30.312, centroid_lng: -95.456, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["north_growth", "industrial_flex", "local_services", "regional_access"], representative_building_paths: [] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4624,6 +4665,42 @@ function austinMetroDistrictPageFor(district) {
   };
 }
 
+function houstonMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "houston_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_houston_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4869,6 +4946,7 @@ const atlantaMetroPages = atlantaMetroDistrictDefinitions.map(atlantaMetroDistri
 const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistrictPageFor);
 const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadelphiaMetroDistrictPageFor);
 const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictPageFor);
+const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -5017,6 +5095,13 @@ for (const page of philadelphiaMetroPages) {
 }
 
 for (const page of austinMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of houstonMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

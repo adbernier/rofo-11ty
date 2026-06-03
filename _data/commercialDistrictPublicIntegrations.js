@@ -2292,6 +2292,72 @@ Object.assign(
   )
 );
 
+const houstonMetroIntegrationPages = [
+  ["Downtown Houston", "/commercial-real-estate/TX/houston/downtown-houston/"],
+  ["Houston CBD", "/commercial-real-estate/TX/houston/houston-cbd/"],
+  ["Midtown Houston", "/commercial-real-estate/TX/houston/midtown-houston/"],
+  ["Montrose", "/commercial-real-estate/TX/houston/montrose/"],
+  ["EaDo", "/commercial-real-estate/TX/houston/eado/"],
+  ["The Heights", "/commercial-real-estate/TX/houston/the-heights/"],
+  ["Greenway Plaza", "/commercial-real-estate/TX/houston/greenway-plaza/"],
+  ["Upper Kirby", "/commercial-real-estate/TX/houston/upper-kirby/"],
+  ["Uptown / Galleria", "/commercial-real-estate/TX/houston/uptown-galleria/"],
+  ["River Oaks District", "/commercial-real-estate/TX/houston/river-oaks-district/"],
+  ["Energy Corridor", "/commercial-real-estate/TX/houston/energy-corridor/"],
+  ["Westchase", "/commercial-real-estate/TX/houston/westchase/"],
+  ["Memorial City", "/commercial-real-estate/TX/houston/memorial-city/"],
+  ["CityCentre", "/commercial-real-estate/TX/houston/citycentre/"],
+  ["Katy", "/commercial-real-estate/TX/katy/katy/"],
+  ["The Woodlands", "/commercial-real-estate/TX/the-woodlands/the-woodlands/"],
+  ["Greenspoint", "/commercial-real-estate/TX/houston/greenspoint/"],
+  ["Texas Medical Center", "/commercial-real-estate/TX/houston/texas-medical-center/"],
+  ["Medical Center / Museum District", "/commercial-real-estate/TX/houston/medical-center-museum-district/"],
+  ["Pearland", "/commercial-real-estate/TX/pearland/pearland/"],
+  ["Port Houston", "/commercial-real-estate/TX/houston/port-houston/"],
+  ["Ship Channel / East Houston Industrial", "/commercial-real-estate/TX/houston/ship-channel-east-houston-industrial/"],
+  ["Pasadena", "/commercial-real-estate/TX/pasadena/pasadena/"],
+  ["Deer Park", "/commercial-real-estate/TX/deer-park/deer-park/"],
+  ["Baytown", "/commercial-real-estate/TX/baytown/baytown/"],
+  ["La Porte", "/commercial-real-estate/TX/la-porte/la-porte/"],
+  ["Channelview", "/commercial-real-estate/TX/channelview/channelview/"],
+  ["North Houston Industrial", "/commercial-real-estate/TX/houston/north-houston-industrial/"],
+  ["Northwest Houston Industrial", "/commercial-real-estate/TX/houston/northwest-houston-industrial/"],
+  ["South Houston Industrial", "/commercial-real-estate/TX/houston/south-houston-industrial/"],
+  ["Hobby Airport Area", "/commercial-real-estate/TX/houston/hobby-airport-area/"],
+  ["Bush Airport / IAH Area", "/commercial-real-estate/TX/houston/bush-airport-iah-area/"],
+  ["Sugar Land", "/commercial-real-estate/TX/sugar-land/sugar-land/"],
+  ["Stafford", "/commercial-real-estate/TX/stafford/stafford/"],
+  ["Missouri City", "/commercial-real-estate/TX/missouri-city/missouri-city/"],
+  ["Cypress", "/commercial-real-estate/TX/cypress/cypress/"],
+  ["Spring", "/commercial-real-estate/TX/spring/spring/"],
+  ["Conroe", "/commercial-real-estate/TX/conroe/conroe/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    houstonMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Houston Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Houston office, energy, Texas Medical Center, port, petrochemical, airport logistics, and suburban business alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
