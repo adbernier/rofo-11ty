@@ -3981,6 +3981,36 @@ const houstonMetroDistrictDefinitions = [
   { id: "hou-conroe", name: "Conroe", slug: "conroe", city: "Conroe", state_abbr: "TX", path: "/commercial-real-estate/TX/conroe/conroe/", centroid_lat: 30.312, centroid_lng: -95.456, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["north_growth", "industrial_flex", "local_services", "regional_access"], representative_building_paths: [] },
 ];
 
+const nashvilleMetroDistrictDefinitions = [
+  { id: "nash-downtown", name: "Downtown Nashville", slug: "downtown-nashville", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/downtown-nashville/", centroid_lat: 36.163, centroid_lng: -86.781, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "entertainment", "hospitality"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/150-4th-ave-n/", "/commercial-real-estate/building/TN/nashville/222-second-ave-s/", "/commercial-real-estate/building/TN/nashville/424-church-st/"] },
+  { id: "nash-sobro", name: "SoBro", slug: "sobro", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/sobro/", centroid_lat: 36.157, centroid_lng: -86.775, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["entertainment", "hospitality", "downtown_edge", "creative_office"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/222-second-ave-s/", "/commercial-real-estate/building/TN/nashville/150-4th-ave-n/"] },
+  { id: "nash-gulch", name: "The Gulch", slug: "the-gulch", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/the-gulch/", centroid_lat: 36.153, centroid_lng: -86.784, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["mixed_use", "creative_office", "hospitality", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/222-second-ave-s/"] },
+  { id: "nash-midtown", name: "Midtown Nashville", slug: "midtown-nashville", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/midtown-nashville/", centroid_lat: 36.148, centroid_lng: -86.798, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["healthcare", "education", "office", "music"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/818-18th-ave-s/", "/commercial-real-estate/building/TN/nashville/3102-west-end-ave/"] },
+  { id: "nash-music-row", name: "Music Row", slug: "music-row", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/music-row/", centroid_lat: 36.151, centroid_lng: -86.793, area_type: "district", approximate_space_types: ["office", "studio", "retail"], profile: ["music", "entertainment", "creative_office", "media"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/818-18th-ave-s/"] },
+  { id: "nash-west-end", name: "West End", slug: "west-end", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/west-end/", centroid_lat: 36.144, centroid_lng: -86.811, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["healthcare", "education", "professional_services", "medical"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/3102-west-end-ave/", "/commercial-real-estate/building/TN/nashville/3200-west-end-ave/"] },
+  { id: "nash-germantown", name: "Germantown", slug: "germantown", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/germantown/", centroid_lat: 36.176, centroid_lng: -86.786, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["mixed_use", "creative_office", "local_services", "hospitality"], representative_building_paths: [] },
+  { id: "nash-east-nashville", name: "East Nashville", slug: "east-nashville", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/east-nashville/", centroid_lat: 36.178, centroid_lng: -86.742, area_type: "district", approximate_space_types: ["office", "retail", "commercial"], profile: ["creative_office", "local_services", "mixed_use", "small_business"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/901-woodland-st/"] },
+  { id: "nash-vanderbilt-medical", name: "Vanderbilt / Medical District", slug: "vanderbilt-medical-district", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/vanderbilt-medical-district/", centroid_lat: 36.143, centroid_lng: -86.802, area_type: "district", approximate_space_types: ["medical", "office", "lab"], profile: ["healthcare", "education", "medical", "research"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/3102-west-end-ave/", "/commercial-real-estate/building/TN/nashville/3200-west-end-ave/"] },
+  { id: "nash-healthcare-corridor", name: "Healthcare Corridor", slug: "healthcare-corridor", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/healthcare-corridor/", centroid_lat: 36.129, centroid_lng: -86.82, area_type: "corridor", approximate_space_types: ["medical", "office"], profile: ["healthcare", "medical", "professional_services", "institutional"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/40-burton-hills-blvd/", "/commercial-real-estate/building/TN/nashville/3102-west-end-ave/"] },
+  { id: "nash-brentwood", name: "Brentwood", slug: "brentwood", city: "Brentwood", state_abbr: "TN", path: "/commercial-real-estate/TN/brentwood/brentwood/", centroid_lat: 36.033, centroid_lng: -86.782, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "healthcare", "professional_services", "corporate"], representative_building_paths: ["/commercial-real-estate/building/TN/brentwood/320-seven-springs-way/", "/commercial-real-estate/building/TN/brentwood/9005-overlook-blvd/"] },
+  { id: "nash-franklin", name: "Franklin", slug: "franklin", city: "Franklin", state_abbr: "TN", path: "/commercial-real-estate/TN/franklin/franklin/", centroid_lat: 35.925, centroid_lng: -86.869, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "corporate", "healthcare", "south_growth"], representative_building_paths: ["/commercial-real-estate/building/TN/franklin/2550-meridian-blvd/", "/commercial-real-estate/building/TN/franklin/3401-mallory-ln/", "/commercial-real-estate/building/TN/franklin/725-cool-springs-blvd/"] },
+  { id: "nash-cool-springs", name: "Cool Springs", slug: "cool-springs", city: "Franklin", state_abbr: "TN", path: "/commercial-real-estate/TN/franklin/cool-springs/", centroid_lat: 35.945, centroid_lng: -86.821, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_office", "corporate", "retail_support", "healthcare"], representative_building_paths: ["/commercial-real-estate/building/TN/franklin/725-cool-springs-blvd/", "/commercial-real-estate/building/TN/franklin/2550-meridian-blvd/"] },
+  { id: "nash-green-hills", name: "Green Hills", slug: "green-hills", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/green-hills/", centroid_lat: 36.107, centroid_lng: -86.816, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "medical", "retail_support", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/40-burton-hills-blvd/"] },
+  { id: "nash-bellevue", name: "Bellevue", slug: "bellevue", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/bellevue/", centroid_lat: 36.071, centroid_lng: -86.935, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["local_services", "west_growth", "medical", "retail_support"], representative_building_paths: [] },
+  { id: "nash-hendersonville", name: "Hendersonville", slug: "hendersonville", city: "Hendersonville", state_abbr: "TN", path: "/commercial-real-estate/TN/hendersonville/hendersonville/", centroid_lat: 36.304, centroid_lng: -86.62, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["north_growth", "local_services", "medical", "retail_support"], representative_building_paths: [] },
+  { id: "nash-mt-juliet", name: "Mt. Juliet", slug: "mt-juliet", city: "Mt. Juliet", state_abbr: "TN", path: "/commercial-real-estate/TN/mt-juliet/mt-juliet/", centroid_lat: 36.2, centroid_lng: -86.519, area_type: "district", approximate_space_types: ["industrial", "office", "retail"], profile: ["east_growth", "logistics", "local_services", "retail_support"], representative_building_paths: [] },
+  { id: "nash-murfreesboro", name: "Murfreesboro", slug: "murfreesboro", city: "Murfreesboro", state_abbr: "TN", path: "/commercial-real-estate/TN/murfreesboro/murfreesboro/", centroid_lat: 35.846, centroid_lng: -86.392, area_type: "district", approximate_space_types: ["office", "medical", "industrial"], profile: ["south_growth", "regional_office", "medical", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/TN/murfreesboro/2615-medical-center-pkwy/"] },
+  { id: "nash-airport-area", name: "Nashville Airport Area", slug: "nashville-airport-area", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/nashville-airport-area/", centroid_lat: 36.126, centroid_lng: -86.678, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "office_flex", "hospitality_support"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/101-airpark-center-dr-e/", "/commercial-real-estate/building/TN/nashville/555-marriott-dr/"] },
+  { id: "nash-southeast-industrial", name: "Southeast Nashville Industrial", slug: "southeast-nashville-industrial", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/southeast-nashville-industrial/", centroid_lat: 36.089, centroid_lng: -86.658, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "logistics", "warehouse", "manufacturing"], representative_building_paths: ["/commercial-real-estate/building/TN/nashville/101-airpark-center-dr-e/"] },
+  { id: "nash-north-industrial", name: "North Nashville Industrial", slug: "north-nashville-industrial", city: "Nashville", state_abbr: "TN", path: "/commercial-real-estate/TN/nashville/north-nashville-industrial/", centroid_lat: 36.221, centroid_lng: -86.803, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "service_commercial", "warehouse", "northside"], representative_building_paths: [] },
+  { id: "nash-la-vergne", name: "La Vergne", slug: "la-vergne", city: "La Vergne", state_abbr: "TN", path: "/commercial-real-estate/TN/la-vergne/la-vergne/", centroid_lat: 36.015, centroid_lng: -86.581, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "logistics", "manufacturing", "southeast_growth"], representative_building_paths: [] },
+  { id: "nash-smyrna", name: "Smyrna", slug: "smyrna", city: "Smyrna", state_abbr: "TN", path: "/commercial-real-estate/TN/smyrna/smyrna/", centroid_lat: 35.982, centroid_lng: -86.518, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["manufacturing", "logistics", "industrial_flex", "southeast_growth"], representative_building_paths: ["/commercial-real-estate/building/TN/smyrna/2250-midway-ln/"] },
+  { id: "nash-lebanon", name: "Lebanon", slug: "lebanon", city: "Lebanon", state_abbr: "TN", path: "/commercial-real-estate/TN/lebanon/lebanon/", centroid_lat: 36.208, centroid_lng: -86.292, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["logistics", "manufacturing", "east_growth", "industrial_flex"], representative_building_paths: [] },
+  { id: "nash-gallatin", name: "Gallatin", slug: "gallatin", city: "Gallatin", state_abbr: "TN", path: "/commercial-real-estate/TN/gallatin/gallatin/", centroid_lat: 36.388, centroid_lng: -86.447, area_type: "district", approximate_space_types: ["industrial", "office", "retail"], profile: ["north_growth", "manufacturing", "local_services", "industrial_flex"], representative_building_paths: [] },
+  { id: "nash-antioch", name: "Antioch", slug: "antioch", city: "Antioch", state_abbr: "TN", path: "/commercial-real-estate/TN/antioch/antioch/", centroid_lat: 36.06, centroid_lng: -86.672, area_type: "district", approximate_space_types: ["industrial", "retail", "office"], profile: ["southeast_growth", "service_commercial", "industrial_flex", "local_services"], representative_building_paths: [] },
+  { id: "nash-clarksville", name: "Clarksville", slug: "clarksville", city: "Clarksville", state_abbr: "TN", path: "/commercial-real-estate/TN/clarksville/clarksville/", centroid_lat: 36.529, centroid_lng: -87.359, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["regional_market", "manufacturing", "military_adjacent", "local_services"], representative_building_paths: [] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4701,6 +4731,42 @@ function houstonMetroDistrictPageFor(district) {
   };
 }
 
+function nashvilleMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "nashville_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_nashville_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -4947,6 +5013,7 @@ const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistri
 const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadelphiaMetroDistrictPageFor);
 const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictPageFor);
 const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistrictPageFor);
+const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetroDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -5102,6 +5169,13 @@ for (const page of austinMetroPages) {
 }
 
 for (const page of houstonMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of nashvilleMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

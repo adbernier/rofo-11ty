@@ -2358,6 +2358,61 @@ Object.assign(
   )
 );
 
+const nashvilleMetroIntegrationPages = [
+  ["Downtown Nashville", "/commercial-real-estate/TN/nashville/downtown-nashville/"],
+  ["SoBro", "/commercial-real-estate/TN/nashville/sobro/"],
+  ["The Gulch", "/commercial-real-estate/TN/nashville/the-gulch/"],
+  ["Midtown Nashville", "/commercial-real-estate/TN/nashville/midtown-nashville/"],
+  ["Music Row", "/commercial-real-estate/TN/nashville/music-row/"],
+  ["West End", "/commercial-real-estate/TN/nashville/west-end/"],
+  ["Germantown", "/commercial-real-estate/TN/nashville/germantown/"],
+  ["East Nashville", "/commercial-real-estate/TN/nashville/east-nashville/"],
+  ["Vanderbilt / Medical District", "/commercial-real-estate/TN/nashville/vanderbilt-medical-district/"],
+  ["Healthcare Corridor", "/commercial-real-estate/TN/nashville/healthcare-corridor/"],
+  ["Brentwood", "/commercial-real-estate/TN/brentwood/brentwood/"],
+  ["Franklin", "/commercial-real-estate/TN/franklin/franklin/"],
+  ["Cool Springs", "/commercial-real-estate/TN/franklin/cool-springs/"],
+  ["Green Hills", "/commercial-real-estate/TN/nashville/green-hills/"],
+  ["Bellevue", "/commercial-real-estate/TN/nashville/bellevue/"],
+  ["Hendersonville", "/commercial-real-estate/TN/hendersonville/hendersonville/"],
+  ["Mt. Juliet", "/commercial-real-estate/TN/mt-juliet/mt-juliet/"],
+  ["Murfreesboro", "/commercial-real-estate/TN/murfreesboro/murfreesboro/"],
+  ["Nashville Airport Area", "/commercial-real-estate/TN/nashville/nashville-airport-area/"],
+  ["Southeast Nashville Industrial", "/commercial-real-estate/TN/nashville/southeast-nashville-industrial/"],
+  ["North Nashville Industrial", "/commercial-real-estate/TN/nashville/north-nashville-industrial/"],
+  ["La Vergne", "/commercial-real-estate/TN/la-vergne/la-vergne/"],
+  ["Smyrna", "/commercial-real-estate/TN/smyrna/smyrna/"],
+  ["Lebanon", "/commercial-real-estate/TN/lebanon/lebanon/"],
+  ["Gallatin", "/commercial-real-estate/TN/gallatin/gallatin/"],
+  ["Antioch", "/commercial-real-estate/TN/antioch/antioch/"],
+  ["Clarksville", "/commercial-real-estate/TN/clarksville/clarksville/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    nashvilleMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Nashville Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Nashville office, healthcare, entertainment/media, suburban office, logistics, manufacturing, and regional growth alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
