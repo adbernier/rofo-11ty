@@ -2413,6 +2413,56 @@ Object.assign(
   )
 );
 
+const nycMetroPhase1IntegrationPages = [
+  ["Financial District", "/commercial-real-estate/NY/new-york/financial-district/"],
+  ["World Trade Center / Tribeca", "/commercial-real-estate/NY/new-york/world-trade-center-tribeca/"],
+  ["Hudson Yards", "/commercial-real-estate/NY/new-york/hudson-yards/"],
+  ["Penn District", "/commercial-real-estate/NY/new-york/penn-district/"],
+  ["Midtown", "/commercial-real-estate/NY/new-york/midtown/"],
+  ["Midtown West", "/commercial-real-estate/NY/new-york/midtown-west/"],
+  ["Midtown East", "/commercial-real-estate/NY/new-york/midtown-east/"],
+  ["Grand Central", "/commercial-real-estate/NY/new-york/grand-central/"],
+  ["Plaza District", "/commercial-real-estate/NY/new-york/plaza-district/"],
+  ["Times Square / Theater District", "/commercial-real-estate/NY/new-york/times-square-theater-district/"],
+  ["Flatiron", "/commercial-real-estate/NY/new-york/flatiron/"],
+  ["NoMad", "/commercial-real-estate/NY/new-york/nomad/"],
+  ["Chelsea", "/commercial-real-estate/NY/new-york/chelsea/"],
+  ["SoHo", "/commercial-real-estate/NY/new-york/soho/"],
+  ["Union Square", "/commercial-real-estate/NY/new-york/union-square/"],
+  ["Downtown Brooklyn", "/commercial-real-estate/NY/new-york/downtown-brooklyn/"],
+  ["DUMBO", "/commercial-real-estate/NY/new-york/dumbo/"],
+  ["Williamsburg", "/commercial-real-estate/NY/new-york/williamsburg/"],
+  ["Brooklyn Navy Yard", "/commercial-real-estate/NY/new-york/brooklyn-navy-yard/"],
+  ["Long Island City", "/commercial-real-estate/NY/long-island-city/long-island-city/"],
+  ["Jersey City", "/commercial-real-estate/NJ/jersey-city/jersey-city/"],
+  ["Hoboken", "/commercial-real-estate/NJ/hoboken/hoboken/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    nycMetroPhase1IntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare NYC Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Manhattan office, finance, tech/creative, Brooklyn/Queens commercial, and nearby Jersey City/Hoboken office alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

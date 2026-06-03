@@ -4011,6 +4011,31 @@ const nashvilleMetroDistrictDefinitions = [
   { id: "nash-clarksville", name: "Clarksville", slug: "clarksville", city: "Clarksville", state_abbr: "TN", path: "/commercial-real-estate/TN/clarksville/clarksville/", centroid_lat: 36.529, centroid_lng: -87.359, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["regional_market", "manufacturing", "military_adjacent", "local_services"], representative_building_paths: [] },
 ];
 
+const nycMetroPhase1DistrictDefinitions = [
+  { id: "nyc-financial-district", name: "Financial District", slug: "financial-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/financial-district/", centroid_lat: 40.707, centroid_lng: -74.011, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["finance", "legal", "professional_services", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/115-broadway/", "/commercial-real-estate/building/NY/new-york/14-wall-st/", "/commercial-real-estate/building/NY/new-york/140-broadway/", "/commercial-real-estate/building/NY/new-york/165-broadway/", "/commercial-real-estate/building/NY/new-york/80-broad-st/", "/commercial-real-estate/building/NY/new-york/85-broad-st/"] },
+  { id: "nyc-world-trade-tribeca", name: "World Trade Center / Tribeca", slug: "world-trade-center-tribeca", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/world-trade-center-tribeca/", centroid_lat: 40.715, centroid_lng: -74.011, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["finance", "creative_office", "professional_services", "lower_manhattan"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/100-church-st/", "/commercial-real-estate/building/NY/new-york/11-park-pl/", "/commercial-real-estate/building/NY/new-york/53-beach-st/", "/commercial-real-estate/building/NY/new-york/200-vesey-st/", "/commercial-real-estate/building/NY/new-york/99-hudson-st/"] },
+  { id: "nyc-hudson-yards", name: "Hudson Yards", slug: "hudson-yards", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/hudson-yards/", centroid_lat: 40.754, centroid_lng: -74.0, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["modern_office", "enterprise_environment", "mixed_use", "west_side"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/434-w-33rd-st/", "/commercial-real-estate/building/NY/new-york/5-penn-plaza/", "/commercial-real-estate/building/NY/new-york/368-9th-ave/"] },
+  { id: "nyc-penn-district", name: "Penn District", slug: "penn-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/penn-district/", centroid_lat: 40.75, centroid_lng: -73.992, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["transit_oriented", "office", "midtown", "west_side"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/14-penn-plaza/", "/commercial-real-estate/building/NY/new-york/5-penn-plaza/", "/commercial-real-estate/building/NY/new-york/112-w-34th-st/", "/commercial-real-estate/building/NY/new-york/225-w-39th-st/"] },
+  { id: "nyc-midtown", name: "Midtown", slug: "midtown", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/midtown/", centroid_lat: 40.756, centroid_lng: -73.985, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["office", "professional_services", "transit_oriented", "enterprise_environment"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/1177-avenue-of-the-americas/", "/commercial-real-estate/building/NY/new-york/1450-broadway/", "/commercial-real-estate/building/NY/new-york/1460-broadway/", "/commercial-real-estate/building/NY/new-york/1501-broadway/"] },
+  { id: "nyc-midtown-west", name: "Midtown West", slug: "midtown-west", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/midtown-west/", centroid_lat: 40.759, centroid_lng: -73.992, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["office", "media", "hospitality", "west_side"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/1177-avenue-of-the-americas/", "/commercial-real-estate/building/NY/new-york/1450-broadway/", "/commercial-real-estate/building/NY/new-york/1460-broadway/", "/commercial-real-estate/building/NY/new-york/1501-broadway/", "/commercial-real-estate/building/NY/new-york/1740-broadway/"] },
+  { id: "nyc-midtown-east", name: "Midtown East", slug: "midtown-east", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/midtown-east/", centroid_lat: 40.754, centroid_lng: -73.973, area_type: "district", approximate_space_types: ["office", "coworking"], profile: ["office", "finance", "professional_services", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/245-park-ave/", "/commercial-real-estate/building/NY/new-york/250-park-ave/", "/commercial-real-estate/building/NY/new-york/405-lexington-ave/", "/commercial-real-estate/building/NY/new-york/450-lexington-ave/", "/commercial-real-estate/building/NY/new-york/575-lexington-ave/"] },
+  { id: "nyc-grand-central", name: "Grand Central", slug: "grand-central", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/grand-central/", centroid_lat: 40.752, centroid_lng: -73.977, area_type: "district", approximate_space_types: ["office", "coworking"], profile: ["transit_oriented", "office", "finance", "professional_services"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/230-park-ave/", "/commercial-real-estate/building/NY/new-york/245-park-ave/", "/commercial-real-estate/building/NY/new-york/450-lexington-ave/", "/commercial-real-estate/building/NY/new-york/600-third-ave/", "/commercial-real-estate/building/NY/new-york/100-park-ave/"] },
+  { id: "nyc-plaza-district", name: "Plaza District", slug: "plaza-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/plaza-district/", centroid_lat: 40.763, centroid_lng: -73.973, area_type: "district", approximate_space_types: ["office", "coworking"], profile: ["prestige_office", "finance", "professional_services", "enterprise_environment"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/590-madison-ave/", "/commercial-real-estate/building/NY/new-york/one-rockefeller-plaza/", "/commercial-real-estate/building/NY/new-york/57-w-57th-st/", "/commercial-real-estate/building/NY/new-york/445-park-ave/", "/commercial-real-estate/building/NY/new-york/1325-avenue-of-the-americas/"] },
+  { id: "nyc-times-square-theater", name: "Times Square / Theater District", slug: "times-square-theater-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/times-square-theater-district/", centroid_lat: 40.759, centroid_lng: -73.986, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["media", "hospitality", "office", "visitor_facing"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/1501-broadway/", "/commercial-real-estate/building/NY/new-york/1450-broadway/", "/commercial-real-estate/building/NY/new-york/1460-broadway/", "/commercial-real-estate/building/NY/new-york/135-w-41st-st/"] },
+  { id: "nyc-flatiron", name: "Flatiron", slug: "flatiron", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/flatiron/", centroid_lat: 40.741, centroid_lng: -73.989, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["creative_office", "tech", "professional_services", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/287-park-ave-s/", "/commercial-real-estate/building/NY/new-york/41-madison-ave/", "/commercial-real-estate/building/NY/new-york/18-w-18th-st/", "/commercial-real-estate/building/NY/new-york/30-w-21st-st/", "/commercial-real-estate/building/NY/new-york/38-w-21st-st/"] },
+  { id: "nyc-nomad", name: "NoMad", slug: "nomad", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/nomad/", centroid_lat: 40.745, centroid_lng: -73.988, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["office", "hospitality", "creative_office", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/1250-broadway/", "/commercial-real-estate/building/NY/new-york/135-madison-ave/", "/commercial-real-estate/building/NY/new-york/136-madison-ave/", "/commercial-real-estate/building/NY/new-york/27-e-28th-st/", "/commercial-real-estate/building/NY/new-york/401-park-ave-s/"] },
+  { id: "nyc-chelsea", name: "Chelsea", slug: "chelsea", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/chelsea/", centroid_lat: 40.746, centroid_lng: -74.0, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["creative_office", "gallery", "tech", "mixed_use"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/125-w-25th-st/", "/commercial-real-estate/building/NY/new-york/275-seventh-avenue/", "/commercial-real-estate/building/NY/new-york/368-9th-ave/", "/commercial-real-estate/building/NY/new-york/413-w-14th-st/"] },
+  { id: "nyc-soho", name: "SoHo", slug: "soho", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/soho/", centroid_lat: 40.724, centroid_lng: -74.0, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["creative_office", "showroom", "retail", "boutique_office"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/101-avenue-of-the-americas/", "/commercial-real-estate/building/NY/new-york/148-lafayette-st/", "/commercial-real-estate/building/NY/new-york/379-w-broadway/", "/commercial-real-estate/building/NY/new-york/408-broadway/", "/commercial-real-estate/building/NY/new-york/524-broadway/"] },
+  { id: "nyc-union-square", name: "Union Square", slug: "union-square", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/union-square/", centroid_lat: 40.735, centroid_lng: -73.991, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["transit_oriented", "creative_office", "education", "retail"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/33-irving-pl/", "/commercial-real-estate/building/NY/new-york/411-lafayette-st/", "/commercial-real-estate/building/NY/new-york/154-w-14th-st/", "/commercial-real-estate/building/NY/new-york/71-5th-ave/", "/commercial-real-estate/building/NY/new-york/149-5th-ave/"] },
+  { id: "nyc-downtown-brooklyn", name: "Downtown Brooklyn", slug: "downtown-brooklyn", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/downtown-brooklyn/", centroid_lat: 40.692, centroid_lng: -73.986, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["brooklyn_office", "transit_oriented", "education", "civic"], representative_building_paths: ["/commercial-real-estate/building/NY/brooklyn/195-montague-st/", "/commercial-real-estate/building/NY/brooklyn/77-sands-st/", "/commercial-real-estate/building/NY/new-york/41-flatbush-ave/"] },
+  { id: "nyc-dumbo", name: "DUMBO", slug: "dumbo", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/dumbo/", centroid_lat: 40.704, centroid_lng: -73.989, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront", "creative_office", "brooklyn_office", "adaptive"], representative_building_paths: ["/commercial-real-estate/building/NY/brooklyn/175-pearl-street/", "/commercial-real-estate/building/NY/brooklyn/77-sands-st/"] },
+  { id: "nyc-williamsburg", name: "Williamsburg", slug: "williamsburg", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/williamsburg/", centroid_lat: 40.711, centroid_lng: -73.957, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["creative_office", "hospitality", "retail", "brooklyn"], representative_building_paths: ["/commercial-real-estate/building/NY/brooklyn/134-n-4th-st/", "/commercial-real-estate/building/NY/new-york/109-south-5th-street/"] },
+  { id: "nyc-brooklyn-navy-yard", name: "Brooklyn Navy Yard", slug: "brooklyn-navy-yard", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/brooklyn-navy-yard/", centroid_lat: 40.699, centroid_lng: -73.971, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "creative_production", "innovation", "manufacturing"], representative_building_paths: ["/commercial-real-estate/building/NY/brooklyn/1-dock-72-way/"] },
+  { id: "nyc-long-island-city", name: "Long Island City", slug: "long-island-city", city: "Long Island City", state_abbr: "NY", path: "/commercial-real-estate/NY/long-island-city/long-island-city/", centroid_lat: 40.744, centroid_lng: -73.948, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["office", "industrial_flex", "studio", "queens"], representative_building_paths: ["/commercial-real-estate/building/NY/long-island-city/the-falchi-building-31-00-47th-avenue/"] },
+  { id: "nyc-jersey-city", name: "Jersey City", slug: "jersey-city", city: "Jersey City", state_abbr: "NJ", path: "/commercial-real-estate/NJ/jersey-city/jersey-city/", centroid_lat: 40.717, centroid_lng: -74.036, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront_office", "finance", "regional_alternative", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/jersey-city/101-hudson-st/", "/commercial-real-estate/building/NJ/jersey-city/2500-plaza-five/"] },
+  { id: "nyc-hoboken", name: "Hoboken", slug: "hoboken", city: "Hoboken", state_abbr: "NJ", path: "/commercial-real-estate/NJ/hoboken/hoboken/", centroid_lat: 40.744, centroid_lng: -74.032, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront_office", "local_services", "regional_alternative", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/hoboken/221-river-st/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4767,6 +4792,43 @@ function nashvilleMetroDistrictPageFor(district) {
   };
 }
 
+function nycMetroPhase1DistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "nyc_metro_phase_1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_nyc_rollout: true,
+    public_nyc_metro_phase_1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -5014,6 +5076,7 @@ const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadel
 const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictPageFor);
 const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistrictPageFor);
 const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetroDistrictPageFor);
+const nycMetroPhase1Pages = nycMetroPhase1DistrictDefinitions.map(nycMetroPhase1DistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -5176,6 +5239,13 @@ for (const page of houstonMetroPages) {
 }
 
 for (const page of nashvilleMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of nycMetroPhase1Pages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
