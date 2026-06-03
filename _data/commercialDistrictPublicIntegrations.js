@@ -2243,6 +2243,71 @@ Object.assign(
   )
 );
 
+const newJerseyMetroIntegrationPages = [
+  ["Newark", "/commercial-real-estate/NJ/newark/newark/"],
+  ["Jersey City", "/commercial-real-estate/NJ/jersey-city/jersey-city/"],
+  ["Hoboken", "/commercial-real-estate/NJ/hoboken/hoboken/"],
+  ["Meadowlands", "/commercial-real-estate/NJ/east-rutherford/meadowlands/"],
+  ["Secaucus", "/commercial-real-estate/NJ/secaucus/secaucus/"],
+  ["Parsippany", "/commercial-real-estate/NJ/parsippany/parsippany/"],
+  ["Morristown", "/commercial-real-estate/NJ/morristown/morristown/"],
+  ["Short Hills", "/commercial-real-estate/NJ/short-hills/short-hills/"],
+  ["Livingston", "/commercial-real-estate/NJ/livingston/livingston/"],
+  ["Rutherford", "/commercial-real-estate/NJ/rutherford/rutherford/"],
+  ["Port Newark / Elizabeth", "/commercial-real-estate/NJ/newark/port-newark-elizabeth/"],
+  ["Elizabeth Industrial", "/commercial-real-estate/NJ/elizabeth/elizabeth-industrial/"],
+  ["Linden", "/commercial-real-estate/NJ/linden/linden/"],
+  ["Carteret", "/commercial-real-estate/NJ/carteret/carteret/"],
+  ["Newark Airport Area", "/commercial-real-estate/NJ/newark/newark-airport-area/"],
+  ["Meadowlands Logistics", "/commercial-real-estate/NJ/secaucus/meadowlands-logistics/"],
+  ["South Kearny Industrial", "/commercial-real-estate/NJ/kearny/south-kearny-industrial/"],
+  ["Edison", "/commercial-real-estate/NJ/edison/edison/"],
+  ["Woodbridge", "/commercial-real-estate/NJ/woodbridge/woodbridge/"],
+  ["Piscataway", "/commercial-real-estate/NJ/piscataway/piscataway/"],
+  ["Exit 8A Logistics Corridor", "/commercial-real-estate/NJ/monroe/exit-8a-logistics-corridor/"],
+  ["Cranbury", "/commercial-real-estate/NJ/cranbury/cranbury/"],
+  ["Monroe", "/commercial-real-estate/NJ/monroe/monroe/"],
+  ["Dayton", "/commercial-real-estate/NJ/dayton/dayton/"],
+  ["Princeton", "/commercial-real-estate/NJ/princeton/princeton/"],
+  ["Princeton Corridor", "/commercial-real-estate/NJ/princeton/princeton-corridor/"],
+  ["New Brunswick", "/commercial-real-estate/NJ/new-brunswick/new-brunswick/"],
+  ["Bridgewater", "/commercial-real-estate/NJ/bridgewater/bridgewater/"],
+  ["Somerset", "/commercial-real-estate/NJ/somerset/somerset/"],
+  ["Warren", "/commercial-real-estate/NJ/warren/warren/"],
+  ["Iselin / Metropark", "/commercial-real-estate/NJ/iselin/iselin-metropark/"],
+  ["Holmdel", "/commercial-real-estate/NJ/holmdel/holmdel/"],
+  ["Cherry Hill", "/commercial-real-estate/NJ/cherry-hill/cherry-hill/"],
+  ["Mount Laurel", "/commercial-real-estate/NJ/mount-laurel/mount-laurel/"],
+  ["Camden Waterfront / Industrial", "/commercial-real-estate/NJ/camden/camden-waterfront-industrial/"],
+  ["Moorestown", "/commercial-real-estate/NJ/moorestown/moorestown/"],
+  ["Burlington Corridor", "/commercial-real-estate/NJ/burlington/burlington-corridor/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    newJerseyMetroIntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare New Jersey commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within New Jersey office corridors, port and airport logistics, pharma and life-science nodes, suburban campuses, and industrial infrastructure.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 const austinMetroIntegrationPages = [
   ["Downtown Austin", "/commercial-real-estate/TX/austin/downtown-austin/"],
   ["CBD", "/commercial-real-estate/TX/austin/cbd/"],

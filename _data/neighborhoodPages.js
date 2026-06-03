@@ -3916,6 +3916,46 @@ const philadelphiaMetroDistrictDefinitions = [
   { id: "phl-mount-laurel", name: "Mount Laurel", slug: "mount-laurel", city: "Mount Laurel", state_abbr: "NJ", path: "/commercial-real-estate/NJ/mount-laurel/mount-laurel/", centroid_lat: 39.934, centroid_lng: -74.89, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["south_jersey", "suburban_office", "office_flex", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/mount-laurel/309-fellowship-road-east-gate-center/", "/commercial-real-estate/building/NJ/mount-laurel/804-e-gate-dr/"] },
 ];
 
+const newJerseyMetroDistrictDefinitions = [
+  { id: "nj-newark", name: "Newark", slug: "newark", city: "Newark", state_abbr: "NJ", path: "/commercial-real-estate/NJ/newark/newark/", centroid_lat: 40.735, centroid_lng: -74.173, area_type: "downtown_core", approximate_space_types: ["office", "retail", "coworking"], profile: ["downtown", "office", "transit_oriented", "regional_business"], representative_building_paths: ["/commercial-real-estate/building/NJ/newark/one-gateway-center/"] },
+  { id: "nyc-jersey-city", name: "Jersey City", slug: "jersey-city", city: "Jersey City", state_abbr: "NJ", path: "/commercial-real-estate/NJ/jersey-city/jersey-city/", centroid_lat: 40.717, centroid_lng: -74.036, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront_office", "finance", "regional_alternative", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/jersey-city/101-hudson-st/", "/commercial-real-estate/building/NJ/jersey-city/2500-plaza-five/"] },
+  { id: "nyc-hoboken", name: "Hoboken", slug: "hoboken", city: "Hoboken", state_abbr: "NJ", path: "/commercial-real-estate/NJ/hoboken/hoboken/", centroid_lat: 40.744, centroid_lng: -74.032, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront_office", "local_services", "regional_alternative", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/hoboken/221-river-st/"] },
+  { id: "nj-meadowlands", name: "Meadowlands", slug: "meadowlands", city: "East Rutherford", state_abbr: "NJ", path: "/commercial-real-estate/NJ/east-rutherford/meadowlands/", centroid_lat: 40.806, centroid_lng: -74.071, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["suburban_office", "logistics", "regional_access", "meadowlands"], representative_building_paths: ["/commercial-real-estate/building/NJ/east-rutherford/1-meadowlands-plaza/"] },
+  { id: "nj-secaucus", name: "Secaucus", slug: "secaucus", city: "Secaucus", state_abbr: "NJ", path: "/commercial-real-estate/NJ/secaucus/secaucus/", centroid_lat: 40.789, centroid_lng: -74.056, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["meadowlands", "office_flex", "logistics", "transit_oriented"], representative_building_paths: [] },
+  { id: "nj-parsippany", name: "Parsippany", slug: "parsippany", city: "Parsippany", state_abbr: "NJ", path: "/commercial-real-estate/NJ/parsippany/parsippany/", centroid_lat: 40.858, centroid_lng: -74.426, area_type: "district", approximate_space_types: ["office", "medical", "coworking"], profile: ["suburban_office", "corporate", "i287", "regional_business"], representative_building_paths: ["/commercial-real-estate/building/NJ/parsippany/2001-route-46-waterview-plaza/", "/commercial-real-estate/building/NJ/parsippany/90-e-halsey-rd/"] },
+  { id: "nj-morristown", name: "Morristown", slug: "morristown", city: "Morristown", state_abbr: "NJ", path: "/commercial-real-estate/NJ/morristown/morristown/", centroid_lat: 40.797, centroid_lng: -74.481, area_type: "downtown_core", approximate_space_types: ["office", "medical", "retail"], profile: ["suburban_downtown", "professional_services", "transit_oriented", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/NJ/morristown/55-madison-ave/"] },
+  { id: "nj-short-hills", name: "Short Hills", slug: "short-hills", city: "Short Hills", state_abbr: "NJ", path: "/commercial-real-estate/NJ/short-hills/short-hills/", centroid_lat: 40.741, centroid_lng: -74.327, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["client_facing", "suburban_office", "professional_services", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/NJ/short-hills/51-john-f-kennedy-pkwy/", "/commercial-real-estate/building/NJ/short-hills/830-morris-turnpike/"] },
+  { id: "nj-livingston", name: "Livingston", slug: "livingston", city: "Livingston", state_abbr: "NJ", path: "/commercial-real-estate/NJ/livingston/livingston/", centroid_lat: 40.786, centroid_lng: -74.329, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["medical", "local_services", "suburban_office", "professional_services"], representative_building_paths: [] },
+  { id: "nj-rutherford", name: "Rutherford", slug: "rutherford", city: "Rutherford", state_abbr: "NJ", path: "/commercial-real-estate/NJ/rutherford/rutherford/", centroid_lat: 40.827, centroid_lng: -74.106, area_type: "district", approximate_space_types: ["office", "retail", "flex"], profile: ["meadowlands_edge", "local_office", "regional_access", "professional_services"], representative_building_paths: [] },
+  { id: "nj-port-newark-elizabeth", name: "Port Newark / Elizabeth", slug: "port-newark-elizabeth", city: "Newark", state_abbr: "NJ", path: "/commercial-real-estate/NJ/newark/port-newark-elizabeth/", centroid_lat: 40.676, centroid_lng: -74.151, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["port", "logistics", "warehouse", "container_freight"], representative_building_paths: [] },
+  { id: "nj-elizabeth-industrial", name: "Elizabeth Industrial", slug: "elizabeth-industrial", city: "Elizabeth", state_abbr: "NJ", path: "/commercial-real-estate/NJ/elizabeth/elizabeth-industrial/", centroid_lat: 40.666, centroid_lng: -74.21, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "port_access", "airport_access", "logistics"], representative_building_paths: [] },
+  { id: "nj-linden", name: "Linden", slug: "linden", city: "Linden", state_abbr: "NJ", path: "/commercial-real-estate/NJ/linden/linden/", centroid_lat: 40.622, centroid_lng: -74.245, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial", "manufacturing", "logistics", "port_access"], representative_building_paths: [] },
+  { id: "nj-carteret", name: "Carteret", slug: "carteret", city: "Carteret", state_abbr: "NJ", path: "/commercial-real-estate/NJ/carteret/carteret/", centroid_lat: 40.583, centroid_lng: -74.229, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "turnpike", "logistics"], representative_building_paths: [] },
+  { id: "nj-newark-airport-area", name: "Newark Airport Area", slug: "newark-airport-area", city: "Newark", state_abbr: "NJ", path: "/commercial-real-estate/NJ/newark/newark-airport-area/", centroid_lat: 40.69, centroid_lng: -74.177, area_type: "industrial_area", approximate_space_types: ["industrial", "office", "flex"], profile: ["airport_access", "logistics", "hospitality_support", "warehouse"], representative_building_paths: [] },
+  { id: "nj-meadowlands-logistics", name: "Meadowlands Logistics", slug: "meadowlands-logistics", city: "Secaucus", state_abbr: "NJ", path: "/commercial-real-estate/NJ/secaucus/meadowlands-logistics/", centroid_lat: 40.803, centroid_lng: -74.071, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["logistics", "warehouse", "meadowlands", "truck_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/east-rutherford/1-meadowlands-plaza/"] },
+  { id: "nj-south-kearny-industrial", name: "South Kearny Industrial", slug: "south-kearny-industrial", city: "Kearny", state_abbr: "NJ", path: "/commercial-real-estate/NJ/kearny/south-kearny-industrial/", centroid_lat: 40.728, centroid_lng: -74.113, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial", "warehouse", "port_access", "truck_access"], representative_building_paths: [] },
+  { id: "nj-edison", name: "Edison", slug: "edison", city: "Edison", state_abbr: "NJ", path: "/commercial-real-estate/NJ/edison/edison/", centroid_lat: 40.518, centroid_lng: -74.412, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["office_flex", "warehouse", "central_jersey", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/edison/110-fieldcrest-ave/"] },
+  { id: "nj-woodbridge", name: "Woodbridge", slug: "woodbridge", city: "Woodbridge", state_abbr: "NJ", path: "/commercial-real-estate/NJ/woodbridge/woodbridge/", centroid_lat: 40.557, centroid_lng: -74.284, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["turnpike", "office_flex", "logistics", "regional_access"], representative_building_paths: [] },
+  { id: "nj-piscataway", name: "Piscataway", slug: "piscataway", city: "Piscataway", state_abbr: "NJ", path: "/commercial-real-estate/NJ/piscataway/piscataway/", centroid_lat: 40.554, centroid_lng: -74.463, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["rd_flex", "industrial_flex", "central_jersey", "university_adjacent"], representative_building_paths: ["/commercial-real-estate/building/NJ/piscataway/30-knightsbridge-rd/"] },
+  { id: "nj-exit-8a-logistics", name: "Exit 8A Logistics Corridor", slug: "exit-8a-logistics-corridor", city: "Monroe", state_abbr: "NJ", path: "/commercial-real-estate/NJ/monroe/exit-8a-logistics-corridor/", centroid_lat: 40.333, centroid_lng: -74.468, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "turnpike", "logistics"], representative_building_paths: [] },
+  { id: "nj-cranbury", name: "Cranbury", slug: "cranbury", city: "Cranbury", state_abbr: "NJ", path: "/commercial-real-estate/NJ/cranbury/cranbury/", centroid_lat: 40.316, centroid_lng: -74.513, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["logistics", "warehouse", "office_flex", "central_jersey"], representative_building_paths: [] },
+  { id: "nj-monroe", name: "Monroe", slug: "monroe", city: "Monroe", state_abbr: "NJ", path: "/commercial-real-estate/NJ/monroe/monroe/", centroid_lat: 40.336, centroid_lng: -74.433, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "turnpike", "central_jersey"], representative_building_paths: [] },
+  { id: "nj-dayton", name: "Dayton", slug: "dayton", city: "Dayton", state_abbr: "NJ", path: "/commercial-real-estate/NJ/dayton/dayton/", centroid_lat: 40.378, centroid_lng: -74.512, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "route_130", "central_jersey"], representative_building_paths: [] },
+  { id: "nj-princeton", name: "Princeton", slug: "princeton", city: "Princeton", state_abbr: "NJ", path: "/commercial-real-estate/NJ/princeton/princeton/", centroid_lat: 40.357, centroid_lng: -74.668, area_type: "downtown_core", approximate_space_types: ["office", "lab", "medical"], profile: ["life_science", "university_adjacent", "professional_services", "suburban_office"], representative_building_paths: ["/commercial-real-estate/building/NJ/princeton/100-overlook-ctr/", "/commercial-real-estate/building/NJ/princeton/103-carnegie-ctr/", "/commercial-real-estate/building/NJ/princeton/princeton-forrestal-village-116-village-blvd/"] },
+  { id: "nj-princeton-corridor", name: "Princeton Corridor", slug: "princeton-corridor", city: "Princeton", state_abbr: "NJ", path: "/commercial-real-estate/NJ/princeton/princeton-corridor/", centroid_lat: 40.34, centroid_lng: -74.62, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["life_science", "pharma", "rd_flex", "suburban_office"], representative_building_paths: ["/commercial-real-estate/building/NJ/princeton/103-carnegie-ctr/", "/commercial-real-estate/building/NJ/princeton/princeton-forrestal-village-116-village-blvd/"] },
+  { id: "nj-new-brunswick", name: "New Brunswick", slug: "new-brunswick", city: "New Brunswick", state_abbr: "NJ", path: "/commercial-real-estate/NJ/new-brunswick/new-brunswick/", centroid_lat: 40.486, centroid_lng: -74.444, area_type: "downtown_core", approximate_space_types: ["office", "medical", "lab"], profile: ["healthcare", "university_adjacent", "life_science", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/new-brunswick/317-george-st/", "/commercial-real-estate/building/NJ/new-brunswick/37-easton-ave-2nd-floor/"] },
+  { id: "nj-bridgewater", name: "Bridgewater", slug: "bridgewater", city: "Bridgewater", state_abbr: "NJ", path: "/commercial-real-estate/NJ/bridgewater/bridgewater/", centroid_lat: 40.595, centroid_lng: -74.617, area_type: "district", approximate_space_types: ["office", "lab", "medical"], profile: ["pharma", "suburban_office", "life_science", "i287"], representative_building_paths: ["/commercial-real-estate/building/NJ/bridgewater/1200-route-22-east/"] },
+  { id: "nj-somerset", name: "Somerset", slug: "somerset", city: "Somerset", state_abbr: "NJ", path: "/commercial-real-estate/NJ/somerset/somerset/", centroid_lat: 40.499, centroid_lng: -74.522, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["pharma", "office_flex", "rd_flex", "central_jersey"], representative_building_paths: [] },
+  { id: "nj-warren", name: "Warren", slug: "warren", city: "Warren", state_abbr: "NJ", path: "/commercial-real-estate/NJ/warren/warren/", centroid_lat: 40.634, centroid_lng: -74.5, area_type: "district", approximate_space_types: ["office", "medical"], profile: ["suburban_office", "client_facing", "i78", "professional_services"], representative_building_paths: [] },
+  { id: "nj-iselin-metropark", name: "Iselin / Metropark", slug: "iselin-metropark", city: "Iselin", state_abbr: "NJ", path: "/commercial-real-estate/NJ/iselin/iselin-metropark/", centroid_lat: 40.568, centroid_lng: -74.328, area_type: "district", approximate_space_types: ["office", "coworking", "medical"], profile: ["transit_oriented", "office", "regional_business", "metropark"], representative_building_paths: ["/commercial-real-estate/building/NJ/iselin/33-wood-ave-s/"] },
+  { id: "nj-holmdel", name: "Holmdel", slug: "holmdel", city: "Holmdel", state_abbr: "NJ", path: "/commercial-real-estate/NJ/holmdel/holmdel/", centroid_lat: 40.346, centroid_lng: -74.184, area_type: "district", approximate_space_types: ["office", "lab", "flex"], profile: ["suburban_campus", "technology", "life_science", "monmouth"], representative_building_paths: [] },
+  { id: "phl-cherry-hill", name: "Cherry Hill", slug: "cherry-hill", city: "Cherry Hill", state_abbr: "NJ", path: "/commercial-real-estate/NJ/cherry-hill/cherry-hill/", centroid_lat: 39.928, centroid_lng: -75.025, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["south_jersey", "suburban_office", "medical", "retail_support"], representative_building_paths: ["/commercial-real-estate/building/NJ/cherry-hill/923-haddonfield-rd/"] },
+  { id: "phl-mount-laurel", name: "Mount Laurel", slug: "mount-laurel", city: "Mount Laurel", state_abbr: "NJ", path: "/commercial-real-estate/NJ/mount-laurel/mount-laurel/", centroid_lat: 39.934, centroid_lng: -74.89, area_type: "district", approximate_space_types: ["office", "medical", "flex"], profile: ["south_jersey", "suburban_office", "office_flex", "regional_access"], representative_building_paths: ["/commercial-real-estate/building/NJ/mount-laurel/309-fellowship-road-east-gate-center/", "/commercial-real-estate/building/NJ/mount-laurel/804-e-gate-dr/"] },
+  { id: "phl-camden-waterfront-industrial", name: "Camden Waterfront / Industrial", slug: "camden-waterfront-industrial", city: "Camden", state_abbr: "NJ", path: "/commercial-real-estate/NJ/camden/camden-waterfront-industrial/", centroid_lat: 39.944, centroid_lng: -75.12, area_type: "industrial_area", approximate_space_types: ["office", "industrial", "flex"], profile: ["waterfront", "industrial_flex", "south_jersey", "port_adjacent"], representative_building_paths: [] },
+  { id: "nj-moorestown", name: "Moorestown", slug: "moorestown", city: "Moorestown", state_abbr: "NJ", path: "/commercial-real-estate/NJ/moorestown/moorestown/", centroid_lat: 39.968, centroid_lng: -74.942, area_type: "district", approximate_space_types: ["office", "industrial", "flex"], profile: ["south_jersey", "office_flex", "regional_access", "service_commercial"], representative_building_paths: ["/commercial-real-estate/building/NJ/moorestown/1263-glen-ave/"] },
+  { id: "nj-burlington-corridor", name: "Burlington Corridor", slug: "burlington-corridor", city: "Burlington", state_abbr: "NJ", path: "/commercial-real-estate/NJ/burlington/burlington-corridor/", centroid_lat: 40.074, centroid_lng: -74.844, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["south_jersey", "warehouse", "route_130", "logistics"], representative_building_paths: ["/commercial-real-estate/building/NJ/beverly/4259-us-130/"] },
+];
+
 const austinMetroDistrictDefinitions = [
   { id: "aus-downtown-austin", name: "Downtown Austin", slug: "downtown-austin", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/downtown-austin/", centroid_lat: 30.267, centroid_lng: -97.743, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "office", "startup", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/100-congress-ave/", "/commercial-real-estate/building/TX/austin/111-congress-ave/"] },
   { id: "aus-cbd", name: "CBD", slug: "cbd", city: "Austin", state_abbr: "TX", path: "/commercial-real-estate/TX/austin/cbd/", centroid_lat: 30.269, centroid_lng: -97.742, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["downtown", "formal_office", "finance", "legal"], representative_building_paths: ["/commercial-real-estate/building/TX/austin/100-congress-ave/", "/commercial-real-estate/building/TX/austin/111-congress-ave/"] },
@@ -4712,6 +4752,42 @@ function philadelphiaMetroDistrictPageFor(district) {
   };
 }
 
+function newJerseyMetroDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "new_jersey_metro_v1_commercial_graph",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_location_model", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_new_jersey_metro_v1: true,
+    city_nav_priority: district.area_type === "downtown_core" ? 1 : 2,
+  };
+}
+
 function austinMetroDistrictPageFor(district) {
   return {
     name: district.name,
@@ -5110,6 +5186,7 @@ const bostonMetroPages = bostonMetroDistrictDefinitions.map(bostonMetroDistrictP
 const atlantaMetroPages = atlantaMetroDistrictDefinitions.map(atlantaMetroDistrictPageFor);
 const southFloridaPages = southFloridaDistrictDefinitions.map(southFloridaDistrictPageFor);
 const philadelphiaMetroPages = philadelphiaMetroDistrictDefinitions.map(philadelphiaMetroDistrictPageFor);
+const newJerseyMetroPages = newJerseyMetroDistrictDefinitions.map(newJerseyMetroDistrictPageFor);
 const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictPageFor);
 const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistrictPageFor);
 const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetroDistrictPageFor);
@@ -5256,6 +5333,13 @@ for (const page of southFloridaPages) {
 }
 
 for (const page of philadelphiaMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of newJerseyMetroPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,
