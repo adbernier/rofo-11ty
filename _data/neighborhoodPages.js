@@ -4036,6 +4036,34 @@ const nycMetroPhase1DistrictDefinitions = [
   { id: "nyc-hoboken", name: "Hoboken", slug: "hoboken", city: "Hoboken", state_abbr: "NJ", path: "/commercial-real-estate/NJ/hoboken/hoboken/", centroid_lat: 40.744, centroid_lng: -74.032, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["waterfront_office", "local_services", "regional_alternative", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NJ/hoboken/221-river-st/"] },
 ];
 
+const nycMetroPhase2DistrictDefinitions = [
+  { id: "nyc-meatpacking", name: "Meatpacking District", slug: "meatpacking-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/meatpacking-district/", centroid_lat: 40.741, centroid_lng: -74.006, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["creative_office", "fashion", "hospitality", "west_side"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/413-w-14th-st/"] },
+  { id: "nyc-greenwich-village", name: "Greenwich Village", slug: "greenwich-village", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/greenwich-village/", centroid_lat: 40.733, centroid_lng: -74.001, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["creative_office", "education", "local_services", "boutique_office"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/609-greenwich-st/", "/commercial-real-estate/building/NY/new-york/154-w-14th-st/", "/commercial-real-estate/building/NY/new-york/33-irving-pl/"] },
+  { id: "nyc-lower-east-side", name: "Lower East Side", slug: "lower-east-side", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/lower-east-side/", centroid_lat: 40.716, centroid_lng: -73.989, area_type: "district", approximate_space_types: ["office", "retail", "coworking"], profile: ["creative_office", "hospitality", "retail", "local_services"], representative_building_paths: [] },
+  { id: "nyc-harlem-125th", name: "Harlem / 125th Street", slug: "harlem-125th-street", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/harlem-125th-street/", centroid_lat: 40.807, centroid_lng: -73.945, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["uptown_office", "retail", "transit_oriented", "local_services"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/8-w-126th-st/"] },
+  { id: "nyc-ues-medical", name: "Upper East Side Medical Corridor", slug: "upper-east-side-medical-corridor", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/upper-east-side-medical-corridor/", centroid_lat: 40.764, centroid_lng: -73.957, area_type: "district", approximate_space_types: ["medical", "office", "retail"], profile: ["medical", "healthcare", "institutional", "client_facing"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/750-lexington-ave/"] },
+  { id: "nyc-industry-city-sunset-park", name: "Industry City / Sunset Park", slug: "industry-city-sunset-park", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/industry-city-sunset-park/", centroid_lat: 40.655, centroid_lng: -74.007, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["industrial_flex", "creative_production", "warehouse", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-red-hook", name: "Red Hook", slug: "red-hook", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/red-hook/", centroid_lat: 40.677, centroid_lng: -74.01, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "retail"], profile: ["waterfront_industrial", "warehouse", "creative_production", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-gowanus", name: "Gowanus", slug: "gowanus", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/gowanus/", centroid_lat: 40.678, centroid_lng: -73.991, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["adaptive_industrial", "creative_production", "office_flex", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-bushwick", name: "Bushwick", slug: "bushwick", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/bushwick/", centroid_lat: 40.695, centroid_lng: -73.917, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["creative_office", "production", "retail", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-greenpoint", name: "Greenpoint", slug: "greenpoint", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/greenpoint/", centroid_lat: 40.73, centroid_lng: -73.954, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["waterfront", "creative_office", "industrial_flex", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-crown-heights-healthcare", name: "Crown Heights / Brooklyn Healthcare Corridor", slug: "crown-heights-brooklyn-healthcare-corridor", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/crown-heights-brooklyn-healthcare-corridor/", centroid_lat: 40.668, centroid_lng: -73.944, area_type: "district", approximate_space_types: ["medical", "office", "retail"], profile: ["healthcare", "medical", "local_services", "brooklyn"], representative_building_paths: [] },
+  { id: "nyc-astoria", name: "Astoria", slug: "astoria", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/astoria/", centroid_lat: 40.764, centroid_lng: -73.923, area_type: "district", approximate_space_types: ["office", "retail", "industrial"], profile: ["queens", "local_services", "creative_office", "studio"], representative_building_paths: [] },
+  { id: "nyc-flushing", name: "Flushing", slug: "flushing", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/flushing/", centroid_lat: 40.759, centroid_lng: -73.83, area_type: "district", approximate_space_types: ["office", "retail", "medical"], profile: ["queens", "medical", "retail", "regional_services"], representative_building_paths: [] },
+  { id: "nyc-jamaica", name: "Jamaica", slug: "jamaica", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/jamaica/", centroid_lat: 40.702, centroid_lng: -73.798, area_type: "district", approximate_space_types: ["office", "retail", "industrial"], profile: ["queens", "transit_oriented", "airport_access", "local_services"], representative_building_paths: [] },
+  { id: "nyc-jfk-airport-area", name: "JFK Airport Area", slug: "jfk-airport-area", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/jfk-airport-area/", centroid_lat: 40.646, centroid_lng: -73.779, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["airport_access", "logistics", "warehouse", "queens"], representative_building_paths: [] },
+  { id: "nyc-maspeth-middle-village-industrial", name: "Maspeth / Middle Village Industrial", slug: "maspeth-middle-village-industrial", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/maspeth-middle-village-industrial/", centroid_lat: 40.723, centroid_lng: -73.902, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "warehouse", "truck_access", "queens"], representative_building_paths: [] },
+  { id: "nyc-ridgewood-industrial", name: "Ridgewood Industrial", slug: "ridgewood-industrial", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/ridgewood-industrial/", centroid_lat: 40.704, centroid_lng: -73.901, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["industrial_flex", "production", "queens", "brooklyn_edge"], representative_building_paths: [] },
+  { id: "nyc-port-morris-mott-haven", name: "Port Morris / Mott Haven", slug: "port-morris-mott-haven", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/port-morris-mott-haven/", centroid_lat: 40.808, centroid_lng: -73.93, area_type: "industrial_area", approximate_space_types: ["industrial", "office", "retail"], profile: ["bronx", "industrial_transition", "creative_production", "waterfront"], representative_building_paths: [] },
+  { id: "nyc-hunts-point", name: "Hunts Point", slug: "hunts-point", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/hunts-point/", centroid_lat: 40.811, centroid_lng: -73.884, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["food_distribution", "logistics", "warehouse", "bronx"], representative_building_paths: [] },
+  { id: "nyc-bronx-terminal-south-bronx", name: "Bronx Terminal / South Bronx", slug: "bronx-terminal-south-bronx", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/bronx-terminal-south-bronx/", centroid_lat: 40.823, centroid_lng: -73.93, area_type: "district", approximate_space_types: ["office", "retail", "industrial"], profile: ["bronx", "transit_oriented", "retail_support", "local_services"], representative_building_paths: [] },
+  { id: "nyc-staten-island-industrial", name: "Staten Island Industrial", slug: "staten-island-industrial", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/staten-island-industrial/", centroid_lat: 40.613, centroid_lng: -74.177, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["logistics", "warehouse", "port_access", "outer_borough"], representative_building_paths: [] },
+  { id: "nyc-white-plains", name: "White Plains", slug: "white-plains", city: "White Plains", state_abbr: "NY", path: "/commercial-real-estate/NY/white-plains/white-plains/", centroid_lat: 41.034, centroid_lng: -73.762, area_type: "downtown_core", approximate_space_types: ["office", "medical", "retail"], profile: ["regional_office", "suburban_downtown", "medical", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/white-plains/50-main-st/"] },
+  { id: "nyc-stamford", name: "Stamford", slug: "stamford", city: "Stamford", state_abbr: "CT", path: "/commercial-real-estate/CT/stamford/stamford/", centroid_lat: 41.053, centroid_lng: -73.538, area_type: "downtown_core", approximate_space_types: ["office", "retail"], profile: ["regional_office", "finance", "transit_oriented", "connecticut_edge"], representative_building_paths: ["/commercial-real-estate/building/CT/stamford/1266-e-main-st/", "/commercial-real-estate/building/CT/stamford/263-tresser-blvd/"] },
+  { id: "nyc-greenwich-ct", name: "Greenwich", slug: "greenwich", city: "Greenwich", state_abbr: "CT", path: "/commercial-real-estate/CT/greenwich/greenwich/", centroid_lat: 41.026, centroid_lng: -73.628, area_type: "district", approximate_space_types: ["office", "retail"], profile: ["client_facing", "finance", "regional_office", "connecticut_edge"], representative_building_paths: ["/commercial-real-estate/building/CT/greenwich/500-w-putnam-ave/"] },
+  { id: "nyc-new-rochelle", name: "New Rochelle", slug: "new-rochelle", city: "New Rochelle", state_abbr: "NY", path: "/commercial-real-estate/NY/new-rochelle/new-rochelle/", centroid_lat: 40.912, centroid_lng: -73.783, area_type: "district", approximate_space_types: ["office", "medical", "retail"], profile: ["regional_office", "suburban_downtown", "local_services", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-rochelle/173-huguenot-st/"] },
+];
+
 function southBayDistrictPageFor(district) {
   return {
     name: district.name,
@@ -4829,6 +4857,15 @@ function nycMetroPhase1DistrictPageFor(district) {
   };
 }
 
+function nycMetroPhase2DistrictPageFor(district) {
+  return {
+    ...nycMetroPhase1DistrictPageFor(district),
+    geometry_quality: "nyc_metro_phase_2_commercial_graph",
+    public_nyc_metro_phase_1: false,
+    public_nyc_metro_phase_2: true,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -5077,6 +5114,7 @@ const austinMetroPages = austinMetroDistrictDefinitions.map(austinMetroDistrictP
 const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistrictPageFor);
 const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetroDistrictPageFor);
 const nycMetroPhase1Pages = nycMetroPhase1DistrictDefinitions.map(nycMetroPhase1DistrictPageFor);
+const nycMetroPhase2Pages = nycMetroPhase2DistrictDefinitions.map(nycMetroPhase2DistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -5246,6 +5284,13 @@ for (const page of nashvilleMetroPages) {
 }
 
 for (const page of nycMetroPhase1Pages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of nycMetroPhase2Pages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

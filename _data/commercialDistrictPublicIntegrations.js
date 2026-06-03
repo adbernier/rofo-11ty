@@ -2463,6 +2463,59 @@ Object.assign(
   )
 );
 
+const nycMetroPhase2IntegrationPages = [
+  ["Meatpacking District", "/commercial-real-estate/NY/new-york/meatpacking-district/"],
+  ["Greenwich Village", "/commercial-real-estate/NY/new-york/greenwich-village/"],
+  ["Lower East Side", "/commercial-real-estate/NY/new-york/lower-east-side/"],
+  ["Harlem / 125th Street", "/commercial-real-estate/NY/new-york/harlem-125th-street/"],
+  ["Upper East Side Medical Corridor", "/commercial-real-estate/NY/new-york/upper-east-side-medical-corridor/"],
+  ["Industry City / Sunset Park", "/commercial-real-estate/NY/new-york/industry-city-sunset-park/"],
+  ["Red Hook", "/commercial-real-estate/NY/new-york/red-hook/"],
+  ["Gowanus", "/commercial-real-estate/NY/new-york/gowanus/"],
+  ["Bushwick", "/commercial-real-estate/NY/new-york/bushwick/"],
+  ["Greenpoint", "/commercial-real-estate/NY/new-york/greenpoint/"],
+  ["Crown Heights / Brooklyn Healthcare Corridor", "/commercial-real-estate/NY/new-york/crown-heights-brooklyn-healthcare-corridor/"],
+  ["Astoria", "/commercial-real-estate/NY/new-york/astoria/"],
+  ["Flushing", "/commercial-real-estate/NY/new-york/flushing/"],
+  ["Jamaica", "/commercial-real-estate/NY/new-york/jamaica/"],
+  ["JFK Airport Area", "/commercial-real-estate/NY/new-york/jfk-airport-area/"],
+  ["Maspeth / Middle Village Industrial", "/commercial-real-estate/NY/new-york/maspeth-middle-village-industrial/"],
+  ["Ridgewood Industrial", "/commercial-real-estate/NY/new-york/ridgewood-industrial/"],
+  ["Port Morris / Mott Haven", "/commercial-real-estate/NY/new-york/port-morris-mott-haven/"],
+  ["Hunts Point", "/commercial-real-estate/NY/new-york/hunts-point/"],
+  ["Bronx Terminal / South Bronx", "/commercial-real-estate/NY/new-york/bronx-terminal-south-bronx/"],
+  ["Staten Island Industrial", "/commercial-real-estate/NY/new-york/staten-island-industrial/"],
+  ["White Plains", "/commercial-real-estate/NY/white-plains/white-plains/"],
+  ["Stamford", "/commercial-real-estate/CT/stamford/stamford/"],
+  ["Greenwich", "/commercial-real-estate/CT/greenwich/greenwich/"],
+  ["New Rochelle", "/commercial-real-estate/NY/new-rochelle/new-rochelle/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    nycMetroPhase2IntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare NYC Metro commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within NYC borough, airport/logistics, healthcare, industrial/flex, and regional office alternatives.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };
