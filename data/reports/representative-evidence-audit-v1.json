@@ -1,0 +1,757 @@
+{
+  "generated_at": "2026-06-03T15:19:54.392Z",
+  "source_scope": "repo_accessible_only",
+  "sources": [
+    "temp_data/raw-listings.json",
+    "_data/buildingPages.js",
+    "_data/neighborhoodPages.js"
+  ],
+  "results": [
+    {
+      "district_name": "Long Island City",
+      "path": "/commercial-real-estate/NY/long-island-city/long-island-city/",
+      "city": "Long Island City",
+      "state": "NY",
+      "current_representative_card_count": 1,
+      "available_public_building_reference_count": 1,
+      "raw_repo_listing_evidence_count": 9,
+      "raw_listing_unique_addresses": 1,
+      "raw_repo_building_evidence_count": 1,
+      "raw_building_unique_addresses": 1,
+      "listing_keyword_richness": "medium",
+      "listing_keyword_count": 4,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "manufacturing"
+      ],
+      "building_keyword_richness": "low",
+      "building_keyword_count": 3,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "listing_examples": [
+        {
+          "name": "New York, Long Island City - Spaces",
+          "address": "The Falchi Building, 31-00 47th Avenue",
+          "count": 9,
+          "path": "/commercial-real-estate/building/NY/long-island-city/the-falchi-building-31-00-47th-avenue/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "The Falchi Building, 31-00 47th Avenue",
+          "address": "The Falchi Building, 31-00 47th Avenue",
+          "count": 1,
+          "path": "/commercial-real-estate/building/NY/long-island-city/the-falchi-building-31-00-47th-avenue/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "Energy Corridor",
+      "path": "/commercial-real-estate/TX/houston/energy-corridor/",
+      "city": "Houston",
+      "state": "TX",
+      "current_representative_card_count": 4,
+      "available_public_building_reference_count": 2,
+      "raw_repo_listing_evidence_count": 42,
+      "raw_listing_unique_addresses": 4,
+      "raw_repo_building_evidence_count": 6,
+      "raw_building_unique_addresses": 6,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "low",
+      "building_keyword_count": 3,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "listing_examples": [
+        {
+          "name": "Energy Corridor",
+          "address": "11111 Katy Freeway",
+          "count": 11,
+          "path": "/commercial-real-estate/building/TX/houston/11111-katy-freeway/"
+        },
+        {
+          "name": "Park Row",
+          "address": "1400 Broadfield Blvd",
+          "count": 11,
+          "path": "/commercial-real-estate/building/TX/houston/1400-broadfield-blvd/"
+        },
+        {
+          "name": "Park Ten Place",
+          "address": "16225 Park Ten Place",
+          "count": 11,
+          "path": "/commercial-real-estate/building/TX/houston/16225-park-ten-place/"
+        },
+        {
+          "name": "Spaces CityCentre One",
+          "address": "800 Town & Country Blvd.",
+          "count": 9,
+          "path": "/commercial-real-estate/building/TX/houston/800-town-and-country-blvd/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "11111 Katy Freeway",
+          "address": "11111 Katy Freeway",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/houston/11111-katy-freeway/"
+        },
+        {
+          "name": "1400 Broadfield Blvd",
+          "address": "1400 Broadfield Blvd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/houston/1400-broadfield-blvd/"
+        },
+        {
+          "name": "15730 Park Row Dr",
+          "address": "15730 Park Row Dr",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/houston/15730-park-row-dr/"
+        },
+        {
+          "name": "15740 Park Row Dr",
+          "address": "15740 Park Row Dr",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/houston/15740-park-row-dr/"
+        },
+        {
+          "name": "16225 Park Ten Place",
+          "address": "16225 Park Ten Place",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/houston/16225-park-ten-place/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Partial repo evidence exists, but it is not yet broad enough for a confident 10-15 representative card set.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "Round Rock",
+      "path": "/commercial-real-estate/TX/round-rock/round-rock/",
+      "city": "Round Rock",
+      "state": "TX",
+      "current_representative_card_count": 1,
+      "available_public_building_reference_count": 2,
+      "raw_repo_listing_evidence_count": 11,
+      "raw_listing_unique_addresses": 1,
+      "raw_repo_building_evidence_count": 2,
+      "raw_building_unique_addresses": 2,
+      "listing_keyword_richness": "medium",
+      "listing_keyword_count": 4,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "rail"
+      ],
+      "building_keyword_richness": "medium",
+      "building_keyword_count": 6,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "warehouse",
+        "rail",
+        "logistics"
+      ],
+      "listing_examples": [
+        {
+          "name": "Old Town Square",
+          "address": "1 Chisolm Trail Road",
+          "count": 11,
+          "path": "/commercial-real-estate/building/TX/round-rock/1-chisolm-trail-road/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "1 Chisolm Trail Road",
+          "address": "1 Chisolm Trail Road",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/round-rock/1-chisolm-trail-road/"
+        },
+        {
+          "name": "106 E Old Settlers Blvd",
+          "address": "106 E Old Settlers Blvd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/round-rock/106-e-old-settlers-blvd/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "Downtown Oakland",
+      "path": "/commercial-real-estate/CA/oakland/downtown-oakland/",
+      "city": "Oakland",
+      "state": "CA",
+      "current_representative_card_count": 2,
+      "available_public_building_reference_count": 4,
+      "raw_repo_listing_evidence_count": 22,
+      "raw_listing_unique_addresses": 2,
+      "raw_repo_building_evidence_count": 15,
+      "raw_building_unique_addresses": 15,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "medium",
+      "building_keyword_count": 4,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "retail"
+      ],
+      "listing_examples": [
+        {
+          "name": "Lake Merritt",
+          "address": "1901 Harrison St",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/oakland/1901-harrison-st/"
+        },
+        {
+          "name": "Oakland City Center",
+          "address": "505 14th St",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/oakland/505-14th-st/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "1 Kaiser Plz",
+          "address": "1 Kaiser Plz",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/"
+        },
+        {
+          "name": "1111 Broadway",
+          "address": "1111 Broadway",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/oakland/1111-broadway/"
+        },
+        {
+          "name": "1212 Broadway",
+          "address": "1212 Broadway",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/oakland/1212-broadway/"
+        },
+        {
+          "name": "1221 Broadway",
+          "address": "1221 Broadway",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/oakland/1221-broadway/"
+        },
+        {
+          "name": "1300 Broadway",
+          "address": "1300 Broadway",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/oakland/1300-broadway/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "The Domain",
+      "path": "/commercial-real-estate/TX/austin/the-domain/",
+      "city": "Austin",
+      "state": "TX",
+      "current_representative_card_count": 1,
+      "available_public_building_reference_count": 2,
+      "raw_repo_listing_evidence_count": 11,
+      "raw_listing_unique_addresses": 1,
+      "raw_repo_building_evidence_count": 6,
+      "raw_building_unique_addresses": 6,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "low",
+      "building_keyword_count": 3,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "listing_examples": [
+        {
+          "name": "TX, Austin - The Domain - 3220 Feathergrass Ct",
+          "address": "3220 Feathergrass Ct",
+          "count": 11,
+          "path": "/commercial-real-estate/building/TX/austin/3220-feathergrass-ct/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "10505 Boyer Blvd",
+          "address": "10505 Boyer Blvd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/austin/10505-boyer-blvd/"
+        },
+        {
+          "name": "10900 Stonelake Blvd",
+          "address": "10900 Stonelake Blvd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/austin/10900-stonelake-blvd/"
+        },
+        {
+          "name": "11801 Domain Blvd",
+          "address": "11801 Domain Blvd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/austin/11801-domain-blvd/"
+        },
+        {
+          "name": "1807 W Braker Ln",
+          "address": "1807 W Braker Ln",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/austin/1807-w-braker-ln/"
+        },
+        {
+          "name": "3220 Feathergrass Ct",
+          "address": "3220 Feathergrass Ct",
+          "count": 1,
+          "path": "/commercial-real-estate/building/TX/austin/3220-feathergrass-ct/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "Chandler",
+      "path": "/commercial-real-estate/AZ/chandler/chandler/",
+      "city": "Chandler",
+      "state": "AZ",
+      "current_representative_card_count": 1,
+      "available_public_building_reference_count": 4,
+      "raw_repo_listing_evidence_count": 11,
+      "raw_listing_unique_addresses": 1,
+      "raw_repo_building_evidence_count": 4,
+      "raw_building_unique_addresses": 4,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "medium",
+      "building_keyword_count": 5,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "warehouse",
+        "logistics"
+      ],
+      "listing_examples": [
+        {
+          "name": "San Tan Corporate Center II",
+          "address": "3100 West Ray Road",
+          "count": 11,
+          "path": "/commercial-real-estate/building/AZ/chandler/3100-west-ray-road/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "2425 S Stearman Dr",
+          "address": "2425 S Stearman Dr",
+          "count": 1,
+          "path": "/commercial-real-estate/building/AZ/chandler/2425-s-stearman-dr/"
+        },
+        {
+          "name": "2701 Insight Way",
+          "address": "2701 Insight Way",
+          "count": 1,
+          "path": "/commercial-real-estate/building/AZ/chandler/2701-insight-way/"
+        },
+        {
+          "name": "3100 West Ray Road",
+          "address": "3100 West Ray Road",
+          "count": 1,
+          "path": "/commercial-real-estate/building/AZ/chandler/3100-west-ray-road/"
+        },
+        {
+          "name": "411 N Roosevelt Ave",
+          "address": "411 N Roosevelt Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/AZ/chandler/411-n-roosevelt-ave/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "Denver Tech Center",
+      "path": "/commercial-real-estate/CO/denver/denver-tech-center/",
+      "city": "Denver",
+      "state": "CO",
+      "current_representative_card_count": 3,
+      "available_public_building_reference_count": 4,
+      "raw_repo_listing_evidence_count": 41,
+      "raw_listing_unique_addresses": 3,
+      "raw_repo_building_evidence_count": 3,
+      "raw_building_unique_addresses": 3,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "low",
+      "building_keyword_count": 3,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "listing_examples": [
+        {
+          "name": "6795 - 6825 East Tennessee Ave",
+          "address": "6795 - 6825 East Tennessee Ave",
+          "count": 19,
+          "path": "/commercial-real-estate/building/CO/denver/6795-6825-east-tennessee-ave/"
+        },
+        {
+          "name": "DTC Tech",
+          "address": "4600 S Syracuse St",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CO/denver/4600-s-syracuse-st/"
+        },
+        {
+          "name": "DTC Corporate Center III",
+          "address": "7900 E Union Ave",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CO/denver/7900-e-union-ave/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "4600 S Syracuse St",
+          "address": "4600 S Syracuse St",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CO/denver/4600-s-syracuse-st/"
+        },
+        {
+          "name": "4643 S Ulster St",
+          "address": "4643 S Ulster St",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CO/denver/4643-s-ulster-st/"
+        },
+        {
+          "name": "7900 E Union Ave",
+          "address": "7900 E Union Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CO/denver/7900-e-union-ave/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "Downtown Palo Alto",
+      "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+      "city": "Palo Alto",
+      "state": "CA",
+      "current_representative_card_count": 12,
+      "available_public_building_reference_count": 5,
+      "raw_repo_listing_evidence_count": 22,
+      "raw_listing_unique_addresses": 2,
+      "raw_repo_building_evidence_count": 8,
+      "raw_building_unique_addresses": 8,
+      "listing_keyword_richness": "low",
+      "listing_keyword_count": 3,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking"
+      ],
+      "building_keyword_richness": "medium",
+      "building_keyword_count": 5,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "retail",
+        "restaurant"
+      ],
+      "listing_examples": [
+        {
+          "name": "Hamilton Avenue",
+          "address": "228 Hamilton Ave",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/"
+        },
+        {
+          "name": "Downtown Lytton Avenue",
+          "address": "530 Lytton Ave",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/palo-alto/530-lytton-ave/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "101 Lytton Ave",
+          "address": "101 Lytton Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/"
+        },
+        {
+          "name": "200 Hamilton Ave",
+          "address": "200 Hamilton Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/"
+        },
+        {
+          "name": "200-228 Hamilton Ave",
+          "address": "200-228 Hamilton Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/palo-alto/200-228-hamilton-ave/"
+        },
+        {
+          "name": "228 Hamilton Ave",
+          "address": "228 Hamilton Ave",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/palo-alto/228-hamilton-ave/"
+        },
+        {
+          "name": "3441 Alma St",
+          "address": "3441 Alma St",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/palo-alto/3441-alma-st/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": true,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "North San Jose",
+      "path": "/commercial-real-estate/CA/san-jose/north-san-jose/",
+      "city": "San Jose",
+      "state": "CA",
+      "current_representative_card_count": 13,
+      "available_public_building_reference_count": 5,
+      "raw_repo_listing_evidence_count": 22,
+      "raw_listing_unique_addresses": 2,
+      "raw_repo_building_evidence_count": 4,
+      "raw_building_unique_addresses": 4,
+      "listing_keyword_richness": "medium",
+      "listing_keyword_count": 4,
+      "listing_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "freeway access"
+      ],
+      "building_keyword_richness": "medium",
+      "building_keyword_count": 6,
+      "building_keywords": [
+        "office",
+        "professional",
+        "coworking",
+        "warehouse",
+        "logistics",
+        "freeway access"
+      ],
+      "listing_examples": [
+        {
+          "name": "San Jose Airport",
+          "address": "2033 Gateway Place",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/san-jose/2033-gateway-place/"
+        },
+        {
+          "name": "2880 Zanker Rd",
+          "address": "2880 Zanker Rd",
+          "count": 11,
+          "path": "/commercial-real-estate/building/CA/san-jose/2880-zanker-rd/"
+        }
+      ],
+      "building_examples": [
+        {
+          "name": "1510 Montague Expy",
+          "address": "1510 Montague Expy",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/san-jose/1510-montague-expy/"
+        },
+        {
+          "name": "2033 Gateway Place",
+          "address": "2033 Gateway Place",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/san-jose/2033-gateway-place/"
+        },
+        {
+          "name": "2880 Zanker Rd",
+          "address": "2880 Zanker Rd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/san-jose/2880-zanker-rd/"
+        },
+        {
+          "name": "350 W Trimble Rd",
+          "address": "350 W Trimble Rd",
+          "count": 1,
+          "path": "/commercial-real-estate/building/CA/san-jose/350-w-trimble-rd/"
+        }
+      ],
+      "likely_reason_evidence_is_thin": "Listing evidence is concentrated in too few unique addresses, usually repeated suite/provider rows rather than broad building coverage.",
+      "classification": "B",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": true,
+      "decision": "Partial improvement possible, but archive extraction or manual review is needed for a full card set."
+    },
+    {
+      "district_name": "Commerce City",
+      "path": "/commercial-real-estate/CO/commerce-city/commerce-city/",
+      "city": "Commerce City",
+      "state": "CO",
+      "current_representative_card_count": 0,
+      "available_public_building_reference_count": 0,
+      "raw_repo_listing_evidence_count": 0,
+      "raw_listing_unique_addresses": 0,
+      "raw_repo_building_evidence_count": 0,
+      "raw_building_unique_addresses": 0,
+      "listing_keyword_richness": "none",
+      "listing_keyword_count": 0,
+      "listing_keywords": [],
+      "building_keyword_richness": "none",
+      "building_keyword_count": 0,
+      "building_keywords": [],
+      "listing_examples": [],
+      "building_examples": [],
+      "likely_reason_evidence_is_thin": "No repo-accessible listings or building pages matched the district using current city and district-context filters.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "Elizabeth Industrial",
+      "path": "/commercial-real-estate/NJ/elizabeth/elizabeth-industrial/",
+      "city": "Elizabeth",
+      "state": "NJ",
+      "current_representative_card_count": 0,
+      "available_public_building_reference_count": 0,
+      "raw_repo_listing_evidence_count": 0,
+      "raw_listing_unique_addresses": 0,
+      "raw_repo_building_evidence_count": 0,
+      "raw_building_unique_addresses": 0,
+      "listing_keyword_richness": "none",
+      "listing_keyword_count": 0,
+      "listing_keywords": [],
+      "building_keyword_richness": "none",
+      "building_keyword_count": 0,
+      "building_keywords": [],
+      "listing_examples": [],
+      "building_examples": [],
+      "likely_reason_evidence_is_thin": "No repo-accessible listings or building pages matched the district using current city and district-context filters.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "Industry City / Sunset Park",
+      "path": "/commercial-real-estate/NY/new-york/industry-city-sunset-park/",
+      "city": "New York",
+      "state": "NY",
+      "current_representative_card_count": 0,
+      "available_public_building_reference_count": 0,
+      "raw_repo_listing_evidence_count": 0,
+      "raw_listing_unique_addresses": 0,
+      "raw_repo_building_evidence_count": 0,
+      "raw_building_unique_addresses": 0,
+      "listing_keyword_richness": "none",
+      "listing_keyword_count": 0,
+      "listing_keywords": [],
+      "building_keyword_richness": "none",
+      "building_keyword_count": 0,
+      "building_keywords": [],
+      "listing_examples": [],
+      "building_examples": [],
+      "likely_reason_evidence_is_thin": "No repo-accessible listings or building pages matched the district using current city and district-context filters.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "JFK Airport Area",
+      "path": "/commercial-real-estate/NY/new-york/jfk-airport-area/",
+      "city": "New York",
+      "state": "NY",
+      "current_representative_card_count": 0,
+      "available_public_building_reference_count": 0,
+      "raw_repo_listing_evidence_count": 0,
+      "raw_listing_unique_addresses": 0,
+      "raw_repo_building_evidence_count": 0,
+      "raw_building_unique_addresses": 0,
+      "listing_keyword_richness": "none",
+      "listing_keyword_count": 0,
+      "listing_keywords": [],
+      "building_keyword_richness": "none",
+      "building_keyword_count": 0,
+      "building_keywords": [],
+      "listing_examples": [],
+      "building_examples": [],
+      "likely_reason_evidence_is_thin": "No repo-accessible listings or building pages matched the district using current city and district-context filters.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    },
+    {
+      "district_name": "Port Newark / Elizabeth",
+      "path": "/commercial-real-estate/NJ/newark/port-newark-elizabeth/",
+      "city": "Newark",
+      "state": "NJ",
+      "current_representative_card_count": 0,
+      "available_public_building_reference_count": 0,
+      "raw_repo_listing_evidence_count": 0,
+      "raw_listing_unique_addresses": 0,
+      "raw_repo_building_evidence_count": 0,
+      "raw_building_unique_addresses": 0,
+      "listing_keyword_richness": "none",
+      "listing_keyword_count": 0,
+      "listing_keywords": [],
+      "building_keyword_richness": "none",
+      "building_keyword_count": 0,
+      "building_keywords": [],
+      "listing_examples": [],
+      "building_examples": [],
+      "likely_reason_evidence_is_thin": "No repo-accessible listings or building pages matched the district using current city and district-context filters.",
+      "classification": "C",
+      "enough_repo_accessible_evidence_for_10_to_15_cards": false,
+      "decision": "Requires AWS/archive extraction, better source integration, or external data before meaningful card expansion."
+    }
+  ]
+}
