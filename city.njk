@@ -134,7 +134,7 @@ eleventyComputed:
           </p>
 
           <div class="hero-actions">
-            <a class="btn-primary" href="#market-contact-form">See Available Spaces in {{ city.city }}</a>
+            <a class="btn-primary" href="#search-profile">Find locations that fit</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
               Browse Buildings
             </a>
@@ -215,6 +215,43 @@ eleventyComputed:
                   </a>
                 {% endfor %}
               </div>
+            </div>
+          {% endif %}
+
+          {% if snapshotItems.length >= 2 %}
+            <div class="city-card city-market-snapshot">
+              <div class="eyebrow">{{ snapshotTitle }}</div>
+              <div class="city-market-snapshot__grid">
+                {% for item in snapshotItems %}
+                  <div class="city-market-snapshot__item">
+                    <div class="stat-label">{{ item.label }}</div>
+                    {% if item.areas and item.areas.length %}
+                      <div class="stat-value stat-value--list">
+                        {% for area in item.areas %}
+                          <span>{{ area }}</span>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                      <div class="stat-value">
+                        {{ item.value }}
+                        {% if item.direction == "up" %}
+                          <span class="stat-direction" aria-label="Up">↑</span>
+                        {% elseif item.direction == "down" %}
+                          <span class="stat-direction" aria-label="Down">↓</span>
+                        {% elseif item.direction == "flat" %}
+                          <span class="stat-direction" aria-label="Flat">→</span>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    {% if item.note %}
+                      <p class="stat-note">{{ item.note }}</p>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+              {% if city.market_snapshot_note %}
+                <p>{{ city.market_snapshot_note }}</p>
+              {% endif %}
             </div>
           {% endif %}
 
@@ -375,167 +412,31 @@ eleventyComputed:
       </div>
 
       <div class="city-main-right">
-        {% if snapshotItems.length >= 2 %}
-          <div class="city-card city-market-snapshot">
-            <div class="eyebrow">{{ snapshotTitle }}</div>
-            <div class="city-market-snapshot__grid">
-              {% for item in snapshotItems %}
-                <div class="city-market-snapshot__item">
-                  <div class="stat-label">{{ item.label }}</div>
-                  {% if item.areas and item.areas.length %}
-                    <div class="stat-value stat-value--list">
-                      {% for area in item.areas %}
-                        <span>{{ area }}</span>
-                      {% endfor %}
-                    </div>
-                  {% else %}
-                    <div class="stat-value">
-                      {{ item.value }}
-                      {% if item.direction == "up" %}
-                        <span class="stat-direction" aria-label="Up">↑</span>
-                      {% elseif item.direction == "down" %}
-                        <span class="stat-direction" aria-label="Down">↓</span>
-                      {% elseif item.direction == "flat" %}
-                        <span class="stat-direction" aria-label="Flat">→</span>
-                      {% endif %}
-                    </div>
-                  {% endif %}
-                  {% if item.note %}
-                    <p class="stat-note">{{ item.note }}</p>
-                  {% endif %}
-                </div>
-              {% endfor %}
-            </div>
-            {% if city.market_snapshot_note %}
-              <p>{{ city.market_snapshot_note }}</p>
-            {% endif %}
-          </div>
-        {% endif %}
-
-        <div id="market-contact-form" class="city-form city-card">
-          <div class="eyebrow">Get help finding space</div>
-          <h2>See Available Spaces in {{ city.city }}</h2>
-          <p>
-            Tell us what you’re looking for. Rofo can help you compare spaces, understand pricing, and connect with local experts who know the market.
-          </p>
-
-          <form
-            action="/api/leads/submit"
-            method="POST"
-            class="rofo-formspree-form"
-          >
-            <input type="hidden" name="source" value="rofo-city-page">
-            <input type="hidden" name="page_type" value="city">
-            <input type="hidden" name="city" value="{{ city.city }}">
-            <input type="hidden" name="state" value="{{ city.state_abbr }}">
-            <input type="hidden" name="market" value="{{ city.city }}, {{ city.state_abbr }}">
-            <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
-            <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
-            <input type="hidden" name="neighborhood_name" value="">
-            <input type="hidden" name="neighborhood_slug" value="">
-            <input type="hidden" name="neighborhood_path" value="">
-            <input type="hidden" name="commercial_area_id" value="">
-            <input type="hidden" name="commercial_area_type" value="">
-            <input type="hidden" name="routing_market" value="{{ city.routing_market }}">
-            <input type="hidden" name="routing_county" value="{{ city.routing_county }}">
-            <input type="hidden" name="routing_space_type" value="">
-            <input type="hidden" name="routing_candidates" value="{{ city.routing_candidates | join(',') }}">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
-            <input type="text" name="company_website" style="display:none;">
-            <input type="hidden" name="form_start_time" value="">
-            <script>
-              document.currentScript.previousElementSibling.value = Date.now();
-            </script>
-            <script>
-              (function () {
-                var params = new URLSearchParams(window.location.search);
-                [
-                  "neighborhood_name",
-                  "neighborhood_slug",
-                  "neighborhood_path",
-                  "commercial_area_id",
-                  "commercial_area_type"
-                ].forEach(function (fieldName) {
-                  var value = params.get(fieldName);
-                  if (!value) return;
-                  var field = document.querySelector('#market-contact-form [name="' + fieldName + '"]');
-                  if (field) field.value = value;
-                });
-              })();
-            </script>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="lead-name">Name</label>
-                <input id="lead-name" name="name" type="text" placeholder="Your name" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="lead-email">Email</label>
-                <input id="lead-email" name="email" type="email" placeholder="you@example.com" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="lead-phone">Phone</label>
-                <input id="lead-phone" name="phone" type="tel" placeholder="Your phone number" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="lead-space-type">What type of space do you need?</label>
-                <select id="lead-space-type" name="space_type" required>
-                  <option value="">Select one</option>
-                  <option>Office Space</option>
-                  <option>Retail Space</option>
-                  <option>Industrial Space</option>
-                  <option>Coworking Space</option>
-                  <option>Flex Space</option>
-                  <option>Not Sure</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="lead-size">Space size</label>
-                <select id="lead-size" name="space_needed" required>
-                  <option value="">Select one</option>
-                  <option>Under 1,000 sqft</option>
-                  <option>1,000–2,500 sqft</option>
-                  <option>2,500–5,000 sqft</option>
-                  <option>5,000–10,000 sqft</option>
-                  <option>10,000+ sqft</option>
-                  <option>Not Sure</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="lead-notes">Other requirements for your space <span class="optional">(optional)</span></label>
-              <textarea
-                id="lead-notes"
-                name="notes"
-                placeholder="Example: 3–5 person office, move in June, flexible budget"
-              ></textarea>
-            </div>
-
-            <div class="btn-row">
-              <label>
-                <input type="checkbox" name="human_check" required>
-                I’m a real person looking for space
-              </label>
-              <button class="btn-primary" type="submit">See Available Spaces</button>
-            </div>
-
-            <p class="form-note">✓ Find the right location • ✓ Compare options and deal terms • ✓ Connect with trusted local help</p>
-          </form>
-        </div>
+        {% set searchProfileContext = {
+          "layout": "inline",
+          "submit_enabled": true,
+          "submit_endpoint": "/api/leads/submit",
+          "target_area": city.city,
+          "city": city.city,
+          "district": "",
+          "street": "",
+          "state": city.state_abbr,
+          "context_type": "city",
+          "context_label": city.city + ", " + city.state_abbr,
+          "page_url": metadata.siteUrl + page.url,
+          "page_title": title,
+          "routing_market": city.routing_market or (city.slug + "-" + (city.state_abbr | lower)),
+          "routing_county": city.routing_county or "",
+          "neighborhood_name": "",
+          "neighborhood_slug": "",
+          "neighborhood_path": "",
+          "commercial_area_id": "",
+          "commercial_area_type": ""
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
       </div>
     </div>
   </div>
 </section>
+
+<script src="/js/search-profile.js" defer></script>

@@ -109,8 +109,11 @@ export function buildLeadPayload(formFields, request) {
   const spaceType = normalizeField(formFields.requested_space_type || formFields.space_type);
   const market = normalizeField(formFields.market || formFields.location || [formFields.city, formFields.state].filter(Boolean).join(", "));
   const state = normalizeState(formFields.state);
+  const leadType = normalizeField(formFields.lead_type);
 
   return {
+    lead_type: leadType,
+    profile_version: normalizeField(formFields.profile_version),
     name: normalizeField(formFields.name),
     email: normalizeField(formFields.email),
     phone: normalizeField(formFields.phone),
@@ -129,6 +132,7 @@ export function buildLeadPayload(formFields, request) {
     requirements: normalizeField(formFields.requirements || formFields.message || formFields.notes),
     page_type: normalizeField(formFields.page_type),
     page_url: normalizeField(formFields.page_url),
+    page_title: normalizeField(formFields.page_title),
     rofo_source: normalizeField(formFields.rofo_source || formFields.page_url),
     neighborhood_name: normalizeField(formFields.neighborhood_name),
     neighborhood_slug: normalizeRouteValue(formFields.neighborhood_slug),
@@ -136,6 +140,18 @@ export function buildLeadPayload(formFields, request) {
     commercial_area_id: normalizeField(formFields.commercial_area_id),
     commercial_area_type: normalizeField(formFields.commercial_area_type),
     source: normalizeField(formFields.source || "rofo"),
+    location_display: normalizeField(formFields.location_display),
+    location_city: normalizeField(formFields.location_city),
+    location_district: normalizeField(formFields.location_district),
+    location_street: normalizeField(formFields.location_street),
+    location_raw: normalizeField(formFields.location_raw),
+    location_profile_features: normalizeField(formFields.location_profile_features),
+    location_profile_feature_other: normalizeField(formFields.location_profile_feature_other),
+    location_profile_json: normalizeField(formFields.location_profile_json),
+    location_decision_selected_district: normalizeField(formFields.location_decision_selected_district),
+    location_decision_primary_archetype: normalizeField(formFields.location_decision_primary_archetype),
+    location_decision_compared_districts: normalizeField(formFields.location_decision_compared_districts),
+    location_decision_business_use_case: normalizeField(formFields.location_decision_business_use_case),
     timestamp: now,
     status: "pending",
     officefinder_status: "officefinder_not_attempted",
@@ -149,7 +165,7 @@ export function getMissingSubmitFields(lead) {
   const missing = [];
   if (!lead.name) missing.push("name");
   if (!lead.email) missing.push("email");
-  if (!lead.phone) missing.push("phone");
+  if (lead.lead_type !== "location_profile" && !lead.phone) missing.push("phone");
   if (!lead.market && !lead.city) missing.push("market");
   return missing;
 }
@@ -275,6 +291,7 @@ function addSpamSignal(signals, score, reason) {
 
 export function detectLeadSpam(lead, rawFormFields = {}) {
   const signals = { score: 0, reasons: [] };
+  const isLocationProfile = normalizeField(rawFormFields.lead_type || lead.lead_type) === "location_profile";
   const visibleValues = [
     lead.name,
     lead.email,
@@ -302,7 +319,7 @@ export function detectLeadSpam(lead, rawFormFields = {}) {
     addSpamSignal(signals, 50, "Invalid space type dropdown value");
   }
 
-  if (isBadDropdownValue(submittedSize, EXPECTED_SPACE_NEEDED)) {
+  if (!isLocationProfile && isBadDropdownValue(submittedSize, EXPECTED_SPACE_NEEDED)) {
     addSpamSignal(signals, 50, "Invalid space size dropdown value");
   }
 
@@ -318,7 +335,11 @@ export function detectLeadSpam(lead, rawFormFields = {}) {
     addSpamSignal(signals, 40, "Email uses test or disposable domain");
   }
 
-  if (!lead.phone || isFakePhone(lead.phone)) {
+  if (!lead.phone) {
+    if (!isLocationProfile) {
+      addSpamSignal(signals, 40, "Phone is missing, too short, or fake");
+    }
+  } else if (isFakePhone(lead.phone)) {
     addSpamSignal(signals, 40, "Phone is missing, too short, or fake");
   }
 
@@ -749,6 +770,51 @@ function buildEmailButton(label, url, background, color = "#ffffff", border = "n
       ${escapeHtml(label)}
     </a>
   `;
+}
+
+function isLocationProfileLead(lead) {
+  return normalizeField(lead.lead_type) === "location_profile";
+}
+
+function getLocationRequirementSummary(lead) {
+  const location = normalizeField(lead.location_display || lead.market || [lead.location_city || lead.city, lead.state].filter(Boolean).join(", "));
+  const spaceType = normalizeField(lead.effective_space_type || lead.requested_space_type || lead.space_type);
+  const size = normalizeField(lead.space_needed);
+  const timing = normalizeField(lead.move_timing);
+  const features = normalizeField(lead.location_profile_features);
+
+  return {
+    location,
+    spaceType,
+    size,
+    timing,
+    features,
+    featureOther: normalizeField(lead.location_profile_feature_other),
+    city: normalizeField(lead.location_city || lead.city),
+    district: normalizeField(lead.location_district || lead.neighborhood_name),
+    street: normalizeField(lead.location_street),
+    raw: normalizeField(lead.location_raw),
+  };
+}
+
+function buildLocationRequirementRows(lead) {
+  const summary = getLocationRequirementSummary(lead);
+  return [
+    buildEmailField("Location", escapeHtml(summary.location)),
+    buildEmailField("Space type", escapeHtml(summary.spaceType)),
+    buildEmailField(summary.spaceType.toLowerCase().includes("office") || summary.spaceType.toLowerCase().includes("coworking") ? "Team size" : "Size", escapeHtml(summary.size)),
+    summary.timing ? buildEmailField("Move-in timing", escapeHtml(summary.timing)) : "",
+    summary.features ? buildEmailField("Features", escapeHtml(summary.features.replace(/,\s*/g, " • "))) : "",
+    summary.featureOther ? buildEmailField("Other feature detail", escapeHtml(summary.featureOther)) : "",
+    summary.city ? buildEmailField("City", escapeHtml(summary.city)) : "",
+    summary.district ? buildEmailField("District", escapeHtml(summary.district)) : "",
+    summary.street ? buildEmailField("Street / detail", escapeHtml(summary.street)) : "",
+  ].filter(Boolean).join("");
+}
+
+function buildLocationRequirementSubject(lead) {
+  const summary = getLocationRequirementSummary(lead);
+  return `New Location Requirement: ${summary.spaceType || "Space"} • ${summary.location || "Location"} • ${summary.size || "Size not provided"}`;
 }
 
 function getApprovalActions(route, urls) {
@@ -1356,23 +1422,41 @@ export async function sendApprovalEmail(env, request, record, token) {
   const dashboardUrl = `${baseUrl}/admin/leads?${adminParams.toString()}`;
   const market = getLeadMarket(lead);
   const spaceType = lead.effective_space_type || lead.requested_space_type || lead.space_type || "";
-  const subject = `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
+  const locationProfile = isLocationProfileLead(lead);
+  const subject = locationProfile
+    ? buildLocationRequirementSubject(lead)
+    : `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
   const requirements = lead.requirements || "(none provided)";
   const neighborhoodContext = lead.neighborhood_name
     ? `${lead.neighborhood_name}${lead.city ? `, ${lead.city}` : ""}`
     : "";
+  const alertHeading = locationProfile ? "New Location Requirement" : "New lead ready for review";
+  const alertKicker = locationProfile ? "Rofo location profile" : "Rofo lead alert";
+  const requirementRows = locationProfile ? buildLocationRequirementRows(lead) : "";
   const text = [
-    "NEW ROFO LEAD",
+    locationProfile ? "NEW LOCATION REQUIREMENT" : "NEW ROFO LEAD",
     "",
     `Name: ${lead.name}`,
     `Company: ${lead.company || ""}`,
     `Email: ${lead.email}`,
-    `Phone: ${lead.phone}`,
+    `Phone: ${lead.phone || "(not provided)"}`,
     `Market: ${market}`,
     neighborhoodContext ? `Neighborhood / Area: ${neighborhoodContext}` : "",
     `Space type: ${spaceType}`,
     `Space size: ${lead.space_needed || ""}`,
     lead.move_timing ? `Timing: ${lead.move_timing}` : "",
+    lead.location_profile_features ? `Features: ${lead.location_profile_features}` : "",
+    lead.location_profile_feature_other ? `Other feature detail: ${lead.location_profile_feature_other}` : "",
+    locationProfile ? "" : "",
+    locationProfile ? "LOCATION REQUIREMENT SUMMARY" : "",
+    locationProfile ? `Location: ${lead.location_display || market}` : "",
+    locationProfile ? `City: ${lead.location_city || lead.city || ""}` : "",
+    locationProfile ? `District: ${lead.location_district || lead.neighborhood_name || ""}` : "",
+    locationProfile && lead.location_street ? `Street / detail: ${lead.location_street}` : "",
+    locationProfile ? `Space type: ${spaceType}` : "",
+    locationProfile ? `Team size / size: ${lead.space_needed || ""}` : "",
+    locationProfile && lead.move_timing ? `Move-in timing: ${lead.move_timing}` : "",
+    locationProfile && lead.location_profile_features ? `Features: ${lead.location_profile_features}` : "",
     lead.spam_score ? `Spam score: ${lead.spam_score}` : "",
     "",
     "NOTES",
@@ -1395,8 +1479,8 @@ export async function sendApprovalEmail(env, request, record, token) {
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
             <tr>
               <td style="padding:22px;background:#123f8c;color:#ffffff;">
-                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo lead alert</div>
-                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">New lead ready for review</h1>
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">${escapeHtml(alertKicker)}</div>
+                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">${escapeHtml(alertHeading)}</h1>
                 <div style="font-size:15px;line-height:22px;color:#eff6ff;">${escapeHtml(market)} &bull; ${escapeHtml(spaceType || "Space needed")} &bull; ${escapeHtml(lead.space_needed || "Size not provided")}</div>
               </td>
             </tr>
@@ -1406,7 +1490,7 @@ export async function sendApprovalEmail(env, request, record, token) {
                   ${buildEmailField("Name", escapeHtml(lead.name))}
                   ${lead.company ? buildEmailField("Company", escapeHtml(lead.company)) : ""}
                   ${buildEmailField("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
-                  ${buildEmailField("Phone", `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>`)}
+                  ${lead.phone ? buildEmailField("Phone", `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>`) : buildEmailField("Phone", escapeHtml("(not provided)"))}
                   ${buildEmailField("Market", escapeHtml(market))}
                   ${neighborhoodContext ? buildEmailField("Neighborhood / Area", escapeHtml(neighborhoodContext)) : ""}
                   ${buildEmailField("Space type", escapeHtml(spaceType))}
@@ -1414,6 +1498,13 @@ export async function sendApprovalEmail(env, request, record, token) {
                   ${lead.move_timing ? buildEmailField("Timing", escapeHtml(lead.move_timing)) : ""}
                   ${lead.spam_score ? buildEmailField("Spam score", escapeHtml(lead.spam_score)) : ""}
                 </table>
+                ${locationProfile && requirementRows ? `
+                <div style="margin:0 0 18px;padding:13px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 6px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Location requirement summary</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${requirementRows}
+                  </table>
+                </div>` : ""}
                 <div style="margin:0 0 18px;padding:13px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 6px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Notes</div>
                   <div style="white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:21px;">${escapeHtml(requirements)}</div>
@@ -1513,10 +1604,15 @@ export async function logLeadToGoogleSheets(env, record) {
   const payload = {
     id: record.id,
     status: record.status,
+    lead_type: lead.lead_type,
+    profile_version: lead.profile_version,
     route_recommendation: route,
     city: lead.city,
     county: lead.routing_county || lead.county,
     state: lead.state,
+    location_display: lead.location_display,
+    location_district: lead.location_district,
+    location_profile_features: lead.location_profile_features,
     space_type: lead.effective_space_type || lead.requested_space_type || lead.space_type,
     name: lead.name,
     email: lead.email,

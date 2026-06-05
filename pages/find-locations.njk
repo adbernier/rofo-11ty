@@ -1,0 +1,57 @@
+---
+layout: base.njk
+permalink: /find-locations/
+title: Find locations that fit | Rofo
+description: Build a simple location profile so Rofo can match you with relevant locations, buildings, and alternatives.
+eleventyComputed:
+  canonical: "{{ metadata.siteUrl }}/find-locations/"
+---
+
+<section class="city-page search-profile-page">
+  <div class="city-shell">
+    <div class="breadcrumbs">
+      <a href="/">Rofo</a>
+      <span aria-hidden="true">/</span>
+      <span>Find locations that fit</span>
+    </div>
+
+    <div class="city-hero city-hero--district-identity">
+      <div class="city-card">
+        <div class="city-hero-copy">
+          <div class="eyebrow">Location profile</div>
+          <h1>Find locations that fit</h1>
+          <p class="lead">
+            Build a simple profile so Rofo can match you with relevant locations, buildings, and alternatives.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-profile-page__shell">
+      {% set searchProfileContext = {
+        "layout": "page",
+        "submit_enabled": true,
+        "submit_endpoint": "/api/leads/submit",
+        "target_area": "",
+        "city": "",
+        "district": "",
+        "street": "",
+        "state": "",
+        "context_type": "find_locations",
+        "context_label": "Find locations that fit",
+        "page_url": metadata.siteUrl + page.url,
+        "page_title": title,
+        "routing_market": "",
+        "routing_county": "",
+        "neighborhood_name": "",
+        "neighborhood_slug": "",
+        "neighborhood_path": "",
+        "commercial_area_id": "",
+        "commercial_area_type": ""
+      } %}
+      {% include "partials/shared/search-profile-card.njk" %}
+    </div>
+  </div>
+</section>
+
+<script src="/js/search-profile.js" defer></script>

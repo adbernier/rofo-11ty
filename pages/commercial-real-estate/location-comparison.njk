@@ -30,7 +30,7 @@ eleventyComputed:
             Compare which commercial district is a better fit before narrowing to specific spaces.
           </p>
           <div class="button-row">
-            <a class="btn-primary" href="#comparison-contact-form">Find locations that fit</a>
+            <a class="btn-primary" href="#search-profile">Find locations that fit</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ comparison.state_abbr }}/{{ comparison.city_slug }}/market-guide/">Read market guide</a>
           </div>
         </div>
@@ -173,107 +173,34 @@ eleventyComputed:
       </div>
 
       <aside class="neighborhood-sidebar">
-        <details id="comparison-contact-form" class="city-form city-card neighborhood-lead-form neighborhood-briefing-card">
-          <summary>
-            <span class="eyebrow">Location decision help</span>
-            <span class="neighborhood-briefing-card__headline">Find locations that fit</span>
-            <span class="neighborhood-briefing-card__body">
-              Tell us what matters and we’ll help compare locations, buildings, and alternatives that fit.
-            </span>
-            <span class="neighborhood-briefing-card__button">Find locations that fit</span>
-            <span class="neighborhood-briefing-card__reassurance">No obligation. We’ll help compare relevant markets, buildings, and alternatives.</span>
-          </summary>
-          <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
-            <input type="hidden" name="source" value="rofo-location-comparison-page">
-            <input type="hidden" name="lead_type" value="location_comparison">
-            <input type="hidden" name="page_type" value="location_comparison">
-            <input type="hidden" name="city" value="{{ comparison.city }}">
-            <input type="hidden" name="state" value="{{ comparison.state_abbr }}">
-            <input type="hidden" name="market" value="{{ comparison.city }}, {{ comparison.state_abbr }}">
-            <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
-            <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
-            <input type="hidden" name="location_decision_selected_district" value="{{ comparison.title }}">
-            <input type="hidden" name="location_decision_primary_archetype" value="{{ comparison.district_a.primary_archetype }}, {{ comparison.district_b.primary_archetype }}">
-            <input type="hidden" name="location_decision_compared_districts" value="{{ comparison.compared_districts_value }}">
-            <input type="hidden" name="location_decision_business_use_case" value="captured_from_space_type">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
-            <input type="text" name="company_website" style="display:none;">
-            <input type="hidden" name="form_start_time" value="">
-            <script>
-              document.currentScript.previousElementSibling.value = Date.now();
-            </script>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="comparison-lead-name">Name</label>
-                <input id="comparison-lead-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="comparison-lead-email">Email</label>
-                <input id="comparison-lead-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="comparison-lead-phone">Phone</label>
-                <input id="comparison-lead-phone" name="phone" type="tel" placeholder="Best phone number" autocomplete="tel" required>
-              </div>
-            </div>
-
-            <div class="form-stack">
-              <div class="field">
-                <label for="comparison-lead-space-type">Space type</label>
-                <select id="comparison-lead-space-type" name="space_type" required>
-                  <option value="">Select one</option>
-                  <option>Office Space</option>
-                  <option>Industrial Space</option>
-                  <option>Flex Space</option>
-                  <option>Retail Space</option>
-                  <option>Not Sure</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="comparison-lead-notes">What are you comparing? <span class="optional">(optional)</span></label>
-              <textarea
-                id="comparison-lead-notes"
-                name="notes"
-                placeholder="Example: team size, preferred commute, client-facing needs, warehouse/flex needs, or districts you are considering"
-              ></textarea>
-            </div>
-
-            <div class="btn-row">
-              <label>
-                <input type="checkbox" name="human_check" required>
-                I’m a real person evaluating locations
-              </label>
-              <button class="btn-primary" type="submit">Find locations that fit</button>
-            </div>
-
-            <p class="form-note">District fit, current options, and nearby alternatives for {{ comparison.short_title }}.</p>
-          </form>
-        </details>
+        {% set comparisonDisplayDistricts = comparison.compared_districts_value | replace(",", " / ") %}
+        {% set searchProfileContext = {
+          "layout": "inline",
+          "submit_enabled": true,
+          "submit_endpoint": "/api/leads/submit",
+          "target_area": comparison.city + " — " + comparisonDisplayDistricts,
+          "city": comparison.city,
+          "district": comparisonDisplayDistricts,
+          "street": "",
+          "state": comparison.state_abbr,
+          "context_type": "comparison",
+          "context_label": comparison.short_title,
+          "page_url": metadata.siteUrl + page.url,
+          "page_title": comparison.page_title,
+          "routing_market": comparison.city_slug + "-" + (comparison.state_abbr | lower),
+          "routing_county": "",
+          "neighborhood_name": comparison.short_title,
+          "neighborhood_slug": "",
+          "neighborhood_path": comparison.path,
+          "commercial_area_id": "",
+          "commercial_area_type": "location_comparison",
+          "compared_districts": comparison.compared_districts_value,
+          "primary_archetype": (comparison.district_a.primary_archetype or "") + ", " + (comparison.district_b.primary_archetype or "")
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
       </aside>
     </div>
   </div>
 </section>
 
-<script>
-  (function () {
-    var details = document.getElementById("comparison-contact-form");
-    if (!details) return;
-
-    function openBriefingCard() {
-      if (window.location.hash !== "#comparison-contact-form") return;
-      details.open = true;
-    }
-
-    openBriefingCard();
-    window.addEventListener("hashchange", openBriefingCard);
-  })();
-</script>
+<script src="/js/search-profile.js" defer></script>

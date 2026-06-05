@@ -1,0 +1,134 @@
+---
+layout: base.njk
+permalink: /test/search-profile/
+title: My Search Profile Prototype | Rofo
+description: Hidden staging prototype for the My Search Profile card experience.
+robots: noindex,nofollow
+---
+
+<section class="city-page search-profile-prototype-page">
+  <div class="city-shell">
+    <div class="breadcrumbs">
+      <a href="/">Rofo</a>
+      <span aria-hidden="true">/</span>
+      <span>Search Profile Prototype</span>
+    </div>
+
+    <div class="city-hero city-hero--district-identity">
+      <div class="city-card">
+        <div class="city-hero-copy">
+          <div class="eyebrow">Prototype</div>
+          <h1>My Search Profile V1B</h1>
+          <p class="lead">
+            A hidden test route for reviewing the sticky search profile card before connecting it to lead forms.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Local only</span>
+            <span class="pill">No lead submission</span>
+            <span class="pill">localStorage prototype</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="neighborhood-layout search-profile-prototype-layout">
+      <div class="neighborhood-main">
+        <section class="city-card">
+          <div class="eyebrow">Sample district context</div>
+          <h2>SoMa office search</h2>
+          <p>
+            SoMa tends to work well for teams comparing adaptive buildings, mixed-use commercial texture, and access to nearby downtown and Mission Bay alternatives.
+          </p>
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            <div class="neighborhood-mini-card">
+              <h3>Best fit</h3>
+              <p>Creative office, startup teams, flexible workplace needs</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Compare with</h3>
+              <p>Financial District, Mission Bay, Jackson Square</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Building patterns</h3>
+              <p>Converted warehouse, mid-rise office, larger mixed-use blocks</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Sample comparison context</div>
+          <h2>SoMa vs Financial District</h2>
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel">
+              <h3>Choose SoMa if</h3>
+              <ul class="mini-list">
+                <li>Adaptive buildings matter more than formal tower identity.</li>
+                <li>You want flexibility between Mission Bay, downtown, and creative office context.</li>
+                <li>Mixed commercial texture is useful for recruiting or team fit.</li>
+              </ul>
+            </div>
+            <div class="location-comparison-panel">
+              <h3>Choose Financial District if</h3>
+              <ul class="mini-list">
+                <li>Client-facing office identity is important.</li>
+                <li>Transit concentration and traditional CBD context matter.</li>
+                <li>Professional services or finance-adjacent positioning is useful.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Sample building context</div>
+          <h2>Representative building patterns</h2>
+          <p>
+            The profile card should stay optional while the user reviews locations, comparisons, and representative buildings.
+          </p>
+          <div class="representative-building-card-grid">
+            <article class="representative-building-card">
+              <div class="representative-building-card__header">
+                <p class="representative-building-card__type">Converted warehouse / creative office</p>
+                <h3>South Park edge building</h3>
+                <p class="representative-building-card__address">SoMa, San Francisco</p>
+              </div>
+              <p class="representative-building-card__descriptor">A representative pattern for teams weighing adaptive office environments.</p>
+            </article>
+            <article class="representative-building-card">
+              <div class="representative-building-card__header">
+                <p class="representative-building-card__type">Downtown office tower</p>
+                <h3>CBD professional office</h3>
+                <p class="representative-building-card__address">Financial District, San Francisco</p>
+              </div>
+              <p class="representative-building-card__descriptor">A representative pattern for more formal client-facing office needs.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside class="neighborhood-sidebar">
+        {% set searchProfileContext = {
+          "target_area": "San Francisco — SoMa",
+          "city": "San Francisco",
+          "district": "SoMa",
+          "street": "",
+          "context_type": "district",
+          "context_label": "SoMa office search"
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
+
+        <section class="city-card">
+          <div class="eyebrow">Prototype notes</div>
+          <h2>Review behavior</h2>
+          <ul class="mini-list">
+            <li>Desktop: sticky card inside this right column.</li>
+            <li>Mobile: bottom sheet, collapsed by default.</li>
+            <li>Data persists in <code>localStorage</code> under <code>rofoSearchProfileV1</code>.</li>
+            <li>No contact fields and no lead submission.</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script src="/js/search-profile.js" defer></script>

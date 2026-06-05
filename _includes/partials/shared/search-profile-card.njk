@@ -1,0 +1,176 @@
+<aside
+  class="search-profile-shell{% if searchProfileContext.layout %} search-profile-shell--{{ searchProfileContext.layout }}{% endif %}"
+  id="{{ searchProfileContext.anchor_id or 'search-profile' }}"
+  data-search-profile
+  data-profile-layout="{{ searchProfileContext.layout or '' }}"
+  data-profile-submit-enabled="{{ 'true' if searchProfileContext.submit_enabled else 'false' }}"
+  data-profile-submit-endpoint="{{ searchProfileContext.submit_endpoint or '/api/leads/submit' }}"
+  data-profile-context-target-area="{{ searchProfileContext.target_area or '' }}"
+  data-profile-context-city="{{ searchProfileContext.city or '' }}"
+  data-profile-context-district="{{ searchProfileContext.district or '' }}"
+  data-profile-context-street="{{ searchProfileContext.street or '' }}"
+  data-profile-context-type="{{ searchProfileContext.context_type or '' }}"
+  data-profile-context-label="{{ searchProfileContext.context_label or '' }}"
+  data-profile-page-url="{{ searchProfileContext.page_url or '' }}"
+  data-profile-page-title="{{ searchProfileContext.page_title or '' }}"
+  data-profile-state="{{ searchProfileContext.state or '' }}"
+  data-profile-routing-market="{{ searchProfileContext.routing_market or '' }}"
+  data-profile-routing-county="{{ searchProfileContext.routing_county or '' }}"
+  data-profile-neighborhood-name="{{ searchProfileContext.neighborhood_name or '' }}"
+  data-profile-neighborhood-slug="{{ searchProfileContext.neighborhood_slug or '' }}"
+  data-profile-neighborhood-path="{{ searchProfileContext.neighborhood_path or '' }}"
+  data-profile-commercial-area-id="{{ searchProfileContext.commercial_area_id or '' }}"
+  data-profile-commercial-area-type="{{ searchProfileContext.commercial_area_type or '' }}"
+  data-profile-compared-districts="{{ searchProfileContext.compared_districts or '' }}"
+  data-profile-primary-archetype="{{ searchProfileContext.primary_archetype or '' }}"
+  aria-label="Search profile"
+>
+  <div class="search-profile-backdrop" data-profile-close></div>
+  <section class="search-profile-card" data-profile-card>
+    <button class="search-profile-mobile-handle" type="button" data-profile-toggle aria-label="Open My Search Profile">
+      <span></span>
+    </button>
+
+    {% if searchProfileContext.layout != "page" %}
+      <div class="search-profile-card__top">
+        <div>
+          <h2>Find locations that fit</h2>
+          <p>Build a simple profile so Rofo can match you with relevant locations, buildings, and alternatives.</p>
+          <p class="search-profile-card__privacy">Private until you choose to send it.</p>
+        </div>
+        <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse My Search Profile">
+          <span aria-hidden="true">−</span>
+        </button>
+      </div>
+
+      <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
+        <span>
+          <strong>Find locations that fit</strong>
+          <small data-profile-summary-title>Add a few details</small>
+        </span>
+        <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
+      </button>
+    {% endif %}
+
+    <div class="search-profile-card__body" data-profile-body>
+      <div class="search-profile-step-meter" data-profile-editor>
+        <span data-profile-step-count>1 / 5</span>
+      </div>
+
+      <div class="search-profile-progress" aria-label="Search profile progress" data-profile-editor>
+        <span data-profile-progress-bar></span>
+      </div>
+
+      <div class="search-profile-preview" data-profile-preview data-profile-editor>
+        <span data-profile-preview-empty>No profile yet</span>
+        <ul data-profile-preview-list hidden></ul>
+      </div>
+
+      <form class="search-profile-form" data-profile-form data-profile-editor>
+        <fieldset class="search-profile-fieldset" data-profile-step="targetArea">
+          <label for="search-profile-target-area">Where are you looking?</label>
+          <input id="search-profile-target-area" name="targetArea" type="text" placeholder="e.g. SoMa, Austin, Portland" data-profile-input="targetArea">
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="spaceType" hidden>
+          <legend>What type of space are you considering?</legend>
+          <div class="search-profile-options" data-profile-options="spaceType">
+            <button type="button" data-profile-value="Office">Office</button>
+            <button type="button" data-profile-value="Retail">Retail</button>
+            <button type="button" data-profile-value="Industrial / Warehouse">Industrial / Warehouse</button>
+            <button type="button" data-profile-value="Flex">Flex</button>
+            <button type="button" data-profile-value="Coworking">Coworking</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="people" hidden>
+          <legend>How many people are you planning for?</legend>
+          <div class="search-profile-options" data-profile-options="people"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="use" hidden>
+          <legend>Use</legend>
+          <div class="search-profile-options" data-profile-options="use"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="size" hidden>
+          <legend>What size are you considering?</legend>
+          <div class="search-profile-options" data-profile-options="size"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="timing" hidden>
+          <legend>When would you like to move?</legend>
+          <div class="search-profile-options" data-profile-options="timing"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="workspaceStyle" hidden>
+          <legend>Workspace Style</legend>
+          <div class="search-profile-options" data-profile-options="workspaceStyle"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="important" hidden>
+          <legend>Important</legend>
+          <div class="search-profile-options search-profile-options--multi" data-profile-options="important"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="features" hidden>
+          <legend>What features are important to your business?</legend>
+          <p class="search-profile-fieldset__helper">Select anything important.</p>
+          <div class="search-profile-options search-profile-options--multi" data-profile-options="features"></div>
+          <div class="search-profile-other" data-profile-feature-other hidden>
+            <label for="search-profile-feature-other">Anything else to consider?</label>
+            <input id="search-profile-feature-other" name="featureOther" type="text" data-profile-input="featureOther">
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="search-profile-actions" data-profile-editor>
+        <button class="btn-secondary" type="button" data-profile-prev>Previous</button>
+        <button class="btn-primary" type="button" data-profile-next>Next</button>
+        <button class="search-profile-reset" type="button" data-profile-reset>Reset</button>
+      </div>
+
+      <section class="search-profile-contact-step" data-profile-contact hidden>
+        <div>
+          <h3>Get location options from Rofo</h3>
+        </div>
+
+        <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
+
+        <div class="search-profile-contact-step__fields">
+          <p class="search-profile-contact-step__field-heading">Where should we send your options?</p>
+
+          <input id="search-profile-contact-name" name="profileContactName" type="text" autocomplete="name" placeholder="Name" aria-label="Name" data-profile-contact-input="name">
+
+          <input id="search-profile-contact-email" name="profileContactEmail" type="email" autocomplete="email" placeholder="Email" aria-label="Email" data-profile-contact-input="email">
+
+          <input id="search-profile-contact-phone" name="profileContactPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Phone optional" data-profile-contact-input="phone">
+          <p class="search-profile-contact-step__error" data-profile-contact-phone-error hidden>Enter a 10-digit phone number or leave it blank.</p>
+          <p class="search-profile-contact-step__error" data-profile-contact-submit-error hidden>We could not send your profile. Please try again.</p>
+        </div>
+
+        <p class="search-profile-contact-step__note">No obligation.<br>No spam.<br>We'll only use this to follow up on your search.</p>
+
+        <div class="search-profile-contact-step__actions">
+          <button class="btn-primary" type="button" data-profile-contact-submit>Get my location options</button>
+          <button class="btn-secondary" type="button" data-profile-edit>Edit profile</button>
+        </div>
+      </section>
+
+      <section class="search-profile-finished" data-profile-finished hidden>
+        <div class="search-profile-finished__intro">
+          <h3>Your location profile has been shared.</h3>
+          <p>We'll use this profile to identify matching locations and alternatives.</p>
+        </div>
+
+        <div>
+          <ul class="search-profile-finished__list" data-profile-final-list></ul>
+        </div>
+
+        <div class="search-profile-finished__actions">
+          <button class="btn-secondary" type="button" data-profile-edit>Edit profile</button>
+        </div>
+      </section>
+    </div>
+  </section>
+</aside>
