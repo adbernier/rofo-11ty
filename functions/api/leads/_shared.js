@@ -884,6 +884,35 @@ function getTenantConfirmationDetails(lead) {
 }
 
 function buildTenantConfirmationText(lead) {
+  if (isLocationProfileLead(lead)) {
+    const summary = getLocationRequirementSummary(lead);
+    const profileLines = [
+      summary.location ? `Location: ${summary.location}` : "",
+      summary.spaceType ? `Space type: ${summary.spaceType}` : "",
+      summary.size ? `${summary.spaceType.toLowerCase().includes("office") || summary.spaceType.toLowerCase().includes("coworking") ? "Team size" : "Size"}: ${summary.size}` : "",
+      summary.timing ? `Move-in timing: ${summary.timing}` : "",
+      summary.features ? `Features: ${summary.features.replace(/,\s*/g, " • ")}` : "",
+      summary.featureOther ? `Other feature detail: ${summary.featureOther}` : "",
+    ].filter(Boolean);
+
+    return [
+      "Hi,",
+      "",
+      "Thanks — we received your location profile.",
+      "",
+      "We'll use it to identify matching locations, buildings, and alternatives.",
+      "",
+      profileLines.length ? "Location profile summary" : "",
+      profileLines.length ? "" : "",
+      ...profileLines,
+      "",
+      "No obligation. We'll only use this to follow up on your search.",
+      "",
+      "Thanks,",
+      "Rofo",
+    ].filter((line, index, lines) => line !== "" || lines[index - 1] !== "").join("\n");
+  }
+
   const firstName = getTenantFirstName(lead.name);
   const details = getTenantConfirmationDetails(lead);
   const guideLines = [
@@ -940,6 +969,46 @@ function buildTenantConfirmationText(lead) {
 }
 
 function buildTenantConfirmationHtml(lead) {
+  if (isLocationProfileLead(lead)) {
+    const summaryRows = buildLocationRequirementRows(lead);
+
+    return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo</div>
+                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">Your Rofo location profile</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px;font-size:15px;line-height:23px;">
+                <p style="margin:0 0 14px;">Hi,</p>
+                <p style="margin:0 0 14px;">Thanks — we received your location profile.</p>
+                <p style="margin:0 0 18px;">We'll use it to identify matching locations, buildings, and alternatives.</p>
+                ${summaryRows ? `
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Location profile summary</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${summaryRows}
+                  </table>
+                </div>` : ""}
+                <p style="margin:0 0 18px;">No obligation. We'll only use this to follow up on your search.</p>
+                <p style="margin:0;">Thanks,<br>Rofo</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+  }
+
   const firstName = getTenantFirstName(lead.name);
   const details = getTenantConfirmationDetails(lead);
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi,";
@@ -1019,7 +1088,7 @@ export async function sendTenantConfirmationEmail(env, record) {
     body: JSON.stringify({
       from: env.TENANT_CONFIRMATION_FROM || "Rofo <leads@rofo.com>",
       to: [lead.email],
-      subject: "We received your Rofo space request",
+      subject: isLocationProfileLead(lead) ? "Your Rofo location profile" : "We received your Rofo space request",
       html: buildTenantConfirmationHtml(lead),
       text: buildTenantConfirmationText(lead),
     }),

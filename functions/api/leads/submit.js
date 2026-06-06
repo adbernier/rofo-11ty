@@ -11,7 +11,9 @@ import {
   resolveLeadRoute,
   saveLead,
   sendApprovalEmail,
+  sendTenantConfirmationEmail,
   sha256,
+  updateLeadStatus,
 } from "./_shared.js";
 
 export async function onRequestPost({ request, env }) {
@@ -86,6 +88,34 @@ export async function onRequestPost({ request, env }) {
     const storage = await saveLead(env, record);
     const sheets = await logLeadToGoogleSheets(env, record);
     const email = await sendApprovalEmail(env, request, record, token);
+    let tenantConfirmation = { sent: false, skipped: true, reason: "Not attempted" };
+
+    if (lead.lead_type === "location_profile") {
+      try {
+        tenantConfirmation = await sendTenantConfirmationEmail(env, record);
+        const leadWithConfirmation = {
+          ...lead,
+          tenant_confirmation_sent_at: tenantConfirmation.sent ? tenantConfirmation.sent_at : lead.tenant_confirmation_sent_at,
+          tenant_confirmation_error: tenantConfirmation.sent ? "" : tenantConfirmation.reason || "",
+        };
+        record.lead = leadWithConfirmation;
+        await updateLeadStatus(env, id, {
+          status: record.status,
+          lead: leadWithConfirmation,
+        });
+      } catch (error) {
+        tenantConfirmation = { sent: false, reason: error.message };
+        const leadWithConfirmationError = {
+          ...lead,
+          tenant_confirmation_error: error.message,
+        };
+        record.lead = leadWithConfirmationError;
+        await updateLeadStatus(env, id, {
+          status: record.status,
+          lead: leadWithConfirmationError,
+        });
+      }
+    }
 
     if ((request.headers.get("accept") || "").includes("application/json")) {
       return jsonResponse({
@@ -96,6 +126,7 @@ export async function onRequestPost({ request, env }) {
         route_recommendation: routeRecommendation,
         sheets,
         notification: email,
+        tenant_confirmation: tenantConfirmation,
       });
     }
 
