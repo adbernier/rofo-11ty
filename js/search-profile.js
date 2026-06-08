@@ -36,6 +36,8 @@
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
   const formStartTime = Date.now();
+  const analyticsEndpoint = "/api/analytics/search-profile";
+  const analyticsEnabled = submitEnabled && root.dataset.profileContextType !== "test";
 
   const timingOptions = ["ASAP", "0-3 months", "3-6 months", "6-12 months", "Just exploring"];
   const pathConfig = {
@@ -163,6 +165,8 @@
   let activeStepIndex = 0;
   let collapsed = profileLayout === "page" ? false : window.matchMedia("(max-width: 760px)").matches;
   let viewMode = profile.contact.submitted ? "confirmation" : "edit";
+  let analyticsStarted = false;
+  const completedAnalyticsSteps = new Set();
 
   function loadProfile() {
     try {
@@ -202,6 +206,106 @@
   function saveProfile() {
     profile.updatedAt = new Date().toISOString();
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+  }
+
+  function deviceType() {
+    return window.matchMedia("(max-width: 760px)").matches ? "mobile" : "desktop";
+  }
+
+  function analyticsContext() {
+    const summary = profileSummaryData();
+    return {
+      page_type: root.dataset.profileContextType || "search_profile",
+      page_url: root.dataset.profilePageUrl || window.location.href,
+      city: summary.location.city || contextCity || "",
+      district: summary.location.district || contextDistrict || "",
+      location_display: summary.location.display || contextLocation().display || "",
+      device_type: deviceType(),
+    };
+  }
+
+  function analyticsProfile() {
+    const summary = profileSummaryData();
+    return {
+      profile_version: "V1D",
+      space_type: summary.spaceType || "",
+      size_or_people: summary.sizeOrPeople || "",
+      timing: summary.timing || "",
+      features_count: selectedFeatureValues().length,
+    };
+  }
+
+  function analyticsSessionKey(eventName, stepName = "") {
+    return [
+      "rofoSearchProfileAnalyticsV1",
+      eventName,
+      stepName,
+      root.dataset.profilePageUrl || window.location.pathname,
+    ].filter(Boolean).join(":");
+  }
+
+  function hasTrackedInSession(key) {
+    try {
+      return window.sessionStorage.getItem(key) === "1";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function markTrackedInSession(key) {
+    try {
+      window.sessionStorage.setItem(key, "1");
+    } catch (error) {
+      // Analytics dedupe should never block Search Profile interaction.
+    }
+  }
+
+  function trackSearchProfileEvent(eventName, options = {}) {
+    if (!analyticsEnabled || !navigator.sendBeacon && !window.fetch) return;
+    const stepName = options.stepName || "";
+    const dedupe = options.dedupe !== false;
+    const key = analyticsSessionKey(eventName, stepName);
+    if (dedupe && hasTrackedInSession(key)) return;
+    if (dedupe) markTrackedInSession(key);
+
+    const payload = {
+      event_name: eventName,
+      profile_version: "V1D",
+      step_name: stepName,
+      context: analyticsContext(),
+      profile: analyticsProfile(),
+    };
+    const body = JSON.stringify(payload);
+
+    if (navigator.sendBeacon) {
+      const blob = new Blob([body], { type: "application/json" });
+      if (navigator.sendBeacon(analyticsEndpoint, blob)) return;
+    }
+
+    fetch(analyticsEndpoint, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  }
+
+  function trackStarted() {
+    if (analyticsStarted) return;
+    analyticsStarted = true;
+    trackSearchProfileEvent("search_profile_started");
+  }
+
+  function trackStepCompleted(stepName) {
+    if (completedAnalyticsSteps.has(stepName)) return;
+    completedAnalyticsSteps.add(stepName);
+    trackSearchProfileEvent(`${stepName}_completed`, { stepName });
+  }
+
+  function trackVisible() {
+    trackSearchProfileEvent("search_profile_viewed");
   }
 
   function activeConfig() {
@@ -396,6 +500,7 @@
   }
 
   function setProfileValue(key, value, multi) {
+    trackStarted();
     profile.skipped = false;
     profile.contact.submitted = false;
     viewMode = "edit";
@@ -419,6 +524,10 @@
       }
     }
     saveProfile();
+    if (key === "spaceType" && meaningfulValue("spaceType")) trackStepCompleted("space_type");
+    if (key === "timing" && meaningfulValue("timing")) trackStepCompleted("timing");
+    if ((key === "people" || key === "size") && meaningfulValue(key)) trackStepCompleted("size");
+    if (key === "features") trackStepCompleted("features");
     if (shouldAutoAdvance(key)) {
       activeStepIndex = Math.min(activeStepIndex + 1, activeSteps().length - 1);
     }
@@ -614,6 +723,7 @@
   root.addEventListener("input", (event) => {
     const key = event.target.dataset.profileInput;
     if (!key) return;
+    trackStarted();
     profile.skipped = false;
     profile.contact.submitted = false;
     if (key === "targetArea") {
@@ -623,6 +733,7 @@
     }
     viewMode = "edit";
     saveProfile();
+    if (key === "targetArea" && meaningfulValue("targetArea")) trackStepCompleted("location");
     renderSummary();
     renderPreview();
     renderFinishedSummary();
@@ -646,6 +757,7 @@
     profile.skipped = false;
     saveProfile();
     if (activeStepIndex >= activeSteps().length - 1) {
+      trackStepCompleted("features");
       viewMode = "contact";
       setCollapsed(false);
       render();
@@ -691,6 +803,7 @@
 
   contactSubmitButton.addEventListener("click", () => {
     if (!validateContact()) return;
+    trackStepCompleted("contact");
     if (submitError) submitError.hidden = true;
 
     const finishSubmission = () => {
@@ -721,6 +834,7 @@
     }).then((result) => {
       profile.contact.lead_id = result.id || "";
       finishSubmission();
+      trackSearchProfileEvent("search_profile_submitted");
     }).catch(() => {
       if (submitError) {
         submitError.textContent = "We could not send your profile. Please try again.";
@@ -738,4 +852,15 @@
 
   render();
   setCollapsed(collapsed);
+  if (analyticsEnabled && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        trackVisible();
+        observer.disconnect();
+      }
+    }, { threshold: 0.25 });
+    observer.observe(root);
+  } else if (analyticsEnabled) {
+    window.setTimeout(trackVisible, 300);
+  }
 })();
