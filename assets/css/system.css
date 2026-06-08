@@ -5576,8 +5576,9 @@ section.market-page--space-type .market-links a {
 .search-profile-card__privacy {
   margin-top: 3px !important;
   color: #8492a6;
-  font-size: 0.64rem !important;
+  font-size: 0.62rem !important;
   line-height: 1.25;
+  font-weight: 500;
 }
 
 .search-profile-summary {
@@ -5620,6 +5621,22 @@ section.market-page--space-type .market-links a {
 .search-profile-fieldset label {
   font-size: 0.82rem;
   margin-bottom: 30px;
+}
+
+.search-profile-shell.is-first-step .search-profile-preview {
+  display: none;
+}
+
+.search-profile-shell.is-first-step .search-profile-card__body {
+  gap: 8px;
+}
+
+.search-profile-shell.is-first-step .search-profile-form {
+  margin-top: 7px;
+}
+
+.search-profile-shell.is-first-step .search-profile-fieldset label {
+  margin-bottom: 12px;
 }
 
 .search-profile-options button {
