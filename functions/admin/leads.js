@@ -2,13 +2,14 @@ import {
   approveLead,
   escapeHtml,
   getLead,
+  getLocationRequirementSummary,
   updateLeadStatus,
 } from "../api/leads/_shared.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
 const STATUS_VIEWS = {
-  pending: ["pending"],
+  pending: ["pending", "approved_send_failed"],
   sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
   rejected: ["rejected"],
   spam: ["spam_quarantined", "rejected_spam"],
@@ -119,7 +120,8 @@ function renderLeadCard(row, token) {
   const officeFinderPayload = parseJson(row.officefinder_json);
   const route = lead.route_recommendation || {};
   const latestAttempt = getLatestOfficeFinderAttempt(lead);
-  const market = lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
+  const locationSummary = lead.lead_type === "location_profile" ? getLocationRequirementSummary(lead) : null;
+  const market = locationSummary ? locationSummary.location : lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
   const officeFinderStatus = lead.officefinder_status || "officefinder_not_attempted";
   const spamReasons = Array.isArray(lead.spam_reasons) ? lead.spam_reasons : [];
   const isSpam = ["spam_quarantined", "rejected_spam"].includes(row.status);
@@ -143,8 +145,8 @@ function renderLeadCard(row, token) {
         ${field("Email", lead.email)}
         ${field("Phone", lead.phone)}
         ${field("Company", lead.company)}
-        ${field("City / market", market)}
-        ${field("State", lead.state)}
+        ${field(lead.lead_type === "location_profile" ? "Location" : "City / market", market)}
+        ${lead.lead_type === "location_profile" ? "" : field("State", lead.state)}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
         ${field("Space needed", lead.space_needed)}
         ${field("Timing", lead.move_timing)}
@@ -204,7 +206,7 @@ function renderPostButton({ token, id, action, route = "", label, className = ""
 }
 
 function renderLeadActions(row, route, token) {
-  if (row.status !== "pending") {
+  if (!["pending", "approved_send_failed"].includes(row.status)) {
     return `<div class="lead-actions"><span class="muted">No dashboard actions available for ${escapeHtml(row.status)} leads.</span></div>`;
   }
 

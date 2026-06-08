@@ -2,6 +2,7 @@ import leadRoutes from "../../../_data/leadRoutes.json";
 
 export const OFFICEFINDER_TEST_ENDPOINT = "https://www.officefinder.com/scripts/_importLeadTest.cfm";
 export const OFFICEFINDER_PRODUCTION_ENDPOINT = "https://www.officefinder.com/scripts/_importLead.cfm";
+const OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE = "555-555-5555";
 
 export function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
@@ -144,6 +145,7 @@ export function buildLeadPayload(formFields, request) {
     location_city: normalizeField(formFields.location_city),
     location_district: normalizeField(formFields.location_district),
     location_street: normalizeField(formFields.location_street),
+    location_state: normalizeState(formFields.location_state),
     location_raw: normalizeField(formFields.location_raw),
     location_profile_features: normalizeField(formFields.location_profile_features),
     location_profile_feature_other: normalizeField(formFields.location_profile_feature_other),
@@ -520,7 +522,9 @@ export function resolveLeadRoute(lead) {
 export function buildOfficeFinderPayload(lead, env) {
   const spaceType = lead.requested_space_type || lead.space_type;
   const sqFt = normalizeSqFtForOfficeFinder(lead.space_needed);
-  const phone = normalizePhoneForOfficeFinder(lead.phone);
+  const normalizedPhone = normalizePhoneForOfficeFinder(lead.phone);
+  // This placeholder is used only for OfficeFinder routing when a location-profile tenant did not provide a phone.
+  const phone = normalizedPhone || (isLocationProfileLead(lead) ? OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE : "");
   const marketName = getMarketName(lead);
   const marketState = normalizeField(lead.state);
   const neighborhoodContext = normalizeField(lead.neighborhood_name)
@@ -751,6 +755,7 @@ function formatSubmittedDate(value) {
 }
 
 function getLeadMarket(lead) {
+  if (isLocationProfileLead(lead)) return getLocationRequirementSummary(lead).location;
   return normalizeField(lead.market || [lead.city, lead.state].filter(Boolean).join(", ") || lead.city);
 }
 
@@ -776,8 +781,21 @@ function isLocationProfileLead(lead) {
   return normalizeField(lead.lead_type) === "location_profile";
 }
 
-function getLocationRequirementSummary(lead) {
-  const location = normalizeField(lead.location_display || lead.market || [lead.location_city || lead.city, lead.state].filter(Boolean).join(", "));
+function buildStateAwareLocationDisplay(lead) {
+  const state = normalizeState(lead.location_state || lead.state);
+  const city = normalizeField(lead.location_city || lead.city);
+  const district = normalizeField(lead.location_district || lead.neighborhood_name);
+  const display = normalizeField(lead.location_display);
+  const cityWithState = [city, state].filter(Boolean).join(", ");
+
+  if (cityWithState && district) return `${cityWithState} — ${district}`;
+  if (cityWithState) return cityWithState;
+  if (display && state && !new RegExp(`,\\s*${state}\\b`, "i").test(display)) return `${display}, ${state}`;
+  return display || normalizeField(lead.market || [city, state].filter(Boolean).join(", "));
+}
+
+export function getLocationRequirementSummary(lead) {
+  const location = buildStateAwareLocationDisplay(lead);
   const spaceType = normalizeField(lead.effective_space_type || lead.requested_space_type || lead.space_type);
   const size = normalizeField(lead.space_needed);
   const timing = normalizeField(lead.move_timing);
@@ -791,6 +809,7 @@ function getLocationRequirementSummary(lead) {
     features,
     featureOther: normalizeField(lead.location_profile_feature_other),
     city: normalizeField(lead.location_city || lead.city),
+    state: normalizeState(lead.location_state || lead.state),
     district: normalizeField(lead.location_district || lead.neighborhood_name),
     street: normalizeField(lead.location_street),
     raw: normalizeField(lead.location_raw),
@@ -806,8 +825,6 @@ function buildLocationRequirementRows(lead) {
     summary.timing ? buildEmailField("Move-in timing", escapeHtml(summary.timing)) : "",
     summary.features ? buildEmailField("Features", escapeHtml(summary.features.replace(/,\s*/g, " • "))) : "",
     summary.featureOther ? buildEmailField("Other feature detail", escapeHtml(summary.featureOther)) : "",
-    summary.city ? buildEmailField("City", escapeHtml(summary.city)) : "",
-    summary.district ? buildEmailField("District", escapeHtml(summary.district)) : "",
     summary.street ? buildEmailField("Street / detail", escapeHtml(summary.street)) : "",
   ].filter(Boolean).join("");
 }
@@ -1518,9 +1535,7 @@ export async function sendApprovalEmail(env, request, record, token) {
     lead.location_profile_feature_other ? `Other feature detail: ${lead.location_profile_feature_other}` : "",
     locationProfile ? "" : "",
     locationProfile ? "LOCATION REQUIREMENT SUMMARY" : "",
-    locationProfile ? `Location: ${lead.location_display || market}` : "",
-    locationProfile ? `City: ${lead.location_city || lead.city || ""}` : "",
-    locationProfile ? `District: ${lead.location_district || lead.neighborhood_name || ""}` : "",
+    locationProfile ? `Location: ${getLocationRequirementSummary(lead).location}` : "",
     locationProfile && lead.location_street ? `Street / detail: ${lead.location_street}` : "",
     locationProfile ? `Space type: ${spaceType}` : "",
     locationProfile ? `Team size / size: ${lead.space_needed || ""}` : "",

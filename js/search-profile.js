@@ -31,6 +31,7 @@
   const contextCity = root.dataset.profileContextCity || "";
   const contextDistrict = root.dataset.profileContextDistrict || "";
   const contextStreet = root.dataset.profileContextStreet || "";
+  const contextState = root.dataset.profileState || "";
   const submitEnabled = root.dataset.profileSubmitEnabled === "true";
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
@@ -79,12 +80,16 @@
   };
 
   function contextLocation() {
-    const display = contextTargetArea || [contextCity, contextDistrict].filter(Boolean).join(" — ");
+    const cityWithState = [contextCity, contextState].filter(Boolean).join(", ");
+    const display = cityWithState && contextDistrict
+      ? `${cityWithState} — ${contextDistrict}`
+      : cityWithState || contextTargetArea || [contextCity, contextDistrict].filter(Boolean).join(" — ");
     return {
       display,
       city: contextCity || null,
       district: contextDistrict || null,
       street: contextStreet || null,
+      state: contextState || null,
       raw: display,
     };
   }
@@ -110,6 +115,7 @@
       city: value.city || fallback.city,
       district: value.district || fallback.district,
       street: value.street || fallback.street,
+      state: value.state || fallback.state,
       raw: value.raw || display,
     };
   }
@@ -254,6 +260,7 @@
         city: profile.location.city || null,
         district: profile.location.district || null,
         street: profile.location.street || null,
+        state: profile.location.state || contextState || null,
         raw: profile.location.raw || profile.location.display || "",
       },
       spaceType: profile.spaceType || "",
@@ -308,12 +315,13 @@
       email: profile.contact.email,
       phone,
       city: summary.location.city || root.dataset.profileContextCity || "",
-      state: root.dataset.profileState || "",
+      state: summary.location.state || contextState || "",
       market: summary.location.display || [summary.location.city, root.dataset.profileState].filter(Boolean).join(", "),
       location_display: summary.location.display || "",
       location_city: summary.location.city || "",
       location_district: summary.location.district || "",
       location_street: summary.location.street || "",
+      location_state: summary.location.state || contextState || "",
       location_raw: summary.location.raw || summary.location.display || "",
       space_type: submittedSpaceType,
       requested_space_type: submittedSpaceType,
