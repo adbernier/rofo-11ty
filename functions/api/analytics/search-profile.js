@@ -1,3 +1,8 @@
+import {
+  ensureSearchProfileEventsTable,
+  scheduleSearchProfileEventIndexes,
+} from "../../_shared/search-profile-events.js";
+
 const ALLOWED_EVENTS = new Set([
   "search_profile_viewed",
   "search_profile_started",
@@ -9,6 +14,8 @@ const ALLOWED_EVENTS = new Set([
   "contact_completed",
   "search_profile_submitted",
 ]);
+
+const BOT_USER_AGENT_PATTERN = /googlebot|bingbot|ahrefs|semrush|dotbot|mj12bot|petalbot|facebookexternalhit|twitterbot|slackbot|linkedinbot|yandex|baiduspider|duckduckbot|applebot|gptbot|chatgpt-user|ccbot|bot\b|crawler|spider/i;
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -32,32 +39,11 @@ function safeJson(value) {
   }
 }
 
-async function ensureTable(db) {
-  await db.prepare(`
-    create table if not exists search_profile_events (
-      id text primary key,
-      event_name text not null,
-      profile_version text,
-      page_type text,
-      page_url text,
-      city text,
-      district text,
-      location_display text,
-      device_type text,
-      space_type text,
-      step_name text,
-      event_json text,
-      created_at text not null
-    )
-  `).run();
-  await db.prepare("create index if not exists idx_search_profile_events_created_at on search_profile_events(created_at)").run();
-  await db.prepare("create index if not exists idx_search_profile_events_event_name on search_profile_events(event_name)").run();
-  await db.prepare("create index if not exists idx_search_profile_events_page_type on search_profile_events(page_type)").run();
-  await db.prepare("create index if not exists idx_search_profile_events_event_created on search_profile_events(event_name, created_at)").run();
-  await db.prepare("create index if not exists idx_search_profile_events_created_page_type on search_profile_events(created_at, page_type)").run();
+function isBotUserAgent(userAgent) {
+  return BOT_USER_AGENT_PATTERN.test(String(userAgent || ""));
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   let body;
   try {
     body = await request.json();
@@ -68,6 +54,10 @@ export async function onRequestPost({ request, env }) {
   const eventName = clean(body.event_name, 80);
   if (!ALLOWED_EVENTS.has(eventName)) {
     return jsonResponse({ ok: false, error: "Unsupported event" }, 400);
+  }
+
+  if (eventName === "search_profile_viewed" && isBotUserAgent(request.headers.get("user-agent"))) {
+    return jsonResponse({ ok: true, stored: false, reason: "Bot pageview ignored" });
   }
 
   const db = env.SEARCH_PROFILE_EVENTS_DB || env.LEADS_DB;
@@ -81,7 +71,8 @@ export async function onRequestPost({ request, env }) {
   const profile = body.profile || {};
 
   try {
-    await ensureTable(db);
+    await ensureSearchProfileEventsTable(db);
+    scheduleSearchProfileEventIndexes(waitUntil, db);
     await db.prepare(`
       insert into search_profile_events (
         id, event_name, profile_version, page_type, page_url, city, district,

@@ -1,7 +1,10 @@
+import { scheduleSearchProfileEventIndexes } from "../_shared/search-profile-events.js";
+
 const DEFAULT_LOOKBACK_DAYS = 7;
 const MAX_LOOKBACK_DAYS = 90;
 const RECENT_EVENTS_LIMIT = 50;
 const RECENT_SUBMISSIONS_LIMIT = 20;
+const ANALYTICS_SAMPLE_LIMIT = 1000;
 
 function escapeHtml(value) {
   return String(value || "")
@@ -85,6 +88,10 @@ function metricCard(label, value, helper = "") {
   `;
 }
 
+function metricValue(value) {
+  return value === null || value === undefined ? "Not queried" : value;
+}
+
 function renderEventRows(rows) {
   if (!rows.length) {
     return `<tr><td colspan="6" class="empty-cell">No events yet.</td></tr>`;
@@ -153,6 +160,50 @@ function renderStepRows(stepCounts) {
   `).join("");
 }
 
+function summarizeRows(rows, includeViewed = false) {
+  const funnel = { viewed: includeViewed ? 0 : null, started: 0, submitted: 0 };
+  const stepCounts = {};
+  const pageTypes = new Map();
+  const stepEvents = new Set([
+    "location_completed",
+    "space_type_completed",
+    "timing_completed",
+    "size_completed",
+    "features_completed",
+    "contact_completed",
+  ]);
+
+  for (const row of rows) {
+    if (includeViewed && row.event_name === "search_profile_viewed") {
+      funnel.viewed += 1;
+    }
+    if (row.event_name === "search_profile_started") {
+      funnel.started += 1;
+    }
+    if (row.event_name === "search_profile_submitted") {
+      funnel.submitted += 1;
+    }
+    if (stepEvents.has(row.event_name)) {
+      stepCounts[row.event_name] = (stepCounts[row.event_name] || 0) + 1;
+    }
+    if (row.event_name === "search_profile_started" || row.event_name === "search_profile_submitted") {
+      const pageType = row.page_type || "unknown";
+      const current = pageTypes.get(pageType) || { page_type: pageType, started: 0, submitted: 0 };
+      if (row.event_name === "search_profile_started") current.started += 1;
+      if (row.event_name === "search_profile_submitted") current.submitted += 1;
+      pageTypes.set(pageType, current);
+    }
+  }
+
+  return {
+    funnel,
+    stepCounts,
+    pageTypes: Array.from(pageTypes.values())
+      .sort((a, b) => (b.submitted - a.submitted) || (b.started - a.started))
+      .slice(0, 50),
+  };
+}
+
 function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
   return renderPage({
     token,
@@ -173,8 +224,8 @@ function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, mode = "fast"
   const rangeBaseUrl = `${adminBaseUrl}&mode=${encodeURIComponent(safeMode)}`;
   const modeBaseUrl = `${adminBaseUrl}&days=${encodeURIComponent(lookbackDays)}`;
   const recentEventsNote = safeMode === "fast"
-    ? "Fast mode excludes high-volume viewed events from this table."
-    : "Detail mode includes viewed events.";
+    ? `Fast mode summarizes the latest ${ANALYTICS_SAMPLE_LIMIT} non-view events and excludes high-volume viewed events.`
+    : `Detail mode includes viewed events in a bounded ${ANALYTICS_SAMPLE_LIMIT}-row sample.`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -238,10 +289,10 @@ function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, mode = "fast"
     ${emptyMessage ? `<div class="notice">${escapeHtml(emptyMessage)}</div>` : ""}
     ${errors.length ? `<div class="notice notice--error"><strong>Some analytics queries failed.</strong><br>${errors.map((error) => escapeHtml(error)).join("<br>")}</div>` : ""}
     <section class="metrics" aria-label="Funnel summary">
-      ${metricCard("Viewed", funnel.viewed || 0)}
-      ${metricCard("Started", funnel.started || 0)}
-      ${metricCard("Submitted", funnel.submitted || 0)}
-      ${metricCard("Start rate", percent(funnel.started, funnel.viewed), "started / viewed")}
+      ${metricCard("Viewed", metricValue(funnel.viewed))}
+      ${metricCard("Started", metricValue(funnel.started || 0))}
+      ${metricCard("Submitted", metricValue(funnel.submitted || 0))}
+      ${metricCard("Start rate", funnel.viewed === null ? "Not queried" : percent(funnel.started, funnel.viewed), funnel.viewed === null ? "viewed skipped in fast mode" : "started / viewed")}
       ${metricCard("Submit rate", percent(funnel.submitted, funnel.started), "submitted / started")}
     </section>
     <section class="panel">
@@ -302,64 +353,18 @@ async function fetchAnalytics(db, options = {}) {
   const mode = normalizeMode(options.mode);
   const lookbackStart = lookbackStartIso(lookbackDays);
   const errors = [];
+  const includeViewed = mode === "detail";
 
-  const viewedRows = await runAnalyticsQuery(db, "Viewed count", `
-    select count(*) as count
-    from search_profile_events
-    where event_name = 'search_profile_viewed'
-      and created_at >= ?
-  `, [lookbackStart], errors);
-
-  const funnelRows = await runAnalyticsQuery(db, "Started/submitted summary", `
-    select event_name, count(*) as count
-    from search_profile_events
-    where event_name in ('search_profile_started', 'search_profile_submitted')
-      and created_at >= ?
-    group by event_name
-  `, [lookbackStart], errors);
-
-  const funnel = { viewed: Number(viewedRows[0] && viewedRows[0].count || 0), started: 0, submitted: 0 };
-  for (const row of funnelRows) {
-    if (row.event_name === "search_profile_started") funnel.started = Number(row.count || 0);
-    if (row.event_name === "search_profile_submitted") funnel.submitted = Number(row.count || 0);
-  }
-
-  const stepRows = await runAnalyticsQuery(db, "Step counts", `
-    select event_name, count(*) as count
-    from search_profile_events
-    where event_name in (
-      'location_completed', 'space_type_completed', 'timing_completed',
-      'size_completed', 'features_completed', 'contact_completed'
-    )
-      and created_at >= ?
-    group by event_name
-  `, [lookbackStart], errors);
-  const stepCounts = {};
-  for (const row of stepRows) {
-    stepCounts[row.event_name] = Number(row.count || 0);
-  }
-
-  const pageTypeRows = await runAnalyticsQuery(db, "Page type breakdown", `
-    select
-      coalesce(nullif(page_type, ''), 'unknown') as page_type,
-      sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
-      sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
-    from search_profile_events
-    where event_name in ('search_profile_started', 'search_profile_submitted')
-      and created_at >= ?
-    group by coalesce(nullif(page_type, ''), 'unknown')
-    order by submitted desc, started desc
-    limit 50
-  `, [lookbackStart], errors);
-
-  const recentEvents = await runAnalyticsQuery(db, "Recent events", `
+  const sampleRows = await runAnalyticsQuery(db, "Recent analytics sample", `
     select created_at, event_name, page_type, location_display, space_type, page_url
     from search_profile_events
     where created_at >= ?
-      ${mode === "fast" ? "and event_name != 'search_profile_viewed'" : ""}
+      ${includeViewed ? "" : "and event_name != 'search_profile_viewed'"}
     order by created_at desc
     limit ?
-  `, [lookbackStart, RECENT_EVENTS_LIMIT], errors);
+  `, [lookbackStart, ANALYTICS_SAMPLE_LIMIT], errors);
+
+  const summary = summarizeRows(sampleRows, includeViewed);
 
   const recentSubmissions = await runAnalyticsQuery(db, "Recent submissions", `
     select created_at, page_type, location_display, space_type, city, district, page_url
@@ -374,15 +379,15 @@ async function fetchAnalytics(db, options = {}) {
     lookbackDays,
     mode,
     errors,
-    funnel,
-    stepCounts,
-    pageTypes: pageTypeRows,
-    recentEvents,
+    funnel: summary.funnel,
+    stepCounts: summary.stepCounts,
+    pageTypes: summary.pageTypes,
+    recentEvents: sampleRows.slice(0, RECENT_EVENTS_LIMIT),
     recentSubmissions,
   };
 }
 
-export async function onRequestGet({ request, env }) {
+export async function onRequestGet({ request, env, waitUntil }) {
   const configuredToken = env.ADMIN_DASHBOARD_TOKEN;
   if (!configuredToken) {
     return adminResponse("Admin dashboard is not configured.", 403);
@@ -400,6 +405,7 @@ export async function onRequestGet({ request, env }) {
   if (!db) {
     return adminResponse("<h1>Search Profile Analytics</h1><p>SEARCH_PROFILE_EVENTS_DB or LEADS_DB D1 binding is not configured.</p>", 500);
   }
+  scheduleSearchProfileEventIndexes(waitUntil, db);
 
   try {
     const data = await fetchAnalytics(db, { lookbackDays, mode });
