@@ -8,12 +8,19 @@ import {
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
+const LEAD_QUALITY_SAMPLE_LIMIT = 2000;
 const STATUS_VIEWS = {
   pending: ["pending", "approved_send_failed"],
   sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
   rejected: ["rejected"],
   spam: ["spam_quarantined", "rejected_spam"],
 };
+const LEAD_INDEX_QUERIES = [
+  "create index if not exists idx_leads_created_at on leads(created_at)",
+  "create index if not exists idx_leads_status on leads(status)",
+  "create index if not exists idx_leads_status_created_at on leads(status, created_at)",
+  "create index if not exists idx_leads_created_status on leads(created_at, status)",
+];
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -33,6 +40,20 @@ function adminRedirect(path) {
       "cache-control": "no-store",
     },
   });
+}
+
+function scheduleLeadDashboardIndexes(waitUntil, db) {
+  if (!db || typeof waitUntil !== "function") return;
+  waitUntil((async () => {
+    for (const query of LEAD_INDEX_QUERIES) {
+      try {
+        await db.prepare(query).run();
+      } catch (error) {
+        console.warn("Unable to ensure lead dashboard index", error);
+        return;
+      }
+    }
+  })());
 }
 
 function parseJson(value, fallback = {}) {
@@ -62,10 +83,149 @@ function formatDate(value) {
   });
 }
 
+function lookbackStartIso(days) {
+  return new Date(Date.now() - (days * 24 * 60 * 60 * 1000)).toISOString();
+}
+
+function percent(numerator, denominator) {
+  const top = Number(numerator || 0);
+  const bottom = Number(denominator || 0);
+  if (!bottom) return "0%";
+  return `${Math.round((top / bottom) * 100)}%`;
+}
+
 function truncate(value, max = 500) {
   const text = typeof value === "string" ? value : JSON.stringify(value, null, 2);
   if (!text) return "";
   return text.length > max ? `${text.slice(0, max)}...` : text;
+}
+
+function normalizeText(value) {
+  return String(value || "").trim();
+}
+
+function compactLower(value) {
+  return normalizeText(value).toLowerCase().replace(/\s+/g, " ");
+}
+
+function phoneDigits(value) {
+  return normalizeText(value).replace(/\D/g, "");
+}
+
+function getLeadMessage(lead) {
+  return normalizeText(lead.requirements || lead.message || lead.notes || lead.comments);
+}
+
+function getEmailDomain(email) {
+  const parts = normalizeText(email).toLowerCase().split("@");
+  return parts.length === 2 ? parts[1] : "";
+}
+
+function getSpamRiskLabel(score) {
+  if (score >= 60) return "High";
+  if (score >= 25) return "Medium";
+  return "Low";
+}
+
+function getSpamRiskClass(risk) {
+  return `spam-risk--${risk.toLowerCase()}`;
+}
+
+function addSpamSignal(signals, score, label) {
+  if (!signals.some((signal) => signal.label === label)) {
+    signals.push({ score, label });
+  }
+}
+
+function detectAdminSpamSignals(lead, market) {
+  const signals = [];
+  const context = [];
+  const phone = normalizeText(lead.phone);
+  const digits = phoneDigits(phone);
+  const locationValues = [
+    market,
+    lead.market,
+    lead.city,
+    lead.location_display,
+    lead.location_profile_location_display,
+  ].map(compactLower).filter(Boolean);
+  const countryOnlyLocations = new Set([
+    "united states",
+    "usa",
+    "u.s.",
+    "u.s.a.",
+    "us",
+    "canada",
+    "india",
+    "uk",
+    "united kingdom",
+    "england",
+    "australia",
+    "germany",
+    "france",
+  ]);
+  const message = getLeadMessage(lead);
+  const lowerMessage = message.toLowerCase();
+  const name = normalizeText(lead.name);
+  const lowerName = name.toLowerCase();
+  const urlMatches = message.match(/https?:\/\/|www\.|[a-z0-9-]+\.(com|net|org|info|biz|xyz|ru|cn)\b/gi) || [];
+  const promoMatches = [
+    "seo",
+    "backlink",
+    "guest post",
+    "casino",
+    "crypto",
+    "bitcoin",
+    "loan",
+    "rank your website",
+    "increase traffic",
+    "marketing services",
+    "whatsapp",
+    "telegram",
+    "kindly",
+    "sponsored post",
+  ].filter((phrase) => lowerMessage.includes(phrase));
+  const genericNames = new Set(["test", "asdf", "qwerty", "admin", "user", "unknown", "name", "n/a", "na", "none"]);
+  const freeDomains = new Set(["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "aol.com", "proton.me", "protonmail.com"]);
+  const emailDomain = getEmailDomain(lead.email);
+
+  if (phone) {
+    if (digits.length > 10) addSpamSignal(signals, 45, `Phone has more than 10 digits (${digits.length})`);
+    if (digits.length > 0 && digits.length < 10) addSpamSignal(signals, 35, `Phone has fewer than 10 digits (${digits.length})`);
+  }
+
+  if (locationValues.some((value) => countryOnlyLocations.has(value))) {
+    addSpamSignal(signals, 35, "Location appears country-level only");
+  }
+
+  if (urlMatches.length > 1) addSpamSignal(signals, 45, "Message contains multiple URLs");
+  else if (urlMatches.length === 1) addSpamSignal(signals, 25, "Message contains a URL");
+
+  if (promoMatches.length) {
+    addSpamSignal(signals, promoMatches.length > 1 ? 45 : 30, `Message contains promotional spam language: ${promoMatches.slice(0, 4).join(", ")}`);
+  }
+
+  if (!name) addSpamSignal(signals, 20, "Name is missing");
+  else if (name.length < 2) addSpamSignal(signals, 25, "Name is very short");
+  else if (genericNames.has(lowerName)) addSpamSignal(signals, 35, "Name appears generic or test-like");
+  else if (/(.)\1{4,}/.test(name) || /https?:\/\/|www\./i.test(name)) addSpamSignal(signals, 45, "Name appears nonsensical or URL-like");
+  else if ((name.match(/\d/g) || []).length >= 3) addSpamSignal(signals, 25, "Name contains several numbers");
+
+  if (emailDomain && freeDomains.has(emailDomain)) {
+    context.push(`Free email domain: ${emailDomain}`);
+  }
+
+  const score = signals.reduce((total, signal) => total + signal.score, 0);
+  const risk = getSpamRiskLabel(score);
+
+  return {
+    score,
+    risk,
+    signals: signals.map((signal) => signal.label),
+    context,
+    hasSuspiciousPhone: Boolean(phone && digits.length > 0 && digits.length !== 10),
+    hasBroadLocation: locationValues.some((value) => countryOnlyLocations.has(value)),
+  };
 }
 
 function getLatestOfficeFinderAttempt(lead) {
@@ -73,21 +233,23 @@ function getLatestOfficeFinderAttempt(lead) {
   return attempts.length ? attempts[attempts.length - 1] : null;
 }
 
-function field(label, value) {
+function field(label, value, options = {}) {
   if (value === undefined || value === null || value === "") return "";
+  const className = options.className ? ` ${options.className}` : "";
   return `
-    <div class="field">
+    <div class="field${escapeHtml(className)}">
       <dt>${escapeHtml(label)}</dt>
       <dd>${escapeHtml(value)}</dd>
     </div>
   `;
 }
 
-function linkField(label, value) {
+function linkField(label, value, options = {}) {
   if (value === undefined || value === null || value === "") return "";
   const safeValue = escapeHtml(value);
+  const className = options.className ? ` ${options.className}` : "";
   return `
-    <div class="field">
+    <div class="field${escapeHtml(className)}">
       <dt>${escapeHtml(label)}</dt>
       <dd><a href="${safeValue}" target="_blank" rel="noopener">${safeValue}</a></dd>
     </div>
@@ -125,6 +287,12 @@ function renderLeadCard(row, token) {
   const officeFinderStatus = lead.officefinder_status || "officefinder_not_attempted";
   const spamReasons = Array.isArray(lead.spam_reasons) ? lead.spam_reasons : [];
   const isSpam = ["spam_quarantined", "rejected_spam"].includes(row.status);
+  const message = getLeadMessage(lead);
+  const adminSpam = detectAdminSpamSignals(lead, market);
+  const phoneClass = adminSpam.hasSuspiciousPhone ? "field--warning" : "";
+  const locationClass = adminSpam.hasBroadLocation ? "field--warning" : "";
+  const riskClass = getSpamRiskClass(adminSpam.risk);
+  const sourceLabel = lead.source || lead.page_type || lead.rofo_source || lead.page_url || "";
 
   return `
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
@@ -132,27 +300,44 @@ function renderLeadCard(row, token) {
         <div>
           <div class="lead-card__time">${escapeHtml(formatDate(row.created_at))}</div>
           <h2>${escapeHtml(lead.name || "Unnamed lead")}</h2>
-          <p>${escapeHtml([market, lead.space_type || lead.requested_space_type, lead.space_needed].filter(Boolean).join(" • "))}</p>
-          ${lead.requirements ? `<div class="lead-card__notes">${escapeHtml(truncate(lead.requirements, 700))}</div>` : ""}
         </div>
         <div class="lead-card__status">
+          <span class="spam-risk ${escapeHtml(riskClass)}">Spam risk: ${escapeHtml(adminSpam.risk)}</span>
           ${statusBadge(row.status)}
           ${statusBadge(officeFinderStatus)}
         </div>
       </div>
 
-      <div class="lead-grid">
-        ${field("Email", lead.email)}
-        ${field("Phone", lead.phone)}
-        ${field("Company", lead.company)}
-        ${field(lead.lead_type === "location_profile" ? "Location" : "City / market", market)}
-        ${lead.lead_type === "location_profile" ? "" : field("State", lead.state)}
+      <div class="lead-grid lead-grid--review">
+        ${field(lead.lead_type === "location_profile" ? "Location" : "City / market", market, { className: locationClass })}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
-        ${field("Space needed", lead.space_needed)}
-        ${field("Timing", lead.move_timing)}
-        ${field("Source", lead.source)}
-        ${field("Page type", lead.page_type)}
+        ${field("Size", lead.space_needed)}
+        ${field("Email", lead.email)}
+        ${field("Phone", lead.phone || "(not provided)", { className: phoneClass })}
+        ${field("Source", sourceLabel)}
         ${linkField("Page URL", lead.page_url || lead.rofo_source)}
+      </div>
+
+      ${adminSpam.signals.length || adminSpam.context.length ? `
+        <div class="spam-box spam-box--${escapeHtml(adminSpam.risk.toLowerCase())}">
+          <strong>Spam risk: ${escapeHtml(adminSpam.risk)}</strong>
+          ${adminSpam.signals.length ? `<ul>${adminSpam.signals.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul>` : `<p>No strong spam signals detected.</p>`}
+          ${adminSpam.context.length ? `<div class="spam-context"><strong>Context:</strong> ${adminSpam.context.map(escapeHtml).join(" • ")}</div>` : ""}
+        </div>
+      ` : ""}
+
+      <section class="message-block">
+        <h3>Message / notes</h3>
+        <div>${message ? escapeHtml(truncate(message, 1200)) : "<span class=\"muted\">No message provided.</span>"}</div>
+      </section>
+
+      <details class="admin-details">
+        <summary>Routing and admin details</summary>
+        <div class="lead-grid">
+        ${field("Company", lead.company)}
+        ${lead.lead_type === "location_profile" ? "" : field("State", lead.state)}
+        ${field("Timing", lead.move_timing)}
+        ${field("Page type", lead.page_type)}
         ${field("Route recommendation", route.route_to)}
         ${field("Matched rule", route.route_id)}
         ${field("Route reason", route.route_reason)}
@@ -161,7 +346,8 @@ function renderLeadCard(row, token) {
         ${field("Spam score", lead.spam_score)}
         ${field("Sent at", formatDate(row.sent_at))}
         ${field("Rejected at", formatDate(row.rejected_at))}
-      </div>
+        </div>
+      </details>
 
       ${spamReasons.length ? `<div class="spam-box"><strong>Spam review:</strong> Score ${escapeHtml(lead.spam_score || 0)}<ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
@@ -233,7 +419,6 @@ function buildTabUrl(token, view, filters) {
   params.set("view", view);
   if (filters.officefinderStatus) params.set("officefinder_status", filters.officefinderStatus);
   if (filters.limit !== DEFAULT_LIMIT) params.set("limit", filters.limit);
-  if (filters.id) params.set("id", filters.id);
   return `/admin/leads?${params.toString()}`;
 }
 
@@ -282,7 +467,55 @@ function renderFilters(token, filters) {
   `;
 }
 
-function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
+function renderMetric(label, value, helper = "") {
+  return `
+    <div class="quality-metric">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+      ${helper ? `<small>${escapeHtml(helper)}</small>` : ""}
+    </div>
+  `;
+}
+
+function renderLeadQualityCard(summary) {
+  return `
+    <article class="quality-card">
+      <div class="quality-card__header">
+        <h3>Last ${escapeHtml(summary.days)} days</h3>
+        ${summary.sampleCapped ? `<span>Latest ${escapeHtml(LEAD_QUALITY_SAMPLE_LIMIT)} sampled</span>` : ""}
+      </div>
+      <div class="quality-grid">
+        ${renderMetric("Total leads", summary.total)}
+        ${renderMetric("Pending", summary.pending)}
+        ${renderMetric("Approved/Sent", summary.sent)}
+        ${renderMetric("Rejected", summary.rejected)}
+        ${renderMetric("Spam", summary.spam)}
+        ${renderMetric("Approval rate", percent(summary.sent, summary.total))}
+        ${renderMetric("Spam rate", percent(summary.spam, summary.total))}
+        ${renderMetric("OfficeFinder success", percent(summary.officeFinderSuccess, summary.officeFinderAttempted), `${summary.officeFinderSuccess}/${summary.officeFinderAttempted || 0} attempted`)}
+        ${renderMetric("OF failed / not attempted", `${summary.officeFinderFailed} / ${summary.officeFinderNotAttempted}`)}
+      </div>
+    </article>
+  `;
+}
+
+function renderLeadQualitySection(leadQuality) {
+  if (!leadQuality) return "";
+  return `
+    <section class="quality-section" aria-label="Lead quality metrics">
+      <div class="quality-section__heading">
+        <h2>Lead quality</h2>
+        <p>Date-bounded review metrics for recent lead flow.</p>
+      </div>
+      ${leadQuality.errors.length ? `<div class="notice notice--warning">Lead quality metrics partially unavailable: ${leadQuality.errors.map(escapeHtml).join(" ")}</div>` : ""}
+      <div class="quality-cards">
+        ${leadQuality.summaries.map(renderLeadQualityCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -298,6 +531,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
     header { margin-bottom: 20px; }
     h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 42px); line-height: 1.05; }
     h2 { margin: 4px 0; font-size: 20px; }
+    h3 { margin: 0 0 8px; font-size: 15px; }
     p { margin: 0; color: var(--muted); }
     .filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 12px; align-items: end; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 20px 0; }
     .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 18px 0; }
@@ -310,6 +544,20 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
     button, .button { border: 0; border-radius: 8px; padding: 11px 14px; background: var(--blue); color: #fff; font-weight: 800; cursor: pointer; }
     .summary { margin: 0 0 16px; color: var(--muted); }
     .notice { margin: 0 0 16px; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px; background: #eff6ff; color: #1e3a8a; font-weight: 700; }
+    .notice--warning { border-color: #fed7aa; background: #fff7ed; color: #9a3412; }
+    .quality-section { margin: 16px 0 20px; }
+    .quality-section__heading { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 10px; }
+    .quality-section__heading h2 { margin: 0; }
+    .quality-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .quality-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px; box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05); }
+    .quality-card__header { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .quality-card__header h3 { margin: 0; font-size: 16px; }
+    .quality-card__header span { color: #9a3412; font-size: 12px; font-weight: 800; }
+    .quality-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .quality-metric { min-width: 0; border-top: 1px solid #edf2f7; padding-top: 8px; }
+    .quality-metric span { display: block; color: var(--muted); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
+    .quality-metric strong { display: block; margin-top: 3px; font-size: 20px; line-height: 1; }
+    .quality-metric small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
     .lead-list { display: grid; gap: 16px; }
     .lead-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: 0 8px 24px rgba(23, 32, 51, 0.06); }
     .lead-card--spam { background: #fffaf5; border-color: #fed7aa; box-shadow: none; }
@@ -323,16 +571,30 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
     .badge--approved_send_failed, .badge--officefinder_failed { background: #fee2e2; color: #991b1b; }
     .badge--spam_quarantined, .badge--rejected_spam { background: #ffedd5; color: #9a3412; }
     .badge--rejected { background: #f1f5f9; color: #475569; }
+    .spam-risk { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; }
+    .spam-risk--low { background: #ecfdf5; color: #047857; }
+    .spam-risk--medium { background: #fff7db; color: #92400e; }
+    .spam-risk--high { background: #fee2e2; color: #991b1b; }
     .lead-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 16px; margin-top: 16px; }
+    .lead-grid--review { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .lead-grid--compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .field { min-width: 0; }
+    .field--warning { border: 1px solid #fed7aa; border-radius: 10px; padding: 8px; background: #fff7ed; }
+    .field--warning dd { color: #9a3412; font-weight: 800; }
     dt { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
     dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+    .message-block { margin-top: 16px; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px; background: #f8fafc; color: #172033; }
+    .message-block > div { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 22px; }
+    .admin-details { background: #fff; }
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
     .note { background: #eff6ff; color: #1e3a8a; }
     .spam-box { margin-top: 14px; border: 1px solid #fed7aa; border-radius: 10px; padding: 12px; background: #fff7ed; color: #9a3412; overflow-wrap: anywhere; }
+    .spam-box--high { border-color: #fecaca; background: #fff1f2; color: #991b1b; }
+    .spam-box--medium { border-color: #fed7aa; background: #fff7ed; color: #9a3412; }
+    .spam-box--low { border-color: #bbf7d0; background: #f0fdf4; color: #166534; }
     .spam-box ul { margin: 8px 0 0; padding-left: 18px; }
+    .spam-context { margin-top: 8px; color: #475569; font-size: 13px; }
     details { margin-top: 14px; border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: #fbfdff; }
     summary { cursor: pointer; font-weight: 800; }
     pre { white-space: pre-wrap; overflow-x: auto; background: #111827; color: #e5e7eb; border-radius: 8px; padding: 12px; font-size: 12px; }
@@ -346,7 +608,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
     .button--spam { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
     .muted { color: var(--muted); }
     @media (max-width: 820px) {
-      .filters, .tabs, .lead-grid, .lead-grid--compact { grid-template-columns: 1fr; }
+      .filters, .tabs, .quality-cards, .quality-grid, .lead-grid, .lead-grid--review, .lead-grid--compact { grid-template-columns: 1fr; }
       .lead-card__header { display: grid; }
       .lead-card__status { justify-content: flex-start; }
       .lead-actions--buttons, .action-form, .button { display: grid; width: 100%; }
@@ -362,6 +624,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice }) {
     </header>
     ${renderTabs(token, filters, counts)}
     ${renderFilters(token, filters)}
+    ${renderLeadQualitySection(leadQuality)}
     ${notice ? `<div class="notice">${escapeHtml(notice)}</div>` : ""}
     <p class="summary">Showing ${rows.length} ${escapeHtml(filters.status || filters.view)} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
     <section class="lead-list">
@@ -441,7 +704,83 @@ async function fetchStatusCounts(env) {
   };
 }
 
-export async function onRequestGet({ request, env }) {
+function buildEmptyQualitySummary(days, error = "") {
+  return {
+    days,
+    total: 0,
+    pending: 0,
+    sent: 0,
+    rejected: 0,
+    spam: 0,
+    officeFinderSuccess: 0,
+    officeFinderFailed: 0,
+    officeFinderNotAttempted: 0,
+    officeFinderAttempted: 0,
+    sampleCapped: false,
+    error,
+  };
+}
+
+function getOfficeFinderStatus(lead) {
+  return normalizeText(lead.officefinder_status || "officefinder_not_attempted");
+}
+
+function summarizeLeadQualityRows(days, rows) {
+  const summary = buildEmptyQualitySummary(days);
+  summary.total = rows.length;
+  summary.sampleCapped = rows.length >= LEAD_QUALITY_SAMPLE_LIMIT;
+
+  for (const row of rows) {
+    const lead = parseJson(row.lead_json);
+    const officeFinderStatus = getOfficeFinderStatus(lead);
+
+    if (STATUS_VIEWS.pending.includes(row.status)) summary.pending += 1;
+    if (STATUS_VIEWS.sent.includes(row.status)) summary.sent += 1;
+    if (STATUS_VIEWS.rejected.includes(row.status)) summary.rejected += 1;
+    if (STATUS_VIEWS.spam.includes(row.status)) summary.spam += 1;
+
+    if (officeFinderStatus === "officefinder_sent") {
+      summary.officeFinderSuccess += 1;
+    } else if (officeFinderStatus === "officefinder_failed") {
+      summary.officeFinderFailed += 1;
+    } else if (officeFinderStatus === "officefinder_not_attempted") {
+      summary.officeFinderNotAttempted += 1;
+    }
+  }
+
+  summary.officeFinderAttempted = summary.officeFinderSuccess + summary.officeFinderFailed;
+  return summary;
+}
+
+async function fetchLeadQualityWindow(env, days) {
+  const result = await env.LEADS_DB.prepare(`
+    select status, lead_json, created_at
+    from leads
+    where created_at >= ?
+    order by created_at desc
+    limit ?
+  `).bind(lookbackStartIso(days), LEAD_QUALITY_SAMPLE_LIMIT).all();
+
+  return summarizeLeadQualityRows(days, result.results || []);
+}
+
+async function fetchLeadQualityMetrics(env) {
+  const errors = [];
+  const summaries = [];
+
+  for (const days of [7, 30]) {
+    try {
+      summaries.push(await fetchLeadQualityWindow(env, days));
+    } catch (error) {
+      errors.push(`${days}-day metrics failed: ${error.message || "query failed"}`);
+      summaries.push(buildEmptyQualitySummary(days, error.message || "query failed"));
+    }
+  }
+
+  return { summaries, errors };
+}
+
+export async function onRequestGet({ request, env, waitUntil }) {
   const configuredToken = env.ADMIN_DASHBOARD_TOKEN;
   if (!configuredToken) {
     return adminResponse("Admin dashboard is not configured.", 403);
@@ -463,9 +802,11 @@ export async function onRequestGet({ request, env }) {
   const notice = (url.searchParams.get("notice") || "").trim();
 
   try {
+    scheduleLeadDashboardIndexes(waitUntil, env.LEADS_DB);
     const counts = await fetchStatusCounts(env);
+    const leadQuality = await fetchLeadQualityMetrics(env);
     const { rows, fetchedCount } = await fetchLeadRows(env, filters);
-    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice }));
+    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality }));
   } catch (error) {
     return adminResponse(`<h1>Lead dashboard error</h1><p>${escapeHtml(error.message)}</p>`, 500);
   }
@@ -486,7 +827,7 @@ export async function onRequestPost({ request, env }) {
   const id = String(formData.get("id") || "").trim();
   const action = String(formData.get("action") || "").trim();
   const route = String(formData.get("route") || "recommended").trim();
-  const params = new URLSearchParams({ token, id, view: "pending" });
+  const params = new URLSearchParams({ token, view: "pending" });
 
   if (!id) {
     return adminResponse("Missing lead id", 400);
@@ -496,7 +837,6 @@ export async function onRequestPost({ request, env }) {
     if (action === "approve") {
       const result = await approveLead(env, id, route);
       params.set("notice", result.title || "Lead action complete");
-      params.set("view", result.nextStatus ? "sent" : "all");
       return adminRedirect(`/admin/leads?${params.toString()}`);
     }
 
@@ -514,7 +854,6 @@ export async function onRequestPost({ request, env }) {
           rejected_at: new Date().toISOString(),
         });
         params.set("notice", "Lead rejected.");
-        params.set("view", "rejected");
       }
       return adminRedirect(`/admin/leads?${params.toString()}`);
     }
@@ -536,7 +875,6 @@ export async function onRequestPost({ request, env }) {
         rejected_at: new Date().toISOString(),
       });
       params.set("notice", "Lead marked as spam.");
-      params.set("view", "spam");
       return adminRedirect(`/admin/leads?${params.toString()}`);
     }
 
