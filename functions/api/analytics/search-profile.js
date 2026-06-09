@@ -53,6 +53,8 @@ async function ensureTable(db) {
   await db.prepare("create index if not exists idx_search_profile_events_created_at on search_profile_events(created_at)").run();
   await db.prepare("create index if not exists idx_search_profile_events_event_name on search_profile_events(event_name)").run();
   await db.prepare("create index if not exists idx_search_profile_events_page_type on search_profile_events(page_type)").run();
+  await db.prepare("create index if not exists idx_search_profile_events_event_created on search_profile_events(event_name, created_at)").run();
+  await db.prepare("create index if not exists idx_search_profile_events_created_page_type on search_profile_events(created_at, page_type)").run();
 }
 
 export async function onRequestPost({ request, env }) {

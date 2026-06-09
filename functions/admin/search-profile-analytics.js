@@ -1,7 +1,7 @@
-const DEFAULT_LOOKBACK_DAYS = 30;
+const DEFAULT_LOOKBACK_DAYS = 7;
 const MAX_LOOKBACK_DAYS = 90;
-const RECENT_EVENTS_LIMIT = 100;
-const RECENT_SUBMISSIONS_LIMIT = 25;
+const RECENT_EVENTS_LIMIT = 50;
+const RECENT_SUBMISSIONS_LIMIT = 20;
 
 function escapeHtml(value) {
   return String(value || "")
@@ -54,6 +54,10 @@ function normalizeLookbackDays(value) {
   const parsed = Number(value);
   if (!Number.isFinite(parsed) || parsed < 1) return DEFAULT_LOOKBACK_DAYS;
   return Math.min(Math.floor(parsed), MAX_LOOKBACK_DAYS);
+}
+
+function normalizeMode(value) {
+  return value === "detail" ? "detail" : "fast";
 }
 
 function lookbackStartIso(days) {
@@ -118,16 +122,15 @@ function renderSubmissionRows(rows) {
 
 function renderPageTypeRows(rows) {
   if (!rows.length) {
-    return `<tr><td colspan="5" class="empty-cell">No page type data yet.</td></tr>`;
+    return `<tr><td colspan="4" class="empty-cell">No page type data yet.</td></tr>`;
   }
 
   return rows.map((row) => `
     <tr>
       ${tableCell(row.page_type || "unknown")}
-      ${tableCell(row.viewed || 0)}
       ${tableCell(row.started || 0)}
       ${tableCell(row.submitted || 0)}
-      ${tableCell(percent(row.submitted, row.viewed))}
+      ${tableCell(percent(row.submitted, row.started))}
     </tr>
   `).join("");
 }
@@ -154,6 +157,7 @@ function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
   return renderPage({
     token,
     lookbackDays,
+    mode: "fast",
     emptyMessage: "No Search Profile analytics table exists yet. Events will appear here after the first Search Profile event is stored.",
     funnel: { viewed: 0, started: 0, submitted: 0 },
     stepCounts: {},
@@ -163,8 +167,14 @@ function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
   });
 }
 
-function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, emptyMessage = "", errors = [], funnel = {}, stepCounts = {}, pageTypes = [], recentEvents = [], recentSubmissions = [] }) {
+function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, mode = "fast", emptyMessage = "", errors = [], funnel = {}, stepCounts = {}, pageTypes = [], recentEvents = [], recentSubmissions = [] }) {
+  const safeMode = normalizeMode(mode);
   const adminBaseUrl = `/admin/search-profile-analytics?token=${encodeURIComponent(token)}`;
+  const rangeBaseUrl = `${adminBaseUrl}&mode=${encodeURIComponent(safeMode)}`;
+  const modeBaseUrl = `${adminBaseUrl}&days=${encodeURIComponent(lookbackDays)}`;
+  const recentEventsNote = safeMode === "fast"
+    ? "Fast mode excludes high-volume viewed events from this table."
+    : "Detail mode includes viewed events.";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -216,9 +226,11 @@ function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, emptyMessage 
         <h1>Search Profile Analytics</h1>
         <p>Lightweight funnel events for Search Profile V1D. Showing the last ${escapeHtml(lookbackDays)} day${lookbackDays === 1 ? "" : "s"}.</p>
         <nav class="toolbar" aria-label="Analytics date range">
-          <a class="${lookbackDays === 7 ? "is-active" : ""}" href="${adminBaseUrl}&days=7">7 days</a>
-          <a class="${lookbackDays === 30 ? "is-active" : ""}" href="${adminBaseUrl}&days=30">30 days</a>
-          <a class="${lookbackDays === 90 ? "is-active" : ""}" href="${adminBaseUrl}&days=90">90 days</a>
+          <a class="${lookbackDays === 7 ? "is-active" : ""}" href="${rangeBaseUrl}&days=7">7 days</a>
+          <a class="${lookbackDays === 30 ? "is-active" : ""}" href="${rangeBaseUrl}&days=30">30 days</a>
+          <a class="${lookbackDays === 90 ? "is-active" : ""}" href="${rangeBaseUrl}&days=90">90 days</a>
+          <a class="${safeMode === "fast" ? "is-active" : ""}" href="${modeBaseUrl}&mode=fast">Fast mode</a>
+          <a class="${safeMode === "detail" ? "is-active" : ""}" href="${modeBaseUrl}&mode=detail">Detailed events</a>
         </nav>
       </div>
       <a class="admin-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead dashboard</a>
@@ -230,7 +242,7 @@ function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, emptyMessage 
       ${metricCard("Started", funnel.started || 0)}
       ${metricCard("Submitted", funnel.submitted || 0)}
       ${metricCard("Start rate", percent(funnel.started, funnel.viewed), "started / viewed")}
-      ${metricCard("Submit rate", percent(funnel.submitted, funnel.viewed), "submitted / viewed")}
+      ${metricCard("Submit rate", percent(funnel.submitted, funnel.started), "submitted / started")}
     </section>
     <section class="panel">
       <h2>Step Counts</h2>
@@ -245,13 +257,14 @@ function renderPage({ token, lookbackDays = DEFAULT_LOOKBACK_DAYS, emptyMessage 
       <h2>Page Type Breakdown</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Page type</th><th>Viewed</th><th>Started</th><th>Submitted</th><th>Submit rate</th></tr></thead>
+          <thead><tr><th>Page type</th><th>Started</th><th>Submitted</th><th>Submit rate</th></tr></thead>
           <tbody>${renderPageTypeRows(pageTypes)}</tbody>
         </table>
       </div>
     </section>
     <section class="panel">
       <h2>Recent Events</h2>
+      <p>${escapeHtml(recentEventsNote)}</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Created</th><th>Event</th><th>Page type</th><th>Location</th><th>Space type</th><th>Page URL</th></tr></thead>
@@ -286,20 +299,27 @@ async function runAnalyticsQuery(db, label, query, bindings, errors) {
 
 async function fetchAnalytics(db, options = {}) {
   const lookbackDays = normalizeLookbackDays(options.lookbackDays);
+  const mode = normalizeMode(options.mode);
   const lookbackStart = lookbackStartIso(lookbackDays);
   const errors = [];
 
-  const funnelRows = await runAnalyticsQuery(db, "Funnel summary", `
+  const viewedRows = await runAnalyticsQuery(db, "Viewed count", `
+    select count(*) as count
+    from search_profile_events
+    where event_name = 'search_profile_viewed'
+      and created_at >= ?
+  `, [lookbackStart], errors);
+
+  const funnelRows = await runAnalyticsQuery(db, "Started/submitted summary", `
     select event_name, count(*) as count
     from search_profile_events
-    where event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_submitted')
+    where event_name in ('search_profile_started', 'search_profile_submitted')
       and created_at >= ?
     group by event_name
   `, [lookbackStart], errors);
 
-  const funnel = { viewed: 0, started: 0, submitted: 0 };
+  const funnel = { viewed: Number(viewedRows[0] && viewedRows[0].count || 0), started: 0, submitted: 0 };
   for (const row of funnelRows) {
-    if (row.event_name === "search_profile_viewed") funnel.viewed = Number(row.count || 0);
     if (row.event_name === "search_profile_started") funnel.started = Number(row.count || 0);
     if (row.event_name === "search_profile_submitted") funnel.submitted = Number(row.count || 0);
   }
@@ -322,13 +342,13 @@ async function fetchAnalytics(db, options = {}) {
   const pageTypeRows = await runAnalyticsQuery(db, "Page type breakdown", `
     select
       coalesce(nullif(page_type, ''), 'unknown') as page_type,
-      sum(case when event_name = 'search_profile_viewed' then 1 else 0 end) as viewed,
       sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
       sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
     from search_profile_events
-    where created_at >= ?
+    where event_name in ('search_profile_started', 'search_profile_submitted')
+      and created_at >= ?
     group by coalesce(nullif(page_type, ''), 'unknown')
-    order by submitted desc, started desc, viewed desc
+    order by submitted desc, started desc
     limit 50
   `, [lookbackStart], errors);
 
@@ -336,6 +356,7 @@ async function fetchAnalytics(db, options = {}) {
     select created_at, event_name, page_type, location_display, space_type, page_url
     from search_profile_events
     where created_at >= ?
+      ${mode === "fast" ? "and event_name != 'search_profile_viewed'" : ""}
     order by created_at desc
     limit ?
   `, [lookbackStart, RECENT_EVENTS_LIMIT], errors);
@@ -351,6 +372,7 @@ async function fetchAnalytics(db, options = {}) {
 
   return {
     lookbackDays,
+    mode,
     errors,
     funnel,
     stepCounts,
@@ -369,6 +391,7 @@ export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   const token = url.searchParams.get("token") || "";
   const lookbackDays = normalizeLookbackDays(url.searchParams.get("days"));
+  const mode = normalizeMode(url.searchParams.get("mode"));
   if (token !== configuredToken) {
     return adminResponse("Forbidden", 403);
   }
@@ -379,7 +402,7 @@ export async function onRequestGet({ request, env }) {
   }
 
   try {
-    const data = await fetchAnalytics(db, { lookbackDays });
+    const data = await fetchAnalytics(db, { lookbackDays, mode });
     return adminResponse(renderPage({ token, ...data }));
   } catch (error) {
     if (isMissingTableError(error)) {
@@ -388,6 +411,7 @@ export async function onRequestGet({ request, env }) {
     return adminResponse(renderPage({
       token,
       lookbackDays,
+      mode,
       errors: [error.message || "Search Profile analytics failed before data could be loaded."],
       funnel: { viewed: 0, started: 0, submitted: 0 },
       stepCounts: {},
