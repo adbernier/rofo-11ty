@@ -21,6 +21,9 @@
   const contactStep = root.querySelector("[data-profile-contact]");
   const finalList = root.querySelector("[data-profile-final-list]");
   const featureOtherWrap = root.querySelector("[data-profile-feature-other]");
+  const locationOptionsContainer = root.querySelector("[data-profile-location-options]");
+  const locationOtherWrap = root.querySelector("[data-profile-location-other]");
+  const locationOtherInput = root.querySelector("[data-profile-location-other-input]");
   const editButtons = root.querySelectorAll("[data-profile-edit]");
   const contactInputs = root.querySelectorAll("[data-profile-contact-input]");
   const contactReminder = root.querySelector("[data-profile-contact-reminder]");
@@ -32,6 +35,10 @@
   const contextDistrict = root.dataset.profileContextDistrict || "";
   const contextStreet = root.dataset.profileContextStreet || "";
   const contextState = root.dataset.profileState || "";
+  const contextType = root.dataset.profileContextType || "";
+  const contextLabel = root.dataset.profileContextLabel || "";
+  const locationSuggestionLabels = parseSuggestionLabels(root.dataset.profileLocationSuggestions || "");
+  const defaultSpaceType = root.dataset.profileDefaultSpaceType || "";
   const submitEnabled = root.dataset.profileSubmitEnabled === "true";
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
@@ -96,6 +103,27 @@
     };
   }
 
+  function parseSuggestionLabels(value) {
+    return String(value || "")
+      .split("||")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  function locationOptionLabel() {
+    return contextDistrict || contextLabel || contextCity || contextTargetArea || "Current location";
+  }
+
+  function uniqueLabels(labels) {
+    const seen = new Set();
+    return labels.filter((label) => {
+      const normalized = String(label || "").trim().toLowerCase();
+      if (!normalized || seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+  }
+
   function normalizeLocation(value) {
     const fallback = contextLocation();
     if (typeof value === "string") {
@@ -132,6 +160,66 @@
     profile.targetArea = display;
   }
 
+  function locationOptions() {
+    const options = uniqueLabels([
+      locationOptionLabel(),
+      ...locationSuggestionLabels,
+    ]).slice(0, 6);
+    return [...options, "Other"];
+  }
+
+  function normalizeLocationSelections(value, fallbackLocation) {
+    if (Array.isArray(value)) {
+      return uniqueLabels(value.map((item) => typeof item === "string" ? item : item && item.label));
+    }
+    const fallbackLabel = fallbackLocation && fallbackLocation.display === contextLocation().display
+      ? locationOptionLabel()
+      : fallbackLocation && fallbackLocation.display;
+    return uniqueLabels([fallbackLabel || locationOptionLabel()]);
+  }
+
+  function selectedLocationLabels(targetProfile = profile) {
+    const labels = Array.isArray(targetProfile.locationSelections) ? targetProfile.locationSelections : [];
+    const other = String(targetProfile.locationOther || "").trim();
+    return labels
+      .map((label) => label === "Other" ? other : label)
+      .filter(Boolean);
+  }
+
+  function buildLocationFromSelections(targetProfile) {
+    const labels = selectedLocationLabels(targetProfile);
+    const fallback = contextLocation();
+    const currentLabel = locationOptionLabel();
+    const cityWithState = [contextCity, contextState].filter(Boolean).join(", ");
+    let display = fallback.display;
+
+    if (labels.length === 1 && labels[0] === currentLabel) {
+      return fallback;
+    }
+
+    if (labels.length) {
+      const labelDisplay = labels.join(" / ");
+      display = (contextType === "district" || contextType === "comparison") && cityWithState
+        ? `${cityWithState} — ${labelDisplay}`
+        : labelDisplay;
+    }
+
+    return {
+      ...normalizeLocation(targetProfile.location),
+      display,
+      city: contextCity || null,
+      district: contextType === "district" || contextType === "comparison" ? labels.join(" / ") || contextDistrict || null : null,
+      street: contextStreet || null,
+      state: contextState || null,
+      raw: display,
+    };
+  }
+
+  function updateLocationFromSelections() {
+    profile.location = buildLocationFromSelections(profile);
+    profile.targetArea = profile.location.display;
+  }
+
   const defaultProfile = {
     version: "1D",
     skipped: false,
@@ -140,7 +228,7 @@
       type: root.dataset.profileContextType || "",
       label: root.dataset.profileContextLabel || "",
     },
-    spaceType: "",
+    spaceType: defaultSpaceType && pathConfig[defaultSpaceType] ? defaultSpaceType : "",
     people: "",
     use: "",
     size: "",
@@ -150,6 +238,8 @@
     priorities: [],
     features: [],
     featureOther: "",
+    locationSelections: [locationOptionLabel()],
+    locationOther: "",
     location: contextLocation(),
     contact: {
       submitted: false,
@@ -181,6 +271,16 @@
           ...(stored.contact || stored.sharing || {}),
         },
       };
+      merged.locationSelections = normalizeLocationSelections(stored.locationSelections, merged.location);
+      const currentLabel = locationOptionLabel();
+      if (!merged.locationSelections.some((label) => label.toLowerCase() === currentLabel.toLowerCase())) {
+        merged.locationSelections.unshift(currentLabel);
+      }
+      merged.locationOther = stored.locationOther || "";
+      if (!merged.spaceType && defaultSpaceType && pathConfig[defaultSpaceType]) {
+        merged.spaceType = defaultSpaceType;
+      }
+      merged.location = buildLocationFromSelections(merged);
       merged.targetArea = merged.location.display;
       if (!Array.isArray(merged.priorities)) {
         merged.priorities = merged.priorities ? [merged.priorities] : [];
@@ -196,6 +296,8 @@
       return {
         ...defaultProfile,
         location: contextLocation(),
+        locationSelections: [locationOptionLabel()],
+        locationOther: "",
         targetArea: contextLocation().display,
         sourceContext: { ...defaultProfile.sourceContext },
         contact: { ...defaultProfile.contact },
@@ -562,7 +664,49 @@
     });
   }
 
+  function toggleLocationSelection(label) {
+    trackStarted();
+    profile.skipped = false;
+    profile.contact.submitted = false;
+    viewMode = "edit";
+    const current = new Set(Array.isArray(profile.locationSelections) ? profile.locationSelections : []);
+    if (current.has(label)) {
+      if (current.size === 1) return;
+      current.delete(label);
+    } else {
+      current.add(label);
+    }
+    profile.locationSelections = [...current];
+    if (!current.has("Other")) {
+      profile.locationOther = "";
+    }
+    updateLocationFromSelections();
+    saveProfile();
+    if (meaningfulValue("targetArea")) trackStepCompleted("location");
+    render();
+  }
+
+  function renderLocationOptions() {
+    if (!locationOptionsContainer) return;
+    const selected = new Set(Array.isArray(profile.locationSelections) ? profile.locationSelections : []);
+    locationOptionsContainer.innerHTML = "";
+    locationOptions().forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = option;
+      button.classList.toggle("is-selected", selected.has(option));
+      button.setAttribute("aria-pressed", String(selected.has(option)));
+      button.addEventListener("click", () => toggleLocationSelection(option));
+      locationOptionsContainer.appendChild(button);
+    });
+
+    const showOther = selected.has("Other");
+    if (locationOtherWrap) locationOtherWrap.hidden = !showOther;
+    if (locationOtherInput) locationOtherInput.value = profile.locationOther || "";
+  }
+
   function renderOptionSets() {
+    renderLocationOptions();
     renderOptions("spaceType", Object.keys(pathConfig));
     renderOptions("timing", timingOptions);
     renderOptions("features", activeConfig().features || ["Other"]);
@@ -664,9 +808,7 @@
 
   function renderInputs() {
     root.querySelectorAll("[data-profile-input]").forEach((input) => {
-      input.value = input.dataset.profileInput === "targetArea"
-        ? profile.location.display || ""
-        : profile[input.dataset.profileInput] || "";
+      input.value = profile[input.dataset.profileInput] || "";
     });
   }
 
@@ -722,11 +864,17 @@
 
   root.addEventListener("input", (event) => {
     const key = event.target.dataset.profileInput;
-    if (!key) return;
+    const isLocationOther = event.target.matches("[data-profile-location-other-input]");
+    if (!key && !isLocationOther) return;
     trackStarted();
     profile.skipped = false;
     profile.contact.submitted = false;
-    if (key === "targetArea") {
+    if (isLocationOther) {
+      profile.locationOther = event.target.value;
+      if (!Array.isArray(profile.locationSelections)) profile.locationSelections = [locationOptionLabel()];
+      if (!profile.locationSelections.includes("Other")) profile.locationSelections.push("Other");
+      updateLocationFromSelections();
+    } else if (key === "targetArea") {
       updateLocationDisplay(event.target.value);
     } else {
       profile[key] = event.target.value;
@@ -755,6 +903,7 @@
 
   nextButton.addEventListener("click", () => {
     profile.skipped = false;
+    updateLocationFromSelections();
     saveProfile();
     if (activeStepIndex >= activeSteps().length - 1) {
       trackStepCompleted("features");
@@ -762,6 +911,9 @@
       setCollapsed(false);
       render();
       return;
+    }
+    if (activeSteps()[activeStepIndex] === "targetArea" && meaningfulValue("targetArea")) {
+      trackStepCompleted("location");
     }
     activeStepIndex += 1;
     render();
@@ -772,6 +924,8 @@
       ...defaultProfile,
       location: contextLocation(),
       targetArea: contextLocation().display,
+      locationSelections: [locationOptionLabel()],
+      locationOther: "",
       sourceContext: { ...defaultProfile.sourceContext },
       contact: { ...defaultProfile.contact },
     };

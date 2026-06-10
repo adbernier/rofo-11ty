@@ -116,6 +116,22 @@ eleventyComputed:
     {% endif %}
   {% endfor %}
 {% endif %}
+{% set searchProfileLocationSuggestions = [] %}
+{% if cityNeighborhoods.length %}
+  {% for neighborhood in cityNeighborhoods.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(neighborhood.name), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
+{% if cityLocationComparisons.length %}
+  {% for comparison in cityLocationComparisons.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(comparison.district_name), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
+{% if city.nearby_cities and city.nearby_cities.length %}
+  {% for nearby in city.nearby_cities.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(nearby.city), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
 
 <section class="city-page">
   <div class="city-shell">
@@ -134,7 +150,6 @@ eleventyComputed:
           </p>
 
           <div class="hero-actions">
-            <a class="btn-primary" href="#search-profile">Find locations that fit</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
               Browse Buildings
             </a>
@@ -431,7 +446,8 @@ eleventyComputed:
           "neighborhood_slug": "",
           "neighborhood_path": "",
           "commercial_area_id": "",
-          "commercial_area_type": ""
+          "commercial_area_type": "",
+          "location_suggestions": searchProfileLocationSuggestions
         } %}
         {% include "partials/shared/search-profile-card.njk" %}
       </div>

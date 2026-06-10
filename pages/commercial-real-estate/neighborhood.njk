@@ -35,6 +35,17 @@ eleventyComputed:
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
+{% set searchProfileLocationSuggestions = [] %}
+{% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
+  {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(comparison.district_name), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
+{% if hasNearby %}
+  {% for nearby in neighborhood.nearby_neighborhoods.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(nearby.name), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -53,7 +64,9 @@ eleventyComputed:
             <span class="pill">{{ districtIdentity.guide_label or (areaTermDisplay + " guide") }}</span>
           </div>
           <div class="button-row">
-            <a class="btn-primary" href="{% if neighborhood.commercial_location_model %}#search-profile{% else %}#neighborhood-contact-form{% endif %}">{% if neighborhood.commercial_location_model %}Find locations that fit{% else %}Get current availability{% endif %}</a>
+            {% if not neighborhood.commercial_location_model %}
+              <a class="btn-primary" href="#neighborhood-contact-form">Get current availability</a>
+            {% endif %}
             <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
           </div>
         </div>
@@ -284,7 +297,8 @@ eleventyComputed:
             "neighborhood_path": neighborhood.canonical_neighborhood_path,
             "commercial_area_id": neighborhood.commercial_area_id or "",
             "commercial_area_type": neighborhood.commercial_area_type or "",
-            "primary_archetype": neighborhood.commercial_location_model.primary_archetype or ""
+            "primary_archetype": neighborhood.commercial_location_model.primary_archetype or "",
+            "location_suggestions": searchProfileLocationSuggestions
           } %}
           {% include "partials/shared/search-profile-card.njk" %}
         {% endif %}

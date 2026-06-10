@@ -23,6 +23,8 @@
   data-profile-commercial-area-type="{{ searchProfileContext.commercial_area_type or '' }}"
   data-profile-compared-districts="{{ searchProfileContext.compared_districts or '' }}"
   data-profile-primary-archetype="{{ searchProfileContext.primary_archetype or '' }}"
+  data-profile-location-suggestions="{{ (searchProfileContext.location_suggestions or []) | join('||') }}"
+  data-profile-default-space-type="{{ searchProfileContext.default_space_type or '' }}"
   aria-label="Search profile"
 >
   <div class="search-profile-backdrop" data-profile-close></div>
@@ -34,9 +36,10 @@
     {% if searchProfileContext.layout != "page" %}
       <div class="search-profile-card__top">
         <div>
-          <h2>Get location options for your business</h2>
-          <p>Build a simple profile to get matching locations, buildings, and alternatives.</p>
-          <p class="search-profile-card__privacy">Private until submitted.</p>
+          <span class="search-profile-card__badge">Recommended</span>
+          <h2>Get a personalized shortlist</h2>
+          <p>Tell us what you're looking for and we'll recommend locations, buildings, and alternatives that fit.</p>
+          <p class="search-profile-card__privacy">Takes about a minute.</p>
         </div>
         <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse My Search Profile">
           <span aria-hidden="true">−</span>
@@ -45,7 +48,7 @@
 
       <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
         <span>
-          <strong>Get location options</strong>
+          <strong>Get a personalized shortlist</strong>
           <small data-profile-summary-title>Add a few details</small>
         </span>
         <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
@@ -68,8 +71,12 @@
 
       <form class="search-profile-form" data-profile-form data-profile-editor>
         <fieldset class="search-profile-fieldset" data-profile-step="targetArea">
-          <label for="search-profile-target-area">Where are you looking?</label>
-          <input id="search-profile-target-area" name="targetArea" type="text" placeholder="e.g. SoMa, Austin, Portland" data-profile-input="targetArea">
+          <legend>Locations to include in your search</legend>
+          <div class="search-profile-options search-profile-options--multi search-profile-location-options" data-profile-location-options></div>
+          <div class="search-profile-other" data-profile-location-other hidden>
+            <label for="search-profile-target-area">Other location</label>
+            <input id="search-profile-target-area" name="targetArea" type="text" placeholder="City, district, or street" data-profile-location-other-input>
+          </div>
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="spaceType" hidden>

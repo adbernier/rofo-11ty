@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 permalink: /find-locations/
-title: Get location options for your business | Rofo
-description: Build a simple profile to get matching locations, buildings, and alternatives.
+title: Get a personalized shortlist | Rofo
+description: Tell Rofo what you're looking for and get matching locations, buildings, and alternatives.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/find-locations/"
 ---
@@ -12,16 +12,16 @@ eleventyComputed:
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
-      <span>Get location options</span>
+      <span>Personalized shortlist</span>
     </div>
 
     <div class="city-hero city-hero--district-identity">
       <div class="city-card">
         <div class="city-hero-copy">
           <div class="eyebrow">Location profile</div>
-          <h1>Get location options for your business</h1>
+          <h1>Get a personalized shortlist</h1>
           <p class="lead">
-            Build a simple profile to get matching locations, buildings, and alternatives.
+            Tell us what you're looking for and we'll recommend locations, buildings, and alternatives that fit.
           </p>
         </div>
       </div>
@@ -38,7 +38,7 @@ eleventyComputed:
         "street": "",
         "state": "",
         "context_type": "find_locations",
-        "context_label": "Get location options for your business",
+        "context_label": "Get a personalized shortlist",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
         "routing_market": "",
@@ -47,7 +47,8 @@ eleventyComputed:
         "neighborhood_slug": "",
         "neighborhood_path": "",
         "commercial_area_id": "",
-        "commercial_area_type": ""
+        "commercial_area_type": "",
+        "location_suggestions": ["San Francisco", "Oakland", "San Jose", "Sacramento", "Austin", "Nashville"]
       } %}
       {% include "partials/shared/search-profile-card.njk" %}
     </div>

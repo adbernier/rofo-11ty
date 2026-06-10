@@ -30,7 +30,6 @@ eleventyComputed:
             Compare which commercial district is a better fit before narrowing to specific spaces.
           </p>
           <div class="button-row">
-            <a class="btn-primary" href="#search-profile">Find locations that fit</a>
             <a class="btn-secondary" href="/commercial-real-estate/{{ comparison.state_abbr }}/{{ comparison.city_slug }}/market-guide/">Read market guide</a>
           </div>
         </div>
@@ -195,7 +194,8 @@ eleventyComputed:
           "commercial_area_id": "",
           "commercial_area_type": "location_comparison",
           "compared_districts": comparison.compared_districts_value,
-          "primary_archetype": (comparison.district_a.primary_archetype or "") + ", " + (comparison.district_b.primary_archetype or "")
+          "primary_archetype": (comparison.district_a.primary_archetype or "") + ", " + (comparison.district_b.primary_archetype or ""),
+          "location_suggestions": [comparison.district_a_name, comparison.district_b_name]
         } %}
         {% include "partials/shared/search-profile-card.njk" %}
       </aside>

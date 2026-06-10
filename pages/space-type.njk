@@ -14,6 +14,13 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
+{% set searchProfileDefaultSpaceType = "Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label %}
+{% set searchProfileLocationSuggestions = [] %}
+{% if city.nearby_cities and city.nearby_cities.length %}
+  {% for nearby in city.nearby_cities.slice(0, 6) %}
+    {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(nearby.city), searchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
 {% set crumbs = [
   { "label": city.city + ", " + stateAbbr, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" },
   { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
@@ -25,6 +32,33 @@ eleventyComputed:
     {% include "partials/space-type/hero.njk" %}
 
     <div class="page-stack">
+      <section class="space-type-search-profile">
+        {% set searchProfileContext = {
+          "layout": "space-type",
+          "submit_enabled": true,
+          "submit_endpoint": "/api/leads/submit",
+          "target_area": city.city,
+          "city": city.city,
+          "district": "",
+          "street": "",
+          "state": stateAbbr,
+          "context_type": "space_type",
+          "context_label": spaceType.pluralLabel + " in " + city.city + ", " + stateAbbr,
+          "page_url": metadata.siteUrl + page.url,
+          "page_title": title,
+          "routing_market": entry.routing_market or (city.slug + "-" + (stateAbbr | lower)),
+          "routing_county": entry.routing_county or "",
+          "neighborhood_name": "",
+          "neighborhood_slug": "",
+          "neighborhood_path": "",
+          "commercial_area_id": "",
+          "commercial_area_type": "space_type",
+          "location_suggestions": searchProfileLocationSuggestions,
+          "default_space_type": searchProfileDefaultSpaceType
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
+      </section>
+
       {% include "partials/space-type/market-snapshot.njk" %}
       {% include "partials/space-type/guide-card.njk" %}
 
@@ -38,3 +72,5 @@ eleventyComputed:
     </div>
   </div>
 </section>
+
+<script src="/js/search-profile.js" defer></script>
