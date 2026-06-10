@@ -110,18 +110,39 @@
       .filter(Boolean);
   }
 
+  function cleanLocationLabel(value) {
+    return String(value || "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*,\s*/g, ", ")
+      .trim()
+      .replace(new RegExp(`,\\s*${contextState}$`, "i"), "")
+      .replace(/,\s*(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)$/i, "")
+      .trim();
+  }
+
+  function locationKey(value) {
+    return cleanLocationLabel(value)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  }
+
   function locationOptionLabel() {
-    return contextDistrict || contextLabel || contextCity || contextTargetArea || "Current location";
+    if (contextType === "city" || contextType === "space_type") return cleanLocationLabel(contextCity || contextTargetArea);
+    return cleanLocationLabel(contextDistrict || contextCity || contextTargetArea || contextLabel || "Current location");
   }
 
   function uniqueLabels(labels) {
     const seen = new Set();
-    return labels.filter((label) => {
-      const normalized = String(label || "").trim().toLowerCase();
+    const cleanLabels = [];
+    labels.forEach((label) => {
+      const display = cleanLocationLabel(label);
+      const normalized = locationKey(display);
       if (!normalized || seen.has(normalized)) return false;
       seen.add(normalized);
-      return true;
+      cleanLabels.push(display);
     });
+    return cleanLabels;
   }
 
   function normalizeLocation(value) {
@@ -193,7 +214,7 @@
     const cityWithState = [contextCity, contextState].filter(Boolean).join(", ");
     let display = fallback.display;
 
-    if (labels.length === 1 && labels[0] === currentLabel) {
+    if (labels.length === 1 && locationKey(labels[0]) === locationKey(currentLabel)) {
       return fallback;
     }
 
