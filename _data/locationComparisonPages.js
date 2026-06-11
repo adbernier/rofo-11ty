@@ -3469,7 +3469,6 @@ const warehouseFlexComparisonSlugs = new Set([
 module.exports = comparisons.map((comparison) => {
   const districtA = districtSummary(comparison.district_a_path);
   const districtB = districtSummary(comparison.district_b_path);
-  const metaFocus = metaFocusBySlug[comparison.slug];
   const warehouseFlexComparison =
     warehouseFlexComparisonSlugs.has(comparison.slug) &&
     hasWarehouseFlexDecisionContext(districtA, districtB);
@@ -3495,8 +3494,6 @@ module.exports = comparisons.map((comparison) => {
     district_b_detail_cta:
       `Explore ${comparison.district_b_name} ${detailCtaByArchetype[districtB.primary_archetype] || "commercial context"}`,
     page_title: `${comparison.title} | Commercial Location Comparison | Rofo`,
-    meta_description: metaFocus
-      ? `Compare ${comparison.title}: ${metaFocus} for business location fit and ${warehouseFlexComparison ? "warehouse/flex context" : "office context"}.`
-      : `Compare ${comparison.title} for business location fit, ${warehouseFlexComparison ? "warehouse/flex context" : "office context"}, representative commercial environments, and nearby district alternatives.`,
+    meta_description: `Compare ${comparison.title} for commercial space. Review buildings, market context, and alternatives before choosing where to search.`,
   };
 });

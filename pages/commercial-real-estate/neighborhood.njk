@@ -7,7 +7,7 @@ pagination:
 permalink: "{{ neighborhood.canonical_neighborhood_path }}"
 eleventyComputed:
   title: "Commercial Real Estate in {{ neighborhood.meta_place_label or ((neighborhood.display_name_with_article or neighborhood.name) + ', ' + neighborhood.city + ', ' + neighborhood.state_abbr) | safe }} | Rofo"
-  description: "Explore commercial real estate context, buildings, and common business environments in {{ neighborhood.meta_context_label or ((neighborhood.display_name_with_article or neighborhood.name) + ', ' + neighborhood.city) | safe }}."
+  description: "Explore commercial space in {{ neighborhood.meta_context_label or ((neighborhood.display_name_with_article or neighborhood.name) + ', ' + neighborhood.city) | safe }}. Compare buildings, nearby districts, and alternatives before narrowing your search."
   canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
   robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
 ---

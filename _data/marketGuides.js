@@ -192,6 +192,7 @@ function normalizeSpaceTypeGuide(guide) {
       space_type_label_lower: String(spaceTypeLabel || "").toLowerCase(),
       space_type_noun: spaceTypeNoun,
       space_type_short_label: spaceTypeShortLabels[guide.space_type] || String(spaceTypeLabel || "").toLowerCase(),
+      meta_description: `Explore ${String(spaceTypeLabel || "").toLowerCase()} in ${guide.city}, ${state}. Compare buildings, nearby locations, and alternatives before narrowing your search.`,
       has_inventory: guide.has_inventory !== false && hasMatchingSpaceTypePage,
       has_matching_space_type_page: hasMatchingSpaceTypePage,
       url: `/commercial-real-estate/${state}/${citySlug}/${guideSlug}/`,

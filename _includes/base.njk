@@ -19,7 +19,7 @@
   {% set siteUrl = metadata.siteUrl or "" %}
   {% set canonicalUrl = "" %}
   {% set pageTitle = siteName + " | Find Office, Retail & Industrial Space" %}
-  {% set pageDescription = description or defaultDescription %}
+  {% set pageDescription = (description or defaultDescription) | trim %}
 
   {% if canonical %}
     {% set canonicalUrl = canonical %}
