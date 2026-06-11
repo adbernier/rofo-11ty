@@ -2077,6 +2077,12 @@ Object.assign(districts, {
         reason: "Compare if eastern Sacramento/Highway 50 professional office context may fit better.",
       },
       {
+        district_name: "Rocklin",
+        district_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
+        reason: "Compare if a smaller I-80 suburban office, local-service, or light office/flex market may fit better.",
+      },
+      {
         district_name: "Downtown Sacramento",
         district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
@@ -2104,6 +2110,64 @@ Object.assign(districts, {
       tenant_fit: ["regional_support", "service_businesses", "light_operations"],
       decision_context:
         "Roseville can support lighter office/flex and business-park needs, but it is primarily a suburban office, medical, and client-service market in this V1 cluster.",
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/": {
+    primary_archetype: "placer_county_suburban_office_flex_market",
+    secondary_archetypes: ["local_service_business_market", "i80_light_industrial_flex_corridor"],
+    commercial_thesis:
+      "Rocklin is a practical Placer County suburban commercial market with office, medical/local service, business-park, and light industrial/flex patterns along the I-80, Sierra College, Stanford Ranch, and Sunset corridor context.",
+    best_fit_businesses: [
+      "Small office, medical office, local-service, education, and professional-service users serving Rocklin and Placer County",
+      "Light industrial, office/flex, and service-commercial users that need I-80 access without a larger regional office setting",
+      "Companies comparing Roseville, Rocklin, Folsom, and the northeast Sacramento corridor",
+    ],
+    poor_fit_businesses: [
+      "Users that need the broader regional retail, medical, and office gravity of Roseville",
+      "Companies requiring Downtown Sacramento civic identity or government adjacency",
+      "Large warehouse/distribution users needing deeper industrial scale than Rocklin typically represents",
+    ],
+    compare_with: [
+      {
+        district_name: "Roseville",
+        district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
+        reason: "Compare if a larger Placer County commercial base, medical depth, and regional service gravity may matter more.",
+      },
+      {
+        district_name: "Folsom",
+        district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        reason: "Compare if a more Highway 50-oriented professional office setting may fit better.",
+      },
+      {
+        district_name: "Rancho Cordova",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        reason: "Compare if Highway 50 office/flex and back-office formats may fit better than Rocklin's Placer County orientation.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "placer_county_local_suburban",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "education", "regional_support"],
+      commute_pattern: ["i80", "rocklin", "roseville", "placer_county", "northeast_sacramento"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_industrial_flex",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "service_industrial", "business_park", "light_manufacturing"],
+      tenant_fit: ["local_operations", "service_businesses", "light_manufacturing", "regional_support"],
+      decision_context:
+        "Rocklin can support smaller office/flex and service-industrial needs, but users needing broader industrial depth should compare larger Sacramento-area industrial markets.",
     },
     confidence_level: "medium",
     review_status: "researched",

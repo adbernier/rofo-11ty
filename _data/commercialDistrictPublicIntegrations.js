@@ -1493,12 +1493,21 @@ Object.assign(integrationsByPath, {
       {
         name: "Folsom",
         url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
         relationship_type: "Suburban office comparison",
         note: "More Highway 50 and eastern Sacramento oriented.",
       },
       {
+        name: "Rocklin",
+        url: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
+        relationship_type: "Placer County office/flex comparison",
+        note: "Smaller, more practical I-80 suburban office and light office/flex market.",
+      },
+      {
         name: "Downtown Sacramento",
         url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-downtown-sacramento/",
         relationship_type: "Civic office-core contrast",
         note: "More central, government-adjacent, and traditional-office oriented.",
       },
@@ -1507,6 +1516,39 @@ Object.assign(integrationsByPath, {
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 and office/flex oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Placer County and Sacramento alternatives",
+    intro:
+      "Use these relationships to compare Rocklin's practical I-80 office, local-service, and light office/flex role with larger nearby commercial markets.",
+    districts: [
+      {
+        name: "Roseville",
+        url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
+        relationship_type: "Placer County commercial comparison",
+        note: "Larger regional office, medical, retail, and service-commercial base.",
+      },
+      {
+        name: "Folsom",
+        url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        relationship_type: "Suburban office comparison",
+        note: "More Highway 50 and eastern Sacramento professional-office oriented.",
+      },
+      {
+        name: "Rancho Cordova",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        relationship_type: "Office/flex alternative",
+        note: "More Highway 50, back-office, and office/flex oriented.",
+      },
+      {
+        name: "Downtown Sacramento",
+        url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        relationship_type: "Civic office-core contrast",
+        note: "More central, government-adjacent, and traditional-office oriented.",
       },
     ],
   },

@@ -277,11 +277,15 @@ eleventyComputed:
 
       <aside class="neighborhood-sidebar">
         {% if isDistrictIdentityPage or neighborhood.commercial_location_model %}
+          {% set neighborhoodSearchProfileTargetArea = neighborhood.city %}
+          {% if neighborhoodDisplayNameWithArticle and neighborhoodDisplayNameWithArticle != neighborhood.city %}
+            {% set neighborhoodSearchProfileTargetArea = neighborhood.city + " — " + neighborhoodDisplayNameWithArticle %}
+          {% endif %}
           {% set searchProfileContext = {
             "layout": "inline",
             "submit_enabled": true,
             "submit_endpoint": "/api/leads/submit",
-            "target_area": neighborhood.city + " — " + neighborhoodDisplayNameWithArticle,
+            "target_area": neighborhoodSearchProfileTargetArea,
             "city": neighborhood.city,
             "district": neighborhoodDisplayNameWithArticle,
             "street": "",

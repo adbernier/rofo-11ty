@@ -1345,6 +1345,29 @@ comparisons.push(
       "The comparison helps users decide between suburban client geography and central Sacramento identity.",
     ],
     lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "roseville-vs-rocklin",
+    title: "Roseville vs Rocklin",
+    short_title: "Roseville vs Rocklin",
+    city: "Roseville",
+    state_abbr: "CA",
+    city_slug: "roseville",
+    path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
+    district_a_name: "Roseville",
+    district_b_name: "Rocklin",
+    district_a_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+    verdict_a:
+      "Choose Roseville if a larger Placer County commercial base, medical/professional services, retail gravity, and broader regional visibility matter most.",
+    verdict_b:
+      "Choose Rocklin if a smaller, practical I-80 suburban market with local-service office, business-park, and light office/flex patterns is a better fit.",
+    comparison_notes: [
+      "Roseville is the stronger regional commercial and medical/professional office base.",
+      "Rocklin is more local, practical, and oriented toward smaller office, service-commercial, and light office/flex needs.",
+      "The comparison is most useful for Placer County-serving businesses deciding how much regional commercial depth they need.",
+    ],
+    lead_prompt: "Find locations that fit",
   }
 );
 
@@ -3013,6 +3036,8 @@ const metaFocusBySlug = {
     "Placer County office and medical market versus eastern Sacramento professional office context",
   "roseville-vs-downtown-sacramento":
     "suburban Placer County office/medical access versus Sacramento civic downtown office identity",
+  "roseville-vs-rocklin":
+    "larger Placer County commercial base versus smaller I-80 suburban office and light flex practicality",
   "downtown-san-diego-vs-mission-valley":
     "Downtown San Diego civic office identity versus Mission Valley central suburban office practicality",
   "mission-valley-vs-utc-university-city":

@@ -1156,6 +1156,30 @@ function representativeBuildingRolesFor(page) {
         "Enterprise Way office/business park",
       "/commercial-real-estate/building/CA/roseville/4000-foothills-blvd/":
         "Foothills Boulevard office/flex edge",
+      "/commercial-real-estate/building/CA/rocklin/2203-plaza-dr/":
+        "Plaza Drive suburban office setting",
+      "/commercial-real-estate/building/CA/rocklin/2205-plaza-dr/":
+        "Plaza Drive professional office context",
+      "/commercial-real-estate/building/CA/rocklin/2210-plaza-dr/":
+        "Rocklin office/business park example",
+      "/commercial-real-estate/building/CA/rocklin/2540-warren-dr/":
+        "Warren Drive suburban office building",
+      "/commercial-real-estate/building/CA/rocklin/3706-atherton-rd/":
+        "Atherton Road medical/professional office",
+      "/commercial-real-estate/building/CA/rocklin/3825-atherton-rd/":
+        "Atherton Road business park office",
+      "/commercial-real-estate/building/CA/rocklin/3835-atherton-rd/":
+        "Atherton Road professional office context",
+      "/commercial-real-estate/building/CA/rocklin/4011-alvis-ct/":
+        "Rocklin light industrial/flex example",
+      "/commercial-real-estate/building/CA/rocklin/4780-rocklin-rd/":
+        "Rocklin Road local office context",
+      "/commercial-real-estate/building/CA/rocklin/5905-6015-pacific-street/":
+        "Pacific Street service-commercial context",
+      "/commercial-real-estate/building/CA/rocklin/6815-five-star-blvd/":
+        "Five Star Boulevard office/business park",
+      "/commercial-real-estate/building/CA/rocklin/6960-destiny-dr/":
+        "Destiny Drive suburban office example",
       "/commercial-real-estate/building/CA/elk-grove/10139-iron-rock-way/":
         "Elk Grove office/flex business court",
       "/commercial-real-estate/building/CA/elk-grove/3137-dwight-rd/":
@@ -2697,6 +2721,33 @@ const sacramentoDistrictDefinitions = [
       "/commercial-real-estate/building/CA/roseville/1386-lead-hill-blvd/",
       "/commercial-real-estate/building/CA/roseville/1000-enterprise-way/",
       "/commercial-real-estate/building/CA/roseville/4000-foothills-blvd/",
+    ],
+  },
+  {
+    id: "sac-rocklin-commercial-core",
+    name: "Rocklin",
+    slug: "rocklin-commercial-core",
+    city: "Rocklin",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+    centroid_lat: 38.8,
+    centroid_lng: -121.24,
+    area_type: "district",
+    approximate_space_types: ["office", "medical", "retail", "flex", "industrial"],
+    profile: ["suburban_office", "medical", "local_services", "industrial_flex", "i80", "placer_county"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/rocklin/2203-plaza-dr/",
+      "/commercial-real-estate/building/CA/rocklin/2205-plaza-dr/",
+      "/commercial-real-estate/building/CA/rocklin/2210-plaza-dr/",
+      "/commercial-real-estate/building/CA/rocklin/2540-warren-dr/",
+      "/commercial-real-estate/building/CA/rocklin/3706-atherton-rd/",
+      "/commercial-real-estate/building/CA/rocklin/3825-atherton-rd/",
+      "/commercial-real-estate/building/CA/rocklin/3835-atherton-rd/",
+      "/commercial-real-estate/building/CA/rocklin/4011-alvis-ct/",
+      "/commercial-real-estate/building/CA/rocklin/4780-rocklin-rd/",
+      "/commercial-real-estate/building/CA/rocklin/5905-6015-pacific-street/",
+      "/commercial-real-estate/building/CA/rocklin/6815-five-star-blvd/",
+      "/commercial-real-estate/building/CA/rocklin/6960-destiny-dr/",
     ],
   },
   {
@@ -5076,6 +5127,7 @@ const representativeBuildingLimitByAreaId = {
   "sac-natomas": 15,
   "sac-rancho-cordova-commercial-core": 15,
   "sac-elk-grove-commercial-core": 15,
+  "sac-rocklin-commercial-core": 15,
 };
 
 function representativeBuildingsFromPaths(paths = [], areaId = "") {
