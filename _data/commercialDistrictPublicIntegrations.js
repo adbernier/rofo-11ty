@@ -1467,14 +1467,23 @@ Object.assign(integrationsByPath, {
       {
         name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         relationship_type: "Highway 50 office/flex comparison",
         note: "More practical, back-office, and office/flex oriented.",
       },
       {
         name: "Roseville",
         url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
         relationship_type: "Regional suburban office comparison",
         note: "More Placer County and northeast Sacramento oriented.",
+      },
+      {
+        name: "Rocklin",
+        url: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-folsom/",
+        relationship_type: "I-80 vs Highway 50 suburban comparison",
+        note: "More I-80, Placer County, local-service, and light office/flex oriented.",
       },
       {
         name: "Downtown Sacramento",
@@ -1535,6 +1544,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Folsom",
         url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-folsom/",
         relationship_type: "Suburban office comparison",
         note: "More Highway 50 and eastern Sacramento professional-office oriented.",
       },

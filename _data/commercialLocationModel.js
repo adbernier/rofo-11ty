@@ -2040,6 +2040,12 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-folsom/",
         reason: "Compare if Placer County office/medical and retail gravity may fit better.",
       },
+      {
+        district_name: "Rocklin",
+        district_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-folsom/",
+        reason: "Compare if I-80 access, smaller office/flex formats, and Placer County local-service context may fit better.",
+      },
     ],
     office_profile: {
       office_orientation: "eastern_suburban_professional",
@@ -2139,6 +2145,7 @@ Object.assign(districts, {
       {
         district_name: "Folsom",
         district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-folsom/",
         reason: "Compare if a more Highway 50-oriented professional office setting may fit better.",
       },
       {

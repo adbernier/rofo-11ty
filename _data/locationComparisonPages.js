@@ -1368,6 +1368,29 @@ comparisons.push(
       "The comparison is most useful for Placer County-serving businesses deciding how much regional commercial depth they need.",
     ],
     lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "rocklin-vs-folsom",
+    title: "Rocklin vs Folsom",
+    short_title: "Rocklin vs Folsom",
+    city: "Rocklin",
+    state_abbr: "CA",
+    city_slug: "rocklin",
+    path: "/commercial-real-estate/CA/rocklin/rocklin-vs-folsom/",
+    district_a_name: "Rocklin",
+    district_b_name: "Folsom",
+    district_a_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+    verdict_a:
+      "Choose Rocklin if I-80 access, a smaller Placer County suburban base, local-service office, business-park, or light office/flex fit matters most.",
+    verdict_b:
+      "Choose Folsom if Highway 50 access, a stronger professional office identity, technology-adjacent demand, and a higher-amenity suburban setting are stronger priorities.",
+    comparison_notes: [
+      "Rocklin is more practical, local-service, I-80-oriented, and light office/flex friendly.",
+      "Folsom is more polished, Highway 50-oriented, and stronger for client-facing professional and technology-adjacent office users.",
+      "The comparison is useful for tenants deciding between Placer County access and the eastern Sacramento/Highway 50 office corridor.",
+    ],
+    lead_prompt: "Find locations that fit",
   }
 );
 
@@ -3038,6 +3061,8 @@ const metaFocusBySlug = {
     "suburban Placer County office/medical access versus Sacramento civic downtown office identity",
   "roseville-vs-rocklin":
     "larger Placer County commercial base versus smaller I-80 suburban office and light flex practicality",
+  "rocklin-vs-folsom":
+    "I-80 local-service office and light flex practicality versus Highway 50 professional office and amenity context",
   "downtown-san-diego-vs-mission-valley":
     "Downtown San Diego civic office identity versus Mission Valley central suburban office practicality",
   "mission-valley-vs-utc-university-city":
