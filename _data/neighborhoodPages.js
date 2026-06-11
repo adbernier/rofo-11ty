@@ -1040,6 +1040,20 @@ function representativeBuildingRolesFor(page) {
         "J Street professional office block",
       "/commercial-real-estate/building/CA/sacramento/1325-j-st/":
         "Downtown Sacramento office fabric",
+      "/commercial-real-estate/building/CA/sacramento/300-capitol-mall/":
+        "Capitol Mall civic and professional office context",
+      "/commercial-real-estate/building/CA/sacramento/320-capitol-mall/":
+        "Downtown Sacramento large-format office setting",
+      "/commercial-real-estate/building/CA/sacramento/980-ninth-street/":
+        "Park Tower downtown office example",
+      "/commercial-real-estate/building/CA/sacramento/555-capitol-mall/":
+        "Capitol Mall government-adjacent office fabric",
+      "/commercial-real-estate/building/CA/sacramento/621-capitol-mall/":
+        "Central Sacramento professional office tower context",
+      "/commercial-real-estate/building/CA/sacramento/770-l-st/":
+        "L Street downtown office and civic access",
+      "/commercial-real-estate/building/CA/sacramento/400-capitol-mall/":
+        "Capitol Mall professional office context",
       "/commercial-real-estate/building/CA/sacramento/1600-k-st/":
         "Midtown edge professional office",
       "/commercial-real-estate/building/CA/sacramento/1610-r-st/":
@@ -1054,6 +1068,20 @@ function representativeBuildingRolesFor(page) {
         "North Market industrial/service corridor",
       "/commercial-real-estate/building/CA/sacramento/1415-n-market-blvd/":
         "Northgate industrial park context",
+      "/commercial-real-estate/building/CA/sacramento/2480-natomas-park-dr/":
+        "Natomas Park suburban office setting",
+      "/commercial-real-estate/building/CA/sacramento/2484-natomas-park-dr/":
+        "Natomas office park building context",
+      "/commercial-real-estate/building/CA/sacramento/2485-natomas-park-dr/":
+        "Natomas Corporate Center office example",
+      "/commercial-real-estate/building/CA/sacramento/2700-gateway-oaks-dr/":
+        "Gateway Oaks suburban office park",
+      "/commercial-real-estate/building/CA/sacramento/2850-gateway-oaks-dr/":
+        "Crown Corporate Center office context",
+      "/commercial-real-estate/building/CA/sacramento/2275-gateway-oaks-dr/":
+        "Gateway Oaks professional office setting",
+      "/commercial-real-estate/building/CA/sacramento/2295-gateway-oaks-dr/":
+        "Gateway Oaks parking-oriented office example",
       "/commercial-real-estate/building/CA/sacramento/1111-exposition-blvd/":
         "Arden / Point West office corridor",
       "/commercial-real-estate/building/CA/sacramento/1111-howe-ave/":
@@ -1092,6 +1120,22 @@ function representativeBuildingRolesFor(page) {
         "Sun Center suburban office node",
       "/commercial-real-estate/building/CA/rancho-cordova/11300-trade-center-dr/":
         "Rancho Cordova service-industrial context",
+      "/commercial-real-estate/building/CA/rancho-cordova/10265-rockingham-dr/":
+        "Rockingham Drive office/flex context",
+      "/commercial-real-estate/building/CA/rancho-cordova/10690-white-rock-rd/":
+        "White Rock Road suburban office setting",
+      "/commercial-real-estate/building/CA/rancho-cordova/11135-trade-center-dr/":
+        "Trade Center warehouse/flex example",
+      "/commercial-real-estate/building/CA/rancho-cordova/11167-trade-center-dr/":
+        "Trade Center industrial/flex context",
+      "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/":
+        "Sun Center office/flex support building",
+      "/commercial-real-estate/building/CA/rancho-cordova/11249-gold-country-blvd/":
+        "Gold Country suburban office context",
+      "/commercial-real-estate/building/CA/rancho-cordova/3075-prospect-park-dr/":
+        "Prospect Park business park office",
+      "/commercial-real-estate/building/CA/rancho-cordova/3100-zinfandel-dr/":
+        "Zinfandel Drive regional office example",
       "/commercial-real-estate/building/CA/folsom/1024-iron-point-rd/":
         "Iron Point professional office",
       "/commercial-real-estate/building/CA/folsom/255-parkshore-dr/":
@@ -1120,6 +1164,20 @@ function representativeBuildingRolesFor(page) {
         "Laguna Springs professional office",
       "/commercial-real-estate/building/CA/elk-grove/9615-laguna-springs-dr/":
         "Elk Grove suburban office context",
+      "/commercial-real-estate/building/CA/elk-grove/10000-waterman-rd/":
+        "Waterman Road light industrial edge",
+      "/commercial-real-estate/building/CA/elk-grove/10237-iron-rock-way/":
+        "Iron Rock industrial/flex building",
+      "/commercial-real-estate/building/CA/elk-grove/10280-iron-rock-way/":
+        "Iron Rock service-industrial context",
+      "/commercial-real-estate/building/CA/elk-grove/9092-elkmont-way/":
+        "Elkmont Way warehouse/flex example",
+      "/commercial-real-estate/building/CA/elk-grove/9250-laguna-springs-dr/":
+        "Laguna Springs suburban office node",
+      "/commercial-real-estate/building/CA/elk-grove/9275-laguna-springs-dr/":
+        "Laguna Springs professional office setting",
+      "/commercial-real-estate/building/CA/elk-grove/9263-bendel-pl/":
+        "Bendel Place light industrial context",
     };
   }
 
@@ -2444,6 +2502,13 @@ const sacramentoDistrictDefinitions = [
       "/commercial-real-estate/building/CA/sacramento/1225-8th-st/",
       "/commercial-real-estate/building/CA/sacramento/1303-j-st/",
       "/commercial-real-estate/building/CA/sacramento/1325-j-st/",
+      "/commercial-real-estate/building/CA/sacramento/300-capitol-mall/",
+      "/commercial-real-estate/building/CA/sacramento/320-capitol-mall/",
+      "/commercial-real-estate/building/CA/sacramento/980-ninth-street/",
+      "/commercial-real-estate/building/CA/sacramento/555-capitol-mall/",
+      "/commercial-real-estate/building/CA/sacramento/621-capitol-mall/",
+      "/commercial-real-estate/building/CA/sacramento/770-l-st/",
+      "/commercial-real-estate/building/CA/sacramento/400-capitol-mall/",
     ],
   },
   {
@@ -2498,6 +2563,13 @@ const sacramentoDistrictDefinitions = [
       "/commercial-real-estate/building/CA/sacramento/1313-n-market-blvd/",
       "/commercial-real-estate/building/CA/sacramento/1326-n-market-blvd/",
       "/commercial-real-estate/building/CA/sacramento/1415-n-market-blvd/",
+      "/commercial-real-estate/building/CA/sacramento/2480-natomas-park-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2484-natomas-park-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2485-natomas-park-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2700-gateway-oaks-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2850-gateway-oaks-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2275-gateway-oaks-dr/",
+      "/commercial-real-estate/building/CA/sacramento/2295-gateway-oaks-dr/",
     ],
   },
   {
@@ -2577,6 +2649,14 @@ const sacramentoDistrictDefinitions = [
       "/commercial-real-estate/building/CA/rancho-cordova/11025-trade-center-dr/",
       "/commercial-real-estate/building/CA/rancho-cordova/11171-sun-center-dr/",
       "/commercial-real-estate/building/CA/rancho-cordova/11300-trade-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/10265-rockingham-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/10690-white-rock-rd/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11135-trade-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11167-trade-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/11249-gold-country-blvd/",
+      "/commercial-real-estate/building/CA/rancho-cordova/3075-prospect-park-dr/",
+      "/commercial-real-estate/building/CA/rancho-cordova/3100-zinfandel-dr/",
     ],
   },
   {
@@ -2636,6 +2716,13 @@ const sacramentoDistrictDefinitions = [
       "/commercial-real-estate/building/CA/elk-grove/3137-dwight-rd/",
       "/commercial-real-estate/building/CA/elk-grove/9245-laguna-springs-dr/",
       "/commercial-real-estate/building/CA/elk-grove/9615-laguna-springs-dr/",
+      "/commercial-real-estate/building/CA/elk-grove/10000-waterman-rd/",
+      "/commercial-real-estate/building/CA/elk-grove/10237-iron-rock-way/",
+      "/commercial-real-estate/building/CA/elk-grove/10280-iron-rock-way/",
+      "/commercial-real-estate/building/CA/elk-grove/9092-elkmont-way/",
+      "/commercial-real-estate/building/CA/elk-grove/9250-laguna-springs-dr/",
+      "/commercial-real-estate/building/CA/elk-grove/9275-laguna-springs-dr/",
+      "/commercial-real-estate/building/CA/elk-grove/9263-bendel-pl/",
     ],
   },
 ];
@@ -4984,11 +5071,20 @@ function representativeBuildingsFor(areaId) {
     );
 }
 
+const representativeBuildingLimitByAreaId = {
+  "sac-downtown-sacramento": 15,
+  "sac-natomas": 15,
+  "sac-rancho-cordova-commercial-core": 15,
+  "sac-elk-grove-commercial-core": 15,
+};
+
 function representativeBuildingsFromPaths(paths = [], areaId = "") {
+  const limit = representativeBuildingLimitByAreaId[areaId] || 6;
+
   return paths
     .map((buildingPath) => buildingByPath.get(buildingPath))
     .filter(Boolean)
-    .slice(0, 6)
+    .slice(0, limit)
     .map((building) =>
       normalizeRepresentativeBuilding({
         address: building.address,

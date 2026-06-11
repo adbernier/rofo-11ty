@@ -1314,6 +1314,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Downtown Sacramento",
         url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-natomas/",
         relationship_type: "Civic office-core contrast",
         note: "More central, transit-connected, and government-adjacent.",
       },
@@ -1328,6 +1329,13 @@ Object.assign(integrationsByPath, {
         url: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
         relationship_type: "Industrial/flex contrast",
         note: "More functional for warehouse/flex and service-industrial users.",
+      },
+      {
+        name: "Rancho Cordova",
+        url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-rancho-cordova/",
+        relationship_type: "Highway 50 office/flex contrast",
+        note: "More Highway 50, office/flex, and back-office oriented.",
       },
     ],
   },
@@ -1418,6 +1426,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Folsom",
         url: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         relationship_type: "Eastern Sacramento professional contrast",
         note: "More polished, client-facing, and professional-service oriented.",
       },
@@ -1432,6 +1441,20 @@ Object.assign(integrationsByPath, {
         url: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
         relationship_type: "Civic office contrast",
         note: "More central and government-adjacent.",
+      },
+      {
+        name: "Elk Grove",
+        url: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-rancho-cordova/",
+        relationship_type: "South Sacramento local-service contrast",
+        note: "More local-service, medical, and south Sacramento customer oriented.",
+      },
+      {
+        name: "Natomas",
+        url: "/commercial-real-estate/CA/sacramento/natomas/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-rancho-cordova/",
+        relationship_type: "Airport-access suburban office contrast",
+        note: "More airport, I-5, and I-80 oriented than Rancho Cordova.",
       },
     ],
   },
@@ -1508,6 +1531,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-rancho-cordova/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 and back-office/office-flex oriented.",
       },

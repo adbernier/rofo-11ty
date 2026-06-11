@@ -1755,6 +1755,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
         reason: "Compare if functional industrial/flex buildings matter more than suburban office access.",
       },
+      {
+        district_name: "Rancho Cordova",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-rancho-cordova/",
+        reason: "Compare if Highway 50 office/flex and back-office formats may fit better than Natomas airport access.",
+      },
     ],
     office_profile: {
       office_orientation: "airport_adjacent_suburban",
@@ -1968,6 +1974,18 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
         reason: "Compare if more functional industrial/flex inventory is the priority.",
       },
+      {
+        district_name: "Elk Grove",
+        district_path: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-rancho-cordova/",
+        reason: "Compare if south Sacramento local-service and medical office access may matter more.",
+      },
+      {
+        district_name: "Natomas",
+        district_path: "/commercial-real-estate/CA/sacramento/natomas/",
+        comparison_path: "/commercial-real-estate/CA/sacramento/natomas-vs-rancho-cordova/",
+        reason: "Compare if airport, I-5, and I-80 access may fit better than Highway 50 orientation.",
+      },
     ],
     office_profile: {
       office_orientation: "highway_50_suburban_office_flex",
@@ -2115,6 +2133,12 @@ Object.assign(districts, {
         district_name: "Downtown Sacramento",
         district_path: "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
         reason: "Compare if central civic/professional office identity matters more.",
+      },
+      {
+        district_name: "Rancho Cordova",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-rancho-cordova/",
+        reason: "Compare if Highway 50 office/flex and back-office formats may fit better than Elk Grove's local-service market.",
       },
     ],
     office_profile: {
