@@ -222,6 +222,14 @@ const integrationsByPath = {
         note:
           "Smaller-scale and historic, with downtown-adjacent commercial blocks just north of the waterfront district.",
       },
+      {
+        name: "Emeryville",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
+        relationship_type: "Office/life-science contrast",
+        note:
+          "More compact East Bay office, life-science, and mixed commercial oriented between Oakland and Berkeley.",
+      },
     ],
   },
   "/commercial-real-estate/CA/oakland/old-oakland/": {
@@ -268,6 +276,7 @@ const integrationsByPath = {
       {
         name: "Downtown Mountain View",
         url: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/",
         relationship_type: "Corridor alternative",
         note:
           "Another Caltrain-oriented Peninsula downtown with broader Mountain View startup and office context.",
@@ -282,6 +291,7 @@ const integrationsByPath = {
       {
         name: "Stanford Research Park",
         url: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/",
         relationship_type: "Local format contrast",
         note:
           "More R&D, research-park, and campus-oriented than Downtown Palo Alto's walkable professional office core.",
@@ -695,8 +705,16 @@ Object.assign(integrationsByPath, {
       {
         name: "Moffett Park",
         url: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-moffett-park/",
         relationship_type: "Innovation-campus comparison",
         note: "A more concentrated Sunnyvale innovation district for large office and technology-campus users.",
+      },
+      {
+        name: "North Bayshore",
+        url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/",
+        relationship_type: "Mountain View campus comparison",
+        note: "More tied to Mountain View's large-employer campus ecosystem.",
       },
       {
         name: "Milpitas Industrial",
@@ -787,6 +805,7 @@ Object.assign(integrationsByPath, {
       {
         name: "North Bayshore",
         url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/sunnyvale/moffett-park-vs-north-bayshore/",
         relationship_type: "Adjacent campus comparison",
         note: "A Mountain View technology-campus district with stronger major-employer identity.",
       },
@@ -813,8 +832,23 @@ Object.assign(integrationsByPath, {
       {
         name: "Moffett Park",
         url: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        comparison_path: "/commercial-real-estate/CA/sunnyvale/moffett-park-vs-north-bayshore/",
         relationship_type: "Adjacent innovation district",
         note: "A nearby Sunnyvale campus district with broader innovation-district comparison value.",
+      },
+      {
+        name: "Stanford Research Park",
+        url: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
+        relationship_type: "Research-park campus comparison",
+        note: "More Palo Alto, Stanford-adjacent, and research-park oriented.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/",
+        relationship_type: "South Bay corridor comparison",
+        note: "Broader, more airport-adjacent, and more mixed across office, R&D, and flex.",
       },
       {
         name: "Downtown Mountain View",
@@ -833,6 +867,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Downtown Palo Alto",
         url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/",
         relationship_type: "Peninsula downtown comparison",
         note: "More Stanford- and venture-adjacent, with stronger client-facing professional identity.",
       },
@@ -859,12 +894,14 @@ Object.assign(integrationsByPath, {
       {
         name: "Downtown Palo Alto",
         url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/",
         relationship_type: "Local format contrast",
         note: "More walkable, Caltrain-oriented, and client-facing than Stanford Research Park.",
       },
       {
         name: "North Bayshore",
         url: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
         relationship_type: "Campus comparison",
         note: "A larger technology-campus ecosystem in Mountain View.",
       },
@@ -876,6 +913,42 @@ Object.assign(integrationsByPath, {
     intro:
       "Compare Downtown Redwood City with nearby Peninsula downtowns that offer different office identity, commute, and client-facing tradeoffs.",
     districts: [
+      {
+        name: "Downtown Palo Alto",
+        url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-palo-alto/",
+        relationship_type: "Prestige/client-facing contrast",
+        note: "More Stanford- and venture-adjacent, with stronger Palo Alto professional identity.",
+      },
+      {
+        name: "Downtown Mountain View",
+        url: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-mountain-view/",
+        relationship_type: "Startup downtown comparison",
+        note: "More Mountain View technology-adjacent and startup-oriented around Castro Street.",
+      },
+      {
+        name: "Downtown San Mateo",
+        url: "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-san-mateo/",
+        relationship_type: "Peninsula downtown comparison",
+        note: "More local professional-service and San Mateo County business oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Peninsula business districts",
+    intro:
+      "Compare Downtown San Mateo with nearby Peninsula downtowns and campus districts when professional-service fit, Caltrain access, and client geography matter.",
+    districts: [
+      {
+        name: "Downtown Redwood City",
+        url: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-san-mateo/",
+        relationship_type: "Peninsula downtown comparison",
+        note: "A larger mid-Peninsula downtown with stronger civic and Broadway context.",
+      },
       {
         name: "Downtown Palo Alto",
         url: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
@@ -994,8 +1067,15 @@ Object.assign(integrationsByPath, {
       {
         name: "Emeryville",
         url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
         relationship_type: "Office/life-science contrast",
         note: "More mixed office and life-science oriented, with less university-downtown character.",
+      },
+      {
+        name: "West Berkeley",
+        url: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        relationship_type: "R&D/flex and creative edge",
+        note: "More adaptive, maker-oriented, and light R&D/flex than downtown Berkeley.",
       },
       {
         name: "Downtown Oakland",
@@ -1014,20 +1094,61 @@ Object.assign(integrationsByPath, {
       {
         name: "Downtown Oakland",
         url: "/commercial-real-estate/CA/oakland/downtown-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/",
         relationship_type: "Civic office-core contrast",
         note: "More formal, BART-centered, and public-sector adjacent than Emeryville.",
       },
       {
         name: "Downtown Berkeley",
         url: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
         relationship_type: "University downtown contrast",
         note: "More university-adjacent and BART/walkability oriented around Shattuck and University.",
+      },
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
+        relationship_type: "Waterfront adaptive comparison",
+        note: "More Oakland waterfront, food, and adaptive commercial oriented.",
+      },
+      {
+        name: "West Berkeley",
+        url: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        relationship_type: "R&D/flex and creative edge",
+        note: "More adaptive, university-adjacent, and maker/R&D oriented.",
       },
       {
         name: "West Oakland",
         url: "/commercial-real-estate/CA/oakland/west-oakland/",
         relationship_type: "Industrial edge",
         note: "More service-commercial and industrial-transition oriented near the Oakland edge.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/berkeley/west-berkeley/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Berkeley and East Bay R&D/flex alternatives",
+    intro:
+      "Use these relationships to compare West Berkeley's adaptive R&D/flex and creative-commercial role with nearby university, life-science, and industrial-edge districts.",
+    districts: [
+      {
+        name: "Emeryville",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science alternative",
+        note: "More established as a mixed office, life-science, and East Bay commercial node.",
+      },
+      {
+        name: "Downtown Berkeley",
+        url: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+        relationship_type: "University downtown contrast",
+        note: "More BART-centered, street-level, and UC Berkeley adjacent.",
+      },
+      {
+        name: "West Oakland",
+        url: "/commercial-real-estate/CA/oakland/west-oakland/",
+        relationship_type: "Industrial-transition comparison",
+        note: "More Oakland, port-adjacent, and service-industrial oriented.",
       },
     ],
   },

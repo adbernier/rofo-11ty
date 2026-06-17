@@ -397,6 +397,12 @@ const districts = {
         district_path: "/commercial-real-estate/CA/oakland/old-oakland/",
         reason: "Compare if historic downtown transition blocks fit better than the waterfront edge.",
       },
+      {
+        district_name: "Emeryville",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
+        reason: "Compare if compact East Bay office, life-science, and mixed commercial context may fit better than Oakland waterfront/adaptive texture.",
+      },
     ],
     office_profile: {
       office_orientation: "creative_adaptive",
@@ -2555,6 +2561,12 @@ Object.assign(districts, {
         reason: "Compare if a more concentrated Sunnyvale innovation district may fit better than North San Jose's larger corridor pattern.",
       },
       {
+        district_name: "North Bayshore",
+        district_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/",
+        reason: "Compare if a Mountain View campus ecosystem may fit better than North San Jose's broader office/R&D and flex corridor.",
+      },
+      {
         district_name: "Milpitas Industrial",
         district_path: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
         comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-milpitas/",
@@ -2818,6 +2830,18 @@ Object.assign(districts, {
         reason: "Compare if walkable Caltrain downtown context matters more than North Bayshore campus geography.",
       },
       {
+        district_name: "Stanford Research Park",
+        district_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
+        reason: "Compare if Palo Alto research-park identity and Stanford adjacency may fit better than Mountain View campus geography.",
+      },
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/",
+        reason: "Compare if broader South Bay office/R&D, flex, airport, and freeway-corridor access may fit better.",
+      },
+      {
         district_name: "Santa Clara Tech Core",
         district_path: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
         reason: "Compare if a broader central South Bay office/tech market may fit better.",
@@ -2908,6 +2932,7 @@ Object.assign(districts, {
       {
         district_name: "North Bayshore",
         district_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
         reason: "Compare if a larger technology-campus ecosystem may fit better than Palo Alto's research-park environment.",
       },
     ],
@@ -2962,6 +2987,12 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-mountain-view/",
         reason: "Compare for another Caltrain downtown with stronger Mountain View startup and technology adjacency.",
       },
+      {
+        district_name: "Downtown San Mateo",
+        district_path: "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-san-mateo/",
+        reason: "Compare for another Peninsula downtown with more local professional-service and San Mateo County business context.",
+      },
     ],
     office_profile: {
       office_orientation: "peninsula_downtown",
@@ -2972,6 +3003,52 @@ Object.assign(districts, {
       floorplate_pattern: "mixed",
       tenant_fit: ["professional_services", "startup", "client_facing", "local_office"],
       commute_pattern: ["caltrain", "broadway", "mid_peninsula", "highway_101"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/": {
+    primary_archetype: "peninsula_professional_services_downtown",
+    secondary_archetypes: ["caltrain_downtown_professional_district", "local_service_business_core"],
+    commercial_thesis:
+      "Downtown San Mateo is a Peninsula business district for professional services, local office users, service retail, and smaller companies comparing Caltrain-oriented downtowns between San Francisco, Redwood City, and Palo Alto.",
+    best_fit_businesses: [
+      "Professional-service, medical-adjacent, local office, and service businesses serving San Mateo County",
+      "Teams that want a practical Peninsula downtown without the stronger venture signal of Palo Alto",
+      "Companies comparing Downtown San Mateo with Downtown Redwood City, Downtown Palo Alto, and broader Peninsula office corridors",
+    ],
+    poor_fit_businesses: [
+      "Large technology campus users needing North Bayshore, Moffett Park, or Stanford Research Park-style environments",
+      "Warehouse/flex users that need industrial loading, yard, or operations-oriented formats",
+      "Firms that need the strongest Stanford, venture, or Silicon Valley prestige signal",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Redwood City",
+        district_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+        comparison_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-san-mateo/",
+        reason: "Compare if a larger mid-Peninsula downtown with stronger civic and Broadway context may fit better.",
+      },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        reason: "Compare if Stanford adjacency and a stronger venture/professional signal may matter more.",
+      },
+      {
+        district_name: "Downtown Mountain View",
+        district_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        reason: "Compare if Mountain View startup and technology-employer adjacency may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "peninsula_professional_services",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "local_services", "small_business"],
+      commute_pattern: ["caltrain", "highway_101", "el_camino_real", "san_mateo_county"],
     },
     confidence_level: "medium",
     review_status: "researched",
@@ -3243,6 +3320,11 @@ Object.assign(districts, {
         reason: "Compare if office/life-science and mixed commercial supply in Emeryville may fit better than Berkeley's university-adjacent downtown.",
       },
       {
+        district_name: "West Berkeley",
+        district_path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        reason: "Compare if R&D/flex, creative office, and adaptive industrial texture may fit better than downtown Berkeley's BART and university setting.",
+      },
+      {
         district_name: "Downtown Oakland",
         district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
         reason: "Compare if a larger civic and BART-centered East Bay office core may fit better.",
@@ -3257,6 +3339,63 @@ Object.assign(districts, {
       floorplate_pattern: "small",
       tenant_fit: ["professional_services", "education_adjacent", "nonprofit", "small_business"],
       commute_pattern: ["bart", "walkable_downtown", "uc_berkeley", "east_bay_access"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/berkeley/west-berkeley/": {
+    primary_archetype: "university_adjacent_rd_flex_district",
+    secondary_archetypes: ["creative_office_industrial_transition", "east_bay_life_science_support"],
+    commercial_thesis:
+      "West Berkeley is a Berkeley R&D/flex, creative office, maker, and adaptive industrial district, useful for companies comparing university adjacency with Emeryville's life-science and mixed office node.",
+    best_fit_businesses: [
+      "R&D/flex, creative office, maker, light production, and university-adjacent organizations",
+      "Teams that want Berkeley ecosystem access without a downtown office format",
+      "Companies comparing West Berkeley with Emeryville, Downtown Berkeley, and East Bay adaptive commercial alternatives",
+    ],
+    poor_fit_businesses: [
+      "Client-facing firms that need BART-centered downtown Berkeley visibility",
+      "Large office users seeking conventional towers or formal CBD identity",
+      "Industrial users needing deep logistics, large truck courts, or port-scale distribution infrastructure",
+    ],
+    compare_with: [
+      {
+        district_name: "Emeryville",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        reason: "Compare if a more established office, life-science, and mixed commercial node may fit better.",
+      },
+      {
+        district_name: "Downtown Berkeley",
+        district_path: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+        reason: "Compare if BART, UC Berkeley, and downtown street-level context matter more.",
+      },
+      {
+        district_name: "West Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+        reason: "Compare if Oakland industrial-transition and port-adjacent access may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "creative_rd_flex",
+      client_facing_strength: "low",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["rd", "creative_office", "maker", "university_adjacent", "life_science_support"],
+      commute_pattern: ["berkeley", "emeryville", "i80", "east_bay_access"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "adaptive_light_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["rd_flex", "adaptive_industrial", "creative_office", "light_production"],
+      tenant_fit: ["rd", "maker", "creative_operations", "life_science_support"],
+      decision_context:
+        "West Berkeley is better framed as adaptive R&D/flex and creative commercial geography than as a deep warehouse/logistics market.",
     },
     confidence_level: "medium",
     review_status: "researched",
@@ -3288,6 +3427,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
         comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/",
         reason: "Compare if university adjacency and downtown Berkeley walkability may fit better.",
+      },
+      {
+        district_name: "Jack London Square",
+        district_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
+        reason: "Compare if Oakland waterfront adaptive-commercial character may fit better than Emeryville's office/life-science node.",
       },
       {
         district_name: "West Oakland",

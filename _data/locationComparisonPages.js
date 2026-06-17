@@ -232,6 +232,29 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "emeryville-vs-jack-london-square",
+    title: "Emeryville vs Jack London Square",
+    short_title: "Emeryville vs Jack London Square",
+    city: "Emeryville",
+    state_abbr: "CA",
+    city_slug: "emeryville",
+    path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
+    district_a_name: "Emeryville",
+    district_b_name: "Jack London Square",
+    district_a_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+    verdict_a:
+      "Choose Emeryville if compact East Bay office, life-science-adjacent, R&D, and mixed commercial context between Oakland and Berkeley matter most.",
+    verdict_b:
+      "Choose Jack London Square if Oakland waterfront identity, adaptive commercial buildings, food/visitor activity, and proximity to Downtown Oakland are stronger priorities.",
+    comparison_notes: [
+      "Emeryville is more office/life-science and East Bay innovation-node oriented.",
+      "Jack London Square is more waterfront, adaptive-commercial, and Oakland-downtown adjacent.",
+      "The decision is strongest for teams comparing East Bay creative office, life-science support, and adaptive commercial settings.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "walnut-creek-vs-downtown-oakland",
     title: "Walnut Creek vs Downtown Oakland",
     short_title: "Walnut Creek vs Downtown Oakland",
@@ -835,6 +858,52 @@ comparisons.push(
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "north-bayshore-vs-stanford-research-park",
+    title: "North Bayshore vs Stanford Research Park",
+    short_title: "North Bayshore vs Stanford Research Park",
+    city: "Mountain View",
+    state_abbr: "CA",
+    city_slug: "mountain-view",
+    path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
+    district_a_name: "North Bayshore",
+    district_b_name: "Stanford Research Park",
+    district_a_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+    district_b_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+    verdict_a:
+      "Choose North Bayshore if Mountain View technology-campus identity, major-employer adjacency, and large-campus ecosystem fit matter most.",
+    verdict_b:
+      "Choose Stanford Research Park if Palo Alto research-park identity, Stanford adjacency, and mature R&D or venture-backed company context matter more.",
+    comparison_notes: [
+      "Both are campus-oriented technology environments rather than downtown office districts.",
+      "North Bayshore is more tied to Mountain View large-employer and Google-adjacent campus geography.",
+      "Stanford Research Park is more Palo Alto, institutional, and research-park oriented.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "north-bayshore-vs-north-san-jose",
+    title: "North Bayshore vs North San Jose",
+    short_title: "North Bayshore vs North San Jose",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/",
+    district_a_name: "North Bayshore",
+    district_b_name: "North San Jose",
+    district_a_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+    district_b_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    verdict_a:
+      "Choose North Bayshore if Mountain View campus identity and large-employer technology ecosystem are the strongest requirements.",
+    verdict_b:
+      "Choose North San Jose if broader South Bay office/R&D, flex, airport access, and freeway-corridor optionality matter more.",
+    comparison_notes: [
+      "North Bayshore is more concentrated and campus-identity driven.",
+      "North San Jose is broader, more mixed, and more useful when office, R&D, flex, and airport access all matter.",
+      "The comparison helps users separate Mountain View campus adjacency from a larger South Bay operating corridor.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "downtown-palo-alto-vs-downtown-mountain-view",
     title: "Downtown Palo Alto vs Downtown Mountain View",
     short_title: "Downtown Palo Alto vs Downtown Mountain View",
@@ -854,6 +923,29 @@ comparisons.push(
       "Both are walkable Caltrain-oriented Peninsula downtowns.",
       "Downtown Palo Alto carries stronger Stanford, venture, and client-facing professional identity.",
       "Downtown Mountain View is often more practical for startup and technology-adjacent users that still want downtown texture.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "palo-alto-vs-mountain-view",
+    title: "Palo Alto vs Mountain View",
+    short_title: "Palo Alto vs Mountain View",
+    city: "Palo Alto",
+    state_abbr: "CA",
+    city_slug: "palo-alto",
+    path: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/",
+    district_a_name: "Palo Alto",
+    district_b_name: "Mountain View",
+    district_a_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    district_b_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+    verdict_a:
+      "Choose Palo Alto if Stanford adjacency, venture/professional services, and stronger client-facing Peninsula identity matter most.",
+    verdict_b:
+      "Choose Mountain View if startup context, practical Caltrain access, and proximity to major technology employers are stronger priorities.",
+    comparison_notes: [
+      "This page compares the strongest walkable business-district context in each city rather than every submarket in Palo Alto or Mountain View.",
+      "Palo Alto is stronger for Stanford, venture, and client-facing professional identity.",
+      "Mountain View is stronger for startup and technology-adjacent teams that want downtown texture near major employers.",
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -992,6 +1084,29 @@ comparisons.push(
       "Both are useful Peninsula downtown comparisons for office and professional users.",
       "Downtown Redwood City leans more mid-Peninsula, civic, and Broadway-oriented.",
       "Downtown Mountain View leans more startup and technology-adjacent near major Mountain View employers.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "downtown-redwood-city-vs-downtown-san-mateo",
+    title: "Downtown Redwood City vs Downtown San Mateo",
+    short_title: "Downtown Redwood City vs Downtown San Mateo",
+    city: "Redwood City",
+    state_abbr: "CA",
+    city_slug: "redwood-city",
+    path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city-vs-downtown-san-mateo/",
+    district_a_name: "Downtown Redwood City",
+    district_b_name: "Downtown San Mateo",
+    district_a_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+    district_b_path: "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+    verdict_a:
+      "Choose Downtown Redwood City if a larger mid-Peninsula downtown with civic context, Broadway activity, and startup/professional office fit matters most.",
+    verdict_b:
+      "Choose Downtown San Mateo if a practical San Mateo County professional-services district and local client geography are stronger requirements.",
+    comparison_notes: [
+      "Both are Peninsula downtown decisions for office, professional-service, and local service users.",
+      "Downtown Redwood City has stronger mid-Peninsula civic and entertainment-downtown identity.",
+      "Downtown San Mateo is more local-service and San Mateo County professional-business oriented.",
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -2989,6 +3104,8 @@ const metaFocusBySlug = {
     "compact Emeryville office and life-science commercial node versus Downtown Oakland civic and BART-centered office core",
   "emeryville-vs-berkeley":
     "Emeryville mixed office/life-science context versus Downtown Berkeley university-adjacent office and BART context",
+  "emeryville-vs-jack-london-square":
+    "Emeryville office and life-science node versus Jack London Square waterfront adaptive commercial context",
   "walnut-creek-vs-downtown-oakland":
     "Downtown Walnut Creek suburban office-retail core versus Downtown Oakland urban civic and BART-centered office core",
   "pleasanton-vs-walnut-creek":
@@ -3019,8 +3136,14 @@ const metaFocusBySlug = {
     "urban San Jose downtown office context versus larger-parcel North San Jose technology and R and D corridor geography",
   "moffett-park-vs-north-bayshore":
     "Sunnyvale innovation district context versus Mountain View large-campus technology geography",
+  "north-bayshore-vs-stanford-research-park":
+    "North Bayshore Mountain View technology-campus ecosystem versus Stanford Research Park Palo Alto research-park identity",
+  "north-bayshore-vs-north-san-jose":
+    "North Bayshore technology-campus concentration versus North San Jose broad office/R and D/flex corridor geography",
   "downtown-palo-alto-vs-downtown-mountain-view":
     "Stanford-adjacent Peninsula professional context versus Mountain View startup and Caltrain downtown context",
+  "palo-alto-vs-mountain-view":
+    "Palo Alto Stanford-adjacent business context versus Mountain View startup and technology-employer adjacency",
   "stanford-research-park-vs-downtown-palo-alto":
     "research park and R and D campus geography versus walkable Palo Alto downtown office identity",
   "warm-springs-vs-milpitas-industrial":
@@ -3033,6 +3156,8 @@ const metaFocusBySlug = {
     "mid-Peninsula downtown practicality versus Stanford-adjacent Palo Alto professional identity",
   "downtown-redwood-city-vs-downtown-mountain-view":
     "Redwood City mid-Peninsula business downtown versus Mountain View startup and technology-adjacent downtown",
+  "downtown-redwood-city-vs-downtown-san-mateo":
+    "Downtown Redwood City mid-Peninsula civic downtown versus Downtown San Mateo local professional-services business district",
   "santa-clara-vs-moffett-park":
     "Santa Clara central South Bay office/tech context versus Moffett Park innovation-campus concentration",
   "san-rafael-vs-novato":

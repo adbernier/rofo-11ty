@@ -873,6 +873,16 @@ function representativeBuildingRolesFor(page) {
         "Montague Expressway office/flex context",
       "/commercial-real-estate/building/CA/san-jose/725-775-ridder-park-dr/":
         "North San Jose business park setting",
+      "/commercial-real-estate/building/CA/san-jose/1140-ringwood-ct/":
+        "Ringwood office/R&D corridor",
+      "/commercial-real-estate/building/CA/san-jose/1580-1630-old-oakland-road/":
+        "Old Oakland Road office corridor",
+      "/commercial-real-estate/building/CA/san-jose/1650-las-plumas-ave/":
+        "Las Plumas office and industrial-support context",
+      "/commercial-real-estate/building/CA/san-jose/1721-rogers-ave/":
+        "Rogers Avenue office/R&D context",
+      "/commercial-real-estate/building/CA/san-jose/95-holger-way/":
+        "North San Jose amenity and office-support edge",
       "/commercial-real-estate/building/CA/san-jose/99-almaden-blvd/":
         "Downtown San Jose office core",
       "/commercial-real-estate/building/CA/san-jose/75-e-santa-clara-st/":
@@ -905,12 +915,18 @@ function representativeBuildingRolesFor(page) {
         "Sunnyvale technology campus edge",
       "/commercial-real-estate/building/CA/sunnyvale/710-lakeway-drive-suite-200/":
         "Moffett Park office suite artifact to review",
+      "/commercial-real-estate/building/CA/sunnyvale/1310-kifer-rd/":
+        "Sunnyvale industrial/R&D support corridor",
       "/commercial-real-estate/building/CA/mountain-view/605-ellis-st/":
         "Mountain View office/R&D edge",
       "/commercial-real-estate/building/CA/mountain-view/1954-1958-old-middlefield-wy/":
         "Old Middlefield technology corridor",
       "/commercial-real-estate/building/CA/mountain-view/140-144-whisman-rd-s/":
         "Whisman R&D/flex office context",
+      "/commercial-real-estate/building/CA/mountain-view/800-w-el-camino-real/":
+        "Mountain View office corridor contrast",
+      "/commercial-real-estate/building/CA/mountain-view/1051-1063-el-camino-real-w/":
+        "El Camino service-commercial support edge",
       "/commercial-real-estate/building/CA/mountain-view/194-198-castro-st/":
         "Castro Street downtown commercial block",
       "/commercial-real-estate/building/CA/mountain-view/275-castro-st/":
@@ -927,6 +943,14 @@ function representativeBuildingRolesFor(page) {
         "Research park and Baylands edge",
       "/commercial-real-estate/building/CA/palo-alto/3101-park-blvd/":
         "Park Boulevard R&D/professional office",
+      "/commercial-real-estate/building/CA/palo-alto/1121-san-antonio-rd/":
+        "Palo Alto business park setting",
+      "/commercial-real-estate/building/CA/palo-alto/3000-el-camino-real/":
+        "Palo Alto Square campus office comparison",
+      "/commercial-real-estate/building/CA/palo-alto/306-cambridge-ave/":
+        "Research-adjacent flex and production edge",
+      "/commercial-real-estate/building/CA/palo-alto/3260-ash-st/":
+        "South Palo Alto professional/R&D office edge",
       "/commercial-real-estate/building/CA/redwood-city/2065-broadway-st/":
         "Downtown Redwood City Broadway office block",
       "/commercial-real-estate/building/CA/redwood-city/2400-broadway/":
@@ -935,6 +959,22 @@ function representativeBuildingRolesFor(page) {
         "El Camino downtown edge",
       "/commercial-real-estate/building/CA/redwood-city/303-twin-dolphin-drive/":
         "Redwood Shores comparison edge",
+      "/commercial-real-estate/building/CA/redwood-city/1400-seaport-blvd-bldg-9/":
+        "Redwood Shores campus-office contrast",
+      "/commercial-real-estate/building/CA/san-mateo/3-east-third-ave/":
+        "Downtown San Mateo office and Caltrain-adjacent context",
+      "/commercial-real-estate/building/CA/san-mateo/302-baldwin-ave/":
+        "Downtown San Mateo service-retail edge",
+      "/commercial-real-estate/building/CA/san-mateo/1650-borel-pl/":
+        "San Mateo professional office corridor",
+      "/commercial-real-estate/building/CA/san-mateo/400-concar-dr/":
+        "Concar office corridor comparison",
+      "/commercial-real-estate/building/CA/san-mateo/951-mariners-island-blvd/":
+        "Mariners Island office corridor context",
+      "/commercial-real-estate/building/CA/san-mateo/1720-s-amphlett-blvd/":
+        "Bayshore corporate office setting",
+      "/commercial-real-estate/building/CA/san-mateo/1825-s-grant-st/":
+        "San Mateo office and service-commercial edge",
       "/commercial-real-estate/building/CA/milpitas/720-montague-expy/":
         "Montague industrial/flex corridor",
       "/commercial-real-estate/building/CA/milpitas/750-e-calaveras-blvd/":
@@ -2113,6 +2153,11 @@ const southBayDistrictDefinitions = [
       "/commercial-real-estate/building/CA/san-jose/350-w-trimble-rd/",
       "/commercial-real-estate/building/CA/san-jose/1510-montague-expy/",
       "/commercial-real-estate/building/CA/san-jose/725-775-ridder-park-dr/",
+      "/commercial-real-estate/building/CA/san-jose/1140-ringwood-ct/",
+      "/commercial-real-estate/building/CA/san-jose/1580-1630-old-oakland-road/",
+      "/commercial-real-estate/building/CA/san-jose/1650-las-plumas-ave/",
+      "/commercial-real-estate/building/CA/san-jose/1721-rogers-ave/",
+      "/commercial-real-estate/building/CA/san-jose/95-holger-way/",
     ],
   },
   {
@@ -2191,6 +2236,7 @@ const southBayDistrictDefinitions = [
       "/commercial-real-estate/building/CA/sunnyvale/415-n-mary-ave/",
       "/commercial-real-estate/building/CA/sunnyvale/525-almanor-ave/",
       "/commercial-real-estate/building/CA/sunnyvale/710-lakeway-drive-suite-200/",
+      "/commercial-real-estate/building/CA/sunnyvale/1310-kifer-rd/",
     ],
   },
   {
@@ -2209,6 +2255,8 @@ const southBayDistrictDefinitions = [
       "/commercial-real-estate/building/CA/mountain-view/605-ellis-st/",
       "/commercial-real-estate/building/CA/mountain-view/1954-1958-old-middlefield-wy/",
       "/commercial-real-estate/building/CA/mountain-view/140-144-whisman-rd-s/",
+      "/commercial-real-estate/building/CA/mountain-view/800-w-el-camino-real/",
+      "/commercial-real-estate/building/CA/mountain-view/1051-1063-el-camino-real-w/",
     ],
   },
   {
@@ -2248,6 +2296,9 @@ const southBayDistrictDefinitions = [
       "/commercial-real-estate/building/CA/palo-alto/2170-west-bayshore-road/",
       "/commercial-real-estate/building/CA/palo-alto/3101-park-blvd/",
       "/commercial-real-estate/building/CA/palo-alto/1121-san-antonio-rd/",
+      "/commercial-real-estate/building/CA/palo-alto/3000-el-camino-real/",
+      "/commercial-real-estate/building/CA/palo-alto/306-cambridge-ave/",
+      "/commercial-real-estate/building/CA/palo-alto/3260-ash-st/",
     ],
   },
   {
@@ -2267,6 +2318,29 @@ const southBayDistrictDefinitions = [
       "/commercial-real-estate/building/CA/redwood-city/2400-broadway/",
       "/commercial-real-estate/building/CA/redwood-city/2504-el-camino-real/",
       "/commercial-real-estate/building/CA/redwood-city/303-twin-dolphin-drive/",
+      "/commercial-real-estate/building/CA/redwood-city/1400-seaport-blvd-bldg-9/",
+    ],
+  },
+  {
+    id: "sb-downtown-san-mateo",
+    name: "Downtown San Mateo",
+    slug: "downtown-san-mateo",
+    city: "San Mateo",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+    centroid_lat: 37.563,
+    centroid_lng: -122.325,
+    area_type: "downtown_core",
+    approximate_space_types: ["office", "retail", "coworking"],
+    profile: ["peninsula_downtown", "caltrain", "professional_services", "local_services"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/san-mateo/3-east-third-ave/",
+      "/commercial-real-estate/building/CA/san-mateo/302-baldwin-ave/",
+      "/commercial-real-estate/building/CA/san-mateo/1650-borel-pl/",
+      "/commercial-real-estate/building/CA/san-mateo/400-concar-dr/",
+      "/commercial-real-estate/building/CA/san-mateo/951-mariners-island-blvd/",
+      "/commercial-real-estate/building/CA/san-mateo/1720-s-amphlett-blvd/",
+      "/commercial-real-estate/building/CA/san-mateo/1825-s-grant-st/",
     ],
   },
   {
@@ -2342,6 +2416,43 @@ const eastBayDistrictDefinitions = [
     representative_building_paths: [
       "/commercial-real-estate/building/CA/berkeley/2001-addison-st/",
       "/commercial-real-estate/building/CA/berkeley/2120-university-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+      "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+      "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+      "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+      "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+    ],
+  },
+  {
+    id: "eb-west-berkeley",
+    name: "West Berkeley",
+    slug: "west-berkeley",
+    city: "Berkeley",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+    centroid_lat: 37.869,
+    centroid_lng: -122.296,
+    area_type: "district",
+    approximate_space_types: ["office", "flex", "industrial"],
+    profile: ["rd_flex", "creative_office", "industrial_transition", "university_adjacent"],
+    representative_building_paths: [
+      "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
+      "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
+      "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
+      "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
+      "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
+      "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
+      "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
+      "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
+      "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
+      "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
+      "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
+      "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
     ],
   },
   {
@@ -2358,6 +2469,20 @@ const eastBayDistrictDefinitions = [
     profile: ["office", "life_science_support", "mixed_commercial", "oakland_berkeley_edge"],
     representative_building_paths: [
       "/commercial-real-estate/building/CA/emeryville/1900-powell-st/",
+      "/commercial-real-estate/building/CA/emeryville/6425-christie-ave/",
+      "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+      "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+      "/commercial-real-estate/building/CA/emeryville/5858-horton-st/",
+      "/commercial-real-estate/building/CA/emeryville/2000-powell-st/",
+      "/commercial-real-estate/building/CA/emeryville/5980-horton-st/",
+      "/commercial-real-estate/building/CA/emeryville/6001-shellmound-st/",
+      "/commercial-real-estate/building/CA/emeryville/5900-hollis-st/",
+      "/commercial-real-estate/building/CA/emeryville/1250-45th-st/",
+      "/commercial-real-estate/building/CA/emeryville/5901-christie-ave/",
+      "/commercial-real-estate/building/CA/emeryville/967-stanford-ave/",
+      "/commercial-real-estate/building/CA/emeryville/4045-horton-st/",
+      "/commercial-real-estate/building/CA/emeryville/1480-64th-st/",
+      "/commercial-real-estate/building/CA/emeryville/1400-65th-st/",
     ],
   },
   {
@@ -5128,6 +5253,15 @@ const representativeBuildingLimitByAreaId = {
   "sac-rancho-cordova-commercial-core": 15,
   "sac-elk-grove-commercial-core": 15,
   "sac-rocklin-commercial-core": 15,
+  "sb-north-san-jose": 15,
+  "sb-moffett-park": 15,
+  "sb-north-bayshore": 15,
+  "sb-stanford-research-park": 15,
+  "sb-downtown-redwood-city": 15,
+  "sb-downtown-san-mateo": 15,
+  "eb-downtown-berkeley": 15,
+  "eb-emeryville-commercial-core": 15,
+  "eb-west-berkeley": 15,
 };
 
 function representativeBuildingsFromPaths(paths = [], areaId = "") {
