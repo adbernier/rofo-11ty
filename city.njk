@@ -272,9 +272,9 @@ eleventyComputed:
 
           {% if cityNeighborhoods.length %}
             <div class="city-card city-neighborhoods-card">
-              <div class="eyebrow">Neighborhoods</div>
-              <h2>Explore neighborhoods and commercial areas</h2>
-              <p>Compare neighborhoods, business districts, and commercial areas within {{ city.city }}.</p>
+              <div class="eyebrow">Districts</div>
+              <h2>Explore districts and commercial areas</h2>
+              <p>Compare business districts, commercial areas, and nearby locations within {{ city.city }}.</p>
               {% set visibleNeighborhoods = cityNeighborhoods.slice(0, 8) %}
               {% set hiddenNeighborhoods = cityNeighborhoods.slice(8) %}
               <div class="city-neighborhood-link-list">
@@ -296,7 +296,7 @@ eleventyComputed:
                   {% endif %}
                 {% endfor %}
                 <details class="city-neighborhoods-all">
-                  <summary>View more neighborhoods</summary>
+                  <summary>View more districts</summary>
                   {% if manhattanNeighborhoods.length %}
                     <h3>Manhattan</h3>
                     <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
@@ -324,7 +324,7 @@ eleventyComputed:
                 </details>
               {% elseif hiddenNeighborhoods.length %}
                 <details class="city-neighborhoods-all">
-                  <summary>View more neighborhoods</summary>
+                  <summary>View more districts</summary>
                   <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
                     {% for neighborhood in hiddenNeighborhoods %}
                       <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>

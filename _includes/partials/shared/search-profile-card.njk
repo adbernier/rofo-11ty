@@ -38,8 +38,8 @@
       <div class="search-profile-card__top">
         <div>
           <span class="search-profile-card__badge">Recommended</span>
-          <h2>{{ searchProfileContext.card_headline or "Get a personalized shortlist" }}</h2>
-          <p>Tell us what you're looking for and we'll recommend locations, buildings, and alternatives that fit.</p>
+          <h2>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</h2>
+          <p>We'll recommend buildings, nearby locations, and alternatives that fit.</p>
           <ul class="search-profile-card__benefits" aria-label="Search profile benefits">
             <li>Buildings that fit</li>
             <li>Nearby alternatives</li>
@@ -54,7 +54,7 @@
 
       <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
         <span>
-          <strong>{{ searchProfileContext.card_headline or "Get a personalized shortlist" }}</strong>
+          <strong>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</strong>
           <small data-profile-summary-title>Add a few details</small>
         </span>
         <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
