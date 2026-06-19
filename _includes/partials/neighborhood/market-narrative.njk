@@ -1,0 +1,9 @@
+{% set marketNarrative = marketNarratives[neighborhood.canonical_neighborhood_path] %}
+{% if marketNarrative and marketNarrative.paragraphs and marketNarrative.paragraphs.length %}
+  <section class="city-card neighborhood-market-narrative" aria-labelledby="market-narrative-heading">
+    <h2 id="market-narrative-heading">{{ marketNarrative.title or "Market Narrative" }}</h2>
+    {% for paragraph in marketNarrative.paragraphs %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+  </section>
+{% endif %}
