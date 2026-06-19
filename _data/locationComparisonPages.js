@@ -255,6 +255,29 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "emeryville-vs-west-berkeley",
+    title: "Emeryville vs West Berkeley",
+    short_title: "Emeryville vs West Berkeley",
+    city: "Emeryville",
+    state_abbr: "CA",
+    city_slug: "emeryville",
+    path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
+    district_a_name: "Emeryville",
+    district_b_name: "West Berkeley",
+    district_a_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+    verdict_a:
+      "Choose Emeryville if you want a more organized East Bay office, life-science, and mixed commercial node with quick access to Oakland, Berkeley, and the Bay Bridge.",
+    verdict_b:
+      "Choose West Berkeley if R&D/flex, maker space, light production, or a more adaptive industrial-commercial setting is a better match.",
+    comparison_notes: [
+      "Emeryville generally feels more structured and business-park oriented, especially around Powell, Christie, Horton, and Shellmound.",
+      "West Berkeley is more flexible and production-adjacent, with stronger maker, R&D, showroom, and light-industrial character.",
+      "The decision is often about how much office polish versus hands-on workspace the business needs.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "walnut-creek-vs-downtown-oakland",
     title: "Walnut Creek vs Downtown Oakland",
     short_title: "Walnut Creek vs Downtown Oakland",
@@ -904,6 +927,29 @@ comparisons.push(
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "north-san-jose-vs-stanford-research-park",
+    title: "North San Jose vs Stanford Research Park",
+    short_title: "North San Jose vs Stanford Research Park",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
+    district_a_name: "North San Jose",
+    district_b_name: "Stanford Research Park",
+    district_a_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+    verdict_a:
+      "Choose North San Jose if broader office/R&D, flex, airport access, and freeway-corridor optionality matter more than Palo Alto identity.",
+    verdict_b:
+      "Choose Stanford Research Park if Stanford adjacency, research-park setting, and a mature Palo Alto innovation address are stronger priorities.",
+    comparison_notes: [
+      "North San Jose is broader and more operational, with office, R&D, flex, airport, and supplier-corridor utility.",
+      "Stanford Research Park is more curated, institutional, and Palo Alto-oriented.",
+      "This comparison is useful for technology and R&D users deciding between South Bay scale and Stanford-adjacent positioning.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "downtown-palo-alto-vs-downtown-mountain-view",
     title: "Downtown Palo Alto vs Downtown Mountain View",
     short_title: "Downtown Palo Alto vs Downtown Mountain View",
@@ -1504,6 +1550,75 @@ comparisons.push(
       "Rocklin is more practical, local-service, I-80-oriented, and light office/flex friendly.",
       "Folsom is more polished, Highway 50-oriented, and stronger for client-facing professional and technology-adjacent office users.",
       "The comparison is useful for tenants deciding between Placer County access and the eastern Sacramento/Highway 50 office corridor.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "rocklin-vs-rancho-cordova",
+    title: "Rocklin vs Rancho Cordova",
+    short_title: "Rocklin vs Rancho Cordova",
+    city: "Rocklin",
+    state_abbr: "CA",
+    city_slug: "rocklin",
+    path: "/commercial-real-estate/CA/rocklin/rocklin-vs-rancho-cordova/",
+    district_a_name: "Rocklin",
+    district_b_name: "Rancho Cordova",
+    district_a_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+    verdict_a:
+      "Choose Rocklin if Placer County access, smaller suburban office, local service, and light office/flex buildings are the better fit.",
+    verdict_b:
+      "Choose Rancho Cordova if Highway 50 access, back-office, larger suburban office/flex, and operational building formats matter more.",
+    comparison_notes: [
+      "Rocklin is more I-80 and Placer County oriented; Rancho Cordova is more Highway 50 and eastern Sacramento oriented.",
+      "Rocklin tends to fit smaller office, service, medical, and light flex users.",
+      "Rancho Cordova tends to fit back-office, office/flex, contractor, and operations users that need practical suburban formats.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "roseville-vs-rancho-cordova",
+    title: "Roseville vs Rancho Cordova",
+    short_title: "Roseville vs Rancho Cordova",
+    city: "Roseville",
+    state_abbr: "CA",
+    city_slug: "roseville",
+    path: "/commercial-real-estate/CA/roseville/roseville-vs-rancho-cordova/",
+    district_a_name: "Roseville",
+    district_b_name: "Rancho Cordova",
+    district_a_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+    verdict_a:
+      "Choose Roseville if Placer County customers, medical/professional services, retail gravity, and a client-facing suburban market matter most.",
+    verdict_b:
+      "Choose Rancho Cordova if Highway 50 access, back-office, office/flex, and operational suburban buildings are stronger requirements.",
+    comparison_notes: [
+      "Roseville is the stronger Placer County professional, medical, and client-service market.",
+      "Rancho Cordova is more practical for Highway 50 office/flex, back-office, and service-commercial users.",
+      "The comparison helps separate northeast Sacramento customer geography from eastern Sacramento operating geography.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "elk-grove-vs-power-inn-industrial",
+    title: "Elk Grove vs Power Inn Industrial",
+    short_title: "Elk Grove vs Power Inn Industrial",
+    city: "Elk Grove",
+    state_abbr: "CA",
+    city_slug: "elk-grove",
+    path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-power-inn-industrial/",
+    district_a_name: "Elk Grove",
+    district_b_name: "Power Inn Industrial",
+    district_a_path: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+    verdict_a:
+      "Choose Elk Grove if south Sacramento customers, medical office, local service, and smaller suburban commercial buildings matter most.",
+    verdict_b:
+      "Choose Power Inn Industrial if warehouse/flex, contractor space, loading, service-industrial access, and Highway 50 utility are the priority.",
+    comparison_notes: [
+      "Elk Grove is more customer-facing and local-service oriented.",
+      "Power Inn Industrial is more operational, with industrial/flex and contractor-friendly building formats.",
+      "This comparison is strongest when a user is deciding between a south Sacramento service base and a more functional industrial corridor.",
     ],
     lead_prompt: "Find locations that fit",
   }
@@ -3106,6 +3221,8 @@ const metaFocusBySlug = {
     "Emeryville mixed office/life-science context versus Downtown Berkeley university-adjacent office and BART context",
   "emeryville-vs-jack-london-square":
     "Emeryville office and life-science node versus Jack London Square waterfront adaptive commercial context",
+  "emeryville-vs-west-berkeley":
+    "Emeryville structured office and life-science node versus West Berkeley maker, R&D/flex, and adaptive industrial character",
   "walnut-creek-vs-downtown-oakland":
     "Downtown Walnut Creek suburban office-retail core versus Downtown Oakland urban civic and BART-centered office core",
   "pleasanton-vs-walnut-creek":
@@ -3140,6 +3257,8 @@ const metaFocusBySlug = {
     "North Bayshore Mountain View technology-campus ecosystem versus Stanford Research Park Palo Alto research-park identity",
   "north-bayshore-vs-north-san-jose":
     "North Bayshore technology-campus concentration versus North San Jose broad office/R and D/flex corridor geography",
+  "north-san-jose-vs-stanford-research-park":
+    "North San Jose broad office/R and D/flex corridor utility versus Stanford Research Park Palo Alto research-park identity",
   "downtown-palo-alto-vs-downtown-mountain-view":
     "Stanford-adjacent Peninsula professional context versus Mountain View startup and Caltrain downtown context",
   "palo-alto-vs-mountain-view":
@@ -3188,6 +3307,12 @@ const metaFocusBySlug = {
     "larger Placer County commercial base versus smaller I-80 suburban office and light flex practicality",
   "rocklin-vs-folsom":
     "I-80 local-service office and light flex practicality versus Highway 50 professional office and amenity context",
+  "rocklin-vs-rancho-cordova":
+    "Rocklin Placer County local-service office and light flex context versus Rancho Cordova Highway 50 office/flex utility",
+  "roseville-vs-rancho-cordova":
+    "Roseville Placer County medical and professional office base versus Rancho Cordova Highway 50 office/flex and back-office utility",
+  "elk-grove-vs-power-inn-industrial":
+    "Elk Grove south Sacramento local-service market versus Power Inn Industrial warehouse/flex and contractor corridor",
   "downtown-san-diego-vs-mission-valley":
     "Downtown San Diego civic office identity versus Mission Valley central suburban office practicality",
   "mission-valley-vs-utc-university-city":
@@ -3571,6 +3696,8 @@ const warehouseFlexComparisonSlugs = new Set([
   "downtown-sacramento-vs-west-sacramento",
   "west-sacramento-vs-power-inn-industrial",
   "rancho-cordova-vs-folsom",
+  "rocklin-vs-rancho-cordova",
+  "elk-grove-vs-power-inn-industrial",
   "utc-university-city-vs-sorrento-mesa",
   "kearny-mesa-vs-miramar",
   "otay-mesa-vs-chula-vista",

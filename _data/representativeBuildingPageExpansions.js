@@ -66,9 +66,9 @@ function building({
     postal: "",
     image_urls: [],
     hero_image: "",
-    meta_title: `${address} | ${district.name} Representative Building | Rofo`,
-    meta_description: `${address} is a representative ${district.name} commercial building in ${city}, useful for understanding ${roleSentence} and nearby district context.`,
-    teaser: `${label} is included as a representative commercial building for understanding ${district.name}.`,
+    meta_title: `${address} | ${district.name} Commercial Building | Rofo`,
+    meta_description: `${address} is a ${district.name} commercial building in ${city} tied to ${roleSentence} and nearby district context.`,
+    teaser: `${label} is included as a commercial building that gives tenants concrete ${district.name} context.`,
     building_description: description,
     about_context: about,
     location_context: location,
@@ -88,17 +88,37 @@ const downtownPaloAlto = area("ba-downtown-palo-alto", "Downtown Palo Alto", "Pa
 const emeryville = area("eb-emeryville-commercial-core", "Emeryville", "Emeryville", "CA", "district");
 const downtownBerkeley = area("eb-downtown-berkeley", "Downtown Berkeley", "Berkeley", "CA", "downtown_core");
 const westBerkeley = area("eb-west-berkeley", "West Berkeley", "Berkeley", "CA", "district");
+const moffettPark = area("sb-moffett-park", "Moffett Park", "Sunnyvale", "CA", "district");
 
 module.exports = [
+  building({
+    address: "1195 Borregas Ave",
+    city: "Sunnyvale",
+    district: moffettPark,
+    role: "Borregas Avenue R&D / office building",
+    description:
+      "1195 Borregas Ave is a Moffett Park R&D/office building in Sunnyvale's north-side business-park environment.",
+    about:
+      "The building fits the kind of technical-user space tenants evaluate in Moffett Park: practical office/R&D buildings near 237, 101, and the broader Sunnyvale-Mountain View innovation corridor.",
+    location:
+      "1195 Borregas Ave sits in the Borregas Avenue side of Moffett Park, close to other North Sunnyvale office, R&D, and campus-oriented buildings.",
+    best_for: [
+      "Engineering and R&D teams",
+      "Office users comparing Moffett Park with North Bayshore",
+      "Businesses that want a North Sunnyvale business-park setting",
+    ],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
   building({
     address: "6425 Christie Ave",
     city: "Emeryville",
     district: emeryville,
     role: "Christie Avenue office / R&D corridor",
     description:
-      "6425 Christie Ave is a representative Emeryville building for understanding the district's office, R&D-support, and East Bay business corridor context.",
+      "6425 Christie Ave is an Emeryville office/R&D-support building in the district's East Bay business corridor.",
     about:
-      "Raw building and listing data show repeated activity at this Christie Avenue address. It helps explain Emeryville as a practical office and research-adjacent market between Berkeley, Oakland, and the Bay Bridge.",
+      "Raw building and listing data show repeated activity at this Christie Avenue address. The building fits Emeryville's practical office and research-adjacent market between Berkeley, Oakland, and the Bay Bridge.",
     location:
       "6425 Christie Ave sits in Emeryville's Christie and Powell commercial environment, close to the city's office, retail, and life-science-adjacent business clusters.",
     best_for: [
@@ -113,7 +133,7 @@ module.exports = [
     district: emeryville,
     role: "Powell Street office tower",
     description:
-      "2200 Powell St is a representative Emeryville office building that helps explain the district's Powell Street business corridor.",
+      "2200 Powell St is an Emeryville office building in the district's Powell Street business corridor.",
     about:
       "The address is part of the Watergate/Powell office environment and appears repeatedly in raw building/listing data, making it useful district context for office users evaluating Emeryville.",
     location:
@@ -130,9 +150,9 @@ module.exports = [
     district: emeryville,
     role: "Powell Street office environment",
     description:
-      "2100 Powell St is a representative Emeryville building for the district's larger office and business-park pattern along Powell Street.",
+      "2100 Powell St is an Emeryville office building in the larger Powell Street business-park environment.",
     about:
-      "The building helps show Emeryville's more structured office geography, contrasting with Downtown Berkeley's university-adjacent office fabric and West Berkeley's maker/flex orientation.",
+      "The building gives tenants a concrete feel for Emeryville's more structured office geography compared with Downtown Berkeley's university setting or West Berkeley's maker/flex corridors.",
     location:
       "2100 Powell St is positioned in Emeryville's central office corridor, near other Powell and Christie Avenue commercial buildings.",
     best_for: [
@@ -200,7 +220,7 @@ module.exports = [
     description:
       "6001 Shellmound St is a representative Emeryville building for the district's Shellmound corridor and mixed commercial environment.",
     about:
-      "The address helps explain Emeryville's blend of office, retail support, and larger commercial blocks around Shellmound and Bay Street.",
+      "The address sits in Emeryville's blend of office, retail support, and larger commercial blocks around Shellmound and Bay Street.",
     location:
       "6001 Shellmound St sits near Emeryville's retail and office spine, giving users context for the amenity side of the district.",
     best_for: [
@@ -217,7 +237,7 @@ module.exports = [
     description:
       "5900 Hollis St is a representative Emeryville commercial building for the Hollis Street office/flex corridor.",
     about:
-      "The raw data shows repeated commercial activity at this address, making it useful for explaining Emeryville's practical office/flex building stock.",
+      "The raw data shows repeated commercial activity at this address, making it a practical office/flex building for understanding the Hollis corridor.",
     location:
       "5900 Hollis St sits in the central Emeryville business grid, close to Powell, Horton, Christie, and Shellmound commercial activity.",
     best_for: [
@@ -234,7 +254,7 @@ module.exports = [
     description:
       "1250 45th St is a representative Emeryville building for the district's smaller business-center and service-commercial environment.",
     about:
-      "The address helps show Emeryville's smaller-format commercial stock, not just its larger Powell Street office buildings.",
+      "The address adds a smaller-format commercial building alongside Emeryville's larger Powell Street office buildings.",
     location:
       "1250 45th St sits near Emeryville's Oakland/Berkeley edge, where service commercial, small office, and flex uses are common.",
     best_for: [
@@ -251,7 +271,7 @@ module.exports = [
     description:
       "5901 Christie Ave is a representative Emeryville building in the district's Christie Avenue office and mixed commercial cluster.",
     about:
-      "The building adds another public reference point for Christie Avenue, one of Emeryville's strongest office and mixed-commercial corridors.",
+      "The building adds another Christie Avenue office building to one of Emeryville's strongest mixed-commercial corridors.",
     location:
       "5901 Christie Ave sits near Emeryville's Powell and Bay Street commercial activity, supporting office users that want amenities and regional access.",
     best_for: [
@@ -268,7 +288,7 @@ module.exports = [
     description:
       "967 Stanford Ave is a representative Emeryville building for the district's flex, service-commercial, and industrial-transition edge.",
     about:
-      "The address helps explain Emeryville's non-tower commercial inventory: practical buildings for local operations, creative, and service users.",
+      "The address reflects Emeryville's non-tower commercial mix: practical buildings for local operations, creative, and service users.",
     location:
       "967 Stanford Ave sits near Emeryville's eastern commercial edge, connecting the city to Berkeley and Oakland service corridors.",
     best_for: [
@@ -287,7 +307,7 @@ module.exports = [
     description:
       "4045 Horton St is a representative Emeryville building for larger flex and production-adjacent commercial uses.",
     about:
-      "The address adds depth to Emeryville's creative and industrial-transition building stock, complementing the office-heavy Powell Street examples.",
+      "The address adds creative and industrial-transition building context alongside the office-heavy Powell Street corridor.",
     location:
       "4045 Horton St sits toward Emeryville's southern commercial edge, near Oakland and the broader East Bay industrial/flex network.",
     best_for: [
@@ -306,7 +326,7 @@ module.exports = [
     description:
       "1480 64th St is a representative Emeryville building for business-center and office/flex users near the Hollis corridor.",
     about:
-      "The building helps show Emeryville's northern office/flex edge and its relationship to Berkeley and the broader East Bay innovation corridor.",
+      "The building sits on Emeryville's northern office/flex edge, close to Berkeley and the broader East Bay innovation corridor.",
     location:
       "1480 64th St sits near Hollis Street and the northern Emeryville commercial area, close to Berkeley adjacency.",
     best_for: [
@@ -345,7 +365,7 @@ module.exports = [
     description:
       "2140 Shattuck Ave is a representative Downtown Berkeley building for office users evaluating the Shattuck corridor and BART-oriented business context.",
     about:
-      "Raw building data shows substantial historical listing activity at this address, making it a strong public reference for Downtown Berkeley's office geography.",
+      "Raw building data shows substantial historical listing activity at this address, making it a strong Downtown Berkeley office building to surface publicly.",
     location:
       "2140 Shattuck Ave sits in Downtown Berkeley's core, close to BART, UC Berkeley, civic activity, and professional-service demand.",
     best_for: [
@@ -396,7 +416,7 @@ module.exports = [
     description:
       "1936 University Ave is a representative Downtown Berkeley building for users evaluating University Avenue commercial context.",
     about:
-      "The building helps explain the district's blend of office, service, and street-level commercial activity near transit and UC Berkeley.",
+      "The building fits the district's blend of office, service, and street-level commercial activity near transit and UC Berkeley.",
     location:
       "1936 University Ave sits on one of Berkeley's primary downtown corridors, connecting the Shattuck core with surrounding commercial blocks.",
     best_for: [
@@ -430,7 +450,7 @@ module.exports = [
     description:
       "2130 Center St is a representative Downtown Berkeley building for civic, arts, and professional office context near the district core.",
     about:
-      "Center Street helps show Downtown Berkeley's civic and institutional character, distinct from the industrial/flex identity of West Berkeley.",
+      "Center Street gives tenants a civic and institutional Downtown Berkeley setting, distinct from the industrial/flex identity of West Berkeley.",
     location:
       "2130 Center St sits near BART, civic uses, arts venues, and the UC Berkeley edge.",
     best_for: [
@@ -447,7 +467,7 @@ module.exports = [
     description:
       "2168 Shattuck Ave is a representative Downtown Berkeley office building in the district's central transit-oriented business corridor.",
     about:
-      "The raw record identifies Constitution Square, making the building a useful public reference for the district's professional office identity.",
+      "The raw record identifies Constitution Square, making this a useful professional office building for Downtown Berkeley.",
     location:
       "2168 Shattuck Ave is located in the central Shattuck corridor near Downtown Berkeley BART and university-facing services.",
     best_for: [
@@ -481,7 +501,7 @@ module.exports = [
     description:
       "2040 Bancroft Way is a representative Downtown Berkeley building for university-edge office and service users.",
     about:
-      "The building helps explain Downtown Berkeley's relationship to UC Berkeley, especially for organizations that value institutional adjacency.",
+      "The building sits near UC Berkeley, which can matter for organizations that value institutional adjacency.",
     location:
       "2040 Bancroft Way sits near the campus edge and downtown commercial core.",
     best_for: [
@@ -516,7 +536,7 @@ module.exports = [
     description:
       "950 Gilman St is a representative West Berkeley building for industrial, flex, and service-commercial users along the Gilman corridor.",
     about:
-      "Raw building data shows strong listing activity at this address, making it a useful public reference for West Berkeley's practical commercial stock.",
+      "Raw building data shows strong listing activity at this address, making it a useful West Berkeley industrial/flex building to surface publicly.",
     location:
       "950 Gilman St sits in West Berkeley's industrial and flex geography, close to I-80 access and the district's maker/service corridors.",
     best_for: [
@@ -535,7 +555,7 @@ module.exports = [
     description:
       "2600 10th St is a representative West Berkeley building for creative production, media, and adaptive commercial uses.",
     about:
-      "The raw record identifies the Saul Zaentz Media Center, making this a strong example of West Berkeley's creative and production-adjacent commercial identity.",
+      "The raw record identifies the Saul Zaentz Media Center, a strong West Berkeley building for creative and production-adjacent users.",
     location:
       "2600 10th St sits in West Berkeley's maker and industrial-transition district near the Gilman, Heinz, and Fourth Street commercial context.",
     best_for: [
@@ -554,7 +574,7 @@ module.exports = [
     description:
       "3100 San Pablo Ave is a representative West Berkeley building for service-commercial and flex users along the San Pablo corridor.",
     about:
-      "The address helps explain West Berkeley's corridor-based commercial geography and its relationship to Emeryville and Oakland.",
+      "The address sits on West Berkeley's corridor-based commercial edge near Emeryville and Oakland connections.",
     location:
       "3100 San Pablo Ave sits on West Berkeley's eastern commercial edge, linking local service uses with the district's industrial/flex fabric.",
     best_for: [
@@ -573,7 +593,7 @@ module.exports = [
     description:
       "2560 9th St is a representative West Berkeley building for flex, R&D-support, and production-adjacent uses.",
     about:
-      "The address appears repeatedly in raw building data and helps ground the district's technical and maker-oriented building stock.",
+      "The address appears repeatedly in raw building data and fits the district's technical and maker-oriented building mix.",
     location:
       "2560 9th St sits in West Berkeley's industrial-transition area near Heinz, Gilman, and the Fourth Street commercial environment.",
     best_for: [
@@ -668,7 +688,7 @@ module.exports = [
     description:
       "2501 9th St is a representative West Berkeley building for industrial/flex users in the district's production-oriented core.",
     about:
-      "The address reinforces the Ninth Street cluster as a useful public reference for West Berkeley's building stock.",
+      "The address reinforces the Ninth Street cluster as a practical West Berkeley industrial/flex building.",
     location:
       "2501 9th St sits in the West Berkeley industrial and maker corridor, close to Gilman and Heinz activity.",
     best_for: [
@@ -706,7 +726,7 @@ module.exports = [
     description:
       "2929 7th St is a representative West Berkeley building for flex and industrial users near the Aquatic Park side of the district.",
     about:
-      "The address adds a west-side reference point that helps explain West Berkeley's relationship to I-80, Aquatic Park, and practical industrial access.",
+      "The address gives tenants a west-side industrial/flex building near I-80, Aquatic Park, and practical Berkeley access.",
     location:
       "2929 7th St sits near West Berkeley's waterfront-adjacent industrial and flex environment.",
     best_for: [
@@ -731,7 +751,7 @@ module.exports = [
     best_for: [
       "Production users",
       "Flex and service-commercial businesses",
-      "Teams evaluating West Berkeley's practical building stock",
+      "Teams evaluating West Berkeley's practical buildings",
     ],
     type: "Flex Space",
     primary_space_type: "flex",

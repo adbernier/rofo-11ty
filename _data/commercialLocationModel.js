@@ -1867,6 +1867,12 @@ Object.assign(districts, {
         reason: "Compare if Highway 50 office/flex and suburban office context may fit better.",
       },
       {
+        district_name: "Elk Grove",
+        district_path: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-power-inn-industrial/",
+        reason: "Compare if south Sacramento local-service, medical office, and customer-facing suburban access may fit better.",
+      },
+      {
         district_name: "Natomas",
         district_path: "/commercial-real-estate/CA/sacramento/natomas/",
         reason: "Compare if airport-adjacent suburban office and service-commercial access matters more.",
@@ -1957,7 +1963,7 @@ Object.assign(districts, {
     primary_archetype: "highway_50_office_flex_market",
     secondary_archetypes: ["suburban_business_park", "sacramento_industrial_flex_corridor"],
     commercial_thesis:
-      "Rancho Cordova is a Highway 50 office, flex, industrial, insurance/back-office, and service-commercial market with larger suburban formats east of Sacramento.",
+      "Rancho Cordova is a practical Highway 50 market for office/flex, back-office, contractor, service-commercial, and light industrial users. It is less about a polished downtown address and more about parking, access, usable buildings, and eastern Sacramento operating convenience.",
     best_fit_businesses: [
       "Back-office, insurance, professional-service, office/flex, contractor, and light industrial users",
       "Companies needing Highway 50 access, parking, and larger suburban buildings",
@@ -1974,6 +1980,18 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         reason: "Compare if a more polished eastern Sacramento office and professional setting may fit better.",
+      },
+      {
+        district_name: "Roseville",
+        district_path: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rancho-cordova/",
+        reason: "Compare if Placer County medical, professional, and client-service demand may fit better than Highway 50 office/flex utility.",
+      },
+      {
+        district_name: "Rocklin",
+        district_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-rancho-cordova/",
+        reason: "Compare if a smaller Placer County local-service and light flex market may fit better.",
       },
       {
         district_name: "Power Inn Industrial",
@@ -2070,7 +2088,7 @@ Object.assign(districts, {
     primary_archetype: "placer_county_office_medical_core",
     secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
     commercial_thesis:
-      "Roseville is a Placer County office, medical office, retail-supported, and light business-park market, useful for companies comparing suburban Sacramento alternatives with Downtown Sacramento or Folsom.",
+      "Roseville is the Placer County choice when a business wants medical office, professional services, client access, and retail-supported suburban visibility. It usually feels broader and more regional than Rocklin, and more Placer County-oriented than Folsom or Rancho Cordova.",
     best_fit_businesses: [
       "Medical office, professional-service, finance, insurance, regional office, and client-facing suburban users",
       "Companies serving Placer County or northeast Sacramento customers and employees",
@@ -2093,6 +2111,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rocklin/",
         reason: "Compare if a smaller I-80 suburban office, local-service, or light office/flex market may fit better.",
+      },
+      {
+        district_name: "Rancho Cordova",
+        district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rancho-cordova/",
+        reason: "Compare if Highway 50 office/flex and back-office formats may fit better than Roseville's Placer County market.",
       },
       {
         district_name: "Downtown Sacramento",
@@ -2130,7 +2154,7 @@ Object.assign(districts, {
     primary_archetype: "placer_county_suburban_office_flex_market",
     secondary_archetypes: ["local_service_business_market", "i80_light_industrial_flex_corridor"],
     commercial_thesis:
-      "Rocklin is a practical Placer County suburban commercial market with office, medical/local service, business-park, and light industrial/flex patterns along the I-80, Sierra College, Stanford Ranch, and Sunset corridor context.",
+      "Rocklin is a smaller, practical Placer County market for local office, medical, service-commercial, business-park, and light flex users. It is a sensible fit when I-80 access and Rocklin/Roseville customer geography matter more than a larger regional office identity.",
     best_fit_businesses: [
       "Small office, medical office, local-service, education, and professional-service users serving Rocklin and Placer County",
       "Light industrial, office/flex, and service-commercial users that need I-80 access without a larger regional office setting",
@@ -2157,6 +2181,7 @@ Object.assign(districts, {
       {
         district_name: "Rancho Cordova",
         district_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-rancho-cordova/",
         reason: "Compare if Highway 50 office/flex and back-office formats may fit better than Rocklin's Placer County orientation.",
       },
     ],
@@ -2204,6 +2229,7 @@ Object.assign(districts, {
       {
         district_name: "Power Inn Industrial",
         district_path: "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-power-inn-industrial/",
         reason: "Compare if industrial/flex and operational building formats matter more than suburban service access.",
       },
       {
@@ -2567,6 +2593,12 @@ Object.assign(districts, {
         reason: "Compare if a Mountain View campus ecosystem may fit better than North San Jose's broader office/R&D and flex corridor.",
       },
       {
+        district_name: "Stanford Research Park",
+        district_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
+        reason: "Compare if Palo Alto research-park identity and Stanford adjacency may matter more than North San Jose's broader operating corridor.",
+      },
+      {
         district_name: "Milpitas Industrial",
         district_path: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
         comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-milpitas/",
@@ -2748,7 +2780,7 @@ Object.assign(districts, {
     primary_archetype: "moffett_park_innovation_district",
     secondary_archetypes: ["technology_campus_office_core", "rd_flex_office_corridor"],
     commercial_thesis:
-      "Moffett Park is a major Sunnyvale innovation and technology-campus district, useful for companies comparing concentrated campus environments with North San Jose, Santa Clara, and North Bayshore.",
+      "Moffett Park is where a tenant looks when the requirement feels more like an engineering campus or R&D office than a walkable downtown suite. It works best for teams that want North Sunnyvale access, larger buildings, and a quieter business-park setting near 237 and 101.",
     best_fit_businesses: [
       "Technology, R&D, corporate office, and campus-oriented users",
       "Companies that want Sunnyvale/Mountain View adjacency without a downtown format",
@@ -2806,7 +2838,7 @@ Object.assign(districts, {
     primary_archetype: "north_bayshore_technology_district",
     secondary_archetypes: ["technology_campus_office_core", "innovation_campus_district"],
     commercial_thesis:
-      "North Bayshore is a Mountain View technology-campus district defined by large employer gravity, Shoreline/North Bayshore geography, and comparison value against Moffett Park and other South Bay campus markets.",
+      "North Bayshore is Mountain View's campus-oriented technology district. It is a better fit for companies that want to be near the large-employer ecosystem and bayfront office/R&D buildings than for tenants looking for a downtown Mountain View storefront or Caltrain main-street feel.",
     best_fit_businesses: [
       "Technology and R&D users that benefit from Mountain View's large-campus ecosystem",
       "Companies comparing high-identity innovation campus geography with Moffett Park and Santa Clara",
@@ -2935,6 +2967,12 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
         reason: "Compare if a larger technology-campus ecosystem may fit better than Palo Alto's research-park environment.",
       },
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
+        reason: "Compare if broader South Bay office/R&D, flex, airport, and freeway access may fit better than Stanford-adjacent research-park format.",
+      },
     ],
     office_profile: {
       office_orientation: "research_park",
@@ -2963,7 +3001,7 @@ Object.assign(districts, {
     primary_archetype: "peninsula_downtown_office_core",
     secondary_archetypes: ["caltrain_downtown_professional_district", "mid_peninsula_business_district"],
     commercial_thesis:
-      "Downtown Redwood City is a mid-Peninsula downtown office and professional-service district shaped by Caltrain, Broadway, civic activity, entertainment, and comparison value against Downtown Palo Alto and Downtown Mountain View.",
+      "Downtown Redwood City is a practical mid-Peninsula downtown for office, professional-service, medical, and local customer-facing users. Tenants usually look here when they want Caltrain, Broadway restaurants, civic activity, and Peninsula access without paying only for Palo Alto identity.",
     best_fit_businesses: [
       "Professional-service, startup, and office users that want a Caltrain-oriented Peninsula downtown",
       "Teams comparing mid-Peninsula access with Palo Alto or Mountain View downtowns",
@@ -3322,6 +3360,7 @@ Object.assign(districts, {
       {
         district_name: "West Berkeley",
         district_path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
         reason: "Compare if R&D/flex, creative office, and adaptive industrial texture may fit better than downtown Berkeley's BART and university setting.",
       },
       {
@@ -3347,7 +3386,7 @@ Object.assign(districts, {
     primary_archetype: "university_adjacent_rd_flex_district",
     secondary_archetypes: ["creative_office_industrial_transition", "east_bay_life_science_support"],
     commercial_thesis:
-      "West Berkeley is a Berkeley R&D/flex, creative office, maker, and adaptive industrial district, useful for companies comparing university adjacency with Emeryville's life-science and mixed office node.",
+      "West Berkeley is the Berkeley option for tenants that need hands-on workspace: R&D/flex, maker, showroom, light production, creative office, or lab-adjacent buildings. It keeps a Berkeley talent and university connection, but the building character is more industrial and adaptive than Downtown Berkeley.",
     best_fit_businesses: [
       "R&D/flex, creative office, maker, light production, and university-adjacent organizations",
       "Teams that want Berkeley ecosystem access without a downtown office format",
@@ -3362,6 +3401,7 @@ Object.assign(districts, {
       {
         district_name: "Emeryville",
         district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
         reason: "Compare if a more established office, life-science, and mixed commercial node may fit better.",
       },
       {
@@ -3404,7 +3444,7 @@ Object.assign(districts, {
     primary_archetype: "east_bay_life_science_office_core",
     secondary_archetypes: ["mixed_use_office_retail_node", "adaptive_industrial_commercial_district"],
     commercial_thesis:
-      "Emeryville is a compact East Bay office, life-science, retail, and adaptive-commercial node between Oakland and Berkeley, useful for teams comparing regional office access without a traditional downtown format.",
+      "Emeryville works for tenants that want East Bay access with more structure than West Berkeley and less downtown formality than Oakland. The best fit is usually office, life-science support, R&D, creative office, or service-commercial users that value the Powell, Christie, Horton, Shellmound, and Bay Street area.",
     best_fit_businesses: [
       "Office, life-science-adjacent, R&D, and professional users that value central East Bay access",
       "Companies comparing Berkeley, Downtown Oakland, and Emeryville for East Bay office fit",
@@ -3438,6 +3478,12 @@ Object.assign(districts, {
         district_name: "West Oakland",
         district_path: "/commercial-real-estate/CA/oakland/west-oakland/",
         reason: "Compare if urban industrial-transition texture and Oakland edge access matter more.",
+      },
+      {
+        district_name: "West Berkeley",
+        district_path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
+        reason: "Compare if maker, R&D/flex, and adaptive industrial character may fit better than Emeryville's more structured office/life-science node.",
       },
     ],
     office_profile: {

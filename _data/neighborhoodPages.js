@@ -2232,6 +2232,7 @@ const southBayDistrictDefinitions = [
     approximate_space_types: ["office", "flex", "industrial"],
     profile: ["technology_campus", "innovation_district", "rd_flex", "route_237"],
     representative_building_paths: [
+      "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
       "/commercial-real-estate/building/CA/sunnyvale/1277-borregas-ave/",
       "/commercial-real-estate/building/CA/sunnyvale/415-n-mary-ave/",
       "/commercial-real-estate/building/CA/sunnyvale/525-almanor-ave/",

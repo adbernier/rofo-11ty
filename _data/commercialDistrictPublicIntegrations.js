@@ -717,6 +717,13 @@ Object.assign(integrationsByPath, {
         note: "More tied to Mountain View's large-employer campus ecosystem.",
       },
       {
+        name: "Stanford Research Park",
+        url: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
+        relationship_type: "Research-park contrast",
+        note: "More Palo Alto, Stanford-adjacent, and research-park oriented.",
+      },
+      {
         name: "Milpitas Industrial",
         url: "/commercial-real-estate/CA/milpitas/milpitas-industrial/",
         relationship_type: "Industrial/flex contrast",
@@ -904,6 +911,13 @@ Object.assign(integrationsByPath, {
         comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/",
         relationship_type: "Campus comparison",
         note: "A larger technology-campus ecosystem in Mountain View.",
+      },
+      {
+        name: "North San Jose",
+        url: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
+        relationship_type: "South Bay corridor contrast",
+        note: "Broader office/R&D, flex, airport, and freeway-corridor utility.",
       },
     ],
   },
@@ -1115,6 +1129,7 @@ Object.assign(integrationsByPath, {
       {
         name: "West Berkeley",
         url: "/commercial-real-estate/CA/berkeley/west-berkeley/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
         relationship_type: "R&D/flex and creative edge",
         note: "More adaptive, university-adjacent, and maker/R&D oriented.",
       },
@@ -1135,6 +1150,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Emeryville",
         url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
         relationship_type: "Office/life-science alternative",
         note: "More established as a mixed office, life-science, and East Bay commercial node.",
       },
@@ -1507,6 +1523,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Elk Grove",
         url: "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/elk-grove/elk-grove-vs-power-inn-industrial/",
         relationship_type: "South Sacramento service market",
         note: "More local-service and suburban medical/professional oriented.",
       },
@@ -1550,6 +1567,20 @@ Object.assign(integrationsByPath, {
         comparison_path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-vs-folsom/",
         relationship_type: "Eastern Sacramento professional contrast",
         note: "More polished, client-facing, and professional-service oriented.",
+      },
+      {
+        name: "Roseville",
+        url: "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rancho-cordova/",
+        relationship_type: "Placer County office contrast",
+        note: "More medical, retail-supported, and Placer County customer oriented.",
+      },
+      {
+        name: "Rocklin",
+        url: "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-rancho-cordova/",
+        relationship_type: "I-80 local-service contrast",
+        note: "Smaller, more Placer County local-service and light office/flex oriented.",
       },
       {
         name: "Power Inn Industrial",
@@ -1644,6 +1675,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/roseville/roseville-vs-rancho-cordova/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50 and office/flex oriented.",
       },
@@ -1672,6 +1704,7 @@ Object.assign(integrationsByPath, {
       {
         name: "Rancho Cordova",
         url: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/rocklin/rocklin-vs-rancho-cordova/",
         relationship_type: "Office/flex alternative",
         note: "More Highway 50, back-office, and office/flex oriented.",
       },
