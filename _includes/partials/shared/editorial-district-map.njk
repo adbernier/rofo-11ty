@@ -52,7 +52,11 @@
 
           {% if secondaryDistricts and secondaryDistricts.length %}
             <details class="editorial-district-map__more">
-              <summary>View more districts</summary>
+              <summary>
+                <span class="editorial-district-map__more-label editorial-district-map__more-label--closed">Explore more neighborhoods</span>
+                <span class="editorial-district-map__more-label editorial-district-map__more-label--open">Hide additional neighborhoods</span>
+              </summary>
+              <p class="editorial-district-map__secondary-label">Additional San Francisco neighborhoods</p>
               <div class="editorial-district-map__chip-group editorial-district-map__chip-group--secondary">
                 {% for district in secondaryDistricts %}
                   {% set isCurrentDistrictChip = editorialDistrictMap.currentDistrictKey == district.key %}

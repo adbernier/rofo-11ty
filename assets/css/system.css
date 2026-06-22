@@ -4244,6 +4244,23 @@ section.market-page--space-type .market-links a {
   content: "−";
 }
 
+.editorial-district-map__more-label--open,
+.editorial-district-map__more[open] .editorial-district-map__more-label--closed {
+  display: none;
+}
+
+.editorial-district-map__more[open] .editorial-district-map__more-label--open {
+  display: inline;
+}
+
+.editorial-district-map__secondary-label {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .editorial-district-map__more summary:hover,
 .editorial-district-map__more summary:focus-visible {
   text-decoration: underline;
