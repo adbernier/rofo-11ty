@@ -1,0 +1,83 @@
+{% set editorialDistrictMapImage = editorialDistrictMap.baseImage or editorialDistrictMap.image %}
+{% if editorialDistrictMap and editorialDistrictMapImage %}
+  {% set isEditorialDistrictMapHero = editorialDistrictMapVariant == "hero" %}
+  <section class="city-card editorial-district-map{% if isEditorialDistrictMapHero %} editorial-district-map--hero{% endif %}" aria-labelledby="editorial-district-map-heading">
+    <div class="editorial-district-map__copy">
+      <div>
+        <div class="eyebrow">District map</div>
+        <h2 id="editorial-district-map-heading">{% if isEditorialDistrictMapHero %}Explore San Francisco districts{% else %}{{ editorialDistrictMap.title }}{% endif %}</h2>
+        <p>{% if isEditorialDistrictMapHero %}Use the map and links to compare nearby commercial areas.{% else %}{{ editorialDistrictMap.subtitle }}{% endif %}</p>
+      </div>
+    </div>
+
+    <div class="editorial-district-map__body">
+      <figure class="editorial-district-map__figure">
+        <div class="editorial-district-map__image-wrap">
+          <img
+            src="{{ editorialDistrictMapImage }}"
+            alt="{{ editorialDistrictMap.imageAlt }}"
+            width="{{ editorialDistrictMap.width or 1200 }}"
+            height="{{ editorialDistrictMap.height or 900 }}"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      </figure>
+
+      {% set priorityDistricts = editorialDistrictMap.priorityDistricts or editorialDistrictMap.districts %}
+      {% set secondaryDistricts = editorialDistrictMap.secondaryDistricts %}
+      {% if priorityDistricts and priorityDistricts.length %}
+        <nav class="editorial-district-map__nav" aria-label="Explore San Francisco districts">
+          <div class="editorial-district-map__chip-group">
+          {% for district in priorityDistricts %}
+            {% set isCurrentDistrictChip = editorialDistrictMap.currentDistrictKey == district.key %}
+            {% if district.publicPage and district.href %}
+              <a
+                class="editorial-district-map__chip{% if isCurrentDistrictChip %} editorial-district-map__chip--current{% endif %}"
+                href="{{ district.href }}"
+                {% if isCurrentDistrictChip %}aria-current="page"{% endif %}
+              >
+                {{ district.label }}
+              </a>
+            {% else %}
+              <span
+                class="editorial-district-map__chip editorial-district-map__chip--static{% if isCurrentDistrictChip %} editorial-district-map__chip--current{% endif %}"
+                {% if isCurrentDistrictChip %}aria-current="page"{% endif %}
+              >
+                {{ district.label }}
+              </span>
+            {% endif %}
+          {% endfor %}
+          </div>
+
+          {% if secondaryDistricts and secondaryDistricts.length %}
+            <details class="editorial-district-map__more">
+              <summary>View more districts</summary>
+              <div class="editorial-district-map__chip-group editorial-district-map__chip-group--secondary">
+                {% for district in secondaryDistricts %}
+                  {% set isCurrentDistrictChip = editorialDistrictMap.currentDistrictKey == district.key %}
+                  {% if district.publicPage and district.href %}
+                    <a
+                      class="editorial-district-map__chip editorial-district-map__chip--secondary{% if isCurrentDistrictChip %} editorial-district-map__chip--current{% endif %}"
+                      href="{{ district.href }}"
+                      {% if isCurrentDistrictChip %}aria-current="page"{% endif %}
+                    >
+                      {{ district.label }}
+                    </a>
+                  {% else %}
+                    <span
+                      class="editorial-district-map__chip editorial-district-map__chip--secondary editorial-district-map__chip--static{% if isCurrentDistrictChip %} editorial-district-map__chip--current{% endif %}"
+                      {% if isCurrentDistrictChip %}aria-current="page"{% endif %}
+                    >
+                      {{ district.label }}
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </details>
+          {% endif %}
+        </nav>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

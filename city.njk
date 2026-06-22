@@ -270,7 +270,10 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          {% if cityNeighborhoods.length %}
+          {% set editorialDistrictMap = editorialDistrictMaps.byCityPath[page.url] %}
+          {% include "partials/shared/editorial-district-map.njk" %}
+
+          {% if cityNeighborhoods.length and not editorialDistrictMap %}
             <div class="city-card city-neighborhoods-card">
               <div class="eyebrow">Districts</div>
               <h2>Explore districts and commercial areas</h2>

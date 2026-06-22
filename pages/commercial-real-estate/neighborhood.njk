@@ -35,6 +35,7 @@ eleventyComputed:
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
+{% set editorialDistrictMap = editorialDistrictMaps.byDistrictPath[neighborhood.canonical_neighborhood_path] %}
 {% set searchProfileLocationSuggestions = [] %}
 {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
   {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 6) %}
@@ -51,8 +52,8 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero{% if hasMapHero %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap %} city-hero--district-identity{% endif %}">
-      <div class="city-card">
+    <div class="city-hero{% if hasMapHero and not editorialDistrictMap %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap and not editorialDistrictMap %} city-hero--district-identity{% endif %}{% if editorialDistrictMap %} city-hero--editorial-district-map{% endif %}">
+      <div class="city-card city-hero__intro-card">
         <div class="city-hero-copy">
           <div class="eyebrow">{{ districtIdentity.eyebrow or (areaTermDisplay + " Guide") }}</div>
           <h1>{{ districtIdentity.title or ("Commercial Real Estate in " + neighborhood.name) }}</h1>
@@ -72,7 +73,57 @@ eleventyComputed:
         </div>
       </div>
 
-      {% if hasMapHero %}
+      {% if editorialDistrictMap %}
+        {% set editorialDistrictMapVariant = "hero" %}
+        {% include "partials/shared/editorial-district-map.njk" %}
+        {% set editorialDistrictMapVariant = "" %}
+        {% set hasGlanceBestFit = neighborhood.commercial_location_model and neighborhood.commercial_location_model.best_fit_businesses and neighborhood.commercial_location_model.best_fit_businesses.length %}
+        {% set hasGlanceNearby = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length) or hasNearby %}
+        {% set hasGlanceTypicalSearch = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label) or hasSpaceTypes %}
+        {% if hasGlanceBestFit or hasGlanceNearby or hasGlanceTypicalSearch %}
+          <section class="city-card neighborhood-hero-glance">
+            <div class="eyebrow">At a glance</div>
+            <div class="neighborhood-hero-glance__rows">
+              {% if hasGlanceBestFit %}
+                <div class="neighborhood-hero-glance__row">
+                  <span>Best fit</span>
+                  <strong>{{ neighborhood.commercial_location_model.best_fit_businesses[0] }}</strong>
+                </div>
+              {% endif %}
+              {% if hasGlanceNearby %}
+                <div class="neighborhood-hero-glance__row">
+                  <span>Nearby areas</span>
+                  <strong>
+                    {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
+                      {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 3) %}
+                        {{ comparison.district_name }}{% if not loop.last %}, {% endif %}
+                      {% endfor %}
+                    {% else %}
+                      {% for nearby in neighborhood.nearby_neighborhoods.slice(0, 3) %}
+                        {{ nearby.name }}{% if not loop.last %}, {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </strong>
+                </div>
+              {% endif %}
+              {% if hasGlanceTypicalSearch %}
+                <div class="neighborhood-hero-glance__row">
+                  <span>Typical search</span>
+                  <strong>
+                    {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label %}
+                      {{ neighborhood.commercial_location_model.primary_archetype_label }}
+                    {% else %}
+                      {% for type in neighborhood.approximate_space_types.slice(0, 3) %}
+                        {{ type | capitalize }}{% if not loop.last %}, {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </strong>
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
+      {% elif hasMapHero %}
         {% include "partials/neighborhood/map-hero.njk" %}
       {% elif not hasIdentityLocatorMap %}
         <div class="city-sidecard neighborhood-review-note">
@@ -85,7 +136,7 @@ eleventyComputed:
       {% endif %}
     </div>
 
-    {% if hasIdentityLocatorMap %}
+    {% if hasIdentityLocatorMap and not editorialDistrictMap %}
       {% include "partials/neighborhood/district-locator-map.njk" %}
     {% endif %}
 
@@ -101,7 +152,7 @@ eleventyComputed:
       </figure>
     {% endif %}
 
-    {% if not hasIdentityLocatorMap %}
+    {% if not hasIdentityLocatorMap and not editorialDistrictMap %}
       {% include "partials/neighborhood/district-locator-map.njk" %}
     {% endif %}
 

@@ -556,6 +556,76 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/union-square/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Union Square Commercial District",
+      lead:
+        "Understand Union Square as San Francisco's visitor-facing retail, hospitality, and office-adjacent district, where storefront visibility, hotels, transit, and downtown proximity matter more than a pure office-core identity.",
+      guide_label: "Retail and office district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/hayes-valley/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Hayes Valley Commercial District",
+      lead:
+        "Understand Hayes Valley as a smaller mixed commercial district between Civic Center, Market Street, and central-west San Francisco, with boutique storefronts, local services, creative office users, and neighborhood-scale client access.",
+      guide_label: "Mixed commercial district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/mission/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Mission Commercial District",
+      lead:
+        "Understand the Mission as a dense mixed commercial district where neighborhood retail, food and beverage, creative office users, local services, and transit access meet a more street-level environment than SoMa, Mission Bay, or the Financial District.",
+      guide_label: "Mixed commercial district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/marina-district/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Marina District Commercial District",
+      lead:
+        "Understand the Marina District as a northern San Francisco commercial area for local office, retail, wellness, medical, and client-facing service users that want neighborhood visibility and affluent customer access rather than downtown office density.",
+      guide_label: "Local commercial district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/richmond/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Richmond District Commercial District",
+      lead:
+        "Understand the Richmond District as a west-side San Francisco commercial area anchored by neighborhood-serving corridors, medical and professional services, local retail, and practical access to the Presidio, Golden Gate Park, and western neighborhoods.",
+      guide_label: "West-side commercial district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/sunset/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Sunset District Commercial District",
+      lead:
+        "Understand the Sunset District as a west-side San Francisco market for neighborhood retail, medical, professional-service, and local office users serving residential customer geography rather than downtown or campus-style office demand.",
+      guide_label: "West-side commercial district guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/presidio/") {
+    return {
+      eyebrow: "District Guide",
+      title: "Presidio Commercial District",
+      lead:
+        "Understand the Presidio as a distinctive campus-like San Francisco commercial setting, useful for organizations that value historic buildings, open-space identity, creative office character, and northern-city access more than downtown transit density.",
+      guide_label: "Campus district guide",
+    };
+  }
+
   if (pagePath === "/commercial-real-estate/CA/oakland/downtown-oakland/") {
     return {
       eyebrow: "District Guide",
@@ -4315,6 +4385,65 @@ const nashvilleMetroDistrictDefinitions = [
   { id: "nash-clarksville", name: "Clarksville", slug: "clarksville", city: "Clarksville", state_abbr: "TN", path: "/commercial-real-estate/TN/clarksville/clarksville/", centroid_lat: 36.529, centroid_lng: -87.359, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["regional_market", "manufacturing", "military_adjacent", "local_services"], representative_building_paths: [] },
 ];
 
+const sfEditorialDistrictDefinitions = [
+  {
+    id: "sf-mission",
+    name: "Mission",
+    slug: "mission",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/mission/",
+    centroid_lat: 37.759,
+    centroid_lng: -122.414,
+    area_type: "district",
+    approximate_space_types: ["retail", "office", "coworking"],
+    profile: ["local_services", "retail", "creative_office", "food_beverage"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-richmond-district",
+    name: "Richmond District",
+    slug: "richmond",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/richmond/",
+    centroid_lat: 37.78,
+    centroid_lng: -122.477,
+    area_type: "district",
+    approximate_space_types: ["retail", "office"],
+    profile: ["local_services", "medical", "retail", "neighborhood_commercial"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-sunset-district",
+    name: "Sunset District",
+    slug: "sunset",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/sunset/",
+    centroid_lat: 37.753,
+    centroid_lng: -122.493,
+    area_type: "district",
+    approximate_space_types: ["retail", "office"],
+    profile: ["local_services", "medical", "retail", "neighborhood_commercial"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-presidio",
+    name: "Presidio",
+    slug: "presidio",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/presidio/",
+    centroid_lat: 37.798,
+    centroid_lng: -122.466,
+    area_type: "district",
+    approximate_space_types: ["office", "coworking", "retail"],
+    profile: ["campus_office", "creative_office", "institutional", "visitor_serving"],
+    representative_building_paths: [],
+  },
+];
+
 const nycMetroPhase1DistrictDefinitions = [
   { id: "nyc-financial-district", name: "Financial District", slug: "financial-district", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/financial-district/", centroid_lat: 40.707, centroid_lng: -74.011, area_type: "downtown_core", approximate_space_types: ["office", "coworking", "retail"], profile: ["finance", "legal", "professional_services", "transit_oriented"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/115-broadway/", "/commercial-real-estate/building/NY/new-york/14-wall-st/", "/commercial-real-estate/building/NY/new-york/140-broadway/", "/commercial-real-estate/building/NY/new-york/165-broadway/", "/commercial-real-estate/building/NY/new-york/80-broad-st/", "/commercial-real-estate/building/NY/new-york/85-broad-st/"] },
   { id: "nyc-world-trade-tribeca", name: "World Trade Center / Tribeca", slug: "world-trade-center-tribeca", city: "New York", state_abbr: "NY", path: "/commercial-real-estate/NY/new-york/world-trade-center-tribeca/", centroid_lat: 40.715, centroid_lng: -74.011, area_type: "district", approximate_space_types: ["office", "coworking", "retail"], profile: ["finance", "creative_office", "professional_services", "lower_manhattan"], representative_building_paths: ["/commercial-real-estate/building/NY/new-york/100-church-st/", "/commercial-real-estate/building/NY/new-york/11-park-pl/", "/commercial-real-estate/building/NY/new-york/53-beach-st/", "/commercial-real-estate/building/NY/new-york/200-vesey-st/", "/commercial-real-estate/building/NY/new-york/99-hudson-st/"] },
@@ -5206,6 +5335,42 @@ function nycMetroPhase2DistrictPageFor(district) {
   };
 }
 
+function sfEditorialDistrictPageFor(district) {
+  return {
+    name: district.name,
+    slug: district.slug,
+    city: district.city,
+    state_abbr: district.state_abbr,
+    city_slug: slugify(district.city),
+    canonical_neighborhood_path: district.path,
+    centroid_lat: district.centroid_lat,
+    centroid_lng: district.centroid_lng,
+    radius: "",
+    geometry_quality: "sf_editorial_district_map_v1",
+    approximate_building_count: district.representative_building_paths.length,
+    approximate_space_types: district.approximate_space_types,
+    approximate_semantic_signals: district.profile.map(signalLabel).slice(0, 8),
+    representative_buildings: representativeBuildingsFromPaths(
+      district.representative_building_paths,
+      district.id
+    ),
+    commercial_area_id: district.id,
+    commercial_area_type: district.area_type,
+    commercial_area_type_label: clean(district.area_type).replace(/_/g, " "),
+    commercial_profile: district.profile,
+    source_confidence: "medium",
+    source_types: ["editorial_district_map_v1", "commercial_location_model"],
+    suppress_nearby_neighborhoods: false,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_sf_editorial_district_map_v1: true,
+    city_nav_priority: 4,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -5475,6 +5640,7 @@ const houstonMetroPages = houstonMetroDistrictDefinitions.map(houstonMetroDistri
 const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetroDistrictPageFor);
 const nycMetroPhase1Pages = nycMetroPhase1DistrictDefinitions.map(nycMetroPhase1DistrictPageFor);
 const nycMetroPhase2Pages = nycMetroPhase2DistrictDefinitions.map(nycMetroPhase2DistrictPageFor);
+const sfEditorialDistrictPages = sfEditorialDistrictDefinitions.map(sfEditorialDistrictPageFor);
 
 const allPagesByPath = new Map();
 
@@ -5658,6 +5824,13 @@ for (const page of nycMetroPhase1Pages) {
 }
 
 for (const page of nycMetroPhase2Pages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of sfEditorialDistrictPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

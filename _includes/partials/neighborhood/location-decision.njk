@@ -12,21 +12,27 @@
       {% endfor %}
     </div>
 
-    <div class="neighborhood-card-grid neighborhood-card-grid--compact">
-      <div class="neighborhood-mini-card">
-        <h3>Best fit</h3>
-        <ul class="mini-list">
+    <div class="neighborhood-location-fit-grid">
+      <div class="neighborhood-location-fit-panel neighborhood-location-fit-panel--best">
+        <h3><span aria-hidden="true">✓</span> Best fit</h3>
+        <ul class="neighborhood-location-fit-list">
           {% for item in locationModel.best_fit_businesses %}
-            <li>{{ item }}</li>
+            <li>
+              <span class="neighborhood-location-fit-list__icon" aria-hidden="true">✓</span>
+              <span>{{ item }}</span>
+            </li>
           {% endfor %}
         </ul>
       </div>
 
-      <div class="neighborhood-mini-card">
-        <h3>Less ideal for</h3>
-        <ul class="mini-list">
+      <div class="neighborhood-location-fit-panel neighborhood-location-fit-panel--poor">
+        <h3><span aria-hidden="true">×</span> Less ideal for</h3>
+        <ul class="neighborhood-location-fit-list">
           {% for item in locationModel.poor_fit_businesses %}
-            <li>{{ item }}</li>
+            <li>
+              <span class="neighborhood-location-fit-list__icon" aria-hidden="true">×</span>
+              <span>{{ item }}</span>
+            </li>
           {% endfor %}
         </ul>
       </div>

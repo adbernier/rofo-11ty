@@ -245,6 +245,251 @@ const districts = {
     confidence_level: "high",
     review_status: "editor_reviewed",
   },
+  "/commercial-real-estate/CA/san-francisco/union-square/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["retail_office_transition", "client_facing_professional_core"],
+    commercial_thesis:
+      "Union Square is San Francisco's visitor-facing retail, hospitality, and office-adjacent district, useful for businesses that value storefront visibility, hotels, transit, downtown access, and a more customer-facing setting than the Financial District.",
+    best_fit_businesses: [
+      "Retail, showroom, hospitality-support, and service businesses that benefit from central-city visibility",
+      "Small office and professional-service users that want downtown access without a formal tower-core setting",
+      "Teams comparing Union Square with the Financial District, Jackson Square, or Hayes Valley",
+    ],
+    poor_fit_businesses: [
+      "Large office users needing broad modern floorplates",
+      "Life-science or research users needing Mission Bay adjacency",
+      "Industrial, production, or loading-intensive users",
+    ],
+    compare_with: [
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        reason: "Compare if formal office-core identity matters more than retail and hospitality adjacency.",
+      },
+      {
+        district_name: "Jackson Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        reason: "Compare if boutique historic office character is more important than visitor-facing retail context.",
+      },
+      {
+        district_name: "Hayes Valley",
+        district_path: "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+        reason: "Compare if a smaller neighborhood-scale retail and service setting may fit better.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/hayes-valley/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["local_service_business_core", "retail_office_transition"],
+    commercial_thesis:
+      "Hayes Valley is a smaller mixed commercial district for boutique retail, local services, creative office, wellness, and client-facing users that want central San Francisco access with more neighborhood texture than the Financial District or Union Square.",
+    best_fit_businesses: [
+      "Boutique retail, wellness, design, and local-service businesses",
+      "Small office and creative users that value neighborhood character and central access",
+      "Businesses comparing Hayes Valley with Union Square, Civic Center, or the Mission",
+    ],
+    poor_fit_businesses: [
+      "Large corporate office users needing tower-core scale",
+      "Life-science users needing institutional adjacency",
+      "Industrial or logistics users needing loading, yard, or production formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Union Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/union-square/",
+        reason: "Compare if stronger visitor-facing retail and hotel adjacency matter.",
+      },
+      {
+        district_name: "Mission",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission/",
+        reason: "Compare if denser street-level food, retail, and creative-commercial texture may fit better.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if adaptive office buildings and broader central-city commercial scale matter more.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/mission/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["local_service_business_core", "central_city_creative_office"],
+    commercial_thesis:
+      "The Mission is a dense mixed commercial district for neighborhood retail, food and beverage, creative office, local services, and small professional users that want street-level activity and transit access rather than a formal downtown office setting.",
+    best_fit_businesses: [
+      "Food and beverage, local retail, wellness, and service businesses serving dense customer geography",
+      "Creative office and small professional users that want a more neighborhood-scaled setting",
+      "Teams comparing the Mission with SoMa, Hayes Valley, or Mission Bay",
+    ],
+    poor_fit_businesses: [
+      "Formal finance, legal, or enterprise office users needing a CBD address",
+      "Life-science users needing Mission Bay institutional adjacency",
+      "Businesses needing large loading, yard, or industrial formats",
+    ],
+    compare_with: [
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if broader adaptive office and central-city commercial scale may fit better.",
+      },
+      {
+        district_name: "Hayes Valley",
+        district_path: "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+        reason: "Compare if a smaller boutique retail and service district is a better fit.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        reason: "Compare if newer institutional, medical, or life-science adjacency matters more.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/marina-district/": {
+    primary_archetype: "local_service_business_core",
+    secondary_archetypes: ["mixed_use_professional_district", "client_facing_professional_core"],
+    commercial_thesis:
+      "The Marina District is a northern San Francisco local commercial district for retail, wellness, medical, small office, and client-facing service users that want neighborhood visibility and affluent customer access rather than downtown office density.",
+    best_fit_businesses: [
+      "Retail, wellness, medical, and service businesses serving northern San Francisco customers",
+      "Small professional-service users that value neighborhood visibility and client access",
+      "Businesses comparing the Marina with the Presidio, Richmond District, or Union Square",
+    ],
+    poor_fit_businesses: [
+      "Large office users needing transit-rich downtown scale",
+      "Life-science or research users needing institutional adjacency",
+      "Production, logistics, or warehouse users",
+    ],
+    compare_with: [
+      {
+        district_name: "Presidio",
+        district_path: "/commercial-real-estate/CA/san-francisco/presidio/",
+        reason: "Compare if a more campus-like historic office setting may fit better.",
+      },
+      {
+        district_name: "Richmond District",
+        district_path: "/commercial-real-estate/CA/san-francisco/richmond/",
+        reason: "Compare if west-side neighborhood customer access matters more.",
+      },
+      {
+        district_name: "Union Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/union-square/",
+        reason: "Compare if central-city visitor and retail visibility matters more.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/richmond/": {
+    primary_archetype: "local_service_business_core",
+    secondary_archetypes: ["medical_office_service_corridor", "retail_office_transition"],
+    commercial_thesis:
+      "The Richmond District is a west-side San Francisco commercial area for neighborhood-serving retail, medical office, professional services, and local businesses tied to corridors near Golden Gate Park, the Presidio, and western residential demand.",
+    best_fit_businesses: [
+      "Medical, wellness, professional-service, and local office users serving west-side customers",
+      "Retail and service businesses that benefit from neighborhood corridor visibility",
+      "Businesses comparing Richmond District with the Sunset District, Marina District, or Presidio",
+    ],
+    poor_fit_businesses: [
+      "Large downtown office users needing central transit and tower scale",
+      "Visitor-focused retailers needing Union Square or waterfront foot traffic",
+      "Industrial users needing loading-intensive building formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Sunset District",
+        district_path: "/commercial-real-estate/CA/san-francisco/sunset/",
+        reason: "Compare if southern west-side customer geography may fit better.",
+      },
+      {
+        district_name: "Marina District",
+        district_path: "/commercial-real-estate/CA/san-francisco/marina-district/",
+        reason: "Compare if northern San Francisco retail and service visibility matters more.",
+      },
+      {
+        district_name: "Presidio",
+        district_path: "/commercial-real-estate/CA/san-francisco/presidio/",
+        reason: "Compare if campus-like office character is more important than corridor retail context.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/sunset/": {
+    primary_archetype: "local_service_business_core",
+    secondary_archetypes: ["medical_office_service_corridor", "retail_office_transition"],
+    commercial_thesis:
+      "The Sunset District is a west-side San Francisco commercial market for neighborhood retail, medical, professional-service, and small office users serving local residential demand rather than downtown, waterfront, or campus-style office demand.",
+    best_fit_businesses: [
+      "Medical, wellness, local office, and professional-service users serving west-side customers",
+      "Retail and service businesses that need practical neighborhood visibility",
+      "Businesses comparing the Sunset District with Richmond District, Mission, or Hayes Valley",
+    ],
+    poor_fit_businesses: [
+      "Large downtown office users needing BART-rich central access",
+      "Life-science or institutional users needing Mission Bay adjacency",
+      "Warehouse or flex users needing production-oriented building formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Richmond District",
+        district_path: "/commercial-real-estate/CA/san-francisco/richmond/",
+        reason: "Compare if northern west-side customer access and Presidio adjacency matter more.",
+      },
+      {
+        district_name: "Mission",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission/",
+        reason: "Compare if denser central-city street activity and transit access matter more.",
+      },
+      {
+        district_name: "Hayes Valley",
+        district_path: "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+        reason: "Compare if smaller central San Francisco boutique retail and service context may fit better.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/presidio/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["historic_boutique_office_district", "local_service_business_core"],
+    commercial_thesis:
+      "The Presidio is a distinctive campus-like San Francisco commercial setting with historic buildings, open-space identity, creative office character, and northern-city access, useful for organizations that want a quieter alternative to downtown or neighborhood retail corridors.",
+    best_fit_businesses: [
+      "Organizations and creative office users that value campus-like identity and historic buildings",
+      "Teams that want northern San Francisco access without downtown density",
+      "Businesses comparing Presidio with Marina District, Richmond District, or Jackson Square",
+    ],
+    poor_fit_businesses: [
+      "Transit-first downtown office users",
+      "Retailers that depend on dense street-level shopping corridors",
+      "Industrial or logistics users needing loading and yard access",
+    ],
+    compare_with: [
+      {
+        district_name: "Marina District",
+        district_path: "/commercial-real-estate/CA/san-francisco/marina-district/",
+        reason: "Compare if neighborhood retail and service visibility matters more than campus character.",
+      },
+      {
+        district_name: "Richmond District",
+        district_path: "/commercial-real-estate/CA/san-francisco/richmond/",
+        reason: "Compare if west-side corridor access and local customer geography matter more.",
+      },
+      {
+        district_name: "Jackson Square",
+        district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
+        reason: "Compare if boutique historic office character with downtown adjacency matters more.",
+      },
+    ],
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
   "/commercial-real-estate/CA/oakland/downtown-oakland/": {
     primary_archetype: "transit_centered_civic_business_core",
     secondary_archetypes: ["secondary_downtown_office_core", "bart_centered_office_core"],
