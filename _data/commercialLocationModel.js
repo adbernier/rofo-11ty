@@ -3428,6 +3428,7 @@ Object.assign(districts, {
       {
         district_name: "North San Jose",
         district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/fremont/warm-springs-vs-north-san-jose/",
         reason: "Compare if San Jose office/R&D corridor access and airport proximity may fit better.",
       },
     ],
@@ -3513,6 +3514,250 @@ Object.assign(districts, {
       decision_context: [
         "Users needing Fremont industrial/flex buildings with Dumbarton and Peninsula access",
         "Companies comparing bridge-adjacent R&D/flex with Warm Springs' manufacturing/BART identity",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+});
+
+Object.assign(districts, {
+  "/commercial-real-estate/CA/hayward/hayward-industrial/": {
+    primary_archetype: "i880_warehouse_flex_corridor",
+    secondary_archetypes: ["service_commercial_industrial_market", "east_bay_logistics_access_market"],
+    commercial_thesis:
+      "Hayward Industrial is a central I-880 warehouse, manufacturing, logistics, and flex district shaped by Industrial Boulevard, Clawiter Road, Cabot Boulevard, Highway 92, and access toward the San Mateo Bridge.",
+    best_fit_businesses: [
+      "Warehouse, distribution, light manufacturing, and service-industrial users that need central East Bay access",
+      "Companies comparing Hayward with San Leandro, Union City, Fremont, and Oakland industrial alternatives",
+      "Operators that value truck access, freeway reach, and functional industrial buildings more than office-district identity",
+    ],
+    poor_fit_businesses: [
+      "Client-facing office users that need a polished downtown or transit-oriented setting",
+      "Retail-first businesses that depend on pedestrian visibility or lifestyle amenities",
+      "Advanced R&D users that need a stronger Silicon Valley campus or innovation signal",
+    ],
+    compare_with: [
+      {
+        district_name: "San Leandro Industrial",
+        district_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        comparison_path: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/",
+        reason: "Compare if Oakland-adjacent industrial access may matter more than Hayward's central I-880 and Highway 92 position.",
+      },
+      {
+        district_name: "Union City Industrial",
+        district_path: "/commercial-real-estate/CA/union-city/union-city-industrial/",
+        comparison_path: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-union-city-industrial/",
+        reason: "Compare if a smaller Tri-City industrial node between Hayward and Fremont may be more practical.",
+      },
+      {
+        district_name: "Fremont",
+        district_path: "/commercial-real-estate/CA/fremont/",
+        reason: "Compare if South East Bay R&D, advanced manufacturing, and Silicon Valley adjacency matter more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["operations_office", "industrial_support", "service_business"],
+      commute_pattern: ["i880", "highway_92", "san_mateo_bridge", "central_east_bay"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "warehouse_flex_logistics",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "office_warehouse", "manufacturing"],
+      tenant_fit: ["warehouse", "distribution", "light_manufacturing", "contractor", "service_industrial"],
+      decision_context: [
+        "Industrial users comparing Oakland/San Leandro access with Fremont and South Bay reach",
+        "Companies that need central East Bay logistics and manufacturing utility without Silicon Valley pricing signals",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/union-city/union-city-industrial/": {
+    primary_archetype: "i880_warehouse_flex_corridor",
+    secondary_archetypes: ["service_commercial_industrial_market", "silicon_valley_industrial_edge"],
+    commercial_thesis:
+      "Union City Industrial is a compact I-880 warehouse, flex, and light-manufacturing market between Hayward and Fremont, useful for companies that want East Bay industrial functionality with Tri-City and South Bay reach.",
+    best_fit_businesses: [
+      "Warehouse, flex, service-industrial, and light manufacturing users needing I-880 access",
+      "Companies comparing Hayward industrial depth with Fremont and Silicon Valley adjacency",
+      "Operations teams that value practical building formats and regional reach over a large office ecosystem",
+    ],
+    poor_fit_businesses: [
+      "Downtown office users that need walkability, transit-core identity, or client-facing amenities",
+      "Large corporate campus users that need a stronger technology district identity",
+      "Retail-first users that need destination foot traffic or lifestyle visibility",
+    ],
+    compare_with: [
+      {
+        district_name: "Hayward Industrial",
+        district_path: "/commercial-real-estate/CA/hayward/hayward-industrial/",
+        comparison_path: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-union-city-industrial/",
+        reason: "Compare if Hayward's larger industrial base and Highway 92 access may fit better.",
+      },
+      {
+        district_name: "Fremont",
+        district_path: "/commercial-real-estate/CA/fremont/",
+        comparison_path: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont/",
+        reason: "Compare if Fremont's broader R&D, advanced manufacturing, and Silicon Valley-adjacent ecosystem may be more useful.",
+      },
+      {
+        district_name: "Fremont Auto Mall Parkway",
+        district_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+        reason: "Compare if showroom, service-commercial, and Fremont customer access are part of the decision.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["operations_office", "industrial_support", "service_business"],
+      commute_pattern: ["i880", "union_city", "hayward", "fremont"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "warehouse_flex",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "office_warehouse", "service_commercial"],
+      tenant_fit: ["warehouse", "distribution", "light_manufacturing", "contractor", "operations"],
+      decision_context: [
+        "Users comparing a smaller Tri-City industrial node with deeper Hayward inventory",
+        "Businesses that want I-880 reach without committing fully to Fremont or North San Jose",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/fremont/pacific-commons/": {
+    primary_archetype: "service_commercial_industrial_market",
+    secondary_archetypes: ["silicon_valley_industrial_edge", "mixed_commercial_corridor"],
+    commercial_thesis:
+      "Fremont Pacific Commons is a mixed commercial, office/flex, service, and retail-adjacent node near I-880 and Auto Mall Parkway, giving tenants a Fremont alternative to North San Jose and Warm Springs.",
+    best_fit_businesses: [
+      "Office/flex, service-commercial, showroom, and operations users that benefit from retail adjacency and freeway access",
+      "Companies comparing Fremont customer access with North San Jose and South Bay R&D corridors",
+      "Businesses that want practical commercial buildings near Pacific Commons, Christy Street, and Auto Mall Parkway",
+    ],
+    poor_fit_businesses: [
+      "Heavy industrial users needing deep yard, rail, or port-adjacent logistics infrastructure",
+      "Urban office users that need a walkable downtown or Caltrain/BART office-core environment",
+      "Large technology campus users that need a stronger R&D campus identity than Pacific Commons provides",
+    ],
+    compare_with: [
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/fremont/pacific-commons-vs-north-san-jose/",
+        reason: "Compare if South Bay office/R&D corridor identity and airport access may matter more than Fremont mixed commercial access.",
+      },
+      {
+        district_name: "Fremont Auto Mall Parkway",
+        district_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+        reason: "Compare if showroom, service, and vehicle-oriented corridor visibility matter more.",
+      },
+      {
+        district_name: "Warm Springs Innovation District",
+        district_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        reason: "Compare if advanced manufacturing, R&D/flex, and BART adjacency are stronger priorities.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "office_flex_service_commercial",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["office_flex", "service_business", "showroom", "operations_office"],
+      commute_pattern: ["i880", "auto_mall_parkway", "fremont", "south_bay_access"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "flex_service_commercial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "light_industrial", "showroom", "service_commercial"],
+      tenant_fit: ["flex", "showroom", "service_industrial", "operations", "retail_adjacent_business"],
+      decision_context: [
+        "Businesses that need Fremont visibility and I-880 access but do not need a heavy industrial district",
+        "Companies comparing retail-adjacent office/flex with North San Jose technology corridor buildings",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/fremont/auto-mall-parkway/": {
+    primary_archetype: "service_commercial_industrial_market",
+    secondary_archetypes: ["silicon_valley_industrial_edge", "showroom_service_corridor"],
+    commercial_thesis:
+      "Fremont Auto Mall Parkway is a showroom, service-commercial, office/flex, and light industrial corridor connecting Pacific Commons, I-880, and Fremont's broader business geography.",
+    best_fit_businesses: [
+      "Showroom, service-commercial, office/flex, and light industrial users that benefit from corridor visibility",
+      "Businesses comparing Fremont customer access with Union City industrial and Warm Springs manufacturing/flex options",
+      "Companies that need practical buildings near I-880 without a pure warehouse-district setting",
+    ],
+    poor_fit_businesses: [
+      "Heavy logistics users needing deep truck courts, large yards, or port-oriented distribution infrastructure",
+      "Client-facing downtown office users that prioritize walkability and transit-core identity",
+      "Large campus users that need a branded technology district or corporate office environment",
+    ],
+    compare_with: [
+      {
+        district_name: "Fremont Pacific Commons",
+        district_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+        reason: "Compare if retail-adjacent mixed commercial access near Pacific Commons matters more.",
+      },
+      {
+        district_name: "Warm Springs Innovation District",
+        district_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        reason: "Compare if advanced manufacturing, R&D/flex, and BART-adjacent innovation context are more important.",
+      },
+      {
+        district_name: "Union City Industrial",
+        district_path: "/commercial-real-estate/CA/union-city/union-city-industrial/",
+        reason: "Compare if a more traditional warehouse/flex district north of Fremont may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "showroom_service_commercial",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["showroom", "service_business", "office_flex", "operations_office"],
+      commute_pattern: ["i880", "auto_mall_parkway", "fremont", "tri_city"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "light_industrial_showroom_flex",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["showroom", "office_flex", "light_industrial", "service_commercial"],
+      tenant_fit: ["showroom", "service_industrial", "flex", "contractor", "operations"],
+      decision_context: [
+        "Businesses comparing Fremont service-commercial visibility with more traditional Union City and Hayward industrial options",
+        "Users that want I-880 access and customer-facing utility more than a pure logistics setting",
       ],
     },
     confidence_level: "medium",
