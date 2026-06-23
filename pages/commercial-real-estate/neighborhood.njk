@@ -240,31 +240,20 @@ eleventyComputed:
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
         {% endif %}
 
-        {% if hasBuildings or not hasRepresentativeBuildingCards %}
+        {% if hasBuildings %}
           <section class="city-card">
             <div class="eyebrow">Representative Buildings</div>
-            {% if hasBuildings %}
-              <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
-              <p>
-                Selected examples that help ground the area's commercial texture.
-              </p>
-              <div class="building-grid neighborhood-building-grid">
-                {% for b in neighborhood.representative_buildings %}
-                  {% set building = b %}
-                  {% set building_card_variant = "neighborhood" %}
-                  {% include "partials/shared/building-card-compact.njk" %}
-                {% endfor %}
-              </div>
-            {% else %}
-              <h2>Explore opportunities in {{ neighborhoodDisplayNameWithArticle }}</h2>
-              <p>
-                Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with nearby areas, related space types, and the broader {{ neighborhood.city }} market.
-              </p>
-              <div class="button-row">
-                <a class="btn-primary" href="{{ cityLeadUrl }}">Get help exploring this area</a>
-                <a class="btn-secondary" href="{{ cityUrl }}">View {{ neighborhood.city }} market</a>
-              </div>
-            {% endif %}
+            <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
+            <p>
+              Selected examples that help ground the area's commercial texture.
+            </p>
+            <div class="building-grid neighborhood-building-grid">
+              {% for b in neighborhood.representative_buildings %}
+                {% set building = b %}
+                {% set building_card_variant = "neighborhood" %}
+                {% include "partials/shared/building-card-compact.njk" %}
+              {% endfor %}
+            </div>
           </section>
         {% endif %}
 

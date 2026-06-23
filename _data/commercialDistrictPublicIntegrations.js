@@ -1211,6 +1211,188 @@ Object.assign(integrationsByPath, {
 });
 
 Object.assign(integrationsByPath, {
+  "/commercial-real-estate/CA/richmond/richmond-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare East Bay industrial alternatives",
+    intro:
+      "Use these relationships to compare Richmond Industrial with nearby East Bay districts that solve different warehouse, service-industrial, and office/R&D-adjacent needs.",
+    districts: [
+      {
+        name: "San Leandro Industrial",
+        url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        relationship_type: "I-880 industrial contrast",
+        note: "More Oakland airport-adjacent and North I-880 oriented than Richmond's I-80/I-580 industrial setting.",
+      },
+      {
+        name: "Emeryville",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science contrast",
+        note: "More office, life-science support, and mixed commercial than Richmond's industrial utility.",
+      },
+      {
+        name: "Point Richmond / Marina Bay",
+        url: "/commercial-real-estate/CA/richmond/point-richmond-marina-bay/",
+        relationship_type: "Waterfront flex alternative",
+        note: "Lighter, more waterfront-oriented, and less industrial than the core Richmond industrial areas.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/richmond/point-richmond-marina-bay/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Richmond waterfront and East Bay alternatives",
+    intro:
+      "Compare Point Richmond / Marina Bay with nearby waterfront, office/flex, and industrial settings when East Bay access and building character both matter.",
+    districts: [
+      {
+        name: "Richmond Industrial",
+        url: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+        relationship_type: "Industrial utility contrast",
+        note: "More warehouse, manufacturing, and logistics oriented than the Point Richmond / Marina Bay setting.",
+      },
+      {
+        name: "Alameda Waterfront / Harbor Bay",
+        url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+        relationship_type: "Waterfront business comparison",
+        note: "More Oakland-adjacent, with local retail, office, and light flex context.",
+      },
+      {
+        name: "Emeryville",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Structured commercial node",
+        note: "More established as an office, life-science support, and mixed commercial district.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Alameda and Oakland waterfront alternatives",
+    intro:
+      "Use these relationships to compare Alameda's waterfront and Harbor Bay commercial setting with nearby Oakland, Richmond, and San Leandro options.",
+    districts: [
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Oakland waterfront contrast",
+        note: "More Oakland-downtown adjacent, adaptive, and visitor-oriented than Alameda's quieter business setting.",
+      },
+      {
+        name: "San Leandro Industrial",
+        url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        relationship_type: "Operational industrial alternative",
+        note: "More warehouse/flex and service-industrial oriented than Alameda's mixed waterfront context.",
+      },
+      {
+        name: "Point Richmond / Marina Bay",
+        url: "/commercial-real-estate/CA/richmond/point-richmond-marina-bay/",
+        relationship_type: "East Bay waterfront comparison",
+        note: "More Richmond/I-580 oriented, with a different waterfront office/flex profile.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare North I-880 industrial districts",
+    intro:
+      "Use these relationships to compare San Leandro Industrial with Oakland airport-area, East Oakland, and Richmond industrial alternatives.",
+    districts: [
+      {
+        name: "Hegenberger Corridor",
+        url: "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+        relationship_type: "Airport-area comparison",
+        note: "More directly tied to Oakland Airport and Hegenberger visibility.",
+      },
+      {
+        name: "Richmond Industrial",
+        url: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+        relationship_type: "Northern East Bay contrast",
+        note: "More I-80/I-580 and Richmond manufacturing/logistics oriented.",
+      },
+      {
+        name: "Coliseum Industrial",
+        url: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+        relationship_type: "East Oakland industrial alternative",
+        note: "More East Oakland and Coliseum-area industrial in character.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/hegenberger-corridor/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Oakland airport-area industrial options",
+    intro:
+      "Compare Hegenberger Corridor with nearby industrial districts when airport access, I-880, and operational building formats are central to the search.",
+    districts: [
+      {
+        name: "San Leandro Industrial",
+        url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        relationship_type: "North I-880 comparison",
+        note: "More San Leandro service-industrial and contractor-oriented than Hegenberger's airport corridor.",
+      },
+      {
+        name: "Coliseum Industrial",
+        url: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+        relationship_type: "East Oakland industrial alternative",
+        note: "More East Oakland industrial and transit-adjacent than the Hegenberger airport corridor.",
+      },
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront adaptive contrast",
+        note: "More waterfront, adaptive-commercial, and office/service oriented.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/coliseum-industrial/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare East Oakland industrial alternatives",
+    intro:
+      "Use these relationships to read Coliseum Industrial as part of the East Bay warehouse/flex and service-industrial graph, not a standalone neighborhood page.",
+    districts: [
+      {
+        name: "Hegenberger Corridor",
+        url: "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+        relationship_type: "Airport corridor comparison",
+        note: "More airport-adjacent and Hegenberger-service oriented.",
+      },
+      {
+        name: "San Leandro Industrial",
+        url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        relationship_type: "I-880 service-industrial alternative",
+        note: "More San Leandro and North I-880 oriented.",
+      },
+      {
+        name: "West Oakland",
+        url: "/commercial-real-estate/CA/oakland/west-oakland/",
+        relationship_type: "Port-adjacent urban industrial contrast",
+        note: "More downtown-edge, adaptive, and port-adjacent than Coliseum Industrial.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/oakland/west-oakland/": {
+    eyebrow: "Nearby commercial districts",
+    heading: "Compare Oakland and East Bay adaptive industrial settings",
+    intro:
+      "Use these relationships to read West Oakland as urban industrial-transition geography near Downtown Oakland, Jack London Square, Emeryville, and the broader East Bay industrial graph.",
+    districts: [
+      {
+        name: "Emeryville",
+        url: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        relationship_type: "Office/life-science node contrast",
+        note: "More structured, office/life-science, and business-park oriented than West Oakland.",
+      },
+      {
+        name: "Jack London Square",
+        url: "/commercial-real-estate/CA/oakland/jack-london-square/",
+        relationship_type: "Waterfront adaptive comparison",
+        note: "More waterfront and visitor/service-commercial oriented.",
+      },
+      {
+        name: "Coliseum Industrial",
+        url: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+        relationship_type: "East Oakland industrial contrast",
+        note: "More warehouse/flex and I-880 industrial than West Oakland's downtown-edge texture.",
+      },
+    ],
+  },
   "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/": {
     eyebrow: "Nearby commercial districts",
     heading: "Compare central Marin commercial alternatives",

@@ -278,6 +278,121 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "richmond-industrial-vs-emeryville",
+    title: "Richmond Industrial vs Emeryville",
+    short_title: "Richmond Industrial vs Emeryville",
+    city: "Richmond",
+    state_abbr: "CA",
+    city_slug: "richmond",
+    path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-emeryville/",
+    district_a_name: "Richmond Industrial",
+    district_b_name: "Emeryville",
+    district_a_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+    district_b_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    verdict_a:
+      "Choose Richmond Industrial if warehouse, manufacturing, service-industrial, or logistics utility matters more than office polish.",
+    verdict_b:
+      "Choose Emeryville if office, life-science support, R&D, and mixed commercial amenities are a better match.",
+    comparison_notes: [
+      "Richmond Industrial is more operational, freeway-oriented, and industrial in character.",
+      "Emeryville is more structured as an office, life-science support, and mixed commercial node between Oakland and Berkeley.",
+      "This decision is often about industrial functionality versus office/R&D-adjacent commercial identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "richmond-industrial-vs-san-leandro-industrial",
+    title: "Richmond Industrial vs San Leandro Industrial",
+    short_title: "Richmond Industrial vs San Leandro Industrial",
+    city: "Richmond",
+    state_abbr: "CA",
+    city_slug: "richmond",
+    path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/",
+    district_a_name: "Richmond Industrial",
+    district_b_name: "San Leandro Industrial",
+    district_a_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+    district_b_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+    verdict_a:
+      "Choose Richmond Industrial if northern East Bay, I-80/I-580, manufacturing, or warehouse utility is the priority.",
+    verdict_b:
+      "Choose San Leandro Industrial if Oakland-adjacent, North I-880, airport-area, and service-commercial access matter more.",
+    comparison_notes: [
+      "Richmond Industrial is stronger for northern East Bay industrial reach and I-80/I-580 positioning.",
+      "San Leandro Industrial is stronger for Oakland, airport-area, and North I-880 service-industrial access.",
+      "Both are functional industrial choices, but they solve different customer, workforce, and freeway-access needs.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "alameda-waterfront-harbor-bay-vs-jack-london-square",
+    title: "Alameda Waterfront / Harbor Bay vs Jack London Square",
+    short_title: "Alameda Waterfront vs Jack London Square",
+    city: "Alameda",
+    state_abbr: "CA",
+    city_slug: "alameda",
+    path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-jack-london-square/",
+    district_a_name: "Alameda Waterfront / Harbor Bay",
+    district_b_name: "Jack London Square",
+    district_a_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+    district_b_path: "/commercial-real-estate/CA/oakland/jack-london-square/",
+    verdict_a:
+      "Choose Alameda Waterfront / Harbor Bay if parking-practical waterfront office, local service, retail, or light flex context is the priority.",
+    verdict_b:
+      "Choose Jack London Square if Oakland waterfront identity, adaptive commercial buildings, and downtown-adjacent activity matter more.",
+    comparison_notes: [
+      "Alameda Waterfront / Harbor Bay is quieter, more parking-practical, and more local-service oriented.",
+      "Jack London Square is more Oakland-downtown adjacent, waterfront-adaptive, and visitor/service-commercial in feel.",
+      "The decision is often about Alameda business-park practicality versus Oakland waterfront identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "san-leandro-industrial-vs-hegenberger-corridor",
+    title: "San Leandro Industrial vs Hegenberger Corridor",
+    short_title: "San Leandro Industrial vs Hegenberger",
+    city: "San Leandro",
+    state_abbr: "CA",
+    city_slug: "san-leandro",
+    path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial-vs-hegenberger-corridor/",
+    district_a_name: "San Leandro Industrial",
+    district_b_name: "Hegenberger Corridor",
+    district_a_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+    district_b_path: "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+    verdict_a:
+      "Choose San Leandro Industrial if North I-880 service-industrial access, contractor utility, and Oakland-adjacent reach matter most.",
+    verdict_b:
+      "Choose Hegenberger Corridor if airport-area visibility, Oakland Airport proximity, and I-880 corridor exposure are stronger priorities.",
+    comparison_notes: [
+      "San Leandro Industrial is more of a practical service-industrial and warehouse/flex setting.",
+      "Hegenberger Corridor is more directly tied to Oakland Airport and airport-area commercial visibility.",
+      "Both fit operational users, but Hegenberger is more airport-corridor oriented while San Leandro is broader North I-880 industrial.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "west-oakland-vs-emeryville",
+    title: "West Oakland vs Emeryville",
+    short_title: "West Oakland vs Emeryville",
+    city: "Oakland",
+    state_abbr: "CA",
+    city_slug: "oakland",
+    path: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/",
+    district_a_name: "West Oakland",
+    district_b_name: "Emeryville",
+    district_a_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+    district_b_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    verdict_a:
+      "Choose West Oakland if urban industrial-transition texture, port-adjacent access, and adaptive commercial buildings matter more.",
+    verdict_b:
+      "Choose Emeryville if a more organized office, life-science support, R&D, and mixed commercial node is the better fit.",
+    comparison_notes: [
+      "West Oakland is more industrial-transition, port-adjacent, and downtown-edge in character.",
+      "Emeryville is more structured, office/life-science oriented, and business-park-like around Powell, Christie, Horton, and Shellmound.",
+      "The decision is strongest for teams weighing adaptive Oakland utility against a more established East Bay office/R&D node.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "walnut-creek-vs-downtown-oakland",
     title: "Walnut Creek vs Downtown Oakland",
     short_title: "Walnut Creek vs Downtown Oakland",
@@ -3812,6 +3927,10 @@ const warehouseFlexComparisonSlugs = new Set([
   "tacoma-vs-kent-valley",
   "renton-vs-tukwila",
   "everett-vs-tacoma",
+  "richmond-industrial-vs-emeryville",
+  "richmond-industrial-vs-san-leandro-industrial",
+  "san-leandro-industrial-vs-hegenberger-corridor",
+  "west-oakland-vs-emeryville",
 ]);
 
 module.exports = comparisons.map((comparison) => {
