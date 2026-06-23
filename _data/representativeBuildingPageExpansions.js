@@ -80,6 +80,31 @@ function building({
   };
 }
 
+function representativeBuilding({
+  address,
+  city,
+  district,
+  role,
+  setting,
+  location,
+  best_for,
+  type = "Industrial Space",
+  primary_space_type = "industrial",
+}) {
+  return building({
+    address,
+    city,
+    district,
+    role,
+    description: `${address} is a ${role} in ${district.name}.`,
+    about: setting,
+    location,
+    best_for,
+    type,
+    primary_space_type,
+  });
+}
+
 const soma = area("sf-soma", "SoMa", "San Francisco", "CA", "district");
 const missionBay = area("sf-mission-bay", "Mission Bay", "San Francisco", "CA", "district");
 const oldOakland = area("oak-old-oakland", "Old Oakland", "Oakland", "CA", "district");
@@ -89,8 +114,577 @@ const emeryville = area("eb-emeryville-commercial-core", "Emeryville", "Emeryvil
 const downtownBerkeley = area("eb-downtown-berkeley", "Downtown Berkeley", "Berkeley", "CA", "downtown_core");
 const westBerkeley = area("eb-west-berkeley", "West Berkeley", "Berkeley", "CA", "district");
 const moffettPark = area("sb-moffett-park", "Moffett Park", "Sunnyvale", "CA", "district");
+const richmondIndustrial = area("eb-richmond-industrial", "Richmond Industrial", "Richmond", "CA", "industrial_area");
+const pointRichmondMarinaBay = area("eb-point-richmond-marina-bay", "Point Richmond / Marina Bay", "Richmond", "CA", "district");
+const sanLeandroIndustrial = area("eb-san-leandro-industrial", "San Leandro Industrial", "San Leandro", "CA", "industrial_area");
+const hegenbergerCorridor = area("oak-hegenberger-corridor", "Hegenberger Corridor", "Oakland", "CA", "industrial_area");
+const coliseumIndustrial = area("oak-coliseum-industrial", "Coliseum Industrial", "Oakland", "CA", "industrial_area");
+const westOakland = area("oak-west-oakland", "West Oakland", "Oakland", "CA", "district");
 
 module.exports = [
+  representativeBuilding({
+    address: "3065 Richmond Pky",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Richmond Parkway industrial building",
+    setting:
+      "A straightforward warehouse and service-industrial address in the Richmond Parkway corridor, useful for tenants comparing Richmond's larger-format industrial options with San Leandro or Oakland.",
+    location:
+      "3065 Richmond Pky sits in Richmond's north-side industrial corridor, with practical access back toward I-80, I-580, and Richmond's port-oriented business base.",
+    best_for: ["Warehouse users", "Service-industrial businesses", "Tenants comparing East Bay logistics corridors"],
+  }),
+  representativeBuilding({
+    address: "3033 Richmond Pky",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Richmond Parkway flex / industrial building",
+    setting:
+      "A practical industrial building that helps show how Richmond Parkway serves warehouse, service, and contractor users outside the denser Oakland and Emeryville districts.",
+    location:
+      "3033 Richmond Pky is part of the Richmond Parkway commercial environment north of central Richmond and the Inner Harbor.",
+    best_for: ["Flex users", "Light industrial tenants", "Local distribution businesses"],
+  }),
+  representativeBuilding({
+    address: "3095 Richmond Pky",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Richmond Parkway warehouse building",
+    setting:
+      "A warehouse-oriented building in Richmond's north-side industrial market, where businesses often prioritize truck access, operating space, and regional roadway connections.",
+    location:
+      "3095 Richmond Pky sits near other Richmond Parkway industrial buildings serving local and regional operators.",
+    best_for: ["Warehouse users", "Industrial service businesses", "Tenants needing Richmond Parkway access"],
+  }),
+  representativeBuilding({
+    address: "1150 Hensley St",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "central Richmond industrial building",
+    setting:
+      "A central Richmond industrial building that reflects the older production, service, and warehouse blocks near the city's Inner Harbor access routes.",
+    location:
+      "1150 Hensley St sits in Richmond's central industrial grid, close to routes connecting I-580, I-80, and waterfront commercial areas.",
+    best_for: ["Service-industrial users", "Small warehouse tenants", "Businesses needing central Richmond access"],
+  }),
+  representativeBuilding({
+    address: "1069 Hensley St",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Hensley Street industrial building",
+    setting:
+      "A smaller industrial building in central Richmond, useful for tenants looking at contractor, production, and service-commercial space near the Inner Harbor side of the city.",
+    location:
+      "1069 Hensley St is close to central Richmond industrial blocks and the east-west routes leading toward I-580 and the waterfront.",
+    best_for: ["Contractor businesses", "Light industrial users", "Tenants comparing Richmond industrial subareas"],
+  }),
+  representativeBuilding({
+    address: "211 W Cutting Blvd",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Cutting Boulevard industrial building",
+    setting:
+      "A Richmond industrial building on a corridor that connects central Richmond with waterfront, port-adjacent, and Point Richmond commercial areas.",
+    location:
+      "211 W Cutting Blvd sits west of central Richmond, near routes leading to Canal Boulevard, I-580, and the Inner Harbor.",
+    best_for: ["Industrial service users", "Warehouse-adjacent businesses", "Tenants needing Richmond waterfront access"],
+  }),
+  representativeBuilding({
+    address: "1 Barrett Ave",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Barrett Avenue flex / industrial building",
+    setting:
+      "A smaller-scale flex and industrial building that shows Richmond's central commercial grid, not just its larger Parkway and port-adjacent facilities.",
+    location:
+      "1 Barrett Ave sits near central Richmond and the access routes that connect toward Point Richmond, I-580, and the Inner Harbor.",
+    best_for: ["Flex users", "Small industrial businesses", "Service companies needing central Richmond access"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "5215 Central Ave",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Central Avenue industrial / flex building",
+    setting:
+      "A southern Richmond flex/industrial building that helps tenants compare Richmond with West Berkeley and Emeryville along the I-80 edge.",
+    location:
+      "5215 Central Ave sits near I-80 and the transition between Richmond, Berkeley, and Emeryville commercial geography.",
+    best_for: ["Flex and industrial users", "East Bay service businesses", "Tenants comparing Richmond with West Berkeley"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "4911 Central Ave",
+    city: "Richmond",
+    district: richmondIndustrial,
+    role: "Central Avenue industrial building",
+    setting:
+      "A southern Richmond industrial building that rounds out the district beyond the port and Richmond Parkway corridors.",
+    location:
+      "4911 Central Ave sits near Richmond's southern I-80 access and the industrial/flex geography continuing into West Berkeley and Emeryville.",
+    best_for: ["Light industrial users", "Flex businesses", "Tenants comparing Richmond, Berkeley, and Emeryville"],
+  }),
+  representativeBuilding({
+    address: "1400 Harbour Way S",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "waterfront flex / commercial building",
+    setting:
+      "A Ford Point waterfront building that captures the district's adaptive office, flex, production-adjacent, and R&D-support character near the bay.",
+    location:
+      "1400 Harbour Way S sits on Richmond's southern waterfront near Marina Bay, Canal Boulevard, and the Inner Harbor.",
+    best_for: ["Creative office users", "R&D and production-adjacent teams", "Businesses wanting a waterfront East Bay setting"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "1200 Harbour Way S",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Harbour Way waterfront flex building",
+    setting:
+      "A waterfront flex building that helps distinguish Point Richmond / Marina Bay from inland Richmond industrial corridors.",
+    location:
+      "1200 Harbour Way S sits near Ford Point, Marina Bay, and Canal Boulevard in Richmond's waterfront business cluster.",
+    best_for: ["Flex users", "Waterfront office teams", "Companies comparing Point Richmond with Emeryville"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "1050-1090 Marina Way S",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Marina Way commercial / flex building",
+    setting:
+      "A Marina Bay building that shows the district's mix of office, flex, and service-commercial space near Richmond's waterfront.",
+    location:
+      "1050-1090 Marina Way S sits near Harbour Way, Regatta Boulevard, and Canal Boulevard.",
+    best_for: ["Small office users", "Flex tenants", "Service-commercial businesses"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "1121 Regatta Blvd",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Marina Bay business-park building",
+    setting:
+      "A business-park building that gives Point Richmond / Marina Bay a more planned office/flex feel than Richmond's heavier industrial corridors.",
+    location:
+      "1121 Regatta Blvd sits near Marina Bay, Harbour Way, and Richmond's southern waterfront office/flex environment.",
+    best_for: ["Office/flex users", "Professional-service teams", "Companies wanting waterfront East Bay context"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "1001 Canal Blvd",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Canal Boulevard industrial building",
+    setting:
+      "A practical industrial building near the Point Richmond and Marina Bay corridors, useful for tenants comparing waterfront and port-adjacent Richmond locations.",
+    location:
+      "1001 Canal Blvd sits near Point Richmond, the Inner Harbor, and the routes connecting Marina Bay to I-580.",
+    best_for: ["Industrial and flex users", "Waterfront service businesses", "Tenants needing Richmond bay access"],
+  }),
+  representativeBuilding({
+    address: "100-104 Washington Ave",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Point Richmond smaller-scale commercial building",
+    setting:
+      "A smaller commercial building that adds local Point Richmond texture alongside the district's larger waterfront flex and industrial addresses.",
+    location:
+      "100-104 Washington Ave sits in Point Richmond, close to Canal Boulevard, Marina Bay, and the Inner Harbor access routes.",
+    best_for: ["Small office users", "Local service businesses", "Tenants wanting a smaller Point Richmond setting"],
+    type: "Office Space",
+    primary_space_type: "office",
+  }),
+  representativeBuilding({
+    address: "830 Marina Way S",
+    city: "Richmond",
+    district: pointRichmondMarinaBay,
+    role: "Marina Way industrial / flex building",
+    setting:
+      "An industrial/flex building that reinforces Marina Bay's practical waterfront business character rather than a purely office or retail identity.",
+    location:
+      "830 Marina Way S sits near Richmond's southern waterfront and the Marina Bay business environment.",
+    best_for: ["Flex users", "Light industrial businesses", "Tenants comparing Richmond waterfront and inland industrial areas"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "2400 Teagarden St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Teagarden Street industrial building",
+    setting:
+      "A warehouse and service-industrial building that reflects San Leandro's I-880 and airport-adjacent industrial base.",
+    location:
+      "2400 Teagarden St sits near San Leandro's warehouse and business-park corridors with access toward I-880, Doolittle Drive, and Oakland Airport.",
+    best_for: ["Warehouse users", "Service-industrial businesses", "Tenants comparing San Leandro with Oakland airport-area corridors"],
+  }),
+  representativeBuilding({
+    address: "2010 Williams St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Williams Street industrial building",
+    setting:
+      "A larger industrial building that helps show the scale of San Leandro's west-side production, storage, and distribution corridors.",
+    location:
+      "2010 Williams St sits near other San Leandro industrial buildings west of the downtown core and close to regional freight routes.",
+    best_for: ["Industrial users", "Manufacturing and service businesses", "Companies needing I-880 access"],
+  }),
+  representativeBuilding({
+    address: "1670 Alvarado St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Alvarado Street business-park building",
+    setting:
+      "A business-park building that fits San Leandro's mix of light industrial, service, and flex users near I-880.",
+    location:
+      "1670 Alvarado St sits near the Alvarado and Davis Street commercial environment west of downtown San Leandro.",
+    best_for: ["Flex users", "Light industrial tenants", "Service businesses comparing East Bay airport-area options"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "3018 Alvarado St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Alvarado Business Center flex building",
+    setting:
+      "A multi-tenant flex and industrial building that shows the smaller-user side of San Leandro's business-park inventory.",
+    location:
+      "3018 Alvarado St sits in San Leandro's Alvarado corridor, near Davis Street, Merced Street, and I-880 access.",
+    best_for: ["Small industrial users", "Flex tenants", "Companies needing functional East Bay space"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "321 Davis St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Davis Street industrial / flex building",
+    setting:
+      "A flex-oriented building on Davis Street, where San Leandro blends industrial users with office and service-commercial activity.",
+    location:
+      "321 Davis St sits near central San Leandro and the west-side industrial corridors that feed toward I-880 and Doolittle Drive.",
+    best_for: ["Flex users", "Service-commercial businesses", "Tenants needing San Leandro corridor access"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "500 Davis St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Davis Street office / business-park building",
+    setting:
+      "An office/business-park building that shows San Leandro Industrial is not only warehouse space; it also serves operations, support, and professional-service users.",
+    location:
+      "500 Davis St sits along the Davis Street commercial corridor, close to central San Leandro and west-side industrial routes.",
+    best_for: ["Professional-service users", "Operations teams needing office near industrial corridors", "Companies comparing San Leandro and Hegenberger"],
+    type: "Office Space",
+    primary_space_type: "office",
+  }),
+  representativeBuilding({
+    address: "2091 Williams St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Williams Street industrial building",
+    setting:
+      "A production and warehouse-oriented building that adds depth to San Leandro's west-side industrial corridor.",
+    location:
+      "2091 Williams St sits among industrial buildings with access toward I-880, Doolittle Drive, and Oakland Airport.",
+    best_for: ["Manufacturing and service users", "Warehouse tenants", "Industrial businesses comparing I-880 corridors"],
+  }),
+  representativeBuilding({
+    address: "2700 Merced St",
+    city: "San Leandro",
+    district: sanLeandroIndustrial,
+    role: "Merced Street industrial building",
+    setting:
+      "A west-side industrial building that helps explain San Leandro's depth for local distribution, service, and warehouse users.",
+    location:
+      "2700 Merced St sits near Alvarado Street, Williams Street, and I-880 access in San Leandro's industrial district.",
+    best_for: ["Warehouse users", "Service-industrial tenants", "Businesses needing I-880 and airport-area access"],
+  }),
+  representativeBuilding({
+    address: "433 Hegenberger Rd",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Hegenberger Road office / service-commercial building",
+    setting:
+      "An airport-area building that helps show Hegenberger's mix of office, service, hotel-adjacent, and logistics-adjacent uses.",
+    location:
+      "433 Hegenberger Rd sits near the Hegenberger Road and airport-access spine, close to Edgewater Drive and the Coliseum industrial area.",
+    best_for: ["Airport-adjacent office users", "Service-commercial teams", "Businesses comparing Hegenberger with San Leandro"],
+    type: "Office Space",
+    primary_space_type: "office",
+  }),
+  representativeBuilding({
+    address: "333 Hegenberger Rd",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Hegenberger Road office building",
+    setting:
+      "A familiar airport-area office building for tenants that want Hegenberger access rather than a downtown Oakland setting.",
+    location:
+      "333 Hegenberger Rd sits along Hegenberger Road near Oakland Airport, I-880, and the Edgewater business environment.",
+    best_for: ["Professional-service users", "Airport-oriented businesses", "Teams comparing office and industrial-adjacent locations"],
+    type: "Office Space",
+    primary_space_type: "office",
+  }),
+  representativeBuilding({
+    address: "303 Hegenberger Rd",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Hegenberger Road office / flex building",
+    setting:
+      "An office/flex building that fits the corridor's practical airport-area mix of service, office, and light industrial users.",
+    location:
+      "303 Hegenberger Rd sits near the core Hegenberger Road business strip, close to airport hotels, service businesses, and industrial corridors.",
+    best_for: ["Office/flex users", "Airport-area service teams", "Businesses comparing Hegenberger and Coliseum Industrial"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "675 Hegenberger Rd",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Hegenberger corridor commercial building",
+    setting:
+      "A service-commercial and office/flex building on the airport approach side of Hegenberger Road.",
+    location:
+      "675 Hegenberger Rd sits south of the core Hegenberger business strip, close to airport access and nearby industrial buildings.",
+    best_for: ["Service-commercial users", "Office/flex tenants", "Airport-adjacent businesses"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "8000 Edgewater Dr",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Edgewater Drive business-park building",
+    setting:
+      "A business-park building that adds the Edgewater Drive side of the airport-area market to Hegenberger's office and service-commercial context.",
+    location:
+      "8000 Edgewater Dr sits near Oakland Airport, I-880, and the Edgewater/Oakport business environment.",
+    best_for: ["Business-park users", "Office/flex teams", "Companies needing Oakland Airport access"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "8301 Edgewater Dr",
+    city: "Oakland",
+    district: hegenbergerCorridor,
+    role: "Edgewater Drive flex building",
+    setting:
+      "A flex building that rounds out Hegenberger with practical airport-area business-park space close to I-880.",
+    location:
+      "8301 Edgewater Dr sits near Hegenberger Road, Oakport Street, and the airport-facing side of East Oakland.",
+    best_for: ["Flex users", "Airport-area service businesses", "Operations teams comparing Oakland and San Leandro"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "7303 Edgewater Dr",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "Edgewater Drive industrial building",
+    setting:
+      "A warehouse and industrial building that shows the larger business-park side of Coliseum Industrial near I-880 and Oakland Airport.",
+    location:
+      "7303 Edgewater Dr sits near Oakport Street, Hegenberger Road, and the broader Coliseum industrial market.",
+    best_for: ["Warehouse and distribution users", "Industrial service businesses", "Tenants comparing Coliseum and Hegenberger"],
+  }),
+  representativeBuilding({
+    address: "7307 Edgewater Dr",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "Edgewater Drive industrial / flex building",
+    setting:
+      "An industrial/flex building useful for tenants evaluating functional space near the airport, Coliseum, I-880, and Oakland's port-connected network.",
+    location:
+      "7307 Edgewater Dr sits in the Edgewater corridor close to Oakport Street, Hegenberger Road, and Oakland Airport.",
+    best_for: ["Industrial/flex users", "Logistics-adjacent businesses", "Tenants needing East Oakland access"],
+  }),
+  representativeBuilding({
+    address: "7677 Oakport St",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "Oakport Street business-park building",
+    setting:
+      "A business-park building that gives Coliseum Industrial a more organized office/flex reference point alongside warehouse and service-industrial addresses.",
+    location:
+      "7677 Oakport St sits near Edgewater Drive, Hegenberger Road, and I-880 in East Oakland's airport-area commercial market.",
+    best_for: ["Business-park users", "Office/flex teams", "Companies needing airport-area access"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "8105 Edgewater Dr",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "Edgewater Drive warehouse / flex building",
+    setting:
+      "A warehouse/flex building that helps explain why tenants compare Coliseum Industrial with Hegenberger and San Leandro.",
+    location:
+      "8105 Edgewater Dr sits in the Edgewater corridor near Oakport Street, Hegenberger Road, and Oakland Airport.",
+    best_for: ["Warehouse users", "Flex tenants", "Businesses needing East Oakland logistics access"],
+  }),
+  representativeBuilding({
+    address: "8501 San Leandro St",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "San Leandro Street industrial building",
+    setting:
+      "An industrial building on one of East Oakland's core production and warehouse corridors, useful for tenants comparing Coliseum Industrial with San Leandro.",
+    location:
+      "8501 San Leandro St sits near the Coliseum industrial grid, I-880 access, and the airport-area logistics corridors.",
+    best_for: ["Industrial users", "Service businesses", "Tenants needing East Oakland access"],
+  }),
+  representativeBuilding({
+    address: "5601 San Leandro St",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "San Leandro Street industrial building",
+    setting:
+      "A lower-scale industrial building that reflects the older production and warehouse character along San Leandro Street.",
+    location:
+      "5601 San Leandro St sits in the Coliseum industrial corridor between East Oakland's rail, freeway, and airport-area commercial routes.",
+    best_for: ["Warehouse users", "Production-adjacent tenants", "Service-industrial businesses"],
+  }),
+  representativeBuilding({
+    address: "6195 Coliseum Way",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "Coliseum Way industrial-park building",
+    setting:
+      "An industrial-park building that gives tenants a clear sense of the district's multi-tenant warehouse and flex formats.",
+    location:
+      "6195 Coliseum Way sits near San Leandro Street, I-880, and the Coliseum side of East Oakland's industrial market.",
+    best_for: ["Industrial-park users", "Warehouse tenants", "Businesses comparing Coliseum and Hegenberger"],
+  }),
+  representativeBuilding({
+    address: "7001 San Leandro St",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "San Leandro Street warehouse building",
+    setting:
+      "A warehouse building that helps show the depth of industrial inventory along San Leandro Street near the Coliseum.",
+    location:
+      "7001 San Leandro St sits in East Oakland's industrial corridor with access toward I-880, Hegenberger Road, and San Leandro.",
+    best_for: ["Warehouse users", "Light industrial tenants", "Businesses needing East Oakland corridor access"],
+  }),
+  representativeBuilding({
+    address: "745 85th Ave",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "85th Avenue industrial building",
+    setting:
+      "An East Oakland industrial building that adds another practical warehouse and service-commercial reference point near the Coliseum area.",
+    location:
+      "745 85th Ave sits near San Leandro Street, International Boulevard, and I-880 access in the broader Coliseum industrial market.",
+    best_for: ["Warehouse tenants", "Service-industrial users", "Businesses comparing East Oakland and San Leandro"],
+  }),
+  representativeBuilding({
+    address: "610 85th Ave",
+    city: "Oakland",
+    district: coliseumIndustrial,
+    role: "85th Avenue warehouse building",
+    setting:
+      "A warehouse building that reinforces the district's functional industrial character for users needing space near I-880 and Oakland Airport.",
+    location:
+      "610 85th Ave sits in East Oakland's Coliseum industrial area near San Leandro Street and the airport-area corridors.",
+    best_for: ["Warehouse users", "Distribution-adjacent businesses", "Industrial tenants needing I-880 access"],
+  }),
+  representativeBuilding({
+    address: "1400 Mandela Pkwy",
+    city: "Oakland",
+    district: westOakland,
+    role: "Mandela Parkway industrial / flex building",
+    setting:
+      "A West Oakland industrial/flex building on the Mandela Parkway corridor, where service, production, and port-adjacent users mix with creative commercial activity.",
+    location:
+      "1400 Mandela Pkwy sits near West Oakland's freeway, rail, and port-adjacent commercial routes.",
+    best_for: ["Flex users", "Service-industrial businesses", "Tenants comparing West Oakland with Emeryville"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "2201 Poplar St",
+    city: "Oakland",
+    district: westOakland,
+    role: "West Oakland industrial building",
+    setting:
+      "A West Oakland industrial building that reflects the area's practical warehouse, production, and service-commercial character.",
+    location:
+      "2201 Poplar St sits near Mandela Parkway, West Grand Avenue, and the routes connecting West Oakland with the Port of Oakland and Emeryville.",
+    best_for: ["Industrial users", "Production-adjacent tenants", "Businesses needing West Oakland access"],
+  }),
+  representativeBuilding({
+    address: "2921 Adeline St",
+    city: "Oakland",
+    district: westOakland,
+    role: "Adeline Street industrial / flex building",
+    setting:
+      "A flex and industrial building that helps show the smaller-format commercial spaces tenants can find around West Oakland and the Emeryville edge.",
+    location:
+      "2921 Adeline St sits near the West Oakland and Emeryville transition, with access to Mandela Parkway and I-880/I-580 connections.",
+    best_for: ["Flex users", "Small industrial tenants", "Companies comparing West Oakland and Emeryville"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "2855 Mandela Pkwy",
+    city: "Oakland",
+    district: westOakland,
+    role: "Mandela Parkway flex building",
+    setting:
+      "A Mandela Parkway flex building that captures West Oakland's mix of production, service, and creative commercial users.",
+    location:
+      "2855 Mandela Pkwy sits near the north side of West Oakland, close to Emeryville and the regional freeway network.",
+    best_for: ["Flex tenants", "Creative production users", "Businesses needing West Oakland/Emeryville access"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
+  representativeBuilding({
+    address: "1500 Mandela Pkwy",
+    city: "Oakland",
+    district: westOakland,
+    role: "Mandela Parkway industrial building",
+    setting:
+      "An industrial building on Mandela Parkway that gives tenants a concrete view of West Oakland's port-adjacent service and production geography.",
+    location:
+      "1500 Mandela Pkwy sits near West Oakland's rail, freeway, and port-oriented commercial routes.",
+    best_for: ["Service-industrial users", "Warehouse-adjacent tenants", "Companies comparing West Oakland and Jack London Square"],
+  }),
+  representativeBuilding({
+    address: "1320 Wood St",
+    city: "Oakland",
+    district: westOakland,
+    role: "Wood Street smaller-scale industrial building",
+    setting:
+      "A smaller industrial building that shows West Oakland's gritty, practical commercial blocks away from the formal downtown office core.",
+    location:
+      "1320 Wood St sits near West Oakland's rail and port-adjacent corridors, with access back toward Mandela Parkway and I-880.",
+    best_for: ["Small industrial tenants", "Service businesses", "Production-adjacent users"],
+  }),
+  representativeBuilding({
+    address: "2400 Filbert St",
+    city: "Oakland",
+    district: westOakland,
+    role: "Filbert Street industrial / flex building",
+    setting:
+      "A West Oakland industrial/flex building that rounds out the district's mix of service, production, and smaller commercial spaces.",
+    location:
+      "2400 Filbert St sits near West Oakland's north-side commercial blocks, close to Mandela Parkway and Emeryville access.",
+    best_for: ["Flex users", "Service-industrial tenants", "Businesses comparing West Oakland with Emeryville"],
+    type: "Flex Space",
+    primary_space_type: "flex",
+  }),
   building({
     address: "1195 Borregas Ave",
     city: "Sunnyvale",
