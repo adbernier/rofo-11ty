@@ -8162,6 +8162,348 @@ for (const model of nycMetroPhase2DistrictModels) {
   };
 }
 
+Object.assign(districts, {
+  "/commercial-real-estate/CA/san-jose/santana-row-valley-fair/": {
+    primary_archetype: "mixed_use_office_retail_district",
+    secondary_archetypes: ["client_facing_professional_office", "west_valley_service_office"],
+    commercial_thesis:
+      "Santana Row / Valley Fair is West San Jose's strongest mixed-use office, retail, and professional-service district, useful for businesses that want customer access, amenities, and a more polished setting than a traditional office park.",
+    best_fit_businesses: [
+      "Professional-service, medical-office, showroom, and client-facing office users",
+      "Teams that want a high-amenity West San Jose location near Santana Row, Valley Fair, and Stevens Creek Boulevard",
+      "Businesses comparing Downtown San Jose visibility with West Valley customer access",
+    ],
+    poor_fit_businesses: [
+      "R&D users that need large campus buildings or lab/flex formats",
+      "Warehouse or logistics users needing loading, yard, or industrial utility",
+      "Companies that prioritize Caltrain or downtown civic access over retail-adjacent amenities",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair-vs-downtown-san-jose/",
+        reason: "Compare if urban transit, civic context, and a downtown office address may matter more than West San Jose amenities.",
+      },
+      {
+        district_name: "Cupertino Commercial Core",
+        district_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/",
+        reason: "Compare if West Valley technology adjacency and Cupertino access may be more practical.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "mixed_use_client_facing",
+      client_facing_strength: "high",
+      transit_orientation: "low",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "retail_adjacent_office", "showroom"],
+      commute_pattern: ["stevens_creek", "winchester", "i280", "west_san_jose"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/san-jose/airport-golden-triangle/": {
+    primary_archetype: "airport_adjacent_office_district",
+    secondary_archetypes: ["technology_campus_office_core", "transit_adjacent_tech_office_node"],
+    commercial_thesis:
+      "San Jose Airport / Golden Triangle is an airport-adjacent office and technology-support district shaped by Gateway Place, Technology Drive, Metro Drive, North First Street, Highway 101, and light rail access.",
+    best_fit_businesses: [
+      "Regional office, technology-support, operations, and client-facing teams that value airport access",
+      "Companies comparing North San Jose R&D scale with a more office-oriented airport node",
+      "Teams that want central South Bay freeway access without a downtown San Jose format",
+    ],
+    poor_fit_businesses: [
+      "Small firms seeking walkable downtown restaurants and civic identity",
+      "Heavy industrial users needing yard-heavy warehouse formats",
+      "Retail-first businesses dependent on neighborhood foot traffic",
+    ],
+    compare_with: [
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/airport-golden-triangle-vs-north-san-jose/",
+        reason: "Compare if broader R&D/flex supply and larger technology-corridor geography may fit better.",
+      },
+      {
+        district_name: "Downtown San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
+        reason: "Compare if urban downtown identity and Caltrain/light rail access matter more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "airport_adjacent_office",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "mid_to_large",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["regional_office", "technology", "operations_office", "client_facing"],
+      commute_pattern: ["airport", "highway_101", "north_first", "light_rail"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "office_flex_support",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "low",
+      yard_parking_likelihood: "low",
+      building_format: ["office", "office_flex", "business_park"],
+      tenant_fit: ["technology_support", "operations", "regional_office"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/": {
+    primary_archetype: "technology_adjacent_suburban_office_core",
+    secondary_archetypes: ["client_facing_professional_office", "west_valley_service_office"],
+    commercial_thesis:
+      "Cupertino Commercial Core is a West Valley office, professional-service, and technology-adjacent district organized around De Anza Boulevard, Stevens Creek Boulevard, and Apple-adjacent business demand.",
+    best_fit_businesses: [
+      "Technology-support, professional-service, medical-office, and local-service users",
+      "Companies that value Cupertino identity and West Valley customer access",
+      "Teams comparing Cupertino with Sunnyvale, North San Jose, and Santana Row / Valley Fair",
+    ],
+    poor_fit_businesses: [
+      "Large R&D users that need deeper industrial/flex supply",
+      "Businesses that need Caltrain-centered downtown walkability",
+      "Warehouse/logistics users needing loading, yard, or freeway-industrial formats",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Sunnyvale",
+        district_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-vs-sunnyvale/",
+        reason: "Compare if Caltrain and walkable downtown context may matter more than Cupertino office/customer access.",
+      },
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-vs-north-san-jose/",
+        reason: "Compare if larger R&D/flex supply and airport/freeway corridor access may fit better.",
+      },
+      {
+        district_name: "Santana Row / Valley Fair",
+        district_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair/",
+        reason: "Compare if high-amenity retail-adjacent West San Jose positioning matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "suburban_technology_adjacent",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["technology_support", "professional_services", "medical_office", "local_services"],
+      commute_pattern: ["de_anza", "stevens_creek", "i280", "highway_85"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "limited_rd_flex",
+      truck_access: "low",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "low",
+      yard_parking_likelihood: "low",
+      building_format: ["office", "small_flex", "professional_building"],
+      tenant_fit: ["technology_support", "engineering_support", "professional_services"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/": {
+    primary_archetype: "caltrain_downtown_professional_district",
+    secondary_archetypes: ["walkable_peninsula_startup_district", "startup_professional_downtown"],
+    commercial_thesis:
+      "Downtown Sunnyvale is a Caltrain-oriented office and mixed-use district around Murphy Avenue, CityLine, Mathilda Avenue, and the traditional downtown core.",
+    best_fit_businesses: [
+      "Office, startup, professional-service, and client-facing teams that value walkability and Caltrain access",
+      "Companies comparing walkable Sunnyvale with Downtown Mountain View or Cupertino",
+      "Businesses that want Sunnyvale access without a campus-style office park",
+    ],
+    poor_fit_businesses: [
+      "Large engineering teams needing a campus or R&D-heavy district",
+      "Industrial users needing loading, yard, or warehouse formats",
+      "Companies that prioritize major-employer campus adjacency over downtown amenities",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Mountain View",
+        district_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        comparison_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale-vs-downtown-mountain-view/",
+        reason: "Compare for another Caltrain-oriented downtown with stronger Mountain View startup identity.",
+      },
+      {
+        district_name: "Peery Park",
+        district_path: "/commercial-real-estate/CA/sunnyvale/peery-park/",
+        reason: "Compare if office/R&D buildings and business-park utility matter more than downtown walkability.",
+      },
+      {
+        district_name: "Cupertino Commercial Core",
+        district_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-vs-sunnyvale/",
+        reason: "Compare if Cupertino customer and technology-adjacent office context may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "downtown_startup_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["startup", "professional_services", "client_facing", "local_services"],
+      commute_pattern: ["caltrain", "mathilda", "murphy_avenue", "central_sunnyvale"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/sunnyvale/peery-park/": {
+    primary_archetype: "rd_flex_office_corridor",
+    secondary_archetypes: ["technology_campus_office_core", "silicon_valley_innovation_office_district"],
+    commercial_thesis:
+      "Peery Park is a Sunnyvale office, R&D, and flex district west of Downtown Sunnyvale, useful for engineering and technology users that want a practical business-park setting near Maude, Pastoria, Mathilda, and Central Expressway.",
+    best_fit_businesses: [
+      "Engineering, R&D, hardware, and office/flex users",
+      "Companies comparing Peery Park with Moffett Park and Downtown Sunnyvale",
+      "Teams that value central Sunnyvale access more than downtown walkability",
+    ],
+    poor_fit_businesses: [
+      "Client-facing firms that need a main-street downtown location",
+      "Warehouse/logistics users needing heavy loading or yard formats",
+      "Large campus users that need the scale of Moffett Park or North Bayshore",
+    ],
+    compare_with: [
+      {
+        district_name: "Moffett Park",
+        district_path: "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+        comparison_path: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-moffett-park/",
+        reason: "Compare if a larger and more campus-oriented Sunnyvale innovation district may fit better.",
+      },
+      {
+        district_name: "Downtown Sunnyvale",
+        district_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+        reason: "Compare if walkable Caltrain downtown context matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "rd_flex_office",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["rd", "engineering", "hardware", "office_flex"],
+      commute_pattern: ["maude", "mathilda", "central_expressway", "caltrain"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "rd_flex",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["rd_flex", "office_warehouse", "business_park"],
+      tenant_fit: ["rd", "hardware", "engineering", "technology_operations"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core/": {
+    primary_archetype: "caltrain_downtown_professional_district",
+    secondary_archetypes: ["walkable_peninsula_startup_district", "client_facing_professional_office"],
+    commercial_thesis:
+      "Menlo Park Commercial Core is a compact Peninsula office and professional-service district around Santa Cruz Avenue, El Camino Real, Caltrain, Ravenswood, and Middlefield.",
+    best_fit_businesses: [
+      "Professional-service, medical-office, boutique office, and client-facing Peninsula users",
+      "Companies comparing Menlo Park with Palo Alto and Downtown Redwood City",
+      "Teams that want Stanford-adjacent access without the campus format of Sand Hill or Stanford Research Park",
+    ],
+    poor_fit_businesses: [
+      "Large R&D users needing campus-scale buildings",
+      "Warehouse/flex users needing industrial utility",
+      "Retail users that need a larger regional shopping draw",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/menlo-park/menlo-park-vs-palo-alto/",
+        reason: "Compare if stronger Stanford, venture, and University Avenue identity may fit better.",
+      },
+      {
+        district_name: "Downtown Redwood City",
+        district_path: "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+        comparison_path: "/commercial-real-estate/CA/menlo-park/menlo-park-vs-redwood-city/",
+        reason: "Compare if a larger mid-Peninsula downtown and civic core may be more useful.",
+      },
+      {
+        district_name: "Sand Hill / Stanford-adjacent",
+        district_path: "/commercial-real-estate/CA/menlo-park/sand-hill-stanford-adjacent/",
+        reason: "Compare if venture-office identity and campus-like setting matter more than downtown Menlo Park access.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "downtown_professional",
+      client_facing_strength: "high",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "low_rise",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "startup", "client_facing"],
+      commute_pattern: ["caltrain", "el_camino", "santa_cruz_avenue", "stanford_adjacent"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/menlo-park/sand-hill-stanford-adjacent/": {
+    primary_archetype: "venture_office_corridor",
+    secondary_archetypes: ["research_park_rd_office_district", "peninsula_campus_office"],
+    commercial_thesis:
+      "Sand Hill / Stanford-adjacent is a specialized office district for venture, investment, advisory, executive, and Stanford-adjacent users that value prestige, privacy, and I-280 access more than downtown walkability.",
+    best_fit_businesses: [
+      "Venture, investment, advisory, executive-office, and Stanford-adjacent users",
+      "Companies that want a quieter campus-like office setting near Palo Alto and Stanford",
+      "Teams comparing Sand Hill identity with Downtown Palo Alto or Menlo Park's commercial core",
+    ],
+    poor_fit_businesses: [
+      "Small retail or restaurant users needing street activity",
+      "Warehouse/flex users needing operational buildings",
+      "Teams that prioritize Caltrain walkability over a private office setting",
+    ],
+    compare_with: [
+      {
+        district_name: "Menlo Park Commercial Core",
+        district_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core/",
+        reason: "Compare if downtown Menlo Park access and Caltrain proximity matter more.",
+      },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        reason: "Compare if University Avenue, restaurants, Caltrain, and a more public-facing downtown identity matter more.",
+      },
+      {
+        district_name: "Stanford Research Park",
+        district_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        reason: "Compare if R&D and research-park buildings matter more than venture-office positioning.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "venture_executive_office",
+      client_facing_strength: "high",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["venture", "investment", "advisory", "executive_office"],
+      commute_pattern: ["sand_hill", "stanford", "i280", "palo_alto_menlo_park"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+});
+
 const archetypeLabels = {
   adaptive_warehouse_office_district: "Adaptive warehouse-office district",
   mixed_use_startup_district: "Mixed-use startup district",
@@ -8241,6 +8583,12 @@ const archetypeLabels = {
   north_i880_industrial_service_market: "North I-880 industrial service market",
   oakland_airport_adjacent_industrial: "Oakland airport-adjacent industrial",
   silicon_valley_innovation_office_district: "Silicon Valley innovation office district",
+  mixed_use_office_retail_district: "Mixed-use office and retail district",
+  client_facing_professional_office: "Client-facing professional office district",
+  west_valley_service_office: "West Valley service-office market",
+  airport_adjacent_office_district: "Airport-adjacent office district",
+  technology_adjacent_suburban_office_core: "Technology-adjacent suburban office core",
+  venture_office_corridor: "Venture office corridor",
   rd_flex_office_corridor: "R&D/flex office corridor",
   i880_237_industrial_flex_corridor: "I-880 / 237 industrial-flex corridor",
   downtown_technology_business_core: "Downtown technology business core",
