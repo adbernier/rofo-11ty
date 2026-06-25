@@ -10,6 +10,8 @@ const RECENT_SUBMISSIONS_LIMIT = 20;
 const ANALYTICS_SAMPLE_LIMIT = 1000;
 const TOP_LIST_LIMIT = 10;
 const PROFILE_DIMENSION_SAMPLE_LIMIT = 500;
+const VIEW_SAMPLE_LIMIT = 1000;
+const MIN_RECOMMENDATION_SIGNAL = 2;
 
 function escapeHtml(value) {
   return String(value || "")
@@ -48,6 +50,13 @@ function percent(numerator, denominator) {
   const bottom = Number(denominator || 0);
   if (!bottom) return "0%";
   return `${Math.round((top / bottom) * 100)}%`;
+}
+
+function ratio(numerator, denominator) {
+  const top = Number(numerator || 0);
+  const bottom = Number(denominator || 0);
+  if (!bottom) return 0;
+  return top / bottom;
 }
 
 function getAnalyticsDb(env) {
@@ -196,6 +205,46 @@ function renderFunnelInsightRows(rows) {
   `).join("");
 }
 
+function renderRecommendationCards(recommendations) {
+  if (!recommendations.length) {
+    return `<p class="empty-cell">No rule-based recommendations match the current date range yet. This is expected with low event volume.</p>`;
+  }
+
+  return `
+    <div class="recommendation-grid">
+      ${recommendations.map((item) => `
+        <article class="recommendation-card recommendation-card--${escapeHtml(String(item.priority || "low").toLowerCase())}">
+          <div class="recommendation-card__top">
+            <h3>${escapeHtml(item.title)}</h3>
+            <span class="priority-pill">${escapeHtml(item.priority || "Low")}</span>
+          </div>
+          <p><strong>Why it appeared:</strong> ${escapeHtml(item.reason)}</p>
+          <ul>
+            ${(item.metrics || []).map((metric) => `<li>${escapeHtml(metric)}</li>`).join("")}
+          </ul>
+          <p><strong>Suggested action:</strong> ${escapeHtml(item.action)}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderGrowthRecommendations(groups = {}) {
+  const sections = [
+    ["Growth Opportunities", groups.growth || []],
+    ["Top Performers", groups.performers || []],
+    ["Funnel Opportunities", groups.funnel || []],
+    ["Content Opportunities", groups.content || []],
+  ];
+
+  return sections.map(([title, recommendations]) => `
+    <section class="growth-group">
+      <h3>${escapeHtml(title)}</h3>
+      ${renderRecommendationCards(recommendations)}
+    </section>
+  `).join("");
+}
+
 function summarizeRows(rows, includeViewed = false) {
   const funnel = { viewed: includeViewed ? 0 : null, started: 0, submitted: 0 };
   const stepCounts = {};
@@ -293,6 +342,226 @@ function topFeaturesFromRows(rows) {
     .slice(0, TOP_LIST_LIMIT);
 }
 
+function topViewedPagesFromRows(rows) {
+  const counts = new Map();
+  for (const row of rows) {
+    const pageUrl = row.page_url || "";
+    if (!pageUrl) continue;
+    const current = counts.get(pageUrl) || { page_url: pageUrl, page_type: row.page_type || "", viewed: 0 };
+    current.viewed += 1;
+    if (!current.page_type && row.page_type) current.page_type = row.page_type;
+    counts.set(pageUrl, current);
+  }
+  return Array.from(counts.values())
+    .sort((a, b) => b.viewed - a.viewed)
+    .slice(0, TOP_LIST_LIMIT);
+}
+
+function recommendation({ title, reason, metrics = [], action, priority = "Low" }) {
+  return { title, reason, metrics, action, priority };
+}
+
+function rowLabel(row, keys) {
+  for (const key of keys) {
+    if (row && row[key]) return row[key];
+  }
+  return "Unknown";
+}
+
+function pageStartsByUrl(topPages) {
+  return new Map(topPages.map((row) => [row.page_url, row]));
+}
+
+function recommendationsForHighViewsLowStarts(topViewedPages, topPages) {
+  const startsByUrl = pageStartsByUrl(topPages);
+  return topViewedPages
+    .filter((row) => row.viewed >= Math.max(5, MIN_RECOMMENDATION_SIGNAL))
+    .map((row) => {
+      const started = Number((startsByUrl.get(row.page_url) || {}).started || 0);
+      const startRate = ratio(started, row.viewed);
+      if (started > 0 && startRate >= 0.08) return null;
+      return recommendation({
+        title: "High views but low Search Profile starts",
+        reason: "A page appeared often in the recent viewed-event sample but generated few or no Search Profile starts.",
+        metrics: [
+          `Page: ${row.page_url}`,
+          `Views in bounded sample: ${row.viewed}`,
+          `Starts: ${started}`,
+          `Start rate: ${percent(started, row.viewed)}`,
+        ],
+        action: "Review Search Profile placement, above-the-fold visibility, and CTA clarity on this page.",
+        priority: row.viewed >= 20 && started === 0 ? "High" : "Medium",
+      });
+    })
+    .filter(Boolean)
+    .slice(0, 3);
+}
+
+function recommendationsForStartsLowSubmissions(topPages) {
+  return topPages
+    .filter((row) => Number(row.started || 0) >= Math.max(3, MIN_RECOMMENDATION_SIGNAL))
+    .map((row) => {
+      const conversion = ratio(row.submitted, row.started);
+      if (row.submitted > 0 && conversion >= 0.25) return null;
+      return recommendation({
+        title: "Starts without enough submissions",
+        reason: "This page is getting Search Profile starts, but submissions are not keeping pace.",
+        metrics: [
+          `Page: ${row.page_url}`,
+          `Starts: ${row.started}`,
+          `Submissions: ${row.submitted}`,
+          `Submit rate: ${percent(row.submitted, row.started)}`,
+        ],
+        action: "Review the transition into contact collection, trust cues, and whether the page context matches user intent.",
+        priority: row.started >= 8 && row.submitted === 0 ? "High" : "Medium",
+      });
+    })
+    .filter(Boolean)
+    .slice(0, 3);
+}
+
+function recommendationsForStrongRows(rows, labelKey, title, action, minimumStarted = MIN_RECOMMENDATION_SIGNAL) {
+  return rows
+    .filter((row) => Number(row.started || 0) >= minimumStarted || Number(row.submitted || 0) > 0)
+    .slice(0, 2)
+    .map((row) => recommendation({
+      title,
+      reason: "This segment has observed Search Profile engagement in the current reporting window.",
+      metrics: [
+        `${labelKey}: ${row[labelKey] || "unknown"}`,
+        `Starts: ${row.started || 0}`,
+        `Submissions: ${row.submitted || 0}`,
+        `Submit rate: ${percent(row.submitted, row.started)}`,
+      ],
+      action,
+      priority: Number(row.submitted || 0) > 0 ? "High" : "Medium",
+    }));
+}
+
+function bestConvertingRows(rows, labelKeys, title, action) {
+  return rows
+    .filter((row) => Number(row.started || 0) >= MIN_RECOMMENDATION_SIGNAL && Number(row.submitted || 0) > 0)
+    .sort((a, b) => ratio(b.submitted, b.started) - ratio(a.submitted, a.started) || Number(b.submitted || 0) - Number(a.submitted || 0))
+    .slice(0, 2)
+    .map((row) => recommendation({
+      title,
+      reason: "This segment has the strongest observed conversion among segments with enough signal in this date range.",
+      metrics: [
+        `Segment: ${rowLabel(row, labelKeys)}`,
+        `Starts: ${row.started || 0}`,
+        `Submissions: ${row.submitted || 0}`,
+        `Submit rate: ${percent(row.submitted, row.started)}`,
+      ],
+      action,
+      priority: "High",
+    }));
+}
+
+function largestFunnelDropRecommendations(funnelInsights) {
+  const candidates = funnelInsights
+    .slice(1)
+    .map((row, index) => {
+      const previous = funnelInsights[index];
+      const previousCount = Number(previous && previous.count || 0);
+      const count = Number(row.count || 0);
+      return { row, previous, previousCount, count, drop: Math.max(0, previousCount - count) };
+    })
+    .filter((item) => item.previousCount >= MIN_RECOMMENDATION_SIGNAL && item.drop > 0)
+    .sort((a, b) => b.drop - a.drop)
+    .slice(0, 1);
+
+  return candidates.map((item) => recommendation({
+    title: "Largest funnel drop",
+    reason: "This step lost the most users compared with the previous step in the current date range.",
+    metrics: [
+      `Step: ${item.row.step}`,
+      `Previous step count: ${item.previousCount}`,
+      `Current step count: ${item.count}`,
+      `Drop-off: ${percent(item.drop, item.previousCount)}`,
+    ],
+    action: "Review copy, interaction clarity, and friction around this step before changing the full flow.",
+    priority: item.drop >= 5 ? "High" : "Medium",
+  }));
+}
+
+function timingRecommendations(funnelInsights) {
+  const submitted = funnelInsights.find((row) => row.step === "Submitted");
+  if (!submitted || submitted.avg_time === "—") return [];
+  const seconds = Number(String(submitted.avg_time).replace(/\D/g, ""));
+  if (!seconds) return [];
+  if (seconds < 20) {
+    return [recommendation({
+      title: "Very fast profile submissions",
+      reason: "Average submitted-profile duration is unusually short for a multi-step profile.",
+      metrics: [`Average time to submit: ${submitted.avg_time}`],
+      action: "Review submitted leads for quality and confirm users are not skipping context unintentionally.",
+      priority: "Low",
+    })];
+  }
+  if (seconds > 300) {
+    return [recommendation({
+      title: "Long profile completion time",
+      reason: "Average submitted-profile duration is long enough to suggest possible hesitation or interruption.",
+      metrics: [`Average time to submit: ${submitted.avg_time}`],
+      action: "Review whether contact collection, feature selection, or page context creates unnecessary uncertainty.",
+      priority: "Medium",
+    })];
+  }
+  return [];
+}
+
+function industrialContentRecommendations(topSpaceTypes, topFeatures) {
+  const industrialSpace = topSpaceTypes.find((row) => /industrial|warehouse|flex/i.test(row.space_type || ""));
+  const industrialFeatureCount = topFeatures
+    .filter((row) => /loading|clear height|yard|power|freeway|warehouse/i.test(row.feature || ""))
+    .reduce((sum, row) => sum + Number(row.submitted || 0), 0);
+  const submitted = Number(industrialSpace && industrialSpace.submitted || 0) + industrialFeatureCount;
+  if (submitted < MIN_RECOMMENDATION_SIGNAL) return [];
+  return [recommendation({
+    title: "Industrial intent is showing up in Search Profile",
+    reason: "Industrial or warehouse space types/features have appeared in submitted profiles.",
+    metrics: [
+      industrialSpace ? `Industrial/flex submissions: ${industrialSpace.submitted}` : "Industrial/flex submissions: 0",
+      `Industrial feature selections: ${industrialFeatureCount}`,
+    ],
+    action: "Prioritize industrial district comparisons, representative building depth, and logistics-focused location guidance in markets where these submissions originate.",
+    priority: submitted >= 5 ? "High" : "Medium",
+  })];
+}
+
+function buildGrowthRecommendations(data) {
+  const growth = [
+    ...recommendationsForHighViewsLowStarts(data.topViewedPages || [], data.topPages || []),
+    ...recommendationsForStartsLowSubmissions(data.topPages || []),
+    ...recommendationsForStrongRows(data.topDistricts || [], "district", "District generating strong engagement", "Expand nearby comparison pages and strengthen representative building coverage for this district."),
+    ...recommendationsForStrongRows(data.topEcosystems || [], "business_ecosystem", "Business ecosystem generating engagement", "Expand ecosystem-oriented comparison content and make related districts easier to discover."),
+  ].slice(0, 8);
+
+  const performers = [
+    ...bestConvertingRows(data.topPages || [], ["page_url"], "Highest converting page", "Use this page as a pattern for Search Profile placement and contextual copy."),
+    ...bestConvertingRows(data.topDistricts || [], ["district"], "Highest converting district", "Expand adjacent district comparisons and deepen representative building coverage."),
+    ...bestConvertingRows(data.topComparisons || [], ["page_url"], "Highest converting comparison page", "Build adjacent comparison pages around the same decision path."),
+    ...bestConvertingRows(data.topEcosystems || [], ["business_ecosystem"], "Highest converting ecosystem", "Create more content around this business ecosystem and its competing locations."),
+    ...bestConvertingRows(data.topCities || [], ["city"], "Highest converting city", "Prioritize district coverage and internal links for this city."),
+  ].slice(0, 8);
+
+  const funnel = [
+    ...largestFunnelDropRecommendations(data.funnelInsights || []),
+    ...recommendationsForStartsLowSubmissions((data.topPages || []).filter((row) => Number(row.submitted || 0) === 0)),
+    ...timingRecommendations(data.funnelInsights || []),
+  ].slice(0, 8);
+
+  const content = [
+    ...recommendationsForStrongRows(data.topDistricts || [], "district", "Strong district signal", "Add or improve comparison pages connecting this district to likely alternatives."),
+    ...recommendationsForStrongRows(data.topComparisons || [], "page_url", "Strong comparison signal", "Expand the nearby comparison graph around this decision."),
+    ...recommendationsForStrongRows(data.topEcosystems || [], "business_ecosystem", "Strong ecosystem signal", "Build additional ecosystem context and cross-market alternatives."),
+    ...recommendationsForStrongRows(data.topCities || [], "city", "Strong city signal", "Add district coverage or improve city-to-district navigation where coverage is thin."),
+    ...industrialContentRecommendations(data.topSpaceTypes || [], data.topFeatures || []),
+  ].slice(0, 8);
+
+  return { growth, performers, funnel, content };
+}
+
 function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
   return renderPage({
     token,
@@ -328,6 +597,7 @@ function renderPage({
   topSizes = [],
   topLandingPages = [],
   submissionSources = [],
+  growthRecommendations = {},
   recentEvents = [],
   recentSubmissions = [],
 }) {
@@ -368,6 +638,17 @@ function renderPage({
     .metric-card small { color: var(--muted); }
     .panel { padding: 18px; margin: 16px 0; overflow: hidden; }
     .panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .growth-group { margin-top: 18px; }
+    .growth-group h3 { margin: 0 0 10px; font-size: 16px; }
+    .recommendation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .recommendation-card { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #f8fafc; }
+    .recommendation-card--high { border-color: #fed7aa; background: #fff7ed; }
+    .recommendation-card--medium { border-color: #bfdbfe; background: #eff6ff; }
+    .recommendation-card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .recommendation-card h3 { margin: 0; font-size: 15px; line-height: 1.25; }
+    .recommendation-card p { font-size: 13px; line-height: 1.45; }
+    .recommendation-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .priority-pill { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; border-radius: 999px; background: #fff; border: 1px solid var(--border); color: var(--ink); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; min-width: 680px; }
     th, td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: 14px; }
@@ -378,6 +659,7 @@ function renderPage({
       header { display: grid; }
       .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .panel-grid { grid-template-columns: 1fr; }
+      .recommendation-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .metrics { grid-template-columns: 1fr; }
@@ -408,6 +690,11 @@ function renderPage({
       ${metricCard("Submitted", metricValue(funnel.submitted || 0))}
       ${metricCard("Start rate", funnel.viewed === null ? "Not queried" : percent(funnel.started, funnel.viewed), funnel.viewed === null ? "viewed skipped in fast mode" : "started / viewed")}
       ${metricCard("Submit rate", percent(funnel.submitted, funnel.started), "submitted / started")}
+    </section>
+    <section class="panel">
+      <h2>Growth Opportunities</h2>
+      <p>Transparent rule-based guidance from observed Search Profile metrics. Recommendations disappear when the underlying signal no longer matches the rule.</p>
+      ${renderGrowthRecommendations(growthRecommendations)}
     </section>
     <section class="panel">
       <h2>Funnel Insights</h2>
@@ -622,6 +909,16 @@ async function fetchAnalytics(db, options = {}) {
     limit ?
   `, [lookbackStart, ANALYTICS_SAMPLE_LIMIT], errors);
 
+  const viewedRows = await runAnalyticsQuery(db, "Recent viewed-page sample", `
+    select page_url, page_type
+    from search_profile_events
+    where created_at >= ?
+      and event_name = 'search_profile_viewed'
+      and page_url != ''
+    order by created_at desc
+    limit ?
+  `, [lookbackStart, VIEW_SAMPLE_LIMIT], errors);
+
   const sampleSummary = summarizeRows(sampleRows, includeViewed);
   if (!eventCounts.length) {
     funnel.viewed = sampleSummary.funnel.viewed;
@@ -782,10 +1079,7 @@ async function fetchAnalytics(db, options = {}) {
     limit ?
   `, [lookbackStart, RECENT_SUBMISSIONS_LIMIT], errors);
 
-  return {
-    lookbackDays,
-    mode,
-    errors,
+  const normalizedData = {
     funnel,
     stepCounts,
     funnelInsights: buildFunnelInsights(funnel, stepCounts, stepDurations),
@@ -801,6 +1095,15 @@ async function fetchAnalytics(db, options = {}) {
     topSizes,
     topLandingPages,
     submissionSources,
+    topViewedPages: topViewedPagesFromRows(viewedRows),
+  };
+
+  return {
+    lookbackDays,
+    mode,
+    errors,
+    ...normalizedData,
+    growthRecommendations: buildGrowthRecommendations(normalizedData),
     recentEvents: sampleRows.slice(0, RECENT_EVENTS_LIMIT),
     recentSubmissions,
   };
