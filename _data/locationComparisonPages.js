@@ -880,6 +880,75 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "coliseum-industrial-vs-san-leandro-industrial",
+    title: "Coliseum Industrial vs San Leandro Industrial",
+    short_title: "Coliseum Industrial vs San Leandro Industrial",
+    city: "Oakland",
+    state_abbr: "CA",
+    city_slug: "oakland",
+    path: "/commercial-real-estate/CA/oakland/coliseum-industrial-vs-san-leandro-industrial/",
+    district_a_name: "Coliseum Industrial",
+    district_b_name: "San Leandro Industrial",
+    district_a_path: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+    district_b_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+    verdict_a:
+      "Choose Coliseum Industrial if East Oakland warehouse/flex, contractor, and operations buildings near I-880 are the priority.",
+    verdict_b:
+      "Choose San Leandro Industrial if North I-880, Oakland-adjacent service-industrial access, and a broader contractor market fit better.",
+    comparison_notes: [
+      "Coliseum Industrial is more East Oakland and transit/airport-adjacent in feel.",
+      "San Leandro Industrial is a broader North I-880 service-industrial and warehouse/flex market.",
+      "The decision often comes down to East Oakland proximity versus San Leandro's more established industrial base.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "richmond-industrial-vs-hayward-industrial",
+    title: "Richmond Industrial vs Hayward Industrial",
+    short_title: "Richmond Industrial vs Hayward Industrial",
+    city: "Richmond",
+    state_abbr: "CA",
+    city_slug: "richmond",
+    path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-hayward-industrial/",
+    district_a_name: "Richmond Industrial",
+    district_b_name: "Hayward Industrial",
+    district_a_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+    district_b_path: "/commercial-real-estate/CA/hayward/hayward-industrial/",
+    verdict_a:
+      "Choose Richmond Industrial if northern East Bay, I-80/I-580, manufacturing, and port-adjacent utility matter most.",
+    verdict_b:
+      "Choose Hayward Industrial if central I-880, Highway 92, San Mateo Bridge access, and mid-Bay distribution fit better.",
+    comparison_notes: [
+      "Richmond Industrial is stronger for northern East Bay industrial reach and I-80/I-580 positioning.",
+      "Hayward Industrial is stronger for central I-880 reach, Highway 92 access, and East Bay/Peninsula distribution.",
+      "Both are functional industrial markets, but they solve different regional access problems.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "alameda-waterfront-harbor-bay-vs-san-leandro-industrial",
+    title: "Alameda Waterfront / Harbor Bay vs San Leandro Industrial",
+    short_title: "Alameda Waterfront vs San Leandro Industrial",
+    city: "Alameda",
+    state_abbr: "CA",
+    city_slug: "alameda",
+    path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-san-leandro-industrial/",
+    district_a_name: "Alameda Waterfront / Harbor Bay",
+    district_b_name: "San Leandro Industrial",
+    district_a_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+    district_b_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+    verdict_a:
+      "Choose Alameda Waterfront / Harbor Bay if waterfront office/flex, parking-practical access, and local-service context are the priority.",
+    verdict_b:
+      "Choose San Leandro Industrial if warehouse/flex, contractor, service-industrial, and North I-880 utility matter more.",
+    comparison_notes: [
+      "Alameda Waterfront / Harbor Bay is lighter, quieter, and more office/flex or local-service oriented.",
+      "San Leandro Industrial is more operational, with stronger warehouse, contractor, and industrial utility.",
+      "The decision separates waterfront business-park practicality from a more traditional industrial corridor.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "walnut-creek-vs-downtown-oakland",
     title: "Walnut Creek vs Downtown Oakland",
     short_title: "Walnut Creek vs Downtown Oakland",
@@ -1909,6 +1978,29 @@ comparisons.push(
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "union-city-industrial-vs-fremont-pacific-commons",
+    title: "Union City Industrial vs Fremont Pacific Commons",
+    short_title: "Union City Industrial vs Pacific Commons",
+    city: "Union City",
+    state_abbr: "CA",
+    city_slug: "union-city",
+    path: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/",
+    district_a_name: "Union City Industrial",
+    district_b_name: "Fremont Pacific Commons",
+    district_a_path: "/commercial-real-estate/CA/union-city/union-city-industrial/",
+    district_b_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+    verdict_a:
+      "Choose Union City Industrial if warehouse/flex, light manufacturing, and I-880 operations are the main requirements.",
+    verdict_b:
+      "Choose Fremont Pacific Commons if service-commercial visibility, office/flex, customer access, and Fremont mixed commercial context matter more.",
+    comparison_notes: [
+      "Union City Industrial is more traditional warehouse/flex and light manufacturing.",
+      "Pacific Commons is more mixed commercial, service, showroom, and retail-adjacent office/flex.",
+      "The decision is usually about operational utility versus Fremont customer-facing visibility and mixed commercial access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "fremont-vs-north-san-jose",
     title: "Fremont vs North San Jose",
     short_title: "Fremont vs North San Jose",
@@ -1932,6 +2024,52 @@ comparisons.push(
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "fremont-pacific-commons-vs-auto-mall-parkway",
+    title: "Fremont Pacific Commons vs Fremont Auto Mall Parkway",
+    short_title: "Pacific Commons vs Auto Mall Parkway",
+    city: "Fremont",
+    state_abbr: "CA",
+    city_slug: "fremont",
+    path: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/",
+    district_a_name: "Fremont Pacific Commons",
+    district_b_name: "Fremont Auto Mall Parkway",
+    district_a_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+    district_b_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+    verdict_a:
+      "Choose Pacific Commons if retail-adjacent office/flex, customer access, and mixed commercial amenities are the better fit.",
+    verdict_b:
+      "Choose Auto Mall Parkway if showroom, service-commercial, light industrial, and corridor visibility matter more.",
+    comparison_notes: [
+      "Pacific Commons has more mixed commercial and retail-adjacent context.",
+      "Auto Mall Parkway is more corridor-oriented, with stronger showroom, service, and light industrial fit.",
+      "Both can work for Fremont office/flex users, but Pacific Commons leans mixed commercial while Auto Mall Parkway leans service and operations.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "warm-springs-vs-pacific-commons",
+    title: "Warm Springs Innovation District vs Fremont Pacific Commons",
+    short_title: "Warm Springs vs Pacific Commons",
+    city: "Fremont",
+    state_abbr: "CA",
+    city_slug: "fremont",
+    path: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/",
+    district_a_name: "Warm Springs Innovation District",
+    district_b_name: "Fremont Pacific Commons",
+    district_a_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+    district_b_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+    verdict_a:
+      "Choose Warm Springs if advanced manufacturing, hardware, R&D/flex, BART adjacency, and innovation identity are central.",
+    verdict_b:
+      "Choose Pacific Commons if office/flex, service-commercial, retail adjacency, and Fremont customer access matter more.",
+    comparison_notes: [
+      "Warm Springs is more innovation and advanced-manufacturing oriented.",
+      "Pacific Commons is more mixed commercial, retail-adjacent, and customer-facing.",
+      "The decision separates production/R&D identity from service-commercial visibility and everyday Fremont customer access.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "warm-springs-vs-north-san-jose",
     title: "Warm Springs vs North San Jose",
     short_title: "Warm Springs vs North San Jose",
@@ -1951,6 +2089,29 @@ comparisons.push(
       "Warm Springs works well for manufacturing and hardware companies that need industrial utility plus Silicon Valley proximity.",
       "North San Jose offers a broader office/R&D corridor and stronger airport-oriented business geography.",
       "Both can support technology users, but Warm Springs tilts more toward advanced manufacturing while North San Jose tilts toward larger office/R&D ecosystems.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "auto-mall-parkway-vs-north-san-jose",
+    title: "Fremont Auto Mall Parkway vs North San Jose",
+    short_title: "Auto Mall Parkway vs North San Jose",
+    city: "Fremont",
+    state_abbr: "CA",
+    city_slug: "fremont",
+    path: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/",
+    district_a_name: "Fremont Auto Mall Parkway",
+    district_b_name: "North San Jose",
+    district_a_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+    district_b_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    verdict_a:
+      "Choose Auto Mall Parkway if showroom, service-commercial, light industrial, and Fremont I-880 customer access are the priority.",
+    verdict_b:
+      "Choose North San Jose if a larger office/R&D corridor, airport access, and Silicon Valley technology ecosystem matter more.",
+    comparison_notes: [
+      "Auto Mall Parkway is more service-commercial and corridor-oriented.",
+      "North San Jose is broader, more technology-corridor oriented, and stronger for larger office/R&D requirements.",
+      "The decision is often about practical Fremont customer access versus South Bay R&D scale and airport proximity.",
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -4301,6 +4462,24 @@ const metaFocusBySlug = {
     "Oakland Airport-facing corridor visibility versus East Oakland warehouse/flex and service-industrial utility",
   "hayward-industrial-vs-san-leandro-industrial":
     "central I-880 warehouse and manufacturing depth versus Oakland-adjacent North I-880 service-industrial access",
+  "hayward-industrial-vs-union-city-industrial":
+    "central I-880 warehouse/manufacturing depth versus compact Tri-City industrial and logistics utility",
+  "union-city-industrial-vs-fremont-pacific-commons":
+    "traditional Tri-City warehouse/flex utility versus Fremont mixed commercial and office/flex visibility",
+  "fremont-pacific-commons-vs-auto-mall-parkway":
+    "Fremont retail-adjacent office/flex context versus showroom and service-commercial corridor utility",
+  "warm-springs-vs-pacific-commons":
+    "advanced manufacturing and R&D/flex innovation identity versus Fremont mixed commercial customer access",
+  "warm-springs-vs-north-san-jose":
+    "Fremont advanced manufacturing and BART-adjacent innovation context versus North San Jose office/R&D corridor scale",
+  "auto-mall-parkway-vs-north-san-jose":
+    "Fremont showroom/service-commercial corridor utility versus North San Jose office/R&D and airport access",
+  "coliseum-industrial-vs-san-leandro-industrial":
+    "East Oakland warehouse/flex utility versus broader North I-880 service-industrial market",
+  "richmond-industrial-vs-hayward-industrial":
+    "northern East Bay I-80/I-580 industrial utility versus central I-880 and Highway 92 logistics access",
+  "alameda-waterfront-harbor-bay-vs-san-leandro-industrial":
+    "Alameda waterfront office/flex practicality versus San Leandro warehouse/flex and service-industrial utility",
   "walnut-creek-vs-downtown-oakland":
     "Downtown Walnut Creek suburban office-retail core versus Downtown Oakland urban civic and BART-centered office core",
   "pleasanton-vs-walnut-creek":
@@ -5463,6 +5642,340 @@ const eastBayComparisonEnhancements = {
   },
 };
 
+const bayAreaIndustrialComparisonEnhancements = {
+  "hayward-industrial-vs-union-city-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Hayward Industrial",
+        reasons: [
+          "Regional distribution, food/logistics, service-industrial, and light manufacturing users needing central I-880 reach",
+          "Companies that use Highway 92 and the San Mateo Bridge to reach both the East Bay and Peninsula",
+          "Operators that want deeper warehouse and manufacturing inventory than a smaller Tri-City node may offer",
+        ],
+      },
+      {
+        district_name: "Union City Industrial",
+        reasons: [
+          "Warehouse, light manufacturing, last-mile, and regional operations users needing a compact I-880 position",
+          "Companies splitting access between Hayward, Fremont, and South Bay customers",
+          "Users that want practical industrial buildings without the broader scale or cost signal of Fremont or North San Jose",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Freeway access", a: "Central I-880 plus Highway 92 and San Mateo Bridge reach.", b: "I-880 Tri-City access between Hayward and Fremont." },
+      { label: "Warehouse / distribution suitability", a: "Stronger for deeper warehouse and regional distribution needs.", b: "Strong for compact warehouse/flex and last-mile operations." },
+      { label: "Manufacturing suitability", a: "Good for light manufacturing and service-industrial users needing more inventory depth.", b: "Good for light manufacturing with a smaller operating footprint." },
+      { label: "Regional labor access", a: "Central East Bay labor access with Peninsula bridge reach.", b: "Tri-City labor access with Hayward/Fremont balance." },
+      { label: "Expansion opportunities", a: "Better for users seeking a larger industrial base.", b: "Better for users that want focused I-880 utility without a larger market footprint." },
+    ],
+    people_also_compare: [
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare central I-880 with Oakland-adjacent industrial access." },
+      { label: "Union City Industrial vs Fremont Pacific Commons", url: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/", reason: "Compare Union City utility with Fremont mixed commercial access." },
+      { label: "Union City Industrial vs Fremont", url: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont/", reason: "Compare Union City with the broader Fremont business ecosystem." },
+      { label: "Richmond Industrial vs Hayward Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-hayward-industrial/", reason: "Compare northern and central East Bay industrial corridors." },
+      { label: "Warm Springs vs North San Jose", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-north-san-jose/", reason: "Compare advanced manufacturing and South Bay R&D alternatives." },
+    ],
+  },
+  "union-city-industrial-vs-fremont-pacific-commons": {
+    why_companies_choose: [
+      {
+        district_name: "Union City Industrial",
+        reasons: [
+          "Warehouse, light manufacturing, contractor, and distribution users that need straightforward I-880 industrial utility",
+          "Companies that care more about truck access and functional buildings than retail-adjacent visibility",
+          "Operations teams serving Hayward, Fremont, and Tri-City customers from a compact location",
+        ],
+      },
+      {
+        district_name: "Fremont Pacific Commons",
+        reasons: [
+          "Office/flex, showroom, service-commercial, and customer-facing operations that benefit from Fremont visibility",
+          "Companies that want I-880 access with retail-adjacent amenities and a more mixed commercial setting",
+          "Teams comparing Fremont customer access with North San Jose or Warm Springs alternatives",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Truck circulation", a: "More straightforward industrial circulation and warehouse/flex utility.", b: "More mixed with retail, service, and customer-facing traffic." },
+      { label: "Customer access", a: "Practical for operations serving Tri-City customers.", b: "Stronger for users that benefit from Fremont visibility and customer access." },
+      { label: "Building inventory", a: "Warehouse, office-warehouse, flex, and light manufacturing buildings.", b: "Office/flex, service-commercial, showroom, and light industrial buildings." },
+      { label: "Warehouse / distribution suitability", a: "Better for pure warehouse/flex and operational users.", b: "Better for lighter operations that also need visibility." },
+      { label: "Relative pricing", a: "Usually framed around practical industrial value.", b: "Value is tied more to Fremont visibility and mixed commercial context." },
+    ],
+    people_also_compare: [
+      { label: "Hayward Industrial vs Union City Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-union-city-industrial/", reason: "Compare Union City with a deeper central East Bay industrial market." },
+      { label: "Fremont Pacific Commons vs Auto Mall Parkway", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/", reason: "Compare two Fremont service-commercial and office/flex corridors." },
+      { label: "Warm Springs vs Pacific Commons", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/", reason: "Compare Fremont innovation/manufacturing identity with mixed commercial access." },
+      { label: "Pacific Commons vs North San Jose", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-north-san-jose/", reason: "Compare Fremont mixed commercial with South Bay office/R&D scale." },
+    ],
+  },
+  "fremont-pacific-commons-vs-auto-mall-parkway": {
+    why_companies_choose: [
+      {
+        district_name: "Fremont Pacific Commons",
+        reasons: [
+          "Office/flex, service, showroom, and retail-adjacent users that want a mixed commercial setting",
+          "Customer-facing businesses that benefit from Pacific Commons amenities and I-880 visibility",
+          "Companies that want Fremont access without choosing a pure industrial district",
+        ],
+      },
+      {
+        district_name: "Fremont Auto Mall Parkway",
+        reasons: [
+          "Showroom, service-commercial, light industrial, and contractor users that value corridor visibility",
+          "Businesses that need practical buildings near I-880, Pacific Commons, and Fremont customer traffic",
+          "Operations that want more service-corridor character than a retail-adjacent mixed commercial node",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Customer access", a: "Stronger retail-adjacent and mixed commercial customer environment.", b: "Stronger corridor and vehicle-oriented customer visibility." },
+      { label: "Building inventory", a: "Office/flex, service-commercial, showroom, and mixed-use commercial formats.", b: "Showroom, service-commercial, light industrial, and office/flex formats." },
+      { label: "R&D / flex suitability", a: "Good for lighter flex and operations with customer access.", b: "Good for service, showroom, and light industrial flex needs." },
+      { label: "Truck circulation", a: "Moderate, shaped by mixed commercial activity.", b: "Moderate to strong for service-corridor operations." },
+      { label: "Tenant fit", a: "Retail-adjacent office/flex and service users.", b: "Showroom, contractor, service, and light industrial users." },
+    ],
+    people_also_compare: [
+      { label: "Union City Industrial vs Fremont Pacific Commons", url: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/", reason: "Compare Pacific Commons with more traditional industrial utility." },
+      { label: "Warm Springs vs Pacific Commons", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/", reason: "Compare Pacific Commons with Fremont advanced manufacturing context." },
+      { label: "Auto Mall Parkway vs North San Jose", url: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/", reason: "Compare Fremont service-corridor space with South Bay office/R&D scale." },
+      { label: "Pacific Commons vs North San Jose", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-north-san-jose/", reason: "Compare Fremont mixed commercial with North San Jose technology corridor geography." },
+    ],
+  },
+  "warm-springs-vs-pacific-commons": {
+    why_companies_choose: [
+      {
+        district_name: "Warm Springs Innovation District",
+        reasons: [
+          "Advanced manufacturing, robotics, EV suppliers, hardware engineering, and R&D/flex users",
+          "Companies that benefit from BART adjacency, I-880/I-680 reach, and Fremont innovation identity",
+          "Teams needing production-adjacent buildings with a stronger technology and manufacturing signal",
+        ],
+      },
+      {
+        district_name: "Fremont Pacific Commons",
+        reasons: [
+          "Office/flex, service-commercial, showroom, and customer-facing operations needing Fremont visibility",
+          "Businesses that want I-880 access and retail-adjacent amenities more than advanced manufacturing identity",
+          "Teams that need practical mixed commercial buildings with customer access",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Manufacturing suitability", a: "Stronger for advanced manufacturing, hardware, and production-adjacent R&D.", b: "Better for light operations and service-commercial users." },
+      { label: "R&D / flex suitability", a: "Strong R&D/flex and innovation-district signal.", b: "Good lighter office/flex but less innovation-campus oriented." },
+      { label: "Freeway access", a: "I-880/I-680 and BART-adjacent Fremont access.", b: "I-880 and Auto Mall/Pacific Commons access." },
+      { label: "Customer access", a: "More specialized and technology/manufacturing oriented.", b: "Stronger everyday customer and retail-adjacent access." },
+      { label: "Modern vs legacy inventory", a: "More associated with newer innovation and manufacturing formats.", b: "More mixed commercial and service-corridor inventory." },
+    ],
+    people_also_compare: [
+      { label: "Warm Springs vs North San Jose", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-north-san-jose/", reason: "Compare Fremont advanced manufacturing with South Bay office/R&D scale." },
+      { label: "Fremont Pacific Commons vs Auto Mall Parkway", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/", reason: "Compare Fremont mixed commercial and service-corridor options." },
+      { label: "Union City Industrial vs Fremont Pacific Commons", url: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/", reason: "Compare Pacific Commons with more traditional warehouse/flex utility." },
+      { label: "Auto Mall Parkway vs North San Jose", url: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/", reason: "Compare Fremont service-corridor access with North San Jose corridor scale." },
+    ],
+  },
+  "warm-springs-vs-north-san-jose": {
+    why_companies_choose: [
+      {
+        district_name: "Warm Springs Innovation District",
+        reasons: [
+          "Advanced manufacturing, robotics, hardware, EV supplier, and production-adjacent R&D users",
+          "Companies that want Fremont industrial utility with BART adjacency and Silicon Valley proximity",
+          "Teams that need manufacturing/flex functionality more than a broad office corridor",
+        ],
+      },
+      {
+        district_name: "North San Jose",
+        reasons: [
+          "Office/R&D, engineering, technology, and larger corridor users needing airport and South Bay access",
+          "Companies that benefit from a broader Silicon Valley technology ecosystem",
+          "Teams that need larger office/R&D optionality and executive/customer access near San Jose Airport",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Manufacturing suitability", a: "Stronger advanced manufacturing and production-adjacent fit.", b: "More office/R&D and technology-corridor oriented." },
+      { label: "Airport access", a: "Reasonable South Bay reach but less airport-oriented.", b: "Stronger San Jose Airport and North First Street corridor access." },
+      { label: "R&D / flex suitability", a: "Strong for hardware, manufacturing, and R&D/flex hybrids.", b: "Strong for broader office/R&D and technology users." },
+      { label: "Regional labor access", a: "Fremont, East Bay, Tri-City, and South Bay labor reach.", b: "San Jose, Santa Clara, Milpitas, and South Bay labor reach." },
+      { label: "Expansion opportunities", a: "Better for manufacturing/flex expansion in Fremont.", b: "Better for larger office/R&D corridor growth." },
+    ],
+    people_also_compare: [
+      { label: "Warm Springs vs Pacific Commons", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/", reason: "Compare advanced manufacturing with Fremont mixed commercial access." },
+      { label: "Auto Mall Parkway vs North San Jose", url: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/", reason: "Compare Fremont service-corridor access with North San Jose scale." },
+      { label: "Fremont vs North San Jose", url: "/commercial-real-estate/CA/fremont/fremont-vs-north-san-jose/", reason: "Compare the broader city-level manufacturing/R&D decision." },
+      { label: "Pacific Commons vs North San Jose", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-north-san-jose/", reason: "Compare Fremont mixed commercial with North San Jose office/R&D." },
+    ],
+  },
+  "auto-mall-parkway-vs-north-san-jose": {
+    why_companies_choose: [
+      {
+        district_name: "Fremont Auto Mall Parkway",
+        reasons: [
+          "Showroom, service-commercial, contractor, and light industrial users that need Fremont corridor visibility",
+          "Businesses that want I-880 access and customer-facing utility without a large office/R&D corridor",
+          "Operations that value practical building formats near Pacific Commons and Fremont customers",
+        ],
+      },
+      {
+        district_name: "North San Jose",
+        reasons: [
+          "Office/R&D, engineering, technology, and larger corporate users needing airport and South Bay access",
+          "Companies that need deeper technology-corridor identity and larger building optionality",
+          "Teams prioritizing executive access, customer access, and Silicon Valley recruiting over showroom visibility",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Customer access", a: "Strong Fremont corridor and showroom/service visibility.", b: "Stronger South Bay customer, partner, and executive access." },
+      { label: "R&D / flex suitability", a: "Good for light flex and service-commercial users.", b: "Stronger for office/R&D, engineering, and larger technology users." },
+      { label: "Airport access", a: "Regional access via I-880 but less airport-centered.", b: "Direct North San Jose and San Jose Airport orientation." },
+      { label: "Building inventory", a: "Showroom, service-commercial, office/flex, and light industrial buildings.", b: "Office/R&D, flex, and technology corridor buildings." },
+      { label: "Relative pricing", a: "Usually valued for practical Fremont corridor utility.", b: "More tied to South Bay technology-corridor demand." },
+    ],
+    people_also_compare: [
+      { label: "Fremont Pacific Commons vs Auto Mall Parkway", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/", reason: "Compare Fremont mixed commercial and service-corridor settings." },
+      { label: "Warm Springs vs North San Jose", url: "/commercial-real-estate/CA/fremont/warm-springs-vs-north-san-jose/", reason: "Compare advanced manufacturing with North San Jose office/R&D scale." },
+      { label: "Pacific Commons vs North San Jose", url: "/commercial-real-estate/CA/fremont/pacific-commons-vs-north-san-jose/", reason: "Compare Fremont mixed commercial with North San Jose technology corridor geography." },
+      { label: "Union City Industrial vs Fremont Pacific Commons", url: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/", reason: "Compare Fremont customer-facing options with Tri-City industrial utility." },
+    ],
+  },
+  "san-leandro-industrial-vs-hegenberger-corridor": {
+    why_companies_choose: [
+      {
+        district_name: "San Leandro Industrial",
+        reasons: [
+          "Warehouse/flex, contractor, service-industrial, and local distribution users needing North I-880 reach",
+          "Businesses serving Oakland, San Leandro, Hayward, and airport-area customers from a practical industrial base",
+          "Operators that need functional industrial buildings more than airport-corridor visibility",
+        ],
+      },
+      {
+        district_name: "Hegenberger Corridor",
+        reasons: [
+          "Airport-adjacent logistics-support, service-commercial, hospitality, and customer-access users",
+          "Companies that benefit from I-880 visibility and Oakland Airport proximity",
+          "Businesses that need a corridor-facing location rather than a deeper industrial district",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Airport access", a: "Strong Oakland Airport reach from a broader industrial base.", b: "More directly airport-facing and corridor-visible." },
+      { label: "Warehouse / distribution suitability", a: "Stronger for practical warehouse/flex and contractor operations.", b: "Good for logistics-support and service-commercial users." },
+      { label: "Truck circulation", a: "More industrial-district oriented.", b: "More corridor-facing with mixed airport-area activity." },
+      { label: "Customer access", a: "Good for Oakland/San Leandro service territory.", b: "Stronger for airport-area visibility and transient customers." },
+      { label: "Tenant fit", a: "Contractors, service-industrial, warehouse/flex, and local distribution.", b: "Airport support, service-commercial, logistics support, and hospitality-adjacent users." },
+    ],
+    people_also_compare: [
+      { label: "Coliseum Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/oakland/coliseum-industrial-vs-san-leandro-industrial/", reason: "Compare San Leandro with East Oakland industrial utility." },
+      { label: "Hegenberger Corridor vs Coliseum Industrial", url: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/", reason: "Compare Oakland airport-area and East Oakland industrial formats." },
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare North I-880 with central I-880 industrial access." },
+      { label: "Alameda Waterfront / Harbor Bay vs San Leandro Industrial", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-san-leandro-industrial/", reason: "Compare industrial utility with Alameda waterfront office/flex practicality." },
+    ],
+  },
+  "coliseum-industrial-vs-san-leandro-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Coliseum Industrial",
+        reasons: [
+          "East Oakland warehouse, contractor, service-industrial, and operations users needing I-880 utility",
+          "Businesses that value Oakland access and nearby transit/rail context without needing a polished office setting",
+          "Companies comparing East Oakland industrial buildings with Hegenberger and San Leandro alternatives",
+        ],
+      },
+      {
+        district_name: "San Leandro Industrial",
+        reasons: [
+          "Warehouse/flex, contractor, service, and light industrial users needing a broader North I-880 industrial market",
+          "Businesses that serve Oakland, San Leandro, Hayward, and airport-area customers",
+          "Operators seeking practical industrial buildings and customer reach south of Oakland",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Freeway access", a: "East Oakland I-880 access near Coliseum and Hegenberger.", b: "North I-880 access across San Leandro's broader industrial base." },
+      { label: "Warehouse / distribution suitability", a: "Good for East Oakland warehouse/flex and service users.", b: "Stronger for broader warehouse/flex and contractor needs." },
+      { label: "Airport access", a: "Close to Oakland Airport through East Oakland/Hegenberger access.", b: "Strong airport-area reach with more San Leandro industrial depth." },
+      { label: "Typical building sizes", a: "Functional industrial and service buildings, often closer-in and urban.", b: "Broader range of warehouse/flex and office-warehouse formats." },
+      { label: "Tenant fit", a: "East Oakland operations, warehouse/flex, contractor, and service users.", b: "Service-industrial, local distribution, contractor, and light manufacturing users." },
+    ],
+    people_also_compare: [
+      { label: "Hegenberger Corridor vs Coliseum Industrial", url: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/", reason: "Compare adjacent Oakland airport-area industrial choices." },
+      { label: "San Leandro Industrial vs Hegenberger Corridor", url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial-vs-hegenberger-corridor/", reason: "Compare San Leandro with Oakland airport-corridor exposure." },
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare San Leandro with central I-880 industrial depth." },
+      { label: "Richmond Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/", reason: "Compare inner East Bay and northern East Bay industrial utility." },
+    ],
+  },
+  "richmond-industrial-vs-hayward-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Richmond Industrial",
+        reasons: [
+          "Warehouse, manufacturing, service-industrial, yard, and logistics users needing northern East Bay reach",
+          "Businesses that value I-80/I-580 positioning and Richmond industrial infrastructure",
+          "Operations serving Contra Costa, North Bay, Berkeley/Oakland, and northern East Bay customers",
+        ],
+      },
+      {
+        district_name: "Hayward Industrial",
+        reasons: [
+          "Regional distribution, food logistics, manufacturing, and warehouse/flex users needing central I-880 reach",
+          "Companies that need Highway 92 and San Mateo Bridge access toward the Peninsula",
+          "Operators comparing East Bay industrial depth with South Bay and Tri-City access",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Freeway access", a: "I-80/I-580 northern East Bay orientation.", b: "Central I-880 plus Highway 92 and bridge access." },
+      { label: "Port access", a: "Stronger Richmond port-adjacent and northern industrial context.", b: "More mid-Bay and airport/bridge oriented than port-oriented." },
+      { label: "Warehouse / distribution suitability", a: "Strong for northern East Bay warehouse, yard, and manufacturing users.", b: "Strong for central East Bay distribution and manufacturing users." },
+      { label: "Regional labor access", a: "Better for Richmond, Contra Costa, Berkeley, and northern East Bay labor.", b: "Better for Hayward, Union City, Fremont, and Peninsula bridge reach." },
+      { label: "Relative pricing", a: "Often framed around functional northern industrial value.", b: "Often valued for central corridor and Peninsula access utility." },
+    ],
+    people_also_compare: [
+      { label: "Richmond Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/", reason: "Compare northern East Bay with Oakland-adjacent North I-880 access." },
+      { label: "Hayward Industrial vs Union City Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-union-city-industrial/", reason: "Compare central I-880 industrial alternatives." },
+      { label: "Richmond Industrial vs West Oakland", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/", reason: "Compare Richmond with close-in Oakland industrial-transition space." },
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare Hayward with a more Oakland-adjacent industrial market." },
+    ],
+  },
+  "alameda-waterfront-harbor-bay-vs-san-leandro-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Alameda Waterfront / Harbor Bay",
+        reasons: [
+          "Office/flex, local service, medical, light operations, and waterfront business-park users",
+          "Businesses that value parking, local customer access, and a calmer Oakland-adjacent setting",
+          "Teams that need practical East Bay access but do not need heavy industrial utility",
+        ],
+      },
+      {
+        district_name: "San Leandro Industrial",
+        reasons: [
+          "Warehouse/flex, contractor, light manufacturing, and service-industrial users needing North I-880 utility",
+          "Operations that need loading, truck access, and functional industrial buildings",
+          "Businesses serving Oakland, San Leandro, Hayward, and airport-area customers",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Industrial access", a: "Light flex and business-park utility rather than deep industrial infrastructure.", b: "Stronger warehouse/flex, contractor, and service-industrial utility." },
+      { label: "Customer access", a: "Good for Alameda, Oakland-adjacent, and waterfront/local-service customers.", b: "Good for Oakland, San Leandro, Hayward, and airport-area service territory." },
+      { label: "Truck circulation", a: "More constrained and lighter-duty in character.", b: "More appropriate for industrial and service-commercial circulation." },
+      { label: "Building inventory", a: "Waterfront office, light flex, local service, and business-park buildings.", b: "Warehouse/flex, office-warehouse, contractor, and service-industrial buildings." },
+      { label: "Tenant fit", a: "Office/flex, medical, service, and light operations.", b: "Warehouse, contractor, distribution, light manufacturing, and service-industrial users." },
+    ],
+    people_also_compare: [
+      { label: "Alameda Waterfront / Harbor Bay vs Emeryville", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/", reason: "Compare Alameda with Emeryville's office/R&D node." },
+      { label: "Alameda Waterfront / Harbor Bay vs Jack London Square", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-jack-london-square/", reason: "Compare Alameda waterfront with Oakland waterfront identity." },
+      { label: "San Leandro Industrial vs Hegenberger Corridor", url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial-vs-hegenberger-corridor/", reason: "Compare San Leandro with Oakland airport-corridor visibility." },
+      { label: "Coliseum Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/oakland/coliseum-industrial-vs-san-leandro-industrial/", reason: "Compare San Leandro with East Oakland industrial utility." },
+    ],
+  },
+};
+
 const warehouseFlexComparisonSlugs = new Set([
   "hayward-vs-fremont",
   "hayward-vs-union-city",
@@ -5609,8 +6122,17 @@ const warehouseFlexComparisonSlugs = new Set([
   "richmond-industrial-vs-san-leandro-industrial",
   "richmond-industrial-vs-west-oakland",
   "hayward-industrial-vs-san-leandro-industrial",
+  "hayward-industrial-vs-union-city-industrial",
+  "union-city-industrial-vs-fremont-pacific-commons",
+  "fremont-pacific-commons-vs-auto-mall-parkway",
+  "warm-springs-vs-pacific-commons",
+  "warm-springs-vs-north-san-jose",
+  "auto-mall-parkway-vs-north-san-jose",
   "san-leandro-industrial-vs-hegenberger-corridor",
   "hegenberger-corridor-vs-coliseum-industrial",
+  "coliseum-industrial-vs-san-leandro-industrial",
+  "richmond-industrial-vs-hayward-industrial",
+  "alameda-waterfront-harbor-bay-vs-san-leandro-industrial",
   "west-oakland-vs-emeryville",
 ]);
 
@@ -5618,6 +6140,7 @@ module.exports = comparisons.map((comparison) => {
   const enhancement = {
     ...(southBayPeninsulaComparisonEnhancements[comparison.slug] || {}),
     ...(eastBayComparisonEnhancements[comparison.slug] || {}),
+    ...(bayAreaIndustrialComparisonEnhancements[comparison.slug] || {}),
   };
   const mergedComparison = {
     ...comparison,

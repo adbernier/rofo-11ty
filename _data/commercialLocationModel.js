@@ -2856,6 +2856,12 @@ Object.assign(districts, {
         reason: "Compare if warehouse/flex and industrial functionality matter more than office/R&D identity.",
       },
       {
+        district_name: "Fremont Auto Mall Parkway",
+        district_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+        comparison_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/",
+        reason: "Compare if Fremont showroom, service-commercial, and light industrial corridor utility may fit better than North San Jose office/R&D scale.",
+      },
+      {
         district_name: "Downtown San Jose",
         district_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose/",
         comparison_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose-vs-north-san-jose/",
@@ -3444,6 +3450,12 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/fremont/warm-springs-vs-north-san-jose/",
         reason: "Compare if San Jose office/R&D corridor access and airport proximity may fit better.",
       },
+      {
+        district_name: "Fremont Pacific Commons",
+        district_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+        comparison_path: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/",
+        reason: "Compare if Fremont mixed commercial, service, and customer access may fit better than advanced manufacturing context.",
+      },
     ],
     office_profile: {
       office_orientation: "rd_manufacturing_support",
@@ -3564,6 +3576,12 @@ Object.assign(districts, {
         reason: "Compare if a smaller Tri-City industrial node between Hayward and Fremont may be more practical.",
       },
       {
+        district_name: "Richmond Industrial",
+        district_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+        comparison_path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-hayward-industrial/",
+        reason: "Compare if northern East Bay I-80/I-580 industrial access may fit better than Hayward's central I-880 position.",
+      },
+      {
         district_name: "Fremont",
         district_path: "/commercial-real-estate/CA/fremont/",
         reason: "Compare if South East Bay R&D, advanced manufacturing, and Silicon Valley adjacency matter more.",
@@ -3625,6 +3643,12 @@ Object.assign(districts, {
         reason: "Compare if Fremont's broader R&D, advanced manufacturing, and Silicon Valley-adjacent ecosystem may be more useful.",
       },
       {
+        district_name: "Fremont Pacific Commons",
+        district_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+        comparison_path: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/",
+        reason: "Compare if Fremont office/flex, service-commercial visibility, and mixed commercial access may fit better.",
+      },
+      {
         district_name: "Fremont Auto Mall Parkway",
         district_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
         reason: "Compare if showroom, service-commercial, and Fremont customer access are part of the decision.",
@@ -3682,12 +3706,20 @@ Object.assign(districts, {
       {
         district_name: "Fremont Auto Mall Parkway",
         district_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway/",
+        comparison_path: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/",
         reason: "Compare if showroom, service, and vehicle-oriented corridor visibility matter more.",
       },
       {
         district_name: "Warm Springs Innovation District",
         district_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        comparison_path: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/",
         reason: "Compare if advanced manufacturing, R&D/flex, and BART adjacency are stronger priorities.",
+      },
+      {
+        district_name: "Union City Industrial",
+        district_path: "/commercial-real-estate/CA/union-city/union-city-industrial/",
+        comparison_path: "/commercial-real-estate/CA/union-city/union-city-industrial-vs-fremont-pacific-commons/",
+        reason: "Compare if more traditional Tri-City warehouse/flex utility may fit better than Pacific Commons' mixed commercial setting.",
       },
     ],
     office_profile: {
@@ -3736,12 +3768,20 @@ Object.assign(districts, {
       {
         district_name: "Fremont Pacific Commons",
         district_path: "/commercial-real-estate/CA/fremont/pacific-commons/",
+        comparison_path: "/commercial-real-estate/CA/fremont/pacific-commons-vs-auto-mall-parkway/",
         reason: "Compare if retail-adjacent mixed commercial access near Pacific Commons matters more.",
       },
       {
         district_name: "Warm Springs Innovation District",
         district_path: "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+        comparison_path: "/commercial-real-estate/CA/fremont/warm-springs-vs-pacific-commons/",
         reason: "Compare if advanced manufacturing, R&D/flex, and BART-adjacent innovation context are more important.",
+      },
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/fremont/auto-mall-parkway-vs-north-san-jose/",
+        reason: "Compare if a larger South Bay office/R&D corridor and airport access may fit better than Fremont service-commercial utility.",
       },
       {
         district_name: "Union City Industrial",
@@ -3806,6 +3846,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
         comparison_path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/",
         reason: "Compare if North I-880 and Oakland airport-adjacent industrial access may fit better than Richmond's I-80/I-580 position.",
+      },
+      {
+        district_name: "Hayward Industrial",
+        district_path: "/commercial-real-estate/CA/hayward/hayward-industrial/",
+        comparison_path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-hayward-industrial/",
+        reason: "Compare if central I-880 and Highway 92 logistics access may fit better than Richmond's northern East Bay position.",
       },
       {
         district_name: "West Oakland",
@@ -3941,6 +3987,7 @@ Object.assign(districts, {
       {
         district_name: "San Leandro Industrial",
         district_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        comparison_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-san-leandro-industrial/",
         reason: "Compare if operational industrial access matters more than waterfront office or local-service context.",
       },
     ],
@@ -4002,8 +4049,20 @@ Object.assign(districts, {
       {
         district_name: "Hayward",
         district_path: "/commercial-real-estate/CA/hayward/",
-        comparison_path: "/commercial-real-estate/CA/hayward/hayward-vs-san-leandro/",
+        comparison_path: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/",
         reason: "Compare if a deeper central I-880 industrial corridor may fit better.",
+      },
+      {
+        district_name: "Coliseum Industrial",
+        district_path: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+        comparison_path: "/commercial-real-estate/CA/oakland/coliseum-industrial-vs-san-leandro-industrial/",
+        reason: "Compare if East Oakland warehouse/flex utility may fit better than San Leandro's broader North I-880 industrial base.",
+      },
+      {
+        district_name: "Alameda Waterfront / Harbor Bay",
+        district_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+        comparison_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-san-leandro-industrial/",
+        reason: "Compare if waterfront office/flex and local-service context may fit better than industrial-corridor utility.",
       },
     ],
     office_profile: {
@@ -4119,6 +4178,7 @@ Object.assign(districts, {
       {
         district_name: "San Leandro Industrial",
         district_path: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial/",
+        comparison_path: "/commercial-real-estate/CA/oakland/coliseum-industrial-vs-san-leandro-industrial/",
         reason: "Compare if a more North I-880 service-industrial setting may fit better.",
       },
       {
