@@ -6771,6 +6771,10 @@ module.exports = comparisons.map((comparison) => {
       : districtB.best_fit_businesses,
     related_alternatives: relatedAlternatives(comparison, districtA, districtB),
     compared_districts_value: `${comparison.district_a_name},${comparison.district_b_name}`,
+    business_ecosystem_value: (mergedComparison.business_ecosystem || [])
+      .flatMap((group) => group.ecosystems || [])
+      .filter(Boolean)
+      .join(", "),
     district_a_detail_cta:
       `Explore ${comparison.district_a_name} ${detailCtaByArchetype[districtA.primary_archetype] || "commercial context"}`,
     district_b_detail_cta:

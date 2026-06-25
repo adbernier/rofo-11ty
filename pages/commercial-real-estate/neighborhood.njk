@@ -344,6 +344,7 @@ eleventyComputed:
             "commercial_area_id": neighborhood.commercial_area_id or "",
             "commercial_area_type": neighborhood.commercial_area_type or "",
             "primary_archetype": neighborhood.commercial_location_model.primary_archetype or "",
+            "business_ecosystem": neighborhood.commercial_location_model.primary_archetype_label or "",
             "location_suggestions": searchProfileLocationSuggestions
           } %}
           {% include "partials/shared/search-profile-card.njk" %}

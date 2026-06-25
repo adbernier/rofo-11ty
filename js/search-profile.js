@@ -1,5 +1,6 @@
 (function () {
   const STORAGE_KEY = "rofoSearchProfileV1";
+  const ATTRIBUTION_KEY = "rofoSearchProfileAttributionV1";
   const root = document.querySelector("[data-search-profile]");
   if (!root) return;
 
@@ -45,6 +46,8 @@
   const formStartTime = Date.now();
   const analyticsEndpoint = "/api/analytics/search-profile";
   const analyticsEnabled = submitEnabled && root.dataset.profileContextType !== "test";
+  const pageUrl = root.dataset.profilePageUrl || window.location.href;
+  const pageType = root.dataset.profileContextType || "search_profile";
 
   const timingOptions = ["ASAP", "0-3 months", "3-6 months", "6-12 months", "Just exploring"];
   const pathConfig = {
@@ -118,6 +121,157 @@
       .replace(new RegExp(`,\\s*${contextState}$`, "i"), "")
       .replace(/,\s*(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)$/i, "")
       .trim();
+  }
+
+  function safeSessionGet(key) {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function safeSessionSet(key, value) {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch (error) {
+      // Session attribution should never block Search Profile interaction.
+    }
+  }
+
+  function parseStoredJson(value, fallback) {
+    try {
+      return value ? JSON.parse(value) : fallback;
+    } catch (error) {
+      return fallback;
+    }
+  }
+
+  function arrayWithRecentValue(values, value, limit = 20) {
+    const cleanValue = String(value || "").trim();
+    const existing = Array.isArray(values) ? values.filter(Boolean) : [];
+    if (!cleanValue) return existing.slice(-limit);
+    return [...existing.filter((item) => item !== cleanValue), cleanValue].slice(-limit);
+  }
+
+  function profilePageContext() {
+    return {
+      page_url: pageUrl,
+      page_type: pageType,
+      page_title: root.dataset.profilePageTitle || document.title,
+      city: contextCity || "",
+      district: contextDistrict || "",
+      comparison: root.dataset.profileComparedDistricts || (pageType === "comparison" ? contextLabel : ""),
+      ecosystem: root.dataset.profileBusinessEcosystem || root.dataset.profilePrimaryArchetype || "",
+      referrer: document.referrer || "",
+    };
+  }
+
+  function defaultAttribution(context) {
+    return {
+      session_id: (window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      landing_page: context.page_url,
+      referrer: context.referrer,
+      entry_page_type: context.page_type,
+      entry_city: context.city,
+      entry_district: context.district,
+      entry_comparison: context.comparison,
+      entry_ecosystem: context.ecosystem,
+      last_page_url: "",
+      previous_page_url: "",
+      pages_viewed: 0,
+      page_type_counts: {},
+      comparison_pages: [],
+      district_pages: [],
+      building_pages: [],
+      started_at: "",
+      started_page_url: "",
+      submitted_page_url: "",
+      final_page_before_search_profile: "",
+    };
+  }
+
+  function loadAttribution() {
+    const context = profilePageContext();
+    const stored = parseStoredJson(safeSessionGet(ATTRIBUTION_KEY), null);
+    return {
+      ...defaultAttribution(context),
+      ...(stored || {}),
+      page_type_counts: {
+        ...defaultAttribution(context).page_type_counts,
+        ...((stored && stored.page_type_counts) || {}),
+      },
+    };
+  }
+
+  function saveAttribution() {
+    safeSessionSet(ATTRIBUTION_KEY, JSON.stringify(attribution));
+  }
+
+  function recordAttributionPage() {
+    const context = profilePageContext();
+    if (attribution.last_page_url && attribution.last_page_url !== context.page_url) {
+      attribution.previous_page_url = attribution.last_page_url;
+    }
+    if (attribution.last_page_url !== context.page_url) {
+      attribution.pages_viewed = Number(attribution.pages_viewed || 0) + 1;
+      attribution.page_type_counts[context.page_type] = Number(attribution.page_type_counts[context.page_type] || 0) + 1;
+      if (context.page_type === "comparison") attribution.comparison_pages = arrayWithRecentValue(attribution.comparison_pages, context.page_url);
+      if (context.page_type === "district") attribution.district_pages = arrayWithRecentValue(attribution.district_pages, context.page_url);
+      if (context.page_type === "building") attribution.building_pages = arrayWithRecentValue(attribution.building_pages, context.page_url);
+    }
+    attribution.last_page_url = context.page_url;
+    attribution.current_page_type = context.page_type;
+    attribution.current_city = context.city;
+    attribution.current_district = context.district;
+    attribution.current_comparison = context.comparison;
+    attribution.current_ecosystem = context.ecosystem;
+    saveAttribution();
+  }
+
+  function markAttributionStarted() {
+    if (attribution.started_at) return;
+    attribution.started_at = new Date().toISOString();
+    attribution.started_page_url = pageUrl;
+    attribution.final_page_before_search_profile = attribution.previous_page_url || "";
+    attribution.pages_viewed_before_start = Number(attribution.pages_viewed || 0);
+    saveAttribution();
+  }
+
+  function attributionDurationMs() {
+    if (!attribution.started_at) return 0;
+    const started = new Date(attribution.started_at).getTime();
+    if (!Number.isFinite(started)) return 0;
+    return Math.max(0, Date.now() - started);
+  }
+
+  function analyticsAttribution(eventName) {
+    const context = profilePageContext();
+    return {
+      session_id: attribution.session_id || "",
+      landing_page: attribution.landing_page || context.page_url,
+      referrer: attribution.referrer || context.referrer,
+      entry_page_type: attribution.entry_page_type || context.page_type,
+      entry_city: attribution.entry_city || "",
+      entry_district: attribution.entry_district || "",
+      entry_comparison: attribution.entry_comparison || "",
+      entry_ecosystem: attribution.entry_ecosystem || "",
+      business_ecosystem: context.ecosystem || attribution.current_ecosystem || "",
+      final_page_before_search_profile: attribution.final_page_before_search_profile || attribution.previous_page_url || "",
+      start_page_url: attribution.started_page_url || (eventName === "search_profile_started" ? pageUrl : ""),
+      submit_page_url: eventName === "search_profile_submitted" ? pageUrl : attribution.submitted_page_url || "",
+      page_where_started: attribution.started_page_url || "",
+      page_where_submitted: eventName === "search_profile_submitted" ? pageUrl : "",
+      pages_viewed_before_start: Number(attribution.pages_viewed_before_start || attribution.pages_viewed || 0),
+      pages_viewed: Number(attribution.pages_viewed || 0),
+      comparison_pages_viewed: Array.isArray(attribution.comparison_pages) ? attribution.comparison_pages.length : 0,
+      district_pages_viewed: Array.isArray(attribution.district_pages) ? attribution.district_pages.length : 0,
+      building_pages_viewed: Array.isArray(attribution.building_pages) ? attribution.building_pages.length : 0,
+      comparison_pages: attribution.comparison_pages || [],
+      district_pages: attribution.district_pages || [],
+      building_pages: attribution.building_pages || [],
+      duration_ms: attributionDurationMs(),
+    };
   }
 
   function locationKey(value) {
@@ -278,6 +432,8 @@
   let viewMode = profile.contact.submitted ? "confirmation" : "edit";
   let analyticsStarted = false;
   const completedAnalyticsSteps = new Set();
+  const attribution = loadAttribution();
+  recordAttributionPage();
 
   function loadProfile() {
     try {
@@ -338,10 +494,13 @@
   function analyticsContext() {
     const summary = profileSummaryData();
     return {
-      page_type: root.dataset.profileContextType || "search_profile",
-      page_url: root.dataset.profilePageUrl || window.location.href,
+      page_type: pageType,
+      page_url: pageUrl,
+      page_title: root.dataset.profilePageTitle || document.title,
       city: summary.location.city || contextCity || "",
       district: summary.location.district || contextDistrict || "",
+      comparison: root.dataset.profileComparedDistricts || (pageType === "comparison" ? contextLabel : ""),
+      business_ecosystem: root.dataset.profileBusinessEcosystem || root.dataset.profilePrimaryArchetype || "",
       location_display: summary.location.display || contextLocation().display || "",
       device_type: deviceType(),
     };
@@ -354,6 +513,7 @@
       space_type: summary.spaceType || "",
       size_or_people: summary.sizeOrPeople || "",
       timing: summary.timing || "",
+      features: selectedFeatureValues(),
       features_count: selectedFeatureValues().length,
     };
   }
@@ -397,6 +557,7 @@
       step_name: stepName,
       context: analyticsContext(),
       profile: analyticsProfile(),
+      attribution: analyticsAttribution(eventName),
     };
     const body = JSON.stringify(payload);
 
@@ -418,6 +579,7 @@
   function trackStarted() {
     if (analyticsStarted) return;
     analyticsStarted = true;
+    markAttributionStarted();
     trackSearchProfileEvent("search_profile_started");
   }
 
@@ -530,14 +692,32 @@
     const submittedSpaceType = normalizeSubmittedSpaceType(summary.spaceType);
     const phone = normalizedPhone(profile.contact.phone);
     const sizeOrPeople = summary.sizeOrPeople || "";
+    const leadAttribution = analyticsAttribution("search_profile_submitted");
     return {
       lead_type: "location_profile",
       profile_version: "V1D",
       source: "rofo-search-profile",
       page_type: root.dataset.profileContextType || "search_profile",
-      page_url: root.dataset.profilePageUrl || window.location.href,
-      rofo_source: root.dataset.profilePageUrl || window.location.href,
+      page_url: pageUrl,
+      rofo_source: pageUrl,
       page_title: root.dataset.profilePageTitle || document.title,
+      landing_page: leadAttribution.landing_page || "",
+      referring_page: leadAttribution.referrer || "",
+      entry_page_type: leadAttribution.entry_page_type || "",
+      entry_district: leadAttribution.entry_district || "",
+      entry_city: leadAttribution.entry_city || "",
+      entry_comparison: leadAttribution.entry_comparison || "",
+      entry_ecosystem: leadAttribution.entry_ecosystem || "",
+      business_ecosystem: leadAttribution.business_ecosystem || "",
+      final_page_before_search_profile: leadAttribution.final_page_before_search_profile || "",
+      search_profile_started_page: leadAttribution.start_page_url || "",
+      search_profile_submitted_page: pageUrl,
+      search_profile_pages_viewed: String(leadAttribution.pages_viewed || 0),
+      search_profile_pages_viewed_before_start: String(leadAttribution.pages_viewed_before_start || 0),
+      search_profile_comparison_pages_viewed: String(leadAttribution.comparison_pages_viewed || 0),
+      search_profile_district_pages_viewed: String(leadAttribution.district_pages_viewed || 0),
+      search_profile_building_pages_viewed: String(leadAttribution.building_pages_viewed || 0),
+      search_profile_duration_ms: String(leadAttribution.duration_ms || 0),
       name: profile.contact.name,
       email: profile.contact.email,
       phone,
@@ -565,6 +745,7 @@
         timing: summary.timing,
         features: selectedFeatureValues(),
         feature_other: summary.featureOther || "",
+        attribution: leadAttribution,
       }),
       requirements: buildRequirementsSummary(),
       routing_market: root.dataset.profileRoutingMarket || "",
@@ -996,6 +1177,8 @@
 
     contactSubmitButton.disabled = true;
     contactSubmitButton.textContent = "Sending...";
+    attribution.submitted_page_url = pageUrl;
+    saveAttribution();
     fetch(submitEndpoint, {
       method: "POST",
       headers: {
