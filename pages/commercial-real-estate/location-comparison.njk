@@ -73,6 +73,41 @@ eleventyComputed:
           </ul>
         </section>
 
+        {% if comparison.why_companies_choose and comparison.why_companies_choose.length %}
+          <section class="city-card">
+            <div class="eyebrow">Tenant decision examples</div>
+            <h2>Why companies choose each location</h2>
+            <div class="location-comparison-panel-grid">
+              {% for group in comparison.why_companies_choose %}
+                <div class="location-comparison-panel">
+                  <h3>{{ group.district_name }}</h3>
+                  <ul class="mini-list location-comparison-panel__list">
+                    {% for item in group.reasons %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if comparison.decision_qualities and comparison.decision_qualities.length %}
+          <section class="city-card">
+            <div class="eyebrow">Decision qualities</div>
+            <h2>How to compare the tradeoffs</h2>
+            <div class="location-comparison-panel-grid">
+              {% for quality in comparison.decision_qualities %}
+                <div class="location-comparison-panel">
+                  <h3>{{ quality.label }}</h3>
+                  <p><strong>{{ comparison.district_a_name }}:</strong> {{ quality.a }}</p>
+                  <p><strong>{{ comparison.district_b_name }}:</strong> {{ quality.b }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
         <section class="city-card">
           <div class="eyebrow">Business fit</div>
           <h2>Best fit by district</h2>
@@ -164,6 +199,23 @@ eleventyComputed:
                 <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ alternative.url }}">
                   <h3>{{ alternative.district_name }}</h3>
                   <p>{{ alternative.reason }}</p>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if comparison.people_also_compare and comparison.people_also_compare.length %}
+          <section class="city-card">
+            <div class="eyebrow">People also compare</div>
+            <h2>Other useful location comparisons</h2>
+            <div class="neighborhood-comparison-grid">
+              {% for item in comparison.people_also_compare %}
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ item.url }}">
+                  <h3>{{ item.label }}</h3>
+                  {% if item.reason %}
+                    <p>{{ item.reason }}</p>
+                  {% endif %}
                 </a>
               {% endfor %}
             </div>

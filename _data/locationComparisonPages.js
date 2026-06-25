@@ -25,6 +25,75 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "financial-district-vs-soma",
+    title: "Financial District vs SoMa",
+    short_title: "Financial District vs SoMa",
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+    district_a_name: "Financial District",
+    district_b_name: "SoMa",
+    district_a_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+    district_b_path: "/commercial-real-estate/CA/san-francisco/soma/",
+    verdict_a:
+      "Choose the Financial District if a formal downtown address, transit concentration, client-facing services, and traditional office buildings are central to the decision.",
+    verdict_b:
+      "Choose SoMa if adaptive buildings, creative-office texture, growth-company flexibility, and a less formal central-city setting matter more.",
+    comparison_notes: [
+      "The Financial District is San Francisco's classic office core, with high-rise buildings, BART/Muni access, and a stronger finance, legal, and consulting signal.",
+      "SoMa is broader and more varied, with warehouse conversions, mid-rise office buildings, startup history, and better fit for teams that want central access without CBD formality.",
+      "The building decision is often tower-core efficiency versus adaptive or creative office character.",
+      "The Financial District is usually stronger for clients, professional-service meetings, and central transit; SoMa is often stronger for product, design, creative, and growth-company culture.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Financial District",
+        reasons: [
+          "Finance, legal, consulting, and professional-service firms that benefit from a recognized downtown address",
+          "Client-facing teams that need transit access, nearby business services, and formal meeting environments",
+          "Companies that prefer vertical office buildings and traditional downtown building management",
+        ],
+      },
+      {
+        district_name: "SoMa",
+        reasons: [
+          "Technology, product, design, and creative teams that want a less formal central San Francisco setting",
+          "Growth companies comparing flexible office layouts, converted buildings, and larger central-city options",
+          "Teams that value access to downtown, Mission Bay, Caltrain, and creative-commercial amenities",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+        reason: "Compare tower-core formality with boutique historic office character.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare life-science and newer office context with traditional CBD identity.",
+      },
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+        reason: "Compare adaptive central-city office texture with newer institutional geography.",
+      },
+      {
+        label: "SoMa vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
+        reason: "Compare broad creative-office geography with smaller downtown-edge buildings.",
+      },
+      {
+        label: "Financial District vs Downtown Oakland",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-downtown-oakland/",
+        reason: "Compare San Francisco CBD identity with East Bay BART-centered practicality.",
+      },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "soma-vs-mission-bay",
     title: "SoMa vs Mission Bay",
     short_title: "SoMa vs Mission Bay",
@@ -41,9 +110,56 @@ const comparisons = [
     verdict_b:
       "Choose Mission Bay if newer institutional, life-science, medical, or modern large-parcel office context matters more.",
     comparison_notes: [
-      "SoMa is more adaptive and mixed; Mission Bay is newer, more institutional, and more purpose-built.",
-      "SoMa is stronger for creative office and central-city flexibility.",
-      "Mission Bay is stronger for life-science, medical, research-adjacent, and modern office environments.",
+      "SoMa is more adaptive and mixed, with warehouse conversions, creative office buildings, and a broader central-city feel.",
+      "Mission Bay is newer, more institutional, and more purpose-built, with stronger UCSF, healthcare, life-science, and modern office context.",
+      "SoMa is usually stronger for creative office, growth-company flexibility, and access back toward downtown and Caltrain.",
+      "Mission Bay is stronger for life-science, medical, research-adjacent, AI, and larger modern collaborative office environments.",
+      "The accessibility tradeoff is central-city variety and transit adjacency in SoMa versus a cleaner campus-like waterfront and institutional setting in Mission Bay.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "SoMa",
+        reasons: [
+          "Technology, creative, product, and design teams that want adaptive central-city buildings",
+          "Growth companies that want flexible layouts and access to downtown, Caltrain, Mission Bay, and South Park",
+          "Teams that prefer a mixed commercial environment over a single institutional district identity",
+        ],
+      },
+      {
+        district_name: "Mission Bay",
+        reasons: [
+          "Life-science, healthcare, research, and AI companies that benefit from UCSF and modern building context",
+          "Teams looking for newer floor plates, collaborative workspace, and a more planned district environment",
+          "Companies that want a cleaner waterfront-adjacent setting without leaving San Francisco",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+        reason: "Compare SoMa's adaptive office environment with San Francisco's formal CBD.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare newer institutional office context with traditional downtown office identity.",
+      },
+      {
+        label: "Mission Bay vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
+        reason: "Compare modern life-science geography with boutique historic downtown-edge office space.",
+      },
+      {
+        label: "SoMa vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
+        reason: "Compare broad adaptive office geography with smaller historic blocks.",
+      },
+      {
+        label: "SoMa vs Downtown Oakland",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-downtown-oakland/",
+        reason: "Compare central San Francisco adaptive office context with East Bay BART access.",
+      },
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -71,6 +187,201 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "hayes-valley-vs-mission",
+    title: "Hayes Valley vs Mission",
+    short_title: "Hayes Valley vs Mission",
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    path: "/commercial-real-estate/CA/san-francisco/hayes-valley-vs-mission/",
+    district_a_name: "Hayes Valley",
+    district_b_name: "Mission",
+    district_a_path: "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+    district_b_path: "/commercial-real-estate/CA/san-francisco/mission/",
+    verdict_a:
+      "Choose Hayes Valley if boutique retail, design, wellness, local service, and a polished central-neighborhood setting matter most.",
+    verdict_b:
+      "Choose the Mission if dense street activity, food and beverage, creative office, transit access, and a broader neighborhood customer base matter more.",
+    comparison_notes: [
+      "Hayes Valley is smaller, more curated, and more boutique, with a strong fit for design, wellness, retail, and client-facing local services.",
+      "The Mission is larger, denser, and more varied, with stronger food, nightlife, creative, local retail, and neighborhood-service energy.",
+      "Building inventory in Hayes Valley tends to be smaller-scale and storefront-oriented; the Mission offers a wider mix of storefronts, small offices, converted buildings, and neighborhood commercial spaces.",
+      "Hayes Valley can feel more polished and central for client-facing uses, while the Mission generally offers more street-level activity and cultural texture.",
+      "Transit access is useful in both, but the Mission has stronger BART access while Hayes Valley is closer to Civic Center, SoMa, and the central city.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Hayes Valley",
+        reasons: [
+          "Boutique retailers, wellness providers, design firms, and service businesses that want a polished neighborhood setting",
+          "Small office users that value central San Francisco access without a downtown tower environment",
+          "Customer-facing teams that want a curated retail and restaurant context for clients or employees",
+        ],
+      },
+      {
+        district_name: "Mission",
+        reasons: [
+          "Restaurants, local retailers, creative studios, and neighborhood-service businesses that depend on dense street activity",
+          "Creative office and small professional users that want stronger cultural texture and BART access",
+          "Teams looking for a more energetic, mixed commercial environment than Hayes Valley",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+        reason: "Compare central office-core and adaptive-office options nearby.",
+      },
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+        reason: "Compare central-city adaptive office with newer institutional geography.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare modern institutional office context with formal CBD identity.",
+      },
+      {
+        label: "SoMa vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
+        reason: "Compare nearby creative-office and boutique downtown alternatives.",
+      },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "marina-district-vs-presidio",
+    title: "Marina District vs Presidio",
+    short_title: "Marina District vs Presidio",
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    path: "/commercial-real-estate/CA/san-francisco/marina-district-vs-presidio/",
+    district_a_name: "Marina District",
+    district_b_name: "Presidio",
+    district_a_path: "/commercial-real-estate/CA/san-francisco/marina-district/",
+    district_b_path: "/commercial-real-estate/CA/san-francisco/presidio/",
+    verdict_a:
+      "Choose the Marina District if customer visibility, neighborhood retail, wellness, medical, and local professional-service access matter most.",
+    verdict_b:
+      "Choose the Presidio if campus character, historic office buildings, open-space setting, and a quieter organizational environment matter more.",
+    comparison_notes: [
+      "The Marina District is a neighborhood commercial corridor environment; the Presidio is a campus-like setting with historic buildings and a more distinctive institutional feel.",
+      "Marina buildings are better for street-facing retail, wellness, medical, and local-service users tied to northern San Francisco customers.",
+      "Presidio buildings can work for organizations, creative office users, and teams that want identity, quiet, and open-space context more than storefront visibility.",
+      "Accessibility differs: the Marina is easier for neighborhood customer traffic, while the Presidio is more destination-oriented and auto/bike/shuttle dependent.",
+      "The pricing conversation is qualitative and building-specific, but the tradeoff is visibility and neighborhood demand versus atmosphere and campus character.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Marina District",
+        reasons: [
+          "Wellness, medical, retail, and service businesses serving northern San Francisco customers",
+          "Small professional firms that benefit from neighborhood visibility and client convenience",
+          "Businesses that want active streets, restaurants, and customer-facing commercial corridors",
+        ],
+      },
+      {
+        district_name: "Presidio",
+        reasons: [
+          "Creative office users, nonprofits, foundations, and organizations that value campus character",
+          "Teams that want historic buildings, open space, and a less conventional San Francisco office setting",
+          "Companies that prioritize employee environment and identity over walk-in customer traffic",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Richmond District vs Sunset District",
+        url: "/commercial-real-estate/CA/san-francisco/richmond-district-vs-sunset-district/",
+        reason: "Compare west-side neighborhood-serving commercial corridors.",
+      },
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+        reason: "Compare formal downtown office with boutique historic office character.",
+      },
+      {
+        label: "Hayes Valley vs Mission",
+        url: "/commercial-real-estate/CA/san-francisco/hayes-valley-vs-mission/",
+        reason: "Compare central neighborhood commercial environments.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare modern institutional district context with traditional CBD office identity.",
+      },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "richmond-district-vs-sunset-district",
+    title: "Richmond District vs Sunset District",
+    short_title: "Richmond District vs Sunset District",
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    path: "/commercial-real-estate/CA/san-francisco/richmond-district-vs-sunset-district/",
+    district_a_name: "Richmond District",
+    district_b_name: "Sunset District",
+    district_a_path: "/commercial-real-estate/CA/san-francisco/richmond/",
+    district_b_path: "/commercial-real-estate/CA/san-francisco/sunset/",
+    verdict_a:
+      "Choose the Richmond District if northern west-side customer access, medical/professional services, and Presidio or Golden Gate Park adjacency matter most.",
+    verdict_b:
+      "Choose the Sunset District if southern west-side customer geography, neighborhood retail, medical, wellness, and local-service demand matter more.",
+    comparison_notes: [
+      "Both districts are west-side neighborhood commercial markets rather than downtown office districts.",
+      "The Richmond District is stronger for businesses serving northern west-side customers and users that benefit from proximity to the Presidio, Golden Gate Park, and medical/service corridors.",
+      "The Sunset District is broader south of Golden Gate Park and can work well for medical, wellness, retail, food, and professional-service users serving western and southwestern San Francisco.",
+      "Neither district is usually the first choice for large office users, but both can be practical for local offices, clinics, service businesses, and customer-facing neighborhood operators.",
+      "The decision is less about skyline office identity and more about which customer geography, corridor visibility, and neighborhood pattern best matches the business.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Richmond District",
+        reasons: [
+          "Medical, wellness, local office, and professional-service users serving northern west-side customers",
+          "Retail and service businesses that value Golden Gate Park, Presidio, and Clement/Geary corridor context",
+          "Teams that want a practical neighborhood commercial setting away from downtown density",
+        ],
+      },
+      {
+        district_name: "Sunset District",
+        reasons: [
+          "Medical, wellness, food, retail, and local-service businesses serving the southern west side",
+          "Small professional users that want neighborhood access rather than central-city office identity",
+          "Businesses that benefit from broad residential customer geography and practical corridor visibility",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Marina District vs Presidio",
+        url: "/commercial-real-estate/CA/san-francisco/marina-district-vs-presidio/",
+        reason: "Compare northern neighborhood commercial visibility with campus-like office character.",
+      },
+      {
+        label: "Hayes Valley vs Mission",
+        url: "/commercial-real-estate/CA/san-francisco/hayes-valley-vs-mission/",
+        reason: "Compare central neighborhood commercial districts.",
+      },
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+        reason: "Compare west-side neighborhood markets with central office districts.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare modern institutional office context with traditional CBD office identity.",
+      },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "financial-district-vs-jackson-square",
     title: "Financial District SF vs Jackson Square",
     short_title: "Financial District vs Jackson Square",
@@ -87,9 +398,51 @@ const comparisons = [
     verdict_b:
       "Choose Jackson Square if smaller historic buildings, boutique professional-service texture, and downtown access without tower-core formality are a better fit.",
     comparison_notes: [
-      "Both districts sit in San Francisco's downtown commercial orbit, but they communicate very different office environments.",
-      "The Financial District is stronger for traditional professional-service users that benefit from scale, transit, and formal business identity.",
-      "Jackson Square is stronger for boutique teams that want downtown adjacency in lower-scale historic commercial buildings.",
+      "Both districts sit in San Francisco's downtown commercial orbit, but the Financial District is a formal office core while Jackson Square is a smaller historic district at the edge of downtown.",
+      "The Financial District is stronger for traditional professional-service users that benefit from scale, transit, formal reception areas, and client access.",
+      "Jackson Square is stronger for boutique finance, venture, creative, and technology teams that want downtown adjacency in lower-scale historic buildings.",
+      "The building inventory tradeoff is high-rise and mid-rise office towers versus smaller brick-and-timber, historic, and boutique office settings.",
+      "Jackson Square can feel more distinctive for talent and clients, while the Financial District usually offers more conventional office depth and transit concentration.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Financial District",
+        reasons: [
+          "Law, finance, consulting, accounting, and enterprise teams that need a formal downtown address",
+          "Client-heavy firms that value nearby transit, hotels, restaurants, and business services",
+          "Companies that want traditional office buildings with more predictable floor plates and building services",
+        ],
+      },
+      {
+        district_name: "Jackson Square",
+        reasons: [
+          "Boutique investment firms, venture investors, AI startups, and creative office users seeking a more intimate setting",
+          "Teams that want historic building character without giving up downtown proximity",
+          "Companies that use atmosphere, walkability, and neighborhood identity as part of talent and client experience",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+        reason: "Compare formal CBD buildings with broader adaptive central-city options.",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+        reason: "Compare institutional life-science geography with traditional downtown office identity.",
+      },
+      {
+        label: "SoMa vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-jackson-square/",
+        reason: "Compare SoMa's broader creative-office geography with Jackson Square's boutique scale.",
+      },
+      {
+        label: "Mission Bay vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
+        reason: "Compare modern life-science geography with historic downtown-edge offices.",
+      },
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -136,6 +489,71 @@ const comparisons = [
       "The Financial District is San Francisco's most formal downtown office core; Mission Bay is newer, more institutional, and more life-science oriented.",
       "The Financial District is usually stronger for legal, finance, consulting, and traditional professional-service users.",
       "Mission Bay is usually stronger for research-adjacent, medical, life-science, and modern office users tied to UCSF or waterfront growth.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "mission-bay-vs-financial-district",
+    title: "Mission Bay vs Financial District",
+    short_title: "Mission Bay vs Financial District",
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+    district_a_name: "Mission Bay",
+    district_b_name: "Financial District",
+    district_a_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+    district_b_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+    verdict_a:
+      "Choose Mission Bay if newer buildings, life-science and healthcare adjacency, UCSF context, and modern collaborative office environments matter most.",
+    verdict_b:
+      "Choose the Financial District if formal CBD identity, transit depth, client-facing business services, and traditional office buildings matter more.",
+    comparison_notes: [
+      "Mission Bay is a newer institutional and waterfront-adjacent district; the Financial District is San Francisco's classic downtown office core.",
+      "Mission Bay is better aligned with life science, healthcare, AI, research-adjacent teams, and companies that value newer large-format buildings.",
+      "The Financial District is better aligned with finance, legal, consulting, and other client-facing professional-service firms.",
+      "Transit and client access usually favor the Financial District; modern building context and institutional adjacency usually favor Mission Bay.",
+      "Pricing should be evaluated building by building, but the qualitative tradeoff is modern specialized environment versus traditional CBD efficiency and identity.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Mission Bay",
+        reasons: [
+          "Life-science, healthcare, AI, and research-adjacent companies that benefit from UCSF and modern buildings",
+          "Teams that need larger collaborative floor plates and a newer district environment",
+          "Companies that want waterfront-adjacent San Francisco access without a traditional CBD setting",
+        ],
+      },
+      {
+        district_name: "Financial District",
+        reasons: [
+          "Finance, legal, consulting, and professional-service firms that depend on client access and downtown identity",
+          "Teams that prioritize BART/Muni/Ferry access and established business services",
+          "Companies that want more traditional office towers and a central San Francisco address",
+        ],
+      },
+    ],
+    people_also_compare: [
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+        reason: "Compare Mission Bay with the adaptive central-city district immediately to the north.",
+      },
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+        reason: "Compare CBD identity with central-city creative-office flexibility.",
+      },
+      {
+        label: "Mission Bay vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
+        reason: "Compare newer institutional geography with boutique historic office character.",
+      },
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+        reason: "Compare traditional CBD buildings with smaller downtown-edge office blocks.",
+      },
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -347,6 +765,29 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "alameda-waterfront-harbor-bay-vs-emeryville",
+    title: "Alameda Waterfront / Harbor Bay vs Emeryville",
+    short_title: "Alameda Waterfront vs Emeryville",
+    city: "Alameda",
+    state_abbr: "CA",
+    city_slug: "alameda",
+    path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/",
+    district_a_name: "Alameda Waterfront / Harbor Bay",
+    district_b_name: "Emeryville",
+    district_a_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+    district_b_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+    verdict_a:
+      "Choose Alameda Waterfront / Harbor Bay if parking-practical waterfront office, local service, light flex, and East Bay access matter most.",
+    verdict_b:
+      "Choose Emeryville if a more central East Bay office, life-science support, R&D, and mixed commercial node is the better fit.",
+    comparison_notes: [
+      "Alameda Waterfront / Harbor Bay is quieter, more parking-practical, and more campus or waterfront oriented.",
+      "Emeryville is more central to the Oakland-Berkeley business corridor, with stronger office, life-science support, and mixed commercial identity.",
+      "The decision often separates lower-friction Alameda operating context from Emeryville's denser East Bay innovation and office cluster.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "san-leandro-industrial-vs-hegenberger-corridor",
     title: "San Leandro Industrial vs Hegenberger Corridor",
     short_title: "San Leandro Industrial vs Hegenberger",
@@ -370,6 +811,29 @@ const comparisons = [
     lead_prompt: "Find locations that fit",
   },
   {
+    slug: "richmond-industrial-vs-west-oakland",
+    title: "Richmond Industrial vs West Oakland",
+    short_title: "Richmond Industrial vs West Oakland",
+    city: "Richmond",
+    state_abbr: "CA",
+    city_slug: "richmond",
+    path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/",
+    district_a_name: "Richmond Industrial",
+    district_b_name: "West Oakland",
+    district_a_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+    district_b_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+    verdict_a:
+      "Choose Richmond Industrial if larger-format industrial, manufacturing, warehouse, or northern East Bay freeway utility matters most.",
+    verdict_b:
+      "Choose West Oakland if close-in Oakland access, port-adjacent utility, adaptive buildings, and urban industrial texture matter more.",
+    comparison_notes: [
+      "Richmond Industrial is more operational and corridor-driven, with stronger fit for warehouse, manufacturing, and service-industrial users.",
+      "West Oakland is more close-in and adaptive, with stronger proximity to Downtown Oakland, Emeryville, the port, and San Francisco access.",
+      "The decision often comes down to larger industrial utility versus an urban Oakland edge location with more adaptive commercial character.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
     slug: "west-oakland-vs-emeryville",
     title: "West Oakland vs Emeryville",
     short_title: "West Oakland vs Emeryville",
@@ -389,6 +853,29 @@ const comparisons = [
       "West Oakland is more industrial-transition, port-adjacent, and downtown-edge in character.",
       "Emeryville is more structured, office/life-science oriented, and business-park-like around Powell, Christie, Horton, and Shellmound.",
       "The decision is strongest for teams weighing adaptive Oakland utility against a more established East Bay office/R&D node.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "hegenberger-corridor-vs-coliseum-industrial",
+    title: "Hegenberger Corridor vs Coliseum Industrial",
+    short_title: "Hegenberger vs Coliseum Industrial",
+    city: "Oakland",
+    state_abbr: "CA",
+    city_slug: "oakland",
+    path: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/",
+    district_a_name: "Hegenberger Corridor",
+    district_b_name: "Coliseum Industrial",
+    district_a_path: "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+    district_b_path: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+    verdict_a:
+      "Choose Hegenberger Corridor if Oakland Airport proximity, I-880 visibility, and airport-area service-commercial access matter most.",
+    verdict_b:
+      "Choose Coliseum Industrial if East Oakland warehouse/flex, contractor, and practical industrial building formats are the stronger priority.",
+    comparison_notes: [
+      "Hegenberger Corridor is more airport-facing, with stronger hospitality, service-commercial, and I-880 visibility.",
+      "Coliseum Industrial is more functional and industrial, with stronger fit for warehouse/flex, contractor, and operations users.",
+      "The decision is usually about airport-corridor exposure versus deeper East Oakland industrial utility.",
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -1107,6 +1594,156 @@ comparisons.push(
       "This page compares the strongest walkable business-district context in each city rather than every submarket in Palo Alto or Mountain View.",
       "Palo Alto is stronger for Stanford, venture, and client-facing professional identity.",
       "Mountain View is stronger for startup and technology-adjacent teams that want downtown texture near major employers.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "palo-alto-vs-menlo-park",
+    title: "Palo Alto vs Menlo Park",
+    short_title: "Palo Alto vs Menlo Park",
+    city: "Palo Alto",
+    state_abbr: "CA",
+    city_slug: "palo-alto",
+    path: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-menlo-park/",
+    district_a_name: "Palo Alto",
+    district_b_name: "Menlo Park",
+    district_a_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+    district_b_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core/",
+    verdict_a:
+      "Choose Palo Alto if Stanford adjacency, venture signal, client-facing professional identity, and downtown amenities matter most.",
+    verdict_b:
+      "Choose Menlo Park if quieter Peninsula access, smaller professional buildings, Sand Hill proximity, and a lower-scale business setting fit better.",
+    comparison_notes: [
+      "Palo Alto generally carries the stronger Stanford, venture, and client-facing signal; Menlo Park is quieter and more local in feel.",
+      "Palo Alto is better for firms using University Avenue, Caltrain, and downtown identity as part of recruiting or client experience.",
+      "Menlo Park can be a better fit for boutique professional services, venture-adjacent teams, and users that want Peninsula access without Palo Alto's intensity.",
+      "Building inventory in Palo Alto skews toward downtown office and Stanford-adjacent options, while Menlo Park is more lower-scale and professional-service oriented.",
+      "The qualitative pricing tradeoff is usually Palo Alto prestige and demand versus Menlo Park practicality and a calmer operating environment.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "mountain-view-vs-sunnyvale",
+    title: "Mountain View vs Sunnyvale",
+    short_title: "Mountain View vs Sunnyvale",
+    city: "Mountain View",
+    state_abbr: "CA",
+    city_slug: "mountain-view",
+    path: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/",
+    district_a_name: "Mountain View",
+    district_b_name: "Sunnyvale",
+    district_a_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+    district_b_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+    verdict_a:
+      "Choose Mountain View if startup identity, downtown Caltrain access, and proximity to major technology employers matter most.",
+    verdict_b:
+      "Choose Sunnyvale if practical central Silicon Valley access, downtown growth, and nearby R&D/business-park options matter more.",
+    comparison_notes: [
+      "Mountain View often reads as the more startup- and technology-employer-adjacent downtown decision.",
+      "Sunnyvale is broader and more practical, with downtown office options plus nearby R&D and business-park alternatives such as Peery Park and Moffett Park.",
+      "Mountain View can be stronger for talent attraction when company identity benefits from proximity to large technology campuses.",
+      "Sunnyvale can work better when commute reach across the South Bay, Peninsula, and north San Jose matters more than a single downtown signal.",
+      "Both offer Caltrain-oriented downtown context, but Sunnyvale usually provides more nearby expansion paths across office, R&D, and flex formats.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "menlo-park-commercial-core-vs-sand-hill-stanford-adjacent",
+    title: "Menlo Park Commercial Core vs Sand Hill / Stanford-adjacent",
+    short_title: "Menlo Park vs Sand Hill",
+    city: "Menlo Park",
+    state_abbr: "CA",
+    city_slug: "menlo-park",
+    path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core-vs-sand-hill-stanford-adjacent/",
+    district_a_name: "Menlo Park Commercial Core",
+    district_b_name: "Sand Hill / Stanford-adjacent",
+    district_a_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/menlo-park/sand-hill-stanford-adjacent/",
+    verdict_a:
+      "Choose Menlo Park Commercial Core if local professional services, downtown access, Caltrain proximity, and smaller office settings matter most.",
+    verdict_b:
+      "Choose Sand Hill / Stanford-adjacent if venture, executive access, institutional adjacency, and campus-like office context are stronger priorities.",
+    comparison_notes: [
+      "Menlo Park Commercial Core is more local, walkable, and professional-service oriented.",
+      "Sand Hill / Stanford-adjacent is more specialized, with stronger venture, executive, Stanford, and campus-office identity.",
+      "The Commercial Core is usually easier for client-facing local services, small office users, and teams that value downtown Menlo Park access.",
+      "Sand Hill is usually stronger for investment, executive, institutional, and high-signal office users where address context matters.",
+      "The tradeoff is everyday downtown practicality versus a more exclusive and campus-like Stanford-adjacent business environment.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "peery-park-vs-north-bayshore",
+    title: "Peery Park vs North Bayshore",
+    short_title: "Peery Park vs North Bayshore",
+    city: "Sunnyvale",
+    state_abbr: "CA",
+    city_slug: "sunnyvale",
+    path: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/",
+    district_a_name: "Peery Park",
+    district_b_name: "North Bayshore",
+    district_a_path: "/commercial-real-estate/CA/sunnyvale/peery-park/",
+    district_b_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+    verdict_a:
+      "Choose Peery Park if central Sunnyvale R&D/flex buildings, smaller business-park formats, and practical expansion options matter most.",
+    verdict_b:
+      "Choose North Bayshore if Mountain View campus identity, larger technology-company context, and major-employer adjacency matter more.",
+    comparison_notes: [
+      "Peery Park is a practical Sunnyvale R&D and business-park district with smaller and mid-scale buildings.",
+      "North Bayshore is more campus-oriented and more closely associated with large technology employers and Mountain View identity.",
+      "Peery Park can be better for teams that need R&D/flex utility and room to grow without a highly branded campus environment.",
+      "North Bayshore can be better for companies that want talent attraction tied to Mountain View's technology ecosystem.",
+      "The access tradeoff is central Sunnyvale convenience and expansion optionality versus stronger campus signal and Highway 101-adjacent technology identity.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "cupertino-commercial-core-vs-downtown-sunnyvale",
+    title: "Cupertino Commercial Core vs Downtown Sunnyvale",
+    short_title: "Cupertino vs Downtown Sunnyvale",
+    city: "Cupertino",
+    state_abbr: "CA",
+    city_slug: "cupertino",
+    path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core-vs-downtown-sunnyvale/",
+    district_a_name: "Cupertino Commercial Core",
+    district_b_name: "Downtown Sunnyvale",
+    district_a_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/",
+    district_b_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+    verdict_a:
+      "Choose Cupertino Commercial Core if West Valley customer access, Apple-adjacent context, and polished local professional office settings matter most.",
+    verdict_b:
+      "Choose Downtown Sunnyvale if Caltrain access, downtown mixed-use amenities, and broader central Silicon Valley commute reach matter more.",
+    comparison_notes: [
+      "Cupertino Commercial Core is more West Valley and Apple-adjacent, with professional office, medical, local-service, and customer-facing context.",
+      "Downtown Sunnyvale is more transit-oriented and mixed-use, with Caltrain access and stronger connection to Sunnyvale's broader office/R&D market.",
+      "Cupertino can be stronger for firms serving West Valley customers, executives, and local professional-service demand.",
+      "Downtown Sunnyvale can be stronger for teams that want walkability, transit, and a more central Silicon Valley commute pattern.",
+      "The qualitative price and fit tradeoff is Cupertino's polished West Valley identity versus Sunnyvale's practical downtown and expansion ecosystem.",
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "north-san-jose-vs-downtown-sunnyvale",
+    title: "North San Jose vs Downtown Sunnyvale",
+    short_title: "North San Jose vs Downtown Sunnyvale",
+    city: "San Jose",
+    state_abbr: "CA",
+    city_slug: "san-jose",
+    path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/",
+    district_a_name: "North San Jose",
+    district_b_name: "Downtown Sunnyvale",
+    district_a_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    district_b_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+    verdict_a:
+      "Choose North San Jose if office/R&D scale, airport access, freeway reach, and larger floor-plate optionality matter most.",
+    verdict_b:
+      "Choose Downtown Sunnyvale if Caltrain, walkable amenities, smaller downtown office context, and central Silicon Valley access matter more.",
+    comparison_notes: [
+      "North San Jose is a broad office/R&D and flex corridor with stronger airport, freeway, and large-building utility.",
+      "Downtown Sunnyvale is a more walkable Caltrain-oriented district with a smaller downtown feel and direct access to Sunnyvale amenities.",
+      "North San Jose is usually better for companies needing scale, operations support, or a corridor with office, R&D, and flex choices.",
+      "Downtown Sunnyvale is usually better for teams using walkability, transit, and a more compact downtown as part of recruiting and daily experience.",
+      "The decision often separates operating scale and freeway access from downtown lifestyle and transit-oriented employee experience.",
     ],
     lead_prompt: "Find locations that fit",
   },
@@ -3622,16 +4259,26 @@ const metaFocusBySlug = {
     "southside logistics and service-industrial utility versus airport-adjacent office and hospitality context",
   "soma-vs-financial-district":
     "adaptive creative-office texture versus formal downtown office-core identity",
+  "financial-district-vs-soma":
+    "formal San Francisco CBD office identity versus adaptive SoMa creative and technology office geography",
   "soma-vs-mission-bay":
     "adaptive central San Francisco office context versus newer institutional and life-science geography",
   "downtown-oakland-vs-uptown-oakland":
     "BART-centered civic/business core versus mixed-use arts-adjacent Oakland office context",
+  "hayes-valley-vs-mission":
+    "Hayes Valley boutique mixed commercial context versus Mission dense creative and neighborhood-service geography",
+  "marina-district-vs-presidio":
+    "Marina District customer-facing neighborhood commercial corridors versus Presidio campus-like historic office setting",
+  "richmond-district-vs-sunset-district":
+    "Richmond District northern west-side local-service geography versus Sunset District southern west-side neighborhood commercial market",
   "financial-district-vs-jackson-square":
     "formal San Francisco CBD office identity versus boutique historic downtown-edge office character",
   "downtown-oakland-vs-jack-london-square":
     "BART-centered Oakland office concentration versus waterfront adaptive-commercial context",
   "financial-district-vs-mission-bay":
     "formal downtown office core versus newer institutional and life-science-oriented office setting",
+  "mission-bay-vs-financial-district":
+    "Mission Bay modern institutional and life-science context versus Financial District traditional CBD office identity",
   "downtown-oakland-vs-old-oakland":
     "Broadway civic/business core versus smaller historic downtown transition blocks",
   "financial-district-vs-downtown-oakland":
@@ -3644,6 +4291,16 @@ const metaFocusBySlug = {
     "Emeryville office and life-science node versus Jack London Square waterfront adaptive commercial context",
   "emeryville-vs-west-berkeley":
     "Emeryville structured office and life-science node versus West Berkeley maker, R&D/flex, and adaptive industrial character",
+  "west-oakland-vs-emeryville":
+    "West Oakland urban industrial-transition texture versus Emeryville office, life-science, and mixed commercial structure",
+  "alameda-waterfront-harbor-bay-vs-emeryville":
+    "Alameda waterfront and parking-practical business-park context versus Emeryville central East Bay office and life-science node",
+  "richmond-industrial-vs-west-oakland":
+    "northern East Bay industrial utility versus close-in Oakland adaptive industrial and port-adjacent access",
+  "hegenberger-corridor-vs-coliseum-industrial":
+    "Oakland Airport-facing corridor visibility versus East Oakland warehouse/flex and service-industrial utility",
+  "hayward-industrial-vs-san-leandro-industrial":
+    "central I-880 warehouse and manufacturing depth versus Oakland-adjacent North I-880 service-industrial access",
   "walnut-creek-vs-downtown-oakland":
     "Downtown Walnut Creek suburban office-retail core versus Downtown Oakland urban civic and BART-centered office core",
   "pleasanton-vs-walnut-creek":
@@ -3684,6 +4341,18 @@ const metaFocusBySlug = {
     "Stanford-adjacent Peninsula professional context versus Mountain View startup and Caltrain downtown context",
   "palo-alto-vs-mountain-view":
     "Palo Alto Stanford-adjacent business context versus Mountain View startup and technology-employer adjacency",
+  "palo-alto-vs-menlo-park":
+    "Palo Alto Stanford and venture-facing downtown identity versus Menlo Park quieter Peninsula professional and Sand Hill-adjacent access",
+  "mountain-view-vs-sunnyvale":
+    "Mountain View technology-employer downtown context versus Sunnyvale central Silicon Valley downtown and R&D expansion geography",
+  "menlo-park-commercial-core-vs-sand-hill-stanford-adjacent":
+    "Menlo Park local downtown professional core versus Sand Hill / Stanford-adjacent venture and campus office identity",
+  "peery-park-vs-north-bayshore":
+    "Peery Park practical Sunnyvale R&D/flex district versus North Bayshore Mountain View technology-campus geography",
+  "cupertino-commercial-core-vs-downtown-sunnyvale":
+    "Cupertino West Valley professional and Apple-adjacent context versus Downtown Sunnyvale Caltrain-oriented central Silicon Valley office setting",
+  "north-san-jose-vs-downtown-sunnyvale":
+    "North San Jose broad office/R&D corridor scale versus Downtown Sunnyvale walkable Caltrain-oriented office context",
   "stanford-research-park-vs-downtown-palo-alto":
     "research park and R and D campus geography versus walkable Palo Alto downtown office identity",
   "warm-springs-vs-milpitas-industrial":
@@ -4091,6 +4760,709 @@ function hasWarehouseFlexDecisionContext(districtA, districtB) {
   );
 }
 
+const southBayPeninsulaComparisonEnhancements = {
+  "palo-alto-vs-mountain-view": {
+    comparison_notes: [
+      "This page compares the strongest walkable business-district context in each city rather than every submarket in Palo Alto or Mountain View.",
+      "Palo Alto is stronger for Stanford, venture, executive, and client-facing professional identity.",
+      "Mountain View is stronger for startup and technology-adjacent teams that want Caltrain access near major employers.",
+      "Palo Alto often supports more prestige-sensitive users; Mountain View often feels more practical for teams recruiting around the broader Google and Peninsula technology ecosystem.",
+      "Both locations can work for high-value office users, but Palo Alto leans toward relationship signal while Mountain View leans toward technology-company proximity and everyday operating convenience.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Palo Alto",
+        reasons: [
+          "Venture-backed startups, investment firms, legal, consulting, and professional-service teams tied to Stanford and Peninsula clients",
+          "Executive-facing companies that use Palo Alto identity as part of recruiting, fundraising, or client trust",
+          "Teams that want a walkable downtown with restaurants, Caltrain, and high-signal professional surroundings",
+        ],
+      },
+      {
+        district_name: "Mountain View",
+        reasons: [
+          "Technology, product, and startup teams that want proximity to major employers and a practical downtown environment",
+          "Companies balancing Peninsula talent access with a less prestige-driven setting than Palo Alto",
+          "Teams that need Caltrain access and nearby alternatives such as North Bayshore, Moffett Park, and Sunnyvale",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Caltrain-oriented downtown plus Stanford and west Peninsula access.", b: "Caltrain downtown with strong reach to Mountain View, Sunnyvale, and North Bayshore." },
+      { label: "Amenity environment", a: "Polished University Avenue and client-facing downtown amenities.", b: "Practical Castro Street downtown amenities with technology-employer proximity." },
+      { label: "Talent attraction", a: "Strong Stanford, venture, and executive signal.", b: "Strong technology-worker geography and major-employer adjacency." },
+      { label: "Building inventory", a: "Smaller downtown office buildings plus Stanford-adjacent alternatives.", b: "Downtown office plus nearby campus and R&D choices." },
+      { label: "Price positioning", a: "Typically positioned as a premium Peninsula identity market.", b: "Often more practical while still highly competitive for tech users." },
+    ],
+    people_also_compare: [
+      { label: "Palo Alto vs Menlo Park", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-menlo-park/", reason: "Compare Palo Alto identity with quieter Menlo Park professional access." },
+      { label: "Mountain View vs Sunnyvale", url: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/", reason: "Compare Mountain View's tech identity with Sunnyvale's practical central Silicon Valley reach." },
+      { label: "North Bayshore vs Stanford Research Park", url: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/", reason: "Compare the campus/R&D districts behind the city-level decision." },
+      { label: "Peery Park vs North Bayshore", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/", reason: "Compare Sunnyvale R&D/flex with Mountain View campus geography." },
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare South Bay scale with downtown Sunnyvale transit and amenities." },
+    ],
+  },
+  "palo-alto-vs-menlo-park": {
+    why_companies_choose: [
+      {
+        district_name: "Palo Alto",
+        reasons: [
+          "Startups, venture-adjacent firms, law, consulting, and executive-facing teams that benefit from Palo Alto identity",
+          "Companies that want University Avenue, Stanford proximity, and Caltrain as part of the employee and client experience",
+          "Teams that need a stronger prestige signal than a quieter Peninsula office market provides",
+        ],
+      },
+      {
+        district_name: "Menlo Park",
+        reasons: [
+          "Boutique professional-service, investment, and local office users that want a calmer Peninsula setting",
+          "Teams that value Sand Hill and Stanford access without needing a Palo Alto downtown address",
+          "Businesses that want smaller-scale buildings and easier local client access",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Caltrain and central Palo Alto access with Stanford adjacency.", b: "Caltrain/local Peninsula access plus proximity to Sand Hill and Palo Alto." },
+      { label: "Client / executive access", a: "Higher-profile Palo Alto address and downtown meeting environment.", b: "Quieter client access with strong venture and executive adjacency nearby." },
+      { label: "Amenity environment", a: "More active downtown restaurant and professional-service setting.", b: "Smaller downtown and neighborhood-scale professional environment." },
+      { label: "Building inventory", a: "Downtown office and Stanford-adjacent options.", b: "Lower-scale commercial core and nearby Sand Hill office context." },
+      { label: "Growth fit", a: "Better if identity and talent signal are part of growth.", b: "Better if proximity and practicality matter more than downtown intensity." },
+    ],
+    people_also_compare: [
+      { label: "Menlo Park Commercial Core vs Sand Hill / Stanford-adjacent", url: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core-vs-sand-hill-stanford-adjacent/", reason: "Compare Menlo Park's own downtown and Sand Hill office formats." },
+      { label: "Palo Alto vs Mountain View", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/", reason: "Compare Palo Alto with the next major Peninsula technology downtown." },
+      { label: "Menlo Park vs Redwood City", url: "/commercial-real-estate/CA/menlo-park/menlo-park-vs-redwood-city/", reason: "Compare Menlo Park with a larger mid-Peninsula downtown." },
+      { label: "Stanford Research Park vs Downtown Palo Alto", url: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/", reason: "Compare Palo Alto campus/R&D and downtown settings." },
+    ],
+  },
+  "mountain-view-vs-sunnyvale": {
+    why_companies_choose: [
+      {
+        district_name: "Mountain View",
+        reasons: [
+          "Startup and product teams that want downtown Mountain View identity and proximity to major technology employers",
+          "Companies that use Caltrain and Castro Street amenities to support recruiting and daily employee experience",
+          "Teams comparing downtown Mountain View with North Bayshore or Moffett Park alternatives",
+        ],
+      },
+      {
+        district_name: "Sunnyvale",
+        reasons: [
+          "Technology, professional-service, and operations teams that want central Silicon Valley access",
+          "Companies that need nearby R&D/business-park expansion paths in Peery Park or Moffett Park",
+          "Teams that want downtown amenities without relying on Mountain View's more specific employer ecosystem",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Caltrain downtown and strong Mountain View/North Bayshore access.", b: "Caltrain downtown with central reach across Sunnyvale, Cupertino, Santa Clara, and North San Jose." },
+      { label: "Talent attraction", a: "Stronger Mountain View tech-employer signal.", b: "Broader central Silicon Valley employee geography." },
+      { label: "Amenity environment", a: "Castro Street walkability and startup-friendly downtown texture.", b: "Downtown Sunnyvale amenities with nearby business-park alternatives." },
+      { label: "Building inventory", a: "Downtown office plus nearby campus technology options.", b: "Downtown office plus Peery Park, Moffett Park, and other R&D/flex options." },
+      { label: "Growth fit", a: "Good for teams anchored to Mountain View identity.", b: "Good for teams needing more nearby expansion formats." },
+    ],
+    people_also_compare: [
+      { label: "Palo Alto vs Mountain View", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/", reason: "Compare Mountain View with the higher-signal Palo Alto option." },
+      { label: "Downtown Sunnyvale vs Downtown Mountain View", url: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale-vs-downtown-mountain-view/", reason: "Compare the two downtown formats more directly." },
+      { label: "Peery Park vs North Bayshore", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/", reason: "Compare nearby R&D and campus alternatives." },
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare downtown Sunnyvale with a larger office/R&D corridor." },
+    ],
+  },
+  "menlo-park-commercial-core-vs-sand-hill-stanford-adjacent": {
+    why_companies_choose: [
+      {
+        district_name: "Menlo Park Commercial Core",
+        reasons: [
+          "Professional-service, medical, local office, and boutique users that want downtown Menlo Park access",
+          "Teams that need everyday amenities, Caltrain proximity, and smaller office formats",
+          "Businesses that want Peninsula access without a pure venture-campus signal",
+        ],
+      },
+      {
+        district_name: "Sand Hill / Stanford-adjacent",
+        reasons: [
+          "Investment, venture, executive, and institutional users that benefit from Sand Hill and Stanford context",
+          "Companies that want a quieter campus-like office environment with high relationship value",
+          "Teams where address, privacy, and executive access matter more than daily downtown foot traffic",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Client / executive access", a: "Local client access and downtown convenience.", b: "Stronger venture, Stanford, and executive relationship signal." },
+      { label: "Amenity environment", a: "Walkable local downtown services.", b: "More campus-like and less street-retail oriented." },
+      { label: "Building inventory", a: "Smaller downtown and corridor office buildings.", b: "Research-park and Sand Hill office buildings with more institutional character." },
+      { label: "Tenant fit", a: "Professional services, medical/local office, and small teams.", b: "Investment, venture, institutional, and executive-facing teams." },
+      { label: "Price positioning", a: "More practical within Menlo Park's local commercial core.", b: "More premium and identity-driven because of Sand Hill/Stanford adjacency." },
+    ],
+    people_also_compare: [
+      { label: "Palo Alto vs Menlo Park", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-menlo-park/", reason: "Compare Menlo Park with the stronger Palo Alto identity market." },
+      { label: "Stanford Research Park vs Downtown Palo Alto", url: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/", reason: "Compare the analogous Palo Alto campus-versus-downtown decision." },
+      { label: "Palo Alto vs Mountain View", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/", reason: "Compare broader Peninsula downtown alternatives." },
+      { label: "Menlo Park vs Redwood City", url: "/commercial-real-estate/CA/menlo-park/menlo-park-vs-redwood-city/", reason: "Compare Menlo Park with a larger mid-Peninsula downtown." },
+    ],
+  },
+  "peery-park-vs-north-bayshore": {
+    why_companies_choose: [
+      {
+        district_name: "Peery Park",
+        reasons: [
+          "R&D, engineering, hardware, and office/flex teams that want central Sunnyvale utility",
+          "Companies that need practical business-park buildings and room to grow without a large-campus identity",
+          "Teams comparing Sunnyvale expansion paths with Mountain View campus proximity",
+        ],
+      },
+      {
+        district_name: "North Bayshore",
+        reasons: [
+          "Technology companies that want Mountain View campus identity and proximity to major employers",
+          "Larger teams seeking campus-like buildings, modern office environments, and talent signal",
+          "Companies that benefit from Highway 101 access and North Bayshore's innovation ecosystem",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "Smaller and mid-scale R&D/flex and business-park buildings.", b: "Larger campus-oriented office and R&D environments." },
+      { label: "Talent attraction", a: "Practical Sunnyvale engineering and operations geography.", b: "Stronger Mountain View technology-campus signal." },
+      { label: "Commute pattern", a: "Central Sunnyvale access to Caltrain, 101, 237, and nearby R&D districts.", b: "Highway 101 and Mountain View employer geography, with less downtown feel." },
+      { label: "Growth fit", a: "Useful for incremental expansion and flexible operations.", b: "Useful for larger teams that want a more branded campus environment." },
+      { label: "Price positioning", a: "Often reads as more practical R&D/flex utility.", b: "More identity-driven and campus-oriented." },
+    ],
+    people_also_compare: [
+      { label: "North Bayshore vs Stanford Research Park", url: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/", reason: "Compare two high-signal campus/R&D districts." },
+      { label: "Peery Park vs Moffett Park", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-moffett-park/", reason: "Compare Sunnyvale R&D districts." },
+      { label: "Mountain View vs Sunnyvale", url: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/", reason: "Compare the city-level decision behind the districts." },
+      { label: "North San Jose vs Santa Clara", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-santa-clara/", reason: "Compare larger South Bay office/R&D corridor choices." },
+    ],
+  },
+  "cupertino-commercial-core-vs-downtown-sunnyvale": {
+    why_companies_choose: [
+      {
+        district_name: "Cupertino Commercial Core",
+        reasons: [
+          "Professional-service, medical, local office, and customer-facing users serving West Valley customers",
+          "Teams that benefit from Apple-adjacent identity and executive/customer access",
+          "Businesses that want polished local office settings without a dense downtown transit dependency",
+        ],
+      },
+      {
+        district_name: "Downtown Sunnyvale",
+        reasons: [
+          "Office and technology teams that want Caltrain access and walkable downtown amenities",
+          "Companies that need central Silicon Valley reach and nearby R&D expansion options",
+          "Teams comparing Sunnyvale with Cupertino, Mountain View, and North San Jose alternatives",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "West Valley and Stevens Creek / De Anza access.", b: "Caltrain-oriented central Sunnyvale access." },
+      { label: "Amenity environment", a: "Polished local and retail-supported commercial context.", b: "Walkable downtown amenities and mixed-use growth." },
+      { label: "Tenant fit", a: "Medical, professional services, local office, and Apple-adjacent users.", b: "Technology, professional office, and transit-oriented teams." },
+      { label: "Building inventory", a: "Smaller professional and corridor office buildings.", b: "Downtown office with nearby R&D/business-park options." },
+      { label: "Growth fit", a: "Good for West Valley customer and executive access.", b: "Better for broader Silicon Valley commute and expansion optionality." },
+    ],
+    people_also_compare: [
+      { label: "Cupertino vs North San Jose", url: "/commercial-real-estate/CA/cupertino/cupertino-vs-north-san-jose/", reason: "Compare West Valley office context with a larger office/R&D corridor." },
+      { label: "Mountain View vs Sunnyvale", url: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/", reason: "Compare Sunnyvale with Mountain View's technology downtown." },
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare downtown Sunnyvale with larger South Bay scale." },
+      { label: "Santana Row / Valley Fair vs Downtown San Jose", url: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair-vs-downtown-san-jose/", reason: "Compare another West/South Bay customer-facing office decision." },
+    ],
+  },
+  "santana-row-valley-fair-vs-downtown-san-jose": {
+    comparison_notes: [
+      "Santana Row / Valley Fair is a polished west San Jose mixed-use and retail-adjacent office environment.",
+      "Downtown San Jose is the city's civic, transit, and urban office core, with a different relationship to government, universities, events, and transit.",
+      "Santana Row / Valley Fair is stronger for client-facing, retail-supported, medical, and professional users that benefit from customer visibility and amenities.",
+      "Downtown San Jose is stronger for teams that value urban transit, civic adjacency, larger downtown identity, and proximity to San Jose State and central services.",
+      "The decision often separates lifestyle-retail amenity value from formal downtown access and transit-oriented business context.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Santana Row / Valley Fair",
+        reasons: [
+          "Client-facing professional, medical, retail-support, and service businesses that benefit from high-amenity surroundings",
+          "Teams that want polished mixed-use amenities, restaurants, hotels, and customer visibility",
+          "Companies prioritizing executive/client experience over downtown transit identity",
+        ],
+      },
+      {
+        district_name: "Downtown San Jose",
+        reasons: [
+          "Civic, nonprofit, professional-service, education-adjacent, and downtown office users",
+          "Teams that value transit access, San Jose State proximity, events, and central-city services",
+          "Companies that want a more traditional urban office location than a retail-adjacent west-side district",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Amenity environment", a: "Retail, dining, hotel, and lifestyle-driven amenities.", b: "Urban downtown amenities, civic services, and events." },
+      { label: "Transit / commute", a: "Car-oriented West San Jose access with strong customer visibility.", b: "Stronger transit and downtown street-grid access." },
+      { label: "Client access", a: "Polished client and executive environment.", b: "Civic and central San Jose client access." },
+      { label: "Building inventory", a: "Retail-adjacent office, medical, and service-commercial buildings.", b: "Downtown office buildings and mixed urban commercial formats." },
+      { label: "Tenant fit", a: "Professional services, medical, retail support, and customer-facing users.", b: "Civic, education-adjacent, nonprofit, and central office users." },
+    ],
+    people_also_compare: [
+      { label: "Cupertino Commercial Core vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core-vs-downtown-sunnyvale/", reason: "Compare another West Valley versus transit-downtown decision." },
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare larger office/R&D scale with a walkable downtown." },
+      { label: "North San Jose vs Santa Clara", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-santa-clara/", reason: "Compare central South Bay office/R&D alternatives." },
+      { label: "Cupertino vs North San Jose", url: "/commercial-real-estate/CA/cupertino/cupertino-vs-north-san-jose/", reason: "Compare West Valley office identity with North San Jose scale." },
+    ],
+  },
+  "north-san-jose-vs-downtown-sunnyvale": {
+    why_companies_choose: [
+      {
+        district_name: "North San Jose",
+        reasons: [
+          "Technology, R&D, engineering, and operations teams that need larger buildings and freeway/airport access",
+          "Companies that want office, R&D, flex, and supplier-corridor optionality in one broad district",
+          "Teams that prioritize expansion capacity over downtown lifestyle",
+        ],
+      },
+      {
+        district_name: "Downtown Sunnyvale",
+        reasons: [
+          "Office users that want Caltrain, walkability, and a compact downtown employee experience",
+          "Technology and professional teams that value Sunnyvale access but do not need a large corridor setting",
+          "Companies that want nearby R&D alternatives without giving up downtown amenities",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "Large office/R&D buildings, flex, and corridor campuses.", b: "Downtown office with nearby R&D/business-park alternatives." },
+      { label: "Commute pattern", a: "Freeway and airport-oriented South Bay access.", b: "Caltrain and central Sunnyvale access." },
+      { label: "Amenity environment", a: "Business-corridor utility with selective amenities.", b: "Walkable downtown restaurants, housing, and services." },
+      { label: "Growth fit", a: "Strong for larger teams and expansion planning.", b: "Strong for smaller/mid-sized teams wanting downtown context." },
+      { label: "Tenant fit", a: "R&D, engineering, hardware, operations, and larger tech office users.", b: "Professional office, startup, and transit-oriented technology teams." },
+    ],
+    people_also_compare: [
+      { label: "North San Jose vs Santa Clara", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-santa-clara/", reason: "Compare two central South Bay office/R&D corridors." },
+      { label: "Mountain View vs Sunnyvale", url: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/", reason: "Compare downtown Sunnyvale with Mountain View's technology downtown." },
+      { label: "Cupertino Commercial Core vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core-vs-downtown-sunnyvale/", reason: "Compare Sunnyvale with a West Valley customer-facing alternative." },
+      { label: "Peery Park vs North Bayshore", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/", reason: "Compare nearby R&D/campus district alternatives." },
+    ],
+  },
+  "north-san-jose-vs-santa-clara": {
+    comparison_notes: [
+      "North San Jose is broader and more corridor-oriented, with office, R&D, flex, airport access, and supplier ecosystem utility.",
+      "Santa Clara is more central to established technology campuses, corporate office, and customer/vendor access around the heart of Silicon Valley.",
+      "North San Jose can be stronger for users that need building scale, freeway access, and operational optionality.",
+      "Santa Clara can be stronger for companies that want centrality between San Jose, Sunnyvale, Cupertino, and Mountain View.",
+      "The decision often comes down to operational scale and airport access versus a more central Silicon Valley business address.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "North San Jose",
+        reasons: [
+          "Office/R&D, hardware, engineering, and operations teams needing larger buildings and freeway access",
+          "Companies that benefit from San Jose airport proximity and broad supplier-corridor reach",
+          "Users that need more flexibility across office, R&D, and flex formats",
+        ],
+      },
+      {
+        district_name: "Santa Clara",
+        reasons: [
+          "Technology, corporate, and professional teams needing central Silicon Valley access",
+          "Companies serving customers, partners, or employees across Cupertino, Sunnyvale, San Jose, and Mountain View",
+          "Users that want a more established corporate office context than North San Jose's broader corridor feel",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Airport, 101, 880, and North First Street corridor access.", b: "Central Silicon Valley reach between San Jose, Sunnyvale, and Cupertino." },
+      { label: "Building inventory", a: "Large office/R&D, flex, and business-park buildings.", b: "Corporate office, technology campus, and professional office settings." },
+      { label: "Talent attraction", a: "Strong for engineering and operations teams needing scale.", b: "Strong for teams seeking central Silicon Valley employee geography." },
+      { label: "Client / executive access", a: "Airport-oriented and operationally convenient.", b: "More central for South Bay customers, partners, and executives." },
+      { label: "Growth fit", a: "Better for larger expansion and flexible formats.", b: "Better for central corporate presence and multi-city access." },
+    ],
+    people_also_compare: [
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare corridor scale with walkable Sunnyvale downtown." },
+      { label: "Cupertino vs North San Jose", url: "/commercial-real-estate/CA/cupertino/cupertino-vs-north-san-jose/", reason: "Compare West Valley identity with North San Jose scale." },
+      { label: "Peery Park vs North Bayshore", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/", reason: "Compare nearby R&D/campus alternatives." },
+      { label: "North Bayshore vs Stanford Research Park", url: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-stanford-research-park/", reason: "Compare higher-signal campus/R&D districts." },
+    ],
+  },
+  "north-bayshore-vs-stanford-research-park": {
+    comparison_notes: [
+      "North Bayshore is a Mountain View technology-campus district tied to large-employer ecosystems and Highway 101 access.",
+      "Stanford Research Park is a mature Palo Alto research-park district with stronger Stanford, institutional, and executive identity.",
+      "North Bayshore is generally stronger for companies that want Mountain View campus energy and proximity to major technology employers.",
+      "Stanford Research Park is generally stronger for R&D, venture-backed, institutional, and high-signal users that value Palo Alto and Stanford context.",
+      "Both can support technology and research teams, but North Bayshore leans toward large technology-company geography while Stanford Research Park leans toward established research-park prestige.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "North Bayshore",
+        reasons: [
+          "Technology companies seeking Mountain View campus identity and proximity to major employers",
+          "Engineering and product teams that value Highway 101 access and a large-company innovation ecosystem",
+          "Teams that want modern, campus-oriented buildings with stronger Mountain View signal",
+        ],
+      },
+      {
+        district_name: "Stanford Research Park",
+        reasons: [
+          "R&D, venture-backed, institutional, and executive-facing teams that value Stanford adjacency",
+          "Companies that want a mature research-park setting and Palo Alto identity",
+          "Organizations where prestige, privacy, and research context matter more than downtown walkability",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Talent attraction", a: "Strong Mountain View technology-campus signal.", b: "Strong Stanford/Palo Alto research and executive signal." },
+      { label: "Building inventory", a: "Large campus-oriented office and R&D buildings.", b: "Mature research-park buildings and institutional office settings." },
+      { label: "Commute pattern", a: "Highway 101 and Mountain View employer geography.", b: "Palo Alto, Stanford, Page Mill, and Foothill/280 access." },
+      { label: "Client / executive access", a: "Useful for technology ecosystem proximity.", b: "Stronger for venture, Stanford, and executive relationships." },
+      { label: "Price positioning", a: "Premium because of Mountain View campus demand.", b: "Premium because of Palo Alto and Stanford-adjacent identity." },
+    ],
+    people_also_compare: [
+      { label: "Palo Alto vs Mountain View", url: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-mountain-view/", reason: "Compare the broader city-level decision." },
+      { label: "Menlo Park Commercial Core vs Sand Hill / Stanford-adjacent", url: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core-vs-sand-hill-stanford-adjacent/", reason: "Compare another Stanford-adjacent office decision." },
+      { label: "Peery Park vs North Bayshore", url: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/", reason: "Compare North Bayshore with a practical Sunnyvale R&D/flex alternative." },
+      { label: "North San Jose vs Santa Clara", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-santa-clara/", reason: "Compare broader South Bay office/R&D corridors." },
+      { label: "North San Jose vs Downtown Sunnyvale", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/", reason: "Compare scale and freeway access with downtown transit and amenities." },
+    ],
+  },
+};
+
+const eastBayComparisonEnhancements = {
+  "emeryville-vs-downtown-oakland": {
+    comparison_notes: [
+      "Emeryville is a compact East Bay office, R&D, life-science support, and mixed commercial node between Oakland and Berkeley.",
+      "Downtown Oakland is the larger BART-centered office and civic core, with stronger formal downtown identity and better regional transit visibility.",
+      "Emeryville is usually better for teams that want East Bay access with a business-park or innovation-node feel.",
+      "Downtown Oakland is usually better for public-sector, nonprofit, legal, consulting, and professional-service teams that benefit from a downtown address.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Emeryville",
+        reasons: [
+          "Life-science support, R&D, creative office, and professional teams that want Berkeley/Oakland access without a formal CBD setting",
+          "Companies that value quick Bay Bridge, I-80, Oakland, and Berkeley access",
+          "Teams looking for a more structured East Bay commercial node than West Berkeley or West Oakland",
+        ],
+      },
+      {
+        district_name: "Downtown Oakland",
+        reasons: [
+          "Professional-service, nonprofit, civic, legal, and government-adjacent users that benefit from BART and Broadway office identity",
+          "Client-facing teams that need a recognizable East Bay downtown address",
+          "Organizations that want transit concentration and central Oakland services more than business-park structure",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Car, shuttle, I-80, Bay Bridge, Berkeley, and Oakland access.", b: "BART-centered regional transit and central Oakland access." },
+      { label: "Amenity environment", a: "Mixed retail, hotel, Bay Street, and business-park amenities.", b: "Downtown restaurants, civic services, and office-core amenities." },
+      { label: "Building inventory", a: "Low- and mid-rise office, R&D, life-science support, and adaptive commercial buildings.", b: "Downtown office buildings, civic-adjacent space, and Broadway corridor inventory." },
+      { label: "Tenant fit", a: "R&D, life-science support, creative office, and East Bay professional users.", b: "Professional services, nonprofits, civic users, and regional office tenants." },
+      { label: "Price positioning", a: "Often framed as practical East Bay innovation-node value.", b: "More downtown-positioned, with stronger transit and CBD identity." },
+    ],
+    people_also_compare: [
+      { label: "Emeryville vs Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/", reason: "Compare Emeryville with Downtown Berkeley's university and BART context." },
+      { label: "Emeryville vs West Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/", reason: "Compare structured Emeryville office/R&D with West Berkeley's maker and flex character." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare Emeryville with close-in Oakland industrial-transition space." },
+      { label: "Downtown Oakland vs Jack London Square", url: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-jack-london-square/", reason: "Compare downtown office identity with Oakland waterfront character." },
+      { label: "Alameda Waterfront / Harbor Bay vs Emeryville", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/", reason: "Compare Emeryville with Alameda's quieter waterfront business environment." },
+    ],
+  },
+  "emeryville-vs-berkeley": {
+    why_companies_choose: [
+      {
+        district_name: "Emeryville",
+        reasons: [
+          "Office, R&D, life-science support, and creative teams that want a more structured East Bay commercial node",
+          "Companies comparing Berkeley access with better Bay Bridge, Oakland, and I-80 reach",
+          "Teams that need mixed commercial amenities without depending on a university-downtown setting",
+        ],
+      },
+      {
+        district_name: "Downtown Berkeley",
+        reasons: [
+          "Education-adjacent, nonprofit, professional-service, and smaller office users that value UC Berkeley proximity",
+          "Teams that prefer BART access, Shattuck/University Avenue walkability, and downtown Berkeley foot traffic",
+          "Organizations where university ecosystem, civic texture, and smaller buildings matter more than office/R&D structure",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "I-80, Bay Bridge, Oakland, Berkeley, and car/shuttle access.", b: "BART-centered access with UC Berkeley and downtown street-grid walkability." },
+      { label: "Lifestyle / amenity environment", a: "Mixed retail and business-park amenities around Powell, Christie, Horton, Shellmound, and Bay Street.", b: "University downtown amenities, restaurants, civic activity, and street-level services." },
+      { label: "Talent attraction", a: "Strong for East Bay technology, R&D, and life-science support recruiting.", b: "Strong for UC Berkeley, education-adjacent, nonprofit, and professional networks." },
+      { label: "Building inventory", a: "Office, R&D, life-science support, and adaptive commercial buildings.", b: "Smaller downtown office buildings and university-adjacent commercial space." },
+      { label: "Tenant fit", a: "Companies needing structured East Bay office/R&D context.", b: "Teams that want downtown Berkeley identity and university access." },
+    ],
+    people_also_compare: [
+      { label: "Emeryville vs West Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/", reason: "Compare Emeryville with Berkeley's more hands-on R&D/flex district." },
+      { label: "Downtown Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/", reason: "Compare Emeryville with the larger East Bay downtown core." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare Emeryville with Oakland industrial-transition geography." },
+      { label: "Emeryville vs Jack London Square", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/", reason: "Compare Emeryville with Oakland waterfront adaptive-commercial context." },
+    ],
+  },
+  "emeryville-vs-west-berkeley": {
+    why_companies_choose: [
+      {
+        district_name: "Emeryville",
+        reasons: [
+          "Teams that want East Bay access with more office polish, life-science support, and business-park structure",
+          "Companies that need nearby hotels, retail, and mixed commercial amenities",
+          "R&D or professional users that want Berkeley adjacency without West Berkeley's more industrial feel",
+        ],
+      },
+      {
+        district_name: "West Berkeley",
+        reasons: [
+          "Maker, R&D/flex, light production, creative operations, and university-adjacent teams",
+          "Companies that need more hands-on workspace, loading potential, or adaptive industrial character",
+          "Businesses that value Berkeley ecosystem access but do not need downtown Berkeley or Emeryville office polish",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "More structured office, R&D, and life-science support buildings.", b: "More adaptive industrial, maker, showroom, and R&D/flex buildings." },
+      { label: "Tenant fit", a: "Office, life-science support, R&D, and professional-service users.", b: "Maker, light production, creative operations, and hands-on R&D users." },
+      { label: "Logistics / industrial access", a: "Useful for light flex and adaptive commercial, but less industrial in feel.", b: "Stronger for practical flex, production-adjacent, and industrial-commercial needs." },
+      { label: "Amenity environment", a: "More retail-supported and business-park-like.", b: "More local, industrial, and corridor-oriented." },
+      { label: "Growth / expansion fit", a: "Better for teams growing into a formal East Bay commercial node.", b: "Better for teams that need flexible operations space as they grow." },
+    ],
+    people_also_compare: [
+      { label: "Emeryville vs Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-berkeley/", reason: "Compare Emeryville with Downtown Berkeley's BART and university setting." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare Emeryville with Oakland's industrial-transition district." },
+      { label: "Richmond Industrial vs Emeryville", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-emeryville/", reason: "Compare Emeryville with a more operational northern East Bay industrial market." },
+      { label: "Alameda Waterfront / Harbor Bay vs Emeryville", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/", reason: "Compare Emeryville with Alameda's quieter waterfront office/flex context." },
+    ],
+  },
+  "west-oakland-vs-emeryville": {
+    why_companies_choose: [
+      {
+        district_name: "West Oakland",
+        reasons: [
+          "Urban industrial, production-adjacent, creative operations, and service-commercial users needing Oakland access",
+          "Teams that value port proximity, downtown edge access, and adaptive commercial buildings",
+          "Businesses that want a grittier close-in Oakland location rather than a polished office node",
+        ],
+      },
+      {
+        district_name: "Emeryville",
+        reasons: [
+          "Office, R&D, life-science support, and professional users needing a more organized East Bay setting",
+          "Companies that want Berkeley/Oakland adjacency with stronger mixed commercial amenities",
+          "Teams that need a more client-friendly setting than West Oakland's industrial-transition blocks",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Waterfront / creative identity", a: "Adaptive, industrial-transition, and port-adjacent Oakland character.", b: "More structured East Bay office and life-science node." },
+      { label: "Building inventory", a: "Warehouses, service-commercial buildings, adaptive industrial, and smaller commercial buildings.", b: "Office, R&D, life-science support, and mixed commercial buildings." },
+      { label: "Logistics / industrial access", a: "Stronger port, I-880, and urban industrial utility.", b: "Useful access but less industrial-operational in character." },
+      { label: "Client / executive access", a: "Better for users comfortable with industrial-transition context.", b: "Better for client-facing East Bay office users." },
+      { label: "Growth / expansion fit", a: "Good for production, operations, and creative businesses needing flexibility.", b: "Good for office/R&D teams that want established commercial structure." },
+    ],
+    people_also_compare: [
+      { label: "Downtown Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/", reason: "Compare Emeryville with the larger East Bay downtown office core." },
+      { label: "Richmond Industrial vs West Oakland", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/", reason: "Compare West Oakland with a more industrial northern East Bay option." },
+      { label: "Emeryville vs West Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/", reason: "Compare Emeryville with Berkeley's maker and R&D/flex district." },
+      { label: "Downtown Oakland vs Jack London Square", url: "/commercial-real-estate/CA/oakland/downtown-oakland-vs-jack-london-square/", reason: "Compare other Oakland office and waterfront alternatives." },
+    ],
+  },
+  "downtown-oakland-vs-jack-london-square": {
+    why_companies_choose: [
+      {
+        district_name: "Downtown Oakland",
+        reasons: [
+          "Professional-service, nonprofit, civic, legal, and regional office users needing BART-centered access",
+          "Organizations that want a formal East Bay downtown address and proximity to public agencies",
+          "Teams that prioritize transit, office-core services, and Broadway corridor identity",
+        ],
+      },
+      {
+        district_name: "Jack London Square",
+        reasons: [
+          "Creative office, food, hospitality, service, and waterfront-oriented users that want a less formal Oakland setting",
+          "Companies that value adaptive buildings, ferry/rail context, and waterfront amenities",
+          "Teams that want Oakland access with a stronger visitor, restaurant, and waterfront identity",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "BART-centered downtown access.", b: "Waterfront, ferry, rail, and downtown-adjacent access." },
+      { label: "Amenity environment", a: "Civic, office-core, and downtown service amenities.", b: "Waterfront restaurants, hospitality, and visitor-oriented amenities." },
+      { label: "Building inventory", a: "Downtown office buildings and civic-adjacent commercial space.", b: "Adaptive commercial, waterfront office, restaurant, and mixed-use buildings." },
+      { label: "Client / executive access", a: "Better for formal meetings and central East Bay business services.", b: "Better for experiential, creative, or waterfront client settings." },
+      { label: "Tenant fit", a: "Professional, nonprofit, legal, civic, and regional office users.", b: "Creative office, food/hospitality, service, and adaptive commercial users." },
+    ],
+    people_also_compare: [
+      { label: "Downtown Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/", reason: "Compare downtown Oakland with Emeryville's office/R&D node." },
+      { label: "Alameda Waterfront / Harbor Bay vs Jack London Square", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-jack-london-square/", reason: "Compare Oakland waterfront character with Alameda waterfront practicality." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare nearby industrial-transition and office/R&D options." },
+      { label: "Financial District vs Downtown Oakland", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-downtown-oakland/", reason: "Compare Oakland's downtown core with San Francisco's CBD." },
+    ],
+  },
+  "alameda-waterfront-harbor-bay-vs-emeryville": {
+    why_companies_choose: [
+      {
+        district_name: "Alameda Waterfront / Harbor Bay",
+        reasons: [
+          "Office, medical, local service, light flex, and waterfront users that value parking and a calmer East Bay setting",
+          "Businesses serving Alameda, Oakland, and airport-adjacent customers without needing a dense urban office core",
+          "Teams that want waterfront or campus-like context with less intensity than Oakland or Emeryville",
+        ],
+      },
+      {
+        district_name: "Emeryville",
+        reasons: [
+          "Office, R&D, life-science support, and creative teams needing stronger central East Bay business identity",
+          "Companies that value access to Berkeley, Oakland, the Bay Bridge, and mixed commercial amenities",
+          "Teams that want more innovation-cluster signal than Alameda's quieter waterfront setting provides",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Parking-practical Alameda and Oakland-adjacent access.", b: "I-80, Bay Bridge, Oakland, Berkeley, and central East Bay access." },
+      { label: "Waterfront / creative identity", a: "Quieter waterfront and business-park environment.", b: "More central East Bay office/R&D and life-science identity." },
+      { label: "Building inventory", a: "Waterfront office, local-service, light flex, and business-park buildings.", b: "Office, R&D, life-science support, adaptive commercial, and mixed-use buildings." },
+      { label: "Tenant fit", a: "Local service, medical, office, light flex, and parking-sensitive users.", b: "R&D, life-science support, creative office, and professional users." },
+      { label: "Client / executive access", a: "Works for lower-friction local access and parking.", b: "Works better for broader East Bay client and talent reach." },
+    ],
+    people_also_compare: [
+      { label: "Alameda Waterfront / Harbor Bay vs Jack London Square", url: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-jack-london-square/", reason: "Compare Alameda waterfront with Oakland waterfront identity." },
+      { label: "Downtown Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/emeryville-vs-downtown-oakland/", reason: "Compare Emeryville with the formal East Bay downtown core." },
+      { label: "Emeryville vs West Berkeley", url: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/", reason: "Compare Emeryville with Berkeley's maker and R&D/flex district." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare Emeryville with close-in Oakland industrial-transition space." },
+    ],
+  },
+  "richmond-industrial-vs-san-leandro-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Richmond Industrial",
+        reasons: [
+          "Warehouse, manufacturing, yard, contractor, and service-industrial users needing northern East Bay reach",
+          "Businesses that benefit from I-80/I-580 access, port-adjacent context, or larger industrial building utility",
+          "Operations teams comparing Richmond with West Oakland, Emeryville, and San Leandro alternatives",
+        ],
+      },
+      {
+        district_name: "San Leandro Industrial",
+        reasons: [
+          "Service-industrial, contractor, warehouse/flex, and local distribution users needing Oakland-adjacent I-880 access",
+          "Businesses that value Oakland Airport proximity and North I-880 customer reach",
+          "Teams that serve Oakland, San Leandro, Hayward, and the inner East Bay from one practical location",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Logistics / industrial access", a: "Northern East Bay I-80/I-580 and Richmond industrial utility.", b: "North I-880, Oakland, and airport-area industrial utility." },
+      { label: "Building inventory", a: "Industrial, warehouse, service, manufacturing, and yard-oriented buildings.", b: "Warehouse/flex, contractor, service-industrial, and office-warehouse buildings." },
+      { label: "Commute pattern", a: "Better for Richmond, Contra Costa, North Bay, and I-80/I-580 reach.", b: "Better for Oakland, Alameda County, airport, and I-880 reach." },
+      { label: "Tenant fit", a: "Manufacturing, logistics, yard, contractor, and heavier service users.", b: "Contractor, service-commercial, light industrial, distribution, and airport-adjacent users." },
+      { label: "Price positioning", a: "Often framed as practical industrial utility with less office polish.", b: "Practical Oakland-adjacent industrial positioning with stronger inner East Bay reach." },
+    ],
+    people_also_compare: [
+      { label: "Richmond Industrial vs West Oakland", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/", reason: "Compare Richmond with close-in Oakland industrial-transition space." },
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare San Leandro with a deeper central I-880 industrial corridor." },
+      { label: "Hegenberger Corridor vs Coliseum Industrial", url: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/", reason: "Compare Oakland airport-area industrial alternatives." },
+      { label: "Richmond Industrial vs Emeryville", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-emeryville/", reason: "Compare industrial functionality with Emeryville office/R&D context." },
+    ],
+  },
+  "richmond-industrial-vs-west-oakland": {
+    why_companies_choose: [
+      {
+        district_name: "Richmond Industrial",
+        reasons: [
+          "Industrial, warehouse, manufacturing, and yard users needing larger-format or more operational buildings",
+          "Companies serving northern East Bay, Contra Costa, I-80/I-580, and Richmond port-adjacent customers",
+          "Operations teams that need practical industrial utility more than central Oakland identity",
+        ],
+      },
+      {
+        district_name: "West Oakland",
+        reasons: [
+          "Urban industrial, adaptive commercial, creative operations, and service users needing close-in Oakland access",
+          "Businesses that value proximity to Downtown Oakland, Emeryville, the port, and San Francisco access",
+          "Teams that want industrial texture with stronger central East Bay visibility than Richmond provides",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Logistics / industrial access", a: "Stronger northern East Bay industrial and manufacturing utility.", b: "Stronger close-in Oakland, port-adjacent, and urban service access." },
+      { label: "Building inventory", a: "Warehouse, manufacturing, service-industrial, and yard-support buildings.", b: "Adaptive industrial, smaller warehouse, service-commercial, and production-adjacent buildings." },
+      { label: "Client / executive access", a: "More operational and less client-facing.", b: "More central for Oakland/SF meetings and creative-commercial visibility." },
+      { label: "Tenant fit", a: "Manufacturing, logistics, contractors, yard, and warehouse users.", b: "Creative operations, service-industrial, production, and urban industrial users." },
+      { label: "Growth / expansion fit", a: "Better for companies needing industrial room and utility.", b: "Better for teams that need centrality and adaptable commercial texture." },
+    ],
+    people_also_compare: [
+      { label: "Richmond Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/", reason: "Compare two functional East Bay industrial corridors." },
+      { label: "West Oakland vs Emeryville", url: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/", reason: "Compare West Oakland with Emeryville's office/R&D node." },
+      { label: "Richmond Industrial vs Emeryville", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-emeryville/", reason: "Compare Richmond's industrial utility with Emeryville's mixed commercial setting." },
+      { label: "Hegenberger Corridor vs Coliseum Industrial", url: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/", reason: "Compare other Oakland industrial and airport-area choices." },
+    ],
+  },
+  "hayward-industrial-vs-san-leandro-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Hayward Industrial",
+        reasons: [
+          "Warehouse, manufacturing, distribution, and flex users needing central I-880 and San Mateo Bridge access",
+          "Companies that serve both East Bay and Peninsula customers from a more central corridor position",
+          "Operations teams that need deeper industrial inventory than closer-in Oakland-adjacent markets may provide",
+        ],
+      },
+      {
+        district_name: "San Leandro Industrial",
+        reasons: [
+          "Service-industrial, contractor, warehouse/flex, and local distribution users needing Oakland-adjacent access",
+          "Businesses that value airport proximity, North I-880 reach, and inner East Bay customer access",
+          "Teams that need practical industrial buildings closer to Oakland than Hayward",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Logistics / industrial access", a: "Central I-880, Highway 92, and broader East Bay/Peninsula reach.", b: "North I-880, Oakland, airport, and inner East Bay reach." },
+      { label: "Building inventory", a: "Warehouse, manufacturing, distribution, and industrial/flex buildings.", b: "Warehouse/flex, contractor, service-industrial, and office-warehouse buildings." },
+      { label: "Commute pattern", a: "Better for Hayward, Union City, Fremont, and Peninsula bridge access.", b: "Better for Oakland, Alameda, San Leandro, and airport-area access." },
+      { label: "Tenant fit", a: "Distribution, manufacturing, logistics, and larger industrial users.", b: "Contractor, service-industrial, local distribution, and Oakland-serving users." },
+      { label: "Growth / expansion fit", a: "Stronger for users expanding along the central I-880 corridor.", b: "Stronger for companies prioritizing closer-in Oakland and airport access." },
+    ],
+    people_also_compare: [
+      { label: "Hayward Industrial vs Union City Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-union-city-industrial/", reason: "Compare adjacent central I-880 industrial options." },
+      { label: "Richmond Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/", reason: "Compare San Leandro with northern East Bay industrial utility." },
+      { label: "Hegenberger Corridor vs Coliseum Industrial", url: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/", reason: "Compare Oakland airport-area industrial choices." },
+      { label: "San Leandro Industrial vs Hegenberger Corridor", url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial-vs-hegenberger-corridor/", reason: "Compare San Leandro with Oakland's airport-facing corridor." },
+    ],
+  },
+  "hegenberger-corridor-vs-coliseum-industrial": {
+    why_companies_choose: [
+      {
+        district_name: "Hegenberger Corridor",
+        reasons: [
+          "Airport-adjacent service, logistics-support, hotel, customer-access, and warehouse/flex users",
+          "Businesses that benefit from I-880 visibility and Oakland Airport proximity",
+          "Teams that need operational space with more corridor exposure than deeper East Oakland industrial blocks",
+        ],
+      },
+      {
+        district_name: "Coliseum Industrial",
+        reasons: [
+          "Warehouse, contractor, service-industrial, distribution, and operations users needing practical East Oakland buildings",
+          "Companies that care more about industrial utility than airport-corridor visibility",
+          "Users comparing Oakland industrial options near I-880, BART/rail access, and San Leandro",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Logistics / industrial access", a: "Airport-facing I-880 corridor access and visibility.", b: "East Oakland warehouse/flex and service-industrial access." },
+      { label: "Building inventory", a: "Service-commercial, airport-support, warehouse/flex, and corridor buildings.", b: "Industrial, warehouse/flex, contractor, and operations buildings." },
+      { label: "Client / executive access", a: "Better for users who benefit from airport proximity and corridor exposure.", b: "Better for users focused on function over visibility." },
+      { label: "Tenant fit", a: "Airport-serving, logistics-support, hospitality, service, and customer-access users.", b: "Warehouse, contractor, service-industrial, and distribution users." },
+      { label: "Price positioning", a: "Value is tied to airport access and visibility.", b: "Value is tied to practical industrial building utility." },
+    ],
+    people_also_compare: [
+      { label: "San Leandro Industrial vs Hegenberger Corridor", url: "/commercial-real-estate/CA/san-leandro/san-leandro-industrial-vs-hegenberger-corridor/", reason: "Compare Hegenberger with the adjacent North I-880 service-industrial market." },
+      { label: "Hayward Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/hayward/hayward-industrial-vs-san-leandro-industrial/", reason: "Compare the broader I-880 industrial corridor." },
+      { label: "Richmond Industrial vs San Leandro Industrial", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-san-leandro-industrial/", reason: "Compare northern and inner East Bay industrial alternatives." },
+      { label: "Richmond Industrial vs West Oakland", url: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/", reason: "Compare Oakland industrial-transition context with northern East Bay industrial utility." },
+    ],
+  },
+};
+
 const warehouseFlexComparisonSlugs = new Set([
   "hayward-vs-fremont",
   "hayward-vs-union-city",
@@ -4235,11 +5607,22 @@ const warehouseFlexComparisonSlugs = new Set([
   "everett-vs-tacoma",
   "richmond-industrial-vs-emeryville",
   "richmond-industrial-vs-san-leandro-industrial",
+  "richmond-industrial-vs-west-oakland",
+  "hayward-industrial-vs-san-leandro-industrial",
   "san-leandro-industrial-vs-hegenberger-corridor",
+  "hegenberger-corridor-vs-coliseum-industrial",
   "west-oakland-vs-emeryville",
 ]);
 
 module.exports = comparisons.map((comparison) => {
+  const enhancement = {
+    ...(southBayPeninsulaComparisonEnhancements[comparison.slug] || {}),
+    ...(eastBayComparisonEnhancements[comparison.slug] || {}),
+  };
+  const mergedComparison = {
+    ...comparison,
+    ...enhancement,
+  };
   const districtA = districtSummary(comparison.district_a_path);
   const districtB = districtSummary(comparison.district_b_path);
   const warehouseFlexComparison =
@@ -4247,7 +5630,7 @@ module.exports = comparisons.map((comparison) => {
     hasWarehouseFlexDecisionContext(districtA, districtB);
 
   return {
-    ...comparison,
+    ...mergedComparison,
     district_a: districtA,
     district_b: districtB,
     decision_context_label: warehouseFlexComparison ? "Warehouse/flex context" : "Office context",

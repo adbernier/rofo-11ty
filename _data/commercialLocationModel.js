@@ -88,7 +88,7 @@ const districts = {
       {
         district_name: "SoMa",
         district_path: "/commercial-real-estate/CA/san-francisco/soma/",
-        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
         reason: "Compare if you are weighing formal downtown office identity against SoMa's adaptive commercial fabric.",
       },
       {
@@ -154,7 +154,7 @@ const districts = {
       {
         district_name: "Financial District SF",
         district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
-        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
         reason: "Compare if formal downtown access matters more than life-science or institutional adjacency.",
       },
       {
@@ -304,6 +304,7 @@ const districts = {
       {
         district_name: "Mission",
         district_path: "/commercial-real-estate/CA/san-francisco/mission/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/hayes-valley-vs-mission/",
         reason: "Compare if denser street-level food, retail, and creative-commercial texture may fit better.",
       },
       {
@@ -339,6 +340,7 @@ const districts = {
       {
         district_name: "Hayes Valley",
         district_path: "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/hayes-valley-vs-mission/",
         reason: "Compare if a smaller boutique retail and service district is a better fit.",
       },
       {
@@ -369,6 +371,7 @@ const districts = {
       {
         district_name: "Presidio",
         district_path: "/commercial-real-estate/CA/san-francisco/presidio/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/marina-district-vs-presidio/",
         reason: "Compare if a more campus-like historic office setting may fit better.",
       },
       {
@@ -404,6 +407,7 @@ const districts = {
       {
         district_name: "Sunset District",
         district_path: "/commercial-real-estate/CA/san-francisco/sunset/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/richmond-district-vs-sunset-district/",
         reason: "Compare if southern west-side customer geography may fit better.",
       },
       {
@@ -439,6 +443,7 @@ const districts = {
       {
         district_name: "Richmond District",
         district_path: "/commercial-real-estate/CA/san-francisco/richmond/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/richmond-district-vs-sunset-district/",
         reason: "Compare if northern west-side customer access and Presidio adjacency matter more.",
       },
       {
@@ -474,6 +479,7 @@ const districts = {
       {
         district_name: "Marina District",
         district_path: "/commercial-real-estate/CA/san-francisco/marina-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/marina-district-vs-presidio/",
         reason: "Compare if neighborhood retail and service visibility matters more than campus character.",
       },
       {
@@ -2855,6 +2861,12 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/san-jose/downtown-san-jose-vs-north-san-jose/",
         reason: "Compare if urban downtown access, Caltrain/light rail, and civic context matter more than larger-parcel tech geography.",
       },
+      {
+        district_name: "Downtown Sunnyvale",
+        district_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/",
+        reason: "Compare if Caltrain, walkability, and a compact downtown office setting may fit better than North San Jose corridor scale.",
+      },
     ],
     office_profile: {
       office_orientation: "technology_campus",
@@ -3104,6 +3116,7 @@ Object.assign(districts, {
       {
         district_name: "Downtown Mountain View",
         district_path: "/commercial-real-estate/CA/mountain-view/downtown-mountain-view/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/mountain-view-vs-sunnyvale/",
         reason: "Compare if walkable Caltrain downtown context matters more than North Bayshore campus geography.",
       },
       {
@@ -3795,6 +3808,12 @@ Object.assign(districts, {
         reason: "Compare if North I-880 and Oakland airport-adjacent industrial access may fit better than Richmond's I-80/I-580 position.",
       },
       {
+        district_name: "West Oakland",
+        district_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+        comparison_path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/",
+        reason: "Compare if close-in Oakland, port-adjacent, and adaptive industrial context may fit better than Richmond's larger industrial utility.",
+      },
+      {
         district_name: "Point Richmond / Marina Bay",
         district_path: "/commercial-real-estate/CA/richmond/point-richmond-marina-bay/",
         reason: "Compare if waterfront office/flex and lighter business-park context may fit better than heavier industrial geography.",
@@ -3912,6 +3931,12 @@ Object.assign(districts, {
         district_name: "Point Richmond / Marina Bay",
         district_path: "/commercial-real-estate/CA/richmond/point-richmond-marina-bay/",
         reason: "Compare if a Richmond waterfront and I-580 position may fit better.",
+      },
+      {
+        district_name: "Emeryville",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/",
+        reason: "Compare if a more central East Bay office, life-science support, and mixed commercial node may fit better.",
       },
       {
         district_name: "San Leandro Industrial",
@@ -4033,6 +4058,7 @@ Object.assign(districts, {
       {
         district_name: "Coliseum Industrial",
         district_path: "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+        comparison_path: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/",
         reason: "Compare if East Oakland industrial and transit-adjacent functionality may fit better.",
       },
       {
@@ -4087,6 +4113,7 @@ Object.assign(districts, {
       {
         district_name: "Hegenberger Corridor",
         district_path: "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+        comparison_path: "/commercial-real-estate/CA/oakland/hegenberger-corridor-vs-coliseum-industrial/",
         reason: "Compare if stronger airport-area visibility and hospitality/service corridor context matters.",
       },
       {
@@ -4158,6 +4185,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         comparison_path: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/",
         reason: "Compare if a more formal office, life-science, and mixed commercial node may fit better.",
+      },
+      {
+        district_name: "Richmond Industrial",
+        district_path: "/commercial-real-estate/CA/richmond/richmond-industrial/",
+        comparison_path: "/commercial-real-estate/CA/richmond/richmond-industrial-vs-west-oakland/",
+        reason: "Compare if larger-format northern East Bay industrial utility may fit better than close-in Oakland context.",
       },
     ],
     office_profile: {
@@ -4329,6 +4362,7 @@ Object.assign(districts, {
       {
         district_name: "West Oakland",
         district_path: "/commercial-real-estate/CA/oakland/west-oakland/",
+        comparison_path: "/commercial-real-estate/CA/oakland/west-oakland-vs-emeryville/",
         reason: "Compare if urban industrial-transition texture and Oakland edge access matter more.",
       },
       {
@@ -4336,6 +4370,12 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/berkeley/west-berkeley/",
         comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-west-berkeley/",
         reason: "Compare if maker, R&D/flex, and adaptive industrial character may fit better than Emeryville's more structured office/life-science node.",
+      },
+      {
+        district_name: "Alameda Waterfront / Harbor Bay",
+        district_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
+        comparison_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/",
+        reason: "Compare if quieter waterfront office, light flex, and parking-practical Alameda context may fit better.",
       },
     ],
     office_profile: {
@@ -8519,7 +8559,7 @@ Object.assign(districts, {
       {
         district_name: "Downtown Sunnyvale",
         district_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
-        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-vs-sunnyvale/",
+        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core-vs-downtown-sunnyvale/",
         reason: "Compare if Caltrain and walkable downtown context may matter more than Cupertino office/customer access.",
       },
       {
@@ -8585,9 +8625,15 @@ Object.assign(districts, {
         reason: "Compare if office/R&D buildings and business-park utility matter more than downtown walkability.",
       },
       {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/",
+        reason: "Compare if broader office/R&D corridor scale and airport/freeway access matter more than downtown Sunnyvale walkability.",
+      },
+      {
         district_name: "Cupertino Commercial Core",
         district_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/",
-        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-vs-sunnyvale/",
+        comparison_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core-vs-downtown-sunnyvale/",
         reason: "Compare if Cupertino customer and technology-adjacent office context may fit better.",
       },
     ],
@@ -8630,6 +8676,12 @@ Object.assign(districts, {
         district_name: "Downtown Sunnyvale",
         district_path: "/commercial-real-estate/CA/sunnyvale/downtown-sunnyvale/",
         reason: "Compare if walkable Caltrain downtown context matters more.",
+      },
+      {
+        district_name: "North Bayshore",
+        district_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/sunnyvale/peery-park-vs-north-bayshore/",
+        reason: "Compare if Mountain View campus identity and major-employer adjacency matter more than Peery Park's practical R&D/flex setting.",
       },
     ],
     office_profile: {
@@ -8674,7 +8726,7 @@ Object.assign(districts, {
       {
         district_name: "Downtown Palo Alto",
         district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
-        comparison_path: "/commercial-real-estate/CA/menlo-park/menlo-park-vs-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/palo-alto-vs-menlo-park/",
         reason: "Compare if stronger Stanford, venture, and University Avenue identity may fit better.",
       },
       {
@@ -8686,6 +8738,7 @@ Object.assign(districts, {
       {
         district_name: "Sand Hill / Stanford-adjacent",
         district_path: "/commercial-real-estate/CA/menlo-park/sand-hill-stanford-adjacent/",
+        comparison_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core-vs-sand-hill-stanford-adjacent/",
         reason: "Compare if venture-office identity and campus-like setting matter more than downtown Menlo Park access.",
       },
     ],
@@ -8721,6 +8774,7 @@ Object.assign(districts, {
       {
         district_name: "Menlo Park Commercial Core",
         district_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/menlo-park/menlo-park-commercial-core-vs-sand-hill-stanford-adjacent/",
         reason: "Compare if downtown Menlo Park access and Caltrain proximity matter more.",
       },
       {
