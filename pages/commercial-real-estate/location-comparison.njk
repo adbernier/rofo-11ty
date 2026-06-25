@@ -92,6 +92,25 @@ eleventyComputed:
           </section>
         {% endif %}
 
+        {% if comparison.business_ecosystem and comparison.business_ecosystem.length %}
+          <section class="city-card">
+            <div class="eyebrow">Business ecosystem</div>
+            <h2>How the ecosystems differ</h2>
+            <div class="location-comparison-panel-grid">
+              {% for group in comparison.business_ecosystem %}
+                <div class="location-comparison-panel">
+                  <h3>{{ group.district_name }}</h3>
+                  <ul class="mini-list location-comparison-panel__list">
+                    {% for item in group.ecosystems %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
         {% if comparison.decision_qualities and comparison.decision_qualities.length %}
           <section class="city-card">
             <div class="eyebrow">Decision qualities</div>

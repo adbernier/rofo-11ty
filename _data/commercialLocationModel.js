@@ -40,6 +40,18 @@ const districts = {
         reason: "Compare if Peninsula professional/startup context may fit better than central San Francisco adaptive office geography.",
       },
       {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-north-san-jose/",
+        reason: "Compare if larger office/R&D buildings and South Bay engineering access may fit better than urban San Francisco creative-tech context.",
+      },
+      {
+        district_name: "Emeryville",
+        district_path: "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-soma/",
+        reason: "Compare if East Bay office/R&D practicality may fit better than SoMa's San Francisco centrality.",
+      },
+      {
         district_name: "Downtown Oakland",
         district_path: "/commercial-real-estate/CA/oakland/downtown-oakland/",
         comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-downtown-oakland/",
@@ -115,6 +127,12 @@ const districts = {
         comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-financial-district/",
         reason: "Compare if Peninsula professional context may fit better than San Francisco CBD identity.",
       },
+      {
+        district_name: "Santana Row / Valley Fair",
+        district_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-santana-row-valley-fair/",
+        reason: "Compare if South Bay client-facing amenities and mixed-use headquarters context may fit better than San Francisco CBD identity.",
+      },
     ],
     office_profile: {
       office_orientation: "formal_core",
@@ -167,6 +185,18 @@ const districts = {
         district_path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
         comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-jackson-square/",
         reason: "Compare if smaller historic boutique office context may fit better than newer institutional geography.",
+      },
+      {
+        district_name: "North Bayshore",
+        district_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-north-bayshore/",
+        reason: "Compare if Mountain View technology-campus scale may fit better than Mission Bay's institutional life-science context.",
+      },
+      {
+        district_name: "South San Francisco Oyster Point",
+        district_path: "/commercial-real-estate/CA/south-san-francisco/oyster-point/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if purpose-built biotech and lab/R&D infrastructure may fit better than Mission Bay's urban institutional setting.",
       },
     ],
     office_profile: {
@@ -654,6 +684,12 @@ const districts = {
         comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-jack-london-square/",
         reason: "Compare if compact East Bay office, life-science, and mixed commercial context may fit better than Oakland waterfront/adaptive texture.",
       },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/oakland/jack-london-square-vs-soma/",
+        reason: "Compare if San Francisco creative-tech access may matter more than Oakland waterfront/adaptive character.",
+      },
     ],
     office_profile: {
       office_orientation: "creative_adaptive",
@@ -723,6 +759,18 @@ const districts = {
         district_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
         comparison_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-downtown-palo-alto/",
         reason: "Compare if a research-park, R&D, or campus-oriented setting may fit better than a walkable downtown office district.",
+      },
+      {
+        district_name: "North San Jose",
+        district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-north-san-jose/",
+        reason: "Compare if larger office/R&D capacity and airport access may fit better than Palo Alto's venture-facing downtown setting.",
+      },
+      {
+        district_name: "Santana Row / Valley Fair",
+        district_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair-vs-downtown-palo-alto/",
+        reason: "Compare if polished South Bay mixed-use amenities may fit better than Palo Alto's venture-facing downtown identity.",
       },
     ],
     office_profile: {
@@ -2873,6 +2921,18 @@ Object.assign(districts, {
         comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-downtown-sunnyvale/",
         reason: "Compare if Caltrain, walkability, and a compact downtown office setting may fit better than North San Jose corridor scale.",
       },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto-vs-north-san-jose/",
+        reason: "Compare if venture-facing Palo Alto access may matter more than North San Jose's larger office/R&D and flex geography.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/soma-vs-north-san-jose/",
+        reason: "Compare if San Francisco technology and creative-office context may fit better than South Bay campus and R&D scale.",
+      },
     ],
     office_profile: {
       office_orientation: "technology_campus",
@@ -3142,6 +3202,18 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/santa-clara/santa-clara-office-tech-core/",
         reason: "Compare if a broader central South Bay office/tech market may fit better.",
       },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-north-bayshore/",
+        reason: "Compare if San Francisco life-science, AI, and UCSF adjacency may fit better than Mountain View technology-campus scale.",
+      },
+      {
+        district_name: "South San Francisco Oyster Point",
+        district_path: "/commercial-real-estate/CA/south-san-francisco/oyster-point/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if biotech and lab/R&D infrastructure may fit better than North Bayshore's technology-campus ecosystem.",
+      },
     ],
     office_profile: {
       office_orientation: "technology_campus",
@@ -3236,6 +3308,18 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
         comparison_path: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/",
         reason: "Compare if broader South Bay office/R&D, flex, airport, and freeway access may fit better than Stanford-adjacent research-park format.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-stanford-research-park/",
+        reason: "Compare if San Francisco life-science and UCSF adjacency may fit better than Palo Alto research-park identity.",
+      },
+      {
+        district_name: "South San Francisco Oyster Point",
+        district_path: "/commercial-real-estate/CA/south-san-francisco/oyster-point/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if biotech lab/R&D infrastructure may matter more than Stanford-adjacent research-park identity.",
       },
     ],
     office_profile: {
@@ -3547,6 +3631,68 @@ Object.assign(districts, {
 });
 
 Object.assign(districts, {
+  "/commercial-real-estate/CA/south-san-francisco/oyster-point/": {
+    primary_archetype: "life_science_rd_flex_district",
+    secondary_archetypes: ["life_science_institutional_district", "airport_adjacent_suburban_office_market"],
+    commercial_thesis:
+      "South San Francisco Oyster Point is a Bay Area life-science and biotech district shaped by lab, R&D, waterfront office, and airport-adjacent access. It is most useful for companies comparing Mission Bay institutional gravity with Peninsula biotech infrastructure.",
+    best_fit_businesses: [
+      "Biotech, life-science, lab, R&D, and research-support companies",
+      "Teams comparing San Francisco life-science access with Peninsula lab and campus alternatives",
+      "Companies that value Highway 101, airport access, and a purpose-built biotech ecosystem",
+    ],
+    poor_fit_businesses: [
+      "Creative office users that want adaptive central San Francisco buildings",
+      "Client-facing professional-service firms that need a CBD or walkable downtown identity",
+      "Basic warehouse users that do not benefit from life-science or lab-adjacent infrastructure",
+    ],
+    compare_with: [
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if UCSF adjacency and San Francisco institutional context may matter more than Peninsula biotech infrastructure.",
+      },
+      {
+        district_name: "North Bayshore",
+        district_path: "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+        comparison_path: "/commercial-real-estate/CA/mountain-view/north-bayshore-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if Mountain View technology-campus context may fit better than biotech-oriented lab geography.",
+      },
+      {
+        district_name: "Stanford Research Park",
+        district_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        comparison_path: "/commercial-real-estate/CA/palo-alto/stanford-research-park-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if Stanford/Palo Alto research-park identity may matter more than South San Francisco biotech cluster depth.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "rd_life_science_office",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "large",
+      tenant_fit: ["life_science", "biotech", "lab", "rd", "research_support"],
+      commute_pattern: ["highway_101", "sfo_airport", "peninsula", "san_francisco_access"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "life_science_rd_flex",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["lab", "rd_flex", "life_science_office", "research_support"],
+      tenant_fit: ["biotech", "life_science", "research", "lab_support"],
+      decision_context: [
+        "Life-science users comparing purpose-built Peninsula biotech infrastructure with Mission Bay, North Bayshore, or Stanford Research Park",
+        "Research companies that need lab/R&D suitability more than a traditional office district",
+      ],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
   "/commercial-real-estate/CA/hayward/hayward-industrial/": {
     primary_archetype: "i880_warehouse_flex_corridor",
     secondary_archetypes: ["service_commercial_industrial_market", "east_bay_logistics_access_market"],
@@ -4436,6 +4582,18 @@ Object.assign(districts, {
         district_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay/",
         comparison_path: "/commercial-real-estate/CA/alameda/alameda-waterfront-harbor-bay-vs-emeryville/",
         reason: "Compare if quieter waterfront office, light flex, and parking-practical Alameda context may fit better.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-mission-bay/",
+        reason: "Compare if San Francisco life-science and AI adjacency may matter more than Emeryville's East Bay access and business-park feel.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        comparison_path: "/commercial-real-estate/CA/emeryville/emeryville-vs-soma/",
+        reason: "Compare if San Francisco creative-tech density may fit better than Emeryville's East Bay office and life-science support setting.",
       },
     ],
     office_profile: {
@@ -8534,6 +8692,18 @@ Object.assign(districts, {
         district_name: "Cupertino Commercial Core",
         district_path: "/commercial-real-estate/CA/cupertino/cupertino-commercial-core/",
         reason: "Compare if West Valley technology adjacency and Cupertino access may be more practical.",
+      },
+      {
+        district_name: "Downtown Palo Alto",
+        district_path: "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+        comparison_path: "/commercial-real-estate/CA/san-jose/santana-row-valley-fair-vs-downtown-palo-alto/",
+        reason: "Compare if venture-facing Palo Alto walkability may matter more than West San Jose mixed-use amenities.",
+      },
+      {
+        district_name: "Financial District",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/financial-district-vs-santana-row-valley-fair/",
+        reason: "Compare if San Francisco client-facing corporate identity may fit better than a South Bay mixed-use executive setting.",
       },
     ],
     office_profile: {
