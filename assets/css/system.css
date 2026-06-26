@@ -2292,11 +2292,46 @@ section.market-page--space-type .market-links a {
   margin-bottom: 24px;
 }
 
+.city-page .city-primary-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+}
+
+.city-page .city-primary-main {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
+.city-page .city-primary-rail {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  min-width: 0;
+  width: 100%;
+}
+
+.city-page .city-primary-rail .search-profile-shell--inline {
+  margin: 0;
+}
+
+.city-page .city-hero--content-only {
+  grid-template-columns: 1fr;
+  margin-bottom: 0;
+}
+
 .city-page .city-main {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.85fr);
   gap: 24px;
   align-items: start;
+}
+
+.city-page .city-main--single-column {
+  grid-template-columns: 1fr;
 }
 
 .city-page .city-main-left,
@@ -2508,9 +2543,14 @@ section.market-page--space-type .market-links a {
 
 /* TABLET */
 @media (max-width: 980px) {
+  .city-page .city-primary-layout,
   .city-page .city-main,
   .city-page .city-hero {
     grid-template-columns: 1fr;
+  }
+
+  .city-page .city-primary-rail {
+    position: static;
   }
 
   .city-page .city-hero--editorial-district-map {

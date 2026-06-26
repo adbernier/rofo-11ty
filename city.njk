@@ -137,63 +137,34 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero">
-      <div class="city-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">Market</div>
+    <div class="city-primary-layout">
+      <div class="city-primary-main">
+        <div class="city-hero city-hero--content-only">
+          <div class="city-card">
+            <div class="city-hero-copy">
+              <div class="eyebrow">Market</div>
 
-          <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
+              <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
 
-          <p class="lead">
-            Explore office, retail, and industrial space for lease in {{ city.city }}, {{ city.state_abbr }}.
-            Browse buildings, compare nearby markets, or get help finding available space.
-          </p>
+              <p class="lead">
+                Explore office, retail, and industrial space for lease in {{ city.city }}, {{ city.state_abbr }}.
+                Browse buildings, compare nearby markets, or get help finding available space.
+              </p>
 
-          <div class="hero-actions">
-            <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
-              Browse Buildings
-            </a>
-          </div>
+              <div class="hero-actions">
+                <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
+                  Browse Buildings
+                </a>
+              </div>
 
-          <div class="hero-pill-wrap">
-            {% include "partials/space-type/pill-nav.njk" %}
+              <div class="hero-pill-wrap">
+                {% include "partials/space-type/pill-nav.njk" %}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="city-sidecard">
-        <div class="hero-media">
-
-          {% if city.hero_image %}
-            <img
-              class="hero-image"
-              src="{{ city.hero_image }}"
-              alt="{{ city.hero_image_alt or (city.city + ", " + city.state_abbr) }}"
-              width="1200"
-              height="400"
-              fetchpriority="high"
-              decoding="async"
-            />
-          {% else %}
-            <div
-              class="hero-image hero-image--placeholder hero-image--theme-{{ city.placeholder_theme }}"
-              data-location="{{ city.city }}, {{ city.state_abbr }}"
-              aria-label="{{ city.city }}, {{ city.state_abbr }}"
-            ></div>
-          {% endif %}
-
-          <div class="hero-overlay">
-            <p class="hero-overlay-title">{{ city.city }}, {{ city.state_abbr }}</p>
-            <p class="hero-overlay-meta">Commercial Real Estate Market</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="city-main">
-      <div class="city-main-left">
-        <div class="city-grid">
+        <div class="city-grid city-primary-content">
           {% if cityMarketGuide %}
             <div class="city-card city-market-guide-card">
               <div class="eyebrow">Market Guide</div>
@@ -427,9 +398,10 @@ eleventyComputed:
             </div>
           </div>
         </div>
+
       </div>
 
-      <div class="city-main-right">
+      <aside class="city-primary-rail">
         {% set searchProfileContext = {
           "layout": "inline",
           "submit_enabled": true,
@@ -454,7 +426,7 @@ eleventyComputed:
           "card_headline": "Get a personalized " + city.city + " building shortlist"
         } %}
         {% include "partials/shared/search-profile-card.njk" %}
-      </div>
+      </aside>
     </div>
   </div>
 </section>
