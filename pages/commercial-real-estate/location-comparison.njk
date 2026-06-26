@@ -21,23 +21,23 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero city-hero--district-identity">
-      <div class="city-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">Location comparison</div>
-          <h1>{{ comparison.title }}</h1>
-          <p class="lead">
-            Compare which commercial district is a better fit before narrowing to specific spaces.
-          </p>
-          <div class="button-row">
-            <a class="btn-secondary" href="/commercial-real-estate/{{ comparison.state_abbr }}/{{ comparison.city_slug }}/market-guide/">Read market guide</a>
+    <div class="neighborhood-layout neighborhood-layout--primary-rail">
+      <div class="neighborhood-main">
+        <div class="city-hero city-hero--district-identity">
+          <div class="city-card">
+            <div class="city-hero-copy">
+              <div class="eyebrow">Location comparison</div>
+              <h1>{{ comparison.title }}</h1>
+              <p class="lead">
+                Compare which commercial district is a better fit before narrowing to specific spaces.
+              </p>
+              <div class="button-row">
+                <a class="btn-secondary" href="/commercial-real-estate/{{ comparison.state_abbr }}/{{ comparison.city_slug }}/market-guide/">Read market guide</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="neighborhood-layout">
-      <div class="neighborhood-main">
         <section class="city-card">
           <div class="eyebrow">Quick read</div>
           <h2>Which district fits better?</h2>

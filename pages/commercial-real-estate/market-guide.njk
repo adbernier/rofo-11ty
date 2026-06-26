@@ -105,61 +105,35 @@ eleventyComputed:
 }
     </script>
 
-    <div class="city-hero market-guide-hero-layout">
-      <div class="city-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">Market Guide</div>
-          <h1>{{ guide.title }}</h1>
-          <p class="lead">{{ guide.summary_short or guide.summary }}</p>
-          <div class="pill-row">
-            <span class="pill">{{ guide.city }}, {{ guide.state_abbr }}</span>
-            {% if guide.market_date %}
-              <span class="pill">{{ guide.market_date }}</span>
-            {% endif %}
-            {% if guide.guide_kind == "space-type" %}
-              <span class="pill">{{ guide.space_type_label }}</span>
-            {% endif %}
-          </div>
-          <div class="button-row">
-            <a class="btn-primary" href="#search-profile">Get a personalized shortlist</a>
-            <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
-            {% if guide.guide_kind == "space-type" %}
-              <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
-            {% endif %}
+    <div class="market-guide-layout">
+      <div class="market-guide-main">
+        <div class="city-hero market-guide-hero-layout market-guide-hero-layout--content-only">
+          <div class="city-card">
+            <div class="city-hero-copy">
+              <div class="eyebrow">Market Guide</div>
+              <h1>{{ guide.title }}</h1>
+              <p class="lead">{{ guide.summary_short or guide.summary }}</p>
+              <div class="pill-row">
+                <span class="pill">{{ guide.city }}, {{ guide.state_abbr }}</span>
+                {% if guide.market_date %}
+                  <span class="pill">{{ guide.market_date }}</span>
+                {% endif %}
+                {% if guide.guide_kind == "space-type" %}
+                  <span class="pill">{{ guide.space_type_label }}</span>
+                {% endif %}
+              </div>
+              <div class="button-row">
+                <a class="btn-primary" href="#search-profile">Get a personalized shortlist</a>
+                <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
+                {% if guide.guide_kind == "space-type" %}
+                  <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
+                {% endif %}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <aside class="market-guide-search-profile">
-        {% set searchProfileContext = {
-          "layout": "inline",
-          "submit_enabled": true,
-          "submit_endpoint": "/api/leads/submit",
-          "target_area": guide.city,
-          "city": guide.city,
-          "district": "",
-          "street": "",
-          "state": guide.state_abbr,
-          "context_type": "market_guide",
-          "context_label": guide.title,
-          "page_url": metadata.siteUrl + page.url,
-          "page_title": title,
-          "routing_market": guide.routing_market or (guide.city_slug + "-" + (guide.state_abbr | lower)),
-          "routing_county": guide.county or "",
-          "neighborhood_name": "",
-          "neighborhood_slug": "",
-          "neighborhood_path": "",
-          "commercial_area_id": "",
-          "commercial_area_type": "market_guide",
-          "location_suggestions": guideSearchProfileLocationSuggestions,
-          "default_space_type": guideSearchProfileSpaceType,
-          "space_type_context_label": guideSearchProfileSpaceContextLabel,
-          "card_headline": guideSearchProfileHeadline
-        } %}
-        {% include "partials/shared/search-profile-card.njk" %}
-      </aside>
-    </div>
 
-    <div class="page-stack">
+        <div class="page-stack">
       <div class="city-card city-card--full">
         <div class="eyebrow">Quick Facts</div>
         <h2>{{ guide.city }} market quick facts</h2>
@@ -635,6 +609,37 @@ eleventyComputed:
           </ul>
         </div>
       {% endif %}
+        </div>
+      </div>
+
+      <aside class="market-guide-search-profile">
+        {% set searchProfileContext = {
+          "layout": "inline",
+          "submit_enabled": true,
+          "submit_endpoint": "/api/leads/submit",
+          "target_area": guide.city,
+          "city": guide.city,
+          "district": "",
+          "street": "",
+          "state": guide.state_abbr,
+          "context_type": "market_guide",
+          "context_label": guide.title,
+          "page_url": metadata.siteUrl + page.url,
+          "page_title": title,
+          "routing_market": guide.routing_market or (guide.city_slug + "-" + (guide.state_abbr | lower)),
+          "routing_county": guide.county or "",
+          "neighborhood_name": "",
+          "neighborhood_slug": "",
+          "neighborhood_path": "",
+          "commercial_area_id": "",
+          "commercial_area_type": "market_guide",
+          "location_suggestions": guideSearchProfileLocationSuggestions,
+          "default_space_type": guideSearchProfileSpaceType,
+          "space_type_context_label": guideSearchProfileSpaceContextLabel,
+          "card_headline": guideSearchProfileHeadline
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
+      </aside>
     </div>
   </div>
 </section>

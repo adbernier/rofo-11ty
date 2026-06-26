@@ -52,112 +52,112 @@ eleventyComputed:
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-hero{% if hasMapHero and not editorialDistrictMap %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap and not editorialDistrictMap %} city-hero--district-identity{% endif %}{% if editorialDistrictMap %} city-hero--editorial-district-map{% endif %}">
-      <div class="city-card city-hero__intro-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">{{ districtIdentity.eyebrow or (areaTermDisplay + " Guide") }}</div>
-          <h1>{{ districtIdentity.title or ("Commercial Real Estate in " + neighborhood.name) }}</h1>
-          <p class="lead">
-            {{ districtIdentity.lead or ("Explore commercial buildings, nearby areas, and related space types in " + neighborhoodDisplayNameWithArticle + ", " + neighborhood.city + ".") }}
-          </p>
-          <div class="pill-row">
-            <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
-            <span class="pill">{{ districtIdentity.guide_label or (areaTermDisplay + " guide") }}</span>
-          </div>
-          <div class="button-row">
-            {% if not neighborhood.commercial_location_model %}
-              <a class="btn-primary" href="#neighborhood-contact-form">Get current availability</a>
-            {% endif %}
-            <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
-          </div>
-        </div>
-      </div>
-
-      {% if editorialDistrictMap %}
-        {% set editorialDistrictMapVariant = "hero" %}
-        {% include "partials/shared/editorial-district-map.njk" %}
-        {% set editorialDistrictMapVariant = "" %}
-        {% set hasGlanceBestFit = neighborhood.commercial_location_model and neighborhood.commercial_location_model.best_fit_businesses and neighborhood.commercial_location_model.best_fit_businesses.length %}
-        {% set hasGlanceNearby = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length) or hasNearby %}
-        {% set hasGlanceTypicalSearch = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label) or hasSpaceTypes %}
-        {% if hasGlanceBestFit or hasGlanceNearby or hasGlanceTypicalSearch %}
-          <section class="city-card neighborhood-hero-glance">
-            <div class="eyebrow">At a glance</div>
-            <div class="neighborhood-hero-glance__rows">
-              {% if hasGlanceBestFit %}
-                <div class="neighborhood-hero-glance__row">
-                  <span>Best fit</span>
-                  <strong>{{ neighborhood.commercial_location_model.best_fit_businesses[0] }}</strong>
-                </div>
-              {% endif %}
-              {% if hasGlanceNearby %}
-                <div class="neighborhood-hero-glance__row">
-                  <span>Nearby areas</span>
-                  <strong>
-                    {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
-                      {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 3) %}
-                        {{ comparison.district_name }}{% if not loop.last %}, {% endif %}
-                      {% endfor %}
-                    {% else %}
-                      {% for nearby in neighborhood.nearby_neighborhoods.slice(0, 3) %}
-                        {{ nearby.name }}{% if not loop.last %}, {% endif %}
-                      {% endfor %}
-                    {% endif %}
-                  </strong>
-                </div>
-              {% endif %}
-              {% if hasGlanceTypicalSearch %}
-                <div class="neighborhood-hero-glance__row">
-                  <span>Typical search</span>
-                  <strong>
-                    {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label %}
-                      {{ neighborhood.commercial_location_model.primary_archetype_label }}
-                    {% else %}
-                      {% for type in neighborhood.approximate_space_types.slice(0, 3) %}
-                        {{ type | capitalize }}{% if not loop.last %}, {% endif %}
-                      {% endfor %}
-                    {% endif %}
-                  </strong>
-                </div>
-              {% endif %}
-            </div>
-          </section>
-        {% endif %}
-      {% elif hasMapHero %}
-        {% include "partials/neighborhood/map-hero.njk" %}
-      {% elif not hasIdentityLocatorMap %}
-        <div class="city-sidecard neighborhood-review-note">
-          <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
-          <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
-          <p>
-            Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with the broader {{ neighborhood.city }} commercial real estate market.
-          </p>
-        </div>
-      {% endif %}
-    </div>
-
-    {% if hasIdentityLocatorMap and not editorialDistrictMap %}
-      {% include "partials/neighborhood/district-locator-map.njk" %}
-    {% endif %}
-
-    {% if neighborhood.neighborhood_image_path %}
-      <figure class="neighborhood-image-block">
-        <img
-          src="{{ neighborhood.neighborhood_image_path }}"
-          alt="{{ neighborhood.name }} commercial streetscape in {{ neighborhood.city }}, {{ neighborhood.state_abbr }}"
-          width="1600"
-          height="900"
-          loading="lazy"
-        >
-      </figure>
-    {% endif %}
-
-    {% if not hasIdentityLocatorMap and not editorialDistrictMap %}
-      {% include "partials/neighborhood/district-locator-map.njk" %}
-    {% endif %}
-
-    <div class="neighborhood-layout">
+    <div class="neighborhood-layout neighborhood-layout--primary-rail">
       <div class="neighborhood-main">
+        <div class="city-hero{% if hasMapHero and not editorialDistrictMap %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap and not editorialDistrictMap %} city-hero--district-identity{% endif %}{% if editorialDistrictMap %} city-hero--editorial-district-map{% endif %}">
+          <div class="city-card city-hero__intro-card">
+            <div class="city-hero-copy">
+              <div class="eyebrow">{{ districtIdentity.eyebrow or (areaTermDisplay + " Guide") }}</div>
+              <h1>{{ districtIdentity.title or ("Commercial Real Estate in " + neighborhood.name) }}</h1>
+              <p class="lead">
+                {{ districtIdentity.lead or ("Explore commercial buildings, nearby areas, and related space types in " + neighborhoodDisplayNameWithArticle + ", " + neighborhood.city + ".") }}
+              </p>
+              <div class="pill-row">
+                <span class="pill">{{ neighborhood.city }}, {{ neighborhood.state_abbr }}</span>
+                <span class="pill">{{ districtIdentity.guide_label or (areaTermDisplay + " guide") }}</span>
+              </div>
+              <div class="button-row">
+                {% if not neighborhood.commercial_location_model %}
+                  <a class="btn-primary" href="#neighborhood-contact-form">Get current availability</a>
+                {% endif %}
+                <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
+              </div>
+            </div>
+          </div>
+
+          {% if editorialDistrictMap %}
+            {% set editorialDistrictMapVariant = "hero" %}
+            {% include "partials/shared/editorial-district-map.njk" %}
+            {% set editorialDistrictMapVariant = "" %}
+            {% set hasGlanceBestFit = neighborhood.commercial_location_model and neighborhood.commercial_location_model.best_fit_businesses and neighborhood.commercial_location_model.best_fit_businesses.length %}
+            {% set hasGlanceNearby = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length) or hasNearby %}
+            {% set hasGlanceTypicalSearch = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label) or hasSpaceTypes %}
+            {% if hasGlanceBestFit or hasGlanceNearby or hasGlanceTypicalSearch %}
+              <section class="city-card neighborhood-hero-glance">
+                <div class="eyebrow">At a glance</div>
+                <div class="neighborhood-hero-glance__rows">
+                  {% if hasGlanceBestFit %}
+                    <div class="neighborhood-hero-glance__row">
+                      <span>Best fit</span>
+                      <strong>{{ neighborhood.commercial_location_model.best_fit_businesses[0] }}</strong>
+                    </div>
+                  {% endif %}
+                  {% if hasGlanceNearby %}
+                    <div class="neighborhood-hero-glance__row">
+                      <span>Nearby areas</span>
+                      <strong>
+                        {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
+                          {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 3) %}
+                            {{ comparison.district_name }}{% if not loop.last %}, {% endif %}
+                          {% endfor %}
+                        {% else %}
+                          {% for nearby in neighborhood.nearby_neighborhoods.slice(0, 3) %}
+                            {{ nearby.name }}{% if not loop.last %}, {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      </strong>
+                    </div>
+                  {% endif %}
+                  {% if hasGlanceTypicalSearch %}
+                    <div class="neighborhood-hero-glance__row">
+                      <span>Typical search</span>
+                      <strong>
+                        {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.primary_archetype_label %}
+                          {{ neighborhood.commercial_location_model.primary_archetype_label }}
+                        {% else %}
+                          {% for type in neighborhood.approximate_space_types.slice(0, 3) %}
+                            {{ type | capitalize }}{% if not loop.last %}, {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      </strong>
+                    </div>
+                  {% endif %}
+                </div>
+              </section>
+            {% endif %}
+          {% elif hasMapHero %}
+            {% include "partials/neighborhood/map-hero.njk" %}
+          {% elif not hasIdentityLocatorMap %}
+            <div class="city-sidecard neighborhood-review-note">
+              <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
+              <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
+              <p>
+                Use this page as a starting point for comparing {{ neighborhoodDisplayNameWithArticle }} with the broader {{ neighborhood.city }} commercial real estate market.
+              </p>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if hasIdentityLocatorMap and not editorialDistrictMap %}
+          {% include "partials/neighborhood/district-locator-map.njk" %}
+        {% endif %}
+
+        {% if neighborhood.neighborhood_image_path %}
+          <figure class="neighborhood-image-block">
+            <img
+              src="{{ neighborhood.neighborhood_image_path }}"
+              alt="{{ neighborhood.name }} commercial streetscape in {{ neighborhood.city }}, {{ neighborhood.state_abbr }}"
+              width="1600"
+              height="900"
+              loading="lazy"
+            >
+          </figure>
+        {% endif %}
+
+        {% if not hasIdentityLocatorMap and not editorialDistrictMap %}
+          {% include "partials/neighborhood/district-locator-map.njk" %}
+        {% endif %}
+
         {% if not hasMapHero and not isDistrictIdentityPage %}
           <section class="city-card">
             <div class="eyebrow">Neighborhood Overview</div>

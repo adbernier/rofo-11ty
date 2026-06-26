@@ -689,11 +689,33 @@ p {
   align-items: stretch;
 }
 
+.market-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.market-guide-main {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
 .market-guide-hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
   gap: 22px;
   align-items: start;
+}
+
+.market-guide-hero-layout--content-only {
+  grid-template-columns: 1fr;
+  margin-bottom: 0;
+}
+
+.market-guide-main .page-stack {
+  margin-top: 0;
 }
 
 .market-guide-search-profile {
@@ -3121,6 +3143,24 @@ section.market-page--space-type .market-links a {
 
 .neighborhood-sidebar {
   grid-area: sidebar;
+}
+
+.neighborhood-layout--primary-rail .city-hero {
+  margin-bottom: 0;
+}
+
+.neighborhood-layout--primary-rail .city-hero--editorial-district-map,
+.neighborhood-layout--primary-rail .city-hero--map-card {
+  grid-template-areas:
+    "intro"
+    "map"
+    "glance";
+  grid-template-columns: 1fr;
+}
+
+.neighborhood-layout--primary-rail .city-hero--map-card > .neighborhood-map-card,
+.neighborhood-layout--primary-rail .city-hero--map-card > .city-sidecard {
+  grid-area: map;
 }
 
 .neighborhood-prototype .city-card,
@@ -6524,6 +6564,7 @@ section.market-page--space-type .market-links a {
 }
 
 @media (max-width: 960px) {
+  .market-guide-layout,
   .market-guide-hero-layout {
     grid-template-columns: 1fr;
   }
