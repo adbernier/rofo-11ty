@@ -267,7 +267,8 @@ eleventyComputed:
           "compared_districts": comparison.compared_districts_value,
           "primary_archetype": (comparison.district_a.primary_archetype or "") + ", " + (comparison.district_b.primary_archetype or ""),
           "business_ecosystem": comparison.business_ecosystem_value or "",
-          "location_suggestions": [comparison.district_a_name, comparison.district_b_name]
+          "location_suggestions": [comparison.district_a_name, comparison.district_b_name],
+          "card_headline": "Get a personalized " + comparison.short_title + " building shortlist"
         } %}
         {% include "partials/shared/search-profile-card.njk" %}
       </aside>

@@ -33,6 +33,33 @@ eleventyComputed:
 {% if marketSnapshot.notable_areas and marketSnapshot.notable_areas.length %}
   {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Notable Areas", "areas": marketSnapshot.notable_areas, "note": marketSnapshot.notable_areas_label }), guideSnapshotItems) %}
 {% endif %}
+{% set guideSearchProfileLocationSuggestions = [] %}
+{% if guide.nearby_markets and guide.nearby_markets.length %}
+  {% for nearby in guide.nearby_markets.slice(0, 6) %}
+    {% set guideSearchProfileLocationSuggestions = (guideSearchProfileLocationSuggestions.push(nearby.city), guideSearchProfileLocationSuggestions) %}
+  {% endfor %}
+{% endif %}
+{% set guideSearchProfileSpaceType = "" %}
+{% if guide.guide_kind == "space-type" %}
+  {% if guide.space_type == "industrial-space" or guide.space_type == "warehouse-space" %}
+    {% set guideSearchProfileSpaceType = "Industrial / Warehouse" %}
+  {% elseif guide.space_type == "retail-space" %}
+    {% set guideSearchProfileSpaceType = "Retail" %}
+  {% elseif guide.space_type == "flex-space" %}
+    {% set guideSearchProfileSpaceType = "Flex" %}
+  {% elseif guide.space_type == "coworking-space" %}
+    {% set guideSearchProfileSpaceType = "Coworking" %}
+  {% else %}
+    {% set guideSearchProfileSpaceType = "Office" %}
+  {% endif %}
+{% endif %}
+{% set guideSearchProfileHeadline = "Get a personalized " + guide.city + " building shortlist" %}
+{% set guideSearchProfileSpaceContextLabel = "" %}
+{% if guide.guide_kind == "space-type" %}
+  {% set guideSearchProfileHeadlineType = (guide.space_type_label_lower or guide.space_type_label or "") | replace(" space", "") %}
+  {% set guideSearchProfileHeadline = "Get a personalized " + guide.city + " " + guideSearchProfileHeadlineType + " shortlist" %}
+  {% set guideSearchProfileSpaceContextLabel = "Searching for: " + guide.space_type_label %}
+{% endif %}
 
 <section class="city-page market-page market-page--guide">
   <div class="city-shell">
@@ -78,7 +105,7 @@ eleventyComputed:
 }
     </script>
 
-    <div class="city-hero">
+    <div class="city-hero market-guide-hero-layout">
       <div class="city-card">
         <div class="city-hero-copy">
           <div class="eyebrow">Market Guide</div>
@@ -94,7 +121,7 @@ eleventyComputed:
             {% endif %}
           </div>
           <div class="button-row">
-            <a class="btn-primary" href="#market-guide-contact">Get help finding space</a>
+            <a class="btn-primary" href="#search-profile">Get a personalized shortlist</a>
             <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
             {% if guide.guide_kind == "space-type" %}
               <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
@@ -102,6 +129,34 @@ eleventyComputed:
           </div>
         </div>
       </div>
+      <aside class="market-guide-search-profile">
+        {% set searchProfileContext = {
+          "layout": "inline",
+          "submit_enabled": true,
+          "submit_endpoint": "/api/leads/submit",
+          "target_area": guide.city,
+          "city": guide.city,
+          "district": "",
+          "street": "",
+          "state": guide.state_abbr,
+          "context_type": "market_guide",
+          "context_label": guide.title,
+          "page_url": metadata.siteUrl + page.url,
+          "page_title": title,
+          "routing_market": guide.routing_market or (guide.city_slug + "-" + (guide.state_abbr | lower)),
+          "routing_county": guide.county or "",
+          "neighborhood_name": "",
+          "neighborhood_slug": "",
+          "neighborhood_path": "",
+          "commercial_area_id": "",
+          "commercial_area_type": "market_guide",
+          "location_suggestions": guideSearchProfileLocationSuggestions,
+          "default_space_type": guideSearchProfileSpaceType,
+          "space_type_context_label": guideSearchProfileSpaceContextLabel,
+          "card_headline": guideSearchProfileHeadline
+        } %}
+        {% include "partials/shared/search-profile-card.njk" %}
+      </aside>
     </div>
 
     <div class="page-stack">
@@ -583,3 +638,5 @@ eleventyComputed:
     </div>
   </div>
 </section>
+
+<script src="/js/search-profile.js" defer></script>

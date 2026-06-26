@@ -1200,7 +1200,7 @@
       }
     }).finally(() => {
       contactSubmitButton.disabled = false;
-      contactSubmitButton.textContent = "Get my location options";
+      contactSubmitButton.textContent = "Get My Personalized Shortlist";
     });
   });
 

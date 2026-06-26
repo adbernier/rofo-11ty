@@ -156,6 +156,24 @@ function renderPageTypeRows(rows) {
   `).join("");
 }
 
+function renderStartRateByPageTypeRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="7" class="empty-cell">No Search Profile start-rate data yet.</td></tr>`;
+  }
+
+  return rows.map((row) => `
+    <tr>
+      ${tableCell(row.page_type || "unknown")}
+      ${tableCell(row.views || 0)}
+      ${tableCell(row.started || 0)}
+      ${tableCell(percent(row.started, row.views))}
+      ${tableCell(row.submitted || 0)}
+      ${tableCell(percent(row.submitted, row.views))}
+      ${tableCell(percent(row.submitted, row.started))}
+    </tr>
+  `).join("");
+}
+
 function renderTopRows(rows, columns, emptyMessage = "No data yet.") {
   if (!rows.length) {
     return `<tr><td colspan="${columns.length}" class="empty-cell">${escapeHtml(emptyMessage)}</td></tr>`;
@@ -293,6 +311,15 @@ function normalizeAggregateRows(rows, labelKey) {
   return rows.map((row) => ({
     ...row,
     [labelKey]: row[labelKey] || "unknown",
+    started: Number(row.started || 0),
+    submitted: Number(row.submitted || 0),
+  }));
+}
+
+function normalizeStartRateRows(rows) {
+  return rows.map((row) => ({
+    page_type: row.page_type || "unknown",
+    views: Number(row.views || 0),
     started: Number(row.started || 0),
     submitted: Number(row.submitted || 0),
   }));
@@ -571,6 +598,7 @@ function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
     funnel: { viewed: 0, started: 0, submitted: 0 },
     stepCounts: {},
     pageTypes: [],
+    startRatesByPageType: [],
     recentEvents: [],
     recentSubmissions: [],
   });
@@ -586,6 +614,7 @@ function renderPage({
   stepCounts = {},
   funnelInsights = [],
   pageTypes = [],
+  startRatesByPageType = [],
   topPages = [],
   topDistricts = [],
   topComparisons = [],
@@ -695,6 +724,16 @@ function renderPage({
       <h2>Growth Opportunities</h2>
       <p>Transparent rule-based guidance from observed Search Profile metrics. Recommendations disappear when the underlying signal no longer matches the rule.</p>
       ${renderGrowthRecommendations(growthRecommendations)}
+    </section>
+    <section class="panel">
+      <h2>Search Profile Start Rate by Page Type</h2>
+      <p>Uses the selected date range. Start rate is starts divided by viewed events; completion rate is submissions divided by starts.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Page Type</th><th>Views</th><th>Starts</th><th>Start Rate</th><th>Submissions</th><th>Submission Rate</th><th>Completion Rate</th></tr></thead>
+          <tbody>${renderStartRateByPageTypeRows(startRatesByPageType)}</tbody>
+        </table>
+      </div>
     </section>
     <section class="panel">
       <h2>Funnel Insights</h2>
@@ -939,6 +978,19 @@ async function fetchAnalytics(db, options = {}) {
     limit ?
   `, [lookbackStart, TOP_LIST_LIMIT], errors);
 
+  const startRatesByPageType = await runAnalyticsQuery(db, "Start rate by page type", `
+    select page_type,
+      sum(case when event_name = 'search_profile_viewed' then 1 else 0 end) as views,
+      sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
+      sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
+    from search_profile_events
+    where created_at >= ?
+      and event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_submitted')
+    group by page_type
+    order by submitted desc, started desc, views desc
+    limit ?
+  `, [lookbackStart, TOP_LIST_LIMIT], errors);
+
   const topPages = await runAnalyticsQuery(db, "Top pages", `
     select page_url, page_type,
       sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
@@ -1084,6 +1136,7 @@ async function fetchAnalytics(db, options = {}) {
     stepCounts,
     funnelInsights: buildFunnelInsights(funnel, stepCounts, stepDurations),
     pageTypes: normalizeAggregateRows(pageTypes, "page_type"),
+    startRatesByPageType: normalizeStartRateRows(startRatesByPageType),
     topPages: normalizeAggregateRows(topPages, "page_url"),
     topDistricts: normalizeAggregateRows(topDistricts, "district"),
     topComparisons: normalizeAggregateRows(topComparisons, "page_url"),
@@ -1145,6 +1198,7 @@ export async function onRequestGet({ request, env, waitUntil }) {
       funnel: { viewed: 0, started: 0, submitted: 0 },
       stepCounts: {},
       pageTypes: [],
+      startRatesByPageType: [],
       recentEvents: [],
       recentSubmissions: [],
     }), 200);

@@ -16,6 +16,7 @@ eleventyComputed:
 {% set representativeBuildings = entry.representativeBuildings %}
 {% set searchProfileDefaultSpaceType = "Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label %}
 {% set searchProfileHeadlineType = "industrial" if spaceType.slug == "industrial-space" else (spaceType.label | lower) %}
+{% set searchProfileShortlistType = searchProfileHeadlineType | replace(" space", "") %}
 {% set searchProfileLocationSuggestions = [] %}
 {% if city.nearby_cities and city.nearby_cities.length %}
   {% for nearby in city.nearby_cities.slice(0, 6) %}
@@ -70,7 +71,7 @@ eleventyComputed:
           "location_suggestions": searchProfileLocationSuggestions,
           "default_space_type": searchProfileDefaultSpaceType,
           "space_type_context_label": "Searching for: " + spaceType.pluralLabel,
-          "card_headline": "Get a personalized building shortlist"
+          "card_headline": "Get a personalized " + city.city + " " + searchProfileShortlistType + " shortlist"
         } %}
         {% include "partials/shared/search-profile-card.njk" %}
       </aside>

@@ -13,7 +13,7 @@
   data-profile-context-label="{{ searchProfileContext.context_label or '' }}"
   data-profile-page-url="{{ searchProfileContext.page_url or '' }}"
   data-profile-page-title="{{ searchProfileContext.page_title or '' }}"
-  data-profile-state="{{ searchProfileContext.state or '' }}"
+  data-profile-state="{{ searchProfileContext.state or searchProfileContext.state_abbr or '' }}"
   data-profile-routing-market="{{ searchProfileContext.routing_market or '' }}"
   data-profile-routing-county="{{ searchProfileContext.routing_county or '' }}"
   data-profile-neighborhood-name="{{ searchProfileContext.neighborhood_name or '' }}"
@@ -40,11 +40,11 @@
         <div>
           <span class="search-profile-card__badge">Recommended</span>
           <h2>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</h2>
-          <p>We'll recommend buildings, nearby locations, and alternatives that fit.</p>
+          <p>We'll recommend buildings that fit your business requirements.</p>
           <ul class="search-profile-card__benefits" aria-label="Search profile benefits">
-            <li>Buildings that fit</li>
-            <li>Nearby alternatives</li>
-            <li>No obligation</li>
+            <li>Curated by local commercial real estate experts</li>
+            <li>Delivered by email</li>
+            <li>Free and no obligation</li>
           </ul>
           <p class="search-profile-card__privacy">Takes about a minute.</p>
         </div>
@@ -149,27 +149,41 @@
 
       <section class="search-profile-contact-step" data-profile-contact hidden>
         <div>
-          <h3>Get location options from Rofo</h3>
+          <h3>Get your personalized building shortlist</h3>
         </div>
 
         <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
 
+        <div class="search-profile-contact-step__expectation">
+          <p><strong>Your requirements have been captured.</strong></p>
+          <p>A local commercial real estate expert will review your request and prepare a personalized shortlist of buildings that match your needs.</p>
+        </div>
+
         <div class="search-profile-contact-step__fields">
           <p class="search-profile-contact-step__field-heading">Where should we send your options?</p>
 
-          <input id="search-profile-contact-name" name="profileContactName" type="text" autocomplete="name" placeholder="Name" aria-label="Name" data-profile-contact-input="name">
+          <label class="search-profile-contact-step__field" for="search-profile-contact-name">
+            <span>Name</span>
+            <input id="search-profile-contact-name" name="profileContactName" type="text" autocomplete="name" data-profile-contact-input="name">
+          </label>
 
-          <input id="search-profile-contact-email" name="profileContactEmail" type="email" autocomplete="email" placeholder="Email" aria-label="Email" data-profile-contact-input="email">
+          <label class="search-profile-contact-step__field" for="search-profile-contact-email">
+            <span>Email</span>
+            <input id="search-profile-contact-email" name="profileContactEmail" type="email" autocomplete="email" data-profile-contact-input="email">
+          </label>
 
-          <input id="search-profile-contact-phone" name="profileContactPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Phone optional" data-profile-contact-input="phone">
+          <label class="search-profile-contact-step__field search-profile-contact-step__field--optional" for="search-profile-contact-phone">
+            <span>Phone <em>(optional)</em></span>
+            <input id="search-profile-contact-phone" name="profileContactPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(415) 555-1234" data-profile-contact-input="phone">
+          </label>
           <p class="search-profile-contact-step__error" data-profile-contact-phone-error hidden>Enter a 10-digit phone number or leave it blank.</p>
           <p class="search-profile-contact-step__error" data-profile-contact-submit-error hidden>We could not send your profile. Please try again.</p>
         </div>
 
-        <p class="search-profile-contact-step__note">No obligation.<br>No spam.<br>We'll only use this to follow up on your search.</p>
+        <p class="search-profile-contact-step__note">No obligation.<br>No spam.</p>
 
         <div class="search-profile-contact-step__actions">
-          <button class="btn-primary" type="button" data-profile-contact-submit>Get my location options</button>
+          <button class="btn-primary" type="button" data-profile-contact-submit>Get My Personalized Shortlist</button>
           <button class="btn-secondary" type="button" data-profile-edit>Edit profile</button>
         </div>
       </section>
