@@ -12,6 +12,13 @@ const TOP_LIST_LIMIT = 10;
 const PROFILE_DIMENSION_SAMPLE_LIMIT = 500;
 const VIEW_SAMPLE_LIMIT = 1000;
 const MIN_RECOMMENDATION_SIGNAL = 2;
+const V2_FUNNEL_EVENTS = [
+  "search_profile_viewed",
+  "search_profile_started",
+  "search_profile_find_matching_buildings_clicked",
+  "search_profile_contact_screen_viewed",
+  "search_profile_submitted",
+];
 
 function escapeHtml(value) {
   return String(value || "")
@@ -158,7 +165,7 @@ function renderPageTypeRows(rows) {
 
 function renderStartRateByPageTypeRows(rows) {
   if (!rows.length) {
-    return `<tr><td colspan="7" class="empty-cell">No Search Profile start-rate data yet.</td></tr>`;
+    return `<tr><td colspan="9" class="empty-cell">No Search Profile start-rate data yet.</td></tr>`;
   }
 
   return rows.map((row) => `
@@ -166,10 +173,104 @@ function renderStartRateByPageTypeRows(rows) {
       ${tableCell(row.page_type || "unknown")}
       ${tableCell(row.views || 0)}
       ${tableCell(row.started || 0)}
+      ${tableCell(row.find_clicked || 0)}
+      ${tableCell(row.contact_viewed || 0)}
       ${tableCell(percent(row.started, row.views))}
       ${tableCell(row.submitted || 0)}
       ${tableCell(percent(row.submitted, row.views))}
       ${tableCell(percent(row.submitted, row.started))}
+    </tr>
+  `).join("");
+}
+
+function renderVersionPerformanceRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="10" class="empty-cell">No profile-version data yet.</td></tr>`;
+  }
+
+  return rows.map((row) => `
+    <tr>
+      ${tableCell(row.profile_version || "unknown")}
+      ${tableCell(row.views || 0)}
+      ${tableCell(row.started || 0)}
+      ${tableCell(row.find_clicked || 0)}
+      ${tableCell(row.contact_viewed || 0)}
+      ${tableCell(row.submitted || 0)}
+      ${tableCell(percent(row.started, row.views))}
+      ${tableCell(percent(row.submitted, row.views))}
+      ${tableCell(percent(row.submitted, row.started))}
+      ${tableCell(row.avg_completion_time)}
+    </tr>
+  `).join("");
+}
+
+function renderSimplifiedFunnelRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="4" class="empty-cell">No simplified funnel data yet.</td></tr>`;
+  }
+
+  return rows.map((row) => `
+    <tr>
+      ${tableCell(row.label)}
+      ${tableCell(row.count)}
+      ${tableCell(row.previous_rate)}
+      ${tableCell(row.view_rate)}
+    </tr>
+  `).join("");
+}
+
+function renderDailyTrendRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="8" class="empty-cell">No daily trend data yet.</td></tr>`;
+  }
+
+  return rows.map((row) => `
+    <tr>
+      ${tableCell(row.day)}
+      ${tableCell(row.views || 0)}
+      ${tableCell(row.started || 0)}
+      ${tableCell(row.find_clicked || 0)}
+      ${tableCell(row.contact_viewed || 0)}
+      ${tableCell(row.submitted || 0)}
+      ${tableCell(percent(row.started, row.views))}
+      ${tableCell(percent(row.submitted, row.started))}
+    </tr>
+  `).join("");
+}
+
+function renderTopSearchRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="5" class="empty-cell">No completed Search Profile searches yet.</td></tr>`;
+  }
+
+  return rows.map((row) => {
+    const label = [row.location_display, row.space_type, row.size_or_people].filter(Boolean).join(" • ");
+    return `
+      <tr>
+        ${tableCell(label || "unknown")}
+        ${tableCell(row.completed || 0)}
+        ${tableCell(row.submitted || 0)}
+        ${tableCell(percent(row.submitted, row.completed))}
+        ${tableCell(row.profile_version || "mixed")}
+      </tr>
+    `;
+  }).join("");
+}
+
+function renderRecentActivityRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="7" class="empty-cell">No meaningful Search Profile activity yet.</td></tr>`;
+  }
+
+  return rows.map((row) => `
+    <tr>
+      ${tableCell(formatDate(row.created_at))}
+      ${tableCell(row.event_name)}
+      ${tableCell(row.page_type || row.page_title)}
+      ${tableCell(row.location_display)}
+      ${tableCell(row.space_type)}
+      ${tableCell(row.size_or_people)}
+      ${tableCell(row.profile_version)}
     </tr>
   `).join("");
 }
@@ -312,6 +413,8 @@ function normalizeAggregateRows(rows, labelKey) {
     ...row,
     [labelKey]: row[labelKey] || "unknown",
     started: Number(row.started || 0),
+    find_clicked: Number(row.find_clicked || 0),
+    contact_viewed: Number(row.contact_viewed || 0),
     submitted: Number(row.submitted || 0),
   }));
 }
@@ -321,13 +424,72 @@ function normalizeStartRateRows(rows) {
     page_type: row.page_type || "unknown",
     views: Number(row.views || 0),
     started: Number(row.started || 0),
+    find_clicked: Number(row.find_clicked || 0),
+    contact_viewed: Number(row.contact_viewed || 0),
     submitted: Number(row.submitted || 0),
   }));
+}
+
+function normalizeVersionRows(rows) {
+  return rows.map((row) => ({
+    profile_version: row.profile_version || "unknown",
+    views: Number(row.views || 0),
+    started: Number(row.started || 0),
+    find_clicked: Number(row.find_clicked || 0),
+    contact_viewed: Number(row.contact_viewed || 0),
+    submitted: Number(row.submitted || 0),
+    avg_completion_time: row.avg_completion_time ? `${Math.round(Number(row.avg_completion_time || 0) / 1000)}s` : "—",
+  }));
+}
+
+function normalizeDailyRows(rows) {
+  return rows.map((row) => ({
+    day: row.day || "unknown",
+    views: Number(row.views || 0),
+    started: Number(row.started || 0),
+    find_clicked: Number(row.find_clicked || 0),
+    contact_viewed: Number(row.contact_viewed || 0),
+    submitted: Number(row.submitted || 0),
+  }));
+}
+
+function normalizeTopSearchRows(rows) {
+  return rows.map((row) => ({
+    location_display: row.location_display || "",
+    space_type: row.space_type || "",
+    size_or_people: row.size_or_people || "",
+    profile_version: row.profile_version || "",
+    completed: Number(row.completed || 0),
+    submitted: Number(row.submitted || 0),
+  }));
+}
+
+function buildSimplifiedFunnel(funnel) {
+  const ordered = [
+    ["Search Profile viewed", Number(funnel.viewed || 0)],
+    ["Started", Number(funnel.started || 0)],
+    ["Find Matching Buildings clicked", Number(funnel.find_clicked || 0)],
+    ["Contact screen viewed", Number(funnel.contact_viewed || 0)],
+    ["Submitted", Number(funnel.submitted || 0)],
+  ];
+  const views = ordered[0][1];
+
+  return ordered.map(([label, count], index) => {
+    const previous = index === 0 ? count : ordered[index - 1][1];
+    return {
+      label,
+      count,
+      previous_rate: index === 0 ? "—" : percent(count, previous),
+      view_rate: index === 0 ? "100%" : percent(count, views),
+    };
+  });
 }
 
 function buildFunnelInsights(funnel, stepCounts, stepDurations = {}) {
   const ordered = [
     ["Started", funnel.started || 0, "search_profile_started"],
+    ["Find Matching Buildings clicked", funnel.find_clicked || 0, "search_profile_find_matching_buildings_clicked"],
+    ["Contact screen viewed", funnel.contact_viewed || 0, "search_profile_contact_screen_viewed"],
     ["Location completed", stepCounts.location_completed || 0, "location_completed"],
     ["Space type completed", stepCounts.space_type_completed || 0, "space_type_completed"],
     ["Timing completed", stepCounts.timing_completed || 0, "timing_completed"],
@@ -447,6 +609,70 @@ function recommendationsForStartsLowSubmissions(topPages) {
     .slice(0, 3);
 }
 
+function recommendationsForStartsLowFindClicks(rows) {
+  return rows
+    .filter((row) => Number(row.started || 0) >= Math.max(3, MIN_RECOMMENDATION_SIGNAL))
+    .map((row) => {
+      const findRate = ratio(row.find_clicked, row.started);
+      if (row.find_clicked > 0 && findRate >= 0.5) return null;
+      return recommendation({
+        title: "Starts are not reaching Find Matching Buildings",
+        reason: "Users are beginning Search Profile but not completing the simplified first screen often enough.",
+        metrics: [
+          `Page type: ${row.page_type || "unknown"}`,
+          `Starts: ${row.started || 0}`,
+          `Find Matching Buildings clicks: ${row.find_clicked || 0}`,
+          `Click-through from start: ${percent(row.find_clicked, row.started)}`,
+        ],
+        action: "Review Step 1 choice density, location defaults, and CTA clarity for this page type.",
+        priority: Number(row.started || 0) >= 8 && Number(row.find_clicked || 0) === 0 ? "High" : "Medium",
+      });
+    })
+    .filter(Boolean)
+    .slice(0, 3);
+}
+
+function recommendationsForFindClicksLowSubmissions(rows) {
+  return rows
+    .filter((row) => Number(row.find_clicked || 0) >= Math.max(3, MIN_RECOMMENDATION_SIGNAL))
+    .map((row) => {
+      const submitRate = ratio(row.submitted, row.find_clicked);
+      if (row.submitted > 0 && submitRate >= 0.3) return null;
+      return recommendation({
+        title: "Shortlist intent is not becoming submissions",
+        reason: "Users click Find Matching Buildings, then do not submit contact details at the expected rate.",
+        metrics: [
+          `Page type: ${row.page_type || "unknown"}`,
+          `Find Matching Buildings clicks: ${row.find_clicked || 0}`,
+          `Contact screen views: ${row.contact_viewed || 0}`,
+          `Submissions: ${row.submitted || 0}`,
+          `Submission rate after click: ${percent(row.submitted, row.find_clicked)}`,
+        ],
+        action: "Review Step 2 trust, contact-field friction, and whether the recap clearly matches the user's search.",
+        priority: Number(row.find_clicked || 0) >= 8 && Number(row.submitted || 0) === 0 ? "High" : "Medium",
+      });
+    })
+    .filter(Boolean)
+    .slice(0, 3);
+}
+
+function searchPatternRecommendations(topSearches) {
+  return (topSearches || [])
+    .filter((row) => Number(row.completed || 0) >= MIN_RECOMMENDATION_SIGNAL || Number(row.submitted || 0) > 0)
+    .slice(0, 2)
+    .map((row) => recommendation({
+      title: "Strong search pattern",
+      reason: "A repeated location, space type, and size combination appeared in completed Search Profile searches.",
+      metrics: [
+        `Search: ${[row.location_display, row.space_type, row.size_or_people].filter(Boolean).join(" • ") || "unknown"}`,
+        `Completed searches: ${row.completed || 0}`,
+        `Submissions: ${row.submitted || 0}`,
+      ],
+      action: "Expand related content, comparison links, and representative building coverage for this demand pattern.",
+      priority: Number(row.submitted || 0) > 0 ? "High" : "Medium",
+    }));
+}
+
 function recommendationsForStrongRows(rows, labelKey, title, action, minimumStarted = MIN_RECOMMENDATION_SIGNAL) {
   return rows
     .filter((row) => Number(row.started || 0) >= minimumStarted || Number(row.submitted || 0) > 0)
@@ -559,6 +785,8 @@ function industrialContentRecommendations(topSpaceTypes, topFeatures) {
 function buildGrowthRecommendations(data) {
   const growth = [
     ...recommendationsForHighViewsLowStarts(data.topViewedPages || [], data.topPages || []),
+    ...recommendationsForStartsLowFindClicks(data.startRatesByPageType || []),
+    ...recommendationsForFindClicksLowSubmissions(data.startRatesByPageType || []),
     ...recommendationsForStartsLowSubmissions(data.topPages || []),
     ...recommendationsForStrongRows(data.topDistricts || [], "district", "District generating strong engagement", "Expand nearby comparison pages and strengthen representative building coverage for this district."),
     ...recommendationsForStrongRows(data.topEcosystems || [], "business_ecosystem", "Business ecosystem generating engagement", "Expand ecosystem-oriented comparison content and make related districts easier to discover."),
@@ -583,6 +811,7 @@ function buildGrowthRecommendations(data) {
     ...recommendationsForStrongRows(data.topComparisons || [], "page_url", "Strong comparison signal", "Expand the nearby comparison graph around this decision."),
     ...recommendationsForStrongRows(data.topEcosystems || [], "business_ecosystem", "Strong ecosystem signal", "Build additional ecosystem context and cross-market alternatives."),
     ...recommendationsForStrongRows(data.topCities || [], "city", "Strong city signal", "Add district coverage or improve city-to-district navigation where coverage is thin."),
+    ...searchPatternRecommendations(data.topSearches || []),
     ...industrialContentRecommendations(data.topSpaceTypes || [], data.topFeatures || []),
   ].slice(0, 8);
 
@@ -595,10 +824,14 @@ function renderEmptyState(token, lookbackDays = DEFAULT_LOOKBACK_DAYS) {
     lookbackDays,
     mode: "fast",
     emptyMessage: "No Search Profile analytics table exists yet. Events will appear here after the first Search Profile event is stored.",
-    funnel: { viewed: 0, started: 0, submitted: 0 },
+    funnel: { viewed: 0, started: 0, find_clicked: 0, contact_viewed: 0, submitted: 0 },
     stepCounts: {},
+    versionPerformance: [],
+    simplifiedFunnel: [],
+    dailyTrend: [],
     pageTypes: [],
     startRatesByPageType: [],
+    topSearches: [],
     recentEvents: [],
     recentSubmissions: [],
   });
@@ -612,9 +845,13 @@ function renderPage({
   errors = [],
   funnel = {},
   stepCounts = {},
+  versionPerformance = [],
+  simplifiedFunnel = [],
+  dailyTrend = [],
   funnelInsights = [],
   pageTypes = [],
   startRatesByPageType = [],
+  topSearches = [],
   topPages = [],
   topDistricts = [],
   topComparisons = [],
@@ -635,8 +872,8 @@ function renderPage({
   const rangeBaseUrl = `${adminBaseUrl}&mode=${encodeURIComponent(safeMode)}`;
   const modeBaseUrl = `${adminBaseUrl}&days=${encodeURIComponent(lookbackDays)}`;
   const recentEventsNote = safeMode === "fast"
-    ? `Fast mode summarizes the latest ${ANALYTICS_SAMPLE_LIMIT} non-view events and excludes high-volume viewed events.`
-    : `Detail mode includes viewed events in a bounded ${ANALYTICS_SAMPLE_LIMIT}-row sample.`;
+    ? "Shows the latest 25 meaningful funnel events and excludes high-volume viewed events."
+    : "Detailed mode still keeps recent activity bounded to meaningful funnel events.";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -700,7 +937,7 @@ function renderPage({
     <header>
       <div>
         <h1>Search Profile Analytics</h1>
-        <p>Lightweight funnel events for Search Profile V1D. Showing the last ${escapeHtml(lookbackDays)} day${lookbackDays === 1 ? "" : "s"}.</p>
+        <p>Lightweight funnel events for Search Profile V1 and V2. Showing the last ${escapeHtml(lookbackDays)} day${lookbackDays === 1 ? "" : "s"}.</p>
         <nav class="toolbar" aria-label="Analytics date range">
           <a class="${lookbackDays === 7 ? "is-active" : ""}" href="${rangeBaseUrl}&days=7">7 days</a>
           <a class="${lookbackDays === 30 ? "is-active" : ""}" href="${rangeBaseUrl}&days=30">30 days</a>
@@ -716,9 +953,39 @@ function renderPage({
     <section class="metrics" aria-label="Funnel summary">
       ${metricCard("Viewed", metricValue(funnel.viewed))}
       ${metricCard("Started", metricValue(funnel.started || 0))}
+      ${metricCard("Find clicks", metricValue(funnel.find_clicked || 0))}
+      ${metricCard("Contact views", metricValue(funnel.contact_viewed || 0))}
       ${metricCard("Submitted", metricValue(funnel.submitted || 0))}
-      ${metricCard("Start rate", funnel.viewed === null ? "Not queried" : percent(funnel.started, funnel.viewed), funnel.viewed === null ? "viewed skipped in fast mode" : "started / viewed")}
-      ${metricCard("Submit rate", percent(funnel.submitted, funnel.started), "submitted / started")}
+      ${metricCard("Completion", percent(funnel.submitted, funnel.started), "submitted / started")}
+    </section>
+    <section class="panel">
+      <h2>V1 vs V2 Performance</h2>
+      <p>V2-only middle steps show as zero for older V1 events. Average completion time uses submitted-event duration when available.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Version</th><th>Views</th><th>Starts</th><th>Find clicks</th><th>Contact views</th><th>Submissions</th><th>Start rate</th><th>Submission rate</th><th>Completion rate</th><th>Avg completion</th></tr></thead>
+          <tbody>${renderVersionPerformanceRows(versionPerformance)}</tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Simplified V2 Funnel</h2>
+      <p>Reflects the current V2 journey from visibility to submission.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Count</th><th>% of previous</th><th>% of views</th></tr></thead>
+          <tbody>${renderSimplifiedFunnelRows(simplifiedFunnel)}</tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Daily Conversion Trend</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Day</th><th>Views</th><th>Starts</th><th>Find clicks</th><th>Contact views</th><th>Submissions</th><th>Start rate</th><th>Completion rate</th></tr></thead>
+          <tbody>${renderDailyTrendRows(dailyTrend)}</tbody>
+        </table>
+      </div>
     </section>
     <section class="panel">
       <h2>Growth Opportunities</h2>
@@ -730,8 +997,18 @@ function renderPage({
       <p>Uses the selected date range. Start rate is starts divided by viewed events; completion rate is submissions divided by starts.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Page Type</th><th>Views</th><th>Starts</th><th>Start Rate</th><th>Submissions</th><th>Submission Rate</th><th>Completion Rate</th></tr></thead>
+          <thead><tr><th>Page Type</th><th>Views</th><th>Starts</th><th>Find clicks</th><th>Contact views</th><th>Start Rate</th><th>Submissions</th><th>Submission Rate</th><th>Completion Rate</th></tr></thead>
           <tbody>${renderStartRateByPageTypeRows(startRatesByPageType)}</tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Top Searches</h2>
+      <p>Grouped by location, space type, and size from completed V2 searches and submissions.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Search</th><th>Completed</th><th>Submissions</th><th>Completion rate</th><th>Version</th></tr></thead>
+          <tbody>${renderTopSearchRows(topSearches)}</tbody>
         </table>
       </div>
     </section>
@@ -879,12 +1156,12 @@ function renderPage({
       </div>
     </section>
     <section class="panel">
-      <h2>Recent Events</h2>
+      <h2>Recent Activity</h2>
       <p>${escapeHtml(recentEventsNote)}</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Created</th><th>Event</th><th>Page type</th><th>Location</th><th>Space type</th><th>Page URL</th></tr></thead>
-          <tbody>${renderEventRows(recentEvents)}</tbody>
+          <thead><tr><th>Created</th><th>Event</th><th>Page type</th><th>Location</th><th>Space type</th><th>Size</th><th>Version</th></tr></thead>
+          <tbody>${renderRecentActivityRows(recentEvents)}</tbody>
         </table>
       </div>
     </section>
@@ -928,25 +1205,27 @@ async function fetchAnalytics(db, options = {}) {
     limit 20
   `, [lookbackStart], errors);
 
-  const funnel = { viewed: includeViewed ? 0 : null, started: 0, submitted: 0 };
+  const funnel = { viewed: 0, started: 0, find_clicked: 0, contact_viewed: 0, submitted: 0 };
   const stepCounts = {};
   const stepDurations = {};
   for (const row of eventCounts) {
     if (row.event_name === "search_profile_viewed") funnel.viewed = Number(row.count || 0);
     if (row.event_name === "search_profile_started") funnel.started = Number(row.count || 0);
+    if (row.event_name === "search_profile_find_matching_buildings_clicked") funnel.find_clicked = Number(row.count || 0);
+    if (row.event_name === "search_profile_contact_screen_viewed") funnel.contact_viewed = Number(row.count || 0);
     if (row.event_name === "search_profile_submitted") funnel.submitted = Number(row.count || 0);
     if (String(row.event_name || "").endsWith("_completed")) stepCounts[row.event_name] = Number(row.count || 0);
     stepDurations[row.event_name] = Number(row.avg_duration_ms || 0);
   }
 
   const sampleRows = await runAnalyticsQuery(db, "Recent analytics sample", `
-    select created_at, event_name, page_type, location_display, space_type, page_url
+    select created_at, event_name, profile_version, page_type, location_display, space_type, size_or_people, page_url
     from search_profile_events
     where created_at >= ?
-      ${includeViewed ? "" : "and event_name != 'search_profile_viewed'"}
+      and event_name in ('search_profile_started', 'search_profile_find_matching_buildings_clicked', 'search_profile_contact_screen_viewed', 'search_profile_submitted')
     order by created_at desc
-    limit ?
-  `, [lookbackStart, ANALYTICS_SAMPLE_LIMIT], errors);
+    limit 25
+  `, [lookbackStart], errors);
 
   const viewedRows = await runAnalyticsQuery(db, "Recent viewed-page sample", `
     select page_url, page_type
@@ -966,13 +1245,46 @@ async function fetchAnalytics(db, options = {}) {
     Object.assign(stepCounts, sampleSummary.stepCounts);
   }
 
-  const pageTypes = await runAnalyticsQuery(db, "Page type breakdown", `
-    select page_type,
+  const versionPerformance = await runAnalyticsQuery(db, "V1 vs V2 performance", `
+    select coalesce(nullif(profile_version, ''), 'V1D') as profile_version,
+      sum(case when event_name = 'search_profile_viewed' then 1 else 0 end) as views,
       sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
+      sum(case when event_name = 'search_profile_find_matching_buildings_clicked' then 1 else 0 end) as find_clicked,
+      sum(case when event_name = 'search_profile_contact_screen_viewed' then 1 else 0 end) as contact_viewed,
+      sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted,
+      avg(case when event_name = 'search_profile_submitted' then nullif(duration_ms, 0) else null end) as avg_completion_time
+    from search_profile_events
+    where created_at >= ?
+      and event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_find_matching_buildings_clicked', 'search_profile_contact_screen_viewed', 'search_profile_submitted')
+    group by coalesce(nullif(profile_version, ''), 'V1D')
+    order by profile_version desc
+    limit 10
+  `, [lookbackStart], errors);
+
+  const dailyTrend = await runAnalyticsQuery(db, "Daily conversion trend", `
+    select substr(created_at, 1, 10) as day,
+      sum(case when event_name = 'search_profile_viewed' then 1 else 0 end) as views,
+      sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
+      sum(case when event_name = 'search_profile_find_matching_buildings_clicked' then 1 else 0 end) as find_clicked,
+      sum(case when event_name = 'search_profile_contact_screen_viewed' then 1 else 0 end) as contact_viewed,
       sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
     from search_profile_events
     where created_at >= ?
-      and event_name in ('search_profile_started', 'search_profile_submitted')
+      and event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_find_matching_buildings_clicked', 'search_profile_contact_screen_viewed', 'search_profile_submitted')
+    group by substr(created_at, 1, 10)
+    order by day desc
+    limit ?
+  `, [lookbackStart, lookbackDays], errors);
+
+  const pageTypes = await runAnalyticsQuery(db, "Page type breakdown", `
+    select page_type,
+      sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
+      sum(case when event_name = 'search_profile_find_matching_buildings_clicked' then 1 else 0 end) as find_clicked,
+      sum(case when event_name = 'search_profile_contact_screen_viewed' then 1 else 0 end) as contact_viewed,
+      sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
+    from search_profile_events
+    where created_at >= ?
+      and event_name in ('search_profile_started', 'search_profile_find_matching_buildings_clicked', 'search_profile_contact_screen_viewed', 'search_profile_submitted')
     group by page_type
     order by submitted desc, started desc
     limit ?
@@ -982,12 +1294,28 @@ async function fetchAnalytics(db, options = {}) {
     select page_type,
       sum(case when event_name = 'search_profile_viewed' then 1 else 0 end) as views,
       sum(case when event_name = 'search_profile_started' then 1 else 0 end) as started,
+      sum(case when event_name = 'search_profile_find_matching_buildings_clicked' then 1 else 0 end) as find_clicked,
+      sum(case when event_name = 'search_profile_contact_screen_viewed' then 1 else 0 end) as contact_viewed,
       sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
     from search_profile_events
     where created_at >= ?
-      and event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_submitted')
+      and event_name in ('search_profile_viewed', 'search_profile_started', 'search_profile_find_matching_buildings_clicked', 'search_profile_contact_screen_viewed', 'search_profile_submitted')
     group by page_type
     order by submitted desc, started desc, views desc
+    limit ?
+  `, [lookbackStart, TOP_LIST_LIMIT], errors);
+
+  const topSearches = await runAnalyticsQuery(db, "Top searches", `
+    select location_display, space_type, size_or_people,
+      coalesce(nullif(profile_version, ''), 'V1D') as profile_version,
+      sum(case when event_name in ('search_profile_find_matching_buildings_clicked', 'search_profile_submitted') then 1 else 0 end) as completed,
+      sum(case when event_name = 'search_profile_submitted' then 1 else 0 end) as submitted
+    from search_profile_events
+    where created_at >= ?
+      and event_name in ('search_profile_find_matching_buildings_clicked', 'search_profile_submitted')
+      and (location_display != '' or space_type != '' or size_or_people != '')
+    group by location_display, space_type, size_or_people, coalesce(nullif(profile_version, ''), 'V1D')
+    order by submitted desc, completed desc
     limit ?
   `, [lookbackStart, TOP_LIST_LIMIT], errors);
 
@@ -1134,9 +1462,13 @@ async function fetchAnalytics(db, options = {}) {
   const normalizedData = {
     funnel,
     stepCounts,
+    versionPerformance: normalizeVersionRows(versionPerformance),
+    simplifiedFunnel: buildSimplifiedFunnel(funnel),
+    dailyTrend: normalizeDailyRows(dailyTrend),
     funnelInsights: buildFunnelInsights(funnel, stepCounts, stepDurations),
     pageTypes: normalizeAggregateRows(pageTypes, "page_type"),
     startRatesByPageType: normalizeStartRateRows(startRatesByPageType),
+    topSearches: normalizeTopSearchRows(topSearches),
     topPages: normalizeAggregateRows(topPages, "page_url"),
     topDistricts: normalizeAggregateRows(topDistricts, "district"),
     topComparisons: normalizeAggregateRows(topComparisons, "page_url"),
@@ -1195,10 +1527,14 @@ export async function onRequestGet({ request, env, waitUntil }) {
       lookbackDays,
       mode,
       errors: [error.message || "Search Profile analytics failed before data could be loaded."],
-      funnel: { viewed: 0, started: 0, submitted: 0 },
+      funnel: { viewed: 0, started: 0, find_clicked: 0, contact_viewed: 0, submitted: 0 },
       stepCounts: {},
+      versionPerformance: [],
+      simplifiedFunnel: [],
+      dailyTrend: [],
       pageTypes: [],
       startRatesByPageType: [],
+      topSearches: [],
       recentEvents: [],
       recentSubmissions: [],
     }), 200);

@@ -4,12 +4,14 @@ const SEARCH_PROFILE_EVENT_INDEXES = [
   "create index if not exists idx_search_profile_events_page_type on search_profile_events(page_type)",
   "create index if not exists idx_search_profile_events_event_created on search_profile_events(event_name, created_at)",
   "create index if not exists idx_search_profile_events_created_event on search_profile_events(created_at, event_name)",
+  "create index if not exists idx_search_profile_events_created_version on search_profile_events(created_at, profile_version)",
   "create index if not exists idx_search_profile_events_created_page_type on search_profile_events(created_at, page_type)",
   "create index if not exists idx_search_profile_events_page_type_created on search_profile_events(page_type, created_at)",
   "create index if not exists idx_search_profile_events_created_page_url on search_profile_events(created_at, page_url)",
   "create index if not exists idx_search_profile_events_created_city on search_profile_events(created_at, city)",
   "create index if not exists idx_search_profile_events_created_district on search_profile_events(created_at, district)",
   "create index if not exists idx_search_profile_events_created_space_type on search_profile_events(created_at, space_type)",
+  "create index if not exists idx_search_profile_events_created_size on search_profile_events(created_at, size_or_people)",
   "create index if not exists idx_search_profile_events_created_timing on search_profile_events(created_at, timing)",
 ];
 

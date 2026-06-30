@@ -1122,10 +1122,12 @@
     updateLocationFromSelections();
     saveProfile();
     if (!validateInitialSearch()) return;
+    trackSearchProfileEvent("search_profile_find_matching_buildings_clicked");
     trackStepCompleted("location");
     trackStepCompleted("space_type");
     trackStepCompleted("size");
     viewMode = "contact";
+    trackSearchProfileEvent("search_profile_contact_screen_viewed");
     setCollapsed(false);
     render();
   });
