@@ -5469,6 +5469,14 @@ section.market-page--space-type .market-links a {
   color: #94a3b8;
 }
 
+.search-profile-card__trust {
+  margin-top: 7px !important;
+  color: #64748b !important;
+  font-size: 0.78rem !important;
+  font-weight: 650;
+  line-height: 1.3 !important;
+}
+
 .search-profile-backdrop,
 .search-profile-mobile-handle {
   display: none;
@@ -5476,24 +5484,24 @@ section.market-page--space-type .market-links a {
 
 .search-profile-card__top {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   justify-content: space-between;
-  padding: 18px 18px 12px;
+  padding: 15px 16px 10px;
   border-bottom: 1px solid #e2e8f0;
 }
 
 .search-profile-card__top h2 {
-  margin: 0 0 8px;
-  font-size: 1.16rem;
-  line-height: 1.2;
+  margin: 0 0 6px;
+  font-size: 1.04rem;
+  line-height: 1.18;
   letter-spacing: 0;
 }
 
 .search-profile-card__top p {
   margin: 0;
   color: #475569;
-  font-size: 0.96rem;
-  line-height: 1.45;
+  font-size: 0.86rem;
+  line-height: 1.36;
 }
 
 .search-profile-card__top .eyebrow {
@@ -6189,30 +6197,18 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-card__body {
-  gap: 12px;
-  padding-top: 12px;
-  padding-bottom: 15px;
+  gap: 9px;
+  padding-top: 10px;
+  padding-bottom: 13px;
 }
 
-.search-profile-step-meter {
-  margin-bottom: -5px;
-}
-
+.search-profile-step-meter,
 .search-profile-progress {
-  height: 3px;
-  background: #eef2f7;
-}
-
-.search-profile-progress span {
-  background: #94a3b8;
+  display: none;
 }
 
 .search-profile-preview {
-  min-height: 24px;
-  color: #64748b;
-  font-size: 0.74rem;
-  line-height: 1.45;
-  margin-bottom: 6px;
+  display: none;
 }
 
 .search-profile-preview span {
@@ -6242,12 +6238,12 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-form {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .search-profile-fieldset legend,
 .search-profile-fieldset label {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 }
 
 .search-profile-fieldset__helper {
@@ -6257,18 +6253,26 @@ section.market-page--space-type .market-links a {
   line-height: 1.35;
 }
 
+.search-profile-step-error {
+  margin: 2px 0 0;
+  color: #b42318;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .search-profile-fieldset__context {
-  margin: -2px 0 10px;
+  margin: -1px 0 8px;
   color: #475569;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 750;
   line-height: 1.3;
 }
 
 .search-profile-other {
   display: grid;
-  gap: 7px;
-  margin-top: 11px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .search-profile-other label {
@@ -6279,7 +6283,7 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-actions {
-  margin-top: 4px;
+  margin-top: 1px;
 }
 
 /* My Search Profile summary-state refinement */
@@ -6319,14 +6323,14 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step {
   display: grid;
-  gap: 13px;
+  gap: 9px;
 }
 
 .search-profile-contact-step h3,
 .search-profile-finished__intro h3 {
-  margin: 0 0 5px;
+  margin: 0;
   color: #0f172a;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   line-height: 1.25;
 }
 
@@ -6337,12 +6341,12 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step__note {
   color: #64748b;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.35;
 }
 
 .search-profile-contact-step__expectation {
-  display: grid;
+  display: none;
   gap: 6px;
   border: 1px solid #dbeafe;
   border-radius: 12px;
@@ -6363,7 +6367,7 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step__actions .btn-primary,
 .search-profile-contact-step__actions .btn-secondary {
-  min-height: 38px;
+  min-height: 39px;
   justify-content: center;
   border-radius: 9px;
   padding: 9px 10px;
@@ -6372,7 +6376,7 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step__fields {
   display: grid;
-  gap: 11px;
+  gap: 9px;
 }
 
 .search-profile-contact-step__field {
@@ -6382,8 +6386,8 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step__field span {
   color: #334155;
-  font-size: 0.76rem;
-  font-weight: 800;
+  font-size: 0.74rem;
+  font-weight: 750;
   line-height: 1.2;
 }
 
@@ -6394,34 +6398,37 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-contact-step__field-heading {
-  margin: 0 0 1px;
+  margin: 0;
   color: #0f172a;
-  font-size: 0.86rem;
-  font-weight: 750;
+  font-size: 0.88rem;
+  font-weight: 700;
   line-height: 1.3;
 }
 
-.search-profile-contact-step__fields input {
+.search-profile-contact-step__fields input,
+.search-profile-contact-step__note-toggle textarea {
   width: 100%;
-  min-height: 46px;
+  min-height: 42px;
   box-sizing: border-box;
   border: 1px solid #d7dee8;
-  border-radius: 13px;
+  border-radius: 11px;
   background: #f8fafc;
   color: #0f172a;
-  padding: 12px 14px;
+  padding: 10px 12px;
   font: inherit;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.35;
   appearance: none;
   transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
 }
 
-.search-profile-contact-step__fields input::placeholder {
+.search-profile-contact-step__fields input::placeholder,
+.search-profile-contact-step__note-toggle textarea::placeholder {
   color: #94a3b8;
 }
 
-.search-profile-contact-step__fields input:focus {
+.search-profile-contact-step__fields input:focus,
+.search-profile-contact-step__note-toggle textarea:focus {
   outline: none;
   border-color: #2563eb;
   background: #ffffff;
@@ -6429,17 +6436,21 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-contact-step__reminder {
-  display: grid;
-  gap: 7px;
-  margin: -1px 0 5px;
-  padding: 12px;
+  display: block;
+  margin: -2px 0 2px;
+  padding: 0;
   list-style: none;
-  border: 1px solid #e5eaf1;
-  border-radius: 13px;
-  background: #f8fafc;
+  border: 0;
+  background: transparent;
 }
 
-.search-profile-contact-step__reminder li,
+.search-profile-contact-step__reminder li {
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
 .search-profile-finished__list li {
   display: grid;
   gap: 1px;
@@ -6464,7 +6475,6 @@ section.market-page--space-type .market-links a {
   text-transform: uppercase;
 }
 
-.search-profile-contact-step__reminder li strong,
 .search-profile-finished__list li strong {
   color: #0f172a;
   font-size: 0.84rem;
@@ -6494,7 +6504,61 @@ section.market-page--space-type .market-links a {
 
 .search-profile-contact-step__actions {
   display: grid;
-  gap: 8px;
+  gap: 6px;
+}
+
+.search-profile-edit-link {
+  justify-self: center;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  padding: 2px 0;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.search-profile-edit-link:hover,
+.search-profile-edit-link:focus-visible {
+  color: #2563eb;
+  outline: none;
+  text-decoration: underline;
+}
+
+.search-profile-contact-step__note-toggle {
+  display: grid;
+  gap: 7px;
+}
+
+.search-profile-contact-step__note-toggle summary {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.3;
+  cursor: pointer;
+  list-style: none;
+}
+
+.search-profile-contact-step__note-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.search-profile-contact-step__note-toggle summary span {
+  font-weight: 500;
+}
+
+.search-profile-contact-step__note-toggle label {
+  color: #334155;
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.search-profile-contact-step__note-toggle textarea {
+  min-height: 74px;
+  resize: vertical;
 }
 
 .search-profile-finished__intro {
@@ -6557,6 +6621,45 @@ section.market-page--space-type .market-links a {
   max-height: none;
 }
 
+.search-profile-shell--space-type .search-profile-card__top {
+  padding: 13px 14px 8px;
+}
+
+.search-profile-shell--space-type .search-profile-card__top h2 {
+  font-size: 0.98rem;
+  margin-bottom: 5px;
+}
+
+.search-profile-shell--space-type .search-profile-card__top p {
+  font-size: 0.82rem;
+  line-height: 1.32;
+}
+
+.search-profile-shell--space-type .search-profile-card__trust {
+  margin-top: 6px !important;
+  font-size: 0.74rem !important;
+}
+
+.search-profile-shell--space-type .search-profile-card__body {
+  gap: 7px;
+  padding: 9px 14px 11px;
+}
+
+.search-profile-shell--space-type .search-profile-fieldset legend,
+.search-profile-shell--space-type .search-profile-fieldset label {
+  margin-bottom: 8px;
+}
+
+.search-profile-shell--space-type .search-profile-options {
+  gap: 5px;
+}
+
+.search-profile-shell--space-type .search-profile-options button {
+  min-height: 30px;
+  padding: 6px 8px;
+  font-size: 0.76rem;
+}
+
 .search-profile-shell--space-type .search-profile-summary,
 .search-profile-shell--space-type .search-profile-mobile-handle,
 .search-profile-shell--space-type .search-profile-backdrop {
@@ -6579,10 +6682,19 @@ section.market-page--space-type .market-links a {
   margin-right: 5px;
 }
 
-.space-type-content-layout {
+.space-type-hero-layout {
   --space-type-section-gap: 24px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: var(--space-type-section-gap);
+  align-items: start;
+  margin-top: var(--space-type-section-gap);
+}
+
+.space-type-content-layout {
+  --space-type-section-gap: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-type-section-gap);
   align-items: start;
   margin-top: var(--space-type-section-gap);
@@ -6602,6 +6714,7 @@ section.market-page--space-type .market-links a {
 }
 
 @media (max-width: 980px) {
+  .space-type-hero-layout,
   .space-type-content-layout {
     grid-template-columns: 1fr;
     margin-top: 20px;
@@ -6610,7 +6723,7 @@ section.market-page--space-type .market-links a {
   .space-type-search-profile {
     position: static;
     top: auto;
-    order: -1;
+    order: initial;
   }
 
   .search-profile-shell--space-type {

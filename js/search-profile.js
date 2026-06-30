@@ -31,6 +31,7 @@
   const phoneError = root.querySelector("[data-profile-contact-phone-error]");
   const submitError = root.querySelector("[data-profile-contact-submit-error]");
   const contactSubmitButton = root.querySelector("[data-profile-contact-submit]");
+  const stepError = root.querySelector("[data-profile-step-error]");
   const contextTargetArea = root.dataset.profileContextTargetArea || "";
   const contextCity = root.dataset.profileContextCity || "";
   const contextDistrict = root.dataset.profileContextDistrict || "";
@@ -49,31 +50,46 @@
   const pageUrl = root.dataset.profilePageUrl || window.location.href;
   const pageType = root.dataset.profileContextType || "search_profile";
 
-  const timingOptions = ["ASAP", "0-3 months", "3-6 months", "6-12 months", "Just exploring"];
+  const PROFILE_VERSION = "V2";
+  const officeSizeOptions = ["Under 2,500 sqft", "2,500-5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
+  const defaultSizeOptions = ["Under 5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
+  const spaceTypeOptions = [
+    { label: "Office", value: "Office" },
+    { label: "Industrial", value: "Industrial / Warehouse" },
+    { label: "Retail", value: "Retail" },
+    { label: "Medical", value: "Medical" },
+    { label: "Flex", value: "Flex" },
+    { label: "Coworking", value: "Coworking" },
+  ];
   const pathConfig = {
     Office: {
-      detailField: "people",
-      people: ["1-5 people", "6-10 people", "11-25 people", "26-50 people", "51-100 people", "100+", "Not sure"],
+      detailField: "size",
+      size: officeSizeOptions,
       features: ["Open layout", "Private offices", "Meeting rooms", "Team space", "Parking", "Transit access", "Other"],
+    },
+    Medical: {
+      detailField: "size",
+      size: ["Under 2,000 sqft", "2,000-5,000 sqft", "5,000-10,000 sqft", "10,000+ sqft", "I'm not sure"],
+      features: ["Exam rooms", "Parking", "Transit access", "Ground floor", "Elevator access", "Procedure space", "Other"],
     },
     Retail: {
       detailField: "size",
-      size: ["Under 2,000 sqft", "2,000-5,000 sqft", "5,000-10,000 sqft", "10,000+ sqft", "Not sure"],
+      size: ["Under 2,000 sqft", "2,000-5,000 sqft", "5,000-10,000 sqft", "10,000+ sqft", "I'm not sure"],
       features: ["Foot traffic", "Visibility", "Parking", "Outdoor / patio area", "Showroom", "Restaurant infrastructure", "Other"],
     },
     "Industrial / Warehouse": {
       detailField: "size",
-      size: ["Under 5,000 sqft", "5,000-20,000 sqft", "20,000-100,000 sqft", "100,000+ sqft", "Not sure"],
+      size: ["Under 5,000 sqft", "5,000-20,000 sqft", "20,000-100,000 sqft", "100,000+ sqft", "I'm not sure"],
       features: ["Loading", "Clear height", "Yard", "Power", "Parking", "Freeway access", "Other"],
     },
     Flex: {
       detailField: "size",
-      size: ["Under 5,000 sqft", "5,000-15,000 sqft", "15,000+ sqft", "Not sure"],
+      size: ["Under 5,000 sqft", "5,000-15,000 sqft", "15,000+ sqft", "I'm not sure"],
       features: ["Office + warehouse", "Loading", "Showroom", "Parking", "High ceilings", "Easy access", "Other"],
     },
     Coworking: {
       detailField: "people",
-      people: ["1", "2-5", "6-10", "10+", "Not sure"],
+      people: ["1", "2-5", "6-10", "10+", "I'm not sure"],
       features: ["Private offices", "Team rooms", "Meeting rooms", "Flexible terms", "Parking", "Transit access", "Other"],
     },
   };
@@ -396,7 +412,7 @@
   }
 
   const defaultProfile = {
-    version: "1D",
+    version: "2",
     skipped: false,
     updatedAt: null,
     sourceContext: {
@@ -509,7 +525,7 @@
   function analyticsProfile() {
     const summary = profileSummaryData();
     return {
-      profile_version: "V1D",
+      profile_version: PROFILE_VERSION,
       space_type: summary.spaceType || "",
       size_or_people: summary.sizeOrPeople || "",
       timing: summary.timing || "",
@@ -553,7 +569,7 @@
 
     const payload = {
       event_name: eventName,
-      profile_version: "V1D",
+      profile_version: PROFILE_VERSION,
       step_name: stepName,
       context: analyticsContext(),
       profile: analyticsProfile(),
@@ -598,7 +614,7 @@
   }
 
   function activeSteps() {
-    return ["targetArea", "spaceType", "timing", "details", "features"];
+    return ["search"];
   }
 
   function detailField() {
@@ -616,19 +632,16 @@
     const stepComplete = {
       spaceType: meaningfulValue("spaceType"),
       targetArea: meaningfulValue("targetArea"),
-      timing: meaningfulValue("timing"),
       details: meaningfulValue(detailField()),
-      features: meaningfulValue("features"),
     };
-    return activeSteps().filter((step) => stepComplete[step]).length;
+    return ["targetArea", "spaceType", "details"].filter((step) => stepComplete[step]).length;
   }
 
   function previewValues() {
     const values = [
       profile.location.display,
       profile.spaceType,
-      profile.people || profile.size,
-      profile.timing,
+      profile.size,
     ];
     return values.filter((value) => String(value || "").trim()).slice(0, 4);
   }
@@ -637,8 +650,7 @@
     return [
       profile.location.display,
       profile.spaceType,
-      profile.people || profile.size,
-      profile.timing,
+      profile.size,
     ].filter((value) => String(value || "").trim());
   }
 
@@ -653,7 +665,7 @@
         raw: profile.location.raw || profile.location.display || "",
       },
       spaceType: profile.spaceType || "",
-      sizeOrPeople: profile.people || profile.size || "",
+      sizeOrPeople: profile.size || "",
       timing: profile.timing || "",
       features: Array.isArray(profile.features) ? [...profile.features] : [],
       featureOther: profile.featureOther || "",
@@ -678,10 +690,8 @@
       "",
       `Location: ${summary.location.display || ""}`,
       `Space type: ${summary.spaceType || ""}`,
-      summary.spaceType === "Office" || summary.spaceType === "Coworking"
-        ? `Team size: ${summary.sizeOrPeople || ""}`
-        : `Size: ${summary.sizeOrPeople || ""}`,
-      `Move-in timing: ${summary.timing || ""}`,
+      `Size: ${summary.sizeOrPeople || ""}`,
+      summary.timing ? `Move-in timing: ${summary.timing}` : "",
       features.length ? `Features: ${features.join(" • ")}` : "",
       summary.featureOther ? `Other feature detail: ${summary.featureOther}` : "",
     ].filter((line) => line !== "").join("\n");
@@ -695,7 +705,7 @@
     const leadAttribution = analyticsAttribution("search_profile_submitted");
     return {
       lead_type: "location_profile",
-      profile_version: "V1D",
+      profile_version: PROFILE_VERSION,
       source: "rofo-search-profile",
       page_type: root.dataset.profileContextType || "search_profile",
       page_url: pageUrl,
@@ -786,6 +796,7 @@
     if (value === "Office") return "Office Space";
     if (value === "Retail") return "Retail Space";
     if (value === "Industrial / Warehouse") return "Industrial Space";
+    if (value === "Medical") return "Medical Office Space";
     if (value === "Flex") return "Flex Space";
     if (value === "Coworking") return "Coworking Space";
     return value || "Not Sure";
@@ -828,23 +839,15 @@
       }
     }
     saveProfile();
+    if (stepError) stepError.hidden = true;
     if (key === "spaceType" && meaningfulValue("spaceType")) trackStepCompleted("space_type");
-    if (key === "timing" && meaningfulValue("timing")) trackStepCompleted("timing");
     if ((key === "people" || key === "size") && meaningfulValue(key)) trackStepCompleted("size");
     if (key === "features") trackStepCompleted("features");
-    if (shouldAutoAdvance(key)) {
-      activeStepIndex = Math.min(activeStepIndex + 1, activeSteps().length - 1);
-    }
     render();
   }
 
   function shouldAutoAdvance(key) {
-    const step = activeSteps()[activeStepIndex];
-    return (
-      (step === "spaceType" && key === "spaceType" && meaningfulValue("spaceType")) ||
-      (step === "timing" && key === "timing" && meaningfulValue("timing")) ||
-      (step === "details" && key === detailField() && meaningfulValue(detailField()))
-    );
+    return false;
   }
 
   function renderOptions(key, options) {
@@ -852,16 +855,19 @@
     if (!container) return;
     container.innerHTML = "";
     options.forEach((option) => {
+      const optionLabel = typeof option === "object" ? option.label : option;
+      const optionValue = typeof option === "object" ? option.value : option;
       const button = document.createElement("button");
       button.type = "button";
-      button.textContent = option;
+      button.textContent = optionLabel;
+      button.dataset.profileValue = optionValue;
       const multi = key === "important" || key === "features";
       const selected = multi
-        ? Array.isArray(profile[key]) && profile[key].includes(option)
-        : profile[key] === option;
+        ? Array.isArray(profile[key]) && profile[key].includes(optionValue)
+        : profile[key] === optionValue;
       button.classList.toggle("is-selected", selected);
       button.setAttribute("aria-pressed", String(selected));
-      button.addEventListener("click", () => setProfileValue(key, option, multi));
+      button.addEventListener("click", () => setProfileValue(key, optionValue, multi));
       container.appendChild(button);
     });
   }
@@ -884,6 +890,7 @@
     }
     updateLocationFromSelections();
     saveProfile();
+    if (stepError) stepError.hidden = true;
     if (meaningfulValue("targetArea")) trackStepCompleted("location");
     render();
   }
@@ -895,7 +902,7 @@
     locationOptions().forEach((option) => {
       const button = document.createElement("button");
       button.type = "button";
-      button.textContent = option;
+      button.textContent = option === "Other" ? "Other..." : option;
       button.classList.toggle("is-selected", selected.has(option));
       button.setAttribute("aria-pressed", String(selected.has(option)));
       button.addEventListener("click", () => toggleLocationSelection(option));
@@ -909,11 +916,10 @@
 
   function renderOptionSets() {
     renderLocationOptions();
-    renderOptions("spaceType", Object.keys(pathConfig));
-    renderOptions("timing", timingOptions);
+    renderOptions("spaceType", spaceTypeOptions);
     renderOptions("features", activeConfig().features || ["Other"]);
     ["people", "use", "size", "workspaceStyle", "important"].forEach((key) => {
-      renderOptions(key, activeConfig()[key] || []);
+      renderOptions(key, key === "size" ? activeConfig()[key] || defaultSizeOptions : activeConfig()[key] || []);
     });
   }
 
@@ -948,14 +954,20 @@
     return !hasInvalidPhone && !missingRequired;
   }
 
+  function validateInitialSearch() {
+    const valid = meaningfulValue("targetArea") && meaningfulValue("spaceType") && meaningfulValue("size");
+    if (stepError) stepError.hidden = valid;
+    return valid;
+  }
+
   function renderProfileSummaryList(list, options = {}) {
     const summary = profileSummaryData();
     list.innerHTML = "";
     const fields = [
       ["Location", summary.location.display],
       ["Space type", summary.spaceType],
-      [summary.spaceType === "Office" || summary.spaceType === "Coworking" ? "Team size" : "Size", summary.sizeOrPeople],
-      ["Move-in timing", summary.timing],
+      ["Size", summary.sizeOrPeople],
+      summary.timing ? ["Move-in timing", summary.timing] : ["", ""],
       ["Features", selectedFeatureValues().join(" · ")],
     ].filter(([, value]) => String(value || "").trim());
 
@@ -984,28 +996,30 @@
   }
 
   function renderContactReminder() {
-    renderProfileSummaryList(contactReminder);
+    const summary = profileSummaryData();
+    contactReminder.innerHTML = "";
+    const item = document.createElement("li");
+    item.textContent = [
+      summary.location.display,
+      summary.spaceType,
+      summary.sizeOrPeople,
+    ].filter((value) => String(value || "").trim()).join(" • ");
+    contactReminder.appendChild(item);
   }
 
   function showActiveStep() {
-    const step = activeSteps()[activeStepIndex];
-    const detail = detailField();
-
     root.querySelectorAll("[data-profile-step]").forEach((fieldset) => {
       const key = fieldset.dataset.profileStep;
-      let visible = false;
-      if (step === key) visible = true;
-      if (step === "details" && key === detail) visible = true;
-      fieldset.hidden = !visible;
+      fieldset.hidden = !["targetArea", "spaceType", "size"].includes(key);
     });
 
-    stepCount.textContent = `${activeStepIndex + 1} / ${activeSteps().length}`;
-    root.classList.toggle("is-first-step", activeStepIndex === 0);
-    prevButton.hidden = activeStepIndex === 0;
-    resetButton.hidden = activeStepIndex === 0;
-    nextButton.hidden = ["spaceType", "timing", "details"].includes(step);
-    nextButton.textContent = activeStepIndex === activeSteps().length - 1 ? "Continue" : "Next";
-    progressBar.style.width = `${Math.round(((activeStepIndex + 1) / activeSteps().length) * 100)}%`;
+    stepCount.textContent = "1 / 2";
+    root.classList.add("is-first-step");
+    prevButton.hidden = true;
+    resetButton.hidden = completedCount() === 0;
+    nextButton.hidden = false;
+    nextButton.textContent = "Find Matching Buildings";
+    progressBar.style.width = "50%";
   }
 
   function renderInputs() {
@@ -1016,7 +1030,7 @@
 
   function renderSummary() {
     const completed = completedCount();
-    card.dataset.profileState = completed >= 4 ? "ready" : completed > 0 ? "in-progress" : "empty";
+    card.dataset.profileState = completed >= 3 ? "ready" : completed > 0 ? "in-progress" : "empty";
     root.classList.toggle("has-progressed", activeStepIndex > 0 || viewMode !== "edit");
     if (summaryTitle) {
       summaryTitle.textContent = completed > 0
@@ -1107,17 +1121,12 @@
     profile.skipped = false;
     updateLocationFromSelections();
     saveProfile();
-    if (activeStepIndex >= activeSteps().length - 1) {
-      trackStepCompleted("features");
-      viewMode = "contact";
-      setCollapsed(false);
-      render();
-      return;
-    }
-    if (activeSteps()[activeStepIndex] === "targetArea" && meaningfulValue("targetArea")) {
-      trackStepCompleted("location");
-    }
-    activeStepIndex += 1;
+    if (!validateInitialSearch()) return;
+    trackStepCompleted("location");
+    trackStepCompleted("space_type");
+    trackStepCompleted("size");
+    viewMode = "contact";
+    setCollapsed(false);
     render();
   });
 

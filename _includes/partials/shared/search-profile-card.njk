@@ -40,13 +40,8 @@
         <div>
           <span class="search-profile-card__badge">Recommended</span>
           <h2>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</h2>
-          <p>We'll recommend buildings that fit your business requirements.</p>
-          <ul class="search-profile-card__benefits" aria-label="Search profile benefits">
-            <li>Curated by local commercial real estate experts</li>
-            <li>Delivered by email</li>
-            <li>Free and no obligation</li>
-          </ul>
-          <p class="search-profile-card__privacy">Takes about a minute.</p>
+          <p>Tell us what you're looking for and we'll recommend buildings that fit.</p>
+          <p class="search-profile-card__trust">Curated by local experts • Free • No obligation</p>
         </div>
         <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse My Search Profile">
           <span aria-hidden="true">−</span>
@@ -93,8 +88,9 @@
           <legend>What type of space are you considering?</legend>
           <div class="search-profile-options" data-profile-options="spaceType">
             <button type="button" data-profile-value="Office">Office</button>
+            <button type="button" data-profile-value="Industrial / Warehouse">Industrial</button>
             <button type="button" data-profile-value="Retail">Retail</button>
-            <button type="button" data-profile-value="Industrial / Warehouse">Industrial / Warehouse</button>
+            <button type="button" data-profile-value="Medical">Medical</button>
             <button type="button" data-profile-value="Flex">Flex</button>
             <button type="button" data-profile-value="Coworking">Coworking</button>
           </div>
@@ -111,7 +107,7 @@
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="size" hidden>
-          <legend>What size are you considering?</legend>
+          <legend>How much space do you need?</legend>
           <div class="search-profile-options" data-profile-options="size"></div>
         </fieldset>
 
@@ -139,6 +135,7 @@
             <input id="search-profile-feature-other" name="featureOther" type="text" data-profile-input="featureOther">
           </div>
         </fieldset>
+        <p class="search-profile-step-error" data-profile-step-error hidden>Select a space type, size, and location to find matching buildings.</p>
       </form>
 
       <div class="search-profile-actions" data-profile-editor>
@@ -149,18 +146,13 @@
 
       <section class="search-profile-contact-step" data-profile-contact hidden>
         <div>
-          <h3>Get your personalized building shortlist</h3>
+          <h3>Your building shortlist is almost ready.</h3>
         </div>
 
         <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
 
-        <div class="search-profile-contact-step__expectation">
-          <p><strong>Your requirements have been captured.</strong></p>
-          <p>A local commercial real estate expert will review your request and prepare a personalized shortlist of buildings that match your needs.</p>
-        </div>
-
         <div class="search-profile-contact-step__fields">
-          <p class="search-profile-contact-step__field-heading">Where should we send your options?</p>
+          <p class="search-profile-contact-step__field-heading">Where should we send your shortlist?</p>
 
           <label class="search-profile-contact-step__field" for="search-profile-contact-name">
             <span>Name</span>
@@ -173,25 +165,31 @@
           </label>
 
           <label class="search-profile-contact-step__field search-profile-contact-step__field--optional" for="search-profile-contact-phone">
-            <span>Phone <em>(optional)</em></span>
+            <span>Phone <em>Optional — only if you'd like a call.</em></span>
             <input id="search-profile-contact-phone" name="profileContactPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(415) 555-1234" data-profile-contact-input="phone">
           </label>
           <p class="search-profile-contact-step__error" data-profile-contact-phone-error hidden>Enter a 10-digit phone number or leave it blank.</p>
           <p class="search-profile-contact-step__error" data-profile-contact-submit-error hidden>We could not send your profile. Please try again.</p>
         </div>
 
-        <p class="search-profile-contact-step__note">No obligation.<br>No spam.</p>
+        <details class="search-profile-contact-step__note-toggle">
+          <summary>+ Anything else we should know? <span>(optional)</span></summary>
+          <label for="search-profile-extra-note">Additional requirements</label>
+          <textarea id="search-profile-extra-note" name="featureOther" rows="3" placeholder="Loading dock, lab space, parking, budget, move timing, sublease, or other requirements" data-profile-input="featureOther"></textarea>
+        </details>
+
+        <p class="search-profile-contact-step__note">No spam • No obligation</p>
 
         <div class="search-profile-contact-step__actions">
           <button class="btn-primary" type="button" data-profile-contact-submit>Get My Personalized Shortlist</button>
-          <button class="btn-secondary" type="button" data-profile-edit>Edit profile</button>
+          <button class="search-profile-edit-link" type="button" data-profile-edit>Edit profile</button>
         </div>
       </section>
 
       <section class="search-profile-finished" data-profile-finished hidden>
         <div class="search-profile-finished__intro">
-          <h3>Your location profile has been shared.</h3>
-          <p>We'll use this profile to identify matching locations and alternatives.</p>
+          <h3>Your building shortlist request has been sent.</h3>
+          <p>We'll use this profile to prepare matching buildings and nearby alternatives.</p>
         </div>
 
         <div>

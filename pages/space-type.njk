@@ -31,7 +31,39 @@ eleventyComputed:
 <section class="market-page market-page--space-type">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
-    {% include "partials/space-type/hero.njk" %}
+    {% set searchProfileContext = {
+      "layout": "space-type",
+      "submit_enabled": true,
+      "submit_endpoint": "/api/leads/submit",
+      "target_area": city.city,
+      "city": city.city,
+      "district": "",
+      "street": "",
+      "state": stateAbbr,
+      "context_type": "space_type",
+      "context_label": spaceType.pluralLabel + " in " + city.city + ", " + stateAbbr,
+      "page_url": metadata.siteUrl + page.url,
+      "page_title": title,
+      "routing_market": entry.routing_market or (city.slug + "-" + (stateAbbr | lower)),
+      "routing_county": entry.routing_county or "",
+      "neighborhood_name": "",
+      "neighborhood_slug": "",
+      "neighborhood_path": "",
+      "commercial_area_id": "",
+      "commercial_area_type": "space_type",
+      "location_suggestions": searchProfileLocationSuggestions,
+      "default_space_type": searchProfileDefaultSpaceType,
+      "space_type_context_label": "Searching for: " + spaceType.pluralLabel,
+      "card_headline": "Get a personalized " + city.city + " " + searchProfileShortlistType + " shortlist"
+    } %}
+
+    <div class="space-type-hero-layout">
+      {% include "partials/space-type/hero.njk" %}
+
+      <aside class="space-type-search-profile">
+        {% include "partials/shared/search-profile-card.njk" %}
+      </aside>
+    </div>
 
     <div class="space-type-content-layout">
       <div class="page-stack space-type-main-content">
@@ -46,35 +78,6 @@ eleventyComputed:
         {% include "partials/space-type/nearby-markets.njk" %}
         {% include "partials/space-type/related-space-types.njk" %}
       </div>
-
-      <aside class="space-type-search-profile">
-        {% set searchProfileContext = {
-          "layout": "space-type",
-          "submit_enabled": true,
-          "submit_endpoint": "/api/leads/submit",
-          "target_area": city.city,
-          "city": city.city,
-          "district": "",
-          "street": "",
-          "state": stateAbbr,
-          "context_type": "space_type",
-          "context_label": spaceType.pluralLabel + " in " + city.city + ", " + stateAbbr,
-          "page_url": metadata.siteUrl + page.url,
-          "page_title": title,
-          "routing_market": entry.routing_market or (city.slug + "-" + (stateAbbr | lower)),
-          "routing_county": entry.routing_county or "",
-          "neighborhood_name": "",
-          "neighborhood_slug": "",
-          "neighborhood_path": "",
-          "commercial_area_id": "",
-          "commercial_area_type": "space_type",
-          "location_suggestions": searchProfileLocationSuggestions,
-          "default_space_type": searchProfileDefaultSpaceType,
-          "space_type_context_label": "Searching for: " + spaceType.pluralLabel,
-          "card_headline": "Get a personalized " + city.city + " " + searchProfileShortlistType + " shortlist"
-        } %}
-        {% include "partials/shared/search-profile-card.njk" %}
-      </aside>
     </div>
   </div>
 </section>
