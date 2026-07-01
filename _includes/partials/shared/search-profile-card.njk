@@ -50,9 +50,10 @@
 
       <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
         <span>
-          <strong>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</strong>
-          <small data-profile-summary-title>Add a few details</small>
+          <strong>Find buildings that fit your business</strong>
+          <small data-profile-summary-title>Free • Curated by local experts</small>
         </span>
+        <span class="search-profile-summary__action" aria-hidden="true">Start Search</span>
         <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
       </button>
     {% endif %}
@@ -76,7 +77,7 @@
           {% if searchProfileContext.space_type_context_label %}
             <p class="search-profile-fieldset__context">{{ searchProfileContext.space_type_context_label }}</p>
           {% endif %}
-          <legend>Locations to include in your search</legend>
+          <legend>Location</legend>
           <div class="search-profile-options search-profile-options--multi search-profile-location-options" data-profile-location-options></div>
           <div class="search-profile-other" data-profile-location-other hidden>
             <label for="search-profile-target-area">Other location</label>
@@ -85,7 +86,7 @@
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="spaceType" hidden>
-          <legend>What type of space are you considering?</legend>
+          <legend>Space Type</legend>
           <div class="search-profile-options" data-profile-options="spaceType">
             <button type="button" data-profile-value="Office">Office</button>
             <button type="button" data-profile-value="Industrial / Warehouse">Industrial</button>
@@ -107,7 +108,7 @@
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="size" hidden>
-          <legend>How much space do you need?</legend>
+          <legend>Size</legend>
           <div class="search-profile-options" data-profile-options="size"></div>
         </fieldset>
 

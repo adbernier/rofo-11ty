@@ -12,6 +12,7 @@ const ALLOWED_EVENTS = new Set([
   "size_completed",
   "features_completed",
   "contact_completed",
+  "search_profile_mobile_entry_cta_clicked",
   "search_profile_find_matching_buildings_clicked",
   "search_profile_contact_screen_viewed",
   "search_profile_submitted",

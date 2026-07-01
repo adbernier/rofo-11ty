@@ -11,6 +11,7 @@
   const resetButton = root.querySelector("[data-profile-reset]");
   const closeControls = root.querySelectorAll("[data-profile-close]");
   const toggleControls = root.querySelectorAll("[data-profile-toggle]");
+  const mobileEntryButtons = document.querySelectorAll("[data-profile-mobile-entry]");
   const summaryTitle = root.querySelector("[data-profile-summary-title]");
   const stepCount = root.querySelector("[data-profile-step-count]");
   const progressBar = root.querySelector("[data-profile-progress-bar]");
@@ -446,6 +447,7 @@
   let activeStepIndex = 0;
   let collapsed = profileLayout === "page" ? false : window.matchMedia("(max-width: 760px)").matches;
   let viewMode = profile.contact.submitted ? "confirmation" : "edit";
+  let locationOptionsExpanded = hasAdditionalLocationSelection(profile);
   let analyticsStarted = false;
   const completedAnalyticsSteps = new Set();
   const attribution = loadAttribution();
@@ -814,6 +816,24 @@
     }
   }
 
+  function hasAdditionalLocationSelection(targetProfile = profile) {
+    const currentLabel = locationOptionLabel();
+    const selections = Array.isArray(targetProfile.locationSelections) ? targetProfile.locationSelections : [];
+    return selections.some((label) => {
+      if (label === "Other") return true;
+      return locationKey(label) !== locationKey(currentLabel);
+    });
+  }
+
+  function focusFirstProfileControl() {
+    window.setTimeout(() => {
+      const control = root.querySelector("[data-profile-step='targetArea'] button, [data-profile-options='spaceType'] button, [data-profile-next]");
+      if (control && typeof control.focus === "function") {
+        control.focus({ preventScroll: true });
+      }
+    }, 160);
+  }
+
   function setProfileValue(key, value, multi) {
     trackStarted();
     profile.skipped = false;
@@ -895,11 +915,29 @@
     render();
   }
 
+  function expandLocationOptions() {
+    locationOptionsExpanded = true;
+    renderLocationOptions();
+    window.setTimeout(() => {
+      const nextOption = locationOptionsContainer && locationOptionsContainer.querySelector("button:not(.is-selected):not(.search-profile-add-area)");
+      if (nextOption && typeof nextOption.focus === "function") {
+        nextOption.focus({ preventScroll: true });
+      }
+    }, 40);
+  }
+
   function renderLocationOptions() {
     if (!locationOptionsContainer) return;
     const selected = new Set(Array.isArray(profile.locationSelections) ? profile.locationSelections : []);
+    if (hasAdditionalLocationSelection(profile)) locationOptionsExpanded = true;
+    const currentLabel = locationOptionLabel();
     locationOptionsContainer.innerHTML = "";
-    locationOptions().forEach((option) => {
+    const options = locationOptions();
+    const visibleOptions = locationOptionsExpanded
+      ? options
+      : options.filter((option) => option !== "Other" && (selected.has(option) || locationKey(option) === locationKey(currentLabel)));
+
+    visibleOptions.forEach((option) => {
       const button = document.createElement("button");
       button.type = "button";
       button.textContent = option === "Other" ? "Other..." : option;
@@ -908,6 +946,15 @@
       button.addEventListener("click", () => toggleLocationSelection(option));
       locationOptionsContainer.appendChild(button);
     });
+
+    if (!locationOptionsExpanded) {
+      const addButton = document.createElement("button");
+      addButton.type = "button";
+      addButton.className = "search-profile-add-area";
+      addButton.textContent = "+ Add another area";
+      addButton.addEventListener("click", expandLocationOptions);
+      locationOptionsContainer.appendChild(addButton);
+    }
 
     const showOther = selected.has("Other");
     if (locationOtherWrap) locationOtherWrap.hidden = !showOther;
@@ -1018,7 +1065,7 @@
     prevButton.hidden = true;
     resetButton.hidden = completedCount() === 0;
     nextButton.hidden = false;
-    nextButton.textContent = "Find Matching Buildings";
+    nextButton.textContent = "See Matching Buildings";
     progressBar.style.width = "50%";
   }
 
@@ -1033,9 +1080,7 @@
     card.dataset.profileState = completed >= 3 ? "ready" : completed > 0 ? "in-progress" : "empty";
     root.classList.toggle("has-progressed", activeStepIndex > 0 || viewMode !== "edit");
     if (summaryTitle) {
-      summaryTitle.textContent = completed > 0
-        ? `${completed} ${completed === 1 ? "detail" : "details"} added`
-        : "Add a few details";
+      summaryTitle.textContent = "Free • Curated by local experts";
     }
   }
 
@@ -1111,6 +1156,16 @@
     control.addEventListener("click", () => setCollapsed(true));
   });
 
+  mobileEntryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.dataset.profileTarget || "search-profile";
+      if (root.id && targetId && root.id !== targetId) return;
+      trackSearchProfileEvent("search_profile_mobile_entry_cta_clicked", { dedupe: false });
+      setCollapsed(false);
+      focusFirstProfileControl();
+    });
+  });
+
   prevButton.addEventListener("click", () => {
     viewMode = "edit";
     activeStepIndex = Math.max(0, activeStepIndex - 1);
@@ -1145,6 +1200,7 @@
     activeStepIndex = 0;
     viewMode = "edit";
     window.localStorage.removeItem(STORAGE_KEY);
+    locationOptionsExpanded = false;
     render();
     setCollapsed(false);
   });

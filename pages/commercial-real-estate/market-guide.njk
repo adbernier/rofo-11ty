@@ -60,6 +60,31 @@ eleventyComputed:
   {% set guideSearchProfileHeadline = "Get a personalized " + guide.city + " " + guideSearchProfileHeadlineType + " shortlist" %}
   {% set guideSearchProfileSpaceContextLabel = "Searching for: " + guide.space_type_label %}
 {% endif %}
+{% set searchProfileContext = {
+  "layout": "inline",
+  "submit_enabled": true,
+  "submit_endpoint": "/api/leads/submit",
+  "target_area": guide.city,
+  "city": guide.city,
+  "district": "",
+  "street": "",
+  "state": guide.state_abbr,
+  "context_type": "market_guide",
+  "context_label": guide.title,
+  "page_url": metadata.siteUrl + page.url,
+  "page_title": title,
+  "routing_market": guide.routing_market or (guide.city_slug + "-" + (guide.state_abbr | lower)),
+  "routing_county": guide.county or "",
+  "neighborhood_name": "",
+  "neighborhood_slug": "",
+  "neighborhood_path": "",
+  "commercial_area_id": "",
+  "commercial_area_type": "market_guide",
+  "location_suggestions": guideSearchProfileLocationSuggestions,
+  "default_space_type": guideSearchProfileSpaceType,
+  "space_type_context_label": guideSearchProfileSpaceContextLabel,
+  "card_headline": guideSearchProfileHeadline
+} %}
 
 <section class="city-page market-page market-page--guide">
   <div class="city-shell">
@@ -129,6 +154,7 @@ eleventyComputed:
                   <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
                 {% endif %}
               </div>
+              {% include "partials/shared/search-profile-mobile-entry.njk" %}
             </div>
           </div>
         </div>
@@ -613,31 +639,6 @@ eleventyComputed:
       </div>
 
       <aside class="market-guide-search-profile">
-        {% set searchProfileContext = {
-          "layout": "inline",
-          "submit_enabled": true,
-          "submit_endpoint": "/api/leads/submit",
-          "target_area": guide.city,
-          "city": guide.city,
-          "district": "",
-          "street": "",
-          "state": guide.state_abbr,
-          "context_type": "market_guide",
-          "context_label": guide.title,
-          "page_url": metadata.siteUrl + page.url,
-          "page_title": title,
-          "routing_market": guide.routing_market or (guide.city_slug + "-" + (guide.state_abbr | lower)),
-          "routing_county": guide.county or "",
-          "neighborhood_name": "",
-          "neighborhood_slug": "",
-          "neighborhood_path": "",
-          "commercial_area_id": "",
-          "commercial_area_type": "market_guide",
-          "location_suggestions": guideSearchProfileLocationSuggestions,
-          "default_space_type": guideSearchProfileSpaceType,
-          "space_type_context_label": guideSearchProfileSpaceContextLabel,
-          "card_headline": guideSearchProfileHeadline
-        } %}
         {% include "partials/shared/search-profile-card.njk" %}
       </aside>
     </div>

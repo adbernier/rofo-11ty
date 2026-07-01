@@ -47,6 +47,10 @@ eleventyComputed:
     {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(nearby.name), searchProfileLocationSuggestions) %}
   {% endfor %}
 {% endif %}
+{% set neighborhoodSearchProfileTargetArea = neighborhood.city %}
+{% if neighborhoodDisplayNameWithArticle and neighborhoodDisplayNameWithArticle != neighborhood.city %}
+  {% set neighborhoodSearchProfileTargetArea = neighborhood.city + " — " + neighborhoodDisplayNameWithArticle %}
+{% endif %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -72,6 +76,9 @@ eleventyComputed:
                 {% endif %}
                 <a class="btn-secondary" href="{{ cityUrl }}market-guide/">Read market guide</a>
               </div>
+              {% if isDistrictIdentityPage or neighborhood.commercial_location_model %}
+                {% include "partials/shared/search-profile-mobile-entry.njk" %}
+              {% endif %}
             </div>
           </div>
 
@@ -319,10 +326,6 @@ eleventyComputed:
 
       <aside class="neighborhood-sidebar">
         {% if isDistrictIdentityPage or neighborhood.commercial_location_model %}
-          {% set neighborhoodSearchProfileTargetArea = neighborhood.city %}
-          {% if neighborhoodDisplayNameWithArticle and neighborhoodDisplayNameWithArticle != neighborhood.city %}
-            {% set neighborhoodSearchProfileTargetArea = neighborhood.city + " — " + neighborhoodDisplayNameWithArticle %}
-          {% endif %}
           {% set searchProfileContext = {
             "layout": "inline",
             "submit_enabled": true,
