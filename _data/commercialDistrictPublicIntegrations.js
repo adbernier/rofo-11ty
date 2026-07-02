@@ -3035,6 +3035,49 @@ Object.assign(
   )
 );
 
+const sonomaPhase2IntegrationPages = [
+  ["Airport Business Center", "/commercial-real-estate/CA/santa-rosa/airport-business-center/"],
+  ["Northpoint / Corporate Center", "/commercial-real-estate/CA/santa-rosa/northpoint-corporate-center/"],
+  ["Montgomery Village / East Santa Rosa", "/commercial-real-estate/CA/santa-rosa/montgomery-village-east-santa-rosa/"],
+  ["Downtown Petaluma", "/commercial-real-estate/CA/petaluma/downtown-petaluma/"],
+  ["Petaluma Marina / Lakeville", "/commercial-real-estate/CA/petaluma/petaluma-marina-lakeville/"],
+  ["North McDowell", "/commercial-real-estate/CA/petaluma/north-mcdowell/"],
+  ["South Petaluma / Industrial", "/commercial-real-estate/CA/petaluma/south-petaluma-industrial/"],
+  ["Rohnert Park Commercial Core", "/commercial-real-estate/CA/rohnert-park/rohnert-park-commercial-core/"],
+  ["Redwood Drive / Industrial", "/commercial-real-estate/CA/rohnert-park/redwood-drive-industrial/"],
+  ["Downtown Windsor", "/commercial-real-estate/CA/windsor/downtown-windsor/"],
+  ["Shiloh / Airport Boulevard", "/commercial-real-estate/CA/windsor/shiloh-airport-boulevard/"],
+  ["Downtown Healdsburg", "/commercial-real-estate/CA/healdsburg/downtown-healdsburg/"],
+  ["Healdsburg Industrial / Grove Street", "/commercial-real-estate/CA/healdsburg/healdsburg-industrial-grove-street/"],
+  ["Downtown Sonoma", "/commercial-real-estate/CA/sonoma/downtown-sonoma/"],
+  ["Sonoma Valley Commercial Core", "/commercial-real-estate/CA/sonoma/sonoma-valley-commercial-core/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    sonomaPhase2IntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Sonoma County commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Sonoma County's downtown, airport, corridor, production, and wine-country commercial choices.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

@@ -3375,6 +3375,152 @@ Object.assign(districts, {
   },
 });
 
+const sonomaPhase2ComparisonPaths = {
+  "Downtown Santa Rosa|Downtown Petaluma": "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa-vs-downtown-petaluma/",
+  "Downtown Santa Rosa|Petaluma": "/commercial-real-estate/CA/santa-rosa/santa-rosa-vs-petaluma/",
+  "Petaluma|Downtown San Rafael": "/commercial-real-estate/CA/petaluma/petaluma-vs-downtown-san-rafael/",
+  "Downtown Petaluma|Downtown Healdsburg": "/commercial-real-estate/CA/petaluma/downtown-petaluma-vs-downtown-healdsburg/",
+  "Airport Business Center|Hamilton Landing": "/commercial-real-estate/CA/santa-rosa/airport-business-center-vs-hamilton-landing/",
+  "Airport Business Center|Petaluma Marina / Lakeville": "/commercial-real-estate/CA/santa-rosa/airport-business-center-vs-petaluma-marina-lakeville/",
+  "Rohnert Park Commercial Core|Downtown Santa Rosa": "/commercial-real-estate/CA/rohnert-park/rohnert-park-vs-santa-rosa/",
+  "Downtown Windsor|Downtown Santa Rosa": "/commercial-real-estate/CA/windsor/windsor-vs-santa-rosa/",
+  "Downtown Healdsburg|Downtown Sonoma": "/commercial-real-estate/CA/healdsburg/healdsburg-vs-sonoma/",
+  "Downtown Sonoma|Napa": "/commercial-real-estate/CA/sonoma/downtown-sonoma-vs-downtown-napa/",
+  "Petaluma|Novato": "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
+};
+
+const sonomaPhase2PathByName = {
+  "Downtown Santa Rosa": "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+  "Airport Business Center": "/commercial-real-estate/CA/santa-rosa/airport-business-center/",
+  "Northpoint / Corporate Center": "/commercial-real-estate/CA/santa-rosa/northpoint-corporate-center/",
+  "Montgomery Village / East Santa Rosa": "/commercial-real-estate/CA/santa-rosa/montgomery-village-east-santa-rosa/",
+  "Petaluma": "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+  "Downtown Petaluma": "/commercial-real-estate/CA/petaluma/downtown-petaluma/",
+  "Petaluma Marina / Lakeville": "/commercial-real-estate/CA/petaluma/petaluma-marina-lakeville/",
+  "North McDowell": "/commercial-real-estate/CA/petaluma/north-mcdowell/",
+  "South Petaluma / Industrial": "/commercial-real-estate/CA/petaluma/south-petaluma-industrial/",
+  "Rohnert Park Commercial Core": "/commercial-real-estate/CA/rohnert-park/rohnert-park-commercial-core/",
+  "Redwood Drive / Industrial": "/commercial-real-estate/CA/rohnert-park/redwood-drive-industrial/",
+  "Downtown Windsor": "/commercial-real-estate/CA/windsor/downtown-windsor/",
+  "Shiloh / Airport Boulevard": "/commercial-real-estate/CA/windsor/shiloh-airport-boulevard/",
+  "Downtown Healdsburg": "/commercial-real-estate/CA/healdsburg/downtown-healdsburg/",
+  "Healdsburg Industrial / Grove Street": "/commercial-real-estate/CA/healdsburg/healdsburg-industrial-grove-street/",
+  "Downtown Sonoma": "/commercial-real-estate/CA/sonoma/downtown-sonoma/",
+  "Sonoma Valley Commercial Core": "/commercial-real-estate/CA/sonoma/sonoma-valley-commercial-core/",
+  "Downtown San Rafael": "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+  "Hamilton Landing": "/commercial-real-estate/CA/novato/hamilton-landing/",
+  "Novato": "/commercial-real-estate/CA/novato/novato-commercial-core/",
+  "Napa": "/commercial-real-estate/CA/napa/",
+};
+
+function sonomaPhase2ComparisonPath(fromName, toName) {
+  return (
+    sonomaPhase2ComparisonPaths[`${fromName}|${toName}`] ||
+    sonomaPhase2ComparisonPaths[`${toName}|${fromName}`]
+  );
+}
+
+const sonomaPhase2Districts = [
+  ["Airport Business Center", "/commercial-real-estate/CA/santa-rosa/airport-business-center/", "sonoma_airport_office_flex_district", ["office_flex", "regional_business_park", "light_industrial"], "Airport Business Center is a Sonoma County office, flex, and light industrial business-park district where companies value airport and Highway 101 access more than downtown walkability.", ["Office/flex, light industrial, regional service, and business-park users", "Teams needing Santa Rosa airport or Highway 101 access", "Companies comparing Sonoma County business parks with Hamilton Landing or Petaluma Marina"], ["Client-facing firms that need a downtown civic address", "Retail users dependent on walkable street activity"], ["Downtown Santa Rosa", "Petaluma Marina / Lakeville", "Hamilton Landing", "Shiloh / Airport Boulevard"]],
+  ["Northpoint / Corporate Center", "/commercial-real-estate/CA/santa-rosa/northpoint-corporate-center/", "sonoma_suburban_office_medical_corridor", ["medical_office_service_corridor", "sonoma_downtown_office_core"], "Northpoint / Corporate Center is a Santa Rosa suburban office and medical-office setting for businesses that want parking, professional buildings, and Highway 101 access outside the downtown core.", ["Medical, professional-service, and suburban office users", "Teams that need parking and regional Santa Rosa access", "Businesses comparing downtown Santa Rosa with a more campus/corridor format"], ["Industrial users needing loading or yards", "Retailers requiring downtown foot traffic"], ["Downtown Santa Rosa", "Airport Business Center", "Montgomery Village / East Santa Rosa"]],
+  ["Montgomery Village / East Santa Rosa", "/commercial-real-estate/CA/santa-rosa/montgomery-village-east-santa-rosa/", "sonoma_retail_medical_service_corridor", ["local_service_business_core", "medical_office_service_corridor"], "Montgomery Village / East Santa Rosa is a retail, medical, wellness, and local-service commercial district for businesses serving east Santa Rosa households and customers.", ["Retail-adjacent medical, wellness, professional-service, and local-service users", "Businesses that benefit from customer convenience and neighborhood trade-area access", "Teams comparing downtown Santa Rosa with a more east-side customer-serving setting"], ["Large office users needing a regional business park", "Industrial/flex users needing operational formats"], ["Downtown Santa Rosa", "Northpoint / Corporate Center", "Downtown Sonoma"]],
+  ["Downtown Petaluma", "/commercial-real-estate/CA/petaluma/downtown-petaluma/", "sonoma_boutique_downtown", ["sonoma_office_light_industrial_core", "local_service_business_core"], "Downtown Petaluma is a walkable Sonoma County downtown for creative office, professional services, local retail, and food/wine-adjacent businesses that want character and local-client access.", ["Creative office, professional-service, wellness, hospitality-adjacent, and local retail users", "Teams that want a smaller downtown with character", "Businesses comparing Petaluma with Santa Rosa, Healdsburg, or Marin downtowns"], ["Industrial users better suited to South Petaluma", "Larger regional office users needing broader inventory"], ["Downtown Santa Rosa", "Downtown Healdsburg", "Petaluma Marina / Lakeville", "North McDowell"]],
+  ["Petaluma Marina / Lakeville", "/commercial-real-estate/CA/petaluma/petaluma-marina-lakeville/", "sonoma_waterfront_office_flex_corridor", ["sonoma_office_light_industrial_core", "marin_waterfront_creative_flex"], "Petaluma Marina / Lakeville is an office/flex and waterfront-adjacent corridor for businesses that want Petaluma access, creative workspace character, and practical Lakeville/Highway 101 connectivity.", ["Office/flex, creative, local service, and regional operations users", "Teams that want Petaluma access without a downtown storefront", "Businesses comparing Airport Business Center with a smaller Petaluma corridor"], ["Retailers needing downtown foot traffic", "Heavy industrial users needing deeper yard or logistics capacity"], ["Airport Business Center", "Downtown Petaluma", "South Petaluma / Industrial"]],
+  ["North McDowell", "/commercial-real-estate/CA/petaluma/north-mcdowell/", "sonoma_retail_medical_service_corridor", ["medical_office_service_corridor", "local_service_business_core"], "North McDowell is a Petaluma medical, office, retail, and auto-oriented commercial corridor for customer-facing businesses that need practical access and parking.", ["Medical, wellness, local service, office, and retail-adjacent users", "Businesses serving Petaluma customers along a practical corridor", "Teams comparing downtown Petaluma with more auto-oriented access"], ["Creative office users seeking downtown character", "Industrial users better suited to South Petaluma"], ["Downtown Petaluma", "Petaluma Marina / Lakeville", "South Petaluma / Industrial"]],
+  ["South Petaluma / Industrial", "/commercial-real-estate/CA/petaluma/south-petaluma-industrial/", "sonoma_light_industrial_production_corridor", ["service_commercial_industrial_market", "sonoma_office_light_industrial_core"], "South Petaluma / Industrial is a production, maker, service-commercial, logistics, and light industrial district for businesses that need operational space in southern Sonoma County.", ["Light industrial, production, maker, service-commercial, contractor, and logistics users", "Businesses needing southern Sonoma County operations with Marin access", "Teams comparing Petaluma with Novato, Bel Marin Keys, or Santa Rosa industrial options"], ["Professional-service firms needing a downtown client address", "Retailers needing customer-facing walkability"], ["Petaluma Marina / Lakeville", "Bel Marin Keys", "Novato", "Airport Business Center"]],
+  ["Rohnert Park Commercial Core", "/commercial-real-estate/CA/rohnert-park/rohnert-park-commercial-core/", "sonoma_highway_101_commercial_core", ["local_service_business_core", "sonoma_retail_medical_service_corridor"], "Rohnert Park Commercial Core is a Highway 101-oriented Sonoma County commercial market for retail, medical, office, and local-service users between Santa Rosa and Petaluma.", ["Retail, medical, professional-service, and local-service users serving central Sonoma County", "Businesses that want practical access between Santa Rosa and Petaluma", "Teams comparing Rohnert Park with Santa Rosa's larger hub"], ["Users needing a formal downtown identity", "Industrial users better suited to Redwood Drive"], ["Downtown Santa Rosa", "Downtown Petaluma", "Redwood Drive / Industrial"]],
+  ["Redwood Drive / Industrial", "/commercial-real-estate/CA/rohnert-park/redwood-drive-industrial/", "sonoma_light_industrial_production_corridor", ["service_commercial_industrial_market", "sonoma_highway_101_commercial_core"], "Redwood Drive / Industrial is Rohnert Park's light industrial, flex, and service-commercial corridor for contractors, operations, and local distribution users.", ["Light industrial, flex, contractor, service-commercial, and local operations users", "Businesses needing central Sonoma County Highway 101 access", "Teams comparing Rohnert Park with South Petaluma or Airport Business Center"], ["Client-facing professional firms", "Retailers dependent on downtown pedestrian traffic"], ["Rohnert Park Commercial Core", "South Petaluma / Industrial", "Airport Business Center"]],
+  ["Downtown Windsor", "/commercial-real-estate/CA/windsor/downtown-windsor/", "sonoma_boutique_downtown", ["local_service_business_core", "sonoma_highway_101_commercial_core"], "Downtown Windsor is a northern Sonoma County downtown for local professional services, retail, wellness, and wine-country service businesses that need a smaller town-center setting.", ["Local professional-service, wellness, retail, and wine-country service users", "Businesses serving Windsor and northern Sonoma County customers", "Teams comparing Windsor with Santa Rosa or Healdsburg"], ["Large office users needing a regional hub", "Industrial users better suited to Shiloh / Airport Boulevard"], ["Downtown Santa Rosa", "Downtown Healdsburg", "Shiloh / Airport Boulevard"]],
+  ["Shiloh / Airport Boulevard", "/commercial-real-estate/CA/windsor/shiloh-airport-boulevard/", "sonoma_airport_office_flex_district", ["sonoma_light_industrial_production_corridor", "sonoma_highway_101_commercial_core"], "Shiloh / Airport Boulevard is a Windsor office/flex, service-commercial, and light industrial corridor with airport and Highway 101 access for northern Sonoma County operations.", ["Office/flex, contractor, light industrial, service-commercial, and regional support users", "Businesses that need airport-area access without Santa Rosa core pricing or identity", "Teams comparing Windsor with Airport Business Center"], ["Downtown retail or boutique office users", "Firms needing a formal county-seat business address"], ["Airport Business Center", "Downtown Windsor", "Healdsburg Industrial / Grove Street"]],
+  ["Downtown Healdsburg", "/commercial-real-estate/CA/healdsburg/downtown-healdsburg/", "sonoma_wine_country_boutique_downtown", ["local_service_business_core", "sonoma_boutique_downtown"], "Downtown Healdsburg is a boutique wine-country commercial district for hospitality-adjacent, professional-service, retail, and local office users that benefit from a high-identity town-center environment.", ["Hospitality-adjacent, wine-country service, boutique professional, retail, and wellness users", "Businesses that use Healdsburg identity as part of client experience", "Teams comparing Healdsburg with Sonoma or Windsor"], ["Industrial users needing production formats", "Large office users needing broad inventory"], ["Downtown Sonoma", "Downtown Petaluma", "Downtown Windsor"]],
+  ["Healdsburg Industrial / Grove Street", "/commercial-real-estate/CA/healdsburg/healdsburg-industrial-grove-street/", "sonoma_light_industrial_production_corridor", ["sonoma_wine_country_boutique_downtown", "service_commercial_industrial_market"], "Healdsburg Industrial / Grove Street is a wine-country production, service-commercial, and light industrial district for businesses that support local hospitality, wine, construction, and regional operations.", ["Production, wine-industry support, contractor, service-commercial, and small industrial users", "Businesses that need Healdsburg access without downtown retail costs or constraints", "Teams comparing northern Sonoma industrial/service space with Windsor"], ["Boutique office or retail users seeking downtown Healdsburg identity", "Large logistics users needing deeper regional industrial scale"], ["Downtown Healdsburg", "Shiloh / Airport Boulevard", "Redwood Drive / Industrial"]],
+  ["Downtown Sonoma", "/commercial-real-estate/CA/sonoma/downtown-sonoma/", "sonoma_wine_country_boutique_downtown", ["local_service_business_core", "sonoma_boutique_downtown"], "Downtown Sonoma is a boutique wine-country downtown for professional services, hospitality-adjacent users, local retail, wellness, and advisory businesses serving Sonoma Valley clients.", ["Boutique professional-service, hospitality-adjacent, wine-country service, wellness, and local retail users", "Businesses that want Sonoma Valley client identity", "Teams comparing Sonoma with Healdsburg or Napa"], ["Industrial users needing production or warehouse formats", "Larger office users needing a regional hub"], ["Downtown Healdsburg", "Napa", "Sonoma Valley Commercial Core"]],
+  ["Sonoma Valley Commercial Core", "/commercial-real-estate/CA/sonoma/sonoma-valley-commercial-core/", "sonoma_retail_medical_service_corridor", ["sonoma_wine_country_boutique_downtown", "local_service_business_core"], "Sonoma Valley Commercial Core covers the practical office, retail, medical, and local-service corridors around Sonoma for businesses that need customer access without being on the town square.", ["Medical, wellness, local service, professional office, and retail-adjacent users", "Businesses serving Sonoma Valley customers", "Teams comparing downtown Sonoma with more practical corridor locations"], ["Industrial users needing deeper production space", "Businesses that require a high-identity downtown address"], ["Downtown Sonoma", "Downtown Napa", "Montgomery Village / East Santa Rosa"]],
+];
+
+for (const [name, path, archetype, secondary, thesis, best, poor, compare] of sonomaPhase2Districts) {
+  districts[path] = {
+    primary_archetype: archetype,
+    secondary_archetypes: secondary,
+    commercial_thesis: thesis,
+    best_fit_businesses: best,
+    poor_fit_businesses: poor,
+    compare_with: compare
+      .filter((districtName) => sonomaPhase2PathByName[districtName] || marinPhase1PathByName[districtName])
+      .map((districtName) => ({
+        district_name: districtName,
+        district_path: sonomaPhase2PathByName[districtName] || marinPhase1PathByName[districtName],
+        comparison_path: sonomaPhase2ComparisonPath(name, districtName),
+        reason: `Compare if ${districtName} may better match the balance of Sonoma/North Bay access, tenant fit, and building character.`,
+      })),
+    office_profile: {
+      office_orientation: archetype,
+      client_facing_strength: archetype.includes("downtown") || archetype.includes("boutique") ? "medium" : "low",
+      transit_orientation: "low",
+      walkability_context: archetype.includes("downtown") || archetype.includes("boutique") ? "medium" : "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: best.slice(0, 3).map((item) => item.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")),
+      commute_pattern: ["sonoma_county", "highway_101", "north_bay"],
+    },
+    ...(archetype.includes("industrial") || archetype.includes("flex")
+      ? {
+          warehouse_flex_profile: {
+            industrial_orientation: archetype,
+            truck_access: "medium",
+            highway_access: "medium",
+            port_airport_access: archetype.includes("airport") ? "medium" : "low",
+            loading_likelihood: "medium",
+            yard_parking_likelihood: "medium",
+            building_format: ["light_industrial", "flex", "service_commercial"],
+            tenant_fit: ["contractors", "production", "local_operations", "service_businesses"],
+            decision_context:
+              "This district is useful for Sonoma County users comparing practical industrial/flex or service-commercial fit, not high-volume regional logistics scale.",
+          },
+        }
+      : {}),
+    confidence_level: "medium",
+    review_status: "researched",
+  };
+}
+
+districts["/commercial-real-estate/CA/napa/"] = {
+  primary_archetype: "sonoma_wine_country_boutique_downtown",
+  secondary_archetypes: ["local_service_business_core", "sonoma_retail_medical_service_corridor"],
+  commercial_thesis:
+    "Napa is a larger wine-country commercial market for professional services, hospitality-adjacent businesses, retail, wellness, and local service users comparing Napa Valley reach against Sonoma Valley alternatives.",
+  best_fit_businesses: [
+    "Professional-service, hospitality-adjacent, retail, wellness, and wine-country service users",
+    "Businesses that need broader Napa Valley commercial reach",
+    "Teams comparing Napa with Sonoma for wine-country client access and market scale",
+  ],
+  poor_fit_businesses: [
+    "Industrial users needing production or warehouse formats",
+    "Businesses that prefer a smaller Sonoma Valley client environment",
+    "Large regional office users needing a traditional metropolitan office hub",
+  ],
+  compare_with: [
+    {
+      district_name: "Downtown Sonoma",
+      district_path: "/commercial-real-estate/CA/sonoma/downtown-sonoma/",
+      comparison_path: "/commercial-real-estate/CA/sonoma/downtown-sonoma-vs-downtown-napa/",
+      reason: "Compare if a smaller Sonoma Valley boutique business setting may be a better fit than Napa's larger wine-country market.",
+    },
+  ],
+  office_profile: {
+    office_orientation: "wine_country_service_office",
+    client_facing_strength: "medium",
+    transit_orientation: "low",
+    walkability_context: "medium",
+    building_scale: "small_to_mid",
+    floorplate_pattern: "small_to_mid",
+    tenant_fit: ["professional_services", "hospitality_services", "local_retail", "wellness"],
+    commute_pattern: ["napa_valley", "wine_country", "north_bay"],
+  },
+  confidence_level: "medium",
+  review_status: "researched",
+};
+
 Object.assign(districts, {
   "/commercial-real-estate/CA/san-jose/north-san-jose/": {
     primary_archetype: "silicon_valley_innovation_office_district",
@@ -9682,6 +9828,14 @@ const archetypeLabels = {
   north_bay_office_flex_market: "North Bay office/flex market",
   sonoma_office_light_industrial_core: "Sonoma office / light industrial core",
   sonoma_downtown_office_core: "Sonoma downtown office core",
+  sonoma_airport_office_flex_district: "Sonoma airport office/flex district",
+  sonoma_suburban_office_medical_corridor: "Sonoma suburban office / medical corridor",
+  sonoma_retail_medical_service_corridor: "Sonoma retail / medical service corridor",
+  sonoma_boutique_downtown: "Sonoma boutique downtown",
+  sonoma_waterfront_office_flex_corridor: "Sonoma waterfront office/flex corridor",
+  sonoma_light_industrial_production_corridor: "Sonoma light industrial / production corridor",
+  sonoma_highway_101_commercial_core: "Sonoma Highway 101 commercial core",
+  sonoma_wine_country_boutique_downtown: "Sonoma wine-country boutique downtown",
   sacramento_downtown_office_core: "Sacramento downtown office core",
   mixed_use_professional_district: "Mixed-use professional district",
   airport_adjacent_suburban_office_market: "Airport-adjacent suburban office market",
