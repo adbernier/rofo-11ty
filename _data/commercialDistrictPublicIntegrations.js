@@ -2993,6 +2993,48 @@ Object.assign(
   )
 );
 
+const marinPhase1IntegrationPages = [
+  ["Downtown Mill Valley", "/commercial-real-estate/CA/mill-valley/downtown-mill-valley/"],
+  ["Strawberry", "/commercial-real-estate/CA/mill-valley/strawberry/"],
+  ["Tam Junction", "/commercial-real-estate/CA/mill-valley/tam-junction/"],
+  ["Kerner / East San Rafael", "/commercial-real-estate/CA/san-rafael/kerner-east-san-rafael/"],
+  ["Downtown Novato", "/commercial-real-estate/CA/novato/downtown-novato/"],
+  ["Hamilton Landing / Ignacio", "/commercial-real-estate/CA/novato/hamilton-landing-ignacio/"],
+  ["Hamilton Landing", "/commercial-real-estate/CA/novato/hamilton-landing/"],
+  ["Ignacio", "/commercial-real-estate/CA/novato/ignacio/"],
+  ["Bel Marin Keys", "/commercial-real-estate/CA/novato/bel-marin-keys/"],
+  ["Larkspur Landing", "/commercial-real-estate/CA/larkspur/larkspur-landing/"],
+  ["Downtown Larkspur", "/commercial-real-estate/CA/larkspur/downtown-larkspur/"],
+  ["Corte Madera Town Center / Highway 101", "/commercial-real-estate/CA/corte-madera/corte-madera-town-center-highway-101/"],
+  ["Downtown Sausalito", "/commercial-real-estate/CA/sausalito/downtown-sausalito/"],
+  ["Sausalito Waterfront / Marinship", "/commercial-real-estate/CA/sausalito/sausalito-waterfront-marinship/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    marinPhase1IntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Marin commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Marin's downtown, corridor, waterfront, and service-commercial location choices.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

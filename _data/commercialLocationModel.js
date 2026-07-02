@@ -1065,6 +1065,525 @@ const districts = {
   },
 };
 
+const marinPhase1ComparisonPaths = {
+  "Downtown San Rafael|Downtown Novato": "/commercial-real-estate/CA/san-rafael/downtown-san-rafael-vs-downtown-novato/",
+  "Downtown San Rafael|Downtown Mill Valley": "/commercial-real-estate/CA/san-rafael/downtown-san-rafael-vs-downtown-mill-valley/",
+  "Downtown Mill Valley|Downtown Sausalito": "/commercial-real-estate/CA/mill-valley/mill-valley-vs-sausalito/",
+  "Larkspur Landing|Downtown San Rafael": "/commercial-real-estate/CA/larkspur/larkspur-landing-vs-downtown-san-rafael/",
+  "Corte Madera Town Center / Highway 101|Larkspur Landing": "/commercial-real-estate/CA/corte-madera/corte-madera-vs-larkspur/",
+  "Hamilton Landing|Ignacio": "/commercial-real-estate/CA/novato/hamilton-landing-vs-ignacio/",
+  "Bel Marin Keys|Kerner / East San Rafael": "/commercial-real-estate/CA/novato/bel-marin-keys-vs-kerner-east-san-rafael/",
+  "Downtown Mill Valley|Downtown Larkspur": "/commercial-real-estate/CA/mill-valley/downtown-mill-valley-vs-downtown-larkspur/",
+  "Sausalito Waterfront / Marinship|Tam Junction": "/commercial-real-estate/CA/sausalito/sausalito-waterfront-vs-tam-junction/",
+  "Novato|Petaluma": "/commercial-real-estate/CA/novato/novato-vs-petaluma/",
+};
+
+const marinPhase1Districts = [
+  {
+    path: "/commercial-real-estate/CA/mill-valley/downtown-mill-valley/",
+    name: "Downtown Mill Valley",
+    archetype: "marin_boutique_downtown",
+    secondary: ["marin_downtown_professional_core", "local_service_business_core"],
+    thesis:
+      "Downtown Mill Valley is a boutique southern Marin business district for small professional-service, wellness, local retail, and advisory firms that value village-scale walkability and client convenience more than larger office inventory.",
+    best: [
+      "Small professional-service, advisory, wellness, and local retail users serving southern Marin clients",
+      "Businesses that want a walkable village setting instead of a highway corridor",
+      "Teams comparing Mill Valley with Sausalito, Larkspur, or San Rafael for a more intimate client-facing address",
+    ],
+    poor: [
+      "Larger office users needing broad floorplate choices",
+      "Industrial, flex, or service users needing loading and yard functionality",
+      "Companies prioritizing regional transit access over local southern Marin identity",
+    ],
+    compare: ["Downtown San Rafael", "Downtown Sausalito", "Downtown Larkspur", "Tam Junction"],
+    office: {
+      office_orientation: "boutique_marin_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "high",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "wellness", "local_retail", "advisory"],
+      commute_pattern: ["southern_marin", "local_client_base", "highway_101_access"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/mill-valley/strawberry/",
+    name: "Strawberry",
+    archetype: "marin_highway_101_professional_corridor",
+    secondary: ["medical_office_service_corridor", "marin_office_retail_corridor"],
+    thesis:
+      "Strawberry is a Highway 101-oriented Mill Valley office, medical, and retail-adjacent setting for businesses that need southern Marin access, parking practicality, and client convenience without a downtown storefront context.",
+    best: [
+      "Medical office, wellness, professional-service, and local-service businesses serving southern Marin",
+      "Teams that value Highway 101 access and parking more than downtown walkability",
+      "Businesses comparing Strawberry with Larkspur Landing or Northgate-style Marin corridor locations",
+    ],
+    poor: [
+      "Users that need a distinctive downtown or waterfront identity",
+      "Deep industrial or logistics users",
+      "Large regional office users seeking campus-style space",
+    ],
+    compare: ["Larkspur Landing", "Downtown Mill Valley", "Corte Madera Town Center / Highway 101"],
+    office: {
+      office_orientation: "marin_corridor_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "wellness", "local_services"],
+      commute_pattern: ["highway_101", "southern_marin", "parking_oriented"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/mill-valley/tam-junction/",
+    name: "Tam Junction",
+    archetype: "marin_service_commercial_corridor",
+    secondary: ["local_service_business_core", "marin_office_retail_corridor"],
+    thesis:
+      "Tam Junction is a southern Marin service-commercial and creative/flex corridor where local-serving businesses, studios, contractors, and smaller office users trade polished downtown identity for practical access near Mill Valley and Sausalito.",
+    best: [
+      "Service-commercial, creative office, studio, contractor, and local operations users",
+      "Businesses that need access to Mill Valley, Sausalito, and southern Marin customers",
+      "Teams comparing Marinship waterfront utility with a more inland service-commercial setting",
+    ],
+    poor: [
+      "Formal client-facing professional firms that need a downtown address",
+      "Large warehouse or logistics users",
+      "Retailers needing stronger pedestrian downtown activity",
+    ],
+    compare: ["Sausalito Waterfront / Marinship", "Downtown Mill Valley", "Downtown Sausalito"],
+    office: {
+      office_orientation: "service_commercial_creative",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["creative_services", "contractors", "local_services", "small_office"],
+      commute_pattern: ["southern_marin", "mill_valley", "sausalito", "highway_101_access"],
+    },
+    warehouse: {
+      industrial_orientation: "service_commercial_flex",
+      truck_access: "low",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "low",
+      yard_parking_likelihood: "low",
+      building_format: ["small_flex", "service_commercial", "creative_workspace"],
+      tenant_fit: ["contractors", "studios", "local_operations", "marine_adjacent_services"],
+      decision_context:
+        "Tam Junction is useful for small practical service and creative/flex users, not deep industrial distribution.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/san-rafael/kerner-east-san-rafael/",
+    name: "Kerner / East San Rafael",
+    archetype: "marin_light_industrial_service_corridor",
+    secondary: ["service_commercial_industrial_market", "local_service_business_core"],
+    thesis:
+      "Kerner / East San Rafael is a practical central Marin service-commercial and light industrial corridor for contractors, local operations, auto/service users, and smaller flex tenants that need function more than a downtown office address.",
+    best: [
+      "Contractors, service businesses, local operations, and light industrial/flex users",
+      "Businesses that need central Marin access without a polished downtown setting",
+      "Users comparing Bel Marin Keys, San Rafael, and southern Marin service-commercial options",
+    ],
+    poor: [
+      "Client-facing professional firms that need downtown San Rafael identity",
+      "Large warehouse users needing deeper regional logistics infrastructure",
+      "Retailers dependent on pedestrian downtown traffic",
+    ],
+    compare: ["Bel Marin Keys", "Downtown San Rafael", "Northgate / Smith Ranch / Civic Center"],
+    office: {
+      office_orientation: "service_commercial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["contractors", "local_services", "operations_office", "service_businesses"],
+      commute_pattern: ["central_marin", "highway_101", "east_san_rafael"],
+    },
+    warehouse: {
+      industrial_orientation: "central_marin_service_industrial",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["service_commercial", "light_industrial", "small_flex"],
+      tenant_fit: ["contractors", "local_distribution", "service_operations", "auto_services"],
+      decision_context:
+        "Kerner / East San Rafael is a central Marin service-industrial option for local operators that do not need the larger industrial feel of Bel Marin Keys.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/novato/downtown-novato/",
+    name: "Downtown Novato",
+    archetype: "marin_boutique_downtown",
+    secondary: ["north_bay_office_flex_market", "local_service_business_core"],
+    thesis:
+      "Downtown Novato is a northern Marin downtown setting for professional-service, medical, retail, and local client-facing users that want a smaller Marin business district with easier Highway 101 access than southern Marin.",
+    best: [
+      "Professional-service, medical, wellness, and local retail businesses serving northern Marin",
+      "Teams that want a walkable Novato address rather than an office/flex park",
+      "Businesses comparing Downtown San Rafael with a smaller northern Marin downtown",
+    ],
+    poor: [
+      "Industrial and contractor users better suited to Bel Marin Keys or service-commercial corridors",
+      "Companies needing polished southern Marin or San Francisco-facing identity",
+      "Large office users needing broader campus inventory",
+    ],
+    compare: ["Downtown San Rafael", "Hamilton Landing / Ignacio", "Petaluma"],
+    office: {
+      office_orientation: "northern_marin_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "medical_office", "wellness", "local_retail"],
+      commute_pattern: ["northern_marin", "highway_101", "local_client_base"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/novato/hamilton-landing-ignacio/",
+    name: "Hamilton Landing / Ignacio",
+    archetype: "marin_adaptive_campus_office",
+    secondary: ["north_bay_office_flex_market", "marin_office_retail_corridor"],
+    thesis:
+      "Hamilton Landing / Ignacio is Novato's campus-style and adaptive-reuse office/flex context, useful for creative, professional, medical, and operations-oriented users that want northern Marin practicality outside the downtown core.",
+    best: [
+      "Creative office, professional-service, medical, and office/flex users",
+      "Teams looking for a quieter northern Marin campus-style setting",
+      "Businesses comparing Downtown Novato with more parking-oriented office/flex options",
+    ],
+    poor: [
+      "Retailers needing downtown foot traffic",
+      "Heavy industrial users needing larger yards or logistics depth",
+      "Firms that need a formal central Marin civic address",
+    ],
+    compare: ["Downtown Novato", "Bel Marin Keys", "Petaluma"],
+    office: {
+      office_orientation: "adaptive_campus_office",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["creative_office", "professional_services", "medical_office", "regional_operations"],
+      commute_pattern: ["northern_marin", "highway_101", "parking_oriented"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/novato/hamilton-landing/",
+    name: "Hamilton Landing",
+    archetype: "marin_adaptive_campus_office",
+    secondary: ["north_bay_office_flex_market", "marin_office_retail_corridor"],
+    thesis:
+      "Hamilton Landing is a northern Marin adaptive-reuse and campus-style office setting for creative, professional, and regional office users that want more identity and workspace character than a typical corridor office.",
+    best: [
+      "Creative office, professional-service, and regional office users seeking a campus-style Novato setting",
+      "Teams that value adaptive-reuse character and parking practicality",
+      "Businesses comparing Hamilton Landing with Ignacio, Downtown Novato, or Bel Marin Keys",
+    ],
+    poor: [
+      "Retailers needing downtown foot traffic",
+      "Heavy industrial users needing larger yards or logistics depth",
+      "Client-facing firms that need a central Marin civic address",
+    ],
+    compare: ["Ignacio", "Downtown Novato", "Bel Marin Keys"],
+    office: {
+      office_orientation: "adaptive_campus_office",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["creative_office", "professional_services", "regional_operations", "small_headquarters"],
+      commute_pattern: ["northern_marin", "highway_101", "parking_oriented"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/novato/ignacio/",
+    name: "Ignacio",
+    archetype: "marin_highway_101_professional_corridor",
+    secondary: ["north_bay_office_flex_market", "medical_office_service_corridor"],
+    thesis:
+      "Ignacio is a practical Novato office, medical, and office/flex corridor for local-service and professional users that need northern Marin access without the campus identity of Hamilton Landing.",
+    best: [
+      "Medical, professional-service, local-service, and office/flex users serving northern Marin",
+      "Businesses that need Highway 101 practicality and parking over downtown identity",
+      "Teams comparing Ignacio with Hamilton Landing, Downtown Novato, or Bel Marin Keys",
+    ],
+    poor: [
+      "Users seeking a distinctive adaptive-reuse campus setting",
+      "Retailers depending on downtown foot traffic",
+      "Large logistics users needing deeper industrial infrastructure",
+    ],
+    compare: ["Hamilton Landing", "Downtown Novato", "Bel Marin Keys"],
+    office: {
+      office_orientation: "northern_marin_corridor_office",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "office_flex"],
+      commute_pattern: ["northern_marin", "highway_101", "parking_oriented"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/novato/bel-marin-keys/",
+    name: "Bel Marin Keys",
+    archetype: "marin_industrial_flex_service_market",
+    secondary: ["service_commercial_industrial_market", "north_bay_office_flex_market"],
+    thesis:
+      "Bel Marin Keys is Marin's most practical industrial/flex and service-commercial setting, serving contractors, light manufacturing, logistics support, marine-adjacent users, and local operators that need functional space more than customer-facing polish.",
+    best: [
+      "Contractors, light industrial, service-commercial, storage, and regional operations users",
+      "Businesses that need northern Marin industrial/flex practicality with Highway 101 access",
+      "Companies comparing Marin service-industrial space against San Rafael or Petaluma alternatives",
+    ],
+    poor: [
+      "Professional-service firms that need downtown or client-facing identity",
+      "Retail users depending on walkability",
+      "Large logistics users needing a deeper I-880 or Sonoma County industrial base",
+    ],
+    compare: ["Kerner / East San Rafael", "Hamilton Landing / Ignacio", "Petaluma"],
+    office: {
+      office_orientation: "industrial_support_office",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["contractors", "operations_office", "service_businesses", "light_industrial"],
+      commute_pattern: ["northern_marin", "highway_101", "service_industrial"],
+    },
+    warehouse: {
+      industrial_orientation: "marin_light_industrial_flex",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["light_industrial", "flex", "service_commercial", "contractor_space"],
+      tenant_fit: ["contractors", "light_manufacturing", "local_distribution", "marine_support"],
+      decision_context:
+        "Bel Marin Keys is the better Marin fit when function, parking, and light industrial/flex utility matter more than downtown identity.",
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/larkspur/larkspur-landing/",
+    name: "Larkspur Landing",
+    archetype: "marin_ferry_landing_office_node",
+    secondary: ["marin_office_retail_corridor", "medical_office_service_corridor"],
+    thesis:
+      "Larkspur Landing is a southern Marin office, medical, retail-adjacent, and ferry-access node for businesses that want client convenience, Highway 101 access, and a more polished corridor setting than downtown Larkspur.",
+    best: [
+      "Professional-service, medical, wellness, and local-service businesses serving southern and central Marin",
+      "Teams that value ferry/Highway 101 access and customer convenience",
+      "Businesses comparing San Rafael civic downtown context with southern Marin corridor access",
+    ],
+    poor: [
+      "Industrial or flex users needing operational formats",
+      "Retailers dependent on a historic downtown main-street setting",
+      "Companies needing larger regional office-campus identity",
+    ],
+    compare: ["Downtown San Rafael", "Corte Madera Town Center / Highway 101", "Downtown Larkspur"],
+    office: {
+      office_orientation: "southern_marin_corridor_office",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "wellness", "local_services"],
+      commute_pattern: ["southern_marin", "ferry_access", "highway_101", "client_access"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/larkspur/downtown-larkspur/",
+    name: "Downtown Larkspur",
+    archetype: "marin_boutique_downtown",
+    secondary: ["local_service_business_core", "marin_downtown_professional_core"],
+    thesis:
+      "Downtown Larkspur is a small historic Marin downtown for boutique professional services, wellness, local retail, and client-facing users that want charm and proximity to southern Marin households more than broad office inventory.",
+    best: [
+      "Boutique professional-service, wellness, advisory, and local retail users",
+      "Businesses that want a smaller Marin downtown feel than San Rafael",
+      "Teams comparing Mill Valley, Larkspur, and Corte Madera for southern Marin clients",
+    ],
+    poor: [
+      "Larger office users needing a deeper space search",
+      "Industrial/flex and contractor users",
+      "Companies prioritizing freeway visibility or ferry adjacency",
+    ],
+    compare: ["Downtown Mill Valley", "Larkspur Landing", "Corte Madera Town Center / Highway 101"],
+    office: {
+      office_orientation: "boutique_marin_downtown",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "wellness", "local_retail", "advisory"],
+      commute_pattern: ["southern_marin", "local_client_base", "highway_101_access"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/corte-madera/corte-madera-town-center-highway-101/",
+    name: "Corte Madera Town Center / Highway 101",
+    archetype: "marin_retail_professional_corridor",
+    secondary: ["marin_office_retail_corridor", "local_service_business_core"],
+    thesis:
+      "Corte Madera Town Center / Highway 101 is a retail-adjacent southern Marin commercial corridor for professional-service, wellness, medical, and local-service businesses that benefit from customer convenience and highway access.",
+    best: [
+      "Professional-service, wellness, medical, and customer-facing local-service users",
+      "Businesses that want southern Marin retail adjacency and easy Highway 101 access",
+      "Teams comparing Larkspur Landing, downtown Larkspur, and Mill Valley corridor settings",
+    ],
+    poor: [
+      "Users seeking a historic downtown identity",
+      "Industrial/flex users needing operational formats",
+      "Companies needing a formal civic or regional office core",
+    ],
+    compare: ["Larkspur Landing", "Downtown Larkspur", "Strawberry"],
+    office: {
+      office_orientation: "retail_adjacent_professional_corridor",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["professional_services", "medical_office", "wellness", "local_services"],
+      commute_pattern: ["southern_marin", "highway_101", "retail_adjacent"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/sausalito/downtown-sausalito/",
+    name: "Downtown Sausalito",
+    archetype: "marin_waterfront_boutique_office",
+    secondary: ["local_service_business_core", "marin_downtown_professional_core"],
+    thesis:
+      "Downtown Sausalito is a waterfront boutique office, retail, and local-service setting for businesses that value southern Marin identity, client experience, and small-scale buildings more than conventional office depth.",
+    best: [
+      "Boutique professional-service, advisory, creative, wellness, and local retail users",
+      "Businesses that benefit from a memorable waterfront client environment",
+      "Teams comparing Sausalito with Mill Valley and San Francisco-facing southern Marin options",
+    ],
+    poor: [
+      "Larger office users needing broad inventory or bigger floorplates",
+      "Industrial/flex users better suited to Marinship or Tam Junction",
+      "Businesses dependent on high-capacity transit or regional employee access",
+    ],
+    compare: ["Downtown Mill Valley", "Sausalito Waterfront / Marinship", "Tam Junction"],
+    office: {
+      office_orientation: "waterfront_boutique_office",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["professional_services", "creative_services", "wellness", "local_retail"],
+      commute_pattern: ["southern_marin", "waterfront", "san_francisco_adjacent"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/sausalito/sausalito-waterfront-marinship/",
+    name: "Sausalito Waterfront / Marinship",
+    archetype: "marin_waterfront_creative_flex",
+    secondary: ["marin_service_commercial_corridor", "service_commercial_industrial_market"],
+    thesis:
+      "Sausalito Waterfront / Marinship is a creative, marine, light industrial, and waterfront commercial district where small makers, studios, marine services, and practical office/flex users can choose function and identity over conventional office polish.",
+    best: [
+      "Creative studios, marine-related users, service-commercial businesses, and smaller office/flex teams",
+      "Businesses that want southern Marin waterfront identity with more practical workspace character",
+      "Teams comparing Marinship with Tam Junction or downtown Sausalito",
+    ],
+    poor: [
+      "Formal professional-service firms needing a polished downtown address",
+      "Large logistics or industrial users",
+      "Retail users dependent on dense downtown pedestrian traffic",
+    ],
+    compare: ["Tam Junction", "Downtown Sausalito", "Downtown Mill Valley"],
+    office: {
+      office_orientation: "waterfront_creative_flex",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "small",
+      floorplate_pattern: "small",
+      tenant_fit: ["creative_services", "marine_services", "small_office", "local_operations"],
+      commute_pattern: ["southern_marin", "waterfront", "san_francisco_adjacent"],
+    },
+    warehouse: {
+      industrial_orientation: "waterfront_creative_service_flex",
+      truck_access: "low",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "low",
+      yard_parking_likelihood: "low",
+      building_format: ["small_flex", "marine_service", "creative_workspace", "service_commercial"],
+      tenant_fit: ["marine_services", "studios", "makers", "local_operations"],
+      decision_context:
+        "Marinship is useful for smaller creative, marine, and service users, not regional distribution or large-format industrial needs.",
+    },
+  },
+];
+
+const marinPhase1PathByName = {
+  "Downtown San Rafael": "/commercial-real-estate/CA/san-rafael/downtown-san-rafael/",
+  "Northgate / Smith Ranch / Civic Center": "/commercial-real-estate/CA/san-rafael/north-san-rafael-terra-linda/",
+  "Kerner / East San Rafael": "/commercial-real-estate/CA/san-rafael/kerner-east-san-rafael/",
+  "Downtown Novato": "/commercial-real-estate/CA/novato/downtown-novato/",
+  "Hamilton Landing / Ignacio": "/commercial-real-estate/CA/novato/hamilton-landing-ignacio/",
+  "Hamilton Landing": "/commercial-real-estate/CA/novato/hamilton-landing/",
+  "Ignacio": "/commercial-real-estate/CA/novato/ignacio/",
+  "Bel Marin Keys": "/commercial-real-estate/CA/novato/bel-marin-keys/",
+  "Petaluma": "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+  "Larkspur Landing": "/commercial-real-estate/CA/larkspur/larkspur-landing/",
+  "Downtown Larkspur": "/commercial-real-estate/CA/larkspur/downtown-larkspur/",
+  "Corte Madera Town Center / Highway 101": "/commercial-real-estate/CA/corte-madera/corte-madera-town-center-highway-101/",
+  "Downtown Mill Valley": "/commercial-real-estate/CA/mill-valley/downtown-mill-valley/",
+  "Strawberry": "/commercial-real-estate/CA/mill-valley/strawberry/",
+  "Tam Junction": "/commercial-real-estate/CA/mill-valley/tam-junction/",
+  "Downtown Sausalito": "/commercial-real-estate/CA/sausalito/downtown-sausalito/",
+  "Sausalito Waterfront / Marinship": "/commercial-real-estate/CA/sausalito/sausalito-waterfront-marinship/",
+};
+
+function marinPhase1ComparisonPath(fromName, toName) {
+  return (
+    marinPhase1ComparisonPaths[`${fromName}|${toName}`] ||
+    marinPhase1ComparisonPaths[`${toName}|${fromName}`]
+  );
+}
+
+for (const district of marinPhase1Districts) {
+  districts[district.path] = {
+    primary_archetype: district.archetype,
+    secondary_archetypes: district.secondary,
+    commercial_thesis: district.thesis,
+    best_fit_businesses: district.best,
+    poor_fit_businesses: district.poor,
+    compare_with: district.compare
+      .filter((name) => marinPhase1PathByName[name])
+      .map((name) => ({
+        district_name: name,
+        district_path: marinPhase1PathByName[name],
+        comparison_path: marinPhase1ComparisonPath(district.name, name),
+        reason: `Compare if ${name} may better match the balance of Marin access, building character, and tenant fit.`,
+      })),
+    office_profile: district.office,
+    ...(district.warehouse ? { warehouse_flex_profile: district.warehouse } : {}),
+    confidence_level: "medium",
+    review_status: "researched",
+  };
+}
+
 Object.assign(districts, {
   "/commercial-real-estate/CA/san-diego/downtown-san-diego/": {
     primary_archetype: "san_diego_downtown_office_core",
@@ -9150,6 +9669,16 @@ const archetypeLabels = {
   local_service_business_core: "Local-service business core",
   medical_office_service_corridor: "Medical office / service corridor",
   marin_office_retail_corridor: "Marin office-retail corridor",
+  marin_boutique_downtown: "Marin boutique downtown",
+  marin_highway_101_professional_corridor: "Marin Highway 101 professional corridor",
+  marin_service_commercial_corridor: "Marin service-commercial corridor",
+  marin_light_industrial_service_corridor: "Marin light industrial / service corridor",
+  marin_ferry_landing_office_node: "Marin ferry landing office node",
+  marin_retail_professional_corridor: "Marin retail / professional corridor",
+  marin_adaptive_campus_office: "Marin adaptive campus office",
+  marin_industrial_flex_service_market: "Marin industrial/flex service market",
+  marin_waterfront_boutique_office: "Marin waterfront boutique office",
+  marin_waterfront_creative_flex: "Marin waterfront creative/flex",
   north_bay_office_flex_market: "North Bay office/flex market",
   sonoma_office_light_industrial_core: "Sonoma office / light industrial core",
   sonoma_downtown_office_core: "Sonoma downtown office core",
