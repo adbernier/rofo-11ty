@@ -3078,6 +3078,47 @@ Object.assign(
   )
 );
 
+const napaPhase3IntegrationPages = [
+  ["Downtown Napa", "/commercial-real-estate/CA/napa/downtown-napa/"],
+  ["Soscol Gateway / South Napa", "/commercial-real-estate/CA/napa/soscol-gateway-south-napa/"],
+  ["Napa Airport Industrial", "/commercial-real-estate/CA/napa/napa-airport-industrial/"],
+  ["Napa Valley Commons", "/commercial-real-estate/CA/napa/napa-valley-commons/"],
+  ["Trancas / North Napa", "/commercial-real-estate/CA/napa/trancas-north-napa/"],
+  ["American Canyon Industrial", "/commercial-real-estate/CA/american-canyon/american-canyon-industrial/"],
+  ["Green Island Road / Napa Junction", "/commercial-real-estate/CA/american-canyon/green-island-road-napa-junction/"],
+  ["Broadway / Highway 29 Commercial Corridor", "/commercial-real-estate/CA/american-canyon/broadway-highway-29-commercial-corridor/"],
+  ["Yountville Commercial Core", "/commercial-real-estate/CA/yountville/yountville-commercial-core/"],
+  ["Downtown St. Helena", "/commercial-real-estate/CA/st-helena/downtown-st-helena/"],
+  ["St. Helena Wine Country Commercial Core", "/commercial-real-estate/CA/st-helena/st-helena-wine-country-commercial-core/"],
+  ["Downtown Calistoga", "/commercial-real-estate/CA/calistoga/downtown-calistoga/"],
+  ["Calistoga Commercial Core", "/commercial-real-estate/CA/calistoga/calistoga-commercial-core/"],
+];
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    napaPhase3IntegrationPages.map(([name, path]) => {
+      const model = commercialLocationModel.byPath[path];
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: "Compare Napa County commercial alternatives",
+          intro:
+            `Use these relationships to place ${name} within Napa County's downtown, Highway 29, airport industrial, wine-country, and service-commercial location choices.`,
+          districts: (model?.compare_with || []).map((district) => ({
+            name: district.district_name,
+            url: district.district_path,
+            relationship_type: district.comparison_path ? "Comparison path" : "Commercial alternative",
+            note: district.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 module.exports = {
   byPath: integrationsByPath,
 };

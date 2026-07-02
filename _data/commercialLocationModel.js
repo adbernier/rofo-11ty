@@ -3521,6 +3521,115 @@ districts["/commercial-real-estate/CA/napa/"] = {
   review_status: "researched",
 };
 
+const napaPhase3ComparisonPaths = {
+  "Downtown Napa|Downtown Sonoma": "/commercial-real-estate/CA/sonoma/downtown-sonoma-vs-downtown-napa/",
+  "Downtown Napa|Downtown Petaluma": "/commercial-real-estate/CA/napa/downtown-napa-vs-downtown-petaluma/",
+  "Napa|Downtown Santa Rosa": "/commercial-real-estate/CA/napa/napa-vs-santa-rosa/",
+  "Napa|Petaluma": "/commercial-real-estate/CA/napa/napa-vs-petaluma/",
+  "Napa Airport Industrial|American Canyon Industrial": "/commercial-real-estate/CA/napa/napa-airport-industrial-vs-american-canyon-industrial/",
+  "Napa Airport Industrial|Airport Business Center": "/commercial-real-estate/CA/napa/napa-airport-industrial-vs-airport-business-center/",
+  "American Canyon Industrial|Bel Marin Keys": "/commercial-real-estate/CA/american-canyon/american-canyon-industrial-vs-bel-marin-keys/",
+  "American Canyon Industrial|South Petaluma / Industrial": "/commercial-real-estate/CA/american-canyon/american-canyon-industrial-vs-south-petaluma-industrial/",
+  "Downtown St. Helena|Downtown Healdsburg": "/commercial-real-estate/CA/st-helena/downtown-st-helena-vs-downtown-healdsburg/",
+  "Downtown Napa|Downtown St. Helena": "/commercial-real-estate/CA/napa/downtown-napa-vs-downtown-st-helena/",
+  "Yountville Commercial Core|Downtown St. Helena": "/commercial-real-estate/CA/yountville/yountville-vs-st-helena/",
+  "Downtown Calistoga|Downtown St. Helena": "/commercial-real-estate/CA/calistoga/calistoga-vs-st-helena/",
+};
+
+const napaPhase3PathByName = {
+  "Napa": "/commercial-real-estate/CA/napa/",
+  "Downtown Napa": "/commercial-real-estate/CA/napa/downtown-napa/",
+  "Soscol Gateway / South Napa": "/commercial-real-estate/CA/napa/soscol-gateway-south-napa/",
+  "Napa Airport Industrial": "/commercial-real-estate/CA/napa/napa-airport-industrial/",
+  "Napa Valley Commons": "/commercial-real-estate/CA/napa/napa-valley-commons/",
+  "Trancas / North Napa": "/commercial-real-estate/CA/napa/trancas-north-napa/",
+  "American Canyon Industrial": "/commercial-real-estate/CA/american-canyon/american-canyon-industrial/",
+  "Green Island Road / Napa Junction": "/commercial-real-estate/CA/american-canyon/green-island-road-napa-junction/",
+  "Broadway / Highway 29 Commercial Corridor": "/commercial-real-estate/CA/american-canyon/broadway-highway-29-commercial-corridor/",
+  "Yountville Commercial Core": "/commercial-real-estate/CA/yountville/yountville-commercial-core/",
+  "Downtown St. Helena": "/commercial-real-estate/CA/st-helena/downtown-st-helena/",
+  "St. Helena Wine Country Commercial Core": "/commercial-real-estate/CA/st-helena/st-helena-wine-country-commercial-core/",
+  "Downtown Calistoga": "/commercial-real-estate/CA/calistoga/downtown-calistoga/",
+  "Calistoga Commercial Core": "/commercial-real-estate/CA/calistoga/calistoga-commercial-core/",
+  "Downtown Sonoma": "/commercial-real-estate/CA/sonoma/downtown-sonoma/",
+  "Downtown Petaluma": "/commercial-real-estate/CA/petaluma/downtown-petaluma/",
+  "Petaluma": "/commercial-real-estate/CA/petaluma/petaluma-commercial-core/",
+  "Downtown Santa Rosa": "/commercial-real-estate/CA/santa-rosa/downtown-santa-rosa/",
+  "Airport Business Center": "/commercial-real-estate/CA/santa-rosa/airport-business-center/",
+  "Bel Marin Keys": "/commercial-real-estate/CA/novato/bel-marin-keys/",
+  "South Petaluma / Industrial": "/commercial-real-estate/CA/petaluma/south-petaluma-industrial/",
+  "Downtown Healdsburg": "/commercial-real-estate/CA/healdsburg/downtown-healdsburg/",
+};
+
+function napaPhase3ComparisonPath(fromName, toName) {
+  return (
+    napaPhase3ComparisonPaths[`${fromName}|${toName}`] ||
+    napaPhase3ComparisonPaths[`${toName}|${fromName}`]
+  );
+}
+
+const napaPhase3Districts = [
+  ["Downtown Napa", "/commercial-real-estate/CA/napa/downtown-napa/", "napa_downtown_professional_hospitality_core", ["sonoma_wine_country_boutique_downtown", "local_service_business_core"], "Downtown Napa is Napa County's strongest professional-service, hospitality-adjacent, restaurant/retail, civic, and tourism-serving commercial district for businesses that need Napa Valley visibility and client access.", ["Professional-service, hospitality-adjacent, restaurant/retail, wellness, and local service users", "Businesses that need Napa Valley client identity and downtown visibility", "Teams comparing Napa with Sonoma, Petaluma, or St. Helena"], ["Industrial users needing production, yard, or warehouse formats", "Businesses that prefer a quieter up-valley boutique town setting"], ["Downtown Sonoma", "Downtown Petaluma", "Downtown St. Helena", "Soscol Gateway / South Napa"]],
+  ["Soscol Gateway / South Napa", "/commercial-real-estate/CA/napa/soscol-gateway-south-napa/", "napa_service_retail_showroom_corridor", ["local_service_business_core", "sonoma_retail_medical_service_corridor"], "Soscol Gateway / South Napa is a retail, service-commercial, showroom, and auto-oriented commercial corridor for businesses that need practical customer access around the south side of Napa.", ["Retail, showroom, service-commercial, medical, and local-service businesses", "Businesses that need customer access and parking more than downtown identity", "Teams comparing downtown Napa with practical commercial corridor locations"], ["Boutique office users that need a downtown or wine-country client setting", "Industrial users better suited to Napa Airport or American Canyon"], ["Downtown Napa", "Napa Valley Commons", "Broadway / Highway 29 Commercial Corridor"]],
+  ["Napa Airport Industrial", "/commercial-real-estate/CA/napa/napa-airport-industrial/", "napa_airport_industrial_flex_market", ["sonoma_light_industrial_production_corridor", "service_commercial_industrial_market"], "Napa Airport Industrial is a wine-production support, warehouse, logistics, flex, and light industrial district for businesses that need Napa County operations, airport-area access, and functional building formats.", ["Wine-production support, logistics, warehouse, flex, light manufacturing, and service-commercial users", "Businesses that need Napa County operations rather than customer-facing downtown identity", "Teams comparing Napa industrial space with American Canyon or Sonoma County airport-area alternatives"], ["Professional-service users seeking a downtown client address", "Boutique retail or hospitality-facing users"], ["American Canyon Industrial", "Airport Business Center", "Napa Valley Commons"]],
+  ["Napa Valley Commons", "/commercial-real-estate/CA/napa/napa-valley-commons/", "napa_business_park_office_flex", ["napa_airport_industrial_flex_market", "north_bay_office_flex_market"], "Napa Valley Commons is a regional Napa business-park setting for office, flex, industrial, and service users that want functional space close to Napa Airport and Highway 29/Soscol access.", ["Office/flex, service-commercial, light industrial, and regional operations users", "Businesses that want a business-park setting rather than downtown Napa", "Teams comparing Napa County operations with American Canyon or Santa Rosa airport-area alternatives"], ["Retailers that need downtown or high-street visibility", "Hospitality-adjacent users seeking a wine-country town-center setting"], ["Napa Airport Industrial", "American Canyon Industrial", "Soscol Gateway / South Napa"]],
+  ["Trancas / North Napa", "/commercial-real-estate/CA/napa/trancas-north-napa/", "napa_medical_retail_service_corridor", ["medical_office_service_corridor", "local_service_business_core"], "Trancas / North Napa is a medical, retail, office, and local-service corridor serving north Napa customers and households with practical access outside the downtown core.", ["Medical, wellness, retail, professional-service, and local-service users", "Businesses serving north Napa customers", "Teams comparing Downtown Napa with a more practical north-side corridor"], ["Industrial users needing warehouse or production formats", "Businesses that require a downtown hospitality-adjacent address"], ["Downtown Napa", "Soscol Gateway / South Napa", "Downtown St. Helena"]],
+  ["American Canyon Industrial", "/commercial-real-estate/CA/american-canyon/american-canyon-industrial/", "napa_logistics_distribution_industrial_market", ["service_commercial_industrial_market", "napa_airport_industrial_flex_market"], "American Canyon Industrial is Napa County's strongest logistics, warehouse, distribution, light manufacturing, and industrial operating market, serving users that need Highway 29, South Napa, and Bay Area access.", ["Logistics, warehouse, distribution, light manufacturing, contractor, and service-industrial users", "Businesses that need more functional industrial space than Napa's downtown or wine-country towns", "Teams comparing American Canyon with Napa Airport, Bel Marin Keys, or South Petaluma"], ["Client-facing office users", "Boutique retail, restaurant, or hospitality-adjacent users"], ["Napa Airport Industrial", "Bel Marin Keys", "South Petaluma / Industrial", "Green Island Road / Napa Junction"]],
+  ["Green Island Road / Napa Junction", "/commercial-real-estate/CA/american-canyon/green-island-road-napa-junction/", "napa_industrial_service_corridor", ["napa_logistics_distribution_industrial_market", "service_commercial_industrial_market"], "Green Island Road / Napa Junction is an American Canyon industrial, flex, and service-commercial corridor for operators that need Highway 29 access and practical space serving south Napa County.", ["Industrial, flex, service-commercial, contractor, and local operations users", "Businesses that value Highway 29 and Napa Junction access", "Teams comparing American Canyon industrial subareas"], ["Professional-service firms needing a polished client address", "Retail users needing stronger customer-facing frontage"], ["American Canyon Industrial", "Broadway / Highway 29 Commercial Corridor", "Napa Airport Industrial"]],
+  ["Broadway / Highway 29 Commercial Corridor", "/commercial-real-estate/CA/american-canyon/broadway-highway-29-commercial-corridor/", "napa_highway_29_service_commercial_corridor", ["local_service_business_core", "napa_industrial_service_corridor"], "Broadway / Highway 29 Commercial Corridor is American Canyon's customer-facing retail, service-commercial, and local office corridor with practical Highway 29 visibility and access.", ["Retail, service-commercial, local office, medical, and customer-facing users", "Businesses that need Highway 29 visibility in American Canyon", "Teams comparing industrial back-of-house space with more customer-facing corridor space"], ["Warehouse users needing deeper industrial functionality", "Boutique wine-country users seeking Napa or St. Helena identity"], ["Green Island Road / Napa Junction", "American Canyon Industrial", "Soscol Gateway / South Napa"]],
+  ["Yountville Commercial Core", "/commercial-real-estate/CA/yountville/yountville-commercial-core/", "napa_wine_country_hospitality_commercial_core", ["sonoma_wine_country_boutique_downtown", "local_service_business_core"], "Yountville Commercial Core is a hospitality, restaurant, boutique retail, and wine-country professional-service setting for businesses that depend on a compact high-identity Napa Valley commercial environment.", ["Hospitality, restaurant, boutique retail, wine-country service, wellness, and advisory users", "Businesses that value a compact Napa Valley client environment", "Teams comparing Yountville with St. Helena or Downtown Napa"], ["Industrial, warehouse, and production users", "Larger office users needing broader inventory"], ["Downtown St. Helena", "Downtown Napa", "Downtown Sonoma"]],
+  ["Downtown St. Helena", "/commercial-real-estate/CA/st-helena/downtown-st-helena/", "napa_wine_country_boutique_downtown", ["napa_wine_country_hospitality_commercial_core", "local_service_business_core"], "Downtown St. Helena is an up-valley Napa County commercial district for boutique office, hospitality-adjacent businesses, retail, wine-country services, wellness, and client-facing professional users.", ["Boutique office, hospitality-adjacent, retail, wellness, advisory, and wine-country service users", "Businesses that benefit from St. Helena identity and up-valley clients", "Teams comparing St. Helena with Napa, Yountville, Healdsburg, or Calistoga"], ["Industrial users needing production or warehouse formats", "Large office users needing broader regional inventory"], ["Downtown Napa", "Yountville Commercial Core", "Downtown Healdsburg", "Downtown Calistoga"]],
+  ["St. Helena Wine Country Commercial Core", "/commercial-real-estate/CA/st-helena/st-helena-wine-country-commercial-core/", "napa_wine_country_service_corridor", ["napa_wine_country_boutique_downtown", "local_service_business_core"], "St. Helena Wine Country Commercial Core covers the practical service, retail, office, and wine-industry support context around St. Helena outside the highest-identity downtown blocks.", ["Wine-country service, local retail, wellness, professional-service, and hospitality-support users", "Businesses serving St. Helena and up-valley clients", "Teams comparing downtown St. Helena with more practical nearby commercial settings"], ["Large industrial users", "Businesses requiring a high-street downtown address"], ["Downtown St. Helena", "Yountville Commercial Core", "Calistoga Commercial Core"]],
+  ["Downtown Calistoga", "/commercial-real-estate/CA/calistoga/downtown-calistoga/", "napa_wine_country_boutique_downtown", ["local_service_business_core", "napa_wine_country_hospitality_commercial_core"], "Downtown Calistoga is a small up-valley Napa commercial district for hospitality, wellness, local retail, and boutique professional-service businesses serving Calistoga and northern Napa Valley clients.", ["Hospitality, wellness, local retail, wine-country service, and boutique professional users", "Businesses that need Calistoga identity and up-valley customer access", "Teams comparing Calistoga with St. Helena"], ["Industrial or warehouse users", "Larger professional-service firms needing broader Napa inventory"], ["Downtown St. Helena", "Calistoga Commercial Core", "Downtown Healdsburg"]],
+  ["Calistoga Commercial Core", "/commercial-real-estate/CA/calistoga/calistoga-commercial-core/", "napa_wine_country_service_corridor", ["napa_wine_country_boutique_downtown", "local_service_business_core"], "Calistoga Commercial Core is the practical commercial context around Calistoga for local services, wellness, hospitality support, and wine-country businesses outside the primary downtown frontage.", ["Local-service, wellness, hospitality-support, and wine-country service users", "Businesses serving northern Napa Valley customers", "Teams comparing Calistoga's town-center and corridor options"], ["Large industrial users", "Professional firms requiring Napa or St. Helena market scale"], ["Downtown Calistoga", "Downtown St. Helena", "St. Helena Wine Country Commercial Core"]],
+];
+
+for (const [name, path, archetype, secondary, thesis, best, poor, compare] of napaPhase3Districts) {
+  districts[path] = {
+    primary_archetype: archetype,
+    secondary_archetypes: secondary,
+    commercial_thesis: thesis,
+    best_fit_businesses: best,
+    poor_fit_businesses: poor,
+    compare_with: compare
+      .filter((districtName) => napaPhase3PathByName[districtName] || sonomaPhase2PathByName[districtName] || marinPhase1PathByName[districtName])
+      .map((districtName) => ({
+        district_name: districtName,
+        district_path: napaPhase3PathByName[districtName] || sonomaPhase2PathByName[districtName] || marinPhase1PathByName[districtName],
+        comparison_path: napaPhase3ComparisonPath(name, districtName),
+        reason: `Compare if ${districtName} may better match the balance of Napa/North Bay access, tenant fit, and building character.`,
+      })),
+    office_profile: {
+      office_orientation: archetype,
+      client_facing_strength: archetype.includes("downtown") || archetype.includes("hospitality") || archetype.includes("boutique") ? "medium" : "low",
+      transit_orientation: "low",
+      walkability_context: archetype.includes("downtown") || archetype.includes("hospitality") || archetype.includes("boutique") ? "medium" : "low",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: best.slice(0, 3).map((item) => item.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")),
+      commute_pattern: ["napa_county", "north_bay", "highway_29"],
+    },
+    ...(archetype.includes("industrial") || archetype.includes("flex") || archetype.includes("logistics")
+      ? {
+          warehouse_flex_profile: {
+            industrial_orientation: archetype,
+            truck_access: "medium",
+            highway_access: "medium",
+            port_airport_access: archetype.includes("airport") ? "medium" : "low",
+            loading_likelihood: "medium",
+            yard_parking_likelihood: "medium",
+            building_format: ["industrial", "flex", "warehouse", "service_commercial"],
+            tenant_fit: ["logistics", "wine_production_support", "contractors", "local_operations"],
+            decision_context:
+              "This district is useful for Napa County users comparing operational, production-support, logistics, or service-commercial fit rather than customer-facing wine-country identity.",
+          },
+        }
+      : {}),
+    confidence_level: "medium",
+    review_status: "researched",
+  };
+}
+
 Object.assign(districts, {
   "/commercial-real-estate/CA/san-jose/north-san-jose/": {
     primary_archetype: "silicon_valley_innovation_office_district",
@@ -9836,6 +9945,17 @@ const archetypeLabels = {
   sonoma_light_industrial_production_corridor: "Sonoma light industrial / production corridor",
   sonoma_highway_101_commercial_core: "Sonoma Highway 101 commercial core",
   sonoma_wine_country_boutique_downtown: "Sonoma wine-country boutique downtown",
+  napa_downtown_professional_hospitality_core: "Napa downtown professional / hospitality core",
+  napa_service_retail_showroom_corridor: "Napa service retail / showroom corridor",
+  napa_airport_industrial_flex_market: "Napa airport industrial/flex market",
+  napa_business_park_office_flex: "Napa business park office/flex",
+  napa_medical_retail_service_corridor: "Napa medical / retail service corridor",
+  napa_logistics_distribution_industrial_market: "Napa logistics / distribution industrial market",
+  napa_industrial_service_corridor: "Napa industrial service corridor",
+  napa_highway_29_service_commercial_corridor: "Napa Highway 29 service-commercial corridor",
+  napa_wine_country_hospitality_commercial_core: "Napa wine-country hospitality commercial core",
+  napa_wine_country_boutique_downtown: "Napa wine-country boutique downtown",
+  napa_wine_country_service_corridor: "Napa wine-country service corridor",
   sacramento_downtown_office_core: "Sacramento downtown office core",
   mixed_use_professional_district: "Mixed-use professional district",
   airport_adjacent_suburban_office_market: "Airport-adjacent suburban office market",
