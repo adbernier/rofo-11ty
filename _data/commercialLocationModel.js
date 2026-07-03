@@ -6926,6 +6926,353 @@ const orangeCountyDistrictModels = [
       commute_pattern: ["i5", "san_clemente", "coastal_south_oc"],
     },
   },
+  {
+    path: "/commercial-real-estate/CA/irvine/john-wayne-airport-area/",
+    primary_archetype: "airport_adjacent_oc_office_core",
+    secondary_archetypes: ["client_facing_professional_core", "suburban_office_corridor"],
+    commercial_thesis:
+      "John Wayne Airport Area is a central Orange County office, professional-service, medical, and airport-access district for tenants that need executive, client, and regional access.",
+    best_fit_businesses: [
+      "Professional-service, finance, legal, consulting, medical office, and regional office users",
+      "Companies that value John Wayne Airport proximity and central OC freeway access",
+      "Teams comparing airport-area practicality with Irvine Spectrum, South Coast Metro, or Newport Center",
+    ],
+    poor_fit_businesses: [
+      "Deep industrial users needing Anaheim Canyon or Lake Forest Business Center",
+      "R&D/flex users needing Irvine Spectrum or University Research Park context",
+      "Small coastal users prioritizing Newport Beach identity over airport access",
+    ],
+    compare_with: [
+      {
+        district_name: "Irvine Spectrum",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+        comparison_path: "/commercial-real-estate/CA/irvine/john-wayne-airport-area-vs-irvine-spectrum/",
+        reason: "Compare if Irvine Spectrum's office/R&D and business-park context may fit better.",
+      },
+      {
+        district_name: "Irvine Business Complex",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+        comparison_path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/",
+        reason: "Compare as the broader airport-area office context around IBC.",
+      },
+      {
+        district_name: "South Coast Metro",
+        district_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+        comparison_path: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/",
+        reason: "Compare if central OC retail, hotel, and client-facing office context may fit better.",
+      },
+      {
+        district_name: "Newport Center / Fashion Island",
+        district_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+        reason: "Compare if coastal prestige and client-facing office identity matter more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "airport_adjacent_suburban",
+      client_facing_strength: "high",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["professional_services", "finance", "legal", "consulting", "regional_office", "medical_office"],
+      commute_pattern: ["john_wayne_airport", "i405", "sr55", "macarthur", "central_oc"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/irvine/university-research-park/",
+    primary_archetype: "oc_office_rd_mixed_commercial_core",
+    secondary_archetypes: ["life_science_rd_flex_district", "advanced_manufacturing_rd_flex_market"],
+    commercial_thesis:
+      "University Research Park is an Irvine office/R&D, technology, life-science support, and UCI-adjacent business-park district for companies that value research and talent proximity.",
+    best_fit_businesses: [
+      "Technology, life-science support, R&D, engineering, and office/flex users",
+      "Companies that benefit from UCI, Irvine talent, and research-oriented business parks",
+      "Teams comparing University Research Park with Irvine Spectrum, UTC / University City, or Sorrento Mesa",
+    ],
+    poor_fit_businesses: [
+      "Airport-first professional-service users needing John Wayne Airport Area",
+      "North OC logistics users needing Anaheim Canyon",
+      "Coastal client-facing firms needing Newport Center",
+    ],
+    compare_with: [
+      {
+        district_name: "Irvine Spectrum",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+        reason: "Compare if broader office/R&D and retail-supported business-district identity matters.",
+      },
+      {
+        district_name: "UTC / University City",
+        district_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+        comparison_path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-utc-university-city/",
+        reason: "Compare if San Diego's North City office and UCSD context may fit better.",
+      },
+      {
+        district_name: "Sorrento Mesa",
+        district_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        comparison_path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-sorrento-mesa/",
+        reason: "Compare if San Diego R&D/flex and life-science operating geography matters.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "research_business_park",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "campus",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["technology", "life_science_support", "rd", "engineering", "office_flex"],
+      commute_pattern: ["uci", "i405", "irvine", "john_wayne_airport"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "rd_flex_business_park",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["rd_flex", "office_flex", "business_park", "lab_support"],
+      tenant_fit: ["technology_operations", "rd", "life_science_support", "engineering"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/costa-mesa/costa-mesa-business-center/",
+    primary_archetype: "oc_mixed_use_service_office_market",
+    secondary_archetypes: ["creative_services_office_market", "local_service_business_core"],
+    commercial_thesis:
+      "Costa Mesa Business Center is a coastal-central Orange County local office, creative-service, retail-support, and professional-service district outside the larger South Coast Metro office core.",
+    best_fit_businesses: [
+      "Creative, professional-service, wellness, local-service, and smaller office users",
+      "Businesses that want Costa Mesa texture without Newport Center or Irvine office formality",
+      "Teams comparing Costa Mesa with Newport Beach, South Coast Metro, or Irvine Business Complex",
+    ],
+    poor_fit_businesses: [
+      "Large corporate office users needing South Coast Metro or Irvine",
+      "Industrial/flex users needing Anaheim Canyon or Lake Forest",
+      "Prestige coastal office users needing Newport Center",
+    ],
+    compare_with: [
+      {
+        district_name: "South Coast Metro",
+        district_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+        reason: "Compare if larger office buildings and central OC retail/hotel context matter more.",
+      },
+      {
+        district_name: "Newport Center / Fashion Island",
+        district_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+        comparison_path: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-newport-beach/",
+        reason: "Compare if coastal prestige and client-facing identity matter more.",
+      },
+      {
+        district_name: "Irvine Business Complex",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+        comparison_path: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-irvine/",
+        reason: "Compare if airport-adjacent professional office context matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "mixed_use_local_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["creative_services", "professional_services", "wellness", "local_services", "retail_support"],
+      commute_pattern: ["costa_mesa", "i405", "sr55", "coastal_central_oc"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
+    primary_archetype: "north_oc_industrial_flex_market",
+    secondary_archetypes: ["last_mile_distribution_cluster", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Anaheim Canyon is a North Orange County industrial, warehouse/flex, manufacturing, logistics, and service-commercial district along La Palma, Kraemer, and the 91/57 corridor.",
+    best_fit_businesses: [
+      "Warehouse, logistics, manufacturing, contractor, service-industrial, and operations users",
+      "Companies comparing North OC industrial locations with Lake Forest, Fullerton, or Santa Ana",
+      "Tenants that need truck access, loading, and practical industrial buildings more than office prestige",
+    ],
+    poor_fit_businesses: [
+      "Coastal client-facing office users",
+      "Irvine Spectrum R&D users needing campus identity",
+      "South County users needing Lake Forest or Irvine access",
+    ],
+    compare_with: [
+      {
+        district_name: "Lake Forest Business Center",
+        district_path: "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/",
+        comparison_path: "/commercial-real-estate/CA/anaheim/anaheim-canyon-vs-lake-forest-business-center/",
+        reason: "Compare if South OC industrial/flex access may fit better than North OC utility.",
+      },
+      {
+        district_name: "Santa Ana",
+        district_path: "/commercial-real-estate/CA/santa-ana/santa-ana/",
+        comparison_path: "/commercial-real-estate/CA/anaheim/anaheim-vs-santa-ana/",
+        reason: "Compare if central OC service-industrial access matters more.",
+      },
+      {
+        district_name: "Fullerton",
+        district_path: "/commercial-real-estate/CA/fullerton/fullerton/",
+        comparison_path: "/commercial-real-estate/CA/anaheim/anaheim-vs-fullerton/",
+        reason: "Compare if Fullerton's local service and lighter industrial context may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "industrial_support",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["operations_office", "service_business", "contractor", "industrial_support"],
+      commute_pattern: ["sr91", "sr57", "la_palma", "north_oc"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "warehouse_flex",
+      truck_access: "high",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "manufacturing", "service_commercial"],
+      tenant_fit: ["logistics", "distribution", "manufacturing", "contractors", "operations"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/santa-ana/santa-ana-airport-area/",
+    primary_archetype: "airport_adjacent_oc_office_core",
+    secondary_archetypes: ["service_commercial_industrial_market", "central_oc_office_retail_core"],
+    commercial_thesis:
+      "Santa Ana Airport Area is a central OC airport-edge office, flex, service-commercial, and light industrial district near Dyer Road, Harbor, and John Wayne access.",
+    best_fit_businesses: [
+      "Office/flex, service-commercial, light industrial, contractor, and airport-access users",
+      "Companies comparing Santa Ana, Irvine Business Complex, and South Coast Metro",
+      "Users that want central OC access without Newport or Irvine office pricing signal",
+    ],
+    poor_fit_businesses: [
+      "Prestige client-facing users needing Newport Center",
+      "Large industrial users needing Anaheim Canyon",
+      "R&D users needing Irvine Spectrum or University Research Park",
+    ],
+    compare_with: [
+      {
+        district_name: "Irvine Business Complex",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+        comparison_path: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/",
+        reason: "Compare if more conventional airport-adjacent office context matters.",
+      },
+      {
+        district_name: "South Coast Metro",
+        district_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+        reason: "Compare if central OC office, retail, and hotel context matters more.",
+      },
+      {
+        district_name: "Santa Ana",
+        district_path: "/commercial-real-estate/CA/santa-ana/santa-ana/",
+        reason: "Compare if broader Santa Ana industrial/service-commercial context matters.",
+      },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "airport_edge_service_flex",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "high",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["office_flex", "service_commercial", "light_industrial"],
+      tenant_fit: ["service_businesses", "contractors", "light_operations", "airport_support"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/tustin/tustin-legacy/",
+    primary_archetype: "oc_mixed_use_service_office_market",
+    secondary_archetypes: ["suburban_downtown_office_retail_core", "medical_office_service_corridor"],
+    commercial_thesis:
+      "Tustin Legacy is a central Orange County mixed-use office, medical, retail, and civic-commercial district on the Irvine/Tustin edge.",
+    best_fit_businesses: [
+      "Medical office, professional-service, local-service, retail-support, and smaller office users",
+      "Businesses that want central OC access near Irvine without full Irvine Spectrum or airport-area identity",
+      "Teams comparing Tustin Legacy with Irvine Spectrum, Irvine Business Complex, or South Coast Metro",
+    ],
+    poor_fit_businesses: [
+      "Industrial/flex users needing Anaheim Canyon or Lake Forest Business Center",
+      "Coastal prestige office users needing Newport Center",
+      "Large R&D/flex users needing Irvine Spectrum",
+    ],
+    compare_with: [
+      {
+        district_name: "Irvine Spectrum",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+        comparison_path: "/commercial-real-estate/CA/tustin/tustin-legacy-vs-irvine-spectrum/",
+        reason: "Compare if stronger Irvine office/R&D and business-park identity may fit better.",
+      },
+      {
+        district_name: "Irvine Business Complex",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+        reason: "Compare if airport-area professional office context matters more.",
+      },
+      {
+        district_name: "South Coast Metro",
+        district_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+        reason: "Compare if central OC client-facing office and retail context matters more.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "mixed_use_local_professional",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "retail_support"],
+      commute_pattern: ["tustin", "i5", "irvine_edge", "central_oc"],
+    },
+  },
+  {
+    path: "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/",
+    primary_archetype: "south_oc_industrial_flex_market",
+    secondary_archetypes: ["advanced_manufacturing_rd_flex_market", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Lake Forest Business Center is a South Orange County business-park, industrial/flex, office/flex, R&D support, and service-commercial district for users comparing operating space with Irvine Spectrum.",
+    best_fit_businesses: [
+      "Industrial/flex, office/flex, contractor, R&D support, service-commercial, and operations users",
+      "Companies that need South County access and functional buildings without Irvine Spectrum identity",
+      "Tenants comparing South OC operating bases with Anaheim Canyon or Irvine Spectrum",
+    ],
+    poor_fit_businesses: [
+      "Prestige coastal office users",
+      "North OC logistics users needing Anaheim Canyon",
+      "Central OC client-facing office users needing South Coast Metro",
+    ],
+    compare_with: [
+      {
+        district_name: "Irvine Spectrum",
+        district_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+        comparison_path: "/commercial-real-estate/CA/lake-forest/lake-forest-vs-irvine-spectrum/",
+        reason: "Compare if Irvine office/R&D identity and retail-supported business district context may fit better.",
+      },
+      {
+        district_name: "Anaheim Canyon",
+        district_path: "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
+        comparison_path: "/commercial-real-estate/CA/anaheim/anaheim-canyon-vs-lake-forest-business-center/",
+        reason: "Compare South OC industrial/flex with North OC industrial utility.",
+      },
+      {
+        district_name: "Foothill Ranch",
+        district_path: "/commercial-real-estate/CA/foothill-ranch/foothill-ranch/",
+        reason: "Compare if deeper South County business-park context may fit better.",
+      },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "office_flex_light_industrial",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "industrial_flex", "service_commercial", "business_park"],
+      tenant_fit: ["contractors", "light_operations", "rd_support", "service_businesses"],
+    },
+  },
 ];
 
 for (const model of orangeCountyDistrictModels) {

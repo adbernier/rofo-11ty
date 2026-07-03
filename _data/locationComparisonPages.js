@@ -4944,6 +4944,338 @@ comparisons.push(
 
 comparisons.push(
   {
+    slug: "irvine-spectrum-vs-newport-center",
+    title: "Irvine Spectrum vs Newport Center",
+    short_title: "Irvine Spectrum vs Newport Center",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-newport-center/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "Newport Center / Fashion Island",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+    verdict_a:
+      "Choose Irvine Spectrum if office/R&D, technology, larger business-park formats, and Irvine operating identity matter most.",
+    verdict_b:
+      "Choose Newport Center if coastal prestige, executive office, finance, wealth, legal, and client-facing identity matter more.",
+    comparison_notes: [
+      "Irvine Spectrum is more office/R&D, technology, and business-park oriented.",
+      "Newport Center is more coastal, executive-facing, and professional-service oriented.",
+      "This is a strong Orange County identity comparison: operating platform versus client-facing prestige.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Irvine Business Complex", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/", reason: "Compare Irvine R&D/business-park context with airport-area office access." },
+      { label: "Newport Center vs South Coast Metro", url: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/", reason: "Compare coastal prestige with central OC client-facing office." },
+      { label: "Irvine vs Newport Beach", url: "/commercial-real-estate/CA/irvine/irvine-vs-newport-beach/", reason: "Compare the broader city-level business identity tradeoff." },
+      { label: "Irvine Spectrum vs UTC / University City", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-utc-university-city/", reason: "Compare Irvine office/R&D with San Diego North City office." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-business-complex-vs-south-coast-metro",
+    title: "Irvine Business Complex vs South Coast Metro",
+    short_title: "IBC vs South Coast Metro",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    city_slug: "costa-mesa",
+    path: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/",
+    district_a_name: "Irvine Business Complex",
+    district_b_name: "South Coast Metro",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+    district_b_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+    verdict_a:
+      "Choose Irvine Business Complex if airport-area office access, professional-service identity, and Irvine address value matter most.",
+    verdict_b:
+      "Choose South Coast Metro if central OC client access, South Coast Plaza adjacency, hotels, and larger regional office context matter more.",
+    comparison_notes: [
+      "Irvine Business Complex is more airport-adjacent and Irvine-office oriented.",
+      "South Coast Metro is more central OC, retail/hotel-supported, and client-facing.",
+      "Both work for professional-service tenants, but they send different location signals.",
+    ],
+    decision_qualities: [
+      { label: "Client access", a: "Strong John Wayne Airport and Irvine business access.", b: "Strong central OC retail, hotel, and client-meeting environment." },
+      { label: "Building inventory", a: "Airport-area office buildings and mixed professional office formats.", b: "Regional office buildings near South Coast Plaza and arts/cultural anchors." },
+      { label: "Tenant fit", a: "Finance, legal, consulting, regional office, and airport-access users.", b: "Finance, professional services, medical office, headquarters, and client-facing users." },
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Irvine Business Complex", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/", reason: "Compare Irvine's main business district split." },
+      { label: "Irvine Spectrum vs South Coast Metro", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-south-coast-metro/", reason: "Compare Irvine R&D identity with central OC office." },
+      { label: "Newport Center vs South Coast Metro", url: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/", reason: "Compare coastal prestige with central OC office." },
+      { label: "Costa Mesa vs Irvine", url: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-irvine/", reason: "Compare the broader Costa Mesa and Irvine choice." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-vs-newport-beach",
+    title: "Irvine vs Newport Beach",
+    short_title: "Irvine vs Newport Beach",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-vs-newport-beach/",
+    district_a_name: "Irvine Business Complex",
+    district_b_name: "Newport Center / Fashion Island",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+    district_b_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+    verdict_a:
+      "Choose Irvine if airport-area access, regional office practicality, and broader corporate office depth are the priority.",
+    verdict_b:
+      "Choose Newport Beach if coastal executive identity, finance, wealth, legal, and high-touch client-facing office context matter more.",
+    comparison_notes: [
+      "Irvine is generally stronger for regional office practicality and airport-area access.",
+      "Newport Beach is stronger for coastal prestige and executive/client-facing professional services.",
+      "This comparison is most useful for firms deciding how much location signal matters relative to operating convenience.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Newport Center", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-newport-center/", reason: "Compare Irvine office/R&D identity with Newport prestige." },
+      { label: "Newport Center vs South Coast Metro", url: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/", reason: "Compare Newport prestige with central OC client access." },
+      { label: "Costa Mesa vs Newport Beach", url: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-newport-beach/", reason: "Compare creative/local Costa Mesa with Newport executive office." },
+      { label: "Costa Mesa vs Irvine", url: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-irvine/", reason: "Compare mixed coastal-central OC with Irvine airport-area office." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "costa-mesa-vs-newport-beach",
+    title: "Costa Mesa vs Newport Beach",
+    short_title: "Costa Mesa vs Newport Beach",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    city_slug: "costa-mesa",
+    path: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-newport-beach/",
+    district_a_name: "Costa Mesa",
+    district_b_name: "Newport Center / Fashion Island",
+    district_a_path: "/commercial-real-estate/CA/costa-mesa/costa-mesa/",
+    district_b_path: "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+    verdict_a:
+      "Choose Costa Mesa if creative services, local professional office, retail-adjacent activity, and coastal-central OC access matter most.",
+    verdict_b:
+      "Choose Newport Beach if coastal prestige, executive office, wealth, legal, finance, and client-facing identity matter more.",
+    comparison_notes: [
+      "Costa Mesa is more mixed, creative, and local-service oriented.",
+      "Newport Beach is more prestige-oriented, client-facing, and executive-office focused.",
+      "This comparison separates coastal-central business texture from formal coastal office identity.",
+    ],
+    people_also_compare: [
+      { label: "Newport Center vs South Coast Metro", url: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/", reason: "Compare Newport prestige with central OC regional office." },
+      { label: "Irvine vs Newport Beach", url: "/commercial-real-estate/CA/irvine/irvine-vs-newport-beach/", reason: "Compare Newport with Irvine's airport-area office depth." },
+      { label: "Costa Mesa vs Irvine", url: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-irvine/", reason: "Compare Costa Mesa texture with Irvine office practicality." },
+      { label: "Irvine Business Complex vs South Coast Metro", url: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/", reason: "Compare airport-area office with central OC office." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "tustin-legacy-vs-irvine-spectrum",
+    title: "Tustin Legacy vs Irvine Spectrum",
+    short_title: "Tustin Legacy vs Irvine Spectrum",
+    city: "Tustin",
+    state_abbr: "CA",
+    city_slug: "tustin",
+    path: "/commercial-real-estate/CA/tustin/tustin-legacy-vs-irvine-spectrum/",
+    district_a_name: "Tustin Legacy",
+    district_b_name: "Irvine Spectrum",
+    district_a_path: "/commercial-real-estate/CA/tustin/tustin-legacy/",
+    district_b_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    verdict_a:
+      "Choose Tustin Legacy if central OC access, Irvine-edge convenience, medical/local office, and mixed-use context matter most.",
+    verdict_b:
+      "Choose Irvine Spectrum if larger office/R&D, technology, business-park identity, and regional Irvine visibility matter more.",
+    comparison_notes: [
+      "Tustin Legacy is more mixed-use, local-service, and Irvine-edge oriented.",
+      "Irvine Spectrum is more established as an office/R&D and business-park district.",
+      "This comparison helps tenants decide whether they need Irvine identity or nearby central OC practicality.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Irvine Business Complex", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/", reason: "Compare Irvine business district options." },
+      { label: "Irvine Spectrum vs South Coast Metro", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-south-coast-metro/", reason: "Compare Irvine R&D identity with central OC office." },
+      { label: "Irvine Business Complex vs South Coast Metro", url: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/", reason: "Compare airport-area office with South Coast Metro." },
+      { label: "Lake Forest vs Irvine Spectrum", url: "/commercial-real-estate/CA/lake-forest/lake-forest-vs-irvine-spectrum/", reason: "Compare South OC operating practicality with Irvine identity." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "anaheim-canyon-vs-lake-forest-business-center",
+    title: "Anaheim Canyon vs Lake Forest Business Center",
+    short_title: "Anaheim Canyon vs Lake Forest Business Center",
+    city: "Anaheim",
+    state_abbr: "CA",
+    city_slug: "anaheim",
+    path: "/commercial-real-estate/CA/anaheim/anaheim-canyon-vs-lake-forest-business-center/",
+    district_a_name: "Anaheim Canyon",
+    district_b_name: "Lake Forest Business Center",
+    district_a_path: "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
+    district_b_path: "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/",
+    verdict_a:
+      "Choose Anaheim Canyon if North OC warehouse, manufacturing, logistics, and heavier industrial/flex utility are the priority.",
+    verdict_b:
+      "Choose Lake Forest Business Center if South OC office/flex, R&D support, service-commercial, and smaller industrial/flex requirements fit better.",
+    comparison_notes: [
+      "Anaheim Canyon is the stronger North OC industrial and logistics choice.",
+      "Lake Forest Business Center is more South County, office/flex, and business-park oriented.",
+      "This comparison is useful for companies choosing between North OC industrial reach and South OC operating access.",
+    ],
+    decision_qualities: [
+      { label: "Industrial access", a: "91/57 North OC industrial corridor with stronger truck and warehouse utility.", b: "South OC business-park and office/flex access near Irvine Spectrum." },
+      { label: "Tenant fit", a: "Warehouse, logistics, manufacturing, contractor, and distribution users.", b: "Office/flex, R&D support, service-commercial, and light operations users." },
+      { label: "Regional reach", a: "Better for North OC, Inland Empire edge, and LA County access.", b: "Better for South OC, Irvine, and coastal/inland South County access." },
+    ],
+    people_also_compare: [
+      { label: "Lake Forest vs Irvine Spectrum", url: "/commercial-real-estate/CA/lake-forest/lake-forest-vs-irvine-spectrum/", reason: "Compare South OC operating space with Irvine identity." },
+      { label: "Anaheim vs Santa Ana", url: "/commercial-real-estate/CA/anaheim/anaheim-vs-santa-ana/", reason: "Compare North OC industrial with central OC service-industrial." },
+      { label: "Anaheim vs Fullerton", url: "/commercial-real-estate/CA/anaheim/anaheim-vs-fullerton/", reason: "Compare North OC industrial alternatives." },
+      { label: "Irvine Spectrum vs Irvine Business Complex", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/", reason: "Compare Irvine's office/R&D and airport-area office options." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "john-wayne-airport-area-vs-irvine-spectrum",
+    title: "John Wayne Airport Area vs Irvine Spectrum",
+    short_title: "Airport Area vs Irvine Spectrum",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/john-wayne-airport-area-vs-irvine-spectrum/",
+    district_a_name: "John Wayne Airport Area",
+    district_b_name: "Irvine Spectrum",
+    district_a_path: "/commercial-real-estate/CA/irvine/john-wayne-airport-area/",
+    district_b_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    verdict_a:
+      "Choose John Wayne Airport Area if executive travel, client access, airport proximity, and professional-service office context matter most.",
+    verdict_b:
+      "Choose Irvine Spectrum if office/R&D, technology, larger campus-style buildings, and business-park identity matter more.",
+    comparison_notes: [
+      "John Wayne Airport Area is more client, airport, and professional-service oriented.",
+      "Irvine Spectrum is more office/R&D, technology, and operating-platform oriented.",
+      "The choice is usually airport-area convenience versus business-park scale and R&D identity.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Irvine Business Complex", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/", reason: "Compare Irvine's broader airport-area and Spectrum split." },
+      { label: "Irvine Business Complex vs South Coast Metro", url: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/", reason: "Compare airport-area office with central OC office." },
+      { label: "Irvine Spectrum vs Newport Center", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-newport-center/", reason: "Compare Irvine R&D identity with Newport client-facing prestige." },
+      { label: "Tustin Legacy vs Irvine Spectrum", url: "/commercial-real-estate/CA/tustin/tustin-legacy-vs-irvine-spectrum/", reason: "Compare Irvine Spectrum with Irvine-edge central OC context." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-spectrum-vs-utc-university-city",
+    title: "Irvine Spectrum vs UTC / University City",
+    short_title: "Irvine Spectrum vs UTC",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-utc-university-city/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "UTC / University City",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    verdict_a:
+      "Choose Irvine Spectrum if Orange County office/R&D identity, technology operations, and South OC reach matter most.",
+    verdict_b:
+      "Choose UTC / University City if San Diego North City office, medical, UCSD adjacency, and life-science context matter more.",
+    comparison_notes: [
+      "Irvine Spectrum is stronger for OC business-park identity and Orange County operations.",
+      "UTC / University City is stronger for San Diego North City office, medical, and UCSD adjacency.",
+      "This cross-market page helps companies compare two polished Southern California office/R&D ecosystems.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Sorrento Mesa", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-sorrento-mesa/", reason: "Compare Irvine with San Diego R&D/flex geography." },
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare San Diego office and R&D/flex alternatives." },
+      { label: "Irvine Spectrum vs North San Jose", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-north-san-jose/", reason: "Compare OC and Silicon Valley office/R&D ecosystems." },
+      { label: "Carlsbad Business Park vs Sorrento Mesa", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-sorrento-mesa/", reason: "Compare North County and San Diego R&D/flex choices." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-spectrum-vs-sorrento-mesa",
+    title: "Irvine Spectrum vs Sorrento Mesa",
+    short_title: "Irvine Spectrum vs Sorrento Mesa",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-sorrento-mesa/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "Sorrento Mesa",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    verdict_a:
+      "Choose Irvine Spectrum if Orange County business-park identity, office/R&D, and technology operations are the priority.",
+    verdict_b:
+      "Choose Sorrento Mesa if San Diego life-science, biotech support, R&D/flex, and North City operating context matter more.",
+    comparison_notes: [
+      "Irvine Spectrum is a polished OC office/R&D and technology business district.",
+      "Sorrento Mesa is more life-science, R&D/flex, and San Diego innovation-operations oriented.",
+      "This is a practical Southern California ecosystem comparison, not a nearby-neighborhood comparison.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs UTC / University City", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-utc-university-city/", reason: "Compare Irvine with San Diego North City office context." },
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare San Diego office and R&D/flex alternatives." },
+      { label: "Carlsbad Business Park vs Sorrento Mesa", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-sorrento-mesa/", reason: "Compare North County and San Diego R&D/flex choices." },
+      { label: "Irvine Spectrum vs North San Jose", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-north-san-jose/", reason: "Compare Orange County and Silicon Valley ecosystems." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "irvine-spectrum-vs-north-san-jose",
+    title: "Irvine Spectrum vs North San Jose",
+    short_title: "Irvine Spectrum vs North San Jose",
+    city: "Irvine",
+    state_abbr: "CA",
+    city_slug: "irvine",
+    path: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-north-san-jose/",
+    district_a_name: "Irvine Spectrum",
+    district_b_name: "North San Jose",
+    district_a_path: "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+    district_b_path: "/commercial-real-estate/CA/san-jose/north-san-jose/",
+    verdict_a:
+      "Choose Irvine Spectrum if Orange County headquarters, office/R&D, life-science support, and South OC operating access matter most.",
+    verdict_b:
+      "Choose North San Jose if Silicon Valley engineering, semiconductor, hardware, and large office/R&D corridor context matter more.",
+    comparison_notes: [
+      "Irvine Spectrum is stronger for OC headquarters and Southern California operating identity.",
+      "North San Jose is stronger for Silicon Valley engineering, hardware, and semiconductor ecosystem access.",
+      "This comparison helps companies evaluate functionally similar office/R&D corridors across different California talent markets.",
+    ],
+    people_also_compare: [
+      { label: "Irvine Spectrum vs Sorrento Mesa", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-sorrento-mesa/", reason: "Compare OC with San Diego R&D/flex geography." },
+      { label: "North San Jose vs North Bayshore", url: "/commercial-real-estate/CA/san-jose/north-bayshore-vs-north-san-jose/", reason: "Compare South Bay and Mountain View technology districts." },
+      { label: "North San Jose vs Stanford Research Park", url: "/commercial-real-estate/CA/san-jose/north-san-jose-vs-stanford-research-park/", reason: "Compare South Bay scale with Stanford-adjacent R&D." },
+      { label: "Irvine Spectrum vs UTC / University City", url: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-utc-university-city/", reason: "Compare OC with San Diego North City office context." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "south-coast-metro-vs-century-city",
+    title: "South Coast Metro vs Century City",
+    short_title: "South Coast Metro vs Century City",
+    city: "Costa Mesa",
+    state_abbr: "CA",
+    city_slug: "costa-mesa",
+    path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro-vs-century-city/",
+    district_a_name: "South Coast Metro",
+    district_b_name: "Century City",
+    district_a_path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+    district_b_path: "/commercial-real-estate/CA/los-angeles/century-city/",
+    verdict_a:
+      "Choose South Coast Metro if central Orange County client access, regional office, retail, and hotel context matter most.",
+    verdict_b:
+      "Choose Century City if Westside Los Angeles prestige, entertainment-business, legal, finance, and tower-office identity matter more.",
+    comparison_notes: [
+      "South Coast Metro is central OC's client-facing office and retail-supported business district.",
+      "Century City is a higher-prestige Westside LA tower-office market.",
+      "This comparison is useful for firms deciding whether Orange County reach or Westside LA client identity matters more.",
+    ],
+    people_also_compare: [
+      { label: "Newport Center vs South Coast Metro", url: "/commercial-real-estate/CA/newport-beach/newport-center-vs-south-coast-metro/", reason: "Compare coastal OC prestige with central OC client access." },
+      { label: "Downtown LA vs Century City", url: "/commercial-real-estate/CA/los-angeles/downtown-la-vs-century-city/", reason: "Compare LA's civic office core with Westside office prestige." },
+      { label: "Irvine Business Complex vs South Coast Metro", url: "/commercial-real-estate/CA/costa-mesa/irvine-business-complex-vs-south-coast-metro/", reason: "Compare OC airport-area office with central OC office." },
+      { label: "Costa Mesa vs Newport Beach", url: "/commercial-real-estate/CA/costa-mesa/costa-mesa-vs-newport-beach/", reason: "Compare local OC texture with coastal executive office identity." },
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
+comparisons.push(
+  {
     slug: "irvine-spectrum-vs-irvine-business-complex",
     title: "Irvine Spectrum vs Irvine Business Complex",
     short_title: "Irvine Spectrum vs Irvine Business Complex",
@@ -6541,6 +6873,28 @@ const metaFocusBySlug = {
     "Santa Ana central Orange County industrial/service access versus Garden Grove west-central local service-commercial context",
   "lake-forest-vs-irvine-spectrum":
     "Lake Forest South Orange County office/flex functionality versus Irvine Spectrum office/R&D identity",
+  "irvine-spectrum-vs-newport-center":
+    "Irvine Spectrum office/R&D and technology business-park identity versus Newport Center coastal executive office prestige",
+  "irvine-business-complex-vs-south-coast-metro":
+    "Irvine Business Complex airport-area professional office context versus South Coast Metro central OC client-facing office",
+  "irvine-vs-newport-beach":
+    "Irvine airport-area regional office practicality versus Newport Beach coastal executive and client-facing office identity",
+  "costa-mesa-vs-newport-beach":
+    "Costa Mesa creative and local professional office texture versus Newport Beach coastal executive office identity",
+  "tustin-legacy-vs-irvine-spectrum":
+    "Tustin Legacy Irvine-edge mixed-use office context versus Irvine Spectrum office/R&D business district identity",
+  "anaheim-canyon-vs-lake-forest-business-center":
+    "Anaheim Canyon North OC industrial and logistics utility versus Lake Forest Business Center South OC office/flex and industrial/flex access",
+  "john-wayne-airport-area-vs-irvine-spectrum":
+    "John Wayne Airport Area client and executive access versus Irvine Spectrum office/R&D and business-park scale",
+  "irvine-spectrum-vs-utc-university-city":
+    "Irvine Spectrum Orange County office/R&D identity versus UTC / University City San Diego North City office and medical context",
+  "irvine-spectrum-vs-sorrento-mesa":
+    "Irvine Spectrum Orange County office/R&D identity versus Sorrento Mesa San Diego life-science and R&D/flex geography",
+  "irvine-spectrum-vs-north-san-jose":
+    "Irvine Spectrum Orange County office/R&D ecosystem versus North San Jose Silicon Valley engineering and hardware corridor",
+  "south-coast-metro-vs-century-city":
+    "South Coast Metro central Orange County client-facing office versus Century City Westside Los Angeles tower-office prestige",
   "brea-vs-anaheim":
     "Brea North Orange County office/medical and industrial edge versus Anaheim deeper industrial/flex utility",
   "mission-viejo-vs-laguna-hills":
@@ -8266,6 +8620,7 @@ const warehouseFlexComparisonSlugs = new Set([
   "fullerton-vs-buena-park",
   "santa-ana-vs-garden-grove",
   "lake-forest-vs-irvine-spectrum",
+  "anaheim-canyon-vs-lake-forest-business-center",
   "brea-vs-anaheim",
   "ontario-vs-rancho-cucamonga",
   "ontario-vs-fontana",
