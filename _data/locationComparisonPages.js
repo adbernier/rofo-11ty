@@ -4563,6 +4563,387 @@ comparisons.push(
 
 comparisons.push(
   {
+    slug: "downtown-san-diego-vs-little-italy",
+    title: "Downtown San Diego vs Little Italy / Columbia",
+    short_title: "Downtown San Diego vs Little Italy",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/downtown-san-diego-vs-little-italy/",
+    district_a_name: "Downtown San Diego",
+    district_b_name: "Little Italy / Columbia",
+    district_a_path: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/little-italy-columbia/",
+    verdict_a:
+      "Choose Downtown San Diego if formal office-core identity, civic access, transit, and traditional client-facing services matter most.",
+    verdict_b:
+      "Choose Little Italy / Columbia if downtown access, waterfront proximity, restaurants, airport access, and a smaller mixed-use feel are stronger priorities.",
+    comparison_notes: [
+      "Downtown is the stronger traditional office and civic business address.",
+      "Little Italy / Columbia is more downtown-edge, hospitality-adjacent, and neighborhood-scaled.",
+      "The decision often turns on whether a tenant wants formal CBD signal or a more approachable central San Diego setting.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "Downtown San Diego",
+        reasons: [
+          "Legal, finance, consulting, government-adjacent, and nonprofit users that benefit from civic office identity",
+          "Client-facing teams that want transit access and a recognizable central business address",
+          "Companies that prefer conventional office buildings and downtown business services",
+        ],
+      },
+      {
+        district_name: "Little Italy / Columbia",
+        reasons: [
+          "Creative, design, consulting, and smaller professional-service users that want downtown access with more neighborhood texture",
+          "Teams that value restaurants, waterfront proximity, and airport access for clients or executives",
+          "Businesses that want central San Diego visibility without feeling like a traditional CBD tenant",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "More traditional downtown office buildings and civic-core towers.", b: "Smaller downtown-edge office buildings and mixed-use commercial settings." },
+      { label: "Client environment", a: "More formal and business-core oriented.", b: "More hospitality-adjacent and visitor-friendly." },
+      { label: "Commute pattern", a: "Downtown transit, I-5, trolley, and civic-core access.", b: "Downtown edge, waterfront, airport, and I-5 access." },
+      { label: "Tenant fit", a: "Legal, finance, consulting, civic, and client-facing users.", b: "Creative, boutique professional, design, and smaller office users." },
+    ],
+    people_also_compare: [
+      { label: "Downtown San Diego vs Mission Valley", url: "/commercial-real-estate/CA/san-diego/downtown-san-diego-vs-mission-valley/", reason: "Compare downtown identity with central suburban office access." },
+      { label: "Mission Valley vs UTC / University City", url: "/commercial-real-estate/CA/san-diego/mission-valley-vs-utc-university-city/", reason: "Compare central suburban office with North City office context." },
+      { label: "UTC / University City vs Kearny Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-kearny-mesa/", reason: "Compare polished North City office with central office/flex practicality." },
+      { label: "Kearny Mesa vs Miramar", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/", reason: "Compare central office/flex with industrial/flex utility." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "utc-university-city-vs-kearny-mesa",
+    title: "UTC / University City vs Kearny Mesa",
+    short_title: "UTC / University City vs Kearny Mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-kearny-mesa/",
+    district_a_name: "UTC / University City",
+    district_b_name: "Kearny Mesa",
+    district_a_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+    verdict_a:
+      "Choose UTC / University City if polished North City office, medical, UCSD adjacency, and executive-facing environment matter most.",
+    verdict_b:
+      "Choose Kearny Mesa if central access, office/flex formats, service-commercial utility, and practical parking matter more.",
+    comparison_notes: [
+      "UTC / University City is more polished, medical, and high-identity office oriented.",
+      "Kearny Mesa is more functional, central, and flexible for office/showroom/service-commercial users.",
+      "This comparison is useful when a tenant is deciding between image and practicality.",
+    ],
+    why_companies_choose: [
+      {
+        district_name: "UTC / University City",
+        reasons: [
+          "Corporate office, medical office, technology, and professional-service users that want North City identity",
+          "Teams that benefit from UCSD, Torrey Pines, and life-science adjacency",
+          "Client-facing companies that value retail, hotels, and higher-amenity suburban surroundings",
+        ],
+      },
+      {
+        district_name: "Kearny Mesa",
+        reasons: [
+          "Service businesses, office/flex users, contractors, showroom users, and practical regional teams",
+          "Companies that want central San Diego access without UTC pricing or formality",
+          "Tenants that need parking, flexible buildings, and proximity to both north and central San Diego",
+        ],
+      },
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "Polished office, medical office, and life-science-adjacent buildings.", b: "Office/flex, showroom, service-commercial, and lower-rise office buildings." },
+      { label: "Tenant fit", a: "Corporate, medical, professional-service, and life-science-adjacent users.", b: "Service-commercial, office/flex, showroom, contractor, and regional office users." },
+      { label: "Access", a: "North City I-5/I-805 access near UCSD and Torrey Pines.", b: "Central I-805, SR-163, and SR-52 access across San Diego." },
+      { label: "Price positioning", a: "Typically more premium and identity-driven.", b: "Generally more practical and function-oriented." },
+    ],
+    people_also_compare: [
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare polished North City office with R&D/flex context." },
+      { label: "Kearny Mesa vs Miramar", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/", reason: "Compare office/flex with stronger industrial/flex utility." },
+      { label: "Mission Valley vs UTC / University City", url: "/commercial-real-estate/CA/san-diego/mission-valley-vs-utc-university-city/", reason: "Compare central suburban office with North City office." },
+      { label: "Kearny Mesa vs Rancho Bernardo", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-rancho-bernardo/", reason: "Compare central functionality with I-15 business-park access." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "del-mar-heights-vs-utc-university-city",
+    title: "Del Mar Heights / Carmel Valley vs UTC / University City",
+    short_title: "Del Mar Heights vs UTC",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/del-mar-heights-vs-utc-university-city/",
+    district_a_name: "Del Mar Heights / Carmel Valley",
+    district_b_name: "UTC / University City",
+    district_a_path: "/commercial-real-estate/CA/san-diego/del-mar-heights-carmel-valley/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/utc-university-city/",
+    verdict_a:
+      "Choose Del Mar Heights / Carmel Valley if coastal North City professional office, executive access, and a polished smaller-market feel matter most.",
+    verdict_b:
+      "Choose UTC / University City if deeper office, medical, retail, and UCSD-adjacent business context matters more.",
+    comparison_notes: [
+      "Del Mar Heights / Carmel Valley is more coastal, professional-service, and client-facing.",
+      "UTC / University City has broader building depth and stronger medical/life-science adjacency.",
+      "The comparison helps separate polished coastal office fit from larger North City office concentration.",
+    ],
+    decision_qualities: [
+      { label: "Client / executive access", a: "Strong coastal and executive-facing North City setting.", b: "Strong retail, hotel, medical, and UCSD-adjacent access." },
+      { label: "Building inventory", a: "Smaller professional office and suburban office options.", b: "Broader office, medical office, and larger suburban buildings." },
+      { label: "Tenant fit", a: "Finance, consulting, professional services, wellness, and client-facing users.", b: "Corporate office, medical, technology, and life-science-adjacent users." },
+    ],
+    people_also_compare: [
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare office and medical context with R&D/flex geography." },
+      { label: "Carlsbad vs Sorrento Mesa", url: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-sorrento-mesa/", reason: "Compare North County business parks with core North City R&D/flex." },
+      { label: "Sorrento Mesa vs Torrey Pines", url: "/commercial-real-estate/CA/san-diego/sorrento-mesa-vs-torrey-pines/", reason: "Compare R&D/flex with institutional life-science identity." },
+      { label: "UTC / University City vs Kearny Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-kearny-mesa/", reason: "Compare North City office identity with central practicality." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "mira-mesa-vs-sorrento-mesa",
+    title: "Mira Mesa vs Sorrento Mesa",
+    short_title: "Mira Mesa vs Sorrento Mesa",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/mira-mesa-vs-sorrento-mesa/",
+    district_a_name: "Mira Mesa",
+    district_b_name: "Sorrento Mesa",
+    district_a_path: "/commercial-real-estate/CA/san-diego/mira-mesa/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    verdict_a:
+      "Choose Mira Mesa if workforce access, office/flex practicality, and service-commercial functionality matter most.",
+    verdict_b:
+      "Choose Sorrento Mesa if life-science, technology, R&D/flex, and innovation-district identity matter more.",
+    comparison_notes: [
+      "Mira Mesa is more service-commercial and workforce-access oriented.",
+      "Sorrento Mesa is more R&D/flex, life-science, and technology oriented.",
+      "This comparison helps tenants decide whether they need ecosystem signal or practical North City operations.",
+    ],
+    decision_qualities: [
+      { label: "Business ecosystem", a: "Service-commercial, workforce, office/flex, and local operations.", b: "Life science, technology, R&D, and office/flex innovation." },
+      { label: "Building inventory", a: "Light industrial, office/flex, and service-commercial buildings.", b: "R&D/flex, lab-support, technology office, and business-park buildings." },
+      { label: "Growth / expansion fit", a: "Practical for smaller and mid-sized operations.", b: "Stronger for companies needing innovation ecosystem credibility." },
+    ],
+    people_also_compare: [
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare office/medical with R&D/flex context." },
+      { label: "Kearny Mesa vs Miramar", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/", reason: "Compare central office/flex with industrial/flex utility." },
+      { label: "Kearny Mesa vs Rancho Bernardo", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-rancho-bernardo/", reason: "Compare central utility with I-15 business-park access." },
+      { label: "Carlsbad Business Park vs Sorrento Mesa", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-sorrento-mesa/", reason: "Compare North County business-park fit with Sorrento Mesa." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "kearny-mesa-vs-rancho-bernardo",
+    title: "Kearny Mesa vs Rancho Bernardo",
+    short_title: "Kearny Mesa vs Rancho Bernardo",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-rancho-bernardo/",
+    district_a_name: "Kearny Mesa",
+    district_b_name: "Rancho Bernardo",
+    district_a_path: "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+    verdict_a:
+      "Choose Kearny Mesa if central San Diego access, office/flex, showroom, and service-commercial utility are the priority.",
+    verdict_b:
+      "Choose Rancho Bernardo if I-15 business-park access, R&D, engineering, and suburban office/flex context matter more.",
+    comparison_notes: [
+      "Kearny Mesa is more central and service-commercial.",
+      "Rancho Bernardo is more I-15, business-park, and suburban office/R&D oriented.",
+      "The decision often comes down to central customer reach versus northern employee and business-park geography.",
+    ],
+    decision_qualities: [
+      { label: "Commute pattern", a: "Central San Diego reach via I-805, SR-163, and SR-52.", b: "I-15 corridor reach toward Poway, North County, and inland employees." },
+      { label: "Tenant fit", a: "Office/flex, showroom, contractor, service, and regional office users.", b: "R&D, engineering, office/flex, regional operations, and business-park users." },
+      { label: "Building inventory", a: "Mixed low-rise office, showroom, and service-commercial formats.", b: "Suburban business-park office, R&D, and flex buildings." },
+    ],
+    people_also_compare: [
+      { label: "UTC / University City vs Kearny Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-kearny-mesa/", reason: "Compare polished North City office with central practicality." },
+      { label: "Rancho Bernardo vs Poway Business Park", url: "/commercial-real-estate/CA/san-diego/rancho-bernardo-vs-poway-business-park/", reason: "Compare I-15 office/R&D with industrial/flex utility." },
+      { label: "Kearny Mesa vs Miramar", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/", reason: "Compare office/flex with stronger industrial functionality." },
+      { label: "Mira Mesa vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/mira-mesa-vs-sorrento-mesa/", reason: "Compare practical North City operations with R&D/flex ecosystem." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "rancho-bernardo-vs-poway-business-park",
+    title: "Rancho Bernardo vs Poway Business Park",
+    short_title: "Rancho Bernardo vs Poway",
+    city: "San Diego",
+    state_abbr: "CA",
+    city_slug: "san-diego",
+    path: "/commercial-real-estate/CA/san-diego/rancho-bernardo-vs-poway-business-park/",
+    district_a_name: "Rancho Bernardo",
+    district_b_name: "Poway Business Park",
+    district_a_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+    district_b_path: "/commercial-real-estate/CA/poway/poway-business-park/",
+    verdict_a:
+      "Choose Rancho Bernardo if office/R&D, engineering, and I-15 business-park identity matter most.",
+    verdict_b:
+      "Choose Poway Business Park if industrial/flex, manufacturing, contractor, and functional operating space are stronger requirements.",
+    comparison_notes: [
+      "Rancho Bernardo is more office/R&D and business-park oriented.",
+      "Poway Business Park is more industrial/flex, contractor, and manufacturing oriented.",
+      "Both serve inland San Diego, but they solve different building-format needs.",
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "Office, R&D, and business-park flex buildings.", b: "Industrial/flex, warehouse/flex, manufacturing, and contractor-friendly buildings." },
+      { label: "Tenant fit", a: "Engineering, office/R&D, regional operations, and technology support.", b: "Manufacturing, contractors, warehouse/flex, and service-industrial users." },
+      { label: "Operational access", a: "I-15 business-park access with suburban employee reach.", b: "I-15/Poway industrial access with stronger operating utility." },
+    ],
+    people_also_compare: [
+      { label: "Kearny Mesa vs Rancho Bernardo", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-rancho-bernardo/", reason: "Compare central San Diego practicality with I-15 business-park geography." },
+      { label: "Kearny Mesa vs Miramar", url: "/commercial-real-estate/CA/san-diego/kearny-mesa-vs-miramar/", reason: "Compare central office/flex and industrial/flex alternatives." },
+      { label: "Mira Mesa vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/mira-mesa-vs-sorrento-mesa/", reason: "Compare North City service-commercial with R&D/flex context." },
+      { label: "Carlsbad Business Park vs Vista Business Park", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/", reason: "Compare North County business-park identity with industrial/flex utility." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "carlsbad-business-park-vs-sorrento-mesa",
+    title: "Carlsbad Business Park vs Sorrento Mesa",
+    short_title: "Carlsbad Business Park vs Sorrento Mesa",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    city_slug: "carlsbad",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-sorrento-mesa/",
+    district_a_name: "Carlsbad Business Park",
+    district_b_name: "Sorrento Mesa",
+    district_a_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+    district_b_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+    verdict_a:
+      "Choose Carlsbad Business Park if North County labor access, manufacturing/R&D, and coastal business-park identity matter most.",
+    verdict_b:
+      "Choose Sorrento Mesa if central North City life-science, technology, and R&D/flex ecosystem access matter more.",
+    comparison_notes: [
+      "Carlsbad Business Park is more North County and manufacturing/R&D oriented.",
+      "Sorrento Mesa is more central to San Diego's life-science and technology cluster.",
+      "This is a core North County versus North City innovation-corridor decision.",
+    ],
+    decision_qualities: [
+      { label: "Business ecosystem", a: "North County manufacturing, life-science support, office/R&D, and business parks.", b: "Central North City life-science, technology, R&D, and office/flex." },
+      { label: "Commute pattern", a: "I-5, Palomar Airport Road, Highway 78, and North County labor access.", b: "I-805/I-5 access near UTC, Torrey Pines, and Mira Mesa." },
+      { label: "Growth / expansion fit", a: "Useful for companies that want North County operations and business-park formats.", b: "Useful for companies that benefit from innovation-cluster proximity." },
+    ],
+    people_also_compare: [
+      { label: "Carlsbad vs Sorrento Mesa", url: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-sorrento-mesa/", reason: "Compare the broader city-level tradeoff." },
+      { label: "UTC / University City vs Sorrento Mesa", url: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/", reason: "Compare office/medical with R&D/flex context." },
+      { label: "Carlsbad Business Park vs Oceanside Industrial", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/", reason: "Compare North County business-park identity with local industrial utility." },
+      { label: "Carlsbad Business Park vs Vista Business Park", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/", reason: "Compare coastal business-park context with inland industrial/flex." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "carlsbad-business-park-vs-oceanside-industrial",
+    title: "Carlsbad Business Park vs Oceanside Industrial",
+    short_title: "Carlsbad Business Park vs Oceanside Industrial",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    city_slug: "carlsbad",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/",
+    district_a_name: "Carlsbad Business Park",
+    district_b_name: "Oceanside Industrial",
+    district_a_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+    district_b_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+    verdict_a:
+      "Choose Carlsbad Business Park if office/R&D, manufacturing support, and a more polished North County business-park setting matter most.",
+    verdict_b:
+      "Choose Oceanside Industrial if lighter industrial, service-commercial, contractor, or value-oriented North County operations are the priority.",
+    comparison_notes: [
+      "Carlsbad Business Park carries stronger office/R&D and business-park identity.",
+      "Oceanside Industrial is more local, operational, and service-commercial.",
+      "The choice often depends on whether the business needs identity or functionality first.",
+    ],
+    decision_qualities: [
+      { label: "Tenant fit", a: "Office/R&D, manufacturing support, life-science support, and technology operations.", b: "Contractor, light industrial, local operations, service-commercial, and warehouse/flex users." },
+      { label: "Price positioning", a: "More identity-driven and business-park oriented.", b: "Generally more value-oriented and operational." },
+      { label: "Building inventory", a: "Business-park office/R&D and flex buildings.", b: "Industrial/flex and service-commercial buildings along North County corridors." },
+    ],
+    people_also_compare: [
+      { label: "Carlsbad vs Oceanside", url: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-oceanside/", reason: "Compare the broader North County city tradeoff." },
+      { label: "Oceanside Industrial vs Vista Business Park", url: "/commercial-real-estate/CA/oceanside/oceanside-industrial-vs-vista-business-park/", reason: "Compare coastal industrial access with inland industrial depth." },
+      { label: "Carlsbad Business Park vs Vista Business Park", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/", reason: "Compare business-park identity with inland industrial/flex utility." },
+      { label: "Vista vs San Marcos", url: "/commercial-real-estate/CA/vista/vista-vs-san-marcos/", reason: "Compare inland North County industrial/flex with service-office context." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "carlsbad-business-park-vs-vista-business-park",
+    title: "Carlsbad Business Park vs Vista Business Park",
+    short_title: "Carlsbad Business Park vs Vista Business Park",
+    city: "Carlsbad",
+    state_abbr: "CA",
+    city_slug: "carlsbad",
+    path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/",
+    district_a_name: "Carlsbad Business Park",
+    district_b_name: "Vista Business Park",
+    district_a_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+    district_b_path: "/commercial-real-estate/CA/vista/vista-business-park/",
+    verdict_a:
+      "Choose Carlsbad Business Park if coastal North County office/R&D and manufacturing business-park identity matter most.",
+    verdict_b:
+      "Choose Vista Business Park if industrial/flex functionality, contractor access, and practical operating space matter more.",
+    comparison_notes: [
+      "Carlsbad Business Park is more polished and office/R&D oriented.",
+      "Vista Business Park is more operational and industrial/flex oriented.",
+      "This comparison helps companies separate North County identity from building functionality.",
+    ],
+    decision_qualities: [
+      { label: "Building inventory", a: "Business-park office/R&D, manufacturing support, and flex buildings.", b: "Industrial/flex, warehouse, contractor, and office-warehouse buildings." },
+      { label: "Tenant fit", a: "Technology, life-science support, manufacturing support, and office/R&D users.", b: "Contractors, light manufacturing, service-industrial, and warehouse/flex users." },
+      { label: "Growth / expansion fit", a: "Better where client or recruiting identity matters.", b: "Better where operating utility and cost discipline matter." },
+    ],
+    people_also_compare: [
+      { label: "Carlsbad vs Oceanside", url: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-oceanside/", reason: "Compare broader coastal North County alternatives." },
+      { label: "Vista vs San Marcos", url: "/commercial-real-estate/CA/vista/vista-vs-san-marcos/", reason: "Compare inland industrial/flex with service-office context." },
+      { label: "Carlsbad Business Park vs Oceanside Industrial", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/", reason: "Compare business-park identity with coastal industrial utility." },
+      { label: "Oceanside Industrial vs Vista Business Park", url: "/commercial-real-estate/CA/oceanside/oceanside-industrial-vs-vista-business-park/", reason: "Compare two North County industrial/flex choices." },
+    ],
+    lead_prompt: "Find locations that fit",
+  },
+  {
+    slug: "oceanside-industrial-vs-vista-business-park",
+    title: "Oceanside Industrial vs Vista Business Park",
+    short_title: "Oceanside Industrial vs Vista Business Park",
+    city: "Oceanside",
+    state_abbr: "CA",
+    city_slug: "oceanside",
+    path: "/commercial-real-estate/CA/oceanside/oceanside-industrial-vs-vista-business-park/",
+    district_a_name: "Oceanside Industrial",
+    district_b_name: "Vista Business Park",
+    district_a_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+    district_b_path: "/commercial-real-estate/CA/vista/vista-business-park/",
+    verdict_a:
+      "Choose Oceanside Industrial if coastal North County service-commercial access and lighter industrial space fit best.",
+    verdict_b:
+      "Choose Vista Business Park if deeper inland industrial/flex, manufacturing, and contractor utility matter more.",
+    comparison_notes: [
+      "Oceanside Industrial is more coastal and local-service oriented.",
+      "Vista Business Park is more inland, operational, and industrial/flex oriented.",
+      "This is a practical North County industrial/flex decision for service businesses and light operators.",
+    ],
+    decision_qualities: [
+      { label: "Operational access", a: "Coastal North County and Highway 78 access.", b: "Inland Highway 78 industrial/flex access." },
+      { label: "Tenant fit", a: "Local operations, service-commercial, contractors, and light industrial users.", b: "Light manufacturing, warehouse/flex, contractors, and service-industrial users." },
+      { label: "Building inventory", a: "Smaller industrial/flex and service-commercial buildings.", b: "Broader industrial/flex and office-warehouse buildings." },
+    ],
+    people_also_compare: [
+      { label: "Carlsbad Business Park vs Oceanside Industrial", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/", reason: "Compare coastal business-park identity with Oceanside industrial utility." },
+      { label: "Carlsbad Business Park vs Vista Business Park", url: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/", reason: "Compare business-park identity with inland industrial/flex utility." },
+      { label: "Vista vs San Marcos", url: "/commercial-real-estate/CA/vista/vista-vs-san-marcos/", reason: "Compare industrial/flex utility with service-office context." },
+      { label: "Carlsbad vs Oceanside", url: "/commercial-real-estate/CA/carlsbad/carlsbad-vs-oceanside/", reason: "Compare broader North County city-level choices." },
+    ],
+    lead_prompt: "Find locations that fit",
+  }
+);
+
+comparisons.push(
+  {
     slug: "irvine-spectrum-vs-irvine-business-complex",
     title: "Irvine Spectrum vs Irvine Business Complex",
     short_title: "Irvine Spectrum vs Irvine Business Complex",
@@ -6122,6 +6503,26 @@ const metaFocusBySlug = {
     "Vista North County industrial/flex utility versus San Marcos service-office, medical, and light flex context",
   "escondido-vs-san-marcos":
     "Escondido inland North County service-office context versus San Marcos medical, education-adjacent, and light flex market",
+  "downtown-san-diego-vs-little-italy":
+    "Downtown San Diego civic office core versus Little Italy / Columbia downtown-edge mixed-use professional setting",
+  "utc-university-city-vs-kearny-mesa":
+    "UTC / University City polished North City office and medical context versus Kearny Mesa central office/flex practicality",
+  "del-mar-heights-vs-utc-university-city":
+    "Del Mar Heights / Carmel Valley coastal professional office context versus UTC / University City broader North City office market",
+  "mira-mesa-vs-sorrento-mesa":
+    "Mira Mesa North City office/flex and service-commercial practicality versus Sorrento Mesa R&D/flex and life-science geography",
+  "kearny-mesa-vs-rancho-bernardo":
+    "Kearny Mesa central office/flex practicality versus Rancho Bernardo I-15 business-park office and R&D access",
+  "rancho-bernardo-vs-poway-business-park":
+    "Rancho Bernardo I-15 office/R&D business-park context versus Poway Business Park industrial/flex and manufacturing utility",
+  "carlsbad-business-park-vs-sorrento-mesa":
+    "Carlsbad Business Park North County office/R&D context versus Sorrento Mesa central North City life-science and technology R&D/flex geography",
+  "carlsbad-business-park-vs-oceanside-industrial":
+    "Carlsbad Business Park office/R&D identity versus Oceanside Industrial coastal North County light industrial and service-commercial utility",
+  "carlsbad-business-park-vs-vista-business-park":
+    "Carlsbad Business Park coastal North County office/R&D identity versus Vista Business Park inland industrial/flex functionality",
+  "oceanside-industrial-vs-vista-business-park":
+    "Oceanside Industrial coastal North County service-industrial access versus Vista Business Park inland industrial/flex depth",
   "irvine-spectrum-vs-irvine-business-complex":
     "Irvine Spectrum office/R&D and office/flex functionality versus Irvine Business Complex airport-adjacent professional office access",
   "irvine-spectrum-vs-south-coast-metro":

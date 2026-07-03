@@ -2415,6 +2415,410 @@ Object.assign(districts, {
 });
 
 Object.assign(districts, {
+  "/commercial-real-estate/CA/san-diego/east-village/": {
+    primary_archetype: "downtown_edge_mixed_use_office",
+    secondary_archetypes: ["mixed_use_professional_district", "creative_services_office_market"],
+    commercial_thesis:
+      "East Village is a downtown-edge San Diego commercial district for smaller office, creative, hospitality-adjacent, and mixed-use users that want urban access without a traditional CBD feel.",
+    best_fit_businesses: [
+      "Creative, professional-service, nonprofit, hospitality-adjacent, and smaller office users",
+      "Teams that want Downtown San Diego access with a more mixed-use neighborhood setting",
+      "Businesses comparing downtown core identity with Little Italy, Gaslamp, or Mission Valley alternatives",
+    ],
+    poor_fit_businesses: [
+      "Industrial/flex users needing loading, yards, or contractor-friendly buildings",
+      "Large suburban office users prioritizing parking and floorplate efficiency",
+      "Life-science or R&D users needing Sorrento Mesa, UTC, or Torrey Pines context",
+    ],
+    compare_with: [
+      {
+        district_name: "Downtown San Diego",
+        district_path: "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+        reason: "Compare if formal office-core identity matters more than mixed-use downtown edge character.",
+      },
+      {
+        district_name: "Little Italy / Columbia",
+        district_path: "/commercial-real-estate/CA/san-diego/little-italy-columbia/",
+        reason: "Compare if a waterfront and airport-adjacent downtown-edge setting may fit better.",
+      },
+      {
+        district_name: "Mission Valley",
+        district_path: "/commercial-real-estate/CA/san-diego/mission-valley/",
+        reason: "Compare if parking and central freeway access matter more than urban walkability.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "downtown_edge_mixed_use",
+      client_facing_strength: "medium",
+      transit_orientation: "medium",
+      walkability_context: "high",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["creative_services", "professional_services", "nonprofit", "hospitality_support"],
+      commute_pattern: ["downtown_edge", "i5", "trolley", "east_village"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/san-diego/mira-mesa/": {
+    primary_archetype: "central_san_diego_office_flex_market",
+    secondary_archetypes: ["service_commercial_industrial_market", "rd_flex_office_corridor"],
+    commercial_thesis:
+      "Mira Mesa is a North City office/flex, service-commercial, light industrial, and workforce-access district between Sorrento Mesa, Miramar, and the I-15 corridor.",
+    best_fit_businesses: [
+      "Office/flex, service-commercial, contractor, light industrial, and support-office users",
+      "Teams that want North City access without committing fully to Sorrento Mesa or Miramar",
+      "Businesses comparing R&D/flex, warehouse/flex, and customer access across North San Diego",
+    ],
+    poor_fit_businesses: [
+      "Downtown client-facing firms needing civic office identity",
+      "Large life-science users needing Torrey Pines or Sorrento Mesa ecosystem signal",
+      "Border logistics users needing Otay Mesa",
+    ],
+    compare_with: [
+      {
+        district_name: "Sorrento Mesa",
+        district_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        comparison_path: "/commercial-real-estate/CA/san-diego/mira-mesa-vs-sorrento-mesa/",
+        reason: "Compare if R&D/flex and life-science context may matter more.",
+      },
+      {
+        district_name: "Miramar",
+        district_path: "/commercial-real-estate/CA/san-diego/miramar/",
+        reason: "Compare if industrial and warehouse utility matters more.",
+      },
+      {
+        district_name: "Rancho Bernardo",
+        district_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+        reason: "Compare if I-15 business-park and suburban office/flex access may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "north_city_office_flex",
+      client_facing_strength: "low",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["office_flex", "service_business", "contractor", "support_office"],
+      commute_pattern: ["i15", "i805", "mira_mesa", "north_city"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "office_flex_service",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["office_flex", "light_industrial", "service_commercial"],
+      tenant_fit: ["service_businesses", "contractors", "light_operations", "support_office"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/san-diego/rancho-bernardo/": {
+    primary_archetype: "north_county_office_rd_industrial_market",
+    secondary_archetypes: ["advanced_manufacturing_rd_flex_market", "suburban_business_park"],
+    commercial_thesis:
+      "Rancho Bernardo is an I-15 business-park office, R&D, manufacturing-support, and suburban flex district for companies serving northern San Diego and inland North County.",
+    best_fit_businesses: [
+      "Office, R&D, engineering, light manufacturing, and regional operations users",
+      "Companies that want I-15 access and a more suburban business-park setting",
+      "Teams comparing Rancho Bernardo with Poway, Mira Mesa, or North County business parks",
+    ],
+    poor_fit_businesses: [
+      "Downtown client-facing professional-service users",
+      "Retail-first or walkability-dependent businesses",
+      "Border logistics users needing Otay Mesa",
+    ],
+    compare_with: [
+      {
+        district_name: "Poway Business Park",
+        district_path: "/commercial-real-estate/CA/poway/poway-business-park/",
+        comparison_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo-vs-poway-business-park/",
+        reason: "Compare if industrial/flex and manufacturing practicality may matter more than office/R&D context.",
+      },
+      {
+        district_name: "Mira Mesa",
+        district_path: "/commercial-real-estate/CA/san-diego/mira-mesa/",
+        reason: "Compare if North City workforce access and service-commercial context may fit better.",
+      },
+      {
+        district_name: "Carlsbad Business Park",
+        district_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+        reason: "Compare if coastal North County business-park identity may fit better.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "i15_business_park",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "campus",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["office", "rd", "engineering", "regional_operations", "manufacturing_support"],
+      commute_pattern: ["i15", "rancho_bernardo", "poway", "inland_north_county"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "rd_flex_business_park",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["rd_flex", "office_flex", "manufacturing_support", "business_park"],
+      tenant_fit: ["engineering", "manufacturing_support", "regional_operations", "technology_operations"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/": {
+    primary_archetype: "north_county_office_rd_industrial_market",
+    secondary_archetypes: ["advanced_manufacturing_rd_flex_market", "suburban_business_park"],
+    commercial_thesis:
+      "Carlsbad Business Park is the core North County business-park setting for office/R&D, life-science support, manufacturing, and industrial/flex users near Palomar Airport Road.",
+    best_fit_businesses: [
+      "Technology, life-science support, manufacturing, office/R&D, and industrial/flex users",
+      "Companies that want North County labor access and polished business-park formats",
+      "Teams comparing Carlsbad with Sorrento Mesa, Oceanside, Vista, or Rancho Bernardo",
+    ],
+    poor_fit_businesses: [
+      "Downtown San Diego civic or legal office users",
+      "Small storefront users that depend on pedestrian districts",
+      "Border logistics users needing Otay Mesa",
+    ],
+    compare_with: [
+      {
+        district_name: "Sorrento Mesa",
+        district_path: "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+        comparison_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-sorrento-mesa/",
+        reason: "Compare if central North City R&D/flex and life-science ecosystem access may matter more.",
+      },
+      {
+        district_name: "Oceanside Industrial",
+        district_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+        comparison_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/",
+        reason: "Compare if lighter industrial and more value-oriented North County operations may fit better.",
+      },
+      {
+        district_name: "Vista Business Park",
+        district_path: "/commercial-real-estate/CA/vista/vista-business-park/",
+        comparison_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/",
+        reason: "Compare if inland industrial/flex utility matters more than coastal business-park identity.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "north_county_business_park",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "low",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["technology", "life_science_support", "rd", "manufacturing_support", "office"],
+      commute_pattern: ["i5", "palomar_airport", "highway_78", "carlsbad"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "rd_manufacturing_flex",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "medium",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["rd_flex", "manufacturing", "office_warehouse", "business_park"],
+      tenant_fit: ["manufacturing", "life_science_support", "technology_operations", "office_flex"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/carlsbad/bressi-ranch/": {
+    primary_archetype: "north_county_service_office_flex_market",
+    secondary_archetypes: ["medical_office_service_corridor", "suburban_business_park"],
+    commercial_thesis:
+      "Bressi Ranch is a Carlsbad office, medical, local-service, and office/flex district with retail support and access to the broader Palomar Airport business-park corridor.",
+    best_fit_businesses: [
+      "Medical office, professional-service, local-service, wellness, and smaller office/flex users",
+      "Teams that want Carlsbad business-park access with more retail-supported surroundings",
+      "Businesses comparing Bressi Ranch with Carlsbad Business Park or San Marcos",
+    ],
+    poor_fit_businesses: [
+      "Large warehouse users needing heavier industrial formats",
+      "Downtown civic office users",
+      "Life-science users needing Sorrento Mesa or Torrey Pines adjacency",
+    ],
+    compare_with: [
+      {
+        district_name: "Carlsbad Business Park",
+        district_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+        reason: "Compare if deeper office/R&D, manufacturing, and industrial/flex context matters.",
+      },
+      {
+        district_name: "San Marcos",
+        district_path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+        reason: "Compare if Highway 78 medical and education-adjacent service geography may fit better.",
+      },
+      {
+        district_name: "Vista Business Park",
+        district_path: "/commercial-real-estate/CA/vista/vista-business-park/",
+        reason: "Compare if more functional industrial/flex formats matter.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "retail_supported_suburban_office",
+      client_facing_strength: "medium",
+      transit_orientation: "low",
+      walkability_context: "medium",
+      building_scale: "low_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["medical_office", "professional_services", "local_services", "wellness", "office_flex"],
+      commute_pattern: ["carlsbad", "palomar_airport", "highway_78", "north_county"],
+    },
+    confidence_level: "medium",
+    review_status: "generated",
+  },
+  "/commercial-real-estate/CA/oceanside/oceanside-industrial/": {
+    primary_archetype: "north_county_industrial_flex_market",
+    secondary_archetypes: ["service_commercial_industrial_market", "north_county_coastal_service_industrial_market"],
+    commercial_thesis:
+      "Oceanside Industrial is a coastal North County industrial/flex and service-commercial market for contractors, local operations, light manufacturing, and businesses along the Highway 78 corridor.",
+    best_fit_businesses: [
+      "Light industrial, contractor, service-commercial, local operations, and warehouse/flex users",
+      "Businesses serving Oceanside, coastal North County, and Highway 78 customers",
+      "Teams comparing Oceanside with Vista, Carlsbad, or San Marcos for operational space",
+    ],
+    poor_fit_businesses: [
+      "Corporate office/R&D users needing Carlsbad or Sorrento Mesa identity",
+      "Downtown San Diego professional office users",
+      "Large border logistics users needing Otay Mesa",
+    ],
+    compare_with: [
+      {
+        district_name: "Carlsbad Business Park",
+        district_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+        comparison_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-oceanside-industrial/",
+        reason: "Compare if office/R&D and polished business-park identity may fit better.",
+      },
+      {
+        district_name: "Vista Business Park",
+        district_path: "/commercial-real-estate/CA/vista/vista-business-park/",
+        comparison_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial-vs-vista-business-park/",
+        reason: "Compare if inland industrial/flex depth may fit better.",
+      },
+      {
+        district_name: "San Marcos",
+        district_path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+        reason: "Compare if service-office and medical/education context matter more.",
+      },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "light_service_industrial",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "service_commercial", "office_warehouse", "light_industrial"],
+      tenant_fit: ["contractors", "local_operations", "service_businesses", "light_manufacturing"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/vista/vista-business-park/": {
+    primary_archetype: "north_county_industrial_flex_market",
+    secondary_archetypes: ["advanced_manufacturing_rd_flex_market", "service_commercial_industrial_market"],
+    commercial_thesis:
+      "Vista Business Park is a practical inland North County industrial/flex and business-park district for manufacturers, contractors, warehouse/flex users, and service operations.",
+    best_fit_businesses: [
+      "Industrial/flex, light manufacturing, contractor, warehouse/flex, and regional service users",
+      "Companies that prioritize functional buildings over coastal office identity",
+      "Users comparing Vista with Oceanside, Carlsbad, and San Marcos",
+    ],
+    poor_fit_businesses: [
+      "Client-facing coastal office users",
+      "Downtown San Diego professional-service firms",
+      "Life-science users needing Torrey Pines, UTC, or Sorrento Mesa adjacency",
+    ],
+    compare_with: [
+      {
+        district_name: "Carlsbad Business Park",
+        district_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+        comparison_path: "/commercial-real-estate/CA/carlsbad/carlsbad-business-park-vs-vista-business-park/",
+        reason: "Compare if coastal office/R&D and business-park identity may matter more.",
+      },
+      {
+        district_name: "Oceanside Industrial",
+        district_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+        comparison_path: "/commercial-real-estate/CA/oceanside/oceanside-industrial-vs-vista-business-park/",
+        reason: "Compare if coastal North County local-service access matters more.",
+      },
+      {
+        district_name: "San Marcos",
+        district_path: "/commercial-real-estate/CA/san-marcos/san-marcos/",
+        comparison_path: "/commercial-real-estate/CA/vista/vista-vs-san-marcos/",
+        reason: "Compare if medical, education-adjacent, and local-service context may fit better.",
+      },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "industrial_flex",
+      truck_access: "high",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["warehouse", "industrial_flex", "office_warehouse", "service_commercial"],
+      tenant_fit: ["light_manufacturing", "contractors", "service_industrial", "operations"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+  "/commercial-real-estate/CA/poway/poway-business-park/": {
+    primary_archetype: "north_county_industrial_flex_market",
+    secondary_archetypes: ["advanced_manufacturing_rd_flex_market", "suburban_business_park"],
+    commercial_thesis:
+      "Poway Business Park is an I-15 industrial/flex, manufacturing, contractor, and business-park district for companies that need inland San Diego operating space with suburban access.",
+    best_fit_businesses: [
+      "Industrial/flex, manufacturing, contractor, warehouse/flex, and regional operations users",
+      "Companies comparing I-15 corridor functionality with Rancho Bernardo or Miramar",
+      "Businesses that need practical buildings and parking more than coastal or downtown identity",
+    ],
+    poor_fit_businesses: [
+      "Downtown client-facing office users",
+      "Retail-first users dependent on pedestrian districts",
+      "Life-science teams needing UTC, Torrey Pines, or Sorrento Mesa ecosystem context",
+    ],
+    compare_with: [
+      {
+        district_name: "Rancho Bernardo",
+        district_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+        comparison_path: "/commercial-real-estate/CA/san-diego/rancho-bernardo-vs-poway-business-park/",
+        reason: "Compare if office/R&D and business-park identity may matter more.",
+      },
+      {
+        district_name: "Miramar",
+        district_path: "/commercial-real-estate/CA/san-diego/miramar/",
+        reason: "Compare if central/north industrial access matters more.",
+      },
+      {
+        district_name: "Mira Mesa",
+        district_path: "/commercial-real-estate/CA/san-diego/mira-mesa/",
+        reason: "Compare if North City workforce access and mixed office/flex context may fit better.",
+      },
+    ],
+    warehouse_flex_profile: {
+      industrial_orientation: "industrial_flex_business_park",
+      truck_access: "medium",
+      highway_access: "high",
+      port_airport_access: "low",
+      loading_likelihood: "high",
+      yard_parking_likelihood: "medium",
+      building_format: ["industrial_flex", "manufacturing", "office_warehouse", "contractor"],
+      tenant_fit: ["manufacturing", "contractors", "warehouse_flex", "regional_operations"],
+    },
+    confidence_level: "medium",
+    review_status: "researched",
+  },
+});
+
+Object.assign(districts, {
   "/commercial-real-estate/CA/sacramento/downtown-sacramento/": {
     primary_archetype: "sacramento_downtown_office_core",
     secondary_archetypes: ["civic_business_core", "transit_oriented_business_core"],

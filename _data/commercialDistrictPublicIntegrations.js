@@ -689,6 +689,62 @@ Object.assign(integrationsByPath, {
   },
 });
 
+const sanDiegoPhase1IntegrationPaths = [
+  "/commercial-real-estate/CA/san-diego/little-italy-columbia/",
+  "/commercial-real-estate/CA/san-diego/east-village/",
+  "/commercial-real-estate/CA/san-diego/del-mar-heights-carmel-valley/",
+  "/commercial-real-estate/CA/san-diego/mira-mesa/",
+  "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+  "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+  "/commercial-real-estate/CA/carlsbad/bressi-ranch/",
+  "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+  "/commercial-real-estate/CA/vista/vista-business-park/",
+  "/commercial-real-estate/CA/poway/poway-business-park/",
+];
+
+const sanDiegoPhase1IntegrationLabels = {
+  "/commercial-real-estate/CA/san-diego/little-italy-columbia/": "Little Italy / Columbia",
+  "/commercial-real-estate/CA/san-diego/del-mar-heights-carmel-valley/": "Del Mar Heights / Carmel Valley",
+  "/commercial-real-estate/CA/san-diego/rancho-bernardo/": "Rancho Bernardo",
+  "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/": "Carlsbad Business Park",
+  "/commercial-real-estate/CA/oceanside/oceanside-industrial/": "Oceanside Industrial",
+  "/commercial-real-estate/CA/vista/vista-business-park/": "Vista Business Park",
+  "/commercial-real-estate/CA/poway/poway-business-park/": "Poway Business Park",
+};
+
+Object.assign(
+  integrationsByPath,
+  Object.fromEntries(
+    sanDiegoPhase1IntegrationPaths.map((path) => {
+      const model = commercialLocationModel.byPath[path] || {};
+      const name = sanDiegoPhase1IntegrationLabels[path] || path
+        .split("/")
+        .filter(Boolean)
+        .slice(-1)[0]
+        .split("-")
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" ");
+
+      return [
+        path,
+        {
+          eyebrow: "Nearby commercial districts",
+          heading: `Compare ${name} alternatives`,
+          intro:
+            "Use these relationships to understand how this San Diego commercial district fits into nearby office, flex, industrial, and North County location decisions.",
+          districts: (model.compare_with || []).slice(0, 4).map((relationship) => ({
+            name: relationship.district_name,
+            url: relationship.district_path,
+            comparison_path: relationship.comparison_path,
+            relationship_type: relationship.comparison_path ? "Comparison path" : "Nearby alternative",
+            note: relationship.reason,
+          })),
+        },
+      ];
+    })
+  )
+);
+
 Object.assign(integrationsByPath, {
   "/commercial-real-estate/CA/san-jose/north-san-jose/": {
     eyebrow: "Nearby commercial districts",
