@@ -47,6 +47,7 @@
   const profileLayout = root.dataset.profileLayout || "";
   const formStartTime = Date.now();
   const analyticsEndpoint = "/api/analytics/search-profile";
+  const recommendationsUrl = "/recommendations/";
   const analyticsEnabled = submitEnabled && root.dataset.profileContextType !== "test";
   const pageUrl = root.dataset.profilePageUrl || window.location.href;
   const pageType = root.dataset.profileContextType || "search_profile";
@@ -1260,6 +1261,9 @@
       profile.contact.lead_id = result.id || "";
       finishSubmission();
       trackSearchProfileEvent("search_profile_submitted");
+      window.setTimeout(() => {
+        window.location.assign(recommendationsUrl);
+      }, 350);
     }).catch(() => {
       if (submitError) {
         submitError.textContent = "We could not send your profile. Please try again.";
