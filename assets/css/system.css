@@ -2191,9 +2191,9 @@ section.market-page--space-type .market-links a {
 
 .recommendations-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 0.9fr) auto;
   gap: 28px;
-  align-items: end;
+  align-items: center;
   padding: clamp(26px, 5vw, 48px);
   margin: 18px 0 24px;
 }
@@ -2206,10 +2206,10 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-hero h1 {
-  max-width: 12ch;
+  max-width: 13ch;
   margin: 0 0 14px;
-  font-size: clamp(2.35rem, 6vw, 4.75rem);
-  line-height: 0.98;
+  font-size: clamp(2.2rem, 5.4vw, 4.3rem);
+  line-height: 1;
 }
 
 .recommendations-hero .lead {
@@ -2275,7 +2275,7 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-grid--buildings {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .recommendation-card,
@@ -2283,6 +2283,25 @@ section.market-page--space-type .market-links a {
   border: 1px solid #dbe3ee;
   border-radius: 14px;
   background: #fff;
+}
+
+.recommendation-primary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 18px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid #b9cdf0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 56%, #eef5ff 100%);
+  box-shadow: 0 18px 42px rgba(30, 64, 175, 0.12);
+}
+
+.recommendation-primary__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .recommendation-card {
@@ -2295,6 +2314,36 @@ section.market-page--space-type .market-links a {
 .recommendation-card--featured {
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 68%);
   border-color: #c9d9f2;
+}
+
+.recommendation-primary h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.recommendation-advice {
+  margin: 18px 0 0;
+  color: #334155;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.recommendation-note {
+  margin: 16px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid #9bbbf3;
+  color: #526174;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.recommendation-secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .recommendation-card__topline {
@@ -2317,6 +2366,11 @@ section.market-page--space-type .market-links a {
   font-weight: 750;
 }
 
+.recommendation-primary .recommendation-status {
+  background: #1746cc;
+  color: #fff;
+}
+
 .recommendation-rank {
   color: #94a3b8;
   font-size: 0.82rem;
@@ -2324,7 +2378,8 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendation-card h3,
-.recommendation-building-card h3 {
+.recommendation-building-card h3,
+.recommendation-building-card h5 {
   margin: 0;
   color: #0f172a;
   font-size: 1.2rem;
@@ -2393,6 +2448,40 @@ section.market-page--space-type .market-links a {
   padding: 18px;
 }
 
+.recommendation-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #d5e0ee;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 18px;
+}
+
+.recommendation-evidence__header {
+  display: grid;
+  gap: 7px;
+}
+
+.recommendation-evidence h4 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.recommendation-evidence p {
+  margin: 0;
+  color: #526174;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.recommendation-building-list {
+  display: grid;
+  gap: 12px;
+}
+
 .recommendation-building-card span {
   display: block;
   margin-bottom: 10px;
@@ -2402,7 +2491,8 @@ section.market-page--space-type .market-links a {
   text-transform: uppercase;
 }
 
-.recommendation-building-card h3 a {
+.recommendation-building-card h3 a,
+.recommendation-building-card h5 a {
   color: #0f172a;
   text-decoration: none;
 }
@@ -2505,7 +2595,8 @@ section.market-page--space-type .market-links a {
 
 @media (max-width: 940px) {
   .recommendations-hero,
-  .recommendations-cta {
+  .recommendations-cta,
+  .recommendation-primary {
     grid-template-columns: 1fr;
   }
 
@@ -2514,7 +2605,8 @@ section.market-page--space-type .market-links a {
   }
 
   .recommendations-grid--districts,
-  .recommendations-grid--buildings {
+  .recommendations-grid--buildings,
+  .recommendation-secondary-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -2536,6 +2628,7 @@ section.market-page--space-type .market-links a {
 
   .recommendations-grid--districts,
   .recommendations-grid--buildings,
+  .recommendation-secondary-grid,
   .recommendations-cta__panel ul {
     grid-template-columns: 1fr;
   }

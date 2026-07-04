@@ -18,9 +18,9 @@ eleventyComputed:
     <section class="recommendations-hero">
       <div class="recommendations-hero__copy">
         <div class="eyebrow">Location Advisor</div>
-        <h1>Here are the places we'd explore first.</h1>
+        <h1>Here's where we'd begin.</h1>
         <p class="lead">
-          Based on your search, these are the districts and buildings we'd begin investigating.
+          For a San Francisco office search in this size range, we'd start by testing a few districts against how your team will work, commute, and grow.
         </p>
       </div>
 
@@ -33,46 +33,65 @@ eleventyComputed:
 
     <section class="recommendations-section" aria-labelledby="recommended-districts">
       <div class="recommendations-section__header">
-        <div class="kicker">Recommended districts</div>
-        <h2 id="recommended-districts">Recommended starting points</h2>
+        <div class="kicker">Advisor recommendation</div>
+        <h2 id="recommended-districts">Start with the strongest fit, then pressure-test alternatives.</h2>
         <p>
-          These are not live listing results. They are the first commercial districts we would investigate for this profile.
+          These are not live listing results. They are the first commercial districts we would investigate before asking landlords or brokers what is actually available.
         </p>
       </div>
 
-      <div class="recommendations-grid recommendations-grid--districts">
-        <article class="recommendation-card recommendation-card--featured">
+      <article class="recommendation-primary">
+        <div class="recommendation-primary__body">
           <div class="recommendation-card__topline">
-            <span class="recommendation-status">Highly Recommended</span>
+            <span class="recommendation-status">We'd Start Here</span>
             <span class="recommendation-rank">01</span>
           </div>
           <h3>Mission Bay</h3>
-          <p class="recommendation-card__intro">Why we'd start here:</p>
-          <ul class="recommendation-list">
-            <li>Modern office inventory</li>
-            <li>Strong technology and life science ecosystem</li>
-            <li>Good transit access</li>
-            <li>Expansion potential</li>
-          </ul>
+          <p class="recommendation-advice">
+            Mission Bay is where we'd begin because it gives this search the best mix of modern office context, technology and life science adjacency, and room to compare buildings with larger, more current floor plates. It also keeps you close to Caltrain-oriented access while staying connected to SoMa and the downtown core.
+          </p>
+          <p class="recommendation-note">
+            We would not treat Mission Bay as the only answer. We would use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
+          </p>
           <div class="recommendation-actions">
             <a href="/commercial-real-estate/CA/san-francisco/mission-bay/">Explore District</a>
             <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to SoMa</a>
           </div>
-        </article>
+        </div>
 
+        <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered">
+          <div class="recommendation-evidence__header">
+            <div class="kicker">Supporting evidence</div>
+            <h4 id="primary-buildings-considered">Buildings we'd consider first</h4>
+            <p>These are not confirmed availabilities. They are buildings we would investigate to understand the right fit and market context.</p>
+          </div>
+
+          <div class="recommendation-building-list">
+            <article class="recommendation-building-card">
+              <span>Mission Bay</span>
+              <h5><a href="/commercial-real-estate/building/CA/san-francisco/1800-owens-st/">1800 Owens St</a></h5>
+              <p>We'd investigate this building to benchmark modern Mission Bay office options near UCSF and the district's technology and life science ecosystem.</p>
+            </article>
+
+            <article class="recommendation-building-card">
+              <span>Mission Bay</span>
+              <h5><a href="/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/">500 Terry Francois Blvd</a></h5>
+              <p>We'd use this as a waterfront Mission Bay reference point for teams that care about newer office context and nearby transit access.</p>
+            </article>
+          </div>
+        </aside>
+      </article>
+
+      <div class="recommendation-secondary-grid" aria-label="Alternative recommendations">
         <article class="recommendation-card">
           <div class="recommendation-card__topline">
-            <span class="recommendation-status">Strong Starting Point</span>
+            <span class="recommendation-status">Strong Alternative</span>
             <span class="recommendation-rank">02</span>
           </div>
           <h3>SoMa</h3>
-          <p class="recommendation-card__intro">Why we'd include it:</p>
-          <ul class="recommendation-list">
-            <li>Large creative office inventory</li>
-            <li>Startup and technology ecosystem</li>
-            <li>Central access to downtown and Mission Bay</li>
-            <li>Flexible building types</li>
-          </ul>
+          <p class="recommendation-advice">
+            SoMa is the strongest alternative if the search needs more building variety, a more central downtown position, or a creative office feel. We would compare SoMa closely against Mission Bay because it can offer flexible formats while keeping access to downtown, Mission Bay, and transit-oriented corridors.
+          </p>
           <div class="recommendation-actions">
             <a href="/commercial-real-estate/CA/san-francisco/soma/">Explore District</a>
             <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to Mission Bay</a>
@@ -85,13 +104,9 @@ eleventyComputed:
             <span class="recommendation-rank">03</span>
           </div>
           <h3>Financial District</h3>
-          <p class="recommendation-card__intro">Why it may be useful:</p>
-          <ul class="recommendation-list">
-            <li>Traditional Class A office core</li>
-            <li>Strong transit</li>
-            <li>Professional services and headquarters environment</li>
-            <li>Often useful for client-facing businesses</li>
-          </ul>
+          <p class="recommendation-advice">
+            The Financial District is worth exploring if client access, transit, and a more traditional office-core environment matter. It may be less aligned with a newer innovation-campus feel, but it can be a smart benchmark for pricing, commute convenience, and professional-service credibility.
+          </p>
           <div class="recommendation-actions">
             <a href="/commercial-real-estate/CA/san-francisco/financial-district/">Explore District</a>
             <a href="/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/">Compare to SoMa</a>
@@ -102,36 +117,24 @@ eleventyComputed:
 
     <section class="recommendations-section" aria-labelledby="buildings-considered">
       <div class="recommendations-section__header">
-        <div class="kicker">Buildings to investigate</div>
-        <h2 id="buildings-considered">Buildings we'd consider</h2>
+        <div class="kicker">Additional building context</div>
+        <h2 id="buildings-considered">Buildings that help frame the search</h2>
         <p>
-          These are not confirmed availabilities. These are buildings we would investigate first based on your search.
+          After Mission Bay, we would use a few buildings in nearby districts to test whether SoMa or the Financial District should stay in the search.
         </p>
       </div>
 
       <div class="recommendations-grid recommendations-grid--buildings">
         <article class="recommendation-building-card">
-          <span>Mission Bay</span>
-          <h3><a href="/commercial-real-estate/building/CA/san-francisco/1800-owens-st/">1800 Owens St</a></h3>
-          <p>We'd investigate this building because it helps frame modern Mission Bay office options near UCSF and the area's technology and life science ecosystem.</p>
-        </article>
-
-        <article class="recommendation-building-card">
-          <span>Mission Bay</span>
-          <h3><a href="/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/">500 Terry Francois Blvd</a></h3>
-          <p>We'd investigate this building as a waterfront Mission Bay reference point for teams that want newer office context and nearby transit access.</p>
-        </article>
-
-        <article class="recommendation-building-card">
           <span>SoMa</span>
-          <h3><a href="/commercial-real-estate/building/CA/san-francisco/545-folsom-st/">545 Folsom St</a></h3>
-          <p>We'd investigate this building because SoMa can offer more flexible central-city office formats near downtown, Mission Bay, and Caltrain-oriented corridors.</p>
+          <h5><a href="/commercial-real-estate/building/CA/san-francisco/545-folsom-st/">545 Folsom St</a></h5>
+          <p>We'd investigate this building to understand whether a central SoMa office gives enough flexibility and access to compete with Mission Bay.</p>
         </article>
 
         <article class="recommendation-building-card">
           <span>Financial District</span>
-          <h3><a href="/commercial-real-estate/building/CA/san-francisco/50-california-st/">50 California St</a></h3>
-          <p>We'd investigate this building as a traditional downtown office reference for businesses that benefit from transit, clients, and professional-service context.</p>
+          <h5><a href="/commercial-real-estate/building/CA/san-francisco/50-california-st/">50 California St</a></h5>
+          <p>We'd use this as a downtown office reference for teams that want stronger transit, client access, and a more established business address.</p>
         </article>
       </div>
     </section>
@@ -153,11 +156,10 @@ eleventyComputed:
 
     <section class="recommendations-cta" aria-labelledby="market-investigation">
       <div>
-        <div class="kicker">Next step</div>
-        <h2 id="market-investigation">Want us to investigate the live market?</h2>
+        <div class="kicker">Premium next step</div>
+        <h2 id="market-investigation">Save the research time. Let us investigate the market.</h2>
         <p>
-          A local commercial real estate expert can research current availability, asking rents, incentives,
-          subleases, upcoming vacancies, off-market opportunities, and comparable buildings.
+          This prototype shows where we would begin. A Market Investigation turns that direction into a focused research assignment: a local commercial real estate expert checks the live market, verifies what is worth pursuing, and filters out buildings that waste your time.
         </p>
       </div>
 
