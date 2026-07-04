@@ -27,6 +27,8 @@
   data-profile-location-suggestions="{{ (searchProfileContext.location_suggestions or []) | join('||') }}"
   data-profile-default-space-type="{{ searchProfileContext.default_space_type or '' }}"
   data-profile-space-type-context="{{ searchProfileContext.space_type_context_label or '' }}"
+  data-profile-primary-cta="{{ searchProfileContext.primary_cta_label or '' }}"
+  data-profile-contact-cta="{{ searchProfileContext.contact_cta_label or '' }}"
   aria-label="Search profile"
 >
   <div class="search-profile-backdrop" data-profile-close></div>
@@ -147,13 +149,13 @@
 
       <section class="search-profile-contact-step" data-profile-contact hidden>
         <div>
-          <h3>Your building shortlist is almost ready.</h3>
+          <h3>{{ searchProfileContext.contact_heading or "Your building shortlist is almost ready." }}</h3>
         </div>
 
         <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
 
         <div class="search-profile-contact-step__fields">
-          <p class="search-profile-contact-step__field-heading">Where should we send your shortlist?</p>
+          <p class="search-profile-contact-step__field-heading">{{ searchProfileContext.contact_prompt or "Where should we send your shortlist?" }}</p>
 
           <label class="search-profile-contact-step__field" for="search-profile-contact-name">
             <span>Name</span>
@@ -182,15 +184,15 @@
         <p class="search-profile-contact-step__note">No spam • No obligation</p>
 
         <div class="search-profile-contact-step__actions">
-          <button class="btn-primary" type="button" data-profile-contact-submit>Get My Personalized Shortlist</button>
+          <button class="btn-primary" type="button" data-profile-contact-submit>{{ searchProfileContext.contact_cta_label or "Get My Personalized Shortlist" }}</button>
           <button class="search-profile-edit-link" type="button" data-profile-edit>Edit profile</button>
         </div>
       </section>
 
       <section class="search-profile-finished" data-profile-finished hidden>
         <div class="search-profile-finished__intro">
-          <h3>Your building shortlist request has been sent.</h3>
-          <p>We'll use this profile to prepare matching buildings and nearby alternatives.</p>
+          <h3>{{ searchProfileContext.finished_heading or "Your building shortlist request has been sent." }}</h3>
+          <p>{{ searchProfileContext.finished_copy or "We'll use this profile to prepare matching buildings and nearby alternatives." }}</p>
         </div>
 
         <div>

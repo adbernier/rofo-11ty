@@ -16,6 +16,8 @@ const ALLOWED_EVENTS = new Set([
   "search_profile_find_matching_buildings_clicked",
   "search_profile_contact_screen_viewed",
   "search_profile_submitted",
+  "find_locations_page_viewed",
+  "find_locations_primary_cta_clicked",
 ]);
 
 const BOT_USER_AGENT_PATTERN = /googlebot|bingbot|ahrefs|semrush|dotbot|mj12bot|petalbot|facebookexternalhit|twitterbot|slackbot|linkedinbot|yandex|baiduspider|duckduckbot|applebot|gptbot|chatgpt-user|ccbot|bot\b|crawler|spider/i;
@@ -65,7 +67,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     return jsonResponse({ ok: false, error: "Unsupported event" }, 400);
   }
 
-  if (eventName === "search_profile_viewed" && isBotUserAgent(request.headers.get("user-agent"))) {
+  if ((eventName === "search_profile_viewed" || eventName === "find_locations_page_viewed") && isBotUserAgent(request.headers.get("user-agent"))) {
     return jsonResponse({ ok: true, stored: false, reason: "Bot pageview ignored" });
   }
 

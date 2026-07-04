@@ -113,6 +113,18 @@ function metricValue(value) {
   return value === null || value === undefined ? "Not queried" : value;
 }
 
+function renderRecommendationMetricCards(rows) {
+  if (!rows.length) {
+    return `<p class="empty-cell">No Find Locations recommendation events have been recorded yet.</p>`;
+  }
+
+  return `<div class="metrics metrics--compact">${rows.map((row) => `
+    ${metricCard(`${row.days} days views`, metricValue(row.views || 0))}
+    ${metricCard(`${row.days} days CTA clicks`, metricValue(row.clicks || 0))}
+    ${metricCard(`${row.days} days CTR`, percent(row.clicks, row.views), "clicks / views")}
+  `).join("")}</div>`;
+}
+
 function renderEventRows(rows) {
   if (!rows.length) {
     return `<tr><td colspan="6" class="empty-cell">No events yet.</td></tr>`;
@@ -864,6 +876,7 @@ function renderPage({
   topLandingPages = [],
   submissionSources = [],
   growthRecommendations = {},
+  recommendationMetrics = [],
   recentEvents = [],
   recentSubmissions = [],
 }) {
@@ -957,6 +970,11 @@ function renderPage({
       ${metricCard("Contact views", metricValue(funnel.contact_viewed || 0))}
       ${metricCard("Submitted", metricValue(funnel.submitted || 0))}
       ${metricCard("Completion", percent(funnel.submitted, funnel.started), "submitted / started")}
+    </section>
+    <section class="panel">
+      <h2>Recommendations</h2>
+      <p>Early engagement with the Find Locations entry point for the Recommendation Experience.</p>
+      ${renderRecommendationMetricCards(recommendationMetrics)}
     </section>
     <section class="panel">
       <h2>V1 vs V2 Performance</h2>
@@ -1205,9 +1223,33 @@ async function fetchAnalytics(db, options = {}) {
     limit 20
   `, [lookbackStart], errors);
 
+  const recommendationMetricRows = await runAnalyticsQuery(db, "Find Locations recommendation metrics", `
+    select
+      sum(case when created_at >= ? and event_name = 'find_locations_page_viewed' then 1 else 0 end) as views_7,
+      sum(case when created_at >= ? and event_name = 'find_locations_primary_cta_clicked' then 1 else 0 end) as clicks_7,
+      sum(case when event_name = 'find_locations_page_viewed' then 1 else 0 end) as views_30,
+      sum(case when event_name = 'find_locations_primary_cta_clicked' then 1 else 0 end) as clicks_30
+    from search_profile_events
+    where created_at >= ?
+      and event_name in ('find_locations_page_viewed', 'find_locations_primary_cta_clicked')
+  `, [lookbackStartIso(7), lookbackStartIso(7), lookbackStartIso(30)], errors);
+
   const funnel = { viewed: 0, started: 0, find_clicked: 0, contact_viewed: 0, submitted: 0 };
   const stepCounts = {};
   const stepDurations = {};
+  const recommendationMetricRow = recommendationMetricRows[0] || {};
+  const recommendationMetrics = [
+    {
+      days: 7,
+      views: Number(recommendationMetricRow.views_7 || 0),
+      clicks: Number(recommendationMetricRow.clicks_7 || 0),
+    },
+    {
+      days: 30,
+      views: Number(recommendationMetricRow.views_30 || 0),
+      clicks: Number(recommendationMetricRow.clicks_30 || 0),
+    },
+  ];
   for (const row of eventCounts) {
     if (row.event_name === "search_profile_viewed") funnel.viewed = Number(row.count || 0);
     if (row.event_name === "search_profile_started") funnel.started = Number(row.count || 0);
@@ -1480,6 +1522,7 @@ async function fetchAnalytics(db, options = {}) {
     topSizes,
     topLandingPages,
     submissionSources,
+    recommendationMetrics,
     topViewedPages: topViewedPagesFromRows(viewedRows),
   };
 
@@ -1535,6 +1578,7 @@ export async function onRequestGet({ request, env, waitUntil }) {
       pageTypes: [],
       startRatesByPageType: [],
       topSearches: [],
+      recommendationMetrics: [],
       recentEvents: [],
       recentSubmissions: [],
     }), 200);

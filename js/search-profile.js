@@ -42,6 +42,8 @@
   const contextLabel = root.dataset.profileContextLabel || "";
   const locationSuggestionLabels = parseSuggestionLabels(root.dataset.profileLocationSuggestions || "");
   const defaultSpaceType = root.dataset.profileDefaultSpaceType || "";
+  const primaryCtaLabel = root.dataset.profilePrimaryCta || "See Matching Buildings";
+  const contactCtaLabel = root.dataset.profileContactCta || "Get My Personalized Shortlist";
   const submitEnabled = root.dataset.profileSubmitEnabled === "true";
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
@@ -1066,7 +1068,7 @@
     prevButton.hidden = true;
     resetButton.hidden = completedCount() === 0;
     nextButton.hidden = false;
-    nextButton.textContent = "See Matching Buildings";
+    nextButton.textContent = primaryCtaLabel;
     progressBar.style.width = "50%";
   }
 
@@ -1271,7 +1273,7 @@
       }
     }).finally(() => {
       contactSubmitButton.disabled = false;
-      contactSubmitButton.textContent = "Get My Personalized Shortlist";
+      contactSubmitButton.textContent = contactCtaLabel;
     });
   });
 

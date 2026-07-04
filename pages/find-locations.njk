@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 permalink: /find-locations/
-title: Get a personalized building shortlist | Rofo
-description: Get recommended buildings, nearby locations, and alternatives that fit your search.
+title: Find the Right Location for Your Business | Rofo
+description: Rofo helps businesses make better commercial location decisions with recommendations, tradeoffs, and local market guidance.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/find-locations/"
 ---
@@ -12,16 +12,16 @@ eleventyComputed:
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
-      <span>Personalized shortlist</span>
+      <span>Find the Right Location</span>
     </div>
 
     <div class="city-hero city-hero--district-identity">
       <div class="city-card">
         <div class="city-hero-copy">
-          <div class="eyebrow">Location profile</div>
-          <h1>Get a personalized building shortlist</h1>
+          <div class="eyebrow">Location Advisor</div>
+          <h1>Find the Right Location for Your Business</h1>
           <p class="lead">
-            We'll recommend buildings, nearby locations, and alternatives that fit.
+            Rofo helps businesses make better commercial location decisions. We'll recommend where to begin, explain the tradeoffs, and connect you with a local expert when you're ready to investigate the live market.
           </p>
         </div>
       </div>
@@ -38,7 +38,14 @@ eleventyComputed:
         "street": "",
         "state": "",
         "context_type": "find_locations",
-        "context_label": "Get a personalized building shortlist",
+        "context_label": "Find the Right Location",
+        "card_headline": "Find My Best Locations",
+        "primary_cta_label": "See My Recommendations",
+        "contact_heading": "Your recommendations are almost ready.",
+        "contact_prompt": "Where should we send your recommendations?",
+        "contact_cta_label": "Get My Recommendations",
+        "finished_heading": "Your recommendation request has been sent.",
+        "finished_copy": "We'll use this profile to prepare location guidance and nearby alternatives.",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
         "routing_market": "",
@@ -56,3 +63,80 @@ eleventyComputed:
 </section>
 
 <script src="/js/search-profile.js" defer></script>
+<script>
+  (() => {
+    const endpoint = "/api/analytics/search-profile";
+    const profileVersion = "V2.1";
+    const pageType = "find_locations";
+    const pageUrl = window.location.href;
+    const sessionKey = "rofo_recommendation_session_id";
+    const viewedKey = "rofo_find_locations_page_viewed";
+
+    function sessionId() {
+      try {
+        let id = window.sessionStorage.getItem(sessionKey);
+        if (!id) {
+          id = (window.crypto && window.crypto.randomUUID)
+            ? window.crypto.randomUUID()
+            : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+          window.sessionStorage.setItem(sessionKey, id);
+        }
+        return id;
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function track(eventName) {
+      const payload = {
+        event_name: eventName,
+        profile_version: profileVersion,
+        context: {
+          page_type: pageType,
+          page_url: pageUrl,
+          location_display: "Find the Right Location",
+          device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
+        },
+        profile: {
+          profile_version: profileVersion,
+        },
+        attribution: {
+          referrer: document.referrer || "",
+          landing_page: pageUrl,
+          entry_page_type: pageType,
+          session_id: sessionId(),
+        },
+      };
+
+      try {
+        const body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+          const blob = new Blob([body], { type: "application/json" });
+          if (navigator.sendBeacon(endpoint, blob)) return;
+        }
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body,
+          credentials: "same-origin",
+          keepalive: true,
+        }).catch(() => {});
+      } catch (error) {}
+    }
+
+    try {
+      if (!window.sessionStorage.getItem(viewedKey)) {
+        window.sessionStorage.setItem(viewedKey, "1");
+        track("find_locations_page_viewed");
+      }
+    } catch (error) {
+      track("find_locations_page_viewed");
+    }
+
+    document.addEventListener("click", (event) => {
+      const button = event.target && event.target.closest("[data-profile-next]");
+      if (!button) return;
+      track("find_locations_primary_cta_clicked");
+    }, { capture: true });
+  })();
+</script>
