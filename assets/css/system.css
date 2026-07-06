@@ -6940,6 +6940,7 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-other {
+  position: relative;
   display: grid;
   gap: 6px;
   margin-top: 8px;
@@ -6950,6 +6951,56 @@ section.market-page--space-type .market-links a {
   color: #475569;
   font-size: 0.78rem;
   font-weight: 750;
+}
+
+.search-profile-location-results {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+.search-profile-location-result {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid #eef2f7;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-profile-location-result:last-child {
+  border-bottom: 0;
+}
+
+.search-profile-location-result:hover,
+.search-profile-location-result:focus {
+  background: #f8fbff;
+  outline: none;
+}
+
+.search-profile-location-result span {
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.search-profile-location-result small {
+  color: #64748b;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.2;
 }
 
 .search-profile-actions {

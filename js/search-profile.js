@@ -53,6 +53,10 @@
   const analyticsEnabled = submitEnabled && root.dataset.profileContextType !== "test";
   const pageUrl = root.dataset.profilePageUrl || window.location.href;
   const pageType = root.dataset.profileContextType || "search_profile";
+  const LOCATION_SEARCH_ENDPOINT = "/data/location-search.json";
+  let locationSearchItems = null;
+  let locationSearchPromise = null;
+  let locationAutocompleteResults = null;
 
   const PROFILE_VERSION = "V2";
   const nonLocationLabels = new Set([
@@ -187,6 +191,137 @@
     const existing = Array.isArray(values) ? values.filter(Boolean) : [];
     if (!cleanValue) return existing.slice(-limit);
     return [...existing.filter((item) => item !== cleanValue), cleanValue].slice(-limit);
+  }
+
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, (match) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    })[match]);
+  }
+
+  function locationMeta(item) {
+    return [item.city, item.state, item.type === "district" ? "district" : "city"]
+      .filter(Boolean)
+      .join(" • ");
+  }
+
+  function ensureLocationAutocompleteResults() {
+    if (!locationOtherInput || locationAutocompleteResults) return locationAutocompleteResults;
+    locationAutocompleteResults = document.createElement("div");
+    locationAutocompleteResults.className = "search-profile-location-results";
+    locationAutocompleteResults.setAttribute("role", "listbox");
+    locationAutocompleteResults.hidden = true;
+    locationOtherInput.setAttribute("autocomplete", "off");
+    locationOtherInput.setAttribute("aria-autocomplete", "list");
+    locationOtherInput.parentNode.insertBefore(locationAutocompleteResults, locationOtherInput.nextSibling);
+    return locationAutocompleteResults;
+  }
+
+  async function loadLocationSearchItems() {
+    if (locationSearchItems) return locationSearchItems;
+    if (!locationSearchPromise) {
+      locationSearchPromise = fetch(LOCATION_SEARCH_ENDPOINT, { cache: "force-cache" })
+        .then((response) => {
+          if (!response.ok) throw new Error(`Failed to load ${LOCATION_SEARCH_ENDPOINT}: ${response.status}`);
+          return response.json();
+        })
+        .then((items) => {
+          locationSearchItems = Array.isArray(items) ? items : [];
+          return locationSearchItems;
+        })
+        .catch((error) => {
+          console.error("Search Profile location search failed to load:", error);
+          locationSearchPromise = null;
+          return [];
+        });
+    }
+    return locationSearchPromise;
+  }
+
+  function hideLocationAutocomplete() {
+    if (!locationAutocompleteResults) return;
+    locationAutocompleteResults.hidden = true;
+    locationAutocompleteResults.innerHTML = "";
+  }
+
+  function selectLocationSuggestion(item) {
+    if (!item || !item.label) return;
+    trackStarted();
+    profile.skipped = false;
+    profile.contact.submitted = false;
+    viewMode = "edit";
+    locationOptionsExpanded = true;
+    const label = cleanLocationLabel(item.label);
+    if (!locationSuggestionLabels.some((existing) => locationKey(existing) === locationKey(label))) {
+      locationSuggestionLabels.push(label);
+    }
+    const selections = new Set(Array.isArray(profile.locationSelections) ? profile.locationSelections : []);
+    selections.delete("Other");
+    selections.add(label);
+    profile.locationSelections = [...selections];
+    profile.locationOther = "";
+    if (locationOtherInput) locationOtherInput.value = "";
+    updateLocationFromSelections();
+    profile.location = {
+      ...normalizeLocation(profile.location),
+      city: item.type === "city" ? label : item.city || profile.location.city || null,
+      district: item.type === "district" ? label : profile.location.district || null,
+      state: item.state || profile.location.state || contextState || null,
+      raw: profile.location.display || label,
+    };
+    saveProfile();
+    hideLocationAutocomplete();
+    if (stepError) stepError.hidden = true;
+    if (meaningfulValue("targetArea")) trackStepCompleted("location");
+    render();
+  }
+
+  async function renderLocationAutocomplete(query) {
+    const resultsBox = ensureLocationAutocompleteResults();
+    if (!resultsBox) return;
+    const q = String(query || "").trim().toLowerCase();
+    if (q.length < 2) {
+      hideLocationAutocomplete();
+      return;
+    }
+    const items = await loadLocationSearchItems();
+    const selectedKeys = new Set((profile.locationSelections || []).map(locationKey));
+    const matches = items
+      .filter((item) => {
+        const search = String(item.search || item.label || "").toLowerCase();
+        return search.includes(q) && !selectedKeys.has(locationKey(item.label));
+      })
+      .sort((a, b) => {
+        const aLabel = String(a.label || "").toLowerCase();
+        const bLabel = String(b.label || "").toLowerCase();
+        const aStarts = aLabel.startsWith(q) ? 0 : 1;
+        const bStarts = bLabel.startsWith(q) ? 0 : 1;
+        if (aStarts !== bStarts) return aStarts - bStarts;
+        if (a.type !== b.type) return a.type === "city" ? -1 : 1;
+        return 0;
+      })
+      .slice(0, 8);
+
+    if (!matches.length) {
+      hideLocationAutocomplete();
+      return;
+    }
+
+    resultsBox.innerHTML = matches.map((item, index) => `
+      <button class="search-profile-location-result" type="button" role="option" data-location-result-index="${index}">
+        <span>${escapeHtml(item.label)}</span>
+        <small>${escapeHtml(locationMeta(item))}</small>
+      </button>
+    `).join("");
+    resultsBox.hidden = false;
+    resultsBox.querySelectorAll("[data-location-result-index]").forEach((button) => {
+      const item = matches[Number(button.dataset.locationResultIndex)];
+      button.addEventListener("click", () => selectLocationSuggestion(item));
+    });
   }
 
   function profilePageContext() {
@@ -1160,6 +1295,7 @@
       if (!Array.isArray(profile.locationSelections)) profile.locationSelections = locationOptionLabel() ? [locationOptionLabel()] : [];
       if (!profile.locationSelections.includes("Other")) profile.locationSelections.push("Other");
       updateLocationFromSelections();
+      renderLocationAutocomplete(event.target.value);
     } else if (key === "targetArea") {
       updateLocationDisplay(event.target.value);
     } else {
@@ -1171,6 +1307,25 @@
     renderSummary();
     renderPreview();
     renderFinishedSummary();
+  });
+
+  if (locationOtherInput) {
+    locationOtherInput.addEventListener("focus", () => {
+      renderLocationAutocomplete(locationOtherInput.value);
+    });
+
+    locationOtherInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      if (!locationAutocompleteResults || locationAutocompleteResults.hidden) return;
+      const firstResult = locationAutocompleteResults.querySelector("[data-location-result-index]");
+      if (!firstResult) return;
+      event.preventDefault();
+      firstResult.click();
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!root.contains(event.target)) hideLocationAutocomplete();
   });
 
   toggleControls.forEach((control) => {
