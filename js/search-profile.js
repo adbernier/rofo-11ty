@@ -55,6 +55,14 @@
   const pageType = root.dataset.profileContextType || "search_profile";
 
   const PROFILE_VERSION = "V2";
+  const nonLocationLabels = new Set([
+    "find the right location",
+    "location profile",
+    "get recommendations",
+    "get location recommendations that fit",
+    "find my best locations",
+    "see my recommendations",
+  ]);
   const officeSizeOptions = ["Under 2,500 sqft", "2,500-5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
   const defaultSizeOptions = ["Under 5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
   const spaceTypeOptions = [
@@ -141,6 +149,11 @@
       .replace(new RegExp(`,\\s*${contextState}$`, "i"), "")
       .replace(/,\s*(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|washington|west virginia|wisconsin|wyoming)$/i, "")
       .trim();
+  }
+
+  function isNonLocationLabel(value) {
+    const key = locationKey(value);
+    return !key || nonLocationLabels.has(key);
   }
 
   function safeSessionGet(key) {
@@ -303,7 +316,7 @@
 
   function locationOptionLabel() {
     if (contextType === "city" || contextType === "space_type") return cleanLocationLabel(contextCity || contextTargetArea);
-    return cleanLocationLabel(contextDistrict || contextCity || contextTargetArea || contextLabel || "Current location");
+    return cleanLocationLabel(contextDistrict || contextCity || contextTargetArea);
   }
 
   function uniqueLabels(labels) {
@@ -359,18 +372,18 @@
     const options = uniqueLabels([
       locationOptionLabel(),
       ...locationSuggestionLabels,
-    ]).slice(0, 6);
+    ].filter((label) => !isNonLocationLabel(label))).slice(0, 6);
     return [...options, "Other"];
   }
 
   function normalizeLocationSelections(value, fallbackLocation) {
     if (Array.isArray(value)) {
-      return uniqueLabels(value.map((item) => typeof item === "string" ? item : item && item.label));
+      return uniqueLabels(value.map((item) => typeof item === "string" ? item : item && item.label).filter((label) => !isNonLocationLabel(label)));
     }
     const fallbackLabel = fallbackLocation && fallbackLocation.display === contextLocation().display
       ? locationOptionLabel()
       : fallbackLocation && fallbackLocation.display;
-    return uniqueLabels([fallbackLabel || locationOptionLabel()]);
+    return uniqueLabels([fallbackLabel || locationOptionLabel()].filter((label) => !isNonLocationLabel(label)));
   }
 
   function selectedLocationLabels(targetProfile = profile) {
@@ -433,7 +446,7 @@
     priorities: [],
     features: [],
     featureOther: "",
-    locationSelections: [locationOptionLabel()],
+    locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
     locationOther: "",
     location: contextLocation(),
     contact: {
@@ -471,7 +484,7 @@
       };
       merged.locationSelections = normalizeLocationSelections(stored.locationSelections, merged.location);
       const currentLabel = locationOptionLabel();
-      if (!merged.locationSelections.some((label) => label.toLowerCase() === currentLabel.toLowerCase())) {
+      if (currentLabel && !merged.locationSelections.some((label) => label.toLowerCase() === currentLabel.toLowerCase())) {
         merged.locationSelections.unshift(currentLabel);
       }
       merged.locationOther = stored.locationOther || "";
@@ -494,7 +507,7 @@
       return {
         ...defaultProfile,
         location: contextLocation(),
-        locationSelections: [locationOptionLabel()],
+        locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
         locationOther: "",
         targetArea: contextLocation().display,
         sourceContext: { ...defaultProfile.sourceContext },
@@ -938,7 +951,7 @@
     const options = locationOptions();
     const visibleOptions = locationOptionsExpanded
       ? options
-      : options.filter((option) => option !== "Other" && (selected.has(option) || locationKey(option) === locationKey(currentLabel)));
+      : options.filter((option) => option !== "Other" && (selected.has(option) || (currentLabel && locationKey(option) === locationKey(currentLabel))));
 
     visibleOptions.forEach((option) => {
       const button = document.createElement("button");
@@ -1135,7 +1148,7 @@
     profile.contact.submitted = false;
     if (isLocationOther) {
       profile.locationOther = event.target.value;
-      if (!Array.isArray(profile.locationSelections)) profile.locationSelections = [locationOptionLabel()];
+      if (!Array.isArray(profile.locationSelections)) profile.locationSelections = locationOptionLabel() ? [locationOptionLabel()] : [];
       if (!profile.locationSelections.includes("Other")) profile.locationSelections.push("Other");
       updateLocationFromSelections();
     } else if (key === "targetArea") {
@@ -1195,7 +1208,7 @@
       ...defaultProfile,
       location: contextLocation(),
       targetArea: contextLocation().display,
-      locationSelections: [locationOptionLabel()],
+      locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
       locationOther: "",
       sourceContext: { ...defaultProfile.sourceContext },
       contact: { ...defaultProfile.contact },

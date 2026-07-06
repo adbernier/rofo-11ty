@@ -46,6 +46,7 @@ eleventyComputed:
         "contact_cta_label": "Get My Recommendations",
         "finished_heading": "Your recommendation request has been sent.",
         "finished_copy": "We'll use this profile to prepare location guidance and nearby alternatives.",
+        "location_helper": "Tell us where you're considering. You can select more than one area.",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
         "routing_market": "",
@@ -94,7 +95,7 @@ eleventyComputed:
         context: {
           page_type: pageType,
           page_url: pageUrl,
-          location_display: "Find the Right Location",
+          location_display: "Location Profile",
           device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
         },
         profile: {

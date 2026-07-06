@@ -80,6 +80,7 @@
             <p class="search-profile-fieldset__context">{{ searchProfileContext.space_type_context_label }}</p>
           {% endif %}
           <legend>Location</legend>
+          <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Tell us where you're considering. You can select more than one area." }}</p>
           <div class="search-profile-options search-profile-options--multi search-profile-location-options" data-profile-location-options></div>
           <div class="search-profile-other" data-profile-location-other hidden>
             <label for="search-profile-target-area">Other location</label>
