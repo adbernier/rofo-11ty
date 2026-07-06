@@ -1195,6 +1195,57 @@ body.mobile-menu-open .mobile-menu {
     border-color: #bdd0ff;
 }
 
+.founder-note {
+    background: #ffffff;
+    border: 1px solid #d8e0ea;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    padding: clamp(26px, 4vw, 44px);
+}
+
+.founder-note .kicker {
+    margin-bottom: 18px;
+}
+
+.founder-note__body {
+    max-width: 820px;
+    color: #29364a;
+    font-size: 18px;
+    line-height: 1.78;
+}
+
+.founder-note__body p {
+    margin: 0 0 18px;
+}
+
+.founder-note__body p:last-child {
+    margin-bottom: 0;
+}
+
+.founder-note__body strong {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.founder-note__signature {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 4px;
+}
+
+.founder-note__signature strong {
+    color: #0f172a;
+    font-size: 18px;
+}
+
+.founder-note__signature span {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .homepage-recommendation-cta {
     padding-top: 0;
 }
@@ -1347,6 +1398,11 @@ body.mobile-menu-open .mobile-menu {
 
     .product-comparison {
         padding: 20px;
+    }
+
+    .founder-note__body {
+        font-size: 16px;
+        line-height: 1.7;
     }
 
     .homepage-recommendation-cta__panel {
