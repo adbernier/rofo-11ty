@@ -62,6 +62,8 @@
     "get location recommendations that fit",
     "find my best locations",
     "see my recommendations",
+    "location advisor",
+    "location strategy",
   ]);
   const officeSizeOptions = ["Under 2,500 sqft", "2,500-5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
   const defaultSizeOptions = ["Under 5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
@@ -952,6 +954,13 @@
     const visibleOptions = locationOptionsExpanded
       ? options
       : options.filter((option) => option !== "Other" && (selected.has(option) || (currentLabel && locationKey(option) === locationKey(currentLabel))));
+
+    if (!visibleOptions.length && !locationOptionsExpanded) {
+      const emptyState = document.createElement("p");
+      emptyState.className = "search-profile-location-empty";
+      emptyState.textContent = "Where are you considering?";
+      locationOptionsContainer.appendChild(emptyState);
+    }
 
     visibleOptions.forEach((option) => {
       const button = document.createElement("button");
