@@ -143,149 +143,38 @@ description: Personalized recommendations for office, retail, and industrial com
   </div>
 </section>
 
-<section class="section" id="contact">
-  <div class="container split-band">
-
-    <!-- ✅ UPDATED LEFT PANEL -->
-    <div class="cta-band">
-      <div class="kicker" style="color:#d9e6ff;">Get Help</div>
-      <h2 style="margin:10px 0 12px;">Tell us what you need</h2>
-
-      <p class="cta-band__lead">
-        Help us understand your space, timing, and priorities—we’ll point you in the right direction.
-      </p>
-
-      <div class="cta-band__prompts">
-        <div class="cta-band__prompt">
-          <strong>Type of space</strong>
-          <span>Office, retail, industrial, flex, or coworking</span>
-        </div>
-
-        <div class="cta-band__prompt">
-          <strong>Size or team</strong>
-          <span>A rough range or headcount is enough</span>
-        </div>
-
-        <div class="cta-band__prompt">
-          <strong>Location</strong>
-          <span>Your target area or nearby options</span>
-        </div>
-
-        <div class="cta-band__prompt">
-          <strong>Timeline</strong>
-          <span>Now, soon, or just exploring</span>
+<section class="section homepage-recommendation-cta" id="recommendations">
+  <div class="container">
+    <div class="homepage-recommendation-cta__panel">
+      <div class="homepage-recommendation-cta__content">
+        <div class="kicker">Location recommendations</div>
+        <h2>Get location recommendations before you search</h2>
+        <p>
+          Tell us about your business, timing, and priorities. Rofo will help narrow the markets and spaces that fit.
+        </p>
+        <div class="homepage-recommendation-cta__actions">
+          <a class="btn btn-primary" href="/find-locations/">Get Recommendations</a>
+          <a class="btn btn-secondary" href="/commercial-real-estate/">Browse Markets</a>
         </div>
       </div>
 
-      <div class="cta-band__footer">
-        You don’t need all the answers—we’ll help you figure it out.
+      <div class="homepage-recommendation-cta__cards">
+        <article>
+          <span>01</span>
+          <h3>Tell us what you need</h3>
+          <p>Share the basics: location, space type, size, timing, and priorities.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Compare markets that fit</h3>
+          <p>Review recommended districts, nearby alternatives, and location tradeoffs.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Explore office, retail, and industrial options</h3>
+          <p>Use recommendations to focus the search before investigating specific spaces.</p>
+        </article>
       </div>
     </div>
-
-    <!-- FORM (unchanged) -->
-    <div class="form-card">
-      <div class="eyebrow">Get Help</div>
-      <h2>Find the right space for your business</h2>
-      <p>Tell us what you need — we’ll follow up with a few spaces that fit.</p>
-
-      <form action="/api/leads/submit" method="POST">
-  <input type="hidden" name="source" value="rofo-homepage">
-  <input type="hidden" name="page_type" value="homepage">
-  <input type="hidden" name="page_url" value="{{ metadata.siteUrl }}{{ page.url }}">
-  <input type="hidden" name="rofo_source" value="{{ metadata.siteUrl }}{{ page.url }}">
-  <input type="hidden" name="routing_market" value="">
-  <input type="hidden" name="routing_county" value="">
-  <input type="hidden" name="routing_space_type" value="">
-  <input type="hidden" name="routing_candidates" value="rofo-default">
-  <input type="text" name="company_website" style="display:none;">
-  <input type="hidden" name="form_start_time" value="">
-  <script>
-    document.currentScript.previousElementSibling.value = Date.now();
-  </script>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Name</label>
-      <input name="name" type="text" placeholder="Your name" required>
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Email</label>
-      <input name="email" type="email" placeholder="you@example.com" required>
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Phone</label>
-      <input name="phone" type="tel" placeholder="Your phone number" required>
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Where are you looking?</label>
-      <input
-        name="location"
-        type="text"
-        placeholder="City, State (e.g. San Francisco, CA)"
-        required
-      >
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>What type of space do you need?</label>
-      <select name="space_type" required>
-        <option value="">Select one</option>
-        <option>Office Space</option>
-        <option>Retail Space</option>
-        <option>Industrial Space</option>
-        <option>Coworking Space</option>
-        <option>Flex Space</option>
-        <option>Not Sure</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Space size</label>
-      <select name="space_needed" required>
-        <option value="">Select one</option>
-        <option>Under 1,000 sqft</option>
-        <option>1,000–2,500 sqft</option>
-        <option>2,500–5,000 sqft</option>
-        <option>5,000–10,000 sqft</option>
-        <option>10,000+ sqft</option>
-        <option>Not Sure</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-stack">
-    <div class="field">
-      <label>Other requirements for your space <span class="optional">(optional)</span></label>
-      <textarea name="notes" placeholder="Example: 2–4 person office, move in May, flexible budget"></textarea>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <label class="checkbox">
-      <input type="checkbox" name="human_check" required>
-      I’m a real person looking for space
-    </label>
-    <button class="btn btn-primary" type="submit">Get Help Finding Space</button>
-
-    <div class="form-note">
-      No spam. Just helpful options to get you started.
-    </div>
-  </div>
-</form>
-    </div>
-
   </div>
 </section>

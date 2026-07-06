@@ -1195,6 +1195,85 @@ body.mobile-menu-open .mobile-menu {
     border-color: #bdd0ff;
 }
 
+.homepage-recommendation-cta {
+    padding-top: 0;
+}
+
+.homepage-recommendation-cta__panel {
+    background: linear-gradient(135deg,#ffffff 0%,#f5f8ff 100%);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.homepage-recommendation-cta__content h2 {
+    margin: 10px 0 12px;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: -.065em;
+}
+
+.homepage-recommendation-cta__content p {
+    color: #4b5b70;
+    line-height: 1.65;
+    font-size: 17px;
+    margin: 0;
+    max-width: 620px;
+}
+
+.homepage-recommendation-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.homepage-recommendation-cta__cards {
+    display: grid;
+    gap: 12px;
+}
+
+.homepage-recommendation-cta__cards article {
+    background: rgba(255,255,255,.86);
+    border: 1px solid #d9e3f2;
+    border-radius: 18px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: start;
+}
+
+.homepage-recommendation-cta__cards span {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    background: #e8f0ff;
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.homepage-recommendation-cta__cards h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    letter-spacing: -.025em;
+}
+
+.homepage-recommendation-cta__cards p {
+    margin: 0;
+    color: #536277;
+    line-height: 1.5;
+    grid-column: 2;
+}
+
 /* ------------------------------
    Responsive adjustments
 ------------------------------ */
@@ -1215,6 +1294,10 @@ body.mobile-menu-open .mobile-menu {
 
     .product-story__hero h1 {
         max-width: 16ch;
+    }
+
+    .homepage-recommendation-cta__panel {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1264,6 +1347,20 @@ body.mobile-menu-open .mobile-menu {
 
     .product-comparison {
         padding: 20px;
+    }
+
+    .homepage-recommendation-cta__panel {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .homepage-recommendation-cta__cards article {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .homepage-recommendation-cta__cards p {
+        grid-column: auto;
     }
 }
 
