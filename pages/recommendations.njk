@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 permalink: /recommendations/
-title: Recommended districts and buildings | Rofo
-description: Review recommended starting points, buildings to investigate, nearby alternatives, and next steps for a commercial real estate search.
+title: Location Strategy | Rofo
+description: Review Rofo's first-pass location strategy, recommendation confidence, supporting buildings, nearby alternatives, and next steps.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/recommendations/"
 ---
@@ -12,12 +12,12 @@ eleventyComputed:
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
-      <span>Recommendations</span>
+      <span>Location Strategy</span>
     </div>
 
     <section class="recommendations-hero">
       <div class="recommendations-hero__copy">
-        <div class="eyebrow">Location Advisor</div>
+        <div class="eyebrow">LOCATION ADVISOR</div>
         <h1>Here's where we'd begin.</h1>
         <p class="lead">
           For a San Francisco office search in this size range, we'd start by testing a few districts against how your team will work, commute, and grow.
@@ -40,19 +40,49 @@ eleventyComputed:
         </p>
       </div>
 
+      <p class="recommendation-strategy">
+        Based on your search, we'd begin with Mission Bay because it offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility. We'd then pressure-test SoMa and the Financial District to see whether pricing, commute patterns, or building availability justify expanding the search.
+      </p>
+
       <article class="recommendation-primary">
         <div class="recommendation-primary__body">
           <div class="recommendation-card__topline">
             <span class="recommendation-status">We'd Start Here</span>
-            <span class="recommendation-rank">01</span>
           </div>
           <h3>Mission Bay</h3>
+          <div class="recommendation-confidence" aria-label="Recommendation confidence summary">
+            <span><strong>96</strong> Match</span>
+            <span>Strongly Recommended</span>
+            <span>High Confidence</span>
+          </div>
           <p class="recommendation-advice">
             Mission Bay is where we'd begin because it gives this search the best mix of modern office context, technology and life science adjacency, and room to compare buildings with larger, more current floor plates. It also keeps you close to Caltrain-oriented access while staying connected to SoMa and the downtown core.
           </p>
           <p class="recommendation-note">
             We would not treat Mission Bay as the only answer. We would use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
           </p>
+          <section class="recommendation-score-explainer" aria-labelledby="mission-bay-score">
+            <h4 id="mission-bay-score">Why this scored 96</h4>
+            <div class="recommendation-score-columns">
+              <div>
+                <h5>Excellent alignment</h5>
+                <ul>
+                  <li>Requested office size fits local inventory</li>
+                  <li>Strong modern office context</li>
+                  <li>Good access to transit and regional commute routes</li>
+                  <li>Strong nearby amenities</li>
+                  <li>Room to compare multiple viable buildings</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Tradeoffs</h5>
+                <ul class="recommendation-score-tradeoffs">
+                  <li>Premium rents versus nearby alternatives</li>
+                  <li>Not always the best fit for value-sensitive searches</li>
+                </ul>
+              </div>
+            </div>
+          </section>
           <div class="recommendation-actions">
             <a href="/commercial-real-estate/CA/san-francisco/mission-bay/">Explore District</a>
             <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to SoMa</a>
@@ -86,7 +116,6 @@ eleventyComputed:
         <article class="recommendation-card">
           <div class="recommendation-card__topline">
             <span class="recommendation-status">Strong Alternative</span>
-            <span class="recommendation-rank">02</span>
           </div>
           <h3>SoMa</h3>
           <p class="recommendation-advice">
@@ -101,7 +130,6 @@ eleventyComputed:
         <article class="recommendation-card">
           <div class="recommendation-card__topline">
             <span class="recommendation-status">Worth Exploring</span>
-            <span class="recommendation-rank">03</span>
           </div>
           <h3>Financial District</h3>
           <p class="recommendation-advice">
