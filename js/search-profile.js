@@ -42,6 +42,7 @@
   const contextType = root.dataset.profileContextType || "";
   const contextLabel = root.dataset.profileContextLabel || "";
   const locationSuggestionLabels = parseSuggestionLabels(root.dataset.profileLocationSuggestions || "");
+  const locationChipMode = root.dataset.profileLocationChipMode || "";
   const defaultSpaceType = root.dataset.profileDefaultSpaceType || "";
   const primaryCtaLabel = root.dataset.profilePrimaryCta || "See Matching Buildings";
   const contactCtaLabel = root.dataset.profileContactCta || "Get My Personalized Shortlist";
@@ -593,6 +594,9 @@
   function locationOptions() {
     const selected = Array.isArray(profile.locationSelections) ? profile.locationSelections.filter((label) => label !== "Other") : [];
     const selectedOptions = uniqueLabels(selected.filter((label) => !isNonLocationLabel(label)));
+    if (locationChipMode === "selected_only") {
+      return selectedOptions;
+    }
     const suggestedOptions = uniqueLabels([
       locationOptionLabel(),
       ...locationSuggestionLabels,
@@ -1228,7 +1232,7 @@
       locationOptionsContainer.appendChild(button);
     });
 
-    if (!locationOptionsExpanded) {
+    if (!locationOptionsExpanded && locationChipMode !== "selected_only") {
       const addButton = document.createElement("button");
       addButton.type = "button";
       addButton.className = "search-profile-add-area";

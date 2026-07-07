@@ -7475,6 +7475,39 @@ section.market-page--space-type .market-links a {
   margin-left: auto;
 }
 
+.search-profile-page .city-hero-copy h1 {
+  max-width: 650px;
+  line-height: 1.04;
+}
+
+.search-profile-page .city-hero-copy h1 span {
+  display: block;
+}
+
+.search-profile-page .city-hero-copy .lead {
+  max-width: 560px;
+  line-height: 1.58;
+}
+
+.search-profile-page__advisor-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 560px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.24);
+  color: #526173;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.search-profile-page__advisor-note span {
+  color: #2563eb;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
 .search-profile-page__shell {
   max-width: 760px;
   margin: 0 auto;
@@ -7529,6 +7562,10 @@ section.market-page--space-type .market-links a {
     max-height: none;
     border-radius: 12px;
     box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  .search-profile-page .city-hero-copy h1 span {
+    display: inline;
   }
 
   .search-profile-page .search-profile-backdrop,

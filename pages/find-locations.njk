@@ -19,9 +19,16 @@ eleventyComputed:
       <div class="city-card">
         <div class="city-hero-copy">
           <div class="eyebrow">LOCATION PROFILE</div>
-          <h1>Get location recommendations that fit</h1>
+          <h1>
+            <span>Get location recommendations</span>
+            <span>that fit your business.</span>
+          </h1>
           <p class="lead">
             Tell us what you're looking for. We'll recommend locations, buildings, and alternatives worth exploring.
+          </p>
+          <p class="search-profile-page__advisor-note">
+            <span aria-hidden="true">✦</span>
+            Start with a location. We'll recommend places you may not have considered.
           </p>
         </div>
       </div>
@@ -46,7 +53,8 @@ eleventyComputed:
         "contact_cta_label": "Get My Recommendations",
         "finished_heading": "Your recommendation request has been sent.",
         "finished_copy": "We'll use this profile to prepare location guidance and nearby alternatives.",
-        "location_helper": "Tell us where you're considering. You can select more than one area.",
+        "location_helper": "Search for one or more cities or districts.",
+        "location_chip_mode": "selected_only",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
         "routing_market": "",
@@ -56,7 +64,7 @@ eleventyComputed:
         "neighborhood_path": "",
         "commercial_area_id": "",
         "commercial_area_type": "",
-        "location_suggestions": ["San Francisco", "Oakland", "San Jose", "Sacramento", "Austin", "Nashville"]
+        "location_suggestions": []
       } %}
       {% include "partials/shared/search-profile-card.njk" %}
     </div>
