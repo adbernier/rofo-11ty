@@ -115,10 +115,12 @@
       .replace(/[^a-z0-9]+/g, "_")
       .replace(/^_|_$/g, "");
     if (key.includes("office")) return "office";
-    if (key.includes("industrial") || key.includes("warehouse")) return "industrial";
+    if (key.includes("warehouse")) return "warehouse";
+    if (key.includes("industrial")) return "industrial";
     if (key.includes("retail")) return "retail";
     if (key.includes("medical")) return "medical";
     if (key.includes("flex")) return "flex";
+    if (key === "r_d" || key.includes("r_and_d")) return "r_and_d";
     if (key.includes("coworking")) return "coworking";
     return key || "office";
   }
@@ -196,6 +198,7 @@
       attributes: profile.attributes || {},
       retailAttributes: profile.retailAttributes || {},
       industrialAttributes: profile.industrialAttributes || {},
+      questionsToValidate: Array.isArray(profile.questionsToValidate) ? profile.questionsToValidate.slice(0, 5) : [],
       confidence: profile.confidence || "medium",
     };
   }
@@ -477,12 +480,15 @@
     }
 
     if (evaluateNode) {
-      [
+      const evaluationItems = state.primaryRecommendation && state.primaryRecommendation.questionsToValidate && state.primaryRecommendation.questionsToValidate.length
+        ? state.primaryRecommendation.questionsToValidate
+        : [
         `Current ${spaceType.toLowerCase()} availability in the recommended market path.`,
         "Asking rents, concessions, and lease structure.",
         "Commute pattern, parking, transit, and client access tradeoffs.",
         "Comparable buildings and nearby alternatives before committing to one market."
-      ].forEach((item) => evaluateNode.appendChild(createElement("li", "", item)));
+      ];
+      evaluationItems.forEach((item) => evaluateNode.appendChild(createElement("li", "", item)));
     }
   }
 

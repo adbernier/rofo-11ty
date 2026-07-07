@@ -87,6 +87,7 @@ function validateLocationKnowledgeGraph(nodes) {
     if (node && !locationTypes.includes(node.type)) warnings.push(`${label}: invalid type ${node.type}`);
     if (node && !confidenceValues.includes(node.confidence)) warnings.push(`${label}: invalid confidence ${node.confidence}`);
     if (!node || !node.attributes) warnings.push(`${label}: missing attributes object`);
+    if (!Array.isArray(node && node.questionsToValidate)) warnings.push(`${label}: missing questionsToValidate array`);
 
     Object.entries((node && node.spaceTypeFit) || {}).forEach(([spaceType, fit]) => {
       if (!supportedSpaceTypes.includes(spaceType)) warnings.push(`${label}: unsupported space type ${spaceType}`);

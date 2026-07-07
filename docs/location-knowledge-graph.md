@@ -29,6 +29,7 @@ Each location node should include:
 - `bestFor`
 - `tradeoffs`
 - `strengths`
+- `questionsToValidate`
 - `relationships.compareWith`
 
 City nodes may also include `marketPath`, an ordered list of district slugs Rofo would compare first for a Location Brief.
@@ -129,6 +130,49 @@ Relationship types include:
 
 Relationships should be tenant-decision paths, not generic geography links.
 
+## Questions To Validate
+
+`questionsToValidate` stores the follow-up questions a broker or advisor would ask before turning a Location Brief into a live market investigation.
+
+Good questions are location-specific and help refine the recommendation:
+
+- Mission Bay: "Is proximity to UCSF or life-science partners important?"
+- Jackson Square: "Do you need smaller floorplates or room to expand?"
+- North San Jose: "Do you need flex, R&D, or light production capability?"
+- Hayward Industrial: "What truck access and loading requirements are non-negotiable?"
+
+Avoid generic intake questions that could apply anywhere unless they are especially important for the location. These prompts are intended to help future Location Brief refinement, not lengthen the initial Search Profile.
+
+## Knowledge Card Authoring Standards
+
+Every enriched node should read like broker judgment translated into structured data. A Knowledge Card should answer:
+
+- Who is this location best for?
+- Which space types fit here?
+- What are the tradeoffs?
+- What should a business validate before committing?
+- What nearby or comparable places should be considered, and why?
+
+Use concrete commercial language:
+
+- Office cards should discuss transit, executive image, client access, talent access, expansion room, parking, and amenity environment.
+- Retail cards should discuss foot traffic, co-tenancy, customer parking, street presence, daytime population, evening/weekend activity, and signage.
+- Industrial cards should discuss truck access, highway access, loading, yard, power, zoning flexibility, labor access, trailer parking, and operational fit.
+
+Do not add fake precision, numerical scores, rent claims, or live availability claims. Use `unknown` when a field has not been researched or does not apply.
+
+### Example Office District
+
+Downtown Palo Alto is useful for companies that value executive access, Caltrain, walkability, and Silicon Valley credibility. Its tradeoffs include cost sensitivity and limited large contiguous options.
+
+### Example Retail District
+
+Downtown San Mateo is useful for restaurants and service retail because of downtown foot traffic, co-tenancy, and surrounding office/residential demand. Parking and storefront visibility still need block-by-block review.
+
+### Example Industrial District
+
+Hayward Industrial is useful for regional distribution, service industrial, light manufacturing, and contractor operations. Truck access, loading, yard, trailer parking, power, and building condition must be validated before narrowing buildings.
+
 ## Adding a New Location
 
 1. Confirm the city or district already exists in Rofo's public geography data.
@@ -136,12 +180,15 @@ Relationships should be tenant-decision paths, not generic geography links.
 3. Use `unknown` for attributes that have not been researched.
 4. Add at least one relevant `spaceTypeFit` entry.
 5. Add `relationships.compareWith` only when the comparison is real and useful.
-6. Run:
+6. Add `questionsToValidate` that reflect the location's real decision points.
+7. Run:
 
 ```bash
 node --check _data/locationKnowledgeSchema.js
 node --check _data/locationKnowledgeGraph.js
 node --check js/recommendation-context.js
+node --check scripts/check-location-knowledge-coverage.js
+node scripts/check-location-knowledge-coverage.js
 npm run build
 ```
 
@@ -165,3 +212,5 @@ Future recommendation work should improve the resolver, not bypass this graph.
 ## Expansion Rule
 
 Every future metro expansion should populate this knowledge layer as part of completion. A page is not recommendation-ready until its commercial identity, space-type fit, attributes, tradeoffs, and comparison relationships are represented here.
+
+At minimum, every metro expansion should add Knowledge Cards for its strongest city and district pages, plus any industrial, retail, or office submarkets that are likely to appear in recommendations.
