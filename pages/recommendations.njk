@@ -17,7 +17,7 @@ eleventyComputed:
 
     <section class="recommendations-hero">
       <div class="recommendations-hero__copy">
-        <div class="eyebrow">LOCATION ADVISOR</div>
+        <div class="eyebrow" data-recommendation-hero-badge>SAMPLE LOCATION ADVISOR</div>
         <h1>Here's where we'd begin.</h1>
         <p class="lead" data-recommendation-hero-copy>
           For a San Francisco office search in this size range, we'd start by testing a few districts against how your team will work, commute, and grow.
@@ -32,8 +32,8 @@ eleventyComputed:
     </section>
 
     <section class="recommendation-context-card" aria-labelledby="recommendation-context-heading" data-recommendation-context-card>
-      <div class="kicker">Based on what you told us</div>
-      <h2 id="recommendation-context-heading">Your location profile</h2>
+      <div class="kicker" data-recommendation-context-kicker>Sample profile</div>
+      <h2 id="recommendation-context-heading" data-recommendation-context-heading>Example location profile</h2>
       <dl>
         <div>
           <dt>Location</dt>
@@ -49,7 +49,7 @@ eleventyComputed:
         </div>
       </dl>
       <p data-recommendation-context-copy>
-        We'll start by recommending the districts and buildings we believe are the strongest fit.
+        This sample shows how Rofo turns a location profile into a first-pass recommendation. Start a profile to see recommendations based on your search.
       </p>
     </section>
 
@@ -64,7 +64,7 @@ eleventyComputed:
 
     <section class="recommendations-section" aria-labelledby="recommended-districts" data-recommendation-supported>
       <div class="recommendations-section__header">
-        <div class="kicker">Advisor recommendation</div>
+        <div class="kicker" data-recommendation-section-kicker>Sample advisor recommendation</div>
         <h2 id="recommended-districts" data-recommendation-section-heading>Start with the strongest fit, then pressure-test alternatives.</h2>
         <p>
           These are not live listing results. They are the first commercial districts we would investigate before asking landlords or brokers what is actually available.
@@ -78,13 +78,13 @@ eleventyComputed:
       <article class="recommendation-primary">
         <div class="recommendation-primary__body">
           <div class="recommendation-card__topline">
-            <span class="recommendation-status">We'd Start Here</span>
+            <span class="recommendation-status" data-recommendation-status>We'd Start Here</span>
           </div>
           <h3 data-recommendation-primary-name>Mission Bay</h3>
           <div class="recommendation-confidence" aria-label="Recommendation confidence summary">
-            <span><strong>96</strong> Match</span>
-            <span>Strongly Recommended</span>
-            <span>High Confidence</span>
+            <span data-recommendation-fit-label><strong>96</strong> Match</span>
+            <span data-recommendation-judgment-label>Strongly Recommended</span>
+            <span data-recommendation-confidence-label>High Confidence</span>
           </div>
           <p class="recommendation-advice" data-recommendation-primary-advice>
             Mission Bay is where we'd begin because it gives this search the best mix of modern office context, technology and life science adjacency, and room to compare buildings with larger, more current floor plates. It also keeps you close to Caltrain-oriented access while staying connected to SoMa and the downtown core.
@@ -93,7 +93,7 @@ eleventyComputed:
             We would not treat Mission Bay as the only answer. We would use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
           </p>
           <section class="recommendation-score-explainer" aria-labelledby="mission-bay-score">
-            <h4 id="mission-bay-score">Why this scored 96</h4>
+            <h4 id="mission-bay-score" data-recommendation-explainer-heading>Why this scored 96</h4>
             <div class="recommendation-advisor-grid">
               <section class="recommendation-advisor-panel">
                 <h5>Advisor rationale</h5>
@@ -109,19 +109,19 @@ eleventyComputed:
               <section class="recommendation-advisor-panel">
                 <h5>Tradeoffs</h5>
                 <ul class="recommendation-score-tradeoffs">
-                  <li>Mission Bay can price at a premium versus nearby alternatives.</li>
-                  <li>It may not be the right first choice for a highly value-sensitive search.</li>
-                  <li>Some teams may prefer the older creative-office character found in SoMa.</li>
+                  <li data-recommendation-tradeoff-one>Mission Bay can price at a premium versus nearby alternatives.</li>
+                  <li data-recommendation-tradeoff-two>It may not be the right first choice for a highly value-sensitive search.</li>
+                  <li data-recommendation-tradeoff-three>Some teams may prefer the older creative-office character found in SoMa.</li>
                 </ul>
               </section>
 
               <section class="recommendation-advisor-panel">
                 <h5>Best suited for</h5>
                 <ul>
-                  <li>Technology companies that want modern office context.</li>
-                  <li>Life science, healthcare, and research-adjacent teams.</li>
-                  <li>Growth-stage companies that may need expansion flexibility.</li>
-                  <li>Teams that value UCSF, Caltrain, and waterfront-adjacent amenities.</li>
+                  <li data-recommendation-fit-one>Technology companies that want modern office context.</li>
+                  <li data-recommendation-fit-two>Life science, healthcare, and research-adjacent teams.</li>
+                  <li data-recommendation-fit-three>Growth-stage companies that may need expansion flexibility.</li>
+                  <li data-recommendation-fit-four>Teams that value UCSF, Caltrain, and waterfront-adjacent amenities.</li>
                 </ul>
               </section>
 
@@ -135,7 +135,7 @@ eleventyComputed:
           </section>
           <div class="recommendation-actions">
             <a href="/commercial-real-estate/CA/san-francisco/mission-bay/" data-recommendation-primary-link>Explore District</a>
-            <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to SoMa</a>
+            <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" data-recommendation-demo-detail>Compare to SoMa</a>
           </div>
         </div>
 
@@ -234,9 +234,9 @@ eleventyComputed:
 
     <section class="recommendations-cta" aria-labelledby="market-investigation">
       <div>
-        <div class="kicker">Premium next step</div>
-        <h2 id="market-investigation">Save the research time. Let us investigate the market.</h2>
-        <p>
+        <div class="kicker" data-recommendation-cta-kicker>Premium next step</div>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Save the research time. Let us investigate the market.</h2>
+        <p data-recommendation-cta-copy>
           This prototype shows where we would begin. A Market Investigation turns that direction into a focused research assignment: a local commercial real estate expert checks the live market, verifies what is worth pursuing, and filters out buildings that waste your time.
         </p>
       </div>
@@ -251,7 +251,7 @@ eleventyComputed:
           <li>Off-market options</li>
           <li>Comparable buildings</li>
         </ul>
-        <a class="recommendations-button" href="/find-locations/">Start My Market Investigation</a>
+        <a class="recommendations-button" href="/find-locations/" data-recommendation-cta-link>Start My Market Investigation</a>
       </div>
     </section>
   </div>
