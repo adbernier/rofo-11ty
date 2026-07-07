@@ -2342,6 +2342,138 @@ section.market-page--space-type .market-links a {
   line-height: 1.58;
 }
 
+.recommendation-brief-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.8fr);
+  gap: 16px;
+  margin: 0 0 22px;
+}
+
+.recommendation-brief-panel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #d5e0ee;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.recommendation-brief-panel--path {
+  grid-row: span 2;
+}
+
+.recommendation-brief-panel h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.recommendation-market-path,
+.recommendation-compare-list,
+.recommendation-evaluate-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.recommendation-market-path-card,
+.recommendation-compare-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #e1e8f2;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.recommendation-market-path-card__label {
+  color: #64748b;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.recommendation-market-path-card a,
+.recommendation-market-path-card strong,
+.recommendation-compare-card a,
+.recommendation-compare-card strong {
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.recommendation-market-path-card a:hover,
+.recommendation-compare-card a:hover {
+  text-decoration: underline;
+}
+
+.recommendation-market-path-card__fit {
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e8f0ff;
+  color: #1d4ed8;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.recommendation-market-path-card p,
+.recommendation-compare-card p,
+.recommendation-brief-empty {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+.recommendation-market-path-card__strengths,
+.recommendation-evaluate-list {
+  list-style: none;
+}
+
+.recommendation-market-path-card__strengths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+.recommendation-market-path-card__strengths li {
+  padding: 4px 8px;
+  border: 1px solid #d8e2ef;
+  border-radius: 999px;
+  background: #fff;
+  color: #526174;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.recommendation-evaluate-list li {
+  position: relative;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.42;
+}
+
+.recommendation-evaluate-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #2563eb;
+}
+
 .recommendations-grid {
   display: grid;
   gap: 16px;
@@ -2790,7 +2922,8 @@ section.market-page--space-type .market-links a {
   .recommendations-grid--districts,
   .recommendations-grid--buildings,
   .recommendation-advisor-grid,
-  .recommendation-secondary-grid {
+  .recommendation-secondary-grid,
+  .recommendation-brief-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -2818,8 +2951,13 @@ section.market-page--space-type .market-links a {
   .recommendations-grid--buildings,
   .recommendation-advisor-grid,
   .recommendation-secondary-grid,
+  .recommendation-brief-grid,
   .recommendations-cta__panel ul {
     grid-template-columns: 1fr;
+  }
+
+  .recommendation-brief-panel--path {
+    grid-row: auto;
   }
 
   .recommendations-hero h1 {

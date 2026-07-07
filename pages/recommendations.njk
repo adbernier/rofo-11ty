@@ -75,6 +75,24 @@ eleventyComputed:
         Based on your search, we'd begin with Mission Bay because it offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility. We'd then pressure-test SoMa and the Financial District to see whether pricing, commute patterns, or building availability justify expanding the search.
       </p>
 
+      <div class="recommendation-brief-grid" data-recommendation-brief-grid hidden>
+        <section class="recommendation-brief-panel recommendation-brief-panel--path">
+          <div class="kicker">Recommended Market Path</div>
+          <h3>Where we'd start</h3>
+          <div class="recommendation-market-path" data-recommendation-market-path></div>
+        </section>
+
+        <section class="recommendation-brief-panel">
+          <div class="kicker">Also worth comparing</div>
+          <div class="recommendation-compare-list" data-recommendation-compare-with></div>
+        </section>
+
+        <section class="recommendation-brief-panel">
+          <div class="kicker">What we'd evaluate next</div>
+          <ul class="recommendation-evaluate-list" data-recommendation-evaluate-next></ul>
+        </section>
+      </div>
+
       <article class="recommendation-primary">
         <div class="recommendation-primary__body">
           <div class="recommendation-card__topline">
@@ -257,4 +275,5 @@ eleventyComputed:
   </div>
 </section>
 
+<script id="recommendation-profiles-data" type="application/json">{{ recommendationProfiles | dump | safe }}</script>
 <script src="/js/recommendation-context.js" defer></script>
