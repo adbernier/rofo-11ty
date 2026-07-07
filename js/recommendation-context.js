@@ -29,6 +29,17 @@
     }
   }
 
+  function readKnowledgeGraph() {
+    const node = document.getElementById("location-knowledge-graph-data");
+    if (!node) return [];
+    try {
+      const value = JSON.parse(node.textContent || "[]");
+      return Array.isArray(value) ? value : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
   function normalizeLocation(location) {
     if (!location || typeof location !== "object") return null;
     const label = String(location.label || "").trim();
@@ -147,9 +158,10 @@
   }
 
   function businessFitFor(profile, spaceType) {
-    if (!profile || !profile.businessFit) return null;
+    if (!profile) return null;
     const key = normalizeSpaceType(spaceType);
-    return profile.businessFit[key] || profile.businessFit.office || null;
+    const fitMap = profile.spaceTypeFit || profile.businessFit || {};
+    return fitMap[key] || fitMap.office || null;
   }
 
   function profileSummary(profile, spaceType) {
@@ -181,6 +193,9 @@
       strengths: Array.isArray(profile.strengths) ? profile.strengths.slice(0, 4) : [],
       tradeoffs: fit && Array.isArray(fit.tradeoffs) ? fit.tradeoffs.slice(0, 3) : [],
       bestFor: fit && Array.isArray(fit.bestFor) ? fit.bestFor.slice(0, 4) : [],
+      attributes: profile.attributes || {},
+      retailAttributes: profile.retailAttributes || {},
+      industrialAttributes: profile.industrialAttributes || {},
       confidence: profile.confidence || "medium",
     };
   }
@@ -204,8 +219,16 @@
     return `mailto:hello@rofo.com?subject=${subject}&body=${body}`;
   }
 
-  function resolveMarketPath(context, profiles) {
-    const indexes = profileIndexes(profiles || []);
+  function compareRelationships(profile) {
+    if (profile && profile.relationships && Array.isArray(profile.relationships.compareWith)) {
+      return profile.relationships.compareWith;
+    }
+    return Array.isArray(profile && profile.compareWith) ? profile.compareWith : [];
+  }
+
+  function resolveMarketPath(context, graphNodes, fallbackProfiles) {
+    const graphIndexes = profileIndexes(graphNodes || []);
+    const fallbackIndexes = profileIndexes(fallbackProfiles || []);
     const locations = context.locations || [];
     const inputLocation = locations[0] || null;
     if (!inputLocation) {
@@ -222,7 +245,9 @@
       };
     }
 
-    const inputProfile = findProfileForLocation(inputLocation, indexes);
+    const inputProfile = findProfileForLocation(inputLocation, graphIndexes)
+      || findProfileForLocation(inputLocation, fallbackIndexes);
+    const activeIndexes = findProfileForLocation(inputLocation, graphIndexes) ? graphIndexes : fallbackIndexes;
     if (!inputProfile || inputProfile.confidence === "expert_guided") {
       return {
         mode: "expert_guided",
@@ -242,23 +267,23 @@
     }
 
     const marketPathProfiles = Array.isArray(inputProfile.marketPath)
-      ? inputProfile.marketPath.map((slug) => profileBySlug(slug, indexes)).filter(Boolean)
+      ? inputProfile.marketPath.map((slug) => profileBySlug(slug, activeIndexes)).filter(Boolean)
       : [];
     const mode = inputProfile.type === "city" && marketPathProfiles.length ? "market_path" : "single_starting_point";
     const recommendedPath = (mode === "market_path" ? marketPathProfiles : [inputProfile])
       .map((profile) => recommendationItem(profile, context.spaceType));
     const primaryRecommendation = recommendedPath[0] || recommendationItem(inputProfile, context.spaceType);
-    const compareWith = Array.isArray(inputProfile.compareWith)
-      ? inputProfile.compareWith.map((item) => {
-        const profile = profileBySlug(item.slug, indexes);
+    const compareWith = compareRelationships(inputProfile)
+      .map((item) => {
+        const profile = profileBySlug(item.slug, activeIndexes);
         return {
           label: item.label || (profile && profile.label) || item.slug,
           slug: item.slug || (profile && profile.slug) || "",
           reason: item.reason || "",
+          relationshipType: item.relationshipType || "similar",
           path: (profile && profile.path) || item.path || "",
         };
-      }).filter((item) => item.label)
-      : [];
+      }).filter((item) => item.label);
 
     return {
       mode,
@@ -285,8 +310,9 @@
   }
 
   function renderContext(context) {
+    const graph = readKnowledgeGraph();
     const profiles = readRecommendationProfiles();
-    const state = resolveMarketPath(context, profiles);
+    const state = resolveMarketPath(context, graph, profiles);
     const locationText = formatLocations(context.locations || []);
     const spaceText = context.spaceType || "Commercial space";
     const sizeText = formatSize(context.size);
@@ -360,6 +386,7 @@
       : "We'd then pressure-test nearby alternatives to see whether commute patterns, pricing, or building options justify expanding the search.";
 
     renderPathPanels(state, spaceText);
+    renderAttributeGuidance(primary, spaceText);
     setText("[data-recommendation-section-kicker]", "Location Brief");
     setText("[data-recommendation-status]", "In Progress");
     setText("[data-recommendation-fit-label]", state.title || "Relevant Starting Point");
@@ -457,6 +484,58 @@
         "Comparable buildings and nearby alternatives before committing to one market."
       ].forEach((item) => evaluateNode.appendChild(createElement("li", "", item)));
     }
+  }
+
+  function meaningfulAttributesFor(spaceType, item) {
+    const type = normalizeSpaceType(spaceType);
+    const industrialTypes = new Set(["industrial", "warehouse", "distribution", "manufacturing", "flex", "r_and_d"]);
+    if (industrialTypes.has(type)) {
+      return [
+        ["Truck access", item.industrialAttributes.truckAccess],
+        ["Highway access", item.industrialAttributes.highwayAccess],
+        ["Loading", item.industrialAttributes.loading],
+        ["Yard", item.industrialAttributes.yard],
+        ["Power", item.industrialAttributes.power],
+      ].filter(([, value]) => value && value !== "unknown");
+    }
+    if (type === "retail" || type === "restaurant" || type === "showroom") {
+      return [
+        ["Foot traffic", item.retailAttributes.footTraffic],
+        ["Customer parking", item.retailAttributes.customerParking],
+        ["Street presence", item.retailAttributes.streetPresence],
+        ["Signage visibility", item.retailAttributes.signageVisibility],
+      ].filter(([, value]) => value && value !== "unknown");
+    }
+    return [
+      ["Transit", item.attributes.transit],
+      ["Parking", item.attributes.parking],
+      ["Walkability", item.attributes.walkability],
+      ["Talent access", item.attributes.talentAccess],
+      ["Executive image", item.attributes.executiveImage],
+    ].filter(([, value]) => value && value !== "unknown");
+  }
+
+  function renderAttributeGuidance(item, spaceType) {
+    const attributes = meaningfulAttributesFor(spaceType, item);
+    if (!attributes.length) return;
+    const existing = document.querySelector("[data-recommendation-attribute-guidance]");
+    if (existing) existing.remove();
+    const panel = createElement("section", "recommendation-advisor-panel");
+    panel.setAttribute("data-recommendation-attribute-guidance", "");
+    const type = normalizeSpaceType(spaceType);
+    const industrialTypes = new Set(["industrial", "warehouse", "distribution", "manufacturing", "flex", "r_and_d"]);
+    const retailTypes = new Set(["retail", "restaurant", "showroom"]);
+    let heading = "Location attributes";
+    if (industrialTypes.has(type)) heading = "Industrial attributes";
+    if (retailTypes.has(type)) heading = "Retail attributes";
+    panel.appendChild(createElement("h5", "", heading));
+    const list = createElement("ul", "");
+    attributes.slice(0, 5).forEach(([label, value]) => {
+      list.appendChild(createElement("li", "", `${label}: ${value}`));
+    });
+    panel.appendChild(list);
+    const grid = document.querySelector(".recommendation-advisor-grid");
+    if (grid) grid.appendChild(panel);
   }
 
   const context = readStoredContext();
