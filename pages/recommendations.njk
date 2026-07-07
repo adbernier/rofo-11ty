@@ -19,28 +19,59 @@ eleventyComputed:
       <div class="recommendations-hero__copy">
         <div class="eyebrow">LOCATION ADVISOR</div>
         <h1>Here's where we'd begin.</h1>
-        <p class="lead">
+        <p class="lead" data-recommendation-hero-copy>
           For a San Francisco office search in this size range, we'd start by testing a few districts against how your team will work, commute, and grow.
         </p>
       </div>
 
       <div class="recommendations-recap" aria-label="Search recap">
-        <span>Office</span>
-        <span>2,500-5,000 sqft</span>
-        <span>San Francisco</span>
+        <span data-recommendation-space>Office</span>
+        <span data-recommendation-size>2,500-5,000 sqft</span>
+        <span data-recommendation-location>San Francisco</span>
       </div>
     </section>
 
-    <section class="recommendations-section" aria-labelledby="recommended-districts">
+    <section class="recommendation-context-card" aria-labelledby="recommendation-context-heading" data-recommendation-context-card>
+      <div class="kicker">Based on what you told us</div>
+      <h2 id="recommendation-context-heading">Your location profile</h2>
+      <dl>
+        <div>
+          <dt>Location</dt>
+          <dd data-recommendation-context-location>San Francisco</dd>
+        </div>
+        <div>
+          <dt>Space</dt>
+          <dd data-recommendation-context-space>Office</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd data-recommendation-context-size>2,500-5,000 sqft</dd>
+        </div>
+      </dl>
+      <p data-recommendation-context-copy>
+        We'll start by recommending the districts and buildings we believe are the strongest fit.
+      </p>
+    </section>
+
+    <section class="recommendation-expert-guided" data-recommendation-expert-guided hidden>
+      <div class="kicker">Expert Guided Recommendation</div>
+      <h2>We understand what you're looking for.</h2>
+      <p>
+        While we continue expanding our Commercial Location Graph for this market, your Search Profile gives our local market expert everything needed to begin with highly relevant recommendations.
+      </p>
+      <a class="recommendations-button" href="/find-locations/">Update Location Profile</a>
+    </section>
+
+    <section class="recommendations-section" aria-labelledby="recommended-districts" data-recommendation-supported>
       <div class="recommendations-section__header">
         <div class="kicker">Advisor recommendation</div>
-        <h2 id="recommended-districts">Start with the strongest fit, then pressure-test alternatives.</h2>
+        <h2 id="recommended-districts" data-recommendation-section-heading>Start with the strongest fit, then pressure-test alternatives.</h2>
         <p>
           These are not live listing results. They are the first commercial districts we would investigate before asking landlords or brokers what is actually available.
         </p>
       </div>
 
-      <p class="recommendation-strategy">
+      <p class="recommendation-strategy" data-recommendation-strategy>
         Based on your search, we'd begin with Mission Bay because it offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility. We'd then pressure-test SoMa and the Financial District to see whether pricing, commute patterns, or building availability justify expanding the search.
       </p>
 
@@ -49,16 +80,16 @@ eleventyComputed:
           <div class="recommendation-card__topline">
             <span class="recommendation-status">We'd Start Here</span>
           </div>
-          <h3>Mission Bay</h3>
+          <h3 data-recommendation-primary-name>Mission Bay</h3>
           <div class="recommendation-confidence" aria-label="Recommendation confidence summary">
             <span><strong>96</strong> Match</span>
             <span>Strongly Recommended</span>
             <span>High Confidence</span>
           </div>
-          <p class="recommendation-advice">
+          <p class="recommendation-advice" data-recommendation-primary-advice>
             Mission Bay is where we'd begin because it gives this search the best mix of modern office context, technology and life science adjacency, and room to compare buildings with larger, more current floor plates. It also keeps you close to Caltrain-oriented access while staying connected to SoMa and the downtown core.
           </p>
-          <p class="recommendation-note">
+          <p class="recommendation-note" data-recommendation-primary-note>
             We would not treat Mission Bay as the only answer. We would use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
           </p>
           <section class="recommendation-score-explainer" aria-labelledby="mission-bay-score">
@@ -67,11 +98,11 @@ eleventyComputed:
               <section class="recommendation-advisor-panel">
                 <h5>Advisor rationale</h5>
                 <ul>
-                  <li>Requested office size aligns well with the type of modern buildings we would investigate here.</li>
-                  <li>Mission Bay gives the search a strong technology and life science business context.</li>
-                  <li>Transit, Caltrain access, and regional commute routes make it a practical first market to test.</li>
-                  <li>Nearby amenities support teams that need a polished workplace environment.</li>
-                  <li>The district leaves room to compare multiple credible buildings before narrowing the search.</li>
+                  <li data-recommendation-rationale-one>Requested office size aligns well with the type of modern buildings we would investigate here.</li>
+                  <li data-recommendation-rationale-two>Mission Bay gives the search a strong technology and life science business context.</li>
+                  <li data-recommendation-rationale-three>Transit, Caltrain access, and regional commute routes make it a practical first market to test.</li>
+                  <li data-recommendation-rationale-four>Nearby amenities support teams that need a polished workplace environment.</li>
+                  <li data-recommendation-rationale-five>The district leaves room to compare multiple credible buildings before narrowing the search.</li>
                 </ul>
               </section>
 
@@ -97,18 +128,18 @@ eleventyComputed:
               <section class="recommendation-advisor-panel recommendation-advisor-panel--confidence">
                 <h5>What High Confidence means</h5>
                 <p>
-                  We have enough search context to make Mission Bay a credible starting point: location, space type, and size all point toward a district with relevant building examples and clear nearby alternatives. A local market check would still confirm live options before any decision.
+                  <span data-recommendation-confidence-copy>We have enough search context to make Mission Bay a credible starting point: location, space type, and size all point toward a district with relevant building examples and clear nearby alternatives. A local market check would still confirm live options before any decision.</span>
                 </p>
               </section>
             </div>
           </section>
           <div class="recommendation-actions">
-            <a href="/commercial-real-estate/CA/san-francisco/mission-bay/">Explore District</a>
+            <a href="/commercial-real-estate/CA/san-francisco/mission-bay/" data-recommendation-primary-link>Explore District</a>
             <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to SoMa</a>
           </div>
         </div>
 
-        <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered">
+        <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered" data-recommendation-demo-detail>
           <div class="recommendation-evidence__header">
             <div class="kicker">Supporting evidence</div>
             <h4 id="primary-buildings-considered">Buildings we'd consider first</h4>
@@ -131,7 +162,7 @@ eleventyComputed:
         </aside>
       </article>
 
-      <div class="recommendation-secondary-grid" aria-label="Alternative recommendations">
+      <div class="recommendation-secondary-grid" aria-label="Alternative recommendations" data-recommendation-demo-detail>
         <article class="recommendation-card">
           <div class="recommendation-card__topline">
             <span class="recommendation-status">Strong Alternative</span>
@@ -162,7 +193,7 @@ eleventyComputed:
       </div>
     </section>
 
-    <section class="recommendations-section" aria-labelledby="buildings-considered">
+    <section class="recommendations-section" aria-labelledby="buildings-considered" data-recommendation-demo-detail>
       <div class="recommendations-section__header">
         <div class="kicker">Additional building context</div>
         <h2 id="buildings-considered">Buildings that help frame the search</h2>
@@ -186,7 +217,7 @@ eleventyComputed:
       </div>
     </section>
 
-    <section class="recommendations-section recommendations-section--compact" aria-labelledby="nearby-alternatives">
+    <section class="recommendations-section recommendations-section--compact" aria-labelledby="nearby-alternatives" data-recommendation-demo-detail>
       <div class="recommendations-section__header">
         <div class="kicker">Nearby alternatives</div>
         <h2 id="nearby-alternatives">Nearby alternatives worth exploring</h2>
@@ -225,3 +256,5 @@ eleventyComputed:
     </section>
   </div>
 </section>
+
+<script src="/js/recommendation-context.js" defer></script>

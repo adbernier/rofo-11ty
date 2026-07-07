@@ -52,6 +52,7 @@
   const formStartTime = Date.now();
   const analyticsEndpoint = "/api/analytics/search-profile";
   const recommendationsUrl = "/recommendations/";
+  const recommendationContextKey = "rofoRecommendationContextV1";
   const analyticsEnabled = submitEnabled && root.dataset.profileContextType !== "test";
   const pageUrl = root.dataset.profilePageUrl || window.location.href;
   const pageType = root.dataset.profileContextType || "search_profile";
@@ -947,6 +948,34 @@
     };
   }
 
+  function recommendationContextData() {
+    const summary = profileSummaryData();
+    return {
+      locations: normalizeSelectedLocations(summary.selectedLocations, selectedLocationLabels(profile)).map((item) => ({
+        label: item.label || "",
+        type: item.type || "location",
+        city: item.city || "",
+        state: item.state || "",
+        slug: item.slug || "",
+        path: item.path || "",
+      })),
+      spaceType: summary.spaceType || "",
+      size: summary.sizeOrPeople || "",
+      timestamp: new Date().toISOString(),
+    };
+  }
+
+  function saveRecommendationContext() {
+    const context = recommendationContextData();
+    try {
+      window.sessionStorage.setItem(recommendationContextKey, JSON.stringify(context));
+      window.localStorage.setItem(recommendationContextKey, JSON.stringify(context));
+    } catch (error) {
+      // Recommendations should still be reachable even if browser storage is unavailable.
+    }
+    return context;
+  }
+
   function selectedFeatureValues() {
     const summary = profileSummaryData();
     const featureValues = [...summary.features];
@@ -1502,10 +1531,15 @@
     updateLocationFromSelections();
     saveProfile();
     if (!validateInitialSearch()) return;
+    saveRecommendationContext();
     trackSearchProfileEvent("search_profile_find_matching_buildings_clicked");
     trackStepCompleted("location");
     trackStepCompleted("space_type");
     trackStepCompleted("size");
+    if (pageType === "find_locations") {
+      window.location.assign(recommendationsUrl);
+      return;
+    }
     viewMode = "contact";
     trackSearchProfileEvent("search_profile_contact_screen_viewed");
     setCollapsed(false);
@@ -1588,6 +1622,7 @@
       profile.contact.lead_id = result.id || "";
       finishSubmission();
       trackSearchProfileEvent("search_profile_submitted");
+      saveRecommendationContext();
       window.setTimeout(() => {
         window.location.assign(recommendationsUrl);
       }, 350);

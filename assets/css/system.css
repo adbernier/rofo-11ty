@@ -2239,6 +2239,72 @@ section.market-page--space-type .market-links a {
   font-weight: 650;
 }
 
+.recommendation-context-card,
+.recommendation-expert-guided {
+  margin: 0 0 24px;
+  padding: clamp(20px, 4vw, 28px);
+  border: 1px solid #d5e0ee;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.recommendation-context-card h2,
+.recommendation-expert-guided h2 {
+  margin: 6px 0 16px;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.15;
+}
+
+.recommendation-context-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.recommendation-context-card dl div {
+  padding: 14px;
+  border: 1px solid #e1e8f2;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.recommendation-context-card dt {
+  margin: 0 0 5px;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.recommendation-context-card dd {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 760;
+  line-height: 1.25;
+}
+
+.recommendation-context-card p,
+.recommendation-expert-guided p {
+  max-width: 68ch;
+  margin: 0;
+  color: #526174;
+  line-height: 1.58;
+}
+
+.recommendation-expert-guided {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+}
+
+.recommendation-expert-guided .recommendations-button {
+  width: auto;
+  margin-top: 18px;
+}
+
 .recommendations-section {
   padding: clamp(22px, 4vw, 34px);
   margin: 0 0 24px;
@@ -2726,6 +2792,10 @@ section.market-page--space-type .market-links a {
   .recommendation-advisor-grid,
   .recommendation-secondary-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .recommendation-context-card dl {
+    grid-template-columns: 1fr;
   }
 }
 
