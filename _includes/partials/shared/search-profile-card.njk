@@ -81,6 +81,10 @@
           {% endif %}
           <legend>Location</legend>
           <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Tell us where you're considering. You can select more than one area." }}</p>
+          <div class="search-profile-location-search">
+            <label class="sr-only" for="search-profile-location-search">Search city or district</label>
+            <input id="search-profile-location-search" name="locationSearch" type="text" placeholder="Search city or district" data-profile-location-search-input>
+          </div>
           <div class="search-profile-options search-profile-options--multi search-profile-location-options" data-profile-location-options></div>
           <div class="search-profile-other" data-profile-location-other hidden>
             <label for="search-profile-target-area">Other location</label>

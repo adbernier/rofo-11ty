@@ -24,6 +24,7 @@
   const finalList = root.querySelector("[data-profile-final-list]");
   const featureOtherWrap = root.querySelector("[data-profile-feature-other]");
   const locationOptionsContainer = root.querySelector("[data-profile-location-options]");
+  const locationSearchInput = root.querySelector("[data-profile-location-search-input]");
   const locationOtherWrap = root.querySelector("[data-profile-location-other]");
   const locationOtherInput = root.querySelector("[data-profile-location-other-input]");
   const editButtons = root.querySelectorAll("[data-profile-edit]");
@@ -57,6 +58,7 @@
   let locationSearchItems = null;
   let locationSearchPromise = null;
   let locationAutocompleteResults = null;
+  let locationAutocompleteInput = null;
 
   const PROFILE_VERSION = "V2";
   const nonLocationLabels = new Set([
@@ -209,15 +211,89 @@
       .join(" • ");
   }
 
-  function ensureLocationAutocompleteResults() {
-    if (!locationOtherInput || locationAutocompleteResults) return locationAutocompleteResults;
-    locationAutocompleteResults = document.createElement("div");
-    locationAutocompleteResults.className = "search-profile-location-results";
-    locationAutocompleteResults.setAttribute("role", "listbox");
-    locationAutocompleteResults.hidden = true;
-    locationOtherInput.setAttribute("autocomplete", "off");
-    locationOtherInput.setAttribute("aria-autocomplete", "list");
-    locationOtherInput.parentNode.insertBefore(locationAutocompleteResults, locationOtherInput.nextSibling);
+  function selectedLocationKey(item) {
+    if (!item) return "";
+    return [
+      item.type || "location",
+      item.path || item.slug || item.label || "",
+    ].map((value) => String(value || "").toLowerCase().trim()).join("|");
+  }
+
+  function locationItemFromSuggestion(item) {
+    const label = cleanLocationLabel(item && item.label);
+    if (!label) return null;
+    return {
+      label,
+      type: item.type || "location",
+      city: item.city || (item.type === "city" ? label : ""),
+      state: item.state || contextState || "",
+      slug: item.slug || "",
+      path: item.path || "",
+    };
+  }
+
+  function inferredLocationType(cleanLabel, fallbackType = "location") {
+    if (fallbackType && fallbackType !== "location") return fallbackType;
+    if (contextCity && locationKey(cleanLabel) === locationKey(contextCity)) return "city";
+    if (contextDistrict && locationKey(cleanLabel) === locationKey(contextDistrict)) return "district";
+    if ((contextType === "city" || contextType === "space_type") && locationKey(cleanLabel) === locationKey(locationOptionLabel())) return "city";
+    if ((contextType === "district" || contextType === "comparison") && locationKey(cleanLabel) === locationKey(locationOptionLabel())) return "district";
+    return "location";
+  }
+
+  function locationItemFromLabel(label, type = "location") {
+    const cleanLabel = cleanLocationLabel(label);
+    if (!cleanLabel || isNonLocationLabel(cleanLabel)) return null;
+    const inferredType = inferredLocationType(cleanLabel, type);
+    return {
+      label: cleanLabel,
+      type: inferredType,
+      city: inferredType === "city" ? cleanLabel : contextCity || "",
+      state: contextState || "",
+      slug: "",
+      path: "",
+    };
+  }
+
+  function normalizeSelectedLocations(value, labels = []) {
+    const output = [];
+    const seen = new Set();
+    const seenLabels = new Set();
+    const add = (item) => {
+      const normalized = typeof item === "string" ? locationItemFromLabel(item) : locationItemFromSuggestion(item);
+      if (!normalized) return;
+      const key = selectedLocationKey(normalized) || locationKey(normalized.label);
+      const labelKey = locationKey(normalized.label);
+      if (!key || seen.has(key) || seenLabels.has(labelKey)) return;
+      seen.add(key);
+      seenLabels.add(labelKey);
+      output.push(normalized);
+    };
+    if (Array.isArray(value)) value.forEach(add);
+    labels.forEach((label) => {
+      if (label !== "Other") add(label);
+    });
+    return output;
+  }
+
+  function syncSelectedLocationsFromSelections() {
+    profile.selectedLocations = normalizeSelectedLocations(profile.selectedLocations, selectedLocationLabels(profile));
+  }
+
+  function ensureLocationAutocompleteResults(input = locationSearchInput || locationOtherInput) {
+    if (!input) return null;
+    if (!locationAutocompleteResults) {
+      locationAutocompleteResults = document.createElement("div");
+      locationAutocompleteResults.className = "search-profile-location-results";
+      locationAutocompleteResults.setAttribute("role", "listbox");
+      locationAutocompleteResults.hidden = true;
+    }
+    if (locationAutocompleteInput !== input && input.parentNode) {
+      input.parentNode.insertBefore(locationAutocompleteResults, input.nextSibling);
+      locationAutocompleteInput = input;
+    }
+    input.setAttribute("autocomplete", "off");
+    input.setAttribute("aria-autocomplete", "list");
     return locationAutocompleteResults;
   }
 
@@ -250,12 +326,14 @@
 
   function selectLocationSuggestion(item) {
     if (!item || !item.label) return;
+    const locationItem = locationItemFromSuggestion(item);
+    if (!locationItem) return;
     trackStarted();
     profile.skipped = false;
     profile.contact.submitted = false;
     viewMode = "edit";
     locationOptionsExpanded = true;
-    const label = cleanLocationLabel(item.label);
+    const label = locationItem.label;
     if (!locationSuggestionLabels.some((existing) => locationKey(existing) === locationKey(label))) {
       locationSuggestionLabels.push(label);
     }
@@ -263,14 +341,19 @@
     selections.delete("Other");
     selections.add(label);
     profile.locationSelections = [...selections];
+    const selectedLocations = normalizeSelectedLocations(profile.selectedLocations, [])
+      .filter((existing) => selectedLocationKey(existing) !== selectedLocationKey(locationItem) && locationKey(existing.label) !== locationKey(label));
+    selectedLocations.push(locationItem);
+    profile.selectedLocations = normalizeSelectedLocations(selectedLocations, profile.locationSelections);
     profile.locationOther = "";
+    if (locationSearchInput) locationSearchInput.value = "";
     if (locationOtherInput) locationOtherInput.value = "";
     updateLocationFromSelections();
     profile.location = {
       ...normalizeLocation(profile.location),
-      city: item.type === "city" ? label : item.city || profile.location.city || null,
-      district: item.type === "district" ? label : profile.location.district || null,
-      state: item.state || profile.location.state || contextState || null,
+      city: locationItem.type === "city" ? label : locationItem.city || profile.location.city || null,
+      district: locationItem.type === "district" ? label : profile.location.district || null,
+      state: locationItem.state || profile.location.state || contextState || null,
       raw: profile.location.display || label,
     };
     saveProfile();
@@ -280,8 +363,8 @@
     render();
   }
 
-  async function renderLocationAutocomplete(query) {
-    const resultsBox = ensureLocationAutocompleteResults();
+  async function renderLocationAutocomplete(query, input = locationSearchInput || locationOtherInput) {
+    const resultsBox = ensureLocationAutocompleteResults(input);
     if (!resultsBox) return;
     const q = String(query || "").trim().toLowerCase();
     if (q.length < 2) {
@@ -290,10 +373,12 @@
     }
     const items = await loadLocationSearchItems();
     const selectedKeys = new Set((profile.locationSelections || []).map(locationKey));
+    const selectedStableKeys = new Set((profile.selectedLocations || []).map(selectedLocationKey).filter(Boolean));
     const matches = items
       .filter((item) => {
         const search = String(item.search || item.label || "").toLowerCase();
-        return search.includes(q) && !selectedKeys.has(locationKey(item.label));
+        const itemKey = selectedLocationKey(item);
+        return search.includes(q) && !selectedKeys.has(locationKey(item.label)) && (!itemKey || !selectedStableKeys.has(itemKey));
       })
       .sort((a, b) => {
         const aLabel = String(a.label || "").toLowerCase();
@@ -506,10 +591,16 @@
   }
 
   function locationOptions() {
-    const options = uniqueLabels([
+    const selected = Array.isArray(profile.locationSelections) ? profile.locationSelections.filter((label) => label !== "Other") : [];
+    const selectedOptions = uniqueLabels(selected.filter((label) => !isNonLocationLabel(label)));
+    const suggestedOptions = uniqueLabels([
       locationOptionLabel(),
       ...locationSuggestionLabels,
     ].filter((label) => !isNonLocationLabel(label))).slice(0, 6);
+    const options = uniqueLabels([
+      ...selectedOptions,
+      ...suggestedOptions,
+    ]);
     return [...options, "Other"];
   }
 
@@ -533,10 +624,14 @@
 
   function buildLocationFromSelections(targetProfile) {
     const labels = selectedLocationLabels(targetProfile);
+    const structuredLocations = normalizeSelectedLocations(targetProfile.selectedLocations, labels);
     const fallback = contextLocation();
     const currentLabel = locationOptionLabel();
     const cityWithState = [contextCity, contextState].filter(Boolean).join(", ");
     let display = fallback.display;
+    let structuredCity = contextCity || null;
+    let structuredDistrict = contextType === "district" || contextType === "comparison" ? contextDistrict || null : null;
+    let structuredState = contextState || null;
 
     if (labels.length === 1 && locationKey(labels[0]) === locationKey(currentLabel)) {
       return fallback;
@@ -547,20 +642,34 @@
       display = (contextType === "district" || contextType === "comparison") && cityWithState
         ? `${cityWithState} — ${labelDisplay}`
         : labelDisplay;
+      if (structuredLocations.length === 1) {
+        const item = structuredLocations[0];
+        structuredCity = item.type === "city" ? item.label : item.city || structuredCity;
+        structuredDistrict = item.type === "district" ? item.label : structuredDistrict;
+        structuredState = item.state || structuredState;
+      } else if (structuredLocations.length > 1) {
+        structuredCity = contextCity || "";
+        structuredDistrict = structuredLocations
+          .filter((item) => item.type === "district")
+          .map((item) => item.label)
+          .join(" / ") || structuredDistrict;
+        structuredState = structuredLocations.find((item) => item.state)?.state || structuredState;
+      }
     }
 
     return {
       ...normalizeLocation(targetProfile.location),
       display,
-      city: contextCity || null,
-      district: contextType === "district" || contextType === "comparison" ? labels.join(" / ") || contextDistrict || null : null,
+      city: structuredCity || null,
+      district: structuredDistrict || null,
       street: contextStreet || null,
-      state: contextState || null,
+      state: structuredState || null,
       raw: display,
     };
   }
 
   function updateLocationFromSelections() {
+    syncSelectedLocationsFromSelections();
     profile.location = buildLocationFromSelections(profile);
     profile.targetArea = profile.location.display;
   }
@@ -584,6 +693,7 @@
     features: [],
     featureOther: "",
     locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
+    selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
     locationOther: "",
     location: contextLocation(),
     contact: {
@@ -620,9 +730,11 @@
         },
       };
       merged.locationSelections = normalizeLocationSelections(stored.locationSelections, merged.location);
+      merged.selectedLocations = normalizeSelectedLocations(stored.selectedLocations, merged.locationSelections);
       const currentLabel = locationOptionLabel();
       if (currentLabel && !merged.locationSelections.some((label) => label.toLowerCase() === currentLabel.toLowerCase())) {
         merged.locationSelections.unshift(currentLabel);
+        merged.selectedLocations = normalizeSelectedLocations(merged.selectedLocations, merged.locationSelections);
       }
       merged.locationOther = stored.locationOther || "";
       if (!merged.spaceType && defaultSpaceType && pathConfig[defaultSpaceType]) {
@@ -645,6 +757,7 @@
         ...defaultProfile,
         location: contextLocation(),
         locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
+        selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
         locationOther: "",
         targetArea: contextLocation().display,
         sourceContext: { ...defaultProfile.sourceContext },
@@ -684,6 +797,8 @@
       space_type: summary.spaceType || "",
       size_or_people: summary.sizeOrPeople || "",
       timing: summary.timing || "",
+      selected_locations: summary.selectedLocations,
+      locations: summary.selectedLocations,
       features: selectedFeatureValues(),
       features_count: selectedFeatureValues().length,
     };
@@ -819,6 +934,7 @@
         state: profile.location.state || contextState || null,
         raw: profile.location.raw || profile.location.display || "",
       },
+      selectedLocations: normalizeSelectedLocations(profile.selectedLocations, selectedLocationLabels(profile)),
       spaceType: profile.spaceType || "",
       sizeOrPeople: profile.size || "",
       timing: profile.timing || "",
@@ -903,8 +1019,12 @@
       move_timing: summary.timing || "",
       location_profile_features: selectedFeatureValues().join(", "),
       location_profile_feature_other: summary.featureOther || "",
+      selected_locations: JSON.stringify(summary.selectedLocations),
+      locations: JSON.stringify(summary.selectedLocations),
       location_profile_json: JSON.stringify({
         location: summary.location,
+        selected_locations: summary.selectedLocations,
+        locations: summary.selectedLocations,
         space_type: summary.spaceType,
         size_or_people: sizeOrPeople,
         timing: summary.timing,
@@ -1061,6 +1181,7 @@
     if (!current.has("Other")) {
       profile.locationOther = "";
     }
+    syncSelectedLocationsFromSelections();
     updateLocationFromSelections();
     saveProfile();
     if (stepError) stepError.hidden = true;
@@ -1294,8 +1415,9 @@
       profile.locationOther = event.target.value;
       if (!Array.isArray(profile.locationSelections)) profile.locationSelections = locationOptionLabel() ? [locationOptionLabel()] : [];
       if (!profile.locationSelections.includes("Other")) profile.locationSelections.push("Other");
+      syncSelectedLocationsFromSelections();
       updateLocationFromSelections();
-      renderLocationAutocomplete(event.target.value);
+      renderLocationAutocomplete(event.target.value, event.target);
     } else if (key === "targetArea") {
       updateLocationDisplay(event.target.value);
     } else {
@@ -1309,9 +1431,28 @@
     renderFinishedSummary();
   });
 
+  if (locationSearchInput) {
+    locationSearchInput.addEventListener("input", (event) => {
+      renderLocationAutocomplete(event.target.value, event.target);
+    });
+
+    locationSearchInput.addEventListener("focus", () => {
+      renderLocationAutocomplete(locationSearchInput.value, locationSearchInput);
+    });
+
+    locationSearchInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      if (!locationAutocompleteResults || locationAutocompleteResults.hidden) return;
+      const firstResult = locationAutocompleteResults.querySelector("[data-location-result-index]");
+      if (!firstResult) return;
+      event.preventDefault();
+      firstResult.click();
+    });
+  }
+
   if (locationOtherInput) {
     locationOtherInput.addEventListener("focus", () => {
-      renderLocationAutocomplete(locationOtherInput.value);
+      renderLocationAutocomplete(locationOtherInput.value, locationOtherInput);
     });
 
     locationOtherInput.addEventListener("keydown", (event) => {
@@ -1373,6 +1514,7 @@
       location: contextLocation(),
       targetArea: contextLocation().display,
       locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
+      selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
       locationOther: "",
       sourceContext: { ...defaultProfile.sourceContext },
       contact: { ...defaultProfile.contact },
@@ -1381,6 +1523,8 @@
     viewMode = "edit";
     window.localStorage.removeItem(STORAGE_KEY);
     locationOptionsExpanded = false;
+    if (locationSearchInput) locationSearchInput.value = "";
+    hideLocationAutocomplete();
     render();
     setCollapsed(false);
   });

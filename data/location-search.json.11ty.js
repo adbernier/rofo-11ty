@@ -31,6 +31,7 @@ module.exports = class {
         state,
         type,
         path,
+        slug: clean(item.slug),
         search: clean([label, city, state, type].filter(Boolean).join(" "))
       });
     }
@@ -44,7 +45,8 @@ module.exports = class {
         city: label,
         state: city.state_abbr || "",
         type: "city",
-        path: city.path || `/commercial-real-estate/${city.state_abbr}/${city.slug}/`
+        path: city.path || `/commercial-real-estate/${city.state_abbr}/${city.slug}/`,
+        slug: city.slug || city.city_slug || ""
       });
     });
 
@@ -55,7 +57,8 @@ module.exports = class {
         city: page.city || "",
         state: page.state_abbr || page.state || "",
         type: "district",
-        path: page.canonical_neighborhood_path || page.path || ""
+        path: page.canonical_neighborhood_path || page.path || "",
+        slug: page.slug || page.neighborhood_slug || ""
       });
     });
 
