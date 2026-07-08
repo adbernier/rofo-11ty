@@ -116,6 +116,58 @@
     },
   };
 
+  function normalizeQuerySpaceType(value) {
+    const normalized = String(value || "").trim().toLowerCase().replace(/[-_]+/g, " ");
+    if (!normalized) return "";
+    if (normalized.includes("industrial") || normalized.includes("warehouse")) return "Industrial / Warehouse";
+    if (normalized.includes("retail")) return "Retail";
+    if (normalized.includes("medical")) return "Medical";
+    if (normalized.includes("flex")) return "Flex";
+    if (normalized.includes("coworking")) return "Coworking";
+    if (normalized.includes("office")) return "Office";
+    const direct = spaceTypeOptions.find((item) => item.value.toLowerCase() === normalized || item.label.toLowerCase() === normalized);
+    return direct ? direct.value : "";
+  }
+
+  function parseRecommendationEntryContext() {
+    const params = new URLSearchParams(window.location.search || "");
+    const source = String(params.get("source") || "").trim();
+    const sourcePath = String(params.get("sourcePath") || "").trim();
+    const city = cleanLocationLabel(params.get("city") || "");
+    const state = String(params.get("state") || "").trim();
+    const district = cleanLocationLabel(params.get("district") || "");
+    const location = cleanLocationLabel(params.get("location") || "");
+    const locationA = cleanLocationLabel(params.get("locationA") || "");
+    const locationB = cleanLocationLabel(params.get("locationB") || "");
+    const spaceType = normalizeQuerySpaceType(params.get("spaceType") || "");
+    const locations = [];
+
+    if (locationA) {
+      locations.push({ label: locationA, type: "district", city, state, slug: "", path: "" });
+    }
+    if (locationB) {
+      locations.push({ label: locationB, type: "district", city, state, slug: "", path: "" });
+    }
+    if (!locations.length && district) {
+      locations.push({ label: district, type: "district", city, state, slug: "", path: "" });
+    }
+    if (!locations.length && location) {
+      locations.push({ label: location, type: "location", city, state, slug: "", path: "" });
+    }
+    if (!locations.length && city) {
+      locations.push({ label: city, type: "city", city, state, slug: "", path: "" });
+    }
+
+    const cleanLocations = normalizeSelectedLocations(locations, []);
+    return {
+      hasContext: Boolean(cleanLocations.length || spaceType || source || sourcePath),
+      source,
+      sourcePath,
+      locations: cleanLocations,
+      spaceType,
+    };
+  }
+
   const fieldLabels = {
     spaceType: "Space Type",
     people: "People",
@@ -673,6 +725,60 @@
     };
   }
 
+  const recommendationEntryContext = parseRecommendationEntryContext();
+
+  function locationFromRecommendationEntry(entryContext) {
+    const locations = entryContext.locations || [];
+    const labels = locations.map((location) => location.label).filter(Boolean);
+    const first = locations[0] || {};
+    const districtLabels = locations
+      .filter((location) => location.type === "district")
+      .map((location) => location.label)
+      .filter(Boolean);
+    const display = labels.join(" / ");
+    return {
+      display,
+      city: first.type === "city" ? first.label : first.city || null,
+      district: districtLabels.join(" / ") || (first.type === "district" ? first.label : null),
+      street: null,
+      state: first.state || contextState || null,
+      raw: display,
+    };
+  }
+
+  function applyRecommendationEntryContext(targetProfile) {
+    if (!recommendationEntryContext.hasContext) return targetProfile;
+    const locations = recommendationEntryContext.locations || [];
+    const labels = locations.map((location) => location.label).filter(Boolean);
+    const nextProfile = {
+      ...targetProfile,
+      sourceContext: {
+        ...(targetProfile.sourceContext || {}),
+        recommendationEntrySource: recommendationEntryContext.source || "",
+        recommendationEntrySourcePath: recommendationEntryContext.sourcePath || "",
+      },
+    };
+
+    if (locations.length) {
+      nextProfile.locationSelections = uniqueLabels(labels);
+      nextProfile.selectedLocations = normalizeSelectedLocations(locations, nextProfile.locationSelections);
+      nextProfile.location = locationFromRecommendationEntry(recommendationEntryContext);
+      nextProfile.targetArea = nextProfile.location.display;
+      nextProfile.locationOther = "";
+    }
+
+    if (recommendationEntryContext.spaceType && pathConfig[recommendationEntryContext.spaceType]) {
+      nextProfile.spaceType = recommendationEntryContext.spaceType;
+    }
+
+    nextProfile.contact = {
+      ...(nextProfile.contact || {}),
+      submitted: false,
+    };
+
+    return nextProfile;
+  }
+
   function updateLocationFromSelections() {
     syncSelectedLocationsFromSelections();
     profile.location = buildLocationFromSelections(profile);
@@ -687,7 +793,7 @@
       type: root.dataset.profileContextType || "",
       label: root.dataset.profileContextLabel || "",
     },
-    spaceType: defaultSpaceType && pathConfig[defaultSpaceType] ? defaultSpaceType : "",
+    spaceType: recommendationEntryContext.spaceType || (defaultSpaceType && pathConfig[defaultSpaceType] ? defaultSpaceType : ""),
     people: "",
     use: "",
     size: "",
@@ -697,17 +803,17 @@
     priorities: [],
     features: [],
     featureOther: "",
-    locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
-    selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
+    locationSelections: recommendationEntryContext.locations.length ? recommendationEntryContext.locations.map((location) => location.label) : (locationOptionLabel() ? [locationOptionLabel()] : []),
+    selectedLocations: recommendationEntryContext.locations.length ? recommendationEntryContext.locations : normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
     locationOther: "",
-    location: contextLocation(),
+    location: recommendationEntryContext.locations.length ? locationFromRecommendationEntry(recommendationEntryContext) : contextLocation(),
     contact: {
       submitted: false,
       name: "",
       email: "",
       phone: "",
     },
-    targetArea: contextTargetArea,
+    targetArea: recommendationEntryContext.locations.length ? locationFromRecommendationEntry(recommendationEntryContext).display : contextTargetArea,
     notes: "",
   };
 
@@ -756,9 +862,9 @@
       if (!Array.isArray(merged.features)) {
         merged.features = merged.features ? [merged.features] : [];
       }
-      return merged;
+      return applyRecommendationEntryContext(merged);
     } catch (error) {
-      return {
+      return applyRecommendationEntryContext({
         ...defaultProfile,
         location: contextLocation(),
         locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
@@ -767,7 +873,7 @@
         targetArea: contextLocation().display,
         sourceContext: { ...defaultProfile.sourceContext },
         contact: { ...defaultProfile.contact },
-      };
+      });
     }
   }
 
@@ -882,6 +988,19 @@
 
   function trackVisible() {
     trackSearchProfileEvent("search_profile_viewed");
+  }
+
+  function renderRecommendationEntryNote() {
+    const note = document.querySelector("[data-profile-query-context]");
+    const list = document.querySelector("[data-profile-query-context-list]");
+    if (!note || !list || !recommendationEntryContext.hasContext) return;
+    const items = [
+      ...(recommendationEntryContext.locations || []).map((location) => location.label),
+      recommendationEntryContext.spaceType,
+    ].filter(Boolean);
+    if (!items.length) return;
+    list.innerHTML = items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    note.hidden = false;
   }
 
   function activeConfig() {
@@ -1547,7 +1666,7 @@
   });
 
   resetButton.addEventListener("click", () => {
-    profile = {
+    profile = applyRecommendationEntryContext({
       ...defaultProfile,
       location: contextLocation(),
       targetArea: contextLocation().display,
@@ -1556,7 +1675,7 @@
       locationOther: "",
       sourceContext: { ...defaultProfile.sourceContext },
       contact: { ...defaultProfile.contact },
-    };
+    });
     activeStepIndex = 0;
     viewMode = "edit";
     window.localStorage.removeItem(STORAGE_KEY);
@@ -1641,6 +1760,7 @@
     if (event.key === "Escape") setCollapsed(true);
   });
 
+  renderRecommendationEntryNote();
   render();
   setCollapsed(collapsed);
   if (analyticsEnabled && "IntersectionObserver" in window) {

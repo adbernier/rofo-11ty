@@ -35,6 +35,11 @@ eleventyComputed:
     </div>
 
     <div class="search-profile-page__shell">
+      <section class="find-locations-context-note" data-profile-query-context hidden>
+        <p>Based on what you were exploring:</p>
+        <ul data-profile-query-context-list></ul>
+        <span>Finish your profile to see your recommendations.</span>
+      </section>
       {% set searchProfileContext = {
         "layout": "page",
         "submit_enabled": true,

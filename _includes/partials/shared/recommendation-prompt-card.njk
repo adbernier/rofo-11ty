@@ -1,0 +1,138 @@
+{% set promptContext = recommendationPromptContext or searchProfileContext or {} %}
+{% set promptSource = promptContext.context_type or "page" %}
+{% set promptCity = promptContext.city or "" %}
+{% set promptState = promptContext.state or promptContext.state_abbr or "" %}
+{% set promptDistrict = promptContext.neighborhood_name or promptContext.district or "" %}
+{% set promptLabel = promptContext.context_label or promptDistrict or promptCity or "" %}
+{% set promptSpaceType = promptContext.default_space_type or "" %}
+{% set promptSourcePath = page.url or promptContext.page_url or "" %}
+{% set promptComparisonA = "" %}
+{% set promptComparisonB = "" %}
+{% if promptContext.location_suggestions and promptContext.location_suggestions.length %}
+  {% set promptComparisonA = promptContext.location_suggestions[0] or "" %}
+  {% set promptComparisonB = promptContext.location_suggestions[1] or "" %}
+{% endif %}
+{% set promptIsIndustrial = (promptSpaceType | lower).includes("industrial") or (promptLabel | lower).includes("industrial") or (promptDistrict | lower).includes("industrial") %}
+
+{% if promptSource == "district" and promptDistrict %}
+  {% if promptIsIndustrial %}
+    {% set promptHeadline = "Is this the right industrial location for your operation?" %}
+    {% set promptBody = "We’ll evaluate truck access, loading, freeway access, and nearby industrial alternatives." %}
+  {% else %}
+    {% set promptHeadline = "Is " + promptDistrict + " the right place for your business?" %}
+    {% set promptBody = "We’ll compare " + promptDistrict + " with nearby districts and recommend where we’d start based on your business." %}
+  {% endif %}
+{% elseif promptSource == "city" and promptCity %}
+  {% set promptHeadline = "Find the right location in " + promptCity + "." %}
+  {% set promptBody = "We’ll compare " + promptCity + " districts and recommend where we’d start based on your space needs." %}
+{% elseif promptSource == "comparison" %}
+  {% set promptHeadline = "Which location is the better fit for your business?" %}
+  {% if promptComparisonA and promptComparisonB %}
+    {% set promptBody = "We’ll help compare " + promptComparisonA + ", " + promptComparisonB + ", and nearby alternatives based on your business." %}
+  {% else %}
+    {% set promptBody = "We’ll help compare these locations and nearby alternatives based on your business." %}
+  {% endif %}
+{% elseif promptSource == "space_type" %}
+  {% set promptTypeLabel = (promptSpaceType or "office") | lower %}
+  {% set promptHeadline = "Find the right market for your " + promptTypeLabel + " search." %}
+  {% set promptBody = "Tell us where you’re considering and we’ll recommend the markets and districts that fit your needs." %}
+{% else %}
+  {% set promptHeadline = "Get location recommendations that fit your business." %}
+  {% set promptBody = "Tell us what you’re looking for and Rofo will recommend where we’d start your search." %}
+{% endif %}
+
+{% set promptParams = [] %}
+{% if promptCity %}{% set promptParams = (promptParams.push("city=" + (promptCity | queryEncode)), promptParams) %}{% endif %}
+{% if promptState %}{% set promptParams = (promptParams.push("state=" + (promptState | queryEncode)), promptParams) %}{% endif %}
+{% if promptSource == "district" and promptDistrict %}
+  {% set promptParams = (promptParams.push("district=" + (promptDistrict | queryEncode)), promptParams) %}
+{% elseif promptSource != "comparison" and promptLabel and not promptCity %}
+  {% set promptParams = (promptParams.push("location=" + (promptLabel | queryEncode)), promptParams) %}
+{% endif %}
+{% if promptSource == "comparison" and promptComparisonA %}
+  {% set promptParams = (promptParams.push("locationA=" + (promptComparisonA | queryEncode)), promptParams) %}
+{% endif %}
+{% if promptSource == "comparison" and promptComparisonB %}
+  {% set promptParams = (promptParams.push("locationB=" + (promptComparisonB | queryEncode)), promptParams) %}
+{% endif %}
+{% if promptSpaceType %}{% set promptParams = (promptParams.push("spaceType=" + (promptSpaceType | queryEncode)), promptParams) %}{% endif %}
+{% if promptSource %}{% set promptParams = (promptParams.push("source=" + (promptSource | queryEncode)), promptParams) %}{% endif %}
+{% if promptSourcePath %}{% set promptParams = (promptParams.push("sourcePath=" + (promptSourcePath | queryEncode)), promptParams) %}{% endif %}
+{% set promptHref = "/find-locations/" + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
+
+<section
+  class="recommendation-prompt-card"
+  data-recommendation-prompt
+  data-prompt-source="{{ promptSource }}"
+  data-prompt-city="{{ promptCity }}"
+  data-prompt-district="{{ promptDistrict }}"
+  data-prompt-space-type="{{ promptSpaceType }}"
+  data-prompt-source-path="{{ promptSourcePath }}"
+  aria-label="Get location recommendations"
+>
+  <div class="recommendation-prompt-card__content">
+    <div class="recommendation-prompt-card__badge">Location advisor</div>
+    <h2>{{ promptHeadline }}</h2>
+    <p>{{ promptBody }}</p>
+    <p class="recommendation-prompt-card__microcopy">Takes about 60 seconds.</p>
+  </div>
+  <a class="recommendation-prompt-card__button" href="{{ promptHref }}" data-recommendation-prompt-click>
+    Get My Recommendations
+  </a>
+</section>
+
+<script>
+  (() => {
+    const endpoint = "/api/analytics/search-profile";
+    const prompts = document.querySelectorAll("[data-recommendation-prompt]:not([data-prompt-bound])");
+    if (!prompts.length) return;
+
+    function send(eventName, card) {
+      const payload = {
+        event_name: eventName,
+        profile_version: "recommendation_prompt_v1",
+        context: {
+          page_type: card.dataset.promptSource || "",
+          page_url: card.dataset.promptSourcePath || window.location.pathname,
+          city: card.dataset.promptCity || "",
+          district: card.dataset.promptDistrict || "",
+          location_display: card.dataset.promptDistrict || card.dataset.promptCity || "",
+          space_type: card.dataset.promptSpaceType || "",
+          device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
+        },
+        profile: {
+          profile_version: "recommendation_prompt_v1",
+          space_type: card.dataset.promptSpaceType || "",
+        },
+        attribution: {
+          referrer: document.referrer || "",
+          landing_page: window.location.href,
+          entry_page_type: card.dataset.promptSource || "",
+        },
+      };
+
+      try {
+        const body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+          const blob = new Blob([body], { type: "application/json" });
+          if (navigator.sendBeacon(endpoint, blob)) return;
+        }
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body,
+          credentials: "same-origin",
+          keepalive: true,
+        }).catch(() => {});
+      } catch (error) {}
+    }
+
+    prompts.forEach((card) => {
+      card.dataset.promptBound = "true";
+      send("recommendation_prompt_viewed", card);
+      card.querySelectorAll("[data-recommendation-prompt-click]").forEach((link) => {
+        link.addEventListener("click", () => send("recommendation_prompt_clicked", card), { once: true });
+      });
+    });
+  })();
+</script>

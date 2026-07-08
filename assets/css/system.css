@@ -3326,6 +3326,112 @@ section.market-page--space-type .market-links a {
   white-space: pre-wrap;
 }
 
+.recommendation-prompt-card {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid #dbe5f2;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+}
+
+.recommendation-prompt-card__badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #123f8c;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.recommendation-prompt-card h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  line-height: 1.12;
+}
+
+.recommendation-prompt-card p {
+  margin: 10px 0 0;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.recommendation-prompt-card__microcopy {
+  color: #64748b !important;
+  font-size: 0.86rem !important;
+}
+
+.recommendation-prompt-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #1746cc;
+  color: #ffffff;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(23, 70, 204, 0.18);
+}
+
+.recommendation-prompt-card__button:hover {
+  background: #103aa8;
+}
+
+.find-locations-context-note {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid #dbe5f2;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.find-locations-context-note p,
+.find-locations-context-note span {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.find-locations-context-note ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.find-locations-context-note li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #123f8c;
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.find-locations-context-note li::before {
+  content: "✓";
+  color: #14532d;
+  font-weight: 900;
+}
+
 @media (max-width: 940px) {
   .recommendations-hero,
   .recommendations-cta,

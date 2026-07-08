@@ -214,6 +214,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("robots.txt");
 
+  eleventyConfig.addFilter("queryEncode", (value) => encodeURIComponent(String(value || "")));
+
   eleventyConfig.addFilter("uniqueStates", (cities) => {
     const seen = new Set();
     return cities.filter((c) => {

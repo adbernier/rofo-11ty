@@ -1,14 +1,69 @@
-<section class="search-profile-mobile-entry" aria-label="Find matching buildings">
+{% set mobilePromptContext = searchProfileContext or {} %}
+{% if not mobilePromptContext.context_type %}
+  {% if neighborhood %}
+    {% set mobilePromptContext = {
+      "context_type": "district",
+      "city": neighborhood.city,
+      "state": neighborhood.state_abbr,
+      "district": neighborhood.name,
+      "neighborhood_name": neighborhood.name
+    } %}
+  {% elseif comparison %}
+    {% set mobilePromptContext = {
+      "context_type": "comparison",
+      "city": comparison.city,
+      "state": comparison.state_abbr,
+      "location_suggestions": [comparison.district_a_name, comparison.district_b_name]
+    } %}
+  {% elseif guide %}
+    {% set mobilePromptContext = {
+      "context_type": "market_guide",
+      "city": guide.city,
+      "state": guide.state_abbr,
+      "default_space_type": guideSearchProfileSpaceType or ""
+    } %}
+  {% elseif entry %}
+    {% set mobilePromptContext = {
+      "context_type": "space_type",
+      "city": entry.city.city,
+      "state": entry.city.state_abbr,
+      "default_space_type": searchProfileDefaultSpaceType or entry.spaceType.label
+    } %}
+  {% elseif city and city.city %}
+    {% set mobilePromptContext = {
+      "context_type": "city",
+      "city": city.city,
+      "state": city.state_abbr
+    } %}
+  {% endif %}
+{% endif %}
+{% set mobilePromptSource = mobilePromptContext.context_type or "page" %}
+{% set mobilePromptCity = mobilePromptContext.city or "" %}
+{% set mobilePromptState = mobilePromptContext.state or mobilePromptContext.state_abbr or "" %}
+{% set mobilePromptDistrict = mobilePromptContext.neighborhood_name or mobilePromptContext.district or "" %}
+{% set mobilePromptSpaceType = mobilePromptContext.default_space_type or "" %}
+{% set mobilePromptSourcePath = page.url or mobilePromptContext.page_url or "" %}
+{% set mobilePromptLocationA = "" %}
+{% set mobilePromptLocationB = "" %}
+{% if mobilePromptContext.location_suggestions and mobilePromptContext.location_suggestions.length %}
+  {% set mobilePromptLocationA = mobilePromptContext.location_suggestions[0] or "" %}
+  {% set mobilePromptLocationB = mobilePromptContext.location_suggestions[1] or "" %}
+{% endif %}
+{% set mobileParams = [] %}
+{% if mobilePromptCity %}{% set mobileParams = (mobileParams.push("city=" + (mobilePromptCity | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptState %}{% set mobileParams = (mobileParams.push("state=" + (mobilePromptState | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptDistrict and mobilePromptSource == "district" %}{% set mobileParams = (mobileParams.push("district=" + (mobilePromptDistrict | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptLocationA and mobilePromptSource == "comparison" %}{% set mobileParams = (mobileParams.push("locationA=" + (mobilePromptLocationA | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptLocationB and mobilePromptSource == "comparison" %}{% set mobileParams = (mobileParams.push("locationB=" + (mobilePromptLocationB | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptSpaceType %}{% set mobileParams = (mobileParams.push("spaceType=" + (mobilePromptSpaceType | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptSource %}{% set mobileParams = (mobileParams.push("source=" + (mobilePromptSource | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptSourcePath %}{% set mobileParams = (mobileParams.push("sourcePath=" + (mobilePromptSourcePath | queryEncode)), mobileParams) %}{% endif %}
+{% set mobilePromptHref = "/find-locations/" + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
+
+<section class="search-profile-mobile-entry" aria-label="Get location recommendations">
   <div>
-    <h2>Find matching buildings</h2>
-    <p>Get a personalized shortlist curated by local experts.</p>
+    <h2>Get recommendations</h2>
+    <p>Find the right location before you search for space.</p>
   </div>
-  <button
-    class="btn-primary"
-    type="button"
-    data-profile-mobile-entry
-    data-profile-target="{{ (searchProfileContext and searchProfileContext.anchor_id) or 'search-profile' }}"
-  >
-    Start Your Search
-  </button>
+  <a class="btn-primary" href="{{ mobilePromptHref }}">Start</a>
 </section>

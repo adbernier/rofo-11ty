@@ -351,7 +351,7 @@ eleventyComputed:
             "location_suggestions": searchProfileLocationSuggestions,
             "card_headline": "Get a personalized " + neighborhood.name + " building shortlist"
           } %}
-          {% include "partials/shared/search-profile-card.njk" %}
+          {% include "partials/shared/recommendation-prompt-card.njk" %}
         {% endif %}
 
         {% if not hasMapHero and not (isDistrictIdentityPage or neighborhood.commercial_location_model) %}
@@ -520,8 +520,4 @@ eleventyComputed:
       window.addEventListener("hashchange", openBriefingCard);
     })();
   </script>
-{% endif %}
-
-{% if isDistrictIdentityPage or neighborhood.commercial_location_model %}
-  <script src="/js/search-profile.js" defer></script>
 {% endif %}
