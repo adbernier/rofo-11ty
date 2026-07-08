@@ -23,34 +23,28 @@ eleventyComputed:
           For a San Francisco office search in this size range, we'd start by testing a few districts against how your team will work, commute, and grow.
         </p>
       </div>
-
-      <div class="recommendations-recap" aria-label="Search recap">
-        <span data-recommendation-space>Office</span>
-        <span data-recommendation-size>2,500-5,000 sqft</span>
-        <span data-recommendation-location>San Francisco</span>
-      </div>
     </section>
 
-    <section class="recommendation-context-card" aria-labelledby="recommendation-context-heading" data-recommendation-context-card>
-      <div class="kicker" data-recommendation-context-kicker>Sample profile</div>
-      <h2 id="recommendation-context-heading" data-recommendation-context-heading>Example location profile</h2>
-      <dl>
+    <section class="recommendation-context-card recommendation-memo-section" aria-labelledby="recommendation-context-heading" data-recommendation-context-card>
+      <div class="kicker" data-recommendation-context-kicker>Executive Summary</div>
+      <h2 id="recommendation-context-heading" data-recommendation-context-heading>Here’s where we’d begin.</h2>
+      <p class="recommendation-memo-lead" data-recommendation-context-copy>
+        Based on your search for 2,500-5,000 SF of office space in San Francisco, we’d begin with Mission Bay because it offers modern office inventory, strong transit access, and room for growth. We’d compare it with SoMa and the Financial District before narrowing the search to individual buildings.
+      </p>
+      <dl class="recommendations-recap" aria-label="Search recap">
         <div>
           <dt>Location</dt>
-          <dd data-recommendation-context-location>San Francisco</dd>
+          <dd data-recommendation-context-location data-recommendation-location>San Francisco</dd>
         </div>
         <div>
           <dt>Space</dt>
-          <dd data-recommendation-context-space>Office</dd>
+          <dd data-recommendation-context-space data-recommendation-space>Office</dd>
         </div>
         <div>
           <dt>Size</dt>
-          <dd data-recommendation-context-size>2,500-5,000 sqft</dd>
+          <dd data-recommendation-context-size data-recommendation-size>2,500-5,000 sqft</dd>
         </div>
       </dl>
-      <p data-recommendation-context-copy>
-        This sample shows how Rofo turns a location profile into a first-pass recommendation. Start a profile to see recommendations based on your search.
-      </p>
       <p data-recommendation-demo-detail>
         <a href="/example-location-brief/">View an Example Location Brief</a>
       </p>
@@ -65,43 +59,52 @@ eleventyComputed:
       <a class="recommendations-button" href="/find-locations/">Update Location Profile</a>
     </section>
 
-    <section class="recommendations-section" aria-labelledby="recommended-districts" data-recommendation-supported>
+    <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommended-districts" data-recommendation-supported>
       <div class="recommendations-section__header">
-        <div class="kicker" data-recommendation-section-kicker>Sample advisor recommendation</div>
+        <div class="kicker" data-recommendation-section-kicker>Recommended Market Path</div>
         <h2 id="recommended-districts" data-recommendation-section-heading>Start with the strongest fit, then pressure-test alternatives.</h2>
         <p>
-          These are not live listing results. They are the first commercial districts we would investigate before asking landlords or brokers what is actually available.
+          These are not live listing results. They are the first markets we would investigate before asking landlords or brokers what is actually available.
         </p>
       </div>
 
-      <p class="recommendation-strategy" data-recommendation-strategy>
-        Based on your search, we'd begin with Mission Bay because it offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility. We'd then pressure-test SoMa and the Financial District to see whether pricing, commute patterns, or building availability justify expanding the search.
-      </p>
-
       <div class="recommendation-brief-grid" data-recommendation-brief-grid hidden>
         <section class="recommendation-brief-panel recommendation-brief-panel--path">
-          <div class="kicker">Recommended Market Path</div>
-          <h3>Where we'd start</h3>
+          <h3>Where we’d start</h3>
           <div class="recommendation-market-path" data-recommendation-market-path></div>
         </section>
 
         <section class="recommendation-brief-panel">
-          <div class="kicker">Also worth comparing</div>
+          <h3>Also worth comparing</h3>
           <div class="recommendation-compare-list" data-recommendation-compare-with></div>
         </section>
-
-        <section class="recommendation-brief-panel">
-          <div class="kicker">What we'd evaluate next</div>
-          <ul class="recommendation-evaluate-list" data-recommendation-evaluate-next></ul>
-        </section>
       </div>
+    </section>
 
+    <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommendation-rationale">
+      <div class="recommendations-section__header">
+        <div class="kicker">Why we’d start here</div>
+        <h2 id="recommendation-rationale">The logic behind the recommendation.</h2>
+      </div>
+      <p class="recommendation-strategy" data-recommendation-strategy>
+        Based on your search, we'd begin with Mission Bay because it offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility. We'd then pressure-test SoMa and the Financial District to see whether pricing, commute patterns, or building availability justify expanding the search.
+      </p>
+      <ul class="recommendation-evaluate-list recommendation-evaluate-list--memo" data-recommendation-evaluate-next>
+        <li>Modern and flexible office inventory.</li>
+        <li>Strong transit and talent access.</li>
+        <li>Good fit for growth-stage companies.</li>
+        <li>Useful comparison set before narrowing to individual buildings.</li>
+      </ul>
+    </section>
+
+    <section class="recommendations-section recommendation-memo-section recommendation-primary-section" aria-labelledby="primary-market-deep-dive">
+      <div class="recommendations-section__header">
+        <div class="kicker">Primary Market Deep Dive</div>
+        <h2 id="primary-market-deep-dive" data-recommendation-primary-name>Mission Bay</h2>
+        <p><span class="recommendation-status" data-recommendation-status>Recommended Starting Point</span></p>
+      </div>
       <article class="recommendation-primary">
         <div class="recommendation-primary__body">
-          <div class="recommendation-card__topline">
-            <span class="recommendation-status" data-recommendation-status>We'd Start Here</span>
-          </div>
-          <h3 data-recommendation-primary-name>Mission Bay</h3>
           <div class="recommendation-confidence" aria-label="Recommendation confidence summary">
             <span data-recommendation-fit-label><strong>96</strong> Match</span>
             <span data-recommendation-judgment-label>Strongly Recommended</span>
@@ -114,7 +117,7 @@ eleventyComputed:
             We would not treat Mission Bay as the only answer. We would use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
           </p>
           <section class="recommendation-score-explainer" aria-labelledby="mission-bay-score">
-            <h4 id="mission-bay-score" data-recommendation-explainer-heading>Why this scored 96</h4>
+            <h4 id="mission-bay-score" data-recommendation-explainer-heading>Why we’d start with Mission Bay</h4>
             <div class="recommendation-advisor-grid">
               <section class="recommendation-advisor-panel">
                 <h5>Advisor rationale</h5>
@@ -159,8 +162,9 @@ eleventyComputed:
             <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" data-recommendation-demo-detail>Compare to SoMa</a>
           </div>
         </div>
+      </article>
 
-        <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered" data-recommendation-demo-detail>
+      <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered" data-recommendation-demo-detail>
           <div class="recommendation-evidence__header">
             <div class="kicker">Supporting evidence</div>
             <h4 id="primary-buildings-considered">Buildings we'd consider first</h4>
@@ -180,9 +184,18 @@ eleventyComputed:
               <p>We'd use this as a waterfront Mission Bay reference point for teams that care about newer office context and nearby transit access.</p>
             </article>
           </div>
-        </aside>
-      </article>
+      </aside>
+    </section>
 
+    <section class="recommendations-section recommendation-memo-section" aria-labelledby="comparison-markets">
+      <div class="recommendations-section__header">
+        <div class="kicker">Comparison Markets</div>
+        <h2 id="comparison-markets">Also worth comparing.</h2>
+        <p>
+          These markets should not carry the same weight as the primary recommendation. We would use them to test commute, cost, building character, and market flexibility before narrowing to individual buildings.
+        </p>
+      </div>
+      <div class="recommendation-compare-list recommendation-compare-list--memo" data-recommendation-compare-with-secondary hidden></div>
       <div class="recommendation-secondary-grid" aria-label="Alternative recommendations" data-recommendation-demo-detail>
         <article class="recommendation-card">
           <div class="recommendation-card__topline">
@@ -290,45 +303,6 @@ eleventyComputed:
           <p data-location-brief-contact-status></p>
         </div>
       </form>
-    </section>
-
-    <section class="recommendations-section" aria-labelledby="buildings-considered" data-recommendation-demo-detail>
-      <div class="recommendations-section__header">
-        <div class="kicker">Additional building context</div>
-        <h2 id="buildings-considered">Buildings that help frame the search</h2>
-        <p>
-          After Mission Bay, we would use a few buildings in nearby districts to test whether SoMa or the Financial District should stay in the search.
-        </p>
-      </div>
-
-      <div class="recommendations-grid recommendations-grid--buildings">
-        <article class="recommendation-building-card">
-          <span>SoMa</span>
-          <h5><a href="/commercial-real-estate/building/CA/san-francisco/545-folsom-st/">545 Folsom St</a></h5>
-          <p>We'd investigate this building to understand whether a central SoMa office gives enough flexibility and access to compete with Mission Bay.</p>
-        </article>
-
-        <article class="recommendation-building-card">
-          <span>Financial District</span>
-          <h5><a href="/commercial-real-estate/building/CA/san-francisco/50-california-st/">50 California St</a></h5>
-          <p>We'd use this as a downtown office reference for teams that want stronger transit, client access, and a more established business address.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="recommendations-section recommendations-section--compact" aria-labelledby="nearby-alternatives" data-recommendation-demo-detail>
-      <div class="recommendations-section__header">
-        <div class="kicker">Nearby alternatives</div>
-        <h2 id="nearby-alternatives">Nearby alternatives worth exploring</h2>
-      </div>
-
-      <div class="recommendation-chip-list">
-        <span>South Beach</span>
-        <a href="/commercial-real-estate/CA/san-francisco/jackson-square/">Jackson Square</a>
-        <a href="/commercial-real-estate/CA/san-francisco/hayes-valley/">Hayes Valley</a>
-        <a href="/commercial-real-estate/CA/oakland/downtown-oakland/">Downtown Oakland</a>
-        <a href="/commercial-real-estate/CA/south-san-francisco/">South San Francisco</a>
-      </div>
     </section>
 
     <section class="recommendations-cta" aria-labelledby="market-investigation">

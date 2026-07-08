@@ -379,6 +379,20 @@
     );
     setSubmittedCta(state, context);
 
+    const primaryLabel = state.primaryLocationLabel || (state.primaryRecommendation && state.primaryRecommendation.label) || locationText;
+    const compareLabels = (state.recommendedPath || [])
+      .slice(1, 3)
+      .map((item) => item.label)
+      .filter(Boolean);
+    const compareSummary = compareLabels.length
+      ? ` We’d compare it with ${compareLabels.join(" and ")} before narrowing the search to individual buildings.`
+      : " We’d then pressure-test nearby alternatives before narrowing the search to individual buildings.";
+    setText("[data-recommendation-context-heading]", "Here’s where we’d begin.");
+    setText(
+      "[data-recommendation-context-copy]",
+      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}. ${state.summaryCopy || "This gives the search a focused starting point."}${compareSummary}`
+    );
+
     if (state.mode === "expert_guided") {
       setHidden("[data-recommendation-supported]", true);
       setHidden("[data-recommendation-expert-guided]", false);
@@ -434,7 +448,7 @@
     renderPathPanels(state, spaceText);
     renderAttributeGuidance(primary, spaceText);
     setText("[data-recommendation-section-kicker]", "Location Brief");
-    setText("[data-recommendation-status]", "In Progress");
+    setText("[data-recommendation-status]", "Recommended Starting Point");
     setText("[data-recommendation-fit-label]", state.title || "Relevant Starting Point");
     setText("[data-recommendation-judgment-label]", "Where we'd start");
     setText("[data-recommendation-confidence-label]", state.confidenceLabel || "Medium Confidence");
@@ -487,6 +501,7 @@
     if (grid) grid.hidden = false;
     const pathNode = clearNode("[data-recommendation-market-path]");
     const compareNode = clearNode("[data-recommendation-compare-with]");
+    const secondaryCompareNode = clearNode("[data-recommendation-compare-with-secondary]");
     const evaluateNode = clearNode("[data-recommendation-evaluate-next]");
 
     if (pathNode) {
@@ -507,7 +522,9 @@
       });
     }
 
-    if (compareNode) {
+    const renderCompareItems = (node) => {
+      if (!node) return;
+      node.hidden = false;
       if (state.compareWith && state.compareWith.length) {
         state.compareWith.slice(0, 4).forEach((item) => {
           const card = createElement("article", "recommendation-compare-card");
@@ -515,12 +532,15 @@
           if (item.path) title.href = item.path;
           const reason = createElement("p", "", item.reason || "Worth comparing before narrowing the search.");
           card.append(title, reason);
-          compareNode.appendChild(card);
+          node.appendChild(card);
         });
       } else {
-        compareNode.appendChild(createElement("p", "recommendation-brief-empty", "A local expert should identify the right nearby alternatives for this profile."));
+        node.appendChild(createElement("p", "recommendation-brief-empty", "A local expert should identify the right nearby alternatives for this profile."));
       }
-    }
+    };
+
+    renderCompareItems(compareNode);
+    renderCompareItems(secondaryCompareNode);
 
     if (evaluateNode) {
       const evaluationItems = state.primaryRecommendation && state.primaryRecommendation.questionsToValidate && state.primaryRecommendation.questionsToValidate.length
