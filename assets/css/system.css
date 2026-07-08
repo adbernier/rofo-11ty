@@ -21,6 +21,18 @@
   --rofo-spacing-sm: 12px;
   --rofo-spacing-md: 24px;
   --rofo-spacing-lg: 32px;
+
+  --type-display-xl: clamp(44px, 6vw, 72px);
+  --type-display-lg: clamp(40px, 5vw, 60px);
+  --type-heading-xl: clamp(30px, 3vw, 40px);
+  --type-heading-lg: clamp(22px, 2vw, 28px);
+  --type-body-lg: clamp(18px, 1.4vw, 20px);
+  --type-body: 16px;
+  --type-caption: 13px;
+
+  --type-leading-display: 1.02;
+  --type-leading-heading: 1.14;
+  --type-leading-body: 1.62;
 }
 
 /* =========================
@@ -498,16 +510,118 @@ a:hover {
    ========================= */
 
 h1 {
-  font-size: clamp(44px,6vw,68px);
-  line-height: .98;
-  letter-spacing: -.055em;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
   margin: 16px 0 16px;
-  max-width: 11ch;
+  max-width: 13ch;
   font-weight: 700;
 }
 
 h2 {
   margin: 0 0 12px;
+}
+
+.type-display-xl {
+  font-size: var(--type-display-xl);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.type-display-lg {
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.type-heading-xl {
+  font-size: var(--type-heading-xl);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.type-heading-lg {
+  font-size: var(--type-heading-lg);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.type-body-lg {
+  font-size: var(--type-body-lg);
+  line-height: var(--type-leading-body);
+}
+
+.type-body {
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
+}
+
+.type-caption,
+.type-eyebrow {
+  font-size: var(--type-caption);
+  line-height: 1.35;
+}
+
+.page-hero h1 {
+  font-size: var(--type-display-xl);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
+  max-width: 12ch;
+}
+
+.product-story__hero h1,
+.recommendations-hero h1,
+.location-brief-document__hero h1,
+.example-brief-hero h1,
+.search-profile-page .city-hero-copy h1 {
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
+}
+
+.product-story__hero h1 {
+  max-width: 13ch;
+  margin: 10px 0 14px;
+}
+
+.product-story__hero--center h1 {
+  max-width: 14ch;
+}
+
+.product-story__hero .lead,
+.recommendations-hero .lead,
+.example-brief-hero .lead,
+.search-profile-page .city-hero-copy .lead {
+  font-size: var(--type-body-lg);
+  line-height: var(--type-leading-body);
+}
+
+.product-story__section h2,
+.recommendations-section__header h2,
+.recommendations-cta h2,
+.example-brief-section h2 {
+  font-size: var(--type-heading-xl);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
+}
+
+.product-story__section h3,
+.recommendations-section h3,
+.example-brief-section h3,
+.example-brief-meta h2 {
+  font-size: var(--type-heading-lg);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
+}
+
+.product-story__hero .eyebrow,
+.recommendations-hero .eyebrow,
+.example-brief-hero .eyebrow {
+  margin-bottom: 12px;
 }
 
 p {
@@ -2208,8 +2322,8 @@ section.market-page--space-type .market-links a {
 .recommendations-hero h1 {
   max-width: 13ch;
   margin: 0 0 14px;
-  font-size: clamp(2.2rem, 5.4vw, 4.3rem);
-  line-height: 1;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
 }
 
 .recommendations-hero .lead {
@@ -2319,8 +2433,9 @@ section.market-page--space-type .market-links a {
 .recommendations-section__header h2,
 .recommendations-cta h2 {
   margin: 0;
-  font-size: clamp(1.45rem, 3vw, 2.2rem);
-  line-height: 1.12;
+  font-size: var(--type-heading-xl);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
 }
 
 .recommendations-section__header p,
@@ -3172,8 +3287,8 @@ section.market-page--space-type .market-links a {
   max-width: 780px;
   margin: 0;
   color: #0f172a;
-  font-size: clamp(2.2rem, 5vw, 4.35rem);
-  line-height: 0.98;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
   letter-spacing: 0;
 }
 
@@ -3477,10 +3592,10 @@ section.market-page--space-type .market-links a {
 
 .example-brief-hero h1 {
   max-width: 760px;
-  margin: 8px 0 14px;
+  margin: 8px 0 12px;
   color: #0f172a;
-  font-size: clamp(2.45rem, 6vw, 5rem);
-  line-height: 0.98;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
   letter-spacing: 0;
 }
 
@@ -3570,8 +3685,9 @@ section.market-page--space-type .market-links a {
 .example-brief-section h2 {
   margin: 0 0 10px;
   color: #0f172a;
-  font-size: clamp(1.45rem, 3vw, 2.05rem);
-  line-height: 1.15;
+  font-size: var(--type-heading-xl);
+  line-height: var(--type-leading-heading);
+  letter-spacing: 0;
 }
 
 .example-brief-section h3 {
@@ -8518,7 +8634,9 @@ section.market-page--space-type .market-links a {
 
 .search-profile-page .city-hero-copy h1 {
   max-width: 650px;
-  line-height: 1.04;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
 }
 
 .search-profile-page .city-hero-copy h1 span {
