@@ -724,20 +724,52 @@
   function locationBriefPayload() {
     return {
       ...currentBriefState,
+      createdFrom: "recommendations",
       timestamp: new Date().toISOString(),
     };
+  }
+
+  function fallbackEmailHref(payload) {
+    const subject = encodeURIComponent(`Rofo Location Brief review: ${formatLocations((payload.searchProfile || {}).locations || [])}`);
+    const body = encodeURIComponent(JSON.stringify(payload, null, 2));
+    return `mailto:hello@rofo.com?subject=${subject}&body=${body}`;
+  }
+
+  async function submitLocationBrief(payload) {
+    const response = await fetch("/api/location-brief/submit", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    let result = null;
+    try {
+      result = await response.json();
+    } catch (error) {
+      result = {};
+    }
+    if (!response.ok || !result || result.ok === false) {
+      const message = result && (result.error || result.message)
+        ? [result.error, result.message].filter(Boolean).join(": ")
+        : "Location Brief submission failed";
+      throw new Error(message);
+    }
+    return result;
   }
 
   function initializeContactForm() {
     const form = document.querySelector("[data-location-brief-contact]");
     if (!form) return;
     const status = document.querySelector("[data-location-brief-contact-status]");
+    const submitButton = form.querySelector('button[type="submit"]');
     const contact = currentBriefState.contact || {};
     ["name", "email", "company", "phone"].forEach((field) => {
       const input = form.querySelector(`[name="${field}"]`);
       if (input && contact[field]) input.value = contact[field];
     });
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
       currentBriefState.contact = {
@@ -749,10 +781,30 @@
       const payload = locationBriefPayload();
       currentBriefState = payload;
       persistBriefState();
+      if (status) status.textContent = "Creating your permanent Location Brief...";
+      if (submitButton) submitButton.disabled = true;
+
       if (status) {
-        const subject = encodeURIComponent(`Rofo Location Brief review: ${formatLocations((payload.searchProfile || {}).locations || [])}`);
-        const body = encodeURIComponent(JSON.stringify(payload, null, 2));
-        status.innerHTML = `Location Brief saved for expert review. <a href="mailto:hello@rofo.com?subject=${subject}&body=${body}">Send by email</a>`;
+        try {
+          const result = await submitLocationBrief(payload);
+          currentBriefState = {
+            ...payload,
+            id: result.id || payload.id || "",
+            publicId: result.publicId || payload.publicId || "",
+            url: result.url || payload.url || "",
+            status: result.status || "submitted",
+          };
+          persistBriefState();
+          const url = result.url || "";
+          status.innerHTML = url
+            ? `Location Brief submitted. <a href="${url}">View ${result.publicId}</a>`
+            : "Location Brief submitted for expert review.";
+        } catch (error) {
+          const href = fallbackEmailHref(payload);
+          status.innerHTML = `We could not create the permanent brief automatically. <a href="${href}">Send by email</a>`;
+        } finally {
+          if (submitButton) submitButton.disabled = false;
+        }
       }
     });
   }
