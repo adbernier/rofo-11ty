@@ -10,7 +10,7 @@ const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
 const LEAD_QUALITY_SAMPLE_LIMIT = 2000;
 const STATUS_VIEWS = {
-  pending: ["pending", "approved_send_failed"],
+  pending: ["pending", "approved_send_failed", "expert_review_requested"],
   sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
   rejected: ["rejected"],
   spam: ["spam_quarantined", "rejected_spam"],
@@ -258,7 +258,10 @@ function linkField(label, value, options = {}) {
 
 function statusBadge(value) {
   const status = value || "unknown";
-  return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(status)}</span>`;
+  const label = String(status)
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+  return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(label)}</span>`;
 }
 
 function normalizeView(value) {
@@ -283,7 +286,10 @@ function renderLeadCard(row, token) {
   const route = lead.route_recommendation || {};
   const latestAttempt = getLatestOfficeFinderAttempt(lead);
   const locationSummary = lead.lead_type === "location_profile" ? getLocationRequirementSummary(lead) : null;
-  const market = locationSummary ? locationSummary.location : lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
+  const isLocationBrief = lead.lead_type === "location_brief" || lead.source === "location_brief";
+  const market = locationSummary
+    ? locationSummary.location
+    : lead.location_display || lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
   const officeFinderStatus = lead.officefinder_status || "officefinder_not_attempted";
   const spamReasons = Array.isArray(lead.spam_reasons) ? lead.spam_reasons : [];
   const isSpam = ["spam_quarantined", "rejected_spam"].includes(row.status);
@@ -309,11 +315,14 @@ function renderLeadCard(row, token) {
       </div>
 
       <div class="lead-grid lead-grid--review">
-        ${field(lead.lead_type === "location_profile" ? "Location" : "City / market", market, { className: locationClass })}
+        ${field(lead.lead_type === "location_profile" || isLocationBrief ? "Location" : "City / market", market, { className: locationClass })}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
         ${field("Size", lead.space_needed)}
         ${field("Email", lead.email)}
         ${field("Phone", lead.phone || "(not provided)", { className: phoneClass })}
+        ${field("Company", lead.company)}
+        ${isLocationBrief ? field("Brief ID", lead.location_brief_public_id) : ""}
+        ${isLocationBrief ? linkField("View Brief", lead.location_brief_url) : ""}
         ${field("Source", sourceLabel)}
         ${linkField("Page URL", lead.page_url || lead.rofo_source)}
       </div>
@@ -327,17 +336,29 @@ function renderLeadCard(row, token) {
       ` : ""}
 
       <section class="message-block">
-        <h3>Message / notes</h3>
+        <h3>${isLocationBrief ? "Location Brief summary" : "Message / notes"}</h3>
         <div>${message ? escapeHtml(truncate(message, 1200)) : "<span class=\"muted\">No message provided.</span>"}</div>
       </section>
+
+      ${isLocationBrief ? `
+        <section class="message-block">
+          <h3>Recommended Market Path</h3>
+          <div>${lead.recommended_market_path ? escapeHtml(lead.recommended_market_path) : "<span class=\"muted\">No market path recorded.</span>"}</div>
+        </section>
+        <section class="message-block">
+          <h3>Business Priorities</h3>
+          <div>${lead.business_priorities ? escapeHtml(lead.business_priorities) : "<span class=\"muted\">No priorities selected.</span>"}</div>
+        </section>
+      ` : ""}
 
       <details class="admin-details">
         <summary>Routing and admin details</summary>
         <div class="lead-grid">
-        ${field("Company", lead.company)}
+        ${isLocationBrief ? "" : field("Company", lead.company)}
         ${lead.lead_type === "location_profile" ? "" : field("State", lead.state)}
         ${field("Timing", lead.move_timing)}
         ${field("Page type", lead.page_type)}
+        ${isLocationBrief ? field("Location Brief status", lead.location_brief_status) : ""}
         ${field("Route recommendation", route.route_to)}
         ${field("Matched rule", route.route_id)}
         ${field("Route reason", route.route_reason)}
@@ -392,6 +413,11 @@ function renderPostButton({ token, id, action, route = "", label, className = ""
 }
 
 function renderLeadActions(row, route, token) {
+  const lead = parseJson(row.lead_json);
+  if (lead.lead_type === "location_brief" || lead.source === "location_brief") {
+    return `<div class="lead-actions"><span class="muted">Location Brief expert review request. Review the brief before routing or broker follow-up.</span></div>`;
+  }
+
   if (!["pending", "approved_send_failed"].includes(row.status)) {
     return `<div class="lead-actions"><span class="muted">No dashboard actions available for ${escapeHtml(row.status)} leads.</span></div>`;
   }
@@ -567,6 +593,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .lead-card__status { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
     .badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #eef3f8; color: #24364d; font-size: 12px; font-weight: 800; }
     .badge--pending { background: #fff7db; color: #7a4b00; }
+    .badge--expert_review_requested { background: #dbeafe; color: #1e40af; }
     .badge--approved_sent, .badge--broker_sent, .badge--both_sent, .badge--partial_sent, .badge--officefinder_sent { background: #e4f8ec; color: #166534; }
     .badge--approved_send_failed, .badge--officefinder_failed { background: #fee2e2; color: #991b1b; }
     .badge--spam_quarantined, .badge--rejected_spam { background: #ffedd5; color: #9a3412; }

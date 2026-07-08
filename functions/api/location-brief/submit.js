@@ -2,12 +2,20 @@ import {
   canonicalizeBrief,
   generatePublicId,
   jsonResponse,
+  locationSummary,
   publicBriefUrl,
   saveLocationBrief,
   scheduleLocationBriefIndexes,
   sendLocationBriefEmail,
+  sizeSummary,
+  spaceSummary,
   trackLocationBriefEvent,
 } from "./_shared.js";
+import {
+  randomHex,
+  saveLead,
+  sha256,
+} from "../leads/_shared.js";
 
 async function readJson(request) {
   try {
@@ -19,6 +27,104 @@ async function readJson(request) {
 
 function hasRequiredContact(brief) {
   return Boolean(brief.contact && brief.contact.name && brief.contact.email);
+}
+
+function firstLocation(brief) {
+  const locations = brief.searchProfile && Array.isArray(brief.searchProfile.locations)
+    ? brief.searchProfile.locations
+    : [];
+  return locations[0] || {};
+}
+
+function recommendedMarketPathSummary(brief) {
+  const path = brief.marketPath && Array.isArray(brief.marketPath.recommendedPath)
+    ? brief.marketPath.recommendedPath
+    : [];
+  const compareWith = brief.marketPath && Array.isArray(brief.marketPath.compareWith)
+    ? brief.marketPath.compareWith
+    : [];
+  const labels = [];
+  for (const item of [...path, ...compareWith]) {
+    if (item && item.label && !labels.includes(item.label)) labels.push(item.label);
+  }
+  return labels.join(" / ");
+}
+
+function buildLocationBriefLead(brief, request, briefUrl) {
+  const contact = brief.contact || {};
+  const location = firstLocation(brief);
+  const market = locationSummary(brief);
+  const spaceType = spaceSummary(brief);
+  const size = sizeSummary(brief);
+  const recommendedMarketPath = recommendedMarketPathSummary(brief);
+  const priorities = Array.isArray(brief.priorities) ? brief.priorities.filter(Boolean) : [];
+  const requirements = [
+    brief.feedback ? `Feedback: ${brief.feedback}` : "",
+    priorities.length ? `Business priorities: ${priorities.join(", ")}` : "",
+    brief.notes ? `Notes: ${brief.notes}` : "",
+  ].filter(Boolean).join("\n\n");
+
+  return {
+    lead_type: "location_brief",
+    profile_version: "location_brief_v1",
+    name: contact.name || "",
+    email: contact.email || "",
+    phone: contact.phone || "",
+    company: contact.company || "",
+    city: location.city || (location.type === "city" ? location.label : ""),
+    state: location.state || "",
+    market,
+    space_type: spaceType,
+    requested_space_type: spaceType,
+    space_needed: size,
+    requirements,
+    page_type: "location_brief",
+    page_url: briefUrl,
+    rofo_source: "location_brief",
+    source: "location_brief",
+    location_display: market,
+    location_city: location.city || "",
+    location_district: location.type === "district" ? location.label : "",
+    location_state: location.state || "",
+    status: "expert_review_requested",
+    officefinder_status: "officefinder_not_attempted",
+    location_brief_id: brief.id,
+    location_brief_public_id: brief.publicId,
+    location_brief_url: briefUrl,
+    location_brief_status: brief.status,
+    recommended_market_path: recommendedMarketPath,
+    business_priorities: priorities.join(", "),
+    location_brief_payload: JSON.stringify(brief),
+    timestamp: brief.createdAt || new Date().toISOString(),
+    user_agent: request.headers.get("user-agent") || "",
+    ip_country: request.cf && request.cf.country || "",
+    effective_space_type: spaceType,
+  };
+}
+
+async function createLocationBriefLead(env, request, brief, briefUrl) {
+  if (!env.LEADS_DB && !env.LEADS_KV) {
+    return { stored: false, reason: "Lead dashboard storage is not configured." };
+  }
+
+  const id = crypto.randomUUID ? crypto.randomUUID() : randomHex(16);
+  const token = randomHex(32);
+  const lead = buildLocationBriefLead(brief, request, briefUrl);
+  const record = {
+    id,
+    token_hash: await sha256(token),
+    status: "expert_review_requested",
+    lead,
+    officefinder_payload: {},
+  };
+
+  const storage = await saveLead(env, record);
+  return {
+    stored: true,
+    id,
+    status: record.status,
+    storage,
+  };
 }
 
 async function createCanonicalBrief(env, request, input) {
@@ -96,6 +202,14 @@ export async function onRequestPost({ request, env, waitUntil }) {
     console.warn("Unable to store Location Brief analytics events", error);
   }
 
+  let lead = { stored: false, reason: "Not attempted" };
+  try {
+    lead = await createLocationBriefLead(env, request, brief, url);
+  } catch (error) {
+    lead = { stored: false, reason: error.message };
+    console.warn("Unable to create Location Brief lead dashboard record", error);
+  }
+
   let email = { sent: false, reason: "Not attempted" };
   try {
     email = await sendLocationBriefEmail(env, request, brief);
@@ -110,6 +224,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     status: brief.status,
     url,
     storage,
+    lead,
     email,
   });
 }
