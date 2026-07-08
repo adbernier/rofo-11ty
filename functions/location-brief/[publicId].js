@@ -51,25 +51,50 @@ function descriptionList(rows) {
 function renderMarketPath(brief) {
   const marketPath = brief.marketPath || {};
   const recommended = Array.isArray(marketPath.recommendedPath) ? marketPath.recommendedPath : [];
+  const compareWith = Array.isArray(marketPath.compareWith) ? marketPath.compareWith : [];
+  const seen = new Set();
+  const entries = [];
+  recommended.forEach((item, index) => {
+    if (!item || !item.label) return;
+    const key = String(item.slug || item.label).toLowerCase();
+    seen.add(key);
+    entries.push({
+      ...item,
+      roleLabel: index === 0 ? "Recommended starting point" : "Also worth comparing",
+      reason: item.summary || item.reason || "Worth evaluating before narrowing the search.",
+    });
+  });
+  compareWith.forEach((item) => {
+    if (!item || !item.label) return;
+    const key = String(item.slug || item.label).toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    entries.push({
+      ...item,
+      roleLabel: "Also worth comparing",
+      reason: item.reason || item.summary || "Worth comparing before narrowing the search.",
+    });
+  });
+
   if (!recommended.length && marketPath.primaryLocationLabel) {
     return `<article class="location-brief-path-card">
-      <span>Where we'd start</span>
+      <span>Recommended starting point</span>
       <h3>${escapeHtml(marketPath.primaryLocationLabel)}</h3>
       <p>${escapeHtml(marketPath.title || "Relevant starting point")}</p>
     </article>`;
   }
 
-  if (!recommended.length) {
+  if (!entries.length) {
     return `<p class="location-brief-muted">A local expert should define the recommended market path.</p>`;
   }
 
-  return recommended.map((item, index) => `
+  return entries.map((item) => `
     <article class="location-brief-path-card">
-      <span>${index === 0 ? "Where we'd start" : "Next comparison"}</span>
+      <span>${escapeHtml(item.roleLabel)}</span>
       <h3>${item.path ? `<a href="${escapeHtml(item.path)}">${escapeHtml(item.label)}</a>` : escapeHtml(item.label)}</h3>
       ${item.fitLabel ? `<strong>${escapeHtml(item.fitLabel)}</strong>` : ""}
-      ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
-      ${list(item.strengths, "No strengths recorded.")}
+      <p>${escapeHtml(item.reason)}</p>
+      ${Array.isArray(item.strengths) && item.strengths.length ? list(item.strengths.slice(0, 4), "No supporting notes recorded.") : ""}
     </article>
   `).join("");
 }
@@ -97,27 +122,6 @@ function renderWhyMarkets(brief) {
   `;
 }
 
-function renderComparisons(brief) {
-  const compareWith = brief.marketPath && Array.isArray(brief.marketPath.compareWith)
-    ? brief.marketPath.compareWith
-    : [];
-  if (!compareWith.length) return "";
-  return `
-    <section class="location-brief-card">
-      <div class="location-brief-kicker">Nearby alternatives</div>
-      <h2>Also worth comparing</h2>
-      <div class="location-brief-compare-list">
-        ${compareWith.map((item) => `
-          <article>
-            <h3>${item.path ? `<a href="${escapeHtml(item.path)}">${escapeHtml(item.label)}</a>` : escapeHtml(item.label)}</h3>
-            <p>${escapeHtml(item.reason || "Worth comparing before narrowing the search.")}</p>
-          </article>
-        `).join("")}
-      </div>
-    </section>
-  `;
-}
-
 function renderPage(brief) {
   const location = locationSummary(brief);
   const space = spaceSummary(brief);
@@ -126,6 +130,7 @@ function renderPage(brief) {
   const questions = brief.marketPath && Array.isArray(brief.marketPath.questionsToValidate)
     ? brief.marketPath.questionsToValidate
     : [];
+  const preparedFor = [contact.name, contact.company].filter(Boolean).join(" / ") || "Rofo customer";
 
   return `<!doctype html>
 <html lang="en">
@@ -143,12 +148,15 @@ function renderPage(brief) {
           <a class="location-brief-brand" href="/">Rofo</a>
           <div class="location-brief-kicker">Rofo Location Brief</div>
           <h1>${escapeHtml(location)} ${escapeHtml(space)} Search</h1>
-          <p>A structured consulting document for expert review, broker handoff, and future market investigation.</p>
+          <p>Bookmark this page to return to your Location Brief.</p>
         </div>
         <aside>
-          <span>${escapeHtml(statusLabel(brief.status))}</span>
-          <strong>${escapeHtml(brief.publicId)}</strong>
-          <small>Submitted ${escapeHtml(formatDate(brief.createdAt))}</small>
+          ${descriptionList([
+            ["Prepared for", escapeHtml(preparedFor)],
+            ["Status", escapeHtml(statusLabel(brief.status))],
+            ["Brief ID", escapeHtml(brief.publicId)],
+            ["Submitted", escapeHtml(formatDate(brief.createdAt))],
+          ])}
         </aside>
       </header>
 
@@ -171,10 +179,8 @@ function renderPage(brief) {
         </div>
       </section>
 
-      ${renderComparisons(brief)}
-
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Advisor Rationale</div>
+        <div class="location-brief-kicker">Why These Markets</div>
         <h2>Why these markets</h2>
         ${renderWhyMarkets(brief)}
       </section>
@@ -186,32 +192,26 @@ function renderPage(brief) {
       </section>
 
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Questions We'll Explore</div>
-        <h2>Open questions for expert review</h2>
+        <div class="location-brief-kicker">Questions for Expert Review</div>
+        <h2>Questions for expert review</h2>
         ${list(questions, "A local expert should confirm commute, budget, timing, and building requirements.")}
       </section>
 
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Additional Notes</div>
+        <div class="location-brief-kicker">User Notes</div>
         <h2>User notes</h2>
         <p class="location-brief-note">${escapeHtml(brief.notes || "None provided.")}</p>
       </section>
 
       <section class="location-brief-card">
         <div class="location-brief-kicker">Representative Buildings</div>
-        <h2>Placeholder</h2>
-        <p class="location-brief-muted">Representative buildings will be attached after expert review or future recommendation enrichment.</p>
-      </section>
-
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Graph Confidence</div>
-        <h2>${escapeHtml(brief.marketPath && brief.marketPath.confidenceLabel || "Expert Guided")}</h2>
-        <p class="location-brief-muted">Confidence reflects graph-backed location context and search inputs. It does not represent live availability.</p>
+        <h2>Representative Buildings</h2>
+        <p class="location-brief-muted">Representative buildings may be added during expert review to illustrate the types of environments we would evaluate.</p>
       </section>
 
       <section class="location-brief-card">
         <div class="location-brief-kicker">Contact Information</div>
-        <h2>Customer contact</h2>
+        <h2>Contact information</h2>
         ${descriptionList([
           ["Name", escapeHtml(contact.name || "")],
           ["Email", contact.email ? `<a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a>` : ""],
@@ -222,9 +222,9 @@ function renderPage(brief) {
       </section>
 
       <section class="location-brief-card location-brief-card--muted">
-        <div class="location-brief-kicker">Broker Notes</div>
-        <h2>Coming Soon</h2>
-        <p>Broker collaboration and notes will be added in a future sprint.</p>
+        <div class="location-brief-kicker">Expert Notes</div>
+        <h2>Expert notes</h2>
+        <p>This section may be updated as a local market expert reviews the brief.</p>
       </section>
     </main>
   </body>

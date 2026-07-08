@@ -266,55 +266,19 @@ eleventyComputed:
         </section>
       </div>
 
-      <div class="location-brief-review">
-        <div>
-          <h3>Ready for expert review?</h3>
-          <p>We’ll use this to prepare your expert review without sending you back through the intake.</p>
-        </div>
-        <button class="recommendations-button" type="button" data-location-brief-review-trigger>Request Expert Review</button>
-      </div>
-
-      <form class="location-brief-contact" id="location-brief-contact" data-location-brief-contact hidden>
-        <div class="location-brief-contact__header">
-          <div class="kicker">Expert handoff</div>
-          <h3>Where should we send your Location Brief?</h3>
-          <p>We’ll package your Search Profile, recommended market path, priorities, and notes for expert review.</p>
-        </div>
-        <div class="location-brief-contact__grid">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required>
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            <span>Company <em>optional</em></span>
-            <input type="text" name="company" autocomplete="organization">
-          </label>
-          <label>
-            <span>Phone <em>optional</em></span>
-            <input type="tel" name="phone" autocomplete="tel">
-          </label>
-        </div>
-        <div class="location-brief-contact__actions">
-          <button class="recommendations-button" type="submit">Send My Location Brief</button>
-          <p data-location-brief-contact-status></p>
-        </div>
-      </form>
     </section>
 
-    <section class="recommendations-cta" aria-labelledby="market-investigation">
-      <div>
+    <form class="recommendations-cta location-brief-contact location-brief-contact--final" id="location-brief-contact" data-location-brief-contact aria-labelledby="market-investigation">
+      <div class="location-brief-contact__header">
         <div class="kicker" data-recommendation-cta-kicker>Expert Review</div>
-        <h2 id="market-investigation" data-recommendation-cta-heading>Save the research time. Let us investigate the market.</h2>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Ready for expert review?</h2>
         <p data-recommendation-cta-copy>
-          This prototype shows where we would begin. A Market Investigation turns that direction into a focused research assignment: a local commercial real estate expert checks the live market, verifies what is worth pursuing, and filters out buildings that waste your time.
+          Share your contact information and we’ll use your Location Brief to follow up with relevant listings, comps, sublease options, incentives, and market guidance.
         </p>
       </div>
 
       <div class="recommendations-cta__panel">
+        <h3>What an expert can help with</h3>
         <ul>
           <li>Current availability</li>
           <li>Asking rents</li>
@@ -324,9 +288,31 @@ eleventyComputed:
           <li>Off-market options</li>
           <li>Comparable buildings</li>
         </ul>
-        <a class="recommendations-button" href="/find-locations/" data-recommendation-cta-link>Start My Market Investigation</a>
       </div>
-    </section>
+
+      <div class="location-brief-contact__grid">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+          <span>Company <em>optional</em></span>
+          <input type="text" name="company" autocomplete="organization">
+        </label>
+        <label>
+          <span>Phone <em>optional</em></span>
+          <input type="tel" name="phone" autocomplete="tel">
+        </label>
+      </div>
+      <div class="location-brief-contact__actions">
+        <button class="recommendations-button" type="submit">Send My Location Brief</button>
+        <p data-location-brief-contact-status></p>
+      </div>
+    </form>
   </div>
 </section>
 

@@ -409,10 +409,10 @@
 
   function setSubmittedCta(state, context) {
     setText("[data-recommendation-cta-kicker]", "Expert Review");
-    setText("[data-recommendation-cta-heading]", "Ready for a local expert to review your profile?");
+    setText("[data-recommendation-cta-heading]", "Ready for expert review?");
     setText(
       "[data-recommendation-cta-copy]",
-      "Your Search Profile gives us the location, space type, and size context needed to begin a focused market review. A local commercial real estate expert can use it to investigate current availability, pricing, subleases, and comparable buildings without sending you back through the intake."
+      "Share your contact information and we’ll use your Location Brief to follow up with relevant listings, comps, sublease options, incentives, and market guidance."
     );
     const link = document.querySelector("[data-recommendation-cta-link]");
     if (link) {
@@ -420,6 +420,36 @@
       link.textContent = state.ctaLabel || "Request Expert Review";
       link.setAttribute("data-location-brief-review-trigger", "");
     }
+  }
+
+  function renderLocationBriefSuccess(status, result) {
+    if (!status) return;
+    status.textContent = "";
+    status.classList.add("location-brief-contact-status--success");
+    status.appendChild(createElement("strong", "", "Location Brief created"));
+    if (result.publicId) {
+      status.appendChild(createElement("span", "", `Brief ID: ${result.publicId}`));
+    }
+    if (result.url) {
+      const link = createElement("a", "", "View Location Brief");
+      link.href = result.url;
+      status.appendChild(link);
+
+      const copyButton = createElement("button", "location-brief-copy-link", "Copy Link");
+      copyButton.type = "button";
+      copyButton.addEventListener("click", async () => {
+        try {
+          const copyUrl = new URL(result.url, window.location.origin).toString();
+          await navigator.clipboard.writeText(copyUrl);
+          copyButton.textContent = "Link copied";
+        } catch (error) {
+          copyButton.textContent = "Copy unavailable";
+        }
+      });
+      status.appendChild(copyButton);
+      return;
+    }
+    status.appendChild(createElement("span", "", "Your brief has been submitted for expert review."));
   }
 
   function renderExpertGuided(state, context) {
@@ -815,10 +845,7 @@
             status: result.status || "submitted",
           };
           persistBriefState();
-          const url = result.url || "";
-          status.innerHTML = url
-            ? `Location Brief submitted. <a href="${url}">View ${result.publicId}</a>`
-            : "Location Brief submitted for expert review.";
+          renderLocationBriefSuccess(status, result);
         } catch (error) {
           const href = fallbackEmailHref(payload);
           status.innerHTML = `We could not create the permanent brief automatically. <a href="${href}">Send by email</a>`;
