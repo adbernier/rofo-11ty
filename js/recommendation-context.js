@@ -373,10 +373,6 @@
       "[data-recommendation-context-copy]",
       "Rather than showing every listing, Rofo starts by narrowing the search to the most relevant market path."
     );
-    setText(
-      "[data-recommendation-hero-copy]",
-      `Your Location Brief is in progress. For a ${locationText} ${spaceText.toLowerCase()} search, we'd start by narrowing the market path before looking at individual buildings.`
-    );
     setSubmittedCta(state, context);
 
     const primaryLabel = state.primaryLocationLabel || (state.primaryRecommendation && state.primaryRecommendation.label) || locationText;
@@ -391,6 +387,10 @@
     setText(
       "[data-recommendation-context-copy]",
       `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}. ${state.summaryCopy || "This gives the search a focused starting point."}${compareSummary}`
+    );
+    setText(
+      "[data-recommendation-hero-copy]",
+      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}.${compareSummary}`
     );
 
     if (state.mode === "expert_guided") {
@@ -408,7 +408,7 @@
   }
 
   function setSubmittedCta(state, context) {
-    setText("[data-recommendation-cta-kicker]", "Expert next step");
+    setText("[data-recommendation-cta-kicker]", "Expert Review");
     setText("[data-recommendation-cta-heading]", "Ready for a local expert to review your profile?");
     setText(
       "[data-recommendation-cta-copy]",

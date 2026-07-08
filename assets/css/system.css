@@ -2304,12 +2304,10 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) auto;
-  gap: 28px;
-  align-items: center;
+  display: block;
+  max-width: 920px;
   padding: clamp(26px, 5vw, 48px);
-  margin: 18px 0 24px;
+  margin: 18px auto 24px;
 }
 
 .recommendations-hero h1,
@@ -2327,7 +2325,7 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-hero .lead {
-  max-width: 52ch;
+  max-width: 68ch;
   margin: 0;
   color: #475569;
 }
@@ -2335,22 +2333,39 @@ section.market-page--space-type .market-links a {
 .recommendations-recap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 8px;
-  max-width: 360px;
+  max-width: none;
+  margin: 18px 0 0;
+  padding: 0;
 }
 
+.recommendations-recap div,
 .recommendations-recap span {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 11px;
   border: 1px solid #d8e2ef;
   border-radius: 999px;
   background: #f8fafc;
   color: #334155;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 650;
+}
+
+.recommendations-recap dt {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.recommendations-recap dd {
+  margin: 0;
+  color: #0f172a;
 }
 
 .recommendation-context-card,
@@ -2420,7 +2435,7 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-section {
-  padding: clamp(22px, 4vw, 34px);
+  padding: clamp(22px, 4vw, 32px);
   margin: 0 0 24px;
 }
 
@@ -2433,13 +2448,13 @@ section.market-page--space-type .market-links a {
 .recommendation-memo-section + .recommendation-memo-section,
 .recommendation-memo-section + .location-brief-refinement,
 .location-brief-refinement + .recommendations-cta {
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .recommendations-section__header {
   display: grid;
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 7px;
+  margin-bottom: 18px;
 }
 
 .recommendations-section__header h2,
@@ -2459,14 +2474,14 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendation-strategy {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
   padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   color: #334155;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.02rem;
+  line-height: 1.64;
 }
 
 .recommendation-memo-lead {
@@ -2529,7 +2544,7 @@ section.market-page--space-type .market-links a {
 .recommendation-compare-card {
   display: grid;
   gap: 8px;
-  padding: 16px;
+  padding: 15px;
   border: 1px solid #e1e8f2;
   border-radius: 14px;
   background: #f8fafc;
@@ -2660,7 +2675,7 @@ section.market-page--space-type .market-links a {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 20px;
+  padding: 18px;
 }
 
 .recommendation-card--featured {
@@ -2719,8 +2734,8 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendation-score-explainer {
-  margin: 20px 0 0;
-  padding: 20px 0 0;
+  margin: 18px 0 0;
+  padding: 18px 0 0;
   border: 0;
   border-top: 1px solid #e1e8f2;
   border-radius: 0;
@@ -2741,10 +2756,10 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendation-advisor-panel {
-  border: 1px solid #e1e8f2;
+  border: 1px solid #e7edf5;
   border-radius: 14px;
   background: #f8fafc;
-  padding: 16px;
+  padding: 15px;
 }
 
 .recommendation-advisor-panel h5 {
@@ -2921,7 +2936,7 @@ section.market-page--space-type .market-links a {
   border: 1px solid #e1e8f2;
   border-radius: 16px;
   background: #f8fafc;
-  padding: 18px;
+  padding: 16px;
 }
 
 .recommendation-evidence__header {
@@ -3000,10 +3015,10 @@ section.market-page--space-type .market-links a {
 
 .location-brief-refinement {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   max-width: 920px;
   margin: 0 auto 24px;
-  padding: clamp(22px, 4vw, 34px);
+  padding: clamp(22px, 4vw, 32px);
   border: 1px solid #d5e0ee;
   border-radius: 18px;
   background: #fff;
@@ -8671,14 +8686,26 @@ section.market-page--space-type .market-links a {
   padding-bottom: 72px;
 }
 
+.search-profile-page .city-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.9fr);
+  gap: 24px 36px;
+  align-items: start;
+  max-width: 1120px;
+}
+
+.search-profile-page .breadcrumbs {
+  grid-column: 1 / -1;
+}
+
 .search-profile-page .city-hero {
-  max-width: 760px;
-  margin-right: auto;
-  margin-left: auto;
+  display: block;
+  max-width: none;
+  margin: 0;
 }
 
 .search-profile-page .city-hero-copy h1 {
-  max-width: 650px;
+  max-width: 680px;
   font-size: var(--type-display-lg);
   line-height: var(--type-leading-display);
   letter-spacing: 0;
@@ -8689,7 +8716,7 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-page .city-hero-copy .lead {
-  max-width: 560px;
+  max-width: 600px;
   line-height: 1.58;
 }
 
@@ -8697,7 +8724,7 @@ section.market-page--space-type .market-links a {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  max-width: 560px;
+  max-width: 600px;
   margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid rgba(148, 163, 184, 0.24);
@@ -8713,8 +8740,10 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-page__shell {
-  max-width: 760px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+  margin: 0;
+  justify-self: end;
 }
 
 .search-profile-page .search-profile-shell--page {
@@ -8740,6 +8769,21 @@ section.market-page--space-type .market-links a {
 .search-profile-page .search-profile-shell--page .search-profile-card__body {
   max-height: none;
   padding: 22px;
+}
+
+@media (max-width: 960px) {
+  .search-profile-page .city-shell {
+    display: block;
+    max-width: 760px;
+  }
+
+  .search-profile-page .city-hero {
+    margin-bottom: 24px;
+  }
+
+  .search-profile-page__shell {
+    max-width: none;
+  }
 }
 
 @media (max-width: 760px) {
