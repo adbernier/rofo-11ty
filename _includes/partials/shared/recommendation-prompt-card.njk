@@ -76,9 +76,12 @@
     <p>{{ promptBody }}</p>
     <p class="recommendation-prompt-card__microcopy">Takes about 60 seconds.</p>
   </div>
-  <a class="recommendation-prompt-card__button" href="{{ promptHref }}" data-recommendation-prompt-click>
-    Get My Recommendations
-  </a>
+  <div class="recommendation-prompt-card__actions">
+    <a class="recommendation-prompt-card__button" href="{{ promptHref }}" data-recommendation-prompt-click>
+      Get My Recommendations
+    </a>
+    <a class="recommendation-prompt-card__example" href="/example-location-brief/">See an Example Brief</a>
+  </div>
 </section>
 
 <script>
