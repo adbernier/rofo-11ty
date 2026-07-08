@@ -211,6 +211,84 @@ eleventyComputed:
       </div>
     </section>
 
+    <section class="location-brief-refinement" aria-labelledby="location-brief-refinement-heading" data-location-brief-refinement>
+      <div class="location-brief-refinement__intro">
+        <div class="kicker">Refine the brief</div>
+        <h2 id="location-brief-refinement-heading">Help us refine your Location Brief.</h2>
+        <p>These details help us focus the market review after you’ve seen the recommended direction.</p>
+      </div>
+
+      <div class="location-brief-refinement__grid">
+        <section class="location-brief-refinement__panel" aria-labelledby="brief-feedback-heading">
+          <h3 id="brief-feedback-heading">Does this direction feel right?</h3>
+          <div class="location-brief-choice-list" data-location-brief-feedback>
+            <button type="button" data-feedback-value="yes">Yes, this looks right</button>
+            <button type="button" data-feedback-value="another_direction">Show me another direction</button>
+            <button type="button" data-feedback-value="additional_requirements">I have additional requirements</button>
+          </div>
+        </section>
+
+        <section class="location-brief-refinement__panel" aria-labelledby="brief-priorities-heading">
+          <h3 id="brief-priorities-heading">What matters most for this location?</h3>
+          <p>Choose any priorities that should shape the expert review.</p>
+          <div class="location-brief-priority-list" data-location-brief-priorities></div>
+        </section>
+
+        <section class="location-brief-refinement__panel" aria-labelledby="brief-questions-heading">
+          <h3 id="brief-questions-heading">Questions we’ll explore next</h3>
+          <ul class="location-brief-question-list" data-location-brief-questions>
+            <li>Current availability in the recommended market path.</li>
+            <li>Asking rents, concessions, and lease structure.</li>
+            <li>Comparable buildings and nearby alternatives.</li>
+          </ul>
+        </section>
+
+        <section class="location-brief-refinement__panel" aria-labelledby="brief-notes-heading">
+          <h3 id="brief-notes-heading">Anything else we should know?</h3>
+          <label class="location-brief-notes-label" for="location-brief-notes">Optional notes</label>
+          <textarea id="location-brief-notes" data-location-brief-notes rows="4" placeholder="Example: We are growing quickly, parking is critical, or clients visit weekly."></textarea>
+        </section>
+      </div>
+
+      <div class="location-brief-review">
+        <div>
+          <h3>Ready for expert review?</h3>
+          <p>We’ll use this to prepare your expert review without sending you back through the intake.</p>
+        </div>
+        <button class="recommendations-button" type="button" data-location-brief-review-trigger>Request Expert Review</button>
+      </div>
+
+      <form class="location-brief-contact" id="location-brief-contact" data-location-brief-contact hidden>
+        <div class="location-brief-contact__header">
+          <div class="kicker">Expert handoff</div>
+          <h3>Where should we send your Location Brief?</h3>
+          <p>We’ll package your Search Profile, recommended market path, priorities, and notes for expert review.</p>
+        </div>
+        <div class="location-brief-contact__grid">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span>Company <em>optional</em></span>
+            <input type="text" name="company" autocomplete="organization">
+          </label>
+          <label>
+            <span>Phone <em>optional</em></span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+        </div>
+        <div class="location-brief-contact__actions">
+          <button class="recommendations-button" type="submit">Send My Location Brief</button>
+          <p data-location-brief-contact-status></p>
+        </div>
+      </form>
+    </section>
+
     <section class="recommendations-section" aria-labelledby="buildings-considered" data-recommendation-demo-detail>
       <div class="recommendations-section__header">
         <div class="kicker">Additional building context</div>

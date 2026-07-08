@@ -1,5 +1,7 @@
 (function () {
   const CONTEXT_KEY = "rofoRecommendationContextV1";
+  const BRIEF_KEY = "rofoLocationBriefV1";
+  let currentBriefState = null;
 
   function readStoredContext() {
     const read = (storage) => {
@@ -15,6 +17,40 @@
       return normalizeContext(JSON.parse(raw));
     } catch (error) {
       return null;
+    }
+  }
+
+  function readStoredBrief() {
+    const read = (storage) => {
+      try {
+        return storage && storage.getItem(BRIEF_KEY);
+      } catch (error) {
+        return "";
+      }
+    };
+    const raw = read(window.sessionStorage) || read(window.localStorage);
+    if (!raw) return null;
+    try {
+      const value = JSON.parse(raw);
+      return value && typeof value === "object" ? value : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function persistBriefState() {
+    if (!currentBriefState) return;
+    currentBriefState.timestamp = new Date().toISOString();
+    const serialized = JSON.stringify(currentBriefState);
+    try {
+      window.sessionStorage.setItem(BRIEF_KEY, serialized);
+    } catch (error) {
+      // Storage is optional; the page should remain usable without it.
+    }
+    try {
+      window.localStorage.setItem(BRIEF_KEY, serialized);
+    } catch (error) {
+      // Storage is optional; the page should remain usable without it.
     }
   }
 
@@ -243,8 +279,9 @@
         summaryCopy: "This is a sample recommendation. Start a profile to see recommendations based on your search.",
         ctaLabel: "Start My Market Investigation",
         ctaHref: "/find-locations/",
-        recommendedPath: [],
-        compareWith: [],
+      recommendedPath: [],
+      compareWith: [],
+      questionsToValidate: [],
       };
     }
 
@@ -261,6 +298,7 @@
         primaryRecommendation: inputProfile ? recommendationItem(inputProfile, context.spaceType) : null,
         recommendedPath: [],
         compareWith: [],
+        questionsToValidate: inputProfile && Array.isArray(inputProfile.questionsToValidate) ? inputProfile.questionsToValidate : [],
         summaryCopy: inputProfile
           ? `${inputLocation.label} is a relevant starting point, but this market is best handled with help from a local expert because Rofo's recommendation graph is still lighter here.`
           : "We have your Search Profile, but this market is best handled with help from a local expert.",
@@ -297,6 +335,7 @@
       primaryRecommendation,
       recommendedPath,
       compareWith,
+      questionsToValidate: primaryRecommendation.questionsToValidate || [],
       summaryCopy: mode === "market_path"
         ? `${inputProfile.label} has several commercial districts that fit different versions of your search. We'd start by comparing the strongest path before looking at individual buildings.`
         : `${inputProfile.label} appears to be a relevant starting point based on your profile.`,
@@ -344,12 +383,14 @@
       setHidden("[data-recommendation-supported]", true);
       setHidden("[data-recommendation-expert-guided]", false);
       renderExpertGuided(state, context);
+      initializeBriefRefinement(state, context, spaceText);
       return;
     }
 
     setHidden("[data-recommendation-supported]", false);
     setHidden("[data-recommendation-expert-guided]", true);
     renderMarketPath(state, spaceText, sizeText);
+    initializeBriefRefinement(state, context, spaceText);
   }
 
   function setSubmittedCta(state, context) {
@@ -363,6 +404,7 @@
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
       link.textContent = state.ctaLabel || "Request Expert Review";
+      link.setAttribute("data-location-brief-review-trigger", "");
     }
   }
 
@@ -377,6 +419,7 @@
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
       link.textContent = state.ctaLabel || "Request Expert Review";
+      link.setAttribute("data-location-brief-review-trigger", "");
     }
   }
 
@@ -544,8 +587,211 @@
     if (grid) grid.appendChild(panel);
   }
 
+  function priorityOptionsFor(spaceType) {
+    const type = normalizeSpaceType(spaceType);
+    const industrialTypes = new Set(["industrial", "warehouse", "distribution", "manufacturing", "flex", "r_and_d"]);
+    if (industrialTypes.has(type)) {
+      return [
+        "Truck access",
+        "Loading",
+        "Highway access",
+        "Last-mile access",
+        "Yard or outdoor storage",
+        "Power",
+        "Trailer parking",
+        "Labor access",
+      ];
+    }
+    if (type === "retail" || type === "restaurant" || type === "showroom") {
+      return [
+        "Customer parking",
+        "Street visibility",
+        "Foot traffic",
+        "Co-tenancy",
+        "Evening/weekend activity",
+        "Signage visibility",
+      ];
+    }
+    return [
+      "Employee transit",
+      "Parking",
+      "Growth flexibility",
+      "Lower occupancy cost",
+      "Executive image",
+      "Client-facing location",
+      "Walkability",
+      "Restaurants and amenities",
+    ];
+  }
+
+  function buildBriefState(state, context) {
+    const existing = readStoredBrief() || {};
+    return {
+      searchProfile: context,
+      marketPath: {
+        mode: state.mode,
+        title: state.title,
+        confidenceLabel: state.confidenceLabel,
+        primaryLocationLabel: state.primaryLocationLabel,
+        recommendedPath: state.recommendedPath || [],
+        compareWith: state.compareWith || [],
+        questionsToValidate: state.questionsToValidate || [],
+      },
+      feedback: existing.feedback || "",
+      priorities: Array.isArray(existing.priorities) ? existing.priorities : [],
+      notes: existing.notes || "",
+      contact: existing.contact || {},
+      timestamp: existing.timestamp || new Date().toISOString(),
+    };
+  }
+
+  function renderQuestionList(state) {
+    const node = clearNode("[data-location-brief-questions]");
+    if (!node) return;
+    const questions = state.questionsToValidate && state.questionsToValidate.length
+      ? state.questionsToValidate
+      : [
+        "Which commute pattern matters most for employees?",
+        "Is lower occupancy cost or stronger location identity more important?",
+        "Do clients or customers visit regularly?",
+        "How much room do you need to grow?",
+      ];
+    questions.slice(0, 5).forEach((question) => node.appendChild(createElement("li", "", question)));
+  }
+
+  function renderPriorityButtons(spaceType) {
+    const node = clearNode("[data-location-brief-priorities]");
+    if (!node) return;
+    const selected = new Set((currentBriefState && currentBriefState.priorities) || []);
+    priorityOptionsFor(spaceType).forEach((priority) => {
+      const button = createElement("button", "", priority);
+      button.type = "button";
+      button.setAttribute("data-priority-value", priority);
+      if (selected.has(priority)) button.setAttribute("aria-pressed", "true");
+      button.addEventListener("click", () => {
+        const values = new Set(currentBriefState.priorities || []);
+        if (values.has(priority)) values.delete(priority);
+        else values.add(priority);
+        currentBriefState.priorities = Array.from(values);
+        button.setAttribute("aria-pressed", values.has(priority) ? "true" : "false");
+        persistBriefState();
+      });
+      node.appendChild(button);
+    });
+  }
+
+  function initializeFeedbackButtons() {
+    const buttons = Array.from(document.querySelectorAll("[data-feedback-value]"));
+    buttons.forEach((button) => {
+      const value = button.getAttribute("data-feedback-value") || "";
+      button.setAttribute("aria-pressed", currentBriefState.feedback === value ? "true" : "false");
+      button.addEventListener("click", () => {
+        currentBriefState.feedback = value;
+        buttons.forEach((item) => item.setAttribute("aria-pressed", item === button ? "true" : "false"));
+        persistBriefState();
+      });
+    });
+  }
+
+  function initializeNotes() {
+    const notes = document.querySelector("[data-location-brief-notes]");
+    if (!notes) return;
+    notes.value = currentBriefState.notes || "";
+    notes.addEventListener("input", () => {
+      currentBriefState.notes = notes.value;
+      persistBriefState();
+    });
+  }
+
+  function revealContactPanel() {
+    const panel = document.querySelector("[data-location-brief-contact]");
+    if (!panel) return;
+    panel.hidden = false;
+    const firstInput = panel.querySelector("input");
+    if (firstInput) firstInput.focus({ preventScroll: true });
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function initializeReviewTriggers() {
+    document.querySelectorAll("[data-location-brief-review-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        revealContactPanel();
+      });
+    });
+  }
+
+  function locationBriefPayload() {
+    return {
+      ...currentBriefState,
+      timestamp: new Date().toISOString(),
+    };
+  }
+
+  function initializeContactForm() {
+    const form = document.querySelector("[data-location-brief-contact]");
+    if (!form) return;
+    const status = document.querySelector("[data-location-brief-contact-status]");
+    const contact = currentBriefState.contact || {};
+    ["name", "email", "company", "phone"].forEach((field) => {
+      const input = form.querySelector(`[name="${field}"]`);
+      if (input && contact[field]) input.value = contact[field];
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      currentBriefState.contact = {
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        company: String(formData.get("company") || "").trim(),
+        phone: String(formData.get("phone") || "").trim(),
+      };
+      const payload = locationBriefPayload();
+      currentBriefState = payload;
+      persistBriefState();
+      if (status) {
+        const subject = encodeURIComponent(`Rofo Location Brief review: ${formatLocations((payload.searchProfile || {}).locations || [])}`);
+        const body = encodeURIComponent(JSON.stringify(payload, null, 2));
+        status.innerHTML = `Location Brief saved for expert review. <a href="mailto:hello@rofo.com?subject=${subject}&body=${body}">Send by email</a>`;
+      }
+    });
+  }
+
+  function initializeBriefRefinement(state, context, spaceType) {
+    const root = document.querySelector("[data-location-brief-refinement]");
+    if (!root) return;
+    currentBriefState = buildBriefState(state, context);
+    renderQuestionList(state);
+    renderPriorityButtons(spaceType);
+    initializeFeedbackButtons();
+    initializeNotes();
+    initializeReviewTriggers();
+    initializeContactForm();
+    persistBriefState();
+  }
+
   const context = readStoredContext();
   if (context && (context.locations.length || context.spaceType || context.size)) {
     renderContext(context);
+  } else {
+    initializeBriefRefinement({
+      mode: "demo",
+      title: "Sample Recommendation",
+      confidenceLabel: "Sample",
+      primaryLocationLabel: "Mission Bay",
+      recommendedPath: [],
+      compareWith: [],
+      questionsToValidate: [
+        "Which commute pattern matters most for employees?",
+        "Is lower occupancy cost or stronger location identity more important?",
+        "Do clients or customers visit regularly?",
+        "How much room do you need to grow?",
+      ],
+    }, {
+      locations: [{ label: "San Francisco", type: "city", city: "San Francisco", state: "CA", slug: "san-francisco", path: "/commercial-real-estate/CA/san-francisco/" }],
+      spaceType: "Office",
+      size: "2,500-5,000 sqft",
+      timestamp: "",
+    }, "Office");
   }
 })();
