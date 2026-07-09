@@ -152,9 +152,9 @@ results.forEach((result) => {
   lines.push("");
 });
 
-lines.push("## Coverage Dashboard Preparation");
+lines.push("## Rofo Compass Coverage Preparation");
 lines.push("");
-lines.push("Future Recommendation Coverage dashboards can track metro QA with these fields:");
+lines.push("Future Rofo Compass Coverage dashboards can track metro QA with these fields:");
 lines.push("");
 lines.push("- qaStatus: pending | in_review | completed | needs_review");
 lines.push("- lastQaDate");

@@ -1,14 +1,14 @@
-# Recommendation Expansion Roadmap
+# Rofo Compass Expansion Roadmap
 
-This document supports the internal Recommendation Coverage dashboard. It is a planning guide for making each metro recommendation-ready.
+This document supports the internal Rofo Compass Coverage dashboard. It is a planning guide for increasing Compass Maturity across commercial metros.
 
-A metro is recommendation-ready when a business can receive a credible Location Brief backed by the Commercial Location Knowledge Graph.
+A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Commercial Location Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.
 
 ## Completed
 
 ### SF Bay Area
 
-Current readiness: Recommendation Ready
+Compass Maturity: Compass Ready
 
 Current strengths:
 
@@ -30,7 +30,7 @@ Next priorities:
 
 ### Sacramento
 
-Current readiness: Recommendation Ready
+Compass Maturity: Compass Ready
 
 Current strengths:
 
@@ -52,18 +52,18 @@ Next priorities:
 - Strengthen representative building support using existing reliable building paths.
 - Continue expanding high-value comparison pages where graph relationships show real tenant choices.
 - Watch Location Brief demand to decide whether additional Sacramento industrial submarkets should be enriched.
-- Use the Sacramento QA process as the baseline for future metro Recommendation Ready reviews.
-- Require future Recommendation Ready reviews to pass both recommendation-direction QA and explanation-quality QA.
+- Use the Sacramento QA process as the baseline for future Compass Ready reviews.
+- Require future Compass Ready reviews to pass both recommendation-direction QA and explanation-quality QA.
 
 ## Enhancing
 
 ### Los Angeles
 
-Current readiness: Enhancing
+Compass Maturity: Enhancing
 
 Current strengths:
 
-- Recommendation-ready graph now covers Downtown LA, Westside, media/creative, South Bay, and major industrial/logistics districts.
+- Compass graph coverage now covers Downtown LA, Westside, media/creative, South Bay, and major industrial/logistics districts.
 - Office, creative office, media, professional services, flex, R&D, industrial, warehouse, distribution, and manufacturing paths are represented.
 - LA industrial Knowledge Cards include truck access, highway access, loading, yard, power, labor access, port/airport access, and trailer parking considerations.
 
@@ -83,7 +83,7 @@ Next priorities:
 
 ### Seattle
 
-Current readiness: Planned
+Compass Maturity: Planned
 
 Current strengths:
 
@@ -92,7 +92,7 @@ Current strengths:
 
 Current weaknesses:
 
-- Knowledge Graph coverage is not yet recommendation-ready.
+- Knowledge Graph coverage is not yet Compass Ready.
 - Office, industrial, warehouse, flex, and life-science fit needs to be authored.
 - Comparison relationships need to be built from tenant decision paths.
 
@@ -104,7 +104,7 @@ Next priorities:
 
 ### San Diego
 
-Current readiness: Planned
+Compass Maturity: Planned
 
 Current strengths:
 
@@ -113,7 +113,7 @@ Current strengths:
 
 Current weaknesses:
 
-- Recommendation readiness is pending.
+- Compass readiness is pending.
 - Knowledge Graph nodes have not yet been authored for San Diego priority districts.
 - Space-type fit, tradeoffs, compare relationships, and questions to validate still need to be translated into Knowledge Cards.
 
@@ -121,11 +121,11 @@ Next priorities:
 
 - Seed San Diego city-level and district-level Knowledge Cards.
 - Prioritize Downtown San Diego, UTC / University City, Sorrento Valley, Kearny Mesa, Mission Valley, Carlsbad, Oceanside Industrial, Vista Business Park, and Escondido Industrial.
-- Add office, biotech/R&D, flex, industrial, and warehouse guidance before marking the metro recommendation-ready.
+- Add office, biotech/R&D, flex, industrial, and warehouse guidance before marking the metro Compass Ready.
 
 ### Orange County
 
-Current readiness: Planned
+Compass Maturity: Planned
 
 Current strengths:
 
@@ -134,7 +134,7 @@ Current strengths:
 
 Current weaknesses:
 
-- Recommendation readiness is pending.
+- Compass readiness is pending.
 - Knowledge Graph nodes have not yet been authored for Orange County priority districts.
 - Retail, medical, office, flex, and industrial attributes need graph-backed tradeoffs and compare relationships.
 
@@ -142,11 +142,11 @@ Next priorities:
 
 - Seed Irvine and Orange County city-level Knowledge Cards.
 - Prioritize Irvine Spectrum, Irvine Business Complex, Airport Area / John Wayne, Newport Center, South Coast Metro, Tustin Legacy, Anaheim Canyon, and Lake Forest Business Center.
-- Add office, medical, retail, flex, R&D, and industrial guidance before marking the metro recommendation-ready.
+- Add office, medical, retail, flex, R&D, and industrial guidance before marking the metro Compass Ready.
 
 ### Phoenix
 
-Current readiness: Future / planned candidate
+Compass Maturity: Future / planned candidate
 
 Current strengths:
 
@@ -166,7 +166,7 @@ Next priorities:
 
 ### Denver
 
-Current readiness: Future / planned candidate
+Compass Maturity: Future / planned candidate
 
 Current strengths:
 
@@ -211,6 +211,6 @@ Next priorities:
 
 ## Operating Principle
 
-Every future metro expansion should begin and end in the Recommendation Coverage dashboard.
+Every future metro expansion should begin and end in the Rofo Compass Coverage dashboard.
 
 Pages are useful only when they improve Rofo's ability to produce a credible Location Brief.

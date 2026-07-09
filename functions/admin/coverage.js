@@ -12,7 +12,7 @@ const ROADMAP_TIERS = [
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "r_and_d", "retail", "medical", "life_science"];
 
 const STATUS_LABELS = {
-  ready: "Recommendation Ready",
+  ready: "Compass Ready",
   enhancing: "Enhancing",
   planned: "Planned",
   future: "Future",
@@ -66,7 +66,7 @@ const METROS = [
     label: "San Diego",
     status: "planned",
     cities: ["San Diego", "Carlsbad", "Oceanside", "Vista", "San Marcos", "Escondido", "Encinitas", "Del Mar", "Poway", "Santee", "Chula Vista"],
-    currentFocus: "Page coverage exists; recommendation readiness pending",
+    currentFocus: "Page coverage exists; Compass maturity pending",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/san-diego/",
@@ -80,7 +80,7 @@ const METROS = [
     label: "Orange County",
     status: "planned",
     cities: ["Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Huntington Beach", "Fullerton"],
-    currentFocus: "Page coverage exists; recommendation readiness pending",
+    currentFocus: "Page coverage exists; Compass maturity pending",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/irvine/",
@@ -158,6 +158,18 @@ function marketPathCount(nodes) {
   return nodes.reduce((total, node) => total + (Array.isArray(node.marketPath) && node.marketPath.length ? 1 : 0), 0);
 }
 
+function knownAttributeCount(nodes) {
+  return nodes.reduce((total, node) => {
+    return total + ["attributes", "retailAttributes", "industrialAttributes"].reduce((subtotal, field) => {
+      return subtotal + Object.values(node[field] || {}).filter((value) => value && value !== "unknown").length;
+    }, 0);
+  }, 0);
+}
+
+function validationQuestionCount(nodes) {
+  return nodes.reduce((total, node) => total + (Array.isArray(node.questionsToValidate) ? node.questionsToValidate.length : 0), 0);
+}
+
 function spaceCoverage(nodes) {
   const counts = Object.fromEntries(SPACE_TYPES.map((spaceType) => [spaceType, 0]));
   nodes.forEach((node) => {
@@ -199,7 +211,7 @@ function readinessForMetro(metro, report) {
   const spaces = spaceCoverage(nodes);
   const hasQuestions = nodes.length && nodes.every((node) => Array.isArray(node.questionsToValidate) && node.questionsToValidate.length);
 
-  // Planning heuristic: this dashboard measures readiness for credible Location Briefs, not SEO coverage.
+  // Planning heuristic: this dashboard measures Rofo Compass maturity, not SEO coverage.
   // Scores are intentionally conservative and use only locally observable graph/page readiness signals.
   const commercialGeography = (countTruthy([metro.geography.cityPages, metro.geography.districtPages, metro.geography.comparisonPages]) / 3) * 100;
   const knowledgeGraph = nodes.length
@@ -233,6 +245,8 @@ function readinessForMetro(metro, report) {
     },
     nodes,
     relationships,
+    knownAttributes: knownAttributeCount(nodes),
+    validationQuestions: validationQuestionCount(nodes),
     marketPaths,
     spaces,
     score,
@@ -316,10 +330,11 @@ function renderMetroDetails(metro, token) {
         <section>
           <h3>Knowledge Graph</h3>
           <ul>
-            ${renderCheck("Knowledge Cards", metro.nodes.length > 0, `${metro.nodes.length} nodes`)}
+            ${renderCheck("Commercial districts", metro.nodes.length > 0, `${metro.nodes.length} graph nodes`)}
             ${renderCheck("Market Paths", metro.marketPaths > 0, `${metro.marketPaths} city-level paths`)}
             ${renderCheck("Compare Relationships", metro.relationships > 0, `${metro.relationships} relationships`)}
-            ${renderCheck("QuestionsToValidate", metro.nodes.every((node) => node.questionsToValidate && node.questionsToValidate.length))}
+            ${renderCheck("Recommendation attributes", metro.knownAttributes > 0, `${metro.knownAttributes} known attributes`)}
+            ${renderCheck("Validation questions", metro.validationQuestions > 0, `${metro.validationQuestions} questions`)}
           </ul>
         </section>
         <section>
@@ -334,10 +349,11 @@ function renderMetroDetails(metro, token) {
           </ul>
         </section>
         <section>
-          <h3>Recommendation Product</h3>
+          <h3>Rofo Compass Stack</h3>
           <ul>
             ${renderCheck("Recommendation Prompt", metro.nodes.length > 0 || metro.status === "planned")}
             ${renderCheck("Recommendation Resolver", metro.nodes.length > 0)}
+            ${renderCheck("Explainability", metro.recommendationQa.qaStatus === "completed", metro.recommendationQa.qaStatus === "completed" ? "Passed" : "Pending")}
             ${renderCheck("Location Brief", metro.nodes.length > 0)}
             ${renderCheck("Expert Review", true)}
           </ul>
@@ -347,6 +363,7 @@ function renderMetroDetails(metro, token) {
           <ul>
             ${renderCheck("Schema", true)}
             ${renderCheck("Relationships", metro.relationships > 0)}
+            ${renderCheck("Recommendation QA", metro.recommendationQa.qaStatus === "completed", metro.recommendationQa.qaStatus === "completed" ? "Passed" : "Pending")}
           </ul>
         </section>
         <section>
@@ -363,7 +380,7 @@ function renderMetroTable(metros, token) {
     <section class="panel panel--table">
       <div class="section-heading">
         <h2>Metro Coverage</h2>
-        <p>Readiness is a conservative planning estimate based on public geography, graph depth, product compatibility, space-type coverage, and validation health.</p>
+        <p>Compass Maturity is a conservative planning estimate based on public geography, graph depth, resolver compatibility, explainability, QA, space-type coverage, and validation health.</p>
       </div>
       <div class="table-wrap">
         <table>
@@ -371,8 +388,8 @@ function renderMetroTable(metros, token) {
             <tr>
               <th>Metro</th>
               <th>Status</th>
-              <th>Recommendation Readiness</th>
-              <th>Knowledge Graph Nodes</th>
+              <th>Compass Maturity</th>
+              <th>Graph Nodes</th>
               <th>Current Focus</th>
               <th>Links</th>
             </tr>
@@ -529,14 +546,14 @@ function renderPage({ token, metros, report }) {
   const readyCount = metros.filter((metro) => metro.status === "ready").length;
   const enhancingCount = metros.filter((metro) => metro.status === "enhancing").length;
   const plannedCount = metros.filter((metro) => metro.status === "planned").length;
-  const overallReadiness = metros.length ? Math.round(metros.reduce((total, metro) => total + metro.score, 0) / metros.length) : 0;
+  const overallMaturity = metros.length ? Math.round(metros.reduce((total, metro) => total + metro.score, 0) / metros.length) : 0;
 
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recommendation Coverage | Rofo</title>
+  <title>Rofo Compass Coverage | Rofo</title>
   <style>
     :root { color-scheme: light; --bg: #f6f8fb; --surface: #fff; --ink: #111827; --muted: #64748b; --border: #dce5f2; --blue: #1746cc; --green: #166534; --amber: #92400e; --red: #991b1b; --soft-blue: #eef4ff; }
     * { box-sizing: border-box; }
@@ -611,25 +628,26 @@ function renderPage({ token, metros, report }) {
     <header>
       <div>
         <a class="back-link" href="/admin/operations?token=${encodeURIComponent(token)}">← Back to Operations</a>
-        <h1>Recommendation Coverage</h1>
-        <p>Track Rofo's recommendation readiness across metros, knowledge graph coverage, and future expansion priorities.</p>
-        <div class="philosophy">A metro is Recommendation Ready when a business can receive a credible Location Brief backed by the Commercial Location Knowledge Graph.</div>
+        <h1>Rofo Compass Coverage</h1>
+        <p>Measures the maturity of Rofo Compass across supported commercial markets.</p>
+        <div class="philosophy">A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.</div>
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
-        <a class="button-link button-link--active" href="/admin/coverage?token=${encodeURIComponent(token)}">Coverage</a>
+        <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
+        <a class="button-link button-link--active" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>
         <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
         <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
       </nav>
     </header>
 
-    <section class="metrics" aria-label="Recommendation coverage KPIs">
+    <section class="metrics" aria-label="Rofo Compass coverage KPIs">
       ${renderMetric("Knowledge Graph Nodes", report.nodeCount, "Current canonical graph")}
-      ${renderMetric("Recommendation Ready Metros", readyCount, "Status = ready")}
+      ${renderMetric("Compass Ready Metros", readyCount, "Status = ready")}
       ${renderMetric("Metros In Progress", enhancingCount, "Status = enhancing")}
       ${renderMetric("Planned Metros", plannedCount, "Status = planned")}
-      ${renderMetric("Overall Recommendation Readiness", formatPercent(overallReadiness), "Average metro score")}
+      ${renderMetric("Overall Compass Maturity", formatPercent(overallMaturity), "Average metro score")}
     </section>
 
     ${renderMetroTable(metros, token)}

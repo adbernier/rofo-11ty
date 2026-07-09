@@ -1,6 +1,6 @@
 # Sacramento Recommendation QA Pilot
 
-Generated: 2026-07-09T14:50:31.229Z
+Generated: 2026-07-09T19:21:03.828Z
 
 This internal QA report validates whether Sacramento Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 
@@ -455,9 +455,9 @@ Questions to validate:
 Graph weaknesses exposed:
 - No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
 
-## Coverage Dashboard Preparation
+## Rofo Compass Coverage Preparation
 
-Future Recommendation Coverage dashboards can track metro QA with these fields:
+Future Rofo Compass Coverage dashboards can track metro QA with these fields:
 
 - qaStatus: pending | in_review | completed | needs_review
 - lastQaDate

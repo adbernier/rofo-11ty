@@ -1,6 +1,12 @@
 # Rofo Commercial Location Knowledge Graph
 
-The Commercial Location Knowledge Graph is the structured data layer that powers Rofo Location Briefs and future recommendation logic.
+The Commercial Location Knowledge Graph is the structured data layer inside Rofo Compass, Rofo's Commercial Location Intelligence Engine.
+
+Internal platform hierarchy:
+
+Rofo -> Rofo Compass -> Commercial Location Knowledge Graph -> Recommendation Resolver -> Explainability Layer -> Location Brief Generator -> Recommendation QA
+
+The graph powers Rofo Location Briefs and future recommendation logic.
 
 It is not a listings feed, scoring model, or AI system. It stores durable commercial-location knowledge: how a city or district behaves for different business uses, what tradeoffs matter, and which nearby markets should be compared.
 
@@ -9,7 +15,8 @@ It is not a listings feed, scoring model, or AI system. It stores durable commer
 - `_data/locationKnowledgeSchema.js` defines enums, canonical attribute keys, and a lightweight validator.
 - `_data/locationKnowledgeGraph.js` contains seeded city and district nodes.
 - `_data/recommendationProfiles.js` remains as a legacy fallback while the graph matures.
-- `js/recommendation-context.js` resolves Search Profile context into a Location Brief using the knowledge graph first.
+- `js/recommendation-resolver.js` resolves Search Profile context through Rofo Compass.
+- `js/recommendation-context.js` renders resolver output into the Location Brief experience.
 
 ## Node Shape
 
@@ -245,7 +252,7 @@ The coverage script also reports metros where public page coverage exists but Kn
 
 ## Recommendation QA
 
-Recommendation Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.
+Compass Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.
 
 ## Recommendation Explainability Layer
 
