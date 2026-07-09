@@ -14,6 +14,7 @@ const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "r_and_d", "re
 const STATUS_LABELS = {
   ready: "Compass Ready",
   enhancing: "Enhancing",
+  discovery: "Discovery",
   planned: "Planned",
   future: "Future",
 };
@@ -78,9 +79,9 @@ const METROS = [
   {
     key: "orange-county",
     label: "Orange County",
-    status: "planned",
+    status: "discovery",
     cities: ["Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Huntington Beach", "Fullerton"],
-    currentFocus: "Page coverage exists; Compass maturity pending",
+    currentFocus: "Compass Discovery complete; Knowledge Graph pending",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/irvine/",
@@ -217,8 +218,8 @@ function readinessForMetro(metro, report) {
   const knowledgeGraph = nodes.length
     ? ((Math.min(nodes.length / 8, 1) * 35) + (Math.min(relationships / Math.max(nodes.length * 2, 1), 1) * 25) + (marketPaths ? 20 : 0) + (hasQuestions ? 20 : 0))
     : 0;
-  const recommendationProduct = nodes.length ? 100 : (metro.status === "planned" ? 35 : 0);
-  const representativeBuildings = metro.status === "ready" ? 85 : metro.status === "enhancing" && nodes.length ? 65 : metro.status === "planned" ? 20 : 0;
+  const recommendationProduct = nodes.length ? 100 : (metro.status === "planned" || metro.status === "discovery" ? 35 : 0);
+  const representativeBuildings = metro.status === "ready" ? 85 : metro.status === "enhancing" && nodes.length ? 65 : metro.status === "planned" || metro.status === "discovery" ? 20 : 0;
   const coveredSpaceTypes = Object.values(spaces).filter((count) => count > 0).length;
   const spaceTypeCoverage = Math.min((coveredSpaceTypes / SPACE_TYPES.length) * 100, 100);
   const validation = report.schemaWarnings.length || report.brokenRelationships.length ? 60 : 100;
@@ -262,6 +263,7 @@ function readinessForMetro(metro, report) {
 function statusClass(status) {
   if (status === "ready") return "status--ready";
   if (status === "enhancing") return "status--enhancing";
+  if (status === "discovery") return "status--discovery";
   if (status === "planned") return "status--planned";
   return "status--future";
 }
@@ -425,14 +427,18 @@ function renderMetroTable(metros, token) {
 function enhancementQueue(metros) {
   const items = [];
   metros.forEach((metro) => {
+    if (metro.status === "discovery") {
+      items.push({ priority: "High", title: `Convert ${metro.label} discovery into Knowledge Cards`, reason: `${metro.label} has public page coverage and discovery context, but Compass Knowledge Graph readiness is still pending.`, action: "Author priority nodes, market paths, compare relationships, and Recommendation QA scenarios." });
+      return;
+    }
     if (metro.status === "future") {
       items.push({ priority: "High", title: `Start ${metro.label} graph`, reason: `${metro.label} has no Knowledge Graph nodes yet.`, action: "Seed city and priority district Knowledge Cards." });
       return;
     }
-    if (!metro.spaces.retail && metro.status !== "planned") {
+    if (!metro.spaces.retail && metro.status !== "planned" && metro.status !== "discovery") {
       items.push({ priority: "Medium", title: `Add retail Knowledge Cards for ${metro.label}`, reason: "Retail space-type coverage is not yet represented in the graph.", action: "Add retail fit, customer attributes, and validation questions for strongest retail districts." });
     }
-    if (!metro.spaces.medical && metro.status !== "planned") {
+    if (!metro.spaces.medical && metro.status !== "planned" && metro.status !== "discovery") {
       items.push({ priority: "Medium", title: `Add medical-office coverage for ${metro.label}`, reason: "Medical office is a common commercial decision path but has limited graph coverage.", action: "Enrich medical-relevant districts with medical space-type fit and patient-access tradeoffs." });
     }
     if (metro.relationships < metro.nodes.length * 2 && metro.nodes.length) {
@@ -545,6 +551,7 @@ function renderValidation(report) {
 function renderPage({ token, metros, report }) {
   const readyCount = metros.filter((metro) => metro.status === "ready").length;
   const enhancingCount = metros.filter((metro) => metro.status === "enhancing").length;
+  const discoveryCount = metros.filter((metro) => metro.status === "discovery").length;
   const plannedCount = metros.filter((metro) => metro.status === "planned").length;
   const overallMaturity = metros.length ? Math.round(metros.reduce((total, metro) => total + metro.score, 0) / metros.length) : 0;
 
@@ -585,6 +592,7 @@ function renderPage({ token, metros, report }) {
     .badge, .priority { display: inline-flex; align-items: center; width: fit-content; padding: 5px 9px; border-radius: 999px; font-size: 0.74rem; font-weight: 900; }
     .status--ready { background: #dcfce7; color: var(--green); }
     .status--enhancing { background: #dbeafe; color: #1e40af; }
+    .status--discovery { background: #ede9fe; color: #5b21b6; }
     .status--planned { background: #fef3c7; color: var(--amber); }
     .status--future { background: #f1f5f9; color: #475569; }
     .progress { width: 140px; max-width: 100%; height: 8px; margin-top: 8px; border-radius: 999px; background: #e5edf7; overflow: hidden; }
@@ -646,6 +654,7 @@ function renderPage({ token, metros, report }) {
       ${renderMetric("Knowledge Graph Nodes", report.nodeCount, "Current canonical graph")}
       ${renderMetric("Compass Ready Metros", readyCount, "Status = ready")}
       ${renderMetric("Metros In Progress", enhancingCount, "Status = enhancing")}
+      ${renderMetric("Metros in Discovery", discoveryCount, "Status = discovery")}
       ${renderMetric("Planned Metros", plannedCount, "Status = planned")}
       ${renderMetric("Overall Compass Maturity", formatPercent(overallMaturity), "Average metro score")}
     </section>

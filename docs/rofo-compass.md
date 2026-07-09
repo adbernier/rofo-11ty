@@ -79,6 +79,34 @@ The graph stores reasons.
 
 The resolver queries those reasons.
 
+## Evidence Hierarchy
+
+Rofo Compass should combine multiple evidence sources before treating a commercial location as meaningful.
+
+Recommended evidence hierarchy:
+
+1. Commercial geography and tenant decision patterns
+2. Editorial and broker judgment
+3. Existing Rofo city, district, and comparison structure
+4. Existing representative buildings
+5. Commercial Location Knowledge Graph fit and relationship needs
+6. Historical Rofo building and listing inventory
+7. Human review
+
+Compass does not infer commercial importance from historical Rofo inventory alone.
+
+Historical listings and buildings can reflect:
+
+- brokerage participation
+- landlord participation
+- historical Rofo coverage
+- data availability
+- prior listing activity
+
+They are supporting evidence. They are not proof that a district should become a Compass node, that a building is representative, or that a market path is commercially sound.
+
+Compass Discovery should use historical inventory to ask better questions, not to automate judgment. A location becomes part of Rofo Compass only when commercial geography, editorial review, representative environments, comparison relationships, and Location Brief value support it.
+
 ## Recommendation Resolver
 
 The Recommendation Resolver turns a Search Profile into a market path.
@@ -163,6 +191,8 @@ QA should verify:
 - no unsupported market claims
 
 Sacramento is the pilot QA standard.
+
+San Diego is the first Compass Discovery-to-Compass Ready example. It was promoted only after graph implementation, QA, editorial broker-style review, explainability calibration, and representative-building review using existing Rofo building paths.
 
 ## Compass Ready
 

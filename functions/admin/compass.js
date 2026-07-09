@@ -7,6 +7,27 @@ const RESOLVER_VERSION = "Compass Resolver v1";
 const EXPLAINABILITY_VERSION = "Explainability Layer v1";
 const LOCATION_BRIEF_VERSION = "Location Brief Generator v1";
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "r_and_d", "retail", "medical", "life_science"];
+const PLATFORM_VERSION = "Compass v1";
+const COMPASS_METROS = [
+  { key: "bay-area", label: "SF Bay Area", status: "ready" },
+  { key: "sacramento", label: "Sacramento", status: "ready" },
+  { key: "san-diego", label: "San Diego", status: "ready" },
+  { key: "los-angeles", label: "Los Angeles", status: "enhancing" },
+  { key: "orange-county", label: "Orange County", status: "discovery" },
+  { key: "seattle", label: "Seattle", status: "planned" },
+  { key: "phoenix", label: "Phoenix", status: "planned" },
+  { key: "denver", label: "Denver", status: "planned" },
+];
+const COMPASS_LIFECYCLE = [
+  "Compass Discovery",
+  "Editorial Review",
+  "Knowledge Graph",
+  "Recommendation Resolver",
+  "Explainability",
+  "Recommendation QA",
+  "Compass Ready",
+  "Production",
+];
 const COMPASS_STACK = [
   "Rofo",
   "Rofo Compass",
@@ -51,6 +72,10 @@ function representativeBuildingCount(nodes) {
   return nodes.reduce((total, node) => total + (Array.isArray(node.representativeBuildings) ? node.representativeBuildings.length : 0), 0);
 }
 
+function statusCount(status) {
+  return COMPASS_METROS.filter((metro) => metro.status === status).length;
+}
+
 function supportedSpaceTypes(nodes) {
   const types = new Set();
   nodes.forEach((node) => {
@@ -65,6 +90,10 @@ function qaRows() {
 
 function qaCompletedRows() {
   return qaRows().filter((row) => row.qaStatus === "completed");
+}
+
+function qaScenarioCount() {
+  return qaRows().reduce((total, row) => total + Number(row.scenarioCount || 0), 0);
 }
 
 function validationReport() {
@@ -94,6 +123,29 @@ function metric(label, value, note = "") {
       <strong>${escapeHtml(displayValue)}</strong>
       ${note ? `<small>${escapeHtml(note)}</small>` : ""}
     </article>
+  `;
+}
+
+function lifecycleStep(label, index) {
+  return `
+    <li>
+      <span>${escapeHtml(index + 1)}</span>
+      <strong>${escapeHtml(label)}</strong>
+    </li>
+  `;
+}
+
+function renderLifecycle() {
+  return `
+    <section class="panel panel--lifecycle">
+      <div class="section-heading">
+        <h2>Compass Lifecycle</h2>
+        <p>The standard path for turning a market from discovery into production-ready commercial location intelligence.</p>
+      </div>
+      <ol class="lifecycle">
+        ${COMPASS_LIFECYCLE.map((step, index) => lifecycleStep(step, index)).join("")}
+      </ol>
+    </section>
   `;
 }
 
@@ -163,6 +215,11 @@ function renderPage({ token }) {
   const marketPaths = marketPathCount(graph);
   const knownAttributes = knownAttributeCount(graph);
   const representativeBuildings = representativeBuildingCount(graph);
+  const qaScenarios = qaScenarioCount();
+  const readyMetros = statusCount("ready");
+  const discoveryMetros = statusCount("discovery");
+  const enhancingMetros = statusCount("enhancing");
+  const locationBriefCompatibleMetros = COMPASS_METROS.filter((metro) => metro.status === "ready" || metro.status === "enhancing").length;
 
   return `<!doctype html>
 <html lang="en">
@@ -210,13 +267,20 @@ function renderPage({ token }) {
     th { color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.04em; text-align: left; text-transform: uppercase; }
     th, td { padding: 12px 10px; border-top: 1px solid #edf2f7; vertical-align: top; }
     .health { display: grid; gap: 8px; margin-top: 12px; color: #334155; line-height: 1.5; }
+    .overview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+    .panel--overview { margin-bottom: 16px; }
+    .panel--lifecycle { overflow: hidden; }
+    .lifecycle { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .lifecycle li { position: relative; display: grid; gap: 8px; min-height: 100px; padding: 14px; border: 1px solid #e2e8f0; border-radius: 16px; background: #fbfdff; }
+    .lifecycle li span { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: var(--soft-blue); color: var(--blue); font-size: 0.82rem; font-weight: 900; }
+    .lifecycle li strong { align-self: end; line-height: 1.2; }
     @media (max-width: 980px) {
       header { display: grid; }
       .nav { justify-content: flex-start; }
-      .metrics, .module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metrics, .module-grid, .overview-grid, .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
-      .metrics, .module-grid { grid-template-columns: 1fr; }
+      .metrics, .module-grid, .overview-grid, .lifecycle { grid-template-columns: 1fr; }
       dl div { display: grid; }
       dd { text-align: left; }
     }
@@ -243,12 +307,31 @@ function renderPage({ token }) {
       </nav>
     </header>
 
-    <section class="metrics" aria-label="Rofo Compass KPIs">
+    <section class="panel panel--overview">
+      <div class="section-heading">
+        <h2>Platform Overview</h2>
+        <p>Current health of Rofo Compass as an internal commercial location intelligence platform.</p>
+      </div>
+      <div class="overview-grid">
+        ${metric("Compass Ready Metros", readyMetros, "Validated for V1 Location Briefs")}
+        ${metric("Metros in Discovery", discoveryMetros, "Discovery or editorial review")}
+        ${metric("Metros Enhancing", enhancingMetros, "Graph-backed but still deepening")}
+        ${metric("Location Brief-Compatible Metros", locationBriefCompatibleMetros, "Ready or enhancing metros")}
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Rofo Compass platform statistics">
       ${metric("Knowledge Graph Nodes", graph.length, "Canonical commercial location nodes")}
       ${metric("Comparison Relationships", relationshipTotal, "Graph compareWith edges")}
+      ${metric("Recommendation Attributes", knownAttributes, "Known business, retail, and industrial attributes")}
       ${metric("Validation Questions", questionTotal, "Questions to validate in Location Briefs")}
+      ${metric("Representative Buildings", representativeBuildings, "Attached to Knowledge Graph nodes")}
+      ${metric("QA Scenarios", qaScenarios, "Internal Recommendation QA profiles")}
       ${metric("Supported Space Types", spaces.length, spaces.join(", "))}
+      ${metric("Platform Version", PLATFORM_VERSION, "Internal platform generation")}
     </section>
+
+    ${renderLifecycle()}
 
     <section class="module-grid" aria-label="Compass modules">
       ${moduleCard("Commercial Location Knowledge Graph", "Active", [

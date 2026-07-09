@@ -250,6 +250,8 @@ The expansion process should make Rofo smarter. If a location cannot support a c
 
 The coverage script also reports metros where public page coverage exists but Knowledge Graph nodes are missing. Treat those as planning gaps, not build failures. They indicate that users can discover the geography, but Rofo cannot yet produce a graph-backed Location Brief for that metro.
 
+Use `docs/templates/compass-discovery-template.md` before starting a new metro. Compass Discovery should establish evidence, candidate nodes, representative buildings, comparison relationships, QA scenarios, and readiness risks before implementation begins.
+
 ## Recommendation QA
 
 Compass Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.

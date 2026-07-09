@@ -4,6 +4,8 @@ This document supports the internal Rofo Compass Coverage dashboard. It is a pla
 
 A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Commercial Location Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.
 
+Future metro work should begin with Compass Discovery using `docs/templates/compass-discovery-template.md`. The roadmap should track what Compass knows, what it is learning, what has been validated, and what should be built next.
+
 ## Completed
 
 ### SF Bay Area
