@@ -172,6 +172,36 @@
     return path.split(".").reduce((value, key) => value && value[key], profile);
   }
 
+  function profileKnowledgeText(profile, spaceType) {
+    const fitMap = profile.spaceTypeFit || profile.businessFit || {};
+    const activeFit = businessFitFor(profile, spaceType) || {};
+    const allFits = Object.values(fitMap || {});
+    return [
+      profile.label,
+      profile.city,
+      profile.type,
+      ...(profile.bestFor || []),
+      ...(profile.strengths || []),
+      ...(profile.tradeoffs || []),
+      activeFit.summary,
+      ...(activeFit.bestFor || []),
+      ...(activeFit.tradeoffs || []),
+      ...allFits.flatMap((fit) => [fit && fit.summary, ...((fit && fit.bestFor) || []), ...((fit && fit.tradeoffs) || [])]),
+    ].map(normalizePriority).filter(Boolean).join(" ");
+  }
+
+  function textRelevanceScore(profile, context, priorities) {
+    const haystack = profileKnowledgeText(profile, context.spaceType);
+    if (!haystack) return 0;
+    return priorities.reduce((score, priority) => {
+      if (priority.length < 4) return score;
+      if (haystack.includes(priority)) return score + 18;
+      const meaningfulTerms = priority.split(" ").filter((term) => term.length >= 5);
+      const matchedTerms = meaningfulTerms.filter((term) => haystack.includes(term));
+      return score + Math.min(matchedTerms.length * 4, 8);
+    }, 0);
+  }
+
   function priorityScore(profile, context) {
     const priorities = [
       ...(Array.isArray(context.priorities) ? context.priorities : []),
@@ -180,7 +210,7 @@
     ].map(normalizePriority).filter(Boolean);
     if (!priorities.length) return 0;
 
-    return priorities.reduce((score, priority) => {
+    const attributeScore = priorities.reduce((score, priority) => {
       return score + priorityAttributeRules.reduce((ruleScore, rule) => {
         const matches = rule.match.some((term) => priority.includes(term));
         if (!matches) return ruleScore;
@@ -188,6 +218,7 @@
         return ruleScore + attributeValueScore(valueAtPath(profile, rule.field), desired);
       }, 0);
     }, 0);
+    return attributeScore + textRelevanceScore(profile, context, priorities);
   }
 
   function priorityMatches(profile, context) {
@@ -205,7 +236,12 @@
         const desired = normalized.includes("unimportant") || normalized.includes("not important") ? "low" : "high";
         return attributeValueScore(valueAtPath(profile, rule.field), desired) > 0;
       });
-      if (matched) matches.push(String(priority));
+      const knowledgeText = profileKnowledgeText(profile, context.spaceType);
+      const textMatched = normalized.length >= 4 && (
+        knowledgeText.includes(normalized) ||
+        normalized.split(" ").some((term) => term.length >= 5 && knowledgeText.includes(term))
+      );
+      if (matched || textMatched) matches.push(String(priority));
     });
     return Array.from(new Set(matches));
   }

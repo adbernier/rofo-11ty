@@ -298,3 +298,37 @@ Each QA scenario should document:
 The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, or if a plausible recommendation cannot explain why it was chosen over alternatives, the metro should remain in enhancement or review status.
 
 Sacramento's pilot QA fixtures live in `data/recommendation-qa/sacramento-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/sacramento-pilot.md`.
+
+San Diego's first Compass Knowledge Graph seed was authored after the San Diego Compass Discovery report. The implementation intentionally focused on recommendation value rather than page count:
+
+- City-level San Diego
+- Downtown San Diego
+- Mission Valley
+- UTC / University City
+- Sorrento Mesa
+- Kearny Mesa
+- Miramar
+- Otay Mesa
+- Rancho Bernardo
+- Poway Business Park
+- Carlsbad Business Park
+- Vista Business Park
+- Oceanside Industrial
+
+Editorial decisions from the San Diego seed:
+
+- `UTC / University City` is treated as the primary Compass node instead of duplicating a separate `University City` node.
+- `Sorrento Mesa` is treated as the primary innovation/R&D/flex node; `Sorrento Valley` remains supporting page/building context rather than a separate first-pass Compass node.
+- North County is modeled through differentiated nodes rather than one generic city path: Carlsbad Business Park for office/R&D/business-park fit, Vista Business Park for inland industrial/flex utility, Oceanside Industrial for coastal North County service-industrial, and Poway Business Park for I-15 industrial/flex.
+- Historical listing and building records were used as supporting evidence for representative environments, not as a proxy for commercial importance.
+
+San Diego QA fixtures live in `data/recommendation-qa/san-diego-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/san-diego-pilot.md`. After Sprint J1.1 broker-style editorial review, San Diego is treated as Compass Ready for V1 Location Briefs because the scenarios produce believable primary recommendations, sensible alternatives, meaningful tradeoffs, graph-backed validation questions, and advisor-style explainability.
+
+Calibration changes from the San Diego review:
+
+- Miramar now has explicit showroom/service-commercial fit so contractor and showroom scenarios do not fall back to conventional office language.
+- Rancho Bernardo has stronger North County professional-service guidance so North County office profiles keep a more direct North County alternative ahead of generic downtown contrast.
+- The resolver now surfaces graph-text priority matches in `matchedPriorities`, allowing explanations to name terms such as life science, R&D, showroom, logistics, border access, North County, and I-15 access when those terms are supported by the graph.
+- Exact graph-text priority relevance was strengthened so geography-specific requirements can outweigh generic prestige signals where the Knowledge Graph supports that choice.
+
+San Diego should still be enhanced over time with deeper representative-building curation, second-pass retail and medical-office nodes, and real Location Brief usage feedback. Those are quality-depth improvements rather than current Compass Ready blockers.

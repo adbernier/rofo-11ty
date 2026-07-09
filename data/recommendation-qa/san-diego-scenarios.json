@@ -1,0 +1,222 @@
+[
+  {
+    "id": "sd-downtown-law-firm",
+    "name": "Downtown Law Firm",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Office",
+      "size": "4,000 sqft",
+      "priorities": ["law firm", "prestige", "client meetings", "transit important", "downtown access"]
+    },
+    "expectedDirection": "Favor the client-facing downtown office core over suburban or industrial alternatives.",
+    "expectedSlugs": ["downtown-san-diego"]
+  },
+  {
+    "id": "sd-mission-valley-medical-office",
+    "name": "Mission Valley Medical Office",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Medical",
+      "size": "6,000 sqft",
+      "priorities": ["patient visits", "parking important", "freeway access", "central San Diego", "moderate budget"]
+    },
+    "expectedDirection": "Favor central patient-access medical office districts with parking and freeway access.",
+    "expectedSlugs": ["mission-valley", "utc-university-city", "rancho-bernardo"]
+  },
+  {
+    "id": "sd-utc-executive-office",
+    "name": "UTC Executive Office",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Office",
+      "size": "8,000 sqft",
+      "priorities": ["executive image", "talent access", "amenities", "professional services", "client meetings"]
+    },
+    "expectedDirection": "Favor high-amenity North City or downtown office options rather than industrial/flex corridors.",
+    "expectedSlugs": ["utc-university-city", "downtown-san-diego"]
+  },
+  {
+    "id": "sd-sorrento-mesa-biotech-startup",
+    "name": "Sorrento Mesa Biotech Startup",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Life Science",
+      "size": "10,000 sqft",
+      "priorities": ["life science", "R&D", "talent access", "growth flexibility", "technical buildout"]
+    },
+    "expectedDirection": "Favor Sorrento Mesa and North City innovation districts before office-only markets.",
+    "expectedSlugs": ["sorrento-mesa", "utc-university-city", "carlsbad-business-park"]
+  },
+  {
+    "id": "sd-miramar-contractor-showroom",
+    "name": "Miramar Contractor / Showroom",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Showroom",
+      "size": "7,500 sqft",
+      "priorities": ["showroom", "service vehicles", "customer visits", "freeway access", "parking important"]
+    },
+    "expectedDirection": "Favor central service-commercial and office/flex districts rather than conventional office districts.",
+    "expectedSlugs": ["kearny-mesa", "miramar"]
+  },
+  {
+    "id": "sd-otay-mesa-warehouse",
+    "name": "Otay Mesa Warehouse",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Warehouse",
+      "size": "40,000 sqft",
+      "priorities": ["logistics", "truck access", "loading", "trailer parking", "border access"]
+    },
+    "expectedDirection": "Favor border-oriented warehouse and distribution corridors over central office/flex markets.",
+    "expectedSlugs": ["otay-mesa", "miramar", "vista-business-park"]
+  },
+  {
+    "id": "sd-carlsbad-engineering-company",
+    "name": "Carlsbad Engineering Company",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "R&D",
+      "size": "12,000 sqft",
+      "priorities": ["North County", "engineering", "R&D", "parking important", "growth flexibility"]
+    },
+    "expectedDirection": "Favor North County and R&D/flex business-park markets rather than downtown office.",
+    "expectedSlugs": ["carlsbad-business-park", "sorrento-mesa", "rancho-bernardo"]
+  },
+  {
+    "id": "sd-vista-light-manufacturing",
+    "name": "Vista Light Manufacturing",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Manufacturing",
+      "size": "18,000 sqft",
+      "priorities": ["manufacturing", "loading", "power", "lower cost", "North County"]
+    },
+    "expectedDirection": "Favor North County industrial/flex and manufacturing-oriented districts.",
+    "expectedSlugs": ["vista-business-park", "carlsbad-business-park", "poway-business-park", "oceanside-industrial"]
+  },
+  {
+    "id": "sd-rancho-bernardo-suburban-hq",
+    "name": "Rancho Bernardo Suburban HQ",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Office",
+      "size": "15,000 sqft",
+      "priorities": ["suburban headquarters", "parking important", "I-15 access", "growth flexibility", "employees drive"]
+    },
+    "expectedDirection": "Favor suburban business-park office and office/flex districts instead of downtown.",
+    "expectedSlugs": ["rancho-bernardo", "mission-valley", "kearny-mesa"]
+  },
+  {
+    "id": "sd-north-county-professional-services",
+    "name": "North County Professional Services",
+    "metro": "San Diego",
+    "profile": {
+      "locations": [
+        {
+          "label": "San Diego",
+          "type": "city",
+          "city": "San Diego",
+          "state": "CA",
+          "slug": "san-diego",
+          "path": "/commercial-real-estate/CA/san-diego/"
+        }
+      ],
+      "spaceType": "Office",
+      "size": "3,500 sqft",
+      "priorities": ["North County", "client visits", "parking important", "professional services", "moderate budget"]
+    },
+    "expectedDirection": "Favor North County office/business-park options while keeping central San Diego alternatives visible.",
+    "expectedSlugs": ["carlsbad-business-park", "rancho-bernardo", "mission-valley"]
+  }
+]

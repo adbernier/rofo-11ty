@@ -5,7 +5,7 @@ import { escapeHtml } from "../api/leads/_shared.js";
 
 const ROADMAP_TIERS = [
   { tier: "Tier 1", metros: ["Seattle", "Phoenix", "Denver"] },
-  { tier: "Tier 2", metros: ["Orange County", "San Diego", "Portland", "Austin"] },
+  { tier: "Tier 2", metros: ["Orange County", "Portland", "Austin"] },
   { tier: "Tier 3", metros: ["Dallas", "Houston", "Chicago", "Boston", "Atlanta"] },
 ];
 
@@ -64,13 +64,13 @@ const METROS = [
   {
     key: "san-diego",
     label: "San Diego",
-    status: "planned",
+    status: "ready",
     cities: ["San Diego", "Carlsbad", "Oceanside", "Vista", "San Marcos", "Escondido", "Encinitas", "Del Mar", "Poway", "Santee", "Chula Vista"],
-    currentFocus: "Page coverage exists; Compass maturity pending",
+    currentFocus: "Representative building depth + second-pass retail/medical",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/san-diego/",
-      comparisons: "/commercial-real-estate/CA/san-diego/utc-vs-sorrento-valley/",
+      comparisons: "/commercial-real-estate/CA/san-diego/utc-university-city-vs-sorrento-mesa/",
       brief: "/example-location-brief/",
       buildings: "/commercial-real-estate/CA/san-diego/buildings/",
     },

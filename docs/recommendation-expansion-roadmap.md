@@ -79,6 +79,35 @@ Next priorities:
 - Improve representative building coverage in LA office and industrial districts using existing reliable building paths only.
 - Expand comparison pages where current graph relationships identify high-value tenant choices.
 
+## Compass Ready
+
+### San Diego
+
+Compass Maturity: Compass Ready
+
+Current strengths:
+
+- San Diego has a calibrated Compass Knowledge Graph seed for the city-level market and core office, innovation, flex, industrial, warehouse, and North County decision paths.
+- Seed nodes include Downtown San Diego, Mission Valley, UTC / University City, Sorrento Mesa, Kearny Mesa, Miramar, Otay Mesa, Rancho Bernardo, Poway Business Park, Carlsbad Business Park, Vista Business Park, and Oceanside Industrial.
+- City-level San Diego can route office, medical, life-science/R&D, flex, industrial, warehouse, manufacturing, showroom, and North County professional-service scenarios into differentiated graph-backed market paths.
+- San Diego QA includes ten realistic business profiles and passes baseline recommendation-direction and explainability checks with differentiated primary recommendations.
+- Editorial broker-style review passed after calibration. The North County professional-services scenario now keeps Rancho Bernardo ahead of Downtown San Diego as the more direct North County comparison.
+- Explainability now surfaces profile-specific matched priorities such as life science, R&D, showroom, logistics, border access, North County, and I-15 access when those terms are supported by graph-authored knowledge.
+- The first seed intentionally consolidates overlapping labels: UTC / University City is the primary North City office node, and Sorrento Mesa is the primary innovation/R&D/flex node.
+
+Enhancement priorities:
+
+- Representative buildings are attached only from existing reliable Rofo building paths and should continue moving from illustrative seed coverage toward richer broker-reviewed examples.
+- Medical-office and retail/service guidance is present but should be deepened after demand and broker review confirm priority corridors.
+- Some useful page-level districts from discovery, including Little Italy / Columbia, East Village, Del Mar Heights / Carmel Valley, Chula Vista, San Marcos, and Escondido, were intentionally not included in the first Compass seed because they are second-pass recommendation refinements.
+
+Next priorities:
+
+- Promote reviewed representative building candidates into the dedicated representative-building layer where appropriate.
+- Add second-pass Knowledge Cards only where they improve recommendations: Chula Vista medical/service, Little Italy / Columbia, East Village, Del Mar Heights / Carmel Valley, Torrey Pines / La Jolla, San Marcos, and Escondido.
+- Continue validating whether Sorrento Valley should remain supporting context or become a distinct Compass node.
+- Use real Location Brief usage to identify where San Diego needs more precise retail, medical, and representative-building depth.
+
 ## Planned
 
 ### Seattle
@@ -101,27 +130,6 @@ Next priorities:
 - Seed Downtown Seattle, South Lake Union, Bellevue, Redmond, Kirkland, Kent Valley, Tacoma Port / Industrial, and Everett Industrial.
 - Add office, technology, life science, industrial, and warehouse Knowledge Cards.
 - Add city-level market paths for Seattle and Bellevue.
-
-### San Diego
-
-Compass Maturity: Planned
-
-Current strengths:
-
-- Page coverage exists for major San Diego city and district markets.
-- District pages and comparison paths provide a base for future recommendation work.
-
-Current weaknesses:
-
-- Compass readiness is pending.
-- Knowledge Graph nodes have not yet been authored for San Diego priority districts.
-- Space-type fit, tradeoffs, compare relationships, and questions to validate still need to be translated into Knowledge Cards.
-
-Next priorities:
-
-- Seed San Diego city-level and district-level Knowledge Cards.
-- Prioritize Downtown San Diego, UTC / University City, Sorrento Valley, Kearny Mesa, Mission Valley, Carlsbad, Oceanside Industrial, Vista Business Park, and Escondido Industrial.
-- Add office, biotech/R&D, flex, industrial, and warehouse guidance before marking the metro Compass Ready.
 
 ### Orange County
 

@@ -1,6 +1,6 @@
 # Sacramento Recommendation QA Pilot
 
-Generated: 2026-07-09T19:21:03.828Z
+Generated: 2026-07-09T20:40:53.302Z
 
 This internal QA report validates whether Sacramento Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 
@@ -10,7 +10,7 @@ This internal QA report validates whether Sacramento Location Brief recommendati
 - Scenarios passing baseline advisor-readiness checks: 7
 - Scenarios needing review: 0
 - Unique primary recommendations: 5
-- Repeated primary recommendations: roseville-commercial-core (2), downtown-sacramento (2)
+- Repeated primary recommendations: roseville-commercial-core (3)
 
 Baseline checks require a primary recommendation, at least one expected directional match, meaningful tradeoffs, validation questions, and complete explainability fields. A pass does not mean the recommendation is final; it means the brief is credible enough for advisor review.
 
@@ -149,22 +149,22 @@ Graph weaknesses exposed:
 - Profile: 10,000 sqft Office in Sacramento
 - Priorities: employees drive, cost sensitive, visibility unimportant, parking important
 - Expected direction: Favor parking-friendly, value-oriented suburban office and larger-footprint markets.
-- Top recommendation: Rancho Cordova Commercial Core (Strong fit)
+- Top recommendation: Roseville Commercial Core (Strong fit)
 - Secondary recommendation: Natomas
 - Confidence: High Confidence
 - Baseline QA result: Pass
 - Explanation quality: Pass
 
 Recommended market path:
-- 1. Rancho Cordova Commercial Core - Strong fit: Strong fit for value-oriented office, back-office, insurance, professional-service, and regional support users that need Highway 50 access, parking, and larger footprints.
+- 1. Roseville Commercial Core - Strong fit: Strong fit for regional office, professional-service, medical, and customer-facing users serving Placer County and northeast Sacramento with strong parking and retail amenities.
 - 2. Natomas - Strong fit: Strong fit for parking-sensitive regional office users that value I-5/I-80 access, airport proximity, and practical suburban office formats.
-- 3. Downtown Sacramento - Excellent fit: Excellent fit for civic, legal, government-adjacent, professional-service, and client-facing office users that need Sacramento's downtown business core.
+- 3. Rancho Cordova Commercial Core - Strong fit: Strong fit for value-oriented office, back-office, insurance, professional-service, and regional support users that need Highway 50 access, parking, and larger footprints.
 
 Why this differs:
 - Matches expected directional nodes: rancho-cordova-commercial-core, natomas
 
 Selection rationale:
-- Rancho Cordova Commercial Core is recommended first because it is a strong fit for value-oriented office, back-office, insurance, professional-service, and regional support users that need Highway 50 access, parking, and larger footprints. It aligns with the profile priorities around employees drive, cost sensitive, and visibility unimportant. The strongest supporting signals are Highway 50 access, parking, and larger footprints.
+- Roseville Commercial Core is recommended first because it is a strong fit for regional office, professional-service, medical, and customer-facing users serving Placer County and northeast Sacramento with strong parking and retail amenities. It aligns with the profile priorities around employees drive, cost sensitive, and visibility unimportant. The strongest supporting signals are regional retail base, parking, and I-80 access.
 
 Matched priorities:
 - employees drive
@@ -173,10 +173,73 @@ Matched priorities:
 - parking important
 
 Tradeoff summary:
-- less civic/client-facing than Downtown Sacramento
+- less central to Sacramento civic users
 
 Alternative rationale:
-- Natomas remains relevant because it is a strong fit for parking-sensitive regional office users that value I-5/I-80 access, airport proximity, and practical suburban office formats. Rancho Cordova Commercial Core appears to fit the initial profile more directly, while Natomas is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+- Natomas remains relevant because it is a strong fit for parking-sensitive regional office users that value I-5/I-80 access, airport proximity, and practical suburban office formats. Roseville Commercial Core appears to fit the initial profile more directly, while Natomas is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+
+Validation focus:
+- Are your customers, patients, or employees concentrated in Placer County?
+- Is parking a top priority?
+- Do you need regional retail visibility?
+- Would Rocklin or Folsom better match cost, image, or commute patterns?
+
+Strengths surfaced:
+- regional retail base
+- parking
+- I-80 access
+- medical and professional-service demand
+- airport access
+- I-5 and I-80 connectivity
+
+Tradeoffs surfaced:
+- less central to Sacramento civic users
+- auto-oriented commute pattern
+- less walkable and less civic/client-facing than Downtown Sacramento
+- less civic/client-facing than Downtown Sacramento
+- less executive suburban image than Folsom
+
+Questions to validate:
+- Are your customers, patients, or employees concentrated in Placer County?
+- Is parking a top priority?
+- Do you need regional retail visibility?
+- Would Rocklin or Folsom better match cost, image, or commute patterns?
+
+Graph weaknesses exposed:
+- No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
+
+### Light Industrial / Flex
+
+- Profile: 8,000 sqft Flex in Sacramento
+- Priorities: service vehicles, loading, flexible space, highway access
+- Expected direction: Favor office/flex and industrial utility corridors rather than downtown or restaurant-oriented districts.
+- Top recommendation: Rancho Cordova Commercial Core (Strong fit)
+- Secondary recommendation: Natomas
+- Confidence: High Confidence
+- Baseline QA result: Pass
+- Explanation quality: Pass
+
+Recommended market path:
+- 1. Rancho Cordova Commercial Core - Strong fit: Strong fit for office/flex, service operations, and larger-footprint users that need practical buildings and Highway 50 access.
+- 2. Natomas - Strong fit: Strong fit for office/flex and service-commercial users that need parking, freeway access, and operational flexibility north of downtown.
+- 3. Power Inn Industrial - Good fit: Good fit for office/flex and production-support users needing a practical mix of office, shop, warehouse, or service space.
+
+Why this differs:
+- Matches expected directional nodes: power-inn-industrial, rancho-cordova-commercial-core, natomas
+
+Selection rationale:
+- Rancho Cordova Commercial Core is recommended first because it is a strong fit for office/flex, service operations, and larger-footprint users that need practical buildings and Highway 50 access. It aligns with the profile priorities around service vehicles, loading, and highway access. The strongest supporting signals are Highway 50 access, parking, and larger footprints.
+
+Matched priorities:
+- service vehicles
+- loading
+- highway access
+
+Tradeoff summary:
+- technical specs and loading vary by property
+
+Alternative rationale:
+- Natomas remains relevant because it is a strong fit for office/flex and service-commercial users that need parking, freeway access, and operational flexibility north of downtown. Rancho Cordova Commercial Core appears to fit the initial profile more directly, while Natomas is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
 
 Validation focus:
 - Is lower occupancy cost a priority?
@@ -193,77 +256,15 @@ Strengths surfaced:
 - I-5 and I-80 connectivity
 
 Tradeoffs surfaced:
-- less civic/client-facing than Downtown Sacramento
-- less executive suburban image than Folsom
-- less walkable and less civic/client-facing than Downtown Sacramento
-- parking and commute friction can push some teams to Natomas, Rancho Cordova, or Roseville
-- less suited to industrial, warehouse, or large back-office users
+- technical specs and loading vary by property
+- technical loading and warehouse specs vary by building
+- not ideal for client-facing executive office uses
 
 Questions to validate:
 - Is lower occupancy cost a priority?
 - Do you need larger footprints or office/flex functionality?
 - Do clients expect a central Sacramento address?
 - Would Folsom, Roseville, or Power Inn better fit image or operations?
-
-Graph weaknesses exposed:
-- No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
-
-### Light Industrial / Flex
-
-- Profile: 8,000 sqft Flex in Sacramento
-- Priorities: service vehicles, loading, flexible space, highway access
-- Expected direction: Favor office/flex and industrial utility corridors rather than downtown or restaurant-oriented districts.
-- Top recommendation: Natomas (Strong fit)
-- Secondary recommendation: Rancho Cordova Commercial Core
-- Confidence: High Confidence
-- Baseline QA result: Pass
-- Explanation quality: Pass
-
-Recommended market path:
-- 1. Natomas - Strong fit: Strong fit for office/flex and service-commercial users that need parking, freeway access, and operational flexibility north of downtown.
-- 2. Rancho Cordova Commercial Core - Strong fit: Strong fit for office/flex, service operations, and larger-footprint users that need practical buildings and Highway 50 access.
-- 3. Power Inn Industrial - Good fit: Good fit for office/flex and production-support users needing a practical mix of office, shop, warehouse, or service space.
-
-Why this differs:
-- Matches expected directional nodes: power-inn-industrial, rancho-cordova-commercial-core, natomas
-
-Selection rationale:
-- Natomas is recommended first because it is a strong fit for office/flex and service-commercial users that need parking, freeway access, and operational flexibility north of downtown. It aligns with the profile priorities around loading and highway access. The strongest supporting signals are airport access, I-5 and I-80 connectivity, and parking-friendly office.
-
-Matched priorities:
-- loading
-- highway access
-
-Tradeoff summary:
-- technical loading and warehouse specs vary by building
-
-Alternative rationale:
-- Rancho Cordova Commercial Core remains relevant because it is a strong fit for office/flex, service operations, and larger-footprint users that need practical buildings and Highway 50 access. Natomas appears to fit the initial profile more directly, while Rancho Cordova Commercial Core is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
-
-Validation focus:
-- Is airport access important?
-- Do employees need easy parking?
-- Do you need office/flex capability or just office?
-- Would Downtown Sacramento, Rancho Cordova, or Roseville better fit client and employee geography?
-
-Strengths surfaced:
-- airport access
-- I-5 and I-80 connectivity
-- parking-friendly office
-- suburban office/flex formats
-- Highway 50 access
-- parking
-
-Tradeoffs surfaced:
-- technical loading and warehouse specs vary by building
-- technical specs and loading vary by property
-- not ideal for client-facing executive office uses
-
-Questions to validate:
-- Is airport access important?
-- Do employees need easy parking?
-- Do you need office/flex capability or just office?
-- Would Downtown Sacramento, Rancho Cordova, or Roseville better fit client and employee geography?
 
 Graph weaknesses exposed:
 - No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
@@ -336,60 +337,61 @@ Graph weaknesses exposed:
 - Profile: 5,000 sqft Office in Sacramento
 - Priorities: collaborative office, recruiting, restaurants, walkability, hybrid workforce
 - Expected direction: Favor walkable, amenity-rich districts that support recruiting and team experience.
-- Top recommendation: Downtown Sacramento (Excellent fit)
-- Secondary recommendation: Midtown Sacramento
+- Top recommendation: Midtown Sacramento (Strong fit)
+- Secondary recommendation: Downtown Sacramento
 - Confidence: High Confidence
 - Baseline QA result: Pass
 - Explanation quality: Pass
 
 Recommended market path:
-- 1. Downtown Sacramento - Excellent fit: Excellent fit for civic, legal, government-adjacent, professional-service, and client-facing office users that need Sacramento's downtown business core.
-- 2. Midtown Sacramento - Strong fit: Strong fit for smaller office users, nonprofits, creative firms, professional services, and local teams that value walkability and central Sacramento identity.
+- 1. Midtown Sacramento - Strong fit: Strong fit for smaller office users, nonprofits, creative firms, professional services, and local teams that value walkability and central Sacramento identity.
+- 2. Downtown Sacramento - Excellent fit: Excellent fit for civic, legal, government-adjacent, professional-service, and client-facing office users that need Sacramento's downtown business core.
 - 3. Roseville Commercial Core - Strong fit: Strong fit for regional office, professional-service, medical, and customer-facing users serving Placer County and northeast Sacramento with strong parking and retail amenities.
 
 Why this differs:
 - Matches expected directional nodes: midtown-sacramento, downtown-sacramento
 
 Selection rationale:
-- Downtown Sacramento is recommended first because it is a excellent fit for civic, legal, government-adjacent, professional-service, and client-facing office users that need Sacramento's downtown business core. It aligns with the profile priorities around recruiting, restaurants, and walkability. The strongest supporting signals are state government and civic access, downtown office core, and regional transit.
+- Midtown Sacramento is recommended first because it is a strong fit for smaller office users, nonprofits, creative firms, professional services, and local teams that value walkability and central Sacramento identity. It aligns with the profile priorities around collaborative office, recruiting, and restaurants. The strongest supporting signals are walkability, restaurant and retail energy, and central Sacramento identity.
 
 Matched priorities:
+- collaborative office
 - recruiting
 - restaurants
 - walkability
 
 Tradeoff summary:
-- parking and commute friction can push some teams to Natomas, Rancho Cordova, or Roseville
+- larger modern office blocks and parking can be harder than downtown or suburban alternatives
 
 Alternative rationale:
-- Midtown Sacramento remains relevant because it is a strong fit for smaller office users, nonprofits, creative firms, professional services, and local teams that value walkability and central Sacramento identity. Downtown Sacramento appears to fit the initial profile more directly, while Midtown Sacramento is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+- Downtown Sacramento remains relevant because it is a excellent fit for civic, legal, government-adjacent, professional-service, and client-facing office users that need Sacramento's downtown business core. Midtown Sacramento appears to fit the initial profile more directly, while Downtown Sacramento is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
 
 Validation focus:
-- Do clients, agencies, or courts need downtown access?
-- Is light rail or parking more important?
-- Will employees commute from multiple Sacramento suburbs?
-- Would Natomas or Rancho Cordova reduce cost and parking friction?
+- Is walkability part of the recruiting or customer value?
+- How important is patient/customer parking?
+- Do you need a smaller character space or larger conventional office?
+- Would Downtown Sacramento or East Sacramento/Alhambra better fit clients and patients?
 
 Strengths surfaced:
-- state government and civic access
-- downtown office core
-- regional transit
-- client-facing professional environment
 - walkability
 - restaurant and retail energy
+- central Sacramento identity
+- medical and professional-service adjacency
+- state government and civic access
+- downtown office core
 
 Tradeoffs surfaced:
+- larger modern office blocks and parking can be harder than downtown or suburban alternatives
 - parking and commute friction can push some teams to Natomas, Rancho Cordova, or Roseville
 - less suited to industrial, warehouse, or large back-office users
-- larger modern office blocks and parking can be harder than downtown or suburban alternatives
 - less central to Sacramento civic users
 - auto-oriented commute pattern
 
 Questions to validate:
-- Do clients, agencies, or courts need downtown access?
-- Is light rail or parking more important?
-- Will employees commute from multiple Sacramento suburbs?
-- Would Natomas or Rancho Cordova reduce cost and parking friction?
+- Is walkability part of the recruiting or customer value?
+- How important is patient/customer parking?
+- Do you need a smaller character space or larger conventional office?
+- Would Downtown Sacramento or East Sacramento/Alhambra better fit clients and patients?
 
 Graph weaknesses exposed:
 - No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
@@ -400,18 +402,18 @@ Graph weaknesses exposed:
 - Priorities: customer visits, visibility, neighborhood accessibility, customer parking
 - Expected direction: Favor customer-facing retail/service corridors with visibility and parking.
 - Top recommendation: Roseville Commercial Core (Strong fit)
-- Secondary recommendation: Midtown Sacramento
+- Secondary recommendation: East Sacramento / Alhambra Corridor
 - Confidence: High Confidence
 - Baseline QA result: Pass
 - Explanation quality: Pass
 
 Recommended market path:
 - 1. Roseville Commercial Core - Strong fit: Strong fit for retail and restaurant users that benefit from Roseville's regional shopping base, suburban customer access, and co-tenancy.
-- 2. Midtown Sacramento - Strong fit: Strong fit for restaurants, wellness, boutique retail, and local-service concepts that benefit from walkability, residential density, and evening/weekend activity.
-- 3. Arden / Point West - Good fit: Good fit for service retail and restaurants serving office, medical, residential, and corridor traffic.
+- 2. East Sacramento / Alhambra Corridor - Good fit: Good selective fit for local-serving retail, wellness, and restaurant uses tied to nearby residents, medical users, and central Sacramento traffic.
+- 3. Midtown Sacramento - Strong fit: Strong fit for restaurants, wellness, boutique retail, and local-service concepts that benefit from walkability, residential density, and evening/weekend activity.
 
 Why this differs:
-- Matches expected directional nodes: roseville-commercial-core, midtown-sacramento, arden-point-west
+- Matches expected directional nodes: roseville-commercial-core, midtown-sacramento
 
 Selection rationale:
 - Roseville Commercial Core is recommended first because it is a strong fit for retail and restaurant users that benefit from Roseville's regional shopping base, suburban customer access, and co-tenancy. It aligns with the profile priorities around customer visits, visibility, and customer parking. The strongest supporting signals are regional retail base, parking, and I-80 access.
@@ -425,7 +427,7 @@ Tradeoff summary:
 - site visibility and parking are still site-specific
 
 Alternative rationale:
-- Midtown Sacramento remains relevant because it is a strong fit for restaurants, wellness, boutique retail, and local-service concepts that benefit from walkability, residential density, and evening/weekend activity. Roseville Commercial Core appears to fit the initial profile more directly, while Midtown Sacramento is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+- East Sacramento / Alhambra Corridor remains relevant because good selective fit for local-serving retail, wellness, and restaurant uses tied to nearby residents, medical users, and central Sacramento traffic. Roseville Commercial Core appears to fit the initial profile more directly, while East Sacramento / Alhambra Corridor is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
 
 Validation focus:
 - Are your customers, patients, or employees concentrated in Placer County?
@@ -438,13 +440,13 @@ Strengths surfaced:
 - parking
 - I-80 access
 - medical and professional-service demand
-- walkability
-- restaurant and retail energy
+- medical and wellness orientation
+- central Sacramento access
 
 Tradeoffs surfaced:
 - site visibility and parking are still site-specific
+- visibility and customer parking should be validated by site
 - parking and visibility vary block by block
-- co-tenancy and visibility are site-specific
 
 Questions to validate:
 - Are your customers, patients, or employees concentrated in Placer County?
