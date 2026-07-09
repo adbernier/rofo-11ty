@@ -28,6 +28,15 @@ function scenarioResult(scenario) {
   const tradeoffs = unique(pathItems.flatMap((item) => item.tradeoffs || []));
   const questions = unique(state.questionsToValidate || (primary && primary.questionsToValidate) || []);
   const strengths = unique(pathItems.flatMap((item) => item.strengths || []));
+  const explanationPass = Boolean(
+    primary &&
+    primary.selectionRationale &&
+    primary.tradeoffSummary &&
+    Array.isArray(primary.validationFocus) &&
+    primary.validationFocus.length &&
+    secondary &&
+    secondary.alternativeRationale
+  );
 
   return {
     scenario,
@@ -39,7 +48,8 @@ function scenarioResult(scenario) {
     strengths,
     tradeoffs,
     questions,
-    pass: Boolean(primary) && expectedHits.length > 0 && tradeoffs.length > 0 && questions.length > 0,
+    explanationPass,
+    pass: Boolean(primary) && expectedHits.length > 0 && tradeoffs.length > 0 && questions.length > 0 && explanationPass,
   };
 }
 
@@ -76,7 +86,7 @@ const lines = [
   `- Unique primary recommendations: ${diversity.uniquePrimaryCount}`,
   `- Repeated primary recommendations: ${diversity.repeated.length ? diversity.repeated.join(", ") : "None"}`,
   "",
-  "Baseline checks require a primary recommendation, at least one expected directional match, meaningful tradeoffs, and validation questions. A pass does not mean the recommendation is final; it means the brief is credible enough for advisor review.",
+  "Baseline checks require a primary recommendation, at least one expected directional match, meaningful tradeoffs, validation questions, and complete explainability fields. A pass does not mean the recommendation is final; it means the brief is credible enough for advisor review.",
   "",
   "## Recommendation Diversity Check",
   "",
@@ -99,6 +109,7 @@ results.forEach((result) => {
   lines.push(`- Secondary recommendation: ${secondary ? secondary.label : "None"}`);
   lines.push(`- Confidence: ${state.confidenceLabel || "Unknown"}`);
   lines.push(`- Baseline QA result: ${result.pass ? "Pass" : "Needs review"}`);
+  lines.push(`- Explanation quality: ${result.explanationPass ? "Pass" : "Needs review"}`);
   lines.push("");
   lines.push("Recommended market path:");
   lines.push(list((state.recommendedPath || []).map((item, index) => `${index + 1}. ${item.label} - ${item.fitLabel}: ${item.summary}`)));
@@ -107,6 +118,21 @@ results.forEach((result) => {
   lines.push(result.expectedHits.length
     ? `- Matches expected directional nodes: ${result.expectedHits.join(", ")}`
     : "- Does not include an expected directional node; review graph fit, priority rules, or market path candidates.");
+  lines.push("");
+  lines.push("Selection rationale:");
+  lines.push(list(primary && primary.selectionRationale ? [primary.selectionRationale] : []));
+  lines.push("");
+  lines.push("Matched priorities:");
+  lines.push(list(primary && primary.matchedPriorities ? primary.matchedPriorities : []));
+  lines.push("");
+  lines.push("Tradeoff summary:");
+  lines.push(list(primary && primary.tradeoffSummary ? [primary.tradeoffSummary] : []));
+  lines.push("");
+  lines.push("Alternative rationale:");
+  lines.push(list(secondary && secondary.alternativeRationale ? [secondary.alternativeRationale] : []));
+  lines.push("");
+  lines.push("Validation focus:");
+  lines.push(list(primary && primary.validationFocus ? primary.validationFocus : []));
   lines.push("");
   lines.push("Strengths surfaced:");
   lines.push(list(result.strengths.slice(0, 6)));

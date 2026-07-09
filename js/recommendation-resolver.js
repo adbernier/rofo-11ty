@@ -190,6 +190,87 @@
     }, 0);
   }
 
+  function priorityMatches(profile, context) {
+    const rawPriorities = [
+      ...(Array.isArray(context.priorities) ? context.priorities : []),
+      ...(Array.isArray(context.businessPriorities) ? context.businessPriorities : []),
+      ...(Array.isArray(context.signals) ? context.signals : []),
+    ].filter(Boolean);
+    const matches = [];
+    rawPriorities.forEach((priority) => {
+      const normalized = normalizePriority(priority);
+      const matched = priorityAttributeRules.some((rule) => {
+        const ruleMatched = rule.match.some((term) => normalized.includes(term));
+        if (!ruleMatched) return false;
+        const desired = normalized.includes("unimportant") || normalized.includes("not important") ? "low" : "high";
+        return attributeValueScore(valueAtPath(profile, rule.field), desired) > 0;
+      });
+      if (matched) matches.push(String(priority));
+    });
+    return Array.from(new Set(matches));
+  }
+
+  function readableList(items) {
+    const values = (items || []).filter(Boolean);
+    if (!values.length) return "";
+    if (values.length === 1) return values[0];
+    if (values.length === 2) return `${values[0]} and ${values[1]}`;
+    return `${values.slice(0, -1).join(", ")}, and ${values[values.length - 1]}`;
+  }
+
+  function roleExplanation(role) {
+    if (role === "primary") return "recommended first";
+    return "worth comparing";
+  }
+
+  function sentenceFragment(value) {
+    const text = String(value || "").trim();
+    if (!text) return "";
+    const lower = text.charAt(0).toLowerCase() + text.slice(1);
+    if (/^(excellent|strong|good|limited) fit\b/.test(lower)) return `it is a ${lower}`;
+    return lower;
+  }
+
+  function explainRecommendation(item, profile, context, role, primaryItem) {
+    const matched = priorityMatches(profile, context);
+    const fit = businessFitFor(profile, context.spaceType);
+    const strengths = Array.isArray(profile.strengths) ? profile.strengths.slice(0, 3) : [];
+    const tradeoff = item.tradeoffs && item.tradeoffs[0]
+      ? item.tradeoffs[0]
+      : (Array.isArray(profile.tradeoffs) && profile.tradeoffs[0]) || "live availability, pricing, and building-level fit still need to be validated";
+    const validation = Array.isArray(profile.questionsToValidate) ? profile.questionsToValidate.slice(0, 4) : [];
+    const priorityText = matched.length
+      ? ` It aligns with the profile priorities around ${readableList(matched.slice(0, 3))}.`
+      : "";
+    const strengthText = strengths.length
+      ? ` The strongest supporting signals are ${readableList(strengths)}.`
+      : "";
+    const fitText = fit && fit.summary ? fit.summary : item.summary;
+    const selectionRationale = `${item.label} is ${roleExplanation(role)} because ${sentenceFragment(fitText)}${priorityText}${strengthText}`;
+    const primaryContrast = primaryItem && primaryItem.label && primaryItem.label !== item.label
+      ? `${primaryItem.label} appears to fit the initial profile more directly, while ${item.label} is useful for pressure-testing assumptions around commute, cost, building format, or customer access.`
+      : `${item.label} should be compared against nearby alternatives before narrowing to individual buildings.`;
+
+    return {
+      selectionRationale,
+      matchedPriorities: matched.length ? matched.slice(0, 4) : strengths.slice(0, 3),
+      tradeoffSummary: tradeoff,
+      alternativeRationale: role === "primary"
+        ? "Nearby alternatives are still worth comparing because commute patterns, pricing, parking, and live building options can change the right path."
+        : `${item.label} remains relevant because ${sentenceFragment(item.summary)} ${primaryContrast}`,
+      validationFocus: validation,
+    };
+  }
+
+  function attachExplainability(items, profiles, context) {
+    const primaryItem = items[0] || null;
+    return items.map((item, index) => {
+      const profile = profiles[index];
+      const explanation = explainRecommendation(item, profile, context, index === 0 ? "primary" : "alternative", primaryItem);
+      return { ...item, ...explanation };
+    });
+  }
+
   function cityCandidateProfiles(inputProfile, graphNodes, activeIndexes) {
     const candidates = new Map();
     const add = (profile) => {
@@ -284,8 +365,12 @@
       : [];
     const activeMarketPath = marketPathProfiles.length ? marketPathProfiles : fallbackMarketPath;
     const mode = inputProfile.type === "city" && activeMarketPath.length ? "market_path" : "single_starting_point";
-    const recommendedPath = (mode === "market_path" ? activeMarketPath : [inputProfile])
-      .map((profile) => recommendationItem(profile, context.spaceType));
+    const pathProfiles = mode === "market_path" ? activeMarketPath : [inputProfile];
+    const recommendedPath = attachExplainability(
+      pathProfiles.map((profile) => recommendationItem(profile, context.spaceType)),
+      pathProfiles,
+      context
+    );
     const primaryRecommendation = recommendedPath[0] || recommendationItem(inputProfile, context.spaceType);
     const compareWith = compareRelationships(inputProfile)
       .map((item) => {

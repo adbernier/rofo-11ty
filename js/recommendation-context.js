@@ -475,6 +475,12 @@
     const primary = state.primaryRecommendation;
     if (!primary) return;
     const descriptor = locationDescriptor(primary);
+    const matchedPriorities = primary.matchedPriorities && primary.matchedPriorities.length
+      ? primary.matchedPriorities
+      : primary.strengths || [];
+    const validationFocus = primary.validationFocus && primary.validationFocus.length
+      ? primary.validationFocus
+      : primary.questionsToValidate || [];
     const compareText = state.mode === "market_path"
       ? "This is a market path, not a final answer. We would use it to compare district fit before investigating live building options."
       : "We'd then pressure-test nearby alternatives to see whether commute patterns, pricing, or building options justify expanding the search.";
@@ -491,27 +497,29 @@
       "[data-recommendation-section-heading]",
       state.mode === "market_path" ? "Recommended Market Path" : `Start with ${primary.label}, then pressure-test alternatives.`
     );
-    setText("[data-recommendation-strategy]", `${state.summaryCopy} ${compareText}`);
+    setText("[data-recommendation-strategy]", `${primary.selectionRationale || state.summaryCopy} ${primary.alternativeRationale || compareText}`);
     setText(
       "[data-recommendation-primary-advice]",
-      `${primary.label} is where we'd start. ${primary.summary || `Rofo can use this ${descriptor} to guide a focused review of available ${spaceText.toLowerCase()} options.`}`
+      primary.selectionRationale || `${primary.label} is where we'd start. ${primary.summary || `Rofo can use this ${descriptor} to guide a focused review of available ${spaceText.toLowerCase()} options.`}`
     );
     setText(
       "[data-recommendation-primary-note]",
-      `We would not treat ${primary.label} as the only answer. We would use it as the baseline for a local market review, then compare alternatives against your location, space, and size requirements.`
+      primary.alternativeRationale || `We would not treat ${primary.label} as the only answer. We would use it as the baseline for a local market review, then compare alternatives against your location, space, and size requirements.`
     );
     setText("[data-recommendation-explainer-heading]", `Why we'd start with ${primary.label}`);
-    setText("[data-recommendation-rationale-one]", `Your requested ${spaceText.toLowerCase()} search gives us enough context to start with a focused ${descriptor}.`);
-    setText("[data-recommendation-rationale-two]", `${primary.label} has a Recommendation Profile in Rofo's Commercial Location Graph.`);
-    setText("[data-recommendation-rationale-three]", `The ${sizeText} size range helps narrow which building types should be investigated first.`);
+    setText("[data-recommendation-rationale-one]", matchedPriorities[0] ? `Profile signal: ${matchedPriorities[0]}.` : `Your requested ${spaceText.toLowerCase()} search gives us enough context to start with a focused ${descriptor}.`);
+    setText("[data-recommendation-rationale-two]", matchedPriorities[1] ? `Profile signal: ${matchedPriorities[1]}.` : `${primary.label} has structured commercial location guidance in Rofo's knowledge graph.`);
+    setText("[data-recommendation-rationale-three]", validationFocus[0] ? `Validation focus: ${validationFocus[0]}` : `The ${sizeText} size range helps narrow which building types should be investigated first.`);
     setText(
       "[data-recommendation-rationale-four]",
-      primary.strengths && primary.strengths.length
+      validationFocus[1]
+        ? `Validation focus: ${validationFocus[1]}`
+        : primary.strengths && primary.strengths.length
         ? `Key strengths include ${primary.strengths.slice(0, 3).join(", ")}.`
         : "The location profile gives a useful starting point without assuming live availability."
     );
-    setText("[data-recommendation-rationale-five]", "A local market check can compare credible options before narrowing the search.");
-    setText("[data-recommendation-tradeoff-one]", primary.tradeoffs && primary.tradeoffs[0] ? primary.tradeoffs[0] : "This is a starting recommendation, not a final building decision.");
+    setText("[data-recommendation-rationale-five]", validationFocus[2] ? `Validation focus: ${validationFocus[2]}` : "A local market check can compare credible options before narrowing the search.");
+    setText("[data-recommendation-tradeoff-one]", primary.tradeoffSummary || (primary.tradeoffs && primary.tradeoffs[0]) || "This is a starting recommendation, not a final building decision.");
     setText("[data-recommendation-tradeoff-two]", primary.tradeoffs && primary.tradeoffs[1] ? primary.tradeoffs[1] : "Live availability, pricing, and lease terms still need to be verified.");
     setText("[data-recommendation-tradeoff-three]", primary.tradeoffs && primary.tradeoffs[2] ? primary.tradeoffs[2] : "Nearby markets may prove stronger once commute, budget, and timing are reviewed.");
     setText("[data-recommendation-fit-one]", primary.bestFor && primary.bestFor[0] ? primary.bestFor[0] : `${spaceText} users looking for a focused market starting point.`);
@@ -545,8 +553,11 @@
         const title = item.path ? createElement("a", "", item.label) : createElement("strong", "", item.label);
         if (item.path) title.href = item.path;
         const fit = createElement("span", "recommendation-market-path-card__fit", item.fitLabel);
-        const summary = createElement("p", "", item.summary);
+        const summary = createElement("p", "", index === 0 ? (item.selectionRationale || item.summary) : (item.alternativeRationale || item.summary));
         card.append(label, title, fit, summary);
+        if (item.tradeoffSummary) {
+          card.appendChild(createElement("p", "recommendation-market-path-card__tradeoff", `Tradeoff to understand: ${item.tradeoffSummary}`));
+        }
         if (item.strengths && item.strengths.length) {
           const list = createElement("ul", "recommendation-market-path-card__strengths");
           item.strengths.slice(0, 3).forEach((strength) => list.appendChild(createElement("li", "", strength)));
@@ -577,7 +588,9 @@
     renderCompareItems(secondaryCompareNode);
 
     if (evaluateNode) {
-      const evaluationItems = state.primaryRecommendation && state.primaryRecommendation.questionsToValidate && state.primaryRecommendation.questionsToValidate.length
+      const evaluationItems = state.primaryRecommendation && state.primaryRecommendation.validationFocus && state.primaryRecommendation.validationFocus.length
+        ? state.primaryRecommendation.validationFocus
+        : state.primaryRecommendation && state.primaryRecommendation.questionsToValidate && state.primaryRecommendation.questionsToValidate.length
         ? state.primaryRecommendation.questionsToValidate
         : [
         `Current ${spaceType.toLowerCase()} availability in the recommended market path.`,

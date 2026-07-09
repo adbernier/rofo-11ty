@@ -40,6 +40,7 @@ Current strengths:
 - Industrial/flex guidance includes truck access, highway access, loading, yard, power, labor access, and outdoor storage considerations where relevant.
 - Suburban office and medical paths distinguish Highway 50, I-80, I-5, Placer County, and south Sacramento decision patterns.
 - Sacramento completed the pilot Recommendation QA pass using seven realistic business profiles across medical, professional services, back-office, flex, warehouse, startup office, and local service/retail use cases.
+- Sacramento QA now includes explainability checks for selection rationale, matched priorities, tradeoff summary, alternative rationale, and validation focus.
 
 Current weaknesses:
 
@@ -52,6 +53,7 @@ Next priorities:
 - Continue expanding high-value comparison pages where graph relationships show real tenant choices.
 - Watch Location Brief demand to decide whether additional Sacramento industrial submarkets should be enriched.
 - Use the Sacramento QA process as the baseline for future metro Recommendation Ready reviews.
+- Require future Recommendation Ready reviews to pass both recommendation-direction QA and explanation-quality QA.
 
 ## Enhancing
 

@@ -247,6 +247,33 @@ The coverage script also reports metros where public page coverage exists but Kn
 
 Recommendation Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.
 
+## Recommendation Explainability Layer
+
+The Recommendation Explainability Layer turns graph-backed recommendations into advisor-style reasoning. It explains why a location was selected, why alternatives remain relevant, what user priorities appear to matter, what tradeoffs should be understood, and what should be validated before acting.
+
+The layer uses only existing graph and profile data:
+
+- `spaceTypeFit`
+- strengths
+- tradeoffs
+- best-for guidance
+- general, retail, and industrial attributes
+- `questionsToValidate`
+- comparison relationships
+- user profile priorities when available
+
+Rofo should avoid public numeric recommendation scores at this stage. Numeric scores can create false precision and make the product feel like a black-box matching tool. The user-facing experience should explain commercial reasoning in plain language: fit, tradeoffs, alternatives, and validation questions.
+
+Each generated recommendation should be able to provide:
+
+- `selectionRationale`
+- `matchedPriorities`
+- `tradeoffSummary`
+- `alternativeRationale`
+- `validationFocus`
+
+Alternatives should not be listed as generic backups. They should explain what assumption could make the alternative more relevant, such as commute pattern, parking, cost sensitivity, image, truck access, or customer visibility.
+
 Each QA scenario should document:
 
 - business profile
@@ -258,8 +285,9 @@ Each QA scenario should document:
 - secondary recommendations
 - strengths and tradeoffs surfaced
 - validation questions surfaced
+- explanation quality
 - graph weaknesses exposed
 
-The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, the metro should remain in enhancement or review status.
+The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, or if a plausible recommendation cannot explain why it was chosen over alternatives, the metro should remain in enhancement or review status.
 
 Sacramento's pilot QA fixtures live in `data/recommendation-qa/sacramento-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/sacramento-pilot.md`.
