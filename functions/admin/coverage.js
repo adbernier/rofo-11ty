@@ -512,6 +512,8 @@ function renderPage({ token, metros, report }) {
     .philosophy { margin-top: 12px; max-width: 760px; padding: 12px 14px; border: 1px solid #dbeafe; border-radius: 14px; background: var(--soft-blue); color: #1e3a8a; font-weight: 750; }
     .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; white-space: nowrap; }
+    .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
+    .back-link { display: inline-flex; width: fit-content; margin-bottom: 12px; color: var(--blue); font-size: 0.88rem; font-weight: 900; }
     .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
     .metric-card, .panel, .queue-card, .roadmap-card, .space-card { border: 1px solid var(--border); background: var(--surface); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
     .metric-card { display: grid; gap: 6px; padding: 16px; border-radius: 16px; }
@@ -570,14 +572,17 @@ function renderPage({ token, metros, report }) {
   <main class="shell">
     <header>
       <div>
+        <a class="back-link" href="/admin/operations?token=${encodeURIComponent(token)}">← Back to Operations</a>
         <h1>Recommendation Coverage</h1>
         <p>Track Rofo's recommendation readiness across metros, knowledge graph coverage, and future expansion priorities.</p>
         <div class="philosophy">A metro is Recommendation Ready when a business can receive a credible Location Brief backed by the Commercial Location Knowledge Graph.</div>
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link button-link--active" href="/admin/coverage?token=${encodeURIComponent(token)}">Coverage</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>
         <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
+        <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
       </nav>
     </header>
 

@@ -386,6 +386,55 @@ function renderHealth(env) {
   `;
 }
 
+function renderAdminModules(token) {
+  const modules = [
+    {
+      title: "Operations",
+      purpose: "Run the business",
+      href: `/admin/operations?token=${encodeURIComponent(token)}`,
+      current: true,
+    },
+    {
+      title: "Recommendation Coverage",
+      purpose: "Metro readiness and expansion roadmap",
+      href: `/admin/coverage?token=${encodeURIComponent(token)}`,
+    },
+    {
+      title: "Lead Dashboard",
+      purpose: "Expert review and referral pipeline",
+      href: `/admin/leads?token=${encodeURIComponent(token)}`,
+    },
+    {
+      title: "Search Profile Analytics",
+      purpose: "Legacy/product funnel analytics",
+      href: `/admin/search-profile-analytics?token=${encodeURIComponent(token)}`,
+    },
+    {
+      title: "Example Location Brief",
+      purpose: "View the product reference example",
+      href: "/example-location-brief/",
+    },
+  ];
+  return `
+    <section class="panel admin-modules" aria-label="Admin modules">
+      <div class="section-heading">
+        <h2>Admin Modules</h2>
+        <p>Rofo Operations is the admin hub for running the recommendation and Location Brief workflow.</p>
+      </div>
+      <div class="admin-module-grid">
+        ${modules.map((item) => `
+          <a class="admin-module-card${item.current ? " admin-module-card--current" : ""}" href="${escapeHtml(item.href)}">
+            <span>${item.current ? "Current" : "Open"}</span>
+            <strong>${escapeHtml(item.title)}</strong>
+            <p>${escapeHtml(item.purpose)}</p>
+            <em>View →</em>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }) {
   return `<!doctype html>
 <html lang="en">
@@ -405,6 +454,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     header p, .section-heading p { color: var(--muted); line-height: 1.55; }
     .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+    .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
     .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
     .metric-card, .panel, .pipeline-card, .demand-card, .health-card { border: 1px solid var(--border); background: var(--surface); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
     .metric-card { display: grid; gap: 6px; padding: 16px; border-radius: 16px; }
@@ -442,14 +492,22 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     .health--unknown { color: #92400e; }
     .notice { margin: 0 0 16px; padding: 12px 14px; border: 1px solid #fed7aa; border-radius: 12px; background: #fff7ed; color: #9a3412; font-weight: 750; }
     .empty { color: var(--muted); }
+    .admin-module-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .admin-module-card { display: grid; gap: 8px; min-height: 154px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: #fff; color: var(--ink); text-decoration: none; box-shadow: none; }
+    .admin-module-card:hover { border-color: #b9c9e5; background: #f8fbff; }
+    .admin-module-card--current { border-color: #bfdbfe; background: #eff6ff; }
+    .admin-module-card span { color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .admin-module-card strong { font-size: 1rem; line-height: 1.25; }
+    .admin-module-card p { color: var(--muted); line-height: 1.4; }
+    .admin-module-card em { align-self: end; color: var(--blue); font-style: normal; font-weight: 900; }
     @media (max-width: 980px) {
       header, .section-heading--row { display: grid; }
       .nav { justify-content: flex-start; }
-      .metrics, .pipeline-grid, .health-grid, .demand-grid, .funnel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metrics, .pipeline-grid, .health-grid, .demand-grid, .funnel, .admin-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .funnel article::after { display: none; }
     }
     @media (max-width: 640px) {
-      .metrics, .pipeline-grid, .health-grid, .demand-grid, .funnel { grid-template-columns: 1fr; }
+      .metrics, .pipeline-grid, .health-grid, .demand-grid, .funnel, .admin-module-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -461,6 +519,8 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
         <p>Recommendation activity, Location Briefs, and expert review workflow.</p>
       </div>
       <nav class="nav" aria-label="Admin links">
+        <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Coverage</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">View Lead Dashboard</a>
         <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
         <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
@@ -477,6 +537,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
       ${metricCard("Expert Reviews Requested", "expertReviewsRequested", kpis)}
     </section>
 
+    ${renderAdminModules(token)}
     ${renderPipeline(pipeline)}
     ${renderRecentBriefs(recentBriefs, token)}
     ${renderDemand(demand)}
