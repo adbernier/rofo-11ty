@@ -9,6 +9,12 @@ const confidenceCounts = nodes.reduce((counts, node) => {
   return counts;
 }, {});
 
+const cityCounts = nodes.reduce((counts, node) => {
+  const key = node && node.city ? `${node.city}, ${node.state || ""}`.trim() : "Unknown";
+  counts[key] = (counts[key] || 0) + 1;
+  return counts;
+}, {});
+
 const missingSpaceTypeFit = nodes
   .filter((node) => !node.spaceTypeFit || !Object.keys(node.spaceTypeFit).length)
   .map((node) => node.slug);
@@ -33,6 +39,13 @@ console.log("Nodes by confidence:");
 Object.keys(confidenceCounts).sort().forEach((key) => {
   console.log(`- ${key}: ${confidenceCounts[key]}`);
 });
+
+console.log("Nodes by city:");
+Object.entries(cityCounts)
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .forEach(([key, count]) => {
+    console.log(`- ${key}: ${count}`);
+  });
 
 console.log(`Nodes missing spaceTypeFit: ${missingSpaceTypeFit.length}`);
 if (missingSpaceTypeFit.length) missingSpaceTypeFit.forEach((slug) => console.log(`- ${slug}`));

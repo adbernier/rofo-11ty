@@ -214,3 +214,29 @@ Future recommendation work should improve the resolver, not bypass this graph.
 Every future metro expansion should populate this knowledge layer as part of completion. A page is not recommendation-ready until its commercial identity, space-type fit, attributes, tradeoffs, and comparison relationships are represented here.
 
 At minimum, every metro expansion should add Knowledge Cards for its strongest city and district pages, plus any industrial, retail, or office submarkets that are likely to appear in recommendations.
+
+## Recommendation-Ready Metro Expansion Standard
+
+Pages alone are not enough. A metro is recommendation-ready only when users can enter through public geography pages, autocomplete, or Recommendation Prompt context and receive a credible Location Brief instead of a generic fallback.
+
+For every district added or materially enriched during a metro expansion, confirm:
+
+- the city or district exists in Rofo's public geography model
+- the location can appear in `/data/location-search.json`
+- Recommendation Prompt links can carry city, district, state, space type, and source context into `/find-locations/`
+- a Knowledge Card exists in `_data/locationKnowledgeGraph.js`
+- `spaceTypeFit` reflects the location's real office, retail, industrial, warehouse, flex, medical, or R&D use cases
+- general business attributes are populated with researched judgment or `unknown`
+- retail attributes are populated for customer-facing districts
+- industrial attributes are populated for warehouse, manufacturing, logistics, flex, and R&D districts
+- `bestFor`, `tradeoffs`, `questionsToValidate`, and `relationships.compareWith` explain how a tenant should evaluate the market
+- representative buildings are connected only when Rofo already has reliable building paths
+- relationship slugs resolve in `scripts/check-location-knowledge-coverage.js`
+
+Office, retail, and industrial districts require different judgment:
+
+- Office districts should emphasize transit, parking, talent access, client access, executive image, amenities, expansion flexibility, and cost position.
+- Retail districts should emphasize foot traffic, co-tenancy, customer parking, street presence, evening/weekend activity, and signage visibility.
+- Industrial districts should emphasize truck access, highway access, last-mile access, port or airport access, loading, yard, power, trailer parking, outdoor storage, zoning flexibility, and labor access.
+
+The expansion process should make Rofo smarter. If a location cannot support a credible Knowledge Card yet, keep the Location Brief honest with `expert_guided` confidence rather than inventing recommendation depth.
