@@ -1,5 +1,6 @@
 import graph from "../../_data/locationKnowledgeGraph.js";
 import schema from "../../_data/locationKnowledgeSchema.js";
+import recommendationQaStatus from "../../_data/recommendationQaStatus.js";
 import { escapeHtml } from "../api/leads/_shared.js";
 
 const ROADMAP_TIERS = [
@@ -49,15 +50,43 @@ const METROS = [
   {
     key: "sacramento",
     label: "Sacramento",
-    status: "enhancing",
-    cities: ["Sacramento", "Rancho Cordova", "Folsom", "Roseville", "Rocklin", "Elk Grove"],
-    currentFocus: "Comparison depth",
-    geography: { cityPages: true, districtPages: true, comparisonPages: false },
+    status: "ready",
+    cities: ["Sacramento", "West Sacramento", "Rancho Cordova", "Folsom", "Roseville", "Rocklin", "Elk Grove"],
+    currentFocus: "Representative building and comparison depth",
+    geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/sacramento/",
       comparisons: "/commercial-real-estate/CA/sacramento/downtown-sacramento-vs-midtown-sacramento/",
       brief: "/example-location-brief/",
       buildings: "/commercial-real-estate/CA/sacramento/buildings/",
+    },
+  },
+  {
+    key: "san-diego",
+    label: "San Diego",
+    status: "planned",
+    cities: ["San Diego", "Carlsbad", "Oceanside", "Vista", "San Marcos", "Escondido", "Encinitas", "Del Mar", "Poway", "Santee", "Chula Vista"],
+    currentFocus: "Page coverage exists; recommendation readiness pending",
+    geography: { cityPages: true, districtPages: true, comparisonPages: true },
+    links: {
+      districts: "/commercial-real-estate/CA/san-diego/",
+      comparisons: "/commercial-real-estate/CA/san-diego/utc-vs-sorrento-valley/",
+      brief: "/example-location-brief/",
+      buildings: "/commercial-real-estate/CA/san-diego/buildings/",
+    },
+  },
+  {
+    key: "orange-county",
+    label: "Orange County",
+    status: "planned",
+    cities: ["Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Huntington Beach", "Fullerton"],
+    currentFocus: "Page coverage exists; recommendation readiness pending",
+    geography: { cityPages: true, districtPages: true, comparisonPages: true },
+    links: {
+      districts: "/commercial-real-estate/CA/irvine/",
+      comparisons: "/commercial-real-estate/CA/irvine/irvine-spectrum-vs-irvine-business-complex/",
+      brief: "/example-location-brief/",
+      buildings: "/commercial-real-estate/CA/irvine/buildings/",
     },
   },
   {
@@ -193,6 +222,15 @@ function readinessForMetro(metro, report) {
 
   return {
     ...metro,
+    recommendationQa: recommendationQaStatus[metro.key] || {
+      metro: metro.label,
+      qaStatus: "pending",
+      lastQaDate: "",
+      validationStatus: "pending",
+      scenarioCount: 0,
+      reportPath: "",
+      notes: "",
+    },
     nodes,
     relationships,
     marketPaths,

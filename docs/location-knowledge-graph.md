@@ -240,3 +240,26 @@ Office, retail, and industrial districts require different judgment:
 - Industrial districts should emphasize truck access, highway access, last-mile access, port or airport access, loading, yard, power, trailer parking, outdoor storage, zoning flexibility, and labor access.
 
 The expansion process should make Rofo smarter. If a location cannot support a credible Knowledge Card yet, keep the Location Brief honest with `expert_guided` confidence rather than inventing recommendation depth.
+
+The coverage script also reports metros where public page coverage exists but Knowledge Graph nodes are missing. Treat those as planning gaps, not build failures. They indicate that users can discover the geography, but Rofo cannot yet produce a graph-backed Location Brief for that metro.
+
+## Recommendation QA
+
+Recommendation Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.
+
+Each QA scenario should document:
+
+- business profile
+- selected location
+- space type and size
+- practical priorities
+- expected recommendation direction
+- generated primary recommendation
+- secondary recommendations
+- strengths and tradeoffs surfaced
+- validation questions surfaced
+- graph weaknesses exposed
+
+The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, the metro should remain in enhancement or review status.
+
+Sacramento's pilot QA fixtures live in `data/recommendation-qa/sacramento-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/sacramento-pilot.md`.

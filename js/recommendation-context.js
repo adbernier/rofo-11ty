@@ -266,6 +266,10 @@
   }
 
   function resolveMarketPath(context, graphNodes, fallbackProfiles) {
+    if (window.RofoRecommendationResolver && typeof window.RofoRecommendationResolver.resolveMarketPath === "function") {
+      return window.RofoRecommendationResolver.resolveMarketPath(context, graphNodes, fallbackProfiles);
+    }
+
     const graphIndexes = profileIndexes(graphNodes || []);
     const fallbackIndexes = profileIndexes(fallbackProfiles || []);
     const locations = context.locations || [];

@@ -28,6 +28,31 @@ Next priorities:
 - Expand medical-office and retail Knowledge Cards where tenant demand supports it.
 - Continue validating comparison relationships against actual tenant decision paths.
 
+### Sacramento
+
+Current readiness: Recommendation Ready
+
+Current strengths:
+
+- City-level Sacramento now resolves to a graph-backed market path.
+- Downtown Sacramento, Midtown Sacramento, East Sacramento / Alhambra, Natomas, Arden / Point West, Power Inn Industrial, West Sacramento Industrial, Rancho Cordova, Folsom, Roseville, Rocklin, and Elk Grove are represented.
+- Office, medical, retail, flex, industrial, and warehouse paths are represented.
+- Industrial/flex guidance includes truck access, highway access, loading, yard, power, labor access, and outdoor storage considerations where relevant.
+- Suburban office and medical paths distinguish Highway 50, I-80, I-5, Placer County, and south Sacramento decision patterns.
+- Sacramento completed the pilot Recommendation QA pass using seven realistic business profiles across medical, professional services, back-office, flex, warehouse, startup office, and local service/retail use cases.
+
+Current weaknesses:
+
+- Representative building depth should continue to be reviewed for selected suburban and industrial districts.
+- Comparison pages exist for many relationships, but editorial depth should keep improving as Location Brief usage reveals demand.
+
+Next priorities:
+
+- Strengthen representative building support using existing reliable building paths.
+- Continue expanding high-value comparison pages where graph relationships show real tenant choices.
+- Watch Location Brief demand to decide whether additional Sacramento industrial submarkets should be enriched.
+- Use the Sacramento QA process as the baseline for future metro Recommendation Ready reviews.
+
 ## Enhancing
 
 ### Los Angeles
@@ -52,27 +77,6 @@ Next priorities:
 - Improve representative building coverage in LA office and industrial districts using existing reliable building paths only.
 - Expand comparison pages where current graph relationships identify high-value tenant choices.
 
-### Sacramento
-
-Current readiness: Enhancing
-
-Current strengths:
-
-- Core office, suburban office, retail, and flex districts are represented in the Knowledge Graph.
-- Downtown, Midtown, Natomas, Rancho Cordova, Folsom, Roseville, Rocklin, and Elk Grove can support initial Location Briefs.
-
-Current weaknesses:
-
-- Comparison depth is thinner than Bay Area or Los Angeles.
-- Industrial and warehouse coverage is still limited.
-- Representative building support should be reviewed.
-
-Next priorities:
-
-- Expand Sacramento comparison graph.
-- Add industrial and warehouse Knowledge Cards where existing geography supports it.
-- Strengthen representative building modules for major office and suburban commercial districts.
-
 ## Planned
 
 ### Seattle
@@ -95,6 +99,48 @@ Next priorities:
 - Seed Downtown Seattle, South Lake Union, Bellevue, Redmond, Kirkland, Kent Valley, Tacoma Port / Industrial, and Everett Industrial.
 - Add office, technology, life science, industrial, and warehouse Knowledge Cards.
 - Add city-level market paths for Seattle and Bellevue.
+
+### San Diego
+
+Current readiness: Planned
+
+Current strengths:
+
+- Page coverage exists for major San Diego city and district markets.
+- District pages and comparison paths provide a base for future recommendation work.
+
+Current weaknesses:
+
+- Recommendation readiness is pending.
+- Knowledge Graph nodes have not yet been authored for San Diego priority districts.
+- Space-type fit, tradeoffs, compare relationships, and questions to validate still need to be translated into Knowledge Cards.
+
+Next priorities:
+
+- Seed San Diego city-level and district-level Knowledge Cards.
+- Prioritize Downtown San Diego, UTC / University City, Sorrento Valley, Kearny Mesa, Mission Valley, Carlsbad, Oceanside Industrial, Vista Business Park, and Escondido Industrial.
+- Add office, biotech/R&D, flex, industrial, and warehouse guidance before marking the metro recommendation-ready.
+
+### Orange County
+
+Current readiness: Planned
+
+Current strengths:
+
+- Page coverage exists for major Orange County commercial cities and districts.
+- Existing geography can support future Irvine, Newport Beach, Costa Mesa, Santa Ana, Anaheim, Tustin, and Lake Forest recommendation paths.
+
+Current weaknesses:
+
+- Recommendation readiness is pending.
+- Knowledge Graph nodes have not yet been authored for Orange County priority districts.
+- Retail, medical, office, flex, and industrial attributes need graph-backed tradeoffs and compare relationships.
+
+Next priorities:
+
+- Seed Irvine and Orange County city-level Knowledge Cards.
+- Prioritize Irvine Spectrum, Irvine Business Complex, Airport Area / John Wayne, Newport Center, South Coast Metro, Tustin Legacy, Anaheim Canyon, and Lake Forest Business Center.
+- Add office, medical, retail, flex, R&D, and industrial guidance before marking the metro recommendation-ready.
 
 ### Phoenix
 
@@ -140,8 +186,6 @@ Next priorities:
 
 ### Tier 2
 
-- Orange County
-- San Diego
 - Portland
 - Austin
 
