@@ -5,7 +5,7 @@ import { escapeHtml } from "../api/leads/_shared.js";
 
 const ROADMAP_TIERS = [
   { tier: "Tier 1", metros: ["Seattle", "Phoenix", "Denver"] },
-  { tier: "Tier 2", metros: ["Orange County", "Portland", "Austin"] },
+  { tier: "Tier 2", metros: ["Portland", "Austin"] },
   { tier: "Tier 3", metros: ["Dallas", "Houston", "Chicago", "Boston", "Atlanta"] },
 ];
 
@@ -79,9 +79,9 @@ const METROS = [
   {
     key: "orange-county",
     label: "Orange County",
-    status: "discovery",
-    cities: ["Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Huntington Beach", "Fullerton"],
-    currentFocus: "Compass Discovery complete; Knowledge Graph pending",
+    status: "enhancing",
+    cities: ["Orange County", "Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Laguna Hills", "Huntington Beach", "Fullerton"],
+    currentFocus: "Representative building depth + final broker validation",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/irvine/",

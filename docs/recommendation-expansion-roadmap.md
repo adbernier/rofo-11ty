@@ -81,6 +81,33 @@ Next priorities:
 - Improve representative building coverage in LA office and industrial districts using existing reliable building paths only.
 - Expand comparison pages where current graph relationships identify high-value tenant choices.
 
+### Orange County
+
+Compass Maturity: Enhancing
+
+Current strengths:
+
+- Orange County has a first-pass Compass Knowledge Graph with city-level routing and priority district nodes for Irvine Spectrum, Irvine Business Complex, University Research Park, South Coast Metro, Newport Center, Tustin Legacy, Anaheim Canyon, Lake Forest Business Park, Fullerton, and South OC Medical & Professional.
+- Office, executive professional services, airport-access professional office, medical, R&D, flex, industrial, warehouse, retail/service, and contractor/service-industrial paths are represented.
+- Orange County QA includes twelve realistic business profiles and passes baseline recommendation-direction and explainability checks with differentiated primary recommendations.
+- K1.1 calibration sharpened the core office differentiation: Irvine Spectrum for technology/growth/R&D image, Irvine Business Complex for airport-access professional office, University Research Park for UC Irvine/research adjacency, South Coast Metro for central OC office-retail/client-facing users, Newport Center for coastal executive/client image, and Tustin Legacy for modern Irvine-edge medical/professional use.
+- The first seed intentionally models airport access as a reason inside Irvine Business Complex and related office nodes rather than creating a shallow John Wayne Airport Area node.
+- South OC medical/professional demand is modeled through a combined Mission Viejo / Laguna Hills node to support patient/customer geography without splitting the first-pass graph too thinly.
+
+Current weaknesses:
+
+- Orange County has completed an initial broker-style editorial calibration, but should still receive final human broker validation before being marked Compass Ready.
+- Representative-building depth is uneven. Irvine, South Coast Metro, Newport Center, Anaheim Canyon, Lake Forest, and South OC Medical & Professional have stronger existing path support; Fullerton and Tustin Legacy need deeper reviewed examples.
+- Second-pass candidates such as Costa Mesa, Orange, Downtown Santa Ana, Brea, Huntington Beach, Buena Park, Garden Grove, Foothill Ranch, and Anaheim Platinum Triangle were intentionally not promoted until their recommendation impact is clearer.
+- Retail and medical-office coverage should be calibrated with actual Location Brief usage and broker feedback.
+
+Next priorities:
+
+- Improve representative-building coverage using existing reliable Rofo building paths only.
+- Run final broker validation after representative-building depth improves.
+- Decide whether Costa Mesa, Downtown Santa Ana, Brea, Huntington Beach, or Anaheim Platinum Triangle should become second-pass Knowledge Cards.
+- Continue monitoring whether city-level broad office searches route appropriately across Irvine, Newport, South Coast Metro, Tustin, and North OC rather than over-converging on Irvine.
+
 ## Compass Ready
 
 ### San Diego
@@ -132,27 +159,6 @@ Next priorities:
 - Seed Downtown Seattle, South Lake Union, Bellevue, Redmond, Kirkland, Kent Valley, Tacoma Port / Industrial, and Everett Industrial.
 - Add office, technology, life science, industrial, and warehouse Knowledge Cards.
 - Add city-level market paths for Seattle and Bellevue.
-
-### Orange County
-
-Compass Maturity: Planned
-
-Current strengths:
-
-- Page coverage exists for major Orange County commercial cities and districts.
-- Existing geography can support future Irvine, Newport Beach, Costa Mesa, Santa Ana, Anaheim, Tustin, and Lake Forest recommendation paths.
-
-Current weaknesses:
-
-- Compass readiness is pending.
-- Knowledge Graph nodes have not yet been authored for Orange County priority districts.
-- Retail, medical, office, flex, and industrial attributes need graph-backed tradeoffs and compare relationships.
-
-Next priorities:
-
-- Seed Irvine and Orange County city-level Knowledge Cards.
-- Prioritize Irvine Spectrum, Irvine Business Complex, Airport Area / John Wayne, Newport Center, South Coast Metro, Tustin Legacy, Anaheim Canyon, and Lake Forest Business Center.
-- Add office, medical, retail, flex, R&D, and industrial guidance before marking the metro Compass Ready.
 
 ### Phoenix
 

@@ -13,7 +13,7 @@ const COMPASS_METROS = [
   { key: "sacramento", label: "Sacramento", status: "ready" },
   { key: "san-diego", label: "San Diego", status: "ready" },
   { key: "los-angeles", label: "Los Angeles", status: "enhancing" },
-  { key: "orange-county", label: "Orange County", status: "discovery" },
+  { key: "orange-county", label: "Orange County", status: "enhancing" },
   { key: "seattle", label: "Seattle", status: "planned" },
   { key: "phoenix", label: "Phoenix", status: "planned" },
   { key: "denver", label: "Denver", status: "planned" },

@@ -19,11 +19,11 @@ module.exports = {
   },
   "orange-county": {
     metro: "Orange County",
-    qaStatus: "pending",
-    lastQaDate: "",
-    validationStatus: "recommendation_readiness_pending",
-    scenarioCount: 0,
-    reportPath: "",
-    notes: "Page coverage exists; Knowledge Graph enrichment and Recommendation QA are pending.",
+    qaStatus: "completed",
+    lastQaDate: "2026-07-10",
+    validationStatus: "broker_reviewed_enhancing",
+    scenarioCount: 12,
+    reportPath: "/docs/recommendation-qa/orange-county-pilot/",
+    notes: "Orange County pilot scenarios produce differentiated, graph-backed market paths across office, R&D, airport-access professional office, medical, executive office, warehouse/flex, contractor/service industrial, and South OC profiles. K1.1 broker-style calibration improved South Coast/Newport/IBC/Spectrum/URP differentiation; keep Enhancing pending stronger representative-building depth for Tustin Legacy and Fullerton.",
   },
 };

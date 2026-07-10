@@ -18,6 +18,12 @@ const qaSuites = [
     scenarioPath: path.join(root, "data/recommendation-qa/san-diego-scenarios.json"),
     reportPath: path.join(root, "docs/recommendation-qa/san-diego-pilot.md"),
   },
+  {
+    key: "orange-county",
+    metro: "Orange County",
+    scenarioPath: path.join(root, "data/recommendation-qa/orange-county-scenarios.json"),
+    reportPath: path.join(root, "docs/recommendation-qa/orange-county-pilot.md"),
+  },
 ];
 
 const editorialReviews = {
@@ -46,6 +52,37 @@ const editorialReviews = {
       "Representative buildings should continue moving from illustrative seed coverage toward richer broker-reviewed examples.",
     ],
     readiness: "San Diego is recommended as Compass Ready for V1 Location Briefs. It should remain under enhancement for representative-building depth and second-pass retail/medical coverage, but no blocking editorial concerns remain after this calibration.",
+  },
+  "orange-county": {
+    findings: [
+      "Primary recommendations are broker-plausible across the 12 Orange County pilot scenarios after calibration. The QA set now separates technology HQ, research/R&D, airport-access professional office, coastal executive office, central OC client-facing office, medical, warehouse/flex, contractor, South OC flex/R&D support, and broad office searches.",
+      "The clearest submarket distinctions are now visible: Irvine Spectrum is the technology/growth/R&D image path, Irvine Business Complex is the airport-access professional office path, University Research Park is the UC Irvine/research-adjacent path, South Coast Metro is the central OC office-retail/client-facing path, Newport Center is the coastal executive/client image path, and Tustin Legacy is the modern Irvine-edge medical/professional path.",
+      "Recommendation diversity remains strong enough for an Enhancing metro: 12 scenarios produce 9 unique primary recommendations, with repeated primaries occurring only where the business profiles are commercially similar.",
+      "The pilot continues to avoid treating John Wayne Airport Area as a standalone first-pass node. Airport access is expressed as a decision reason inside Irvine Business Complex, South Coast Metro, and Newport Center.",
+      "Representative buildings reinforce Irvine Spectrum, Irvine Business Complex, South Coast Metro, Newport Center, Anaheim Canyon, Lake Forest Business Park, and South OC Medical & Professional. Tustin Legacy and Fullerton remain weaker because existing Rofo data does not yet provide enough verified district-specific building paths.",
+    ],
+    calibrations: [
+      "Strengthened South Coast Metro's office fit from a generic strong professional-office node into an excellent central OC office-retail/client-facing node, so central OC finance/legal/amenity-driven searches do not drift to Newport by default.",
+      "Sharpened Newport Center's role as a coastal executive, wealth management, legal, finance, and Newport client-proximity node, with tradeoffs around cost and countywide commute neutrality.",
+      "Strengthened Irvine Spectrum and University Research Park wording for R&D, innovation, technical office, recruitment, amenities, and growth so R&D scenarios compare URP with Spectrum instead of drifting toward Irvine Business Complex.",
+      "Clarified Irvine Business Complex as an airport-access professional office node with Von Karman/MacArthur office-core logic rather than a general-purpose Irvine recommendation for every office profile.",
+      "Removed misleading 'coastal' keyword matches from non-Newport tradeoffs. Those tradeoffs now refer to Newport Beach executive image, which preserves the distinction without making non-coastal nodes score as coastal matches.",
+      "Reviewed representative buildings for Tustin Legacy, Fullerton, and Lake Forest Business Park. No fabricated buildings were added; Tustin Legacy and Fullerton remain documented depth gaps because available resolved paths are limited or not district-specific enough.",
+    ],
+    beforeAfter: [
+      "Before K1.1, the South Coast Metro client-facing office scenario was directionally passing but Newport/South Coast differentiation was not sharp enough.",
+      "After K1.1, South Coast Metro leads central OC client-facing professional-office scenarios, while Newport Center leads coastal executive wealth-management/legal scenarios.",
+      "Before K1.1, the University Research Park R&D scenario used Irvine Business Complex as the secondary comparison.",
+      "After K1.1, University Research Park compares against Irvine Spectrum first, which is more commercially plausible for R&D/innovation users.",
+      "No Sacramento or San Diego recommendation regressions were introduced; both suites continue passing baseline QA.",
+    ],
+    remaining: [
+      "Representative-building depth is the main readiness blocker. Tustin Legacy needs verified district-specific building examples, and Fullerton needs resolved building paths rather than only generic representative cards.",
+      "A human Orange County broker should still validate whether South Coast Metro versus Newport Center and Irvine Business Complex versus Irvine Spectrum read correctly for real tenant profiles.",
+      "Second-pass nodes such as Costa Mesa, Downtown Santa Ana, Brea, Huntington Beach, Foothill Ranch, Anaheim Platinum Triangle, Orange, Buena Park, and Garden Grove should be added only after specific recommendation gaps justify them.",
+      "Retail and medical-office coverage should be calibrated with real Location Brief demand before marking Orange County Compass Ready.",
+    ],
+    readiness: "Orange County should remain Enhancing after K1.1. Recommendations are now more differentiated and advisor-quality, and QA passes without Sacramento or San Diego regressions. The blocker is representative-building sufficiency, especially for Tustin Legacy and Fullerton, plus one more broker review pass against real Orange County tenant profiles before Compass Ready.",
   },
 };
 

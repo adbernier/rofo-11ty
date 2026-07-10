@@ -334,3 +334,37 @@ Calibration changes from the San Diego review:
 - Exact graph-text priority relevance was strengthened so geography-specific requirements can outweigh generic prestige signals where the Knowledge Graph supports that choice.
 
 San Diego should still be enhanced over time with deeper representative-building curation, second-pass retail and medical-office nodes, and real Location Brief usage feedback. Those are quality-depth improvements rather than current Compass Ready blockers.
+
+Orange County's first Compass Knowledge Graph seed was authored after Orange County Compass Discovery. The implementation intentionally favored fewer high-value recommendation nodes over exhaustive geography:
+
+- City-level Orange County
+- Irvine Spectrum
+- Irvine Business Complex
+- University Research Park
+- South Coast Metro
+- Newport Center
+- Tustin Legacy
+- Anaheim Canyon
+- Lake Forest Business Park
+- Fullerton
+- South OC Medical & Professional
+
+Editorial decisions from the Orange County seed:
+
+- John Wayne Airport Area was not created as a first-pass standalone Compass node. Airport access is modeled as an attribute and recommendation reason inside Irvine Business Complex, South Coast Metro, and Newport Center.
+- University Research Park was added because it improves R&D, innovation, UC Irvine-adjacent, and life-science-adjacent recommendation reasoning.
+- Mission Viejo and Laguna Hills are modeled together as South OC Medical & Professional for the first pass, because the recommendation value is patient/customer geography rather than two shallow separate nodes.
+- Lake Forest Business Park is used as the customer-facing label while preserving the existing Lake Forest Business Center URL path.
+- Costa Mesa, Orange, Downtown Santa Ana, Brea, Huntington Beach, Buena Park, Garden Grove, Foothill Ranch, and Anaheim Platinum Triangle remain second-pass candidates pending broker review and clearer recommendation impact.
+- Historical listing and building records were used as supporting evidence for representative environments, not as a proxy for commercial importance.
+
+Orange County QA fixtures live in `data/recommendation-qa/orange-county-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/orange-county-pilot.md`. Sprint K1.1 calibrated the core Orange County office distinctions:
+
+- Irvine Spectrum: technology, growth-company, modern corporate, and R&D-support image.
+- Irvine Business Complex: airport-access professional office and central OC office core.
+- University Research Park: UC Irvine adjacency, research, innovation, and technical office/R&D users.
+- South Coast Metro: central OC office-retail, client-facing finance/legal/professional services, and amenity context.
+- Newport Center: coastal executive image, wealth management, legal, finance, and Newport client proximity.
+- Tustin Legacy: modern Irvine-edge medical, wellness, and professional office.
+
+Orange County should remain Enhancing after Sprint K1.1. The pilot passes baseline QA and produces differentiated graph-backed paths, but Compass Ready should wait for stronger representative-building depth for Tustin Legacy and Fullerton plus final human broker validation.
