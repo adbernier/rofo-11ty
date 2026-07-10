@@ -15,6 +15,7 @@ const STATUS_VIEWS = {
   rejected: ["rejected"],
   spam: ["spam_quarantined", "rejected_spam"],
 };
+const ACTIONABLE_STATUSES = ["pending", "approved_send_failed", "expert_review_requested"];
 const LEAD_INDEX_QUERIES = [
   "create index if not exists idx_leads_created_at on leads(created_at)",
   "create index if not exists idx_leads_status on leads(status)",
@@ -414,11 +415,9 @@ function renderPostButton({ token, id, action, route = "", label, className = ""
 
 function renderLeadActions(row, route, token) {
   const lead = parseJson(row.lead_json);
-  if (lead.lead_type === "location_brief" || lead.source === "location_brief") {
-    return `<div class="lead-actions"><span class="muted">Location Brief expert review request. Review the brief before routing or broker follow-up.</span></div>`;
-  }
+  const isLocationBrief = lead.lead_type === "location_brief" || lead.source === "location_brief";
 
-  if (!["pending", "approved_send_failed"].includes(row.status)) {
+  if (!ACTIONABLE_STATUSES.includes(row.status)) {
     return `<div class="lead-actions"><span class="muted">No dashboard actions available for ${escapeHtml(row.status)} leads.</span></div>`;
   }
 
@@ -429,6 +428,7 @@ function renderLeadActions(row, route, token) {
     : routeTo === "broker" ? "Approve & Send to Broker" : "Approve & Send to OfficeFinder";
 
   return `
+    ${isLocationBrief ? `<div class="lead-actions"><span class="muted">Location Brief expert review request. Review the brief, then route it through the existing lead workflow.</span></div>` : ""}
     <div class="lead-actions lead-actions--buttons">
       ${renderPostButton({ token, id: row.id, action: "approve", route: "recommended", label: recommendedLabel, className: "button button--approve" })}
       ${routeTo === "both" ? renderPostButton({ token, id: row.id, action: "approve", route: "officefinder", label: "OfficeFinder Only", className: "button button--secondary" }) : ""}
