@@ -3,6 +3,8 @@ import {
   getLocationBrief,
   htmlResponse,
   locationSummary,
+  locationIntentLabel,
+  locationIntentSummary,
   sizeSummary,
   spaceSummary,
   trackLocationBriefEvent,
@@ -126,6 +128,7 @@ function renderPage(brief) {
   const location = locationSummary(brief);
   const space = spaceSummary(brief);
   const size = sizeSummary(brief);
+  const intent = brief.searchProfile && brief.searchProfile.locationIntent;
   const contact = brief.contact || {};
   const questions = brief.marketPath && Array.isArray(brief.marketPath.questionsToValidate)
     ? brief.marketPath.questionsToValidate
@@ -167,6 +170,8 @@ function renderPage(brief) {
           ["Location", escapeHtml(location)],
           ["Space type", escapeHtml(space)],
           ["Size", escapeHtml(size)],
+          ["Location Intent", escapeHtml(locationIntentLabel(intent))],
+          ["Intent Guidance", escapeHtml(locationIntentSummary(intent))],
           ["Feedback", escapeHtml(brief.feedback || "")],
         ])}
       </section>

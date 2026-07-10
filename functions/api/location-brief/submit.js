@@ -2,6 +2,8 @@ import {
   canonicalizeBrief,
   generatePublicId,
   jsonResponse,
+  locationIntentLabel,
+  locationIntentSummary,
   locationSummary,
   publicBriefUrl,
   saveLocationBrief,
@@ -57,6 +59,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
   const spaceType = spaceSummary(brief);
   const size = sizeSummary(brief);
   const recommendedMarketPath = recommendedMarketPathSummary(brief);
+  const locationIntent = brief.searchProfile && brief.searchProfile.locationIntent || "compare";
   const priorities = Array.isArray(brief.priorities) ? brief.priorities.filter(Boolean) : [];
   const requirements = [
     brief.feedback ? `Feedback: ${brief.feedback}` : "",
@@ -88,6 +91,9 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     location_state: location.state || "",
     status: "expert_review_requested",
     officefinder_status: "officefinder_not_attempted",
+    location_intent: locationIntent,
+    location_intent_label: locationIntentLabel(locationIntent),
+    location_intent_summary: locationIntentSummary(locationIntent),
     location_brief_id: brief.id,
     location_brief_public_id: brief.publicId,
     location_brief_url: briefUrl,
@@ -192,6 +198,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     location: (brief.searchProfile.locations || []).map((item) => item.label).join(" / "),
     spaceType: brief.searchProfile.spaceType,
     size: brief.searchProfile.size,
+    locationIntent: brief.searchProfile.locationIntent || "compare",
   };
 
   try {

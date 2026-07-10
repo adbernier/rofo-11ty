@@ -120,6 +120,22 @@
     return "Expert Guided";
   }
 
+  function normalizeLocationIntent(value, fallback = "compare") {
+    const normalized = String(value || "").trim().toLowerCase();
+    return ["focus", "compare", "discover"].includes(normalized) ? normalized : fallback;
+  }
+
+  function locationIntentCopy(value) {
+    const intent = normalizeLocationIntent(value);
+    if (intent === "focus") {
+      return "Your preferred geography is already well defined. Compass will focus expert review on identifying the best-fit buildings and submarkets within this area.";
+    }
+    if (intent === "discover") {
+      return "Compass will recommend the strongest starting markets based on your business profile and priorities.";
+    }
+    return "Compass will use your selected location as the starting point and compare it with nearby markets that may also fit your requirements.";
+  }
+
   function compareRelationships(profile) {
     if (profile && profile.relationships && Array.isArray(profile.relationships.compareWith)) {
       return profile.relationships.compareWith;
@@ -356,6 +372,7 @@
     const fallbackIndexes = profileIndexes(fallbackProfiles || []);
     const locations = context.locations || [];
     const inputLocation = locations[0] || null;
+    const locationIntent = normalizeLocationIntent(context.locationIntent || context.location_intent, "compare");
     if (!inputLocation) {
       return {
         mode: "demo",
@@ -385,7 +402,11 @@
         recommendedPath: [],
         compareWith: [],
         questionsToValidate: inputProfile && Array.isArray(inputProfile.questionsToValidate) ? inputProfile.questionsToValidate : [],
-        summaryCopy: inputProfile
+        locationIntent,
+        intentCopy: locationIntentCopy(locationIntent),
+        summaryCopy: locationIntent === "focus"
+          ? `${inputLocation.label} is your preferred geography. Rofo will use expert review to validate buildings, submarkets, and nearby contingency options within or close to this area.`
+          : inputProfile
           ? `${inputLocation.label} is a relevant starting point, but this market is best handled with help from a local expert because Rofo's recommendation graph is still lighter here.`
           : "We have your Search Profile, but this market is best handled with help from a local expert.",
         ctaLabel: "Request Expert Review",
@@ -400,7 +421,7 @@
       ? inputProfile.marketPath.map((slug) => profileBySlug(slug, activeIndexes)).filter(Boolean)
       : [];
     const activeMarketPath = marketPathProfiles.length ? marketPathProfiles : fallbackMarketPath;
-    const mode = inputProfile.type === "city" && activeMarketPath.length ? "market_path" : "single_starting_point";
+    const mode = locationIntent !== "focus" && inputProfile.type === "city" && activeMarketPath.length ? "market_path" : "single_starting_point";
     const pathProfiles = mode === "market_path" ? activeMarketPath : [inputProfile];
     const recommendedPath = attachExplainability(
       pathProfiles.map((profile) => recommendationItem(profile, context.spaceType)),
@@ -415,6 +436,9 @@
           label: item.label || (profile && profile.label) || item.slug,
           slug: item.slug || (profile && profile.slug) || "",
           reason: item.reason || "",
+          alternativeRationale: item.reason
+            ? `${item.label || (profile && profile.label) || item.slug} may be relevant as a comparison or contingency because ${item.reason}`
+            : "This may be relevant as a comparison or contingency if the preferred area does not support the search.",
           relationshipType: item.relationshipType || "similar",
           path: (profile && profile.path) || item.path || "",
         };
@@ -424,13 +448,19 @@
       mode,
       title: mode === "market_path" ? "Recommended Market Path" : "Relevant Starting Point",
       confidenceLabel: confidenceLabel(inputProfile.confidence),
+      locationIntent,
+      intentCopy: locationIntentCopy(locationIntent),
       inputLocation,
       primaryLocationLabel: primaryRecommendation.label,
       primaryRecommendation,
       recommendedPath,
       compareWith,
       questionsToValidate: primaryRecommendation.questionsToValidate || [],
-      summaryCopy: mode === "market_path"
+      summaryCopy: locationIntent === "focus"
+        ? `${inputProfile.label} is the target geography for this search. We'd focus expert review on buildings, submarkets, availability, and fit within this area before widening the search.`
+        : locationIntent === "discover"
+        ? `${inputProfile.label} gives Compass a starting point, but the recommendation should stay open to the strongest supported markets for this business profile.`
+        : mode === "market_path"
         ? `${inputProfile.label} has several commercial districts that fit different versions of your search. We'd start by comparing the strongest path before looking at individual buildings.`
         : `${inputProfile.label} appears to be a relevant starting point based on your profile.`,
       ctaLabel: "Request Expert Review",

@@ -14,6 +14,7 @@
           "path": "/commercial-real-estate/CA/irvine/"
         }
       ],
+      "locationIntent": "compare",
       "spaceType": "Office",
       "size": "12,000 sqft",
       "priorities": ["technology company", "corporate image", "growth flexibility", "amenities", "Irvine"]
@@ -42,6 +43,29 @@
     },
     "expectedDirection": "Favor UC Irvine-adjacent research and Irvine technology/R&D districts before airport office or executive office.",
     "expectedSlugs": ["university-research-park", "irvine-spectrum", "lake-forest-business-park"]
+  },
+  {
+    "id": "oc-ibc-focused-professional-office",
+    "name": "Focused Irvine Business Complex Professional Office",
+    "metro": "Orange County",
+    "profile": {
+      "locations": [
+        {
+          "label": "Irvine Business Complex",
+          "type": "district",
+          "city": "Irvine",
+          "state": "CA",
+          "slug": "irvine-business-complex",
+          "path": "/commercial-real-estate/CA/irvine/irvine-business-complex/"
+        }
+      ],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "6,500 sqft",
+      "priorities": ["professional services", "airport access", "client meetings", "central Orange County", "parking important"]
+    },
+    "expectedDirection": "Treat Irvine Business Complex as the target geography and keep alternatives as contingency context rather than the main recommendation path.",
+    "expectedSlugs": ["irvine-business-complex"]
   },
   {
     "id": "oc-ibc-airport-professional-services",

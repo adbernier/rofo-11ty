@@ -24,6 +24,8 @@
   const finalList = root.querySelector("[data-profile-final-list]");
   const featureOtherWrap = root.querySelector("[data-profile-feature-other]");
   const locationOptionsContainer = root.querySelector("[data-profile-location-options]");
+  const locationIntentWrap = root.querySelector("[data-profile-location-intent]");
+  const locationIntentOptionsContainer = root.querySelector("[data-profile-location-intent-options]");
   const locationSearchInput = root.querySelector("[data-profile-location-search-input]");
   const locationOtherWrap = root.querySelector("[data-profile-location-other]");
   const locationOtherInput = root.querySelector("[data-profile-location-other-input]");
@@ -83,6 +85,34 @@
     { label: "Flex", value: "Flex" },
     { label: "Coworking", value: "Coworking" },
   ];
+  const locationIntentOptions = [
+    {
+      label: "Focus my search here",
+      value: "focus",
+      description: "Help me find the best options within this area.",
+    },
+    {
+      label: "Compare with nearby markets",
+      value: "compare",
+      description: "Show me nearby alternatives worth comparing.",
+    },
+    {
+      label: "Recommend the best markets",
+      value: "discover",
+      description: "I'm open to different locations.",
+    },
+  ];
+
+  function normalizeLocationIntent(value, fallback = "") {
+    const normalized = String(value || "").trim().toLowerCase();
+    return ["focus", "compare", "discover"].includes(normalized) ? normalized : fallback;
+  }
+
+  function locationIntentLabel(value) {
+    const normalized = normalizeLocationIntent(value, "compare");
+    const option = locationIntentOptions.find((item) => item.value === normalized);
+    return option ? option.label : "Compare with nearby markets";
+  }
   const pathConfig = {
     Office: {
       detailField: "size",
@@ -805,6 +835,7 @@
     featureOther: "",
     locationSelections: recommendationEntryContext.locations.length ? recommendationEntryContext.locations.map((location) => location.label) : (locationOptionLabel() ? [locationOptionLabel()] : []),
     selectedLocations: recommendationEntryContext.locations.length ? recommendationEntryContext.locations : normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
+    locationIntent: "",
     locationOther: "",
     location: recommendationEntryContext.locations.length ? locationFromRecommendationEntry(recommendationEntryContext) : contextLocation(),
     contact: {
@@ -842,6 +873,7 @@
       };
       merged.locationSelections = normalizeLocationSelections(stored.locationSelections, merged.location);
       merged.selectedLocations = normalizeSelectedLocations(stored.selectedLocations, merged.locationSelections);
+      merged.locationIntent = normalizeLocationIntent(stored.locationIntent, defaultProfile.locationIntent || "");
       const currentLabel = locationOptionLabel();
       if (currentLabel && !merged.locationSelections.some((label) => label.toLowerCase() === currentLabel.toLowerCase())) {
         merged.locationSelections.unshift(currentLabel);
@@ -869,6 +901,7 @@
         location: contextLocation(),
         locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
         selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
+        locationIntent: defaultProfile.locationIntent || "",
         locationOther: "",
         targetArea: contextLocation().display,
         sourceContext: { ...defaultProfile.sourceContext },
@@ -910,6 +943,7 @@
       timing: summary.timing || "",
       selected_locations: summary.selectedLocations,
       locations: summary.selectedLocations,
+      location_intent: summary.locationIntent || "compare",
       features: selectedFeatureValues(),
       features_count: selectedFeatureValues().length,
     };
@@ -1064,6 +1098,7 @@
       timing: profile.timing || "",
       features: Array.isArray(profile.features) ? [...profile.features] : [],
       featureOther: profile.featureOther || "",
+      locationIntent: normalizeLocationIntent(profile.locationIntent, ""),
     };
   }
 
@@ -1080,6 +1115,7 @@
       })),
       spaceType: summary.spaceType || "",
       size: summary.sizeOrPeople || "",
+      locationIntent: normalizeLocationIntent(summary.locationIntent, "compare"),
       timestamp: new Date().toISOString(),
     };
   }
@@ -1114,6 +1150,7 @@
       `Location: ${summary.location.display || ""}`,
       `Space type: ${summary.spaceType || ""}`,
       `Size: ${summary.sizeOrPeople || ""}`,
+      `Location intent: ${locationIntentLabel(summary.locationIntent)}`,
       summary.timing ? `Move-in timing: ${summary.timing}` : "",
       features.length ? `Features: ${features.join(" • ")}` : "",
       summary.featureOther ? `Other feature detail: ${summary.featureOther}` : "",
@@ -1170,6 +1207,8 @@
       timing: summary.timing || "",
       move_timing: summary.timing || "",
       location_profile_features: selectedFeatureValues().join(", "),
+      location_intent: normalizeLocationIntent(summary.locationIntent, "compare"),
+      location_intent_label: locationIntentLabel(summary.locationIntent),
       location_profile_feature_other: summary.featureOther || "",
       selected_locations: JSON.stringify(summary.selectedLocations),
       locations: JSON.stringify(summary.selectedLocations),
@@ -1177,6 +1216,8 @@
         location: summary.location,
         selected_locations: summary.selectedLocations,
         locations: summary.selectedLocations,
+        location_intent: normalizeLocationIntent(summary.locationIntent, "compare"),
+        location_intent_label: locationIntentLabel(summary.locationIntent),
         space_type: summary.spaceType,
         size_or_people: sizeOrPeople,
         timing: summary.timing,
@@ -1271,7 +1312,7 @@
       profile[key] = [...current];
     } else {
       const previousValue = profile[key];
-      const requiredChoice = ["spaceType", "timing", "people", "size"].includes(key);
+      const requiredChoice = ["spaceType", "timing", "people", "size", "locationIntent"].includes(key);
       profile[key] = requiredChoice ? value : profile[key] === value ? "" : value;
       if (key === "spaceType" && previousValue !== value) {
         profile.people = "";
@@ -1394,8 +1435,35 @@
     if (locationOtherInput) locationOtherInput.value = profile.locationOther || "";
   }
 
+  function renderLocationIntent() {
+    if (!locationIntentWrap || !locationIntentOptionsContainer) return;
+    const hasLocation = meaningfulValue("targetArea");
+    locationIntentWrap.hidden = !hasLocation;
+    locationIntentOptionsContainer.innerHTML = "";
+    if (!hasLocation) return;
+
+    locationIntentOptions.forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "search-profile-location-intent__option";
+      button.dataset.profileValue = option.value;
+      button.setAttribute("aria-pressed", String(profile.locationIntent === option.value));
+      button.classList.toggle("is-selected", profile.locationIntent === option.value);
+
+      const label = document.createElement("strong");
+      label.textContent = option.label;
+      const description = document.createElement("span");
+      description.textContent = option.description;
+      button.append(label, description);
+
+      button.addEventListener("click", () => setProfileValue("locationIntent", option.value, false));
+      locationIntentOptionsContainer.appendChild(button);
+    });
+  }
+
   function renderOptionSets() {
     renderLocationOptions();
+    renderLocationIntent();
     renderOptions("spaceType", spaceTypeOptions);
     renderOptions("features", activeConfig().features || ["Other"]);
     ["people", "use", "size", "workspaceStyle", "important"].forEach((key) => {

@@ -7607,6 +7607,54 @@ section.market-page--space-type .market-links a {
   line-height: 1.2;
 }
 
+.search-profile-location-intent {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #e6edf5;
+}
+
+.search-profile-location-intent p {
+  margin: 0;
+  color: #102033;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.search-profile-location-intent__options {
+  display: grid;
+  gap: 8px;
+}
+
+.search-profile-location-intent__option {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d9e2ee;
+  border-radius: 10px;
+  background: #fff;
+  color: #102033;
+  text-align: left;
+}
+
+.search-profile-location-intent__option strong {
+  font-size: 0.92rem;
+}
+
+.search-profile-location-intent__option span {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.search-profile-location-intent__option:hover,
+.search-profile-location-intent__option.is-selected {
+  border-color: #1f5eff;
+  background: #f3f7ff;
+}
+
 .search-profile-fieldset textarea {
   resize: vertical;
 }

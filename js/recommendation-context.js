@@ -99,8 +99,32 @@
       locations,
       spaceType: String(value.spaceType || "").trim(),
       size: String(value.size || "").trim(),
+      locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent, "compare"),
       timestamp: String(value.timestamp || "").trim(),
     };
+  }
+
+  function normalizeLocationIntent(value, fallback = "compare") {
+    const normalized = String(value || "").trim().toLowerCase();
+    return ["focus", "compare", "discover"].includes(normalized) ? normalized : fallback;
+  }
+
+  function locationIntentLabel(value) {
+    const intent = normalizeLocationIntent(value);
+    if (intent === "focus") return "Focus my search here";
+    if (intent === "discover") return "Recommend the best markets";
+    return "Compare with nearby markets";
+  }
+
+  function locationIntentCopy(value) {
+    const intent = normalizeLocationIntent(value);
+    if (intent === "focus") {
+      return "Your preferred geography is already well defined. Compass will focus expert review on identifying the best-fit buildings and submarkets within this area.";
+    }
+    if (intent === "discover") {
+      return "Compass will recommend the strongest starting markets based on your business profile and priorities.";
+    }
+    return "Compass will use your selected location as the starting point and compare it with nearby markets that may also fit your requirements.";
   }
 
   function setText(selector, value) {
@@ -274,6 +298,7 @@
     const fallbackIndexes = profileIndexes(fallbackProfiles || []);
     const locations = context.locations || [];
     const inputLocation = locations[0] || null;
+    const locationIntent = normalizeLocationIntent(context.locationIntent || context.location_intent, "compare");
     if (!inputLocation) {
       return {
         mode: "demo",
@@ -303,7 +328,11 @@
         recommendedPath: [],
         compareWith: [],
         questionsToValidate: inputProfile && Array.isArray(inputProfile.questionsToValidate) ? inputProfile.questionsToValidate : [],
-        summaryCopy: inputProfile
+        locationIntent,
+        intentCopy: locationIntentCopy(locationIntent),
+        summaryCopy: locationIntent === "focus"
+          ? `${inputLocation.label} is your preferred geography. Rofo will use expert review to validate buildings, submarkets, and nearby contingency options within or close to this area.`
+          : inputProfile
           ? `${inputLocation.label} is a relevant starting point, but this market is best handled with help from a local expert because Rofo's recommendation graph is still lighter here.`
           : "We have your Search Profile, but this market is best handled with help from a local expert.",
         ctaLabel: "Request Expert Review",
@@ -314,7 +343,7 @@
     const marketPathProfiles = Array.isArray(inputProfile.marketPath)
       ? inputProfile.marketPath.map((slug) => profileBySlug(slug, activeIndexes)).filter(Boolean)
       : [];
-    const mode = inputProfile.type === "city" && marketPathProfiles.length ? "market_path" : "single_starting_point";
+    const mode = locationIntent !== "focus" && inputProfile.type === "city" && marketPathProfiles.length ? "market_path" : "single_starting_point";
     const recommendedPath = (mode === "market_path" ? marketPathProfiles : [inputProfile])
       .map((profile) => recommendationItem(profile, context.spaceType));
     const primaryRecommendation = recommendedPath[0] || recommendationItem(inputProfile, context.spaceType);
@@ -325,6 +354,9 @@
           label: item.label || (profile && profile.label) || item.slug,
           slug: item.slug || (profile && profile.slug) || "",
           reason: item.reason || "",
+          alternativeRationale: item.reason
+            ? `${item.label || (profile && profile.label) || item.slug} may be relevant as a comparison or contingency because ${item.reason}`
+            : "This may be relevant as a comparison or contingency if the preferred area does not support the search.",
           relationshipType: item.relationshipType || "similar",
           path: (profile && profile.path) || item.path || "",
         };
@@ -334,13 +366,19 @@
       mode,
       title: mode === "market_path" ? "Recommended Market Path" : "Relevant Starting Point",
       confidenceLabel: confidenceLabel(inputProfile.confidence),
+      locationIntent,
+      intentCopy: locationIntentCopy(locationIntent),
       inputLocation,
       primaryLocationLabel: primaryRecommendation.label,
       primaryRecommendation,
       recommendedPath,
       compareWith,
       questionsToValidate: primaryRecommendation.questionsToValidate || [],
-      summaryCopy: mode === "market_path"
+      summaryCopy: locationIntent === "focus"
+        ? `${inputProfile.label} is the target geography for this search. We'd focus expert review on buildings, submarkets, availability, and fit within this area before widening the search.`
+        : locationIntent === "discover"
+        ? `${inputProfile.label} gives Compass a starting point, but the recommendation should stay open to the strongest supported markets for this business profile.`
+        : mode === "market_path"
         ? `${inputProfile.label} has several commercial districts that fit different versions of your search. We'd start by comparing the strongest path before looking at individual buildings.`
         : `${inputProfile.label} appears to be a relevant starting point based on your profile.`,
       ctaLabel: "Request Expert Review",
@@ -362,6 +400,8 @@
     const locationText = formatLocations(context.locations || []);
     const spaceText = context.spaceType || "Commercial space";
     const sizeText = formatSize(context.size);
+    const locationIntent = normalizeLocationIntent(context.locationIntent, "compare");
+    const intentCopy = locationIntentCopy(locationIntent);
 
     setAllHidden("[data-recommendation-demo-detail]", true);
     setText("[data-recommendation-hero-badge]", "LOCATION BRIEF");
@@ -373,9 +413,10 @@
     setText("[data-recommendation-context-location]", locationText);
     setText("[data-recommendation-context-space]", spaceText);
     setText("[data-recommendation-context-size]", sizeText);
+    setText("[data-recommendation-context-intent]", locationIntentLabel(locationIntent));
     setText(
       "[data-recommendation-context-copy]",
-      "Rather than showing every listing, Rofo starts by narrowing the search to the most relevant market path."
+      intentCopy
     );
     setSubmittedCta(state, context);
 
@@ -384,17 +425,19 @@
       .slice(1, 3)
       .map((item) => item.label)
       .filter(Boolean);
-    const compareSummary = compareLabels.length
+    const compareSummary = locationIntent === "focus"
+      ? " Expert review should first validate buildings and submarkets inside this preferred area; nearby alternatives should be treated as contingency options."
+      : compareLabels.length
       ? ` We’d compare it with ${compareLabels.join(" and ")} before narrowing the search to individual buildings.`
       : " We’d then pressure-test nearby alternatives before narrowing the search to individual buildings.";
     setText("[data-recommendation-context-heading]", "Here’s where we’d begin.");
     setText(
       "[data-recommendation-context-copy]",
-      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}. ${state.summaryCopy || "This gives the search a focused starting point."}${compareSummary}`
+      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}. ${intentCopy} ${state.summaryCopy || "This gives the search a focused starting point."}${compareSummary}`
     );
     setText(
       "[data-recommendation-hero-copy]",
-      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}.${compareSummary}`
+      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, we’d begin with ${primaryLabel}. ${intentCopy}`
     );
 
     if (state.mode === "expert_guided") {
@@ -504,7 +547,9 @@
     );
     setText(
       "[data-recommendation-primary-note]",
-      primary.alternativeRationale || `We would not treat ${primary.label} as the only answer. We would use it as the baseline for a local market review, then compare alternatives against your location, space, and size requirements.`
+      locationIntent === "focus"
+        ? `We would treat ${primary.label} as the target geography. Nearby alternatives should only be reviewed if availability, pricing, or fit inside the area does not support the search.`
+        : primary.alternativeRationale || `We would not treat ${primary.label} as the only answer. We would use it as the baseline for a local market review, then compare alternatives against your location, space, and size requirements.`
     );
     setText("[data-recommendation-explainer-heading]", `Why we'd start with ${primary.label}`);
     setText("[data-recommendation-rationale-one]", matchedPriorities[0] ? `Profile signal: ${matchedPriorities[0]}.` : `Your requested ${spaceText.toLowerCase()} search gives us enough context to start with a focused ${descriptor}.`);
@@ -549,7 +594,11 @@
     if (pathNode) {
       state.recommendedPath.forEach((item, index) => {
         const card = createElement("article", "recommendation-market-path-card");
-        const label = createElement("div", "recommendation-market-path-card__label", index === 0 ? "Where we'd start" : "Next comparison");
+        const label = createElement(
+          "div",
+          "recommendation-market-path-card__label",
+          index === 0 ? (state.locationIntent === "focus" ? "Target geography" : "Where we'd start") : "Next comparison"
+        );
         const title = item.path ? createElement("a", "", item.label) : createElement("strong", "", item.label);
         if (item.path) title.href = item.path;
         const fit = createElement("span", "recommendation-market-path-card__fit", item.fitLabel);
@@ -575,12 +624,22 @@
           const card = createElement("article", "recommendation-compare-card");
           const title = item.path ? createElement("a", "", item.label) : createElement("strong", "", item.label);
           if (item.path) title.href = item.path;
-          const reason = createElement("p", "", item.reason || "Worth comparing before narrowing the search.");
+          const reason = createElement(
+            "p",
+            "",
+            item.reason || (state.locationIntent === "focus" ? "Contingency option if availability or fit inside the preferred area does not support the search." : "Worth comparing before narrowing the search.")
+          );
           card.append(title, reason);
           node.appendChild(card);
         });
       } else {
-        node.appendChild(createElement("p", "recommendation-brief-empty", "A local expert should identify the right nearby alternatives for this profile."));
+        node.appendChild(createElement(
+          "p",
+          "recommendation-brief-empty",
+          state.locationIntent === "focus"
+            ? "A local expert should first validate options inside the preferred area before suggesting nearby contingencies."
+            : "A local expert should identify the right nearby alternatives for this profile."
+        ));
       }
     };
 
@@ -699,6 +758,8 @@
         mode: state.mode,
         title: state.title,
         confidenceLabel: state.confidenceLabel,
+        locationIntent: normalizeLocationIntent(context.locationIntent, "compare"),
+        locationIntentLabel: locationIntentLabel(context.locationIntent),
         primaryLocationLabel: state.primaryLocationLabel,
         recommendedPath: state.recommendedPath || [],
         compareWith: state.compareWith || [],

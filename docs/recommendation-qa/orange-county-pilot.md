@@ -1,16 +1,16 @@
 # Orange County Recommendation QA Pilot
 
-Generated: 2026-07-10T05:15:04.219Z
+Generated: 2026-07-10T15:55:59.501Z
 
 This internal QA report validates whether Orange County Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 
 ## Summary
 
-- Scenarios reviewed: 12
-- Scenarios passing baseline advisor-readiness checks: 12
+- Scenarios reviewed: 13
+- Scenarios passing baseline advisor-readiness checks: 13
 - Scenarios needing review: 0
 - Unique primary recommendations: 9
-- Repeated primary recommendations: irvine-business-complex (2), south-coast-metro (2), anaheim-canyon (2)
+- Repeated primary recommendations: irvine-business-complex (3), south-coast-metro (2), anaheim-canyon (2)
 
 Baseline checks require a primary recommendation, at least one expected directional match, meaningful tradeoffs, validation questions, and complete explainability fields. A pass does not mean the recommendation is final; it means the brief is credible enough for advisor review.
 
@@ -179,6 +179,64 @@ Questions to validate:
 - Do you need R&D, technical office, lab-adjacent, or standard office space?
 - Is a quieter business-park setting acceptable?
 - Would Irvine Spectrum provide stronger amenities and corporate image, or would Irvine Business Complex provide better airport access?
+
+Graph weaknesses exposed:
+- No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.
+
+### Focused Irvine Business Complex Professional Office
+
+- Profile: 6,500 sqft Office in Irvine Business Complex
+- Priorities: professional services, airport access, client meetings, central Orange County, parking important
+- Expected direction: Treat Irvine Business Complex as the target geography and keep alternatives as contingency context rather than the main recommendation path.
+- Top recommendation: Irvine Business Complex (Excellent fit)
+- Secondary recommendation: Irvine Spectrum
+- Confidence: High Confidence
+- Baseline QA result: Pass
+- Explanation quality: Pass
+
+Recommended market path:
+- 1. Irvine Business Complex - Excellent fit: Excellent fit for airport-access professional services, regional offices, corporate teams, and client-facing users that value central Orange County access near John Wayne Airport and the Von Karman/MacArthur office core.
+
+Why this differs:
+- Matches expected directional nodes: irvine-business-complex
+
+Selection rationale:
+- Irvine Business Complex is recommended first because it is a excellent fit for airport-access professional services, regional offices, corporate teams, and client-facing users that value central Orange County access near John Wayne Airport and the Von Karman/MacArthur office core. It aligns with the profile priorities around professional services, airport access, and client meetings. The strongest supporting signals are John Wayne airport access, central Orange County office location, and Von Karman and MacArthur office context.
+
+Matched priorities:
+- professional services
+- airport access
+- client meetings
+- central Orange County
+
+Tradeoff summary:
+- less technology/R&D-oriented than Irvine Spectrum or University Research Park
+
+Alternative rationale:
+- Irvine Spectrum may be relevant as a comparison or contingency because More technology, R&D, and modern mixed business-district environment.
+
+Validation focus:
+- Is John Wayne Airport access important for executives, clients, or regional travel?
+- Do you need a central OC address, airport access, or Irvine technology identity?
+- Will clients visit regularly?
+- Would Irvine Spectrum, South Coast Metro, or Newport Center better fit image, commute, amenities, or customer access?
+
+Strengths surfaced:
+- John Wayne airport access
+- central Orange County office location
+- Von Karman and MacArthur office context
+- professional-service and client access
+
+Tradeoffs surfaced:
+- less technology/R&D-oriented than Irvine Spectrum or University Research Park
+- less Newport Beach executive image than Newport Center
+- less retail-amenity-oriented than South Coast Metro
+
+Questions to validate:
+- Is John Wayne Airport access important for executives, clients, or regional travel?
+- Do you need a central OC address, airport access, or Irvine technology identity?
+- Will clients visit regularly?
+- Would Irvine Spectrum, South Coast Metro, or Newport Center better fit image, commute, amenities, or customer access?
 
 Graph weaknesses exposed:
 - No blocking gap exposed by this scenario. Continue broker review for nuance and representative building depth.

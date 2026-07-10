@@ -265,6 +265,15 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(label)}</span>`;
 }
 
+function locationIntentLabel(lead) {
+  if (lead.location_intent_label) return lead.location_intent_label;
+  const intent = normalizeText(lead.location_intent || lead.locationIntent).toLowerCase();
+  if (intent === "focus") return "Focus my search here";
+  if (intent === "discover") return "Recommend the best markets";
+  if (intent === "compare") return "Compare with nearby markets";
+  return "";
+}
+
 function normalizeView(value) {
   const view = String(value || "").trim().toLowerCase();
   if (["pending", "sent", "rejected", "spam", "all"].includes(view)) return view;
@@ -319,6 +328,7 @@ function renderLeadCard(row, token) {
         ${field(lead.lead_type === "location_profile" || isLocationBrief ? "Location" : "City / market", market, { className: locationClass })}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
         ${field("Size", lead.space_needed)}
+        ${field("Location Intent", locationIntentLabel(lead))}
         ${field("Email", lead.email)}
         ${field("Phone", lead.phone || "(not provided)", { className: phoneClass })}
         ${field("Company", lead.company)}
@@ -360,6 +370,8 @@ function renderLeadCard(row, token) {
         ${field("Timing", lead.move_timing)}
         ${field("Page type", lead.page_type)}
         ${isLocationBrief ? field("Location Brief status", lead.location_brief_status) : ""}
+        ${field("Location Intent", locationIntentLabel(lead))}
+        ${field("Location intent guidance", lead.location_intent_summary)}
         ${field("Route recommendation", route.route_to)}
         ${field("Matched rule", route.route_id)}
         ${field("Route reason", route.route_reason)}

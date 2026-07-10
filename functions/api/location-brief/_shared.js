@@ -53,8 +53,28 @@ function normalizeSearchProfile(profile) {
       : [],
     spaceType: clean(value.spaceType || value.space_type, 120),
     size: clean(value.size || value.size_or_people, 120),
+    locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent),
     timestamp: clean(value.timestamp, 80),
   };
+}
+
+export function normalizeLocationIntent(value, fallback = "compare") {
+  const normalized = clean(value, 40).toLowerCase();
+  return ["focus", "compare", "discover"].includes(normalized) ? normalized : fallback;
+}
+
+export function locationIntentLabel(value) {
+  const intent = normalizeLocationIntent(value);
+  if (intent === "focus") return "Focus my search here";
+  if (intent === "discover") return "Recommend the best markets";
+  return "Compare with nearby markets";
+}
+
+export function locationIntentSummary(value) {
+  const intent = normalizeLocationIntent(value);
+  if (intent === "focus") return "Preferred geography is already defined; expert review should focus on buildings and submarkets within that area.";
+  if (intent === "discover") return "User is open to different locations; Compass should recommend strongest supported markets.";
+  return "Use selected location as an anchor and compare nearby or relevant alternatives.";
 }
 
 function normalizeMarketItem(item) {
@@ -388,6 +408,7 @@ export async function sendLocationBriefEmail(env, request, brief) {
   const location = locationSummary(brief);
   const spaceType = spaceSummary(brief);
   const size = sizeSummary(brief);
+  const intentLabel = locationIntentLabel(brief.searchProfile && brief.searchProfile.locationIntent);
   const subject = `New Rofo Location Brief - ${location} ${spaceType} Search`;
   const marketPath = marketPathLabels(brief);
   const text = [
@@ -407,6 +428,7 @@ export async function sendLocationBriefEmail(env, request, brief) {
     `Location: ${location}`,
     `Space type: ${spaceType}`,
     `Size: ${size}`,
+    `Location intent: ${intentLabel}`,
     "",
     "RECOMMENDED MARKET PATH",
     marketPath || "Expert review needed",
@@ -454,6 +476,7 @@ export async function sendLocationBriefEmail(env, request, brief) {
                     ${emailField("Location", escapeHtml(location))}
                     ${emailField("Space type", escapeHtml(spaceType))}
                     ${emailField("Size", escapeHtml(size))}
+                    ${emailField("Location intent", escapeHtml(intentLabel))}
                   </table>
                 </div>
 
