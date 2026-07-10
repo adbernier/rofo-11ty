@@ -1,12 +1,14 @@
 # Rofo Compass Expansion Roadmap
 
-This document supports the internal Rofo Compass Coverage dashboard. It is a planning guide for increasing Compass Maturity across commercial metros.
+This document supports the internal Rofo Compass Coverage dashboard. It is a planning guide for increasing Compass Maturity and editorial depth across commercial metros.
 
-A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Commercial Location Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.
+A metro is Compass Ready when Rofo Compass can consistently generate trustworthy, graph-backed recommendations and advisor-quality Location Briefs using the Commercial Location Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.
+
+Editorial Maturity, representative-building coverage, comparison depth, and district refinement are tracked separately. They improve Location Brief richness over time, but they are not Compass Ready blockers once recommendation quality is credible and QA validated.
 
 Future metro work should begin with Compass Discovery using `docs/templates/compass-discovery-template.md`. The roadmap should track what Compass knows, what it is learning, what has been validated, and what should be built next.
 
-## Completed
+## Compass Ready
 
 ### SF Bay Area
 
@@ -24,7 +26,7 @@ Current weaknesses:
 - Representative building depth can still improve in selected districts.
 - Some retail and medical-office guidance is lighter than office and industrial guidance.
 
-Next priorities:
+Future enhancements:
 
 - Add more representative building support to high-volume districts.
 - Expand medical-office and retail Knowledge Cards where tenant demand supports it.
@@ -49,7 +51,7 @@ Current weaknesses:
 - Representative building depth should continue to be reviewed for selected suburban and industrial districts.
 - Comparison pages exist for many relationships, but editorial depth should keep improving as Location Brief usage reveals demand.
 
-Next priorities:
+Future enhancements:
 
 - Strengthen representative building support using existing reliable building paths.
 - Continue expanding high-value comparison pages where graph relationships show real tenant choices.
@@ -81,34 +83,7 @@ Next priorities:
 - Improve representative building coverage in LA office and industrial districts using existing reliable building paths only.
 - Expand comparison pages where current graph relationships identify high-value tenant choices.
 
-### Orange County
-
-Compass Maturity: Enhancing
-
-Current strengths:
-
-- Orange County has a first-pass Compass Knowledge Graph with city-level routing and priority district nodes for Irvine Spectrum, Irvine Business Complex, University Research Park, South Coast Metro, Newport Center, Tustin Legacy, Anaheim Canyon, Lake Forest Business Park, Fullerton, and South OC Medical & Professional.
-- Office, executive professional services, airport-access professional office, medical, R&D, flex, industrial, warehouse, retail/service, and contractor/service-industrial paths are represented.
-- Orange County QA includes twelve realistic business profiles and passes baseline recommendation-direction and explainability checks with differentiated primary recommendations.
-- K1.1 calibration sharpened the core office differentiation: Irvine Spectrum for technology/growth/R&D image, Irvine Business Complex for airport-access professional office, University Research Park for UC Irvine/research adjacency, South Coast Metro for central OC office-retail/client-facing users, Newport Center for coastal executive/client image, and Tustin Legacy for modern Irvine-edge medical/professional use.
-- The first seed intentionally models airport access as a reason inside Irvine Business Complex and related office nodes rather than creating a shallow John Wayne Airport Area node.
-- South OC medical/professional demand is modeled through a combined Mission Viejo / Laguna Hills node to support patient/customer geography without splitting the first-pass graph too thinly.
-
-Current weaknesses:
-
-- Orange County has completed an initial broker-style editorial calibration, but should still receive final human broker validation before being marked Compass Ready.
-- Representative-building depth is uneven. Irvine, South Coast Metro, Newport Center, Anaheim Canyon, Lake Forest, and South OC Medical & Professional have stronger existing path support; Fullerton and Tustin Legacy need deeper reviewed examples.
-- Second-pass candidates such as Costa Mesa, Orange, Downtown Santa Ana, Brea, Huntington Beach, Buena Park, Garden Grove, Foothill Ranch, and Anaheim Platinum Triangle were intentionally not promoted until their recommendation impact is clearer.
-- Retail and medical-office coverage should be calibrated with actual Location Brief usage and broker feedback.
-
-Next priorities:
-
-- Improve representative-building coverage using existing reliable Rofo building paths only.
-- Run final broker validation after representative-building depth improves.
-- Decide whether Costa Mesa, Downtown Santa Ana, Brea, Huntington Beach, or Anaheim Platinum Triangle should become second-pass Knowledge Cards.
-- Continue monitoring whether city-level broad office searches route appropriately across Irvine, Newport, South Coast Metro, Tustin, and North OC rather than over-converging on Irvine.
-
-## Compass Ready
+## Compass Ready - Recent Pilots
 
 ### San Diego
 
@@ -124,18 +99,50 @@ Current strengths:
 - Explainability now surfaces profile-specific matched priorities such as life science, R&D, showroom, logistics, border access, North County, and I-15 access when those terms are supported by graph-authored knowledge.
 - The first seed intentionally consolidates overlapping labels: UTC / University City is the primary North City office node, and Sorrento Mesa is the primary innovation/R&D/flex node.
 
-Enhancement priorities:
+Current weaknesses:
 
 - Representative buildings are attached only from existing reliable Rofo building paths and should continue moving from illustrative seed coverage toward richer broker-reviewed examples.
 - Medical-office and retail/service guidance is present but should be deepened after demand and broker review confirm priority corridors.
 - Some useful page-level districts from discovery, including Little Italy / Columbia, East Village, Del Mar Heights / Carmel Valley, Chula Vista, San Marcos, and Escondido, were intentionally not included in the first Compass seed because they are second-pass recommendation refinements.
 
-Next priorities:
+Future enhancements:
 
 - Promote reviewed representative building candidates into the dedicated representative-building layer where appropriate.
 - Add second-pass Knowledge Cards only where they improve recommendations: Chula Vista medical/service, Little Italy / Columbia, East Village, Del Mar Heights / Carmel Valley, Torrey Pines / La Jolla, San Marcos, and Escondido.
 - Continue validating whether Sorrento Valley should remain supporting context or become a distinct Compass node.
 - Use real Location Brief usage to identify where San Diego needs more precise retail, medical, and representative-building depth.
+
+### Orange County
+
+Compass Maturity: Compass Ready
+
+Editorial Maturity: Developing
+
+Representative Building Coverage: Developing
+
+QA Coverage: Complete
+
+Current strengths:
+
+- Orange County has a first-pass Compass Knowledge Graph with city-level routing and priority district nodes for Irvine Spectrum, Irvine Business Complex, University Research Park, South Coast Metro, Newport Center, Tustin Legacy, Anaheim Canyon, Lake Forest Business Park, Fullerton, and South OC Medical & Professional.
+- Office, executive professional services, airport-access professional office, medical, R&D, flex, industrial, warehouse, retail/service, and contractor/service-industrial paths are represented.
+- Orange County QA includes twelve realistic business profiles and passes baseline recommendation-direction and explainability checks with differentiated primary recommendations.
+- K1.1 calibration sharpened the core office differentiation: Irvine Spectrum for technology/growth/R&D image, Irvine Business Complex for airport-access professional office, University Research Park for UC Irvine/research adjacency, South Coast Metro for central OC office-retail/client-facing users, Newport Center for coastal executive/client image, and Tustin Legacy for modern Irvine-edge medical/professional use.
+- The first seed intentionally models airport access as a reason inside Irvine Business Complex and related office nodes rather than creating a shallow John Wayne Airport Area node.
+- South OC medical/professional demand is modeled through a combined Mission Viejo / Laguna Hills node to support patient/customer geography without splitting the first-pass graph too thinly.
+
+Current weaknesses:
+
+- Representative-building depth is uneven. Irvine, South Coast Metro, Newport Center, Anaheim Canyon, Lake Forest, and South OC Medical & Professional have stronger existing path support; Fullerton and Tustin Legacy need deeper reviewed examples.
+- Second-pass candidates such as Costa Mesa, Orange, Downtown Santa Ana, Brea, Huntington Beach, Buena Park, Garden Grove, Foothill Ranch, and Anaheim Platinum Triangle were intentionally not promoted until their recommendation impact is clearer.
+- Retail and medical-office coverage should be calibrated with actual Location Brief usage and broker feedback.
+
+Future enhancements:
+
+- Improve representative-building coverage using existing reliable Rofo building paths only.
+- Evaluate Costa Mesa, Orange, Anaheim Platinum Triangle, and Foothill Ranch as second-pass Knowledge Cards only if they improve recommendations.
+- Decide whether Downtown Santa Ana, Brea, Huntington Beach, Buena Park, or Garden Grove should become later editorial refinements.
+- Continue monitoring whether city-level broad office searches route appropriately across Irvine, Newport, South Coast Metro, Tustin, and North OC rather than over-converging on Irvine.
 
 ## Planned
 

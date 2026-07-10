@@ -252,6 +252,29 @@ The coverage script also reports metros where public page coverage exists but Kn
 
 Use `docs/templates/compass-discovery-template.md` before starting a new metro. Compass Discovery should establish evidence, candidate nodes, representative buildings, comparison relationships, QA scenarios, and readiness risks before implementation begins.
 
+## Compass Operating Model
+
+Compass readiness and editorial depth are tracked separately.
+
+Compass Ready means Rofo Compass can consistently generate trustworthy, graph-backed recommendations and advisor-quality Location Briefs for realistic business profiles in that metro.
+
+Compass Ready depends on:
+
+- Commercial Location Knowledge Graph coverage
+- Recommendation Resolver compatibility
+- Explainability Layer output
+- Recommendation QA
+- Location Brief support
+
+Editorial Maturity is an independent measure of richness and polish. It considers representative buildings, comparison depth, editorial richness, and district refinement. Editorial Maturity levels are:
+
+- Developing
+- Good
+- Strong
+- Excellent
+
+Representative buildings are part of Editorial Enrichment. They illustrate commercial environments and improve Location Brief clarity, but they are not required before a metro can become Compass Ready.
+
 ## Recommendation QA
 
 Compass Ready metros should have an internal QA pass before they are treated as fully validated. QA should use realistic business profiles and run them through the same resolver that powers Location Briefs.
@@ -297,7 +320,7 @@ Each QA scenario should document:
 - explanation quality
 - graph weaknesses exposed
 
-The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, or if a plausible recommendation cannot explain why it was chosen over alternatives, the metro should remain in enhancement or review status.
+The goal is not to prove that Rofo has the perfect answer. The goal is to confirm that recommendations are differentiated, explainable, defensible, and actionable. If very different businesses receive the same market path without a clear reason, or if a plausible recommendation cannot explain why it was chosen over alternatives, the metro should remain under commercial-intelligence review.
 
 Sacramento's pilot QA fixtures live in `data/recommendation-qa/sacramento-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/sacramento-pilot.md`.
 
@@ -367,4 +390,4 @@ Orange County QA fixtures live in `data/recommendation-qa/orange-county-scenario
 - Newport Center: coastal executive image, wealth management, legal, finance, and Newport client proximity.
 - Tustin Legacy: modern Irvine-edge medical, wellness, and professional office.
 
-Orange County should remain Enhancing after Sprint K1.1. The pilot passes baseline QA and produces differentiated graph-backed paths, but Compass Ready should wait for stronger representative-building depth for Tustin Legacy and Fullerton plus final human broker validation.
+Under the Sprint L1 operating model, Orange County is Compass Ready for V1 Location Briefs because QA and broker-style editorial calibration support differentiated, graph-backed recommendations with advisor-style explainability. Its Editorial Maturity and Representative Building Coverage remain Developing. Stronger Tustin Legacy, Fullerton, and second-pass Orange County representative-building depth should continue as editorial enrichment, not a current readiness blocker.

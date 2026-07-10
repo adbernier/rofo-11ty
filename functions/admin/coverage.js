@@ -24,6 +24,9 @@ const METROS = [
     key: "bay-area",
     label: "SF Bay Area",
     status: "ready",
+    editorialStatus: "Editorial Excellent",
+    representativeBuildingCoverage: "Strong",
+    qaCoverage: "Complete",
     cities: ["San Francisco", "Palo Alto", "Redwood City", "San Mateo", "Mountain View", "Sunnyvale", "San Jose", "San Bruno", "Emeryville", "Berkeley", "Oakland", "Hayward", "Union City", "Fremont"],
     currentFocus: "Representative building depth",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
@@ -38,6 +41,9 @@ const METROS = [
     key: "los-angeles",
     label: "Los Angeles",
     status: "enhancing",
+    editorialStatus: "Editorial Good",
+    representativeBuildingCoverage: "Developing",
+    qaCoverage: "Partial",
     cities: ["Los Angeles", "Culver City", "Santa Monica", "Burbank", "Glendale", "El Segundo", "Pasadena", "Vernon", "Commerce", "City of Industry", "Carson", "Torrance", "Long Beach", "Santa Fe Springs"],
     currentFocus: "Retail + Medical",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
@@ -52,6 +58,9 @@ const METROS = [
     key: "sacramento",
     label: "Sacramento",
     status: "ready",
+    editorialStatus: "Editorial Strong",
+    representativeBuildingCoverage: "Good",
+    qaCoverage: "Complete",
     cities: ["Sacramento", "West Sacramento", "Rancho Cordova", "Folsom", "Roseville", "Rocklin", "Elk Grove"],
     currentFocus: "Representative building and comparison depth",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
@@ -66,6 +75,9 @@ const METROS = [
     key: "san-diego",
     label: "San Diego",
     status: "ready",
+    editorialStatus: "Editorial Good",
+    representativeBuildingCoverage: "Developing",
+    qaCoverage: "Complete",
     cities: ["San Diego", "Carlsbad", "Oceanside", "Vista", "San Marcos", "Escondido", "Encinitas", "Del Mar", "Poway", "Santee", "Chula Vista"],
     currentFocus: "Representative building depth + second-pass retail/medical",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
@@ -79,9 +91,12 @@ const METROS = [
   {
     key: "orange-county",
     label: "Orange County",
-    status: "enhancing",
+    status: "ready",
+    editorialStatus: "Editorial Developing",
+    representativeBuildingCoverage: "Developing",
+    qaCoverage: "Complete",
     cities: ["Orange County", "Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Laguna Hills", "Huntington Beach", "Fullerton"],
-    currentFocus: "Representative building depth + final broker validation",
+    currentFocus: "Representative building enrichment",
     geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CA/irvine/",
@@ -94,6 +109,9 @@ const METROS = [
     key: "seattle",
     label: "Seattle",
     status: "planned",
+    editorialStatus: "Editorial Developing",
+    representativeBuildingCoverage: "Not started",
+    qaCoverage: "Pending",
     cities: ["Seattle", "Bellevue", "Redmond", "Kirkland", "Tacoma", "Everett", "Kent", "Renton"],
     currentFocus: "Initial graph",
     geography: { cityPages: true, districtPages: true, comparisonPages: false },
@@ -106,6 +124,9 @@ const METROS = [
     key: "phoenix",
     label: "Phoenix",
     status: "future",
+    editorialStatus: "Editorial Developing",
+    representativeBuildingCoverage: "Not started",
+    qaCoverage: "Pending",
     cities: ["Phoenix", "Scottsdale", "Tempe", "Mesa", "Chandler", "Glendale"],
     currentFocus: "Start graph",
     geography: { cityPages: true, districtPages: false, comparisonPages: false },
@@ -118,6 +139,9 @@ const METROS = [
     key: "denver",
     label: "Denver",
     status: "future",
+    editorialStatus: "Editorial Developing",
+    representativeBuildingCoverage: "Not started",
+    qaCoverage: "Pending",
     cities: ["Denver", "Boulder", "Aurora", "Lakewood", "Centennial"],
     currentFocus: "Start graph",
     geography: { cityPages: true, districtPages: false, comparisonPages: false },
@@ -353,6 +377,10 @@ function renderMetroDetails(metro, token) {
         <section>
           <h3>Rofo Compass Stack</h3>
           <ul>
+            ${renderCheck(STATUS_LABELS[metro.status], metro.status === "ready", metro.status === "ready" ? "Recommendation and Location Brief quality validated" : "Still maturing")}
+            ${renderCheck(metro.editorialStatus || "Editorial Developing", true, "Editorial depth is tracked separately from Compass readiness")}
+            ${renderCheck(`Representative Buildings: ${metro.representativeBuildingCoverage || "Developing"}`, true)}
+            ${renderCheck(`QA Coverage: ${metro.qaCoverage || "Pending"}`, metro.recommendationQa.qaStatus === "completed", metro.recommendationQa.qaStatus === "completed" ? "Complete" : "Pending")}
             ${renderCheck("Recommendation Prompt", metro.nodes.length > 0 || metro.status === "planned")}
             ${renderCheck("Recommendation Resolver", metro.nodes.length > 0)}
             ${renderCheck("Explainability", metro.recommendationQa.qaStatus === "completed", metro.recommendationQa.qaStatus === "completed" ? "Passed" : "Pending")}
@@ -389,10 +417,11 @@ function renderMetroTable(metros, token) {
           <thead>
             <tr>
               <th>Metro</th>
-              <th>Status</th>
+              <th>Compass Status</th>
+              <th>Editorial Status</th>
               <th>Compass Maturity</th>
               <th>Graph Nodes</th>
-              <th>Current Focus</th>
+              <th>Enhancement Notes</th>
               <th>Links</th>
             </tr>
           </thead>
@@ -401,6 +430,10 @@ function renderMetroTable(metros, token) {
               <tr>
                 <td><strong>${escapeHtml(metro.label)}</strong></td>
                 <td><span class="badge ${escapeHtml(statusClass(metro.status))}">${escapeHtml(STATUS_LABELS[metro.status])}</span></td>
+                <td>
+                  <span class="badge status--enhancing">${escapeHtml(metro.editorialStatus || "Editorial Developing")}</span>
+                  <small>${escapeHtml(`Representative buildings: ${metro.representativeBuildingCoverage || "Developing"} · QA: ${metro.qaCoverage || "Pending"}`)}</small>
+                </td>
                 <td>
                   <strong>${escapeHtml(formatPercent(metro.score))}</strong>
                   ${renderProgress(metro.score)}
@@ -585,10 +618,11 @@ function renderPage({ token, metros, report }) {
     .panel { margin-top: 16px; padding: 20px; border-radius: 18px; }
     .section-heading { display: grid; gap: 6px; margin-bottom: 14px; }
     .table-wrap { overflow-x: auto; }
-    table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    table { width: 100%; min-width: 1080px; border-collapse: collapse; }
     th { color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.04em; text-align: left; text-transform: uppercase; }
     th, td { padding: 12px 10px; border-top: 1px solid #edf2f7; vertical-align: top; }
     td strong { display: block; }
+    td small { display: block; margin-top: 6px; color: var(--muted); line-height: 1.35; }
     .badge, .priority { display: inline-flex; align-items: center; width: fit-content; padding: 5px 9px; border-radius: 999px; font-size: 0.74rem; font-weight: 900; }
     .status--ready { background: #dcfce7; color: var(--green); }
     .status--enhancing { background: #dbeafe; color: #1e40af; }

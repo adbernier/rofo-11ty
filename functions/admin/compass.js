@@ -7,16 +7,16 @@ const RESOLVER_VERSION = "Compass Resolver v1";
 const EXPLAINABILITY_VERSION = "Explainability Layer v1";
 const LOCATION_BRIEF_VERSION = "Location Brief Generator v1";
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "r_and_d", "retail", "medical", "life_science"];
-const PLATFORM_VERSION = "Compass v1";
+const PLATFORM_VERSION = "Rofo Compass v1.0";
 const COMPASS_METROS = [
-  { key: "bay-area", label: "SF Bay Area", status: "ready" },
-  { key: "sacramento", label: "Sacramento", status: "ready" },
-  { key: "san-diego", label: "San Diego", status: "ready" },
-  { key: "los-angeles", label: "Los Angeles", status: "enhancing" },
-  { key: "orange-county", label: "Orange County", status: "enhancing" },
-  { key: "seattle", label: "Seattle", status: "planned" },
-  { key: "phoenix", label: "Phoenix", status: "planned" },
-  { key: "denver", label: "Denver", status: "planned" },
+  { key: "bay-area", label: "SF Bay Area", status: "ready", editorialMaturity: "Excellent", representativeBuildingCoverage: "Strong", qaCoverage: "Complete", currentEnhancementFocus: "Representative building depth" },
+  { key: "sacramento", label: "Sacramento", status: "ready", editorialMaturity: "Strong", representativeBuildingCoverage: "Good", qaCoverage: "Complete", currentEnhancementFocus: "Representative building and comparison depth" },
+  { key: "san-diego", label: "San Diego", status: "ready", editorialMaturity: "Good", representativeBuildingCoverage: "Developing", qaCoverage: "Complete", currentEnhancementFocus: "Additional representative buildings and second-pass district enrichment" },
+  { key: "orange-county", label: "Orange County", status: "ready", editorialMaturity: "Developing", representativeBuildingCoverage: "Developing", qaCoverage: "Complete", currentEnhancementFocus: "Representative building enrichment" },
+  { key: "los-angeles", label: "Los Angeles", status: "enhancing", editorialMaturity: "Good", representativeBuildingCoverage: "Developing", qaCoverage: "Partial", currentEnhancementFocus: "Retail, medical, and final QA calibration" },
+  { key: "seattle", label: "Seattle", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
+  { key: "phoenix", label: "Phoenix", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
+  { key: "denver", label: "Denver", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
 ];
 const COMPASS_LIFECYCLE = [
   "Compass Discovery",
@@ -205,6 +205,54 @@ function renderQaTable(rows) {
   `;
 }
 
+function renderOperatingModel(metros) {
+  const readyMetros = metros.filter((metro) => metro.status === "ready");
+  return `
+    <section class="panel">
+      <div class="section-heading">
+        <h2>Compass Operating Model</h2>
+        <p>Compass readiness and editorial depth now move on separate tracks. A metro can be Compass Ready while representative buildings, comparison pages, and editorial richness continue to improve.</p>
+      </div>
+      <div class="operating-grid">
+        <article>
+          <h3>Commercial Intelligence</h3>
+          <p>Discovery, editorial review, Knowledge Graph, resolver, explainability, Recommendation QA, and advisor-quality Location Brief generation.</p>
+        </article>
+        <article>
+          <h3>Editorial Enrichment</h3>
+          <p>Representative buildings, additional comparison pages, district refinement, and richer Location Brief evidence. These enhance the product but do not define readiness by themselves.</p>
+        </article>
+      </div>
+      <div class="table-wrap operating-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Metro</th>
+              <th>Compass Status</th>
+              <th>Editorial Maturity</th>
+              <th>Representative Buildings</th>
+              <th>QA Coverage</th>
+              <th>Current Enhancement Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${readyMetros.map((metro) => `
+              <tr>
+                <td><strong>${escapeHtml(metro.label)}</strong></td>
+                <td>${statusBadge("Compass Ready")}</td>
+                <td>${escapeHtml(metro.editorialMaturity)}</td>
+                <td>${escapeHtml(metro.representativeBuildingCoverage)}</td>
+                <td>${escapeHtml(metro.qaCoverage)}</td>
+                <td>${escapeHtml(metro.currentEnhancementFocus)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
 function renderPage({ token }) {
   const report = validationReport();
   const qa = qaRows();
@@ -268,6 +316,11 @@ function renderPage({ token }) {
     th, td { padding: 12px 10px; border-top: 1px solid #edf2f7; vertical-align: top; }
     .health { display: grid; gap: 8px; margin-top: 12px; color: #334155; line-height: 1.5; }
     .overview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+    .operating-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .operating-grid article { padding: 16px; border: 1px solid #edf2f7; border-radius: 14px; background: #fbfdff; }
+    .operating-grid h3 { margin-bottom: 8px; font-size: 1rem; }
+    .operating-grid p { color: var(--muted); line-height: 1.5; }
+    .operating-table table { min-width: 900px; }
     .panel--overview { margin-bottom: 16px; }
     .panel--lifecycle { overflow: hidden; }
     .lifecycle { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
@@ -277,10 +330,10 @@ function renderPage({ token }) {
     @media (max-width: 980px) {
       header { display: grid; }
       .nav { justify-content: flex-start; }
-      .metrics, .module-grid, .overview-grid, .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metrics, .module-grid, .overview-grid, .operating-grid, .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
-      .metrics, .module-grid, .overview-grid, .lifecycle { grid-template-columns: 1fr; }
+      .metrics, .module-grid, .overview-grid, .operating-grid, .lifecycle { grid-template-columns: 1fr; }
       dl div { display: grid; }
       dd { text-align: left; }
     }
@@ -332,6 +385,8 @@ function renderPage({ token }) {
     </section>
 
     ${renderLifecycle()}
+
+    ${renderOperatingModel(COMPASS_METROS)}
 
     <section class="module-grid" aria-label="Compass modules">
       ${moduleCard("Commercial Location Knowledge Graph", "Active", [

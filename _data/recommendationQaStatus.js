@@ -21,9 +21,9 @@ module.exports = {
     metro: "Orange County",
     qaStatus: "completed",
     lastQaDate: "2026-07-10",
-    validationStatus: "broker_reviewed_enhancing",
+    validationStatus: "compass_ready_editorial_developing",
     scenarioCount: 12,
     reportPath: "/docs/recommendation-qa/orange-county-pilot/",
-    notes: "Orange County pilot scenarios produce differentiated, graph-backed market paths across office, R&D, airport-access professional office, medical, executive office, warehouse/flex, contractor/service industrial, and South OC profiles. K1.1 broker-style calibration improved South Coast/Newport/IBC/Spectrum/URP differentiation; keep Enhancing pending stronger representative-building depth for Tustin Legacy and Fullerton.",
+    notes: "Orange County pilot scenarios produce differentiated, graph-backed market paths across office, R&D, airport-access professional office, medical, executive office, warehouse/flex, contractor/service industrial, and South OC profiles. Under the Compass operating model, QA and Location Brief quality support Compass Ready status while representative-building enrichment continues as an editorial workstream.",
   },
 };
