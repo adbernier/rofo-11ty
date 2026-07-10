@@ -22,6 +22,21 @@ const LEAD_INDEX_QUERIES = [
   "create index if not exists idx_leads_status_created_at on leads(status, created_at)",
   "create index if not exists idx_leads_created_status on leads(created_at, status)",
 ];
+const BROKER_PARTNER_TABLE_QUERY = `
+  create table if not exists broker_partners (
+    id text primary key,
+    name text not null,
+    email text not null,
+    phone text,
+    company text,
+    markets_json text,
+    space_types_json text,
+    status text not null default 'pending',
+    notes text,
+    created_at text not null,
+    updated_at text not null
+  )
+`;
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -53,6 +68,12 @@ function scheduleLeadDashboardIndexes(waitUntil, db) {
         console.warn("Unable to ensure lead dashboard index", error);
         return;
       }
+    }
+    try {
+      await db.prepare(BROKER_PARTNER_TABLE_QUERY).run();
+      await db.prepare("create index if not exists idx_broker_partners_status on broker_partners(status)").run();
+    } catch (error) {
+      console.warn("Unable to ensure broker partner table", error);
     }
   })());
 }
@@ -265,6 +286,136 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(label)}</span>`;
 }
 
+function parseBrokerJson(value, fallback) {
+  try {
+    return value ? JSON.parse(value) : fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function normalizeBrokerSpaceType(value) {
+  const normalized = compactLower(value).replace(/[\s-]+/g, "_");
+  if (["office", "office_space"].includes(normalized)) return "office";
+  if (["industrial", "industrial_space"].includes(normalized)) return "industrial";
+  if (["warehouse", "distribution"].includes(normalized)) return "warehouse";
+  if (["flex", "r_and_d", "r&d", "rd"].includes(normalized)) return "flex";
+  if (["retail", "restaurant", "showroom"].includes(normalized)) return "retail";
+  if (["medical", "medical_office"].includes(normalized)) return "medical";
+  if (["coworking", "co_working"].includes(normalized)) return "coworking";
+  return normalized;
+}
+
+function normalizeBrokerRow(row) {
+  return {
+    id: row.id,
+    name: row.name || "",
+    email: row.email || "",
+    phone: row.phone || "",
+    company: row.company || "",
+    markets: parseBrokerJson(row.markets_json, []),
+    spaceTypes: parseBrokerJson(row.space_types_json, []),
+    status: row.status || "pending",
+    notes: row.notes || "",
+  };
+}
+
+function formatBrokerMarket(market) {
+  return [market.state, market.county, market.city, market.district].filter(Boolean).join(" | ");
+}
+
+function leadLocationParts(lead, market) {
+  const locationText = compactLower([
+    market,
+    lead.location_display,
+    lead.location_profile_location_display,
+    lead.market,
+    lead.city,
+    lead.state,
+  ].filter(Boolean).join(" "));
+  const state = compactLower(lead.state || "");
+  const city = compactLower(lead.city || "");
+  const trailingState = normalizeText(market).match(/,\s*([A-Z]{2})\b/);
+  return {
+    text: locationText,
+    state: state || (trailingState ? trailingState[1].toLowerCase() : ""),
+    city,
+  };
+}
+
+function brokerMarketMatch(leadParts, market) {
+  const state = compactLower(market.state);
+  const county = compactLower(market.county);
+  const city = compactLower(market.city);
+  const district = compactLower(market.district);
+
+  if (district && leadParts.text.includes(district)) return "Exact market + space type match";
+  if (city && (leadParts.city === city || leadParts.text.includes(city))) return "Exact market + space type match";
+  if (county && leadParts.text.includes(county)) return "State/region match";
+  if (state && leadParts.state === state) return "State/region match";
+  if (state && leadParts.text.includes(` ${state} `)) return "State/region match";
+  return "";
+}
+
+function eligibleBrokerMatches(lead, market, brokers) {
+  const leadSpaceType = normalizeBrokerSpaceType(lead.requested_space_type || lead.space_type);
+  const leadParts = leadLocationParts(lead, market);
+  const matches = [];
+
+  for (const broker of brokers) {
+    if (broker.status !== "active") continue;
+    const brokerSpaceTypes = (broker.spaceTypes || []).map(normalizeBrokerSpaceType).filter(Boolean);
+    const spaceTypeMatch = !brokerSpaceTypes.length || !leadSpaceType || brokerSpaceTypes.includes(leadSpaceType);
+    if (!spaceTypeMatch) continue;
+
+    let matchType = "";
+    for (const brokerMarket of broker.markets || []) {
+      matchType = brokerMarketMatch(leadParts, brokerMarket);
+      if (matchType === "Exact market + space type match") break;
+    }
+
+    if (!matchType && brokerSpaceTypes.includes(leadSpaceType)) {
+      matchType = "Space type match only";
+    }
+
+    if (matchType) {
+      matches.push({ broker, matchType });
+    }
+  }
+
+  const priority = {
+    "Exact market + space type match": 0,
+    "State/region match": 1,
+    "Space type match only": 2,
+  };
+  return matches
+    .sort((a, b) => (priority[a.matchType] || 9) - (priority[b.matchType] || 9) || a.broker.name.localeCompare(b.broker.name))
+    .slice(0, 6);
+}
+
+function renderEligibleBrokers(matches, token) {
+  return `
+    <section class="message-block broker-match-block">
+      <h3>Eligible Broker Partners</h3>
+      ${matches.length ? `
+        <div class="broker-match-list">
+          ${matches.map(({ broker, matchType }) => `
+            <article class="broker-match-card">
+              <div>
+                <strong>${escapeHtml(broker.name)}</strong>
+                <span>${escapeHtml([broker.company, broker.email].filter(Boolean).join(" · "))}</span>
+              </div>
+              <em>${escapeHtml(matchType)}</em>
+              <small>${escapeHtml((broker.markets || []).map(formatBrokerMarket).filter(Boolean).slice(0, 3).join("; ") || "Market coverage not specified")}</small>
+            </article>
+          `).join("")}
+        </div>
+      ` : `<p class="muted">No active broker partner match found yet. Add coverage in <a href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>.</p>`}
+      <p class="muted broker-match-note">Informational only. No broker referral is sent from this section.</p>
+    </section>
+  `;
+}
+
 function locationIntentLabel(lead) {
   if (lead.location_intent_label) return lead.location_intent_label;
   const intent = normalizeText(lead.location_intent || lead.locationIntent).toLowerCase();
@@ -290,7 +441,7 @@ function detailsBlock(label, value) {
   `;
 }
 
-function renderLeadCard(row, token) {
+function renderLeadCard(row, token, brokerPartners = []) {
   const lead = parseJson(row.lead_json);
   const officeFinderPayload = parseJson(row.officefinder_json);
   const route = lead.route_recommendation || {};
@@ -309,6 +460,7 @@ function renderLeadCard(row, token) {
   const locationClass = adminSpam.hasBroadLocation ? "field--warning" : "";
   const riskClass = getSpamRiskClass(adminSpam.risk);
   const sourceLabel = lead.source || lead.page_type || lead.rofo_source || lead.page_url || "";
+  const eligibleBrokers = eligibleBrokerMatches(lead, market, brokerPartners);
 
   return `
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
@@ -386,6 +538,8 @@ function renderLeadCard(row, token) {
       ${spamReasons.length ? `<div class="spam-box"><strong>Spam review:</strong> Score ${escapeHtml(lead.spam_score || 0)}<ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
+
+      ${renderEligibleBrokers(eligibleBrokers, token)}
 
       <div class="lead-card__details">
         <details>
@@ -553,7 +707,7 @@ function renderLeadQualitySection(leadQuality) {
   `;
 }
 
-function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality }) {
+function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -624,6 +778,14 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     dd { margin: 4px 0 0; overflow-wrap: anywhere; }
     .message-block { margin-top: 16px; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px; background: #f8fafc; color: #172033; }
     .message-block > div { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 22px; }
+    .broker-match-block > div { white-space: normal; }
+    .broker-match-list { display: grid; gap: 10px; }
+    .broker-match-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; padding: 12px; border: 1px solid #dbe5f3; border-radius: 10px; background: #fff; }
+    .broker-match-card strong, .broker-match-card span, .broker-match-card small { display: block; }
+    .broker-match-card span, .broker-match-card small { color: var(--muted); }
+    .broker-match-card em { align-self: start; border-radius: 999px; padding: 4px 8px; background: #e0f2fe; color: #075985; font-size: 12px; font-style: normal; font-weight: 900; white-space: nowrap; }
+    .broker-match-card small { grid-column: 1 / -1; }
+    .broker-match-note { margin-top: 10px; font-size: 13px; }
     .admin-details { background: #fff; }
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
@@ -650,6 +812,8 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
       .filters, .tabs, .quality-cards, .quality-grid, .lead-grid, .lead-grid--review, .lead-grid--compact { grid-template-columns: 1fr; }
       .lead-card__header { display: grid; }
       .lead-card__status { justify-content: flex-start; }
+      .broker-match-card { grid-template-columns: 1fr; }
+      .broker-match-card em { justify-self: start; white-space: normal; }
       .lead-actions--buttons, .action-form, .button { display: grid; width: 100%; }
       .button { min-height: 52px; font-size: 16px; }
     }
@@ -667,7 +831,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     ${notice ? `<div class="notice">${escapeHtml(notice)}</div>` : ""}
     <p class="summary">Showing ${rows.length} ${escapeHtml(filters.status || filters.view)} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
     <section class="lead-list">
-      ${rows.length ? rows.map((row) => renderLeadCard(row, token)).join("") : "<p>No leads match these filters.</p>"}
+      ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners)).join("") : "<p>No leads match these filters.</p>"}
     </section>
   </main>
 </body>
@@ -741,6 +905,29 @@ async function fetchStatusCounts(env) {
     spam: sum(STATUS_VIEWS.spam),
     all: Object.values(byStatus).reduce((total, count) => total + count, 0),
   };
+}
+
+async function ensureBrokerPartnerTable(env) {
+  if (!env.LEADS_DB) return;
+  await env.LEADS_DB.prepare(BROKER_PARTNER_TABLE_QUERY).run();
+  await env.LEADS_DB.prepare("create index if not exists idx_broker_partners_status on broker_partners(status)").run();
+}
+
+async function fetchBrokerPartners(env) {
+  if (!env.LEADS_DB) return [];
+  try {
+    await ensureBrokerPartnerTable(env);
+    const result = await env.LEADS_DB.prepare(`
+      select id, name, email, phone, company, markets_json, space_types_json, status, notes
+      from broker_partners
+      where status = 'active'
+      order by company, name
+    `).all();
+    return (result.results || []).map(normalizeBrokerRow);
+  } catch (error) {
+    if (/no such table|broker_partners/i.test(String(error && error.message || ""))) return [];
+    throw error;
+  }
 }
 
 function buildEmptyQualitySummary(days, error = "") {
@@ -845,7 +1032,8 @@ export async function onRequestGet({ request, env, waitUntil }) {
     const counts = await fetchStatusCounts(env);
     const leadQuality = await fetchLeadQualityMetrics(env);
     const { rows, fetchedCount } = await fetchLeadRows(env, filters);
-    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality }));
+    const brokerPartners = await fetchBrokerPartners(env);
+    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners }));
   } catch (error) {
     return adminResponse(`<h1>Lead dashboard error</h1><p>${escapeHtml(error.message)}</p>`, 500);
   }

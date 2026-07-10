@@ -410,6 +410,11 @@ function renderAdminModules(token) {
       href: `/admin/leads?token=${encodeURIComponent(token)}`,
     },
     {
+      title: "Broker Partners",
+      purpose: "Referral partner coverage by market and space type",
+      href: `/admin/brokers?token=${encodeURIComponent(token)}`,
+    },
+    {
       title: "Search Profile Analytics",
       purpose: "Legacy/product funnel analytics",
       href: `/admin/search-profile-analytics?token=${encodeURIComponent(token)}`,
@@ -497,7 +502,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     .health--unknown { color: #92400e; }
     .notice { margin: 0 0 16px; padding: 12px 14px; border: 1px solid #fed7aa; border-radius: 12px; background: #fff7ed; color: #9a3412; font-weight: 750; }
     .empty { color: var(--muted); }
-    .admin-module-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .admin-module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
     .admin-module-card { display: grid; gap: 8px; min-height: 154px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: #fff; color: var(--ink); text-decoration: none; box-shadow: none; }
     .admin-module-card:hover { border-color: #b9c9e5; background: #f8fbff; }
     .admin-module-card--current { border-color: #bfdbfe; background: #eff6ff; }
@@ -527,6 +532,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
         <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
         <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
+        <a class="button-link" href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">View Lead Dashboard</a>
         <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
         <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
