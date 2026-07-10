@@ -1,4 +1,13 @@
 import { escapeHtml } from "../api/leads/_shared.js";
+import {
+  addDaysIso,
+  formatDate,
+  inviteStatusLabel,
+  isExpired,
+  randomToken,
+  sendBrokerInvitationEmail,
+  sha256,
+} from "../broker-invite/_shared.js";
 
 const BROKER_STATUSES = ["active", "inactive", "pending"];
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "retail", "medical", "coworking"];
@@ -76,6 +85,11 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status)}">${escapeHtml(statusLabel(status))}</span>`;
 }
 
+function inviteStatusBadge(broker) {
+  const status = displayedInviteStatus(broker);
+  return `<span class="badge badge--invite-${escapeHtml(status)}">${escapeHtml(inviteStatusLabel(status))}</span>`;
+}
+
 async function ensureBrokerTable(env) {
   if (!env.LEADS_DB) {
     throw new Error("LEADS_DB D1 binding is required for broker partner storage.");
@@ -96,7 +110,27 @@ async function ensureBrokerTable(env) {
       updated_at text not null
     )
   `).run();
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invite_status text not null default 'not_sent'");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invited_at text");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invite_sent_count integer not null default 0");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column last_invited_at text");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invite_token text");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invite_token_expires_at text");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column accepted_at text");
+  await addColumnIfMissing(env.LEADS_DB, "alter table broker_partners add column invite_last_error text");
   await env.LEADS_DB.prepare("create index if not exists idx_broker_partners_status on broker_partners(status)").run();
+  await env.LEADS_DB.prepare("create index if not exists idx_broker_partners_invite_status on broker_partners(invite_status)").run();
+  await env.LEADS_DB.prepare("create index if not exists idx_broker_partners_invite_token on broker_partners(invite_token)").run();
+}
+
+async function addColumnIfMissing(db, sql) {
+  try {
+    await db.prepare(sql).run();
+  } catch (error) {
+    if (!/duplicate column|already exists/i.test(String(error && error.message || ""))) {
+      throw error;
+    }
+  }
 }
 
 async function listBrokers(env) {
@@ -133,9 +167,23 @@ function normalizeBrokerRow(row) {
     spaceTypes: parseJson(row.space_types_json, []),
     status: normalizeStatus(row.status),
     notes: row.notes || "",
+    inviteStatus: normalizeInviteStatus(row.invite_status),
+    invitedAt: row.invited_at || "",
+    inviteSentCount: Number(row.invite_sent_count || 0),
+    lastInvitedAt: row.last_invited_at || "",
+    inviteToken: row.invite_token || "",
+    inviteTokenExpiresAt: row.invite_token_expires_at || "",
+    acceptedAt: row.accepted_at || "",
+    inviteLastError: row.invite_last_error || "",
     createdAt: row.created_at || "",
     updatedAt: row.updated_at || "",
   };
+}
+
+function normalizeInviteStatus(value) {
+  const status = normalizeText(value).toLowerCase();
+  if (["not_sent", "sent", "accepted", "declined", "expired", "send_failed"].includes(status)) return status;
+  return "not_sent";
 }
 
 async function saveBroker(env, broker) {
@@ -171,6 +219,61 @@ async function saveBroker(env, broker) {
     createdAt,
     now
   ).run();
+}
+
+function emailLooksValid(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeText(value));
+}
+
+function displayedInviteStatus(broker) {
+  if (broker.inviteStatus === "sent" && isExpired(broker.inviteTokenExpiresAt)) return "expired";
+  return broker.inviteStatus;
+}
+
+function canInviteBroker(broker) {
+  if (!emailLooksValid(broker.email)) return false;
+  if (!["pending", "inactive"].includes(broker.status)) return false;
+  return displayedInviteStatus(broker) !== "accepted";
+}
+
+async function sendInvitation(env, request, broker) {
+  const now = new Date().toISOString();
+  const rawToken = randomToken(32);
+  const tokenHash = await sha256(rawToken);
+  const expiresAt = addDaysIso(Number(env.BROKER_INVITE_EXPIRATION_DAYS || 14));
+  await env.LEADS_DB.prepare(`
+    update broker_partners
+    set invite_status = ?,
+        invite_token = ?,
+        invite_token_expires_at = ?,
+        invite_last_error = ?,
+        updated_at = ?
+    where id = ?
+  `).bind("not_sent", tokenHash, expiresAt, "", now, broker.id).run();
+
+  const emailResult = await sendBrokerInvitationEmail(env, request, { ...broker, inviteTokenExpiresAt: expiresAt }, rawToken);
+  if (!emailResult.sent) {
+    await env.LEADS_DB.prepare(`
+      update broker_partners
+      set invite_status = ?,
+          invite_last_error = ?,
+          updated_at = ?
+      where id = ?
+    `).bind("send_failed", emailResult.reason || "Invitation email failed.", new Date().toISOString(), broker.id).run();
+    return emailResult;
+  }
+
+  await env.LEADS_DB.prepare(`
+    update broker_partners
+    set invite_status = ?,
+        invited_at = coalesce(invited_at, ?),
+        invite_sent_count = coalesce(invite_sent_count, 0) + 1,
+        last_invited_at = ?,
+        invite_last_error = ?,
+        updated_at = ?
+    where id = ?
+  `).bind("sent", now, now, "", now, broker.id).run();
+  return { sent: true };
 }
 
 function brokerFromForm(formData) {
@@ -216,12 +319,26 @@ function renderBrokerList(brokers, token) {
             </div>
             <dl class="broker-grid">
               <div><dt>Phone</dt><dd>${escapeHtml(broker.phone || "Not provided")}</dd></div>
+              <div><dt>Invitation</dt><dd>${inviteStatusBadge(broker)}</dd></div>
+              <div><dt>Last invited</dt><dd>${escapeHtml(formatDate(broker.lastInvitedAt) || "Not invited")}</dd></div>
+              <div><dt>Invite expires</dt><dd>${escapeHtml(formatDate(broker.inviteTokenExpiresAt) || "No active invite")}</dd></div>
+              <div><dt>Accepted</dt><dd>${escapeHtml(formatDate(broker.acceptedAt) || "Not accepted")}</dd></div>
               <div><dt>Space Types</dt><dd class="tag-list">${renderSpaceTypeTags(broker.spaceTypes)}</dd></div>
+              <div><dt>Invite count</dt><dd>${escapeHtml(broker.inviteSentCount || 0)}</dd></div>
               <div class="broker-grid__wide"><dt>Markets Served</dt><dd class="tag-list">${renderMarketTags(broker.markets)}</dd></div>
               ${broker.notes ? `<div class="broker-grid__wide"><dt>Notes</dt><dd>${escapeHtml(broker.notes)}</dd></div>` : ""}
+              ${broker.inviteLastError ? `<div class="broker-grid__wide"><dt>Invite error</dt><dd class="error-text">${escapeHtml(broker.inviteLastError)}</dd></div>` : ""}
             </dl>
             <div class="broker-actions">
               <a class="button-link" href="/admin/brokers?token=${encodeURIComponent(token)}&edit=${encodeURIComponent(broker.id)}">Edit Broker</a>
+              ${canInviteBroker(broker) ? `
+                <form method="POST" action="/admin/brokers" onsubmit="return confirm('Send broker invitation to ${escapeHtml(broker.email)}?');">
+                  <input type="hidden" name="token" value="${escapeHtml(token)}">
+                  <input type="hidden" name="action" value="invite">
+                  <input type="hidden" name="id" value="${escapeHtml(broker.id)}">
+                  <button class="button-link button-link--primary" type="submit">${displayedInviteStatus(broker) === "not_sent" ? "Invite" : "Resend Invite"}</button>
+                </form>
+              ` : ""}
             </div>
           </article>
         `).join("") : `<p class="empty">No broker partners have been added yet.</p>`}
@@ -316,13 +433,20 @@ function renderPage({ token, brokers, broker, notice, error }) {
     .badge--active { background: #dcfce7; color: var(--green); }
     .badge--pending { background: #fef3c7; color: #92400e; }
     .badge--inactive { background: #f1f5f9; color: #64748b; }
+    .badge--invite-not_sent { background: #f1f5f9; color: #64748b; }
+    .badge--invite-sent { background: #dbeafe; color: #1e40af; }
+    .badge--invite-accepted { background: #dcfce7; color: var(--green); }
+    .badge--invite-declined, .badge--invite-expired, .badge--invite-send_failed { background: #fee2e2; color: var(--red); }
     .broker-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0 0; }
     .broker-grid__wide { grid-column: 1 / -1; }
     dt { color: var(--muted); font-size: .72rem; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
     dd { margin: 4px 0 0; overflow-wrap: anywhere; }
     .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag { display: inline-flex; border: 1px solid #dbe5f3; border-radius: 999px; padding: 5px 9px; background: #fff; color: #334155; font-size: .82rem; font-weight: 750; }
-    .broker-actions { margin-top: 14px; }
+    .broker-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+    .broker-actions form { margin: 0; }
+    .button-link--primary { background: var(--blue); border-color: var(--blue); color: #fff; cursor: pointer; }
+    .error-text { color: var(--red); font-weight: 750; }
     .notice { margin: 0 0 14px; padding: 12px 14px; border: 1px solid #bfdbfe; border-radius: 12px; background: #eff6ff; color: #1e40af; font-weight: 800; }
     .notice--error { border-color: #fecaca; background: #fff1f2; color: var(--red); }
     .muted, .empty { color: var(--muted); }
@@ -387,6 +511,27 @@ export async function onRequestPost({ request, env }) {
   const formData = await request.formData();
   const token = formData.get("token") || "";
   if (token !== configuredToken) return adminResponse("Forbidden", 403);
+
+  const action = normalizeText(formData.get("action") || "save");
+  if (action === "invite") {
+    const id = normalizeText(formData.get("id"));
+    if (!id) return adminResponse("Missing broker id", 400);
+    try {
+      await ensureBrokerTable(env);
+      const broker = await getBroker(env, id);
+      if (!broker) return adminResponse("Broker partner not found", 404);
+      if (!canInviteBroker(broker)) {
+        return adminRedirect(`/admin/brokers?${new URLSearchParams({ token, notice: "Broker is not eligible for invitation." }).toString()}`);
+      }
+      const result = await sendInvitation(env, request, broker);
+      const notice = result.sent
+        ? `Invitation sent to ${broker.email}.`
+        : `Invitation failed for ${broker.email}: ${result.reason || "unknown error"}`;
+      return adminRedirect(`/admin/brokers?${new URLSearchParams({ token, notice }).toString()}`);
+    } catch (error) {
+      return adminResponse(`<h1>Broker invitation error</h1><p>${escapeHtml(error.message)}</p>`, 500);
+    }
+  }
 
   const broker = brokerFromForm(formData);
   if (!broker.name || !broker.email) {
