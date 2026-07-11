@@ -33,6 +33,66 @@ function summaryField(label, value) {
   return `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`;
 }
 
+function renderOpportunitySummary(summary) {
+  const fields = [
+    summaryField("Preferred Market", summary.market),
+    summaryField("Space Requirement", summary.spaceType),
+    summaryField("Size Requirement", summary.size),
+    summaryField("Business", summary.businessType),
+  ].filter(Boolean).join("");
+  if (!fields) return "";
+  return `
+    <section class="section section--summary">
+      <h2>Opportunity Summary</h2>
+      <dl class="summary-grid">${fields}</dl>
+    </section>
+  `;
+}
+
+function renderCustomerNotes(summary) {
+  if (!summary.notes) return "";
+  return `
+    <section class="section section--notes">
+      <h2>Customer Notes</h2>
+      <p>${escapeHtml(summary.notes)}</p>
+    </section>
+  `;
+}
+
+function renderRecommendation(summary) {
+  if (!summary.recommendedMarketPath && !summary.briefUrl) return "";
+  return `
+    <section class="section">
+      <h2>Recommendation</h2>
+      ${summary.recommendedMarketPath ? `<p>${escapeHtml(summary.recommendedMarketPath)}</p>` : ""}
+      ${summary.briefUrl ? `<p><a href="${escapeHtml(summary.briefUrl)}" target="_blank" rel="noopener">View the Location Brief</a></p>` : ""}
+    </section>
+  `;
+}
+
+function renderPriorities(summary) {
+  if (!Array.isArray(summary.priorities) || !summary.priorities.length) return "";
+  return `
+    <section class="section">
+      <h2>Business Priorities</h2>
+      <ul>${listItems(summary.priorities)}</ul>
+    </section>
+  `;
+}
+
+function renderPointsToValidate(summary) {
+  const questions = Array.isArray(summary.questions) && summary.questions.length
+    ? summary.questions
+    : ["Market fit", "Availability", "Pricing", "Timing"];
+  return `
+    <section class="section">
+      <h2>Points to Validate</h2>
+      <p>As the local market expert, please validate:</p>
+      <ul>${listItems(questions)}</ul>
+    </section>
+  `;
+}
+
 async function markViewed(env, referral) {
   if (!["sent", "viewed"].includes(referral.status)) return referral;
   if (isExpired(referral.expiresAt)) {
@@ -82,11 +142,54 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
   const accepted = referral.status === "accepted";
   const declined = referral.status === "declined";
   const revealed = Boolean(referral.contactRevealedAt);
+  const expired = referral.status === "expired";
   const terminal = ["declined", "expired", "cancelled"].includes(referral.status);
-  const hasRecommendation = Boolean(summary.recommendedMarketPath || summary.briefUrl);
-  const hasPriorities = Array.isArray(summary.priorities) && summary.priorities.length;
-  const hasQuestions = Array.isArray(summary.questions) && summary.questions.length;
-  const hasNotes = Boolean(summary.notes);
+  const stateClass = revealed
+    ? "state-revealed"
+    : accepted
+      ? "state-accepted"
+      : declined
+        ? "state-declined"
+        : expired || referral.status === "cancelled"
+          ? "state-unavailable"
+          : "state-review";
+  const pageTitle = revealed
+    ? "Customer introduction complete"
+    : accepted
+      ? "Opportunity accepted"
+      : declined
+        ? "Opportunity passed"
+        : expired || referral.status === "cancelled"
+          ? "Opportunity no longer available"
+          : "Review the opportunity";
+  const openingCopy = revealed
+    ? "The customer's contact information is now available. Please reach out promptly and use the Location Brief as context for your conversation."
+    : accepted
+      ? "You've accepted this opportunity. Confirm the customer introduction below to reveal their contact information."
+      : declined
+        ? "You've passed on this opportunity. Rofo will look for another local expert."
+        : expired || referral.status === "cancelled"
+          ? "This opportunity is no longer available."
+          : "Review the customer's requirements, priorities, and preferred location below. If the opportunity fits your practice, accept it to continue to the customer introduction.";
+  const reviewActions = !accepted && !terminal ? `
+    <section class="section action-panel">
+      <p>Reviewing this opportunity does not commit you to accepting it.</p>
+      <form method="POST" class="cta-row">
+        <button class="button--accept" name="action" value="accept" type="submit">Accept Opportunity</button>
+        <button class="button--decline" name="action" value="decline" type="submit">Pass on Opportunity</button>
+      </form>
+    </section>
+  ` : "";
+  const revealAction = accepted && !revealed ? `
+    <section class="section action-panel">
+      <h2>Before we introduce you</h2>
+      <p>By continuing, you agree to:</p>
+      <ul>${listItems(expectations)}</ul>
+      <form method="POST" class="cta-row">
+        <button class="button--primary" name="action" value="reveal" type="submit">Reveal Customer Contact Information</button>
+      </form>
+    </section>
+  ` : "";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -107,6 +210,18 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
     p { margin:0; color:var(--muted); line-height:1.6; }
     .body { display:grid; gap:22px; padding:28px; }
     .section { display:grid; gap:10px; }
+    .state-copy { font-size:1.02rem; color:#dbeafe; max-width:760px; margin-top:12px; }
+    .section--summary { order:-2; }
+    .section--notes { order:-1; }
+    .state-review .action-panel { order:-1; }
+    .state-review .section--notes { order:0; }
+    .state-accepted .action-panel { order:-3; }
+    .state-revealed .contact-panel { order:-3; }
+    .state-revealed .action-panel { order:-2; }
+    .state-revealed .section--summary { order:0; }
+    .state-revealed .section--notes { order:1; }
+    .action-panel { border:1px solid #bbf7d0; border-radius:16px; padding:16px; background:#f0fdf4; }
+    .action-panel p { color:#14532d; }
     .summary-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
     .summary-grid div { border:1px solid var(--border); border-radius:12px; padding:12px; background:#f8fbff; }
     dt { color:var(--muted); font-size:.72rem; font-weight:900; letter-spacing:.04em; text-transform:uppercase; }
@@ -126,84 +241,40 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
 </head>
 <body>
   <main class="shell">
-    <article class="card">
+    <article class="card ${escapeHtml(stateClass)}">
       <header>
         <div class="eyebrow">Rofo partner referral</div>
-        <h1>${revealed ? "Customer introduction complete" : accepted ? "Confirm customer introduction" : declined ? "Opportunity declined" : "A business is looking for your expertise"}</h1>
+        <h1>${escapeHtml(pageTitle)}</h1>
+        <p class="state-copy">${escapeHtml(openingCopy)}</p>
       </header>
       <div class="body">
-        <section class="section">
-          <p>Based on your market coverage and commercial real estate expertise, we'd like to introduce you to a business seeking guidance with their location search.</p>
-          <p>Please review the Location Brief below and decide whether you'd like to assist this customer.</p>
-        </section>
-        ${mode === "accepted" ? `<div class="notice">You've chosen to help with this opportunity. Confirm below and we'll introduce you to the customer.</div>` : ""}
-        ${mode === "declined" ? `<div class="notice">You've passed on this opportunity. Rofo will look for another local expert.</div>` : ""}
+        ${mode === "accepted" ? `<div class="notice">Opportunity accepted. Confirm below to complete the customer introduction.</div>` : ""}
+        ${mode === "declined" ? `<div class="notice">Opportunity passed. No customer contact information was shared.</div>` : ""}
         ${terminal && !declined ? `<div class="notice notice--bad">This opportunity is ${escapeHtml(referralStatusLabel(referral.status).toLowerCase())}.</div>` : ""}
-        <section class="section">
-          <h2>Opportunity Summary</h2>
-          <dl class="summary-grid">
-            ${[
-              summaryField("Preferred Market", summary.market),
-              summaryField("Business", summary.businessType),
-              summaryField("Space Requirement", summary.spaceType),
-              summaryField("Size Requirement", summary.size),
-            ].filter(Boolean).join("")}
-          </dl>
-        </section>
-        <section class="section">
-          <h2>Why you're receiving this opportunity</h2>
-          <p>Based on your market coverage and space type expertise, Rofo believes you're well positioned to help this business.</p>
-          <p>If you choose to accept this opportunity, we'll introduce you to the customer by revealing their contact information after you confirm the introduction.</p>
-        </section>
-        ${hasRecommendation ? `
-        <section class="section">
-          <h2>Recommendation</h2>
-          ${summary.recommendedMarketPath ? `<p>${escapeHtml(summary.recommendedMarketPath)}</p>` : ""}
-          ${summary.briefUrl ? `<p><a href="${escapeHtml(summary.briefUrl)}" target="_blank" rel="noopener">View the Location Brief</a></p>` : ""}
-        </section>
+        ${renderOpportunitySummary(summary)}
+        ${renderCustomerNotes(summary)}
+        ${revealed ? `
+          ${contactBlock(lead)}
+          <section class="section action-panel">
+            <h2>Next steps</h2>
+            <ol>
+              <li>Contact the customer promptly.</li>
+              <li>Confirm requirements and timing.</li>
+              <li>Validate the preferred geography.</li>
+              <li>Keep Rofo informed of meaningful progress.</li>
+            </ol>
+          </section>
         ` : ""}
-        ${hasPriorities ? `
-        <section class="section">
-          <h2>Business Priorities</h2>
-          <ul>${listItems(summary.priorities)}</ul>
-        </section>
-        ` : ""}
-        <section class="section">
-          <h2>Points to Validate</h2>
-          <p>As the local market expert, please validate:</p>
-          <ul>${hasQuestions ? listItems(summary.questions) : listItems(["Market fit", "Availability", "Pricing", "Timing"])}</ul>
-        </section>
-        ${hasNotes ? `
-        <section class="section">
-          <h2>Customer Notes</h2>
-          <p>${escapeHtml(summary.notes)}</p>
-        </section>
-        ` : ""}
-        ${revealed ? contactBlock(lead) : `
+        ${reviewActions}
+        ${revealAction}
+        ${renderRecommendation(summary)}
+        ${renderPriorities(summary)}
+        ${renderPointsToValidate(summary)}
+        ${!revealed && !terminal ? `
           <section class="section">
             <h2>Customer Introduction</h2>
             <p>To protect the customer's privacy, we'll share their contact information after you accept this opportunity and confirm the introduction.</p>
           </section>
-        `}
-        ${accepted && !revealed ? `
-          <section class="section">
-            <h2>Before we introduce you</h2>
-            <p>By continuing, you agree to:</p>
-            <ul>${listItems(expectations)}</ul>
-          </section>
-          <form method="POST" class="cta-row">
-            <button class="button--primary" name="action" value="reveal" type="submit">Reveal Customer Contact Information</button>
-          </form>
-        ` : ""}
-        ${!accepted && !terminal ? `
-          <section class="section">
-            <p>Reviewing this opportunity does not commit you to accepting it.</p>
-            <p>If you choose to help, we'll ask you to confirm the introduction before revealing the customer's contact information.</p>
-          </section>
-          <form method="POST" class="cta-row">
-            <button class="button--accept" name="action" value="accept" type="submit">Accept Opportunity</button>
-            <button class="button--decline" name="action" value="decline" type="submit">Pass on Opportunity</button>
-          </form>
         ` : ""}
       </div>
     </article>
