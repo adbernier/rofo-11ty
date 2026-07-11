@@ -5,6 +5,13 @@ import {
   getLocationRequirementSummary,
   updateLeadStatus,
 } from "../api/leads/_shared.js";
+import {
+  createAndSendReferral,
+  ensureReferralTable,
+  formatDate as formatReferralDate,
+  listReferralsForLeads,
+  referralStatusLabel,
+} from "../broker-referral/_shared.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
@@ -72,8 +79,9 @@ function scheduleLeadDashboardIndexes(waitUntil, db) {
     try {
       await db.prepare(BROKER_PARTNER_TABLE_QUERY).run();
       await db.prepare("create index if not exists idx_broker_partners_status on broker_partners(status)").run();
+      await ensureReferralTable({ LEADS_DB: db });
     } catch (error) {
-      console.warn("Unable to ensure broker partner table", error);
+      console.warn("Unable to ensure partner referral tables", error);
     }
   })());
 }
@@ -393,7 +401,7 @@ function eligibleBrokerMatches(lead, market, brokers) {
     .slice(0, 6);
 }
 
-function renderEligibleBrokers(matches, token) {
+function renderEligibleBrokers(matches, token, leadId) {
   return `
     <section class="message-block broker-match-block">
       <h3>Eligible Broker Partners</h3>
@@ -410,8 +418,50 @@ function renderEligibleBrokers(matches, token) {
             </article>
           `).join("")}
         </div>
+        <form method="POST" action="/admin/leads" class="referral-form">
+          <input type="hidden" name="token" value="${escapeHtml(token)}">
+          <input type="hidden" name="id" value="${escapeHtml(leadId)}">
+          <input type="hidden" name="action" value="send_referral">
+          <label>
+            Assign Partner
+            <select name="broker_partner_id" required>
+              <option value="">Choose broker partner</option>
+              ${matches.map(({ broker, matchType }) => `<option value="${escapeHtml(broker.id)}">${escapeHtml(`${broker.name}${broker.company ? ` - ${broker.company}` : ""} (${matchType})`)}</option>`).join("")}
+            </select>
+          </label>
+          <button class="button button--approve" type="submit">Send Referral</button>
+        </form>
       ` : `<p class="muted">No active broker partner match found yet. Add coverage in <a href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>.</p>`}
-      <p class="muted broker-match-note">Informational only. No broker referral is sent from this section.</p>
+      <p class="muted broker-match-note">Sending a referral creates a Referral record and emails the selected broker a private referral link. Customer contact is hidden until the broker accepts and confirms contact reveal.</p>
+    </section>
+  `;
+}
+
+function renderReferralHistory(referrals) {
+  return `
+    <section class="message-block broker-match-block">
+      <h3>Referral History</h3>
+      ${referrals.length ? `
+        <div class="referral-history-list">
+          ${referrals.map((referral) => `
+            <article class="referral-history-card">
+              <div>
+                <strong>${escapeHtml(referral.id)}</strong>
+                <span>${escapeHtml([referral.brokerName, referral.brokerCompany].filter(Boolean).join(" - ") || referral.brokerEmail || "Broker partner")}</span>
+              </div>
+              <em>${escapeHtml(referralStatusLabel(referral.status))}</em>
+              <dl class="referral-history-grid">
+                ${field("Sent", formatDate(referral.sentAt))}
+                ${field("Viewed", formatDate(referral.briefViewedAt))}
+                ${field("Accepted", formatDate(referral.acceptedAt))}
+                ${field("Contact Revealed", formatDate(referral.contactRevealedAt))}
+                ${field("Expires", formatDate(referral.expiresAt))}
+                ${referral.emailDeliveryError ? field("Email error", referral.emailDeliveryError, { className: "field--warning" }) : ""}
+              </dl>
+            </article>
+          `).join("")}
+        </div>
+      ` : `<p class="muted">No referrals have been created for this lead yet.</p>`}
     </section>
   `;
 }
@@ -441,7 +491,7 @@ function detailsBlock(label, value) {
   `;
 }
 
-function renderLeadCard(row, token, brokerPartners = []) {
+function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const lead = parseJson(row.lead_json);
   const officeFinderPayload = parseJson(row.officefinder_json);
   const route = lead.route_recommendation || {};
@@ -539,7 +589,8 @@ function renderLeadCard(row, token, brokerPartners = []) {
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
-      ${renderEligibleBrokers(eligibleBrokers, token)}
+      ${renderEligibleBrokers(eligibleBrokers, token, row.id)}
+      ${renderReferralHistory(referrals)}
 
       <div class="lead-card__details">
         <details>
@@ -593,8 +644,17 @@ function renderLeadActions(row, route, token) {
     ? "Approve & Send to Both"
     : routeTo === "broker" ? "Approve & Send to Broker" : "Approve & Send to OfficeFinder";
 
+  if (isLocationBrief) {
+    return `
+      <div class="lead-actions"><span class="muted">Partner referrals are managed above. OfficeFinder routing remains available in the legacy workflow code but is not the primary Location Brief action.</span></div>
+      <div class="lead-actions lead-actions--buttons">
+        ${renderPostButton({ token, id: row.id, action: "reject", label: "Reject Lead", className: "button button--reject" })}
+        ${renderPostButton({ token, id: row.id, action: "spam", label: "Mark as Spam", className: "button button--spam" })}
+      </div>
+    `;
+  }
+
   return `
-    ${isLocationBrief ? `<div class="lead-actions"><span class="muted">Location Brief expert review request. Review the brief, then route it through the existing lead workflow.</span></div>` : ""}
     <div class="lead-actions lead-actions--buttons">
       ${renderPostButton({ token, id: row.id, action: "approve", route: "recommended", label: recommendedLabel, className: "button button--approve" })}
       ${routeTo === "both" ? renderPostButton({ token, id: row.id, action: "approve", route: "officefinder", label: "OfficeFinder Only", className: "button button--secondary" }) : ""}
@@ -707,7 +767,7 @@ function renderLeadQualitySection(leadQuality) {
   `;
 }
 
-function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners }) {
+function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -732,7 +792,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .tab--active { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(23, 63, 138, .12); }
     .tab--active strong { background: var(--blue); color: #fff; }
     label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: #34445b; }
-    input { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font: inherit; }
+    input, select { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px; font: inherit; background: #fff; }
     button, .button { border: 0; border-radius: 8px; padding: 11px 14px; background: var(--blue); color: #fff; font-weight: 800; cursor: pointer; }
     .summary { margin: 0 0 16px; color: var(--muted); }
     .notice { margin: 0 0 16px; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px; background: #eff6ff; color: #1e3a8a; font-weight: 700; }
@@ -786,6 +846,14 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .broker-match-card em { align-self: start; border-radius: 999px; padding: 4px 8px; background: #e0f2fe; color: #075985; font-size: 12px; font-style: normal; font-weight: 900; white-space: nowrap; }
     .broker-match-card small { grid-column: 1 / -1; }
     .broker-match-note { margin-top: 10px; font-size: 13px; }
+    .referral-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; margin-top: 12px; }
+    .referral-history-list { display: grid; gap: 10px; white-space: normal; }
+    .referral-history-card { display: grid; gap: 10px; padding: 12px; border: 1px solid #dbe5f3; border-radius: 10px; background: #fff; }
+    .referral-history-card > div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .referral-history-card strong, .referral-history-card span { display: block; }
+    .referral-history-card span { color: var(--muted); }
+    .referral-history-card em { justify-self: start; border-radius: 999px; padding: 4px 8px; background: #eef3f8; color: #24364d; font-size: 12px; font-style: normal; font-weight: 900; }
+    .referral-history-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px; margin: 0; }
     .admin-details { background: #fff; }
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
@@ -814,6 +882,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
       .lead-card__status { justify-content: flex-start; }
       .broker-match-card { grid-template-columns: 1fr; }
       .broker-match-card em { justify-self: start; white-space: normal; }
+      .referral-form, .referral-history-grid { grid-template-columns: 1fr; }
       .lead-actions--buttons, .action-form, .button { display: grid; width: 100%; }
       .button { min-height: 52px; font-size: 16px; }
     }
@@ -831,7 +900,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     ${notice ? `<div class="notice">${escapeHtml(notice)}</div>` : ""}
     <p class="summary">Showing ${rows.length} ${escapeHtml(filters.status || filters.view)} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
     <section class="lead-list">
-      ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners)).join("") : "<p>No leads match these filters.</p>"}
+      ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners, referralsByLead.get(row.id) || [])).join("") : "<p>No leads match these filters.</p>"}
     </section>
   </main>
 </body>
@@ -928,6 +997,13 @@ async function fetchBrokerPartners(env) {
     if (/no such table|broker_partners/i.test(String(error && error.message || ""))) return [];
     throw error;
   }
+}
+
+async function fetchReferralHistory(env, rows) {
+  if (!env.LEADS_DB) return new Map();
+  const leadIds = rows.map((row) => row.id).filter(Boolean);
+  if (!leadIds.length) return new Map();
+  return listReferralsForLeads(env, leadIds);
 }
 
 function buildEmptyQualitySummary(days, error = "") {
@@ -1033,7 +1109,8 @@ export async function onRequestGet({ request, env, waitUntil }) {
     const leadQuality = await fetchLeadQualityMetrics(env);
     const { rows, fetchedCount } = await fetchLeadRows(env, filters);
     const brokerPartners = await fetchBrokerPartners(env);
-    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners }));
+    const referralsByLead = await fetchReferralHistory(env, rows);
+    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead }));
   } catch (error) {
     return adminResponse(`<h1>Lead dashboard error</h1><p>${escapeHtml(error.message)}</p>`, 500);
   }
@@ -1061,6 +1138,25 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
+    if (action === "send_referral") {
+      const brokerPartnerId = String(formData.get("broker_partner_id") || "").trim();
+      if (!brokerPartnerId) {
+        return adminResponse("Missing broker partner id", 400);
+      }
+      const result = await createAndSendReferral(env, request, {
+        leadId: id,
+        brokerPartnerId,
+        createdBy: "admin",
+      });
+      params.set("id", id);
+      if (result.email && result.email.sent) {
+        params.set("notice", `Referral sent to ${result.broker.name || result.broker.email}.`);
+      } else {
+        params.set("notice", `Referral created but email failed: ${(result.email && result.email.reason) || "unknown error"}`);
+      }
+      return adminRedirect(`/admin/leads?${params.toString()}`);
+    }
+
     if (action === "approve") {
       const result = await approveLead(env, id, route);
       params.set("notice", result.title || "Lead action complete");

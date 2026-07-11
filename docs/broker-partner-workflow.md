@@ -172,7 +172,180 @@ The broker accepts a specific customer Location Brief referral.
 
 These are separate workflows. N1.1 implements broker invitation acceptance only.
 
-## Future N2 Referral Workflow
+## N2 Partner Referral Workflow
+
+N2 introduces Referral as a first-class platform object.
+
+A Referral connects:
+
+```text
+Location Brief
+↓
+Lead
+↓
+Broker Partner
+↓
+Referral Lifecycle
+```
+
+The Referral, not the Lead, is the operational object that moves through broker partner review.
+
+## Referral Object
+
+Referrals are stored separately from leads so a lead can eventually have multiple broker referrals.
+
+Referral fields include:
+
+- id
+- lead_id
+- broker_partner_id
+- status
+- created_at
+- sent_at
+- email_delivered_at
+- email_opened_at
+- brief_viewed_at
+- accepted_at
+- declined_at
+- expired_at
+- contact_revealed_at
+- expires_at
+- token_hash
+- created_by
+- notes
+- email_delivery_error
+
+Referral statuses:
+
+- draft
+- sent
+- viewed
+- accepted
+- declined
+- expired
+- completed
+- cancelled
+
+`completed` and `cancelled` are future-safe statuses.
+
+## Admin Referral Flow
+
+On the Lead Dashboard, Location Brief leads now show:
+
+- eligible broker partners
+- Assign Partner selector
+- Send Referral action
+- Referral History
+
+Sending a referral:
+
+- creates a Referral record
+- generates a secure referral token
+- sends the broker a referral email
+- keeps customer contact information hidden
+- records send status and email delivery errors
+
+The admin remains in control. No referral is sent automatically.
+
+## Referral Email
+
+The referral email includes:
+
+- Location Brief summary
+- market
+- business type
+- space requirements
+- recommendation summary when available
+- View Referral link
+
+The email does not reveal customer contact information.
+
+## Broker Referral Page
+
+Broker referral links use:
+
+```text
+/broker/referral/[token]
+```
+
+The broker can review:
+
+- Location Brief link
+- business requirements
+- business priorities
+- questions to validate
+- recommendation summary
+- customer notes
+
+The broker cannot see customer name, email, or phone before accepting.
+
+## Referral Acceptance And Contact Reveal
+
+The broker first chooses:
+
+- Accept Referral
+- Decline Referral
+
+Accepting records:
+
+- status = accepted
+- accepted_at
+
+After accepting, the broker sees a confirmation step:
+
+```text
+Reveal Customer Contact Information
+```
+
+Only after this confirmation does Rofo reveal:
+
+- customer name
+- email
+- phone
+
+The reveal step records:
+
+- contact_revealed_at
+
+Declining records:
+
+- status = declined
+- declined_at
+
+Declined referrals do not expose customer contact information.
+
+## Referral Audit Trail
+
+N2 tracks:
+
+- referral sent
+- referral page viewed
+- accepted
+- declined
+- contact revealed
+
+Email-open tracking is not implemented in N2. The schema includes `email_opened_at` for future provider webhook support.
+
+## Referral Token Security
+
+Referral tokens are separate from broker invitation tokens.
+
+Referral tokens are:
+
+- secure random values
+- stored as hashes
+- expiring
+- consumed when declined or when contact is revealed
+
+Customer contact information must never appear before:
+
+```text
+Accept Referral
+↓
+Reveal Customer Contact Information
+```
+
+## Future Referral Workflow Enhancements
 
 The future referral workflow should support:
 

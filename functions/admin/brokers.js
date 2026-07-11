@@ -8,6 +8,11 @@ import {
   sendBrokerInvitationEmail,
   sha256,
 } from "../broker-invite/_shared.js";
+import {
+  ensureReferralTable,
+  listReferralsForBroker,
+  referralStatusLabel,
+} from "../broker-referral/_shared.js";
 
 const BROKER_STATUSES = ["active", "inactive", "pending"];
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "retail", "medical", "coworking"];
@@ -140,6 +145,18 @@ async function listBrokers(env) {
     order by case status when 'active' then 0 when 'pending' then 1 else 2 end, company, name
   `).all();
   return (result.results || []).map(normalizeBrokerRow);
+}
+
+async function attachRecentReferrals(env, brokers) {
+  await ensureReferralTable(env);
+  const rows = [];
+  for (const broker of brokers) {
+    rows.push({
+      ...broker,
+      recentReferrals: await listReferralsForBroker(env, broker.id, 8),
+    });
+  }
+  return rows;
 }
 
 async function getBroker(env, id) {
@@ -329,6 +346,7 @@ function renderBrokerList(brokers, token) {
               ${broker.notes ? `<div class="broker-grid__wide"><dt>Notes</dt><dd>${escapeHtml(broker.notes)}</dd></div>` : ""}
               ${broker.inviteLastError ? `<div class="broker-grid__wide"><dt>Invite error</dt><dd class="error-text">${escapeHtml(broker.inviteLastError)}</dd></div>` : ""}
             </dl>
+            ${renderRecentReferrals(broker.recentReferrals || [])}
             <div class="broker-actions">
               <a class="button-link" href="/admin/brokers?token=${encodeURIComponent(token)}&edit=${encodeURIComponent(broker.id)}">Edit Broker</a>
               ${canInviteBroker(broker) ? `
@@ -343,6 +361,34 @@ function renderBrokerList(brokers, token) {
           </article>
         `).join("") : `<p class="empty">No broker partners have been added yet.</p>`}
       </div>
+    </section>
+  `;
+}
+
+function renderRecentReferrals(referrals) {
+  const counts = {
+    pending: referrals.filter((referral) => ["draft", "sent", "viewed"].includes(referral.status)).length,
+    accepted: referrals.filter((referral) => referral.status === "accepted").length,
+    declined: referrals.filter((referral) => referral.status === "declined").length,
+  };
+  return `
+    <section class="broker-referrals">
+      <div class="broker-referrals__summary">
+        <span>Pending ${escapeHtml(counts.pending)}</span>
+        <span>Accepted ${escapeHtml(counts.accepted)}</span>
+        <span>Declined ${escapeHtml(counts.declined)}</span>
+      </div>
+      ${referrals.length ? `
+        <div class="broker-referral-list">
+          ${referrals.map((referral) => `
+            <article>
+              <strong>${escapeHtml(referral.id)}</strong>
+              <span>${escapeHtml(referralStatusLabel(referral.status))}</span>
+              <small>Created ${escapeHtml(formatDate(referral.createdAt) || "unknown")}${referral.briefViewedAt ? ` · Clicked ${escapeHtml(formatDate(referral.briefViewedAt))}` : ""}${referral.acceptedAt ? ` · Accepted ${escapeHtml(formatDate(referral.acceptedAt))}` : ""}</small>
+            </article>
+          `).join("")}
+        </div>
+      ` : `<p class="muted broker-referrals__empty">No referrals have been sent to this broker yet.</p>`}
     </section>
   `;
 }
@@ -447,6 +493,14 @@ function renderPage({ token, brokers, broker, notice, error }) {
     .broker-actions form { margin: 0; }
     .button-link--primary { background: var(--blue); border-color: var(--blue); color: #fff; cursor: pointer; }
     .error-text { color: var(--red); font-weight: 750; }
+    .broker-referrals { display: grid; gap: 10px; margin-top: 14px; border-top: 1px solid #edf2f7; padding-top: 14px; }
+    .broker-referrals__summary { display: flex; flex-wrap: wrap; gap: 8px; }
+    .broker-referrals__summary span { border-radius: 999px; padding: 5px 9px; background: #eef3f8; color: #334155; font-size: .78rem; font-weight: 850; }
+    .broker-referral-list { display: grid; gap: 8px; }
+    .broker-referral-list article { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; border: 1px solid #dbe5f3; border-radius: 10px; padding: 10px; background: #fff; }
+    .broker-referral-list span { border-radius: 999px; padding: 4px 8px; background: #dbeafe; color: #1e40af; font-size: .72rem; font-weight: 900; }
+    .broker-referral-list small { grid-column: 1 / -1; color: var(--muted); }
+    .broker-referrals__empty { font-size: .9rem; }
     .notice { margin: 0 0 14px; padding: 12px 14px; border: 1px solid #bfdbfe; border-radius: 12px; background: #eff6ff; color: #1e40af; font-weight: 800; }
     .notice--error { border-color: #fecaca; background: #fff1f2; color: var(--red); }
     .muted, .empty { color: var(--muted); }
@@ -454,6 +508,8 @@ function renderPage({ token, brokers, broker, notice, error }) {
       header, .broker-card__header { display: grid; }
       .nav { justify-content: flex-start; }
       .broker-form, .broker-grid, .checkbox-grid { grid-template-columns: 1fr; }
+      .broker-referral-list article { grid-template-columns: 1fr; }
+      .broker-referral-list span { justify-self: start; }
     }
   </style>
 </head>
@@ -491,7 +547,7 @@ export async function onRequestGet({ request, env }) {
     await ensureBrokerTable(env);
     const editId = normalizeText(url.searchParams.get("edit"));
     const broker = editId ? await getBroker(env, editId) : null;
-    const brokers = await listBrokers(env);
+    const brokers = await attachRecentReferrals(env, await listBrokers(env));
     return adminResponse(renderPage({
       token,
       brokers,
