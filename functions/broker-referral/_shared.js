@@ -333,22 +333,32 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
   const lead = leadRow.lead || {};
   const summary = buildReferralSummary(lead);
   const referralUrl = `${getBaseUrl(request)}/broker/referral/${encodeURIComponent(token)}`;
-  const subject = `Rofo referral: ${summary.market || "Market review"} ${summary.spaceType || "commercial search"}`;
+  const subject = `New location opportunity: ${summary.market || "Market"} ${summary.spaceType || "Commercial"} Search`;
   const text = [
     `Hi ${broker.name || "there"},`,
     "",
-    "Rofo has a Location Brief referral for your review.",
+    `A business is looking for guidance on finding ${summary.spaceType || "commercial"} space in ${summary.market || "your market"}, and based on your market coverage we'd like to introduce this opportunity to you.`,
     "",
-    "Referral summary:",
-    `Market: ${summary.market || "Not specified"}`,
-    `Business type: ${summary.businessType || "Not specified"}`,
-    `Space type: ${summary.spaceType || "Not specified"}`,
-    `Size: ${summary.size || "Not specified"}`,
+    "The customer has already completed a detailed Location Brief describing their business requirements, priorities, and preferred location.",
+    "",
+    "Please review the brief and decide whether you'd like to assist them.",
+    "",
+    "If you accept the referral, we'll immediately reveal the customer's contact information so you can begin the conversation.",
+    "",
+    "Opportunity Summary:",
+    `Preferred Market: ${summary.market || "Not specified"}`,
+    `Business: ${summary.businessType || "Not specified"}`,
+    `Space Requirement: ${summary.spaceType || "Not specified"}`,
+    `Size Requirement: ${summary.size || "Not specified"}`,
     summary.recommendedMarketPath ? `Recommended market path: ${summary.recommendedMarketPath}` : "",
     "",
-    "Customer contact information is not included in this referral email. If you accept the referral, you will be asked to confirm partner expectations before customer contact information is revealed.",
+    "Reviewing this opportunity does not commit you to accepting it.",
     "",
-    `View Referral: ${referralUrl}`,
+    "If you decide to help, simply accept the referral and we'll immediately reveal the customer's contact information so you can reach out directly.",
+    "",
+    "Please review this opportunity as soon as practical so we can connect the customer with the right local expert.",
+    "",
+    `Review Location Brief: ${referralUrl}`,
   ].filter((line) => line !== "").join("\n");
   const html = `<!doctype html>
 <html>
@@ -358,17 +368,20 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:640px;background:#ffffff;border-radius:16px;overflow:hidden;">
           <tr><td style="padding:24px;background:#123f8c;color:#ffffff;">
             <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo partner referral</div>
-            <h1 style="margin:8px 0 0;font-size:26px;line-height:32px;">Review a Location Brief referral</h1>
+            <h1 style="margin:8px 0 0;font-size:26px;line-height:32px;">A business is looking for your expertise</h1>
           </td></tr>
           <tr><td style="padding:24px;">
             <p style="margin:0 0 14px;font-size:15px;line-height:23px;">Hi ${escapeHtml(broker.name || "there")},</p>
-            <p style="margin:0 0 18px;font-size:15px;line-height:23px;">Rofo has a Location Brief referral for your review.</p>
+            <p style="margin:0 0 14px;font-size:15px;line-height:23px;">A business is looking for guidance on finding ${escapeHtml(summary.spaceType || "commercial")} space in ${escapeHtml(summary.market || "your market")}, and based on your market coverage we'd like to introduce this opportunity to you.</p>
+            <p style="margin:0 0 14px;font-size:15px;line-height:23px;">The customer has already completed a detailed Location Brief describing their business requirements, priorities, and preferred location.</p>
+            <p style="margin:0 0 18px;font-size:15px;line-height:23px;">Please review the brief and decide whether you'd like to assist them. If you accept the referral, we'll immediately reveal the customer's contact information so you can begin the conversation.</p>
+            <h2 style="margin:20px 0 10px;font-size:16px;line-height:22px;">Opportunity Summary</h2>
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin:0 0 18px;">
               ${[
-                ["Market", summary.market],
-                ["Business type", summary.businessType],
-                ["Space type", summary.spaceType],
-                ["Size", summary.size],
+                ["Preferred Market", summary.market],
+                ["Business", summary.businessType],
+                ["Space Requirement", summary.spaceType],
+                ["Size Requirement", summary.size],
                 ["Recommended market path", summary.recommendedMarketPath],
               ].filter(([, value]) => value).map(([label, value]) => `
                 <tr>
@@ -377,8 +390,9 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
                 </tr>
               `).join("")}
             </table>
-            <p style="margin:0 0 18px;color:#64748b;font-size:13px;line-height:20px;">Customer contact information is hidden until you accept the referral and confirm partner expectations.</p>
-            <p style="margin:24px 0;"><a href="${escapeHtml(referralUrl)}" style="display:inline-block;background:#123f8c;color:#ffffff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:700;">View Referral</a></p>
+            <p style="margin:0 0 14px;color:#64748b;font-size:13px;line-height:20px;">Reviewing this opportunity does not commit you to accepting it. If you decide to help, simply accept the referral and we'll immediately reveal the customer's contact information so you can reach out directly.</p>
+            <p style="margin:0 0 18px;color:#334155;font-size:14px;line-height:21px;">Please review this opportunity as soon as practical so we can connect the customer with the right local expert.</p>
+            <p style="margin:24px 0;"><a href="${escapeHtml(referralUrl)}" style="display:inline-block;background:#123f8c;color:#ffffff;text-decoration:none;border-radius:10px;padding:12px 18px;font-weight:700;">Review Location Brief</a></p>
           </td></tr>
         </table>
       </td></tr>

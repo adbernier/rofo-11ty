@@ -2,7 +2,6 @@ import { escapeHtml } from "../../api/leads/_shared.js";
 import {
   buildReferralSummary,
   ensureReferralTable,
-  formatDate,
   getReferralBundleByToken,
   isExpired,
   referralStatusLabel,
@@ -27,6 +26,11 @@ function listItems(items, empty = "Not provided") {
   const list = Array.isArray(items) ? items.filter(Boolean) : [];
   if (!list.length) return `<li>${escapeHtml(empty)}</li>`;
   return list.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+}
+
+function summaryField(label, value) {
+  if (!value) return "";
+  return `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`;
 }
 
 async function markViewed(env, referral) {
@@ -79,6 +83,10 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
   const declined = referral.status === "declined";
   const revealed = Boolean(referral.contactRevealedAt);
   const terminal = ["declined", "expired", "cancelled"].includes(referral.status);
+  const hasRecommendation = Boolean(summary.recommendedMarketPath || summary.briefUrl);
+  const hasPriorities = Array.isArray(summary.priorities) && summary.priorities.length;
+  const hasQuestions = Array.isArray(summary.questions) && summary.questions.length;
+  const hasNotes = Boolean(summary.notes);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -121,51 +129,65 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
     <article class="card">
       <header>
         <div class="eyebrow">Rofo partner referral</div>
-        <h1>${revealed ? "Customer contact revealed" : accepted ? "Confirm contact reveal" : declined ? "Referral declined" : "Review this Location Brief referral"}</h1>
+        <h1>${revealed ? "Customer introduction complete" : accepted ? "Confirm customer introduction" : declined ? "Opportunity declined" : "A business is looking for your expertise"}</h1>
       </header>
       <div class="body">
-        ${mode === "accepted" ? `<div class="notice">You accepted this referral. Confirm below to reveal customer contact information.</div>` : ""}
-        ${mode === "declined" ? `<div class="notice">You declined this referral. Rofo will return it to the admin queue.</div>` : ""}
-        ${terminal && !declined ? `<div class="notice notice--bad">This referral is ${escapeHtml(referralStatusLabel(referral.status).toLowerCase())}.</div>` : ""}
         <section class="section">
-          <h2>Referral</h2>
+          <p>Based on your market coverage and commercial real estate expertise, we'd like to introduce you to a business seeking guidance with their location search.</p>
+          <p>Please review the Location Brief below and decide whether you'd like to assist this customer.</p>
+        </section>
+        ${mode === "accepted" ? `<div class="notice">You've chosen to help with this opportunity. Confirm below and we'll introduce you to the customer.</div>` : ""}
+        ${mode === "declined" ? `<div class="notice">You've passed on this opportunity. Rofo will look for another local expert.</div>` : ""}
+        ${terminal && !declined ? `<div class="notice notice--bad">This opportunity is ${escapeHtml(referralStatusLabel(referral.status).toLowerCase())}.</div>` : ""}
+        <section class="section">
+          <h2>Opportunity Summary</h2>
           <dl class="summary-grid">
-            <div><dt>Referral ID</dt><dd>${escapeHtml(referral.id)}</dd></div>
-            <div><dt>Status</dt><dd>${escapeHtml(referralStatusLabel(referral.status))}</dd></div>
-            <div><dt>Broker</dt><dd>${escapeHtml([broker && broker.name, broker && broker.company].filter(Boolean).join(" · ") || referral.brokerName || "Broker partner")}</dd></div>
-            <div><dt>Expires</dt><dd>${escapeHtml(formatDate(referral.expiresAt) || "Not set")}</dd></div>
+            ${[
+              summaryField("Preferred Market", summary.market),
+              summaryField("Business", summary.businessType),
+              summaryField("Space Requirement", summary.spaceType),
+              summaryField("Size Requirement", summary.size),
+            ].filter(Boolean).join("")}
           </dl>
         </section>
         <section class="section">
-          <h2>Business Requirements</h2>
-          <dl class="summary-grid">
-            <div><dt>Market</dt><dd>${escapeHtml(summary.market || "Not specified")}</dd></div>
-            <div><dt>Business type</dt><dd>${escapeHtml(summary.businessType || "Not specified")}</dd></div>
-            <div><dt>Space type</dt><dd>${escapeHtml(summary.spaceType || "Not specified")}</dd></div>
-            <div><dt>Size</dt><dd>${escapeHtml(summary.size || "Not specified")}</dd></div>
-          </dl>
+          <h2>Why you're receiving this opportunity</h2>
+          <p>Based on your market coverage and space type expertise, Rofo believes you're well positioned to help this business.</p>
+          <p>If you choose to accept this opportunity, we'll introduce you to the customer by revealing their contact information after you confirm the introduction.</p>
         </section>
+        ${hasRecommendation ? `
         <section class="section">
           <h2>Recommendation</h2>
-          <p>${summary.recommendedMarketPath ? escapeHtml(summary.recommendedMarketPath) : "No recommended market path was recorded for this referral."}</p>
+          ${summary.recommendedMarketPath ? `<p>${escapeHtml(summary.recommendedMarketPath)}</p>` : ""}
           ${summary.briefUrl ? `<p><a href="${escapeHtml(summary.briefUrl)}" target="_blank" rel="noopener">View the Location Brief</a></p>` : ""}
         </section>
+        ` : ""}
+        ${hasPriorities ? `
         <section class="section">
           <h2>Business Priorities</h2>
           <ul>${listItems(summary.priorities)}</ul>
         </section>
+        ` : ""}
         <section class="section">
-          <h2>Questions To Validate</h2>
-          <ul>${listItems(summary.questions, "A local expert should validate market fit, availability, pricing, and timing.")}</ul>
+          <h2>Points to Validate</h2>
+          <p>As the local market expert, please validate:</p>
+          <ul>${hasQuestions ? listItems(summary.questions) : listItems(["Market fit", "Availability", "Pricing", "Timing"])}</ul>
         </section>
+        ${hasNotes ? `
         <section class="section">
           <h2>Customer Notes</h2>
-          <p>${summary.notes ? escapeHtml(summary.notes) : "No additional notes were recorded."}</p>
+          <p>${escapeHtml(summary.notes)}</p>
         </section>
-        ${revealed ? contactBlock(lead) : `<p class="muted">Customer contact information is hidden until you accept this referral and confirm contact reveal.</p>`}
+        ` : ""}
+        ${revealed ? contactBlock(lead) : `
+          <section class="section">
+            <h2>Customer Introduction</h2>
+            <p>To protect the customer's privacy, we'll share their contact information after you accept this opportunity and confirm the introduction.</p>
+          </section>
+        `}
         ${accepted && !revealed ? `
           <section class="section">
-            <h2>Before revealing contact information</h2>
+            <h2>Before we introduce you</h2>
             <p>By continuing, you agree to:</p>
             <ul>${listItems(expectations)}</ul>
           </section>
@@ -174,9 +196,13 @@ function renderPage({ referral, leadRow, broker, env, mode = "" }) {
           </form>
         ` : ""}
         ${!accepted && !terminal ? `
+          <section class="section">
+            <p>Reviewing this opportunity does not commit you to accepting it.</p>
+            <p>If you choose to help, we'll ask you to confirm the introduction before revealing the customer's contact information.</p>
+          </section>
           <form method="POST" class="cta-row">
-            <button class="button--accept" name="action" value="accept" type="submit">Accept Referral</button>
-            <button class="button--decline" name="action" value="decline" type="submit">Decline Referral</button>
+            <button class="button--accept" name="action" value="accept" type="submit">Accept Opportunity</button>
+            <button class="button--decline" name="action" value="decline" type="submit">Pass on Opportunity</button>
           </form>
         ` : ""}
       </div>
