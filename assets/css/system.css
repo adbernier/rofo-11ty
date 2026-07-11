@@ -3258,6 +3258,18 @@ section.market-page--space-type .market-links a {
   color: #14532d;
 }
 
+.recommendations-button--sent,
+.recommendations-button--sent:disabled {
+  background: #14532d;
+  color: #fff;
+  cursor: default;
+  opacity: 1;
+}
+
+.recommendations-button--sent::after {
+  content: " ✓";
+}
+
 .location-brief-copy-link {
   padding: 0;
   border: 0;

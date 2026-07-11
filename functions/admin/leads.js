@@ -294,6 +294,36 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(label)}</span>`;
 }
 
+function operatorReferralStatusLabel(referral) {
+  const status = String(referral && referral.status || "").toLowerCase();
+  if (status === "sent") return "Awaiting broker review";
+  if (status === "viewed") return "Broker viewed the opportunity";
+  if (status === "accepted" && referral.contactRevealedAt) return "Customer contact revealed";
+  if (status === "accepted") return "Broker accepted the opportunity";
+  if (status === "declined") return "Broker passed on the opportunity";
+  if (status === "expired") return "Referral expired";
+  if (status === "cancelled") return "Referral cancelled";
+  if (status === "completed") return "Completed";
+  if (status === "draft" && referral.emailDeliveryError) return "Email send failed";
+  if (status === "draft") return "Draft";
+  return referralStatusLabel(status);
+}
+
+function isActiveReferral(referral) {
+  const status = String(referral && referral.status || "").toLowerCase();
+  return ["sent", "viewed", "accepted", "completed"].includes(status);
+}
+
+function getActiveReferral(referrals) {
+  return (referrals || []).find(isActiveReferral) || null;
+}
+
+function referralBrokerLabel(referral) {
+  return [referral && referral.brokerName, referral && referral.brokerCompany].filter(Boolean).join(" - ")
+    || referral && referral.brokerEmail
+    || "Broker partner";
+}
+
 function parseBrokerJson(value, fallback) {
   try {
     return value ? JSON.parse(value) : fallback;
@@ -401,7 +431,30 @@ function eligibleBrokerMatches(lead, market, brokers) {
     .slice(0, 6);
 }
 
-function renderEligibleBrokers(matches, token, leadId) {
+function renderActiveReferralStatus(referral) {
+  if (!referral) return "";
+  return `
+    <section class="message-block referral-sent-block">
+      <div class="referral-sent-block__header">
+        <div>
+          <h3>Referral sent</h3>
+          <p>${escapeHtml(referralBrokerLabel(referral))}</p>
+        </div>
+        <span>${escapeHtml(operatorReferralStatusLabel(referral))}</span>
+      </div>
+      <dl class="referral-sent-grid">
+        ${field("Sent", formatDate(referral.sentAt))}
+        ${field("Viewed", formatDate(referral.briefViewedAt))}
+        ${field("Accepted", formatDate(referral.acceptedAt))}
+        ${field("Contact revealed", formatDate(referral.contactRevealedAt))}
+      </dl>
+      <p class="muted broker-match-note">Referral controls are hidden while this broker opportunity is active. Use Referral History to review status.</p>
+    </section>
+  `;
+}
+
+function renderEligibleBrokers(matches, token, leadId, activeReferral = null) {
+  if (activeReferral) return renderActiveReferralStatus(activeReferral);
   return `
     <section class="message-block broker-match-block">
       <h3>Eligible Broker Partners</h3>
@@ -447,9 +500,9 @@ function renderReferralHistory(referrals) {
             <article class="referral-history-card">
               <div>
                 <strong>${escapeHtml(referral.id)}</strong>
-                <span>${escapeHtml([referral.brokerName, referral.brokerCompany].filter(Boolean).join(" - ") || referral.brokerEmail || "Broker partner")}</span>
+                <span>${escapeHtml(referralBrokerLabel(referral))}</span>
               </div>
-              <em>${escapeHtml(referralStatusLabel(referral.status))}</em>
+              <em>${escapeHtml(operatorReferralStatusLabel(referral))}</em>
               <dl class="referral-history-grid">
                 ${field("Sent", formatDate(referral.sentAt))}
                 ${field("Viewed", formatDate(referral.briefViewedAt))}
@@ -511,6 +564,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const riskClass = getSpamRiskClass(adminSpam.risk);
   const sourceLabel = lead.source || lead.page_type || lead.rofo_source || lead.page_url || "";
   const eligibleBrokers = eligibleBrokerMatches(lead, market, brokerPartners);
+  const activeReferral = getActiveReferral(referrals);
 
   return `
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
@@ -589,7 +643,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
-      ${renderEligibleBrokers(eligibleBrokers, token, row.id)}
+      ${renderEligibleBrokers(eligibleBrokers, token, row.id, activeReferral)}
       ${renderReferralHistory(referrals)}
 
       <div class="lead-card__details">
@@ -613,7 +667,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         ${detailsBlock("Lead JSON", lead)}
       </div>
 
-      ${renderLeadActions(row, route, token)}
+      ${renderLeadActions(row, route, token, activeReferral)}
     </article>
   `;
 }
@@ -630,9 +684,13 @@ function renderPostButton({ token, id, action, route = "", label, className = ""
   `;
 }
 
-function renderLeadActions(row, route, token) {
+function renderLeadActions(row, route, token, activeReferral = null) {
   const lead = parseJson(row.lead_json);
   const isLocationBrief = lead.lead_type === "location_brief" || lead.source === "location_brief";
+
+  if (activeReferral) {
+    return `<div class="lead-actions"><span class="muted">Lead-level reject and spam actions are hidden because an active broker referral is ${escapeHtml(operatorReferralStatusLabel(activeReferral).toLowerCase())}.</span></div>`;
+  }
 
   if (!ACTIONABLE_STATUSES.includes(row.status)) {
     return `<div class="lead-actions"><span class="muted">No dashboard actions available for ${escapeHtml(row.status)} leads.</span></div>`;
@@ -854,6 +912,12 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .referral-history-card span { color: var(--muted); }
     .referral-history-card em { justify-self: start; border-radius: 999px; padding: 4px 8px; background: #eef3f8; color: #24364d; font-size: 12px; font-style: normal; font-weight: 900; }
     .referral-history-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px; margin: 0; }
+    .referral-sent-block { border-color: #bbf7d0; background: #f0fdf4; }
+    .referral-sent-block__header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; white-space: normal; }
+    .referral-sent-block__header h3 { margin: 0 0 4px; color: #14532d; }
+    .referral-sent-block__header p { color: #166534; font-weight: 800; }
+    .referral-sent-block__header span { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #dcfce7; color: #14532d; font-size: 12px; font-weight: 900; }
+    .referral-sent-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 12px; margin: 12px 0 0; }
     .admin-details { background: #fff; }
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
@@ -882,7 +946,8 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
       .lead-card__status { justify-content: flex-start; }
       .broker-match-card { grid-template-columns: 1fr; }
       .broker-match-card em { justify-self: start; white-space: normal; }
-      .referral-form, .referral-history-grid { grid-template-columns: 1fr; }
+      .referral-form, .referral-history-grid, .referral-sent-grid { grid-template-columns: 1fr; }
+      .referral-sent-block__header { display: grid; }
       .lead-actions--buttons, .action-form, .button { display: grid; width: 100%; }
       .button { min-height: 52px; font-size: 16px; }
     }

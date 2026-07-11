@@ -472,8 +472,10 @@
   function renderLocationBriefSuccess(status, result) {
     if (!status) return;
     status.textContent = "";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
     status.classList.add("location-brief-contact-status--success");
-    status.appendChild(createElement("strong", "", "Location Brief created"));
+    status.appendChild(createElement("strong", "", "Your Location Brief has been sent."));
     if (result.publicId) {
       status.appendChild(createElement("span", "", `Brief ID: ${result.publicId}`));
     }
@@ -952,14 +954,23 @@
           };
           persistBriefState();
           renderLocationBriefSuccess(status, result);
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sent";
+            submitButton.classList.add("recommendations-button--sent");
+            submitButton.setAttribute("aria-label", "Location Brief sent");
+          }
         } catch (error) {
           status.textContent = "We could not create the permanent brief automatically. Please try again, or contact Rofo if the problem continues.";
           status.classList.remove("location-brief-contact-status--success");
           if (window.console && typeof window.console.warn === "function") {
             console.warn("Location Brief submission failed", error);
           }
-        } finally {
           if (submitButton) submitButton.disabled = false;
+        } finally {
+          if (submitButton && !submitButton.classList.contains("recommendations-button--sent")) {
+            submitButton.disabled = false;
+          }
         }
       }
     });
