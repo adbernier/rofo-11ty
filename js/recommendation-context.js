@@ -518,6 +518,7 @@
     const primary = state.primaryRecommendation;
     if (!primary) return;
     const descriptor = locationDescriptor(primary);
+    const locationIntent = normalizeLocationIntent(state.locationIntent, "compare");
     const matchedPriorities = primary.matchedPriorities && primary.matchedPriorities.length
       ? primary.matchedPriorities
       : primary.strengths || [];
@@ -890,8 +891,35 @@
   function initializeContactForm() {
     const form = document.querySelector("[data-location-brief-contact]");
     if (!form) return;
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "/api/location-brief/submit");
     const status = document.querySelector("[data-location-brief-contact-status]");
     const submitButton = form.querySelector('button[type="submit"]');
+    if (!currentBriefState) {
+      currentBriefState = {
+        searchProfile: normalizeContext({}) || {
+          locations: [],
+          spaceType: "",
+          size: "",
+          locationIntent: "compare",
+          timestamp: "",
+        },
+        marketPath: {
+          mode: "expert_guided",
+          title: "Expert Guided Location Brief",
+          confidenceLabel: "Expert Guided",
+          primaryLocationLabel: "",
+          recommendedPath: [],
+          compareWith: [],
+          questionsToValidate: [],
+        },
+        feedback: "",
+        priorities: [],
+        notes: "",
+        contact: {},
+        timestamp: new Date().toISOString(),
+      };
+    }
     const contact = currentBriefState.contact || {};
     ["name", "email", "company", "phone"].forEach((field) => {
       const input = form.querySelector(`[name="${field}"]`);
@@ -925,8 +953,11 @@
           persistBriefState();
           renderLocationBriefSuccess(status, result);
         } catch (error) {
-          const href = fallbackEmailHref(payload);
-          status.innerHTML = `We could not create the permanent brief automatically. <a href="${href}">Send by email</a>`;
+          status.textContent = "We could not create the permanent brief automatically. Please try again, or contact Rofo if the problem continues.";
+          status.classList.remove("location-brief-contact-status--success");
+          if (window.console && typeof window.console.warn === "function") {
+            console.warn("Location Brief submission failed", error);
+          }
         } finally {
           if (submitButton) submitButton.disabled = false;
         }
