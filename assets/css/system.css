@@ -9191,6 +9191,9 @@ section.market-page--space-type .market-links a {
 
 .rofo-insight-link-grid a {
   display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
   align-items: center;
   min-height: 48px;
   padding: 12px 14px;
@@ -9202,9 +9205,24 @@ section.market-page--space-type .market-links a {
   text-decoration: none;
 }
 
+.rofo-insight-link-grid a span {
+  color: #0f172a;
+}
+
+.rofo-insight-link-grid a em {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
 .rofo-insight-link-grid a:hover {
   border-color: rgba(37, 99, 235, 0.34);
   background: #eff6ff;
+}
+
+.rofo-insight-link-grid--buildings a {
+  align-items: flex-start;
 }
 
 .rofo-related-insight-grid {
@@ -9263,6 +9281,95 @@ section.market-page--space-type .market-links a {
 .rofo-insight-hub-groups {
   display: grid;
   gap: 18px;
+  margin-top: 18px;
+}
+
+.rofo-insight-hub-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.rofo-insight-hub-feature h2 {
+  max-width: 760px;
+}
+
+.rofo-insight-hub-feature p {
+  max-width: 720px;
+}
+
+.rofo-insight-hub-feature__meta {
+  display: grid;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.rofo-insight-hub-feature__meta span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.rofo-insight-hub-section__header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.rofo-insight-hub-section__header h2 {
+  margin: 0;
+}
+
+.rofo-insight-hub-section__header p {
+  max-width: 700px;
+}
+
+.rofo-insight-hub-browse__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.rofo-insight-hub-browse h3 {
+  margin: 0 0 10px;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.rofo-insight-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rofo-insight-chip-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #1d4ed8;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.rofo-insight-chip-list a:hover {
+  border-color: rgba(37, 99, 235, 0.34);
+  background: #eff6ff;
 }
 
 .rofo-insight-hub-section h2 {
@@ -9330,6 +9437,37 @@ section.market-page--space-type .market-links a {
   flex: 0 0 auto;
 }
 
+.rofo-insight-continue {
+  border-color: rgba(37, 99, 235, 0.18);
+  background: #f8fbff;
+}
+
+.rofo-insight-continue__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.rofo-insight-continue__grid a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1d4ed8;
+  font-weight: 850;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.rofo-insight-continue__grid a:hover {
+  border-color: rgba(37, 99, 235, 0.36);
+  background: #eff6ff;
+}
+
 @media (max-width: 720px) {
   .rofo-insight-page {
     padding: 24px 14px 48px;
@@ -9352,6 +9490,11 @@ section.market-page--space-type .market-links a {
 
   .rofo-insight-cta {
     display: block;
+  }
+
+  .rofo-insight-hub-feature,
+  .rofo-insight-hub-browse__grid {
+    grid-template-columns: 1fr;
   }
 
   .rofo-insight-cta .btn-primary {

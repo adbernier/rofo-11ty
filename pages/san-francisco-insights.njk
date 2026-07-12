@@ -22,6 +22,22 @@ eleventyComputed:
   "Commercial Strategy",
   "Compass Frameworks"
 ] %}
+{% set featuredInsights = [] %}
+{% set newestInsights = sanFranciscoInsights.slice(-6) %}
+{% set browseDistricts = ["SoMa", "Mission Bay", "Financial District", "Jackson Square", "South Beach", "Union Square"] %}
+{% set browseComparisons = [
+  { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+  { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+  { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+  { label: "Mission Bay vs Financial District", url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/" }
+] %}
+{% set browseIndustries = ["AI", "Technology", "Finance", "Professional Services", "Creative", "Life Science"] %}
+{% for insight in sanFranciscoInsights %}
+  {% if insight.cityHubFeatured %}
+    {% set featuredInsights = (featuredInsights.push(insight), featuredInsights) %}
+  {% endif %}
+{% endfor %}
+{% set featuredHubInsight = featuredInsights[0] or sanFranciscoInsights[0] %}
 
 <main class="rofo-insight-page rofo-insight-hub-page">
   <div class="rofo-insight-shell rofo-insight-shell--wide">
@@ -46,6 +62,95 @@ eleventyComputed:
       </div>
     </header>
 
+    {% if featuredHubInsight %}
+      <section class="rofo-insight-section rofo-insight-hub-feature">
+        <div class="rofo-insight-hub-feature__copy">
+          <div class="rofo-insight-eyebrow">Featured Insight</div>
+          <h2>{{ featuredHubInsight.title }}</h2>
+          <p>{{ featuredHubInsight.heroSummary or featuredHubInsight.summary }}</p>
+          <a class="building-link" href="/insights/{{ featuredHubInsight.slug }}/">Read Insight &rarr;</a>
+        </div>
+        <div class="rofo-insight-hub-feature__meta">
+          <span>{{ featuredHubInsight.readingTime or "3 minute read" }}</span>
+          {% if featuredHubInsight.category %}<span>{{ featuredHubInsight.category }}</span>{% endif %}
+          {% if featuredHubInsight.primaryDistrict %}<span>{{ featuredHubInsight.primaryDistrict }}</span>{% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="rofo-insight-section rofo-insight-hub-section">
+      <div class="rofo-insight-hub-section__header">
+        <h2>Newest Insights</h2>
+        <p>Recent commercial observations from Rofo's San Francisco knowledge center.</p>
+      </div>
+      <div class="rofo-insight-hub-grid">
+        {% for insight in newestInsights %}
+          <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
+            <span>{{ insight.readingTime or "3 minute read" }}</span>
+            <strong>{{ insight.title }}</strong>
+            <em>{{ insight.summary }}</em>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="rofo-insight-section rofo-insight-hub-section">
+      <div class="rofo-insight-hub-section__header">
+        <h2>Most Popular Insights</h2>
+        <p>Popularity metrics are not enabled yet. These editor-selected Insights are ready for future engagement data.</p>
+      </div>
+      <div class="rofo-insight-hub-grid">
+        {% for insight in featuredInsights.slice(0, 4) %}
+          <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
+            <span>{{ insight.readingTime or "3 minute read" }}</span>
+            <strong>{{ insight.title }}</strong>
+            <em>{{ insight.summary }}</em>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="rofo-insight-section rofo-insight-hub-browse">
+      <div class="rofo-insight-hub-section__header">
+        <h2>Browse San Francisco Knowledge</h2>
+        <p>Explore by commercial question, district, comparison, or industry context.</p>
+      </div>
+      <div class="rofo-insight-hub-browse__grid">
+        <div>
+          <h3>Browse by Category</h3>
+          <div class="rofo-insight-chip-list">
+            {% for category in insightCategories %}
+              <a href="#{{ category | slugify }}">{{ category }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+          <h3>Browse by District</h3>
+          <div class="rofo-insight-chip-list">
+            {% for district in browseDistricts %}
+              <a href="#district-{{ district | slugify }}">{{ district }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+          <h3>Browse by Comparison</h3>
+          <div class="rofo-insight-chip-list">
+            {% for comparison in browseComparisons %}
+              <a href="{{ comparison.url }}">{{ comparison.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+          <h3>Browse by Industry</h3>
+          <div class="rofo-insight-chip-list">
+            {% for industry in browseIndustries %}
+              <a href="#industry-{{ industry | slugify }}">{{ industry }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="rofo-insight-hub-groups">
       {% for category in insightCategories %}
         {% set categoryInsights = [] %}
@@ -55,10 +160,60 @@ eleventyComputed:
           {% endif %}
         {% endfor %}
         {% if categoryInsights.length %}
-          <section class="rofo-insight-section rofo-insight-hub-section">
+          <section id="{{ category | slugify }}" class="rofo-insight-section rofo-insight-hub-section">
             <h2>{{ category }}</h2>
             <div class="rofo-insight-hub-grid">
               {% for insight in categoryInsights %}
+                <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
+                  <span>{{ insight.readingTime or "3 minute read" }}</span>
+                  <strong>{{ insight.title }}</strong>
+                  <em>{{ insight.summary }}</em>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="rofo-insight-hub-groups">
+      {% for district in browseDistricts %}
+        {% set districtInsights = [] %}
+        {% for insight in sanFranciscoInsights %}
+          {% if insight.relatedDistricts and district in insight.relatedDistricts %}
+            {% set districtInsights = (districtInsights.push(insight), districtInsights) %}
+          {% endif %}
+        {% endfor %}
+        {% if districtInsights.length %}
+          <section id="district-{{ district | slugify }}" class="rofo-insight-section rofo-insight-hub-section">
+            <h2>{{ district }} Insights</h2>
+            <div class="rofo-insight-hub-grid">
+              {% for insight in districtInsights.slice(0, 4) %}
+                <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
+                  <span>{{ insight.readingTime or "3 minute read" }}</span>
+                  <strong>{{ insight.title }}</strong>
+                  <em>{{ insight.summary }}</em>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="rofo-insight-hub-groups">
+      {% for industry in browseIndustries %}
+        {% set industryInsights = [] %}
+        {% for insight in sanFranciscoInsights %}
+          {% if insight.industry and industry in insight.industry %}
+            {% set industryInsights = (industryInsights.push(insight), industryInsights) %}
+          {% endif %}
+        {% endfor %}
+        {% if industryInsights.length %}
+          <section id="industry-{{ industry | slugify }}" class="rofo-insight-section rofo-insight-hub-section">
+            <h2>{{ industry }} Insights</h2>
+            <div class="rofo-insight-hub-grid">
+              {% for insight in industryInsights.slice(0, 4) %}
                 <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
                   <span>{{ insight.readingTime or "3 minute read" }}</span>
                   <strong>{{ insight.title }}</strong>

@@ -30,7 +30,7 @@
     <div class="rofo-insight-card__actions">
       <a class="building-link rofo-insight-card__link" href="/insights/{{ moduleFeaturedInsight.slug }}/">Read Insight &rarr;</a>
       {% if moduleHubUrl %}
-        <a class="building-link rofo-insight-card__link" href="{{ moduleHubUrl }}">View all San Francisco Insights &rarr;</a>
+        <a class="building-link rofo-insight-card__link" href="{{ moduleHubUrl }}">View all {{ moduleFeaturedInsight.primaryMarket or "Rofo" }} Insights &rarr;</a>
       {% endif %}
     </div>
   </section>

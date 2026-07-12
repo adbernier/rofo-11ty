@@ -1,5 +1,6 @@
 const locationBriefCta = "/find-locations/?city=San%20Francisco&state=CA&spaceType=office&source=insight";
 const sanFranciscoCityPage = "/commercial-real-estate/CA/san-francisco/";
+const sanFranciscoInsightHub = `${sanFranciscoCityPage}insights/`;
 
 module.exports = [
   {
@@ -518,7 +519,6 @@ module.exports = [
       "Hiring is not only about compensation and role quality. Commercial geography can influence commute tolerance, neighborhood energy, client perception, and the kind of workplace story a company tells candidates.",
     primaryMarket: "San Francisco",
     primaryDistrict: "",
-    category: "Compass Frameworks",
     category: "Commercial Strategy",
     relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "Jackson Square"],
     businessTypes: ["technology company", "growth-stage company", "professional services firm", "AI startup"],
@@ -711,5 +711,819 @@ module.exports = [
       "A Rofo Location Brief is useful when a business needs to compare several plausible districts before narrowing to buildings.",
     anotherDistrictMayBeStronger:
       "Another district may be stronger when the company's priority changes. A recommendation can shift if parking, client visits, recruiting, budget, growth, or building format becomes more important.",
+  },
+  {
+    title: "Why startups eventually leave SoMa",
+    slug: "why-startups-eventually-leave-soma",
+    summary:
+      "Leaving SoMa is not always a retreat from startup energy. It can be a sign that the company now needs a different operating environment.",
+    heroSummary:
+      "SoMa is often useful when a company is forming its culture. As the business grows, the office may need to support clients, recruiting, security, meeting space, and growth planning in a more deliberate way.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "SoMa",
+    category: "Technology",
+    collection: "Technology",
+    industry: ["AI", "Technology"],
+    district: ["SoMa", "Mission Bay", "Financial District"],
+    comparison: ["SoMa vs Mission Bay", "Financial District vs SoMa"],
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District"],
+    businessTypes: ["startup", "AI company", "growth-stage technology company"],
+    spaceTypes: ["office", "creative office"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "144 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/", district: "SoMa" },
+      { label: "1800 Owens St", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", district: "Mission Bay" },
+      { label: "One Market St", url: "/commercial-real-estate/building/CA/san-francisco/one-market-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["startup lifecycle", "growth planning", "client meetings", "building format"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 92,
+    futurePopularity: null,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "when-growing-companies-outgrow-soma",
+      "choosing-between-soma-and-mission-bay",
+      "choosing-an-office-location-that-helps-you-hire",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Many young companies choose SoMa for good reasons: flexibility, creative inventory, central access, and proximity to other technology teams. The question is whether those same advantages still matter after the company grows.",
+    commonAssumption:
+      "The common assumption is that a company leaves SoMa only because it needs cheaper or larger space. Often the real reason is that the office has to support a more complex business.",
+    whatRofoHasLearned: [
+      "SoMa is strongest when informal energy and flexible creative inventory are central to the workplace story.",
+      "Mission Bay can become stronger when modern buildings and growth planning matter more than startup texture.",
+      "The Financial District can become stronger when client trust, transit, and conventional office services become important.",
+      "A startup may outgrow a district before it outgrows San Francisco.",
+      "The right question is not whether SoMa still works, but whether SoMa still supports the company's next stage.",
+    ],
+    betterFit:
+      "SoMa remains the better fit when the company still benefits from startup adjacency, creative space, and a more informal urban office environment.",
+    anotherDistrictMayBeStronger:
+      "Mission Bay may be stronger for newer inventory and growth-stage planning. The Financial District may be stronger when client meetings and regional access become more important.",
+  },
+  {
+    title: "Choosing between SoMa and Mission Bay",
+    slug: "choosing-between-soma-and-mission-bay",
+    summary:
+      "SoMa and Mission Bay both serve technology companies, but they solve different office problems.",
+    heroSummary:
+      "Rofo compares SoMa and Mission Bay by looking at building format, employee rhythm, growth stage, client perception, and how much a company values startup texture versus modern planned inventory.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Mission Bay",
+    category: "Choosing a District",
+    collection: "Choosing a District",
+    industry: ["Technology", "AI", "Life Science"],
+    district: ["SoMa", "Mission Bay"],
+    comparison: ["SoMa vs Mission Bay"],
+    relatedDistricts: ["SoMa", "Mission Bay", "South Beach"],
+    businessTypes: ["technology company", "AI startup", "growth-stage company", "life science-adjacent company"],
+    spaceTypes: ["office", "creative office", "life science"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Mission Bay vs Financial District", url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "699 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/", district: "SoMa" },
+      { label: "500 Terry Francois Blvd", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", district: "Mission Bay" },
+      { label: "555 Mission Rock St", url: "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/", district: "Mission Bay" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["district comparison", "modern inventory", "creative office", "growth flexibility"],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    priority: 96,
+    futurePopularity: null,
+    relatedInsights: [
+      "mission-bay-is-not-just-for-life-science-companies",
+      "not-every-ai-startup-belongs-in-soma",
+      "why-startups-eventually-leave-soma",
+      "south-beach-vs-soma-two-urban-office-districts",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "SoMa and Mission Bay are often compared because they are close and both appeal to technology users. But a business can get very different building formats, employee experiences, and growth signals from each district.",
+    commonAssumption:
+      "The common assumption is that Mission Bay is the newer version of SoMa. That is too simple. The districts differ in texture, block pattern, institutional context, and the way they communicate company stage.",
+    whatRofoHasLearned: [
+      "SoMa is usually stronger for creative office texture, informal energy, and central startup familiarity.",
+      "Mission Bay is usually stronger for modern inventory, planned environments, and growth-stage requirements.",
+      "Mission Bay can feel more intentional; SoMa can feel more embedded in the older technology fabric of the city.",
+      "A company should validate whether it values neighborhood energy or building format more.",
+      "The right answer can change as headcount, client visits, and workplace expectations mature.",
+    ],
+    betterFit:
+      "SoMa is the better fit when a company wants creative urban texture and central startup energy.",
+    anotherDistrictMayBeStronger:
+      "Mission Bay may be stronger when newer buildings, room to grow, life science adjacency, or a more planned commercial environment matter more.",
+  },
+  {
+    title: "When Jackson Square becomes the better executive location",
+    slug: "when-jackson-square-becomes-the-better-executive-location",
+    summary:
+      "Some executive teams need downtown access without the full corporate signal of a traditional tower district.",
+    heroSummary:
+      "Jackson Square can work when a company wants a more distinctive executive presence: close to the Financial District, but quieter, smaller-scale, and more character-driven.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Jackson Square",
+    category: "Professional Services",
+    collection: "Professional Services",
+    industry: ["Finance", "Professional Services"],
+    district: ["Jackson Square", "Financial District"],
+    comparison: ["Financial District vs Jackson Square"],
+    relatedDistricts: ["Jackson Square", "Financial District", "Union Square"],
+    businessTypes: ["executive office", "investment firm", "wealth management firm", "law firm", "consulting firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/union-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "924 Sansome St", url: "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/", district: "Jackson Square" },
+      { label: "890 Jackson St", url: "/commercial-real-estate/building/CA/san-francisco/890-jackson-st/", district: "Jackson Square" },
+      { label: "600 California St", url: "/commercial-real-estate/building/CA/san-francisco/600-california-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["executive image", "boutique setting", "client perception", "downtown adjacency"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 86,
+    futurePopularity: null,
+    relatedInsights: [
+      "hidden-advantage-jackson-square-professional-firms",
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "why-many-law-firms-choose-jackson-square",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Executive location decisions are often about signal. The office should be easy to reach, but it may also need to feel considered, confidential, and differentiated from a conventional corporate floor.",
+    commonAssumption:
+      "The common assumption is that executive office users should default to the Financial District. For many firms that is right, but Jackson Square can communicate a different kind of confidence.",
+    whatRofoHasLearned: [
+      "Jackson Square is strongest when boutique character and downtown access both matter.",
+      "The Financial District is stronger when transit concentration and traditional office services dominate the decision.",
+      "Client-facing firms should decide whether they want formal scale or a more curated setting.",
+      "Jackson Square can be especially useful for smaller executive teams that do not need large tower-floor efficiency.",
+      "Building selection matters because the district's value is tied closely to character and fit.",
+    ],
+    betterFit:
+      "Jackson Square is the better fit when an executive team wants a distinctive downtown presence with character and proximity to clients.",
+    anotherDistrictMayBeStronger:
+      "The Financial District may be stronger when the firm needs larger, more conventional office floors, regional transit, or a more institutional address.",
+  },
+  {
+    title: "Why many law firms choose Jackson Square",
+    slug: "why-many-law-firms-choose-jackson-square",
+    summary:
+      "For some law firms, the right office is not the largest downtown tower. It is a setting that supports discretion, access, and client confidence.",
+    heroSummary:
+      "Jackson Square can give law firms a professional San Francisco address with a more distinctive client experience than a standard CBD office.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Jackson Square",
+    category: "Professional Services",
+    collection: "Professional Services",
+    industry: ["Professional Services", "Law"],
+    district: ["Jackson Square", "Financial District"],
+    comparison: ["Financial District vs Jackson Square"],
+    relatedDistricts: ["Jackson Square", "Financial District"],
+    businessTypes: ["law firm", "boutique professional services firm", "client-facing advisory firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "924 Sansome St", url: "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/", district: "Jackson Square" },
+      { label: "505 Montgomery St", url: "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["client meetings", "boutique professional identity", "walkability", "downtown access"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 84,
+    futurePopularity: null,
+    relatedInsights: [
+      "hidden-advantage-jackson-square-professional-firms",
+      "when-jackson-square-becomes-the-better-executive-location",
+      "financial-district-versus-jackson-square-after-your-company-matures",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Law firms do not all need the same office signal. Some need institutional scale. Others need a setting that feels established, discreet, and easy for clients to understand.",
+    commonAssumption:
+      "The common assumption is that law firms should cluster in the Financial District. That can be true for firms needing scale and transit, but boutique firms may value a different client experience.",
+    whatRofoHasLearned: [
+      "Jackson Square can support law firms that want downtown proximity without a purely corporate tower feel.",
+      "The district's historic character can reinforce credibility for boutique practices.",
+      "Financial District inventory may be better for larger firms or teams with broad commute requirements.",
+      "Client arrival experience should be evaluated alongside rent and square footage.",
+      "The best fit depends on practice type, client profile, and how much space efficiency matters.",
+    ],
+    betterFit:
+      "Jackson Square is the better fit for smaller or boutique law firms that value character, client experience, and a quieter professional setting.",
+    anotherDistrictMayBeStronger:
+      "The Financial District may be stronger for larger firms, regional transit needs, or practices that want a conventional downtown business address.",
+  },
+  {
+    title: "Financial District versus Jackson Square after your company matures",
+    slug: "financial-district-versus-jackson-square-after-your-company-matures",
+    summary:
+      "Mature companies often need to choose between scale and character, not simply between two downtown addresses.",
+    heroSummary:
+      "The Financial District and Jackson Square can both support mature companies. The difference is whether the office should communicate institutional scale or a more selective boutique presence.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Financial District",
+    category: "Professional Services",
+    collection: "Professional Services",
+    industry: ["Finance", "Professional Services", "Technology"],
+    district: ["Financial District", "Jackson Square"],
+    comparison: ["Financial District vs Jackson Square"],
+    relatedDistricts: ["Financial District", "Jackson Square", "Union Square"],
+    businessTypes: ["mature technology company", "finance firm", "law firm", "consulting firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+      { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/union-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "44 Montgomery St", url: "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/", district: "Financial District" },
+      { label: "650 California St", url: "/commercial-real-estate/building/CA/san-francisco/650-california-st/", district: "Financial District" },
+      { label: "924 Sansome St", url: "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/", district: "Jackson Square" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["company maturity", "executive image", "transit", "client perception"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 88,
+    futurePopularity: null,
+    relatedInsights: [
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "when-jackson-square-becomes-the-better-executive-location",
+      "why-many-law-firms-choose-jackson-square",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "A mature company often needs the office to do more than house employees. It may need to support senior recruiting, client confidence, board meetings, and a more durable brand signal.",
+    commonAssumption:
+      "The common assumption is that mature companies need the Financial District. Some do. Others need the credibility of downtown with a more distinctive and less institutional feel.",
+    whatRofoHasLearned: [
+      "The Financial District is stronger when scale, transit, services, and a traditional business address matter.",
+      "Jackson Square is stronger when character, privacy, and client experience matter more than large-floor efficiency.",
+      "The right district depends on what the office is meant to communicate.",
+      "A mature technology company may choose differently than a law firm or investment office.",
+      "This comparison is best resolved before buildings are toured because the district signal shapes every building choice.",
+    ],
+    betterFit:
+      "The Financial District is the better fit when the company needs conventional office depth, regional transit, and institutional credibility.",
+    anotherDistrictMayBeStronger:
+      "Jackson Square may be stronger when the company wants a more distinctive executive or client-facing environment.",
+  },
+  {
+    title: "How office needs change between 10 and 100 employees",
+    slug: "how-office-needs-change-between-10-and-100-employees",
+    summary:
+      "A 10-person office and a 100-person office may both need desks, but they rarely need the same district strategy.",
+    heroSummary:
+      "Rofo evaluates growth-stage office searches by asking how the business will use space as headcount, meetings, recruiting, and client expectations change.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Growing Companies",
+    collection: "Growing Companies",
+    industry: ["Technology", "Professional Services"],
+    district: ["SoMa", "Mission Bay", "Financial District"],
+    comparison: ["SoMa vs Mission Bay", "Financial District vs SoMa"],
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "South Beach"],
+    businessTypes: ["startup", "growth-stage company", "professional services firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "156 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/", district: "SoMa" },
+      { label: "555 Mission Rock St", url: "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/", district: "Mission Bay" },
+      { label: "One Market St", url: "/commercial-real-estate/building/CA/san-francisco/one-market-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["headcount growth", "hybrid work", "meeting intensity", "future flexibility"],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    priority: 95,
+    futurePopularity: null,
+    relatedInsights: [
+      "when-growing-companies-outgrow-soma",
+      "why-startups-eventually-leave-soma",
+      "choosing-an-office-location-that-helps-you-hire",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "A small team can often adapt to a quirky office or imperfect district. A larger team needs more reliable access, better meeting infrastructure, clearer visitor experience, and a location that works for more people.",
+    commonAssumption:
+      "The common assumption is that growth only changes the amount of space. In practice, growth changes the role of the office.",
+    whatRofoHasLearned: [
+      "A 10-person team may prioritize energy, flexibility, and speed.",
+      "A 50-person team starts to feel commute, meeting, and recruiting tradeoffs more clearly.",
+      "A 100-person team often needs building reliability, visitor experience, and room for operational discipline.",
+      "SoMa can work well early, while Mission Bay or the Financial District may become more relevant as needs mature.",
+      "Growth-stage companies should compare districts before assuming the next office is simply a larger version of the first.",
+    ],
+    betterFit:
+      "A growth-oriented district is the better fit when it supports hiring, meetings, and future flexibility without forcing the company into a premature corporate identity.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger if the company has become more client-facing, needs newer inventory, or requires more predictable transit access.",
+  },
+  {
+    title: "What companies misunderstand about a central location",
+    slug: "what-companies-misunderstand-about-central-location",
+    summary:
+      "Central is not a single advantage. It can mean regional transit, client convenience, employee fairness, visitor familiarity, or simply habit.",
+    heroSummary:
+      "Rofo treats centrality as a business requirement that needs definition. The right central location depends on who needs access and why.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Commercial Strategy",
+    collection: "Commercial Strategy",
+    industry: ["Technology", "Finance", "Professional Services", "Creative"],
+    district: ["Financial District", "SoMa", "Union Square", "Jackson Square"],
+    comparison: ["Financial District vs SoMa", "Financial District vs Jackson Square"],
+    relatedDistricts: ["Financial District", "SoMa", "Union Square", "Jackson Square"],
+    businessTypes: ["client-facing office user", "technology company", "professional services firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/union-square/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "One Market St", url: "/commercial-real-estate/building/CA/san-francisco/one-market-st/", district: "Financial District" },
+      { label: "144 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/", district: "SoMa" },
+      { label: "844 Market St", url: "/commercial-real-estate/building/CA/san-francisco/844-market-st/", district: "Union Square" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["centrality", "transit", "client access", "employee geography"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 82,
+    futurePopularity: null,
+    relatedInsights: [
+      "why-accessibility-means-different-things-for-different-businesses",
+      "why-proximity-is-not-the-same-as-fit",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Many searches start with a request to be central. That sounds clear, but centrality only matters if the business defines whose access is being optimized.",
+    commonAssumption:
+      "The common assumption is that the most central district is automatically the safest choice. In reality, a central location can still be wrong if it does not match the work pattern.",
+    whatRofoHasLearned: [
+      "The Financial District is central for regional transit and traditional business access.",
+      "SoMa can be central for technology teams and creative office users.",
+      "Union Square can be central for visitors, retail adjacency, and hospitality context.",
+      "Jackson Square can be central for downtown clients while feeling less corporate.",
+      "A business should define centrality before comparing buildings.",
+    ],
+    betterFit:
+      "A central location is the better fit when it clearly improves access for the people who matter most to the business.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger if centrality is only a proxy for a deeper requirement such as recruiting, client confidence, or visitor familiarity.",
+  },
+  {
+    title: "Why accessibility means different things for different businesses",
+    slug: "why-accessibility-means-different-things-for-different-businesses",
+    summary:
+      "Accessibility is not just transit. It can mean employee commute, client arrival, airport reach, parking, neighborhood comfort, or the ability to hire from a specific talent pool.",
+    heroSummary:
+      "Rofo separates access into the practical questions that shape office fit: who is traveling, how often, from where, and what the visit needs to feel like.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Commercial Strategy",
+    collection: "Commercial Strategy",
+    industry: ["Technology", "Finance", "Professional Services"],
+    district: ["Financial District", "Mission Bay", "SoMa", "Jackson Square"],
+    comparison: ["Mission Bay vs Financial District", "Financial District vs SoMa"],
+    relatedDistricts: ["Financial District", "Mission Bay", "SoMa", "Jackson Square"],
+    businessTypes: ["client-facing office user", "hybrid team", "growth-stage company"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Mission Bay vs Financial District", url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/" },
+      { label: "Financial District vs SoMa", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "One Market St", url: "/commercial-real-estate/building/CA/san-francisco/one-market-st/", district: "Financial District" },
+      { label: "1800 Owens St", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", district: "Mission Bay" },
+      { label: "156 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/", district: "SoMa" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["accessibility", "transit", "client visits", "hybrid work"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 80,
+    futurePopularity: null,
+    relatedInsights: [
+      "what-companies-misunderstand-about-central-location",
+      "choosing-an-office-location-that-helps-you-hire",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Accessibility is one of the most common reasons companies choose a district, but it is often used too broadly. A location can be accessible for clients and inconvenient for employees, or strong for transit and weak for visitor experience.",
+    commonAssumption:
+      "The common assumption is that access means proximity to transit. Transit matters, but it is only one part of how a business uses a location.",
+    whatRofoHasLearned: [
+      "The Financial District often wins when regional transit is the dominant access requirement.",
+      "Mission Bay can work when employees value newer buildings and the business has a different commute pattern.",
+      "SoMa can be strong for central technology access but may need block-by-block validation.",
+      "Jackson Square can work for clients who value a more distinctive downtown visit.",
+      "Accessibility should be defined around the business model, not around a map alone.",
+    ],
+    betterFit:
+      "A district is the better fit when its access pattern aligns with the people who actually need to use the office.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger when the access requirement changes from employee commute to client arrival, or from transit to building-level convenience.",
+  },
+  {
+    title: "How Rofo evaluates business ecosystems",
+    slug: "how-rofo-evaluates-business-ecosystems",
+    summary:
+      "A district is more than a set of buildings. Rofo looks at the commercial ecosystem around the space.",
+    heroSummary:
+      "Rofo evaluates how districts support business behavior: hiring, clients, peers, amenities, institutions, building format, and the comparisons a company should make before choosing.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Compass Frameworks",
+    collection: "Compass Frameworks",
+    industry: ["Technology", "Life Science", "Finance", "Creative", "Professional Services"],
+    district: ["SoMa", "Mission Bay", "Financial District", "Jackson Square", "Union Square"],
+    comparison: ["SoMa vs Mission Bay", "Financial District vs Jackson Square"],
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "Jackson Square", "Union Square"],
+    businessTypes: ["technology company", "professional services firm", "client-facing office user"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/union-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "144 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/", district: "SoMa" },
+      { label: "500 Terry Francois Blvd", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", district: "Mission Bay" },
+      { label: "505 Montgomery St", url: "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["business ecosystem", "peer environment", "building format", "district fit"],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    priority: 99,
+    futurePopularity: null,
+    relatedInsights: [
+      "how-rofo-evaluates-san-francisco-office-locations",
+      "why-geography-matters-before-buildings",
+      "why-proximity-is-not-the-same-as-fit",
+      "choosing-an-office-location-that-helps-you-hire",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Companies often compare buildings before they compare the environment around those buildings. That skips the question that usually matters first: whether the surrounding commercial ecosystem supports the business.",
+    commonAssumption:
+      "The common assumption is that a good building can overcome a weak district fit. Sometimes it can, but the district still shapes recruiting, clients, daily routines, and the long-term usefulness of the office.",
+    whatRofoHasLearned: [
+      "SoMa's ecosystem supports creative technology and startup familiarity.",
+      "Mission Bay's ecosystem supports modern growth, institutional adjacency, and life science context.",
+      "The Financial District's ecosystem supports formal business infrastructure and regional transit.",
+      "Jackson Square's ecosystem supports boutique professional identity and executive presence.",
+      "A Location Brief is stronger when it explains the ecosystem before narrowing to properties.",
+    ],
+    betterFit:
+      "A district ecosystem is the better fit when the surroundings reinforce how the company hires, meets, sells, and operates.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger if its peer environment, building format, or client perception better matches the business model.",
+  },
+  {
+    title: "Why geography matters before buildings",
+    slug: "why-geography-matters-before-buildings",
+    summary:
+      "A strong building in the wrong commercial geography can still create the wrong outcome.",
+    heroSummary:
+      "Rofo starts with geography because the district shapes which buildings deserve attention, what tradeoffs matter, and how the office will function after the lease is signed.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Compass Frameworks",
+    collection: "Compass Frameworks",
+    industry: ["Technology", "Finance", "Professional Services", "Creative"],
+    district: ["SoMa", "Mission Bay", "Financial District", "Jackson Square"],
+    comparison: ["SoMa vs Mission Bay", "Financial District vs Jackson Square", "Mission Bay vs Financial District"],
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "Jackson Square"],
+    businessTypes: ["office user", "growth-stage company", "client-facing firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+      { label: "Mission Bay vs Financial District", url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "144 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/", district: "SoMa" },
+      { label: "1800 Owens St", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", district: "Mission Bay" },
+      { label: "44 Montgomery St", url: "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/", district: "Financial District" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["commercial geography", "building shortlist", "tradeoff analysis", "Location Brief"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 97,
+    futurePopularity: null,
+    relatedInsights: [
+      "how-rofo-evaluates-business-ecosystems",
+      "how-rofo-evaluates-san-francisco-office-locations",
+      "why-proximity-is-not-the-same-as-fit",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Buildings are easier to compare than districts because they have photos, addresses, and floor plans. But the district often determines whether a building will actually support the business.",
+    commonAssumption:
+      "The common assumption is that the search starts with available space. Rofo starts with the commercial question the space is supposed to answer.",
+    whatRofoHasLearned: [
+      "A building can look strong but sit in a district that does not support the company's hiring or client needs.",
+      "District fit narrows the building search before the team wastes time touring mismatched options.",
+      "Representative buildings are useful because they translate geography into real-world environments.",
+      "The best shortlist usually starts with a market path, not a property feed.",
+      "A good Location Brief explains why some buildings should be considered only after the right geography is clear.",
+    ],
+    betterFit:
+      "A geography-first process is the better fit when several districts could plausibly work and the company needs to understand the tradeoffs.",
+    anotherDistrictMayBeStronger:
+      "A building-first process can still be useful after the district strategy is clear and the search has moved into execution.",
+  },
+  {
+    title: "Why AI companies should compare Mission Bay earlier",
+    slug: "why-ai-companies-should-compare-mission-bay-earlier",
+    summary:
+      "AI companies often start with SoMa, but Mission Bay may answer a different set of growth and credibility questions.",
+    heroSummary:
+      "Mission Bay is not the default answer for every AI company. It becomes relevant when modern inventory, growth planning, institutional context, and team experience begin to matter more than startup mythology.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Mission Bay",
+    category: "Technology",
+    collection: "Technology",
+    industry: ["AI", "Technology", "Life Science"],
+    district: ["Mission Bay", "SoMa"],
+    comparison: ["SoMa vs Mission Bay"],
+    relatedDistricts: ["Mission Bay", "SoMa", "South Beach"],
+    businessTypes: ["AI company", "software company", "growth-stage technology company"],
+    spaceTypes: ["office", "creative office", "life science"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Mission Bay vs Financial District", url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "1800 Owens St", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", district: "Mission Bay" },
+      { label: "555 Mission Rock St", url: "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/", district: "Mission Bay" },
+      { label: "699 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/", district: "SoMa" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["AI company fit", "modern office", "growth planning", "institutional adjacency"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 90,
+    futurePopularity: null,
+    relatedInsights: [
+      "not-every-ai-startup-belongs-in-soma",
+      "choosing-between-soma-and-mission-bay",
+      "mission-bay-is-not-just-for-life-science-companies",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "AI companies can outgrow the assumptions that shaped their first search. The office may need to support a larger technical team, more sensitive client conversations, and a workplace environment that can scale.",
+    commonAssumption:
+      "The common assumption is that AI companies belong in SoMa because that is where the startup energy is most visible. That is often relevant, but not always sufficient.",
+    whatRofoHasLearned: [
+      "SoMa often supports early AI companies with creative inventory and central startup context.",
+      "Mission Bay becomes more relevant when a company wants newer buildings and a more planned environment.",
+      "Institutional and life science adjacency can matter for AI companies working near health, data, research, or enterprise customers.",
+      "Mission Bay can signal a different stage of company development than SoMa.",
+      "The right answer depends on whether the company values energy, growth, image, or building format most.",
+    ],
+    betterFit:
+      "Mission Bay is the better fit when an AI company needs modern inventory, growth flexibility, and a more structured commercial environment.",
+    anotherDistrictMayBeStronger:
+      "SoMa may be stronger when startup proximity, creative office texture, and informal central-city energy still drive the workplace decision.",
+  },
+  {
+    title: "Why finance firms still compare the Financial District with Jackson Square",
+    slug: "why-finance-firms-compare-financial-district-with-jackson-square",
+    summary:
+      "Finance firms often need downtown credibility, but credibility can come from either institutional scale or boutique restraint.",
+    heroSummary:
+      "For finance, investment, and wealth-management teams, the office must support trust. The Financial District and Jackson Square create that trust in different ways.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Financial District",
+    category: "Professional Services",
+    collection: "Professional Services",
+    industry: ["Finance", "Professional Services"],
+    district: ["Financial District", "Jackson Square"],
+    comparison: ["Financial District vs Jackson Square"],
+    relatedDistricts: ["Financial District", "Jackson Square"],
+    businessTypes: ["finance firm", "investment office", "wealth management firm", "advisory firm"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "650 California St", url: "/commercial-real-estate/building/CA/san-francisco/650-california-st/", district: "Financial District" },
+      { label: "505 Montgomery St", url: "/commercial-real-estate/building/CA/san-francisco/505-montgomery-st/", district: "Financial District" },
+      { label: "924 Sansome St", url: "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/", district: "Jackson Square" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["finance", "client trust", "executive image", "downtown access"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 83,
+    futurePopularity: null,
+    relatedInsights: [
+      "financial-district-versus-jackson-square-after-your-company-matures",
+      "when-jackson-square-becomes-the-better-executive-location",
+      "financial-district-or-jackson-square-after-your-company-matures",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Finance firms often need an office that makes clients comfortable. The best district depends on whether clients expect scale, discretion, accessibility, or a more personal setting.",
+    commonAssumption:
+      "The common assumption is that finance always points to the Financial District. That is often right, but Jackson Square can be compelling for firms that want a more intimate client experience.",
+    whatRofoHasLearned: [
+      "The Financial District supports institutional credibility, transit, and conventional business infrastructure.",
+      "Jackson Square supports a more selective, boutique client impression.",
+      "Finance firms should evaluate arrival experience as carefully as square footage.",
+      "The right fit may depend on whether clients visit frequently or primarily interact remotely.",
+      "The district should reinforce the firm's operating style and client promise.",
+    ],
+    betterFit:
+      "The Financial District is the better fit when a firm values institutional credibility, transit access, and conventional office depth.",
+    anotherDistrictMayBeStronger:
+      "Jackson Square may be stronger when the firm wants privacy, character, and a more boutique client-facing setting.",
+  },
+  {
+    title: "Creative companies should not choose SoMa by default",
+    slug: "creative-companies-should-not-choose-soma-by-default",
+    summary:
+      "SoMa can be a strong creative office market, but creative companies need to define whether they need energy, clients, production context, or a more polished workplace.",
+    heroSummary:
+      "Creative office fit is not one thing. Rofo compares SoMa, South Beach, Jackson Square, and Mission Bay based on how the business works and what the office needs to communicate.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "SoMa",
+    category: "Choosing a District",
+    collection: "Choosing a District",
+    industry: ["Creative", "Technology"],
+    district: ["SoMa", "South Beach", "Jackson Square", "Mission Bay"],
+    comparison: ["SoMa vs Mission Bay"],
+    relatedDistricts: ["SoMa", "South Beach", "Jackson Square", "Mission Bay"],
+    businessTypes: ["creative agency", "design firm", "technology company", "media company"],
+    spaceTypes: ["office", "creative office"],
+    relatedComparisons: [
+      { label: "SoMa vs Mission Bay", url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" },
+      { label: "Financial District vs Jackson Square", url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/" },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedInsightHub: sanFranciscoInsightHub,
+    relatedBuildings: [
+      { label: "414 Brannan St", url: "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/", district: "SoMa" },
+      { label: "699 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/", district: "SoMa" },
+      { label: "924 Sansome St", url: "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/", district: "Jackson Square" },
+    ],
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: ["creative office", "brand identity", "client meetings", "district texture"],
+    readingTime: "3 minute read",
+    featured: true,
+    priority: 78,
+    futurePopularity: null,
+    relatedInsights: [
+      "south-beach-vs-soma-two-urban-office-districts",
+      "why-proximity-is-not-the-same-as-fit",
+      "choosing-between-soma-and-mission-bay",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Creative companies often care deeply about the feel of the workplace. But creative fit can mean different things: flexible space, client confidence, production practicality, or a neighborhood that supports the brand.",
+    commonAssumption:
+      "The common assumption is that creative office users belong in SoMa. SoMa is important, but it should not be the only answer.",
+    whatRofoHasLearned: [
+      "SoMa is strong for creative office texture and adaptive commercial buildings.",
+      "South Beach can offer a more polished urban setting near similar central-city demand.",
+      "Jackson Square can work for creative firms that are more client-facing or executive-oriented.",
+      "Mission Bay may be relevant when the company needs modern inventory and growth planning.",
+      "Creative fit should be defined by the business model, not only by neighborhood reputation.",
+    ],
+    betterFit:
+      "SoMa is the better fit when creative texture, central access, and flexible office character are core requirements.",
+    anotherDistrictMayBeStronger:
+      "South Beach, Jackson Square, or Mission Bay may be stronger when polish, client experience, or modern inventory matters more than classic creative-office texture.",
   },
 ];

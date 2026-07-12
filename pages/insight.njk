@@ -117,6 +117,21 @@ eleventyComputed:
         </section>
       {% endif %}
 
+      {% if insight.relatedBuildings and insight.relatedBuildings.length %}
+        <section class="rofo-insight-section">
+          <h2>Representative Buildings</h2>
+          <p>Representative buildings help translate the district strategy into real commercial environments. They are examples for context, not claims of current availability.</p>
+          <div class="rofo-insight-link-grid rofo-insight-link-grid--buildings">
+            {% for building in insight.relatedBuildings %}
+              <a href="{{ building.url }}">
+                <span>{{ building.label }}</span>
+                {% if building.district %}<em>{{ building.district }}</em>{% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
       {% if relatedInsightItems.length %}
         <section class="rofo-insight-section">
           <h2>Related Rofo Insights</h2>
@@ -131,6 +146,27 @@ eleventyComputed:
           </div>
         </section>
       {% endif %}
+
+      <section class="rofo-insight-section rofo-insight-continue">
+        <div class="rofo-insight-eyebrow">Continue Exploring San Francisco</div>
+        <h2>Keep building the location picture.</h2>
+        <p>Use the related districts, comparisons, buildings, and Location Brief flow to move from commercial reasoning to a market-specific recommendation.</p>
+        <div class="rofo-insight-continue__grid">
+          {% if insight.relatedDistrictPages and insight.relatedDistrictPages.length %}
+            <a href="{{ insight.relatedDistrictPages[0] }}">Explore {{ insight.relatedDistricts[0] or "a related district" }}</a>
+          {% endif %}
+          {% if insight.relatedComparisons and insight.relatedComparisons.length %}
+            <a href="{{ insight.relatedComparisons[0].url }}">Compare {{ insight.relatedComparisons[0].label }}</a>
+          {% endif %}
+          {% if relatedInsightItems.length %}
+            <a href="/insights/{{ relatedInsightItems[0].slug }}/">Read {{ relatedInsightItems[0].title }}</a>
+          {% endif %}
+          {% if insight.relatedBuildings and insight.relatedBuildings.length %}
+            <a href="{{ insight.relatedBuildings[0].url }}">View representative buildings</a>
+          {% endif %}
+          <a href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Generate a Location Brief</a>
+        </div>
+      </section>
     </article>
 
     <section class="rofo-insight-cta" aria-labelledby="rofo-insight-cta-heading">
