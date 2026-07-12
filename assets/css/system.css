@@ -8943,7 +8943,6 @@ section.market-page--space-type .market-links a {
   flex-wrap: wrap;
   gap: 8px 12px;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 10px;
 }
 
@@ -8968,9 +8967,27 @@ section.market-page--space-type .market-links a {
   font-weight: 800;
 }
 
-.rofo-insight-card h2 {
+.rofo-insight-card__featured-link {
+  display: grid;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rofo-insight-card__featured-link:focus-visible,
+.rofo-insight-hub-feature__copy:focus-visible,
+.rofo-insight-hub-card:focus-visible,
+.rofo-insight-card__recent a:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.rofo-insight-card h2,
+.rofo-insight-card__featured-link h2 {
   max-width: 760px;
-  margin-bottom: 10px;
+  margin: 0;
+  transition: color 160ms ease;
 }
 
 .rofo-insight-card h2 a {
@@ -8978,8 +8995,14 @@ section.market-page--space-type .market-links a {
   text-decoration: none;
 }
 
-.rofo-insight-card h2 a:hover {
+.rofo-insight-card h2 a:hover,
+.rofo-insight-card__featured-link:hover h2,
+.rofo-insight-card__featured-link:focus-visible h2 {
   color: #1d4ed8;
+}
+
+.rofo-insight-card__featured-link p {
+  margin: 0;
 }
 
 .rofo-insight-card__link {
@@ -9012,20 +9035,35 @@ section.market-page--space-type .market-links a {
 
 .rofo-insight-card__recent li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: baseline;
+  gap: 3px;
 }
 
 .rofo-insight-card__recent a {
+  display: inline-flex;
+  gap: 4px;
+  align-items: baseline;
   color: #0f172a;
   font-weight: 800;
   line-height: 1.35;
   text-decoration: none;
+  transition: color 160ms ease;
 }
 
-.rofo-insight-card__recent a:hover {
+.rofo-insight-card__recent a::after {
+  color: #2563eb;
+  content: "\2192";
+  transform: translateX(0);
+  transition: transform 160ms ease;
+}
+
+.rofo-insight-card__recent a:hover,
+.rofo-insight-card__recent a:focus-visible {
   color: #1d4ed8;
+}
+
+.rofo-insight-card__recent a:hover::after,
+.rofo-insight-card__recent a:focus-visible::after {
+  transform: translateX(2px);
 }
 
 .rofo-insight-card__recent span {
@@ -9300,6 +9338,27 @@ section.market-page--space-type .market-links a {
   max-width: 720px;
 }
 
+.rofo-insight-hub-feature__copy {
+  display: grid;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rofo-insight-hub-feature__copy h2 {
+  margin: 0;
+  transition: color 160ms ease;
+}
+
+.rofo-insight-hub-feature__copy p {
+  margin: 0;
+}
+
+.rofo-insight-hub-feature__copy:hover h2,
+.rofo-insight-hub-feature__copy:focus-visible h2 {
+  color: #1d4ed8;
+}
+
 .rofo-insight-hub-feature__meta {
   display: grid;
   gap: 8px;
@@ -9392,9 +9451,11 @@ section.market-page--space-type .market-links a {
   color: inherit;
   background: #f8fafc;
   text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
-.rofo-insight-hub-card:hover {
+.rofo-insight-hub-card:hover,
+.rofo-insight-hub-card:focus-visible {
   border-color: rgba(37, 99, 235, 0.34);
   background: #eff6ff;
 }
@@ -9411,6 +9472,12 @@ section.market-page--space-type .market-links a {
   color: #0f172a;
   font-size: 1.05rem;
   line-height: 1.25;
+  transition: color 160ms ease;
+}
+
+.rofo-insight-hub-card:hover strong,
+.rofo-insight-hub-card:focus-visible strong {
+  color: #1d4ed8;
 }
 
 .rofo-insight-hub-card em {

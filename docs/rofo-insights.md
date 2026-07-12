@@ -212,6 +212,29 @@ Internal links should be editorially useful:
 - Link to related Insights when they continue the same commercial question.
 - Link to `/find-locations/` when the reader is ready for a personalized Location Brief.
 
+## Interaction Guidelines
+
+Use the same interaction model as the rest of Rofo:
+
+- Titles navigate.
+- Buttons perform actions.
+
+Examples:
+
+- Insight titles open Insight pages.
+- District titles open district pages.
+- Comparison titles open comparison pages.
+- Representative building titles open building pages.
+
+Buttons and button-like CTAs should be reserved for action-oriented steps:
+
+- Find My Best Locations
+- Generate a Location Brief
+- Browse Buildings
+- View all San Francisco Insights
+
+Do not add separate "Read Insight" links beneath every Insight title. The title, summary, or card content can be clickable when it represents navigation. Keep hover and focus states clear, understated, and keyboard accessible.
+
 ## Insight Hubs
 
 Each mature metro can have an Insight Hub at a market URL, for example:
@@ -230,7 +253,7 @@ Hub pages should:
 - allow browsing by district
 - allow browsing by comparison
 - allow browsing by industry
-- show concise cards with headline, summary, reading time, and a Read Insight path
+- show concise cards with linked headlines, summary, and reading time
 - include a Location Brief CTA
 - link back naturally from city, district, comparison, and Insight pages
 

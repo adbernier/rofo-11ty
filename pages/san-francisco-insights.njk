@@ -64,14 +64,13 @@ eleventyComputed:
 
     {% if featuredHubInsight %}
       <section class="rofo-insight-section rofo-insight-hub-feature">
-        <div class="rofo-insight-hub-feature__copy">
+        <a class="rofo-insight-hub-feature__copy" href="/insights/{{ featuredHubInsight.slug }}/">
           <div class="rofo-insight-eyebrow">Featured Insight</div>
+          <span class="rofo-insight-card__time">{{ featuredHubInsight.readingTime or "3 minute read" }}</span>
           <h2>{{ featuredHubInsight.title }}</h2>
           <p>{{ featuredHubInsight.heroSummary or featuredHubInsight.summary }}</p>
-          <a class="building-link" href="/insights/{{ featuredHubInsight.slug }}/">Read Insight &rarr;</a>
-        </div>
+        </a>
         <div class="rofo-insight-hub-feature__meta">
-          <span>{{ featuredHubInsight.readingTime or "3 minute read" }}</span>
           {% if featuredHubInsight.category %}<span>{{ featuredHubInsight.category }}</span>{% endif %}
           {% if featuredHubInsight.primaryDistrict %}<span>{{ featuredHubInsight.primaryDistrict }}</span>{% endif %}
         </div>

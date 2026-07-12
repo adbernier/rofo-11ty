@@ -6,12 +6,12 @@
   <section class="city-card rofo-insight-card rofo-insight-card--hub" aria-labelledby="rofo-insight-card-heading-{{ moduleFeaturedInsight.slug }}">
     <div class="rofo-insight-card__topline">
       <span class="rofo-insight-card__label"><span aria-hidden="true">&#128161;</span> {{ moduleTitle }}</span>
-      <span class="rofo-insight-card__time">{{ moduleFeaturedInsight.readingTime or moduleFeaturedInsight.readTime or "3 minute read" }}</span>
     </div>
-    <h2 id="rofo-insight-card-heading-{{ moduleFeaturedInsight.slug }}">
-      <a href="/insights/{{ moduleFeaturedInsight.slug }}/">{{ moduleFeaturedInsight.title }}</a>
-    </h2>
-    <p>{{ moduleFeaturedInsight.heroSummary or moduleFeaturedInsight.summary or moduleSummary }}</p>
+    <a class="rofo-insight-card__featured-link" href="/insights/{{ moduleFeaturedInsight.slug }}/">
+      <span class="rofo-insight-card__time">{{ moduleFeaturedInsight.readingTime or moduleFeaturedInsight.readTime or "3 minute read" }}</span>
+      <h2 id="rofo-insight-card-heading-{{ moduleFeaturedInsight.slug }}">{{ moduleFeaturedInsight.title }}</h2>
+      <p>{{ moduleFeaturedInsight.heroSummary or moduleFeaturedInsight.summary or moduleSummary }}</p>
+    </a>
 
     <div class="rofo-insight-card__recent">
       <div class="rofo-insight-card__recent-label">Recent Insights</div>
@@ -28,7 +28,6 @@
     </div>
 
     <div class="rofo-insight-card__actions">
-      <a class="building-link rofo-insight-card__link" href="/insights/{{ moduleFeaturedInsight.slug }}/">Read Insight &rarr;</a>
       {% if moduleHubUrl %}
         <a class="building-link rofo-insight-card__link" href="{{ moduleHubUrl }}">View all {{ moduleFeaturedInsight.primaryMarket or "Rofo" }} Insights &rarr;</a>
       {% endif %}
@@ -38,12 +37,11 @@
   <section class="city-card rofo-insight-card" aria-labelledby="rofo-insight-card-heading-{{ featuredInsight.slug }}">
     <div class="rofo-insight-card__topline">
       <span class="rofo-insight-card__label"><span aria-hidden="true">&#128161;</span> Rofo Insight</span>
-      <span class="rofo-insight-card__time">{{ featuredInsight.readingTime or featuredInsight.readTime or "3 minute read" }}</span>
     </div>
-    <h2 id="rofo-insight-card-heading-{{ featuredInsight.slug }}">
-      <a href="/insights/{{ featuredInsight.slug }}/">{{ featuredInsight.title }}</a>
-    </h2>
-    <p>{{ featuredInsight.heroSummary or featuredInsight.summary }}</p>
-    <a class="building-link rofo-insight-card__link" href="/insights/{{ featuredInsight.slug }}/">Read Insight &rarr;</a>
+    <a class="rofo-insight-card__featured-link" href="/insights/{{ featuredInsight.slug }}/">
+      <span class="rofo-insight-card__time">{{ featuredInsight.readingTime or featuredInsight.readTime or "3 minute read" }}</span>
+      <h2 id="rofo-insight-card-heading-{{ featuredInsight.slug }}">{{ featuredInsight.title }}</h2>
+      <p>{{ featuredInsight.heroSummary or featuredInsight.summary }}</p>
+    </a>
   </section>
 {% endif %}
