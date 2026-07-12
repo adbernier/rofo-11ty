@@ -51,6 +51,21 @@ eleventyComputed:
 {% if neighborhoodDisplayNameWithArticle and neighborhoodDisplayNameWithArticle != neighborhood.city %}
   {% set neighborhoodSearchProfileTargetArea = neighborhood.city + " — " + neighborhoodDisplayNameWithArticle %}
 {% endif %}
+{% set neighborhoodInsights = [] %}
+{% set neighborhoodPrimaryInsights = [] %}
+{% for insight in rofoInsights %}
+  {% if insight.published and insight.relatedDistrictPages and insight.relatedDistrictPages.length %}
+    {% for districtPath in insight.relatedDistrictPages %}
+      {% if districtPath == neighborhood.canonical_neighborhood_path %}
+        {% if loop.index0 == 0 %}
+          {% set neighborhoodPrimaryInsights = (neighborhoodPrimaryInsights.push(insight), neighborhoodPrimaryInsights) %}
+        {% else %}
+          {% set neighborhoodInsights = (neighborhoodInsights.push(insight), neighborhoodInsights) %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 
 <section class="city-page neighborhood-public neighborhood-page-review">
   <div class="city-shell">
@@ -175,6 +190,9 @@ eleventyComputed:
             </p>
           </section>
         {% endif %}
+
+        {% set featuredInsight = neighborhoodPrimaryInsights[0] or neighborhoodInsights[0] %}
+        {% include "partials/shared/rofo-insight-card.njk" %}
 
         {% if neighborhood.neighborhood_intelligence %}
           {% include "partials/neighborhood/intelligence.njk" %}

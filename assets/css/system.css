@@ -8929,3 +8929,235 @@ section.market-page--space-type .market-links a {
     display: none;
   }
 }
+
+.rofo-insight-card {
+  border-color: rgba(37, 99, 235, 0.18);
+  background:
+    linear-gradient(135deg, rgba(239, 246, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 58%),
+    #ffffff;
+}
+
+.rofo-insight-card__label,
+.rofo-insight-eyebrow {
+  color: #2563eb;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rofo-insight-card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rofo-insight-card h2 a:hover {
+  color: #1d4ed8;
+}
+
+.rofo-insight-card__link {
+  display: inline-flex;
+  margin-top: 4px;
+}
+
+.rofo-insight-page {
+  min-height: 100vh;
+  padding: 42px 20px 72px;
+  background: #f6f8fb;
+}
+
+.rofo-insight-shell {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.rofo-insight-breadcrumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.rofo-insight-breadcrumb a {
+  color: #475569;
+  text-decoration: none;
+}
+
+.rofo-insight-breadcrumb a:hover {
+  color: #1d4ed8;
+}
+
+.rofo-insight-hero,
+.rofo-insight-section,
+.rofo-insight-cta {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+}
+
+.rofo-insight-hero {
+  padding: 44px;
+}
+
+.rofo-insight-hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  color: #0f172a;
+  font-size: var(--type-display-lg);
+  line-height: var(--type-leading-display);
+  letter-spacing: 0;
+}
+
+.rofo-insight-hero p {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: #475569;
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+.rofo-insight-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rofo-insight-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 999px;
+  color: #475569;
+  background: #f8fafc;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.rofo-insight-document {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.rofo-insight-section {
+  padding: 30px 34px;
+}
+
+.rofo-insight-section h2,
+.rofo-insight-cta h2 {
+  margin: 0 0 12px;
+  color: #0f172a;
+  font-size: var(--type-heading-xl);
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.rofo-insight-section p,
+.rofo-insight-cta p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.rofo-insight-observations {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rofo-insight-observations li {
+  position: relative;
+  padding-left: 22px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.rofo-insight-observations li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2563eb;
+  content: "";
+}
+
+.rofo-insight-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.rofo-insight-link-grid a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 10px;
+  color: #1d4ed8;
+  background: #f8fafc;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.rofo-insight-link-grid a:hover {
+  border-color: rgba(37, 99, 235, 0.34);
+  background: #eff6ff;
+}
+
+.rofo-insight-cta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 30px 34px;
+}
+
+.rofo-insight-cta p {
+  max-width: 560px;
+}
+
+.rofo-insight-cta .btn-primary {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 720px) {
+  .rofo-insight-page {
+    padding: 24px 14px 48px;
+  }
+
+  .rofo-insight-hero,
+  .rofo-insight-section,
+  .rofo-insight-cta {
+    border-radius: 12px;
+  }
+
+  .rofo-insight-hero {
+    padding: 30px 22px;
+  }
+
+  .rofo-insight-section,
+  .rofo-insight-cta {
+    padding: 24px 22px;
+  }
+
+  .rofo-insight-cta {
+    display: block;
+  }
+
+  .rofo-insight-cta .btn-primary {
+    width: 100%;
+    margin-top: 18px;
+  }
+}

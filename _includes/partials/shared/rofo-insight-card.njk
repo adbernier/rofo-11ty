@@ -1,0 +1,10 @@
+{% if featuredInsight and featuredInsight.published %}
+  <section class="city-card rofo-insight-card" aria-labelledby="rofo-insight-card-heading-{{ featuredInsight.slug }}">
+    <div class="rofo-insight-card__label">Rofo Insight</div>
+    <h2 id="rofo-insight-card-heading-{{ featuredInsight.slug }}">
+      <a href="/insights/{{ featuredInsight.slug }}/">{{ featuredInsight.title }}</a>
+    </h2>
+    <p>{{ featuredInsight.summary }}</p>
+    <a class="building-link rofo-insight-card__link" href="/insights/{{ featuredInsight.slug }}/">Read Insight &rarr;</a>
+  </section>
+{% endif %}

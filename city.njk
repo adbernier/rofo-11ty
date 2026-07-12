@@ -108,6 +108,16 @@ eleventyComputed:
 {% set displayBuildings = featuredBuildings if featuredBuildings.length else cityBuildings %}
 {% set cityLocationModelPath = "/commercial-real-estate/" + city.state_abbr + "/" + city.slug + "/" %}
 {% set cityLocationModel = commercialLocationModel.byPath[cityLocationModelPath] %}
+{% set cityInsights = [] %}
+{% set cityOverviewInsights = [] %}
+{% for insight in rofoInsights %}
+  {% if insight.published and insight.relatedCityPage == cityLocationModelPath %}
+    {% set cityInsights = (cityInsights.push(insight), cityInsights) %}
+    {% if not insight.primaryDistrict %}
+      {% set cityOverviewInsights = (cityOverviewInsights.push(insight), cityOverviewInsights) %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 {% set cityLocationComparisons = [] %}
 {% if cityLocationModel and cityLocationModel.compare_with and cityLocationModel.compare_with.length %}
   {% for comparison in cityLocationModel.compare_with %}
@@ -167,6 +177,9 @@ eleventyComputed:
         </div>
 
         <div class="city-grid city-primary-content">
+          {% set featuredInsight = cityOverviewInsights[0] or cityInsights[0] %}
+          {% include "partials/shared/rofo-insight-card.njk" %}
+
           {% if cityMarketGuide %}
             <div class="city-card city-market-guide-card">
               <div class="eyebrow">Market Guide</div>

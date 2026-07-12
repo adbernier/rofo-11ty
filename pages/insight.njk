@@ -1,0 +1,101 @@
+---
+layout: base.njk
+pagination:
+  data: rofoInsights
+  size: 1
+  alias: insight
+permalink: "/insights/{{ insight.slug }}/index.html"
+eleventyComputed:
+  title: "{{ insight.title }} | Rofo Insight"
+  description: "{{ insight.summary }}"
+  canonical: "{{ metadata.siteUrl }}/insights/{{ insight.slug }}/"
+---
+
+<main class="rofo-insight-page">
+  <div class="rofo-insight-shell">
+    <nav class="rofo-insight-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Rofo</a>
+      <span>/</span>
+      <span>Rofo Insight</span>
+    </nav>
+
+    <header class="rofo-insight-hero">
+      <div class="rofo-insight-eyebrow">Rofo Insight</div>
+      <h1>{{ insight.title }}</h1>
+      <div class="rofo-insight-meta">
+        <span>{{ insight.readTime or "2-minute read" }}</span>
+        {% if insight.primaryMarket %}
+          <span>{{ insight.primaryMarket }}</span>
+        {% endif %}
+        {% if insight.spaceTypes and insight.spaceTypes.length %}
+          <span>{{ insight.spaceTypes[0] | capitalize }}</span>
+        {% endif %}
+      </div>
+      <p>{{ insight.summary }}</p>
+    </header>
+
+    <article class="rofo-insight-document">
+      <section class="rofo-insight-section">
+        <h2>Why this matters</h2>
+        <p>{{ insight.whyThisMatters }}</p>
+      </section>
+
+      <section class="rofo-insight-section">
+        <h2>The common assumption</h2>
+        <p>{{ insight.commonAssumption }}</p>
+      </section>
+
+      <section class="rofo-insight-section">
+        <h2>What Rofo has learned</h2>
+        <ul class="rofo-insight-observations">
+          {% for observation in insight.whatRofoHasLearned %}
+            <li>{{ observation }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="rofo-insight-section">
+        <h2>When this location is the better fit</h2>
+        <p>{{ insight.betterFit }}</p>
+      </section>
+
+      <section class="rofo-insight-section">
+        <h2>When another district may be stronger</h2>
+        <p>{{ insight.anotherDistrictMayBeStronger }}</p>
+      </section>
+
+      {% if insight.relatedComparisons and insight.relatedComparisons.length %}
+        <section class="rofo-insight-section">
+          <h2>Related Comparisons</h2>
+          <div class="rofo-insight-link-grid">
+            {% for comparison in insight.relatedComparisons %}
+              <a href="{{ comparison.url }}">{{ comparison.label }}</a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if insight.relatedDistrictPages and insight.relatedDistrictPages.length %}
+        <section class="rofo-insight-section">
+          <h2>Related Districts</h2>
+          <div class="rofo-insight-link-grid">
+            {% for districtPath in insight.relatedDistrictPages %}
+              <a href="{{ districtPath }}">
+                {{ insight.relatedDistricts[loop.index0] or districtPath }}
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+    </article>
+
+    <section class="rofo-insight-cta" aria-labelledby="rofo-insight-cta-heading">
+      <div>
+        <div class="rofo-insight-eyebrow">Need help deciding?</div>
+        <h2 id="rofo-insight-cta-heading">Generate a Location Brief</h2>
+        <p>Rofo compares markets, evaluates your requirements, and recommends where we would start your search.</p>
+      </div>
+      <a class="btn-primary" href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Generate a Location Brief</a>
+    </section>
+  </div>
+</main>

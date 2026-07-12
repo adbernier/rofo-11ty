@@ -43,6 +43,21 @@ eleventyComputed:
   "location_suggestions": [comparison.district_a_name, comparison.district_b_name],
   "card_headline": "Get a personalized " + comparison.short_title + " building shortlist"
 } %}
+{% set comparisonInsights = [] %}
+{% set comparisonPrimaryInsights = [] %}
+{% for insight in rofoInsights %}
+  {% if insight.published and insight.relatedComparisons and insight.relatedComparisons.length %}
+    {% for relatedComparison in insight.relatedComparisons %}
+      {% if relatedComparison.url == comparison.path %}
+        {% if loop.index0 == 0 %}
+          {% set comparisonPrimaryInsights = (comparisonPrimaryInsights.push(insight), comparisonPrimaryInsights) %}
+        {% else %}
+          {% set comparisonInsights = (comparisonInsights.push(insight), comparisonInsights) %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 
 <section class="city-page neighborhood-public location-comparison-page">
   <div class="city-shell">
@@ -65,6 +80,9 @@ eleventyComputed:
             </div>
           </div>
         </div>
+
+        {% set featuredInsight = comparisonPrimaryInsights[0] or comparisonInsights[0] %}
+        {% include "partials/shared/rofo-insight-card.njk" %}
 
         <section class="city-card">
           <div class="eyebrow">Quick read</div>
