@@ -13,6 +13,17 @@ eleventyComputed:
 
 <main class="rofo-insight-page">
   <div class="rofo-insight-shell">
+    {% set relatedInsightItems = [] %}
+    {% if insight.relatedInsights and insight.relatedInsights.length %}
+      {% for relatedSlug in insight.relatedInsights %}
+        {% for candidate in rofoInsights %}
+          {% if candidate.published and candidate.slug == relatedSlug %}
+            {% set relatedInsightItems = (relatedInsightItems.push(candidate), relatedInsightItems) %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+
     <nav class="rofo-insight-breadcrumb" aria-label="Breadcrumb">
       <a href="/">Rofo</a>
       <span>/</span>
@@ -20,10 +31,10 @@ eleventyComputed:
     </nav>
 
     <header class="rofo-insight-hero">
-      <div class="rofo-insight-eyebrow">Rofo Insight</div>
+      <div class="rofo-insight-eyebrow"><span aria-hidden="true">&#128161;</span> Rofo Insight</div>
       <h1>{{ insight.title }}</h1>
       <div class="rofo-insight-meta">
-        <span>{{ insight.readTime or "2-minute read" }}</span>
+        <span>{{ insight.readingTime or insight.readTime or "3 minute read" }}</span>
         {% if insight.primaryMarket %}
           <span>{{ insight.primaryMarket }}</span>
         {% endif %}
@@ -31,17 +42,22 @@ eleventyComputed:
           <span>{{ insight.spaceTypes[0] | capitalize }}</span>
         {% endif %}
       </div>
-      <p>{{ insight.summary }}</p>
+      <p>{{ insight.heroSummary or insight.summary }}</p>
     </header>
 
     <article class="rofo-insight-document">
+      <section class="rofo-insight-section rofo-insight-section--summary">
+        <h2>Executive summary</h2>
+        <p>{{ insight.summary }}</p>
+      </section>
+
       <section class="rofo-insight-section">
         <h2>Why this matters</h2>
         <p>{{ insight.whyThisMatters }}</p>
       </section>
 
       <section class="rofo-insight-section">
-        <h2>The common assumption</h2>
+        <h2>What businesses often overlook</h2>
         <p>{{ insight.commonAssumption }}</p>
       </section>
 
@@ -75,6 +91,15 @@ eleventyComputed:
         </section>
       {% endif %}
 
+      {% if insight.relatedCityPage %}
+        <section class="rofo-insight-section">
+          <h2>Related City</h2>
+          <div class="rofo-insight-link-grid">
+            <a href="{{ insight.relatedCityPage }}">{{ insight.primaryMarket }} commercial real estate</a>
+          </div>
+        </section>
+      {% endif %}
+
       {% if insight.relatedDistrictPages and insight.relatedDistrictPages.length %}
         <section class="rofo-insight-section">
           <h2>Related Districts</h2>
@@ -87,15 +112,30 @@ eleventyComputed:
           </div>
         </section>
       {% endif %}
+
+      {% if relatedInsightItems.length %}
+        <section class="rofo-insight-section">
+          <h2>Related Rofo Insights</h2>
+          <div class="rofo-related-insight-grid">
+            {% for relatedInsight in relatedInsightItems.slice(0, 4) %}
+              <a class="rofo-related-insight-card" href="/insights/{{ relatedInsight.slug }}/">
+                <span>{{ relatedInsight.readingTime or relatedInsight.readTime or "3 minute read" }}</span>
+                <strong>{{ relatedInsight.title }}</strong>
+                <em>{{ relatedInsight.summary }}</em>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
     </article>
 
     <section class="rofo-insight-cta" aria-labelledby="rofo-insight-cta-heading">
       <div>
-        <div class="rofo-insight-eyebrow">Need help deciding?</div>
-        <h2 id="rofo-insight-cta-heading">Generate a Location Brief</h2>
-        <p>Rofo compares markets, evaluates your requirements, and recommends where we would start your search.</p>
+        <div class="rofo-insight-eyebrow">Still deciding?</div>
+        <h2 id="rofo-insight-cta-heading">Generate a personalized Location Brief.</h2>
+        <p>Rofo compares markets against your business priorities and recommends where we would start your search.</p>
       </div>
-      <a class="btn-primary" href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Generate a Location Brief</a>
+      <a class="btn-primary" href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Find My Best Locations</a>
     </section>
   </div>
 </main>

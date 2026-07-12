@@ -3,10 +3,12 @@ const sanFranciscoCityPage = "/commercial-real-estate/CA/san-francisco/";
 
 module.exports = [
   {
-    title: "Why many AI startups begin in SoMa - but do not stay there",
+    title: "Why AI startups begin in SoMa - and why some outgrow it",
     slug: "why-ai-startups-begin-in-soma-but-do-not-stay-there",
     summary:
-      "SoMa can be an effective first office market for early AI teams, but growth, client expectations, and team routines often change the location decision.",
+      "SoMa can be the right first move for an ambitious AI team. But as hiring, clients, security, and operating rhythm change, the best district can change with the company.",
+    heroSummary:
+      "Early-stage companies often choose SoMa for energy and proximity. Rofo looks at what happens next: how the office supports recruiting, client trust, team routines, and future growth.",
     primaryMarket: "San Francisco",
     primaryDistrict: "SoMa",
     relatedDistricts: ["Mission Bay", "Financial District", "Jackson Square"],
@@ -35,7 +37,13 @@ module.exports = [
       "transit and amenity access",
       "growth-stage tradeoffs",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "mission-bay-is-not-just-for-life-science-companies",
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:
@@ -55,10 +63,12 @@ module.exports = [
       "Mission Bay may be stronger for newer buildings and growth-stage planning. The Financial District may be stronger for client-heavy teams. Jackson Square may be stronger for a smaller executive or boutique technology presence.",
   },
   {
-    title: "Mission Bay is not just for life science companies",
+    title: "The mistake companies make when they dismiss Mission Bay",
     slug: "mission-bay-is-not-just-for-life-science-companies",
     summary:
-      "Mission Bay works for more than life science users when a business values modern inventory, growth flexibility, and a clearer campus-like environment.",
+      "Mission Bay is easy to label as life science territory. That misses why technology, health, and growth-stage office users may still need it on the shortlist.",
+    heroSummary:
+      "Mission Bay is not only a lab-space answer. Rofo evaluates it as a modern San Francisco business environment where building format, growth planning, and institutional context can matter more than neighborhood mythology.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Mission Bay",
     relatedDistricts: ["SoMa", "Financial District", "South Beach"],
@@ -87,7 +97,13 @@ module.exports = [
       "life science adjacency",
       "institutional environment",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "south-beach-vs-soma-two-urban-office-districts",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:
@@ -107,10 +123,12 @@ module.exports = [
       "SoMa may be stronger for creative startup texture. The Financial District may be stronger for formal client access and regional transit. South Beach may be worth comparing for teams that want waterfront-adjacent urban office context.",
   },
   {
-    title: "Financial District or Jackson Square? Choosing an office location after your company matures",
+    title: "When a mature company should choose Jackson Square over the Financial District",
     slug: "financial-district-or-jackson-square-after-your-company-matures",
     summary:
-      "Maturing companies often choose between formal downtown credibility and a more boutique client-facing office setting.",
+      "The Financial District signals scale and convention. Jackson Square can signal judgment, character, and restraint. For mature companies, that difference matters.",
+    heroSummary:
+      "Maturing companies often need the office to communicate more than energy. Rofo compares whether formal downtown credibility or a quieter boutique setting better supports clients, partners, and senior talent.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Financial District",
     relatedDistricts: ["Jackson Square", "SoMa", "Union Square"],
@@ -139,7 +157,13 @@ module.exports = [
       "regional transit",
       "boutique office character",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "why-union-square-can-still-be-the-right-office-location",
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:
@@ -159,10 +183,12 @@ module.exports = [
       "Jackson Square may be stronger when the company wants a smaller-scale executive setting with character. SoMa may still matter if hiring and creative office environment outweigh formal client presentation.",
   },
   {
-    title: "Why Union Square can still be the right office location",
+    title: "Why Union Square still belongs in some office searches",
     slug: "why-union-square-can-still-be-the-right-office-location",
     summary:
-      "Union Square is not the default office answer, but it can work when customer access, hospitality, visitor activity, and centrality matter.",
+      "Union Square is not the default answer for every office search. But for visitor-oriented, brand-sensitive, and customer-facing businesses, dismissing it too early can be a mistake.",
+    heroSummary:
+      "Some office decisions are really customer-experience decisions. Rofo keeps Union Square in the conversation when centrality, hospitality context, showroom potential, or visitor familiarity changes the value of the location.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Union Square",
     relatedDistricts: ["Financial District", "Jackson Square", "SoMa"],
@@ -191,7 +217,13 @@ module.exports = [
       "central city access",
       "customer-facing use",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "how-rofo-evaluates-san-francisco-office-locations",
+      "south-beach-vs-soma-two-urban-office-districts",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:
@@ -211,10 +243,12 @@ module.exports = [
       "The Financial District may be stronger for traditional office depth. Jackson Square may be stronger for boutique professional identity. SoMa may be stronger for technology hiring and creative office texture.",
   },
   {
-    title: "South Beach vs SoMa: two urban office districts with different strengths",
+    title: "South Beach and SoMa are close together. They do not solve the same office problem.",
     slug: "south-beach-vs-soma-two-urban-office-districts",
     summary:
-      "South Beach and SoMa can look similar on a map, but they often support different office decisions and team expectations.",
+      "Two districts can sit near each other and still create different employee, client, and building experiences. That is why Rofo compares geography before comparing buildings.",
+    heroSummary:
+      "South Beach and SoMa can look interchangeable from a distance. Rofo treats them as different location strategies: one often more polished and waterfront-adjacent, the other broader, more varied, and more startup-coded.",
     primaryMarket: "San Francisco",
     primaryDistrict: "South Beach",
     relatedDistricts: ["SoMa", "Mission Bay", "Financial District"],
@@ -243,7 +277,13 @@ module.exports = [
       "creative office alternatives",
       "building-level variation",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "mission-bay-is-not-just-for-life-science-companies",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:
@@ -263,10 +303,12 @@ module.exports = [
       "SoMa may be stronger for creative inventory and startup adjacency. Mission Bay may be stronger for newer buildings and growth planning. The Financial District may be stronger for formal client access.",
   },
   {
-    title: "How Rofo evaluates San Francisco office locations",
+    title: "Most companies search buildings first. Rofo starts with geography.",
     slug: "how-rofo-evaluates-san-francisco-office-locations",
     summary:
-      "Rofo evaluates office locations by matching business needs to district strengths, tradeoffs, comparisons, and validation questions.",
+      "Available buildings matter, but they are not the first question. Rofo starts by asking which commercial geography best fits the business decision.",
+    heroSummary:
+      "Choosing between SoMa, Mission Bay, Jackson Square, Union Square, and the Financial District is not simply about rent or availability. Different districts support different kinds of companies, client expectations, hiring strategies, and growth plans.",
     primaryMarket: "San Francisco",
     primaryDistrict: "",
     relatedDistricts: ["Mission Bay", "SoMa", "Financial District", "Jackson Square", "Union Square"],
@@ -301,7 +343,14 @@ module.exports = [
       "tradeoff analysis",
       "validation questions",
     ],
-    readTime: "2-minute read",
+    readingTime: "3 minute read",
+    featured: true,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "mission-bay-is-not-just-for-life-science-companies",
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "south-beach-vs-soma-two-urban-office-districts",
+    ],
     published: true,
     editorReviewed: true,
     whyThisMatters:

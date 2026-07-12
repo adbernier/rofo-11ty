@@ -1,10 +1,13 @@
 {% if featuredInsight and featuredInsight.published %}
   <section class="city-card rofo-insight-card" aria-labelledby="rofo-insight-card-heading-{{ featuredInsight.slug }}">
-    <div class="rofo-insight-card__label">Rofo Insight</div>
+    <div class="rofo-insight-card__topline">
+      <span class="rofo-insight-card__label"><span aria-hidden="true">&#128161;</span> Rofo Insight</span>
+      <span class="rofo-insight-card__time">{{ featuredInsight.readingTime or featuredInsight.readTime or "3 minute read" }}</span>
+    </div>
     <h2 id="rofo-insight-card-heading-{{ featuredInsight.slug }}">
       <a href="/insights/{{ featuredInsight.slug }}/">{{ featuredInsight.title }}</a>
     </h2>
-    <p>{{ featuredInsight.summary }}</p>
+    <p>{{ featuredInsight.heroSummary or featuredInsight.summary }}</p>
     <a class="building-link rofo-insight-card__link" href="/insights/{{ featuredInsight.slug }}/">Read Insight &rarr;</a>
   </section>
 {% endif %}

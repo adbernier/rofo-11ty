@@ -36,6 +36,10 @@ Each Insight should include:
 - relatedCityPage
 - relatedLocationBrief
 - compassSignals
+- featured
+- readingTime
+- heroSummary
+- relatedInsights
 - published
 - editorReviewed
 
@@ -60,6 +64,48 @@ Insights should not:
 - repeat generic neighborhood descriptions
 - make unsupported claims about rents, vacancy, or demand
 - read like promotional marketing copy
+
+## Headline Guidelines
+
+Insight headlines should create curiosity without becoming clickbait.
+
+Prefer headlines that:
+
+- challenge a common assumption
+- show that two nearby districts solve different business problems
+- make the reader want the advisor logic behind the claim
+- use plain business language
+
+Avoid headlines that:
+
+- promise a single best location
+- imply rankings or scores
+- overstate certainty
+- sound like a generic market report
+
+Good pattern:
+
+- Most companies search buildings first. Rofo starts with geography.
+- South Beach and SoMa are close together. They do not solve the same office problem.
+- Why Union Square still belongs in some office searches.
+
+## Summary Guidelines
+
+The summary should not merely describe the page. It should introduce the tension.
+
+Summaries should be two to four concise sentences when possible and should:
+
+- name the decision tension
+- explain why the assumption is incomplete
+- invite the reader into the reasoning
+
+The `heroSummary` can be slightly more expansive than the card summary. It should still stay editorial, not promotional.
+
+## Reading Time
+
+Use `readingTime` when available.
+
+The current Insight format targets about a three-minute read. The reading time is displayed on featured cards and Insight pages to signal that the content is concise and practical.
 
 ## Relationship To Compass
 
@@ -107,15 +153,37 @@ Each Insight should link to relevant:
 
 Supported city, district, and comparison pages can link back to one featured Insight. One high-quality featured Insight is usually enough; the goal is a useful knowledge network, not page clutter.
 
+## Related Insights
+
+Related Insights should help the reader keep following a commercial location question.
+
+Priority:
+
+- same district or first-order alternative
+- same city or metro
+- same comparison relationship
+- shared business type or space type
+- shared Compass signals
+
+Use `relatedInsights` to define explicit editorial relationships where the link is important. Future automation can use district, city, comparison, and Compass signal overlap as a fallback.
+
+## CTA Philosophy
+
+Insights demonstrate how Rofo thinks.
+
+Location Briefs personalize that thinking.
+
+Every Insight should end with a clear Location Brief CTA. The CTA should route to `/find-locations/` with market and space type context where practical.
+
 ## San Francisco Pilot
 
 The first pilot set focuses on San Francisco office location decisions:
 
-- Why many AI startups begin in SoMa - but do not stay there
-- Mission Bay is not just for life science companies
-- Financial District or Jackson Square? Choosing an office location after your company matures
-- Why Union Square can still be the right office location
-- South Beach vs SoMa: two urban office districts with different strengths
-- How Rofo evaluates San Francisco office locations
+- Why AI startups begin in SoMa - and why some outgrow it
+- The mistake companies make when they dismiss Mission Bay
+- When a mature company should choose Jackson Square over the Financial District
+- Why Union Square still belongs in some office searches
+- South Beach and SoMa are close together. They do not solve the same office problem.
+- Most companies search buildings first. Rofo starts with geography.
 
 Future metros should use the same system once Compass has enough knowledge to support editorial reasoning.
