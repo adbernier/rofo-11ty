@@ -1,4 +1,40 @@
-{% if featuredInsight and featuredInsight.published %}
+{% if insightList and insightList.length %}
+  {% set moduleFeaturedInsight = featuredInsight or insightList[0] %}
+  {% set moduleTitle = insightModuleTitle or "Insights from Rofo" %}
+  {% set moduleSummary = insightModuleSummary or "Commercial observations from Rofo about how businesses compare locations." %}
+  {% set moduleHubUrl = insightHubUrl or (moduleFeaturedInsight.relatedCityPage + "insights/") %}
+  <section class="city-card rofo-insight-card rofo-insight-card--hub" aria-labelledby="rofo-insight-card-heading-{{ moduleFeaturedInsight.slug }}">
+    <div class="rofo-insight-card__topline">
+      <span class="rofo-insight-card__label"><span aria-hidden="true">&#128161;</span> {{ moduleTitle }}</span>
+      <span class="rofo-insight-card__time">{{ moduleFeaturedInsight.readingTime or moduleFeaturedInsight.readTime or "3 minute read" }}</span>
+    </div>
+    <h2 id="rofo-insight-card-heading-{{ moduleFeaturedInsight.slug }}">
+      <a href="/insights/{{ moduleFeaturedInsight.slug }}/">{{ moduleFeaturedInsight.title }}</a>
+    </h2>
+    <p>{{ moduleFeaturedInsight.heroSummary or moduleFeaturedInsight.summary or moduleSummary }}</p>
+
+    <div class="rofo-insight-card__recent">
+      <div class="rofo-insight-card__recent-label">Recent Insights</div>
+      <ul>
+        {% for relatedInsight in insightList.slice(0, 6) %}
+          {% if relatedInsight.slug != moduleFeaturedInsight.slug %}
+            <li>
+              <a href="/insights/{{ relatedInsight.slug }}/">{{ relatedInsight.title }}</a>
+              <span>{{ relatedInsight.readingTime or relatedInsight.readTime or "3 minute read" }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="rofo-insight-card__actions">
+      <a class="building-link rofo-insight-card__link" href="/insights/{{ moduleFeaturedInsight.slug }}/">Read Insight &rarr;</a>
+      {% if moduleHubUrl %}
+        <a class="building-link rofo-insight-card__link" href="{{ moduleHubUrl }}">View all San Francisco Insights &rarr;</a>
+      {% endif %}
+    </div>
+  </section>
+{% elseif featuredInsight and featuredInsight.published %}
   <section class="city-card rofo-insight-card" aria-labelledby="rofo-insight-card-heading-{{ featuredInsight.slug }}">
     <div class="rofo-insight-card__topline">
       <span class="rofo-insight-card__label"><span aria-hidden="true">&#128161;</span> Rofo Insight</span>

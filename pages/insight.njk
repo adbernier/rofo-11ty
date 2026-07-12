@@ -38,6 +38,9 @@ eleventyComputed:
         {% if insight.primaryMarket %}
           <span>{{ insight.primaryMarket }}</span>
         {% endif %}
+        {% if insight.category %}
+          <span>{{ insight.category }}</span>
+        {% endif %}
         {% if insight.spaceTypes and insight.spaceTypes.length %}
           <span>{{ insight.spaceTypes[0] | capitalize }}</span>
         {% endif %}
@@ -96,6 +99,7 @@ eleventyComputed:
           <h2>Related City</h2>
           <div class="rofo-insight-link-grid">
             <a href="{{ insight.relatedCityPage }}">{{ insight.primaryMarket }} commercial real estate</a>
+            <a href="{{ insight.relatedCityPage }}insights/">{{ insight.primaryMarket }} Insights</a>
           </div>
         </section>
       {% endif %}

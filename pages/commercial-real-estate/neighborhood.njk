@@ -192,7 +192,15 @@ eleventyComputed:
         {% endif %}
 
         {% set featuredInsight = neighborhoodPrimaryInsights[0] or neighborhoodInsights[0] %}
+        {% set insightList = neighborhoodPrimaryInsights.concat(neighborhoodInsights) %}
+        {% set insightModuleTitle = "Insights about " + neighborhood.name %}
+        {% set insightModuleSummary = "Commercial observations from Rofo about how businesses compare " + neighborhood.name + " with nearby San Francisco districts." %}
+        {% set insightHubUrl = "/commercial-real-estate/CA/san-francisco/insights/" if neighborhood.city == "San Francisco" and neighborhood.state_abbr == "CA" else cityUrl + "insights/" %}
         {% include "partials/shared/rofo-insight-card.njk" %}
+        {% set insightList = "" %}
+        {% set insightModuleTitle = "" %}
+        {% set insightModuleSummary = "" %}
+        {% set insightHubUrl = "" %}
 
         {% if neighborhood.neighborhood_intelligence %}
           {% include "partials/neighborhood/intelligence.njk" %}

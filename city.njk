@@ -110,11 +110,15 @@ eleventyComputed:
 {% set cityLocationModel = commercialLocationModel.byPath[cityLocationModelPath] %}
 {% set cityInsights = [] %}
 {% set cityOverviewInsights = [] %}
+{% set cityHubInsights = [] %}
 {% for insight in rofoInsights %}
   {% if insight.published and insight.relatedCityPage == cityLocationModelPath %}
     {% set cityInsights = (cityInsights.push(insight), cityInsights) %}
     {% if not insight.primaryDistrict %}
       {% set cityOverviewInsights = (cityOverviewInsights.push(insight), cityOverviewInsights) %}
+    {% endif %}
+    {% if insight.cityHubFeatured %}
+      {% set cityHubInsights = (cityHubInsights.push(insight), cityHubInsights) %}
     {% endif %}
   {% endif %}
 {% endfor %}
@@ -178,7 +182,15 @@ eleventyComputed:
 
         <div class="city-grid city-primary-content">
           {% set featuredInsight = cityOverviewInsights[0] or cityInsights[0] %}
+          {% set insightList = cityOverviewInsights.concat(cityHubInsights) %}
+          {% set insightModuleTitle = "Insights from Rofo" %}
+          {% set insightModuleSummary = "Commercial observations from Rofo about how businesses compare " + city.city + " locations." %}
+          {% set insightHubUrl = cityLocationModelPath + "insights/" %}
           {% include "partials/shared/rofo-insight-card.njk" %}
+          {% set insightList = "" %}
+          {% set insightModuleTitle = "" %}
+          {% set insightModuleSummary = "" %}
+          {% set insightHubUrl = "" %}
 
           {% if cityMarketGuide %}
             <div class="city-card city-market-guide-card">

@@ -82,7 +82,15 @@ eleventyComputed:
         </div>
 
         {% set featuredInsight = comparisonPrimaryInsights[0] or comparisonInsights[0] %}
+        {% set insightList = comparisonPrimaryInsights.concat(comparisonInsights) %}
+        {% set insightModuleTitle = "Related Rofo Insights" %}
+        {% set insightModuleSummary = "Commercial observations from Rofo that add context to this location comparison." %}
+        {% set insightHubUrl = "/commercial-real-estate/CA/san-francisco/insights/" if comparison.city == "San Francisco" and comparison.state_abbr == "CA" else "/commercial-real-estate/" + comparison.state_abbr + "/" + comparison.city_slug + "/insights/" %}
         {% include "partials/shared/rofo-insight-card.njk" %}
+        {% set insightList = "" %}
+        {% set insightModuleTitle = "" %}
+        {% set insightModuleSummary = "" %}
+        {% set insightHubUrl = "" %}
 
         <section class="city-card">
           <div class="eyebrow">Quick read</div>

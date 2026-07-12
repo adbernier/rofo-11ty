@@ -11,6 +11,7 @@ module.exports = [
       "Early-stage companies often choose SoMa for energy and proximity. Rofo looks at what happens next: how the office supports recruiting, client trust, team routines, and future growth.",
     primaryMarket: "San Francisco",
     primaryDistrict: "SoMa",
+    category: "Technology",
     relatedDistricts: ["Mission Bay", "Financial District", "Jackson Square"],
     businessTypes: ["AI startup", "software company", "venture-backed technology company"],
     spaceTypes: ["office", "creative office"],
@@ -39,7 +40,10 @@ module.exports = [
     ],
     readingTime: "3 minute read",
     featured: true,
+    cityHubFeatured: true,
     relatedInsights: [
+      "not-every-ai-startup-belongs-in-soma",
+      "when-growing-companies-outgrow-soma",
       "mission-bay-is-not-just-for-life-science-companies",
       "financial-district-or-jackson-square-after-your-company-matures",
       "how-rofo-evaluates-san-francisco-office-locations",
@@ -71,6 +75,7 @@ module.exports = [
       "Mission Bay is not only a lab-space answer. Rofo evaluates it as a modern San Francisco business environment where building format, growth planning, and institutional context can matter more than neighborhood mythology.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Mission Bay",
+    category: "Growing Companies",
     relatedDistricts: ["SoMa", "Financial District", "South Beach"],
     businessTypes: ["technology company", "life science company", "medical-adjacent business", "growth-stage company"],
     spaceTypes: ["office", "medical office", "life science"],
@@ -100,6 +105,8 @@ module.exports = [
     readingTime: "3 minute read",
     featured: true,
     relatedInsights: [
+      "when-growing-companies-outgrow-soma",
+      "choosing-an-office-location-that-helps-you-hire",
       "why-ai-startups-begin-in-soma-but-do-not-stay-there",
       "south-beach-vs-soma-two-urban-office-districts",
       "how-rofo-evaluates-san-francisco-office-locations",
@@ -131,6 +138,7 @@ module.exports = [
       "Maturing companies often need the office to communicate more than energy. Rofo compares whether formal downtown credibility or a quieter boutique setting better supports clients, partners, and senior talent.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Financial District",
+    category: "Professional Services",
     relatedDistricts: ["Jackson Square", "SoMa", "Union Square"],
     businessTypes: ["law firm", "finance firm", "consulting firm", "executive office", "mature technology company"],
     spaceTypes: ["office"],
@@ -160,6 +168,7 @@ module.exports = [
     readingTime: "3 minute read",
     featured: true,
     relatedInsights: [
+      "hidden-advantage-jackson-square-professional-firms",
       "why-union-square-can-still-be-the-right-office-location",
       "why-ai-startups-begin-in-soma-but-do-not-stay-there",
       "how-rofo-evaluates-san-francisco-office-locations",
@@ -191,6 +200,7 @@ module.exports = [
       "Some office decisions are really customer-experience decisions. Rofo keeps Union Square in the conversation when centrality, hospitality context, showroom potential, or visitor familiarity changes the value of the location.",
     primaryMarket: "San Francisco",
     primaryDistrict: "Union Square",
+    category: "Choosing a District",
     relatedDistricts: ["Financial District", "Jackson Square", "SoMa"],
     businessTypes: ["showroom", "hospitality-adjacent business", "retail-adjacent office", "client-facing service firm"],
     spaceTypes: ["office", "retail", "showroom"],
@@ -251,6 +261,7 @@ module.exports = [
       "South Beach and SoMa can look interchangeable from a distance. Rofo treats them as different location strategies: one often more polished and waterfront-adjacent, the other broader, more varied, and more startup-coded.",
     primaryMarket: "San Francisco",
     primaryDistrict: "South Beach",
+    category: "Choosing a District",
     relatedDistricts: ["SoMa", "Mission Bay", "Financial District"],
     businessTypes: ["technology company", "creative office user", "professional services firm"],
     spaceTypes: ["office", "creative office"],
@@ -280,6 +291,8 @@ module.exports = [
     readingTime: "3 minute read",
     featured: true,
     relatedInsights: [
+      "not-every-ai-startup-belongs-in-soma",
+      "proximity-is-not-the-same-as-fit",
       "why-ai-startups-begin-in-soma-but-do-not-stay-there",
       "mission-bay-is-not-just-for-life-science-companies",
       "how-rofo-evaluates-san-francisco-office-locations",
@@ -301,6 +314,336 @@ module.exports = [
       "South Beach is the better fit when a company wants central urban access with a somewhat more polished, residential, or waterfront-adjacent feel.",
     anotherDistrictMayBeStronger:
       "SoMa may be stronger for creative inventory and startup adjacency. Mission Bay may be stronger for newer buildings and growth planning. The Financial District may be stronger for formal client access.",
+  },
+  {
+    title: "Not every AI startup belongs in SoMa",
+    slug: "not-every-ai-startup-belongs-in-soma",
+    summary:
+      "SoMa may be the obvious place to start an AI office search, but it is not always the best fit. Team stage, client expectations, and growth plans can point to Mission Bay, South Beach, or Jackson Square instead.",
+    heroSummary:
+      "The strongest AI office search does not begin with a district stereotype. Rofo looks at whether the company needs energy, credibility, growth flexibility, customer access, or a more deliberate executive environment.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "SoMa",
+    category: "Technology",
+    relatedDistricts: ["SoMa", "Mission Bay", "South Beach", "Jackson Square"],
+    businessTypes: ["AI startup", "software company", "technology company", "venture-backed company"],
+    spaceTypes: ["office", "creative office"],
+    relatedComparisons: [
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+      },
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+      },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: [
+      "startup stage",
+      "talent access",
+      "growth flexibility",
+      "client perception",
+    ],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "when-growing-companies-outgrow-soma",
+      "choosing-an-office-location-that-helps-you-hire",
+      "proximity-is-not-the-same-as-fit",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "AI companies are often treated as if they all want the same office environment. In reality, two AI teams with the same headcount can need different geography. One may need recruiting energy and creative office texture. Another may need modern inventory, executive discretion, or a location that gives clients more confidence.",
+    commonAssumption:
+      "The common assumption is that SoMa is the default answer for any AI startup in San Francisco. That can be true for some early teams, but it is not a rule. The office should support the company the business is becoming, not only the category it belongs to.",
+    whatRofoHasLearned: [
+      "SoMa is strongest when the company values startup familiarity, centrality, and creative office energy.",
+      "Mission Bay becomes more relevant when newer buildings, growth planning, and institutional context matter.",
+      "South Beach can be useful when a team wants an urban setting with a more polished or waterfront-adjacent feel.",
+      "Jackson Square can fit smaller executive, venture, or AI teams that want downtown proximity without a conventional tower identity.",
+      "The best AI office district depends on stage, customer visibility, hiring strategy, and how much the office needs to communicate maturity.",
+    ],
+    betterFit:
+      "SoMa is the better fit when the team is still optimizing for proximity to other startups, central access, and a creative office setting.",
+    anotherDistrictMayBeStronger:
+      "Mission Bay may be stronger for growth and modern inventory. South Beach may be stronger for a more polished urban setting. Jackson Square may be stronger when executive image and client perception matter more than startup density.",
+  },
+  {
+    title: "The hidden advantage of Jackson Square for professional firms",
+    slug: "hidden-advantage-jackson-square-professional-firms",
+    summary:
+      "For law, finance, investment, and advisory firms, Jackson Square can offer something a traditional office core cannot: downtown access with a more distinctive client experience.",
+    heroSummary:
+      "Professional firms do not always need the biggest downtown signal. Sometimes the stronger move is a quieter office district that communicates judgment, character, walkability, and proximity to clients without feeling generic.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "Jackson Square",
+    category: "Professional Services",
+    relatedDistricts: ["Jackson Square", "Financial District", "Union Square", "SoMa"],
+    businessTypes: ["law firm", "finance firm", "investment firm", "wealth management firm", "executive office"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+      },
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+      },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/union-square/",
+      "/commercial-real-estate/CA/san-francisco/soma/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: [
+      "executive image",
+      "client perception",
+      "walkability",
+      "boutique office character",
+    ],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    relatedInsights: [
+      "financial-district-or-jackson-square-after-your-company-matures",
+      "why-union-square-can-still-be-the-right-office-location",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "A professional firm's office often has to do quiet work. It should make clients comfortable, support confidential conversations, feel credible to senior talent, and avoid unnecessary friction. Jackson Square can be useful because it keeps downtown access while changing the emotional texture of the visit.",
+    commonAssumption:
+      "Many firms assume the Financial District is the only serious answer for client-facing professional office space. The Financial District may be right, but Jackson Square can be stronger when the firm wants a more intimate setting with character and a less institutional feel.",
+    whatRofoHasLearned: [
+      "Jackson Square can work for firms that want downtown adjacency without a conventional tower-core experience.",
+      "The district's lower-scale character can make client visits feel more personal and deliberate.",
+      "Walkability and nearby hospitality matter when clients or partners visit regularly.",
+      "The tradeoff is that building choices may require more selectivity than a traditional office core.",
+      "The comparison should focus on client perception, building format, and how formal the office needs to feel.",
+    ],
+    betterFit:
+      "Jackson Square is the better fit when a firm values boutique character, senior-client experience, and a distinctive downtown-adjacent setting.",
+    anotherDistrictMayBeStronger:
+      "The Financial District may be stronger when transit concentration, building services, and formal office-core identity are the primary requirements. Union Square may be worth considering for visitor-oriented or hospitality-adjacent uses.",
+  },
+  {
+    title: "When growing companies outgrow SoMa",
+    slug: "when-growing-companies-outgrow-soma",
+    summary:
+      "Outgrowing SoMa is not always about size. It often happens when the company needs different buildings, a different commute pattern, or a more mature signal to employees and clients.",
+    heroSummary:
+      "SoMa can be a strong early-stage environment. Rofo watches for the moment when the office has to support growth, predictability, client confidence, and building quality in a different way.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "SoMa",
+    category: "Growing Companies",
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "South Beach"],
+    businessTypes: ["growth-stage company", "software company", "AI startup", "professional services firm"],
+    spaceTypes: ["office", "creative office"],
+    relatedComparisons: [
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+      },
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+      },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: [
+      "headcount growth",
+      "building inventory",
+      "campus environment",
+      "client-facing maturity",
+    ],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    relatedInsights: [
+      "why-ai-startups-begin-in-soma-but-do-not-stay-there",
+      "mission-bay-is-not-just-for-life-science-companies",
+      "choosing-an-office-location-that-helps-you-hire",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "A growing company's office has to absorb more complexity. Hiring needs become more specific. Hybrid patterns settle. Clients may visit more often. The company may need better meeting space, stronger building services, or a location that feels credible beyond the founding team.",
+    commonAssumption:
+      "The common assumption is that a company outgrows SoMa only when it needs more square footage. Space matters, but the bigger shift is usually operational. The company starts asking different questions about access, image, growth, and building format.",
+    whatRofoHasLearned: [
+      "SoMa remains useful when creative office energy and startup proximity are still central to the business.",
+      "Mission Bay often becomes more relevant when growth planning and newer inventory matter.",
+      "The Financial District can become more relevant when client confidence and regional transit become bigger priorities.",
+      "South Beach may offer a more polished urban alternative without fully leaving the central-city environment.",
+      "The right comparison is not old office versus new office; it is whether the district still supports the company's next operating stage.",
+    ],
+    betterFit:
+      "SoMa remains the better fit when the company still benefits most from creative energy, central access, and flexible urban inventory.",
+    anotherDistrictMayBeStronger:
+      "Mission Bay may be stronger for growth and modern buildings. The Financial District may be stronger for client-heavy companies. South Beach may be stronger when the company wants a more polished setting close to SoMa.",
+  },
+  {
+    title: "Choosing an office location that helps you hire",
+    slug: "choosing-an-office-location-that-helps-you-hire",
+    summary:
+      "The office location can shape who wants to join, how often people come in, and whether the workplace feels like an advantage or a compromise.",
+    heroSummary:
+      "Hiring is not only about compensation and role quality. Commercial geography can influence commute tolerance, neighborhood energy, client perception, and the kind of workplace story a company tells candidates.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Compass Frameworks",
+    category: "Commercial Strategy",
+    relatedDistricts: ["SoMa", "Mission Bay", "Financial District", "Jackson Square"],
+    businessTypes: ["technology company", "growth-stage company", "professional services firm", "AI startup"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+      },
+      {
+        label: "Financial District vs SoMa",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/",
+      },
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+      },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: [
+      "talent attraction",
+      "employee transit",
+      "workplace identity",
+      "amenity access",
+    ],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    relatedInsights: [
+      "not-every-ai-startup-belongs-in-soma",
+      "when-growing-companies-outgrow-soma",
+      "how-rofo-evaluates-san-francisco-office-locations",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Hiring is one of the least visible location requirements, but it can be one of the most important. A district affects commute willingness, after-work convenience, candidate perception, and whether the office feels worth visiting in a hybrid work pattern.",
+    commonAssumption:
+      "Many companies treat hiring as separate from real estate. They choose a building first and then hope the team adapts. Rofo starts earlier by asking which district helps the company compete for the people it needs.",
+    whatRofoHasLearned: [
+      "SoMa can support hiring when candidates value startup energy and central creative office context.",
+      "Mission Bay can support hiring when candidates respond to newer buildings, growth-stage identity, and a more planned environment.",
+      "The Financial District can support hiring when regional transit and professional infrastructure are meaningful advantages.",
+      "Jackson Square can help senior or executive recruiting when a distinctive boutique setting matters.",
+      "Hiring fit depends on the talent pool, work pattern, commute expectations, and the story the office tells about the company.",
+    ],
+    betterFit:
+      "A hiring-oriented office location is the better fit when it reduces commute friction, reinforces the company's identity, and makes in-person work feel intentional.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger if the company hires from a different geography, needs a more formal client image, or values building quality more than neighborhood energy.",
+  },
+  {
+    title: "Why proximity is not the same as fit",
+    slug: "proximity-is-not-the-same-as-fit",
+    summary:
+      "Adjacent districts can look interchangeable, but they often support different business models, employee routines, and client experiences.",
+    heroSummary:
+      "Being near another district does not mean a location solves the same problem. Rofo separates physical proximity from commercial fit so businesses do not choose a familiar area for the wrong reason.",
+    primaryMarket: "San Francisco",
+    primaryDistrict: "",
+    category: "Compass Frameworks",
+    relatedDistricts: ["SoMa", "South Beach", "Mission Bay", "Financial District", "Jackson Square"],
+    businessTypes: ["technology company", "professional services firm", "client-facing office user", "growth-stage company"],
+    spaceTypes: ["office"],
+    relatedComparisons: [
+      {
+        label: "SoMa vs Mission Bay",
+        url: "/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/",
+      },
+      {
+        label: "Mission Bay vs Financial District",
+        url: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-financial-district/",
+      },
+      {
+        label: "Financial District vs Jackson Square",
+        url: "/commercial-real-estate/CA/san-francisco/financial-district-vs-jackson-square/",
+      },
+    ],
+    relatedDistrictPages: [
+      "/commercial-real-estate/CA/san-francisco/soma/",
+      "/commercial-real-estate/CA/san-francisco/south-beach/",
+      "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "/commercial-real-estate/CA/san-francisco/jackson-square/",
+    ],
+    relatedCityPage: sanFranciscoCityPage,
+    relatedLocationBrief: locationBriefCta,
+    compassSignals: [
+      "commercial geography",
+      "comparison relationships",
+      "district fit",
+      "location tradeoffs",
+    ],
+    readingTime: "3 minute read",
+    featured: true,
+    cityHubFeatured: true,
+    relatedInsights: [
+      "south-beach-vs-soma-two-urban-office-districts",
+      "how-rofo-evaluates-san-francisco-office-locations",
+      "not-every-ai-startup-belongs-in-soma",
+    ],
+    published: true,
+    editorReviewed: true,
+    whyThisMatters:
+      "Businesses often compare locations that are close together and assume the choice is minor. In commercial real estate, small geography changes can change building type, street experience, client perception, transit pattern, and the kind of company the location naturally supports.",
+    commonAssumption:
+      "The common assumption is that nearby districts are substitutes. Sometimes they are. Often they are not. A business can be physically close to the right market but commercially misaligned with the environment it actually chose.",
+    whatRofoHasLearned: [
+      "SoMa and South Beach are close, but they can communicate different workplace stories.",
+      "Mission Bay and SoMa can both serve technology users, but their building formats and growth signals differ.",
+      "The Financial District and Jackson Square both serve client-facing firms, but the office experience can feel very different.",
+      "Proximity is useful only after the business defines the problem the location must solve.",
+      "Good recommendations explain why a nearby alternative is or is not a true substitute.",
+    ],
+    betterFit:
+      "A nearby district is the better fit when it solves the same business requirement with fewer tradeoffs or a clearer operating advantage.",
+    anotherDistrictMayBeStronger:
+      "Another district may be stronger when it changes the business outcome, not merely the commute distance. That can mean better hiring, stronger client perception, more appropriate buildings, or better growth flexibility.",
   },
   {
     title: "Most companies search buildings first. Rofo starts with geography.",

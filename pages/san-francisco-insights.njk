@@ -1,0 +1,83 @@
+---
+layout: base.njk
+permalink: "/commercial-real-estate/CA/san-francisco/insights/index.html"
+eleventyComputed:
+  title: "San Francisco Insights | Rofo"
+  description: "Rofo Insights for San Francisco commercial location decisions, district comparisons, and office market strategy."
+  canonical: "{{ metadata.siteUrl }}/commercial-real-estate/CA/san-francisco/insights/"
+---
+
+{% set insightHubUrl = "/commercial-real-estate/CA/san-francisco/insights/" %}
+{% set sanFranciscoInsights = [] %}
+{% for insight in rofoInsights %}
+  {% if insight.published and insight.relatedCityPage == "/commercial-real-estate/CA/san-francisco/" %}
+    {% set sanFranciscoInsights = (sanFranciscoInsights.push(insight), sanFranciscoInsights) %}
+  {% endif %}
+{% endfor %}
+{% set insightCategories = [
+  "Choosing a District",
+  "Growing Companies",
+  "Technology",
+  "Professional Services",
+  "Commercial Strategy",
+  "Compass Frameworks"
+] %}
+
+<main class="rofo-insight-page rofo-insight-hub-page">
+  <div class="rofo-insight-shell rofo-insight-shell--wide">
+    <nav class="rofo-insight-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Rofo</a>
+      <span>/</span>
+      <a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a>
+      <span>/</span>
+      <span>Insights</span>
+    </nav>
+
+    <header class="rofo-insight-hero rofo-insight-hub-hero">
+      <div class="rofo-insight-eyebrow"><span aria-hidden="true">&#128161;</span> Rofo Insights</div>
+      <h1>San Francisco Insights</h1>
+      <p>
+        Commercial observations from Rofo about how companies compare San Francisco districts, growth-stage office decisions, client-facing locations, and the geography behind better searches.
+      </p>
+      <div class="rofo-insight-meta">
+        <span>{{ sanFranciscoInsights.length }} published insights</span>
+        <span>San Francisco</span>
+        <span>Office strategy</span>
+      </div>
+    </header>
+
+    <div class="rofo-insight-hub-groups">
+      {% for category in insightCategories %}
+        {% set categoryInsights = [] %}
+        {% for insight in sanFranciscoInsights %}
+          {% if insight.category == category %}
+            {% set categoryInsights = (categoryInsights.push(insight), categoryInsights) %}
+          {% endif %}
+        {% endfor %}
+        {% if categoryInsights.length %}
+          <section class="rofo-insight-section rofo-insight-hub-section">
+            <h2>{{ category }}</h2>
+            <div class="rofo-insight-hub-grid">
+              {% for insight in categoryInsights %}
+                <a class="rofo-insight-hub-card" href="/insights/{{ insight.slug }}/">
+                  <span>{{ insight.readingTime or "3 minute read" }}</span>
+                  <strong>{{ insight.title }}</strong>
+                  <em>{{ insight.summary }}</em>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <section class="rofo-insight-cta" aria-labelledby="sf-insight-hub-cta-heading">
+      <div>
+        <div class="rofo-insight-eyebrow">Still deciding?</div>
+        <h2 id="sf-insight-hub-cta-heading">Find the San Francisco locations that fit your business.</h2>
+        <p>Rofo compares your requirements against market fit, tradeoffs, and district alternatives.</p>
+      </div>
+      <a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA&spaceType=office&source=insight_hub">Find My Best Locations</a>
+    </section>
+  </div>
+</main>

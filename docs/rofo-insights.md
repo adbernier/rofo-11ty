@@ -28,6 +28,7 @@ Each Insight should include:
 - summary
 - primaryMarket
 - primaryDistrict
+- category
 - relatedDistricts
 - businessTypes
 - spaceTypes
@@ -44,6 +45,24 @@ Each Insight should include:
 - editorReviewed
 
 The model should stay flexible. Rofo Insights should be easy to publish for new Compass Ready metros without forcing a blog-style taxonomy.
+
+## Editorial Categories
+
+Categories are optional, but they help city hubs organize Insights around business decisions rather than chronology.
+
+Recommended categories:
+
+- Choosing a District
+- Growing Companies
+- Technology
+- Professional Services
+- Industrial & Flex
+- Medical Office
+- Retail
+- Commercial Strategy
+- Compass Frameworks
+
+Do not force a category when the editorial fit is weak. Categories should help a reader scan the decision pattern behind the Insight.
 
 ## Editorial Standards
 
@@ -132,11 +151,19 @@ Knowledge Graph
 
 -> Compass reasoning
 
--> Human editorial review
+-> Editorial opportunity
+
+-> Human review
 
 -> Rofo Insight
 
--> Internal linking
+-> City pages
+
+-> District pages
+
+-> Comparison pages
+
+-> Insight Hub
 
 -> Location Brief CTA
 
@@ -149,9 +176,42 @@ Each Insight should link to relevant:
 - district pages
 - city pages
 - comparison pages
+- the city Insight Hub
 - Location Brief intake
 
 Supported city, district, and comparison pages can link back to one featured Insight. One high-quality featured Insight is usually enough; the goal is a useful knowledge network, not page clutter.
+
+## Insight Hubs
+
+Each mature metro can have an Insight Hub at a market URL, for example:
+
+`/commercial-real-estate/CA/san-francisco/insights/`
+
+The hub is not a blog index. It is the canonical editorial destination for Rofo's commercial observations in that market.
+
+Hub pages should:
+
+- introduce the market's Insight collection
+- group Insights by category
+- show concise cards with headline, summary, reading time, and a Read Insight path
+- include a Location Brief CTA
+- link back naturally from city, district, comparison, and Insight pages
+
+The San Francisco hub is the reference implementation for future metros.
+
+## Featured Insight Selection
+
+City pages should feature a compact editorial module:
+
+- one primary Insight that explains Rofo's broad market philosophy
+- three to five recent or editor-selected Insights
+- a link to the city Insight Hub
+
+District pages should feature multiple related Insights when available, using `relatedDistrictPages` as the matching source.
+
+Comparison pages should feature multiple related Insights when available, using `relatedComparisons` as the matching source.
+
+Use `cityHubFeatured` for editor-selected city hub/module priority. This keeps curation explicit and avoids depending on publish order.
 
 ## Related Insights
 
@@ -185,5 +245,10 @@ The first pilot set focuses on San Francisco office location decisions:
 - Why Union Square still belongs in some office searches
 - South Beach and SoMa are close together. They do not solve the same office problem.
 - Most companies search buildings first. Rofo starts with geography.
+- Not every AI startup belongs in SoMa
+- The hidden advantage of Jackson Square for professional firms
+- When growing companies outgrow SoMa
+- Choosing an office location that helps you hire
+- Why proximity is not the same as fit
 
 Future metros should use the same system once Compass has enough knowledge to support editorial reasoning.
