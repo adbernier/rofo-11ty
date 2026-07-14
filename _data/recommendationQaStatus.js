@@ -26,4 +26,13 @@ module.exports = {
     reportPath: "/docs/recommendation-qa/orange-county-pilot/",
     notes: "Orange County pilot scenarios produce differentiated, graph-backed market paths across office, R&D, airport-access professional office, medical, executive office, warehouse/flex, contractor/service industrial, and South OC profiles. Under the Compass operating model, QA and Location Brief quality support Compass Ready status while representative-building enrichment continues as an editorial workstream.",
   },
+  denver: {
+    metro: "Denver",
+    qaStatus: "completed",
+    lastQaDate: "2026-07-14",
+    validationStatus: "compass_ready_editorial_developing",
+    scenarioCount: 12,
+    reportPath: "/docs/recommendation-qa/denver-pilot/",
+    notes: "Denver pilot scenarios produce differentiated, graph-backed market paths across central office, creative office, client-facing executive office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro professional-service, and flex/R&D support profiles. Representative-building depth remains an editorial enhancement workstream, not a readiness blocker.",
+  },
 };

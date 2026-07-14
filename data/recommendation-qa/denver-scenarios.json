@@ -1,0 +1,159 @@
+[
+  {
+    "id": "denver-downtown-law-firm",
+    "name": "Downtown Denver Law Firm",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "locationIntent": "compare",
+      "spaceType": "Office",
+      "size": "5,000 sqft",
+      "priorities": ["law firm", "client meetings", "civic access", "transit", "downtown business identity"]
+    },
+    "expectedDirection": "Favor central Denver office districts with legal, civic, client-facing, and transit advantages.",
+    "expectedSlugs": ["downtown-denver", "lodo", "cherry-creek"]
+  },
+  {
+    "id": "denver-rino-creative-startup",
+    "name": "RiNo Creative Startup",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Office",
+      "size": "8,000 sqft",
+      "priorities": ["startup", "creative environment", "restaurants", "recruiting", "adaptive office"]
+    },
+    "expectedDirection": "Favor creative urban districts before formal CBD or suburban corporate alternatives.",
+    "expectedSlugs": ["rino", "lodo"]
+  },
+  {
+    "id": "denver-cherry-creek-wealth-management",
+    "name": "Cherry Creek Wealth Management",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Office",
+      "size": "4,000 sqft",
+      "priorities": ["wealth management", "executive image", "client meetings", "retail adjacency", "polished district"]
+    },
+    "expectedDirection": "Favor polished client-facing office districts before back-office or creative alternatives.",
+    "expectedSlugs": ["cherry-creek", "downtown-denver", "lodo"]
+  },
+  {
+    "id": "denver-dtc-back-office",
+    "name": "DTC Cost-Conscious Back Office",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Office",
+      "size": "15,000 sqft",
+      "priorities": ["back office", "employees drive", "parking important", "larger floor plates", "cost sensitive", "southeast access"]
+    },
+    "expectedDirection": "Favor southeast suburban office districts with parking and larger practical office formats.",
+    "expectedSlugs": ["denver-tech-center", "inverness", "centennial"]
+  },
+  {
+    "id": "denver-boulder-research-startup",
+    "name": "Boulder Research Startup",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "R&D",
+      "size": "10,000 sqft",
+      "priorities": ["research", "university adjacency", "technical talent", "engineering", "Boulder identity"]
+    },
+    "expectedDirection": "Favor Boulder and nearby US-36 research/R&D alternatives over central office districts.",
+    "expectedSlugs": ["boulder", "louisville-superior", "broomfield", "interlocken"]
+  },
+  {
+    "id": "denver-us36-tech-corridor",
+    "name": "US-36 Technology Corridor Office",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Office",
+      "size": "20,000 sqft",
+      "priorities": ["technology company", "Denver Boulder corridor", "parking", "corporate office", "regional employees"]
+    },
+    "expectedDirection": "Favor Denver-Boulder corridor office and business-park nodes.",
+    "expectedSlugs": ["broomfield", "interlocken", "louisville-superior", "boulder"]
+  },
+  {
+    "id": "denver-northeast-warehouse",
+    "name": "Northeast Denver Warehouse",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Warehouse",
+      "size": "30,000 sqft",
+      "priorities": ["warehouse", "I-70 access", "truck access", "loading", "airport access", "service distribution"]
+    },
+    "expectedDirection": "Favor northeast and airport-oriented industrial corridors before office-heavy alternatives.",
+    "expectedSlugs": ["northeast-denver-industrial", "denver-airport-pena-boulevard-corridor", "commerce-city", "aurora"]
+  },
+  {
+    "id": "denver-airport-logistics",
+    "name": "Airport Logistics User",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Distribution",
+      "size": "50,000 sqft",
+      "priorities": ["logistics", "airport", "Pena Boulevard", "truck circulation", "last mile", "distribution"]
+    },
+    "expectedDirection": "Favor airport and east/northeast logistics districts with truck and distribution context.",
+    "expectedSlugs": ["denver-airport-pena-boulevard-corridor", "northeast-denver-industrial", "aurora", "commerce-city"]
+  },
+  {
+    "id": "denver-aurora-medical-office",
+    "name": "Aurora Medical Office",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Medical",
+      "size": "7,500 sqft",
+      "priorities": ["medical office", "patient visits", "east metro", "parking important", "hospital referral geography"]
+    },
+    "expectedDirection": "Favor east metro and parking-friendly medical nodes before downtown office options.",
+    "expectedSlugs": ["aurora", "central-park", "centennial", "cherry-creek"]
+  },
+  {
+    "id": "denver-south-metro-medical-professional",
+    "name": "South Metro Medical and Professional Office",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Medical",
+      "size": "6,500 sqft",
+      "priorities": ["south metro patients", "medical office", "parking", "I-25 access", "retail adjacency"]
+    },
+    "expectedDirection": "Favor south metro patient-facing and professional office districts.",
+    "expectedSlugs": ["lone-tree", "centennial", "inverness", "denver-tech-center"]
+  },
+  {
+    "id": "denver-west-metro-professional",
+    "name": "West Metro Professional Services",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Office",
+      "size": "5,500 sqft",
+      "priorities": ["west metro", "professional services", "customer access", "parking", "practical cost"]
+    },
+    "expectedDirection": "Favor west metro professional-service nodes over downtown, southeast, or Boulder alternatives.",
+    "expectedSlugs": ["lakewood", "golden", "westminster"]
+  },
+  {
+    "id": "denver-louisville-flex-rd",
+    "name": "Louisville / Superior Flex R&D Support",
+    "metro": "Denver",
+    "profile": {
+      "locations": [{ "label": "Denver", "type": "city", "city": "Denver", "state": "CO", "slug": "denver", "path": "/commercial-real-estate/CO/denver/" }],
+      "spaceType": "Flex",
+      "size": "12,000 sqft",
+      "priorities": ["flex", "R&D support", "technical service", "Boulder proximity", "parking", "light production"]
+    },
+    "expectedDirection": "Favor Boulder-adjacent office/flex and R&D support markets before conventional office or warehouse districts.",
+    "expectedSlugs": ["louisville-superior", "broomfield", "interlocken", "boulder"]
+  }
+]

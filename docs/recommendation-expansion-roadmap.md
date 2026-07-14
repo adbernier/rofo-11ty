@@ -144,6 +144,36 @@ Future enhancements:
 - Decide whether Downtown Santa Ana, Brea, Huntington Beach, Buena Park, or Garden Grove should become later editorial refinements.
 - Continue monitoring whether city-level broad office searches route appropriately across Irvine, Newport, South Coast Metro, Tustin, and North OC rather than over-converging on Irvine.
 
+### Denver
+
+Compass Maturity: Compass Ready
+
+Editorial Maturity: Developing
+
+Representative Building Coverage: Developing
+
+QA Coverage: Complete
+
+Current strengths:
+
+- Denver has a first-pass Compass Knowledge Graph with city-level routing and 20 district nodes across central Denver, southeast office, Boulder/US-36 technology, east/northeast industrial, west metro, and south metro medical/professional decision paths.
+- Office, medical, flex, R&D, industrial, warehouse, distribution, manufacturing, showroom, retail/service, and airport/logistics paths are represented where the graph supports them.
+- Denver QA includes twelve realistic business profiles and passes baseline recommendation-direction and explainability checks with twelve unique primary recommendations.
+- Q1 calibration sharpened DTC versus Cherry Creek for back-office searches, added Commerce City and Lone Tree to the city-level path, and improved distribution fit for airport/northeast industrial recommendations.
+- The first seed intentionally avoids adding every public Denver-area page. Glendale, Arvada, Thornton, Northglenn, Longmont, Baker, Five Points, and Santa Fe Arts District remain second-pass candidates until recommendation demand justifies them.
+
+Current weaknesses:
+
+- Representative-building depth is uneven. Downtown Denver, LoDo, Cherry Creek, DTC, Northeast Denver Industrial, Aurora, Boulder, Broomfield/Interlocken, Centennial, Inverness, Lakewood, and Louisville/Superior have resolved examples; Central Park, Commerce City, Westminster, Golden, and some edge districts need deeper review.
+- Broker review should continue validating Aurora medical, Denver Airport/Pena logistics, Boulder versus US-36 technology alternatives, and south metro medical/professional distinctions.
+- Retail and medical-office guidance is present but should deepen only after actual Location Brief demand identifies priority corridors.
+
+Future enhancements:
+
+- Improve representative-building coverage using existing reliable Rofo building paths only.
+- Add second-pass Knowledge Cards only where they improve recommendations, especially Glendale, Arvada, Thornton/Northglenn, Longmont, Baker, Five Points, Santa Fe Arts District, or other Denver districts exposed by real demand.
+- Continue monitoring whether broad Denver office searches distinguish central Denver, Cherry Creek, DTC, Boulder/US-36, and west/south metro alternatives clearly enough for advisor-quality Location Briefs.
+
 ## Planned
 
 ### Seattle
@@ -186,26 +216,6 @@ Next priorities:
 - Define priority districts and industrial corridors.
 - Seed city and district Knowledge Cards.
 - Add representative buildings only where existing reliable data supports them.
-
-### Denver
-
-Compass Maturity: Future / planned candidate
-
-Current strengths:
-
-- Major city pages exist.
-- Denver has recognizable office, industrial, technology, medical, and suburban business districts that can support future recommendation paths.
-
-Current weaknesses:
-
-- Knowledge Graph coverage has not started.
-- District and comparison graph needs expansion.
-
-Next priorities:
-
-- Identify priority districts for office, industrial, flex, medical, and technology users.
-- Seed Knowledge Cards and market paths.
-- Build comparison pages only where tenant decision paths are clear.
 
 ## Future
 

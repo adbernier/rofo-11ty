@@ -391,3 +391,40 @@ Orange County QA fixtures live in `data/recommendation-qa/orange-county-scenario
 - Tustin Legacy: modern Irvine-edge medical, wellness, and professional office.
 
 Under the Sprint L1 operating model, Orange County is Compass Ready for V1 Location Briefs because QA and broker-style editorial calibration support differentiated, graph-backed recommendations with advisor-style explainability. Its Editorial Maturity and Representative Building Coverage remain Developing. Stronger Tustin Legacy, Fullerton, and second-pass Orange County representative-building depth should continue as editorial enrichment, not a current readiness blocker.
+
+Denver's first Compass Knowledge Graph seed was authored in Sprint Q1. The implementation focuses on recommendation paths rather than political boundaries or page count:
+
+- City-level Denver
+- Downtown Denver
+- LoDo
+- RiNo
+- Cherry Creek
+- Denver Tech Center
+- Central Park
+- Northeast Denver Industrial
+- Denver Airport / Pena Boulevard Corridor
+- Commerce City
+- Aurora
+- Centennial
+- Inverness
+- Lone Tree
+- Boulder
+- Broomfield
+- Interlocken
+- Louisville / Superior
+- Westminster
+- Lakewood
+- Golden
+
+Editorial decisions from the Denver seed:
+
+- Central Denver is split into Downtown Denver, LoDo, RiNo, and Cherry Creek because those markets answer different office, creative, client-facing, and retail-adjacent questions.
+- Southeast Denver is modeled through Denver Tech Center, Inverness, Centennial, and Lone Tree so Compass can distinguish corporate office scale, campus-style business parks, south metro medical/professional fit, and I-25 patient/customer geography.
+- Boulder, Broomfield, Interlocken, and Louisville / Superior are modeled as separate US-36/Boulder-corridor choices so technology, R&D, and office/flex users can compare Boulder identity against more practical business-park formats.
+- Northeast Denver Industrial, Denver Airport / Pena Boulevard Corridor, Commerce City, and Aurora are separated so industrial, warehouse, distribution, airport logistics, east metro medical, and service-commercial profiles do not collapse into one generic east-side recommendation.
+- Glendale, Arvada, Thornton, Northglenn, Longmont, Baker, Five Points, and Santa Fe Arts District remain second-pass candidates. They should be added only when real Location Brief demand or broker review shows that they improve recommendations.
+- Representative buildings use existing Rofo building paths only and are illustrative examples, not availability claims.
+
+Denver QA fixtures live in `data/recommendation-qa/denver-scenarios.json`. The generated internal report lives at `docs/recommendation-qa/denver-pilot.md`. Sprint Q1 QA produced 12 passing scenarios with 12 unique primary recommendations across central office, creative office, executive client-facing office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro professional-service, and flex/R&D profiles.
+
+Denver is treated as Compass Ready for V1 Location Briefs after Q1 because the graph supports differentiated, explainable, graph-backed recommendations across realistic business profiles. Representative-building depth and second-pass district refinement remain editorial enhancement workstreams.

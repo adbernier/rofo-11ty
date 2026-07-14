@@ -6,6 +6,7 @@ const pageCoverageMetros = [
   { label: "San Diego", state: "CA", cities: ["San Diego", "Carlsbad", "Oceanside", "Vista", "San Marcos", "Escondido", "Encinitas", "Del Mar", "Poway", "Santee", "Chula Vista"] },
   { label: "Orange County", state: "CA", cities: ["Irvine", "Newport Beach", "Costa Mesa", "Santa Ana", "Anaheim", "Tustin", "Lake Forest", "Mission Viejo", "Huntington Beach", "Fullerton"] },
   { label: "Sacramento", state: "CA", cities: ["Sacramento", "West Sacramento", "Rancho Cordova", "Folsom", "Roseville", "Rocklin", "Elk Grove"] },
+  { label: "Denver", state: "CO", cities: ["Denver", "Boulder", "Broomfield", "Aurora", "Centennial", "Englewood", "Lone Tree", "Commerce City", "Lakewood", "Golden", "Westminster", "Louisville"] },
 ];
 
 const nodes = Array.isArray(graph) ? graph : [];

@@ -24,6 +24,12 @@ const qaSuites = [
     scenarioPath: path.join(root, "data/recommendation-qa/orange-county-scenarios.json"),
     reportPath: path.join(root, "docs/recommendation-qa/orange-county-pilot.md"),
   },
+  {
+    key: "denver",
+    metro: "Denver",
+    scenarioPath: path.join(root, "data/recommendation-qa/denver-scenarios.json"),
+    reportPath: path.join(root, "docs/recommendation-qa/denver-pilot.md"),
+  },
 ];
 
 const editorialReviews = {
@@ -83,6 +89,32 @@ const editorialReviews = {
       "Retail and medical-office coverage should be calibrated with real Location Brief demand before marking Orange County Compass Ready.",
     ],
     readiness: "Orange County should remain Enhancing after K1.1. Recommendations are now more differentiated and advisor-quality, and QA passes without Sacramento or San Diego regressions. The blocker is representative-building sufficiency, especially for Tustin Legacy and Fullerton, plus one more broker review pass against real Orange County tenant profiles before Compass Ready.",
+  },
+  denver: {
+    findings: [
+      "Denver scenarios produce differentiated primary recommendations across central office, creative/startup, client-facing executive office, southeast suburban office, Boulder/US-36 technology, northeast industrial, airport logistics, medical, west metro, and Boulder-adjacent flex/R&D profiles.",
+      "The first Denver graph intentionally models the metro as several distinct commercial decision systems: central Denver, southeast office, Boulder/US-36 technology, east/northeast industrial, west metro local-service, and south metro medical/professional.",
+      "Representative buildings are attached only where existing Rofo building paths support them. They illustrate district character and do not imply active availability.",
+      "Second-pass geographies such as Glendale, Arvada, Thornton, Northglenn, Longmont, Baker, Five Points, and Santa Fe Arts District were not promoted because the first Compass seed favors recommendation value over page count.",
+    ],
+    calibrations: [
+      "Added a city-level Denver market path so broad metro searches can route into office, medical, flex/R&D, industrial, warehouse, and distribution-specific district choices.",
+      "Separated Downtown Denver, LoDo, RiNo, and Cherry Creek so central-office recommendations can distinguish formal civic/legal office, downtown-edge creative office, adaptive creative/showroom uses, and polished client-facing office.",
+      "Separated DTC, Inverness, Centennial, and Lone Tree so southeast searches can distinguish corporate office scale, campus-style business parks, practical office/flex/medical, and south I-25 patient/customer geography.",
+      "Separated Boulder, Broomfield, Interlocken, and Louisville/Superior so technology and R&D users can compare Boulder identity against practical US-36 business-park alternatives.",
+      "Separated Northeast Denver Industrial, Denver Airport/Pena corridor, Commerce City, and Aurora so warehouse, distribution, last-mile, service-industrial, and east metro medical/office scenarios do not collapse into a single industrial answer.",
+    ],
+    beforeAfter: [
+      "Before Q1, Denver had public page coverage and building examples but no Compass Knowledge Graph nodes.",
+      "After Q1, Denver has 21 graph-backed nodes, city-level market paths, comparison relationships, representative buildings from existing Rofo paths, and 12 QA scenarios.",
+      "Recommendation diversity now spans central office, creative office, executive client-facing office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro, and flex/R&D paths.",
+    ],
+    remaining: [
+      "Broker review should continue validating Denver-specific nuance, especially Aurora medical, Denver Airport/Pena logistics, Boulder versus US-36 technology alternatives, and south metro medical/professional distinctions.",
+      "Representative-building coverage should deepen using existing reliable Rofo building paths, especially for Central Park, Commerce City, Westminster, Golden, and Louisville/Superior.",
+      "Second-pass Knowledge Cards should be added only when real Location Brief demand exposes gaps, not simply because public pages exist.",
+    ],
+    readiness: "Denver is recommended as Compass Ready for V1 Location Briefs after Q1. The graph supports differentiated, explainable, graph-backed recommendations across realistic business profiles. Editorial maturity and representative-building depth should continue improving as separate enhancement workstreams.",
   },
 };
 

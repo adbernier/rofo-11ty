@@ -275,6 +275,8 @@ San Diego is the first Compass Discovery-to-Compass Ready example. It was promot
 
 Orange County established the operating-model distinction between Compass readiness and editorial depth. It can be Compass Ready for graph-backed recommendations while representative-building enrichment continues as a separate editorial workstream.
 
+Denver extended the model to a multi-corridor metro where central office, southeast suburban office, Boulder/US-36 technology, east/northeast industrial, west metro, and south metro medical/professional paths are all represented in one graph-backed market system.
+
 ## Compass Ready
 
 A metro is Compass Ready when Rofo Compass can consistently generate commercially credible, graph-backed recommendations supported by the Knowledge Graph, Recommendation Resolver, Explainability Layer, Recommendation QA, and advisor-quality Location Briefs.
