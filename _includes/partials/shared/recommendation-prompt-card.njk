@@ -17,28 +17,28 @@
 {% if promptSource == "district" and promptDistrict %}
   {% if promptIsIndustrial %}
     {% set promptHeadline = "Is this the right industrial location for your operation?" %}
-    {% set promptBody = "We’ll evaluate truck access, loading, freeway access, and nearby industrial alternatives." %}
+    {% set promptBody = "Compare truck access, loading, freeway access, and nearby industrial alternatives." %}
   {% else %}
     {% set promptHeadline = "Is " + promptDistrict + " the right place for your business?" %}
-    {% set promptBody = "We’ll compare " + promptDistrict + " with nearby districts and recommend where we’d start based on your business." %}
+    {% set promptBody = "Compare " + promptDistrict + " with nearby districts and see where the search should start." %}
   {% endif %}
 {% elseif promptSource == "city" and promptCity %}
   {% set promptHeadline = "Find the right location in " + promptCity + "." %}
-  {% set promptBody = "We’ll compare " + promptCity + " districts and recommend where we’d start based on your space needs." %}
+  {% set promptBody = "Compare " + promptCity + " districts and see which locations fit your space needs." %}
 {% elseif promptSource == "comparison" %}
   {% set promptHeadline = "Which location is the better fit for your business?" %}
   {% if promptComparisonA and promptComparisonB %}
-    {% set promptBody = "We’ll help compare " + promptComparisonA + ", " + promptComparisonB + ", and nearby alternatives based on your business." %}
+    {% set promptBody = "Compare " + promptComparisonA + ", " + promptComparisonB + ", and nearby alternatives based on your business." %}
   {% else %}
-    {% set promptBody = "We’ll help compare these locations and nearby alternatives based on your business." %}
+    {% set promptBody = "Compare these locations and nearby alternatives based on your business." %}
   {% endif %}
 {% elseif promptSource == "space_type" %}
   {% set promptTypeLabel = (promptSpaceType or "office") | lower %}
   {% set promptHeadline = "Find the right market for your " + promptTypeLabel + " search." %}
-  {% set promptBody = "Tell us where you’re considering and we’ll recommend the markets and districts that fit your needs." %}
+  {% set promptBody = "Enter where you are considering and see the markets and districts that fit your needs." %}
 {% else %}
   {% set promptHeadline = "Get location recommendations that fit your business." %}
-  {% set promptBody = "Tell us what you’re looking for and Rofo will recommend where we’d start your search." %}
+  {% set promptBody = "Enter the basics and see where the search should start." %}
 {% endif %}
 
 {% set promptParams = [] %}

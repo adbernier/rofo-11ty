@@ -9,7 +9,7 @@ module.exports = {
     glossaryTitle: "Office space terms",
     ctaTitle: "Need help finding office space?",
     ctaBody:
-      "Tell Rofo what you need and we’ll help you evaluate office space options in this market.",
+      "Enter your office requirements to compare options in this market.",
     guide: {
       title: "What to know about office space",
       intro:
@@ -44,7 +44,7 @@ module.exports = {
     glossaryTitle: "Retail space terms",
     ctaTitle: "Need help finding retail space?",
     ctaBody:
-      "Tell Rofo what you need and we’ll help you evaluate retail space options in this market.",
+      "Enter your retail requirements to compare options in this market.",
     guide: {
       title: "What to know about retail space",
       intro:
@@ -79,7 +79,7 @@ module.exports = {
     glossaryTitle: "Industrial space terms",
     ctaTitle: "Need help finding industrial space?",
     ctaBody:
-      "Tell Rofo what you need and we’ll help you evaluate industrial space options in this market.",
+      "Enter your industrial requirements to compare options in this market.",
     guide: {
       title: "What to know about industrial space",
       intro:
@@ -114,7 +114,7 @@ module.exports = {
     glossaryTitle: "Flex space terms",
     ctaTitle: "Need help finding flex space?",
     ctaBody:
-      "Tell Rofo what you need and we’ll help you evaluate flex space options in this market.",
+      "Enter your flex-space requirements to compare options in this market.",
     guide: {
       title: "What to know about flex space",
       intro:
@@ -149,7 +149,7 @@ module.exports = {
     glossaryTitle: "Coworking terms",
     ctaTitle: "Need help finding coworking space?",
     ctaBody:
-      "Tell Rofo what you need and we’ll help you evaluate coworking options in this market.",
+      "Enter your coworking requirements to compare options in this market.",
     guide: {
       title: "What to know about coworking space",
       intro:

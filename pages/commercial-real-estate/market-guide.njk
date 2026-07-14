@@ -443,7 +443,7 @@ eleventyComputed:
           <div class="eyebrow">Finding Space</div>
           <h2>How to find space in {{ guide.city }}</h2>
           <p>
-            Some markets have useful rent and neighborhood context before Rofo has active {{ guide.space_type_label_lower }} inventory to browse. Tell us what you need and we can help identify options, compare nearby markets, or connect you with local market support.
+            Some markets have useful rent and neighborhood context before Rofo has active {{ guide.space_type_label_lower }} inventory to browse. Enter your requirements to identify options, compare nearby markets, or connect with local market support.
           </p>
         </div>
       {% endif %}
@@ -472,9 +472,9 @@ eleventyComputed:
             <a class="btn-secondary" href="{{ guide.city_url }}">Explore the {{ guide.city }} market</a>
           </div>
         {% else %}
-          <h2>We can help you find space in this market</h2>
+          <h2>Find space in this market</h2>
           <p>
-            Share the type of space, size range, and timing you are considering, and Rofo can help you evaluate {{ guide.city }} or nearby {{ guide.space_type_noun }} markets.
+            Enter the type of space, size range, and timing you are considering to evaluate {{ guide.city }} or nearby {{ guide.space_type_noun }} markets.
           </p>
           <div class="button-row">
             <a class="btn-primary" href="/#contact">Get help finding space</a>
@@ -486,10 +486,10 @@ eleventyComputed:
       <div id="market-guide-contact" class="guide-lead-section">
         <div class="guide-lead-card guide-lead-card--intro cta-band">
           <div class="kicker">GET HELP</div>
-          <h2>Tell us what you need</h2>
+          <h2>Enter your space requirements</h2>
 
           <p class="cta-band__lead">
-            Help us understand your space, timing, and priorities—we’ll point you in the right direction.
+            Add space, timing, and priority details to compare the right next steps.
           </p>
 
           <div class="cta-band__prompts">
@@ -515,14 +515,14 @@ eleventyComputed:
           </div>
 
           <div class="cta-band__footer">
-            You don’t need all the answers—we’ll help you figure it out.
+            A rough starting point is enough. Details can be refined later.
           </div>
         </div>
 
         <div class="guide-lead-card guide-lead-card--form form-card">
           <div class="eyebrow">GET HELP</div>
           <h2>Find the right space for your business</h2>
-          <p>Tell us what you need — we’ll follow up with a few spaces that fit.</p>
+          <p>Enter the requirements that should guide the search.</p>
 
           <form action="/api/leads/submit" method="POST">
             <input type="hidden" name="source" value="rofo-market-guide">

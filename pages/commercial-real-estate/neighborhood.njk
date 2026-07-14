@@ -403,13 +403,13 @@ eleventyComputed:
             <span class="neighborhood-briefing-card__headline">{% if neighborhood.commercial_location_model %}Find locations that fit{% else %}Get current availability in {{ neighborhoodDisplayNameWithArticle }}{% endif %}</span>
             <span class="neighborhood-briefing-card__body">
               {% if neighborhood.commercial_location_model %}
-                Tell us what matters and we’ll help compare locations, buildings, and alternatives that fit.
+                Enter what matters to compare locations, buildings, and alternatives that fit.
               {% else %}
                 See current spaces, asking rents, and nearby alternatives in {{ neighborhoodDisplayNameWithArticle }}.
               {% endif %}
             </span>
             <span class="neighborhood-briefing-card__button">{% if neighborhood.commercial_location_model %}Find locations that fit{% else %}Request availability report{% endif %}</span>
-            <span class="neighborhood-briefing-card__reassurance">{% if neighborhood.commercial_location_model %}No obligation. We’ll help compare relevant markets, buildings, and alternatives.{% else %}No obligation. We’ll help you compare relevant spaces and nearby alternatives.{% endif %}</span>
+            <span class="neighborhood-briefing-card__reassurance">{% if neighborhood.commercial_location_model %}No obligation. Compare relevant markets, buildings, and alternatives.{% else %}No obligation. Compare relevant spaces and nearby alternatives.{% endif %}</span>
           </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
             <input type="hidden" name="source" value="rofo-neighborhood-page">

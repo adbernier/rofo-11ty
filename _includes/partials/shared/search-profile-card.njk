@@ -43,8 +43,8 @@
         <div>
           <span class="search-profile-card__badge">Recommended</span>
           <h2>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</h2>
-          <p>Tell us what you're looking for and we'll recommend buildings that fit.</p>
-          <p class="search-profile-card__trust">Curated by local experts • Free • No obligation</p>
+          <p>Enter the basics and see locations or buildings that fit.</p>
+          <p class="search-profile-card__trust">Private while exploring • Free • No obligation</p>
         </div>
         <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse My Search Profile">
           <span aria-hidden="true">−</span>
@@ -54,7 +54,7 @@
       <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
         <span>
           <strong>Find buildings that fit your business</strong>
-          <small data-profile-summary-title>Free • Curated by local experts</small>
+          <small data-profile-summary-title>Private while exploring • Free</small>
         </span>
         <span class="search-profile-summary__action" aria-hidden="true">Start Search</span>
         <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
@@ -81,7 +81,7 @@
             <p class="search-profile-fieldset__context">{{ searchProfileContext.space_type_context_label }}</p>
           {% endif %}
           <legend>Location</legend>
-          <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Tell us where you're considering. You can select more than one area." }}</p>
+          <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Where are you considering? You can select more than one area." }}</p>
           <div class="search-profile-location-search">
             <label class="sr-only" for="search-profile-location-search">Search city or district</label>
             <input id="search-profile-location-search" name="locationSearch" type="text" placeholder="Search city or district" data-profile-location-search-input>
@@ -165,7 +165,7 @@
         <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
 
         <div class="search-profile-contact-step__fields">
-          <p class="search-profile-contact-step__field-heading">{{ searchProfileContext.contact_prompt or "Where should we send your shortlist?" }}</p>
+          <p class="search-profile-contact-step__field-heading">{{ searchProfileContext.contact_prompt or "Add an email to save this profile." }}</p>
 
           <label class="search-profile-contact-step__field" for="search-profile-contact-name">
             <span>Name</span>
@@ -182,7 +182,7 @@
             <input id="search-profile-contact-phone" name="profileContactPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(415) 555-1234" data-profile-contact-input="phone">
           </label>
           <p class="search-profile-contact-step__error" data-profile-contact-phone-error hidden>Enter a 10-digit phone number or leave it blank.</p>
-          <p class="search-profile-contact-step__error" data-profile-contact-submit-error hidden>We could not send your profile. Please try again.</p>
+          <p class="search-profile-contact-step__error" data-profile-contact-submit-error hidden>Your profile could not be saved. Please try again.</p>
         </div>
 
         <details class="search-profile-contact-step__note-toggle">
@@ -202,7 +202,7 @@
       <section class="search-profile-finished" data-profile-finished hidden>
         <div class="search-profile-finished__intro">
           <h3>{{ searchProfileContext.finished_heading or "Your building shortlist request has been sent." }}</h3>
-          <p>{{ searchProfileContext.finished_copy or "We'll use this profile to prepare matching buildings and nearby alternatives." }}</p>
+          <p>{{ searchProfileContext.finished_copy or "Matching buildings and nearby alternatives are ready to review." }}</p>
         </div>
 
         <div>

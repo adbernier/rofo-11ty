@@ -178,7 +178,7 @@ function renderPage(brief) {
 
       <section class="location-brief-card">
         <div class="location-brief-kicker">Recommended Market Path</div>
-        <h2>${escapeHtml(brief.marketPath && brief.marketPath.title || "Where we'd start")}</h2>
+        <h2>${escapeHtml(brief.marketPath && brief.marketPath.title || "Recommended starting point")}</h2>
         <div class="location-brief-path-grid">
           ${renderMarketPath(brief)}
         </div>
@@ -211,7 +211,7 @@ function renderPage(brief) {
       <section class="location-brief-card">
         <div class="location-brief-kicker">Representative Buildings</div>
         <h2>Representative Buildings</h2>
-        <p class="location-brief-muted">Representative buildings may be added during expert review to illustrate the types of environments we would evaluate.</p>
+        <p class="location-brief-muted">Representative buildings may be added during expert review to illustrate the types of environments worth evaluating.</p>
       </section>
 
       <section class="location-brief-card">

@@ -1815,7 +1815,7 @@
       }, 350);
     }).catch(() => {
       if (submitError) {
-        submitError.textContent = "We could not send your profile. Please try again.";
+        submitError.textContent = "Your profile could not be saved. Please try again.";
         submitError.hidden = false;
       }
     }).finally(() => {

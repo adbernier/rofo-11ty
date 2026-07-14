@@ -128,12 +128,12 @@
   function locationIntentCopy(value) {
     const intent = normalizeLocationIntent(value);
     if (intent === "focus") {
-      return "Your preferred geography is already well defined. Compass will focus expert review on identifying the best-fit buildings and submarkets within this area.";
+      return "Your preferred geography is already well defined. Expert review should focus on the best-fit buildings and submarkets within this area.";
     }
     if (intent === "discover") {
-      return "Compass will recommend the strongest starting markets based on your business profile and priorities.";
+      return "The strongest starting markets are based on your business profile and priorities.";
     }
-    return "Compass will use your selected location as the starting point and compare it with nearby markets that may also fit your requirements.";
+    return "Your selected location anchors the recommendation, with nearby markets included when they may also fit your requirements.";
   }
 
   function compareRelationships(profile) {
@@ -405,10 +405,10 @@
         locationIntent,
         intentCopy: locationIntentCopy(locationIntent),
         summaryCopy: locationIntent === "focus"
-          ? `${inputLocation.label} is your preferred geography. Rofo will use expert review to validate buildings, submarkets, and nearby contingency options within or close to this area.`
+          ? `${inputLocation.label} is your preferred geography. Expert review should validate buildings, submarkets, and nearby contingency options within or close to this area.`
           : inputProfile
           ? `${inputLocation.label} is a relevant starting point, but this market is best handled with help from a local expert because Rofo's recommendation graph is still lighter here.`
-          : "We have your Search Profile, but this market is best handled with help from a local expert.",
+          : "This profile is saved, but this market is best handled with help from a local expert.",
         ctaLabel: "Request Expert Review",
         ctaHref: expertReviewHref(context),
       };
@@ -457,11 +457,11 @@
       compareWith,
       questionsToValidate: primaryRecommendation.questionsToValidate || [],
       summaryCopy: locationIntent === "focus"
-        ? `${inputProfile.label} is the target geography for this search. We'd focus expert review on buildings, submarkets, availability, and fit within this area before widening the search.`
+        ? `${inputProfile.label} is the target geography for this search. Expert review should focus on buildings, submarkets, availability, and fit within this area before widening the search.`
         : locationIntent === "discover"
-        ? `${inputProfile.label} gives Compass a starting point, but the recommendation should stay open to the strongest supported markets for this business profile.`
+        ? `${inputProfile.label} gives the search a starting point, while keeping the recommendation open to the strongest supported markets for this business profile.`
         : mode === "market_path"
-        ? `${inputProfile.label} has several commercial districts that fit different versions of your search. We'd start by comparing the strongest path before looking at individual buildings.`
+        ? `${inputProfile.label} has several commercial districts that fit different versions of your search. Start by comparing the strongest path before looking at individual buildings.`
         : `${inputProfile.label} appears to be a relevant starting point based on your profile.`,
       ctaLabel: "Request Expert Review",
       ctaHref: expertReviewHref(context),
