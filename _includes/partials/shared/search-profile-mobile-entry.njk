@@ -60,10 +60,10 @@
 {% if mobilePromptSourcePath %}{% set mobileParams = (mobileParams.push("sourcePath=" + (mobilePromptSourcePath | queryEncode)), mobileParams) %}{% endif %}
 {% set mobilePromptHref = "/find-locations/" + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
 
-<section class="search-profile-mobile-entry" aria-label="Get location recommendations">
+<section class="search-profile-mobile-entry" aria-label="Start your search">
   <div>
-    <h2>Get recommendations</h2>
+    <h2>Start your search</h2>
     <p>Find the right location before you search for space.</p>
   </div>
-  <a class="btn-primary" href="{{ mobilePromptHref }}">Start</a>
+  <a class="btn-primary" href="{{ mobilePromptHref }}">Start Your Search</a>
 </section>

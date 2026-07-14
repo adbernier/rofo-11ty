@@ -57,7 +57,7 @@ The handbook hub should:
 - explain the system
 - group topics by decision area
 - provide a concise glossary
-- move readers toward Find My Best Locations when they are ready to apply the knowledge
+- move readers toward Start Your Search when they are ready to apply the knowledge
 
 Each topic should include:
 

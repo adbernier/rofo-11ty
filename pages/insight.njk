@@ -164,7 +164,7 @@ eleventyComputed:
           {% if insight.relatedBuildings and insight.relatedBuildings.length %}
             <a href="{{ insight.relatedBuildings[0].url }}">View representative buildings</a>
           {% endif %}
-          <a href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Generate a Location Brief</a>
+          <a href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Start Your Search</a>
         </div>
       </section>
     </article>
@@ -175,7 +175,7 @@ eleventyComputed:
         <h2 id="rofo-insight-cta-heading">Generate a personalized Location Brief.</h2>
         <p>Rofo compares markets against your business priorities and shows where the search should start.</p>
       </div>
-      <a class="btn-primary" href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Find My Best Locations</a>
+      <a class="btn-primary" href="{{ insight.relatedLocationBrief or '/find-locations/' }}">Start Your Search</a>
     </section>
   </div>
 </main>

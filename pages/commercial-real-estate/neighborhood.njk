@@ -408,7 +408,7 @@ eleventyComputed:
                 See current spaces, asking rents, and nearby alternatives in {{ neighborhoodDisplayNameWithArticle }}.
               {% endif %}
             </span>
-            <span class="neighborhood-briefing-card__button">{% if neighborhood.commercial_location_model %}Find locations that fit{% else %}Request availability report{% endif %}</span>
+            <span class="neighborhood-briefing-card__button">{% if neighborhood.commercial_location_model %}Start Your Search{% else %}Request availability report{% endif %}</span>
             <span class="neighborhood-briefing-card__reassurance">{% if neighborhood.commercial_location_model %}No obligation. Compare relevant markets, buildings, and alternatives.{% else %}No obligation. Compare relevant spaces and nearby alternatives.{% endif %}</span>
           </summary>
           <form action="/api/leads/submit" method="POST" class="rofo-formspree-form">
@@ -519,7 +519,7 @@ eleventyComputed:
                 <input type="checkbox" name="human_check" required>
                 I’m a real person looking for space
               </label>
-              <button class="btn-primary" type="submit">{% if neighborhood.commercial_location_model %}Find locations that fit{% else %}Request availability report{% endif %}</button>
+              <button class="btn-primary" type="submit">{% if neighborhood.commercial_location_model %}Start Your Search{% else %}Request availability report{% endif %}</button>
             </div>
 
             <p class="form-note">{% if neighborhood.commercial_location_model %}Location fit, current options, and nearby alternatives for {{ neighborhoodDisplayNameWithArticle }}.{% else %}Current spaces, asking rents, recent context, and nearby alternatives for {{ neighborhoodDisplayNameWithArticle }}.{% endif %}</p>
