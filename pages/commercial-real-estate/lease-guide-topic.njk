@@ -1,0 +1,155 @@
+---
+layout: base.njk
+pagination:
+  data: commercialLeasingHandbook.articles
+  size: 1
+  alias: topic
+permalink: "/commercial-real-estate/lease-guide/{{ topic.slug }}/index.html"
+eleventyComputed:
+  title: "{{ topic.title }} | Commercial Leasing Guide | Rofo"
+  description: "{{ topic.summary }}"
+  canonical: "{{ metadata.siteUrl }}/commercial-real-estate/lease-guide/{{ topic.slug }}/"
+---
+
+{% set siteUrl = metadata.siteUrl or "https://www.rofo.com" %}
+{% set topicUrl = siteUrl + topic.url %}
+{% set crumbs = [
+  { "label": "Commercial Leasing Guide", "url": "/commercial-real-estate/lease-guide/" },
+  { "label": topic.title, "url": topic.url }
+] %}
+{% set relatedTopics = [] %}
+{% if topic.relatedTopics and topic.relatedTopics.length %}
+  {% for relatedSlug in topic.relatedTopics %}
+    {% set related = commercialLeasingHandbook.articleMap[relatedSlug] %}
+    {% if related %}
+      {% set relatedTopics = (relatedTopics.push(related), relatedTopics) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<main class="handbook-page handbook-page--article">
+  <div class="handbook-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ topic.title | dump | safe }},
+  "description": {{ topic.summary | dump | safe }},
+  "url": {{ topicUrl | dump | safe }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ topicUrl | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rofo",
+    "url": {{ siteUrl | dump | safe }}
+  },
+  "about": [
+    "Commercial leasing",
+    {{ topic.category | dump | safe }}
+  ]
+}
+    </script>
+
+    {% if topic.faqs and topic.faqs.length %}
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in topic.faqs %}
+    {
+      "@type": "Question",
+      "name": {{ faq.question | dump | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ faq.answer | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+      </script>
+    {% endif %}
+
+    <article class="handbook-article">
+      <header class="handbook-article__hero">
+        <div class="handbook-eyebrow">Commercial Leasing Guide</div>
+        <h1>{{ topic.title }}</h1>
+        <div class="handbook-meta">
+          <span>{{ topic.readingTime }}</span>
+          {% for category in commercialLeasingHandbook.categories %}
+            {% if category.id == topic.category %}
+              <span>{{ category.label }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <p>{{ topic.summary }}</p>
+      </header>
+
+      <div class="handbook-article__layout">
+        <aside class="handbook-article__nav" aria-label="Article sections">
+          <a href="/commercial-real-estate/lease-guide/">Handbook home</a>
+          {% for section in topic.sections %}
+            <a href="#section-{{ loop.index }}">{{ section.heading }}</a>
+          {% endfor %}
+          {% if topic.faqs and topic.faqs.length %}
+            <a href="#faq">Questions</a>
+          {% endif %}
+        </aside>
+
+        <div class="handbook-article__body">
+          <section class="handbook-answer">
+            <h2>{{ topic.keyQuestion }}</h2>
+            <p>{{ topic.summary }}</p>
+          </section>
+
+          {% set perspective = topic.rofoPerspective %}
+          {% include "partials/handbook/rofo-perspective.njk" %}
+
+          {% for section in topic.sections %}
+            <section id="section-{{ loop.index }}" class="handbook-section">
+              <h2>{{ section.heading }}</h2>
+              <p>{{ section.body }}</p>
+            </section>
+          {% endfor %}
+
+          {% if topic.faqs and topic.faqs.length %}
+            <section id="faq" class="handbook-section handbook-faq">
+              <h2>Questions businesses usually ask</h2>
+              {% for faq in topic.faqs %}
+                <details>
+                  <summary>{{ faq.question }}</summary>
+                  <p>{{ faq.answer }}</p>
+                </details>
+              {% endfor %}
+            </section>
+          {% endif %}
+
+          {% if relatedTopics.length %}
+            <section class="handbook-section">
+              <h2>Related handbook topics</h2>
+              <div class="handbook-topic-grid">
+                {% for topic in relatedTopics %}
+                  {% include "partials/handbook/topic-card.njk" %}
+                {% endfor %}
+              </div>
+            </section>
+          {% endif %}
+
+          <section class="handbook-next-step">
+            <div>
+              <div class="handbook-eyebrow">Apply this to a real search</div>
+              <h2>Find locations that fit the business.</h2>
+              <p>Rofo turns business requirements into location recommendations, tradeoffs, and questions to validate before comparing buildings.</p>
+            </div>
+            <a class="btn-primary" href="/find-locations/">Find My Best Locations</a>
+          </section>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>

@@ -22,6 +22,12 @@ eleventyExcludeFromCollections: true
     <loc>{{ siteUrl }}/commercial-real-estate/lease-guide/</loc>
   </url>
 
+  {% for topic in commercialLeasingHandbook.articles %}
+  <url>
+    <loc>{{ siteUrl }}{{ topic.url }}</loc>
+  </url>
+  {% endfor %}
+
   <url>
     <loc>{{ siteUrl }}/find-locations/</loc>
   </url>
