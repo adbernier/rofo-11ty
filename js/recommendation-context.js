@@ -273,7 +273,7 @@
     const locations = formatLocations(context.locations || []);
     const subject = encodeURIComponent(`Rofo expert review: ${locations}`);
     const body = encodeURIComponent([
-      "I'd like a local expert to review my Rofo Search Profile.",
+      "I'd like a market review for my Rofo Search Profile.",
       "",
       `Location: ${locations}`,
       `Space: ${context.spaceType || "Not specified"}`,
@@ -333,8 +333,8 @@
         summaryCopy: locationIntent === "focus"
           ? `${inputLocation.label} is your preferred geography. Expert review should validate buildings, submarkets, and nearby contingency options within or close to this area.`
           : inputProfile
-          ? `${inputLocation.label} is a relevant starting point, but this market is best handled with help from a local expert because Rofo's recommendation graph is still lighter here.`
-          : "This market is best handled with help from a local expert.",
+          ? `${inputLocation.label} is a relevant starting point, but this market needs additional review because Rofo's recommendation graph is still lighter here.`
+          : "This market needs additional review before Rofo can provide a stronger location path.",
         ctaLabel: "Request Expert Review",
         ctaHref: expertReviewHref(context),
       };
@@ -408,7 +408,7 @@
     setText("[data-recommendation-location]", locationText);
     setText("[data-recommendation-space]", spaceText);
     setText("[data-recommendation-size]", sizeText);
-    setText("[data-recommendation-context-kicker]", "Based on what you told us");
+    setText("[data-recommendation-context-kicker]", "Based on your initial inputs");
     setText("[data-recommendation-context-heading]", "Your Location Brief");
     setText("[data-recommendation-context-location]", locationText);
     setText("[data-recommendation-context-space]", spaceText);
@@ -455,8 +455,8 @@
   }
 
   function setSubmittedCta(state, context) {
-    setText("[data-recommendation-cta-kicker]", "Expert Review");
-    setText("[data-recommendation-cta-heading]", "Ready for expert review?");
+    setText("[data-recommendation-cta-kicker]", "Optional Expert Review");
+    setText("[data-recommendation-cta-heading]", "Request expert review when you are ready.");
     setText(
       "[data-recommendation-cta-copy]",
       "Share your profile only when you want expert follow-up on listings, comps, sublease options, incentives, and market guidance."
@@ -533,7 +533,7 @@
 
     renderPathPanels(state, spaceText);
     renderAttributeGuidance(primary, spaceText);
-    setText("[data-recommendation-section-kicker]", "Location Brief");
+    setText("[data-recommendation-section-kicker]", "Recommended Starting Path");
     setText("[data-recommendation-status]", "Recommended Starting Point");
     setText("[data-recommendation-fit-label]", state.title || "Relevant Starting Point");
     setText("[data-recommendation-judgment-label]", "Recommended start");
@@ -640,8 +640,8 @@
           "p",
           "recommendation-brief-empty",
           state.locationIntent === "focus"
-            ? "A local expert should first validate options inside the preferred area before suggesting nearby contingencies."
-            : "A local expert should identify the right nearby alternatives for this profile."
+            ? "Review should first validate options inside the preferred area before suggesting nearby contingencies."
+            : "Review should identify the right nearby alternatives for this profile."
         ));
       }
     };

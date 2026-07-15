@@ -1,10 +1,10 @@
 {% set representativeBuildingCards = neighborhood.representative_building_cards %}
 {% if representativeBuildingCards and representativeBuildingCards.length %}
   <section class="city-card representative-building-cards" aria-labelledby="representative-building-cards-heading">
-    <div class="eyebrow">Representative Buildings</div>
-    <h2 id="representative-building-cards-heading">Buildings commonly found here</h2>
+    <div class="eyebrow">Example Buildings</div>
+    <h2 id="representative-building-cards-heading">Buildings that help explain this district</h2>
     <p>
-      Buildings drawn from historical listing and building signals. These cards describe the kinds of buildings found here and do not indicate current availability.
+      These representative examples are drawn from existing Rofo building and historical listing signals. Use them to understand building types, district character, and validation questions; they do not indicate current availability.
     </p>
 
     <div class="representative-building-card-grid">
@@ -12,7 +12,13 @@
         <article class="representative-building-card">
           <div class="representative-building-card__header">
             <p class="representative-building-card__type">{{ buildingCard.building_type_summary }}</p>
-            <h3>{{ buildingCard.name }}</h3>
+            <h3>
+              {% if buildingCard.canonical_path %}
+                <a href="{{ buildingCard.canonical_path }}">{{ buildingCard.name }}</a>
+              {% else %}
+                {{ buildingCard.name }}
+              {% endif %}
+            </h3>
             <p class="representative-building-card__address">{{ buildingCard.address }}</p>
           </div>
 
