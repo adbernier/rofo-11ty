@@ -26,8 +26,6 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 {% set isSanFranciscoDecisionJourney = city.slug == "san-francisco" and city.state_abbr == "CA" %}
-{% set cityDecisionKey = city.state_abbr + "/" + city.slug %}
-{% set isCityDecisionJourney = cityDecisionKey == "CA/san-francisco" or cityDecisionKey == "TX/austin" or cityDecisionKey == "CO/denver" or cityDecisionKey == "CA/sacramento" or cityDecisionKey == "CA/cotati" %}
 
 {% set cityBuildings = [] %}
 {% for b in buildingPages %}
@@ -115,7 +113,7 @@ eleventyComputed:
     {% set editorialRepresentativeBuildings = (editorialRepresentativeBuildings.push(building), editorialRepresentativeBuildings) %}
   {% endif %}
 {% endfor %}
-{% if isCityDecisionJourney and editorialRepresentativeBuildings.length %}
+{% if editorialRepresentativeBuildings.length %}
   {% set displayBuildings = editorialRepresentativeBuildings %}
 {% endif %}
 {% set cityLocationModelPath = "/commercial-real-estate/" + city.state_abbr + "/" + city.slug + "/" %}
@@ -165,66 +163,45 @@ eleventyComputed:
   {% endfor %}
 {% endif %}
 {% set editorialDistrictMap = editorialDistrictMaps.byCityPath[page.url] %}
-{% set hasAreaChapter = isCityDecisionJourney and (editorialDistrictMap or cityNeighborhoods.length or cityLocationComparisons.length or cityComparisonPages.length or (city.nearby_cities and city.nearby_cities.length)) %}
-{% set hasEducationChapter = isCityDecisionJourney %}
-{% set hasRepresentativeBuildingChapter = isCityDecisionJourney and editorialRepresentativeBuildings.length %}
-{% set hasLocalHelpChapter = isCityDecisionJourney %}
+{% set hasAreaChapter = editorialDistrictMap or cityNeighborhoods.length or cityLocationComparisons.length or cityComparisonPages.length or (city.nearby_cities and city.nearby_cities.length) %}
+{% set hasEducationChapter = true %}
+{% set hasRepresentativeBuildingChapter = editorialRepresentativeBuildings.length %}
+{% set hasLocalHelpChapter = true %}
 
 <section class="city-page">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
-    <div class="city-primary-layout{% if isCityDecisionJourney %} city-primary-layout--single-column{% endif %}">
+    <div class="city-primary-layout city-primary-layout--single-column">
       <div class="city-primary-main">
-        <div class="city-hero city-hero--content-only{% if isCityDecisionJourney %} city-hero--decision-v2{% endif %}">
-          <div class="city-card{% if isCityDecisionJourney %} city-decision-hero{% endif %}">
+        <div class="city-hero city-hero--content-only city-hero--decision-v2">
+          <div class="city-card city-decision-hero">
             <div class="city-hero-copy">
-              <div class="eyebrow">{% if isCityDecisionJourney %}{{ city.city }} Commercial Real Estate{% else %}Market{% endif %}</div>
+              <div class="eyebrow">{{ city.city }} Commercial Real Estate</div>
 
               <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
 
               <p class="lead">
-                {% if isCityDecisionJourney %}
-                  Before comparing {{ city.city }} listings, make sure the search is focused on the right commercial areas. Start with the business requirements, review an initial location analysis, and decide what to evaluate next.
-                {% else %}
-                  Explore office, retail, and industrial space for lease in {{ city.city }}, {{ city.state_abbr }}.
-                  Browse buildings, compare nearby markets, or get help finding available space.
-                {% endif %}
+                Before comparing {{ city.city }} listings, make sure the search is focused on the right commercial areas. Start with the business requirements, review an initial location analysis, and decide what to evaluate next.
               </p>
 
               <div class="hero-actions">
-                {% if isCityDecisionJourney %}
-                  <a class="btn-primary" href="/find-locations/?city={{ city.city | urlencode }}&state={{ city.state_abbr }}&source=city_hero">
-                    Start Your Search
-                  </a>
-                  {% if isSanFranciscoDecisionJourney %}
-                    <a class="city-decision-hero__secondary" href="/example-location-brief/">
-                      See an Example Location Brief
-                    </a>
-                  {% endif %}
-                {% else %}
-                  <a class="btn-secondary" href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
-                    Browse Buildings
+                <a class="btn-primary" href="/find-locations/?city={{ city.city | urlencode }}&state={{ city.state_abbr }}&source=city_hero">
+                  Start Your Search
+                </a>
+                {% if isSanFranciscoDecisionJourney %}
+                  <a class="city-decision-hero__secondary" href="/example-location-brief/">
+                    See an Example Location Brief
                   </a>
                 {% endif %}
               </div>
 
-              {% if not isCityDecisionJourney %}
-                {% include "partials/shared/search-profile-mobile-entry.njk" %}
-              {% endif %}
-
-              {% if isCityDecisionJourney %}
-                <nav class="city-decision-anchor-nav" aria-label="{{ city.city }} commercial real estate guide">
-                  {% if hasAreaChapter %}<a href="#city-commercial-areas-heading">Explore Areas</a>{% endif %}
-                  {% if hasEducationChapter %}<a href="#city-what-to-expect-heading">What to Expect</a>{% endif %}
-                  {% if hasRepresentativeBuildingChapter %}<a href="#city-example-buildings-heading">Example Buildings</a>{% endif %}
-                  {% if hasLocalHelpChapter %}<a href="#city-local-help-heading">Local Help</a>{% endif %}
-                </nav>
-              {% else %}
-                <div class="hero-pill-wrap">
-                  {% include "partials/space-type/pill-nav.njk" %}
-                </div>
-              {% endif %}
+              <nav class="city-decision-anchor-nav" aria-label="{{ city.city }} commercial real estate guide">
+                {% if hasAreaChapter %}<a href="#city-commercial-areas-heading">Explore Areas</a>{% endif %}
+                {% if hasEducationChapter %}<a href="#city-what-to-expect-heading">What to Expect</a>{% endif %}
+                {% if hasRepresentativeBuildingChapter %}<a href="#city-example-buildings-heading">Example Buildings</a>{% endif %}
+                {% if hasLocalHelpChapter %}<a href="#city-local-help-heading">Local Help</a>{% endif %}
+              </nav>
             </div>
           </div>
         </div>
@@ -244,7 +221,7 @@ eleventyComputed:
             {% include "partials/shared/editorial-district-map.njk" %}
           {% endif %}
 
-          {% if isCityDecisionJourney and cityNeighborhoods.length and not editorialDistrictMap %}
+          {% if cityNeighborhoods.length and not editorialDistrictMap %}
             <div class="city-card city-neighborhoods-card">
               <div class="eyebrow">Commercial areas</div>
               <h2>Compare {{ city.city }} districts and commercial areas</h2>
@@ -269,7 +246,7 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          {% if isCityDecisionJourney and (cityLocationComparisons.length or cityComparisonPages.length) %}
+          {% if cityLocationComparisons.length or cityComparisonPages.length %}
             <div class="city-card city-location-comparisons-card city-support-module">
               <div class="eyebrow">Compare Commercial Areas</div>
               <h2>Tradeoffs worth checking early</h2>
@@ -300,7 +277,7 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          {% if isCityDecisionJourney and city.nearby_cities and city.nearby_cities.length %}
+          {% if city.nearby_cities and city.nearby_cities.length %}
             <div class="city-card city-nearby-markets-card city-support-module">
               <div class="eyebrow">Nearby commercial areas</div>
               <h2>Nearby markets may change the answer</h2>
@@ -331,89 +308,49 @@ eleventyComputed:
           {% set featuredInsight = cityOverviewInsights[0] or cityInsights[0] %}
           {% set insightList = cityOverviewInsights.concat(cityHubInsights) %}
           {% set moduleFeaturedInsight = featuredInsight or insightList[0] %}
-          {% if isCityDecisionJourney %}
-            {% if moduleFeaturedInsight %}
-              <div class="city-learning-feature" aria-labelledby="city-featured-insight-heading">
-                <div class="eyebrow">Rofo Insight</div>
-                <a class="city-learning-feature__link" href="/insights/{{ moduleFeaturedInsight.slug }}/">
-                  <span>{{ moduleFeaturedInsight.readingTime or moduleFeaturedInsight.readTime or "3 minute read" }}</span>
-                  <h3 id="city-featured-insight-heading">{{ moduleFeaturedInsight.title }}</h3>
-                  <p>{{ moduleFeaturedInsight.heroSummary or moduleFeaturedInsight.summary }}</p>
-                </a>
-              </div>
-            {% endif %}
-          {% else %}
-            {% set insightModuleTitle = "Insights from Rofo" %}
-            {% set insightModuleSummary = "Commercial observations from Rofo about how businesses compare " + city.city + " locations." %}
-            {% set insightHubUrl = cityLocationModelPath + "insights/" %}
-            {% include "partials/shared/rofo-insight-card.njk" %}
-            {% set insightModuleTitle = "" %}
-            {% set insightModuleSummary = "" %}
-            {% set insightHubUrl = "" %}
-          {% endif %}
-
-          {% if isCityDecisionJourney %}
-            <div class="city-learning-support">
-              {% if insightList and insightList.length %}
-                <div class="city-learning-links">
-                  <div class="eyebrow">What experienced tenants consider</div>
-                  <ul>
-                    {% for relatedInsight in insightList.slice(0, 5) %}
-                      {% if not moduleFeaturedInsight or relatedInsight.slug != moduleFeaturedInsight.slug %}
-                        <li>
-                          <a href="/insights/{{ relatedInsight.slug }}/">{{ relatedInsight.title }}</a>
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                  {% if isSanFranciscoDecisionJourney %}
-                    <a class="building-link" href="{{ cityLocationModelPath }}insights/">Read more San Francisco location guidance →</a>
-                  {% endif %}
-                </div>
-              {% endif %}
-          {% endif %}
-
-          {% if cityMarketGuide %}
-            <div class="city-card city-market-guide-card{% if isCityDecisionJourney %} city-support-module city-learning-resource{% endif %}">
-              <div class="eyebrow">{% if isCityDecisionJourney %}Market context{% else %}Market Guide{% endif %}</div>
-              <h2>{% if isCityDecisionJourney %}Know the {{ city.city }} market before comparing buildings{% else %}{{ city.city }} Commercial Real Estate Market Guide{% endif %}</h2>
-              <p>
-                Rent, availability, and neighborhood dynamics matter most when they are tied back to your business needs.
-              </p>
-              <a class="building-link" href="{{ cityMarketGuide.url }}">{% if isCityDecisionJourney %}Review {{ city.city }} market context{% else %}View the {{ city.city }} Market Guide{% endif %} →</a>
+          {% if moduleFeaturedInsight %}
+            <div class="city-learning-feature" aria-labelledby="city-featured-insight-heading">
+              <div class="eyebrow">Rofo Insight</div>
+              <a class="city-learning-feature__link" href="/insights/{{ moduleFeaturedInsight.slug }}/">
+                <span>{{ moduleFeaturedInsight.readingTime or moduleFeaturedInsight.readTime or "3 minute read" }}</span>
+                <h3 id="city-featured-insight-heading">{{ moduleFeaturedInsight.title }}</h3>
+                <p>{{ moduleFeaturedInsight.heroSummary or moduleFeaturedInsight.summary }}</p>
+              </a>
             </div>
           {% endif %}
 
-          {% if cityLocationComparisons.length and not isCityDecisionJourney %}
-            <div class="city-card city-location-comparisons-card">
-              <div class="eyebrow">Location comparisons</div>
-              <h2>
-                {% if cityLocationModel.warehouse_flex_profile %}
-                  Compare nearby industrial markets
-                {% else %}
-                  Businesses comparing this market also evaluate
+          <div class="city-learning-support">
+            {% if insightList and insightList.length %}
+              <div class="city-learning-links">
+                <div class="eyebrow">What experienced tenants consider</div>
+                <ul>
+                  {% for relatedInsight in insightList.slice(0, 5) %}
+                    {% if not moduleFeaturedInsight or relatedInsight.slug != moduleFeaturedInsight.slug %}
+                      <li>
+                        <a href="/insights/{{ relatedInsight.slug }}/">{{ relatedInsight.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+                {% if isSanFranciscoDecisionJourney %}
+                  <a class="building-link" href="{{ cityLocationModelPath }}insights/">Read more San Francisco location guidance →</a>
                 {% endif %}
-              </h2>
-              <p>
-                {% if cityLocationModel.warehouse_flex_profile %}
-                  Warehouse, flex, and service-commercial users often compare {{ city.city }} with nearby markets based on access, loading needs, building format, and operational fit.
-                {% else %}
-                  Businesses often compare {{ city.city }} with nearby markets before narrowing to specific buildings or spaces.
-                {% endif %}
-              </p>
-              <div class="neighborhood-comparison-grid">
-                {% for comparison in cityLocationComparisons %}
-                  <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ comparison.comparison_path }}">
-                    <h3>{{ city.city }} vs {{ comparison.district_name }}</h3>
-                    <p>{{ comparison.reason }}</p>
-                  </a>
-                {% endfor %}
               </div>
+            {% endif %}
+
+          {% if cityMarketGuide %}
+            <div class="city-card city-market-guide-card city-support-module city-learning-resource">
+              <div class="eyebrow">Market context</div>
+              <h2>Know the {{ city.city }} market before comparing buildings</h2>
+              <p>
+                Rent, availability, and neighborhood dynamics matter most when they are tied back to your business needs.
+              </p>
+              <a class="building-link" href="{{ cityMarketGuide.url }}">Review {{ city.city }} market context →</a>
             </div>
           {% endif %}
 
           {% if snapshotItems.length >= 2 %}
-            <div class="city-card city-market-snapshot{% if isCityDecisionJourney %} city-support-module{% endif %}">
+            <div class="city-card city-market-snapshot city-support-module">
               <div class="eyebrow">{{ snapshotTitle }}</div>
               <div class="city-market-snapshot__grid">
                 {% for item in snapshotItems %}
@@ -449,19 +386,17 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          {% if isCityDecisionJourney %}
-            <div class="city-card city-commercial-knowledge-card city-support-module">
-              <div class="eyebrow">Commercial Leasing Guide</div>
-              <h2>Know the questions before the tour</h2>
-              <p>Lease structure, timing, tenant improvements, and broker roles can shape the real cost and risk of a space. Use these guides when the location is promising but the leasing details still need context.</p>
-              <ul class="mini-list">
-                <li><a href="/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/">Choosing the right commercial location</a></li>
-                <li><a href="/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/">How to compare commercial spaces</a></li>
-                <li><a href="/commercial-real-estate/lease-guide/commercial-leasing-timeline/">Commercial leasing timeline</a></li>
-                <li><a href="/commercial-real-estate/lease-guide/how-commercial-brokers-help/">How commercial brokers help</a></li>
-              </ul>
-            </div>
-          {% endif %}
+          <div class="city-card city-commercial-knowledge-card city-support-module">
+            <div class="eyebrow">Commercial Leasing Guide</div>
+            <h2>Know the questions before the tour</h2>
+            <p>Lease structure, timing, tenant improvements, and broker roles can shape the real cost and risk of a space. Use these guides when the location is promising but the leasing details still need context.</p>
+            <ul class="mini-list">
+              <li><a href="/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/">Choosing the right commercial location</a></li>
+              <li><a href="/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/">How to compare commercial spaces</a></li>
+              <li><a href="/commercial-real-estate/lease-guide/commercial-leasing-timeline/">Commercial leasing timeline</a></li>
+              <li><a href="/commercial-real-estate/lease-guide/how-commercial-brokers-help/">How commercial brokers help</a></li>
+            </ul>
+          </div>
 
           {% if hasEducationChapter %}
               </div>
@@ -479,91 +414,16 @@ eleventyComputed:
               <div class="city-browse-panel">
           {% endif %}
 
-          {% if cityNeighborhoods.length and not editorialDistrictMap and not isCityDecisionJourney %}
-            <div class="city-card city-neighborhoods-card">
-              <div class="eyebrow">Districts</div>
-              <h2>Explore districts and commercial areas</h2>
-              <p>Compare business districts, commercial areas, and nearby locations within {{ city.city }}.</p>
-              {% set visibleNeighborhoods = cityNeighborhoods.slice(0, 8) %}
-              {% set hiddenNeighborhoods = cityNeighborhoods.slice(8) %}
-              <div class="city-neighborhood-link-list">
-                {% for neighborhood in visibleNeighborhoods %}
-                  <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
-                {% endfor %}
-              </div>
-              {% if city.slug == "new-york" and hiddenNeighborhoods.length %}
-                {% set manhattanNeighborhoods = [] %}
-                {% set brooklynNeighborhoods = [] %}
-                {% set otherNycNeighborhoods = [] %}
-                {% for neighborhood in cityNeighborhoods %}
-                  {% if neighborhood.borough == "Manhattan" %}
-                    {% set manhattanNeighborhoods = (manhattanNeighborhoods.push(neighborhood), manhattanNeighborhoods) %}
-                  {% elseif neighborhood.borough == "Brooklyn" %}
-                    {% set brooklynNeighborhoods = (brooklynNeighborhoods.push(neighborhood), brooklynNeighborhoods) %}
-                  {% else %}
-                    {% set otherNycNeighborhoods = (otherNycNeighborhoods.push(neighborhood), otherNycNeighborhoods) %}
-                  {% endif %}
-                {% endfor %}
-                <details class="city-neighborhoods-all">
-                  <summary>View more districts</summary>
-                  {% if manhattanNeighborhoods.length %}
-                    <h3>Manhattan</h3>
-                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
-                      {% for neighborhood in manhattanNeighborhoods %}
-                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
-                      {% endfor %}
-                    </div>
-                  {% endif %}
-                  {% if brooklynNeighborhoods.length %}
-                    <h3>Brooklyn</h3>
-                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
-                      {% for neighborhood in brooklynNeighborhoods %}
-                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
-                      {% endfor %}
-                    </div>
-                  {% endif %}
-                  {% if otherNycNeighborhoods.length %}
-                    <h3>Other areas</h3>
-                    <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
-                      {% for neighborhood in otherNycNeighborhoods %}
-                        <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
-                      {% endfor %}
-                    </div>
-                  {% endif %}
-                </details>
-              {% elseif hiddenNeighborhoods.length %}
-                <details class="city-neighborhoods-all">
-                  <summary>View more districts</summary>
-                  <div class="city-neighborhood-link-list city-neighborhood-link-list--all">
-                    {% for neighborhood in hiddenNeighborhoods %}
-                      <a href="{{ neighborhood.canonical_neighborhood_path }}">{{ neighborhood.name }}</a>
-                    {% endfor %}
-                  </div>
-                </details>
-              {% endif %}
-            </div>
-          {% endif %}
-
-          {% if (isCityDecisionJourney and hasRepresentativeBuildingChapter) or (not isCityDecisionJourney and cityBuildings.length > 0) %}
+          {% if hasRepresentativeBuildingChapter %}
             <div class="city-card city-buildings-card">
-              <div class="eyebrow">{% if isCityDecisionJourney %}Building Examples{% else %}Buildings to Explore{% endif %}</div>
-              <h2>{% if isCityDecisionJourney %}Use buildings to understand the market{% else %}Buildings to Explore in {{ city.city }}{% endif %}</h2>
+              <div class="eyebrow">Building Examples</div>
+              <h2>Use buildings to understand the market</h2>
               <p>
-                {% if isCityDecisionJourney %}
-                  Review examples to understand building types, locations, and tradeoffs before checking current availability or requesting introductions.
-                {% else %}
-                  Explore {{ cityBuildings.length }} {% if cityBuildings.length == 1 %}building{% else %}buildings{% endif %} in {{ city.city }}{% if availableSpaceTypes.length %}, including {% for item in availableSpaceTypes %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ item.label | lower }}{% endfor %} options{% endif %}.
-                {% endif %}
+                Review examples to understand building types, locations, and tradeoffs before checking current availability or requesting introductions.
               </p>
-              {% if cityLocationFragments.length >= 3 and not isCityDecisionJourney %}
-                <p>
-                  Example locations include {% for fragment in cityLocationFragments.slice(0, 3) %}{% if loop.index > 1 and loop.last %} and {% elseif loop.index > 1 %}, {% endif %}{{ fragment }}{% endfor %}.
-                </p>
-              {% endif %}
 
               <div class="building-grid">
-                {% set cityBuildingDisplayLimit = 4 if isCityDecisionJourney else 6 %}
-                {% for b in displayBuildings.slice(0, cityBuildingDisplayLimit) %}
+                {% for b in displayBuildings.slice(0, 4) %}
                   {% set building = b %}
                   {% include "partials/shared/building-card-compact.njk" %}
                 {% endfor %}
@@ -579,22 +439,22 @@ eleventyComputed:
 
               <div class="buildings-explore-card__footer-link">
                 <a href="/commercial-real-estate/{{ city.state_abbr }}/{{ city.slug }}/buildings/">
-                  {% if isCityDecisionJourney %}View more {{ city.city }} building examples{% else %}Browse all commercial buildings in {{ city.city }}{% endif %} →
+                  View more {{ city.city }} building examples →
                 </a>
               </div>
             </div>
           {% endif %}
 
-          {% if not isCityDecisionJourney or hasRepresentativeBuildingChapter %}
+          {% if hasRepresentativeBuildingChapter %}
             {# ===== FEATURED COMPANY CARD ===== #}
             {% set company = companies[0] %}
             {% include "partials/city/featured-company-card.njk" %}
           {% endif %}
 
-          {% if cityMarketGuides.length and (not isCityDecisionJourney or hasRepresentativeBuildingChapter) %}
-            <div class="city-card city-leasing-guides-card{% if isCityDecisionJourney %} city-support-module{% endif %}">
-              <div class="eyebrow">{% if isCityDecisionJourney %}What to Expect{% else %}Leasing Guides{% endif %}</div>
-              <h2>{% if isCityDecisionJourney %}Space type changes the search{% else %}Leasing guides for {{ city.city }}{% endif %}</h2>
+          {% if cityMarketGuides.length %}
+            <div class="city-card city-leasing-guides-card city-support-module">
+              <div class="eyebrow">What to Expect</div>
+              <h2>Space type changes the search</h2>
               <p>Office, retail, industrial, coworking, and flex searches each raise different questions about location, layout, access, buildout, and cost.</p>
               <ul class="mini-list">
                 {% for guide in cityMarketGuides %}
@@ -606,8 +466,8 @@ eleventyComputed:
             </div>
           {% endif %}
 
-          {% if availableSpaceTypes.length and (not isCityDecisionJourney or hasRepresentativeBuildingChapter) %}
-            <div class="city-card city-popular-searches-card{% if isCityDecisionJourney %} city-support-module{% endif %}">
+          {% if availableSpaceTypes.length %}
+            <div class="city-card city-popular-searches-card city-support-module">
               <div class="eyebrow">Common searches</div>
               <h2>When you are ready to look at space</h2>
               <ul class="mini-list">
@@ -644,57 +504,9 @@ eleventyComputed:
             </section>
           {% endif %}
 
-          {% if not isCityDecisionJourney %}
-            <div class="city-card city-nearby-markets-card">
-              <div class="eyebrow">Nearby Markets</div>
-              <h2>Compare nearby markets</h2>
-              <p>Businesses often compare {{ city.city }} with nearby markets when evaluating pricing, access, inventory, and location fit.</p>
-
-              <div class="market-links">
-                {% if city.nearby_cities and city.nearby_cities.length %}
-                  {% for nearby in city.nearby_cities %}
-                    <a href="{{ nearby.path }}">
-                      {{ nearby.city }}, {{ nearby.state_abbr }}
-                    </a>
-                  {% endfor %}
-                {% else %}
-                  <span class="subtle-note">Nearby markets will appear here as city coverage expands.</span>
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
         </div>
 
       </div>
-
-      {% if not isCityDecisionJourney %}
-        <aside class="city-primary-rail">
-          {% set searchProfileContext = {
-            "layout": "inline",
-            "submit_enabled": true,
-            "submit_endpoint": "/api/leads/submit",
-            "target_area": city.city,
-            "city": city.city,
-            "district": "",
-            "street": "",
-            "state": city.state_abbr,
-            "context_type": "city",
-            "context_label": city.city + ", " + city.state_abbr,
-            "page_url": metadata.siteUrl + page.url,
-            "page_title": title,
-            "routing_market": city.routing_market or (city.slug + "-" + (city.state_abbr | lower)),
-            "routing_county": city.routing_county or "",
-            "neighborhood_name": "",
-            "neighborhood_slug": "",
-            "neighborhood_path": "",
-            "commercial_area_id": "",
-            "commercial_area_type": "",
-            "location_suggestions": searchProfileLocationSuggestions,
-            "card_headline": "Get a personalized " + city.city + " building shortlist"
-          } %}
-          {% include "partials/shared/recommendation-prompt-card.njk" %}
-        </aside>
-      {% endif %}
     </div>
   </div>
 </section>
