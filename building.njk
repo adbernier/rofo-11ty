@@ -24,7 +24,7 @@ eleventyComputed:
   { "label": building.address, "url": page.url }
 ] %}
 
-<section class="building-page">
+<section class="building-page{% if isRepresentativeBuilding %} building-page--representative{% endif %}">
   <div class="building-shell">
     {% include "partials/breadcrumbs.njk" %}
 
@@ -80,7 +80,7 @@ eleventyComputed:
 
     {% if isRepresentativeBuilding %}
       <div class="representative-building-journey">
-        <section class="building-card building-decision-card building-decision-card--opening">
+        <section class="representative-building-section representative-building-section--opening building-decision-card--opening">
           <div class="eyebrow">Shortlist Decision</div>
           <h2>Why businesses evaluate this building</h2>
           {% if building.shortlist_reason %}
@@ -90,7 +90,7 @@ eleventyComputed:
           {% endif %}
         </section>
 
-        <section class="building-card building-fit-card">
+        <section class="representative-building-section representative-building-section--grouped building-fit-card">
           <div class="eyebrow">Fit</div>
           <h2>Is this building likely to fit?</h2>
           <div class="building-fit-grid">
@@ -119,7 +119,7 @@ eleventyComputed:
         </section>
 
         {% if (building.strengths and building.strengths.length) or (building.tradeoffs and building.tradeoffs.length) %}
-          <section class="building-card building-decision-card">
+          <section class="representative-building-section representative-building-section--grouped building-decision-card">
             <div class="eyebrow">Tradeoffs</div>
             <h2>Strengths and tradeoffs</h2>
             <div class="building-decision-grid">
@@ -149,7 +149,7 @@ eleventyComputed:
         {% endif %}
 
         {% if building.validation_questions and building.validation_questions.length %}
-          <section class="building-card building-validation-card">
+          <section class="representative-building-section representative-building-section--grouped building-validation-card">
             <div class="eyebrow">Validate</div>
             <h2>What to validate before adding it to your shortlist</h2>
             <ul class="building-question-list">
@@ -161,7 +161,7 @@ eleventyComputed:
         {% endif %}
 
         {% if building.related_buildings and building.related_buildings.length %}
-          <section class="building-card building-comparison-card">
+          <section class="representative-building-section representative-building-section--grouped building-comparison-card">
             <div class="eyebrow">Compare</div>
             <h2>What businesses often compare</h2>
             <p>Do not evaluate this building in isolation. Compare it with nearby buildings and district alternatives that solve different parts of the same location decision.</p>
@@ -182,7 +182,7 @@ eleventyComputed:
         {% endif %}
 
         {% if building.location_context or building.district_relationship or building.commercial_area %}
-          <section class="building-card building-district-card">
+          <section class="representative-building-section representative-building-section--editorial building-district-card">
             <div class="eyebrow">District</div>
             <h2>
               {% if building.commercial_area %}
@@ -218,7 +218,7 @@ eleventyComputed:
         {% endif %}
 
         {% if relatedHandbookTopics and relatedHandbookTopics.length %}
-          <section class="building-card building-handbook-card">
+          <section class="representative-building-section representative-building-section--grouped building-handbook-card">
             <div class="eyebrow">Decision Guide</div>
             <h2>What to understand before deciding</h2>
             <div class="related-building-list">
@@ -234,7 +234,7 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        <section class="building-card representative-building-explainer">
+        <section class="representative-building-section representative-building-section--editorial representative-building-explainer">
           <div class="eyebrow">Rofo Context</div>
           <h2>Why this building appears on Rofo</h2>
           <p>
@@ -245,7 +245,7 @@ eleventyComputed:
           </p>
         </section>
 
-        <section class="building-card building-continue-search">
+        <section class="representative-building-section representative-building-section--action building-continue-search">
           <div class="eyebrow">Next</div>
           <h2>Continue Your Search</h2>
           <p>Use this building as a reference point, then decide whether to compare the district, review nearby options, or start a broader location analysis.</p>
@@ -272,7 +272,7 @@ eleventyComputed:
           </div>
         </section>
 
-        <section class="building-card building-help-card">
+        <section class="representative-building-section representative-building-section--quiet building-help-card">
           <div class="eyebrow">Optional</div>
           <h2>Need more than the initial analysis?</h2>
           <p>
@@ -285,7 +285,7 @@ eleventyComputed:
           </ul>
         </section>
 
-        <section class="building-card building-details-card">
+        <section class="representative-building-section representative-building-section--details building-details-card">
           <div class="eyebrow">Details</div>
           <h2>Property details</h2>
 

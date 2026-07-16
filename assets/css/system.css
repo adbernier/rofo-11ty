@@ -7087,6 +7087,10 @@ section.market-page--space-type .market-links a {
     padding: 8px 0 56px;
   }
 
+  .building-page--representative {
+    background: #f8fafc;
+  }
+
 /* =========================
    LEASING GUIDE PAGE
    ========================= */
@@ -7712,25 +7716,59 @@ section.market-page--space-type .market-links a {
   }
 
   .building-page .representative-building-journey {
-    display: grid;
-    gap: 22px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .building-page .building-decision-card {
+    display: block;
+    width: min(100%, 960px);
+    margin: 0;
+    padding: clamp(30px, 5vw, 56px);
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
     background: #ffffff;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
   }
 
-  .building-page .building-decision-card--opening {
-    padding: clamp(26px, 4vw, 40px);
+  .building-page .representative-building-section {
+    padding: 0 0 clamp(28px, 4vw, 44px);
+    margin: 0 0 clamp(28px, 4vw, 44px);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .building-page .representative-building-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .building-page .representative-building-journey .eyebrow {
+    display: block;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #1d4ed8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+
+  .building-page .representative-building-journey h2 {
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    line-height: 1.14;
+    margin-bottom: 14px;
+  }
+
+  .building-page .representative-building-journey p {
+    max-width: 72ch;
   }
 
   .building-page .building-decision-lead {
     color: #1f2937;
     font-size: clamp(1.12rem, 2vw, 1.3rem);
     line-height: 1.68;
-    max-width: 780px;
+    max-width: 760px;
+    margin-bottom: 0;
   }
 
   .building-page .building-decision-grid {
@@ -7742,9 +7780,9 @@ section.market-page--space-type .market-links a {
 
   .building-page .building-decision-panel {
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
+    border-radius: 16px;
     background: #f8fafc;
-    padding: 16px;
+    padding: 18px;
   }
 
   .building-page .building-fit-grid {
@@ -7756,14 +7794,14 @@ section.market-page--space-type .market-links a {
 
   .building-page .building-fit-panel {
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
+    border-radius: 16px;
     background: #f8fafc;
-    padding: 18px;
+    padding: 20px;
   }
 
   .building-page .building-fit-panel--positive {
-    background: #f0fdf4;
-    border-color: #bbf7d0;
+    background: #f7fbff;
+    border-color: #cfe0f5;
   }
 
   .building-page .building-question-list {
@@ -7777,10 +7815,11 @@ section.market-page--space-type .market-links a {
   .building-page .building-question-list li {
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background: #f8fafc;
+    background: #ffffff;
     color: #0f172a;
     line-height: 1.55;
     padding: 14px 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
   }
 
   .building-page .building-nearby-links {
@@ -7801,12 +7840,17 @@ section.market-page--space-type .market-links a {
   }
 
   .building-page .representative-building-explainer {
-    background: #f8fbff;
-    border-color: #bfdbfe;
+    color: #334155;
   }
 
   .building-page .building-continue-search {
-    background: #ffffff;
+    padding: clamp(22px, 4vw, 34px);
+    border: 1px solid #cfe0f5;
+    border-radius: 20px;
+    background:
+      radial-gradient(circle at top right, rgba(186, 230, 253, 0.28), transparent 34%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
   }
 
   .building-page .building-next-link-grid {
@@ -7817,12 +7861,19 @@ section.market-page--space-type .market-links a {
   }
 
   .building-page .building-help-card {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    background: #f8fafc;
   }
 
   .building-page .building-help-card .btn-secondary {
     width: fit-content;
     margin-top: 4px;
+  }
+
+  .building-page .building-details-card {
+    color: #475569;
   }
 
   .building-page .form-grid {
@@ -7879,6 +7930,16 @@ section.market-page--space-type .market-links a {
     .building-page .building-next-link-grid,
     .building-page .building-fit-grid {
       grid-template-columns: 1fr;
+    }
+
+    .building-page .representative-building-journey {
+      padding: 22px 18px;
+      border-radius: 18px;
+    }
+
+    .building-page .representative-building-section {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
     }
 
     .building-page .building-shell {
