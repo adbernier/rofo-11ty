@@ -217,11 +217,11 @@ body.mobile-menu-open .mobile-menu {
 }
 
 .homepage-hero-grid {
-    grid-template-columns: minmax(0, 720px) minmax(340px, 1fr);
+    grid-template-columns: minmax(0, 640px) minmax(380px, 1fr);
     justify-content: start;
     text-align: left;
     align-items: center;
-    gap: 44px;
+    gap: 54px;
 }
 
 .homepage-hero-copy h1 {
@@ -232,6 +232,7 @@ body.mobile-menu-open .mobile-menu {
 @media (min-width: 681px) {
     .home-hero__title span {
         display: block;
+        white-space: nowrap;
     }
 }
 
@@ -2168,9 +2169,9 @@ body.mobile-menu-open .mobile-menu {
   }
 
   .homepage-hero-grid.hero-grid {
-    grid-template-columns: minmax(0, 720px) minmax(340px, 1fr);
+    grid-template-columns: minmax(0, 640px) minmax(380px, 1fr);
     justify-content: start;
-    gap: 44px;
+    gap: 54px;
     align-items: center;
   }
 
