@@ -38,6 +38,7 @@ function building({
   building_character,
   strengths,
   tradeoffs,
+  less_suitable_for,
   nearby_amenities,
   access_context,
   district_relationship,
@@ -96,15 +97,40 @@ function building({
     building_character:
       building_character ||
       role,
-    strengths: strengths || [],
-    tradeoffs: tradeoffs || [],
+    strengths:
+      strengths ||
+      [
+        `Helps compare ${district.name} against nearby districts before touring spaces.`,
+        "Gives the search a concrete building example instead of an abstract neighborhood description.",
+        "Supports early conversations about location, building character, and business fit.",
+      ],
+    tradeoffs:
+      tradeoffs ||
+      [
+        "The current suite layout, condition, cost, and timing still need to be verified.",
+        "The building may not fit specialized use, parking, infrastructure, or expansion needs.",
+        "A nearby district may solve the same requirement with a better tradeoff.",
+      ],
+    less_suitable_for:
+      less_suitable_for ||
+      [
+        "Businesses that need current availability confirmed before deciding.",
+        "Teams with specialized building requirements that have not been validated.",
+        "Companies that may be better served by a different district tradeoff.",
+      ],
     nearby_amenities: nearby_amenities || "",
     access_context: access_context || "",
     district_relationship:
       district_relationship ||
-      `${address} should be read as an example of ${district.name}'s commercial environment, not as a statement about current availability.`,
+      `${address} shows one version of the ${district.name} building decision. Compare it with nearby districts and buildings before assuming it is the right fit.`,
     shortlist_reasons: shortlist_reasons || [],
-    validation_questions: validation_questions || [],
+    validation_questions:
+      validation_questions ||
+      [
+        "Does the current floorplate support the team's layout and growth plan?",
+        "Do commute, visitor access, parking, and nearby services fit the business?",
+        "What buildout, infrastructure, accessibility, or after-hours access issues need validation?",
+      ],
     related_handbook_topics: related_handbook_topics || defaultBuildingHandbookTopics,
     nearby_alternatives: nearby_alternatives || [],
     commercial_area: district,
@@ -132,7 +158,7 @@ const defaultBuildingHandbookTopics = [
 
 function sfDecisionBuilding(options) {
   const districtName = options.district.name;
-  const role = options.role || `${districtName} representative building`;
+  const role = options.role || `${districtName} building example`;
 
   return building({
     city: "San Francisco",
@@ -142,10 +168,10 @@ function sfDecisionBuilding(options) {
     role,
     description:
       options.description ||
-      `${options.address} is a representative ${districtName} commercial building that helps businesses understand the district before comparing individual spaces.`,
+      `${options.address} helps explain why businesses consider ${districtName} before comparing individual spaces.`,
     about:
       options.about ||
-      `${options.address} is included because it illustrates a commercial building pattern businesses commonly evaluate when ${districtName} belongs on the shortlist.`,
+      `${options.address} is included because businesses often need a concrete building example before deciding whether ${districtName} belongs on the shortlist.`,
     location:
       options.location ||
       `${options.address} should be evaluated in relationship to ${districtName}, nearby districts, access patterns, and the business use rather than as a standalone listing.`,
@@ -168,6 +194,13 @@ function sfDecisionBuilding(options) {
       [
         "Building-level fit still depends on layout, delivery condition, cost structure, and timing.",
         "Current availability is not implied by its appearance on Rofo.",
+      ],
+    less_suitable_for:
+      options.less_suitable_for ||
+      [
+        "Businesses that need confirmed current availability before comparing districts.",
+        "Teams with specialized infrastructure, medical, lab, food-service, or heavy operational requirements that have not been validated.",
+        "Companies that need a different balance of parking, cost, visibility, or expansion flexibility.",
       ],
     shortlist_reasons:
       options.shortlist_reasons ||

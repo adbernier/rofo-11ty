@@ -78,6 +78,245 @@ eleventyComputed:
       </div>
     </div>
 
+    {% if isRepresentativeBuilding %}
+      <div class="representative-building-journey">
+        <section class="building-card building-decision-card building-decision-card--opening">
+          <div class="eyebrow">Shortlist Decision</div>
+          <h2>Why businesses evaluate this building</h2>
+          {% if building.shortlist_reason %}
+            <p class="building-decision-lead">{{ building.shortlist_reason }}</p>
+          {% elif building.building_description %}
+            <p class="building-decision-lead">{{ building.building_description }}</p>
+          {% endif %}
+        </section>
+
+        <section class="building-card building-fit-card">
+          <div class="eyebrow">Fit</div>
+          <h2>Is this building likely to fit?</h2>
+          <div class="building-fit-grid">
+            {% if building.best_for and building.best_for.length %}
+              <div class="building-fit-panel building-fit-panel--positive">
+                <h3>Good fit for</h3>
+                <ul class="mini-list">
+                  {% for item in building.best_for %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if building.less_suitable_for and building.less_suitable_for.length %}
+              <div class="building-fit-panel">
+                <h3>May be less suitable for</h3>
+                <ul class="mini-list">
+                  {% for item in building.less_suitable_for %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        </section>
+
+        {% if (building.strengths and building.strengths.length) or (building.tradeoffs and building.tradeoffs.length) %}
+          <section class="building-card building-decision-card">
+            <div class="eyebrow">Tradeoffs</div>
+            <h2>Strengths and tradeoffs</h2>
+            <div class="building-decision-grid">
+              {% if building.strengths and building.strengths.length %}
+                <div class="building-decision-panel">
+                  <h3>Strengths</h3>
+                  <ul class="mini-list">
+                    {% for item in building.strengths %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+              {% if building.tradeoffs and building.tradeoffs.length %}
+                <div class="building-decision-panel">
+                  <h3>Tradeoffs</h3>
+                  <ul class="mini-list">
+                    {% for item in building.tradeoffs %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if building.validation_questions and building.validation_questions.length %}
+          <section class="building-card building-validation-card">
+            <div class="eyebrow">Validate</div>
+            <h2>What to validate before adding it to your shortlist</h2>
+            <ul class="building-question-list">
+              {% for item in building.validation_questions %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        {% if building.related_buildings and building.related_buildings.length %}
+          <section class="building-card building-comparison-card">
+            <div class="eyebrow">Compare</div>
+            <h2>What businesses often compare</h2>
+            <p>Do not evaluate this building in isolation. Compare it with nearby buildings and district alternatives that solve different parts of the same location decision.</p>
+
+            <div class="related-building-list">
+              {% for related in building.related_buildings %}
+                {% if loop.index <= 4 %}
+                  <a class="related-building-card" href="{{ related.building_path }}">
+                    <span class="related-building-card__title">{{ related.display_name or related.address }}</span>
+                    <span class="related-building-card__meta">
+                      Compare this option for a different building format, address signal, or nearby tradeoff in {{ building.city }}.
+                    </span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if building.location_context or building.district_relationship or building.commercial_area %}
+          <section class="building-card building-district-card">
+            <div class="eyebrow">District</div>
+            <h2>
+              {% if building.commercial_area %}
+                How this building fits into {{ building.commercial_area.name }}
+              {% else %}
+                How this building fits into {{ building.city }}
+              {% endif %}
+            </h2>
+            {% if building.district_relationship %}
+              <p>{{ building.district_relationship }}</p>
+            {% elif building.location_context %}
+              <p>{{ building.location_context }}</p>
+            {% endif %}
+
+            {% if building.commercial_area %}
+              <a class="building-link" href="{{ building.commercial_area.path }}">Return to {{ building.commercial_area.name }}</a>
+            {% endif %}
+
+            {% if building.nearby_alternatives and building.nearby_alternatives.length %}
+              <div class="building-nearby-links">
+                <h3>Nearby districts to compare</h3>
+                <div class="building-next-link-grid">
+                  {% for alternative in building.nearby_alternatives %}
+                    <a class="related-building-card" href="{{ alternative.url }}">
+                      <span class="related-building-card__title">{{ alternative.label }}</span>
+                      <span class="related-building-card__meta">Compare the district tradeoff before narrowing the building shortlist.</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+
+        {% if relatedHandbookTopics and relatedHandbookTopics.length %}
+          <section class="building-card building-handbook-card">
+            <div class="eyebrow">Decision Guide</div>
+            <h2>What to understand before deciding</h2>
+            <div class="related-building-list">
+              {% for topic in relatedHandbookTopics %}
+                {% if loop.index <= 3 %}
+                  <a class="related-building-card" href="{{ topic.url }}">
+                    <span class="related-building-card__title">{{ topic.title }}</span>
+                    <span class="related-building-card__meta">{{ topic.summary }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        <section class="building-card representative-building-explainer">
+          <div class="eyebrow">Rofo Context</div>
+          <h2>Why this building appears on Rofo</h2>
+          <p>
+            Rofo uses representative buildings to make commercial location decisions more concrete. They help explain what a district feels like in practice and what types of buildings businesses may compare.
+          </p>
+          <p>
+            Current availability changes over time. This page is decision support, not an advertisement for available space.
+          </p>
+        </section>
+
+        <section class="building-card building-continue-search">
+          <div class="eyebrow">Next</div>
+          <h2>Continue Your Search</h2>
+          <p>Use this building as a reference point, then decide whether to compare the district, review nearby options, or start a broader location analysis.</p>
+
+          <div class="building-next-link-grid">
+            {% if building.commercial_area %}
+              <a class="related-building-card" href="{{ building.commercial_area.path }}">
+                <span class="related-building-card__title">Return to {{ building.commercial_area.name }}</span>
+                <span class="related-building-card__meta">Review why this district may or may not fit the search.</span>
+              </a>
+            {% endif %}
+
+            {% if building.commercial_area %}
+              <a class="related-building-card" href="{{ building.commercial_area.path }}">
+                <span class="related-building-card__title">Compare other representative buildings</span>
+                <span class="related-building-card__meta">See other building examples that explain {{ building.commercial_area.name }}.</span>
+              </a>
+            {% endif %}
+
+            <a class="related-building-card" href="/find-locations/">
+              <span class="related-building-card__title">Start Your Search</span>
+              <span class="related-building-card__meta">Create an initial location analysis based on the business, requirements, and priorities.</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="building-card building-help-card">
+          <div class="eyebrow">Optional</div>
+          <h2>Need more than the initial analysis?</h2>
+          <p>
+            Depending on the market and requirements, additional building examples, market comparisons, deeper location analysis, or local introductions may be available.
+          </p>
+          <ul class="mini-list">
+            <li>Request additional building examples when coverage supports it</li>
+            <li>Compare nearby markets or districts before touring</li>
+            <li>Explore local expert help when available</li>
+          </ul>
+        </section>
+
+        <section class="building-card building-details-card">
+          <div class="eyebrow">Details</div>
+          <h2>Property details</h2>
+
+          <div class="detail-list detail-list--compact">
+            <div class="detail-row">
+              <div class="detail-label">Address</div>
+              <div class="detail-value">{{ building.address }}</div>
+            </div>
+
+            {% if building.type %}
+              <div class="detail-row">
+                <div class="detail-label">Type</div>
+                <div class="detail-value">{{ building.type }}</div>
+              </div>
+            {% endif %}
+
+            {% if building.commercial_area %}
+              <div class="detail-row">
+                <div class="detail-label">District</div>
+                <div class="detail-value">{{ building.commercial_area.name }}</div>
+              </div>
+            {% endif %}
+
+            <div class="detail-row">
+              <div class="detail-label">Market</div>
+              <div class="detail-value">{{ building.city }}, {{ building.state_abbr }}</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    {% else %}
     <div class="stats-grid">
       <div class="building-stat">
         <div class="stat-label">Address</div>
@@ -589,5 +828,6 @@ eleventyComputed:
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 </section>

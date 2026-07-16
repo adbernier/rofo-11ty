@@ -7637,6 +7637,10 @@ section.market-page--space-type .market-links a {
     gap: 14px;
   }
 
+  .building-page .detail-list--compact {
+    gap: 10px;
+  }
+
   .building-page .detail-row {
     border-top: 1px solid #e2e8f0;
     padding-top: 14px;
@@ -7707,8 +7711,26 @@ section.market-page--space-type .market-links a {
     line-height: 1.35;
   }
 
+  .building-page .representative-building-journey {
+    display: grid;
+    gap: 22px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
   .building-page .building-decision-card {
     background: #ffffff;
+  }
+
+  .building-page .building-decision-card--opening {
+    padding: clamp(26px, 4vw, 40px);
+  }
+
+  .building-page .building-decision-lead {
+    color: #1f2937;
+    font-size: clamp(1.12rem, 2vw, 1.3rem);
+    line-height: 1.68;
+    max-width: 780px;
   }
 
   .building-page .building-decision-grid {
@@ -7723,6 +7745,48 @@ section.market-page--space-type .market-links a {
     border-radius: 14px;
     background: #f8fafc;
     padding: 16px;
+  }
+
+  .building-page .building-fit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .building-page .building-fit-panel {
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #f8fafc;
+    padding: 18px;
+  }
+
+  .building-page .building-fit-panel--positive {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+
+  .building-page .building-question-list {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .building-page .building-question-list li {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    line-height: 1.55;
+    padding: 14px 16px;
+  }
+
+  .building-page .building-nearby-links {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+    padding-top: 18px;
   }
 
   .building-page .building-decision-panel p,
@@ -7812,7 +7876,8 @@ section.market-page--space-type .market-links a {
     .building-page .stats-grid,
     .building-page .form-grid,
     .building-page .building-decision-grid,
-    .building-page .building-next-link-grid {
+    .building-page .building-next-link-grid,
+    .building-page .building-fit-grid {
       grid-template-columns: 1fr;
     }
 
