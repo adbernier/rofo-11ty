@@ -14,6 +14,28 @@ const districts = {
       "Lab-heavy users that need stronger institutional or life-science adjacency",
       "Retailers that depend on destination shopping foot traffic",
     ],
+    decision_guidance: [
+      "Confirm whether the business values adaptive office character enough to accept more variation by block and building.",
+      "Compare employee commute patterns against Mission Bay, the Financial District, and East Bay alternatives before assuming central San Francisco is the answer.",
+      "Validate building systems, layout efficiency, and tenant-improvement needs because older adaptive buildings can vary widely.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use this before deciding whether SoMa's centrality is more valuable than a more specialized district.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Helpful when comparing adaptive buildings against newer office or institutional inventory.",
+      },
+      {
+        title: "Tenant Improvements",
+        url: "/commercial-real-estate/lease-guide/tenant-improvements/",
+        reason: "Older or converted buildings often require closer review of buildout scope and timing.",
+      },
+    ],
     compare_with: [
       {
         district_name: "Financial District SF",
@@ -96,6 +118,28 @@ const districts = {
       "Life-science users that need Mission Bay institutional adjacency",
       "Businesses that need production, loading, or flexible industrial formats",
     ],
+    decision_guidance: [
+      "Validate whether a formal downtown address improves client perception, recruiting, or daily access enough to justify choosing a tower-core setting.",
+      "Compare total occupancy cost and lease structure rather than assuming a central office address is the most expensive or least flexible option.",
+      "Test whether the business needs Financial District density or whether Jackson Square or SoMa would deliver enough downtown access with a different feel.",
+    ],
+    handbook_topics: [
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Use this when comparing towers, smaller downtown blocks, and nearby boutique districts.",
+      },
+      {
+        title: "NNN vs Gross vs Modified Gross Leases",
+        url: "/commercial-real-estate/lease-guide/nnn-vs-gross-vs-modified-gross-leases/",
+        reason: "Lease structure can change the real cost comparison between downtown options.",
+      },
+      {
+        title: "How Commercial Brokers Help",
+        url: "/commercial-real-estate/lease-guide/how-commercial-brokers-help/",
+        reason: "Useful once the search needs local pricing, landlord, and availability validation.",
+      },
+    ],
     compare_with: [
       {
         district_name: "SoMa",
@@ -161,6 +205,28 @@ const districts = {
       "Companies seeking historic boutique office character",
       "Traditional client-facing firms that need the Financial District's formal office core",
       "Small creative teams that prefer adaptive warehouse-office texture",
+    ],
+    decision_guidance: [
+      "Confirm whether institutional, medical, or life-science adjacency is a real business advantage or only a familiar market label.",
+      "Validate buildout requirements early if the use needs lab-adjacent, medical, or specialized infrastructure.",
+      "Compare Mission Bay with SoMa and South San Francisco when the decision depends on urban access versus purpose-built R&D depth.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use this to decide whether institutional adjacency should drive the search.",
+      },
+      {
+        title: "Tenant Improvements",
+        url: "/commercial-real-estate/lease-guide/tenant-improvements/",
+        reason: "Especially relevant for specialized office, medical, research, or lab-adjacent requirements.",
+      },
+      {
+        title: "Commercial Leasing Timeline",
+        url: "/commercial-real-estate/lease-guide/commercial-leasing-timeline/",
+        reason: "Specialized buildouts and larger modern buildings can make timing more important.",
+      },
     ],
     compare_with: [
       {
@@ -237,6 +303,28 @@ const districts = {
       "Life-science or institutional users",
       "Warehouse, logistics, or production users",
     ],
+    decision_guidance: [
+      "Validate whether boutique character and client perception matter more than floorplate scale or modern building systems.",
+      "Compare Jackson Square with the Financial District if the business needs downtown access but is unsure how formal the setting should feel.",
+      "Confirm growth plans because smaller historic buildings can be less forgiving for teams that may need to expand quickly.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Useful for deciding whether image, access, or building flexibility should lead the search.",
+      },
+      {
+        title: "How Much Space Does My Business Need?",
+        url: "/commercial-real-estate/lease-guide/how-much-space-does-my-business-need/",
+        reason: "Important before focusing on smaller boutique buildings with limited expansion paths.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Use this to compare boutique character against tower-core services and scale.",
+      },
+    ],
     compare_with: [
       {
         district_name: "Financial District SF",
@@ -273,6 +361,84 @@ const districts = {
       commute_pattern: ["walkable_urban", "transit_oriented", "downtown_edge"],
     },
     confidence_level: "high",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/dogpatch/": {
+    primary_archetype: "adaptive_industrial_commercial_district",
+    secondary_archetypes: ["waterfront_adjacent_commercial", "service_commercial_office_edge"],
+    commercial_thesis:
+      "Dogpatch is a production-adjacent waterfront commercial district for businesses that need San Francisco access with more practical, adaptive, and service-commercial building context than Mission Bay or the Financial District.",
+    best_fit_businesses: [
+      "Creative production, maker, service-commercial, and flex users that need practical building formats",
+      "Teams comparing Mission Bay adjacency with a less institutional and more operational district edge",
+      "Businesses that value waterfront and industrial-transition character more than a formal downtown office identity",
+    ],
+    poor_fit_businesses: [
+      "Formal finance, legal, or executive office users that need a traditional downtown client address",
+      "Life-science users that require Mission Bay or South San Francisco institutional depth",
+      "Retailers that depend on dense destination shopping foot traffic",
+    ],
+    decision_guidance: [
+      "Confirm whether production, service, loading, or flexible building utility matters more than polished office identity.",
+      "Compare Dogpatch with Mission Bay when the business wants the southern waterfront but is not sure whether institutional context is necessary.",
+      "Validate use permissions, access, parking, and physical building condition because adaptive industrial-commercial buildings can vary widely.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use this to decide whether operational fit should lead the location decision.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Helpful when comparing practical flex buildings with more conventional office options.",
+      },
+      {
+        title: "Tenant Improvements",
+        url: "/commercial-real-estate/lease-guide/tenant-improvements/",
+        reason: "Adaptive and production-adjacent spaces often need closer buildout review.",
+      },
+    ],
+    compare_with: [
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        reason: "Compare if newer institutional office and life-science adjacency may matter more than practical adaptive-commercial character.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if central-city creative office access matters more than Dogpatch's production-adjacent edge.",
+      },
+      {
+        district_name: "South San Francisco Oyster Point",
+        district_path: "/commercial-real-estate/CA/south-san-francisco/oyster-point/",
+        comparison_path: "/commercial-real-estate/CA/san-francisco/mission-bay-vs-south-san-francisco-oyster-point/",
+        reason: "Compare if purpose-built biotech, lab/R&D depth, and Peninsula access may fit better than San Francisco adaptive waterfront context.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "creative_adaptive",
+      client_facing_strength: "low",
+      transit_orientation: "medium",
+      walkability_context: "medium",
+      building_scale: "low_rise",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["creative", "maker_production", "service_commercial", "small_business"],
+      commute_pattern: ["waterfront", "muni", "southern_san_francisco_access"],
+    },
+    warehouse_flex_profile: {
+      industrial_orientation: "adaptive_industrial_commercial",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "low",
+      loading_likelihood: "medium",
+      yard_parking_likelihood: "low",
+      building_format: ["warehouse_conversion", "service_commercial", "office_warehouse", "creative_flex"],
+      tenant_fit: ["maker_production", "service_industrial", "creative_production", "showroom"],
+    },
+    confidence_level: "medium",
     review_status: "editor_reviewed",
   },
   "/commercial-real-estate/CA/san-francisco/union-square/": {

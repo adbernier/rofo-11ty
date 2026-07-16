@@ -10,6 +10,61 @@ const extractedSignalsPath = path.join(
 );
 
 const intelligence = {
+  "/commercial-real-estate/CA/san-francisco/soma/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed Bay Area district positioning, commercial area graph signals, representative buildings, and SoMa's durable adaptive office and central San Francisco commercial context.",
+    headline: "Broad central San Francisco commercial district where adaptive office buildings, creative-company demand, downtown access, and Mission Bay adjacency overlap.",
+    modules: [
+      {
+        title: "Building character",
+        text: "SoMa should not be read as one uniform office market. The district changes by block, moving from Market Street and Central SoMa into South Park, Townsend, China Basin, and the Mission Bay edge.",
+      },
+      {
+        title: "Common space types",
+        text: "Adaptive office, creative office, showroom, flex, service-commercial, and mixed-use commercial buildings define the public story more than a single polished tower inventory.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits teams that want central San Francisco access, creative-commercial texture, and enough flexibility to compare older adaptive buildings with more conventional office options nearby.",
+      },
+      {
+        title: "Access pattern",
+        text: "SoMa's value depends on which edge matters most: downtown and Market Street, South Park, Caltrain and Townsend, Mission Bay, or the waterfront.",
+      },
+      {
+        title: "Edges to read",
+        text: "The Financial District offers more formal office identity; Mission Bay offers newer institutional gravity; Dogpatch adds a more production-adjacent southern waterfront edge.",
+      },
+    ],
+    fit_chips: [
+      "Adaptive office users",
+      "Creative and technology teams",
+      "Central-city access",
+      "South Park and Townsend context",
+      "Mission Bay adjacency",
+    ],
+    building_scale_patterns: [
+      "Converted commercial buildings",
+      "Creative office blocks",
+      "Mixed-use and service-commercial edges",
+      "Townsend and China Basin transition buildings",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Mission Bay",
+        note: "Newer, more institutional, and more life-science-oriented south of SoMa.",
+      },
+      {
+        label: "Financial District",
+        note: "More formal, vertical, transit-centered, and client-facing.",
+      },
+      {
+        label: "Dogpatch",
+        note: "More production-adjacent and practical along the southern waterfront edge.",
+      },
+    ],
+  },
   "/commercial-real-estate/CA/san-francisco/mission-bay/": {
     status: "editorial",
     confidence: "reviewed",
@@ -58,6 +113,61 @@ const intelligence = {
       {
         label: "Design District / Showplace Square",
         note: "More showroom, flex, and adaptive-commercial than institutional.",
+      },
+    ],
+  },
+  "/commercial-real-estate/CA/san-francisco/dogpatch/": {
+    status: "editorial",
+    confidence: "reviewed",
+    source_note: "Based on reviewed district positioning, representative building candidates, commercial area graph relationships, and Dogpatch's durable production-adjacent waterfront context.",
+    headline: "Production-adjacent waterfront commercial district south of Mission Bay, with adaptive, service-commercial, maker, and flex-oriented building context.",
+    modules: [
+      {
+        title: "Building character",
+        text: "Dogpatch is best understood through practical commercial buildings, older industrial texture, waterfront-edge blocks, and adaptive spaces rather than a conventional downtown office pattern.",
+      },
+      {
+        title: "Common space types",
+        text: "Flex, service-commercial, production-adjacent, creative office, maker, and small commercial uses are more important to the district story than formal office towers.",
+      },
+      {
+        title: "Business fit",
+        text: "It fits businesses that need San Francisco access but care more about operational utility, creative-production context, or flexible buildings than a polished CBD address.",
+      },
+      {
+        title: "Access pattern",
+        text: "Dogpatch sits on the southern waterfront edge, so its value often comes from Mission Bay adjacency, Potrero/Central Waterfront access, and practical movement rather than pure downtown centrality.",
+      },
+      {
+        title: "Edges to read",
+        text: "Mission Bay is more institutional and modern; SoMa is broader and more central; South San Francisco is deeper for purpose-built biotech and R&D requirements.",
+      },
+    ],
+    fit_chips: [
+      "Creative production",
+      "Flex and service-commercial users",
+      "Maker and showroom uses",
+      "Mission Bay adjacency",
+      "Waterfront industrial-transition context",
+    ],
+    building_scale_patterns: [
+      "Adaptive industrial-commercial buildings",
+      "Service-commercial and flex formats",
+      "Waterfront-edge commercial blocks",
+      "Production-adjacent buildings",
+    ],
+    nearby_alternatives: [
+      {
+        label: "Mission Bay",
+        note: "More modern, institutional, and life-science-oriented immediately north.",
+      },
+      {
+        label: "SoMa",
+        note: "More central and broader, with adaptive office and creative-commercial blocks.",
+      },
+      {
+        label: "South San Francisco",
+        note: "Stronger for purpose-built biotech, lab, and R&D depth.",
       },
     ],
   },

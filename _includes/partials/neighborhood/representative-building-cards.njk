@@ -29,6 +29,23 @@
           <p class="representative-building-card__descriptor">{{ buildingCard.descriptor }}</p>
           <p class="representative-building-card__reason">{{ buildingCard.representative_reason }}</p>
 
+          {% if buildingCard.decision_context or buildingCard.common_fit or buildingCard.tradeoff or buildingCard.validation_prompt %}
+            <div class="representative-building-card__decision">
+              {% if buildingCard.decision_context %}
+                <p><strong>Why it matters:</strong> {{ buildingCard.decision_context }}</p>
+              {% endif %}
+              {% if buildingCard.common_fit %}
+                <p><strong>Common fit:</strong> {{ buildingCard.common_fit }}</p>
+              {% endif %}
+              {% if buildingCard.tradeoff %}
+                <p><strong>Tradeoff:</strong> {{ buildingCard.tradeoff }}</p>
+              {% endif %}
+              {% if buildingCard.validation_prompt %}
+                <p><strong>Validate:</strong> {{ buildingCard.validation_prompt }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+
           {% if buildingCard.keyword_tags and buildingCard.keyword_tags.length %}
             <div class="representative-building-card__tags" aria-label="Commercial context signals">
               {% for tag in buildingCard.keyword_tags %}

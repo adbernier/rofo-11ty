@@ -38,6 +38,17 @@
       </div>
     </div>
 
+    {% if locationModel.decision_guidance and locationModel.decision_guidance.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>What to validate before focusing here</h3>
+        <ul>
+          {% for item in locationModel.decision_guidance %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
     {% if locationModel.compare_with and locationModel.compare_with.length %}
       <div class="neighborhood-location-decision__compare">
         <h3>Businesses comparing this district also evaluate</h3>
@@ -54,6 +65,25 @@
                 <p>{{ comparison.reason }}</p>
               </div>
             {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if locationModel.handbook_topics and locationModel.handbook_topics.length %}
+      <div class="neighborhood-handbook-links">
+        <div>
+          <div class="eyebrow">What to understand next</div>
+          <h3>Use these topics before comparing buildings</h3>
+        </div>
+        <div class="neighborhood-handbook-links__grid">
+          {% for topic in locationModel.handbook_topics %}
+            <a class="neighborhood-handbook-link" href="{{ topic.url }}">
+              <strong>{{ topic.title }}</strong>
+              {% if topic.reason %}
+                <span>{{ topic.reason }}</span>
+              {% endif %}
+            </a>
           {% endfor %}
         </div>
       </div>
