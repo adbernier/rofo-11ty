@@ -591,7 +591,21 @@ for (const building of ecosystemPublicBuildings) {
 for (const building of representativeBuildingPageExpansions) {
   const normalized = normalizeBuilding(building, "editorial-representative-expansion");
   const key = buildingKey(normalized);
-  if (!key || merged.has(key)) continue;
+  if (!key) continue;
+
+  const existing = merged.get(key);
+  if (existing) {
+    merged.set(key, {
+      ...existing,
+      ...normalized,
+      hero_image: normalized.hero_image || existing.hero_image || "",
+      image_urls: normalized.image_urls && normalized.image_urls.length ? normalized.image_urls : existing.image_urls || [],
+      source_companies: existing.source_companies || normalized.source_companies || [],
+      source_count: existing.source_count || normalized.source_count || 0,
+      semantic_source_building_id: existing.semantic_source_building_id || normalized.semantic_source_building_id || "",
+    });
+    continue;
+  }
 
   merged.set(key, normalized);
 }

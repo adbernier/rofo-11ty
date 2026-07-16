@@ -33,6 +33,18 @@ function building({
   about,
   location,
   best_for,
+  shortlist_reason,
+  typical_tenant_profile,
+  building_character,
+  strengths,
+  tradeoffs,
+  nearby_amenities,
+  access_context,
+  district_relationship,
+  shortlist_reasons,
+  validation_questions,
+  related_handbook_topics,
+  nearby_alternatives,
   type = "Office Space",
   primary_space_type = "office",
 }) {
@@ -75,9 +87,103 @@ function building({
     common_fit: role,
     detail_summary: role,
     best_for,
+    shortlist_reason:
+      shortlist_reason ||
+      `${address} is useful as a representative ${district.name} building because it makes the district's commercial character easier to compare against nearby alternatives.`,
+    typical_tenant_profile:
+      typical_tenant_profile ||
+      (best_for && best_for.length ? best_for[0] : "Businesses comparing district fit before narrowing to individual spaces."),
+    building_character:
+      building_character ||
+      role,
+    strengths: strengths || [],
+    tradeoffs: tradeoffs || [],
+    nearby_amenities: nearby_amenities || "",
+    access_context: access_context || "",
+    district_relationship:
+      district_relationship ||
+      `${address} should be read as an example of ${district.name}'s commercial environment, not as a statement about current availability.`,
+    shortlist_reasons: shortlist_reasons || [],
+    validation_questions: validation_questions || [],
+    related_handbook_topics: related_handbook_topics || defaultBuildingHandbookTopics,
+    nearby_alternatives: nearby_alternatives || [],
     commercial_area: district,
     has_availability: false,
   };
+}
+
+const defaultBuildingHandbookTopics = [
+  {
+    title: "How to Compare Commercial Spaces",
+    url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+    summary: "Compare location, layout, access, condition, cost, and risk before treating two buildings as equal.",
+  },
+  {
+    title: "Choosing the Right Commercial Location",
+    url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+    summary: "Use geography to narrow the search before spending time on individual buildings.",
+  },
+  {
+    title: "Tenant Improvements",
+    url: "/commercial-real-estate/lease-guide/tenant-improvements/",
+    summary: "Understand how buildout needs can affect cost, timing, and whether a space is practical.",
+  },
+];
+
+function sfDecisionBuilding(options) {
+  const districtName = options.district.name;
+  const role = options.role || `${districtName} representative building`;
+
+  return building({
+    city: "San Francisco",
+    type: options.type || "Office Space",
+    primary_space_type: options.primary_space_type || "office",
+    ...options,
+    role,
+    description:
+      options.description ||
+      `${options.address} is a representative ${districtName} commercial building that helps businesses understand the district before comparing individual spaces.`,
+    about:
+      options.about ||
+      `${options.address} is included because it illustrates a commercial building pattern businesses commonly evaluate when ${districtName} belongs on the shortlist.`,
+    location:
+      options.location ||
+      `${options.address} should be evaluated in relationship to ${districtName}, nearby districts, access patterns, and the business use rather than as a standalone listing.`,
+    best_for:
+      options.best_for ||
+      [
+        `Businesses comparing ${districtName}`,
+        "Teams narrowing location strategy before touring",
+        "Users comparing representative building formats",
+      ],
+    strengths:
+      options.strengths ||
+      [
+        `Helps explain ${districtName}'s commercial character`,
+        "Provides a concrete reference for comparing nearby district options",
+        "Supports building-format discussions before live inventory is reviewed",
+      ],
+    tradeoffs:
+      options.tradeoffs ||
+      [
+        "Building-level fit still depends on layout, delivery condition, cost structure, and timing.",
+        "Current availability is not implied by its appearance on Rofo.",
+      ],
+    shortlist_reasons:
+      options.shortlist_reasons ||
+      [
+        `Shows one common commercial environment within ${districtName}.`,
+        "Makes nearby district alternatives easier to compare.",
+        "Helps frame what to validate before touring spaces.",
+      ],
+    validation_questions:
+      options.validation_questions ||
+      [
+        "Does the building format support the business use and growth plan?",
+        "Do access, transit, parking, and nearby services fit the team's daily routine?",
+        "Would a nearby district solve the same need with better cost, flexibility, or image?",
+      ],
+  });
 }
 
 function representativeBuilding({
@@ -107,6 +213,10 @@ function representativeBuilding({
 
 const soma = area("sf-soma", "SoMa", "San Francisco", "CA", "district");
 const missionBay = area("sf-mission-bay", "Mission Bay", "San Francisco", "CA", "district");
+const financialDistrict = area("sf-financial-district", "Financial District", "San Francisco", "CA", "downtown_core");
+const jacksonSquare = area("sf-jackson-square", "Jackson Square", "San Francisco", "CA", "district");
+const dogpatch = area("sf-dogpatch", "Dogpatch", "San Francisco", "CA", "district");
+const designDistrict = area("sf-design-district", "Design District / Showplace Square", "San Francisco", "CA", "district");
 const oldOakland = area("oak-old-oakland", "Old Oakland", "Oakland", "CA", "district");
 const jackLondonSquare = area("oak-jack-london-square", "Jack London Square", "Oakland", "CA", "district");
 const downtownPaloAlto = area("ba-downtown-palo-alto", "Downtown Palo Alto", "Palo Alto", "CA", "downtown_core");
@@ -2569,6 +2679,481 @@ module.exports = [
       "Modern office teams",
       "Life-science adjacent users",
       "Businesses comparing new-development districts",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "600 Townsend St",
+    district: soma,
+    role: "Townsend corridor office reference",
+    building_character: "Larger-block SoMa office context on the transition toward Mission Bay.",
+    typical_tenant_profile: "Teams that want SoMa access while testing whether a southern edge location fits better than a core downtown block.",
+    shortlist_reason:
+      "Businesses include 600 Townsend St when they need to understand how SoMa changes south of the central office core and begins to share characteristics with Mission Bay and Showplace Square.",
+    location:
+      "600 Townsend St sits in the Townsend corridor, a practical edge condition between core SoMa, Mission Bay, and production-adjacent commercial areas.",
+    strengths: [
+      "Useful for comparing central SoMa with larger-block southern SoMa office settings.",
+      "Helps businesses visualize the transition toward Mission Bay without leaving the San Francisco core.",
+      "Works as a reference point for teams weighing central access against newer or more flexible building environments.",
+    ],
+    tradeoffs: [
+      "May not provide the same boutique character as core SoMa blocks.",
+      "May not carry the same institutional identity as core Mission Bay.",
+      "The value depends on whether the business benefits from the district edge.",
+    ],
+    nearby_alternatives: [
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/" },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/" },
+    ],
+    validation_questions: [
+      "Does the Townsend corridor improve employee access or simply move the search away from core SoMa?",
+      "Would Mission Bay provide stronger institutional adjacency for the same business need?",
+      "Do nearby amenities and the immediate block support the team's daily routine?",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "99 Rhode Island St",
+    district: missionBay,
+    role: "Potrero / Mission Bay edge office",
+    building_character: "Edge-condition office building that helps compare Mission Bay with Potrero and Showplace Square.",
+    typical_tenant_profile: "Teams open to Mission Bay adjacency but not certain they need the district's core institutional setting.",
+    shortlist_reason:
+      "Businesses evaluate 99 Rhode Island St to test whether Mission Bay adjacency is enough, or whether the search should stay inside the district's core.",
+    location:
+      "99 Rhode Island St sits near the transition from Mission Bay toward Potrero Hill and Showplace Square, making it useful for comparing core and edge options.",
+    strengths: [
+      "Clarifies the difference between core Mission Bay and nearby adaptive-commercial alternatives.",
+      "Gives growth-stage teams a practical way to compare institutional adjacency with flexibility.",
+      "Supports conversations about commute routes, amenities, and district identity.",
+    ],
+    tradeoffs: [
+      "The location may feel less clearly Mission Bay than addresses inside the core.",
+      "Fit depends on whether adjacency matters more than district identity.",
+      "Building-level condition and layout should be validated carefully.",
+    ],
+    nearby_alternatives: [
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+    validation_questions: [
+      "Does Mission Bay adjacency deliver enough value for the business?",
+      "Would core Mission Bay better support hiring, institutional relationships, or customer perception?",
+      "Would SoMa or Showplace Square provide more flexibility?",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "54 Jeff Adachi Way",
+    district: missionBay,
+    role: "Mission Bay civic / mixed-use edge",
+    building_character: "Newer Mission Bay commercial context near the district's mixed-use and waterfront-adjacent pattern.",
+    typical_tenant_profile: "Teams comparing Mission Bay's planned environment with older San Francisco commercial districts.",
+    shortlist_reason:
+      "Businesses include 54 Jeff Adachi Way to understand Mission Bay as a newer, planned district rather than a traditional downtown office core.",
+    location:
+      "54 Jeff Adachi Way belongs to the Mission Bay commercial environment where office, institutional, residential, and waterfront movement overlap.",
+    strengths: [
+      "Helps explain Mission Bay's planned, mixed-use commercial rhythm.",
+      "Useful for companies comparing newer district identity with historic office districts.",
+      "Supports evaluation of modern building context and neighborhood growth pattern.",
+    ],
+    tradeoffs: [
+      "May feel less traditional for firms needing a formal downtown address.",
+      "Daily convenience depends on the specific commute, visitor, and amenity pattern.",
+      "The newer environment may not fit businesses seeking older adaptive character.",
+    ],
+    nearby_alternatives: [
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "1 Sansome St",
+    district: financialDistrict,
+    role: "Transit-served downtown office reference",
+    building_character: "Formal downtown office building in San Francisco's client-facing business core.",
+    typical_tenant_profile: "Finance, legal, consulting, executive, and professional-service users that value central access and office-core identity.",
+    shortlist_reason:
+      "Businesses include 1 Sansome St when the Financial District is being evaluated for transit access, professional services, and a conventional downtown office signal.",
+    location:
+      "1 Sansome St is useful as a Financial District reference point because it sits within the downtown office core rather than a boutique or adaptive-office district.",
+    strengths: [
+      "Strong reference for formal office identity and downtown client access.",
+      "Clarifies the difference between CBD office towers and character-driven districts nearby.",
+      "Useful for evaluating transit-oriented professional-service needs.",
+    ],
+    tradeoffs: [
+      "Less adaptive character than SoMa.",
+      "Less boutique neighborhood texture than Jackson Square.",
+      "Operating cost, building services, and visitor experience need building-level validation.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+    validation_questions: [
+      "Does a formal downtown address improve client confidence or recruiting?",
+      "Would Jackson Square deliver enough downtown access with more character?",
+      "Do operating costs and building services fit the business model?",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "44 Montgomery St",
+    district: financialDistrict,
+    role: "Vertical office tower reference",
+    building_character: "Large-format downtown tower context for businesses comparing formal office scale.",
+    typical_tenant_profile: "Larger professional, advisory, finance, legal, and client-facing office teams.",
+    shortlist_reason:
+      "Businesses evaluate 44 Montgomery St to understand the Financial District's vertical office format and how it differs from smaller nearby districts.",
+    location:
+      "44 Montgomery St belongs to the Montgomery Street office spine, where downtown access, business services, and conventional office identity matter.",
+    strengths: [
+      "Shows the scale and structure of the Financial District office core.",
+      "Useful for companies that want a conventional downtown tower comparison.",
+      "Frames questions about security, elevator access, floorplate fit, and client arrival.",
+    ],
+    tradeoffs: [
+      "Can feel more corporate than Jackson Square or SoMa options.",
+      "May offer less neighborhood texture than smaller-format buildings.",
+      "The value depends on whether the company benefits from formal office positioning.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "Union Square", url: "/commercial-real-estate/CA/san-francisco/union-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "315 Montgomery St",
+    district: financialDistrict,
+    role: "Montgomery corridor professional office",
+    building_character: "Downtown business-spine building for professional-service and advisory users.",
+    typical_tenant_profile: "Professional-service firms that need centrality, business services, and a recognized downtown setting.",
+    shortlist_reason:
+      "Businesses include 315 Montgomery St when they need to compare the practical middle of the Financial District against more distinctive nearby environments.",
+    location:
+      "315 Montgomery St helps explain the concentration of office, client access, and business-service context along the Montgomery corridor.",
+    strengths: [
+      "Clear reference for client-facing downtown office users.",
+      "Useful for comparing business-service density against neighborhood character.",
+      "Supports questions about customer visits, employee commute, and address perception.",
+    ],
+    tradeoffs: [
+      "Less distinctive for companies that need creative identity.",
+      "Less institutional or life-science adjacent than Mission Bay.",
+      "Downtown context may be unnecessary for businesses with few customer visits.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "212 Sutter St",
+    district: financialDistrict,
+    role: "Smaller downtown office block",
+    building_character: "Smaller downtown building that gives the Financial District more scale variety than only large towers.",
+    typical_tenant_profile: "Boutique advisory, legal, finance, and professional-service teams that want downtown access without a full tower experience.",
+    shortlist_reason:
+      "Businesses include 212 Sutter St to test whether a smaller downtown setting can solve the same client-facing need as a larger Financial District tower.",
+    location:
+      "212 Sutter St is useful for comparing the Financial District's smaller office blocks with Jackson Square and Union Square edge conditions.",
+    strengths: [
+      "Shows that Financial District searches can include smaller-format office options.",
+      "Useful for boutique firms that still need downtown client access.",
+      "Supports evaluation of arrival experience, suite scale, and business services.",
+    ],
+    tradeoffs: [
+      "Still carries downtown-core constraints rather than a neighborhood-office feel.",
+      "May not offer the same character as Jackson Square.",
+      "Suite fit and building services should be validated before treating it as a substitute for a tower.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "Union Square", url: "/commercial-real-estate/CA/san-francisco/union-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "325 Kearny St",
+    district: financialDistrict,
+    role: "Kearny Street downtown edge",
+    building_character: "Downtown edge building that helps compare the Financial District with Union Square and Jackson Square.",
+    typical_tenant_profile: "Client-facing teams that want downtown access but need to compare edge conditions carefully.",
+    shortlist_reason:
+      "Businesses include 325 Kearny St to understand how the Financial District changes near Kearny Street and neighboring commercial areas.",
+    location:
+      "325 Kearny St sits in a downtown edge context where Financial District, Union Square, and Jackson Square considerations can overlap.",
+    strengths: [
+      "Useful for evaluating downtown access without assuming a pure tower-core setting.",
+      "Helps compare client arrival, nearby amenities, and district identity.",
+      "Adds a practical edge example to the Financial District shortlist.",
+    ],
+    tradeoffs: [
+      "The address may not read as strongly Financial District as Montgomery corridor buildings.",
+      "The surrounding environment should be validated for client and employee perception.",
+      "Nearby alternatives may solve the same need with clearer district identity.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "Union Square", url: "/commercial-real-estate/CA/san-francisco/union-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "333 Kearny St",
+    district: financialDistrict,
+    role: "Downtown edge office building",
+    building_character: "Kearny corridor office context for businesses comparing formal downtown and nearby boutique districts.",
+    typical_tenant_profile: "Small to mid-size professional teams that need downtown access and a more edge-oriented setting.",
+    shortlist_reason:
+      "Businesses include 333 Kearny St when they want to test whether a downtown edge address delivers enough Financial District benefit.",
+    location:
+      "333 Kearny St sits near the transition between Financial District office demand and nearby visitor-facing or boutique commercial areas.",
+    strengths: [
+      "Adds a practical comparison point for downtown-edge users.",
+      "Useful for evaluating client access without defaulting to Montgomery Street.",
+      "Helps frame the tradeoff between district identity and location flexibility.",
+    ],
+    tradeoffs: [
+      "District identity may feel less clear than core Financial District or Jackson Square.",
+      "The immediate block should be validated for visitor arrival and employee comfort.",
+      "The building may not fit teams needing large modern floorplates.",
+    ],
+    nearby_alternatives: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+      { label: "Union Square", url: "/commercial-real-estate/CA/san-francisco/union-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "75 Broadway",
+    district: jacksonSquare,
+    role: "Boutique downtown-edge office reference",
+    building_character: "Smaller-format office context near Jackson Square's downtown and waterfront edge.",
+    typical_tenant_profile: "Boutique professional-service, finance, design, and advisory firms.",
+    shortlist_reason:
+      "Businesses include 75 Broadway to compare Jackson Square's smaller, character-oriented office setting against the Financial District's formal core.",
+    location:
+      "75 Broadway helps explain Jackson Square as downtown-adjacent rather than detached from the business core.",
+    strengths: [
+      "Useful reference for firms that want client access without a tower-core feel.",
+      "Shows how Jackson Square can serve relationship-driven and executive office users.",
+      "Supports evaluation of walkability, arrival experience, and district image.",
+    ],
+    tradeoffs: [
+      "Smaller scale can limit options for larger teams.",
+      "Building condition and expansion flexibility need validation.",
+      "Some clients may perceive the address differently than a formal Financial District tower.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "North Beach", url: "/commercial-real-estate/CA/san-francisco/north-beach/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "924 Sansome St",
+    district: jacksonSquare,
+    role: "Historic commercial block",
+    building_character: "Historic street-level commercial fabric that defines Jackson Square's character-rich office environment.",
+    typical_tenant_profile: "Design-oriented firms, boutique offices, advisory teams, and client-facing small teams.",
+    shortlist_reason:
+      "Businesses include 924 Sansome St when character, walkability, and client impression matter as much as conventional office scale.",
+    location:
+      "924 Sansome St sits within Jackson Square's smaller-scale historic commercial blocks near the downtown edge.",
+    strengths: [
+      "Clearly illustrates Jackson Square's character-driven commercial identity.",
+      "Useful for comparing historic texture against CBD tower efficiency.",
+      "Supports conversations about image, client perception, and daily neighborhood experience.",
+    ],
+    tradeoffs: [
+      "Historic texture can mean more variation in systems, layout, and accessibility.",
+      "May be less flexible for larger or fast-growing teams.",
+      "Transit and customer arrival should be compared with Financial District options.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "1100 Grant Ave",
+    district: jacksonSquare,
+    role: "Historic boutique office edge",
+    building_character: "North Beach and Jackson Square edge building for firms comparing downtown adjacency with neighborhood character.",
+    typical_tenant_profile: "Small professional-service, creative, and relationship-driven firms.",
+    shortlist_reason:
+      "Businesses include 1100 Grant Ave to test whether downtown adjacency and neighborhood character can coexist in the same search.",
+    location:
+      "1100 Grant Ave sits near the Jackson Square and North Beach transition, making it useful for evaluating edge geography.",
+    strengths: [
+      "Helps explain Jackson Square as an edge district rather than a single building type.",
+      "Useful for teams that value character and client experience.",
+      "Frames the tradeoff between stronger downtown transit concentration and neighborhood setting.",
+    ],
+    tradeoffs: [
+      "May be less convenient for teams needing the strongest transit concentration.",
+      "May not support large modern office requirements.",
+      "Customer perception depends on whether the edge location feels connected enough to the business core.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "Union Square", url: "/commercial-real-estate/CA/san-francisco/union-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "27 Drumm St",
+    district: jacksonSquare,
+    role: "Small-format downtown edge",
+    building_character: "Small-format commercial setting between Jackson Square, the Embarcadero, and the Financial District.",
+    typical_tenant_profile: "Client-facing teams that value downtown access with a smaller footprint.",
+    shortlist_reason:
+      "Businesses include 27 Drumm St to compare boutique downtown-edge settings with formal CBD space.",
+    location:
+      "27 Drumm St is useful because it sits in the transition between Jackson Square, the waterfront, and the Financial District.",
+    strengths: [
+      "Adds a compact building reference to the downtown-edge decision.",
+      "Useful for testing whether the business needs Financial District formality.",
+      "Helps compare customer arrival and address perception across adjacent districts.",
+    ],
+    tradeoffs: [
+      "The district edge can feel less distinct than core Jackson Square.",
+      "The building may not support larger growth plans.",
+      "The address should be tested against customer and employee expectations.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "2 Embarcadero Ctr",
+    district: jacksonSquare,
+    role: "Embarcadero / downtown edge reference",
+    building_character: "Downtown waterfront-edge office context that helps compare Jackson Square, Embarcadero, and Financial District positioning.",
+    typical_tenant_profile: "Client-facing office users that value downtown access and waterfront-adjacent context.",
+    shortlist_reason:
+      "Businesses include 2 Embarcadero Ctr when they need to compare the formal downtown core with the waterfront-facing edge near Jackson Square.",
+    location:
+      "2 Embarcadero Ctr sits in a location where the Financial District, Jackson Square, and waterfront commercial identity overlap.",
+    strengths: [
+      "Useful for comparing formal downtown access with a more waterfront-adjacent setting.",
+      "Helps frame customer arrival and executive-image questions.",
+      "Adds a clear edge-condition example to the district comparison.",
+    ],
+    tradeoffs: [
+      "May feel more like an Embarcadero or Financial District decision than core Jackson Square.",
+      "The right fit depends on whether waterfront adjacency matters operationally.",
+      "Teams should compare building scale and cost against smaller boutique options.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "33 Drumm St",
+    district: jacksonSquare,
+    role: "Downtown and waterfront transition",
+    building_character: "Downtown-edge office context that helps businesses compare small-format and formal office environments.",
+    typical_tenant_profile: "Professional teams evaluating downtown access, customer arrival, and smaller-scale office options.",
+    shortlist_reason:
+      "Businesses include 33 Drumm St to pressure-test whether the search is really Jackson Square, Embarcadero, or Financial District.",
+    location:
+      "33 Drumm St belongs to the downtown-waterfront transition, which makes it useful for comparing adjacent district identities.",
+    strengths: [
+      "Clarifies how close districts can serve different business needs.",
+      "Useful for firms balancing address perception and practical access.",
+      "Supports evaluation of district identity before touring.",
+    ],
+    tradeoffs: [
+      "May not provide the same distinct historic texture as core Jackson Square.",
+      "May not provide the same office-core certainty as Montgomery Street.",
+      "Fit depends heavily on client and employee access patterns.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "70 Pier Bldg 102",
+    district: dogpatch,
+    role: "Waterfront / service-commercial reference",
+    building_character: "Waterfront-edge commercial building that helps explain Dogpatch's practical production-adjacent geography.",
+    typical_tenant_profile: "Makers, production-adjacent users, service-commercial businesses, and creative teams needing practical space.",
+    shortlist_reason:
+      "Businesses include 70 Pier Bldg 102 to compare Dogpatch's operational waterfront edge with Mission Bay's more institutional setting.",
+    location:
+      "70 Pier Bldg 102 is useful as a Dogpatch reference because it points to waterfront, service-commercial, and industrial-transition context rather than a conventional office core.",
+    strengths: [
+      "Shows why Dogpatch can work for practical, production-adjacent users.",
+      "Helps compare waterfront edge context with Mission Bay and SoMa.",
+      "Frames questions around loading, access, parking, and customer arrival.",
+    ],
+    tradeoffs: [
+      "Less formal and less central than the Financial District.",
+      "Less institutional than Mission Bay.",
+      "Use permissions, physical condition, and operational needs must be validated.",
+    ],
+    nearby_alternatives: [
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/" },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+    ],
+    validation_questions: [
+      "Does the business need practical access more than formal office image?",
+      "Would Mission Bay provide stronger institutional adjacency?",
+      "Are loading, parking, use permissions, and customer arrival workable?",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "460 Townsend St",
+    district: designDistrict,
+    role: "Flex / production-commercial edge",
+    building_character: "Flex and production-commercial building on the broader SoMa, Showplace Square, and Dogpatch transition.",
+    typical_tenant_profile: "Flex, service-commercial, creative production, and operations-adjacent users.",
+    shortlist_reason:
+      "Businesses include 460 Townsend St when they need more operational flexibility than a traditional office building may provide.",
+    location:
+      "460 Townsend St helps explain the transition between SoMa office demand, Showplace Square production-commercial space, and Dogpatch edge conditions.",
+    strengths: [
+      "Useful for comparing office, flex, and production-commercial formats.",
+      "Helps businesses understand why nearby districts can support different uses.",
+      "Frames practical questions about loading, buildout, access, and permitted use.",
+    ],
+    tradeoffs: [
+      "Operational flexibility can come with less polish or weaker formal office identity.",
+      "The best district label depends on the actual use and customer pattern.",
+      "Building condition and improvements should be validated before touring similar spaces.",
+    ],
+    nearby_alternatives: [
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/" },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/" },
+    ],
+    validation_questions: [
+      "Does the business need flex functionality or a conventional office environment?",
+      "Are loading, ceiling height, use permissions, and buildout needs realistic?",
+      "Would SoMa, Dogpatch, or Mission Bay solve the requirement more directly?",
+    ],
+  }),
+  sfDecisionBuilding({
+    address: "909 Harrison St",
+    district: soma,
+    role: "Historic industrial-commercial reference",
+    building_character: "Older industrial-commercial context south of downtown for creative, production, and adaptive office comparisons.",
+    typical_tenant_profile: "Creative production, maker, service-commercial, and adaptive office users.",
+    shortlist_reason:
+      "Businesses include 909 Harrison St to understand the older industrial-commercial layer that still shapes SoMa's building options.",
+    location:
+      "909 Harrison St is useful as a SoMa reference because it shows the district's practical commercial texture away from a pure office-tower environment.",
+    strengths: [
+      "Helps compare adaptive commercial character against polished office districts.",
+      "Useful for teams that need practical building features or creative identity.",
+      "Frames questions around condition, access, use permissions, and improvement scope.",
+    ],
+    tradeoffs: [
+      "May be a poor fit for companies needing formal client-facing polish.",
+      "Industrial-commercial context can be an advantage or a distraction depending on use.",
+      "Fit depends heavily on the actual suite, systems, and allowed use.",
+    ],
+    nearby_alternatives: [
+      { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/" },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/" },
     ],
   }),
   building({

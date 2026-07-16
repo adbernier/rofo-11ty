@@ -15,6 +15,8 @@ eleventyComputed:
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
+{% set isRepresentativeBuilding = building.editorial_representative %}
+{% set relatedHandbookTopics = building.related_handbook_topics or [] %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
@@ -37,7 +39,7 @@ eleventyComputed:
             {{ building.address }} is a {{ building.type | lower }} property in {{ building.city }}, {{ building.state_abbr }}.
           </p>
         {% endif %}
-        {% if building.has_availability %}
+        {% if building.has_availability and not isRepresentativeBuilding %}
           <p class="lead">This building currently appears to have available space based on recent market data.</p>
         {% endif %}
 
@@ -46,7 +48,7 @@ eleventyComputed:
           {% if building.size_label %}
             <span class="pill">{{ building.size_label }}</span>
           {% endif %}
-          {% if building.has_availability %}
+          {% if building.has_availability and not isRepresentativeBuilding %}
             <span class="pill">Availability signal</span>
           {% endif %}
           {% if building.commercial_area %}
@@ -172,6 +174,65 @@ eleventyComputed:
           </section>
         {% endif %}
 
+        {% if isRepresentativeBuilding and (building.shortlist_reason or (building.strengths and building.strengths.length) or (building.tradeoffs and building.tradeoffs.length) or (building.validation_questions and building.validation_questions.length)) %}
+          <section class="building-card building-decision-card">
+            <div class="eyebrow">Shortlist Context</div>
+            <h2>Why businesses evaluate this building</h2>
+            {% if building.shortlist_reason %}
+              <p>{{ building.shortlist_reason }}</p>
+            {% endif %}
+
+            <div class="building-decision-grid">
+              {% if building.building_character %}
+                <div class="building-decision-panel">
+                  <h3>Building character</h3>
+                  <p>{{ building.building_character }}</p>
+                </div>
+              {% endif %}
+
+              {% if building.typical_tenant_profile %}
+                <div class="building-decision-panel">
+                  <h3>Common fit</h3>
+                  <p>{{ building.typical_tenant_profile }}</p>
+                </div>
+              {% endif %}
+            </div>
+
+            {% if building.strengths and building.strengths.length %}
+              <div class="building-decision-list">
+                <h3>Strengths to consider</h3>
+                <ul class="mini-list">
+                  {% for item in building.strengths %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if building.tradeoffs and building.tradeoffs.length %}
+              <div class="building-decision-list">
+                <h3>Tradeoffs to validate</h3>
+                <ul class="mini-list">
+                  {% for item in building.tradeoffs %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if building.validation_questions and building.validation_questions.length %}
+              <div class="building-decision-list">
+                <h3>Questions to validate before touring</h3>
+                <ul class="mini-list">
+                  {% for item in building.validation_questions %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+
         {% set buildingSpaceTypeKey = building.state_abbr + "/" + building.city_slug + "/" + building.space_type_slug %}
         {% if building.space_type_url and spaceTypePageLookup[buildingSpaceTypeKey] %}
           <section class="building-card">
@@ -246,21 +307,109 @@ eleventyComputed:
 
 {% include "partials/building/building-guidance-card.njk" %}
 
-        <div class="building-card">
-          <div class="eyebrow">Next Step</div>
-          <h2>Explore more in {{ building.city }}</h2>
-          <p>
-            Continue browsing the broader {{ building.city }} market to compare buildings and nearby opportunities.
-          </p>
+        {% if isRepresentativeBuilding %}
+          <section class="building-card representative-building-explainer">
+            <div class="eyebrow">Rofo Context</div>
+            <h2>Why this building appears on Rofo</h2>
+            <p>
+              Representative buildings are selected because they help explain the character of a district and the types of commercial environments businesses commonly evaluate.
+            </p>
+            <p>
+              Current availability changes over time. These pages are intended to support better location decisions rather than advertise available space.
+            </p>
+          </section>
 
-          <a class="btn-secondary" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/">
-            Back to {{ building.city }} Market
-          </a>
-        </div>
+          <section class="building-card building-continue-search">
+            <div class="eyebrow">Continue</div>
+            <h2>Continue Your Search</h2>
+            <p>
+              Use this building as one reference point, then compare the surrounding district, nearby alternatives, and the leasing questions that still need validation.
+            </p>
+
+            <div class="building-next-link-grid">
+              {% if building.commercial_area %}
+                <a class="related-building-card" href="{{ building.commercial_area.path }}">
+                  <span class="related-building-card__title">Return to {{ building.commercial_area.name }}</span>
+                  <span class="related-building-card__meta">Review the district context behind this building.</span>
+                </a>
+              {% endif %}
+
+              {% if building.nearby_alternatives and building.nearby_alternatives.length %}
+                {% for alternative in building.nearby_alternatives %}
+                  {% if loop.index <= 2 %}
+                    <a class="related-building-card" href="{{ alternative.url }}">
+                      <span class="related-building-card__title">Compare {{ alternative.label }}</span>
+                      <span class="related-building-card__meta">Pressure-test whether a nearby district solves the same need.</span>
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+              {% if building.commercial_area %}
+                <a class="related-building-card" href="{{ building.commercial_area.path }}">
+                  <span class="related-building-card__title">View additional representative buildings</span>
+                  <span class="related-building-card__meta">See other examples that help explain {{ building.commercial_area.name }}.</span>
+                </a>
+              {% endif %}
+
+              {% for topic in relatedHandbookTopics %}
+                {% if loop.index <= 2 %}
+                  <a class="related-building-card" href="{{ topic.url }}">
+                    <span class="related-building-card__title">{{ topic.title }}</span>
+                    <span class="related-building-card__meta">{{ topic.summary }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% else %}
+          <div class="building-card">
+            <div class="eyebrow">Next Step</div>
+            <h2>Explore more in {{ building.city }}</h2>
+            <p>
+              Continue browsing the broader {{ building.city }} market to compare buildings and nearby opportunities.
+            </p>
+
+            <a class="btn-secondary" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/">
+              Back to {{ building.city }} Market
+            </a>
+          </div>
+        {% endif %}
       </div>
 
       <div class="stack">
-        <div class="building-form">
+        {% if isRepresentativeBuilding %}
+          <aside class="building-card building-help-card">
+            <div class="eyebrow">Optional Help</div>
+            <h2>Need additional help?</h2>
+            <p>
+              Depending on market coverage, Rofo may be able to help with additional representative buildings, market comparisons, detailed location analysis, or introductions to local experts when available.
+            </p>
+            <ul class="mini-list">
+              <li>Additional representative building context</li>
+              <li>Market and district comparisons</li>
+              <li>Detailed location analysis</li>
+              <li>Local expert introductions when available</li>
+            </ul>
+            <a class="btn-secondary" href="/find-locations/">Start Your Search</a>
+          </aside>
+
+          {% if relatedHandbookTopics and relatedHandbookTopics.length %}
+            <aside class="building-card building-handbook-card">
+              <div class="eyebrow">Leasing Guide</div>
+              <h2>Questions this building raises</h2>
+              <div class="related-building-list">
+                {% for topic in relatedHandbookTopics %}
+                  <a class="related-building-card" href="{{ topic.url }}">
+                    <span class="related-building-card__title">{{ topic.title }}</span>
+                    <span class="related-building-card__meta">{{ topic.summary }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            </aside>
+          {% endif %}
+        {% else %}
+          <div class="building-form">
   <form
     action="/api/leads/submit"
     method="POST"
@@ -422,6 +571,7 @@ eleventyComputed:
     <p class="form-note">✓ No cost • ✓ No obligation • ✓ Local Expertise</p>
   </form>
 </div>
+        {% endif %}
 
         <div class="building-card">
           <div class="eyebrow">Why Rofo</div>
