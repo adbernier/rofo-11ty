@@ -7,9 +7,21 @@ pagination:
 permalink: "/commercial-real-estate/building/{{ building.state_abbr }}/{{ building.city_slug }}/{{ building.building_slug }}/index.html"
 eleventyComputed:
   title: >
-    {{ building.meta_title or building.address + " in " + building.city + ", " + building.state_abbr + " | Commercial Real Estate | Rofo" }}
+    {% if building.meta_title %}
+      {{ building.meta_title }}
+    {% elseif building.editorial_representative %}
+      {{ building.address }} | Representative Commercial Building | {{ building.city }}, {{ building.state_abbr }} | Rofo
+    {% else %}
+      {{ building.address }} | Commercial Building | {{ building.city }}, {{ building.state_abbr }} | Rofo
+    {% endif %}
   description: >
-    {{ building.meta_description or building.address + " is a flexible " + (building.type | lower) + " location in " + building.city + ", " + building.state_abbr + "." }}
+    {% if building.meta_description %}
+      {{ building.meta_description }}
+    {% elseif building.editorial_representative %}
+      See why businesses may evaluate {{ building.address }} in {{ building.city }}, {{ building.state_abbr }}. Understand fit, tradeoffs, and what to validate before adding similar buildings to a shortlist.
+    {% else %}
+      Review commercial building context for {{ building.address }} in {{ building.city }}, {{ building.state_abbr }} and compare the location with nearby markets, space types, and alternatives.
+    {% endif %}
 ---
 
 {% set placeholderSrc = building | buildingPlaceholder %}

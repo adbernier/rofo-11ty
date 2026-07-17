@@ -8783,7 +8783,7 @@ module.exports = comparisons.map((comparison) => {
       `Explore ${comparison.district_a_name} ${detailCtaByArchetype[districtA.primary_archetype] || "commercial context"}`,
     district_b_detail_cta:
       `Explore ${comparison.district_b_name} ${detailCtaByArchetype[districtB.primary_archetype] || "commercial context"}`,
-    page_title: `${comparison.title} | Commercial Location Comparison | Rofo`,
-    meta_description: `Compare ${comparison.title} for commercial space. Review buildings, market context, and alternatives before choosing where to search.`,
+    page_title: `${comparison.title} | Commercial Area Comparison | Rofo`,
+    meta_description: `Compare ${comparison.title} for commercial real estate. Understand business fit, tradeoffs, representative buildings, and alternatives before choosing where to search.`,
   };
 });

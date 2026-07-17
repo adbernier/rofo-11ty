@@ -140,7 +140,7 @@ function renderPage(brief) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rofo Location Brief ${escapeHtml(brief.publicId)}</title>
+    <title>Commercial Location Brief ${escapeHtml(brief.publicId)} | Rofo</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="/assets/css/system.css">
   </head>
