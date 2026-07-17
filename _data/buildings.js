@@ -3,6 +3,7 @@ const companyBuildings = require("../data-sources/reference/company-buildings.js
 const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.js");
 const ecosystemPublicBuildings = require("./ecosystemPublicBuildings.js");
 const representativeBuildingPageExpansions = require("./representativeBuildingPageExpansions.js");
+const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
@@ -600,6 +601,28 @@ for (const building of representativeBuildingPageExpansions) {
       ...normalized,
       hero_image: normalized.hero_image || existing.hero_image || "",
       image_urls: normalized.image_urls && normalized.image_urls.length ? normalized.image_urls : existing.image_urls || [],
+      source_companies: existing.source_companies || normalized.source_companies || [],
+      source_count: existing.source_count || normalized.source_count || 0,
+      semantic_source_building_id: existing.semantic_source_building_id || normalized.semantic_source_building_id || "",
+    });
+    continue;
+  }
+
+  merged.set(key, normalized);
+}
+
+for (const building of commercialBuildingIntelligence.runtimeBuildings || []) {
+  const normalized = normalizeBuilding(building, "commercial-building-intelligence-v1");
+  const key = buildingKey(normalized);
+  if (!key) continue;
+
+  const existing = merged.get(key);
+  if (existing) {
+    merged.set(key, {
+      ...existing,
+      ...normalized,
+      hero_image: existing.hero_image || normalized.hero_image || "",
+      image_urls: existing.image_urls && existing.image_urls.length ? existing.image_urls : normalized.image_urls || [],
       source_companies: existing.source_companies || normalized.source_companies || [],
       source_count: existing.source_count || normalized.source_count || 0,
       semantic_source_building_id: existing.semantic_source_building_id || normalized.semantic_source_building_id || "",

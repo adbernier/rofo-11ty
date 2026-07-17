@@ -70,6 +70,7 @@ const neighborhoodIntelligence = require("./neighborhoodIntelligence.js");
 const atlantaApprovedEditorialSignals = require("./atlantaApprovedEditorialSignals.js");
 const commercialDistrictPublicIntegrations = require("./commercialDistrictPublicIntegrations.js");
 const commercialLocationModel = require("./commercialLocationModel.js");
+const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
 const representativeBuildingCards = require("./representativeBuildingCards.js");
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const curatedDistrictMediaBySlug = curatedDistrictMediaForPublicUse(curatedDistrictMediaExport);
@@ -785,6 +786,11 @@ function districtIdentityFor(page) {
 
 function representativeBuildingRolesFor(page) {
   const pagePath = page.canonical_neighborhood_path;
+  const intelligenceRoles = commercialBuildingIntelligence.roleDescriptorsByDistrictPath[pagePath] || null;
+
+  if (intelligenceRoles && Object.keys(intelligenceRoles).length) {
+    return intelligenceRoles;
+  }
 
   if (
     page.slug === "soma" &&
@@ -7400,6 +7406,28 @@ for (const page of allPages) {
     commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
   page.commercial_location_model =
     commercialLocationModel.byPath[page.canonical_neighborhood_path] || null;
+  const canonicalBuildingIntelligence =
+    commercialBuildingIntelligence.byDistrictPath[page.canonical_neighborhood_path] || [];
+  if (canonicalBuildingIntelligence.length) {
+    const canonicalRepresentativeBuildings = canonicalBuildingIntelligence
+      .map((item) => buildingByPath.get(item.building_path))
+      .filter(Boolean);
+
+    page.commercial_building_intelligence = canonicalBuildingIntelligence;
+    page.commercial_building_relationships = canonicalBuildingIntelligence.map((item) => ({
+      building_path: item.building_path,
+      editorial_role: item.editorial.editorialRole,
+      representative_themes: item.editorial.representativeThemes,
+      comparison_buildings: item.relationships.comparisonBuildings,
+      nearby_buildings: item.relationships.nearbyBuildings,
+      related_districts: item.relationships.relatedDistricts,
+    }));
+
+    if (canonicalRepresentativeBuildings.length) {
+      page.representative_buildings = canonicalRepresentativeBuildings;
+      page.approximate_building_count = canonicalRepresentativeBuildings.length;
+    }
+  }
   page.representative_building_cards =
     representativeBuildingCards.byDistrictPath[page.canonical_neighborhood_path] || [];
   page.curated_district_media =

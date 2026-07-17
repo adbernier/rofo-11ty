@@ -1,0 +1,183 @@
+---
+layout: base.njk
+pagination:
+  data: commercialBuildingComparisons.comparisons
+  size: 1
+  alias: comparison
+permalink: "{{ comparison.path }}index.html"
+eleventyComputed:
+  title: "{{ comparison.page_title }}"
+  description: "{{ comparison.meta_description }}"
+  canonical: "{{ metadata.siteUrl }}{{ comparison.path }}"
+---
+
+{% set a = comparison.buildingA %}
+{% set b = comparison.buildingB %}
+{% set crumbs = [
+  { "label": "Markets", "url": "/markets/" },
+  { "label": "San Francisco, CA", "url": "/commercial-real-estate/CA/san-francisco/" },
+  { "label": comparison.short_title, "url": comparison.path }
+] %}
+
+<section class="city-page neighborhood-public location-comparison-page building-comparison-page">
+  <div class="city-shell">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="neighborhood-layout neighborhood-layout--primary-rail">
+      <div class="neighborhood-main">
+        <div class="city-hero city-hero--district-identity">
+          <div class="city-card">
+            <div class="city-hero-copy">
+              <div class="eyebrow">Building comparison</div>
+              <h1>{{ comparison.headline }}</h1>
+              <p class="lead">{{ comparison.summary }}</p>
+              <div class="button-row">
+                <a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA">Start Your Search</a>
+                <a class="btn-secondary" href="/commercial-real-estate/CA/san-francisco/">Explore San Francisco</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="city-card">
+          <div class="eyebrow">Quick recommendation</div>
+          <h2>How to think about the choice</h2>
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel location-comparison-panel--summary">
+              <h3><a class="building-link" href="{{ a.path }}">{{ a.name }}</a></h3>
+              <p class="location-comparison-panel__prompt">Choose this option when:</p>
+              <ul class="mini-list location-comparison-panel__list">
+                {% for item in comparison.whoBuildingAIsBestFor %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="location-comparison-panel location-comparison-panel--summary">
+              <h3><a class="building-link" href="{{ b.path }}">{{ b.name }}</a></h3>
+              <p class="location-comparison-panel__prompt">Choose this option when:</p>
+              <ul class="mini-list location-comparison-panel__list">
+                {% for item in comparison.whoBuildingBIsBestFor %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {% if comparison.sharedStrengths and comparison.sharedStrengths.length %}
+          <section class="city-card">
+            <div class="eyebrow">Shared strengths</div>
+            <h2>Why both may belong in the conversation</h2>
+            <ul class="mini-list">
+              {% for item in comparison.sharedStrengths %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        <section class="city-card">
+          <div class="eyebrow">Major differences</div>
+          <h2>Where the decision changes</h2>
+          <div class="location-comparison-panel-grid">
+            {% for difference in comparison.keyDifferences %}
+              <div class="location-comparison-panel">
+                <h3>{{ difference.label }}</h3>
+                <p><strong>{{ a.name }}:</strong> {{ difference.a }}</p>
+                <p><strong>{{ b.name }}:</strong> {{ difference.b }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Tradeoffs</div>
+          <h2>Choose based on the business decision</h2>
+          <div class="location-comparison-panel-grid">
+            {% for group in comparison.tradeoffs %}
+              <div class="location-comparison-panel{% if loop.index == 3 %} location-comparison-panel--quiet{% endif %}">
+                <h3>{{ group.label }}</h3>
+                <ul class="mini-list location-comparison-panel__list">
+                  {% for item in group.items %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">District context</div>
+          <h2>How each option fits its location</h2>
+          <div class="location-comparison-panel-grid">
+            <div class="location-comparison-panel">
+              <h3><a class="building-link" href="{{ a.district.path }}">{{ a.district.name }}</a></h3>
+              <p>{{ comparison.districtContext.a }}</p>
+              <p><strong>Transit:</strong> {{ comparison.transitComparison.a }}</p>
+              <p><strong>Amenities:</strong> {{ comparison.amenityComparison.a }}</p>
+            </div>
+            <div class="location-comparison-panel">
+              <h3><a class="building-link" href="{{ b.district.path }}">{{ b.district.name }}</a></h3>
+              <p>{{ comparison.districtContext.b }}</p>
+              <p><strong>Transit:</strong> {{ comparison.transitComparison.b }}</p>
+              <p><strong>Amenities:</strong> {{ comparison.amenityComparison.b }}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="city-card">
+          <div class="eyebrow">Tour validation</div>
+          <h2>Questions to validate while touring</h2>
+          <ul class="building-question-list">
+            {% for question in comparison.tourValidationQuestions %}
+              <li>{{ question }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        {% if comparison.relatedAlternatives and comparison.relatedAlternatives.length %}
+          <section class="city-card">
+            <div class="eyebrow">Related buildings</div>
+            <h2>Buildings to compare next</h2>
+            <div class="related-building-list">
+              {% for alternative in comparison.relatedAlternatives %}
+                <a class="related-building-card" href="{{ alternative.url }}">
+                  <span class="related-building-card__title">{{ alternative.label }}</span>
+                  <span class="related-building-card__meta">{{ alternative.summary }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if comparison.recommendedNextComparisons and comparison.recommendedNextComparisons.length %}
+          <section class="city-card">
+            <div class="eyebrow">Related comparisons</div>
+            <h2>Continue comparing</h2>
+            <div class="related-building-list">
+              {% for next in comparison.recommendedNextComparisons %}
+                <a class="related-building-card" href="{{ next.url }}">
+                  <span class="related-building-card__title">{{ next.label }}</span>
+                  <span class="related-building-card__meta">{{ next.summary }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        <section class="city-card building-continue-search">
+          <div class="eyebrow">Next step</div>
+          <h2>Start with the business, then compare buildings.</h2>
+          <p>
+            Use this comparison as a reference point. A stronger shortlist starts with the business requirements, location priorities, timing, and tradeoffs that matter most.
+          </p>
+          <div class="button-row">
+            <a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA">Start Your Search</a>
+            <a class="btn-secondary" href="/recommendations/">Request Expert Review</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
