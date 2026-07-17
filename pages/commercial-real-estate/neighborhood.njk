@@ -53,6 +53,7 @@ eleventyComputed:
 {% endif %}
 {% set neighborhoodInsights = [] %}
 {% set neighborhoodPrimaryInsights = [] %}
+{% set districtBuildingComparisons = [] %}
 {% for insight in rofoInsights %}
   {% if insight.published and insight.relatedDistrictPages and insight.relatedDistrictPages.length %}
     {% for districtPath in insight.relatedDistrictPages %}
@@ -64,6 +65,11 @@ eleventyComputed:
         {% endif %}
       {% endif %}
     {% endfor %}
+  {% endif %}
+{% endfor %}
+{% for comparison in commercialBuildingComparisons.comparisons %}
+  {% if comparison.buildingA.district.path == neighborhood.canonical_neighborhood_path or comparison.buildingB.district.path == neighborhood.canonical_neighborhood_path %}
+    {% set districtBuildingComparisons = (districtBuildingComparisons.push(comparison), districtBuildingComparisons) %}
   {% endif %}
 {% endfor %}
 
@@ -291,6 +297,26 @@ eleventyComputed:
         {% endif %}
 
         {% include "partials/neighborhood/representative-building-cards.njk" %}
+
+        {% if districtBuildingComparisons and districtBuildingComparisons.length %}
+          <section class="city-card">
+            <div class="eyebrow">Related comparisons</div>
+            <h2>Building comparisons for {{ neighborhoodDisplayNameWithArticle }}</h2>
+            <p>
+              Use these comparisons to see how representative buildings express different tradeoffs within and around the district.
+            </p>
+            <div class="neighborhood-comparison-grid">
+              {% for comparison in districtBuildingComparisons %}
+                {% if loop.index <= 4 %}
+                  <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ comparison.path }}">
+                    <h3>{{ comparison.short_title }}</h3>
+                    <p>{{ comparison.summary }}</p>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
 
         {% include "partials/neighborhood/market-narrative.njk" %}
 

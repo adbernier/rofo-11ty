@@ -40,7 +40,7 @@ eleventyComputed:
         </div>
 
         <section class="city-card">
-          <div class="eyebrow">Quick recommendation</div>
+          <div class="eyebrow">Shortlist guidance</div>
           <h2>How to think about the choice</h2>
           <div class="location-comparison-panel-grid">
             <div class="location-comparison-panel location-comparison-panel--summary">
@@ -77,7 +77,7 @@ eleventyComputed:
         {% endif %}
 
         <section class="city-card">
-          <div class="eyebrow">Major differences</div>
+          <div class="eyebrow">Decision factors</div>
           <h2>Where the decision changes</h2>
           <div class="location-comparison-panel-grid">
             {% for difference in comparison.keyDifferences %}
@@ -166,17 +166,13 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        <section class="city-card building-continue-search">
-          <div class="eyebrow">Next step</div>
-          <h2>Start with the business, then compare buildings.</h2>
-          <p>
-            Use this comparison as a reference point. A stronger shortlist starts with the business requirements, location priorities, timing, and tradeoffs that matter most.
-          </p>
-          <div class="button-row">
-            <a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA">Start Your Search</a>
-            <a class="btn-secondary" href="/recommendations/">Request Expert Review</a>
-          </div>
-        </section>
+        {% set productTransitionVariant = "comparison" %}
+        {% set productTransitionCtaUrl = "/find-locations/?city=San%20Francisco&state=CA" %}
+        {% set productTransitionBody = "This comparison explains the building and district tradeoffs. Rofo can evaluate each option against the company's priorities, then recommend the districts and representative buildings most worth exploring next." %}
+        {% include "partials/building/product-transition-card.njk" %}
+        {% set productTransitionVariant = "" %}
+        {% set productTransitionCtaUrl = "" %}
+        {% set productTransitionBody = "" %}
       </div>
     </div>
   </div>

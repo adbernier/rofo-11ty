@@ -1,0 +1,29 @@
+{% set transitionVariant = productTransitionVariant or "building" %}
+{% set transitionCtaUrl = productTransitionCtaUrl or "/find-locations/" %}
+{% set transitionCtaLabel = productTransitionCtaLabel or "Start Your Search" %}
+{% set transitionSecondaryUrl = productTransitionSecondaryUrl or "" %}
+{% set transitionSecondaryLabel = productTransitionSecondaryLabel or "" %}
+
+{% if transitionVariant == "comparison" %}
+  {% set transitionEyebrow = productTransitionEyebrow or "Next step" %}
+  {% set transitionHeadline = productTransitionHeadline or "Ready to narrow your shortlist?" %}
+  {% set transitionBody = productTransitionBody or "This comparison explains the market-level tradeoffs. Rofo can evaluate buildings and districts against the company's specific priorities, including team needs, industry, budget, timing, growth plans, and workplace goals." %}
+{% else %}
+  {% set transitionEyebrow = productTransitionEyebrow or "Evaluate fit" %}
+  {% set transitionHeadline = productTransitionHeadline or "Could this building fit your business?" %}
+  {% set transitionBody = productTransitionBody or "Every business evaluates office space differently. The right location depends on your team, industry, budget, growth plans, and the kind of workplace you're trying to create. Create a Search Profile and Rofo will evaluate whether this building fits your business and recommend nearby buildings and districts that may be an even better match." %}
+{% endif %}
+
+<section class="product-transition-card{% if transitionVariant %} product-transition-card--{{ transitionVariant }}{% endif %}" data-product-transition-state="no-search-profile">
+  <div class="product-transition-card__content">
+    <div class="eyebrow">{{ transitionEyebrow }}</div>
+    <h2>{{ transitionHeadline }}</h2>
+    <p>{{ transitionBody }}</p>
+  </div>
+  <div class="product-transition-card__actions">
+    <a class="btn-primary" href="{{ transitionCtaUrl }}">{{ transitionCtaLabel }}</a>
+    {% if transitionSecondaryUrl and transitionSecondaryLabel %}
+      <a class="btn-secondary" href="{{ transitionSecondaryUrl }}">{{ transitionSecondaryLabel }}</a>
+    {% endif %}
+  </div>
+</section>

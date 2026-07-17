@@ -29,6 +29,7 @@ eleventyComputed:
 {% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
 {% set isRepresentativeBuilding = building.editorial_representative %}
 {% set relatedHandbookTopics = building.related_handbook_topics or [] %}
+{% set relatedComparisonPaths = commercialBuildingComparisons.relationshipGraph.bySubjectPath[building.building_path] or [] %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
@@ -176,7 +177,7 @@ eleventyComputed:
           <section class="representative-building-section representative-building-section--grouped building-comparison-card">
             <div class="eyebrow">Compare</div>
             <h2>What businesses often compare</h2>
-            <p>Do not evaluate this building in isolation. Compare it with nearby buildings and district alternatives that solve different parts of the same location decision.</p>
+            <p>Use nearby buildings and district alternatives to understand what this option solves, where it creates friction, and whether another format may fit better.</p>
 
             <div class="related-building-list">
               {% for related in building.related_buildings %}
@@ -186,6 +187,24 @@ eleventyComputed:
                     <span class="related-building-card__meta">
                       Compare this option for a different building format, address signal, or nearby tradeoff in {{ building.city }}.
                     </span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if relatedComparisonPaths and relatedComparisonPaths.length %}
+          <section class="representative-building-section representative-building-section--grouped building-comparison-card">
+            <div class="eyebrow">Related comparisons</div>
+            <h2>Compare this building against nearby options</h2>
+            <div class="related-building-list">
+              {% for comparisonPath in relatedComparisonPaths %}
+                {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
+                {% if relatedComparison and loop.index <= 3 %}
+                  <a class="related-building-card" href="{{ relatedComparison.path }}">
+                    <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
+                    <span class="related-building-card__meta">{{ relatedComparison.summary }}</span>
                   </a>
                 {% endif %}
               {% endfor %}
@@ -260,7 +279,7 @@ eleventyComputed:
         <section class="representative-building-section representative-building-section--action building-continue-search">
           <div class="eyebrow">Next</div>
           <h2>Continue Your Search</h2>
-          <p>Use this building as a reference point, then decide whether to compare the district, review nearby options, or start a broader location analysis.</p>
+          <p>Use this building as a reference point, then compare the district, nearby alternatives, and questions that still need validation.</p>
 
           <div class="building-next-link-grid">
             {% if building.commercial_area %}
@@ -277,10 +296,15 @@ eleventyComputed:
               </a>
             {% endif %}
 
-            <a class="related-building-card" href="/find-locations/">
-              <span class="related-building-card__title">Start Your Search</span>
-              <span class="related-building-card__meta">Create an initial location analysis based on the business, requirements, and priorities.</span>
-            </a>
+            {% for comparisonPath in relatedComparisonPaths %}
+              {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
+              {% if relatedComparison and loop.index <= 2 %}
+                <a class="related-building-card" href="{{ relatedComparison.path }}">
+                  <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
+                  <span class="related-building-card__meta">Compare this building with another option before narrowing the shortlist.</span>
+                </a>
+              {% endif %}
+            {% endfor %}
           </div>
         </section>
 
@@ -327,6 +351,12 @@ eleventyComputed:
             </div>
           </div>
         </section>
+
+        {% set productTransitionVariant = "building" %}
+        {% set productTransitionCtaUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+        {% include "partials/building/product-transition-card.njk" %}
+        {% set productTransitionVariant = "" %}
+        {% set productTransitionCtaUrl = "" %}
       </div>
     {% else %}
     <div class="stats-grid">
@@ -611,8 +641,24 @@ eleventyComputed:
                   </a>
                 {% endif %}
               {% endfor %}
+
+              {% for comparisonPath in relatedComparisonPaths %}
+                {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
+                {% if relatedComparison and loop.index <= 2 %}
+                  <a class="related-building-card" href="{{ relatedComparison.path }}">
+                    <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
+                    <span class="related-building-card__meta">Compare this building with another option before narrowing the shortlist.</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
             </div>
           </section>
+
+          {% set productTransitionVariant = "building" %}
+          {% set productTransitionCtaUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+          {% include "partials/building/product-transition-card.njk" %}
+          {% set productTransitionVariant = "" %}
+          {% set productTransitionCtaUrl = "" %}
         {% else %}
           <div class="building-card">
             <div class="eyebrow">Next Step</div>

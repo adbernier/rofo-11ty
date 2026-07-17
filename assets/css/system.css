@@ -7853,6 +7853,69 @@ section.market-page--space-type .market-links a {
     box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
   }
 
+  .product-transition-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(18px, 3vw, 32px);
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid #cfe0f5;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at top right, rgba(186, 230, 253, 0.28), transparent 34%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+  }
+
+  .representative-building-journey .product-transition-card {
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+
+  .building-comparison-page .product-transition-card {
+    margin-top: 22px;
+  }
+
+  .product-transition-card__content {
+    max-width: 760px;
+  }
+
+  .product-transition-card .eyebrow {
+    display: block;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #1d4ed8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+
+  .product-transition-card h2 {
+    color: #0f172a;
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    line-height: 1.14;
+    margin: 0 0 12px;
+  }
+
+  .product-transition-card p {
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 70ch;
+  }
+
+  .product-transition-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+  }
+
   .building-page .building-next-link-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -7940,6 +8003,22 @@ section.market-page--space-type .market-links a {
     .building-page .representative-building-section {
       padding-bottom: 28px;
       margin-bottom: 28px;
+    }
+
+    .product-transition-card {
+      grid-template-columns: 1fr;
+      padding: 22px 18px;
+      border-radius: 18px;
+    }
+
+    .product-transition-card__actions {
+      justify-content: flex-start;
+    }
+
+    .product-transition-card__actions .btn-primary,
+    .product-transition-card__actions .btn-secondary {
+      width: 100%;
+      justify-content: center;
     }
 
     .building-page .building-shell {
