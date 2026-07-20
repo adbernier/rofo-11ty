@@ -522,6 +522,7 @@ function renderPage({ token, brokers, broker, notice, error }) {
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link button-link--active" href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead Dashboard</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>

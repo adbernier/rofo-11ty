@@ -904,6 +904,7 @@ function renderPage({
     h2 { margin: 0 0 12px; font-size: 20px; }
     p { margin: 0; color: var(--muted); }
     .admin-link { display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border: 1px solid var(--border); border-radius: 8px; background: #fff; font-weight: 800; text-decoration: none; }
+    .admin-link-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-end; }
     .notice { margin: 0 0 16px; border: 1px solid #bfdbfe; border-radius: 10px; padding: 12px; background: #eff6ff; color: #1e3a8a; font-weight: 700; }
     .notice--error { border-color: #fecdd3; background: #fff1f2; color: #9f1239; }
     .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
@@ -959,7 +960,10 @@ function renderPage({
           <a class="${safeMode === "detail" ? "is-active" : ""}" href="${modeBaseUrl}&mode=detail">Detailed events</a>
         </nav>
       </div>
-      <a class="admin-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead dashboard</a>
+      <div class="admin-link-row">
+        <a class="admin-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
+        <a class="admin-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead dashboard</a>
+      </div>
     </header>
     ${emptyMessage ? `<div class="notice">${escapeHtml(emptyMessage)}</div>` : ""}
     ${errors.length ? `<div class="notice notice--error"><strong>Some analytics queries failed.</strong><br>${errors.map((error) => escapeHtml(error)).join("<br>")}</div>` : ""}

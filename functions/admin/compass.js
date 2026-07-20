@@ -16,7 +16,7 @@ const COMPASS_METROS = [
   { key: "los-angeles", label: "Los Angeles", status: "enhancing", editorialMaturity: "Good", representativeBuildingCoverage: "Developing", qaCoverage: "Partial", currentEnhancementFocus: "Retail, medical, and final QA calibration" },
   { key: "seattle", label: "Seattle", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
   { key: "phoenix", label: "Phoenix", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
-  { key: "denver", label: "Denver", status: "planned", editorialMaturity: "Developing", representativeBuildingCoverage: "Not started", qaCoverage: "Pending", currentEnhancementFocus: "Compass Discovery" },
+  { key: "denver", label: "Denver", status: "ready", editorialMaturity: "Developing", representativeBuildingCoverage: "Developing", qaCoverage: "Complete", currentEnhancementFocus: "Building Brief migration and representative building enrichment" },
 ];
 const COMPASS_LIFECYCLE = [
   "Compass Discovery",
@@ -353,6 +353,7 @@ function renderPage({ token }) {
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link button-link--active" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
         <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>

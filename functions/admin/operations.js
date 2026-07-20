@@ -400,6 +400,11 @@ function renderAdminModules(token) {
       href: `/admin/compass?token=${encodeURIComponent(token)}`,
     },
     {
+      title: "Publisher",
+      purpose: "Metro completeness and production planning",
+      href: `/admin/publisher?token=${encodeURIComponent(token)}`,
+    },
+    {
       title: "Rofo Compass Coverage",
       purpose: "Metro maturity and expansion roadmap",
       href: `/admin/coverage?token=${encodeURIComponent(token)}`,
@@ -530,6 +535,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
         <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
         <a class="button-link" href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>

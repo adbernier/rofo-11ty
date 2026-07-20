@@ -138,13 +138,13 @@ const METROS = [
   {
     key: "denver",
     label: "Denver",
-    status: "future",
+    status: "ready",
     editorialStatus: "Editorial Developing",
-    representativeBuildingCoverage: "Not started",
-    qaCoverage: "Pending",
-    cities: ["Denver", "Boulder", "Aurora", "Lakewood", "Centennial"],
-    currentFocus: "Start graph",
-    geography: { cityPages: true, districtPages: false, comparisonPages: false },
+    representativeBuildingCoverage: "Developing",
+    qaCoverage: "Complete",
+    cities: ["Denver", "Boulder", "Aurora", "Lakewood", "Centennial", "Broomfield", "Louisville", "Longmont"],
+    currentFocus: "Building Brief migration and representative building enrichment",
+    geography: { cityPages: true, districtPages: true, comparisonPages: true },
     links: {
       districts: "/commercial-real-estate/CO/denver/",
       brief: "/example-location-brief/",
@@ -326,6 +326,7 @@ function renderLinks(metro, token) {
     metro.links.brief && ["Example Location Brief", metro.links.brief],
     metro.links.buildings && ["Representative Buildings", metro.links.buildings],
     ["Knowledge Graph documentation", "/docs/location-knowledge-graph/"],
+    ["Publisher", `/admin/publisher?token=${encodeURIComponent(token)}`],
     ["Operations", `/admin/operations?token=${encodeURIComponent(token)}`],
   ].filter(Boolean);
   return links.map(([label, href]) => `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`).join("");
@@ -676,6 +677,7 @@ function renderPage({ token, metros, report }) {
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
         <a class="button-link button-link--active" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>
