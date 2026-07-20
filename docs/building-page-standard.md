@@ -164,6 +164,93 @@ The first canonical prototype is 555 California St in San Francisco.
 
 It was selected because it appears in the San Francisco canonical representative-building collection, has a clear Financial District role, has related comparison paths, and demonstrates a recognizable commercial decision: traditional downtown executive presence and client access versus cost, flexibility, parking, and less traditional workplace alternatives.
 
+The next migration batch added:
+
+- 101 California St: central Financial District access and professional-service utility
+- Salesforce Tower: modern flagship headquarters identity at the Transbay/SoMa edge
+- 650 Townsend St: large-format SoMa creative-office and Caltrain-oriented workspace
+- The Exchange / 1800 Owens St: newer Mission Bay office and innovation-district context
+- Levi's Plaza / 1105 Battery St: lower-rise Jackson Square campus-style environment
+
+These pages should read differently from one another. A Building Brief is not complete just because every field is populated; it is complete when the tradeoff is clear.
+
+## Authoring Guidance from the First Batch
+
+Common required fields:
+
+- `summary`
+- `rofoTake`
+- `snapshot`
+- `bestFit`
+- `mayNotFit`
+- `buildingExperience`
+- `locationContext`
+- `advantages`
+- `tradeoffs`
+- `validationNotes`
+- `nearbyDistricts`
+
+Fields that should remain optional:
+
+- image data
+- exact size or scale
+- construction or renovation era
+- floorplate detail beyond supported editorial guidance
+- parking specifics
+- specialized infrastructure
+- outdoor space
+- loading or operational capability
+
+When facts are not supported, describe what a tenant should validate instead of pretending the page knows the answer.
+
+## Differentiating Similar Buildings
+
+Downtown towers should not all sound alike. Separate them by decision role:
+
+- corporate scale
+- transit access
+- professional-service utility
+- executive image
+- tower formality
+- newer flagship identity
+- cost and flexibility tradeoffs
+
+Creative and innovation buildings should be differentiated by:
+
+- floorplate adaptability
+- neighborhood texture
+- employee commute patterns
+- production adjacency
+- campus feel
+- district maturity
+- relationship to nearby anchors
+
+## Selecting Decision Alternatives
+
+Decision alternatives are not simply the closest buildings. Choose alternatives that clarify a user's real choice:
+
+- same district, different level of formality
+- same business fit, different cost or access pattern
+- nearby district, different workplace identity
+- modern tower versus creative/adaptive reuse
+- campus setting versus traditional downtown core
+
+Use existing comparison paths when available. If no comparison page exists, link to the district or representative-building context that best answers the next question.
+
+## Authoring Checklist
+
+Before publishing a Building Brief:
+
+1. Confirm the canonical building path already exists.
+2. Confirm the canonical district and nearby districts.
+3. Write the Rofo Take before filling secondary fields.
+4. Make Best Fit and May Not Fit specific enough for a tenant to self-identify.
+5. Include at least three practical validation questions.
+6. Avoid availability, rent, ownership, amenity, certification, or renovation claims unless already supported.
+7. Check that comparison links resolve.
+8. Build and inspect the generated page for empty fields or awkward inherited copy.
+9. Confirm the page still frames the building as representative decision support, not available inventory.
+
 ## Expansion Workflow
 
 To expand this standard:
