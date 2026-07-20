@@ -999,8 +999,6 @@ function representativeBuildingRolesFor(page) {
         "Old Middlefield technology corridor",
       "/commercial-real-estate/building/CA/mountain-view/140-144-whisman-rd-s/":
         "Whisman R&D/flex office context",
-      "/commercial-real-estate/building/CA/mountain-view/800-w-el-camino-real/":
-        "Mountain View office corridor contrast",
       "/commercial-real-estate/building/CA/mountain-view/1051-1063-el-camino-real-w/":
         "El Camino service-commercial support edge",
       "/commercial-real-estate/building/CA/mountain-view/194-198-castro-st/":

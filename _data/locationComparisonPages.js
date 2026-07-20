@@ -6237,7 +6237,6 @@ const detailCtaByArchetype = {
   napa_wine_country_service_corridor: "Napa wine-country service context",
   sacramento_downtown_office_core: "Sacramento civic office context",
   mixed_use_professional_district: "mixed-use professional context",
-  medical_office_service_corridor: "medical office and service corridor context",
   airport_adjacent_suburban_office_market: "airport-adjacent office context",
   suburban_office_medical_corridor: "suburban office and medical context",
   sacramento_industrial_flex_corridor: "Sacramento industrial/flex context",
