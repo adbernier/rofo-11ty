@@ -28,6 +28,8 @@ eleventyComputed:
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
 {% set isRepresentativeBuilding = building.editorial_representative %}
+{% set buildingBrief = building.building_brief %}
+{% set buildingBriefName = building.commercial_building_intelligence.identity.name if building.commercial_building_intelligence and building.commercial_building_intelligence.identity and building.commercial_building_intelligence.identity.name else building.display_name or building.name or building.address %}
 {% set relatedHandbookTopics = building.related_handbook_topics or [] %}
 {% set relatedComparisonPaths = commercialBuildingComparisons.relationshipGraph.bySubjectPath[building.building_path] or [] %}
 {% set crumbs = [
@@ -43,9 +45,12 @@ eleventyComputed:
 
     <div class="building-hero">
       <div class="building-card">
-        <div class="eyebrow">Building</div>
-        <h1>{{ building.address }}</h1>
-        {% if building.building_description %}
+        <div class="eyebrow">{% if buildingBrief %}Building Brief{% else %}Building{% endif %}</div>
+        <h1>{{ buildingBriefName }}</h1>
+        {% if buildingBrief %}
+          <p class="building-hero-address">{{ building.address }} · {% if building.commercial_area %}<a href="{{ building.commercial_area.path }}">{{ building.commercial_area.name }}</a>, {% endif %}{{ building.city }}, {{ building.state_abbr }}</p>
+          <p class="lead">{{ buildingBrief.summary }}</p>
+        {% elseif building.building_description %}
           <p class="lead">{{ building.building_description }}</p>
         {% else %}
           <p class="lead">
@@ -92,6 +97,223 @@ eleventyComputed:
     </div>
 
     {% if isRepresentativeBuilding %}
+      {% if buildingBrief %}
+      <div class="building-brief-journey">
+        <section class="building-brief-section building-brief-section--take">
+          <div class="eyebrow">Rofo Take</div>
+          <p class="building-brief-take">{{ buildingBrief.rofoTake }}</p>
+        </section>
+
+        {% if buildingBrief.snapshot and buildingBrief.snapshot.length %}
+          <section class="building-brief-section">
+            <div class="building-brief-section__header">
+              <div class="eyebrow">Snapshot</div>
+              <h2>Building Snapshot</h2>
+            </div>
+            <div class="building-brief-snapshot">
+              {% for item in buildingBrief.snapshot %}
+                {% if item.value %}
+                  <div class="building-brief-snapshot__item">
+                    <dt>{{ item.label }}</dt>
+                    <dd>{{ item.value }}</dd>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if (buildingBrief.bestFit and buildingBrief.bestFit.length) or (buildingBrief.mayNotFit and buildingBrief.mayNotFit.length) %}
+          <section class="building-brief-section">
+            <div class="building-brief-section__header">
+              <div class="eyebrow">Fit</div>
+              <h2>Best Fit</h2>
+            </div>
+            <div class="building-fit-grid building-brief-fit-grid">
+              {% if buildingBrief.bestFit and buildingBrief.bestFit.length %}
+                <div class="building-fit-panel building-fit-panel--positive">
+                  <h3>Best fit</h3>
+                  <ul class="mini-list">
+                    {% for item in buildingBrief.bestFit %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+              {% if buildingBrief.mayNotFit and buildingBrief.mayNotFit.length %}
+                <div class="building-fit-panel">
+                  <h3>May not fit</h3>
+                  <ul class="mini-list">
+                    {% for item in buildingBrief.mayNotFit %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if buildingBrief.buildingExperience %}
+          <section class="building-brief-section building-brief-section--editorial">
+            <div class="eyebrow">Experience</div>
+            <h2>Building Experience</h2>
+            <p>{{ buildingBrief.buildingExperience }}</p>
+          </section>
+        {% endif %}
+
+        {% if buildingBrief.locationContext or building.commercial_area %}
+          <section class="building-brief-section building-brief-section--editorial">
+            <div class="eyebrow">Location</div>
+            <h2>
+              {% if building.commercial_area %}
+                Location Context in {{ building.commercial_area.name }}
+              {% else %}
+                Location Context
+              {% endif %}
+            </h2>
+            {% if buildingBrief.locationContext %}
+              <p>{{ buildingBrief.locationContext }}</p>
+            {% endif %}
+            <div class="building-brief-link-row">
+              {% if building.commercial_area %}
+                <a class="building-link" href="{{ building.commercial_area.path }}">View {{ building.commercial_area.name }}</a>
+              {% endif %}
+              <a class="building-link" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/">View {{ building.city }} commercial real estate</a>
+            </div>
+
+            {% if buildingBrief.nearbyDistricts and buildingBrief.nearbyDistricts.length %}
+              <div class="building-brief-nearby">
+                <h3>Nearby districts to compare</h3>
+                <div class="building-next-link-grid">
+                  {% for district in buildingBrief.nearbyDistricts %}
+                    <a class="related-building-card" href="{{ district.url }}">
+                      <span class="related-building-card__title">{{ district.label }}</span>
+                      <span class="related-building-card__meta">{{ district.reason }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+
+        {% if (buildingBrief.advantages and buildingBrief.advantages.length) or (buildingBrief.tradeoffs and buildingBrief.tradeoffs.length) %}
+          <section class="building-brief-section">
+            <div class="building-brief-section__header">
+              <div class="eyebrow">Decision</div>
+              <h2>Advantages and Tradeoffs</h2>
+            </div>
+            <div class="building-decision-grid">
+              {% if buildingBrief.advantages and buildingBrief.advantages.length %}
+                <div class="building-decision-panel">
+                  <h3>Advantages</h3>
+                  <ul class="mini-list">
+                    {% for item in buildingBrief.advantages %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+              {% if buildingBrief.tradeoffs and buildingBrief.tradeoffs.length %}
+                <div class="building-decision-panel">
+                  <h3>Tradeoffs</h3>
+                  <ul class="mini-list">
+                    {% for item in buildingBrief.tradeoffs %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if buildingBrief.validationNotes and buildingBrief.validationNotes.length %}
+          <section class="building-brief-section">
+            <div class="building-brief-section__header">
+              <div class="eyebrow">Validate</div>
+              <h2>What to Validate Before Shortlisting</h2>
+            </div>
+            <ul class="building-question-list">
+              {% for item in buildingBrief.validationNotes %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+
+        <section class="building-brief-section building-brief-section--compare">
+          <div class="building-brief-section__header">
+            <div class="eyebrow">Compare</div>
+            <h2>Compare the Area</h2>
+            <p>Use this building as a reference point, then compare the district and nearby alternatives before focusing the search.</p>
+          </div>
+
+          <div class="building-next-link-grid">
+            {% if building.commercial_area %}
+              <a class="related-building-card" href="{{ building.commercial_area.path }}">
+                <span class="related-building-card__title">View {{ building.commercial_area.name }}</span>
+                <span class="related-building-card__meta">Understand the commercial geography behind this address.</span>
+              </a>
+            {% endif %}
+
+            {% for comparisonPath in relatedComparisonPaths %}
+              {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
+              {% if relatedComparison and loop.index <= 2 %}
+                <a class="related-building-card" href="{{ relatedComparison.path }}">
+                  <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
+                  <span class="related-building-card__meta">Compare another {{ building.commercial_area.name if building.commercial_area else building.city }} option with a different address, amenity, or workplace tradeoff.</span>
+                </a>
+              {% endif %}
+            {% endfor %}
+
+            {% if building.commercial_area %}
+              <a class="related-building-card" href="{{ building.commercial_area.path }}#representative-buildings">
+                <span class="related-building-card__title">Explore representative buildings nearby</span>
+                <span class="related-building-card__meta">Compare other buildings that help explain {{ building.commercial_area.name }}.</span>
+              </a>
+            {% endif %}
+          </div>
+        </section>
+
+        {% if relatedHandbookTopics and relatedHandbookTopics.length %}
+          <section class="building-brief-section building-brief-section--handbook">
+            <div class="eyebrow">Leasing questions</div>
+            <h2>What to Understand Next</h2>
+            <div class="related-building-list">
+              {% for topic in relatedHandbookTopics %}
+                {% if loop.index <= 3 %}
+                  <a class="related-building-card" href="{{ topic.url }}">
+                    <span class="related-building-card__title">{{ topic.title }}</span>
+                    <span class="related-building-card__meta">{{ topic.summary }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+
+        <section class="building-brief-section building-brief-section--note">
+          <div class="eyebrow">Rofo Context</div>
+          <h2>Why this building appears on Rofo</h2>
+          <p>
+            Rofo uses representative buildings to make commercial location decisions more concrete. This page explains why a building may belong on a shortlist and what a business should compare before touring.
+          </p>
+          <p>
+            Current availability changes over time. This Building Brief is decision support, not an advertisement for available space.
+          </p>
+        </section>
+
+        {% set productTransitionVariant = "building" %}
+        {% set productTransitionCtaUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+        {% include "partials/building/product-transition-card.njk" %}
+        {% set productTransitionVariant = "" %}
+        {% set productTransitionCtaUrl = "" %}
+      </div>
+      {% else %}
       <div class="representative-building-journey">
         <section class="representative-building-section representative-building-section--opening building-decision-card--opening">
           <div class="eyebrow">Shortlist Decision</div>
@@ -204,7 +426,7 @@ eleventyComputed:
                 {% if relatedComparison and loop.index <= 3 %}
                   <a class="related-building-card" href="{{ relatedComparison.path }}">
                     <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
-                    <span class="related-building-card__meta">{{ relatedComparison.summary }}</span>
+                    <span class="related-building-card__meta">Compare another {{ building.commercial_area.name if building.commercial_area else building.city }} option with a different address, amenity, or workplace tradeoff.</span>
                   </a>
                 {% endif %}
               {% endfor %}
@@ -358,6 +580,7 @@ eleventyComputed:
         {% set productTransitionVariant = "" %}
         {% set productTransitionCtaUrl = "" %}
       </div>
+      {% endif %}
     {% else %}
     <div class="stats-grid">
       <div class="building-stat">

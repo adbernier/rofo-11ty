@@ -7602,6 +7602,22 @@ section.market-page--space-type .market-links a {
     color: #64748b;
   }
 
+  .building-page .building-hero-address {
+    margin: -4px 0 14px;
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 650;
+  }
+
+  .building-page .building-hero-address a {
+    color: #1346d8;
+    text-decoration: none;
+  }
+
+  .building-page .building-hero-address a:hover {
+    text-decoration: underline;
+  }
+
   .building-page .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -7724,6 +7740,123 @@ section.market-page--space-type .market-links a {
     border-radius: 22px;
     background: #ffffff;
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .building-page .building-brief-journey {
+    display: block;
+    width: min(100%, 980px);
+    margin: 0;
+    padding: clamp(34px, 5vw, 60px);
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .building-page .building-brief-section {
+    padding: 0 0 clamp(30px, 4.5vw, 48px);
+    margin: 0 0 clamp(30px, 4.5vw, 48px);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .building-page .building-brief-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .building-page .building-brief-journey .eyebrow {
+    display: block;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #1d4ed8;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+
+  .building-page .building-brief-journey h2 {
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    line-height: 1.14;
+    margin-bottom: 14px;
+  }
+
+  .building-page .building-brief-journey p {
+    max-width: 72ch;
+  }
+
+  .building-page .building-brief-take {
+    color: #172033;
+    font-size: clamp(1.12rem, 2vw, 1.3rem);
+    line-height: 1.72;
+    margin: 0;
+    max-width: 780px;
+  }
+
+  .building-page .building-brief-section__header {
+    max-width: 760px;
+    margin-bottom: 18px;
+  }
+
+  .building-page .building-brief-section__header p {
+    color: #475569;
+    margin-bottom: 0;
+  }
+
+  .building-page .building-brief-snapshot {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .building-page .building-brief-snapshot__item {
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #f8fafc;
+  }
+
+  .building-page .building-brief-snapshot__item dt {
+    margin: 0 0 6px;
+    color: #64748b;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .building-page .building-brief-snapshot__item dd {
+    margin: 0;
+    color: #0f172a;
+    font-weight: 650;
+    line-height: 1.4;
+  }
+
+  .building-page .building-brief-fit-grid {
+    margin-top: 0;
+  }
+
+  .building-page .building-brief-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .building-page .building-brief-nearby {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .building-page .building-brief-section--compare,
+  .building-page .building-brief-section--note {
+    color: #334155;
   }
 
   .building-page .representative-building-section {
@@ -7871,6 +8004,10 @@ section.market-page--space-type .market-links a {
     margin-top: clamp(28px, 4vw, 44px);
   }
 
+  .building-brief-journey .product-transition-card {
+    margin-top: clamp(28px, 4vw, 44px);
+  }
+
   .building-comparison-page .product-transition-card {
     margin-top: 22px;
   }
@@ -8000,9 +8137,23 @@ section.market-page--space-type .market-links a {
       border-radius: 18px;
     }
 
+    .building-page .building-brief-journey {
+      padding: 24px 18px;
+      border-radius: 18px;
+    }
+
     .building-page .representative-building-section {
       padding-bottom: 28px;
       margin-bottom: 28px;
+    }
+
+    .building-page .building-brief-section {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+
+    .building-page .building-brief-snapshot {
+      grid-template-columns: 1fr;
     }
 
     .product-transition-card {

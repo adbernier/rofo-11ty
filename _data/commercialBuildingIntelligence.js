@@ -487,6 +487,62 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "2601 Mission / New Mission Theater", address: "2601 Mission St", districtKey: "missionDistrict", role: "Neighborhood Anchor", themes: ["Historic", "Mixed Use", "Neighborhood Anchor"], reason: "A key commercial landmark for understanding Mission Street's neighborhood-serving and entertainment identity.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1800 Mission St", "1880 Mission St", "2741 16th St"] }),
 ];
 
+const buildingBriefsByPath = {
+  [buildingPath("555 California St")]: {
+    status: "prototype",
+    summary:
+      "A traditional Financial District tower for companies that value downtown client access, executive presence, and the scale of San Francisco's corporate office core.",
+    rofoTake:
+      "555 California matters because it represents the version of San Francisco office space built around corporate identity, client access, and institutional scale. It is most useful for finance, law, consulting, and executive teams that want a recognizable downtown setting. The tradeoff is that this kind of address usually asks more from the budget and offers less flexibility than SoMa, Jackson Square, or smaller mid-market buildings.",
+    snapshot: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Downtown high-rise tower" },
+      { label: "Commercial role", value: "Corporate benchmark" },
+      { label: "District", value: "Financial District" },
+      { label: "Floorplate character", value: "Large corporate floorplates; suite fit should be validated by floor" },
+      { label: "Transit context", value: "Strong downtown BART, Muni, ferry, and regional transit access depending on commute pattern" },
+      { label: "Parking context", value: "Structured downtown parking; cost and visitor convenience should be validated early" },
+    ],
+    bestFit: [
+      "Finance, law, consulting, and professional-service firms that need a client-facing downtown address",
+      "Executive teams that value a traditional corporate setting more than creative-office character",
+      "Companies comparing large Financial District towers against South Financial District or SoMa alternatives",
+    ],
+    mayNotFit: [
+      "Early-stage teams looking primarily for lower-cost flexible space",
+      "Creative, production, lab, or showroom users that need a less conventional building format",
+      "Businesses where easy parking, loading, or regional drive access matters more than downtown transit",
+    ],
+    buildingExperience:
+      "The experience is closer to a formal downtown business environment than a neighborhood creative office. Companies should expect a tower setting, professional arrival sequence, and a daily rhythm shaped by the Financial District's concentration of finance, law, consulting, hospitality, and business services.",
+    locationContext:
+      "555 California sits in the traditional Financial District, where companies choose the area for client access, transit, hotels, restaurants, and proximity to San Francisco's professional-service ecosystem. It should be compared with other downtown towers for image and access, and with Jackson Square or SoMa when a business wants more neighborhood character or a less formal workplace identity.",
+    advantages: [
+      "Strong fit for client-facing professional-service and financial firms",
+      "Recognizable Financial District setting with traditional executive presence",
+      "Central downtown access to transit, hotels, restaurants, and business services",
+      "Useful benchmark when comparing the cost and image of major San Francisco towers",
+    ],
+    tradeoffs: [
+      "Likely less flexible for teams that want creative-office character or lower-cost expansion space",
+      "Parking and visitor access can be more difficult than in edge or suburban markets",
+      "The surrounding district is more formal and weekday-oriented than SoMa, Mission Bay, or Jackson Square",
+      "Specific suite configuration, buildout condition, and expansion options need validation before shortlisting",
+    ],
+    validationNotes: [
+      "Does the available floor or suite support the team's client-facing image without overbuilding the space?",
+      "Are employee commute patterns better served by Financial District transit than by Caltrain-oriented SoMa or Mission Bay?",
+      "Does the budget support the full occupancy cost of a major downtown tower?",
+      "Would a nearby alternative such as 101 California, One Sansome, or Jackson Square solve the same need with a different tradeoff profile?",
+    ],
+    nearbyDistricts: [
+      { label: "Jackson Square", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", reason: "Compare when character, walkability, and boutique executive image matter more than tower scale." },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/", reason: "Compare when technology identity, larger modern floorplates, or a less traditional office environment may matter more." },
+      { label: "South Beach", url: "/commercial-real-estate/CA/san-francisco/south-beach/", reason: "Compare when Embarcadero access, South Financial District buildings, or a mixed-use edge may fit the search." },
+    ],
+  },
+};
+
 function topicForBuilding(item) {
   const themes = item.editorial.representativeThemes.join(" ").toLowerCase();
   if (themes.includes("adaptive") || themes.includes("historic") || themes.includes("production")) {
@@ -524,6 +580,7 @@ function toRuntimeBuilding(item) {
   const canonicalDistrict = identity.canonicalDistrict;
   const isDistrictAnchor = identity.assetClass === "District Anchor";
   const description = `${identity.name} is a ${editorial.editorialRole.toLowerCase()} in ${canonicalDistrict.name}. ${editorial.editorialReason}`;
+  const buildingBrief = buildingBriefsByPath[item.building_path] || null;
 
   return {
     name: identity.name,
@@ -583,6 +640,7 @@ function toRuntimeBuilding(item) {
     nearby_buildings: item.relationships.nearbyBuildings,
     related_buildings: comparisonCards(item),
     related_districts: item.relationships.relatedDistricts,
+    building_brief: buildingBrief,
     commercial_area: {
       ...canonicalDistrict,
       confidence: "commercial-building-intelligence",
