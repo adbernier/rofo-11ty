@@ -1,7 +1,4 @@
-import publisherAnalyzer from "../../lib/publisher/analyze-metros.js";
-import { escapeHtml } from "../api/leads/_shared.js";
-
-const { analyzePublisher } = publisherAnalyzer;
+import publisherSnapshot from "../../data/generated/publisher-analysis.json";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -11,6 +8,47 @@ function adminResponse(body, status = 200) {
       "cache-control": "no-store",
     },
   });
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function snapshotAnalysis() {
+  return publisherSnapshot && publisherSnapshot.analysis ? publisherSnapshot.analysis : null;
+}
+
+function renderSnapshotError(token) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rofo Publisher Unavailable | Rofo Admin</title>
+  <style>
+    body { margin: 0; color: #172033; background: #f5f7fb; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(880px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0; }
+    .panel { border: 1px solid #dbe3ef; border-radius: 14px; background: #fff; padding: 24px; box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05); }
+    a { color: #2457d6; font-weight: 800; text-decoration: none; }
+    p { color: #627084; line-height: 1.5; }
+    code { background: #f1f5f9; border-radius: 6px; padding: 2px 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="panel">
+      <h1>Rofo Publisher snapshot unavailable</h1>
+      <p>Publisher analysis could not be loaded from the generated build-time snapshot. Run <code>npm run publisher:snapshot</code> and rebuild before opening this admin module.</p>
+      <p><a href="/admin/operations?${tokenParam(token)}">Back to Operations</a></p>
+    </section>
+  </main>
+</body>
+</html>`;
 }
 
 function pct(value) {
@@ -431,7 +469,11 @@ export async function onRequestGet({ request, env }) {
     return adminResponse("Forbidden", 403);
   }
 
-  const analysis = analyzePublisher();
+  const analysis = snapshotAnalysis();
+  if (!analysis) {
+    return adminResponse(renderSnapshotError(token), 503);
+  }
+
   return adminResponse(renderPage({
     token,
     analysis,

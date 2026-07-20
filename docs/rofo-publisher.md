@@ -294,6 +294,39 @@ Supported query parameters:
 
 The route follows existing admin authentication conventions and requires `ADMIN_DASHBOARD_TOKEN`.
 
+## Build-Time Snapshot
+
+Publisher repository analysis runs at build time, not inside the Cloudflare Pages Function.
+
+The analyzer imports Eleventy `_data` modules that are allowed to use Node APIs such as `fs` and `path`. Cloudflare Workers should not bundle that repository-analysis graph into `/functions/admin/publisher.js`.
+
+The build creates:
+
+`data/generated/publisher-analysis.json`
+
+Generate it directly with:
+
+```bash
+npm run publisher:snapshot
+```
+
+The snapshot contains:
+
+- `schemaVersion`
+- deterministic generation metadata derived from the current git commit when available
+- the complete Publisher analysis used by the admin route
+- dimension scores, overall scores, readiness states, blockers, queues, recommended actions, and supporting counts
+
+`/admin/publisher` consumes the generated snapshot and Worker-safe rendering helpers only. If the snapshot is missing or malformed, the route renders a clear admin error state instead of fabricating empty Publisher results.
+
+The normal build runs snapshot generation before Eleventy:
+
+```bash
+npm run build
+```
+
+This keeps Publisher output fresh at deployment time while preventing request-time repository filesystem analysis in Cloudflare Pages Functions.
+
 ## Report Generation
 
 The optional repository report uses the same analysis layer:
