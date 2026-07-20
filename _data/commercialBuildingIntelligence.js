@@ -500,11 +500,11 @@ const buildingBriefsByPath = {
     summary:
       "A traditional Financial District tower for companies that value downtown client access, executive presence, and the scale of San Francisco's corporate office core.",
     rofoTake:
-      "555 California matters because it represents the version of San Francisco office space built around corporate identity, client access, and institutional scale. It is most useful for finance, law, consulting, and executive teams that want a recognizable downtown setting. The tradeoff is that this kind of address usually asks more from the budget and offers less flexibility than SoMa, Jackson Square, or smaller mid-market buildings.",
+      "555 California is one of San Francisco's clearest examples of a traditional corporate office tower. It belongs on the shortlist for finance, law, consulting, and executive teams that need client access, institutional scale, and a recognizable downtown setting. The tradeoff is that this type of address usually asks more from the budget and provides less flexibility than SoMa, Jackson Square, or smaller mid-market buildings.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Downtown high-rise tower" },
-      { label: "Commercial role", value: "Corporate benchmark" },
+      { label: "Commercial role", value: "Corporate office tower" },
       { label: "District", value: "Financial District" },
       { label: "Floorplate character", value: "Large corporate floorplates; suite fit should be validated by floor" },
       { label: "Transit context", value: "Strong downtown BART, Muni, ferry, and regional transit access depending on commute pattern" },
@@ -528,7 +528,7 @@ const buildingBriefsByPath = {
       "Strong fit for client-facing professional-service and financial firms",
       "Recognizable Financial District setting with traditional executive presence",
       "Central downtown access to transit, hotels, restaurants, and business services",
-      "Useful benchmark when comparing the cost and image of major San Francisco towers",
+      "Useful reference point when comparing the cost and image of major San Francisco towers",
     ],
     tradeoffs: [
       "Likely less flexible for teams that want creative-office character or lower-cost expansion space",
@@ -552,11 +552,11 @@ const buildingBriefsByPath = {
     summary:
       "A central Financial District tower for firms that want a polished client-facing address, strong transit access, and a traditional downtown business environment.",
     rofoTake:
-      "101 California is useful because it gives businesses a slightly different downtown benchmark than 555 California. It still belongs to the traditional Financial District decision set, but its strongest role is central access and broad professional-service utility rather than pure corporate scale. It works best for established firms that host clients, recruit from across the region, and want a recognizable downtown setting without necessarily choosing the most formal tower option.",
+      "101 California is a central Financial District office tower for established firms that need downtown access without choosing the most formal corporate address. It belongs in the same decision set as 555 California, but its strongest role is broad professional-service utility: client meetings, regional recruiting, transit access, and nearby business services. The tradeoff is that it still carries the cost and formality of a central downtown tower.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Downtown high-rise tower" },
-      { label: "Commercial role", value: "Corporate benchmark" },
+      { label: "Commercial role", value: "Client-facing downtown office tower" },
       { label: "District", value: "Financial District" },
       { label: "Floorplate character", value: "Traditional tower floorplates; suite layout and division should be validated by floor" },
       { label: "Transit context", value: "Strong central Financial District access to BART, Muni, ferry, and downtown bus routes" },
@@ -580,7 +580,7 @@ const buildingBriefsByPath = {
       "Strong client-facing downtown setting for professional-service firms",
       "Excellent central Financial District transit access relative to many northern downtown alternatives",
       "Broad business-service environment around the building",
-      "Useful comparison point between the scale of 555 California and smaller Financial District towers",
+      "Useful comparison point between larger corporate towers and smaller Financial District options",
     ],
     tradeoffs: [
       "Still carries the formality and cost profile of a central downtown tower",
@@ -592,7 +592,7 @@ const buildingBriefsByPath = {
       "Does the available suite create the client-facing impression the business needs without overspending on image?",
       "How do employee commute patterns compare with SoMa, South Beach, or Caltrain-oriented alternatives?",
       "Are parking, visitor arrival, and after-hours access workable for the team's actual operating pattern?",
-      "Would 555 California, 345 California, or One Sansome solve the same need with a clearer tradeoff?",
+      "Would 555 California, 345 California, or One Sansome solve the same need with a better balance of image, cost, and convenience?",
     ],
     nearbyDistricts: [
       { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/", reason: "Compare when a technology-oriented or newer office identity may matter more than traditional downtown formality." },
@@ -604,11 +604,11 @@ const buildingBriefsByPath = {
     summary:
       "A modern SoMa flagship tower for companies that want a high-visibility headquarters identity, strong regional transit access, and a workplace connected to the Transbay business environment.",
     rofoTake:
-      "Salesforce Tower represents the high end of San Francisco's modern headquarters market. It is not simply a taller version of a Financial District tower; it reflects the post-Transbay shift toward large technology, brand-signaling, and modern employee-experience decisions. It can be powerful for companies that need visibility and scale, but it can be excessive for teams whose business does not benefit from that level of formality, cost, or public identity.",
+      "Salesforce Tower is San Francisco's clearest modern headquarters tower. It is not simply a taller version of a Financial District building; it reflects the post-Transbay shift toward large technology users, brand visibility, and employee-experience decisions. It can be powerful for companies that need scale and public identity, but excessive for teams whose business does not benefit from that level of formality, cost, or visibility.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Modern high-rise tower" },
-      { label: "Commercial role", value: "District icon" },
+      { label: "Commercial role", value: "Modern headquarters tower" },
       { label: "District", value: "SoMa" },
       { label: "Floorplate character", value: "Large modern tower environment; actual fit depends on available floor and suite configuration" },
       { label: "Transit context", value: "Strong Transbay and downtown transit context with regional access depending on commute pattern" },
@@ -631,8 +631,8 @@ const buildingBriefsByPath = {
     advantages: [
       "Clear flagship identity for companies that want a visible San Francisco headquarters signal",
       "Strong regional transit orientation around the Transbay and downtown core",
-      "Modern SoMa positioning that differs from traditional Financial District towers",
-      "Useful benchmark for large-company workplace image and recruiting perception",
+      "Modern SoMa positioning that differs from traditional Financial District office towers",
+      "Useful reference point for large-company workplace image and recruiting perception",
     ],
     tradeoffs: [
       "May be excessive for smaller or less image-driven companies",
@@ -649,18 +649,18 @@ const buildingBriefsByPath = {
     nearbyDistricts: [
       { label: "Financial District", url: "/commercial-real-estate/CA/san-francisco/financial-district/", reason: "Compare when traditional corporate address and professional-service proximity matter more than modern SoMa identity." },
       { label: "South Beach", url: "/commercial-real-estate/CA/san-francisco/south-beach/", reason: "Compare when Embarcadero, South Financial District, and mixed-use edge conditions may be a better fit." },
-      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", reason: "Compare when a newer, innovation-oriented district with a more campus-like feel may work better." },
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", reason: "Compare when a newer district with a more campus-like feel may work better." },
     ],
   }),
   [buildingPath("650 Townsend St")]: buildingBrief({
     summary:
-      "A large-format West SoMa creative-office benchmark for teams that value adaptable workspace, Caltrain-oriented access, and a less formal setting than the Financial District.",
+      "A large-format West SoMa creative office building for teams that value adaptable workspace, Caltrain-oriented access, and a less formal setting than the Financial District.",
     rofoTake:
-      "650 Townsend matters because it explains a different version of San Francisco office demand: larger creative floorplates, technology history, and a workday shaped more by SoMa's production and Caltrain corridor than by traditional downtown towers. It can make sense for growth-stage technology, creative, and operations-oriented teams that need room to work differently. The tradeoff is that the surrounding environment is more utilitarian and less polished than the Financial District, Transbay, or Mission Bay.",
+      "650 Townsend is a large-format SoMa creative office building for teams that care more about adaptable workspace than a formal downtown address. It explains a different version of San Francisco office demand: larger floorplates, technology history, and a workday shaped by the Townsend and Caltrain corridor. The tradeoff is that the surrounding environment is more utilitarian and less polished than the Financial District, Transbay, or Mission Bay.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Large-format creative office" },
-      { label: "Commercial role", value: "Creative benchmark" },
+      { label: "Commercial role", value: "Large-format creative office building" },
       { label: "District", value: "SoMa" },
       { label: "Floorplate character", value: "Larger creative floorplate environment; team layout and expansion path should be validated" },
       { label: "Transit context", value: "Useful for Caltrain-oriented and SoMa commute patterns, with exact access depending on employee origins" },
@@ -677,14 +677,14 @@ const buildingBriefsByPath = {
       "Teams that prioritize highly walkable retail blocks over workspace scale and flexibility",
     ],
     buildingExperience:
-      "The experience is more working-office than executive tower. Businesses should expect a SoMa setting where floorplate usability, team collaboration, and regional access matter more than lobby formality. The surrounding blocks can feel practical and uneven, which may be a strength or a drawback depending on the company culture.",
+      "The experience is more working office than executive tower. Businesses should expect a SoMa setting where floorplate usability, team collaboration, and regional access matter more than lobby formality. The surrounding blocks can feel practical and uneven, which may be a strength or a drawback depending on company culture.",
     locationContext:
-      "650 Townsend sits in the SoMa and Showplace Square orbit, where technology, creative office, Caltrain access, and production-adjacent buildings overlap. It should be compared with 888 Brannan and 600 Townsend for similar creative-office logic, and with Financial District or Transbay towers when client-facing image matters more.",
+      "650 Townsend sits where SoMa and Showplace Square overlap, with technology, creative office, Caltrain access, and production-adjacent buildings nearby. It should be compared with 888 Brannan and 600 Townsend for similar creative-office logic, and with Financial District or Transbay towers when client-facing image matters more.",
     advantages: [
       "Strong example of larger SoMa creative-office demand",
       "Less formal workplace identity than traditional downtown towers",
       "Useful access pattern for teams oriented toward Caltrain, SoMa, and the Peninsula",
-      "Good reference point for companies comparing workspace adaptability against executive image",
+      "Useful reference point for companies comparing workspace adaptability against executive image",
     ],
     tradeoffs: [
       "Weaker traditional downtown prestige than the Financial District or Transbay towers",
@@ -706,20 +706,20 @@ const buildingBriefsByPath = {
   }),
   [buildingPath("1800 Owens St")]: buildingBrief({
     summary:
-      "A newer Mission Bay office benchmark for organizations that want modern workspace, innovation-district context, and proximity to life-science, health, and technology anchors without choosing a traditional downtown tower.",
+      "A modern Mission Bay office building for organizations that want newer workspace near life-science, health, technology, and waterfront anchors without choosing a traditional downtown tower.",
     rofoTake:
-      "The Exchange helps explain why Mission Bay is not just an overflow option for SoMa. It represents a newer, more planned commercial environment where technology, health, life-science adjacency, and larger modern office needs can come together. It is strongest for companies that want Mission Bay's innovation context and modern employee experience. The tradeoff is that the district has a more specialized identity and a different daily rhythm than the Financial District, Jackson Square, or central SoMa.",
+      "The Exchange is a modern Mission Bay office building for organizations that want newer workspace near health, life-science, technology, and waterfront anchors. It shows why Mission Bay is not just an overflow option for SoMa. The tradeoff is that the district has a more specialized identity and a different daily rhythm than the Financial District, Jackson Square, or central SoMa.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Modern office building" },
-      { label: "Commercial role", value: "Innovation benchmark" },
+      { label: "Commercial role", value: "Modern Mission Bay office building" },
       { label: "District", value: "Mission Bay" },
       { label: "Floorplate character", value: "Large modern office environment; exact suite fit should be validated by floor" },
-      { label: "Transit context", value: "Mission Bay transit and Caltrain-adjacent access depend on exact commute pattern" },
-      { label: "Parking context", value: "Structured and district parking options may be more practical than some core districts, but should still be verified" },
+      { label: "Transit context", value: "Mission Bay transit and Caltrain-adjacent access depend on each team's commute pattern" },
+      { label: "Parking context", value: "Structured and district parking options may be more practical than in some core districts, but should still be verified" },
     ],
     bestFit: [
-      "Technology, health, life-science-adjacent, and innovation teams that value a newer Mission Bay setting",
+      "Technology, health, and life-science-adjacent teams that value a newer Mission Bay setting",
       "Growth companies comparing modern office environments outside the traditional downtown tower core",
       "Organizations that want proximity to Mission Bay anchors without implying a laboratory requirement",
     ],
@@ -729,12 +729,12 @@ const buildingBriefsByPath = {
       "Businesses seeking historic character, boutique executive space, or a low-rise neighborhood feel",
     ],
     buildingExperience:
-      "The experience is modern, planned, and innovation-oriented. Mission Bay feels different from older San Francisco business districts: more campus-like, more connected to health and research anchors, and less dependent on traditional downtown office routines. Businesses should evaluate whether that context helps the team or narrows the brand too much.",
+      "The experience is modern, planned, and tied to Mission Bay's health, research, and technology anchors. Mission Bay feels different from older San Francisco business districts: more campus-like and less dependent on traditional downtown office routines. Businesses should evaluate whether that setting helps the team or narrows the brand too much.",
     locationContext:
-      "The Exchange sits in Mission Bay, near the commercial ecosystem shaped by UCSF, healthcare, life-science, technology, waterfront buildings, and newer mixed-use development. It should be compared with 500 and 550 Terry Francois for waterfront and office/lab adjacency, with Salesforce Tower for modern flagship identity, and with Dogpatch when a company wants a more industrial or emerging district edge.",
+      "The Exchange sits in Mission Bay, near the commercial environment shaped by UCSF, healthcare, life science, technology, waterfront buildings, and newer mixed-use development. It should be compared with 500 and 550 Terry Francois for waterfront and office/lab adjacency, with Salesforce Tower for modern headquarters identity, and with Dogpatch when a company wants a more industrial or emerging district edge.",
     advantages: [
       "Strong Mission Bay reference for modern office users beyond pure laboratory demand",
-      "Innovation-district context near health, research, technology, and waterfront anchors",
+      "Mission Bay context near health, research, technology, and waterfront anchors",
       "Newer commercial environment than many traditional downtown buildings",
       "Useful alternative for companies that want scale without a Financial District identity",
     ],
@@ -745,7 +745,7 @@ const buildingBriefsByPath = {
       "Do not assume lab capability or specialized infrastructure without validating the specific space",
     ],
     validationNotes: [
-      "Does Mission Bay's innovation identity strengthen the company's recruiting, customer, or partner story?",
+      "Does Mission Bay's health, research, and technology identity strengthen the company's recruiting, customer, or partner story?",
       "Is the commute pattern better served by Mission Bay than by SoMa, South Beach, or the Financial District?",
       "Does the available space support office needs without relying on unsupported lab or specialized-use assumptions?",
       "Would 500 Terry Francois, 550 Terry Francois, Salesforce Tower, or Dogpatch provide a clearer location fit?",
@@ -758,13 +758,13 @@ const buildingBriefsByPath = {
   }),
   [buildingPath("1105 Battery St")]: buildingBrief({
     summary:
-      "A lower-rise Jackson Square campus benchmark for companies that want character, a calmer northern downtown setting, and a less formal alternative to Financial District towers.",
+      "A lower-rise Jackson Square office campus for companies that want character, a calmer northern downtown setting, and a less formal alternative to Financial District towers.",
     rofoTake:
-      "Levi's Plaza matters because it shows that not every executive or creative office decision in San Francisco points to a tower. It represents a lower-rise, campus-style environment at the Jackson Square and north waterfront edge. It can be compelling for established creative, consumer, design, media, and boutique professional teams that want a more human-scale setting. The tradeoff is less direct rapid-transit access and less traditional headquarters signaling than the Financial District or Transbay.",
+      "Levi's Plaza is a lower-rise campus-style office environment at the Jackson Square and north waterfront edge. It shows that not every executive or creative office decision in San Francisco points to a tower. It can work well for established creative, consumer, design, media, and boutique professional teams that want a more human-scale setting. The tradeoff is less direct rapid-transit access and less traditional headquarters signaling than the Financial District or Transbay.",
     snapshot: [
       { label: "Primary use", value: "Office" },
       { label: "Building type", value: "Lower-rise campus-style office" },
-      { label: "Commercial role", value: "Campus benchmark" },
+      { label: "Commercial role", value: "Lower-rise office campus" },
       { label: "District", value: "Jackson Square" },
       { label: "Floorplate character", value: "Campus-style office environment; specific suite scale and layout should be validated" },
       { label: "Transit context", value: "Reasonable downtown access but generally less direct than core Financial District transit" },

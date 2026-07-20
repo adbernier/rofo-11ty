@@ -88,6 +88,8 @@ This object is intentionally optional. Existing representative and legacy buildi
 
 Write like an experienced commercial real estate advisor, not a landlord, broker, or marketing site.
 
+All Building Brief copy should follow the Rofo Editorial Style Guide in `docs/editorial-style-guide.md`. The style guide is the source of truth for voice, grammar, commercial vocabulary, comparison standards, and tradeoff writing across Rofo.
+
 Use:
 
 - direct commercial judgment
