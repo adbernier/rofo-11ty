@@ -1,0 +1,26 @@
+{% set relatedInsights = buildingBrief.relatedInsights or [] %}
+{% if (relatedInsights and relatedInsights.length) or (relatedHandbookTopics and relatedHandbookTopics.length) %}
+  <section class="building-brief-section building-brief-section--handbook">
+    <div class="eyebrow">Related insights</div>
+    <h2>What to Understand Next</h2>
+    <div class="related-building-list">
+      {% for insight in relatedInsights %}
+        {% if loop.index <= 3 %}
+          <a class="related-building-card" href="{{ insight.url }}">
+            <span class="related-building-card__title">{{ insight.title }}</span>
+            <span class="related-building-card__meta">{{ insight.summary }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+
+      {% for topic in relatedHandbookTopics %}
+        {% if loop.index <= 3 %}
+          <a class="related-building-card" href="{{ topic.url }}">
+            <span class="related-building-card__title">{{ topic.title }}</span>
+            <span class="related-building-card__meta">{{ topic.summary }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

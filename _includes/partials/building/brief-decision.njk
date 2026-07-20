@@ -1,0 +1,33 @@
+{% set advantages = buildingBrief.advantages or [] %}
+{% set tradeoffs = buildingBrief.tradeoffs or [] %}
+{% if (advantages and advantages.length) or (tradeoffs and tradeoffs.length) %}
+  <section class="building-brief-section">
+    <div class="building-brief-section__header">
+      <div class="eyebrow">Decision</div>
+      <h2>Advantages and Tradeoffs</h2>
+    </div>
+    <div class="building-decision-grid">
+      {% if advantages and advantages.length %}
+        <div class="building-decision-panel">
+          <h3>Advantages</h3>
+          <ul class="mini-list">
+            {% for item in advantages %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if tradeoffs and tradeoffs.length %}
+        <div class="building-decision-panel">
+          <h3>Tradeoffs</h3>
+          <ul class="mini-list">
+            {% for item in tradeoffs %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

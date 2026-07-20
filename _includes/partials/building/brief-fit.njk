@@ -1,0 +1,33 @@
+{% set idealFor = buildingBrief.idealFor or buildingBrief.bestFit or [] %}
+{% set mayNotFit = buildingBrief.mayNotFit or [] %}
+{% if (idealFor and idealFor.length) or (mayNotFit and mayNotFit.length) %}
+  <section class="building-brief-section">
+    <div class="building-brief-section__header">
+      <div class="eyebrow">Fit</div>
+      <h2>Best Fit</h2>
+    </div>
+    <div class="building-fit-grid building-brief-fit-grid">
+      {% if idealFor and idealFor.length %}
+        <div class="building-fit-panel building-fit-panel--positive">
+          <h3>Ideal for</h3>
+          <ul class="mini-list building-check-list">
+            {% for item in idealFor %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if mayNotFit and mayNotFit.length %}
+        <div class="building-fit-panel">
+          <h3>May not fit</h3>
+          <ul class="mini-list">
+            {% for item in mayNotFit %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

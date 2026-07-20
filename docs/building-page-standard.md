@@ -15,15 +15,15 @@ They are not listing pages, broker flyers, availability pages, or generic proper
 The canonical Building Brief structure is:
 
 1. Building hero
-2. Rofo Take
-3. Building Snapshot
+2. Why This Building Matters / Rofo Take
+3. Building Snapshot / Quick Facts
 4. Best Fit
 5. Building Experience
-6. Location Context
+6. District Context
 7. Advantages and Tradeoffs
 8. Validation questions
-9. Compare the Area
-10. Related handbook guidance
+9. Nearby Alternatives
+10. Related Insights
 11. Rofo Context and Start Your Search
 
 The page should support the larger Rofo journey:
@@ -69,20 +69,49 @@ The current prototype uses an optional `building_brief` object on a building rec
 building_brief: {
   status,
   summary,
+  buildingSummary,
   rofoTake,
+  buildingImportance,
   snapshot,
+  quickFacts,
   bestFit,
+  idealFor,
   mayNotFit,
   buildingExperience,
   locationContext,
+  districtContext,
   advantages,
   tradeoffs,
   validationNotes,
-  nearbyDistricts
+  nearbyDistricts,
+  nearbyAlternatives,
+  representativeCompanies,
+  relatedInsights
 }
 ```
 
 This object is intentionally optional. Existing representative and legacy building pages remain backward compatible. Future buildings can adopt the Building Brief standard one record at a time.
+
+The current runtime accepts both the original Building Brief field names and the newer production aliases. Prefer the production names for new records:
+
+- `buildingSummary`: concise hero summary
+- `buildingImportance`: the main editorial interpretation for "Why This Building Matters"
+- `quickFacts`: rendered fact rows such as class, size, floors, year built, renovation year, ownership, parking, and transit
+- `idealFor`: business profiles or location strategies that fit the building
+- `mayNotFit`: specific cases where another building or district may be better
+- `districtContext`: how the building fits into the surrounding commercial geography
+- `nearbyAlternatives`: decision alternatives with a URL, label, and reason
+- `representativeCompanies`: supported organization examples only, never speculative tenant claims
+- `relatedInsights`: contextual handbook, comparison, city, or district guidance
+
+Older aliases remain supported:
+
+- `summary` -> `buildingSummary`
+- `rofoTake` -> `buildingImportance`
+- `snapshot` -> `quickFacts`
+- `bestFit` -> `idealFor`
+- `locationContext` -> `districtContext`
+- `nearbyDistricts` -> `nearbyAlternatives`
 
 ## Editorial Voice
 
@@ -159,6 +188,22 @@ A Building Brief should naturally link to:
 - Start Your Search
 
 Links should answer the next question, not create a generic resource block.
+
+## Reusable Components
+
+The production Building Page System is implemented through reusable partials under `_includes/partials/building/`:
+
+- `brief-journey.njk`
+- `brief-facts.njk`
+- `brief-fit.njk`
+- `brief-decision.njk`
+- `brief-alternatives.njk`
+- `brief-district-context.njk`
+- `brief-related-insights.njk`
+- `brief-status-note.njk`
+- `product-transition-card.njk`
+
+Only records with `building_brief` use this canonical production journey. Non-migrated representative pages and legacy building pages keep their existing fallback behavior until they are intentionally migrated.
 
 ## Prototype
 
@@ -248,10 +293,13 @@ Before publishing a Building Brief:
 3. Write the Rofo Take before filling secondary fields.
 4. Make Best Fit and May Not Fit specific enough for a tenant to self-identify.
 5. Include at least three practical validation questions.
-6. Avoid availability, rent, ownership, amenity, certification, or renovation claims unless already supported.
-7. Check that comparison links resolve.
-8. Build and inspect the generated page for empty fields or awkward inherited copy.
-9. Confirm the page still frames the building as representative decision support, not available inventory.
+6. Add three to five nearby alternatives with a reason a business might prefer each alternative.
+7. Add related insights only when the link answers a natural next question raised by the brief.
+8. Avoid availability, rent, ownership, amenity, certification, or renovation claims unless already supported.
+9. Check that comparison and related insight links resolve.
+10. Run `node scripts/qa-building-brief-depth.js` and resolve warnings before publication.
+11. Build and inspect the generated page for empty fields or awkward inherited copy.
+12. Confirm the page still frames the building as representative decision support, not available inventory.
 
 ## Expansion Workflow
 

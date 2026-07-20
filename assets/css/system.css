@@ -7531,6 +7531,13 @@ section.market-page--space-type .market-links a {
     margin-top: 16px;
   }
 
+  .building-page .building-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
 .building-page .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -7855,8 +7862,28 @@ section.market-page--space-type .market-links a {
   }
 
   .building-page .building-brief-section--compare,
+  .building-page .building-brief-section--alternatives,
   .building-page .building-brief-section--note {
     color: #334155;
+  }
+
+  .building-page .building-check-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .building-page .building-check-list li {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .building-page .building-check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0f766e;
+    font-weight: 900;
   }
 
   .building-page .representative-building-section {
@@ -8167,7 +8194,8 @@ section.market-page--space-type .market-links a {
     }
 
     .product-transition-card__actions .btn-primary,
-    .product-transition-card__actions .btn-secondary {
+    .product-transition-card__actions .btn-secondary,
+    .building-page .building-hero-actions .btn-primary {
       width: 100%;
       justify-content: center;
     }

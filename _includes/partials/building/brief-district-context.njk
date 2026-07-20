@@ -1,0 +1,22 @@
+{% set districtContext = buildingBrief.districtContext or buildingBrief.locationContext or "" %}
+{% if districtContext or building.commercial_area %}
+  <section class="building-brief-section building-brief-section--editorial">
+    <div class="eyebrow">District context</div>
+    <h2>
+      {% if building.commercial_area %}
+        Where this building fits in {{ building.commercial_area.name }}
+      {% else %}
+        Where this building fits in {{ building.city }}
+      {% endif %}
+    </h2>
+    {% if districtContext %}
+      <p>{{ districtContext }}</p>
+    {% endif %}
+    <div class="building-brief-link-row">
+      {% if building.commercial_area %}
+        <a class="building-link" href="{{ building.commercial_area.path }}">View {{ building.commercial_area.name }}</a>
+      {% endif %}
+      <a class="building-link" href="/commercial-real-estate/{{ building.state_abbr }}/{{ building.city_slug }}/">View {{ building.city }} commercial real estate</a>
+    </div>
+  </section>
+{% endif %}

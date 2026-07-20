@@ -1,0 +1,19 @@
+{% set facts = buildingBrief.quickFacts or buildingBrief.snapshot or [] %}
+{% if facts and facts.length %}
+  <section class="building-brief-section building-brief-section--facts">
+    <div class="building-brief-section__header">
+      <div class="eyebrow">Quick facts</div>
+      <h2>Building Snapshot</h2>
+    </div>
+    <div class="building-brief-snapshot">
+      {% for item in facts %}
+        {% if item.value %}
+          <div class="building-brief-snapshot__item">
+            <dt>{{ item.label }}</dt>
+            <dd>{{ item.value }}</dd>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

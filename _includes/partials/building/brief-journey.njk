@@ -1,0 +1,61 @@
+<div class="building-brief-journey">
+  {% set buildingImportance = buildingBrief.buildingImportance or buildingBrief.rofoTake %}
+  {% if buildingImportance %}
+    <section class="building-brief-section building-brief-section--take">
+      <div class="eyebrow">Rofo Take</div>
+      <h2>Why This Building Matters</h2>
+      <p class="building-brief-take">{{ buildingImportance }}</p>
+    </section>
+  {% endif %}
+
+  {% include "partials/building/brief-facts.njk" %}
+  {% include "partials/building/brief-fit.njk" %}
+
+  {% if buildingBrief.buildingExperience %}
+    <section class="building-brief-section building-brief-section--editorial">
+      <div class="eyebrow">Experience</div>
+      <h2>Building Experience</h2>
+      <p>{{ buildingBrief.buildingExperience }}</p>
+    </section>
+  {% endif %}
+
+  {% if buildingBrief.representativeCompanies and buildingBrief.representativeCompanies.length %}
+    <section class="building-brief-section building-brief-section--editorial">
+      <div class="eyebrow">Companies</div>
+      <h2>Representative Companies</h2>
+      <p>Use these examples only as commercial context. Tenant rosters and occupancy change over time.</p>
+      <ul class="mini-list">
+        {% for item in buildingBrief.representativeCompanies %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% include "partials/building/brief-district-context.njk" %}
+  {% include "partials/building/brief-decision.njk" %}
+
+  {% if buildingBrief.validationNotes and buildingBrief.validationNotes.length %}
+    <section class="building-brief-section">
+      <div class="building-brief-section__header">
+        <div class="eyebrow">Validate</div>
+        <h2>What to Validate Before Shortlisting</h2>
+      </div>
+      <ul class="building-question-list">
+        {% for item in buildingBrief.validationNotes %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% include "partials/building/brief-alternatives.njk" %}
+  {% include "partials/building/brief-related-insights.njk" %}
+  {% include "partials/building/brief-status-note.njk" %}
+
+  {% set productTransitionVariant = "building" %}
+  {% set productTransitionCtaUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+  {% include "partials/building/product-transition-card.njk" %}
+  {% set productTransitionVariant = "" %}
+  {% set productTransitionCtaUrl = "" %}
+</div>
