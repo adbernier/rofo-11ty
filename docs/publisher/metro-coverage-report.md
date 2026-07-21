@@ -1,23 +1,23 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-20T18:02:17.637Z
+Generated: 2026-07-21T19:39:15.821Z
 Rules: publisher-rules-v1
 
 ## Overview
 
 - Compass Ready metros: 4
-- Average overall Publisher score: 80%
+- Average overall Publisher score: 82%
 - Critical issues: 0
-- Queued tasks: 295
-- Closest to Distribution Ready: San Diego
+- Queued tasks: 312
+- Closest to Distribution Ready: Sacramento
 - Largest critical gap: None
 
 ## Metro Dimension Summary
 
 | Metro | Compass | Editorial | Publishing | Raw Overall | Overall | Status | Primary Blocker |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| San Francisco | 73% | 80% | 82% | 78% | 74% | Editorially Developed | Authoritative recommendation QA status was not found. |
-| Sacramento | 100% | 45% | 100% | 81% | 72% | Expansion Ready | Priority districts have no representative buildings. |
+| San Francisco | 73% | 86% | 82% | 80% | 74% | Editorially Developed | Authoritative recommendation QA status was not found. |
+| Sacramento | 100% | 58% | 100% | 85% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | San Diego | 100% | 72% | 100% | 90% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | Orange County | 100% | 68% | 100% | 89% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | Denver | 100% | 65% | 100% | 88% | 84% | Expansion Ready | No initial Building Brief collection exists. |
@@ -26,8 +26,8 @@ Rules: publisher-rules-v1
 
 | Metro | Districts | Representative Buildings | Building Briefs | Critical | High | Recommended Next Action |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| San Francisco | 18 | 107 | 6 | 0 | 1 | Add or update recommendation QA documentation for this metro. |
-| Sacramento | 12 | 0 | 0 | 0 | 0 | Curate representative buildings that explain this district. |
+| San Francisco | 18 | 107 | 16 | 0 | 1 | Add or update recommendation QA documentation for this metro. |
+| Sacramento | 12 | 15 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | San Diego | 12 | 44 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Orange County | 10 | 30 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Denver | 19 | 42 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
@@ -51,32 +51,32 @@ Gate blockers:
 | District Coverage | 92% | 66 | 72 | 6 | Public district pages, substantive descriptions, structured qualities, and decision positioning. |
 | Comparison Graph | 100% | 36 | 36 | 8 | 46 graph comparison relationships; target is at least 2 useful comparisons per district in v1. |
 | Representative Buildings | 64% | 23 | 36 | 6 | 107 representative building relationships; v1 target is 3 per covered district. |
-| Building Briefs | 6% | 6 | 107 | 101 | 6 of 107 representative building records use the canonical Building Brief journey. |
+| Building Briefs | 15% | 16 | 107 | 107 | 16 of 107 representative building records use the canonical Building Brief journey. |
 | Recommendation Readiness | 50% | 12 | 22 | 7 | No recommendation QA status row found. |
-| Editorial Quality | 100% | 24 | 24 | 0 | Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases. |
+| Editorial Quality | 100% | 34 | 34 | 0 | Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases. |
 | Internal Linking | 100% | 211 | 211 | 0 | Checks public city, district, building, and comparison references that Publisher can resolve from generated data. |
 
 ### Sacramento
 
 Readiness: Expansion Ready
-Overall: 72%
+Overall: 84%
 
 Score caps:
-- no-representative-buildings-overall-cap: Metro has priority districts but no representative-building layer. Cap: 72%.
+- no-building-briefs-overall-cap: Metro has representative buildings but no initial Building Brief collection. Cap: 84%.
 
 Gate blockers:
-- representative-buildings-missing: Priority districts have no representative buildings.
+- building-brief-collection-missing: No initial Building Brief collection exists.
 
 | Category | Score | Completed | Total | Issues | Explanation |
 | --- | ---: | ---: | ---: | ---: | --- |
 | Metro Foundation | 100% | 5 | 5 | 0 | Canonical city, public route, graph support, Compass designation, and QA documentation. |
 | District Coverage | 100% | 48 | 48 | 0 | Public district pages, substantive descriptions, structured qualities, and decision positioning. |
 | Comparison Graph | 100% | 24 | 24 | 7 | 41 graph comparison relationships; target is at least 2 useful comparisons per district in v1. |
-| Representative Buildings | 0% | 0 | 24 | 12 | 0 representative building relationships; v1 target is 3 per covered district. |
-| Building Briefs | 100% | 0 | 0 | 0 | 0 of 0 representative building records use the canonical Building Brief journey. |
+| Representative Buildings | 42% | 10 | 24 | 7 | 15 representative building relationships; v1 target is 3 per covered district. |
+| Building Briefs | 0% | 0 | 15 | 15 | 0 of 15 representative building records use the canonical Building Brief journey. |
 | Recommendation Readiness | 100% | 16 | 16 | 0 | 7 QA scenarios; last QA 2026-07-09. |
 | Editorial Quality | 100% | 12 | 12 | 0 | Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases. |
-| Internal Linking | 100% | 28 | 28 | 0 | Checks public city, district, building, and comparison references that Publisher can resolve from generated data. |
+| Internal Linking | 100% | 43 | 43 | 0 | Checks public city, district, building, and comparison references that Publisher can resolve from generated data. |
 
 ### San Diego
 
@@ -150,6 +150,7 @@ Gate blockers:
 | --- | --- | --- | --- | --- | --- |
 | high | Denver | Building Briefs | initial Building Brief collection | Denver | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | high | Orange County | Building Briefs | initial Building Brief collection | Orange County | Create an initial Building Brief collection covering 5 distinct commercial environments. |
+| high | Sacramento | Building Briefs | initial Building Brief collection | Sacramento | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | high | San Diego | Building Briefs | initial Building Brief collection | San Diego | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | high | San Francisco | Recommendation Readiness | missing recommendation QA status | San Francisco | Add or update recommendation QA documentation for this metro. |
 | medium | Denver | Building Briefs | representative building missing Building Brief | 100 Fillmore Place | Author a Building Brief for this representative building. |
@@ -177,7 +178,6 @@ Gate blockers:
 | medium | Denver | Building Briefs | representative building missing Building Brief | 4550 Kingston St | Author a Building Brief for this representative building. |
 | medium | Denver | Building Briefs | representative building missing Building Brief | 4643 S Ulster St | Author a Building Brief for this representative building. |
 | medium | Denver | Building Briefs | representative building missing Building Brief | 4665 Paris St | Author a Building Brief for this representative building. |
-| medium | Denver | Building Briefs | representative building missing Building Brief | 471 Kalamath St | Author a Building Brief for this representative building. |
 
 ## Known Limitations
 

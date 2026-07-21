@@ -199,6 +199,18 @@ The QA checks:
 
 Expected warnings may include thin metros that lack enough data for a detailed sprint.
 
+## Operational Sprint Pattern
+
+Publisher plans are intended to drive bounded editorial implementation, not automatic completion of every gap. The Sacramento representative-building sprint is the first operational test:
+
+1. Review the generated metro plan in `data/generated/publisher-expansion-plans.json`.
+2. Use the highest-priority gaps as the default scope.
+3. Select only repository-supported districts and canonical building paths.
+4. Document any narrowed scope or blocked recommendation in a metro sprint note.
+5. Run metro-specific QA, regenerate Publisher snapshots, and confirm completed tasks disappear from the recommended sprint.
+
+If a generated plan does not name exact buildings, the implementation should either use existing repository evidence or mark the building work as research required. Do not invent building examples to satisfy a Publisher gap.
+
 ## Known Limitations
 
 - Dedicated insight inventory and handbook-link relevance are not yet first-class Publisher categories. Planner v1 uses editorial quality and internal-linking signals as proxies.

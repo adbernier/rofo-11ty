@@ -416,6 +416,19 @@ Use this checklist for future batches:
 9. Use category-level `representativeCompanies` unless named tenants are already supported.
 10. Run syntax, QA, build, and generated-page checks.
 
+## Representative Foundation Before Building Briefs
+
+Some metros may first receive a representative-building foundation before full Building Brief migration. A foundation entry should use an existing canonical building path and may include representative role, reason, best-fit summary, primary tradeoff, source confidence, and migration readiness.
+
+Foundation entries are useful for Publisher planning and future recommendation work, but they are not production Building Briefs. Do not mark a building as Brief-ready until the full `building_brief` editorial object is authored and QA passes.
+
+Use this staged approach when:
+
+- the metro is Compass Ready but has no building layer
+- priority districts need credible examples before deeper page migration
+- repository evidence supports building identity but not full factual depth
+- the next sprint needs a ranked Building Brief queue
+
 ## Expansion Workflow
 
 To expand this standard:

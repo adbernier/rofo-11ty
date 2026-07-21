@@ -49,15 +49,18 @@ Current strengths:
 - Suburban office and medical paths distinguish Highway 50, I-80, I-5, Placer County, and south Sacramento decision patterns.
 - Sacramento completed the pilot Recommendation QA pass using seven realistic business profiles across medical, professional services, back-office, flex, warehouse, startup office, and local service/retail use cases.
 - Sacramento QA now includes explainability checks for selection rationale, matched priorities, tradeoff summary, alternative rationale, and validation focus.
+- Publisher Expansion Sprint 1 added a representative-building foundation for Downtown Sacramento, Midtown Sacramento, Arden / Point West, Folsom Commercial Core, and Elk Grove Commercial Core using existing canonical building paths.
 
 Current weaknesses:
 
-- Representative building depth should continue to be reviewed for selected suburban and industrial districts.
+- Representative building depth still needs review for East Sacramento / Alhambra, Natomas, Power Inn, Rancho Cordova, Roseville, Rocklin, and West Sacramento.
+- Sacramento has representative-building foundation data but no production Building Brief collection yet, so recommendation representative-building modules remain blocked by the current Building Brief eligibility rule.
 - Comparison pages exist for many relationships, but editorial depth should keep improving as Location Brief usage reveals demand.
 
 Future enhancements:
 
-- Strengthen representative building support using existing reliable building paths.
+- Migrate the first Sacramento Building Brief batch from the foundation queue, starting with 500 Capitol Mall, 1610 R St, 1111 Exposition Blvd, Campus Commons, 50 Iron Point Cir, and 9245 Laguna Springs Dr.
+- Strengthen remaining representative building support using existing reliable building paths.
 - Continue expanding high-value comparison pages where graph relationships show real tenant choices.
 - Watch Location Brief demand to decide whether additional Sacramento industrial submarkets should be enriched.
 - Use the Sacramento QA process as the baseline for future Compass Ready reviews.
