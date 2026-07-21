@@ -219,22 +219,58 @@ The next migration batch added:
 - The Exchange / 1800 Owens St: newer Mission Bay office and innovation-district context
 - Levi's Plaza / 1105 Battery St: lower-rise Jackson Square campus-style environment
 
+Migration Batch 1 added:
+
+- 345 California Center / 345 California St: boutique-leaning executive tower comparison
+- One Sansome / 1 Sansome St: repositioned transit-oriented Financial District office
+- Transamerica Pyramid Center / 600 Montgomery St: north-downtown skyline and executive-office identity
+- One Bush Plaza / 1 Bush St: modernist Financial District office character
+- 181 Fremont St: premium Transbay tower alternative to Salesforce Tower
+- 680 Folsom St: central SoMa adaptive reuse office benchmark
+- 888 Brannan St: warehouse-to-headquarters creative-office benchmark
+- 600 Townsend St: Townsend corridor creative-office and Caltrain-oriented workspace
+- 500 Terry Francois Blvd: Mission Bay waterfront-adjacent office context
+- 550 Terry A Francois Blvd: Mission Bay office/lab-adjacent innovation context
+
 These pages should read differently from one another. A Building Brief is not complete just because every field is populated; it is complete when the tradeoff is clear.
+
+## Migration Eligibility
+
+A building is eligible for Building Brief migration when:
+
+- it already has a canonical Rofo building record and URL
+- it belongs to the representative building collection or clearly explains a district
+- the canonical district can be identified from Commercial Building Intelligence
+- at least three meaningful decision alternatives exist
+- enough supported editorial context exists to explain fit, advantages, tradeoffs, and validation questions
+
+Do not create a duplicate record to migrate a building. If naming is inconsistent, preserve the canonical URL and resolve display naming through the intelligence layer.
 
 ## Authoring Guidance from the First Batch
 
 Common required fields:
 
+- `buildingSummary`
+- `buildingImportance`
+- `quickFacts`
+- `idealFor`
+- `mayNotFit`
+- `buildingExperience`
+- `districtContext`
+- `advantages`
+- `tradeoffs`
+- `validationNotes`
+- `nearbyAlternatives`
+- `relatedInsights`
+- `representativeCompanies`
+
+Backward-compatible aliases remain supported:
+
 - `summary`
 - `rofoTake`
 - `snapshot`
 - `bestFit`
-- `mayNotFit`
-- `buildingExperience`
 - `locationContext`
-- `advantages`
-- `tradeoffs`
-- `validationNotes`
 - `nearbyDistricts`
 
 Fields that should remain optional:
@@ -249,6 +285,21 @@ Fields that should remain optional:
 - loading or operational capability
 
 When facts are not supported, describe what a tenant should validate instead of pretending the page knows the answer.
+
+## Minimum Editorial Standard
+
+Each migrated Building Brief should include:
+
+- a 40-80 word hero summary
+- a Rofo Take that explains why the building matters without repeating the hero
+- five or more quick facts, limited to supported or defensible editorial facts
+- at least three ideal-fit entries and two may-not-fit entries
+- at least three advantages and two tradeoffs
+- at least four building-specific validation questions
+- three to five building alternatives with specific reasons
+- contextual related insights with valid public URLs
+
+The minimum standard is not a content-length target. A brief can satisfy the count and still fail if it reads generically.
 
 ## Differentiating Similar Buildings
 
@@ -284,6 +335,23 @@ Decision alternatives are not simply the closest buildings. Choose alternatives 
 
 Use existing comparison paths when available. If no comparison page exists, link to the district or representative-building context that best answers the next question.
 
+For building alternatives:
+
+- use building pages, not district pages
+- do not link a building to itself
+- do not duplicate alternatives
+- explain why a tenant might prefer the alternative
+- prefer real decision alternatives over nearest-address proximity
+- include reciprocal alternatives only when the reverse comparison reflects a real tenant decision
+
+## Named Tenant Guidance
+
+Use `representativeCompanies` conservatively.
+
+Prefer category-level descriptions such as financial-services firms, professional-services companies, design and creative teams, technology companies, institutional office users, or life-science-adjacent organizations.
+
+Named tenant information is acceptable only when the repository already contains credible, current, building-specific support. Do not infer named tenants from district patterns, old marketing copy, or general market reputation. Tenant rosters change, so named tenant content should be treated as diligence context rather than a permanent building claim.
+
 ## Authoring Checklist
 
 Before publishing a Building Brief:
@@ -301,6 +369,21 @@ Before publishing a Building Brief:
 11. Build and inspect the generated page for empty fields or awkward inherited copy.
 12. Confirm the page still frames the building as representative decision support, not available inventory.
 
+## Migration Checklist
+
+Use this checklist for future batches:
+
+1. Resolve canonical name, address, district, and Rofo URL from the repository.
+2. Confirm the record is representative and not already migrated.
+3. Draft `buildingSummary` and `buildingImportance` first.
+4. Add only supported `quickFacts`; omit exact size, floors, ownership, renovation, and certifications unless sourced.
+5. Write differentiated `idealFor`, `mayNotFit`, `advantages`, and `tradeoffs`.
+6. Add building-specific validation questions tied to the likely tenant decision.
+7. Select three to five building alternatives and write a reason for each.
+8. Add related district, city, and handbook links that answer natural next questions.
+9. Use category-level `representativeCompanies` unless named tenants are already supported.
+10. Run syntax, QA, build, and generated-page checks.
+
 ## Expansion Workflow
 
 To expand this standard:
@@ -313,3 +396,5 @@ To expand this standard:
 6. Build and inspect the generated page at desktop and mobile widths.
 
 Future work can move more Building Brief fields into the Commercial Building Intelligence schema as more markets mature.
+
+Future migration batches should be selected by district coverage and decision diversity, not just building prominence. The goal is to cover the major commercial environments a tenant actually compares: traditional downtown towers, repositioned downtown buildings, Transbay towers, central SoMa adaptive reuse, West SoMa creative office, Mission Bay innovation buildings, Jackson Square character buildings, Dogpatch waterfront/industrial reuse, Design District/showroom-adjacent buildings, and South Beach waterfront-office alternatives.

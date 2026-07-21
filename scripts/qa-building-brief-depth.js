@@ -9,6 +9,21 @@ const genericAlternativePhrases = [
   "comparable building",
 ];
 
+const requiredSections = [
+  "summary",
+  "buildingImportance",
+  "quickFacts",
+  "idealFor",
+  "mayNotFit",
+  "buildingExperience",
+  "districtContext",
+  "advantages",
+  "tradeoffs",
+  "validationNotes",
+  "nearbyAlternatives",
+  "relatedInsights",
+];
+
 function normalizeUrl(url) {
   if (!url) return "";
   return url.endsWith("/") ? url : `${url}/`;
@@ -16,6 +31,13 @@ function normalizeUrl(url) {
 
 function getCount(value) {
   return Array.isArray(value) ? value.length : 0;
+}
+
+function wordCount(value) {
+  return String(value || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
 }
 
 function collectUrls() {
@@ -69,6 +91,10 @@ function uniqueLinks(items) {
   return duplicates;
 }
 
+function duplicateCanonicalRecords(building) {
+  return buildingPages.filter((candidate) => candidate.building_path === building.building_path).length;
+}
+
 function briefSections(brief) {
   const sections = [];
   const checks = [
@@ -101,32 +127,41 @@ function analyzeBrief(building, validUrls) {
   const alternatives = brief.nearbyAlternatives || [];
   const relatedInsights = brief.relatedInsights || [];
   const links = [...alternatives, ...relatedInsights];
+  const sections = briefSections(brief);
   const brokenInternalLinks = links
     .map((item) => normalizeUrl(item.url))
     .filter((url) => url.startsWith("/") && !validUrls.has(url));
+  const errors = [];
   const warnings = [];
   const allText = textValues(brief).join("\n");
-
-  if (allText.includes("undefined")) warnings.push("contains undefined text");
-  if (allText.includes("[object Object]")) warnings.push("contains object rendering text");
-  if (/\bN\/A\b/.test(allText)) warnings.push("contains N/A");
-
   const duplicateAlternativeLinks = uniqueLinks(alternatives);
-  if (duplicateAlternativeLinks.length) {
-    warnings.push(`duplicate alternatives: ${duplicateAlternativeLinks.join(", ")}`);
-  }
+  const selfLinkedAlternatives = alternatives
+    .filter((item) => normalizeUrl(item.url) === normalizeUrl(building.building_path))
+    .map((item) => item.label || item.name || item.url);
+  const missingRequiredSections = requiredSections.filter((section) => !sections.includes(section));
+  const emptyCardTitles = [...alternatives, ...relatedInsights].filter((item) => !String(item.label || item.name || item.title || "").trim());
+  const summaryWords = wordCount(brief.summary || brief.buildingSummary);
+  const duplicateRecordCount = duplicateCanonicalRecords(building);
 
-  if (alternatives.some((item) => normalizeUrl(item.url) === normalizeUrl(building.building_path))) {
-    warnings.push("alternative links to itself");
-  }
+  if (!validUrls.has(normalizeUrl(building.building_path))) errors.push("invalid Building Brief URL");
+  if (duplicateRecordCount > 1) errors.push(`duplicate canonical records: ${duplicateRecordCount}`);
+  if (brokenInternalLinks.length) errors.push(`broken internal links: ${brokenInternalLinks.join(", ")}`);
+  if (duplicateAlternativeLinks.length) errors.push(`duplicate alternatives: ${duplicateAlternativeLinks.join(", ")}`);
+  if (selfLinkedAlternatives.length) errors.push(`self-linked alternatives: ${selfLinkedAlternatives.join(", ")}`);
+  if (emptyCardTitles.length) errors.push("empty card titles");
+  if (allText.includes("undefined")) errors.push("contains undefined text");
+  if (allText.includes("[object Object]")) errors.push("contains object rendering text");
+  if (/\bN\/A\b/.test(allText)) errors.push("contains N/A");
+  if (missingRequiredSections.length) errors.push(`missing required sections: ${missingRequiredSections.join(", ")}`);
 
   for (const item of alternatives) {
     const reason = String(item.reason || "").toLowerCase();
     if (genericAlternativePhrases.some((phrase) => reason.includes(phrase))) {
-      warnings.push(`generic alternative reason: ${item.label || item.name || item.url}`);
+      errors.push(`generic alternative reason: ${item.label || item.name || item.url}`);
     }
   }
 
+  if (summaryWords < 35 || summaryWords > 90) warnings.push(`hero summary word count outside target range: ${summaryWords}`);
   if (getCount(brief.quickFacts || brief.snapshot) < 5) warnings.push("fewer than five quick facts");
   if (getCount(brief.idealFor || brief.bestFit) < 3) warnings.push("fewer than three ideal-fit items");
   if (getCount(brief.mayNotFit) < 2) warnings.push("fewer than two may-not-fit items");
@@ -139,7 +174,9 @@ function analyzeBrief(building, validUrls) {
   return {
     name: building.display_name || building.address,
     url: building.building_path,
-    populatedSections: briefSections(brief),
+    district: building.commercial_building_intelligence?.identity?.canonicalDistrict?.name || building.commercial_area?.name || "",
+    populatedSections: sections,
+    heroSummaryWordCount: summaryWords,
     quickFactCount: getCount(brief.quickFacts || brief.snapshot),
     idealFitCount: getCount(brief.idealFor || brief.bestFit),
     mayNotFitCount: getCount(brief.mayNotFit),
@@ -148,7 +185,12 @@ function analyzeBrief(building, validUrls) {
     alternativeCount: getCount(alternatives),
     validationQuestionCount: getCount(brief.validationNotes),
     relatedInsightCount: getCount(relatedInsights),
+    representativeCompanyCount: getCount(brief.representativeCompanies),
     brokenInternalLinks: Array.from(new Set(brokenInternalLinks)),
+    duplicateAlternatives: Array.from(new Set(duplicateAlternativeLinks)),
+    selfLinkedAlternatives,
+    missingRequiredSections,
+    errors: Array.from(new Set(errors)),
     warnings: Array.from(new Set(warnings)),
   };
 }
@@ -157,7 +199,9 @@ function printReport(rows) {
   for (const row of rows) {
     console.log(`\n${row.name}`);
     console.log(`URL: ${row.url}`);
+    console.log(`District: ${row.district || "unknown"}`);
     console.log(`Populated sections: ${row.populatedSections.join(", ")}`);
+    console.log(`Hero summary words: ${row.heroSummaryWordCount}`);
     console.log(`Quick facts: ${row.quickFactCount}`);
     console.log(`Ideal fit: ${row.idealFitCount}`);
     console.log(`May not fit: ${row.mayNotFitCount}`);
@@ -166,7 +210,12 @@ function printReport(rows) {
     console.log(`Nearby alternatives: ${row.alternativeCount}`);
     console.log(`Validation questions: ${row.validationQuestionCount}`);
     console.log(`Related insights: ${row.relatedInsightCount}`);
+    console.log(`Representative companies: ${row.representativeCompanyCount}`);
     console.log(`Broken internal links: ${row.brokenInternalLinks.length ? row.brokenInternalLinks.join(", ") : "none"}`);
+    console.log(`Duplicate alternatives: ${row.duplicateAlternatives.length ? row.duplicateAlternatives.join(", ") : "none"}`);
+    console.log(`Self-linked alternatives: ${row.selfLinkedAlternatives.length ? row.selfLinkedAlternatives.join(", ") : "none"}`);
+    console.log(`Missing required sections: ${row.missingRequiredSections.length ? row.missingRequiredSections.join(", ") : "none"}`);
+    console.log(`Errors: ${row.errors.length ? row.errors.join("; ") : "none"}`);
     console.log(`Warnings: ${row.warnings.length ? row.warnings.join("; ") : "none"}`);
   }
 }
@@ -179,7 +228,7 @@ function main() {
 
   printReport(rows);
 
-  const hasErrors = rows.some((row) => row.brokenInternalLinks.length || row.warnings.length);
+  const hasErrors = rows.some((row) => row.errors.length);
   if (hasErrors) {
     process.exitCode = 1;
   }

@@ -30,6 +30,7 @@ eleventyComputed:
 {% set isRepresentativeBuilding = building.editorial_representative %}
 {% set buildingBrief = building.building_brief %}
 {% set buildingBriefName = building.commercial_building_intelligence.identity.name if building.commercial_building_intelligence and building.commercial_building_intelligence.identity and building.commercial_building_intelligence.identity.name else building.display_name or building.name or building.address %}
+{% set buildingBriefArea = building.commercial_building_intelligence.identity.canonicalDistrict if buildingBrief and building.commercial_building_intelligence and building.commercial_building_intelligence.identity and building.commercial_building_intelligence.identity.canonicalDistrict else building.commercial_area %}
 {% set relatedHandbookTopics = building.related_handbook_topics or [] %}
 {% set relatedComparisonPaths = commercialBuildingComparisons.relationshipGraph.bySubjectPath[building.building_path] or [] %}
 {% set buildingStartSearchUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
@@ -49,7 +50,7 @@ eleventyComputed:
         <div class="eyebrow">{% if buildingBrief %}Building Brief{% else %}Building{% endif %}</div>
         <h1>{{ buildingBriefName }}</h1>
         {% if buildingBrief %}
-          <p class="building-hero-address">{{ building.address }} · {% if building.commercial_area %}<a href="{{ building.commercial_area.path }}">{{ building.commercial_area.name }}</a>, {% endif %}{{ building.city }}, {{ building.state_abbr }}</p>
+          <p class="building-hero-address">{{ building.address }} · {% if buildingBriefArea %}<a href="{{ buildingBriefArea.path }}">{{ buildingBriefArea.name }}</a>, {% endif %}{{ building.city }}, {{ building.state_abbr }}</p>
           <p class="lead">{{ buildingBrief.summary }}</p>
         {% elseif building.building_description %}
           <p class="lead">{{ building.building_description }}</p>
@@ -79,8 +80,8 @@ eleventyComputed:
           {% if building.has_availability and not isRepresentativeBuilding %}
             <span class="pill">Availability signal</span>
           {% endif %}
-          {% if building.commercial_area %}
-            <a class="pill" href="{{ building.commercial_area.path }}">Located in {{ building.commercial_area.name }}</a>
+          {% if buildingBriefArea %}
+            <a class="pill" href="{{ buildingBriefArea.path }}">Located in {{ buildingBriefArea.name }}</a>
           {% endif %}
           <span class="pill">{{ building.city }}, {{ building.state_abbr }}</span>
         </div>
