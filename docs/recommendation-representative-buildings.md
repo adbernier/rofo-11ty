@@ -261,11 +261,51 @@ Investigation submissions create a lead dashboard record with:
 
 The public Location Brief URL is preserved. The public brief displays the investigation section when one was submitted.
 
+## Reliability And Idempotency
+
+Live Market Investigation submissions use a stable client submission token plus a server-side request fingerprint. The server reserves an idempotency record before creating the Location Brief, lead, or emails.
+
+The fingerprint includes the investigation source, district, selected representative buildings, competitive-building setting, requested research scope, timing, broker preference, relevant confirmed requirements, notes, and contact email. It does not rely on timestamps alone.
+
+Duplicate behavior:
+
+- a repeated POST with the same token and same fingerprint returns the original successful Location Brief response when available
+- the duplicate does not create another Location Brief
+- the duplicate does not create another lead
+- the duplicate does not resend the internal notification
+- the duplicate does not resend the user confirmation email
+- if the original request is still processing, the API returns a handled `processing` response with the reserved public Location Brief URL
+
+Revised-request behavior:
+
+- changing meaningful investigation fields creates a different fingerprint
+- district, selected buildings, investigation scope, timing, broker preference, confirmed requirements, notes, or contact email changes are treated as a materially revised request
+- a revised request may create a new Location Brief-family lead because it represents a new investigation ask
+
+The public success state should not show raw idempotency tokens or duplicate-submission language. It should show the same received state for a first submission or a handled duplicate retry.
+
 ## Admin And Email
 
 The Lead Dashboard treats Live Market Investigation records as Location Brief-family leads. Operators see a readable investigation block with city, district, buildings, scope, timing, broker preference, and notes.
 
-The internal Location Brief notification email includes the same investigation context. User-facing confirmation happens in the recommendation page success state and does not promise availability research has already begun.
+The internal Location Brief notification email includes the same investigation context. Successful Live Market Investigation submissions also attempt a concise user confirmation email after persistence succeeds. The confirmation email includes the district, selected representative buildings, competitive-building setting, requested scope, timing, broker preference, and permanent Location Brief link.
+
+Confirmation email behavior:
+
+- sent only after successful Location Brief persistence
+- not resent for duplicate retries
+- not required for the investigation request to succeed
+- recorded as `sent`, `not_sent`, or `failed`
+- missing email is recorded as `not_sent`
+- provider failure is recorded as `failed` while the submitted request remains successful
+
+The admin view shows a compact operational block with the request ID, confirmation-email status, internal-email status, and idempotency state. User-facing copy must not promise guaranteed response times, complete availability coverage, or accepted broker support.
+
+Investigation status currently distinguishes the submitted request state from future research workflow states:
+
+- `requested`: client-side form state before persistence
+- `received`: server accepted and persisted the investigation request
+- future workflow states such as reviewing, coverage confirmed, research in progress, completed, or unable to support should be introduced only when operational tooling exists
 
 ## Future Phase 3
 

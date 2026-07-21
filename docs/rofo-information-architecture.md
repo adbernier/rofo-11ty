@@ -440,6 +440,8 @@ Location Briefs should reference recommended markets, comparison markets, repres
 
 Live Market Investigation is a continuation state of the Location Brief, not a separate generic contact flow. It begins from a recommended district, carries representative-building context forward, asks the user to confirm investigation scope, and stores a structured `liveMarketInvestigation` object with the submitted brief. Representative buildings remain examples for understanding the market; availability and broker support are confirmed later through review.
 
+Reliability is part of the information architecture. The intake creates a stable submission token before POST, and the server combines that token with a normalized investigation fingerprint to prevent duplicate Location Briefs, duplicate leads, and duplicate emails from retry behavior. A request becomes `received` only after persistence. User confirmation email status is stored separately from investigation persistence so email failure does not erase the permanent Location Brief.
+
 Pillar relationship:
 
 Location Intelligence and Execution.

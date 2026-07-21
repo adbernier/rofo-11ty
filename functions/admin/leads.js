@@ -621,6 +621,10 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         <section class="message-block message-block--investigation">
           <h3>Live Market Investigation</h3>
           <div class="lead-grid lead-grid--compact">
+            ${field("Request ID", lead.investigation_request_id)}
+            ${field("Status", lead.investigation_status)}
+            ${field("Confirmation email", lead.investigation_confirmation_email_status)}
+            ${field("Confirmation sent", formatDate(lead.investigation_confirmation_email_sent_at))}
             ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
             ${field("District", lead.investigation_district)}
             ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
@@ -629,7 +633,11 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
             ${field("Timing", lead.investigation_timing || lead.move_timing)}
             ${field("Broker preference", lead.investigation_broker_preference)}
             ${field("Source", lead.investigation_source)}
+            ${field("Idempotency", lead.investigation_idempotency_hash ? `Stored (${lead.investigation_idempotency_hash})` : "")}
+            ${field("Internal email", lead.investigation_internal_email_status)}
           </div>
+          ${lead.investigation_confirmation_email_error ? `<div class="spam-box spam-box--medium"><strong>Confirmation email issue:</strong> ${escapeHtml(lead.investigation_confirmation_email_error)}</div>` : ""}
+          ${lead.investigation_internal_email_error ? `<div class="spam-box spam-box--medium"><strong>Internal email issue:</strong> ${escapeHtml(lead.investigation_internal_email_error)}</div>` : ""}
           ${lead.investigation_notes ? `<div class="message-block__note">${escapeHtml(lead.investigation_notes)}</div>` : ""}
         </section>
         ` : ""}

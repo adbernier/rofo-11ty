@@ -30,6 +30,9 @@ const ALLOWED_EVENTS = new Set([
   "live_market_investigation_scope_selected",
   "live_market_investigation_submitted",
   "live_market_investigation_submission_failed",
+  "live_market_investigation_duplicate_resolved",
+  "live_market_investigation_confirmation_sent",
+  "live_market_investigation_confirmation_failed",
   "example_location_brief_viewed",
   "example_location_brief_cta_clicked",
 ]);

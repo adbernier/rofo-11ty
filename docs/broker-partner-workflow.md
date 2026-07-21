@@ -239,6 +239,10 @@ On the Lead Dashboard, Location Brief leads now show:
 
 Live Market Investigation requests are stored as Location Brief-family leads with `lead_type: live_market_investigation` and `status: market_investigation_requested`. The dashboard shows the investigation district, selected representative buildings, competitive-building flag, requested research scope, timing, broker preference, and investigation notes before any broker referral is created.
 
+The operational status block also shows the investigation request reference, confirmation-email status, internal-email status, and idempotency state. These fields are for operations only; customer-facing pages should not expose raw submission tokens or idempotency keys.
+
+Duplicate retries with the same submission token and unchanged investigation fingerprint are resolved to the original received request. They must not create another lead, resend the internal notification, or resend the user confirmation email. Materially revised requests use a different server fingerprint and may create a new Location Brief-family lead.
+
 Sending a referral:
 
 - creates a Referral record

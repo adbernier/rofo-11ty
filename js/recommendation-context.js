@@ -25,6 +25,11 @@
   };
   let currentBriefState = null;
 
+  function investigationSubmissionToken() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();
+    return `lmi-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+  }
+
   function readStoredContext() {
     const read = (storage) => {
       try {
@@ -538,7 +543,26 @@
     status.setAttribute("aria-live", "polite");
     status.classList.add("location-brief-contact-status--success");
     const isInvestigation = currentBriefState && currentBriefState.liveMarketInvestigation && currentBriefState.liveMarketInvestigation.investigationIntent;
-    status.appendChild(createElement("strong", "", isInvestigation ? "Your market investigation request has been sent." : "Your Location Brief has been sent."));
+    const investigation = isInvestigation ? currentBriefState.liveMarketInvestigation : null;
+    status.appendChild(createElement("strong", "", isInvestigation ? "Your market investigation request has been received." : "Your Location Brief has been sent."));
+    if (investigation) {
+      const selectedCount = (investigation.representativeBuildings || []).filter((building) => building.selected !== false).length;
+      const detail = [
+        investigation.districtName ? `District: ${investigation.districtName}` : "",
+        `${selectedCount} representative building${selectedCount === 1 ? "" : "s"} selected`,
+        investigation.includeCompetitiveBuildings !== false ? "competitive buildings included" : "",
+      ].filter(Boolean).join(" · ");
+      if (detail) status.appendChild(createElement("span", "", detail));
+      const confirmation = result.confirmationEmail || investigation.confirmationEmail || {};
+      if (currentBriefState.contact && currentBriefState.contact.email) {
+        status.appendChild(createElement(
+          "span",
+          "",
+          confirmation.sent ? `Confirmation sent to ${currentBriefState.contact.email}.` : `Request received. Confirmation email may follow at ${currentBriefState.contact.email}.`
+        ));
+      }
+      status.appendChild(createElement("span", "", "Rofo will review available coverage before any live-market research or broker guidance is confirmed."));
+    }
     if (result.publicId) {
       status.appendChild(createElement("span", "", `Brief ID: ${result.publicId}`));
     }
@@ -789,6 +813,9 @@
       additionalNotes: existing.additionalNotes || "",
       brokerPreference: existing.brokerPreference || "research_first",
       ctaSource: existing.ctaSource || "recommendation_district_detail",
+      submissionToken: existing.submissionToken || investigationSubmissionToken(),
+      duplicateRetryCount: existing.duplicateRetryCount || 0,
+      confirmationEmail: existing.confirmationEmail || null,
     };
     persistBriefState();
   }
@@ -822,6 +849,9 @@
         additionalNotes: "",
         brokerPreference: "research_first",
         ctaSource: "recommendation_district_detail",
+        submissionToken: investigationSubmissionToken(),
+        duplicateRetryCount: 0,
+        confirmationEmail: null,
       };
     }
     return currentBriefState.liveMarketInvestigation;
@@ -1327,6 +1357,7 @@
     };
     investigation.requestedAt = new Date().toISOString();
     investigation.investigationStatus = "requested";
+    if (!investigation.submissionToken) investigation.submissionToken = investigationSubmissionToken();
   }
 
   function locationBriefPayload() {
@@ -1436,7 +1467,11 @@
           persistBriefState();
           renderLocationBriefSuccess(status, result);
           if (isInvestigation) {
-            trackRecommendationEvent("live_market_investigation_submitted", {
+            if (result.confirmationEmail) {
+              currentBriefState.liveMarketInvestigation.confirmationEmail = result.confirmationEmail;
+              persistBriefState();
+            }
+            const eventPayload = {
               profile_id: result.publicId || payload.publicId || "",
               city: payload.liveMarketInvestigation.city,
               district: payload.liveMarketInvestigation.districtName,
@@ -1445,7 +1480,23 @@
               scope: Object.keys(payload.liveMarketInvestigation.investigationScope || {}).filter((key) => payload.liveMarketInvestigation.investigationScope[key]),
               timing: payload.liveMarketInvestigation.timing || "",
               cta_source: payload.liveMarketInvestigation.ctaSource || "",
-            });
+            };
+            if (result.duplicate) {
+              trackRecommendationEvent("live_market_investigation_duplicate_resolved", eventPayload);
+            } else {
+              trackRecommendationEvent("live_market_investigation_submitted", eventPayload);
+            }
+            if (result.confirmationEmail && result.confirmationEmail.sent) {
+              trackRecommendationEvent("live_market_investigation_confirmation_sent", {
+                ...eventPayload,
+                confirmation_status: result.confirmationEmail.status || "sent",
+              });
+            } else if (result.confirmationEmail && result.confirmationEmail.status === "failed") {
+              trackRecommendationEvent("live_market_investigation_confirmation_failed", {
+                ...eventPayload,
+                confirmation_status: result.confirmationEmail.status,
+              });
+            }
           }
           if (submitButton) {
             submitButton.disabled = true;

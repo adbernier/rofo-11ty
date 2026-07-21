@@ -8,6 +8,7 @@ import {
   publicBriefUrl,
   saveLocationBrief,
   scheduleLocationBriefIndexes,
+  sendLiveMarketInvestigationConfirmationEmail,
   sendLocationBriefEmail,
   sizeSummary,
   spaceSummary,
@@ -18,6 +19,229 @@ import {
   saveLead,
   sha256,
 } from "../leads/_shared.js";
+
+function clean(value, max = 500) {
+  return String(value || "").trim().slice(0, max);
+}
+
+function stableJson(value) {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function isInvestigationInput(input) {
+  return Boolean(input && input.liveMarketInvestigation && input.liveMarketInvestigation.investigationIntent === true);
+}
+
+function selectedBuildingKeys(investigation) {
+  return Array.isArray(investigation.representativeBuildings)
+    ? investigation.representativeBuildings
+      .filter((building) => building && building.selected !== false)
+      .map((building) => clean(building.buildingId || building.name, 180).toLowerCase())
+      .filter(Boolean)
+      .sort()
+    : [];
+}
+
+function normalizedInvestigationFingerprint(input) {
+  const investigation = input.liveMarketInvestigation || {};
+  const requirements = investigation.confirmedRequirements || {};
+  const scope = investigation.investigationScope || {};
+  return stableJson({
+    source: clean(investigation.investigationSource || investigation.source || "recommendation_representative_buildings", 120).toLowerCase(),
+    city: clean(investigation.city, 140).toLowerCase(),
+    state: clean(investigation.state, 20).toUpperCase(),
+    districtId: clean(investigation.districtId || investigation.districtSlug, 180).toLowerCase(),
+    districtName: clean(investigation.districtName || investigation.district, 180).toLowerCase(),
+    buildings: selectedBuildingKeys(investigation),
+    includeCompetitiveBuildings: investigation.includeCompetitiveBuildings !== false,
+    scope: {
+      currentAvailability: scope.currentAvailability === true,
+      futureAvailability: scope.futureAvailability === true,
+      comparableBuildings: scope.comparableBuildings === true,
+      leasingActivity: scope.leasingActivity === true,
+      marketInsight: scope.marketInsight === true,
+      brokerGuidance: scope.brokerGuidance === true,
+    },
+    timing: clean(investigation.timing || requirements.timing, 80).toLowerCase(),
+    brokerPreference: clean(investigation.brokerPreference || "research_first", 80).toLowerCase(),
+    requirements: {
+      spaceType: clean(requirements.spaceType, 120).toLowerCase(),
+      targetSize: clean(requirements.targetSize, 120).toLowerCase(),
+      locationIntent: clean(requirements.locationIntent, 120).toLowerCase(),
+      priorities: Array.isArray(requirements.locationPriorities) ? requirements.locationPriorities.map((item) => clean(item, 120).toLowerCase()).sort() : [],
+      knownConstraints: clean(requirements.knownConstraints, 1000).toLowerCase(),
+    },
+    notes: clean(investigation.additionalNotes, 2000).toLowerCase(),
+    contactEmail: clean(input.contact && input.contact.email, 240).toLowerCase(),
+  });
+}
+
+function idempotencyDb(env) {
+  return env.LOCATION_BRIEFS_DB || env.LEADS_DB || null;
+}
+
+function idempotencyKv(env) {
+  return env.LOCATION_BRIEFS_KV || env.LEADS_KV || null;
+}
+
+async function ensureIdempotencyTable(db) {
+  await db.prepare(`
+    create table if not exists location_brief_idempotency (
+      idempotency_key text primary key,
+      request_fingerprint text,
+      status text not null,
+      public_id text,
+      brief_id text,
+      response_json text,
+      duplicate_count integer not null default 0,
+      confirmation_email_status text,
+      confirmation_email_sent_at text,
+      confirmation_email_error text,
+      created_at text not null,
+      updated_at text not null,
+      latest_retry_at text
+    )
+  `).run();
+}
+
+async function reserveInvestigationIdempotency(env, request, input) {
+  if (!isInvestigationInput(input)) return null;
+  const token = clean(input.liveMarketInvestigation.submissionToken, 160);
+  if (!/^[a-zA-Z0-9._:-]{12,180}$/.test(token)) {
+    return { error: "Invalid Live Market Investigation submission token" };
+  }
+  const fingerprint = normalizedInvestigationFingerprint(input);
+  const key = await sha256(`live-market-investigation:v1:${token}:${fingerprint}`);
+  const publicId = input.publicId || generatePublicId();
+  const now = new Date().toISOString();
+  const db = idempotencyDb(env);
+  if (db) {
+    await ensureIdempotencyTable(db);
+    try {
+      await db.prepare(`
+        insert into location_brief_idempotency (
+          idempotency_key, request_fingerprint, status, public_id, created_at, updated_at
+        ) values (?, ?, ?, ?, ?, ?)
+      `).bind(key, fingerprint, "processing", publicId, now, now).run();
+      return { key, keyHash: key, fingerprint, publicId, duplicate: false, storage: "d1" };
+    } catch (error) {
+      const row = await db.prepare("select * from location_brief_idempotency where idempotency_key = ?").bind(key).first();
+      if (!row) throw error;
+      await db.prepare(`
+        update location_brief_idempotency
+        set duplicate_count = duplicate_count + 1, latest_retry_at = ?, updated_at = ?
+        where idempotency_key = ?
+      `).bind(now, now, key).run();
+      const response = row.response_json ? JSON.parse(row.response_json) : null;
+      return {
+        key,
+        keyHash: key,
+        fingerprint,
+        publicId: row.public_id || publicId,
+        duplicate: true,
+        status: row.status,
+        response,
+        storage: "d1",
+      };
+    }
+  }
+
+  const kv = idempotencyKv(env);
+  if (kv) {
+    const existing = await kv.get(`location-brief-idempotency:${key}`, "json");
+    if (existing) {
+      const updated = {
+        ...existing,
+        duplicateCount: Number(existing.duplicateCount || 0) + 1,
+        latestRetryAt: now,
+        updatedAt: now,
+      };
+      await kv.put(`location-brief-idempotency:${key}`, JSON.stringify(updated));
+      return {
+        key,
+        keyHash: key,
+        fingerprint,
+        publicId: existing.publicId || publicId,
+        duplicate: true,
+        status: existing.status,
+        response: existing.response || null,
+        storage: "kv",
+      };
+    }
+    await kv.put(`location-brief-idempotency:${key}`, JSON.stringify({
+      requestFingerprint: fingerprint,
+      status: "processing",
+      publicId,
+      duplicateCount: 0,
+      createdAt: now,
+      updatedAt: now,
+    }));
+    return { key, keyHash: key, fingerprint, publicId, duplicate: false, storage: "kv" };
+  }
+
+  return { key, keyHash: key, fingerprint, publicId, duplicate: false, storage: "" };
+}
+
+async function completeInvestigationIdempotency(env, reservation, brief, response, confirmationEmail) {
+  if (!reservation || reservation.error || !reservation.key) return;
+  const now = new Date().toISOString();
+  const db = idempotencyDb(env);
+  if (reservation.storage === "d1" && db) {
+    await ensureIdempotencyTable(db);
+    await db.prepare(`
+      update location_brief_idempotency
+      set status = ?, public_id = ?, brief_id = ?, response_json = ?, confirmation_email_status = ?, confirmation_email_sent_at = ?, confirmation_email_error = ?, updated_at = ?
+      where idempotency_key = ?
+    `).bind(
+      "received",
+      brief.publicId,
+      brief.id,
+      JSON.stringify(response),
+      confirmationEmail && confirmationEmail.status || "",
+      confirmationEmail && confirmationEmail.sentAt || "",
+      confirmationEmail && confirmationEmail.reason || "",
+      now,
+      reservation.key,
+    ).run();
+    return;
+  }
+  const kv = idempotencyKv(env);
+  if (reservation.storage === "kv" && kv) {
+    const current = await kv.get(`location-brief-idempotency:${reservation.key}`, "json") || {};
+    await kv.put(`location-brief-idempotency:${reservation.key}`, JSON.stringify({
+      ...current,
+      status: "received",
+      publicId: brief.publicId,
+      briefId: brief.id,
+      response,
+      confirmationEmailStatus: confirmationEmail && confirmationEmail.status || "",
+      confirmationEmailSentAt: confirmationEmail && confirmationEmail.sentAt || "",
+      confirmationEmailError: confirmationEmail && confirmationEmail.reason || "",
+      updatedAt: now,
+    }));
+  }
+}
+
+async function releaseInvestigationIdempotency(env, reservation) {
+  if (!reservation || reservation.error || !reservation.key) return;
+  const db = idempotencyDb(env);
+  if (reservation.storage === "d1" && db) {
+    await ensureIdempotencyTable(db);
+    await db.prepare("delete from location_brief_idempotency where idempotency_key = ? and status = ?").bind(reservation.key, "processing").run();
+    return;
+  }
+  const kv = idempotencyKv(env);
+  if (reservation.storage === "kv" && kv) {
+    const current = await kv.get(`location-brief-idempotency:${reservation.key}`, "json");
+    if (current && current.status === "processing") {
+      await kv.delete(`location-brief-idempotency:${reservation.key}`);
+    }
+  }
+}
 
 async function readJson(request) {
   try {
@@ -155,6 +379,16 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     investigation_timing: investigation && investigation.investigationIntent ? investigation.timing || "" : "",
     investigation_broker_preference: investigation && investigation.investigationIntent ? investigation.brokerPreference || "" : "",
     investigation_notes: investigation && investigation.investigationIntent ? investigation.additionalNotes || "" : "",
+    investigation_request_id: investigation && investigation.investigationIntent ? (investigation.idempotencyKeyHash || "").slice(0, 16) : "",
+    investigation_idempotency_hash: investigation && investigation.investigationIntent ? (investigation.idempotencyKeyHash || "").slice(0, 24) : "",
+    investigation_request_fingerprint: investigation && investigation.investigationIntent ? (investigation.requestFingerprint || "").slice(0, 24) : "",
+    investigation_confirmation_email_status: investigation && investigation.investigationIntent && investigation.confirmationEmail ? investigation.confirmationEmail.status || "" : "",
+    investigation_confirmation_email_sent_at: investigation && investigation.investigationIntent && investigation.confirmationEmail ? investigation.confirmationEmail.sentAt || "" : "",
+    investigation_confirmation_email_error: investigation && investigation.investigationIntent && investigation.confirmationEmail ? investigation.confirmationEmail.error || "" : "",
+    investigation_internal_email_status: investigation && investigation.investigationIntent && investigation.internalEmail ? investigation.internalEmail.status || "" : "",
+    investigation_internal_email_error: investigation && investigation.investigationIntent && investigation.internalEmail ? investigation.internalEmail.error || "" : "",
+    investigation_duplicate_retry_count: investigation && investigation.investigationIntent ? String(investigation.duplicateRetryCount || 0) : "",
+    investigation_latest_retry_at: investigation && investigation.investigationIntent ? investigation.latestRetryAt || "" : "",
     location_brief_payload: JSON.stringify(brief),
     timestamp: brief.createdAt || new Date().toISOString(),
     user_agent: request.headers.get("user-agent") || "",
@@ -220,11 +454,66 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (!input || typeof input !== "object") {
     return jsonResponse({ ok: false, error: "Invalid Location Brief payload" }, 400);
   }
+  const inputContact = input.contact && typeof input.contact === "object" ? input.contact : {};
+  const missingContact = [
+    clean(inputContact.name) ? "" : "name",
+    clean(inputContact.email) ? "" : "email",
+  ].filter(Boolean);
+  if (missingContact.length) {
+    return jsonResponse({
+      ok: false,
+      error: "Missing required contact fields",
+      missing: missingContact,
+    }, 400);
+  }
+
+  let idempotency = null;
+  try {
+    idempotency = await reserveInvestigationIdempotency(env, request, input);
+  } catch (error) {
+    return jsonResponse({
+      ok: false,
+      error: "Live Market Investigation idempotency check failed",
+      message: error.message,
+    }, 500);
+  }
+  if (idempotency && idempotency.error) {
+    return jsonResponse({ ok: false, error: idempotency.error }, 400);
+  }
+  if (idempotency && idempotency.duplicate) {
+    if (idempotency.response) {
+      return jsonResponse({
+        ...idempotency.response,
+        ok: true,
+        duplicate: true,
+        duplicateResolved: true,
+        idempotencyStatus: "duplicate_resolved",
+      });
+    }
+    const url = publicBriefUrl(request, idempotency.publicId);
+    return jsonResponse({
+      ok: true,
+      duplicate: true,
+      duplicateResolved: true,
+      idempotencyStatus: idempotency.status || "processing",
+      publicId: idempotency.publicId,
+      url,
+      status: "received",
+      message: "The original market investigation request is already being processed.",
+    }, 202);
+  }
+
+  if (idempotency && input.liveMarketInvestigation) {
+    input.publicId = idempotency.publicId;
+    input.liveMarketInvestigation.idempotencyKeyHash = idempotency.keyHash;
+    input.liveMarketInvestigation.requestFingerprint = idempotency.fingerprint;
+  }
 
   let result;
   try {
     result = await createCanonicalBrief(env, request, input);
   } catch (error) {
+    await releaseInvestigationIdempotency(env, idempotency);
     return jsonResponse({
       ok: false,
       error: "Location Brief could not be stored",
@@ -234,6 +523,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
 
   const { brief, storage } = result;
   if (!hasRequiredContact(brief)) {
+    await releaseInvestigationIdempotency(env, idempotency);
     return jsonResponse({
       ok: false,
       error: "Missing required contact fields",
@@ -246,6 +536,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
 
   const url = publicBriefUrl(request, brief.publicId);
   scheduleLocationBriefIndexes(waitUntil, env.LOCATION_BRIEFS_DB || env.LEADS_DB);
+  const isInvestigation = Boolean(brief.liveMarketInvestigation && brief.liveMarketInvestigation.investigationIntent);
 
   const eventPayload = {
     source: "recommendations",
@@ -271,6 +562,38 @@ export async function onRequestPost({ request, env, waitUntil }) {
   }
 
   let lead = { stored: false, reason: "Not attempted" };
+  let email = { sent: false, reason: "Not attempted" };
+  let confirmationEmail = { sent: false, status: isInvestigation ? "not_attempted" : "not_applicable", reason: isInvestigation ? "Not attempted" : "Not a Live Market Investigation request" };
+
+  try {
+    email = await sendLocationBriefEmail(env, request, brief);
+  } catch (error) {
+    email = { sent: false, reason: error.message };
+  }
+
+  if (isInvestigation) {
+    try {
+      confirmationEmail = await sendLiveMarketInvestigationConfirmationEmail(env, request, brief);
+    } catch (error) {
+      confirmationEmail = { sent: false, status: "failed", reason: error.message };
+    }
+    brief.liveMarketInvestigation = {
+      ...brief.liveMarketInvestigation,
+      investigationStatus: "received",
+      confirmationEmail: {
+        status: confirmationEmail.status || (confirmationEmail.sent ? "sent" : "not_sent"),
+        sent: confirmationEmail.sent === true,
+        sentAt: confirmationEmail.sentAt || "",
+        error: confirmationEmail.sent ? "" : confirmationEmail.reason || "",
+      },
+      internalEmail: {
+        status: email.sent ? "sent" : "failed",
+        sent: email.sent === true,
+        error: email.sent ? "" : email.reason || "",
+      },
+    };
+  }
+
   try {
     lead = await createLocationBriefLead(env, request, brief, url);
   } catch (error) {
@@ -278,23 +601,23 @@ export async function onRequestPost({ request, env, waitUntil }) {
     console.warn("Unable to create Location Brief lead dashboard record", error);
   }
 
-  let email = { sent: false, reason: "Not attempted" };
-  try {
-    email = await sendLocationBriefEmail(env, request, brief);
-  } catch (error) {
-    email = { sent: false, reason: error.message };
-  }
-
-  return jsonResponse({
+  const responsePayload = {
     ok: true,
     id: brief.id,
     publicId: brief.publicId,
-    status: brief.status,
+    status: isInvestigation ? "received" : brief.status,
     url,
     storage,
     lead,
     email,
-  });
+    confirmationEmail,
+    duplicate: false,
+    idempotencyStatus: isInvestigation ? "received" : "",
+  };
+
+  await completeInvestigationIdempotency(env, idempotency, brief, responsePayload, confirmationEmail);
+
+  return jsonResponse(responsePayload);
 }
 
 export async function onRequestGet() {

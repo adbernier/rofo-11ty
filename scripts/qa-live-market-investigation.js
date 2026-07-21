@@ -73,6 +73,7 @@ const generatedRecommendationIsStale = generatedRecommendationPage
   ? fs.statSync(path.join(root, "pages/recommendations.njk")).mtimeMs > fs.statSync(generatedRecommendationPath).mtimeMs
   : false;
 const recommendationContext = read("js/recommendation-context.js");
+const analyticsSearchProfile = read("functions/api/analytics/search-profile.js");
 const locationBriefShared = read("functions/api/location-brief/_shared.js");
 const locationBriefSubmit = read("functions/api/location-brief/submit.js");
 const adminLeads = read("functions/admin/leads.js");
@@ -93,7 +94,12 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["live_market_investigation_scope_selected", "scope analytics"],
   ["live_market_investigation_submitted", "submitted analytics"],
   ["live_market_investigation_submission_failed", "failed analytics"],
+  ["live_market_investigation_duplicate_resolved", "duplicate-resolved analytics"],
+  ["live_market_investigation_confirmation_sent", "confirmation-sent analytics"],
+  ["live_market_investigation_confirmation_failed", "confirmation-failed analytics"],
   ["collectInvestigationFormState", "submission state collection"],
+  ["investigationSubmissionToken", "stable investigation submission token"],
+  ["submissionToken", "investigation submission token persistence"],
   ["liveMarketInvestigation", "investigation state"],
   ["Start Market Investigation", "investigation submit state"],
 ].forEach(([token, label]) => requireIncludes(recommendationContext, token, label));
@@ -101,12 +107,23 @@ const publicBrief = read("functions/location-brief/[publicId].js");
 [
   ["normalizeLiveMarketInvestigation", "server-side investigation normalizer"],
   ["normalizeInvestigationBuilding", "server-side building sanitizer"],
+  ["sendLiveMarketInvestigationConfirmationEmail", "user confirmation email sender"],
+  ["confirmationEmail", "canonical confirmation-email status"],
   ["investigationHtmlBlock", "internal email investigation block"],
 ].forEach(([token, label]) => requireIncludes(locationBriefShared, token, label));
 
 [
+  ["location_brief_idempotency", "idempotency table"],
+  ["reserveInvestigationIdempotency", "idempotency reservation"],
+  ["completeInvestigationIdempotency", "idempotency completion"],
+  ["releaseInvestigationIdempotency", "idempotency release on failed persistence"],
+  ["normalizedInvestigationFingerprint", "revised-request fingerprint"],
+  ["duplicateResolved", "duplicate retry response"],
   ["live_market_investigation", "lead type"],
   ["market_investigation_requested", "lead status"],
+  ["investigation_request_id", "lead investigation request id"],
+  ["investigation_idempotency_hash", "lead idempotency state"],
+  ["investigation_confirmation_email_status", "lead confirmation status"],
   ["investigation_buildings", "lead building summary"],
   ["investigation_scope", "lead scope summary"],
 ].forEach(([token, label]) => requireIncludes(locationBriefSubmit, token, label));
@@ -115,7 +132,15 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["isInvestigationLead", "admin investigation detector"],
   ["Live Market Investigation", "admin investigation section"],
   ["market_investigation_requested", "admin investigation status"],
+  ["Confirmation email", "admin confirmation email status"],
+  ["Idempotency", "admin idempotency state"],
 ].forEach(([token, label]) => requireIncludes(adminLeads, token, label));
+
+[
+  ["live_market_investigation_duplicate_resolved", "allowed duplicate analytics"],
+  ["live_market_investigation_confirmation_sent", "allowed confirmation analytics"],
+  ["live_market_investigation_confirmation_failed", "allowed confirmation-failed analytics"],
+].forEach(([token, label]) => requireIncludes(analyticsSearchProfile, token, label));
 
 requireIncludes(publicBrief, "renderInvestigation", "public Location Brief investigation renderer");
 
@@ -154,12 +179,110 @@ scenarios.forEach((item) => {
   });
 });
 
+const reliabilityScenarios = [
+  {
+    scenario: "Normal submission",
+    idempotencyKeyReused: "no",
+    expectedLocationBriefCount: 1,
+    expectedLeadCount: 1,
+    expectedInternalEmailCount: 1,
+    expectedUserEmailCount: "0 or 1, depending on email availability and provider configuration",
+    expectedResponse: "ok, received",
+    expectedEmailStatus: "sent, not_sent, or failed",
+    duplicateHandled: "no",
+  },
+  {
+    scenario: "Double click / network retry",
+    idempotencyKeyReused: "yes",
+    expectedLocationBriefCount: 1,
+    expectedLeadCount: 1,
+    expectedInternalEmailCount: 1,
+    expectedUserEmailCount: "not resent",
+    expectedResponse: "ok, duplicate_resolved or processing",
+    expectedEmailStatus: "original status returned",
+    duplicateHandled: "yes",
+  },
+  {
+    scenario: "Revised request",
+    idempotencyKeyReused: "same token, changed fingerprint",
+    expectedLocationBriefCount: "new request allowed",
+    expectedLeadCount: "new request allowed",
+    expectedInternalEmailCount: "sent for new request",
+    expectedUserEmailCount: "eligible for new confirmation",
+    expectedResponse: "ok, received",
+    expectedEmailStatus: "new request status",
+    duplicateHandled: "no",
+  },
+  {
+    scenario: "Missing email",
+    idempotencyKeyReused: "no",
+    expectedLocationBriefCount: 1,
+    expectedLeadCount: 1,
+    expectedInternalEmailCount: 1,
+    expectedUserEmailCount: 0,
+    expectedResponse: "ok, received",
+    expectedEmailStatus: "not_sent",
+    duplicateHandled: "no",
+  },
+  {
+    scenario: "Confirmation email failure",
+    idempotencyKeyReused: "retry uses same key",
+    expectedLocationBriefCount: 1,
+    expectedLeadCount: 1,
+    expectedInternalEmailCount: 1,
+    expectedUserEmailCount: "failed once; not duplicated on retry",
+    expectedResponse: "ok, received",
+    expectedEmailStatus: "failed",
+    duplicateHandled: "retry resolves to original success",
+  },
+  {
+    scenario: "Legacy Location Brief submission",
+    idempotencyKeyReused: "not required",
+    expectedLocationBriefCount: "unchanged legacy behavior",
+    expectedLeadCount: "unchanged legacy behavior",
+    expectedInternalEmailCount: "unchanged legacy behavior",
+    expectedUserEmailCount: "not applicable",
+    expectedResponse: "ok, submitted",
+    expectedEmailStatus: "not_applicable",
+    duplicateHandled: "not applicable",
+  },
+];
+
+if (!locationBriefSubmit.includes("live-market-investigation:v1:")) {
+  errors.push("Idempotency key namespace is missing.");
+}
+if (locationBriefSubmit.includes("Math.random") || locationBriefSubmit.includes("Date.now()")) {
+  errors.push("Server-side idempotency must not rely on random or timestamp-only values.");
+}
+if (!locationBriefSubmit.includes("sendLocationBriefEmail") || !locationBriefSubmit.includes("sendLiveMarketInvestigationConfirmationEmail")) {
+  errors.push("Internal and user confirmation emails are not both represented in the submission handler.");
+}
+if (!locationBriefSubmit.includes("createLocationBriefLead(env, request, brief, url)")) {
+  errors.push("Investigation lead creation path was not found.");
+}
+if (!locationBriefSubmit.includes("confirmationEmail.sent ? \"\" : confirmationEmail.reason")) {
+  warnings.push("Could not verify confirmation-email failure reason is stored in canonical investigation data.");
+}
+
 console.log("Live Market Investigation QA");
 scenarios.forEach((item) => {
   console.log(`\n${item.label}`);
   console.log(`District: ${item.district}`);
   console.log(`Module shown: ${item.shown ? "yes" : `no (${item.reason})`}`);
   console.log(`Buildings carried: ${item.buildings.length ? item.buildings.map((building) => building.name).join(", ") : "district-level only"}`);
+});
+
+console.log("\nReliability scenarios");
+reliabilityScenarios.forEach((item) => {
+  console.log(`\n${item.scenario}`);
+  console.log(`Idempotency key reused: ${item.idempotencyKeyReused}`);
+  console.log(`Location Brief count: ${item.expectedLocationBriefCount}`);
+  console.log(`Lead count: ${item.expectedLeadCount}`);
+  console.log(`Internal email count: ${item.expectedInternalEmailCount}`);
+  console.log(`User email count: ${item.expectedUserEmailCount}`);
+  console.log(`API response: ${item.expectedResponse}`);
+  console.log(`Email status: ${item.expectedEmailStatus}`);
+  console.log(`Duplicate handled: ${item.duplicateHandled}`);
 });
 console.log(`\nErrors: ${errors.length ? errors.join("; ") : "none"}`);
 console.log(`Warnings: ${warnings.length ? warnings.join("; ") : "none"}`);

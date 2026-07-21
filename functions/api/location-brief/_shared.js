@@ -10,6 +10,7 @@ export { escapeHtml, htmlResponse, jsonResponse };
 export const LOCATION_BRIEF_STATUSES = [
   "draft",
   "submitted",
+  "received",
   "broker_assigned",
   "under_review",
   "tour_planning",
@@ -207,6 +208,17 @@ function normalizeLiveMarketInvestigation(value) {
     brokerPreference: clean(value.brokerPreference || "research_first", 80),
     ctaSource: clean(value.ctaSource || "recommendation_district_detail", 120),
     requestedAt: clean(value.requestedAt, 80) || new Date().toISOString(),
+    submissionToken: clean(value.submissionToken, 160),
+    idempotencyKeyHash: clean(value.idempotencyKeyHash, 160),
+    requestFingerprint: clean(value.requestFingerprint, 160),
+    duplicateRetryCount: Number(value.duplicateRetryCount) > 0 ? Math.floor(Number(value.duplicateRetryCount)) : 0,
+    latestRetryAt: clean(value.latestRetryAt, 80),
+    confirmationEmail: value.confirmationEmail && typeof value.confirmationEmail === "object" ? {
+      status: clean(value.confirmationEmail.status, 80),
+      sent: value.confirmationEmail.sent === true,
+      sentAt: clean(value.confirmationEmail.sentAt, 80),
+      error: clean(value.confirmationEmail.error, 500),
+    } : null,
   };
 }
 
@@ -680,4 +692,116 @@ export async function sendLocationBriefEmail(env, request, brief) {
   }
 
   return { sent: true };
+}
+
+export async function sendLiveMarketInvestigationConfirmationEmail(env, request, brief) {
+  const investigation = brief.liveMarketInvestigation;
+  const contact = brief.contact || {};
+  if (!investigation || !investigation.investigationIntent) {
+    return { sent: false, status: "not_applicable", reason: "No Live Market Investigation request." };
+  }
+  if (!contact.email) {
+    return { sent: false, status: "not_sent", reason: "No user email available." };
+  }
+  if (!env.RESEND_API_KEY) {
+    return { sent: false, status: "not_sent", reason: "RESEND_API_KEY is not configured." };
+  }
+
+  const url = publicBriefUrl(request, brief.publicId);
+  const buildings = selectedInvestigationBuildings(investigation);
+  const scope = investigationScopeLabels(investigation);
+  const district = investigation.districtName || locationSummary(brief);
+  const city = [investigation.city, investigation.state].filter(Boolean).join(", ");
+  const subject = `Rofo received your Live Market Investigation request for ${district}`;
+  const text = [
+    `Hi ${contact.name || "there"},`,
+    "",
+    `Rofo received your Live Market Investigation request for ${district}.`,
+    city ? `Market: ${city}` : "",
+    "",
+    "REPRESENTATIVE BUILDINGS",
+    buildings.length ? buildings.map((building) => `- ${building.name}`).join("\n") : "- District-level review only",
+    `Include other competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
+    "",
+    "REQUESTED REVIEW",
+    scope.length ? scope.map((item) => `- ${item}`).join("\n") : "- Scope to confirm",
+    investigation.timing ? `Timing: ${investigation.timing}` : "",
+    `Broker preference: ${brokerPreferenceLabel(investigation.brokerPreference) || "Research first"}`,
+    "",
+    `Location Brief: ${url}`,
+    "",
+    "What happens next:",
+    "Rofo will review your request and determine available market coverage. Representative buildings are starting points for investigation, not confirmed availability. Broker guidance depends on market coverage and your requirements.",
+    "",
+    "Rofo",
+  ].filter(Boolean).join("\n");
+
+  const html = `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:640px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Live Market Investigation</div>
+                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">We received your request for ${escapeHtml(district)}</h1>
+                ${city ? `<div style="font-size:15px;line-height:22px;color:#eff6ff;">${escapeHtml(city)}</div>` : ""}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px;font-size:15px;line-height:23px;">
+                <p style="margin:0 0 14px;">${contact.name ? `Hi ${escapeHtml(contact.name)},` : "Hi,"}</p>
+                <p style="margin:0 0 18px;">Rofo received your Live Market Investigation request. Representative buildings are starting points for review, not confirmed availability.</p>
+
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Investigation summary</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${emailField("District", escapeHtml(district))}
+                    ${city ? emailField("City", escapeHtml(city)) : ""}
+                    ${emailField("Representative buildings", buildings.length ? formatList(buildings.map((building) => building.name)) : escapeHtml("District-level review only"))}
+                    ${emailField("Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Included" : "Not selected"))}
+                    ${emailField("Scope", scope.length ? formatList(scope) : escapeHtml("To confirm"))}
+                    ${investigation.timing ? emailField("Timing", escapeHtml(investigation.timing)) : ""}
+                    ${emailField("Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference) || "Research first"))}
+                  </table>
+                </div>
+
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
+                  <p style="margin:0;color:#334155;">Rofo will review your request and determine available market coverage for the selected district, representative buildings, and comparable buildings. Broker guidance depends on market coverage and your requirements.</p>
+                </div>
+
+                <a href="${escapeHtml(url)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">View Location Brief</a>
+                <p style="margin:18px 0 0;color:#64748b;font-size:13px;line-height:20px;">This confirmation does not mean availability research is complete or that broker coverage has been accepted.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      from: env.RESEND_FROM_EMAIL || "Rofo <onboarding@resend.dev>",
+      to: [contact.email],
+      subject,
+      html,
+      text,
+    }),
+  });
+
+  if (!response.ok) {
+    return { sent: false, status: "failed", reason: await response.text() };
+  }
+
+  return { sent: true, status: "sent", sentAt: new Date().toISOString() };
 }
