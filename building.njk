@@ -68,10 +68,10 @@ eleventyComputed:
           {% if building.primary_space_type and building.primary_space_type != building.type %}
             <span class="pill">{{ building.primary_space_type }}</span>
           {% endif %}
-          {% if building.commercial_asset_class %}
+          {% if building.commercial_asset_class and not buildingBrief %}
             <span class="pill">{{ building.commercial_asset_class }}</span>
           {% endif %}
-          {% if building.editorial_role %}
+          {% if building.editorial_role and not buildingBrief %}
             <span class="pill">{{ building.editorial_role }}</span>
           {% endif %}
           {% if building.size_label %}

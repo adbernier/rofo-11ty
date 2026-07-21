@@ -21,14 +21,28 @@ The canonical Building Brief structure is:
 5. Building Experience
 6. District Context
 7. Advantages and Tradeoffs
-8. Validation questions
-9. Nearby Alternatives
+8. Nearby Alternatives
+9. Validation questions
 10. Related Insights
 11. Rofo Context and Start Your Search
 
 The page should support the larger Rofo journey:
 
 City -> District -> Representative Building -> Start Your Search
+
+## Production Reading Order
+
+The calibrated production order is designed around how a tenant evaluates a building:
+
+1. Understand the building's commercial role.
+2. Decide whether the building may fit the business.
+3. Understand the operating experience and district.
+4. Evaluate advantages and tradeoffs.
+5. Compare nearby decision alternatives.
+6. Validate the most important uncertainties.
+7. Continue the search.
+
+Validation questions should follow Nearby Alternatives because users usually know what to investigate only after seeing the realistic comparison set. Related Insights should remain compact and secondary to the building decision.
 
 ## Required and Optional Data
 
@@ -343,6 +357,24 @@ For building alternatives:
 - explain why a tenant might prefer the alternative
 - prefer real decision alternatives over nearest-address proximity
 - include reciprocal alternatives only when the reverse comparison reflects a real tenant decision
+
+Production alternative cards should show three to five alternatives when available. Each card should answer:
+
+- what the alternative is
+- where it sits, when structured data supports the label
+- why a tenant might prefer it
+
+Use "Prefer this when..." style reasoning. Avoid "another nearby option," "similar property," or reasons that only restate geography.
+
+## CTA and Status Placement
+
+Building Briefs use `Start Your Search` as the primary action in the hero and in the final product transition. Do not add lead forms to Building Brief pages.
+
+The status note should appear after the main decision content and before the final product transition. It should be concise and explain that Rofo's building intelligence is representative decision support, not a current availability claim.
+
+## Mobile Presentation
+
+The mobile layout should preserve the same reading order with one clear column. Cards should stack naturally, tap targets should remain easy to hit, and long section items should not force horizontal scrolling or fixed-height cards. Prefer tighter spacing and full-width actions over hiding decision content on mobile.
 
 ## Named Tenant Guidance
 

@@ -34,12 +34,14 @@
 
   {% include "partials/building/brief-district-context.njk" %}
   {% include "partials/building/brief-decision.njk" %}
+  {% include "partials/building/brief-alternatives.njk" %}
 
   {% if buildingBrief.validationNotes and buildingBrief.validationNotes.length %}
     <section class="building-brief-section">
       <div class="building-brief-section__header">
         <div class="eyebrow">Validate</div>
         <h2>What to Validate Before Shortlisting</h2>
+        <p>Use these questions on a tour, in broker conversations, or before comparing proposals.</p>
       </div>
       <ul class="building-question-list">
         {% for item in buildingBrief.validationNotes %}
@@ -49,7 +51,6 @@
     </section>
   {% endif %}
 
-  {% include "partials/building/brief-alternatives.njk" %}
   {% include "partials/building/brief-related-insights.njk" %}
   {% include "partials/building/brief-status-note.njk" %}
 

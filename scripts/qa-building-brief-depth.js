@@ -1,6 +1,8 @@
 const buildingPages = require("../_data/buildingPages");
 const neighborhoodPages = require("../_data/neighborhoodPages");
 const commercialLeasingHandbook = require("../_data/commercialLeasingHandbook");
+const fs = require("fs");
+const path = require("path");
 
 const genericAlternativePhrases = [
   "another nearby option",
@@ -27,6 +29,12 @@ const requiredSections = [
 function normalizeUrl(url) {
   if (!url) return "";
   return url.endsWith("/") ? url : `${url}/`;
+}
+
+function sitePathForUrl(url) {
+  const normalized = normalizeUrl(url);
+  const relativePath = normalized.replace(/^\/+/, "");
+  return path.join(__dirname, "..", "_site", relativePath, "index.html");
 }
 
 function getCount(value) {
@@ -91,6 +99,69 @@ function uniqueLinks(items) {
   return duplicates;
 }
 
+function duplicateValues(values) {
+  const seen = new Set();
+  const duplicates = [];
+  for (const rawValue of values.filter(Boolean)) {
+    const value = normalizeText(rawValue).toLowerCase();
+    if (seen.has(value)) duplicates.push(rawValue);
+    seen.add(value);
+  }
+  return duplicates;
+}
+
+function normalizeText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function stripTags(value) {
+  return normalizeText(String(value || "").replace(/<[^>]+>/g, " "));
+}
+
+function malformedInternalUrls(items) {
+  return (items || [])
+    .map((item) => item.url)
+    .filter((url) => url && url.startsWith("/") && !url.startsWith("//") && !url.includes("?") && !url.includes("#") && !url.endsWith("/"));
+}
+
+function generatedHtmlChecks(building) {
+  const htmlPath = sitePathForUrl(building.building_path);
+  if (!fs.existsSync(htmlPath)) {
+    return {
+      errors: [`generated page not found: ${building.building_path}`],
+      warnings: [],
+    };
+  }
+
+  const html = fs.readFileSync(htmlPath, "utf8");
+  const headingMatches = Array.from(html.matchAll(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/g)).map((match) => stripTags(match[2]));
+  const duplicateHeadings = duplicateValues(headingMatches);
+  const idMatches = Array.from(html.matchAll(/\sid="([^"]+)"/g)).map((match) => match[1]);
+  const duplicateIds = duplicateValues(idMatches);
+  const renderedAlternativeCardCount = (html.match(/related-building-card--alternative/g) || []).length;
+  const errors = [];
+  const warnings = [];
+  const cityUrl = `/commercial-real-estate/${building.state_abbr}/${building.city_slug}/`;
+  const districtUrl = building.commercial_building_intelligence?.identity?.canonicalDistrict?.path || building.commercial_area?.path || "";
+
+  if (!html.includes("building-brief-journey")) errors.push("generated page missing building-brief-journey");
+  if (!html.includes("/find-locations/?city=")) errors.push("missing contextual final action path");
+  if (!html.includes(cityUrl)) errors.push(`missing city link: ${cityUrl}`);
+  if (districtUrl && !html.includes(districtUrl)) errors.push(`missing district link: ${districtUrl}`);
+  if (duplicateHeadings.length) warnings.push(`duplicate headings: ${duplicateHeadings.join(", ")}`);
+  if (html.includes("undefined")) errors.push("generated HTML contains undefined");
+  if (html.includes("[object Object]")) errors.push("generated HTML contains object text");
+  if (/\bN\/A\b/.test(html)) errors.push("generated HTML contains N/A");
+  if (/<h[1-6][^>]*>\s*<\/h[1-6]>/.test(html)) errors.push("generated HTML contains empty heading");
+  if (duplicateIds.length) errors.push(`duplicate generated IDs: ${duplicateIds.join(", ")}`);
+  if (renderedAlternativeCardCount > 5) errors.push(`too many rendered alternative cards: ${renderedAlternativeCardCount}`);
+  if (/Executive Benchmark|Creative Benchmark|Innovation Benchmark|flagship opportunity|premier office|world-class|best-in-class/i.test(html)) {
+    warnings.push("generated HTML contains discouraged promotional or internal terminology");
+  }
+
+  return { errors, warnings };
+}
+
 function duplicateCanonicalRecords(building) {
   return buildingPages.filter((candidate) => candidate.building_path === building.building_path).length;
 }
@@ -135,6 +206,7 @@ function analyzeBrief(building, validUrls) {
   const warnings = [];
   const allText = textValues(brief).join("\n");
   const duplicateAlternativeLinks = uniqueLinks(alternatives);
+  const duplicateRelatedInsightLinks = uniqueLinks(relatedInsights);
   const selfLinkedAlternatives = alternatives
     .filter((item) => normalizeUrl(item.url) === normalizeUrl(building.building_path))
     .map((item) => item.label || item.name || item.url);
@@ -142,13 +214,19 @@ function analyzeBrief(building, validUrls) {
   const emptyCardTitles = [...alternatives, ...relatedInsights].filter((item) => !String(item.label || item.name || item.title || "").trim());
   const summaryWords = wordCount(brief.summary || brief.buildingSummary);
   const duplicateRecordCount = duplicateCanonicalRecords(building);
+  const repeatedAlternativeReasons = duplicateValues(alternatives.map((item) => item.reason));
+  const malformedUrls = malformedInternalUrls([...alternatives, ...relatedInsights]);
+  const generatedChecks = generatedHtmlChecks(building);
 
   if (!validUrls.has(normalizeUrl(building.building_path))) errors.push("invalid Building Brief URL");
   if (duplicateRecordCount > 1) errors.push(`duplicate canonical records: ${duplicateRecordCount}`);
   if (brokenInternalLinks.length) errors.push(`broken internal links: ${brokenInternalLinks.join(", ")}`);
   if (duplicateAlternativeLinks.length) errors.push(`duplicate alternatives: ${duplicateAlternativeLinks.join(", ")}`);
+  if (duplicateRelatedInsightLinks.length) errors.push(`duplicate related insights: ${duplicateRelatedInsightLinks.join(", ")}`);
   if (selfLinkedAlternatives.length) errors.push(`self-linked alternatives: ${selfLinkedAlternatives.join(", ")}`);
   if (emptyCardTitles.length) errors.push("empty card titles");
+  if (malformedUrls.length) errors.push(`malformed internal URLs: ${malformedUrls.join(", ")}`);
+  if (repeatedAlternativeReasons.length) errors.push(`repeated alternative reasons: ${repeatedAlternativeReasons.join(" | ")}`);
   if (allText.includes("undefined")) errors.push("contains undefined text");
   if (allText.includes("[object Object]")) errors.push("contains object rendering text");
   if (/\bN\/A\b/.test(allText)) errors.push("contains N/A");
@@ -162,6 +240,13 @@ function analyzeBrief(building, validUrls) {
   }
 
   if (summaryWords < 35 || summaryWords > 90) warnings.push(`hero summary word count outside target range: ${summaryWords}`);
+  for (const item of [...(brief.idealFor || []), ...(brief.mayNotFit || []), ...(brief.advantages || []), ...(brief.tradeoffs || []), ...(brief.validationNotes || [])]) {
+    if (wordCount(item) > 34) warnings.push(`long section item: ${String(item).slice(0, 72)}...`);
+  }
+  for (const item of alternatives) {
+    if (wordCount(item.reason) < 8) warnings.push(`thin alternative reason: ${item.label || item.url}`);
+    if (wordCount(item.reason) > 28) warnings.push(`long alternative reason: ${item.label || item.url}`);
+  }
   if (getCount(brief.quickFacts || brief.snapshot) < 5) warnings.push("fewer than five quick facts");
   if (getCount(brief.idealFor || brief.bestFit) < 3) warnings.push("fewer than three ideal-fit items");
   if (getCount(brief.mayNotFit) < 2) warnings.push("fewer than two may-not-fit items");
@@ -188,10 +273,11 @@ function analyzeBrief(building, validUrls) {
     representativeCompanyCount: getCount(brief.representativeCompanies),
     brokenInternalLinks: Array.from(new Set(brokenInternalLinks)),
     duplicateAlternatives: Array.from(new Set(duplicateAlternativeLinks)),
+    duplicateRelatedInsights: Array.from(new Set(duplicateRelatedInsightLinks)),
     selfLinkedAlternatives,
     missingRequiredSections,
-    errors: Array.from(new Set(errors)),
-    warnings: Array.from(new Set(warnings)),
+    errors: Array.from(new Set([...errors, ...generatedChecks.errors])),
+    warnings: Array.from(new Set([...warnings, ...generatedChecks.warnings])),
   };
 }
 
@@ -213,6 +299,7 @@ function printReport(rows) {
     console.log(`Representative companies: ${row.representativeCompanyCount}`);
     console.log(`Broken internal links: ${row.brokenInternalLinks.length ? row.brokenInternalLinks.join(", ") : "none"}`);
     console.log(`Duplicate alternatives: ${row.duplicateAlternatives.length ? row.duplicateAlternatives.join(", ") : "none"}`);
+    console.log(`Duplicate related insights: ${row.duplicateRelatedInsights.length ? row.duplicateRelatedInsights.join(", ") : "none"}`);
     console.log(`Self-linked alternatives: ${row.selfLinkedAlternatives.length ? row.selfLinkedAlternatives.join(", ") : "none"}`);
     console.log(`Missing required sections: ${row.missingRequiredSections.length ? row.missingRequiredSections.join(", ") : "none"}`);
     console.log(`Errors: ${row.errors.length ? row.errors.join("; ") : "none"}`);

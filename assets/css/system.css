@@ -7726,6 +7726,12 @@ section.market-page--space-type .market-links a {
     transform: translateY(-1px);
   }
 
+  .building-page .related-building-card:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.28);
+    outline-offset: 3px;
+    border-color: #2563eb;
+  }
+
   .building-page .related-building-card__title {
     color: #0f172a;
     font-weight: 800;
@@ -7736,6 +7742,21 @@ section.market-page--space-type .market-links a {
     color: #64748b;
     font-size: 0.92rem;
     line-height: 1.35;
+  }
+
+  .building-page .related-building-card__context,
+  .building-page .related-building-card__cue {
+    color: #475569;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .building-page .related-building-card__cue {
+    color: #1d4ed8;
+    margin-top: 6px;
   }
 
   .building-page .representative-building-journey {
@@ -7867,6 +7888,23 @@ section.market-page--space-type .market-links a {
     color: #334155;
   }
 
+  .building-page .building-brief-section--note {
+    padding: 18px 20px;
+    margin-bottom: clamp(28px, 4vw, 42px);
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    background: #f8fbff;
+  }
+
+  .building-page .building-brief-section--note h2 {
+    font-size: clamp(1.18rem, 2vw, 1.45rem);
+  }
+
+  .building-page .building-brief-section--note p {
+    margin-bottom: 0;
+    max-width: 78ch;
+  }
+
   .building-page .building-check-list {
     list-style: none;
     padding-left: 0;
@@ -7945,6 +7983,11 @@ section.market-page--space-type .market-links a {
     padding: 18px;
   }
 
+  .building-page .building-decision-panel .mini-list,
+  .building-page .building-fit-panel .mini-list {
+    line-height: 1.55;
+  }
+
   .building-page .building-fit-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -7975,11 +8018,11 @@ section.market-page--space-type .market-links a {
   .building-page .building-question-list li {
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background: #ffffff;
+    background: #fbfdff;
     color: #0f172a;
     line-height: 1.55;
     padding: 14px 16px;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    box-shadow: none;
   }
 
   .building-page .building-nearby-links {
@@ -8087,6 +8130,29 @@ section.market-page--space-type .market-links a {
     margin-top: 18px;
   }
 
+  .building-page .building-alternative-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .building-page .related-building-card--alternative {
+    min-height: 150px;
+    align-content: start;
+    padding: 18px;
+    background: #ffffff;
+  }
+
+  .building-page .related-building-card--insight {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+
+  .building-page .related-building-list--compact {
+    gap: 10px;
+    max-width: 780px;
+  }
+
   .building-page .building-help-card {
     padding: 22px;
     border: 1px solid #e2e8f0;
@@ -8179,8 +8245,21 @@ section.market-page--space-type .market-links a {
       margin-bottom: 30px;
     }
 
+    .building-page .building-brief-take {
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
     .building-page .building-brief-snapshot {
       grid-template-columns: 1fr;
+    }
+
+    .building-page .related-building-card--alternative {
+      min-height: auto;
+    }
+
+    .building-page .building-brief-section--note {
+      padding: 16px;
     }
 
     .product-transition-card {

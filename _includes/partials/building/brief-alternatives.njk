@@ -4,37 +4,48 @@
     <div class="building-brief-section__header">
       <div class="eyebrow">Compare</div>
       <h2>Nearby Alternatives</h2>
-      <p>Use nearby representative buildings and district alternatives to decide whether this building is the right reference point or whether another option explains the search better.</p>
+      <p>Use these alternatives to understand the real tradeoff, not just the nearest address.</p>
     </div>
 
-    <div class="building-next-link-grid">
+    <div class="building-next-link-grid building-alternative-grid">
       {% for alternative in alternatives %}
-        {% if loop.index <= 3 %}
-          <a class="related-building-card" href="{{ alternative.url }}">
+        {% if loop.index <= 5 %}
+          {% set alternativeRecord = commercialBuildingIntelligence.byPath[alternative.url] %}
+          <a class="related-building-card related-building-card--alternative" href="{{ alternative.url }}">
             <span class="related-building-card__title">{{ alternative.label }}</span>
+            {% if alternativeRecord %}
+              <span class="related-building-card__context">
+                {{ alternativeRecord.identity.canonicalDistrict.name }}{% if alternativeRecord.identity.buildingType %} · {{ alternativeRecord.identity.buildingType }}{% endif %}
+              </span>
+            {% endif %}
+            <span class="related-building-card__cue">Prefer this when</span>
             <span class="related-building-card__meta">{{ alternative.reason or "Compare this location tradeoff before narrowing the building shortlist." }}</span>
           </a>
         {% endif %}
       {% endfor %}
 
-      {% for related in building.related_buildings %}
-        {% if loop.index <= 3 %}
-          <a class="related-building-card" href="{{ related.building_path or related.path }}">
-            <span class="related-building-card__title">{{ related.display_name or related.address }}</span>
-            <span class="related-building-card__meta">{{ related.reason or "Compare for a different building format, address signal, or workplace tradeoff." }}</span>
-          </a>
-        {% endif %}
-      {% endfor %}
+      {% if not alternatives.length %}
+        {% for related in building.related_buildings %}
+          {% if loop.index <= 3 %}
+            <a class="related-building-card related-building-card--alternative" href="{{ related.building_path or related.path }}">
+              <span class="related-building-card__title">{{ related.display_name or related.address }}</span>
+              <span class="related-building-card__cue">Prefer this when</span>
+              <span class="related-building-card__meta">{{ related.reason or "Compare for a different building format, address signal, or workplace tradeoff." }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
 
-      {% for comparisonPath in relatedComparisonPaths %}
-        {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
-        {% if relatedComparison and loop.index <= 2 %}
-          <a class="related-building-card" href="{{ relatedComparison.path }}">
-            <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
-            <span class="related-building-card__meta">Use the full comparison to understand which building better fits the business decision.</span>
-          </a>
-        {% endif %}
-      {% endfor %}
+        {% for comparisonPath in relatedComparisonPaths %}
+          {% set relatedComparison = commercialBuildingComparisons.byPath[comparisonPath] %}
+          {% if relatedComparison and loop.index <= 2 %}
+            <a class="related-building-card related-building-card--alternative" href="{{ relatedComparison.path }}">
+              <span class="related-building-card__title">{{ relatedComparison.short_title }}</span>
+              <span class="related-building-card__cue">Use this comparison to</span>
+              <span class="related-building-card__meta">Use the full comparison to understand which building better fits the business decision.</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
   </section>
 {% endif %}
