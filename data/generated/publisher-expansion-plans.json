@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-21T12:22:25-07:00",
+  "generatedAt": "2026-07-21T12:42:59-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -97,6 +97,412 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 2,
+          "partial": 3,
+          "thin": 0,
+          "missing": 2,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 5,
+            "secondaryDistrictCount": 10,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 41,
+            "buildingBriefCount": 13,
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "soma",
+                "label": "SoMa",
+                "path": "/commercial-real-estate/CA/san-francisco/soma/"
+              },
+              {
+                "slug": "financial-district",
+                "label": "Financial District",
+                "path": "/commercial-real-estate/CA/san-francisco/financial-district/"
+              },
+              {
+                "slug": "jackson-square",
+                "label": "Jackson Square",
+                "path": "/commercial-real-estate/CA/san-francisco/jackson-square/"
+              },
+              {
+                "slug": "stanford-research-park",
+                "label": "Stanford Research Park",
+                "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/"
+              },
+              {
+                "slug": "emeryville-commercial-core",
+                "label": "Emeryville Commercial Core",
+                "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
+              }
+            ],
+            "subtypes": {
+              "creative_office": 2,
+              "downtown_office": 2,
+              "executive_office": 1,
+              "professional_office": 2,
+              "office_campus": 1,
+              "research_development": 1,
+              "flex": 1
+            },
+            "archetypes": {
+              "startup": 3,
+              "creative_studio": 2,
+              "marketing_agency": 2,
+              "law_firm": 2,
+              "financial_services_firm": 1,
+              "consulting_firm": 2,
+              "professional_office": 2,
+              "research_company": 1,
+              "biotech_company": 1,
+              "accounting_firm": 1
+            },
+            "activities": {
+              "knowledge_work": 5,
+              "collaboration": 3,
+              "product_development": 2,
+              "customer_showroom": 1,
+              "client_meetings": 3,
+              "administrative_operations": 2,
+              "research": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "suburban_office",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 7,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 7,
+            "representativeBuildingCount": 36,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "north-san-jose",
+                "label": "North San Jose",
+                "path": "/commercial-real-estate/CA/san-jose/north-san-jose/"
+              },
+              {
+                "slug": "moffett-park",
+                "label": "Moffett Park",
+                "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/"
+              },
+              {
+                "slug": "north-bayshore",
+                "label": "North Bayshore",
+                "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/"
+              },
+              {
+                "slug": "hayward-industrial",
+                "label": "Hayward Industrial",
+                "path": "/commercial-real-estate/CA/hayward/hayward-industrial/"
+              },
+              {
+                "slug": "union-city-industrial",
+                "label": "Union City Industrial",
+                "path": "/commercial-real-estate/CA/union-city/union-city-industrial/"
+              },
+              {
+                "slug": "warm-springs-innovation-district",
+                "label": "Warm Springs Innovation District",
+                "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
+              },
+              {
+                "slug": "west-berkeley",
+                "label": "West Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/west-berkeley/"
+              }
+            ],
+            "subtypes": {
+              "research_development": 4,
+              "flex": 5,
+              "professional_office": 2,
+              "small_bay_industrial": 4,
+              "warehouse": 2,
+              "manufacturing": 1,
+              "light_manufacturing": 1
+            },
+            "archetypes": {
+              "research_company": 1,
+              "light_manufacturer": 6,
+              "startup": 1,
+              "general_contractor": 5,
+              "cabinet_shop": 6,
+              "distributor": 5,
+              "ecommerce_fulfillment_business": 5,
+              "creative_studio": 1,
+              "food_producer": 1
+            },
+            "activities": {
+              "product_development": 1,
+              "research": 1,
+              "light_manufacturing": 7,
+              "knowledge_work": 2,
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 6,
+              "customer_showroom": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "contractor_service",
+              "contractor_yard",
+              "showroom_flex"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 5,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 16,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-palo-alto",
+                "label": "Downtown Palo Alto",
+                "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/"
+              },
+              {
+                "slug": "downtown-redwood-city",
+                "label": "Downtown Redwood City",
+                "path": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/"
+              },
+              {
+                "slug": "downtown-san-mateo",
+                "label": "Downtown San Mateo",
+                "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/"
+              },
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
+              },
+              {
+                "slug": "jack-london-square",
+                "label": "Jack London Square",
+                "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 5,
+              "neighborhood_retail": 5
+            },
+            "archetypes": {
+              "wellness_practice": 5,
+              "marketing_agency": 5
+            },
+            "activities": {
+              "walk_in_retail": 5,
+              "walk_in_service": 5,
+              "customer_showroom": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "downtown_retail",
+              "shopping_center",
+              "power_center",
+              "lifestyle_retail"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "medical_office",
+              "outpatient_clinic",
+              "dental",
+              "wellness"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 1,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 1,
+            "representativeBuildingCount": 14,
+            "buildingBriefCount": 3,
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "mission-bay",
+                "label": "Mission Bay",
+                "path": "/commercial-real-estate/CA/san-francisco/mission-bay/"
+              }
+            ],
+            "subtypes": {
+              "life_science_office": 1,
+              "innovation_campus": 1
+            },
+            "archetypes": {
+              "biotech_company": 1,
+              "research_company": 1,
+              "startup": 1
+            },
+            "activities": {
+              "research": 1,
+              "product_development": 1,
+              "collaboration": 1,
+              "knowledge_work": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "creative_office": 2,
+          "downtown_office": 2,
+          "executive_office": 1,
+          "professional_office": 9,
+          "office_campus": 1,
+          "research_development": 5,
+          "flex": 6,
+          "small_bay_industrial": 4,
+          "warehouse": 2,
+          "manufacturing": 1,
+          "light_manufacturing": 1,
+          "neighborhood_retail": 5,
+          "life_science_office": 1,
+          "innovation_campus": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 8,
+          "collaboration": 4,
+          "product_development": 4,
+          "customer_showroom": 7,
+          "client_meetings": 3,
+          "administrative_operations": 2,
+          "research": 3,
+          "light_manufacturing": 7,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 6,
+          "walk_in_retail": 5,
+          "walk_in_service": 5
+        },
+        "archetypeCoverage": {
+          "startup": 5,
+          "creative_studio": 3,
+          "marketing_agency": 7,
+          "law_firm": 2,
+          "financial_services_firm": 1,
+          "consulting_firm": 2,
+          "professional_office": 2,
+          "research_company": 3,
+          "biotech_company": 2,
+          "accounting_firm": 1,
+          "light_manufacturer": 6,
+          "general_contractor": 5,
+          "cabinet_shop": 6,
+          "distributor": 5,
+          "ecommerce_fulfillment_business": 5,
+          "food_producer": 1,
+          "wellness_practice": 5
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 2,
+          "partialCount": 3,
+          "thinCount": 0,
+          "missingCount": 2,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -14729,7 +15135,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -14771,6 +15177,362 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 3,
+          "thin": 1,
+          "missing": 3,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 2,
+            "secondaryDistrictCount": 8,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 6,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-sacramento",
+                "label": "Downtown Sacramento",
+                "path": "/commercial-real-estate/CA/sacramento/downtown-sacramento/"
+              },
+              {
+                "slug": "midtown-sacramento",
+                "label": "Midtown Sacramento",
+                "path": "/commercial-real-estate/CA/sacramento/midtown-sacramento/"
+              }
+            ],
+            "subtypes": {
+              "downtown_office": 1,
+              "government_office": 1,
+              "professional_office": 1,
+              "creative_office": 1
+            },
+            "archetypes": {
+              "law_firm": 1,
+              "government_contractor": 1,
+              "professional_office": 2,
+              "marketing_agency": 1,
+              "medical_practice": 1
+            },
+            "activities": {
+              "knowledge_work": 2,
+              "client_meetings": 2,
+              "administrative_operations": 1,
+              "walk_in_service": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "executive_office",
+              "suburban_office",
+              "office_campus",
+              "coworking"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 5,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Thin",
+            "districts": [
+              {
+                "slug": "natomas",
+                "label": "Natomas",
+                "path": "/commercial-real-estate/CA/sacramento/natomas/"
+              },
+              {
+                "slug": "rancho-cordova-commercial-core",
+                "label": "Rancho Cordova Commercial Core",
+                "path": "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/"
+              },
+              {
+                "slug": "rocklin-commercial-core",
+                "label": "Rocklin Commercial Core",
+                "path": "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/"
+              },
+              {
+                "slug": "power-inn-industrial",
+                "label": "Power Inn Industrial",
+                "path": "/commercial-real-estate/CA/sacramento/power-inn-industrial/"
+              },
+              {
+                "slug": "west-sacramento-industrial",
+                "label": "West Sacramento Industrial",
+                "path": "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 3,
+              "flex": 4,
+              "medical_office": 3,
+              "warehouse": 3,
+              "small_bay_industrial": 4,
+              "neighborhood_retail": 1,
+              "contractor_service": 1
+            },
+            "archetypes": {
+              "general_contractor": 5,
+              "cabinet_shop": 4,
+              "light_manufacturer": 4,
+              "distributor": 4,
+              "ecommerce_fulfillment_business": 4,
+              "hvac_company": 1,
+              "building_services_company": 1
+            },
+            "activities": {
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 5,
+              "light_manufacturing": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "light_manufacturing",
+              "manufacturing",
+              "contractor_yard"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 9,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 5,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 9,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "folsom-commercial-core",
+                "label": "Folsom Commercial Core",
+                "path": "/commercial-real-estate/CA/folsom/folsom-commercial-core/"
+              },
+              {
+                "slug": "roseville-commercial-core",
+                "label": "Roseville Commercial Core",
+                "path": "/commercial-real-estate/CA/roseville/roseville-commercial-core/"
+              },
+              {
+                "slug": "elk-grove-commercial-core",
+                "label": "Elk Grove Commercial Core",
+                "path": "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/"
+              },
+              {
+                "slug": "east-sacramento-alhambra-corridor",
+                "label": "East Sacramento / Alhambra Corridor",
+                "path": "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/"
+              },
+              {
+                "slug": "arden-point-west",
+                "label": "Arden / Point West",
+                "path": "/commercial-real-estate/CA/sacramento/arden-point-west/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 5,
+              "neighborhood_retail": 5,
+              "medical_office": 5,
+              "flex": 3
+            },
+            "archetypes": {
+              "medical_practice": 5,
+              "dental_practice": 5,
+              "outpatient_clinic": 5,
+              "wellness_practice": 5
+            },
+            "activities": {
+              "healthcare_delivery": 5,
+              "administrative_operations": 5,
+              "walk_in_service": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "downtown_office": 1,
+          "government_office": 1,
+          "professional_office": 9,
+          "creative_office": 1,
+          "flex": 7,
+          "medical_office": 8,
+          "warehouse": 3,
+          "small_bay_industrial": 4,
+          "neighborhood_retail": 6,
+          "contractor_service": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 2,
+          "client_meetings": 2,
+          "administrative_operations": 6,
+          "walk_in_service": 6,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 5,
+          "light_manufacturing": 4,
+          "healthcare_delivery": 5
+        },
+        "archetypeCoverage": {
+          "law_firm": 1,
+          "government_contractor": 1,
+          "professional_office": 2,
+          "marketing_agency": 1,
+          "medical_practice": 6,
+          "general_contractor": 5,
+          "cabinet_shop": 4,
+          "light_manufacturer": 4,
+          "distributor": 4,
+          "ecommerce_fulfillment_business": 4,
+          "hvac_company": 1,
+          "building_services_company": 1,
+          "dental_practice": 5,
+          "outpatient_clinic": 5,
+          "wellness_practice": 5
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "status": "Thin",
+            "districtCount": 5,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "life_science",
+            "label": "Life Science",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 3,
+          "thinCount": 1,
+          "missingCount": 3,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -19284,13 +20046,14 @@
         }
       ],
       "warnings": [
-        "Representative buildings exist, but no Building Briefs are migrated."
+        "Representative buildings exist, but no Building Briefs are migrated.",
+        "Industrial/flex ecosystem coverage exists but lacks representative-building depth."
       ]
     },
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -19332,6 +20095,353 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 6,
+          "thin": 0,
+          "missing": 1,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 3,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 3,
+            "representativeBuildingCount": 12,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-san-diego",
+                "label": "Downtown San Diego",
+                "path": "/commercial-real-estate/CA/san-diego/downtown-san-diego/"
+              },
+              {
+                "slug": "utc-university-city",
+                "label": "UTC / University City",
+                "path": "/commercial-real-estate/CA/san-diego/utc-university-city/"
+              },
+              {
+                "slug": "carlsbad-business-park",
+                "label": "Carlsbad Business Park",
+                "path": "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/"
+              }
+            ],
+            "subtypes": {
+              "downtown_office": 1,
+              "professional_office": 3,
+              "medical_office": 1,
+              "life_science_office": 2,
+              "flex": 1,
+              "research_development": 1,
+              "small_bay_industrial": 1
+            },
+            "archetypes": {
+              "professional_office": 3,
+              "law_firm": 3,
+              "consulting_firm": 3,
+              "accounting_firm": 2,
+              "startup": 2
+            },
+            "activities": {
+              "knowledge_work": 3,
+              "client_meetings": 3,
+              "walk_in_retail": 1,
+              "collaboration": 2,
+              "administrative_operations": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "creative_office",
+              "executive_office",
+              "suburban_office",
+              "office_campus"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 8,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 8,
+            "representativeBuildingCount": 28,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "sorrento-mesa",
+                "label": "Sorrento Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/sorrento-mesa/"
+              },
+              {
+                "slug": "kearny-mesa",
+                "label": "Kearny Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/kearny-mesa/"
+              },
+              {
+                "slug": "miramar",
+                "label": "Miramar",
+                "path": "/commercial-real-estate/CA/san-diego/miramar/"
+              },
+              {
+                "slug": "otay-mesa",
+                "label": "Otay Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/otay-mesa/"
+              },
+              {
+                "slug": "rancho-bernardo",
+                "label": "Rancho Bernardo",
+                "path": "/commercial-real-estate/CA/san-diego/rancho-bernardo/"
+              },
+              {
+                "slug": "poway-business-park",
+                "label": "Poway Business Park",
+                "path": "/commercial-real-estate/CA/poway/poway-business-park/"
+              },
+              {
+                "slug": "vista-business-park",
+                "label": "Vista Business Park",
+                "path": "/commercial-real-estate/CA/vista/vista-business-park/"
+              },
+              {
+                "slug": "oceanside-industrial",
+                "label": "Oceanside Industrial",
+                "path": "/commercial-real-estate/CA/oceanside/oceanside-industrial/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 4,
+              "life_science_office": 1,
+              "research_development": 2,
+              "flex": 6,
+              "small_bay_industrial": 8,
+              "showroom_retail": 1,
+              "neighborhood_retail": 2,
+              "warehouse": 5,
+              "contractor_service": 1,
+              "distribution": 1,
+              "manufacturing": 2,
+              "medical_office": 1
+            },
+            "archetypes": {
+              "general_contractor": 8,
+              "cabinet_shop": 7,
+              "light_manufacturer": 7,
+              "distributor": 8,
+              "ecommerce_fulfillment_business": 8
+            },
+            "activities": {
+              "receiving": 7,
+              "shipping": 7,
+              "storage": 8,
+              "service_dispatch": 8,
+              "light_manufacturing": 7,
+              "distribution": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "light_manufacturing",
+              "contractor_yard",
+              "showroom_flex",
+              "last_mile_logistics"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 1,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 1,
+            "representativeBuildingCount": 4,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "mission-valley",
+                "label": "Mission Valley",
+                "path": "/commercial-real-estate/CA/san-diego/mission-valley/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 1,
+              "medical_office": 1,
+              "neighborhood_retail": 1
+            },
+            "archetypes": {
+              "medical_practice": 1,
+              "dental_practice": 1,
+              "outpatient_clinic": 1,
+              "wellness_practice": 1
+            },
+            "activities": {
+              "healthcare_delivery": 1,
+              "administrative_operations": 1,
+              "walk_in_service": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "downtown_office": 1,
+          "professional_office": 8,
+          "medical_office": 3,
+          "life_science_office": 3,
+          "flex": 7,
+          "research_development": 3,
+          "small_bay_industrial": 9,
+          "showroom_retail": 1,
+          "neighborhood_retail": 3,
+          "warehouse": 5,
+          "contractor_service": 1,
+          "distribution": 1,
+          "manufacturing": 2
+        },
+        "activityCoverage": {
+          "knowledge_work": 3,
+          "client_meetings": 3,
+          "walk_in_retail": 1,
+          "collaboration": 2,
+          "administrative_operations": 3,
+          "receiving": 7,
+          "shipping": 7,
+          "storage": 8,
+          "service_dispatch": 8,
+          "light_manufacturing": 7,
+          "distribution": 1,
+          "healthcare_delivery": 1,
+          "walk_in_service": 1
+        },
+        "archetypeCoverage": {
+          "professional_office": 3,
+          "law_firm": 3,
+          "consulting_firm": 3,
+          "accounting_firm": 2,
+          "startup": 2,
+          "general_contractor": 8,
+          "cabinet_shop": 7,
+          "light_manufacturer": 7,
+          "distributor": 8,
+          "ecommerce_fulfillment_business": 8,
+          "medical_practice": 1,
+          "dental_practice": 1,
+          "outpatient_clinic": 1,
+          "wellness_practice": 1
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 6,
+          "thinCount": 0,
+          "missingCount": 1,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -25623,7 +26733,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -25665,6 +26775,348 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 5,
+          "thin": 0,
+          "missing": 2,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 4,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 18,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "irvine-spectrum",
+                "label": "Irvine Spectrum",
+                "path": "/commercial-real-estate/CA/irvine/irvine-spectrum/"
+              },
+              {
+                "slug": "irvine-business-complex",
+                "label": "Irvine Business Complex",
+                "path": "/commercial-real-estate/CA/irvine/irvine-business-complex/"
+              },
+              {
+                "slug": "south-coast-metro",
+                "label": "South Coast Metro",
+                "path": "/commercial-real-estate/CA/costa-mesa/south-coast-metro/"
+              },
+              {
+                "slug": "newport-center",
+                "label": "Newport Center",
+                "path": "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/"
+              }
+            ],
+            "subtypes": {
+              "suburban_office": 2,
+              "office_campus": 1,
+              "creative_office": 1,
+              "professional_office": 2,
+              "medical_office": 2,
+              "neighborhood_retail": 2
+            },
+            "archetypes": {
+              "startup": 4,
+              "consulting_firm": 3,
+              "medical_practice": 1,
+              "marketing_agency": 1,
+              "creative_studio": 1,
+              "professional_office": 2,
+              "law_firm": 2,
+              "accounting_firm": 2
+            },
+            "activities": {
+              "knowledge_work": 4,
+              "collaboration": 4,
+              "client_meetings": 3,
+              "customer_showroom": 1,
+              "administrative_operations": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "downtown_office",
+              "executive_office",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 4,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 8,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "university-research-park",
+                "label": "University Research Park",
+                "path": "/commercial-real-estate/CA/irvine/university-research-park/"
+              },
+              {
+                "slug": "anaheim-canyon",
+                "label": "Anaheim Canyon",
+                "path": "/commercial-real-estate/CA/anaheim/anaheim-canyon/"
+              },
+              {
+                "slug": "lake-forest-business-park",
+                "label": "Lake Forest Business Park",
+                "path": "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/"
+              },
+              {
+                "slug": "fullerton",
+                "label": "Fullerton",
+                "path": "/commercial-real-estate/CA/fullerton/fullerton/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 3,
+              "research_development": 2,
+              "flex": 4,
+              "life_science_office": 1,
+              "small_bay_industrial": 3,
+              "warehouse": 3,
+              "manufacturing": 1,
+              "neighborhood_retail": 1
+            },
+            "archetypes": {
+              "general_contractor": 4,
+              "cabinet_shop": 4,
+              "light_manufacturer": 4,
+              "distributor": 4,
+              "ecommerce_fulfillment_business": 4
+            },
+            "activities": {
+              "receiving": 4,
+              "shipping": 4,
+              "storage": 4,
+              "service_dispatch": 4,
+              "light_manufacturing": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "light_manufacturing",
+              "contractor_service",
+              "contractor_yard"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 2,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 4,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "tustin-legacy",
+                "label": "Tustin Legacy",
+                "path": "/commercial-real-estate/CA/tustin/tustin-legacy/"
+              },
+              {
+                "slug": "south-oc-medical-professional",
+                "label": "South OC Medical & Professional",
+                "path": "/commercial-real-estate/CA/mission-viejo/mission-viejo/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 2,
+              "medical_office": 2,
+              "neighborhood_retail": 2,
+              "flex": 1
+            },
+            "archetypes": {
+              "medical_practice": 2,
+              "dental_practice": 2,
+              "outpatient_clinic": 2,
+              "wellness_practice": 2
+            },
+            "activities": {
+              "healthcare_delivery": 2,
+              "administrative_operations": 2,
+              "walk_in_service": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "suburban_office": 2,
+          "office_campus": 1,
+          "creative_office": 1,
+          "professional_office": 7,
+          "medical_office": 4,
+          "neighborhood_retail": 5,
+          "research_development": 2,
+          "flex": 5,
+          "life_science_office": 1,
+          "small_bay_industrial": 3,
+          "warehouse": 3,
+          "manufacturing": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 4,
+          "collaboration": 4,
+          "client_meetings": 3,
+          "customer_showroom": 1,
+          "administrative_operations": 4,
+          "receiving": 4,
+          "shipping": 4,
+          "storage": 4,
+          "service_dispatch": 4,
+          "light_manufacturing": 4,
+          "healthcare_delivery": 2,
+          "walk_in_service": 2
+        },
+        "archetypeCoverage": {
+          "startup": 4,
+          "consulting_firm": 3,
+          "medical_practice": 3,
+          "marketing_agency": 1,
+          "creative_studio": 1,
+          "professional_office": 2,
+          "law_firm": 2,
+          "accounting_firm": 2,
+          "general_contractor": 4,
+          "cabinet_shop": 4,
+          "light_manufacturer": 4,
+          "distributor": 4,
+          "ecommerce_fulfillment_business": 4,
+          "dental_practice": 2,
+          "outpatient_clinic": 2,
+          "wellness_practice": 2
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 5,
+          "thinCount": 0,
+          "missingCount": 2,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -31137,7 +32589,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -31179,6 +32631,401 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 6,
+          "thin": 0,
+          "missing": 1,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 10,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 10,
+            "representativeBuildingCount": 24,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "glendale",
+                "label": "Glendale",
+                "path": "/commercial-real-estate/CA/glendale/glendale/"
+              },
+              {
+                "slug": "downtown-denver",
+                "label": "Downtown Denver",
+                "path": "/commercial-real-estate/CO/denver/downtown-denver/"
+              },
+              {
+                "slug": "lodo",
+                "label": "LoDo",
+                "path": "/commercial-real-estate/CO/denver/lodo/"
+              },
+              {
+                "slug": "rino",
+                "label": "RiNo",
+                "path": "/commercial-real-estate/CO/denver/rino/"
+              },
+              {
+                "slug": "cherry-creek",
+                "label": "Cherry Creek",
+                "path": "/commercial-real-estate/CO/denver/cherry-creek/"
+              },
+              {
+                "slug": "denver-tech-center",
+                "label": "Denver Tech Center",
+                "path": "/commercial-real-estate/CO/denver/denver-tech-center/"
+              },
+              {
+                "slug": "inverness",
+                "label": "Inverness",
+                "path": "/commercial-real-estate/CO/englewood/inverness/"
+              },
+              {
+                "slug": "boulder",
+                "label": "Boulder",
+                "path": "/commercial-real-estate/CO/boulder/boulder/"
+              },
+              {
+                "slug": "broomfield",
+                "label": "Broomfield",
+                "path": "/commercial-real-estate/CO/broomfield/broomfield/"
+              },
+              {
+                "slug": "interlocken",
+                "label": "Interlocken",
+                "path": "/commercial-real-estate/CO/broomfield/interlocken/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 8,
+              "medical_office": 3,
+              "neighborhood_retail": 3,
+              "downtown_office": 1,
+              "executive_office": 1,
+              "creative_office": 1,
+              "showroom_flex": 1,
+              "flex": 4,
+              "research_development": 4
+            },
+            "archetypes": {
+              "professional_office": 7,
+              "law_firm": 8,
+              "accounting_firm": 7,
+              "consulting_firm": 8,
+              "startup": 9,
+              "financial_services_firm": 1,
+              "creative_studio": 1,
+              "marketing_agency": 1,
+              "research_company": 1,
+              "biotech_company": 1
+            },
+            "activities": {
+              "knowledge_work": 10,
+              "client_meetings": 8,
+              "collaboration": 8,
+              "administrative_operations": 8,
+              "customer_showroom": 1,
+              "research": 1,
+              "product_development": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "suburban_office",
+              "office_campus",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 5,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 8,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "northeast-denver-industrial",
+                "label": "Northeast Denver Industrial",
+                "path": "/commercial-real-estate/CO/denver/northeast-denver-industrial/"
+              },
+              {
+                "slug": "denver-airport-pena-boulevard-corridor",
+                "label": "Denver Airport / Pena Boulevard Corridor",
+                "path": "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/"
+              },
+              {
+                "slug": "louisville-superior",
+                "label": "Louisville / Superior",
+                "path": "/commercial-real-estate/CO/louisville/louisville-superior/"
+              },
+              {
+                "slug": "westminster",
+                "label": "Westminster",
+                "path": "/commercial-real-estate/CO/westminster/westminster/"
+              },
+              {
+                "slug": "golden",
+                "label": "Golden",
+                "path": "/commercial-real-estate/CO/golden/golden/"
+              }
+            ],
+            "subtypes": {
+              "small_bay_industrial": 3,
+              "warehouse": 2,
+              "distribution": 2,
+              "flex": 4,
+              "manufacturing": 1,
+              "professional_office": 3,
+              "research_development": 2,
+              "medical_office": 1,
+              "neighborhood_retail": 2
+            },
+            "archetypes": {
+              "general_contractor": 5,
+              "cabinet_shop": 5,
+              "light_manufacturer": 5,
+              "distributor": 5,
+              "ecommerce_fulfillment_business": 5
+            },
+            "activities": {
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 5,
+              "light_manufacturing": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "light_manufacturing",
+              "contractor_service",
+              "contractor_yard",
+              "showroom_flex"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 12,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 4,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 10,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "central-park",
+                "label": "Central Park",
+                "path": "/commercial-real-estate/CO/denver/central-park/"
+              },
+              {
+                "slug": "aurora",
+                "label": "Aurora",
+                "path": "/commercial-real-estate/CO/aurora/aurora/"
+              },
+              {
+                "slug": "centennial",
+                "label": "Centennial",
+                "path": "/commercial-real-estate/CO/centennial/centennial/"
+              },
+              {
+                "slug": "lakewood",
+                "label": "Lakewood",
+                "path": "/commercial-real-estate/CO/lakewood/lakewood/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 4,
+              "medical_office": 4,
+              "neighborhood_retail": 4,
+              "small_bay_industrial": 1,
+              "flex": 2
+            },
+            "archetypes": {
+              "medical_practice": 4,
+              "dental_practice": 4,
+              "outpatient_clinic": 4,
+              "wellness_practice": 4
+            },
+            "activities": {
+              "healthcare_delivery": 4,
+              "administrative_operations": 4,
+              "walk_in_service": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "professional_office": 15,
+          "medical_office": 8,
+          "neighborhood_retail": 9,
+          "downtown_office": 1,
+          "executive_office": 1,
+          "creative_office": 1,
+          "showroom_flex": 1,
+          "flex": 10,
+          "research_development": 6,
+          "small_bay_industrial": 4,
+          "warehouse": 2,
+          "distribution": 2,
+          "manufacturing": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 10,
+          "client_meetings": 8,
+          "collaboration": 8,
+          "administrative_operations": 12,
+          "customer_showroom": 1,
+          "research": 1,
+          "product_development": 1,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 5,
+          "light_manufacturing": 5,
+          "healthcare_delivery": 4,
+          "walk_in_service": 4
+        },
+        "archetypeCoverage": {
+          "professional_office": 7,
+          "law_firm": 8,
+          "accounting_firm": 7,
+          "consulting_firm": 8,
+          "startup": 9,
+          "financial_services_firm": 1,
+          "creative_studio": 1,
+          "marketing_agency": 1,
+          "research_company": 1,
+          "biotech_company": 1,
+          "general_contractor": 5,
+          "cabinet_shop": 5,
+          "light_manufacturer": 5,
+          "distributor": 5,
+          "ecommerce_fulfillment_business": 5,
+          "medical_practice": 4,
+          "dental_practice": 4,
+          "outpatient_clinic": 4,
+          "wellness_practice": 4
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 6,
+          "thinCount": 0,
+          "missingCount": 1,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -37943,7 +39790,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "In Development",
         "overallScore": 19,
@@ -37985,6 +39832,230 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 0,
+          "thin": 0,
+          "missing": 7,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "downtown_office",
+              "professional_office",
+              "creative_office",
+              "executive_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "small_bay_industrial",
+              "flex",
+              "warehouse",
+              "distribution"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "medical_office",
+              "outpatient_clinic",
+              "dental",
+              "wellness"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {},
+        "activityCoverage": {},
+        "archetypeCoverage": {},
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "office",
+            "label": "Office",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "retail",
+            "label": "Retail",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "medical",
+            "label": "Medical",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "life_science",
+            "label": "Life Science",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 0,
+          "thinCount": 0,
+          "missingCount": 7,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -38350,7 +40421,8 @@
         }
       ],
       "warnings": [
-        "Representative-building coverage is absent."
+        "Representative-building coverage is absent.",
+        "Industrial/flex ecosystem coverage is absent or not classified."
       ]
     }
   ],
@@ -38358,7 +40430,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -38400,6 +40472,412 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 2,
+          "partial": 3,
+          "thin": 0,
+          "missing": 2,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 5,
+            "secondaryDistrictCount": 10,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 41,
+            "buildingBriefCount": 13,
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "soma",
+                "label": "SoMa",
+                "path": "/commercial-real-estate/CA/san-francisco/soma/"
+              },
+              {
+                "slug": "financial-district",
+                "label": "Financial District",
+                "path": "/commercial-real-estate/CA/san-francisco/financial-district/"
+              },
+              {
+                "slug": "jackson-square",
+                "label": "Jackson Square",
+                "path": "/commercial-real-estate/CA/san-francisco/jackson-square/"
+              },
+              {
+                "slug": "stanford-research-park",
+                "label": "Stanford Research Park",
+                "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/"
+              },
+              {
+                "slug": "emeryville-commercial-core",
+                "label": "Emeryville Commercial Core",
+                "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
+              }
+            ],
+            "subtypes": {
+              "creative_office": 2,
+              "downtown_office": 2,
+              "executive_office": 1,
+              "professional_office": 2,
+              "office_campus": 1,
+              "research_development": 1,
+              "flex": 1
+            },
+            "archetypes": {
+              "startup": 3,
+              "creative_studio": 2,
+              "marketing_agency": 2,
+              "law_firm": 2,
+              "financial_services_firm": 1,
+              "consulting_firm": 2,
+              "professional_office": 2,
+              "research_company": 1,
+              "biotech_company": 1,
+              "accounting_firm": 1
+            },
+            "activities": {
+              "knowledge_work": 5,
+              "collaboration": 3,
+              "product_development": 2,
+              "customer_showroom": 1,
+              "client_meetings": 3,
+              "administrative_operations": 2,
+              "research": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "suburban_office",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 7,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 7,
+            "representativeBuildingCount": 36,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "north-san-jose",
+                "label": "North San Jose",
+                "path": "/commercial-real-estate/CA/san-jose/north-san-jose/"
+              },
+              {
+                "slug": "moffett-park",
+                "label": "Moffett Park",
+                "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/"
+              },
+              {
+                "slug": "north-bayshore",
+                "label": "North Bayshore",
+                "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/"
+              },
+              {
+                "slug": "hayward-industrial",
+                "label": "Hayward Industrial",
+                "path": "/commercial-real-estate/CA/hayward/hayward-industrial/"
+              },
+              {
+                "slug": "union-city-industrial",
+                "label": "Union City Industrial",
+                "path": "/commercial-real-estate/CA/union-city/union-city-industrial/"
+              },
+              {
+                "slug": "warm-springs-innovation-district",
+                "label": "Warm Springs Innovation District",
+                "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
+              },
+              {
+                "slug": "west-berkeley",
+                "label": "West Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/west-berkeley/"
+              }
+            ],
+            "subtypes": {
+              "research_development": 4,
+              "flex": 5,
+              "professional_office": 2,
+              "small_bay_industrial": 4,
+              "warehouse": 2,
+              "manufacturing": 1,
+              "light_manufacturing": 1
+            },
+            "archetypes": {
+              "research_company": 1,
+              "light_manufacturer": 6,
+              "startup": 1,
+              "general_contractor": 5,
+              "cabinet_shop": 6,
+              "distributor": 5,
+              "ecommerce_fulfillment_business": 5,
+              "creative_studio": 1,
+              "food_producer": 1
+            },
+            "activities": {
+              "product_development": 1,
+              "research": 1,
+              "light_manufacturing": 7,
+              "knowledge_work": 2,
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 6,
+              "customer_showroom": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "contractor_service",
+              "contractor_yard",
+              "showroom_flex"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 5,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 16,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-palo-alto",
+                "label": "Downtown Palo Alto",
+                "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/"
+              },
+              {
+                "slug": "downtown-redwood-city",
+                "label": "Downtown Redwood City",
+                "path": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/"
+              },
+              {
+                "slug": "downtown-san-mateo",
+                "label": "Downtown San Mateo",
+                "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/"
+              },
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
+              },
+              {
+                "slug": "jack-london-square",
+                "label": "Jack London Square",
+                "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 5,
+              "neighborhood_retail": 5
+            },
+            "archetypes": {
+              "wellness_practice": 5,
+              "marketing_agency": 5
+            },
+            "activities": {
+              "walk_in_retail": 5,
+              "walk_in_service": 5,
+              "customer_showroom": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "downtown_retail",
+              "shopping_center",
+              "power_center",
+              "lifestyle_retail"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "medical_office",
+              "outpatient_clinic",
+              "dental",
+              "wellness"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 1,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 1,
+            "representativeBuildingCount": 14,
+            "buildingBriefCount": 3,
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "mission-bay",
+                "label": "Mission Bay",
+                "path": "/commercial-real-estate/CA/san-francisco/mission-bay/"
+              }
+            ],
+            "subtypes": {
+              "life_science_office": 1,
+              "innovation_campus": 1
+            },
+            "archetypes": {
+              "biotech_company": 1,
+              "research_company": 1,
+              "startup": 1
+            },
+            "activities": {
+              "research": 1,
+              "product_development": 1,
+              "collaboration": 1,
+              "knowledge_work": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "creative_office": 2,
+          "downtown_office": 2,
+          "executive_office": 1,
+          "professional_office": 9,
+          "office_campus": 1,
+          "research_development": 5,
+          "flex": 6,
+          "small_bay_industrial": 4,
+          "warehouse": 2,
+          "manufacturing": 1,
+          "light_manufacturing": 1,
+          "neighborhood_retail": 5,
+          "life_science_office": 1,
+          "innovation_campus": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 8,
+          "collaboration": 4,
+          "product_development": 4,
+          "customer_showroom": 7,
+          "client_meetings": 3,
+          "administrative_operations": 2,
+          "research": 3,
+          "light_manufacturing": 7,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 6,
+          "walk_in_retail": 5,
+          "walk_in_service": 5
+        },
+        "archetypeCoverage": {
+          "startup": 5,
+          "creative_studio": 3,
+          "marketing_agency": 7,
+          "law_firm": 2,
+          "financial_services_firm": 1,
+          "consulting_firm": 2,
+          "professional_office": 2,
+          "research_company": 3,
+          "biotech_company": 2,
+          "accounting_firm": 1,
+          "light_manufacturer": 6,
+          "general_contractor": 5,
+          "cabinet_shop": 6,
+          "distributor": 5,
+          "ecommerce_fulfillment_business": 5,
+          "food_producer": 1,
+          "wellness_practice": 5
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 2,
+          "partialCount": 3,
+          "thinCount": 0,
+          "missingCount": 2,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -53032,7 +55510,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -53074,6 +55552,362 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 3,
+          "thin": 1,
+          "missing": 3,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 2,
+            "secondaryDistrictCount": 8,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 6,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-sacramento",
+                "label": "Downtown Sacramento",
+                "path": "/commercial-real-estate/CA/sacramento/downtown-sacramento/"
+              },
+              {
+                "slug": "midtown-sacramento",
+                "label": "Midtown Sacramento",
+                "path": "/commercial-real-estate/CA/sacramento/midtown-sacramento/"
+              }
+            ],
+            "subtypes": {
+              "downtown_office": 1,
+              "government_office": 1,
+              "professional_office": 1,
+              "creative_office": 1
+            },
+            "archetypes": {
+              "law_firm": 1,
+              "government_contractor": 1,
+              "professional_office": 2,
+              "marketing_agency": 1,
+              "medical_practice": 1
+            },
+            "activities": {
+              "knowledge_work": 2,
+              "client_meetings": 2,
+              "administrative_operations": 1,
+              "walk_in_service": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "executive_office",
+              "suburban_office",
+              "office_campus",
+              "coworking"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 5,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Thin",
+            "districts": [
+              {
+                "slug": "natomas",
+                "label": "Natomas",
+                "path": "/commercial-real-estate/CA/sacramento/natomas/"
+              },
+              {
+                "slug": "rancho-cordova-commercial-core",
+                "label": "Rancho Cordova Commercial Core",
+                "path": "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/"
+              },
+              {
+                "slug": "rocklin-commercial-core",
+                "label": "Rocklin Commercial Core",
+                "path": "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/"
+              },
+              {
+                "slug": "power-inn-industrial",
+                "label": "Power Inn Industrial",
+                "path": "/commercial-real-estate/CA/sacramento/power-inn-industrial/"
+              },
+              {
+                "slug": "west-sacramento-industrial",
+                "label": "West Sacramento Industrial",
+                "path": "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 3,
+              "flex": 4,
+              "medical_office": 3,
+              "warehouse": 3,
+              "small_bay_industrial": 4,
+              "neighborhood_retail": 1,
+              "contractor_service": 1
+            },
+            "archetypes": {
+              "general_contractor": 5,
+              "cabinet_shop": 4,
+              "light_manufacturer": 4,
+              "distributor": 4,
+              "ecommerce_fulfillment_business": 4,
+              "hvac_company": 1,
+              "building_services_company": 1
+            },
+            "activities": {
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 5,
+              "light_manufacturing": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "light_manufacturing",
+              "manufacturing",
+              "contractor_yard"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 9,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 5,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 9,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "folsom-commercial-core",
+                "label": "Folsom Commercial Core",
+                "path": "/commercial-real-estate/CA/folsom/folsom-commercial-core/"
+              },
+              {
+                "slug": "roseville-commercial-core",
+                "label": "Roseville Commercial Core",
+                "path": "/commercial-real-estate/CA/roseville/roseville-commercial-core/"
+              },
+              {
+                "slug": "elk-grove-commercial-core",
+                "label": "Elk Grove Commercial Core",
+                "path": "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/"
+              },
+              {
+                "slug": "east-sacramento-alhambra-corridor",
+                "label": "East Sacramento / Alhambra Corridor",
+                "path": "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/"
+              },
+              {
+                "slug": "arden-point-west",
+                "label": "Arden / Point West",
+                "path": "/commercial-real-estate/CA/sacramento/arden-point-west/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 5,
+              "neighborhood_retail": 5,
+              "medical_office": 5,
+              "flex": 3
+            },
+            "archetypes": {
+              "medical_practice": 5,
+              "dental_practice": 5,
+              "outpatient_clinic": 5,
+              "wellness_practice": 5
+            },
+            "activities": {
+              "healthcare_delivery": 5,
+              "administrative_operations": 5,
+              "walk_in_service": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "downtown_office": 1,
+          "government_office": 1,
+          "professional_office": 9,
+          "creative_office": 1,
+          "flex": 7,
+          "medical_office": 8,
+          "warehouse": 3,
+          "small_bay_industrial": 4,
+          "neighborhood_retail": 6,
+          "contractor_service": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 2,
+          "client_meetings": 2,
+          "administrative_operations": 6,
+          "walk_in_service": 6,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 5,
+          "light_manufacturing": 4,
+          "healthcare_delivery": 5
+        },
+        "archetypeCoverage": {
+          "law_firm": 1,
+          "government_contractor": 1,
+          "professional_office": 2,
+          "marketing_agency": 1,
+          "medical_practice": 6,
+          "general_contractor": 5,
+          "cabinet_shop": 4,
+          "light_manufacturer": 4,
+          "distributor": 4,
+          "ecommerce_fulfillment_business": 4,
+          "hvac_company": 1,
+          "building_services_company": 1,
+          "dental_practice": 5,
+          "outpatient_clinic": 5,
+          "wellness_practice": 5
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "status": "Thin",
+            "districtCount": 5,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "life_science",
+            "label": "Life Science",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 3,
+          "thinCount": 1,
+          "missingCount": 3,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -57587,13 +60421,14 @@
         }
       ],
       "warnings": [
-        "Representative buildings exist, but no Building Briefs are migrated."
+        "Representative buildings exist, but no Building Briefs are migrated.",
+        "Industrial/flex ecosystem coverage exists but lacks representative-building depth."
       ]
     },
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -57635,6 +60470,353 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 6,
+          "thin": 0,
+          "missing": 1,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 3,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 3,
+            "representativeBuildingCount": 12,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "downtown-san-diego",
+                "label": "Downtown San Diego",
+                "path": "/commercial-real-estate/CA/san-diego/downtown-san-diego/"
+              },
+              {
+                "slug": "utc-university-city",
+                "label": "UTC / University City",
+                "path": "/commercial-real-estate/CA/san-diego/utc-university-city/"
+              },
+              {
+                "slug": "carlsbad-business-park",
+                "label": "Carlsbad Business Park",
+                "path": "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/"
+              }
+            ],
+            "subtypes": {
+              "downtown_office": 1,
+              "professional_office": 3,
+              "medical_office": 1,
+              "life_science_office": 2,
+              "flex": 1,
+              "research_development": 1,
+              "small_bay_industrial": 1
+            },
+            "archetypes": {
+              "professional_office": 3,
+              "law_firm": 3,
+              "consulting_firm": 3,
+              "accounting_firm": 2,
+              "startup": 2
+            },
+            "activities": {
+              "knowledge_work": 3,
+              "client_meetings": 3,
+              "walk_in_retail": 1,
+              "collaboration": 2,
+              "administrative_operations": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "creative_office",
+              "executive_office",
+              "suburban_office",
+              "office_campus"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 8,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 8,
+            "representativeBuildingCount": 28,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "sorrento-mesa",
+                "label": "Sorrento Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/sorrento-mesa/"
+              },
+              {
+                "slug": "kearny-mesa",
+                "label": "Kearny Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/kearny-mesa/"
+              },
+              {
+                "slug": "miramar",
+                "label": "Miramar",
+                "path": "/commercial-real-estate/CA/san-diego/miramar/"
+              },
+              {
+                "slug": "otay-mesa",
+                "label": "Otay Mesa",
+                "path": "/commercial-real-estate/CA/san-diego/otay-mesa/"
+              },
+              {
+                "slug": "rancho-bernardo",
+                "label": "Rancho Bernardo",
+                "path": "/commercial-real-estate/CA/san-diego/rancho-bernardo/"
+              },
+              {
+                "slug": "poway-business-park",
+                "label": "Poway Business Park",
+                "path": "/commercial-real-estate/CA/poway/poway-business-park/"
+              },
+              {
+                "slug": "vista-business-park",
+                "label": "Vista Business Park",
+                "path": "/commercial-real-estate/CA/vista/vista-business-park/"
+              },
+              {
+                "slug": "oceanside-industrial",
+                "label": "Oceanside Industrial",
+                "path": "/commercial-real-estate/CA/oceanside/oceanside-industrial/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 4,
+              "life_science_office": 1,
+              "research_development": 2,
+              "flex": 6,
+              "small_bay_industrial": 8,
+              "showroom_retail": 1,
+              "neighborhood_retail": 2,
+              "warehouse": 5,
+              "contractor_service": 1,
+              "distribution": 1,
+              "manufacturing": 2,
+              "medical_office": 1
+            },
+            "archetypes": {
+              "general_contractor": 8,
+              "cabinet_shop": 7,
+              "light_manufacturer": 7,
+              "distributor": 8,
+              "ecommerce_fulfillment_business": 8
+            },
+            "activities": {
+              "receiving": 7,
+              "shipping": 7,
+              "storage": 8,
+              "service_dispatch": 8,
+              "light_manufacturing": 7,
+              "distribution": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "light_manufacturing",
+              "contractor_yard",
+              "showroom_flex",
+              "last_mile_logistics"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 1,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 1,
+            "representativeBuildingCount": 4,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "mission-valley",
+                "label": "Mission Valley",
+                "path": "/commercial-real-estate/CA/san-diego/mission-valley/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 1,
+              "medical_office": 1,
+              "neighborhood_retail": 1
+            },
+            "archetypes": {
+              "medical_practice": 1,
+              "dental_practice": 1,
+              "outpatient_clinic": 1,
+              "wellness_practice": 1
+            },
+            "activities": {
+              "healthcare_delivery": 1,
+              "administrative_operations": 1,
+              "walk_in_service": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "downtown_office": 1,
+          "professional_office": 8,
+          "medical_office": 3,
+          "life_science_office": 3,
+          "flex": 7,
+          "research_development": 3,
+          "small_bay_industrial": 9,
+          "showroom_retail": 1,
+          "neighborhood_retail": 3,
+          "warehouse": 5,
+          "contractor_service": 1,
+          "distribution": 1,
+          "manufacturing": 2
+        },
+        "activityCoverage": {
+          "knowledge_work": 3,
+          "client_meetings": 3,
+          "walk_in_retail": 1,
+          "collaboration": 2,
+          "administrative_operations": 3,
+          "receiving": 7,
+          "shipping": 7,
+          "storage": 8,
+          "service_dispatch": 8,
+          "light_manufacturing": 7,
+          "distribution": 1,
+          "healthcare_delivery": 1,
+          "walk_in_service": 1
+        },
+        "archetypeCoverage": {
+          "professional_office": 3,
+          "law_firm": 3,
+          "consulting_firm": 3,
+          "accounting_firm": 2,
+          "startup": 2,
+          "general_contractor": 8,
+          "cabinet_shop": 7,
+          "light_manufacturer": 7,
+          "distributor": 8,
+          "ecommerce_fulfillment_business": 8,
+          "medical_practice": 1,
+          "dental_practice": 1,
+          "outpatient_clinic": 1,
+          "wellness_practice": 1
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 6,
+          "thinCount": 0,
+          "missingCount": 1,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -63926,7 +67108,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -63968,6 +67150,348 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 5,
+          "thin": 0,
+          "missing": 2,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 4,
+            "secondaryDistrictCount": 5,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 18,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "irvine-spectrum",
+                "label": "Irvine Spectrum",
+                "path": "/commercial-real-estate/CA/irvine/irvine-spectrum/"
+              },
+              {
+                "slug": "irvine-business-complex",
+                "label": "Irvine Business Complex",
+                "path": "/commercial-real-estate/CA/irvine/irvine-business-complex/"
+              },
+              {
+                "slug": "south-coast-metro",
+                "label": "South Coast Metro",
+                "path": "/commercial-real-estate/CA/costa-mesa/south-coast-metro/"
+              },
+              {
+                "slug": "newport-center",
+                "label": "Newport Center",
+                "path": "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/"
+              }
+            ],
+            "subtypes": {
+              "suburban_office": 2,
+              "office_campus": 1,
+              "creative_office": 1,
+              "professional_office": 2,
+              "medical_office": 2,
+              "neighborhood_retail": 2
+            },
+            "archetypes": {
+              "startup": 4,
+              "consulting_firm": 3,
+              "medical_practice": 1,
+              "marketing_agency": 1,
+              "creative_studio": 1,
+              "professional_office": 2,
+              "law_firm": 2,
+              "accounting_firm": 2
+            },
+            "activities": {
+              "knowledge_work": 4,
+              "collaboration": 4,
+              "client_meetings": 3,
+              "customer_showroom": 1,
+              "administrative_operations": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "downtown_office",
+              "executive_office",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 4,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 8,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "university-research-park",
+                "label": "University Research Park",
+                "path": "/commercial-real-estate/CA/irvine/university-research-park/"
+              },
+              {
+                "slug": "anaheim-canyon",
+                "label": "Anaheim Canyon",
+                "path": "/commercial-real-estate/CA/anaheim/anaheim-canyon/"
+              },
+              {
+                "slug": "lake-forest-business-park",
+                "label": "Lake Forest Business Park",
+                "path": "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/"
+              },
+              {
+                "slug": "fullerton",
+                "label": "Fullerton",
+                "path": "/commercial-real-estate/CA/fullerton/fullerton/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 3,
+              "research_development": 2,
+              "flex": 4,
+              "life_science_office": 1,
+              "small_bay_industrial": 3,
+              "warehouse": 3,
+              "manufacturing": 1,
+              "neighborhood_retail": 1
+            },
+            "archetypes": {
+              "general_contractor": 4,
+              "cabinet_shop": 4,
+              "light_manufacturer": 4,
+              "distributor": 4,
+              "ecommerce_fulfillment_business": 4
+            },
+            "activities": {
+              "receiving": 4,
+              "shipping": 4,
+              "storage": 4,
+              "service_dispatch": 4,
+              "light_manufacturing": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "distribution",
+              "light_manufacturing",
+              "contractor_service",
+              "contractor_yard"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 2,
+            "secondaryDistrictCount": 3,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 4,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "tustin-legacy",
+                "label": "Tustin Legacy",
+                "path": "/commercial-real-estate/CA/tustin/tustin-legacy/"
+              },
+              {
+                "slug": "south-oc-medical-professional",
+                "label": "South OC Medical & Professional",
+                "path": "/commercial-real-estate/CA/mission-viejo/mission-viejo/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 2,
+              "medical_office": 2,
+              "neighborhood_retail": 2,
+              "flex": 1
+            },
+            "archetypes": {
+              "medical_practice": 2,
+              "dental_practice": 2,
+              "outpatient_clinic": 2,
+              "wellness_practice": 2
+            },
+            "activities": {
+              "healthcare_delivery": 2,
+              "administrative_operations": 2,
+              "walk_in_service": 2
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "suburban_office": 2,
+          "office_campus": 1,
+          "creative_office": 1,
+          "professional_office": 7,
+          "medical_office": 4,
+          "neighborhood_retail": 5,
+          "research_development": 2,
+          "flex": 5,
+          "life_science_office": 1,
+          "small_bay_industrial": 3,
+          "warehouse": 3,
+          "manufacturing": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 4,
+          "collaboration": 4,
+          "client_meetings": 3,
+          "customer_showroom": 1,
+          "administrative_operations": 4,
+          "receiving": 4,
+          "shipping": 4,
+          "storage": 4,
+          "service_dispatch": 4,
+          "light_manufacturing": 4,
+          "healthcare_delivery": 2,
+          "walk_in_service": 2
+        },
+        "archetypeCoverage": {
+          "startup": 4,
+          "consulting_firm": 3,
+          "medical_practice": 3,
+          "marketing_agency": 1,
+          "creative_studio": 1,
+          "professional_office": 2,
+          "law_firm": 2,
+          "accounting_firm": 2,
+          "general_contractor": 4,
+          "cabinet_shop": 4,
+          "light_manufacturer": 4,
+          "distributor": 4,
+          "ecommerce_fulfillment_business": 4,
+          "dental_practice": 2,
+          "outpatient_clinic": 2,
+          "wellness_practice": 2
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          },
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 5,
+          "thinCount": 0,
+          "missingCount": 2,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [
@@ -69440,7 +72964,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-21T12:22:25-07:00",
+      "generatedAt": "2026-07-21T12:42:59-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -69482,6 +73006,401 @@
         "handbookLinks": {
           "score": 100,
           "note": "Publisher v1 measures resolvable internal links; handbook-link relevance is a future explicit category."
+        },
+        "ecosystems": {
+          "count": 7,
+          "developed": 0,
+          "partial": 6,
+          "thin": 0,
+          "missing": 1,
+          "reviewRequired": 0,
+          "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
+        }
+      },
+      "ecosystemCoverage": {
+        "ecosystems": {
+          "office": {
+            "id": "office",
+            "label": "Office",
+            "districtCount": 10,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 10,
+            "representativeBuildingCount": 24,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "glendale",
+                "label": "Glendale",
+                "path": "/commercial-real-estate/CA/glendale/glendale/"
+              },
+              {
+                "slug": "downtown-denver",
+                "label": "Downtown Denver",
+                "path": "/commercial-real-estate/CO/denver/downtown-denver/"
+              },
+              {
+                "slug": "lodo",
+                "label": "LoDo",
+                "path": "/commercial-real-estate/CO/denver/lodo/"
+              },
+              {
+                "slug": "rino",
+                "label": "RiNo",
+                "path": "/commercial-real-estate/CO/denver/rino/"
+              },
+              {
+                "slug": "cherry-creek",
+                "label": "Cherry Creek",
+                "path": "/commercial-real-estate/CO/denver/cherry-creek/"
+              },
+              {
+                "slug": "denver-tech-center",
+                "label": "Denver Tech Center",
+                "path": "/commercial-real-estate/CO/denver/denver-tech-center/"
+              },
+              {
+                "slug": "inverness",
+                "label": "Inverness",
+                "path": "/commercial-real-estate/CO/englewood/inverness/"
+              },
+              {
+                "slug": "boulder",
+                "label": "Boulder",
+                "path": "/commercial-real-estate/CO/boulder/boulder/"
+              },
+              {
+                "slug": "broomfield",
+                "label": "Broomfield",
+                "path": "/commercial-real-estate/CO/broomfield/broomfield/"
+              },
+              {
+                "slug": "interlocken",
+                "label": "Interlocken",
+                "path": "/commercial-real-estate/CO/broomfield/interlocken/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 8,
+              "medical_office": 3,
+              "neighborhood_retail": 3,
+              "downtown_office": 1,
+              "executive_office": 1,
+              "creative_office": 1,
+              "showroom_flex": 1,
+              "flex": 4,
+              "research_development": 4
+            },
+            "archetypes": {
+              "professional_office": 7,
+              "law_firm": 8,
+              "accounting_firm": 7,
+              "consulting_firm": 8,
+              "startup": 9,
+              "financial_services_firm": 1,
+              "creative_studio": 1,
+              "marketing_agency": 1,
+              "research_company": 1,
+              "biotech_company": 1
+            },
+            "activities": {
+              "knowledge_work": 10,
+              "client_meetings": 8,
+              "collaboration": 8,
+              "administrative_operations": 8,
+              "customer_showroom": 1,
+              "research": 1,
+              "product_development": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "suburban_office",
+              "office_campus",
+              "coworking",
+              "government_office"
+            ]
+          },
+          "industrial_flex": {
+            "id": "industrial_flex",
+            "label": "Industrial & Flex",
+            "districtCount": 5,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 5,
+            "representativeBuildingCount": 8,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "northeast-denver-industrial",
+                "label": "Northeast Denver Industrial",
+                "path": "/commercial-real-estate/CO/denver/northeast-denver-industrial/"
+              },
+              {
+                "slug": "denver-airport-pena-boulevard-corridor",
+                "label": "Denver Airport / Pena Boulevard Corridor",
+                "path": "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/"
+              },
+              {
+                "slug": "louisville-superior",
+                "label": "Louisville / Superior",
+                "path": "/commercial-real-estate/CO/louisville/louisville-superior/"
+              },
+              {
+                "slug": "westminster",
+                "label": "Westminster",
+                "path": "/commercial-real-estate/CO/westminster/westminster/"
+              },
+              {
+                "slug": "golden",
+                "label": "Golden",
+                "path": "/commercial-real-estate/CO/golden/golden/"
+              }
+            ],
+            "subtypes": {
+              "small_bay_industrial": 3,
+              "warehouse": 2,
+              "distribution": 2,
+              "flex": 4,
+              "manufacturing": 1,
+              "professional_office": 3,
+              "research_development": 2,
+              "medical_office": 1,
+              "neighborhood_retail": 2
+            },
+            "archetypes": {
+              "general_contractor": 5,
+              "cabinet_shop": 5,
+              "light_manufacturer": 5,
+              "distributor": 5,
+              "ecommerce_fulfillment_business": 5
+            },
+            "activities": {
+              "receiving": 5,
+              "shipping": 5,
+              "storage": 5,
+              "service_dispatch": 5,
+              "light_manufacturing": 5
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "light_manufacturing",
+              "contractor_service",
+              "contractor_yard",
+              "showroom_flex"
+            ]
+          },
+          "retail": {
+            "id": "retail",
+            "label": "Retail",
+            "districtCount": 0,
+            "secondaryDistrictCount": 12,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "neighborhood_retail",
+              "downtown_retail",
+              "shopping_center",
+              "power_center"
+            ]
+          },
+          "medical": {
+            "id": "medical",
+            "label": "Medical",
+            "districtCount": 4,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 10,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [
+              {
+                "slug": "central-park",
+                "label": "Central Park",
+                "path": "/commercial-real-estate/CO/denver/central-park/"
+              },
+              {
+                "slug": "aurora",
+                "label": "Aurora",
+                "path": "/commercial-real-estate/CO/aurora/aurora/"
+              },
+              {
+                "slug": "centennial",
+                "label": "Centennial",
+                "path": "/commercial-real-estate/CO/centennial/centennial/"
+              },
+              {
+                "slug": "lakewood",
+                "label": "Lakewood",
+                "path": "/commercial-real-estate/CO/lakewood/lakewood/"
+              }
+            ],
+            "subtypes": {
+              "professional_office": 4,
+              "medical_office": 4,
+              "neighborhood_retail": 4,
+              "small_bay_industrial": 1,
+              "flex": 2
+            },
+            "archetypes": {
+              "medical_practice": 4,
+              "dental_practice": 4,
+              "outpatient_clinic": 4,
+              "wellness_practice": 4
+            },
+            "activities": {
+              "healthcare_delivery": 4,
+              "administrative_operations": 4,
+              "walk_in_service": 4
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "outpatient_clinic",
+              "dental",
+              "wellness",
+              "hospital_adjacent"
+            ]
+          },
+          "life_science": {
+            "id": "life_science",
+            "label": "Life Science",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "research_lab",
+              "wet_lab",
+              "life_science_office",
+              "biotech_research"
+            ]
+          },
+          "hospitality": {
+            "id": "hospitality",
+            "label": "Hospitality",
+            "districtCount": 0,
+            "secondaryDistrictCount": 1,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Partial",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "hotel",
+              "food_beverage",
+              "event_hospitality",
+              "visitor_serving"
+            ]
+          },
+          "special_purpose": {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "districtCount": 0,
+            "secondaryDistrictCount": 0,
+            "recommendationNodeCount": 0,
+            "representativeBuildingCount": 0,
+            "buildingBriefCount": 0,
+            "status": "Missing",
+            "districts": [],
+            "subtypes": {},
+            "archetypes": {},
+            "activities": {},
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [
+              "education",
+              "nonprofit",
+              "religious",
+              "automotive"
+            ]
+          }
+        },
+        "subtypeCoverage": {
+          "professional_office": 15,
+          "medical_office": 8,
+          "neighborhood_retail": 9,
+          "downtown_office": 1,
+          "executive_office": 1,
+          "creative_office": 1,
+          "showroom_flex": 1,
+          "flex": 10,
+          "research_development": 6,
+          "small_bay_industrial": 4,
+          "warehouse": 2,
+          "distribution": 2,
+          "manufacturing": 1
+        },
+        "activityCoverage": {
+          "knowledge_work": 10,
+          "client_meetings": 8,
+          "collaboration": 8,
+          "administrative_operations": 12,
+          "customer_showroom": 1,
+          "research": 1,
+          "product_development": 1,
+          "receiving": 5,
+          "shipping": 5,
+          "storage": 5,
+          "service_dispatch": 5,
+          "light_manufacturing": 5,
+          "healthcare_delivery": 4,
+          "walk_in_service": 4
+        },
+        "archetypeCoverage": {
+          "professional_office": 7,
+          "law_firm": 8,
+          "accounting_firm": 7,
+          "consulting_firm": 8,
+          "startup": 9,
+          "financial_services_firm": 1,
+          "creative_studio": 1,
+          "marketing_agency": 1,
+          "research_company": 1,
+          "biotech_company": 1,
+          "general_contractor": 5,
+          "cabinet_shop": 5,
+          "light_manufacturer": 5,
+          "distributor": 5,
+          "ecommerce_fulfillment_business": 5,
+          "medical_practice": 4,
+          "dental_practice": 4,
+          "outpatient_clinic": 4,
+          "wellness_practice": 4
+        },
+        "missingPrimaryEcosystemDistricts": [],
+        "reviewRequiredDistricts": [],
+        "underrepresentedEcosystems": [
+          {
+            "id": "special_purpose",
+            "label": "Special Purpose",
+            "status": "Missing",
+            "districtCount": 0,
+            "representativeBuildingCount": 0
+          }
+        ],
+        "summary": {
+          "ecosystemCount": 7,
+          "developedCount": 0,
+          "partialCount": 6,
+          "thinCount": 0,
+          "missingCount": 1,
+          "reviewRequiredDistrictCount": 0
         }
       },
       "gaps": [

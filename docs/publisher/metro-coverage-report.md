@@ -1,6 +1,6 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-21T19:39:15.821Z
+Generated: 2026-07-21T20:58:29.633Z
 Rules: publisher-rules-v1
 
 ## Overview
@@ -31,6 +31,18 @@ Rules: publisher-rules-v1
 | San Diego | 12 | 44 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Orange County | 10 | 30 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Denver | 19 | 42 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
+
+## Commercial Ecosystem Coverage
+
+| Metro | Office | Industrial & Flex | Retail | Medical | Life Science | Missing Ecosystems | Review Required |
+| --- | --- | --- | --- | --- | --- | ---: | ---: |
+| San Francisco | Developed (5/41/13) | Partial (7/36/0) | Partial (5/16/0) | Partial (0/0/0) | Developed (1/14/3) | 2 | 0 |
+| Sacramento | Partial (2/6/0) | Thin (5/0/0) | Partial (0/0/0) | Partial (5/9/0) | Missing (0/0/0) | 3 | 0 |
+| San Diego | Partial (3/12/0) | Partial (8/28/0) | Partial (0/0/0) | Partial (1/4/0) | Partial (0/0/0) | 1 | 0 |
+| Orange County | Partial (4/18/0) | Partial (4/8/0) | Partial (0/0/0) | Partial (2/4/0) | Partial (0/0/0) | 2 | 0 |
+| Denver | Partial (10/24/0) | Partial (5/8/0) | Partial (0/0/0) | Partial (4/10/0) | Partial (0/0/0) | 1 | 0 |
+
+Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem reporting is not included in Publisher readiness scoring yet.
 
 ## Category Coverage
 

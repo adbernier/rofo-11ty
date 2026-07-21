@@ -35,6 +35,7 @@ Each metro plan includes:
 
 - current readiness state and dimension scores
 - coverage status for cities, districts, recommendation nodes, comparisons, representative buildings, Building Briefs, insights, and handbook/internal links
+- commercial ecosystem coverage context from the Publisher analysis snapshot
 - deterministic gaps derived from Publisher queue items
 - priority scores for each gap
 - dependency metadata
@@ -108,6 +109,27 @@ Examples:
 - Mature representative-building coverage unlocks recommendation-page building modules.
 
 The planner should not recommend advanced Building Brief work when the canonical building record or district association is missing.
+
+## Commercial Ecosystem Awareness
+
+The planner now receives ecosystem coverage for each metro:
+
+- top-level ecosystem coverage states
+- district, Representative Building, and Building Brief counts by ecosystem
+- subtype, activity, and archetype coverage
+- underrepresented ecosystems
+- review-required classifications
+
+This context is used for warnings and sprint rationale only. It does not change the current priority formula or readiness scoring in v1.
+
+Planner warnings may flag:
+
+- absent or thin industrial/flex coverage
+- office-heavy metro coverage
+- review-required ecosystem classifications
+- Building Brief coverage concentrated in a single ecosystem
+
+Future phases may turn these warnings into scored ecosystem gates, but v1 keeps them separate so Publisher remains transparent.
 
 ## Confidence States
 

@@ -40,6 +40,8 @@ Representative-building cards are derived from:
 
 Commercial Building Intelligence controls district identity when explicitly present. This matches the Building Brief source-precedence rule.
 
+Commercial Ecosystem Foundation v1 adds district and building ecosystem metadata for future profile-aware ranking and explainability. Phase 1 representative-building recommendation modules still use the current eligibility and selection rules; ecosystem metadata is available for reporting and future phases but does not change current recommendation outcomes.
+
 ## Eligibility Rules
 
 A building can appear in recommendations only when it:

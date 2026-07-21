@@ -2,6 +2,7 @@ const spaceTypeFitValues = ["excellent", "strong", "good", "limited", "unknown"]
 const attributeValues = ["high", "medium", "low", "unknown"];
 const confidenceValues = ["high", "medium", "expert_guided"];
 const locationTypes = ["city", "district"];
+const commercialEcosystemTaxonomy = require("./commercialEcosystemTaxonomy");
 const supportedSpaceTypes = [
   "office",
   "retail",
@@ -67,6 +68,7 @@ const relationshipTypes = [
   "better_last_mile",
   "better_retail_visibility",
 ];
+const ecosystemConfidenceValues = ["high", "medium", "review_required"];
 
 function unknownAttributes(keys) {
   return keys.reduce((output, key) => {
@@ -93,6 +95,36 @@ function validateLocationKnowledgeGraph(nodes) {
       if (!supportedSpaceTypes.includes(spaceType)) warnings.push(`${label}: unsupported space type ${spaceType}`);
       if (fit && fit.fit && !spaceTypeFitValues.includes(fit.fit)) warnings.push(`${label}: invalid fit ${fit.fit}`);
     });
+
+    if (node && node.type === "district") {
+      const ecosystem = node.commercialEcosystem || {};
+      if (!ecosystem.primary) {
+        warnings.push(`${label}: missing commercialEcosystem.primary`);
+      } else if (!commercialEcosystemTaxonomy.ecosystemById[ecosystem.primary]) {
+        warnings.push(`${label}: unknown commercial ecosystem ${ecosystem.primary}`);
+      }
+      if (ecosystem.confidence && !ecosystemConfidenceValues.includes(ecosystem.confidence)) {
+        warnings.push(`${label}: invalid commercialEcosystem.confidence ${ecosystem.confidence}`);
+      }
+      (ecosystem.secondary || []).forEach((id) => {
+        if (!commercialEcosystemTaxonomy.ecosystemById[id]) warnings.push(`${label}: unknown secondary ecosystem ${id}`);
+        if (id === ecosystem.primary) warnings.push(`${label}: secondary ecosystem duplicates primary ecosystem ${id}`);
+      });
+      (ecosystem.subtypes || []).forEach((id) => {
+        const subtype = commercialEcosystemTaxonomy.subtypeById[id];
+        if (!subtype) {
+          warnings.push(`${label}: unknown ecosystem subtype ${id}`);
+        } else if (subtype.ecosystemId !== ecosystem.primary && !(ecosystem.secondary || []).includes(subtype.ecosystemId)) {
+          warnings.push(`${label}: subtype ${id} belongs to ${subtype.ecosystemId}, not declared ecosystem ${ecosystem.primary}`);
+        }
+      });
+      (ecosystem.activities || []).forEach((id) => {
+        if (!commercialEcosystemTaxonomy.activityById[id]) warnings.push(`${label}: unknown business activity ${id}`);
+      });
+      (ecosystem.archetypes || []).forEach((id) => {
+        if (!commercialEcosystemTaxonomy.archetypeById[id]) warnings.push(`${label}: unknown business archetype ${id}`);
+      });
+    }
 
     [
       ["attributes", businessAttributes],
@@ -127,6 +159,7 @@ module.exports = {
   retailAttributes,
   industrialAttributes,
   relationshipTypes,
+  ecosystemConfidenceValues,
   unknownBusinessAttributes: () => unknownAttributes(businessAttributes),
   unknownRetailAttributes: () => unknownAttributes(retailAttributes),
   unknownIndustrialAttributes: () => unknownAttributes(industrialAttributes),

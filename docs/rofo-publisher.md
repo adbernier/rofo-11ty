@@ -17,6 +17,7 @@ It exists to connect the Commercial Location Graph, public city and district pag
 Publisher v1 reads:
 
 - `_data/locationKnowledgeGraph.js`
+- `_data/commercialEcosystemTaxonomy.js`
 - `_data/recommendationQaStatus.js`
 - `_data/cities.js`
 - `_data/neighborhoodPages.js`
@@ -26,9 +27,12 @@ Publisher v1 reads:
 - `data/publisher-rules.js`
 - `docs/editorial-style-guide.md`
 - `docs/building-page-standard.md`
+- `docs/commercial-ecosystem-data-model.md`
 - recommendation QA documentation under `docs/recommendation-qa/`
 
 Publisher does not create a second source of truth for editorial content. The rules file only defines deterministic thresholds, metro grouping, scoring weights, and phrases that can be checked safely.
+
+Commercial ecosystem coverage is generated from the Commercial Location Graph and canonical taxonomy. It is reporting-only in v1 and does not alter Publisher readiness scores.
 
 ## Metro Discovery
 
@@ -131,6 +135,21 @@ Checks resolvable repository links for:
 - building comparison paths
 
 Broken references become queue items.
+
+### Commercial Ecosystem Coverage
+
+Reports, but does not score:
+
+- districts by primary ecosystem
+- secondary ecosystem presence in mixed-use districts
+- recommendation-active districts by ecosystem
+- Representative Buildings by inherited or explicit ecosystem
+- Building Briefs by inherited or explicit ecosystem
+- subtype, activity, and archetype coverage
+- missing or thin ecosystems
+- review-required classifications
+
+Coverage states are descriptive: `Developed`, `Partial`, `Thin`, `Missing`, and `Review Required`. A metro can be strong in office and still visibly weak in industrial/flex, medical, retail, life science, hospitality, or special-purpose coverage.
 
 ## Calibrated Scoring Model
 

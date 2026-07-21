@@ -265,6 +265,41 @@ function renderCoverageMatrix(plan) {
   `;
 }
 
+function renderEcosystemCoverage(metro) {
+  const coverage = metro.ecosystemCoverage || {};
+  const rows = Object.values(coverage.ecosystems || {}).map((ecosystem) => `
+    <tr>
+      <td><strong>${escapeHtml(ecosystem.label)}</strong><small>${escapeHtml(ecosystem.status)}</small></td>
+      <td>${escapeHtml(String(ecosystem.districtCount || 0))}</td>
+      <td>${escapeHtml(String(ecosystem.secondaryDistrictCount || 0))}</td>
+      <td>${escapeHtml(String(ecosystem.recommendationNodeCount || 0))}</td>
+      <td>${escapeHtml(String(ecosystem.representativeBuildingCount || 0))}</td>
+      <td>${escapeHtml(String(ecosystem.buildingBriefCount || 0))}</td>
+      <td>${escapeHtml((ecosystem.notableSubtypeGaps || []).slice(0, 3).join(", ") || "None")}</td>
+    </tr>
+  `).join("");
+  const underrepresented = (coverage.underrepresentedEcosystems || []).slice(0, 5);
+  return `
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Commercial Ecosystem Coverage</h2>
+          <p>Metro-independent ecosystem coverage for districts, representative buildings, and Building Briefs. This is reporting only and does not change Publisher readiness scoring.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ecosystem</th><th>Primary Districts</th><th>Secondary Districts</th><th>Recommendation Nodes</th><th>Representative Buildings</th><th>Building Briefs</th><th>Subtype Gaps</th></tr></thead>
+          <tbody>${rows || `<tr><td colspan="7">No ecosystem coverage was generated.</td></tr>`}</tbody>
+        </table>
+      </div>
+      ${underrepresented.length ? `
+        <p><strong>Planning flags:</strong> ${escapeHtml(underrepresented.map((item) => `${item.label}: ${item.status}`).join("; "))}</p>
+      ` : `<p class="quiet">No ecosystem planning flags.</p>`}
+    </section>
+  `;
+}
+
 function renderPriorityGaps(plan, mode) {
   if (!plan) return "";
   const gaps = (plan.priorities || []).slice().sort((a, b) =>
@@ -388,6 +423,7 @@ function renderMetroDetailWithPlan(metro, token, plan, mode = "balanced") {
     ${renderRecommendedSprint(plan, mode, token)}
     ${renderPriorityGaps(plan, mode)}
     ${renderCoverageMatrix(plan)}
+    ${renderEcosystemCoverage(metro)}
 
     <section class="panel">
       <h2>Gate Blockers</h2>

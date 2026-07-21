@@ -18,6 +18,8 @@ Representative buildings should help a business understand commercial geography:
 
 Commercial Building Intelligence becomes the source that district pages, representative building pages, Compass reasoning, future comparison pages, and future market guides consume.
 
+Commercial Ecosystem Foundation v1 adds an ecosystem alignment layer. Representative buildings and Building Briefs may inherit ecosystem metadata from their associated district, or declare explicit metadata when a building represents a secondary ecosystem or a meaningful contrast. Use the canonical IDs in `_data/commercialEcosystemTaxonomy.js`; do not invent building-local ecosystem labels.
+
 ## Runtime Source
 
 The runtime source is `_data/commercialBuildingIntelligence.js`.
@@ -52,6 +54,7 @@ Each canonical building supports these field groups.
 - `buildingType`
 - `primarySpaceType`
 - `assetClass`
+- `commercialEcosystem` where explicitly needed; otherwise inherit from the canonical district
 
 `assetClass` distinguishes conventional `Commercial Asset` records from `District Anchor` records such as institutions, arenas, maker destinations, or other places that explain a district even when they are not standard office inventory.
 

@@ -56,6 +56,15 @@ Required for a canonical Building Brief:
 - best-fit guidance
 - at least one meaningful tradeoff
 
+Building Briefs should also expose commercial ecosystem metadata through either their canonical building record or inherited district association. The expected fields are:
+
+- primary ecosystem
+- ecosystem subtype
+- relevant business activities
+- relevant business archetypes
+
+Do not duplicate editorial copy to satisfy ecosystem metadata. Use the canonical taxonomy in `_data/commercialEcosystemTaxonomy.js`, inherit from the district when the building is a normal expression of that district, and add explicit building metadata only when the building represents a meaningful contrast or secondary ecosystem.
+
 Optional fields should render only when useful:
 
 - primary use

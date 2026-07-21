@@ -12,6 +12,8 @@ Recommendation pages can now use production Building Briefs as representative ev
 
 Publisher Metro Expansion Planner now translates Publisher coverage gaps into reviewable editorial sprint plans. Use `docs/publisher-metro-expansion-planner.md` and `/admin/publisher` before starting new metro expansion work so districts, representative buildings, comparison relationships, and QA additions are prioritized from the same deterministic coverage model.
 
+Commercial Ecosystem Foundation v1 adds canonical ecosystem, subtype, activity, and archetype metadata for future recommendation work. The implementation is documented in `docs/commercial-ecosystem-data-model.md`. It does not change current recommendation rankings or Search Profile questions; future phases should map business archetypes and activities into recommendation inputs before changing resolver behavior.
+
 ## Compass Ready
 
 ### SF Bay Area

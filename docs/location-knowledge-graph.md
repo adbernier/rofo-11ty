@@ -13,6 +13,7 @@ It is not a listings feed, scoring model, or AI system. It stores durable commer
 ## Files
 
 - `_data/locationKnowledgeSchema.js` defines enums, canonical attribute keys, and a lightweight validator.
+- `_data/commercialEcosystemTaxonomy.js` defines the canonical commercial ecosystem, subtype, activity, and archetype IDs used by graph metadata and Publisher reporting.
 - `_data/locationKnowledgeGraph.js` contains seeded city and district nodes.
 - `_data/recommendationProfiles.js` remains as a legacy fallback while the graph matures.
 - `js/recommendation-resolver.js` resolves Search Profile context through Rofo Compass.
@@ -38,8 +39,38 @@ Each location node should include:
 - `strengths`
 - `questionsToValidate`
 - `relationships.compareWith`
+- `commercialEcosystem`
 
 City nodes may also include `marketPath`, an ordered list of district slugs Rofo would compare first for a Location Brief.
+
+## Commercial Ecosystem Metadata
+
+District nodes now expose additive ecosystem metadata:
+
+```js
+commercialEcosystem: {
+  primary: "office",
+  secondary: ["retail"],
+  subtypes: ["downtown_office", "executive_office"],
+  activities: ["knowledge_work", "client_meetings"],
+  archetypes: ["law_firm", "financial_services_firm"],
+  confidence: "high",
+  reviewNotes: []
+}
+```
+
+This metadata translates business activity into commercial geography. It does not change recommendation rankings in v1.
+
+Rules:
+
+- every published or recommendation-active district needs a valid primary ecosystem
+- secondary ecosystems must not duplicate the primary ecosystem
+- subtypes must belong to either the primary ecosystem or a declared secondary ecosystem
+- activities and archetypes must exist in `_data/commercialEcosystemTaxonomy.js`
+- mixed-use districts should declare secondary ecosystems where supported
+- uncertain classifications should use `confidence: "review_required"` and a short review note
+
+Publisher uses this metadata to report ecosystem coverage by metro without changing readiness scores.
 
 ## Space-Type Fit
 

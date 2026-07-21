@@ -1,5 +1,6 @@
 const schema = require("./locationKnowledgeSchema");
 const recommendationProfiles = require("./recommendationProfiles");
+const commercialEcosystemTaxonomy = require("./commercialEcosystemTaxonomy");
 
 const businessAttributeMap = {
   transit: "transit",
@@ -234,6 +235,159 @@ function industrialAttrs(values = {}) {
 
 function fit(fitValue, summary, bestFor = [], tradeoffs = []) {
   return { fit: fitValue, summary, bestFor, tradeoffs };
+}
+
+const fitScores = {
+  excellent: 4,
+  strong: 3,
+  good: 2,
+  limited: 1,
+  unknown: 0,
+};
+
+const ecosystemBySpaceType = {
+  office: "office",
+  retail: "retail",
+  restaurant: "hospitality",
+  showroom: "retail",
+  medical: "medical",
+  life_science: "life_science",
+  industrial: "industrial_flex",
+  warehouse: "industrial_flex",
+  distribution: "industrial_flex",
+  manufacturing: "industrial_flex",
+  flex: "industrial_flex",
+  r_and_d: "industrial_flex",
+};
+
+const subtypeBySpaceType = {
+  office: "professional_office",
+  retail: "neighborhood_retail",
+  restaurant: "food_beverage",
+  showroom: "showroom_retail",
+  medical: "medical_office",
+  life_science: "life_science_office",
+  industrial: "small_bay_industrial",
+  warehouse: "warehouse",
+  distribution: "distribution",
+  manufacturing: "manufacturing",
+  flex: "flex",
+  r_and_d: "research_development",
+};
+
+const preferredEcosystemTieOrder = [
+  "industrial_flex",
+  "life_science",
+  "medical",
+  "retail",
+  "hospitality",
+  "office",
+  "special_purpose",
+];
+
+const defaultActivitiesByEcosystem = {
+  office: ["knowledge_work", "client_meetings", "collaboration", "administrative_operations"],
+  industrial_flex: ["receiving", "shipping", "storage", "service_dispatch", "light_manufacturing"],
+  retail: ["walk_in_retail", "walk_in_service", "customer_showroom"],
+  medical: ["healthcare_delivery", "administrative_operations", "walk_in_service"],
+  life_science: ["research", "product_development", "collaboration"],
+  hospitality: ["hospitality_service", "food_preparation", "walk_in_service"],
+  special_purpose: ["education", "training", "walk_in_service"],
+};
+
+const defaultArchetypesByEcosystem = {
+  office: ["professional_office", "law_firm", "accounting_firm", "consulting_firm", "startup"],
+  industrial_flex: ["general_contractor", "cabinet_shop", "light_manufacturer", "distributor", "ecommerce_fulfillment_business"],
+  retail: ["wellness_practice", "marketing_agency"],
+  medical: ["medical_practice", "dental_practice", "outpatient_clinic", "wellness_practice"],
+  life_science: ["research_company", "biotech_company", "startup"],
+  hospitality: ["food_producer", "training_center"],
+  special_purpose: ["education_provider", "training_center", "childcare_provider", "nonprofit_office"],
+};
+
+const districtEcosystemOverrides = {
+  "financial-district": { primary: "office", subtypes: ["downtown_office", "executive_office"], secondary: ["retail"], activities: ["knowledge_work", "client_meetings", "administrative_operations"], archetypes: ["law_firm", "financial_services_firm", "consulting_firm"] },
+  "mission-bay": { primary: "life_science", subtypes: ["life_science_office", "innovation_campus"], secondary: ["office", "medical", "retail"], activities: ["research", "product_development", "collaboration", "knowledge_work"], archetypes: ["biotech_company", "research_company", "startup"] },
+  soma: { primary: "office", subtypes: ["creative_office", "downtown_office"], secondary: ["retail", "industrial_flex"], activities: ["knowledge_work", "collaboration", "product_development", "customer_showroom"], archetypes: ["startup", "creative_studio", "marketing_agency"] },
+  "jackson-square": { primary: "office", subtypes: ["creative_office", "professional_office"], secondary: ["retail"], activities: ["knowledge_work", "client_meetings", "collaboration"], archetypes: ["creative_studio", "marketing_agency", "professional_office"] },
+  "stanford-research-park": { primary: "office", subtypes: ["office_campus", "research_development"], secondary: ["industrial_flex", "life_science"], activities: ["knowledge_work", "research", "product_development"], archetypes: ["startup", "research_company", "biotech_company"] },
+  "north-san-jose": { primary: "industrial_flex", subtypes: ["research_development", "flex"], secondary: ["office"], activities: ["product_development", "research", "light_manufacturing", "knowledge_work"], archetypes: ["research_company", "light_manufacturer", "startup"] },
+  "west-berkeley": { primary: "industrial_flex", subtypes: ["small_bay_industrial", "flex", "light_manufacturing"], secondary: ["office", "retail"], activities: ["light_manufacturing", "service_dispatch", "customer_showroom", "knowledge_work"], archetypes: ["cabinet_shop", "creative_studio", "food_producer"] },
+  "downtown-sacramento": { primary: "office", subtypes: ["downtown_office", "government_office"], secondary: ["retail"], activities: ["knowledge_work", "client_meetings", "administrative_operations"], archetypes: ["law_firm", "government_contractor", "professional_office"] },
+  "midtown-sacramento": { primary: "office", subtypes: ["professional_office", "creative_office"], secondary: ["retail", "medical"], activities: ["knowledge_work", "client_meetings", "walk_in_service"], archetypes: ["professional_office", "marketing_agency", "medical_practice"] },
+  "west-sacramento-riverfront": { primary: "office", subtypes: ["office_campus", "professional_office"], secondary: ["retail"], activities: ["knowledge_work", "collaboration", "client_meetings"], archetypes: ["professional_office", "consulting_firm", "startup"] },
+  "rancho-cordova-business-corridor": { primary: "industrial_flex", subtypes: ["flex", "suburban_office", "research_development"], secondary: ["office"], activities: ["knowledge_work", "service_dispatch", "product_development"], archetypes: ["government_contractor", "equipment_service_company", "startup"] },
+  "power-inn-industrial": { primary: "industrial_flex", subtypes: ["small_bay_industrial", "contractor_service", "warehouse"], secondary: ["retail"], activities: ["service_dispatch", "storage", "receiving", "shipping"], archetypes: ["general_contractor", "hvac_company", "building_services_company"] },
+  "downtown-san-diego": { primary: "office", subtypes: ["downtown_office", "professional_office"], secondary: ["retail", "hospitality"], activities: ["knowledge_work", "client_meetings", "walk_in_retail"], archetypes: ["professional_office", "law_firm", "consulting_firm"] },
+  sorrento: { primary: "life_science", subtypes: ["research_development", "life_science_office"], secondary: ["industrial_flex", "office"], activities: ["research", "product_development", "knowledge_work"], archetypes: ["biotech_company", "research_company", "startup"] },
+  miramar: { primary: "industrial_flex", subtypes: ["warehouse", "small_bay_industrial", "contractor_service"], secondary: ["retail"], activities: ["storage", "service_dispatch", "distribution"], archetypes: ["general_contractor", "distributor", "ecommerce_fulfillment_business"] },
+  "utc-la-jolla": { primary: "life_science", subtypes: ["life_science_office", "innovation_campus"], secondary: ["office", "medical", "retail"], activities: ["research", "knowledge_work", "client_meetings"], archetypes: ["biotech_company", "research_company", "medical_practice"] },
+  "irvine-spectrum": { primary: "office", subtypes: ["suburban_office", "office_campus"], secondary: ["retail", "medical"], activities: ["knowledge_work", "collaboration", "client_meetings"], archetypes: ["startup", "consulting_firm", "medical_practice"] },
+  "irvine-business-complex": { primary: "office", subtypes: ["suburban_office", "creative_office"], secondary: ["industrial_flex", "retail"], activities: ["knowledge_work", "collaboration", "customer_showroom"], archetypes: ["startup", "marketing_agency", "creative_studio"] },
+  "anaheim-platinum-triangle": { primary: "retail", subtypes: ["lifestyle_retail", "downtown_retail"], secondary: ["office", "hospitality"], activities: ["walk_in_retail", "hospitality_service", "knowledge_work"], archetypes: ["professional_office", "marketing_agency", "training_center"] },
+  "downtown-denver": { primary: "office", subtypes: ["downtown_office", "executive_office"], secondary: ["retail", "hospitality"], activities: ["knowledge_work", "client_meetings", "administrative_operations"], archetypes: ["law_firm", "financial_services_firm", "consulting_firm"] },
+  "rino": { primary: "office", subtypes: ["creative_office", "showroom_flex"], secondary: ["industrial_flex", "retail"], activities: ["knowledge_work", "collaboration", "customer_showroom"], archetypes: ["creative_studio", "marketing_agency", "startup"] },
+  "central-park-denver": { primary: "industrial_flex", subtypes: ["last_mile_logistics", "warehouse", "flex"], secondary: ["office"], activities: ["distribution", "shipping", "receiving", "service_dispatch"], archetypes: ["distributor", "ecommerce_fulfillment_business", "building_services_company"] },
+  boulder: { primary: "office", subtypes: ["professional_office", "research_development"], secondary: ["life_science", "retail"], activities: ["knowledge_work", "research", "product_development"], archetypes: ["startup", "research_company", "biotech_company"] },
+};
+
+function uniqueKnown(ids, lookup) {
+  return [...new Set((ids || []).filter((id) => lookup[id]))];
+}
+
+function normalizeCommercialEcosystem(value = {}) {
+  const primary = commercialEcosystemTaxonomy.ecosystemById[value.primary] ? value.primary : "special_purpose";
+  const secondary = uniqueKnown(value.secondary || [], commercialEcosystemTaxonomy.ecosystemById).filter((id) => id !== primary);
+  return {
+    primary,
+    secondary,
+    subtypes: uniqueKnown(value.subtypes || [], commercialEcosystemTaxonomy.subtypeById).filter((id) => {
+      const subtype = commercialEcosystemTaxonomy.subtypeById[id];
+      return subtype && (subtype.ecosystemId === primary || secondary.includes(subtype.ecosystemId));
+    }),
+    activities: uniqueKnown(value.activities || defaultActivitiesByEcosystem[primary] || [], commercialEcosystemTaxonomy.activityById),
+    archetypes: uniqueKnown(value.archetypes || defaultArchetypesByEcosystem[primary] || [], commercialEcosystemTaxonomy.archetypeById),
+    confidence: value.confidence || "medium",
+    reviewNotes: Array.isArray(value.reviewNotes) ? value.reviewNotes : [],
+  };
+}
+
+function inferCommercialEcosystem(node) {
+  const override = districtEcosystemOverrides[node.slug];
+  if (override) return normalizeCommercialEcosystem({ confidence: "high", ...override });
+
+  const ecosystemScores = {};
+  const subtypes = [];
+  Object.entries(node.spaceTypeFit || {}).forEach(([spaceType, fitData]) => {
+    const ecosystem = ecosystemBySpaceType[spaceType];
+    if (!ecosystem) return;
+    const score = fitScores[(fitData && fitData.fit) || "unknown"] || 0;
+    ecosystemScores[ecosystem] = Math.max(ecosystemScores[ecosystem] || 0, score);
+    if (score > 0 && subtypeBySpaceType[spaceType]) subtypes.push(subtypeBySpaceType[spaceType]);
+  });
+
+  const ranked = Object.entries(ecosystemScores)
+    .filter(([, score]) => score > 0)
+    .sort((a, b) => (b[1] - a[1]) || (preferredEcosystemTieOrder.indexOf(a[0]) - preferredEcosystemTieOrder.indexOf(b[0])));
+  if (!ranked.length) {
+    return normalizeCommercialEcosystem({
+      primary: "special_purpose",
+      subtypes: ["institutional"],
+      confidence: "review_required",
+      reviewNotes: ["District has insufficient space-type evidence for a confident ecosystem classification."],
+    });
+  }
+
+  const primary = ranked[0][0];
+  const secondary = ranked.slice(1).filter(([, score]) => score >= 2).map(([id]) => id);
+  const primaryScore = ranked[0][1];
+  return normalizeCommercialEcosystem({
+    primary,
+    secondary,
+    subtypes,
+    confidence: primaryScore >= 2 ? "medium" : "review_required",
+    reviewNotes: primaryScore >= 2 ? [] : ["Classification is conservative and should receive editorial review."],
+  });
 }
 
 function mergeKnowledgeCard(graph, card) {
@@ -3424,6 +3578,9 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
 
 graph.forEach((node) => {
   if (!Array.isArray(node.questionsToValidate)) node.questionsToValidate = [];
+  if (node.type === "district") {
+    node.commercialEcosystem = normalizeCommercialEcosystem(node.commercialEcosystem || inferCommercialEcosystem(node));
+  }
 });
 
 const warnings = schema.validateLocationKnowledgeGraph(graph);
