@@ -1115,6 +1115,7 @@
       })),
       spaceType: summary.spaceType || "",
       size: summary.sizeOrPeople || "",
+      timing: summary.timing || "",
       locationIntent: normalizeLocationIntent(summary.locationIntent, "compare"),
       timestamp: new Date().toISOString(),
     };

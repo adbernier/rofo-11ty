@@ -162,7 +162,13 @@ Phase 1 adds lightweight events through the existing search-profile analytics en
 - `representative_buildings_viewed`
 - `representative_building_clicked`
 - `district_guide_clicked_from_recommendation`
+- `live_market_investigation_cta_viewed`
 - `live_market_investigation_cta_clicked`
+- `live_market_investigation_started`
+- `live_market_investigation_building_toggled`
+- `live_market_investigation_scope_selected`
+- `live_market_investigation_submitted`
+- `live_market_investigation_submission_failed`
 
 Event context is limited to recommendation-safe fields such as city, district, building ID, building name, recommendation rank, card position, and CTA source.
 
@@ -205,16 +211,70 @@ Profile-aware ranking should eventually select among eligible buildings based on
 
 The result should still remain representative, not availability-driven.
 
+## Live Market Investigation Intake v1
+
+The Live Market Investigation CTA now opens a dedicated investigation state inside the existing Location Brief follow-up form. This avoids creating a parallel lead system while making the continuation feel specific to the recommendation journey.
+
+The intake preserves:
+
+- existing Location Brief browser state
+- Search Profile location, space type, size, and timing when available
+- recommended city and district
+- representative building IDs, names, and URLs shown in the recommendation module
+- CTA source
+- recommendation source
+
+The intake asks only for investigation-specific decisions:
+
+- which representative buildings should be included as reference points
+- whether to include other competitive buildings
+- whether Rofo should look at current availability, future availability, comparable buildings, leasing activity, market insight, or broker guidance
+- timing confirmation when needed
+- broker-guidance preference
+- optional investigation notes
+
+Default selections:
+
+- all shown representative buildings selected
+- competitive buildings enabled
+- current availability, future availability, and comparable buildings selected
+- broker preference set to `research_first`
+
+Representative-building selections never imply current availability. The intake repeats that these buildings are representative examples, not confirmed available spaces.
+
+## Persistence
+
+The submitted payload remains a Location Brief payload and adds a structured `liveMarketInvestigation` object. The Location Brief API canonicalizes and sanitizes that object before storage.
+
+Investigation submissions create a lead dashboard record with:
+
+- `lead_type: live_market_investigation`
+- `status: market_investigation_requested`
+- selected district
+- selected representative buildings
+- competitive-building flag
+- investigation scope
+- timing
+- broker preference
+- investigation notes
+- full Location Brief payload
+
+The public Location Brief URL is preserved. The public brief displays the investigation section when one was submitted.
+
+## Admin And Email
+
+The Lead Dashboard treats Live Market Investigation records as Location Brief-family leads. Operators see a readable investigation block with city, district, buildings, scope, timing, broker preference, and notes.
+
+The internal Location Brief notification email includes the same investigation context. User-facing confirmation happens in the recommendation page success state and does not promise availability research has already begun.
+
 ## Future Phase 3
 
-Live Market Investigation should become a real workflow that can carry:
+The next step is a shortlist workspace that can turn an investigation request into:
 
-- active Search Profile
-- selected districts
-- representative buildings shown
-- user notes
-- timing and size requirements
-- investigation intent
-- optional broker guidance consent
+- researched availability candidates
+- comparable buildings
+- broker notes
+- user-visible shortlist items
+- tour planning status
 
-Phase 3 should not imply that availability research begins until the user explicitly submits the appropriate follow-up.
+Phase 3 should still avoid implying that availability research begins before an explicit submitted request.

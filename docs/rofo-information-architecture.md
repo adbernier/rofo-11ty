@@ -438,6 +438,8 @@ Internal linking strategy:
 
 Location Briefs should reference recommended markets, comparison markets, representative buildings, validation questions, and expert review.
 
+Live Market Investigation is a continuation state of the Location Brief, not a separate generic contact flow. It begins from a recommended district, carries representative-building context forward, asks the user to confirm investigation scope, and stores a structured `liveMarketInvestigation` object with the submitted brief. Representative buildings remain examples for understanding the market; availability and broker support are confirmed later through review.
+
 Pillar relationship:
 
 Location Intelligence and Execution.
@@ -1232,4 +1234,3 @@ Execution feels like a natural next step after the Location Brief, not a separat
 - Turn broker partner workflows into the execution layer of the Location Brief.
 
 The long-term architecture should make Rofo feel less like pages plus forms and more like a connected commercial location decision system.
-

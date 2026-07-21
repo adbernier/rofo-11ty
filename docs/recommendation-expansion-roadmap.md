@@ -249,3 +249,5 @@ Next priorities:
 Every future metro expansion should begin and end in the Rofo Compass Coverage dashboard.
 
 Pages are useful only when they improve Rofo's ability to produce a credible Location Brief.
+
+Recommendation pages now support a Live Market Investigation intake after representative buildings are shown. Future expansion work should treat representative buildings and Building Briefs as inputs to that continuation: they help users confirm what Rofo should investigate, but they do not imply live availability or replace broker-validated market research.

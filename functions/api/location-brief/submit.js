@@ -52,6 +52,43 @@ function recommendedMarketPathSummary(brief) {
   return labels.join(" / ");
 }
 
+function investigationScopeSummary(investigation) {
+  const scope = investigation && investigation.investigationScope || {};
+  const labels = {
+    currentAvailability: "Current availability",
+    futureAvailability: "Future or upcoming availability",
+    comparableBuildings: "Comparable buildings",
+    leasingActivity: "Recent leasing activity or comps",
+    marketInsight: "Market conditions and tenant considerations",
+    brokerGuidance: "Broker guidance when available",
+  };
+  return Object.keys(labels).filter((key) => scope[key]).map((key) => labels[key]).join(", ");
+}
+
+function selectedInvestigationBuildings(investigation) {
+  return investigation && Array.isArray(investigation.representativeBuildings)
+    ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
+    : [];
+}
+
+function investigationRequirementsSummary(investigation) {
+  if (!investigation || !investigation.investigationIntent) return "";
+  const selectedBuildings = selectedInvestigationBuildings(investigation);
+  const requirements = investigation.confirmedRequirements || {};
+  return [
+    "Live Market Investigation requested",
+    investigation.districtName ? `District: ${investigation.districtName}` : "",
+    investigation.city ? `City: ${[investigation.city, investigation.state].filter(Boolean).join(", ")}` : "",
+    selectedBuildings.length ? `Selected representative buildings: ${selectedBuildings.map((building) => building.name).join(", ")}` : "Selected representative buildings: district-level only",
+    `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
+    investigationScopeSummary(investigation) ? `Investigation scope: ${investigationScopeSummary(investigation)}` : "",
+    investigation.timing || requirements.timing ? `Timing: ${investigation.timing || requirements.timing}` : "",
+    investigation.brokerPreference ? `Broker preference: ${investigation.brokerPreference}` : "",
+    requirements.locationPriorities && requirements.locationPriorities.length ? `Profile priorities: ${requirements.locationPriorities.join(", ")}` : "",
+    investigation.additionalNotes ? `Investigation notes: ${investigation.additionalNotes}` : "",
+  ].filter(Boolean).join("\n");
+}
+
 function buildLocationBriefLead(brief, request, briefUrl) {
   const contact = brief.contact || {};
   const location = firstLocation(brief);
@@ -61,14 +98,18 @@ function buildLocationBriefLead(brief, request, briefUrl) {
   const recommendedMarketPath = recommendedMarketPathSummary(brief);
   const locationIntent = brief.searchProfile && brief.searchProfile.locationIntent || "compare";
   const priorities = Array.isArray(brief.priorities) ? brief.priorities.filter(Boolean) : [];
+  const investigation = brief.liveMarketInvestigation;
+  const investigationSummary = investigationRequirementsSummary(investigation);
   const requirements = [
+    investigationSummary,
     brief.feedback ? `Feedback: ${brief.feedback}` : "",
     priorities.length ? `Business priorities: ${priorities.join(", ")}` : "",
     brief.notes ? `Notes: ${brief.notes}` : "",
   ].filter(Boolean).join("\n\n");
+  const selectedBuildings = selectedInvestigationBuildings(investigation);
 
   return {
-    lead_type: "location_brief",
+    lead_type: investigation && investigation.investigationIntent ? "live_market_investigation" : "location_brief",
     profile_version: "location_brief_v1",
     name: contact.name || "",
     email: contact.email || "",
@@ -80,6 +121,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     space_type: spaceType,
     requested_space_type: spaceType,
     space_needed: size,
+    move_timing: brief.searchProfile && brief.searchProfile.timing || investigation && investigation.timing || "",
     requirements,
     page_type: "location_brief",
     page_url: briefUrl,
@@ -89,7 +131,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     location_city: location.city || "",
     location_district: location.type === "district" ? location.label : "",
     location_state: location.state || "",
-    status: "expert_review_requested",
+    status: investigation && investigation.investigationIntent ? "market_investigation_requested" : "expert_review_requested",
     officefinder_status: "officefinder_not_attempted",
     location_intent: locationIntent,
     location_intent_label: locationIntentLabel(locationIntent),
@@ -100,6 +142,19 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     location_brief_status: brief.status,
     recommended_market_path: recommendedMarketPath,
     business_priorities: priorities.join(", "),
+    investigation_requested: investigation && investigation.investigationIntent ? "yes" : "",
+    investigation_status: investigation && investigation.investigationIntent ? investigation.investigationStatus || "requested" : "",
+    investigation_source: investigation && investigation.investigationIntent ? investigation.investigationSource || investigation.source || "" : "",
+    investigation_city: investigation && investigation.investigationIntent ? investigation.city || "" : "",
+    investigation_district: investigation && investigation.investigationIntent ? investigation.districtName || "" : "",
+    investigation_district_id: investigation && investigation.investigationIntent ? investigation.districtId || "" : "",
+    investigation_buildings: selectedBuildings.map((building) => building.name).join(", "),
+    investigation_building_urls: selectedBuildings.map((building) => building.url).join(", "),
+    investigation_include_competitive_buildings: investigation && investigation.investigationIntent ? String(investigation.includeCompetitiveBuildings !== false) : "",
+    investigation_scope: investigationScopeSummary(investigation),
+    investigation_timing: investigation && investigation.investigationIntent ? investigation.timing || "" : "",
+    investigation_broker_preference: investigation && investigation.investigationIntent ? investigation.brokerPreference || "" : "",
+    investigation_notes: investigation && investigation.investigationIntent ? investigation.additionalNotes || "" : "",
     location_brief_payload: JSON.stringify(brief),
     timestamp: brief.createdAt || new Date().toISOString(),
     user_agent: request.headers.get("user-agent") || "",
@@ -119,7 +174,7 @@ async function createLocationBriefLead(env, request, brief, briefUrl) {
   const record = {
     id,
     token_hash: await sha256(token),
-    status: "expert_review_requested",
+    status: brief.liveMarketInvestigation && brief.liveMarketInvestigation.investigationIntent ? "market_investigation_requested" : "expert_review_requested",
     lead,
     officefinder_payload: {},
   };
@@ -198,13 +253,19 @@ export async function onRequestPost({ request, env, waitUntil }) {
     location: (brief.searchProfile.locations || []).map((item) => item.label).join(" / "),
     spaceType: brief.searchProfile.spaceType,
     size: brief.searchProfile.size,
+    timing: brief.searchProfile.timing || "",
     locationIntent: brief.searchProfile.locationIntent || "compare",
+    investigationIntent: Boolean(brief.liveMarketInvestigation && brief.liveMarketInvestigation.investigationIntent),
+    investigationDistrict: brief.liveMarketInvestigation && brief.liveMarketInvestigation.districtName || "",
   };
 
   try {
     await trackLocationBriefEvent(env, "location_brief_created", brief, eventPayload);
     await trackLocationBriefEvent(env, "expert_review_requested", brief, eventPayload);
     await trackLocationBriefEvent(env, "location_brief_submitted", brief, eventPayload);
+    if (brief.liveMarketInvestigation && brief.liveMarketInvestigation.investigationIntent) {
+      await trackLocationBriefEvent(env, "live_market_investigation_requested", brief, eventPayload);
+    }
   } catch (error) {
     console.warn("Unable to store Location Brief analytics events", error);
   }

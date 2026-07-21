@@ -17,12 +17,12 @@ const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
 const LEAD_QUALITY_SAMPLE_LIMIT = 2000;
 const STATUS_VIEWS = {
-  pending: ["pending", "approved_send_failed", "expert_review_requested"],
+  pending: ["pending", "approved_send_failed", "expert_review_requested", "market_investigation_requested"],
   sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
   rejected: ["rejected"],
   spam: ["spam_quarantined", "rejected_spam"],
 };
-const ACTIONABLE_STATUSES = ["pending", "approved_send_failed", "expert_review_requested"];
+const ACTIONABLE_STATUSES = ["pending", "approved_send_failed", "expert_review_requested", "market_investigation_requested"];
 const LEAD_INDEX_QUERIES = [
   "create index if not exists idx_leads_created_at on leads(created_at)",
   "create index if not exists idx_leads_status on leads(status)",
@@ -144,6 +144,14 @@ function phoneDigits(value) {
 
 function getLeadMessage(lead) {
   return normalizeText(lead.requirements || lead.message || lead.notes || lead.comments);
+}
+
+function isLocationBriefLead(lead) {
+  return lead.lead_type === "location_brief" || lead.lead_type === "live_market_investigation" || lead.source === "location_brief";
+}
+
+function isInvestigationLead(lead) {
+  return lead.lead_type === "live_market_investigation" || lead.investigation_requested === "yes";
 }
 
 function getEmailDomain(email) {
@@ -550,7 +558,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const route = lead.route_recommendation || {};
   const latestAttempt = getLatestOfficeFinderAttempt(lead);
   const locationSummary = lead.lead_type === "location_profile" ? getLocationRequirementSummary(lead) : null;
-  const isLocationBrief = lead.lead_type === "location_brief" || lead.source === "location_brief";
+  const isLocationBrief = isLocationBriefLead(lead);
+  const isInvestigation = isInvestigationLead(lead);
   const market = locationSummary
     ? locationSummary.location
     : lead.location_display || lead.market || [lead.city, lead.state].filter(Boolean).join(", ");
@@ -608,6 +617,22 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       </section>
 
       ${isLocationBrief ? `
+        ${isInvestigation ? `
+        <section class="message-block message-block--investigation">
+          <h3>Live Market Investigation</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
+            ${field("District", lead.investigation_district)}
+            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
+            ${field("Competitive buildings", lead.investigation_include_competitive_buildings === "true" ? "Include competitive buildings" : "Not selected")}
+            ${field("Scope", lead.investigation_scope)}
+            ${field("Timing", lead.investigation_timing || lead.move_timing)}
+            ${field("Broker preference", lead.investigation_broker_preference)}
+            ${field("Source", lead.investigation_source)}
+          </div>
+          ${lead.investigation_notes ? `<div class="message-block__note">${escapeHtml(lead.investigation_notes)}</div>` : ""}
+        </section>
+        ` : ""}
         <section class="message-block">
           <h3>Recommended Market Path</h3>
           <div>${lead.recommended_market_path ? escapeHtml(lead.recommended_market_path) : "<span class=\"muted\">No market path recorded.</span>"}</div>
@@ -686,7 +711,7 @@ function renderPostButton({ token, id, action, route = "", label, className = ""
 
 function renderLeadActions(row, route, token, activeReferral = null) {
   const lead = parseJson(row.lead_json);
-  const isLocationBrief = lead.lead_type === "location_brief" || lead.source === "location_brief";
+  const isLocationBrief = isLocationBriefLead(lead);
 
   if (activeReferral) {
     return `<div class="lead-actions"><span class="muted">Lead-level reject and spam actions are hidden because an active broker referral is ${escapeHtml(operatorReferralStatusLabel(activeReferral).toLowerCase())}.</span></div>`;
@@ -878,6 +903,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #eef3f8; color: #24364d; font-size: 12px; font-weight: 800; }
     .badge--pending { background: #fff7db; color: #7a4b00; }
     .badge--expert_review_requested { background: #dbeafe; color: #1e40af; }
+    .badge--market_investigation_requested { background: #e0f2fe; color: #075985; }
     .badge--approved_sent, .badge--broker_sent, .badge--both_sent, .badge--partial_sent, .badge--officefinder_sent { background: #e4f8ec; color: #166534; }
     .badge--approved_send_failed, .badge--officefinder_failed { background: #fee2e2; color: #991b1b; }
     .badge--spam_quarantined, .badge--rejected_spam { background: #ffedd5; color: #9a3412; }

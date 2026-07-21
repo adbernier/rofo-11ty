@@ -53,6 +53,7 @@ function normalizeSearchProfile(profile) {
       : [],
     spaceType: clean(value.spaceType || value.space_type, 120),
     size: clean(value.size || value.size_or_people, 120),
+    timing: clean(value.timing || value.moveTiming || value.move_timing, 120),
     locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent),
     timestamp: clean(value.timestamp, 80),
   };
@@ -137,6 +138,78 @@ function normalizeContact(contact) {
   };
 }
 
+function normalizeBooleanMap(value, allowedKeys) {
+  const source = value && typeof value === "object" ? value : {};
+  return allowedKeys.reduce((result, key) => {
+    result[key] = source[key] === true;
+    return result;
+  }, {});
+}
+
+function normalizeInvestigationBuilding(building) {
+  if (!building || typeof building !== "object") return null;
+  const name = clean(building.name, 180);
+  const url = clean(building.url || building.canonicalUrl, 500);
+  if (!name || !url || !url.startsWith("/commercial-real-estate/building/")) return null;
+  return {
+    buildingId: clean(building.buildingId || building.id, 180),
+    name,
+    url,
+    selected: building.selected !== false,
+  };
+}
+
+function normalizeLiveMarketInvestigation(value) {
+  if (!value || typeof value !== "object" || value.investigationIntent !== true) return null;
+  const scope = normalizeBooleanMap(value.investigationScope, [
+    "currentAvailability",
+    "futureAvailability",
+    "comparableBuildings",
+    "leasingActivity",
+    "marketInsight",
+    "brokerGuidance",
+  ]);
+  const hasScope = Object.values(scope).some(Boolean);
+  if (!hasScope) {
+    scope.currentAvailability = true;
+    scope.comparableBuildings = true;
+  }
+  const requirements = value.confirmedRequirements && typeof value.confirmedRequirements === "object"
+    ? value.confirmedRequirements
+    : {};
+  return {
+    investigationIntent: true,
+    intent: "live_market_investigation",
+    investigationStatus: "requested",
+    source: clean(value.source || "recommendation_representative_buildings", 120),
+    investigationSource: clean(value.investigationSource || value.source || "recommendation_representative_buildings", 120),
+    city: clean(value.city, 140),
+    state: clean(value.state, 20),
+    districtId: clean(value.districtId || value.districtSlug, 180),
+    districtName: clean(value.districtName || value.district, 180),
+    districtPath: clean(value.districtPath, 500),
+    representativeBuildings: Array.isArray(value.representativeBuildings)
+      ? value.representativeBuildings.map(normalizeInvestigationBuilding).filter(Boolean).slice(0, 6)
+      : [],
+    includeCompetitiveBuildings: value.includeCompetitiveBuildings !== false,
+    investigationScope: scope,
+    timing: clean(value.timing, 80),
+    confirmedRequirements: {
+      location: clean(requirements.location, 240),
+      spaceType: clean(requirements.spaceType, 120),
+      targetSize: clean(requirements.targetSize, 120),
+      timing: clean(requirements.timing || value.timing, 80),
+      locationIntent: clean(requirements.locationIntent, 120),
+      locationPriorities: cleanArray(requirements.locationPriorities || requirements.priorities, 12),
+      knownConstraints: clean(requirements.knownConstraints, 1000),
+    },
+    additionalNotes: clean(value.additionalNotes, 2000),
+    brokerPreference: clean(value.brokerPreference || "research_first", 80),
+    ctaSource: clean(value.ctaSource || "recommendation_district_detail", 120),
+    requestedAt: clean(value.requestedAt, 80) || new Date().toISOString(),
+  };
+}
+
 function getBriefStorage(env) {
   if (env.LOCATION_BRIEFS_DB || env.LEADS_DB) return "d1";
   if (env.LOCATION_BRIEFS_KV || env.LEADS_KV) return "kv";
@@ -210,6 +283,7 @@ export function canonicalizeBrief(input, request, existing = {}) {
     priorities: cleanArray(input.priorities, 20),
     feedback: clean(input.feedback, 120),
     notes: clean(input.notes, 3000),
+    liveMarketInvestigation: normalizeLiveMarketInvestigation(input.liveMarketInvestigation),
     contact: normalizeContact(input.contact),
     graphVersion: KNOWLEDGE_GRAPH_VERSION,
     recommendationEngineVersion: RECOMMENDATION_ENGINE_VERSION,
@@ -399,6 +473,80 @@ function marketPathLabels(brief) {
   return path.map((item) => item.label).filter(Boolean).join(" → ");
 }
 
+function investigationScopeLabels(investigation) {
+  const scope = investigation && investigation.investigationScope || {};
+  const labels = {
+    currentAvailability: "Current availability",
+    futureAvailability: "Future or upcoming availability",
+    comparableBuildings: "Comparable buildings",
+    leasingActivity: "Recent leasing activity or comps",
+    marketInsight: "Market conditions and tenant considerations",
+    brokerGuidance: "Broker guidance when available",
+  };
+  return Object.keys(labels).filter((key) => scope[key]).map((key) => labels[key]);
+}
+
+function brokerPreferenceLabel(value) {
+  const labels = {
+    research_first: "Research first; contact me with findings",
+    include_local_broker: "Include local broker guidance when available",
+    already_working_with_broker: "I am already working with a broker",
+    not_sure: "Not sure yet",
+  };
+  return labels[value] || value || "";
+}
+
+function selectedInvestigationBuildings(investigation) {
+  return investigation && Array.isArray(investigation.representativeBuildings)
+    ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
+    : [];
+}
+
+function investigationTextBlock(investigation) {
+  if (!investigation || !investigation.investigationIntent) return [];
+  const buildings = selectedInvestigationBuildings(investigation);
+  const scope = investigationScopeLabels(investigation);
+  return [
+    "LIVE MARKET INVESTIGATION",
+    `District: ${investigation.districtName || ""}`,
+    `City: ${[investigation.city, investigation.state].filter(Boolean).join(", ")}`,
+    `Selected buildings: ${buildings.length ? buildings.map((building) => building.name).join(", ") : "(district-level only)"}`,
+    `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
+    `Scope: ${scope.length ? scope.join(", ") : "(not selected)"}`,
+    `Timing: ${investigation.timing || investigation.confirmedRequirements && investigation.confirmedRequirements.timing || ""}`,
+    `Broker preference: ${brokerPreferenceLabel(investigation.brokerPreference)}`,
+    `Notes: ${investigation.additionalNotes || "(none provided)"}`,
+  ];
+}
+
+function investigationHtmlBlock(investigation) {
+  if (!investigation || !investigation.investigationIntent) return "";
+  const buildings = selectedInvestigationBuildings(investigation);
+  const scope = investigationScopeLabels(investigation);
+  const requirements = investigation.confirmedRequirements || {};
+  return `
+    <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe;">
+      <div style="margin:0 0 8px;color:#1d4ed8;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Live Market Investigation</div>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+        ${emailField("District", escapeHtml(investigation.districtName || ""))}
+        ${emailField("City", escapeHtml([investigation.city, investigation.state].filter(Boolean).join(", ")))}
+        ${emailField("Selected buildings", buildings.length ? formatList(buildings.map((building) => building.name)) : escapeHtml("District-level review only"))}
+        ${emailField("Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Include other competitive buildings" : "Do not include by default"))}
+        ${emailField("Scope", scope.length ? formatList(scope) : escapeHtml("Not selected"))}
+        ${emailField("Timing", escapeHtml(investigation.timing || requirements.timing || ""))}
+        ${emailField("Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference)))}
+        ${emailField("Confirmed requirements", formatList([
+          requirements.spaceType ? `Space type: ${requirements.spaceType}` : "",
+          requirements.targetSize ? `Target size: ${requirements.targetSize}` : "",
+          requirements.locationIntent ? `Location intent: ${requirements.locationIntent}` : "",
+          requirements.locationPriorities && requirements.locationPriorities.length ? `Priorities: ${requirements.locationPriorities.join(", ")}` : "",
+        ].filter(Boolean)))}
+        ${investigation.additionalNotes ? emailField("Investigation notes", `<span style="white-space:pre-wrap;">${escapeHtml(investigation.additionalNotes)}</span>`) : ""}
+      </table>
+    </div>
+  `;
+}
+
 export async function sendLocationBriefEmail(env, request, brief) {
   if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_EMAIL) {
     return { sent: false, reason: "RESEND_API_KEY and LEAD_NOTIFY_EMAIL are not configured" };
@@ -409,10 +557,13 @@ export async function sendLocationBriefEmail(env, request, brief) {
   const spaceType = spaceSummary(brief);
   const size = sizeSummary(brief);
   const intentLabel = locationIntentLabel(brief.searchProfile && brief.searchProfile.locationIntent);
-  const subject = `New Rofo Location Brief - ${location} ${spaceType} Search`;
+  const investigation = brief.liveMarketInvestigation;
+  const subject = investigation && investigation.investigationIntent
+    ? `New Rofo Live Market Investigation - ${investigation.districtName || location}`
+    : `New Rofo Location Brief - ${location} ${spaceType} Search`;
   const marketPath = marketPathLabels(brief);
   const text = [
-    "NEW ROFO LOCATION BRIEF",
+    investigation && investigation.investigationIntent ? "NEW ROFO LIVE MARKET INVESTIGATION" : "NEW ROFO LOCATION BRIEF",
     "",
     `Location Brief ID: ${brief.publicId}`,
     `Location Brief URL: ${url}`,
@@ -441,6 +592,8 @@ export async function sendLocationBriefEmail(env, request, brief) {
     "",
     "ADDITIONAL NOTES",
     brief.notes || "(none provided)",
+    "",
+    ...investigationTextBlock(investigation),
   ].join("\n");
 
   const html = `<!doctype html>
@@ -484,6 +637,8 @@ export async function sendLocationBriefEmail(env, request, brief) {
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Recommended Market Path</div>
                   <div style="font-size:15px;line-height:22px;font-weight:700;">${escapeHtml(marketPath || "Expert review needed")}</div>
                 </div>
+
+                ${investigationHtmlBlock(investigation)}
 
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Business priorities</div>

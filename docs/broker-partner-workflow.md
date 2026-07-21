@@ -237,6 +237,8 @@ On the Lead Dashboard, Location Brief leads now show:
 - Send Referral action
 - Referral History
 
+Live Market Investigation requests are stored as Location Brief-family leads with `lead_type: live_market_investigation` and `status: market_investigation_requested`. The dashboard shows the investigation district, selected representative buildings, competitive-building flag, requested research scope, timing, broker preference, and investigation notes before any broker referral is created.
+
 Sending a referral:
 
 - creates a Referral record
@@ -246,6 +248,8 @@ Sending a referral:
 - records send status and email delivery errors
 
 The admin remains in control. No referral is sent automatically.
+
+Broker guidance is optional in the Live Market Investigation intake. Selecting broker guidance records preference and context; it does not automatically share the request with a broker unless an admin later uses the existing referral workflow.
 
 ## Referral Email
 

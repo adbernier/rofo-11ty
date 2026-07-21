@@ -1,6 +1,28 @@
 (function () {
   const CONTEXT_KEY = "rofoRecommendationContextV1";
   const BRIEF_KEY = "rofoLocationBriefV1";
+  const INVESTIGATION_SCOPE_LABELS = {
+    currentAvailability: "Current availability",
+    futureAvailability: "Future or upcoming availability",
+    comparableBuildings: "Comparable buildings",
+    leasingActivity: "Recent leasing activity or comps",
+    marketInsight: "Market conditions and tenant considerations",
+    brokerGuidance: "Broker guidance when available",
+  };
+  const INVESTIGATION_TIMING_LABELS = {
+    immediately: "Immediately",
+    within_3_months: "Within 3 months",
+    "3_6_months": "3-6 months",
+    "6_12_months": "6-12 months",
+    more_than_12_months: "More than 12 months",
+    exploring: "Exploring with no fixed date",
+  };
+  const BROKER_PREFERENCE_LABELS = {
+    research_first: "Research first; contact me with findings",
+    include_local_broker: "Include local broker guidance when available",
+    already_working_with_broker: "I am already working with a broker",
+    not_sure: "Not sure yet",
+  };
   let currentBriefState = null;
 
   function readStoredContext() {
@@ -110,6 +132,7 @@
       locations,
       spaceType: String(value.spaceType || "").trim(),
       size: String(value.size || "").trim(),
+      timing: String(value.timing || value.moveTiming || value.move_timing || "").trim(),
       locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent, "compare"),
       timestamp: String(value.timestamp || "").trim(),
     };
@@ -514,7 +537,8 @@
     status.setAttribute("role", "status");
     status.setAttribute("aria-live", "polite");
     status.classList.add("location-brief-contact-status--success");
-    status.appendChild(createElement("strong", "", "Your Location Brief has been sent."));
+    const isInvestigation = currentBriefState && currentBriefState.liveMarketInvestigation && currentBriefState.liveMarketInvestigation.investigationIntent;
+    status.appendChild(createElement("strong", "", isInvestigation ? "Your market investigation request has been sent." : "Your Location Brief has been sent."));
     if (result.publicId) {
       status.appendChild(createElement("span", "", `Brief ID: ${result.publicId}`));
     }
@@ -724,28 +748,259 @@
 
   function updateInvestigationContext(primary, state, buildings) {
     if (!currentBriefState) return;
+    const existing = currentBriefState.liveMarketInvestigation || {};
+    const existingSelections = new Map(
+      (Array.isArray(existing.representativeBuildings) ? existing.representativeBuildings : [])
+        .map((building) => [String(building.buildingId || building.name || ""), building.selected !== false])
+    );
+    const normalizedBuildings = (buildings || []).map((building) => {
+      const key = String(building.buildingId || building.name || "");
+      return {
+        buildingId: building.buildingId || "",
+        name: building.name || "",
+        url: building.canonicalUrl || building.url || "",
+        selected: existingSelections.has(key) ? existingSelections.get(key) : true,
+      };
+    }).filter((building) => building.name && building.url);
     currentBriefState.liveMarketInvestigation = {
+      ...existing,
       intent: "live_market_investigation",
+      investigationIntent: existing.investigationIntent === true,
+      investigationStatus: existing.investigationStatus || "draft",
       source: "recommendation_representative_buildings",
+      investigationSource: "recommendation_representative_buildings",
       city: primary.city || "",
       state: primary.state || "",
-      district: primary.label || "",
-      districtSlug: primary.slug || "",
+      districtId: primary.slug || "",
+      districtName: primary.label || "",
       districtPath: primary.path || "",
-      representativeBuildings: (buildings || []).map((building) => ({
-        buildingId: building.buildingId,
-        name: building.name,
-        canonicalUrl: building.canonicalUrl,
-      })),
-      investigationCanInclude: [
-        "current availability",
-        "future availability",
-        "comparable buildings",
-        "recent leasing activity",
-        "market insight",
-        "broker guidance when available",
-      ],
+      representativeBuildings: normalizedBuildings,
+      includeCompetitiveBuildings: existing.includeCompetitiveBuildings !== false,
+      investigationScope: existing.investigationScope || {
+        currentAvailability: true,
+        futureAvailability: true,
+        comparableBuildings: true,
+        leasingActivity: false,
+        marketInsight: false,
+        brokerGuidance: false,
+      },
+      timing: existing.timing || "",
+      confirmedRequirements: existing.confirmedRequirements || {},
+      additionalNotes: existing.additionalNotes || "",
+      brokerPreference: existing.brokerPreference || "research_first",
+      ctaSource: existing.ctaSource || "recommendation_district_detail",
     };
+    persistBriefState();
+  }
+
+  function investigationState() {
+    if (!currentBriefState) return null;
+    if (!currentBriefState.liveMarketInvestigation) {
+      currentBriefState.liveMarketInvestigation = {
+        intent: "live_market_investigation",
+        investigationIntent: false,
+        investigationStatus: "draft",
+        source: "recommendation_representative_buildings",
+        investigationSource: "recommendation_representative_buildings",
+        city: "",
+        state: "",
+        districtId: "",
+        districtName: "",
+        districtPath: "",
+        representativeBuildings: [],
+        includeCompetitiveBuildings: true,
+        investigationScope: {
+          currentAvailability: true,
+          futureAvailability: true,
+          comparableBuildings: true,
+          leasingActivity: false,
+          marketInsight: false,
+          brokerGuidance: false,
+        },
+        timing: "",
+        confirmedRequirements: {},
+        additionalNotes: "",
+        brokerPreference: "research_first",
+        ctaSource: "recommendation_district_detail",
+      };
+    }
+    return currentBriefState.liveMarketInvestigation;
+  }
+
+  function timingFromProfile() {
+    const profile = currentBriefState && currentBriefState.searchProfile || {};
+    return String(profile.timing || profile.moveTiming || profile.move_timing || "").trim();
+  }
+
+  function investigationRequirements() {
+    const profile = currentBriefState && currentBriefState.searchProfile || {};
+    const marketPath = currentBriefState && currentBriefState.marketPath || {};
+    const location = formatLocations(profile.locations || []);
+    return {
+      location,
+      spaceType: profile.spaceType || "",
+      targetSize: profile.size || "",
+      timing: timingFromProfile(),
+      locationIntent: locationIntentLabel(profile.locationIntent || marketPath.locationIntent || ""),
+      priorities: Array.isArray(currentBriefState && currentBriefState.priorities) ? currentBriefState.priorities : [],
+      knownConstraints: currentBriefState && currentBriefState.notes || "",
+    };
+  }
+
+  function renderDefinitionRows(node, rows) {
+    if (!node) return;
+    node.innerHTML = "";
+    rows.filter((row) => row && row.value).forEach((row) => {
+      const wrapper = createElement("div", "", "");
+      wrapper.appendChild(createElement("dt", "", row.label));
+      wrapper.appendChild(createElement("dd", "", row.value));
+      node.appendChild(wrapper);
+    });
+  }
+
+  function renderInvestigationIntake({ activate = false } = {}) {
+    const panel = document.querySelector("[data-live-market-investigation-intake]");
+    if (!panel || !currentBriefState) return;
+    const investigation = investigationState();
+    if (activate) {
+      investigation.investigationIntent = true;
+      investigation.investigationStatus = "draft";
+      investigation.requestedAt = "";
+    }
+    panel.hidden = !investigation.investigationIntent;
+    if (!investigation.investigationIntent) return;
+
+    const requirements = investigationRequirements();
+    investigation.confirmedRequirements = {
+      spaceType: requirements.spaceType,
+      targetSize: requirements.targetSize,
+      profileTiming: requirements.timing,
+      locationPriorities: requirements.priorities,
+      knownConstraints: requirements.knownConstraints,
+    };
+
+    setText("[data-live-market-intake-heading]", `Investigate ${investigation.districtName || investigation.city || "this market"}`);
+    setText(
+      "[data-live-market-intake-summary]",
+      `Rofo already has the search profile and recommended ${investigation.districtName || "this district"} as the next market to investigate. These are representative buildings, not confirmed availability.`
+    );
+    setText("[data-live-market-intake-city]", [investigation.city, investigation.state].filter(Boolean).join(", ") || "To confirm");
+    setText("[data-live-market-intake-district]", investigation.districtName || "District-level review");
+    setText(
+      "[data-live-market-intake-profile]",
+      [requirements.spaceType, requirements.targetSize, requirements.timing || "timing to confirm"].filter(Boolean).join(" · ") || "Profile details preserved"
+    );
+    renderDefinitionRows(document.querySelector("[data-live-market-requirements]"), [
+      { label: "Original location", value: requirements.location },
+      { label: "Space type", value: requirements.spaceType },
+      { label: "Approx. size", value: requirements.targetSize },
+      { label: "Timing from profile", value: requirements.timing || "Confirm below" },
+      { label: "Location intent", value: requirements.locationIntent },
+      { label: "Selected priorities", value: requirements.priorities.join(", ") },
+      { label: "Known constraints", value: requirements.knownConstraints },
+    ]);
+
+    const buildingOptions = clearNode("[data-live-market-building-options]");
+    const buildingFieldset = document.querySelector("[data-live-market-building-fieldset]");
+    if (buildingOptions) {
+      const buildings = Array.isArray(investigation.representativeBuildings) ? investigation.representativeBuildings : [];
+      if (!buildings.length) {
+        buildingOptions.appendChild(createElement("p", "live-market-muted", "No individual representative buildings were shown for this district. Rofo can still investigate the district and competitive buildings."));
+      }
+      buildings.forEach((building, index) => {
+        const label = createElement("label", "live-market-building-option", "");
+        const input = createElement("input", "", "");
+        input.type = "checkbox";
+        input.checked = building.selected !== false;
+        input.setAttribute("data-investigation-building-id", building.buildingId || building.name);
+        input.addEventListener("change", () => {
+          building.selected = input.checked;
+          persistBriefState();
+          trackRecommendationEvent("live_market_investigation_building_toggled", {
+            city: investigation.city,
+            district: investigation.districtName,
+            building_id: building.buildingId || "",
+            building_name: building.name || "",
+            selected: input.checked,
+            card_position: index + 1,
+          });
+        });
+        const span = createElement("span", "", "");
+        span.appendChild(createElement("strong", "", building.name));
+        span.appendChild(createElement("em", "", "Representative example, not confirmed availability"));
+        label.append(input, span);
+        buildingOptions.appendChild(label);
+      });
+    }
+    if (buildingFieldset) buildingFieldset.hidden = false;
+
+    const competitive = document.querySelector("[data-investigation-competitive-buildings]");
+    if (competitive) {
+      competitive.checked = investigation.includeCompetitiveBuildings !== false;
+      if (!competitive.dataset.investigationBound) {
+        competitive.dataset.investigationBound = "true";
+        competitive.addEventListener("change", () => {
+          investigation.includeCompetitiveBuildings = competitive.checked;
+          persistBriefState();
+        });
+      }
+    }
+
+    document.querySelectorAll("[data-live-market-scope-options] input[type='checkbox']").forEach((input) => {
+      input.checked = investigation.investigationScope && investigation.investigationScope[input.value] === true;
+      if (!input.dataset.investigationBound) {
+        input.dataset.investigationBound = "true";
+        input.addEventListener("change", () => {
+          investigation.investigationScope = investigation.investigationScope || {};
+          investigation.investigationScope[input.value] = input.checked;
+          persistBriefState();
+          trackRecommendationEvent("live_market_investigation_scope_selected", {
+            city: investigation.city,
+            district: investigation.districtName,
+            scope: input.value,
+            selected: input.checked,
+          });
+        });
+      }
+    });
+
+    const timing = document.querySelector("[data-live-market-timing]");
+    if (timing) {
+      timing.value = investigation.timing || "";
+      if (!timing.dataset.investigationBound) {
+        timing.dataset.investigationBound = "true";
+        timing.addEventListener("change", () => {
+          investigation.timing = timing.value;
+          persistBriefState();
+        });
+      }
+    }
+
+    document.querySelectorAll("[data-live-market-broker-preference] input[type='radio']").forEach((input) => {
+      input.checked = (investigation.brokerPreference || "research_first") === input.value;
+      if (!input.dataset.investigationBound) {
+        input.dataset.investigationBound = "true";
+        input.addEventListener("change", () => {
+          investigation.brokerPreference = input.value;
+          persistBriefState();
+        });
+      }
+    });
+
+    const notes = document.querySelector("[data-live-market-notes]");
+    if (notes) {
+      notes.value = investigation.additionalNotes || "";
+      if (!notes.dataset.investigationBound) {
+        notes.dataset.investigationBound = "true";
+        notes.addEventListener("input", () => {
+          investigation.additionalNotes = notes.value;
+          persistBriefState();
+        });
+      }
+    }
+
+    const submitButton = document.querySelector("[data-location-brief-submit-button]");
+    if (submitButton) submitButton.textContent = "Start Market Investigation";
     persistBriefState();
   }
 
@@ -998,13 +1253,31 @@
     });
   }
 
-  function revealContactPanel() {
+  function revealContactPanel({ focusIntake = false } = {}) {
     const panel = document.querySelector("[data-location-brief-contact]");
     if (!panel) return;
     panel.hidden = false;
-    const firstInput = panel.querySelector("input");
+    const firstInput = focusIntake
+      ? panel.querySelector("[data-live-market-investigation-intake] input, [data-live-market-investigation-intake] select, [data-live-market-investigation-intake] textarea")
+      : panel.querySelector("input");
     if (firstInput) firstInput.focus({ preventScroll: true });
     panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function activateLiveMarketInvestigation(trigger) {
+    const investigation = investigationState();
+    investigation.investigationIntent = true;
+    investigation.investigationStatus = "draft";
+    investigation.ctaSource = trigger && trigger.getAttribute("data-investigation-cta-source") || "recommendation_district_detail";
+    renderInvestigationIntake({ activate: true });
+    trackRecommendationEvent("live_market_investigation_started", {
+      profile_id: currentBriefState && (currentBriefState.publicId || currentBriefState.id) || "",
+      city: investigation.city,
+      district: investigation.districtName,
+      selected_building_count: (investigation.representativeBuildings || []).filter((building) => building.selected !== false).length,
+      competitive_buildings: investigation.includeCompetitiveBuildings !== false,
+      cta_source: investigation.ctaSource,
+    });
   }
 
   function initializeReviewTriggers() {
@@ -1012,17 +1285,52 @@
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
         if (trigger.hasAttribute("data-live-market-investigation-cta")) {
+          activateLiveMarketInvestigation(trigger);
           trackRecommendationEvent("live_market_investigation_cta_clicked", {
             district: trigger.getAttribute("data-investigation-district") || "",
             cta_source: "recommendation_district_detail",
           });
+          revealContactPanel({ focusIntake: true });
+          return;
         }
         revealContactPanel();
       });
     });
   }
 
+  function collectInvestigationFormState() {
+    const investigation = currentBriefState && currentBriefState.liveMarketInvestigation;
+    if (!investigation || !investigation.investigationIntent) return;
+    investigation.includeCompetitiveBuildings = document.querySelector("[data-investigation-competitive-buildings]")?.checked !== false;
+    investigation.investigationScope = investigation.investigationScope || {};
+    document.querySelectorAll("[data-live-market-scope-options] input[type='checkbox']").forEach((input) => {
+      investigation.investigationScope[input.value] = input.checked;
+    });
+    investigation.representativeBuildings = (investigation.representativeBuildings || []).map((building) => {
+      const key = String(building.buildingId || building.name || "");
+      const input = key && window.CSS && CSS.escape
+        ? document.querySelector(`[data-investigation-building-id="${CSS.escape(key)}"]`)
+        : null;
+      return {
+        ...building,
+        selected: input ? input.checked : building.selected !== false,
+      };
+    });
+    investigation.timing = document.querySelector("[data-live-market-timing]")?.value || investigation.timing || timingFromProfile() || "";
+    const broker = document.querySelector("[data-live-market-broker-preference] input[type='radio']:checked");
+    investigation.brokerPreference = broker ? broker.value : investigation.brokerPreference || "research_first";
+    investigation.additionalNotes = document.querySelector("[data-live-market-notes]")?.value || "";
+    investigation.confirmedRequirements = {
+      ...investigation.confirmedRequirements,
+      ...investigationRequirements(),
+      timing: investigation.timing || timingFromProfile() || "",
+    };
+    investigation.requestedAt = new Date().toISOString();
+    investigation.investigationStatus = "requested";
+  }
+
   function locationBriefPayload() {
+    collectInvestigationFormState();
     return {
       ...currentBriefState,
       createdFrom: "recommendations",
@@ -1109,7 +1417,10 @@
       const payload = locationBriefPayload();
       currentBriefState = payload;
       persistBriefState();
-      if (status) status.textContent = "Creating your permanent Location Brief...";
+      const isInvestigation = payload.liveMarketInvestigation && payload.liveMarketInvestigation.investigationIntent;
+      if (status) status.textContent = isInvestigation
+        ? "Submitting your market investigation request..."
+        : "Creating your permanent Location Brief...";
       if (submitButton) submitButton.disabled = true;
 
       if (status) {
@@ -1124,17 +1435,42 @@
           };
           persistBriefState();
           renderLocationBriefSuccess(status, result);
+          if (isInvestigation) {
+            trackRecommendationEvent("live_market_investigation_submitted", {
+              profile_id: result.publicId || payload.publicId || "",
+              city: payload.liveMarketInvestigation.city,
+              district: payload.liveMarketInvestigation.districtName,
+              selected_building_count: (payload.liveMarketInvestigation.representativeBuildings || []).filter((building) => building.selected !== false).length,
+              competitive_buildings: payload.liveMarketInvestigation.includeCompetitiveBuildings !== false,
+              scope: Object.keys(payload.liveMarketInvestigation.investigationScope || {}).filter((key) => payload.liveMarketInvestigation.investigationScope[key]),
+              timing: payload.liveMarketInvestigation.timing || "",
+              cta_source: payload.liveMarketInvestigation.ctaSource || "",
+            });
+          }
           if (submitButton) {
             submitButton.disabled = true;
             submitButton.textContent = "Sent";
             submitButton.classList.add("recommendations-button--sent");
-            submitButton.setAttribute("aria-label", "Location Brief sent");
+            submitButton.setAttribute("aria-label", isInvestigation ? "Market investigation request sent" : "Location Brief sent");
           }
         } catch (error) {
-          status.textContent = "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
+          status.textContent = isInvestigation
+            ? "The market investigation request could not be submitted. Please try again, or contact Rofo if the problem continues."
+            : "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
           status.classList.remove("location-brief-contact-status--success");
           if (window.console && typeof window.console.warn === "function") {
             console.warn("Location Brief submission failed", error);
+          }
+          if (isInvestigation) {
+            trackRecommendationEvent("live_market_investigation_submission_failed", {
+              city: payload.liveMarketInvestigation.city,
+              district: payload.liveMarketInvestigation.districtName,
+              selected_building_count: (payload.liveMarketInvestigation.representativeBuildings || []).filter((building) => building.selected !== false).length,
+              competitive_buildings: payload.liveMarketInvestigation.includeCompetitiveBuildings !== false,
+              scope: Object.keys(payload.liveMarketInvestigation.investigationScope || {}).filter((key) => payload.liveMarketInvestigation.investigationScope[key]),
+              timing: payload.liveMarketInvestigation.timing || "",
+              cta_source: payload.liveMarketInvestigation.ctaSource || "",
+            });
           }
           if (submitButton) submitButton.disabled = false;
         } finally {
@@ -1163,10 +1499,17 @@
   if (context && (context.locations.length || context.spaceType || context.size)) {
     renderContext(context);
   } else {
-    initializeBriefRefinement({
+    const demoState = {
       mode: "demo",
       title: "Sample Recommendation",
       confidenceLabel: "Sample",
+      primaryRecommendation: {
+        label: "Mission Bay",
+        slug: "mission-bay",
+        city: "San Francisco",
+        state: "CA",
+        path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      },
       primaryLocationLabel: "Mission Bay",
       recommendedPath: [],
       compareWith: [],
@@ -1176,11 +1519,13 @@
         "Do clients or customers visit regularly?",
         "How much room do you need to grow?",
       ],
-    }, {
+    };
+    initializeBriefRefinement(demoState, {
       locations: [{ label: "San Francisco", type: "city", city: "San Francisco", state: "CA", slug: "san-francisco", path: "/commercial-real-estate/CA/san-francisco/" }],
       spaceType: "Office",
       size: "2,500-5,000 sqft",
       timestamp: "",
     }, "Office");
+    renderRepresentativeBuildings(demoState.primaryRecommendation, demoState);
   }
 })();

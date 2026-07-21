@@ -124,6 +124,56 @@ function renderWhyMarkets(brief) {
   `;
 }
 
+function investigationScopeLabels(investigation) {
+  const scope = investigation && investigation.investigationScope || {};
+  const labels = {
+    currentAvailability: "Current availability",
+    futureAvailability: "Future or upcoming availability",
+    comparableBuildings: "Comparable buildings",
+    leasingActivity: "Recent leasing activity or comps",
+    marketInsight: "Market conditions and tenant considerations",
+    brokerGuidance: "Broker guidance when available",
+  };
+  return Object.keys(labels).filter((key) => scope[key]).map((key) => labels[key]);
+}
+
+function brokerPreferenceLabel(value) {
+  const labels = {
+    research_first: "Research first; contact me with findings",
+    include_local_broker: "Include local broker guidance when available",
+    already_working_with_broker: "I am already working with a broker",
+    not_sure: "Not sure yet",
+  };
+  return labels[value] || value || "";
+}
+
+function renderInvestigation(brief) {
+  const investigation = brief.liveMarketInvestigation;
+  if (!investigation || !investigation.investigationIntent) return "";
+  const buildings = Array.isArray(investigation.representativeBuildings)
+    ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
+    : [];
+  const scope = investigationScopeLabels(investigation);
+  const requirements = investigation.confirmedRequirements || {};
+  return `
+      <section class="location-brief-card">
+        <div class="location-brief-kicker">Live Market Investigation</div>
+        <h2>Investigate ${escapeHtml(investigation.districtName || investigation.city || "the live market")}</h2>
+        <p class="location-brief-muted">Representative buildings are reference points, not confirmed availability. Rofo will review the request and determine available coverage.</p>
+        ${descriptionList([
+          ["City", escapeHtml([investigation.city, investigation.state].filter(Boolean).join(", "))],
+          ["District", investigation.districtPath ? `<a href="${escapeHtml(investigation.districtPath)}">${escapeHtml(investigation.districtName)}</a>` : escapeHtml(investigation.districtName || "")],
+          ["Selected buildings", buildings.length ? list(buildings.map((building) => building.name), "District-level only") : escapeHtml("District-level only")],
+          ["Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Include other competitive buildings" : "Not selected")],
+          ["Scope", scope.length ? list(scope, "No scope selected.") : ""],
+          ["Timing", escapeHtml(investigation.timing || requirements.timing || "")],
+          ["Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference))],
+        ])}
+        ${investigation.additionalNotes ? `<p class="location-brief-note">${escapeHtml(investigation.additionalNotes)}</p>` : ""}
+      </section>
+  `;
+}
+
 function renderPage(brief) {
   const location = locationSummary(brief);
   const space = spaceSummary(brief);
@@ -170,6 +220,7 @@ function renderPage(brief) {
           ["Location", escapeHtml(location)],
           ["Space type", escapeHtml(space)],
           ["Size", escapeHtml(size)],
+          ["Timing", escapeHtml(brief.searchProfile && brief.searchProfile.timing || "")],
           ["Location Intent", escapeHtml(locationIntentLabel(intent))],
           ["Intent Guidance", escapeHtml(locationIntentSummary(intent))],
           ["Feedback", escapeHtml(brief.feedback || "")],
@@ -183,6 +234,8 @@ function renderPage(brief) {
           ${renderMarketPath(brief)}
         </div>
       </section>
+
+      ${renderInvestigation(brief)}
 
       <section class="location-brief-card">
         <div class="location-brief-kicker">Why These Markets</div>

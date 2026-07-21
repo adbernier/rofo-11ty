@@ -316,6 +316,88 @@ eleventyComputed:
         </ul>
       </div>
 
+      <section class="live-market-intake" aria-labelledby="live-market-intake-heading" data-live-market-investigation-intake hidden>
+        <div class="live-market-intake__header">
+          <div class="kicker">Live Market Investigation</div>
+          <h3 id="live-market-intake-heading" data-live-market-intake-heading>Investigate this market</h3>
+          <p data-live-market-intake-summary>Confirm what Rofo should investigate next. These are representative buildings, not confirmed availability.</p>
+        </div>
+
+        <div class="live-market-intake__context" aria-label="Recommendation context">
+          <dl>
+            <div>
+              <dt>Recommended city</dt>
+              <dd data-live-market-intake-city>To confirm</dd>
+            </div>
+            <div>
+              <dt>District</dt>
+              <dd data-live-market-intake-district>To confirm</dd>
+            </div>
+            <div>
+              <dt>Search profile</dt>
+              <dd data-live-market-intake-profile>Profile details preserved</dd>
+            </div>
+          </dl>
+        </div>
+
+        <fieldset class="live-market-intake__fieldset" data-live-market-building-fieldset>
+          <legend>Buildings to include</legend>
+          <p>Keep the representative buildings Rofo should use as reference points. You can still ask Rofo to investigate the district even if no individual building remains selected.</p>
+          <div class="live-market-building-options" data-live-market-building-options></div>
+          <label class="live-market-check">
+            <input type="checkbox" data-investigation-competitive-buildings checked>
+            <span>Include other competitive buildings in this district</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="live-market-intake__fieldset">
+          <legend>What should Rofo investigate?</legend>
+          <p>Comp availability and quality vary by market. Select only what matters for the next review.</p>
+          <div class="live-market-scope-grid" data-live-market-scope-options>
+            <label class="live-market-check"><input type="checkbox" value="currentAvailability" checked> <span>Current availability</span></label>
+            <label class="live-market-check"><input type="checkbox" value="futureAvailability" checked> <span>Future or upcoming availability</span></label>
+            <label class="live-market-check"><input type="checkbox" value="comparableBuildings" checked> <span>Comparable buildings</span></label>
+            <label class="live-market-check"><input type="checkbox" value="leasingActivity"> <span>Recent leasing activity or comps</span></label>
+            <label class="live-market-check"><input type="checkbox" value="marketInsight"> <span>Market conditions and tenant considerations</span></label>
+            <label class="live-market-check"><input type="checkbox" value="brokerGuidance"> <span>Broker guidance when available</span></label>
+          </div>
+        </fieldset>
+
+        <div class="live-market-intake__grid">
+          <section class="live-market-intake__fieldset" aria-labelledby="live-market-requirements-heading">
+            <h4 id="live-market-requirements-heading">Requirements to confirm</h4>
+            <dl class="live-market-requirements" data-live-market-requirements></dl>
+            <label class="live-market-field">
+              <span>Timing</span>
+              <select data-live-market-timing>
+                <option value="">Use profile timing if available</option>
+                <option value="immediately">Immediately</option>
+                <option value="within_3_months">Within 3 months</option>
+                <option value="3_6_months">3-6 months</option>
+                <option value="6_12_months">6-12 months</option>
+                <option value="more_than_12_months">More than 12 months</option>
+                <option value="exploring">Exploring with no fixed date</option>
+              </select>
+            </label>
+          </section>
+
+          <fieldset class="live-market-intake__fieldset">
+            <legend>How should Rofo proceed?</legend>
+            <div class="live-market-radio-list" data-live-market-broker-preference>
+              <label class="live-market-check"><input type="radio" name="broker_preference" value="research_first" checked> <span>Research first; contact me with findings</span></label>
+              <label class="live-market-check"><input type="radio" name="broker_preference" value="include_local_broker"> <span>Include local broker guidance when available</span></label>
+              <label class="live-market-check"><input type="radio" name="broker_preference" value="already_working_with_broker"> <span>I am already working with a broker</span></label>
+              <label class="live-market-check"><input type="radio" name="broker_preference" value="not_sure"> <span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <label class="live-market-field live-market-field--notes">
+          <span>Anything else Rofo should understand before investigating? <em>optional</em></span>
+          <textarea data-live-market-notes rows="4" placeholder="Examples: exact streets, parking needs, expansion plans, current lease timing, infrastructure requirements, or building types to avoid."></textarea>
+        </label>
+      </section>
+
       <div class="location-brief-contact__grid">
         <label>
           <span>Name</span>
@@ -335,7 +417,7 @@ eleventyComputed:
         </label>
       </div>
       <div class="location-brief-contact__actions">
-        <button class="recommendations-button" type="submit">Request Expert Review</button>
+        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Request Expert Review</button>
         <p data-location-brief-contact-status></p>
       </div>
     </form>
