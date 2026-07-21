@@ -76,6 +76,17 @@
     }
   }
 
+  function readRepresentativeBuildings() {
+    const node = document.getElementById("recommendation-representative-buildings-data");
+    if (!node) return {};
+    try {
+      const value = JSON.parse(node.textContent || "{}");
+      return value && typeof value === "object" ? value : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
   function normalizeLocation(location) {
     if (!location || typeof location !== "object") return null;
     const label = String(location.label || "").trim();
@@ -154,6 +165,34 @@
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
+  }
+
+  function trackRecommendationEvent(eventName, properties = {}) {
+    const payload = {
+      event_name: eventName,
+      context: {
+        page_url: window.location.href,
+        source: "recommendations",
+        ...properties,
+      },
+    };
+    try {
+      const body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: "application/json" });
+        if (navigator.sendBeacon("/api/analytics/search-profile", blob)) return;
+      }
+      if (window.fetch) {
+        fetch("/api/analytics/search-profile", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body,
+          keepalive: true,
+        }).catch(() => {});
+      }
+    } catch (error) {
+      // Recommendation analytics are non-critical.
+    }
   }
 
   function slugKey(value) {
@@ -450,8 +489,8 @@
 
     setHidden("[data-recommendation-supported]", false);
     setHidden("[data-recommendation-expert-guided]", true);
-    renderMarketPath(state, spaceText, sizeText);
     initializeBriefRefinement(state, context, spaceText);
+    renderMarketPath(state, spaceText, sizeText);
   }
 
   function setSubmittedCta(state, context) {
@@ -583,7 +622,131 @@
     if (primaryLink) {
       primaryLink.href = primary.path;
       primaryLink.textContent = primary.type === "city" ? "Explore City" : "Explore District";
+      primaryLink.addEventListener("click", () => {
+        trackRecommendationEvent("district_guide_clicked_from_recommendation", {
+          city: primary.city,
+          district: primary.label,
+          recommendation_rank: 1,
+        });
+      }, { once: true });
     }
+
+    renderRepresentativeBuildings(primary, state);
+  }
+
+  function renderRepresentativeBuildings(primary, state) {
+    const module = document.querySelector("[data-recommendation-representative-buildings]");
+    if (!module || !primary) return;
+    const list = module.querySelector("[data-representative-building-list]");
+    const heading = module.querySelector("[data-representative-buildings-heading]");
+    const cta = module.querySelector("[data-live-market-investigation-cta]");
+    const data = readRepresentativeBuildings();
+    const result = window.RofoRecommendationRepresentativeBuildings && typeof window.RofoRecommendationRepresentativeBuildings.resolveForDistrict === "function"
+      ? window.RofoRecommendationRepresentativeBuildings.resolveForDistrict(primary, data)
+      : { shown: false, buildings: [] };
+
+    if (!result.shown) {
+      module.hidden = true;
+      updateInvestigationContext(primary, state, result.buildings || []);
+      return;
+    }
+
+    module.hidden = false;
+    if (heading) heading.textContent = `Representative buildings to understand ${primary.label}`;
+    if (list) {
+      list.innerHTML = "";
+      result.buildings.forEach((building, index) => {
+        list.appendChild(representativeBuildingCard(building, primary, index));
+      });
+    }
+    if (cta) {
+      cta.href = "#location-brief-contact";
+      cta.textContent = "Start Live Market Investigation";
+      cta.setAttribute("data-investigation-district", primary.label || "");
+    }
+    updateInvestigationContext(primary, state, result.buildings);
+    trackRecommendationEvent("representative_buildings_viewed", {
+      city: primary.city,
+      district: primary.label,
+      recommendation_rank: 1,
+      building_count: result.buildings.length,
+      building_ids: result.buildings.map((building) => building.buildingId),
+    });
+    trackRecommendationEvent("live_market_investigation_cta_viewed", {
+      city: primary.city,
+      district: primary.label,
+      recommendation_rank: 1,
+      cta_source: "recommendation_district_detail",
+      building_count: result.buildings.length,
+    });
+  }
+
+  function representativeBuildingCard(building, primary, index) {
+    const card = createElement("article", "recommendation-building-card recommendation-building-card--representative");
+    if (building.image) {
+      const image = createElement("img", "", "");
+      image.src = building.image;
+      image.alt = `${building.name} in ${building.city}, ${building.state}`;
+      image.loading = "lazy";
+      image.decoding = "async";
+      card.appendChild(image);
+    }
+    const content = createElement("div", "recommendation-building-card__content");
+    const meta = createElement("span", "", `${building.address} · ${building.buildingType || building.districtName || primary.label}`);
+    const heading = createElement("h5", "", "");
+    const link = createElement("a", "", `View Building Brief: ${building.name}`);
+    link.href = building.canonicalUrl;
+    link.addEventListener("click", () => {
+      trackRecommendationEvent("representative_building_clicked", {
+        city: building.city,
+        district: primary.label,
+        building_id: building.buildingId,
+        building_name: building.name,
+        recommendation_rank: 1,
+        card_position: index + 1,
+      });
+    });
+    heading.appendChild(link);
+    content.append(meta, heading);
+    content.appendChild(labelledCardText("Why it matters", building.representativeReason));
+    content.appendChild(labelledCardText("Best for", building.bestFitSummary));
+    content.appendChild(labelledCardText("Tradeoff", building.primaryTradeoff));
+    card.appendChild(content);
+    return card;
+  }
+
+  function labelledCardText(label, text) {
+    const paragraph = createElement("p", "", "");
+    paragraph.appendChild(createElement("strong", "", label));
+    paragraph.appendChild(document.createTextNode(text));
+    return paragraph;
+  }
+
+  function updateInvestigationContext(primary, state, buildings) {
+    if (!currentBriefState) return;
+    currentBriefState.liveMarketInvestigation = {
+      intent: "live_market_investigation",
+      source: "recommendation_representative_buildings",
+      city: primary.city || "",
+      state: primary.state || "",
+      district: primary.label || "",
+      districtSlug: primary.slug || "",
+      districtPath: primary.path || "",
+      representativeBuildings: (buildings || []).map((building) => ({
+        buildingId: building.buildingId,
+        name: building.name,
+        canonicalUrl: building.canonicalUrl,
+      })),
+      investigationCanInclude: [
+        "current availability",
+        "future availability",
+        "comparable buildings",
+        "recent leasing activity",
+        "market insight",
+        "broker guidance when available",
+      ],
+    };
+    persistBriefState();
   }
 
   function renderPathPanels(state, spaceType) {
@@ -772,6 +935,7 @@
       priorities: Array.isArray(existing.priorities) ? existing.priorities : [],
       notes: existing.notes || "",
       contact: existing.contact || {},
+      liveMarketInvestigation: existing.liveMarketInvestigation || null,
       timestamp: existing.timestamp || new Date().toISOString(),
     };
   }
@@ -847,6 +1011,12 @@
     document.querySelectorAll("[data-location-brief-review-trigger]").forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
+        if (trigger.hasAttribute("data-live-market-investigation-cta")) {
+          trackRecommendationEvent("live_market_investigation_cta_clicked", {
+            district: trigger.getAttribute("data-investigation-district") || "",
+            cta_source: "recommendation_district_detail",
+          });
+        }
         revealContactPanel();
       });
     });

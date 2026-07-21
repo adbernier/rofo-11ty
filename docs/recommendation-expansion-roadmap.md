@@ -8,6 +8,8 @@ Editorial Maturity, representative-building coverage, comparison depth, and dist
 
 Future metro work should begin with Compass Discovery using `docs/templates/compass-discovery-template.md`. The roadmap should track what Compass knows, what it is learning, what has been validated, and what should be built next.
 
+Recommendation pages can now use production Building Briefs as representative evidence for a recommended district. The implementation rules, eligibility thresholds, disclosure language, and future Live Market Investigation path are documented in `docs/recommendation-representative-buildings.md`.
+
 ## Compass Ready
 
 ### SF Bay Area

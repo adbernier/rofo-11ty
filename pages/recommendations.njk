@@ -168,25 +168,47 @@ eleventyComputed:
         </div>
       </article>
 
-      <aside class="recommendation-evidence" aria-labelledby="primary-buildings-considered" data-recommendation-demo-detail>
+      <aside class="recommendation-representative-buildings" aria-labelledby="primary-representative-buildings" data-recommendation-representative-buildings data-recommendation-demo-detail>
           <div class="recommendation-evidence__header">
-            <div class="kicker">Supporting evidence</div>
-            <h4 id="primary-buildings-considered">Buildings to benchmark first</h4>
-            <p>These are not confirmed availabilities. They are buildings that help benchmark fit and market context.</p>
+            <div class="kicker">Representative examples</div>
+            <h4 id="primary-representative-buildings" data-representative-buildings-heading>Representative buildings to understand this area</h4>
+            <p data-representative-buildings-disclosure>These buildings are representative examples, not current availability. They help explain the kinds of commercial environments businesses commonly evaluate in this district.</p>
           </div>
 
-          <div class="recommendation-building-list">
-            <article class="recommendation-building-card">
-              <span>Mission Bay</span>
-              <h5><a href="/commercial-real-estate/building/CA/san-francisco/1800-owens-st/">1800 Owens St</a></h5>
-              <p>This building helps benchmark modern Mission Bay office options near UCSF and the district's technology and life science ecosystem.</p>
-            </article>
+          <div class="recommendation-building-list" data-representative-building-list>
+            {% for building in recommendationRepresentativeBuildings.byDistrictSlug["mission-bay"].buildings %}
+              {% if loop.index <= 3 %}
+                <article class="recommendation-building-card recommendation-building-card--representative">
+                  {% if building.image %}
+                    <img src="{{ building.image }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" loading="lazy" decoding="async">
+                  {% endif %}
+                  <div>
+                    <span>{{ building.address }} · {{ building.buildingType }}</span>
+                    <h5><a href="{{ building.canonicalUrl }}">View Building Brief: {{ building.name }}</a></h5>
+                    <p><strong>Why it matters</strong>{{ building.representativeReason }}</p>
+                    <p><strong>Best for</strong>{{ building.bestFitSummary }}</p>
+                    <p><strong>Tradeoff</strong>{{ building.primaryTradeoff }}</p>
+                  </div>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
 
-            <article class="recommendation-building-card">
-              <span>Mission Bay</span>
-              <h5><a href="/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/">500 Terry Francois Blvd</a></h5>
-              <p>This is a waterfront Mission Bay reference point for teams that care about newer office context and nearby transit access.</p>
-            </article>
+          <div class="recommendation-live-market-panel" data-live-market-investigation-panel>
+            <div>
+              <h5>Ready to investigate the live market?</h5>
+              <p>Representative buildings help explain the market. A Live Market Investigation looks at what is actually happening now.</p>
+              <ul>
+                <li>current availability</li>
+                <li>future availability</li>
+                <li>comparable buildings</li>
+                <li>recent leasing activity</li>
+                <li>market insight</li>
+                <li>broker guidance when available</li>
+              </ul>
+              <p class="recommendation-live-market-panel__note">Availability and broker support depend on market coverage and current requirements.</p>
+            </div>
+            <a class="recommendations-button" href="#location-brief-contact" data-location-brief-review-trigger data-live-market-investigation-cta>Start Live Market Investigation</a>
           </div>
       </aside>
     </section>
@@ -322,5 +344,7 @@ eleventyComputed:
 
 <script id="location-knowledge-graph-data" type="application/json">{{ locationKnowledgeGraph | dump | safe }}</script>
 <script id="recommendation-profiles-data" type="application/json">{{ recommendationProfiles | dump | safe }}</script>
+<script id="recommendation-representative-buildings-data" type="application/json">{{ recommendationRepresentativeBuildings | dump | safe }}</script>
 <script src="/js/recommendation-resolver.js" defer></script>
+<script src="/js/recommendation-representative-buildings.js" defer></script>
 <script src="/js/recommendation-context.js" defer></script>
