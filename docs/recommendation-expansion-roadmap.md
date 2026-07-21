@@ -10,6 +10,8 @@ Future metro work should begin with Compass Discovery using `docs/templates/comp
 
 Recommendation pages can now use production Building Briefs as representative evidence for a recommended district. The implementation rules, eligibility thresholds, disclosure language, and future Live Market Investigation path are documented in `docs/recommendation-representative-buildings.md`.
 
+Publisher Metro Expansion Planner now translates Publisher coverage gaps into reviewable editorial sprint plans. Use `docs/publisher-metro-expansion-planner.md` and `/admin/publisher` before starting new metro expansion work so districts, representative buildings, comparison relationships, and QA additions are prioritized from the same deterministic coverage model.
+
 ## Compass Ready
 
 ### SF Bay Area

@@ -1,4 +1,5 @@
 import publisherSnapshot from "../../data/generated/publisher-analysis.json";
+import publisherExpansionPlans from "../../data/generated/publisher-expansion-plans.json";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -21,6 +22,10 @@ function escapeHtml(value) {
 
 function snapshotAnalysis() {
   return publisherSnapshot && publisherSnapshot.analysis ? publisherSnapshot.analysis : null;
+}
+
+function snapshotPlans() {
+  return publisherExpansionPlans && Array.isArray(publisherExpansionPlans.metros) ? publisherExpansionPlans : null;
 }
 
 function renderSnapshotError(token) {
@@ -118,6 +123,16 @@ function renderDimensionList(metro) {
       `).join("")}
     </div>
   `;
+}
+
+function selectedMetroPlan(plans, metroId) {
+  if (!plans || !metroId) return null;
+  return plans.metros.find((plan) => plan.metroId === metroId) || null;
+}
+
+function modeLabel(plans, mode) {
+  const config = plans && plans.modes && plans.modes[mode];
+  return config ? config.label : "Balanced Expansion";
 }
 
 function renderGateBlockers(blockers = []) {
@@ -223,6 +238,120 @@ function renderOverview({ analysis, token }) {
 }
 
 function renderMetroDetail(metro, token) {
+  return renderMetroDetailWithPlan(metro, token, null, "balanced");
+}
+
+function renderCoverageMatrix(plan) {
+  if (!plan) return "";
+  const rows = Object.entries(plan.coverage || {}).map(([key, value]) => `
+    <tr>
+      <td><strong>${escapeHtml(key.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase()))}</strong></td>
+      <td>${escapeHtml(value.count !== undefined ? String(value.count) : value.status !== undefined ? String(value.status) : "")}</td>
+      <td>${value.score !== undefined ? pct(value.score) : ""}</td>
+      <td>${escapeHtml(value.note || value.primaryCityPath || "")}</td>
+    </tr>
+  `).join("");
+  return `
+    <section class="panel">
+      <h2>Coverage Matrix</h2>
+      <p>Concise production status by content and graph layer.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>Count / Status</th><th>Score</th><th>Note</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderPriorityGaps(plan, mode) {
+  if (!plan) return "";
+  const gaps = (plan.priorities || []).slice().sort((a, b) =>
+    ((b.modeScores && b.modeScores[mode]) || b.priorityScore || 0) - ((a.modeScores && a.modeScores[mode]) || a.priorityScore || 0)
+  ).slice(0, 16);
+  return `
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Priority Gaps</h2>
+          <p>Planning gaps are classified from Publisher's deterministic queue and scored for user value, recommendation impact, SEO value, effort, and dependencies.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Priority</th><th>Gap</th><th>Item</th><th>Why It Matters</th><th>Confidence</th><th>Unlocks</th></tr>
+          </thead>
+          <tbody>
+            ${gaps.map((gap) => `
+              <tr>
+                <td><strong>${escapeHtml(String((gap.modeScores && gap.modeScores[mode]) || gap.priorityScore || 0))}</strong></td>
+                <td><span class="severity ${severityClass(gap.severity)}">${escapeHtml(gap.gapLabel)}</span><small>${escapeHtml(gap.code)}</small></td>
+                <td><strong>${escapeHtml(gap.itemName)}</strong><small>${escapeHtml(gap.taskType)}</small></td>
+                <td>${escapeHtml(gap.description)}<small>${escapeHtml(gap.suggestedNextAction)}</small></td>
+                <td>${escapeHtml(gap.confidence)}</td>
+                <td>${escapeHtml((gap.unlocks || []).join("; "))}</td>
+              </tr>
+            `).join("") || `<tr><td colspan="6">No planning gaps for this metro.</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderRecommendedSprint(plan, mode, token) {
+  if (!plan) return "";
+  const sprint = (plan.plansByMode && plan.plansByMode[mode]) || plan.recommendedSprint || {};
+  const taskRows = (sprint.tasks || []).map((task) => `
+    <tr>
+      <td><strong>${escapeHtml(String(task.priorityScore || 0))}</strong></td>
+      <td>${escapeHtml(task.categoryLabel)}</td>
+      <td><strong>${escapeHtml(task.itemName)}</strong><small>${escapeHtml(task.confidence)}</small></td>
+      <td>${escapeHtml(task.suggestedNextAction)}</td>
+      <td>${escapeHtml((task.blockedBy || []).join("; ") || "None")}</td>
+    </tr>
+  `).join("");
+  const prompt = sprint.codexPrompt || "";
+  return `
+    <section class="panel planner-sprint" id="recommended-sprint">
+      <div class="section-header">
+        <div>
+          <h2>Recommended Next Sprint</h2>
+          <p>${escapeHtml(modeLabel(snapshotPlans(), mode))} mode. Change the planning mode to rebalance the same deterministic gaps.</p>
+        </div>
+        <form class="mode-form" method="get" action="/admin/publisher">
+          <input type="hidden" name="token" value="${escapeHtml(token)}">
+          <input type="hidden" name="metro" value="${escapeHtml(plan.metroId)}">
+          <label>Mode
+            <select name="mode" onchange="this.form.submit()">
+              ${Object.entries((snapshotPlans() || {}).modes || {}).map(([key, config]) => `<option value="${escapeHtml(key)}"${key === mode ? " selected" : ""}>${escapeHtml(config.label)}</option>`).join("")}
+            </select>
+          </label>
+        </form>
+      </div>
+      <div class="sprint-summary">
+        <h3>${escapeHtml(sprint.title)}</h3>
+        <p>${escapeHtml(sprint.objective)}</p>
+        <p><strong>Rationale:</strong> ${escapeHtml(sprint.rationale)}</p>
+        <p><strong>Expected impact:</strong> ${escapeHtml((sprint.expectedImpact || []).join("; "))}</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Priority</th><th>Category</th><th>Task</th><th>Next Action</th><th>Blocked By</th></tr></thead>
+          <tbody>${taskRows || `<tr><td colspan="5">No sprint tasks generated.</td></tr>`}</tbody>
+        </table>
+      </div>
+      <details class="prompt-export">
+        <summary>Codex sprint prompt export</summary>
+        <textarea readonly>${escapeHtml(prompt)}</textarea>
+      </details>
+    </section>
+  `;
+}
+
+function renderMetroDetailWithPlan(metro, token, plan, mode = "balanced") {
   return `
     <section class="panel detail-hero">
       <a class="back-link" href="/admin/publisher?${tokenParam(token)}">Back to Publisher overview</a>
@@ -255,6 +384,10 @@ function renderMetroDetail(metro, token) {
         </article>
       `).join("")}
     </section>
+
+    ${renderRecommendedSprint(plan, mode, token)}
+    ${renderPriorityGaps(plan, mode)}
+    ${renderCoverageMatrix(plan)}
 
     <section class="panel">
       <h2>Gate Blockers</h2>
@@ -291,13 +424,18 @@ function renderMetroDetail(metro, token) {
   `;
 }
 
-function renderFilters({ token, selectedMetro, selectedCategory, selectedPriority, automationOnly }) {
+function renderFilters({ token, selectedMetro, selectedCategory, selectedPriority, automationOnly, selectedMode }) {
   return `
     <form class="filters" method="get" action="/admin/publisher">
       <input type="hidden" name="token" value="${escapeHtml(token)}">
       <label>Metro <input name="metro" value="${escapeHtml(selectedMetro || "")}" placeholder="san-francisco"></label>
       <label>Category <input name="category" value="${escapeHtml(selectedCategory || "")}" placeholder="buildingBriefs"></label>
       <label>Priority <input name="priority" value="${escapeHtml(selectedPriority || "")}" placeholder="critical, high"></label>
+      <label>Planning mode
+        <select name="mode">
+          ${Object.entries((snapshotPlans() || {}).modes || {}).map(([key, config]) => `<option value="${escapeHtml(key)}"${key === selectedMode ? " selected" : ""}>${escapeHtml(config.label)}</option>`).join("")}
+        </select>
+      </label>
       <label class="checkbox"><input type="checkbox" name="automation" value="1"${automationOnly ? " checked" : ""}> Automation candidates</label>
       <button type="submit">Filter</button>
       <a href="/admin/publisher?${tokenParam(token)}">Clear</a>
@@ -363,9 +501,11 @@ function filterQueue(queue, { selectedMetro, selectedCategory, selectedPriority,
   });
 }
 
-function renderPage({ token, analysis, selectedMetro, selectedCategory, selectedPriority, automationOnly }) {
+function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, selectedPriority, automationOnly, selectedMode }) {
   const metro = selectedMetro ? analysis.metros.find((item) => item.metroId === selectedMetro) : null;
+  const plan = selectedMetroPlan(plans, selectedMetro);
   const filteredQueue = filterQueue(analysis.queue, { selectedMetro, selectedCategory, selectedPriority, automationOnly });
+  const mode = plans && plans.modes && plans.modes[selectedMode] ? selectedMode : "balanced";
 
   return `<!doctype html>
 <html lang="en">
@@ -432,8 +572,14 @@ function renderPage({ token, analysis, selectedMetro, selectedCategory, selected
     .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 18px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
     .filters label { display: grid; gap: 5px; color: var(--muted); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
     .filters input { min-height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; font: inherit; }
+    select { min-height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: #fff; font: inherit; }
     .filters .checkbox { display: flex; align-items: center; gap: 6px; min-height: 36px; }
     .filters button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: var(--blue); color: #fff; font-weight: 900; }
+    .mode-form label { display: grid; gap: 5px; color: var(--muted); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sprint-summary { margin: 14px 0; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--soft); }
+    .prompt-export { margin-top: 16px; }
+    .prompt-export summary { cursor: pointer; color: var(--blue); font-weight: 900; }
+    .prompt-export textarea { width: 100%; min-height: 360px; margin-top: 12px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: #0f172a; color: #e5edf8; font: 0.85rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
     .back-link, .quiet { display: inline-block; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 800; }
     @media (max-width: 1120px) { .metrics, .category-grid, .dimension-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 720px) { main { width: min(100% - 24px, 1480px); padding-top: 22px; } .metrics, .category-grid, .dimension-grid, .detail-grid { grid-template-columns: 1fr; } .panel { padding: 16px; } th, td { padding: 10px 8px; } }
@@ -447,8 +593,8 @@ function renderPage({ token, analysis, selectedMetro, selectedCategory, selected
       <p>Measure metro completeness, identify content and graph gaps, and plan the next highest-value expansion work without changing production data.</p>
       ${renderNav(token)}
     </header>
-    ${renderFilters({ token, selectedMetro, selectedCategory, selectedPriority, automationOnly })}
-    ${metro && !selectedCategory && !selectedPriority && !automationOnly ? renderMetroDetail(metro, token) : ""}
+    ${renderFilters({ token, selectedMetro, selectedCategory, selectedPriority, automationOnly, selectedMode: mode })}
+    ${metro && !selectedCategory && !selectedPriority && !automationOnly ? renderMetroDetailWithPlan(metro, token, plan, mode) : ""}
     ${metro && (selectedCategory || selectedPriority || automationOnly) ? renderQueue(filteredQueue, token, "Filtered Work Queue", "Filtered deterministic Publisher tasks.") : ""}
     ${!metro && (selectedCategory || selectedPriority || automationOnly) ? renderQueue(filteredQueue, token, "Filtered Work Queue", "Filtered deterministic Publisher tasks.") : ""}
     ${!metro && !selectedCategory && !selectedPriority && !automationOnly ? renderOverview({ analysis, token }) : ""}
@@ -473,13 +619,16 @@ export async function onRequestGet({ request, env }) {
   if (!analysis) {
     return adminResponse(renderSnapshotError(token), 503);
   }
+  const plans = snapshotPlans();
 
   return adminResponse(renderPage({
     token,
     analysis,
+    plans,
     selectedMetro: url.searchParams.get("metro") || "",
     selectedCategory: url.searchParams.get("category") || "",
     selectedPriority: url.searchParams.get("priority") || "",
+    selectedMode: url.searchParams.get("mode") || "balanced",
     automationOnly: url.searchParams.get("automation") === "1",
   }));
 }

@@ -304,6 +304,8 @@ The build creates:
 
 `data/generated/publisher-analysis.json`
 
+`data/generated/publisher-expansion-plans.json`
+
 Generate it directly with:
 
 ```bash
@@ -316,6 +318,8 @@ The snapshot contains:
 - deterministic generation metadata derived from the current git commit when available
 - the complete Publisher analysis used by the admin route
 - dimension scores, overall scores, readiness states, blockers, queues, recommended actions, and supporting counts
+
+The expansion-plan snapshot contains metro planning objects, priority gaps, recommended sprint plans, expansion-mode variants, and Codex prompt exports. It is generated from the same Publisher analysis and does not run separate coverage calculations.
 
 `/admin/publisher` consumes the generated snapshot and Worker-safe rendering helpers only. If the snapshot is missing or malformed, the route renders a clear admin error state instead of fabricating empty Publisher results.
 
@@ -357,6 +361,28 @@ Edit `data/publisher-rules.js` to adjust:
 - deterministic avoid phrases
 
 Do not copy the full Editorial Style Guide into rules. Only encode checks that can be evaluated deterministically.
+
+## Metro Expansion Planner
+
+Publisher includes a deterministic planning layer documented in `docs/publisher-metro-expansion-planner.md`.
+
+The planner answers:
+
+- what is already published
+- what is incomplete
+- which districts should be improved first
+- which representative buildings or Building Briefs are missing
+- which recommendation relationships are weak
+- what the next editorial sprint should contain
+
+The planner supports four modes:
+
+- Balanced Expansion
+- Recommendation Readiness
+- Editorial Depth
+- Building Depth
+
+Modes rebalance priority scoring; they do not bypass prerequisites or quality gates. The planner never publishes content automatically and never fabricates districts, buildings, comparison relationships, or availability claims.
 
 ## Known Limitations
 
