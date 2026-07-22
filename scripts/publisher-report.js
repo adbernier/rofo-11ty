@@ -113,6 +113,26 @@ function renderReport(analysis) {
   lines.push("");
   lines.push("Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem readiness is reported separately and is not included in the current Publisher numeric score.");
   lines.push("");
+  lines.push("## Representative Building Intelligence");
+  lines.push("");
+  lines.push(row(["Metro", "Ecosystem", "State", "Roles Covered", "Operational Categories", "Review Required", "Highest Missing Role"]));
+  lines.push(row(["---", "---", "---", "---:", "---:", "---:", "---"]));
+  for (const metro of analysis.primaryMetros) {
+    const evaluations = ((metro.ecosystemReadiness || {}).evaluations || []).filter((item) => item.relevance !== "not_applicable");
+    for (const evaluation of evaluations) {
+      const intelligence = evaluation.representativeBuildingIntelligence || {};
+      lines.push(row([
+        metro.metroName,
+        evaluation.label,
+        intelligence.stateLabel || "Missing",
+        (intelligence.rolesCovered || []).length || 0,
+        (intelligence.operationalCategoriesCovered || []).length || 0,
+        intelligence.reviewRequiredCount || 0,
+        intelligence.highestPriorityMissingRole || "None",
+      ]));
+    }
+  }
+  lines.push("");
   lines.push("## Category Coverage");
   for (const metro of analysis.primaryMetros) {
     lines.push("");

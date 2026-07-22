@@ -14,6 +14,8 @@ It is not a listings feed, scoring model, or AI system. It stores durable commer
 
 - `_data/locationKnowledgeSchema.js` defines enums, canonical attribute keys, and a lightweight validator.
 - `_data/commercialEcosystemTaxonomy.js` defines the canonical commercial ecosystem, subtype, activity, and archetype IDs used by graph metadata and Publisher reporting.
+- `_data/representativeBuildingIntelligenceTaxonomy.js` defines canonical Representative Building operational characteristics and representative roles.
+- `_data/representativeBuildingIntelligence.js` normalizes graph, canonical building, and Commercial Building Intelligence records into planning-grade Representative Building Intelligence.
 - `_data/locationKnowledgeGraph.js` contains seeded city and district nodes.
 - `_data/recommendationProfiles.js` remains as a legacy fallback while the graph matures.
 - `js/recommendation-resolver.js` resolves Search Profile context through Rofo Compass.
@@ -73,6 +75,8 @@ Rules:
 Publisher uses this metadata to report ecosystem coverage by metro without changing readiness scores.
 
 Publisher also evaluates ecosystem readiness from this metadata. For that reason, graph authors should be careful not to overuse office as a default classification. A district with industrial, medical, retail, or life-science operating signals should declare those ecosystems explicitly through primary or secondary ecosystem metadata.
+
+Representative Building Intelligence uses district metadata as one input, but a building-specific editorial role may classify a mixed-use example differently from the district primary ecosystem. For example, a production/flex building inside an office-heavy district can represent industrial/flex if the source record supports that role. Do not use this as a shortcut for unsupported property features.
 
 ## Space-Type Fit
 

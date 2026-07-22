@@ -165,6 +165,19 @@ Ecosystem Classification -> District Foundation -> Recommendation Foundation -> 
 
 The Codex prompt export for ecosystem sprints includes framework context, target ecosystem, target subtypes, target archetypes, target business activities, current layer coverage, known gaps, dependencies, completion criteria, and guardrails against office-only expansion.
 
+Representative Building Intelligence v2 extends ecosystem sprint exports with:
+
+- missing representative roles
+- missing operational categories
+- current representative-role coverage
+- current operational-characteristic coverage
+- existing representative building examples
+- district candidates
+- evidence and confidence rules
+- guardrails against treating taxonomy compatibility as verified property fact
+
+Representative Building Foundation sprints should now be completed by semantic coverage: roles, subtypes, activities, archetypes, operational categories, validation focus, and Building Brief migration candidates. Raw building count is a range, not the success metric.
+
 ## Confidence States
 
 Planner tasks use four confidence states:

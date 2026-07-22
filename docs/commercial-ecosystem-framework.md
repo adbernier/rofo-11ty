@@ -10,6 +10,8 @@ The machine-readable v1 implementation is documented in `docs/commercial-ecosyst
 
 Commercial Ecosystem Readiness & Expansion Planning v1 extends that foundation with Publisher readiness gates and ecosystem sprint planning. Publisher now distinguishes geographic readiness from ecosystem readiness so a metro can be geographically mature while still commercially incomplete.
 
+Representative Building Intelligence v2 extends the framework from district-level ecosystem metadata into building-level operational examples. It is documented in `docs/representative-building-intelligence.md` and remains additive: it does not change public page rendering, recommendation rankings, Search Profile questions, or Publisher score formulas.
+
 ## 1. Vision and Philosophy
 
 Businesses search for places where their operations can succeed, not for property types. Rofo translates business needs into the commercial ecosystems where those businesses thrive.
@@ -23,6 +25,7 @@ The framework should help Rofo answer:
 - Which commercial ecosystems support those activities?
 - Which districts express those ecosystems in this metro?
 - Which representative buildings make the district tangible?
+- Which operational characteristics and representative roles do those buildings illustrate?
 - Which Building Briefs help the user understand fit and tradeoffs?
 - What should Rofo investigate in the live market next?
 

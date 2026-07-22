@@ -16,6 +16,8 @@ Commercial Ecosystem Foundation v1 adds canonical ecosystem, subtype, activity, 
 
 Commercial Ecosystem Readiness & Expansion Planning v1 makes Publisher ecosystem-aware. It adds Geographic Readiness, Ecosystem Readiness, Commercial Balance, and recommended ecosystem sprints. These outputs should guide expansion work before recommendation logic changes: first make the metro commercially balanced enough, then calibrate ecosystem-aware recommendation behavior.
 
+Representative Building Intelligence v2 adds operational-characteristic and representative-role metadata to the building layer. Use it to prepare ecosystem-aware expansion sprints and future archetype-aware recommendations, but do not expose raw taxonomy IDs or alter current recommendation rankings until a later recommendation-calibration phase.
+
 ## Compass Ready
 
 ### SF Bay Area

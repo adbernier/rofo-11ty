@@ -361,6 +361,45 @@ function renderEcosystemReadinessMatrix(metro) {
   `;
 }
 
+function renderRepresentativeBuildingIntelligence(metro) {
+  const evaluations = ((metro.ecosystemReadiness || {}).evaluations || [])
+    .filter((item) => item.relevance !== "not_applicable")
+    .filter((item) => item.representativeBuildingIntelligence);
+  return `
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Representative Building Intelligence</h2>
+          <p>Operational coverage by ecosystem. This is planning evidence only and does not change Publisher scoring.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ecosystem</th><th>State</th><th>Buildings</th><th>Roles</th><th>Subtypes</th><th>Activities</th><th>Operational Categories</th><th>Review</th><th>Next Missing Signal</th></tr></thead>
+          <tbody>
+            ${evaluations.map((item) => {
+              const intelligence = item.representativeBuildingIntelligence || {};
+              return `
+                <tr>
+                  <td><strong>${escapeHtml(item.label)}</strong><small>${escapeHtml(item.relevanceLabel)}</small></td>
+                  <td><span class="severity ${intelligence.state === "review_required" ? "is-high" : intelligence.state === "missing" || intelligence.state === "thin" ? "is-medium" : "is-low"}">${escapeHtml(intelligence.stateLabel || "Missing")}</span></td>
+                  <td>${escapeHtml(String(intelligence.buildingCount || 0))}</td>
+                  <td>${escapeHtml((intelligence.rolesCovered || []).slice(0, 3).join(", ") || "None")}</td>
+                  <td>${escapeHtml((intelligence.subtypesCovered || []).slice(0, 3).join(", ") || "None")}</td>
+                  <td>${escapeHtml((intelligence.activityCoverage || []).slice(0, 3).join(", ") || "None")}</td>
+                  <td>${escapeHtml((intelligence.operationalCategoriesCovered || []).slice(0, 4).join(", ") || "None")}</td>
+                  <td>${escapeHtml(String(intelligence.reviewRequiredCount || 0))}</td>
+                  <td>${escapeHtml(intelligence.highestPriorityMissingRole || intelligence.highestPriorityMissingOperationalCategory || "None")}</td>
+                </tr>
+              `;
+            }).join("") || `<tr><td colspan="9">No Representative Building Intelligence generated.</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
 function renderRecommendedEcosystemSprint(plan) {
   const sprint = plan && plan.recommendedEcosystemSprint;
   if (!sprint) return "";
@@ -377,6 +416,8 @@ function renderRecommendedEcosystemSprint(plan) {
         <p>${escapeHtml(sprint.objective)}</p>
         <p><strong>Reason:</strong> ${escapeHtml(sprint.rationale)}</p>
         ${sprint.alternativeSprint ? `<p><strong>Alternative:</strong> ${escapeHtml(sprint.alternativeSprint.title)}. ${escapeHtml(sprint.alternativeSprint.whyNotFirst)}</p>` : ""}
+        ${(sprint.missingRepresentativeRoles || []).length ? `<p><strong>Missing representative environments:</strong> ${escapeHtml(sprint.missingRepresentativeRoles.slice(0, 6).join(", "))}</p>` : ""}
+        ${(sprint.missingOperationalCategories || []).length ? `<p><strong>Missing operational coverage:</strong> ${escapeHtml(sprint.missingOperationalCategories.slice(0, 6).join(", "))}</p>` : ""}
       </div>
       <div class="table-wrap">
         <table>
@@ -521,6 +562,7 @@ function renderMetroDetailWithPlan(metro, token, plan, mode = "balanced") {
 
     ${renderReadinessSummary(metro)}
     ${renderEcosystemReadinessMatrix(metro)}
+    ${renderRepresentativeBuildingIntelligence(metro)}
     ${renderRecommendedEcosystemSprint(plan)}
     ${renderRecommendedSprint(plan, mode, token)}
     ${renderPriorityGaps(plan, mode)}

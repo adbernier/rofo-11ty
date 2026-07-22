@@ -115,6 +115,8 @@ building_brief: {
 
 This object is intentionally optional. Existing representative and legacy building pages remain backward compatible. Future buildings can adopt the Building Brief standard one record at a time.
 
+Representative Building Intelligence v2 provides an additional non-rendered planning layer for Building Brief authors. A future Brief may inherit ecosystem, subtype, representative role, business activities, business archetypes, operational characteristics, representative reasons, tradeoffs, and validation focus from `_data/representativeBuildingIntelligence.js`. Explicit Building Brief editorial fields override inherited planning metadata. Do not render raw taxonomy IDs or assert operational features without source support.
+
 The current runtime accepts both the original Building Brief field names and the newer production aliases. Prefer the production names for new records:
 
 - `buildingSummary`: concise hero summary
@@ -428,6 +430,8 @@ Use this checklist for future batches:
 ## Representative Foundation Before Building Briefs
 
 Some metros may first receive a representative-building foundation before full Building Brief migration. A foundation entry should use an existing canonical building path and may include representative role, reason, best-fit summary, primary tradeoff, source confidence, and migration readiness.
+
+Foundation entries should now also be evaluated against Representative Building Intelligence: ecosystem, subtype, role, supported activities, archetypes, operational-characteristic coverage, validation focus, confidence, and provenance. This determines whether the building is a good future Brief candidate, but it does not make the page a production Building Brief.
 
 Foundation entries are useful for Publisher planning and future recommendation work, but they are not production Building Briefs. Do not mark a building as Brief-ready until the full `building_brief` editorial object is authored and QA passes.
 

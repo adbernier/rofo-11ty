@@ -92,6 +92,8 @@ Each representative-building entry includes:
 
 This is enough for Publisher coverage and future editorial planning. It is not enough by itself to publish a production Building Brief.
 
+Representative Building Intelligence v2 now evaluates this foundation against ecosystem, subtype, representative-role, business-activity, archetype, operational-characteristic, validation-focus, confidence, and provenance rules. Sacramento's existing foundation is office-oriented; industrial/flex representative environments remain a separate required sprint.
+
 ## Recommendation Eligibility
 
 The current Recommendation -> Representative Buildings resolver only renders production `building_brief` records from Commercial Building Intelligence. This sprint did not weaken that global eligibility rule.

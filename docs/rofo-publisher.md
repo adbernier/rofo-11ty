@@ -148,6 +148,7 @@ Reports:
 - Representative Buildings by inherited or explicit ecosystem
 - Building Briefs by inherited or explicit ecosystem
 - subtype, activity, and archetype coverage
+- Representative Building Intelligence roles, operational characteristics, operational categories, and review-required records
 - missing or thin ecosystems
 - review-required classifications
 - geographic readiness
@@ -375,6 +376,8 @@ It writes:
 
 The report is generated output. Do not maintain separate calculations in documentation.
 
+The report also includes Representative Building Intelligence coverage. These fields are planning evidence and do not alter the calibrated Publisher score or readiness label in this sprint.
+
 ## Adjusting Rules
 
 Edit `data/publisher-rules.js` to adjust:
@@ -413,6 +416,8 @@ The planner supports four modes:
 - Building Depth
 
 Modes rebalance priority scoring; they do not bypass prerequisites or quality gates. The planner never publishes content automatically and never fabricates districts, buildings, comparison relationships, or availability claims.
+
+Ecosystem sprint prompt exports now include missing representative roles, missing operational categories, existing representative buildings, evidence requirements, and validation guardrails from `docs/representative-building-intelligence.md`.
 
 ## Known Limitations
 

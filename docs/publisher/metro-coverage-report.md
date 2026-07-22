@@ -1,6 +1,6 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-22T01:14:50.731Z
+Generated: 2026-07-22T02:32:16.181Z
 Rules: publisher-rules-v1
 
 ## Overview
@@ -36,7 +36,7 @@ Rules: publisher-rules-v1
 
 | Metro | Geographic | Ecosystem | Balance | Blocking Ecosystems | Recommended Ecosystem Sprint |
 | --- | --- | --- | --- | --- | --- |
-| San Francisco | Strong | Partial | Office Brief Concentrated | None | San Francisco Industrial & Flex Ecosystem Building Brief Migration |
+| San Francisco | Strong | Partial | Office Brief Concentrated | None | San Francisco Life Science Ecosystem Representative Building Foundation |
 | Sacramento | Developed | Partial | Balanced | industrial_flex | Sacramento Industrial & Flex Ecosystem Representative Building Foundation |
 | San Diego | Developed | Partial | Balanced | None | San Diego Industrial & Flex Ecosystem Building Brief Migration |
 | Orange County | Developed | Partial | Balanced | None | Orange County Industrial & Flex Ecosystem Building Brief Migration |
@@ -46,13 +46,53 @@ Rules: publisher-rules-v1
 
 | Metro | Office | Industrial & Flex | Retail | Medical | Life Science | Highest Ecosystem Gap |
 | --- | --- | --- | --- | --- | --- | --- |
-| San Francisco | Developed / Core (5/41/13) | Partial / Core (7/36/0) | Partial / Important (5/16/0) | Partial / Important (0/0/0) | Partial / Core (1/14/3) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
-| Sacramento | Partial / Core (2/6/0) | Thin / Core (5/0/0) | Partial / Important (0/0/0) | Partial / Important (5/9/0) | Missing / Secondary (0/0/0) | Industrial & Flex: District foundation exists, but Representative Buildings are missing. |
+| San Francisco | Developed / Core (5/41/13) | Partial / Core (7/36/0) | Partial / Important (5/16/0) | Partial / Important (0/0/0) | Partial / Core (1/14/3) | Life Science: Representative Buildings lack sufficient role, activity, archetype, or operational intelligence. |
+| Sacramento | Partial / Core (2/7/0) | Thin / Core (5/0/0) | Partial / Important (0/0/0) | Partial / Important (5/8/0) | Missing / Secondary (0/0/0) | Industrial & Flex: District foundation exists, but Representative Buildings are missing. |
 | San Diego | Partial / Core (3/12/0) | Partial / Core (8/28/0) | Partial / Important (0/0/0) | Partial / Important (1/4/0) | Partial / Core (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 | Orange County | Partial / Core (4/18/0) | Partial / Core (4/8/0) | Partial / Important (0/0/0) | Partial / Important (2/4/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 | Denver | Partial / Core (10/24/0) | Partial / Core (5/8/0) | Partial / Important (0/0/0) | Partial / Important (4/10/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 
 Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem readiness is reported separately and is not included in the current Publisher numeric score.
+
+## Representative Building Intelligence
+
+| Metro | Ecosystem | State | Roles Covered | Operational Categories | Review Required | Highest Missing Role |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| San Francisco | Office | Developed | 5 | 5 | 9 | downtown_class_a_office |
+| San Francisco | Industrial & Flex | Strong | 3 | 6 | 36 | contractor_service_cluster |
+| San Francisco | Retail | Review Required | 1 | 2 | 16 | destination_retail_environment |
+| San Francisco | Medical | Missing | 0 | 0 | 0 | medical_office_environment |
+| San Francisco | Life Science | Thin | 1 | 4 | 2 | research_lab_environment |
+| San Francisco | Hospitality | Missing | 0 | 0 | 0 | None |
+| San Francisco | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
+| Sacramento | Office | Developed | 5 | 5 | 0 | downtown_class_a_office |
+| Sacramento | Industrial & Flex | Missing | 0 | 0 | 0 | small_bay_service_environment |
+| Sacramento | Retail | Missing | 0 | 0 | 0 | neighborhood_service_retail |
+| Sacramento | Medical | Thin | 1 | 3 | 0 | hospital_adjacent_medical_environment |
+| Sacramento | Life Science | Missing | 0 | 0 | 0 | research_lab_environment |
+| Sacramento | Hospitality | Missing | 0 | 0 | 0 | None |
+| Sacramento | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
+| San Diego | Office | Review Required | 2 | 4 | 12 | creative_office_environment |
+| San Diego | Industrial & Flex | Review Required | 2 | 5 | 28 | flex_business_park |
+| San Diego | Retail | Missing | 0 | 0 | 0 | neighborhood_service_retail |
+| San Diego | Medical | Review Required | 1 | 3 | 4 | hospital_adjacent_medical_environment |
+| San Diego | Life Science | Missing | 0 | 0 | 0 | research_lab_environment |
+| San Diego | Hospitality | Missing | 0 | 0 | 0 | None |
+| San Diego | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
+| Orange County | Office | Review Required | 3 | 4 | 18 | downtown_class_a_office |
+| Orange County | Industrial & Flex | Review Required | 2 | 6 | 8 | flex_business_park |
+| Orange County | Retail | Missing | 0 | 0 | 0 | neighborhood_service_retail |
+| Orange County | Medical | Review Required | 1 | 3 | 4 | hospital_adjacent_medical_environment |
+| Orange County | Life Science | Missing | 0 | 0 | 0 | research_lab_environment |
+| Orange County | Hospitality | Missing | 0 | 0 | 0 | None |
+| Orange County | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
+| Denver | Office | Review Required | 3 | 5 | 24 | downtown_class_a_office |
+| Denver | Industrial & Flex | Review Required | 1 | 4 | 8 | flex_business_park |
+| Denver | Retail | Missing | 0 | 0 | 0 | neighborhood_service_retail |
+| Denver | Medical | Review Required | 1 | 3 | 10 | hospital_adjacent_medical_environment |
+| Denver | Life Science | Missing | 0 | 0 | 0 | research_lab_environment |
+| Denver | Hospitality | Missing | 0 | 0 | 0 | None |
+| Denver | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
 
 ## Category Coverage
 

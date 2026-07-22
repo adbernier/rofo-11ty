@@ -20,6 +20,8 @@ Commercial Building Intelligence becomes the source that district pages, represe
 
 Commercial Ecosystem Foundation v1 adds an ecosystem alignment layer. Representative buildings and Building Briefs may inherit ecosystem metadata from their associated district, or declare explicit metadata when a building represents a secondary ecosystem or a meaningful contrast. Use the canonical IDs in `_data/commercialEcosystemTaxonomy.js`; do not invent building-local ecosystem labels.
 
+Representative Building Intelligence v2 adds a normalized operational layer for representative examples. Use `_data/representativeBuildingIntelligenceTaxonomy.js` for operational-characteristic IDs and representative-role IDs, and `docs/representative-building-intelligence.md` for authoring rules. This layer supports Publisher and future Building Brief authoring; it does not change public rendering by itself.
+
 ## Runtime Source
 
 The runtime source is `_data/commercialBuildingIntelligence.js`.
@@ -113,6 +115,8 @@ These fields explain practical daily-use considerations. They should remain caut
 - `nearbyAlternatives`
 
 Every representative building should communicate at least one real tradeoff. Buildings should not read like advertisements.
+
+Operational characteristics should be used carefully. A building can be representative of an environment where loading, parking, lab, food, medical, yard, or power validation matters without claiming that the specific building has a verified feature. Treat those signals as validation focus unless the source record supports them as property facts.
 
 ### Validation
 

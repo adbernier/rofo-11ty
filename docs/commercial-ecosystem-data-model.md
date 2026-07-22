@@ -8,6 +8,14 @@ The canonical machine-readable taxonomy lives in:
 
 `_data/commercialEcosystemTaxonomy.js`
 
+Representative Building operational intelligence extends the ecosystem taxonomy through:
+
+`_data/representativeBuildingIntelligenceTaxonomy.js`
+
+and normalized build-time records in:
+
+`_data/representativeBuildingIntelligence.js`
+
 It defines:
 
 - top-level commercial ecosystems
@@ -15,6 +23,7 @@ It defines:
 - business activities
 - business archetypes
 - operational signals
+- representative-building operational characteristics and roles, through the Representative Building Intelligence taxonomy
 
 Do not scatter ecosystem strings through templates or metro data. New IDs should be added to the taxonomy first, then referenced from graph, building, Publisher, or QA code.
 
@@ -123,6 +132,10 @@ Declare explicit building metadata when:
 - the building represents a secondary ecosystem
 - the building should support future ecosystem-specific Building Brief or recommendation behavior
 
+Representative Building Intelligence v2 adds a normalized intelligence layer for each representative record. It tracks primary ecosystem, subtype, representative role, business activities, business archetypes, operational characteristics, representative reasons, tradeoffs, validation focus, confidence, and provenance. Explicit Building Brief editorial content remains the highest editorial layer; the new intelligence record is a planning and QA foundation, not a public rendering change.
+
+Full rules are documented in `docs/representative-building-intelligence.md`.
+
 ## Publisher Reporting
 
 Publisher now includes `ecosystemCoverage` in the generated metro analysis snapshot. It reports:
@@ -136,6 +149,8 @@ Publisher now includes `ecosystemCoverage` in the generated metro analysis snaps
 - missing ecosystems
 - review-required district classifications
 - underrepresented ecosystems
+- Representative Building Intelligence coverage by ecosystem
+- representative roles, operational characteristics, operational categories, and review-required building counts
 
 This reporting is not part of Publisher readiness scoring in v1. Strong office coverage should be visible separately from weak industrial/flex, medical, retail, or life-science coverage.
 
