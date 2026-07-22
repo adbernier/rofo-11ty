@@ -1,0 +1,33 @@
+{% set operationalProfile = buildingBrief.operationalProfile or [] %}
+{% set environmentExplanation = buildingBrief.environmentExplanation %}
+{% if (operationalProfile and operationalProfile.length) or environmentExplanation %}
+  <section class="building-brief-section building-brief-section--operations">
+    <div class="building-brief-section__header">
+      <div class="eyebrow">Operations</div>
+      <h2>Operational Profile</h2>
+      <p>Use this section to understand the operating model this environment can help explain. Exact suite conditions, permitted use, and current market facts still need validation.</p>
+    </div>
+
+    {% if environmentExplanation %}
+      <div class="building-operational-explainer">
+        {% if environmentExplanation.whyItExists %}
+          <p>{{ environmentExplanation.whyItExists }}</p>
+        {% endif %}
+        {% if environmentExplanation.whyChooseThisEnvironment %}
+          <p>{{ environmentExplanation.whyChooseThisEnvironment }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if operationalProfile and operationalProfile.length %}
+      <div class="building-operational-grid">
+        {% for item in operationalProfile %}
+          <div class="building-operational-card">
+            <h3>{{ item.label }}</h3>
+            <p>{{ item.summary }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

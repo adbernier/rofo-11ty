@@ -7,7 +7,7 @@ const VALID_STATES = new Set(["developed", "strong", "partial", "thin", "missing
 const VALID_RELEVANCE = new Set(["core", "important", "secondary", "specialized", "not_applicable", "review_required"]);
 const EXPECTED_SCORES = {
   "san-francisco": { overall: 74, status: "Editorially Developed" },
-  sacramento: { overall: 84, status: "Expansion Ready" },
+  sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
   denver: { overall: 84, status: "Expansion Ready" },
@@ -124,13 +124,16 @@ if (sacramento) {
   const industrial = evaluationFor(sacramento, "industrial_flex");
   requireField(office && industrial, "Sacramento: missing office or industrial/flex evaluation");
   requireField(industrial && industrial.relevance === "core", "Sacramento: industrial/flex should be core");
-  requireField(industrial && ["thin", "partial"].includes(industrial.readinessState), `Sacramento: industrial/flex should remain visible as thin or partial, got ${industrial && industrial.readinessState}`);
+  requireField(industrial && ["partial", "strong"].includes(industrial.readinessState), `Sacramento: industrial/flex should remain visible as partial or strong after Brief migration, got ${industrial && industrial.readinessState}`);
   requireField(sacramento.ecosystemReadiness.state === "partial", `Sacramento: expected ecosystem readiness partial, got ${sacramento.ecosystemReadiness.state}`);
   if (industrial && industrial.readinessState === "thin") {
     requireField(sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: thin industrial/flex should block ecosystem readiness");
   } else if (industrial && industrial.readinessState === "partial") {
     requireField(!sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: partial industrial/flex should not remain a blocking ecosystem after representative-building foundation");
     requireField(industrial.layers && industrial.layers.buildingBriefs === "missing", "Sacramento: partial industrial/flex should expose missing Building Brief depth");
+  } else if (industrial && industrial.readinessState === "strong") {
+    requireField(!sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: strong industrial/flex should not remain a blocking ecosystem after Building Brief migration");
+    requireField(industrial.layers && ["strong", "developed"].includes(industrial.layers.buildingBriefs), `Sacramento: industrial/flex should expose added Building Brief depth, got ${industrial.layers && industrial.layers.buildingBriefs}`);
   }
 }
 if (sacramentoPlan && sacramentoPlan.recommendedEcosystemSprint) {

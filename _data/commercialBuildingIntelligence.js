@@ -1,3 +1,5 @@
+const sacramentoIndustrialFlexBuildingBriefs = require("./sacramentoIndustrialFlexBuildingBriefs.js");
+
 const CITY = "San Francisco";
 const STATE = "CA";
 const CITY_SLUG = "san-francisco";
@@ -485,7 +487,7 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "3150 18th", address: "3150 18th St", districtKey: "missionDistrict", role: "Creative Benchmark", themes: ["Creative Office", "Maker", "Adaptive Reuse"], reason: "Helps explain the Alabama and 18th Street creative-production cluster.", comparisonAddresses: ["2900 18th St", "2741 16th St", "2400 16th St"] }),
   canonicalBuilding({ name: "2400 16th", address: "2400 16th St", districtKey: "missionDistrict", role: "Production / Flex Benchmark", themes: ["Flex", "Production", "Neighborhood Edge"], reason: "Represents the Mission's production/flex edge near Potrero and Showplace Square.", comparisonAddresses: ["1850 Bryant St", "1700 17th St", "3150 18th St"] }),
   canonicalBuilding({ name: "2601 Mission / New Mission Theater", address: "2601 Mission St", districtKey: "missionDistrict", role: "Neighborhood Anchor", themes: ["Historic", "Mixed Use", "Neighborhood Anchor"], reason: "A key commercial landmark for understanding Mission Street's neighborhood-serving and entertainment identity.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1800 Mission St", "1880 Mission St", "2741 16th St"] }),
-];
+].concat(sacramentoIndustrialFlexBuildingBriefs.canonicalBuildings || []);
 
 function buildingBrief(fields) {
   const snapshot = Array.isArray(fields.snapshot) ? fields.snapshot : [];
@@ -502,6 +504,7 @@ function buildingBrief(fields) {
     quickFacts: Array.isArray(fields.quickFacts) ? fields.quickFacts : snapshot,
     idealFor: Array.isArray(fields.idealFor) ? fields.idealFor : fields.bestFit || [],
     districtContext: fields.districtContext || fields.locationContext || "",
+    validationNotes: Array.isArray(fields.validationNotes) ? fields.validationNotes : fields.validationChecklist || [],
     nearbyAlternatives,
     relatedInsights: Array.isArray(fields.relatedInsights) ? fields.relatedInsights : [],
     representativeCompanies: Array.isArray(fields.representativeCompanies) ? fields.representativeCompanies : [],
@@ -1619,16 +1622,19 @@ function toRuntimeBuilding(item) {
   const { identity, editorial, business, experience, operations, tradeoffs, validation, quality } = item;
   const canonicalDistrict = identity.canonicalDistrict;
   const isDistrictAnchor = identity.assetClass === "District Anchor";
+  const city = identity.city || CITY;
+  const state = identity.state_abbr || STATE;
+  const citySlug = slugify(city);
   const description = `${identity.name} is a ${editorial.editorialRole.toLowerCase()} in ${canonicalDistrict.name}. ${editorial.editorialReason}`;
-  const buildingBrief = buildingBriefsByPath[item.building_path] || null;
+  const buildingBrief = item.buildingBrief || buildingBriefsByPath[item.building_path] || null;
 
   return {
     name: identity.name,
     display_name: identity.name,
     address: identity.address,
-    city: CITY,
-    state_abbr: STATE,
-    city_slug: CITY_SLUG,
+    city,
+    state_abbr: state,
+    city_slug: citySlug,
     building_slug: slugify(identity.address),
     building_path: item.building_path,
     type: identity.buildingType,
@@ -1645,15 +1651,15 @@ function toRuntimeBuilding(item) {
     commercial_building_intelligence: item,
     source_confidence: quality.sourceConfidence,
     publication_status: quality.publicationStatus,
-    meta_title: `${identity.name} | Representative Commercial Building in ${CITY}`,
+    meta_title: `${identity.name} | Representative Commercial Building in ${city}`,
     meta_description:
       `Learn why businesses compare ${identity.name} in ${canonicalDistrict.name}, what it helps explain, and what to validate before adding similar buildings to a shortlist.`,
     teaser: description,
     building_description: description,
     about_context:
-      `${identity.name} is included in Rofo's San Francisco Commercial Building Intelligence because it helps explain ${canonicalDistrict.name}. It is a representative example, not an availability claim.`,
+      `${identity.name} is included in Rofo's Commercial Building Intelligence because it helps explain ${canonicalDistrict.name}. It is a representative example, not an availability claim.`,
     location_context:
-      `${identity.name} sits in ${canonicalDistrict.name}, one of the San Francisco commercial areas businesses compare when deciding where to begin a search.`,
+      `${identity.name} sits in ${canonicalDistrict.name}, one of the ${city} commercial areas businesses compare when deciding where to begin a search.`,
     common_fit: business.businessFit.join(", "),
     detail_summary: `${editorial.editorialRole} in ${canonicalDistrict.name}`,
     best_for: business.idealCompanyProfiles,

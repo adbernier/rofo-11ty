@@ -114,6 +114,18 @@ These fields explain practical daily-use considerations. They should remain caut
 - `businessesThatShouldCompare`
 - `nearbyAlternatives`
 
+Industrial & Flex Building Brief Standard v1 adds optional operational fields to production Briefs:
+
+- `ecosystemContext`
+- `businessFit`
+- `operationalProfile`
+- `environmentExplanation`
+- `comparisonContext`
+- `validationChecklist`
+- `evidence`
+
+These fields are additive and should be used when a Building Brief needs to explain service, warehouse, flex, distribution, light-manufacturing, contractor, yard, or showroom/flex operating decisions. Existing office Briefs do not need immediate migration.
+
 Every representative building should communicate at least one real tradeoff. Buildings should not read like advertisements.
 
 Operational characteristics should be used carefully. A building can be representative of an environment where loading, parking, lab, food, medical, yard, or power validation matters without claiming that the specific building has a verified feature. Treat those signals as validation focus unless the source record supports them as property facts.

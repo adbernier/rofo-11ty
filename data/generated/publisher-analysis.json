@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-21T21:13:17-07:00",
-  "sourceCommit": "31f73e166f7776b5a30ed49052cf1a0b2cd1479b",
+  "generatedAt": "2026-07-21T21:43:22-07:00",
+  "sourceCommit": "f6952dba2947a538506d2588e8a175625e1cc57d",
   "analysis": {
-    "generatedAt": "2026-07-21T21:13:17-07:00",
+    "generatedAt": "2026-07-21T21:43:22-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
-      "averageScore": 82,
+      "averageScore": 85,
       "criticalIssues": 0,
-      "queuedTasks": 323,
+      "queuedTasks": 322,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -8744,7 +8744,7 @@
           "reportPath": "/docs/recommendation-qa/sacramento-pilot/",
           "notes": "Sacramento pilot scenarios produce differentiated, graph-backed market paths for office, medical, flex, warehouse, and retail/service profiles."
         },
-        "readinessStatus": "Expansion Ready",
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
@@ -8766,30 +8766,21 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 69,
+            "score": 94,
             "status": "",
-            "explanation": "12 of 12 districts have substantive descriptions; 31 representative buildings and 0 Building Briefs are available.",
+            "explanation": "12 of 12 districts have substantive descriptions; 31 representative buildings and 8 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 12,
               "representativeBuildings": 31,
-              "buildingBriefs": 0
+              "buildingBriefs": 8
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [
-              {
-                "gate": "editorially-developed",
-                "severity": "medium",
-                "code": "building-brief-collection-missing",
-                "message": "No initial Building Brief collection exists.",
-                "sourceId": "sacramento",
-                "relatedTaskId": ""
-              }
-            ],
-            "topOpportunity": "Create an initial collection of 5 Building Briefs."
+            "blockers": [],
+            "topOpportunity": "Continue Building Brief migration across priority districts."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
@@ -8810,28 +8801,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 89,
-        "scoreCapReasons": [
-          {
-            "cap": 84,
-            "code": "no-building-briefs-overall-cap",
-            "reason": "Metro has representative buildings but no initial Building Brief collection."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "editorialCoverage",
-            "cap": 72,
-            "reason": "Representative buildings exist, but no Building Briefs have been migrated.",
-            "code": "no-building-briefs-editorial-cap"
-          }
-        ],
-        "overallScore": 84,
-        "score": 84,
+        "rawOverallScore": 98,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 98,
+        "score": 98,
         "cityPath": "/commercial-real-estate/CA/sacramento/",
         "districtCount": 12,
         "representativeBuildingCount": 31,
-        "buildingBriefCount": 0,
+        "buildingBriefCount": 8,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -8853,7 +8831,9 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office is Partial; Industrial & Flex is Partial; Retail is Partial; Medical is Partial."
+            "Industrial & Flex coverage is strong or developed.",
+            "Office is Partial; Retail is Partial; Medical is Partial.",
+            "Building Brief coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -9060,13 +9040,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "strong",
@@ -9077,7 +9057,7 @@
                 "secondaryDistricts": 3,
                 "recommendations": 5,
                 "representativeBuildings": 16,
-                "buildingBriefs": 0,
+                "buildingBriefs": 8,
                 "subtypes": 7,
                 "archetypes": 7,
                 "activities": 5,
@@ -9087,15 +9067,13 @@
                 "operationalCharacteristics": 39,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
+                "16 Representative Buildings and 8 Building Briefs.",
                 "8 representative roles and 7 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -9931,32 +9909,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
-                "8 representative roles and 7 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -9965,11 +9917,11 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
+                "16 Representative Buildings and 8 Building Briefs.",
                 "8 representative roles and 7 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -10560,24 +10512,82 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_concentration",
+              "code": "ecosystem_concentration",
+              "label": "Ecosystem Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+              "evidence": [
+                "5 primary districts and 3 secondary districts.",
+                "16 Representative Buildings and 8 Building Briefs.",
+                "8 representative roles and 7 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+              "evidence": [
+                "5 primary districts and 3 secondary districts.",
+                "16 Representative Buildings and 8 Building Briefs.",
+                "8 representative roles and 7 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "balanced",
-            "label": "Balanced",
-            "dominantEcosystem": "office",
+            "state": "industrial_flex_brief_concentrated",
+            "label": "Industrial Flex Brief Concentrated",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.52,
-            "buildingBriefShare": 0,
-            "warnings": []
+            "buildingBriefShare": 1,
+            "warnings": [
+              "Building Brief coverage is concentrated in Industrial & Flex.",
+              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+            ]
           }
         },
         "ecosystemBalance": {
-          "state": "balanced",
-          "label": "Balanced",
-          "dominantEcosystem": "office",
+          "state": "industrial_flex_brief_concentrated",
+          "label": "Industrial Flex Brief Concentrated",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.52,
-          "buildingBriefShare": 0,
-          "warnings": []
+          "buildingBriefShare": 1,
+          "warnings": [
+            "Building Brief coverage is concentrated in Industrial & Flex.",
+            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+          ]
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -10752,8 +10762,8 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 16,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 8,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "natomas",
@@ -11394,8 +11404,8 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 0,
-            "partialCount": 4,
+            "developedCount": 1,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 3,
             "reviewRequiredDistrictCount": 0
@@ -11403,22 +11413,48 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "strong",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 0 Building Briefs.",
+              "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:industrial_flex:ecosystem_concentration",
+            "code": "ecosystem_concentration",
+            "label": "Ecosystem Concentration",
+            "severity": "medium",
+            "layer": "balance",
+            "ecosystemId": "industrial_flex",
+            "ecosystemLabel": "Industrial & Flex",
+            "relevance": "core",
+            "readinessState": "strong",
+            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+            "evidence": [
+              "5 primary districts and 3 secondary districts.",
+              "16 Representative Buildings and 8 Building Briefs.",
+              "8 representative roles and 7 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -11437,11 +11473,11 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 0 Building Briefs.",
+              "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -12127,12 +12163,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Sacramento Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "Sacramento Industrial & Flex Ecosystem Balance Sprint",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Balance Sprint",
+          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -12141,16 +12177,7 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "editorially-developed",
-            "severity": "medium",
-            "code": "building-brief-collection-missing",
-            "message": "No initial Building Brief collection exists.",
-            "sourceId": "sacramento",
-            "relatedTaskId": ""
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -12368,11 +12395,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 0,
-            "completed": 0,
+            "score": 26,
+            "completed": 8,
             "total": 31,
-            "missing": 31,
-            "explanation": "0 of 31 representative building records use the canonical Building Brief journey.",
+            "missing": 23,
+            "explanation": "8 of 31 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-500-capitol-mall",
@@ -12508,23 +12535,23 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "1329 N Market Blvd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1060-national-dr",
@@ -12565,42 +12592,42 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "11201 Sun Center Dr",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
                 "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "11353 Pyrites Way",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
                 "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -12831,23 +12858,23 @@
                 "readinessState": "review-recommended"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "5711 Florin Perkins Rd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-4949-florin-perkins-rd",
@@ -12888,80 +12915,80 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "8583 Elder Creek Rd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3100 Ramco St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "2928 Ramco St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3380 Industrial Blvd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               }
             ]
           },
@@ -12979,8 +13006,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 12,
-            "total": 12,
+            "completed": 20,
+            "total": 20,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -12997,25 +13024,6 @@
           }
         },
         "queue": [
-          {
-            "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-            "code": "initial-building-brief-collection",
-            "metroId": "sacramento",
-            "metroName": "Sacramento",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "initial Building Brief collection",
-            "itemName": "Sacramento",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-            "sourceId": "sacramento",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-10255-old-placerville-rd",
             "code": "missing-brief",
@@ -13074,23 +13082,23 @@
             "readinessState": "review-recommended"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "11201 Sun Center Dr",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
             "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -13112,23 +13120,23 @@
             "readinessState": "representative-foundation"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "11353 Pyrites Way",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
             "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1235-blumenfeld-dr",
@@ -13150,23 +13158,23 @@
             "readinessState": "representative-foundation"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "1329 N Market Blvd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1375-exposition-blvd",
@@ -13245,61 +13253,61 @@
             "readinessState": "research-required"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "2928 Ramco St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3100 Ramco St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3380 Industrial Blvd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rocklin-4011-alvis-ct",
@@ -13397,23 +13405,23 @@
             "readinessState": "review-recommended"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "5711 Florin Perkins Rd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5800-alder-ave",
@@ -13473,23 +13481,23 @@
             "readinessState": "research-required"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "8583 Elder Creek Rd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-elk-grove-9275-laguna-springs-dr",
@@ -13778,23 +13786,23 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-          "code": "initial-building-brief-collection",
+          "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-10255-old-placerville-rd",
+          "code": "missing-brief",
           "metroId": "sacramento",
           "metroName": "Sacramento",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "initial Building Brief collection",
-          "itemName": "Sacramento",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-          "sourceId": "sacramento",
-          "publicUrl": "",
+          "taskType": "representative building missing Building Brief",
+          "itemName": "10255 Old Placerville Rd",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "sourceId": "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
+          "publicUrl": "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
           "adminUrl": "",
-          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "automationCandidate": true,
-          "readinessState": ""
+          "readinessState": "research-required"
         }
       },
       {
@@ -41986,7 +41994,7 @@
           "reportPath": "/docs/recommendation-qa/sacramento-pilot/",
           "notes": "Sacramento pilot scenarios produce differentiated, graph-backed market paths for office, medical, flex, warehouse, and retail/service profiles."
         },
-        "readinessStatus": "Expansion Ready",
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
@@ -42008,30 +42016,21 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 69,
+            "score": 94,
             "status": "",
-            "explanation": "12 of 12 districts have substantive descriptions; 31 representative buildings and 0 Building Briefs are available.",
+            "explanation": "12 of 12 districts have substantive descriptions; 31 representative buildings and 8 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 12,
               "representativeBuildings": 31,
-              "buildingBriefs": 0
+              "buildingBriefs": 8
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [
-              {
-                "gate": "editorially-developed",
-                "severity": "medium",
-                "code": "building-brief-collection-missing",
-                "message": "No initial Building Brief collection exists.",
-                "sourceId": "sacramento",
-                "relatedTaskId": ""
-              }
-            ],
-            "topOpportunity": "Create an initial collection of 5 Building Briefs."
+            "blockers": [],
+            "topOpportunity": "Continue Building Brief migration across priority districts."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
@@ -42052,28 +42051,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 89,
-        "scoreCapReasons": [
-          {
-            "cap": 84,
-            "code": "no-building-briefs-overall-cap",
-            "reason": "Metro has representative buildings but no initial Building Brief collection."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "editorialCoverage",
-            "cap": 72,
-            "reason": "Representative buildings exist, but no Building Briefs have been migrated.",
-            "code": "no-building-briefs-editorial-cap"
-          }
-        ],
-        "overallScore": 84,
-        "score": 84,
+        "rawOverallScore": 98,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 98,
+        "score": 98,
         "cityPath": "/commercial-real-estate/CA/sacramento/",
         "districtCount": 12,
         "representativeBuildingCount": 31,
-        "buildingBriefCount": 0,
+        "buildingBriefCount": 8,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -42095,7 +42081,9 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office is Partial; Industrial & Flex is Partial; Retail is Partial; Medical is Partial."
+            "Industrial & Flex coverage is strong or developed.",
+            "Office is Partial; Retail is Partial; Medical is Partial.",
+            "Building Brief coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -42302,13 +42290,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "strong",
@@ -42319,7 +42307,7 @@
                 "secondaryDistricts": 3,
                 "recommendations": 5,
                 "representativeBuildings": 16,
-                "buildingBriefs": 0,
+                "buildingBriefs": 8,
                 "subtypes": 7,
                 "archetypes": 7,
                 "activities": 5,
@@ -42329,15 +42317,13 @@
                 "operationalCharacteristics": 39,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
+                "16 Representative Buildings and 8 Building Briefs.",
                 "8 representative roles and 7 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -43173,32 +43159,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
-                "8 representative roles and 7 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -43207,11 +43167,11 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 0 Building Briefs.",
+                "16 Representative Buildings and 8 Building Briefs.",
                 "8 representative roles and 7 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -43802,24 +43762,82 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_concentration",
+              "code": "ecosystem_concentration",
+              "label": "Ecosystem Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+              "evidence": [
+                "5 primary districts and 3 secondary districts.",
+                "16 Representative Buildings and 8 Building Briefs.",
+                "8 representative roles and 7 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+              "evidence": [
+                "5 primary districts and 3 secondary districts.",
+                "16 Representative Buildings and 8 Building Briefs.",
+                "8 representative roles and 7 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "balanced",
-            "label": "Balanced",
-            "dominantEcosystem": "office",
+            "state": "industrial_flex_brief_concentrated",
+            "label": "Industrial Flex Brief Concentrated",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.52,
-            "buildingBriefShare": 0,
-            "warnings": []
+            "buildingBriefShare": 1,
+            "warnings": [
+              "Building Brief coverage is concentrated in Industrial & Flex.",
+              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+            ]
           }
         },
         "ecosystemBalance": {
-          "state": "balanced",
-          "label": "Balanced",
-          "dominantEcosystem": "office",
+          "state": "industrial_flex_brief_concentrated",
+          "label": "Industrial Flex Brief Concentrated",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.52,
-          "buildingBriefShare": 0,
-          "warnings": []
+          "buildingBriefShare": 1,
+          "warnings": [
+            "Building Brief coverage is concentrated in Industrial & Flex.",
+            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+          ]
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -43994,8 +44012,8 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 16,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 8,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "natomas",
@@ -44636,8 +44654,8 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 0,
-            "partialCount": 4,
+            "developedCount": 1,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 3,
             "reviewRequiredDistrictCount": 0
@@ -44645,22 +44663,48 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "strong",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 0 Building Briefs.",
+              "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:industrial_flex:ecosystem_concentration",
+            "code": "ecosystem_concentration",
+            "label": "Ecosystem Concentration",
+            "severity": "medium",
+            "layer": "balance",
+            "ecosystemId": "industrial_flex",
+            "ecosystemLabel": "Industrial & Flex",
+            "relevance": "core",
+            "readinessState": "strong",
+            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+            "evidence": [
+              "5 primary districts and 3 secondary districts.",
+              "16 Representative Buildings and 8 Building Briefs.",
+              "8 representative roles and 7 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -44679,11 +44723,11 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 0 Building Briefs.",
+              "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -45369,12 +45413,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Sacramento Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "Sacramento Industrial & Flex Ecosystem Balance Sprint",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Balance Sprint",
+          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -45383,16 +45427,7 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "editorially-developed",
-            "severity": "medium",
-            "code": "building-brief-collection-missing",
-            "message": "No initial Building Brief collection exists.",
-            "sourceId": "sacramento",
-            "relatedTaskId": ""
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -45610,11 +45645,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 0,
-            "completed": 0,
+            "score": 26,
+            "completed": 8,
             "total": 31,
-            "missing": 31,
-            "explanation": "0 of 31 representative building records use the canonical Building Brief journey.",
+            "missing": 23,
+            "explanation": "8 of 31 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-500-capitol-mall",
@@ -45750,23 +45785,23 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "1329 N Market Blvd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1060-national-dr",
@@ -45807,42 +45842,42 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "11201 Sun Center Dr",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
                 "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "11353 Pyrites Way",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
                 "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -46073,23 +46108,23 @@
                 "readinessState": "review-recommended"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "5711 Florin Perkins Rd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               },
               {
                 "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-4949-florin-perkins-rd",
@@ -46130,80 +46165,80 @@
                 "readinessState": "representative-foundation"
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "8583 Elder Creek Rd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
                 "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3100 Ramco St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "2928 Ramco St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "building-brief-candidate"
+                "readinessState": ""
               },
               {
-                "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-                "code": "missing-brief",
+                "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+                "code": "incomplete-brief",
                 "metroId": "sacramento",
                 "metroName": "Sacramento",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3380 Industrial Blvd",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
-                "readinessState": "representative-foundation"
+                "readinessState": ""
               }
             ]
           },
@@ -46221,8 +46256,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 12,
-            "total": 12,
+            "completed": 20,
+            "total": 20,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -46239,25 +46274,6 @@
           }
         },
         "queue": [
-          {
-            "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-            "code": "initial-building-brief-collection",
-            "metroId": "sacramento",
-            "metroName": "Sacramento",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "initial Building Brief collection",
-            "itemName": "Sacramento",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-            "sourceId": "sacramento",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-10255-old-placerville-rd",
             "code": "missing-brief",
@@ -46316,23 +46332,23 @@
             "readinessState": "review-recommended"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "11201 Sun Center Dr",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
             "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -46354,23 +46370,23 @@
             "readinessState": "representative-foundation"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "11353 Pyrites Way",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
             "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1235-blumenfeld-dr",
@@ -46392,23 +46408,23 @@
             "readinessState": "representative-foundation"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "1329 N Market Blvd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1375-exposition-blvd",
@@ -46487,61 +46503,61 @@
             "readinessState": "research-required"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "2928 Ramco St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3100 Ramco St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3380 Industrial Blvd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
             "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rocklin-4011-alvis-ct",
@@ -46639,23 +46655,23 @@
             "readinessState": "review-recommended"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "5711 Florin Perkins Rd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "representative-foundation"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5800-alder-ave",
@@ -46715,23 +46731,23 @@
             "readinessState": "research-required"
           },
           {
-            "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-            "code": "missing-brief",
+            "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+            "code": "incomplete-brief",
             "metroId": "sacramento",
             "metroName": "Sacramento",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "8583 Elder Creek Rd",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
             "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
-            "readinessState": "building-brief-candidate"
+            "readinessState": ""
           },
           {
             "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-elk-grove-9275-laguna-springs-dr",
@@ -47020,23 +47036,23 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-          "code": "initial-building-brief-collection",
+          "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-10255-old-placerville-rd",
+          "code": "missing-brief",
           "metroId": "sacramento",
           "metroName": "Sacramento",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "initial Building Brief collection",
-          "itemName": "Sacramento",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-          "sourceId": "sacramento",
-          "publicUrl": "",
+          "taskType": "representative building missing Building Brief",
+          "itemName": "10255 Old Placerville Rd",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "sourceId": "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
+          "publicUrl": "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
           "adminUrl": "",
-          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "automationCandidate": true,
-          "readinessState": ""
+          "readinessState": "research-required"
         }
       },
       {
@@ -66539,25 +66555,6 @@
         "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-        "code": "initial-building-brief-collection",
-        "metroId": "sacramento",
-        "metroName": "Sacramento",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "initial Building Brief collection",
-        "itemName": "Sacramento",
-        "severity": "high",
-        "priority": 70,
-        "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-        "sourceId": "sacramento",
-        "publicUrl": "",
-        "adminUrl": "",
-        "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-diego:buildingBriefs:initial Building Brief collection:san-diego",
         "code": "initial-building-brief-collection",
         "metroId": "san-diego",
@@ -68135,23 +68132,23 @@
         "readinessState": "review-recommended"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "11201 Sun Center Dr",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
         "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -68173,23 +68170,23 @@
         "readinessState": "representative-foundation"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "11353 Pyrites Way",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
         "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1235-blumenfeld-dr",
@@ -68211,23 +68208,23 @@
         "readinessState": "representative-foundation"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "1329 N Market Blvd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1375-exposition-blvd",
@@ -68306,61 +68303,61 @@
         "readinessState": "research-required"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "2928 Ramco St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3100 Ramco St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3380 Industrial Blvd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rocklin-4011-alvis-ct",
@@ -68458,23 +68455,23 @@
         "readinessState": "review-recommended"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "5711 Florin Perkins Rd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5800-alder-ave",
@@ -68534,23 +68531,23 @@
         "readinessState": "research-required"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "8583 Elder Creek Rd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-elk-grove-9275-laguna-springs-dr",
@@ -72678,25 +72675,6 @@
         "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:initial Building Brief collection:sacramento",
-        "code": "initial-building-brief-collection",
-        "metroId": "sacramento",
-        "metroName": "Sacramento",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "initial Building Brief collection",
-        "itemName": "Sacramento",
-        "severity": "high",
-        "priority": 70,
-        "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-        "sourceId": "sacramento",
-        "publicUrl": "",
-        "adminUrl": "",
-        "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-diego:buildingBriefs:initial Building Brief collection:san-diego",
         "code": "initial-building-brief-collection",
         "metroId": "san-diego",
@@ -74293,23 +74271,23 @@
         "readinessState": "review-recommended"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11201-sun-center-dr",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "11201 Sun Center Dr",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
         "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11300-trade-center-dr",
@@ -74331,23 +74309,23 @@
         "readinessState": "representative-foundation"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-rancho-cordova-11353-pyrites-way",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "11353 Pyrites Way",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
         "publicUrl": "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1235-blumenfeld-dr",
@@ -74369,23 +74347,23 @@
         "readinessState": "representative-foundation"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-1329-n-market-blvd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "1329 N Market Blvd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1375-exposition-blvd",
@@ -74464,61 +74442,61 @@
         "readinessState": "research-required"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-2928-ramco-st",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "2928 Ramco St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3100-ramco-st",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3100 Ramco St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-west-sacramento-3380-industrial-blvd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3380 Industrial Blvd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
         "publicUrl": "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-rocklin-4011-alvis-ct",
@@ -74616,23 +74594,23 @@
         "readinessState": "review-recommended"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-5711-florin-perkins-rd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "5711 Florin Perkins Rd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "representative-foundation"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-5800-alder-ave",
@@ -74692,23 +74670,23 @@
         "readinessState": "research-required"
       },
       {
-        "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
-        "code": "missing-brief",
+        "id": "sacramento:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-ca-sacramento-8583-elder-creek-rd",
+        "code": "incomplete-brief",
         "metroId": "sacramento",
         "metroName": "Sacramento",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "8583 Elder Creek Rd",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: summary, rofoTake, snapshot, bestFit, locationContext, nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
         "publicUrl": "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
-        "readinessState": "building-brief-candidate"
+        "readinessState": ""
       },
       {
         "id": "sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-elk-grove-9275-laguna-springs-dr",

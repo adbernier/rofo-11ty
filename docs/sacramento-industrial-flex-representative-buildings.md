@@ -143,7 +143,9 @@ All seven Representative Building Intelligence operational categories are repres
 - `location_workforce`
 - `outdoor_special_use`
 
-## Building Brief Migration Queue
+## Building Brief Migration Status
+
+Industrial & Flex Building Brief Standard v1 migrated the first-wave calibration set below. These eight records now use the production Building Brief journey and should be treated as the benchmark for future Sacramento industrial/flex Briefs.
 
 1. `3100 Ramco St`, West Sacramento Industrial: large-scale distribution angle; strongest technical source support.
 2. `8583 Elder Creek Rd`, Power Inn Industrial: light-manufacturing and technical-validation angle.
@@ -153,6 +155,8 @@ All seven Representative Building Intelligence operational categories are repres
 6. `3380 Industrial Blvd`, West Sacramento Industrial: showroom/flex and office/warehouse angle.
 7. `5711 Florin Perkins Rd`, Power Inn Industrial: small-bay trade-service angle.
 8. `11353 Pyrites Way`, Rancho Cordova Commercial Core: small-suite service and maker angle.
+
+Remaining future candidates should be selected because they add a distinct role, subtype, district expression, or validation question. Do not migrate near-duplicates merely to increase page count.
 
 ## Publisher Before And After
 

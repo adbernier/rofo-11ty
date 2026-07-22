@@ -6,6 +6,8 @@ The v2 model connects:
 
 Business Archetype -> Business Activities -> Operational Requirements -> Commercial Ecosystem -> District -> Representative Building -> Building Brief -> Live Market Investigation.
 
+Industrial and flex Building Briefs now consume this planning layer through the additive standard documented in `docs/industrial-flex-building-brief-standard.md`.
+
 ## Data Ownership
 
 Canonical operational and role metadata lives in:
@@ -167,7 +169,7 @@ Completion criteria should include:
 - Publisher snapshots regenerated
 - `node scripts/qa-representative-building-intelligence.js` passes
 
-Sacramento industrial/flex now has a source-supported Representative Building foundation across small-bay service, flex, contractor/service, warehouse/distribution, large-scale distribution, showroom/flex, and light-manufacturing environments. The focused record is `docs/sacramento-industrial-flex-representative-buildings.md`.
+Sacramento industrial/flex now has a source-supported Representative Building foundation across small-bay service, flex, contractor/service, warehouse/distribution, large-scale distribution, showroom/flex, and light-manufacturing environments. Industrial & Flex Building Brief Standard v1 migrated the first eight calibration Briefs from that foundation into production Building Briefs. The focused records are `docs/sacramento-industrial-flex-representative-buildings.md` and `docs/industrial-flex-building-brief-standard.md`.
 
 ## Public Rendering Guardrails
 
@@ -188,7 +190,7 @@ The script validates taxonomy uniqueness, reference integrity, role/ecosystem co
 
 ## Future Phases
 
-Phase 3: Sacramento Industrial & Flex Building Brief Migration.
+Phase 3: Sacramento Industrial & Flex Building Brief Expansion for remaining distinct operating models.
 
 Phase 4: Building Brief Intelligence Migration.
 

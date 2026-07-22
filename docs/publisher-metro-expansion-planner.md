@@ -280,7 +280,7 @@ Publisher plans are intended to drive bounded editorial implementation, not auto
 
 If a generated plan does not name exact buildings, the implementation should either use existing repository evidence or mark the building work as research required. Do not invent building examples to satisfy a Publisher gap.
 
-The Sacramento industrial/flex operational test moved the recommended ecosystem sprint from Representative Building Foundation to Building Brief Migration after Publisher detected 16 source-supported industrial/flex representative buildings across eight roles and all operational categories.
+The Sacramento industrial/flex operational test moved the recommended ecosystem sprint from Representative Building Foundation to Building Brief Migration after Publisher detected 16 source-supported industrial/flex representative buildings across eight roles and all operational categories. Industrial & Flex Building Brief Standard v1 then migrated the first eight Sacramento industrial/flex calibration Briefs; Publisher completion detection should now avoid repeating that identical first-wave migration and move to the next differentiated ecosystem or Brief-depth gap.
 
 ## Known Limitations
 

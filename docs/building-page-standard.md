@@ -117,6 +117,8 @@ This object is intentionally optional. Existing representative and legacy buildi
 
 Representative Building Intelligence v2 provides an additional non-rendered planning layer for Building Brief authors. A future Brief may inherit ecosystem, subtype, representative role, business activities, business archetypes, operational characteristics, representative reasons, tradeoffs, and validation focus from `_data/representativeBuildingIntelligence.js`. Explicit Building Brief editorial fields override inherited planning metadata. Do not render raw taxonomy IDs or assert operational features without source support.
 
+Industrial and flex Building Briefs use the same optional `building_brief` object plus additive fields documented in `docs/industrial-flex-building-brief-standard.md`: `ecosystemContext`, `businessFit`, `operationalProfile`, `environmentExplanation`, `comparisonContext`, `validationChecklist`, and `evidence`. These fields explain operating fit and validation needs. They should be rendered only when present so existing office Briefs remain unchanged.
+
 The current runtime accepts both the original Building Brief field names and the newer production aliases. Prefer the production names for new records:
 
 - `buildingSummary`: concise hero summary
@@ -288,6 +290,16 @@ Common required fields:
 - `nearbyAlternatives`
 - `relatedInsights`
 - `representativeCompanies`
+
+Industrial/flex required additions:
+
+- `ecosystemContext`
+- `businessFit`
+- `operationalProfile`
+- `environmentExplanation`
+- `comparisonContext`
+- `validationChecklist`
+- `evidence`
 
 Backward-compatible aliases remain supported:
 
