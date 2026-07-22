@@ -72,7 +72,8 @@ includes("functions/api/field-photos/_shared.js", /field-photo-subjects\.json/, 
 includes("functions/api/field-photos/_shared.js", /publicHeroPhoto\(row\)/, "Public response helper is missing");
 includes("functions/api/field-photos/_shared.js", /source_type.*rofo_original/s, "Rofo-owned provenance defaults are missing");
 includes("functions/api/field-photos/upload.js", /archiveActiveHero/, "Upload does not supersede the active hero");
-includes("functions/api/field-photos/upload.js", /contentLength > 3_000_000/, "Upload total multipart request limit is not 3 MB");
+includes("functions/api/field-photos/upload.js", /validateUploadedFile\(publicImage\)/, "Public image upload is not validated through validateUploadedFile");
+includes("functions/api/field-photos/upload.js", /validateUploadedFile\(thumbnailImage, \{ thumbnail: true \}\)/, "Thumbnail upload is not validated through validateUploadedFile");
 includes("functions/api/field-photos/action.js", /action === "publish"/, "Publish action is missing");
 includes("functions/api/field-photos/action.js", /action === "archive"/, "Archive action is missing");
 includes("functions/api/field-photos/hero.js", /status = 'published'/, "Public hero endpoint can resolve non-published photos");

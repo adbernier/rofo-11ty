@@ -29,11 +29,6 @@ export async function onRequestPost({ request, env }) {
   if (!db) return jsonResponse({ ok: false, error: "Photo D1 binding is not configured" }, 500);
   if (!bucket) return jsonResponse({ ok: false, error: "ROFO_PHOTOS R2 binding is not configured" }, 500);
 
-  const contentLength = Number(request.headers.get("content-length") || 0);
-  if (contentLength > 3_000_000) {
-    return jsonResponse({ ok: false, error: "Optimized upload is too large." }, 413);
-  }
-
   const formData = await request.formData();
   const token = clean(formData.get("token"), 240);
   if (!env.ADMIN_DASHBOARD_TOKEN || token !== env.ADMIN_DASHBOARD_TOKEN) {

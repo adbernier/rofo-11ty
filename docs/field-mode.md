@@ -79,6 +79,8 @@ The admin page processes the selected image before upload:
 - falls back to JPEG when WebP conversion cannot produce a valid optimized file
 - shows preview dimensions and approximate file size
 
+The upload endpoint validates the optimized public image and thumbnail independently after parsing the form. It does not reject based on aggregate multipart request size, because multipart metadata and browser overhead can vary even when the optimized image files are within their limits.
+
 V1 does not upload the original full-resolution phone photo. That is a deliberate limitation so the field test proves publishing workflow before archival storage.
 
 ## Rights and Provenance
