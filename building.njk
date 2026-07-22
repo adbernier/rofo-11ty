@@ -47,7 +47,7 @@ eleventyComputed:
 
     <div class="building-hero">
       <div class="building-card">
-        <div class="eyebrow">{% if buildingBrief %}Building Brief{% else %}Building{% endif %}</div>
+        <div class="eyebrow">{% if buildingBrief %}Building Profile{% else %}Building{% endif %}</div>
         <h1>{{ buildingBriefName }}</h1>
         {% if buildingBrief %}
           <p class="building-hero-address">{{ building.address }} · {% if buildingBriefArea %}<a href="{{ buildingBriefArea.path }}">{{ buildingBriefArea.name }}</a>, {% endif %}{{ building.city }}, {{ building.state_abbr }}</p>

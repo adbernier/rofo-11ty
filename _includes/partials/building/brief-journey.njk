@@ -1,37 +1,19 @@
 <div class="building-brief-journey">
   {% set buildingImportance = buildingBrief.buildingImportance or buildingBrief.rofoTake %}
   {% if buildingImportance %}
-    <section class="building-brief-section building-brief-section--take">
-      <div class="eyebrow">Rofo Take</div>
-      <h2>Why This Building Matters</h2>
-      <p class="building-brief-take">{{ buildingImportance }}</p>
+    <section class="building-brief-section building-brief-section--take building-profile-intro">
+      <div class="eyebrow">Building Profile</div>
+      <h2>{{ buildingBriefName }} as an example of {{ buildingBriefArea.name if buildingBriefArea else building.city }}</h2>
+      <p class="building-profile-explainer">
+        This profile uses {{ buildingBriefName }} to explain the type of commercial environment businesses commonly evaluate in {% if buildingBriefArea %}{{ buildingBriefArea.name }}{% else %}{{ building.city }}{% endif %}. It is intended to help compare location fit, not advertise current availability.
+      </p>
+      <p class="building-brief-take">{{ buildingImportance | buildingProfileText }}</p>
     </section>
   {% endif %}
 
   {% include "partials/building/brief-facts.njk" %}
   {% include "partials/building/brief-fit.njk" %}
   {% include "partials/building/brief-operational-profile.njk" %}
-
-  {% if buildingBrief.buildingExperience %}
-    <section class="building-brief-section building-brief-section--editorial">
-      <div class="eyebrow">Experience</div>
-      <h2>Building Experience</h2>
-      <p>{{ buildingBrief.buildingExperience }}</p>
-    </section>
-  {% endif %}
-
-  {% if buildingBrief.representativeCompanies and buildingBrief.representativeCompanies.length %}
-    <section class="building-brief-section building-brief-section--editorial">
-      <div class="eyebrow">Companies</div>
-      <h2>Representative Companies</h2>
-      <p>Use these examples only as commercial context. Tenant rosters and occupancy change over time.</p>
-      <ul class="mini-list">
-        {% for item in buildingBrief.representativeCompanies %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endif %}
 
   {% include "partials/building/brief-district-context.njk" %}
   {% include "partials/building/brief-decision.njk" %}
@@ -40,13 +22,13 @@
   {% if buildingBrief.validationNotes and buildingBrief.validationNotes.length %}
     <section class="building-brief-section">
       <div class="building-brief-section__header">
-        <div class="eyebrow">Validate</div>
-        <h2>What to Validate Before Shortlisting</h2>
-        <p>Use these questions on a tour, in broker conversations, or before comparing proposals.</p>
+        <div class="eyebrow">Verify</div>
+        <h2>What to Verify</h2>
+        <p>Use these questions when touring space, speaking with a broker, or comparing proposals.</p>
       </div>
       <ul class="building-question-list">
         {% for item in buildingBrief.validationNotes %}
-          <li>{{ item }}</li>
+          <li>{{ item | buildingProfileText }}</li>
         {% endfor %}
       </ul>
     </section>

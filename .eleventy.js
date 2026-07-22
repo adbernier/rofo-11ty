@@ -203,6 +203,26 @@ function generateBuildingDescription(building) {
   return "";
 }
 
+function buildingProfileText(value) {
+  return String(value || "")
+    .replace(/\b[Tt]he source record identifies\s+/g, "")
+    .replace(/\b[Tt]he source record describes\s+/g, "")
+    .replace(/\b[Tt]he source record supports\s+/g, "")
+    .replace(/\b[Tt]he source record provides\s+/g, "")
+    .replace(/\bCBRE source identifies\s+/g, "")
+    .replace(/\bCBRE source describes\s+/g, "")
+    .replace(/\bColliers source identifies\s+/g, "")
+    .replace(/\bColliers source describes\s+/g, "")
+    .replace(/\b[Ss]ource identifies\s+/g, "")
+    .replace(/\b[Ss]ource describes\s+/g, "")
+    .replace(/\b[Ss]ource-backed\b/g, "Documented")
+    .replace(/\b[Ss]ource-supported\b/g, "Documented")
+    .replace(/\bper Colliers source export\b/g, "from available property records")
+    .replace(/\bper CBRE source export\b/g, "from available property records")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("js");
@@ -215,6 +235,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("robots.txt");
 
   eleventyConfig.addFilter("queryEncode", (value) => encodeURIComponent(String(value || "")));
+  eleventyConfig.addFilter("buildingProfileText", buildingProfileText);
 
   eleventyConfig.addFilter("uniqueStates", (cities) => {
     const seen = new Set();

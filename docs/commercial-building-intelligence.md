@@ -1,8 +1,10 @@
 # Commercial Building Intelligence
 
-Commercial Building Intelligence is Rofo's structured editorial layer for representative commercial buildings.
+Commercial Building Intelligence is Rofo's structured editorial layer for representative commercial buildings. It powers the internal Building Brief architecture and the public Building Profile experience.
 
-It is not listing inventory, availability data, or a broker submission feed. It is the market teaching layer that explains why a building belongs on a shortlist, what it helps reveal about a district, and what a business should compare or validate before touring.
+It is not listing inventory, availability data, or a broker submission feed. It is the market teaching layer that explains what a building helps reveal about a district, which business needs may fit that environment, and what a business should compare or validate before touring.
+
+Public pages should say `Building Profile`, not `Building Brief`. Internal field names such as `building_brief`, `representativeRole`, `sourceNotes`, and `evidence` remain stable for schema compatibility, Publisher, recommendation gates, and QA.
 
 San Francisco is the first Gold Standard market using this system.
 

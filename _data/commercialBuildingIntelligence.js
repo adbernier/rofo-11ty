@@ -1651,7 +1651,7 @@ function toRuntimeBuilding(item) {
     commercial_building_intelligence: item,
     source_confidence: quality.sourceConfidence,
     publication_status: quality.publicationStatus,
-    meta_title: `${identity.name} | Representative Commercial Building in ${city}`,
+    meta_title: `${identity.name} | Building Profile in ${city}`,
     meta_description:
       `Learn why businesses compare ${identity.name} in ${canonicalDistrict.name}, what it helps explain, and what to validate before adding similar buildings to a shortlist.`,
     teaser: description,

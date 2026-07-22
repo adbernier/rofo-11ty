@@ -1,22 +1,26 @@
 {% set operationalProfile = buildingBrief.operationalProfile or [] %}
 {% set environmentExplanation = buildingBrief.environmentExplanation %}
-{% if (operationalProfile and operationalProfile.length) or environmentExplanation %}
-  <section class="building-brief-section building-brief-section--operations">
+{% set representativeCompanies = buildingBrief.representativeCompanies or [] %}
+{% if (operationalProfile and operationalProfile.length) or environmentExplanation or buildingBrief.buildingExperience or (representativeCompanies and representativeCompanies.length) %}
+  <section class="building-brief-section building-brief-section--characteristics">
     <div class="building-brief-section__header">
-      <div class="eyebrow">Operations</div>
-      <h2>Operational Profile</h2>
-      <p>Use this section to understand the operating model this environment can help explain. Exact suite conditions, permitted use, and current market facts still need validation.</p>
+      <div class="eyebrow">Characteristics</div>
+      <h2>Location & Building Characteristics</h2>
     </div>
 
     {% if environmentExplanation %}
       <div class="building-operational-explainer">
         {% if environmentExplanation.whyItExists %}
-          <p>{{ environmentExplanation.whyItExists }}</p>
+          <p>{{ environmentExplanation.whyItExists | buildingProfileText }}</p>
         {% endif %}
         {% if environmentExplanation.whyChooseThisEnvironment %}
-          <p>{{ environmentExplanation.whyChooseThisEnvironment }}</p>
+          <p>{{ environmentExplanation.whyChooseThisEnvironment | buildingProfileText }}</p>
         {% endif %}
       </div>
+    {% endif %}
+
+    {% if buildingBrief.buildingExperience %}
+      <p class="building-characteristics-lead">{{ buildingBrief.buildingExperience | buildingProfileText }}</p>
     {% endif %}
 
     {% if operationalProfile and operationalProfile.length %}
@@ -24,9 +28,20 @@
         {% for item in operationalProfile %}
           <div class="building-operational-card">
             <h3>{{ item.label }}</h3>
-            <p>{{ item.summary }}</p>
+            <p>{{ item.summary | buildingProfileText }}</p>
           </div>
         {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if representativeCompanies and representativeCompanies.length %}
+      <div class="building-characteristics-businesses">
+        <h3>Business types this helps explain</h3>
+        <ul class="mini-list">
+          {% for item in representativeCompanies %}
+            <li>{{ item | buildingProfileText }}</li>
+          {% endfor %}
+        </ul>
       </div>
     {% endif %}
   </section>

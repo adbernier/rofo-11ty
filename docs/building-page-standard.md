@@ -1,30 +1,32 @@
 # Rofo Building Page Standard
 
-Rofo building pages are Building Briefs: concise editorial decision-support pages that help a business understand whether a representative building belongs on a shortlist.
+Rofo building pages use the internal Building Brief architecture, but the public product is a Building Profile: a concise decision-support page that helps a business understand whether a commercial environment belongs in its search.
 
 They are not listing pages, broker flyers, availability pages, or generic property records. A useful Rofo building page answers:
 
-- Why should this building matter to a business?
+- What type of commercial environment does this building explain?
 - What kind of business or location strategy may fit here?
 - What tradeoffs should be understood before touring?
 - How does the building explain its district?
 - What should the user compare next?
 
+Use `Building Brief` for internal data, QA, Publisher, and migration workflows. Use `Building Profile` in public page labels, headings, and customer-facing documentation. Public pages should not expose implementation terms such as Rofo Take, Representative Role, Representative Building Brief, Editorial Interpretation, or Source Supported.
+
 ## Content Hierarchy
 
-The canonical Building Brief structure is:
+The public Building Profile structure is:
 
 1. Building hero
-2. Why This Building Matters / Rofo Take
+2. Building Profile introduction
 3. Building Snapshot / Quick Facts
 4. Best Fit
-5. Building Experience
+5. Location & Building Characteristics
 6. District Context
-7. Advantages and Tradeoffs
+7. Location Advantages and Things to Consider
 8. Nearby Alternatives
-9. Validation questions
+9. What to Verify
 10. Related Insights
-11. Rofo Context and Start Your Search
+11. Market check and Start Your Search
 
 The page should support the larger Rofo journey:
 
@@ -34,15 +36,15 @@ City -> District -> Representative Building -> Start Your Search
 
 The calibrated production order is designed around how a tenant evaluates a building:
 
-1. Understand the building's commercial role.
+1. Understand the commercial environment the building illustrates.
 2. Decide whether the building may fit the business.
-3. Understand the operating experience and district.
-4. Evaluate advantages and tradeoffs.
+3. Understand durable building, location, and district characteristics.
+4. Evaluate location advantages and things to consider.
 5. Compare nearby decision alternatives.
 6. Validate the most important uncertainties.
 7. Continue the search.
 
-Validation questions should follow Nearby Alternatives because users usually know what to investigate only after seeing the realistic comparison set. Related Insights should remain compact and secondary to the building decision.
+Validation questions should remain practical and concise. They are presented as "What to Verify," not as a list of unknowns. Related Insights should remain compact and secondary to the building decision.
 
 ## Required and Optional Data
 
@@ -52,7 +54,7 @@ Required for a canonical Building Brief:
 - city and state
 - district relationship
 - concise positioning summary
-- Rofo Take
+- Building Profile introduction
 - best-fit guidance
 - at least one meaningful tradeoff
 
@@ -122,7 +124,7 @@ Industrial and flex Building Briefs use the same optional `building_brief` objec
 The current runtime accepts both the original Building Brief field names and the newer production aliases. Prefer the production names for new records:
 
 - `buildingSummary`: concise hero summary
-- `buildingImportance`: the main editorial interpretation for "Why This Building Matters"
+- `buildingImportance`: the main editorial interpretation rendered publicly as the Building Profile introduction
 - `quickFacts`: rendered fact rows such as class, size, floors, year built, renovation year, ownership, parking, and transit
 - `idealFor`: business profiles or location strategies that fit the building
 - `mayNotFit`: specific cases where another building or district may be better

@@ -8,9 +8,27 @@
     <div class="building-brief-snapshot">
       {% for item in facts %}
         {% if item.value %}
+          {% set displayLabel = item.label
+            | replace("Representative role", "Business use")
+            | replace("Primary ecosystem", "Environment")
+            | replace("Source-supported ", "")
+            | replace("Loading context", "Loading")
+            | replace("Clear-height context", "Clear height")
+            | replace("Parking context", "Parking")
+            | replace("Access context", "Access")
+            | replace("Zoning context", "Use rules")
+            | replace("Systems context", "Building systems")
+            | replace("Office context", "Office")
+            | replace("Yard context", "Yard")
+            | replace("Customer presence", "Customer access")
+            | replace("Operating context", "Operating use")
+          %}
+          {% set displayValue = item.value
+            | buildingProfileText
+          %}
           <div class="building-brief-snapshot__item">
-            <dt>{{ item.label }}</dt>
-            <dd>{{ item.value }}</dd>
+            <dt><span class="building-snapshot-icon" aria-hidden="true"></span>{{ displayLabel }}</dt>
+            <dd>{{ displayValue }}</dd>
           </div>
         {% endif %}
       {% endfor %}

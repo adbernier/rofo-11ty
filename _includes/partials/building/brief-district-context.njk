@@ -11,7 +11,7 @@
       {% endif %}
     </h2>
     {% if districtContext %}
-      <p>{{ districtContext }}</p>
+      <p>{{ districtContext | buildingProfileText }}</p>
     {% endif %}
     <div class="building-brief-link-row">
       {% if briefArea %}

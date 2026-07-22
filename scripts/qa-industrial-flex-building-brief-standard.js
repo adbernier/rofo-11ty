@@ -144,7 +144,7 @@ function analyzeBrief(building) {
   if (!text.toLowerCase().includes("permitted use")) errors.push(`${building.building_path}: missing permitted-use validation`);
   if (!html) errors.push(`${building.building_path}: generated page missing`);
   if (html && !html.includes("building-brief-journey")) errors.push(`${building.building_path}: generated page missing Building Brief journey`);
-  if (html && !html.includes("Operational Profile")) errors.push(`${building.building_path}: generated page missing operational profile`);
+  if (html && !html.includes("Location & Building Characteristics") && !html.includes("Location &amp; Building Characteristics")) errors.push(`${building.building_path}: generated page missing characteristics section`);
   if (html && forbiddenOutput.test(html)) errors.push(`${building.building_path}: generated HTML contains malformed placeholder`);
   if (html && /industrial_flex|small_bay_industrial|contractor_service|warehouse_distribution_environment/.test(html)) {
     errors.push(`${building.building_path}: raw taxonomy ID rendered publicly`);

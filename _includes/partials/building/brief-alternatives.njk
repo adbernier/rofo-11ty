@@ -19,7 +19,7 @@
               </span>
             {% endif %}
             <span class="related-building-card__cue">Prefer this when</span>
-            <span class="related-building-card__meta">{{ alternative.reason or "Compare this location tradeoff before narrowing the building shortlist." }}</span>
+            <span class="related-building-card__meta">{{ (alternative.reason or "Compare this location tradeoff before narrowing the building shortlist.") | buildingProfileText }}</span>
           </a>
         {% endif %}
       {% endfor %}
@@ -30,7 +30,7 @@
             <a class="related-building-card related-building-card--alternative" href="{{ related.building_path or related.path }}">
               <span class="related-building-card__title">{{ related.display_name or related.address }}</span>
               <span class="related-building-card__cue">Prefer this when</span>
-              <span class="related-building-card__meta">{{ related.reason or "Compare for a different building format, address signal, or workplace tradeoff." }}</span>
+              <span class="related-building-card__meta">{{ (related.reason or "Compare for a different building format, address signal, or workplace tradeoff.") | buildingProfileText }}</span>
             </a>
           {% endif %}
         {% endfor %}

@@ -4,15 +4,15 @@
   <section class="building-brief-section">
     <div class="building-brief-section__header">
       <div class="eyebrow">Decision</div>
-      <h2>Advantages and Tradeoffs</h2>
+      <h2>Location Advantages and Things to Consider</h2>
     </div>
     <div class="building-decision-grid">
       {% if advantages and advantages.length %}
         <div class="building-decision-panel">
-          <h3>Advantages</h3>
+          <h3>Location advantages</h3>
           <ul class="mini-list">
             {% for item in advantages %}
-              <li>{{ item }}</li>
+              <li>{{ item | buildingProfileText }}</li>
             {% endfor %}
           </ul>
         </div>
@@ -20,10 +20,10 @@
 
       {% if tradeoffs and tradeoffs.length %}
         <div class="building-decision-panel">
-          <h3>Tradeoffs</h3>
+          <h3>Things to consider</h3>
           <ul class="mini-list">
             {% for item in tradeoffs %}
-              <li>{{ item }}</li>
+              <li>{{ item | buildingProfileText }}</li>
             {% endfor %}
           </ul>
         </div>

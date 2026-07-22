@@ -1,6 +1,6 @@
 # Industrial & Flex Building Brief Standard v1
 
-Industrial and flex Building Briefs explain whether a business can realistically operate in a commercial environment and what must be validated before shortlisting space. They are durable editorial guides, not listings, availability pages, rent pages, zoning opinions, or broker due-diligence substitutes.
+Industrial and flex Building Briefs remain the internal data structure. Publicly, they render as Building Profiles that explain whether a business can realistically operate in a commercial environment and what must be validated before shortlisting space. They are durable editorial guides, not listings, availability pages, rent pages, zoning opinions, or broker due-diligence substitutes.
 
 The standard was calibrated with eight Sacramento industrial/flex Briefs:
 
@@ -15,18 +15,18 @@ The standard was calibrated with eight Sacramento industrial/flex Briefs:
 
 ## Product Role
 
-Industrial and flex Briefs sit between Representative Building Intelligence and Live Market Investigation:
+Industrial and flex Building Profiles sit between Representative Building Intelligence and Live Market Investigation:
 
 ```text
 Search Profile
 -> Location Recommendation
 -> Representative Environment
--> Building Brief
+-> Building Profile
 -> Operational Validation
 -> Broker or Live Market Investigation
 ```
 
-The Brief should help a user understand the operating model represented by the property. It should not imply that the property is currently available or that the property will support a specific use without validation.
+The profile should help a user understand the operating model represented by the property. It should not imply that the property is currently available or that the property will support a specific use without validation.
 
 ## Required Editorial Layers
 
@@ -49,6 +49,20 @@ Every production industrial/flex Brief should include:
 - `representativeCompanies`: category-level business-fit language only, unless named tenant evidence is strong.
 - `relatedInsights`: district, city, or handbook guidance directly related to the decision.
 - `evidence`: confidence, provenance, and source notes.
+
+Public rendering should simplify these fields into:
+
+- Building Profile introduction
+- Building Snapshot
+- Best Fit
+- Location & Building Characteristics
+- District Context
+- Location Advantages and Things to Consider
+- Nearby Alternatives
+- What to Verify
+- Market check
+
+Do not expose source/provenance language in public copy. Keep source notes, confidence, representative roles, ecosystem IDs, and evidence fields available internally for QA, Publisher, and future migration work.
 
 ## Schema Additions
 
