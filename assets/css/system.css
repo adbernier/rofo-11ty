@@ -35,6 +35,47 @@
   --type-leading-body: 1.62;
 }
 
+.editorial-photo {
+  margin: 22px 0;
+}
+
+.editorial-photo[hidden] {
+  display: none;
+}
+
+.editorial-photo__figure {
+  margin: 0;
+  border: 1px solid var(--color-border, #dbe3ef);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05);
+}
+
+.editorial-photo__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
+  background: #eef2f7;
+}
+
+.editorial-photo__figure figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px 12px;
+  color: #4f5f75;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.editorial-photo__figure figcaption small {
+  color: #78869a;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 /* =========================
    BASE
    ========================= */

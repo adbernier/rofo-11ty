@@ -405,6 +405,11 @@ function renderAdminModules(token) {
       href: `/admin/publisher?token=${encodeURIComponent(token)}`,
     },
     {
+      title: "Field Photos",
+      purpose: "Mobile Rofo-owned photo upload and publishing",
+      href: `/admin/field-photos?token=${encodeURIComponent(token)}`,
+    },
+    {
       title: "Rofo Compass Coverage",
       purpose: "Metro maturity and expansion roadmap",
       href: `/admin/coverage?token=${encodeURIComponent(token)}`,
@@ -535,6 +540,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/field-photos?token=${encodeURIComponent(token)}">Field Photos</a>
         <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
         <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>

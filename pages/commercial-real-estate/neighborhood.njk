@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+fieldPhotosPublic: true
 pagination:
   data: neighborhoodPages
   size: 1
@@ -165,6 +166,11 @@ eleventyComputed:
             </div>
           {% endif %}
         </div>
+
+        {% set fieldPhotoSubjectType = "district" %}
+        {% set fieldPhotoSubjectId = neighborhood.commercial_area_id or ((neighborhood.state_abbr | lower) + "-" + neighborhood.city_slug + "-" + neighborhood.slug) %}
+        {% set fieldPhotoPlacement = "district" %}
+        {% include "partials/shared/editorial-photo-slot.njk" %}
 
         {% if hasIdentityLocatorMap and not editorialDistrictMap %}
           {% include "partials/neighborhood/district-locator-map.njk" %}

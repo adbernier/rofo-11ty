@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+fieldPhotosPublic: true
 pagination:
   data: buildingPages
   size: 1
@@ -110,6 +111,17 @@ eleventyComputed:
         </div>
       </div>
     </div>
+
+    {% set fieldPhotoSubjectType = "building" %}
+    {% if building.semantic_source_building_id %}
+      {% set fieldPhotoSubjectId = building.semantic_source_building_id %}
+    {% elseif building.commercial_building_intelligence and building.commercial_building_intelligence.id %}
+      {% set fieldPhotoSubjectId = building.commercial_building_intelligence.id %}
+    {% else %}
+      {% set fieldPhotoSubjectId = (building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug %}
+    {% endif %}
+    {% set fieldPhotoPlacement = "building-profile" %}
+    {% include "partials/shared/editorial-photo-slot.njk" %}
 
     {% if isRepresentativeBuilding %}
       {% if buildingBrief %}

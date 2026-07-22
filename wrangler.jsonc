@@ -1,6 +1,22 @@
 {
-  "name": "rofo-11ty",
-  "pages_build_output_dir": "./_site",
-  "compatibility_date": "2026-07-20",
-  "compatibility_flags": ["nodejs_compat"]
+	"name": "rofo-11ty",
+	"pages_build_output_dir": "./_site",
+	"compatibility_date": "2026-07-20",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"r2_buckets": [
+		{
+			"binding": "ROFO_PHOTOS",
+			"bucket_name": "rofo-photos"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "LEADS_DB",
+			"database_name": "rofo-leads",
+			"database_id": "f06ad30f-b408-4674-9207-427bd4e72395",
+			"migrations_dir": "migrations"
+		}
+	]
 }

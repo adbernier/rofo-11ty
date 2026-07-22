@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+fieldPhotosPublic: true
 pagination:
   data: cities
   size: 1
@@ -205,6 +206,11 @@ eleventyComputed:
             </div>
           </div>
         </div>
+
+        {% set fieldPhotoSubjectType = "city" %}
+        {% set fieldPhotoSubjectId = city.city_state_slug or (city.slug + "-" + (city.state_abbr | lower)) %}
+        {% set fieldPhotoPlacement = "city" %}
+        {% include "partials/shared/editorial-photo-slot.njk" %}
 
         <div class="city-grid city-primary-content">
           {% if hasAreaChapter %}
