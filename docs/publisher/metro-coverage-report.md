@@ -1,6 +1,6 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-22T02:32:16.181Z
+Generated: 2026-07-22T04:39:06.143Z
 Rules: publisher-rules-v1
 
 ## Overview
@@ -8,7 +8,7 @@ Rules: publisher-rules-v1
 - Compass Ready metros: 4
 - Average overall Publisher score: 82%
 - Critical issues: 0
-- Queued tasks: 312
+- Queued tasks: 323
 - Closest to Distribution Ready: Sacramento
 - Largest critical gap: None
 
@@ -17,7 +17,7 @@ Rules: publisher-rules-v1
 | Metro | Compass | Editorial | Publishing | Raw Overall | Overall | Status | Primary Blocker |
 | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
 | San Francisco | 73% | 86% | 82% | 80% | 74% | Editorially Developed | Authoritative recommendation QA status was not found. |
-| Sacramento | 100% | 58% | 100% | 85% | 84% | Expansion Ready | No initial Building Brief collection exists. |
+| Sacramento | 100% | 69% | 100% | 89% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | San Diego | 100% | 72% | 100% | 90% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | Orange County | 100% | 68% | 100% | 89% | 84% | Expansion Ready | No initial Building Brief collection exists. |
 | Denver | 100% | 65% | 100% | 88% | 84% | Expansion Ready | No initial Building Brief collection exists. |
@@ -27,7 +27,7 @@ Rules: publisher-rules-v1
 | Metro | Districts | Representative Buildings | Building Briefs | Critical | High | Recommended Next Action |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | San Francisco | 18 | 107 | 16 | 0 | 1 | Add or update recommendation QA documentation for this metro. |
-| Sacramento | 12 | 15 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
+| Sacramento | 12 | 31 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | San Diego | 12 | 44 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Orange County | 10 | 30 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
 | Denver | 19 | 42 | 0 | 0 | 1 | Create an initial Building Brief collection covering 5 distinct commercial environments. |
@@ -37,7 +37,7 @@ Rules: publisher-rules-v1
 | Metro | Geographic | Ecosystem | Balance | Blocking Ecosystems | Recommended Ecosystem Sprint |
 | --- | --- | --- | --- | --- | --- |
 | San Francisco | Strong | Partial | Office Brief Concentrated | None | San Francisco Life Science Ecosystem Representative Building Foundation |
-| Sacramento | Developed | Partial | Balanced | industrial_flex | Sacramento Industrial & Flex Ecosystem Representative Building Foundation |
+| Sacramento | Developed | Partial | Balanced | None | Sacramento Industrial & Flex Ecosystem Building Brief Migration |
 | San Diego | Developed | Partial | Balanced | None | San Diego Industrial & Flex Ecosystem Building Brief Migration |
 | Orange County | Developed | Partial | Balanced | None | Orange County Industrial & Flex Ecosystem Building Brief Migration |
 | Denver | Developed | Partial | Balanced | None | Denver Industrial & Flex Ecosystem Building Brief Migration |
@@ -47,7 +47,7 @@ Rules: publisher-rules-v1
 | Metro | Office | Industrial & Flex | Retail | Medical | Life Science | Highest Ecosystem Gap |
 | --- | --- | --- | --- | --- | --- | --- |
 | San Francisco | Developed / Core (5/41/13) | Partial / Core (7/36/0) | Partial / Important (5/16/0) | Partial / Important (0/0/0) | Partial / Core (1/14/3) | Life Science: Representative Buildings lack sufficient role, activity, archetype, or operational intelligence. |
-| Sacramento | Partial / Core (2/7/0) | Thin / Core (5/0/0) | Partial / Important (0/0/0) | Partial / Important (5/8/0) | Missing / Secondary (0/0/0) | Industrial & Flex: District foundation exists, but Representative Buildings are missing. |
+| Sacramento | Partial / Core (2/7/0) | Partial / Core (5/16/0) | Partial / Important (0/0/0) | Partial / Important (5/8/0) | Missing / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 | San Diego | Partial / Core (3/12/0) | Partial / Core (8/28/0) | Partial / Important (0/0/0) | Partial / Important (1/4/0) | Partial / Core (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 | Orange County | Partial / Core (4/18/0) | Partial / Core (4/8/0) | Partial / Important (0/0/0) | Partial / Important (2/4/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
 | Denver | Partial / Core (10/24/0) | Partial / Core (5/8/0) | Partial / Important (0/0/0) | Partial / Important (4/10/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
@@ -66,7 +66,7 @@ Counts in parentheses are primary districts / representative buildings / Buildin
 | San Francisco | Hospitality | Missing | 0 | 0 | 0 | None |
 | San Francisco | Special Purpose | Missing | 0 | 0 | 0 | education_environment |
 | Sacramento | Office | Developed | 5 | 5 | 0 | downtown_class_a_office |
-| Sacramento | Industrial & Flex | Missing | 0 | 0 | 0 | small_bay_service_environment |
+| Sacramento | Industrial & Flex | Developed | 8 | 7 | 0 | food_production_environment |
 | Sacramento | Retail | Missing | 0 | 0 | 0 | neighborhood_service_retail |
 | Sacramento | Medical | Thin | 1 | 3 | 0 | hospital_adjacent_medical_environment |
 | Sacramento | Life Science | Missing | 0 | 0 | 0 | research_lab_environment |
@@ -134,11 +134,11 @@ Gate blockers:
 | Metro Foundation | 100% | 5 | 5 | 0 | Canonical city, public route, graph support, Compass designation, and QA documentation. |
 | District Coverage | 100% | 48 | 48 | 0 | Public district pages, substantive descriptions, structured qualities, and decision positioning. |
 | Comparison Graph | 100% | 24 | 24 | 7 | 41 graph comparison relationships; target is at least 2 useful comparisons per district in v1. |
-| Representative Buildings | 42% | 10 | 24 | 7 | 15 representative building relationships; v1 target is 3 per covered district. |
-| Building Briefs | 0% | 0 | 15 | 15 | 0 of 15 representative building records use the canonical Building Brief journey. |
+| Representative Buildings | 79% | 19 | 24 | 2 | 31 representative building relationships; v1 target is 3 per covered district. |
+| Building Briefs | 0% | 0 | 31 | 31 | 0 of 31 representative building records use the canonical Building Brief journey. |
 | Recommendation Readiness | 100% | 16 | 16 | 0 | 7 QA scenarios; last QA 2026-07-09. |
 | Editorial Quality | 100% | 12 | 12 | 0 | Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases. |
-| Internal Linking | 100% | 43 | 43 | 0 | Checks public city, district, building, and comparison references that Publisher can resolve from generated data. |
+| Internal Linking | 100% | 59 | 59 | 0 | Checks public city, district, building, and comparison references that Publisher can resolve from generated data. |
 
 ### San Diego
 

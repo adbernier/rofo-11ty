@@ -92,7 +92,7 @@ Each representative-building entry includes:
 
 This is enough for Publisher coverage and future editorial planning. It is not enough by itself to publish a production Building Brief.
 
-Representative Building Intelligence v2 now evaluates this foundation against ecosystem, subtype, representative-role, business-activity, archetype, operational-characteristic, validation-focus, confidence, and provenance rules. Sacramento's existing foundation is office-oriented; industrial/flex representative environments remain a separate required sprint.
+Representative Building Intelligence v2 now evaluates this foundation against ecosystem, subtype, representative-role, business-activity, archetype, operational-characteristic, validation-focus, confidence, and provenance rules. Sacramento's first foundation was office-oriented. The industrial/flex foundation has since been implemented separately in `docs/sacramento-industrial-flex-representative-buildings.md`.
 
 ## Recommendation Eligibility
 
@@ -142,6 +142,6 @@ Future Building Brief migration should validate:
 
 ## Publisher Divergence
 
-Publisher recommended representative-building curation for more Sacramento districts than this sprint could responsibly cover. East Sacramento / Alhambra, Natomas, Power Inn, Rancho Cordova, Roseville, Rocklin, and West Sacramento remain future work.
+Publisher originally recommended representative-building curation for more Sacramento districts than this office-oriented sprint could responsibly cover. Natomas, Power Inn, Rancho Cordova, Rocklin, and West Sacramento have since received industrial/flex Representative Building Intelligence.
 
-This divergence was intentional to keep the sprint bounded and avoid adding weak examples merely to close every gap.
+East Sacramento / Alhambra, Roseville, and additional medical, retail, food-production, R&D, and industrial-campus coverage remain future work.

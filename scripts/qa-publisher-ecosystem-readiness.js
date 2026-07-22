@@ -126,10 +126,18 @@ if (sacramento) {
   requireField(industrial && industrial.relevance === "core", "Sacramento: industrial/flex should be core");
   requireField(industrial && ["thin", "partial"].includes(industrial.readinessState), `Sacramento: industrial/flex should remain visible as thin or partial, got ${industrial && industrial.readinessState}`);
   requireField(sacramento.ecosystemReadiness.state === "partial", `Sacramento: expected ecosystem readiness partial, got ${sacramento.ecosystemReadiness.state}`);
-  requireField(sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: industrial/flex should block ecosystem readiness");
+  if (industrial && industrial.readinessState === "thin") {
+    requireField(sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: thin industrial/flex should block ecosystem readiness");
+  } else if (industrial && industrial.readinessState === "partial") {
+    requireField(!sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: partial industrial/flex should not remain a blocking ecosystem after representative-building foundation");
+    requireField(industrial.layers && industrial.layers.buildingBriefs === "missing", "Sacramento: partial industrial/flex should expose missing Building Brief depth");
+  }
 }
 if (sacramentoPlan && sacramentoPlan.recommendedEcosystemSprint) {
   requireField(sacramentoPlan.recommendedEcosystemSprint.ecosystemId === "industrial_flex", `Sacramento: expected industrial/flex ecosystem sprint, got ${sacramentoPlan.recommendedEcosystemSprint.ecosystemId}`);
+  if (sacramentoPlan.recommendedEcosystemSprint.title === "Sacramento Industrial & Flex Ecosystem Representative Building Foundation") {
+    errors.push("Sacramento: completed industrial/flex Representative Building Foundation is still recommended");
+  }
   requireField(!/Office Building Brief Migration$/.test(sacramentoPlan.recommendedEcosystemSprint.title), "Sacramento: office Building Brief migration outranked industrial/flex ecosystem work");
 }
 

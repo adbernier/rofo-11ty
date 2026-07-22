@@ -167,7 +167,7 @@ Completion criteria should include:
 - Publisher snapshots regenerated
 - `node scripts/qa-representative-building-intelligence.js` passes
 
-For Sacramento industrial/flex, the generated sprint should target small-bay service, flex, contractor/service, warehouse/distribution, and light-manufacturing environments before office-only Building Brief migration.
+Sacramento industrial/flex now has a source-supported Representative Building foundation across small-bay service, flex, contractor/service, warehouse/distribution, large-scale distribution, showroom/flex, and light-manufacturing environments. The focused record is `docs/sacramento-industrial-flex-representative-buildings.md`.
 
 ## Public Rendering Guardrails
 
@@ -181,13 +181,14 @@ Run:
 
 ```bash
 node scripts/qa-representative-building-intelligence.js
+node scripts/qa-sacramento-industrial-flex-representative-buildings.js
 ```
 
 The script validates taxonomy uniqueness, reference integrity, role/ecosystem compatibility, inheritance behavior, Publisher operational coverage, deterministic planner output, unchanged Publisher scores, and calibrated metro assertions.
 
 ## Future Phases
 
-Phase 3: Sacramento Industrial & Flex Foundation.
+Phase 3: Sacramento Industrial & Flex Building Brief Migration.
 
 Phase 4: Building Brief Intelligence Migration.
 

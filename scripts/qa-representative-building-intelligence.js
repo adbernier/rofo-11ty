@@ -183,13 +183,18 @@ function validatePublisherAndPlans() {
   if (sacramento) {
     const industrial = evaluationFor(sacramento, "industrial_flex");
     requireField(industrial && industrial.readinessState !== "developed", "Sacramento: industrial/flex should remain underdeveloped");
-    requireField(industrial && (industrial.representativeBuildingIntelligence || {}).state === "missing", `Sacramento: expected missing industrial/flex representative intelligence, got ${industrial && industrial.representativeBuildingIntelligence && industrial.representativeBuildingIntelligence.state}`);
+    const intelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
+    requireField(industrial && industrial.readinessState === "partial", `Sacramento: industrial/flex should advance to partial after Representative Building foundation, got ${industrial && industrial.readinessState}`);
+    requireField(intelligence.state === "developed", `Sacramento: expected developed industrial/flex representative intelligence, got ${intelligence.state}`);
+    requireField((intelligence.rolesCovered || []).length >= 6, "Sacramento: industrial/flex representative-role breadth is too narrow after foundation");
+    requireField((intelligence.operationalCategoriesCovered || []).includes("access_loading"), "Sacramento: access/loading operational coverage should be detected after foundation");
+    requireField(industrial.layers && industrial.layers.buildingBriefs === "missing", "Sacramento: industrial/flex should still expose missing Building Brief depth");
   }
   if (sacramentoPlan && sacramentoPlan.recommendedEcosystemSprint) {
     const sprint = sacramentoPlan.recommendedEcosystemSprint;
     requireField(sprint.ecosystemId === "industrial_flex", `Sacramento: expected industrial/flex sprint, got ${sprint.ecosystemId}`);
-    requireField((sprint.missingRepresentativeRoles || []).includes("small_bay_service_environment"), "Sacramento: sprint missing small-bay role coverage");
-    requireField((sprint.missingOperationalCategories || []).includes("access_loading"), "Sacramento: sprint missing access/loading operational coverage");
+    requireField(sprint.title !== "Sacramento Industrial & Flex Ecosystem Representative Building Foundation", "Sacramento: completed representative-building foundation is still recommended");
+    requireField(/Building Brief Migration$/.test(sprint.title), `Sacramento: expected next industrial/flex sprint to be Building Brief Migration, got ${sprint.title}`);
     requireField((sprint.codexPrompt || "").includes("grade-level") || (sprint.codexPrompt || "").includes("operational categories"), "Sacramento: prompt lacks operational-coverage guidance");
     requireField(!/Office Building Brief Migration$/.test(sprint.title), "Sacramento: office migration outranked industrial/flex foundation");
   }

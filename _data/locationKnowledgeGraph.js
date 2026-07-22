@@ -1256,6 +1256,132 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["regional offices", "airport-access users", "parking-sensitive teams", "office/flex operations", "north Sacramento medical users"],
     tradeoffs: ["auto-oriented and less walkable", "less formal than downtown", "not the strongest pure industrial/warehouse market"],
     strengths: ["airport access", "I-5 and I-80 connectivity", "parking-friendly office", "suburban office/flex formats"],
+    representativeBuildings: [
+      {
+        name: "1235 Blumenfeld Dr",
+        address: "1235 Blumenfeld Dr",
+        path: "/commercial-real-estate/building/CA/sacramento/1235-blumenfeld-dr/",
+        buildingType: "Industrial",
+        representativeRole: "small_bay_service_environment",
+        representativeReason: "Represents the smaller warehouse-suite format that north Sacramento service and trade businesses compare when they need freeway reach without a large distribution footprint.",
+        bestFitSummary: "Best for service, storage, and dispatch users that need a compact industrial suite with office support and ground-level operational access.",
+        primaryTradeoff: "Suite-specific loading, parking, yard rights, and office percentage should be validated before assuming the building fits a technical operation.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["small_bay_industrial", "contractor_service", "warehouse"],
+          representativeRole: "small_bay_service_environment",
+          businessActivities: ["service_dispatch", "equipment_storage", "receiving", "shipping", "inventory_management"],
+          businessArchetypes: ["electrician", "hvac_company", "plumbing_company", "building_services_company"],
+          operationalCharacteristics: ["small_suite_sizes", "office_warehouse_mix", "grade_level_loading", "ground_floor_access", "service_vehicle_parking", "freeway_access"],
+          representativeReasons: [
+            "Illustrates Natomas-area small-bay warehouse suites for trade and service businesses.",
+            "Shows how compact office, storage, loading, and dispatch needs can coexist in a north Sacramento industrial environment."
+          ],
+          tradeoffs: [
+            "Operational fit depends on the specific suite's loading, parking, office percentage, and permitted use.",
+            "Customer-facing image is secondary to practical service and warehouse utility."
+          ],
+          validationFocus: ["Permitted use", "Loading configuration", "Parking allocation", "Office percentage", "Yard rights"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export describes warehouse suites with clear height, grade-level doors, small office, restroom, and small fenced yard."],
+      },
+      {
+        name: "1329 N Market Blvd",
+        address: "1329 N Market Blvd",
+        path: "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/",
+        buildingType: "Industrial",
+        representativeRole: "last_mile_logistics_environment",
+        representativeReason: "Shows a north Sacramento warehouse environment where I-5 and I-80 access can matter more than office image for local delivery, service distribution, or inventory movement.",
+        bestFitSummary: "Best for distributors, wholesalers, and service operations that need a practical warehouse base with regional freeway access.",
+        primaryTradeoff: "The building can teach logistics fit, but tenants still need to verify dock access, truck circulation, power, and trailer or vehicle parking.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "last_mile_logistics", "distribution"],
+          representativeRole: "last_mile_logistics_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "inventory_management", "service_dispatch"],
+          businessArchetypes: ["distributor", "wholesaler", "ecommerce_fulfillment_business", "equipment_service_company"],
+          operationalCharacteristics: ["dock_high_loading", "grade_level_loading", "high_clearance", "delivery_access", "last_mile_access", "freeway_access", "regional_distribution_access"],
+          representativeReasons: [
+            "Represents the north Sacramento warehouse and local-distribution inventory that benefits from freeway access.",
+            "Adds a logistics-oriented contrast to smaller service-industrial examples in Natomas."
+          ],
+          tradeoffs: [
+            "Dock and grade-level access must be matched to the user's receiving and shipping pattern.",
+            "The location is more operational than customer-facing."
+          ],
+          validationFocus: ["Dock-high door access", "Grade-level door access", "Truck circulation", "Trailer or vehicle parking", "Power service"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export identifies one dock-high door, one grade-level door, clear height, electrical service, and I-5/I-80 access."],
+      },
+      {
+        name: "1060 National Dr",
+        address: "1060 National Dr",
+        path: "/commercial-real-estate/building/CA/sacramento/1060-national-dr/",
+        buildingType: "Industrial",
+        representativeRole: "warehouse_distribution_environment",
+        representativeReason: "Represents larger north Sacramento warehouse inventory that helps users distinguish storage and distribution requirements from smaller contractor-service suites.",
+        bestFitSummary: "Best for warehouse, inventory, and local distribution users that need more scale than a small-bay service suite.",
+        primaryTradeoff: "The building should be validated for loading format, truck access, clear height, power, and parking before a distribution user relies on it as a match.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["storage", "inventory_management", "receiving", "shipping", "distribution"],
+          businessArchetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business"],
+          operationalCharacteristics: ["large_floorplates", "flexible_suite_sizes", "delivery_access", "regional_distribution_access", "freeway_access", "industrial_identity"],
+          representativeReasons: [
+            "Gives Natomas a warehouse-scale example instead of treating the district only as office/flex.",
+            "Helps users compare larger storage and distribution needs against compact service-industrial formats."
+          ],
+          tradeoffs: [
+            "Specific loading, clear-height, and truck-circulation capabilities require direct property validation.",
+            "The environment is less polished for client visits than Sacramento's office districts."
+          ],
+          validationFocus: ["Loading configuration", "Clear height", "Truck circulation", "Power", "Parking and trailer access"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export describes warehouse spaces from roughly 11,400 SF to 42,239 SF."],
+      },
+      {
+        name: "4205 S Market Ct",
+        address: "4205 S Market Ct",
+        path: "/commercial-real-estate/building/CA/sacramento/4205-s-market-ct/",
+        buildingType: "Industrial",
+        representativeRole: "contractor_service_cluster",
+        representativeReason: "Illustrates a north Sacramento service-industrial environment where fenced yard, loading, and dispatch capability can be more important than office presentation.",
+        bestFitSummary: "Best for contractors, equipment-service companies, and building-services users that need yard-oriented operational space near regional freeway routes.",
+        primaryTradeoff: "Yard rights, security, truck access, and permitted outdoor storage should be verified for the actual suite and use.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["contractor_service", "contractor_yard", "warehouse"],
+          representativeRole: "contractor_service_cluster",
+          businessActivities: ["service_dispatch", "equipment_storage", "vehicle_storage", "receiving", "shipping"],
+          businessArchetypes: ["general_contractor", "landscaper", "equipment_service_company", "building_services_company"],
+          operationalCharacteristics: ["secured_yard", "outdoor_storage", "dock_high_loading", "grade_level_loading", "service_vehicle_parking", "equipment_storage", "freeway_access"],
+          representativeReasons: [
+            "Shows why some Sacramento users need yard and loading capability rather than a conventional office or warehouse-only property.",
+            "Adds contractor-service coverage to Natomas' industrial/flex foundation."
+          ],
+          tradeoffs: [
+            "Yard-oriented properties require careful validation of permitted use, security, and vehicle circulation.",
+            "This type of environment may not provide the customer-facing image required by showroom or office-heavy users."
+          ],
+          validationFocus: ["Yard rights", "Outdoor storage approval", "Dock and grade-level loading", "Truck circulation", "Security and fencing"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export describes fenced yard, office area, dock-high door, and grade-level doors."],
+      },
+    ],
     questionsToValidate: ["Is airport access important?", "Do employees need easy parking?", "Do you need office/flex capability or just office?", "Would Downtown Sacramento, Rancho Cordova, or Roseville better fit client and employee geography?"],
     relationships: { compareWith: [
       { slug: "downtown-sacramento", label: "Downtown Sacramento", reason: "More civic and client-facing central office core.", relationshipType: "more_executive" },
@@ -1347,6 +1473,132 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["warehouse users", "service industrial companies", "contractor operations", "light manufacturing", "office/flex users"],
     tradeoffs: ["less customer-facing image", "building condition and technical specs vary", "not a retail or executive-office market"],
     strengths: ["Highway 50 access", "industrial/flex building base", "service-commercial utility", "south/east Sacramento reach"],
+    representativeBuildings: [
+      {
+        name: "5711 Florin Perkins Rd",
+        address: "5711 Florin Perkins Rd",
+        path: "/commercial-real-estate/building/CA/sacramento/5711-florin-perkins-rd/",
+        buildingType: "Industrial",
+        representativeRole: "small_bay_service_environment",
+        representativeReason: "Represents the small-suite warehouse inventory in Power Inn that local trades and service companies compare for storage, dispatch, and light operational use.",
+        bestFitSummary: "Best for smaller service, storage, and light industrial users that need compact warehouse suites with basic office and restroom support.",
+        primaryTradeoff: "Smaller suites can limit expansion, vehicle staging, and specialized infrastructure unless the exact configuration is confirmed.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["small_bay_industrial", "contractor_service", "warehouse"],
+          representativeRole: "small_bay_service_environment",
+          businessActivities: ["service_dispatch", "storage", "equipment_storage", "receiving", "shipping"],
+          businessArchetypes: ["electrician", "hvac_company", "plumbing_company", "building_services_company"],
+          operationalCharacteristics: ["small_suite_sizes", "office_warehouse_mix", "ground_floor_access", "service_vehicle_parking", "industrial_identity", "freeway_access"],
+          representativeReasons: [
+            "Shows Power Inn's smaller warehouse-suite inventory for practical service and trade users.",
+            "Helps distinguish small-bay industrial from larger warehouse and single-tenant industrial examples."
+          ],
+          tradeoffs: [
+            "Expansion options and vehicle staging may be constrained in smaller suites.",
+            "Technical needs such as power, ventilation, and permitted uses require suite-level validation."
+          ],
+          validationFocus: ["Permitted use", "Office percentage", "Vehicle parking", "Loading access", "Power and ventilation"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export describes roughly 2,500 SF warehouse suites with small office and restrooms."],
+      },
+      {
+        name: "4949 Florin Perkins Rd",
+        address: "4949 Florin Perkins Rd",
+        path: "/commercial-real-estate/building/CA/sacramento/4949-florin-perkins-rd/",
+        buildingType: "Industrial",
+        representativeRole: "warehouse_distribution_environment",
+        representativeReason: "Represents a Highway 50-oriented service warehouse location in the Florin Perkins corridor for users comparing Power Inn against West Sacramento or Rancho Cordova.",
+        bestFitSummary: "Best for warehouse, inventory, and service-distribution users that need practical south/east Sacramento access more than a customer-facing setting.",
+        primaryTradeoff: "The property is useful as a corridor example, but loading, truck circulation, office percentage, and power should be confirmed before relying on it for operations.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution", "contractor_service"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["storage", "inventory_management", "receiving", "shipping", "distribution"],
+          businessArchetypes: ["distributor", "wholesaler", "equipment_service_company", "building_services_company"],
+          operationalCharacteristics: ["delivery_access", "freeway_access", "regional_distribution_access", "industrial_identity", "ground_floor_access"],
+          representativeReasons: [
+            "Demonstrates Power Inn's Highway 50-access industrial geography.",
+            "Adds a mid-size warehouse/service reference distinct from compact small-bay and yard-oriented examples."
+          ],
+          tradeoffs: [
+            "Source support confirms corridor access more than detailed technical specifications.",
+            "Tenants should validate loading, parking, office percentage, and power."
+          ],
+          validationFocus: ["Loading configuration", "Truck circulation", "Office percentage", "Power service", "Parking allocation"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Ethan Conrad Sacramento export identifies access to Highway 50 by Power Inn Road or Watt Avenue South."],
+      },
+      {
+        name: "5800 Alder Ave",
+        address: "5800 Alder Ave",
+        path: "/commercial-real-estate/building/CA/sacramento/5800-alder-ave/",
+        buildingType: "Industrial",
+        representativeRole: "light_manufacturing_environment",
+        representativeReason: "Shows Power Inn's single-tenant industrial side, where users may need a larger operational footprint and yard potential instead of multi-tenant small-bay space.",
+        bestFitSummary: "Best for light manufacturing, production-support, or service-industrial users that need more dedicated control over a larger industrial building.",
+        primaryTradeoff: "Single-tenant control can be useful, but power, yard rights, loading, and production approvals still need direct validation.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["light_manufacturing", "warehouse", "contractor_service"],
+          representativeRole: "light_manufacturing_environment",
+          businessActivities: ["light_manufacturing", "assembly", "storage", "receiving", "shipping"],
+          businessArchetypes: ["light_manufacturer", "cabinet_shop", "furniture_maker", "equipment_service_company"],
+          operationalCharacteristics: ["single_tenant", "large_floorplates", "outdoor_storage", "material_storage", "manufacturing_compatible", "freeway_access", "industrial_identity"],
+          representativeReasons: [
+            "Adds a larger Power Inn industrial example for production-support and single-tenant operations.",
+            "Helps users compare dedicated industrial control against smaller multi-tenant service suites."
+          ],
+          tradeoffs: [
+            "Manufacturing compatibility should be validated by use, power, ventilation, and permitting requirements.",
+            "A larger footprint may be less flexible for users that only need a small warehouse suite."
+          ],
+          validationFocus: ["Power capacity", "Ventilation", "Permitted manufacturing use", "Yard rights", "Loading configuration"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies a single-tenant industrial building in the Power Inn submarket with yard available."],
+      },
+      {
+        name: "8583 Elder Creek Rd",
+        address: "8583 Elder Creek Rd",
+        path: "/commercial-real-estate/building/CA/sacramento/8583-elder-creek-rd/",
+        buildingType: "Industrial",
+        representativeRole: "light_manufacturing_environment",
+        representativeReason: "Represents a technical industrial example in Power Inn where clear height, power, yard, and loading questions matter for production, storage, or equipment-heavy users.",
+        bestFitSummary: "Best for light industrial, equipment-service, or production-support users that need more technical validation than a basic storage suite.",
+        primaryTradeoff: "Even with stronger source detail, users should validate whether the actual use requires special power, ventilation, parking, hazardous-material, or permitting approvals.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "building-brief-candidate",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["light_manufacturing", "warehouse", "contractor_service"],
+          representativeRole: "light_manufacturing_environment",
+          businessActivities: ["light_manufacturing", "assembly", "storage", "equipment_storage", "receiving", "shipping"],
+          businessArchetypes: ["light_manufacturer", "cabinet_shop", "equipment_service_company", "building_services_company"],
+          operationalCharacteristics: ["grade_level_loading", "high_clearance", "high_power", "surface_parking", "secured_yard", "manufacturing_compatible", "industrial_identity"],
+          representativeReasons: [
+            "Adds a Power Inn example with source-backed technical details for users evaluating production-support or equipment-heavy operations.",
+            "Shows why operational validation is central to industrial/flex search decisions."
+          ],
+          tradeoffs: [
+            "Technical specs make it useful for comparison but do not replace use-specific due diligence.",
+            "Parking, yard, power, and loading must be evaluated against the tenant's exact workflow."
+          ],
+          validationFocus: ["Power capacity", "Clear height", "Yard rights", "Permitted use", "Loading configuration", "Hazardous-material restrictions"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Colliers Sacramento export identifies grade-level loading, clear height, power, surface parking, fenced yard, and fire sprinkler details."],
+      },
+    ],
     questionsToValidate: ["Do you need truck access, loading, yard, or outdoor storage?", "Is Highway 50 access important?", "Would West Sacramento or Rancho Cordova better fit warehouse or flex requirements?", "Are power or production needs part of the search?"],
     relationships: { compareWith: [
       { slug: "west-sacramento-industrial", label: "West Sacramento Industrial", reason: "More I-80/I-5 and river-port-edge industrial alternative.", relationshipType: "better_truck_access" },
@@ -1374,6 +1626,101 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["warehouse users", "service industrial", "contractor operations", "downtown-edge operations"],
     tradeoffs: ["less office image", "truck routes and site configuration matter", "not a primary retail or medical market"],
     strengths: ["I-80 and I-5 access", "downtown-edge industrial utility", "warehouse and service-commercial buildings", "regional operations position"],
+    representativeBuildings: [
+      {
+        name: "3100 Ramco St",
+        address: "3100 Ramco St",
+        path: "/commercial-real-estate/building/CA/west-sacramento/3100-ramco-st/",
+        buildingType: "Industrial",
+        representativeRole: "large_scale_distribution_environment",
+        representativeReason: "Represents West Sacramento's larger logistics and distribution environment, where dock loading, clear height, trailer parking, and regional freeway access become central search questions.",
+        bestFitSummary: "Best for distributors, wholesalers, importers, and e-commerce fulfillment users that need a larger modern warehouse platform near I-80 and I-5.",
+        primaryTradeoff: "Large distribution buildings require careful validation of trailer parking, power, sprinkler, loading, labor access, and whether the current configuration matches the operation.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "building-brief-candidate",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["distribution", "warehouse", "last_mile_logistics"],
+          representativeRole: "large_scale_distribution_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "inventory_management", "storage"],
+          businessArchetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business"],
+          operationalCharacteristics: ["dock_high_loading", "grade_level_loading", "truck_court", "high_clearance", "high_power", "large_floorplates", "divisible_space", "regional_distribution_access", "freeway_access"],
+          representativeReasons: [
+            "Shows the large-format distribution side of West Sacramento's industrial ecosystem.",
+            "Creates a clear contrast with Sacramento's small-bay and contractor-service industrial examples."
+          ],
+          tradeoffs: [
+            "Large logistics buildings can be operationally efficient but require exact validation of truck, trailer, power, and sprinkler specifications.",
+            "This environment is not designed for walkable customer-facing activity."
+          ],
+          validationFocus: ["Dock count", "Grade-level doors", "Trailer parking", "Clear height", "Power", "Sprinkler system"],
+          confidence: "verified_property_fact",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies dock doors, grade-level doors, clear height, power, parking, trailer parking, ESFR sprinklers, and divisibility."],
+      },
+      {
+        name: "2928 Ramco St",
+        address: "2928 Ramco St",
+        path: "/commercial-real-estate/building/CA/west-sacramento/2928-ramco-st/",
+        buildingType: "Industrial",
+        representativeRole: "warehouse_distribution_environment",
+        representativeReason: "Adds a West Sacramento distribution-center example that helps users compare Class A warehouse function with smaller service-industrial properties.",
+        bestFitSummary: "Best for warehouse, service distribution, and regional operations users that value dock and grade-level loading in a West Sacramento industrial setting.",
+        primaryTradeoff: "Tenants should validate whether the building's loading mix, trailer movement, fire-sprinkler system, and light-industrial zoning satisfy their exact operation.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "building-brief-candidate",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["storage", "inventory_management", "receiving", "shipping", "distribution"],
+          businessArchetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business"],
+          operationalCharacteristics: ["dock_high_loading", "grade_level_loading", "high_clearance", "large_floorplates", "enhanced_security", "regional_distribution_access", "industrial_identity"],
+          representativeReasons: [
+            "Represents a distribution-center format in West Sacramento with source-supported loading and clear-height details.",
+            "Helps users distinguish warehouse/distribution requirements from contractor-yard or small-suite service needs."
+          ],
+          tradeoffs: [
+            "Distribution function depends on the exact door mix, truck circulation, and parking configuration.",
+            "Office or customer-facing needs may be secondary in this environment."
+          ],
+          validationFocus: ["Dock-high loading", "Grade-level loading", "Clear height", "Truck circulation", "Light-industrial zoning"],
+          confidence: "verified_property_fact",
+        },
+        sourceNotes: ["CBRE Sacramento export describes a Class A distribution center with dock-high and grade-level loading, clear height, ESFR sprinklers, and light-industrial zoning."],
+      },
+      {
+        name: "3380 Industrial Blvd",
+        address: "3380 Industrial Blvd",
+        path: "/commercial-real-estate/building/CA/west-sacramento/3380-industrial-blvd/",
+        buildingType: "Industrial",
+        representativeRole: "showroom_flex_environment",
+        representativeReason: "Shows West Sacramento's smaller office-and-warehouse flex inventory, a different operating model from large-format distribution centers on Ramco Street.",
+        bestFitSummary: "Best for service, showroom, or office/warehouse users that need a smaller flex environment with operational access near the Sacramento core.",
+        primaryTradeoff: "The office-heavy and warehouse configurations vary by suite, so tenants should confirm whether the space supports showroom, storage, loading, or administrative needs.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["showroom_flex", "flex", "small_bay_industrial"],
+          representativeRole: "showroom_flex_environment",
+          businessActivities: ["customer_showroom", "knowledge_work", "service_dispatch", "storage", "receiving"],
+          businessArchetypes: ["equipment_service_company", "building_services_company", "distributor", "general_contractor"],
+          operationalCharacteristics: ["office_showroom_mix", "office_warehouse_mix", "grade_level_loading", "small_suite_sizes", "professional_image", "urban_core_access"],
+          representativeReasons: [
+            "Provides a smaller flex contrast within West Sacramento's larger industrial geography.",
+            "Illustrates how some industrial/flex users need a blend of office, customer interaction, warehouse, and loading capability."
+          ],
+          tradeoffs: [
+            "Not every suite will support the same balance of office, warehouse, showroom, and loading use.",
+            "Users with heavy truck or trailer needs may need a larger distribution property instead."
+          ],
+          validationFocus: ["Office and warehouse split", "Showroom suitability", "Grade-level loading", "Customer access", "Parking allocation"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies office/warehouse configurations and grade-level loading possibility at this address."],
+      },
+    ],
     questionsToValidate: ["Do you need I-80/I-5 access near downtown?", "Are yard, loading, and truck circulation required?", "Would Power Inn or Rancho Cordova better fit Highway 50 access?", "Is office image or pure operational utility more important?"],
     relationships: { compareWith: [
       { slug: "power-inn-industrial", label: "Power Inn Industrial", reason: "More Highway 50 and south/east Sacramento industrial/flex alternative.", relationshipType: "similar" },
@@ -1396,6 +1743,132 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["value-oriented office users", "back-office operations", "office/flex users", "larger-footprint teams", "eastern Sacramento medical users"],
     tradeoffs: ["auto-oriented", "less client-facing than downtown", "less premium image than Folsom", "not the deepest pure warehouse market"],
     strengths: ["Highway 50 access", "parking", "larger footprints", "value-oriented office/flex inventory"],
+    representativeBuildings: [
+      {
+        name: "11201 Sun Center Dr",
+        address: "11201 Sun Center Dr",
+        path: "/commercial-real-estate/building/CA/rancho-cordova/11201-sun-center-dr/",
+        buildingType: "Industrial",
+        representativeRole: "contractor_service_cluster",
+        representativeReason: "Represents the Highway 50 contractor/service environment where mixed office-industrial zoning, yard area, and vehicle staging can matter as much as interior warehouse space.",
+        bestFitSummary: "Best for contractors, equipment-service companies, and building-services users that need a dedicated industrial building with yard-oriented operational support.",
+        primaryTradeoff: "Yard, parking, loading, and permitted use should be verified against the exact operation before treating the property as a match.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "building-brief-candidate",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["contractor_service", "contractor_yard", "flex"],
+          representativeRole: "contractor_service_cluster",
+          businessActivities: ["service_dispatch", "equipment_storage", "vehicle_storage", "receiving", "shipping"],
+          businessArchetypes: ["general_contractor", "electrician", "hvac_company", "plumbing_company", "equipment_service_company"],
+          operationalCharacteristics: ["office_warehouse_mix", "secured_yard", "contractor_yard", "service_vehicle_parking", "surface_parking", "freeway_access", "suburban_access"],
+          representativeReasons: [
+            "Shows Rancho Cordova's practical contractor-service side rather than only its office-park identity.",
+            "Adds a yard-oriented example for users whose vehicles, equipment, and dispatch pattern drive the search."
+          ],
+          tradeoffs: [
+            "The yard and parking configuration must be validated for the user's fleet, material storage, and security needs.",
+            "Customer-facing image may be less important than operational utility."
+          ],
+          validationFocus: ["Yard rights", "Service vehicle parking", "Permitted outdoor storage", "Office/warehouse split", "Loading configuration"],
+          confidence: "verified_property_fact",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies office/industrial mixed-use zoning, office area, auto stalls, concrete parking and yard, and fenced yard."],
+      },
+      {
+        name: "11353 Pyrites Way",
+        address: "11353 Pyrites Way",
+        path: "/commercial-real-estate/building/CA/rancho-cordova/11353-pyrites-way/",
+        buildingType: "Industrial",
+        representativeRole: "small_bay_service_environment",
+        representativeReason: "Represents Rancho Cordova's compact industrial suites for small service, storage, and light-production users that need Highway 50 access without a large warehouse footprint.",
+        bestFitSummary: "Best for small trade, service, maker, or equipment-support users that need a smaller industrial suite with practical ground-level access.",
+        primaryTradeoff: "The small-suite format can limit expansion, customer image, and technical infrastructure unless the exact suite is checked.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["small_bay_industrial", "light_manufacturing", "contractor_service"],
+          representativeRole: "small_bay_service_environment",
+          businessActivities: ["service_dispatch", "storage", "equipment_storage", "assembly", "light_manufacturing"],
+          businessArchetypes: ["electrician", "hvac_company", "cabinet_shop", "furniture_maker", "building_services_company"],
+          operationalCharacteristics: ["small_suite_sizes", "moderate_clearance", "showroom_frontage", "manufacturing_compatible", "ground_floor_access", "freeway_access"],
+          representativeReasons: [
+            "Adds a compact industrial-suite example to Rancho Cordova's flex and service-business coverage.",
+            "Shows how small-suite industrial can support trade, maker, and light-production users differently than a larger warehouse."
+          ],
+          tradeoffs: [
+            "Small spaces can constrain expansion and storage-intensive operations.",
+            "Manufacturing and technical needs should be verified by power, ventilation, and permitted-use requirements."
+          ],
+          validationFocus: ["Permitted use", "Clear height", "Power", "Ventilation", "Expansion options"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies small industrial suites, clear height range, tilt-up construction, storefront, and M2 zoning."],
+      },
+      {
+        name: "11300 Trade Center Dr",
+        address: "11300 Trade Center Dr",
+        path: "/commercial-real-estate/building/CA/rancho-cordova/11300-trade-center-dr/",
+        buildingType: "Industrial",
+        representativeRole: "flex_business_park",
+        representativeReason: "Shows the office-and-warehouse flex pattern in Rancho Cordova, where administrative space and operational space are evaluated together.",
+        bestFitSummary: "Best for office/flex, product-support, and service operations that need a measurable office component inside an industrial setting.",
+        primaryTradeoff: "Office-heavy flex can be inefficient for users needing mostly warehouse space, while warehouse-heavy users still need to verify loading and truck access.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["flex", "showroom_flex", "small_bay_industrial"],
+          representativeRole: "flex_business_park",
+          businessActivities: ["knowledge_work", "service_dispatch", "storage", "product_development", "receiving"],
+          businessArchetypes: ["equipment_service_company", "building_services_company", "distributor", "light_manufacturer"],
+          operationalCharacteristics: ["office_warehouse_mix", "high_office_percentage", "flexible_suite_sizes", "professional_image", "suburban_access", "freeway_access"],
+          representativeReasons: [
+            "Represents a Rancho Cordova flex configuration where office area is a meaningful part of the industrial decision.",
+            "Helps users compare office/flex against pure warehouse, small-bay, and yard-oriented examples."
+          ],
+          tradeoffs: [
+            "Users should confirm whether the office percentage supports or burdens the operating model.",
+            "Loading, parking, and warehouse depth remain suite-specific."
+          ],
+          validationFocus: ["Office percentage", "Loading configuration", "Warehouse depth", "Parking allocation", "Power"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["CBRE Sacramento export describes roughly 7,200 SF with roughly 1,800 SF of remodeled office area."],
+      },
+      {
+        name: "10255 Old Placerville Rd",
+        address: "10255 Old Placerville Rd",
+        path: "/commercial-real-estate/building/CA/sacramento/10255-old-placerville-rd/",
+        buildingType: "Industrial",
+        representativeRole: "flex_business_park",
+        representativeReason: "Adds a conditioned office-industrial mixed-use example near the Highway 50 corridor for users comparing Rancho Cordova-style flex with heavier warehouse environments.",
+        bestFitSummary: "Best for flex, light assembly, product-support, or service users that need a smaller conditioned unit rather than pure warehouse space.",
+        primaryTradeoff: "Conditioned flex may help technical users, but production approvals, power, ventilation, loading, and suite renovation condition must be checked.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "research-required",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["flex", "research_development", "light_manufacturing"],
+          representativeRole: "flex_business_park",
+          businessActivities: ["product_development", "knowledge_work", "assembly", "light_manufacturing", "storage"],
+          businessArchetypes: ["research_company", "light_manufacturer", "equipment_service_company", "cabinet_shop"],
+          operationalCharacteristics: ["flexible_suite_sizes", "climate_controlled_storage", "moderate_clearance", "office_warehouse_mix", "manufacturing_compatible", "freeway_access"],
+          representativeReasons: [
+            "Shows how Rancho Cordova-area flex can support office, technical, assembly, or conditioned light-industrial needs.",
+            "Creates a contrast with yard-oriented contractor space and larger distribution buildings."
+          ],
+          tradeoffs: [
+            "Conditioned flex features do not guarantee compatibility with every technical or production use.",
+            "The property needs direct validation for power, ventilation, loading, and permitted operations."
+          ],
+          validationFocus: ["Conditioned space", "Power", "Ventilation", "Loading access", "Permitted technical or production use"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["CBRE Sacramento export identifies clear height, fully conditioned unit, sprinklers, storefront, and office/industrial mixed-use zoning."],
+      },
+    ],
     questionsToValidate: ["Is lower occupancy cost a priority?", "Do you need larger footprints or office/flex functionality?", "Do clients expect a central Sacramento address?", "Would Folsom, Roseville, or Power Inn better fit image or operations?"],
     relationships: { compareWith: [
       { slug: "folsom-commercial-core", label: "Folsom Commercial Core", reason: "More executive eastern Sacramento office, medical, and professional-service alternative.", relationshipType: "more_executive" },
@@ -1503,6 +1976,39 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["Placer County-serving offices", "cost-sensitive suburban users", "service businesses", "office/flex operations", "local medical users"],
     tradeoffs: ["less visible regional retail environment than Roseville", "less executive image than Folsom", "less central to Sacramento core clients"],
     strengths: ["I-80 access", "suburban parking", "local business environment", "Placer County growth", "office/flex utility"],
+    representativeBuildings: [
+      {
+        name: "4011 Alvis Ct",
+        address: "4011 Alvis Ct",
+        path: "/commercial-real-estate/building/CA/rocklin/4011-alvis-ct/",
+        buildingType: "Industrial",
+        representativeRole: "flex_business_park",
+        representativeReason: "Represents Rocklin's smaller Placer County warehouse/flex environment for service and light-operational users that do not need Sacramento's larger industrial corridors.",
+        bestFitSummary: "Best for Placer County-serving service, warehouse, and light-industrial users that need a practical mid-size flex or warehouse suite.",
+        primaryTradeoff: "Rocklin adds geographic reach but does not replace deeper Sacramento industrial corridors for larger distribution, yard, or heavy-production requirements.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "research-required",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["flex", "small_bay_industrial", "warehouse"],
+          representativeRole: "flex_business_park",
+          businessActivities: ["storage", "service_dispatch", "receiving", "shipping", "light_manufacturing"],
+          businessArchetypes: ["equipment_service_company", "building_services_company", "light_manufacturer", "distributor"],
+          operationalCharacteristics: ["office_warehouse_mix", "small_suite_sizes", "moderate_clearance", "suburban_access", "service_vehicle_parking", "industrial_identity"],
+          representativeReasons: [
+            "Adds Placer County industrial/flex coverage without overstating Rocklin as a major distribution hub.",
+            "Helps users compare local Rocklin utility against Roseville, Rancho Cordova, Power Inn, and West Sacramento."
+          ],
+          tradeoffs: [
+            "The source evidence supports warehouse and office-area context, but loading, power, parking, and permitted use still require validation.",
+            "Larger industrial users should compare dedicated Sacramento and West Sacramento corridors."
+          ],
+          validationFocus: ["Loading configuration", "Office area", "Parking allocation", "Permitted use", "Power"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Century Sacramento export identifies warehouse space with office area and warehouse ceiling insulation."],
+      },
+    ],
     questionsToValidate: ["Is Placer County coverage the main driver?", "Do you need lower cost or stronger regional visibility?", "Would Roseville provide stronger customer access?", "Do you need flex, service-commercial, or light industrial features?"],
     relationships: { compareWith: [
       { slug: "roseville-commercial-core", label: "Roseville Commercial Core", reason: "More regional retail, medical, and customer-facing commercial context.", relationshipType: "better_retail_visibility" },
