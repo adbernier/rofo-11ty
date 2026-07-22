@@ -22,6 +22,117 @@ const SEVERITY_WEIGHTS = {
   low: 15,
 };
 
+const ECOSYSTEM_READINESS = {
+  strategicPriority: ["industrial_flex", "office", "medical", "life_science", "retail", "special_purpose", "hospitality"],
+  relevanceDefaults: {
+    office: "core",
+    industrial_flex: "core",
+    medical: "important",
+    life_science: "secondary",
+    retail: "important",
+    special_purpose: "secondary",
+    hospitality: "secondary",
+  },
+  metroRelevance: {
+    "san-francisco": {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "core",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+    sacramento: {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "secondary",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+    "san-diego": {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "core",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+    "orange-county": {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "secondary",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+    denver: {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "secondary",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+    seattle: {
+      office: "core",
+      industrial_flex: "core",
+      medical: "important",
+      life_science: "important",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
+  },
+  minimums: {
+    districts: {
+      core: { strong: 2, developed: 4 },
+      important: { strong: 1, developed: 2 },
+      secondary: { strong: 1, developed: 2 },
+      specialized: { strong: 1, developed: 1 },
+    },
+    representativeBuildings: {
+      core: { partial: 1, strong: 3, developed: 6 },
+      important: { partial: 1, strong: 2, developed: 4 },
+      secondary: { partial: 0, strong: 1, developed: 2 },
+      specialized: { partial: 0, strong: 1, developed: 2 },
+    },
+    buildingBriefs: {
+      core: { strong: 1, developed: 3 },
+      important: { strong: 1, developed: 2 },
+      secondary: { strong: 0, developed: 1 },
+      specialized: { strong: 0, developed: 1 },
+    },
+    subtypes: {
+      core: { strong: 2, developed: 3 },
+      important: { strong: 1, developed: 2 },
+      secondary: { strong: 1, developed: 1 },
+      specialized: { strong: 1, developed: 1 },
+    },
+    archetypes: {
+      core: { strong: 4, developed: 6 },
+      important: { strong: 3, developed: 5 },
+      secondary: { strong: 2, developed: 3 },
+      specialized: { strong: 2, developed: 3 },
+    },
+    activities: {
+      core: { strong: 4, developed: 6 },
+      important: { strong: 3, developed: 5 },
+      secondary: { strong: 2, developed: 3 },
+      specialized: { strong: 2, developed: 3 },
+    },
+  },
+  concentrationThresholds: {
+    representativeBuildingShare: 0.7,
+    buildingBriefShare: 0.75,
+  },
+};
+
 const METROS = [
   {
     id: "san-francisco",
@@ -94,6 +205,7 @@ module.exports = {
   categoryWeights: CATEGORY_WEIGHTS,
   dimensionWeights: DIMENSION_WEIGHTS,
   severityWeights: SEVERITY_WEIGHTS,
+  ecosystemReadiness: ECOSYSTEM_READINESS,
   metros: METROS,
   thresholds: {
     districtDescriptionMinLength: 120,

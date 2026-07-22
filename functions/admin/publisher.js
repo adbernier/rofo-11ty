@@ -300,6 +300,105 @@ function renderEcosystemCoverage(metro) {
   `;
 }
 
+function renderReadinessSummary(metro) {
+  const geographic = metro.geographicReadiness || {};
+  const ecosystem = metro.ecosystemReadiness || {};
+  const balance = metro.ecosystemBalance || {};
+  return `
+    <section class="panel readiness-summary">
+      <h2>Commercial Readiness</h2>
+      <div class="readiness-grid">
+        <article>
+          <span>Geographic Readiness</span>
+          <strong>${escapeHtml(geographic.label || "Unavailable")}</strong>
+          <p>${escapeHtml(((geographic.rationale || [])[0]) || "No geographic readiness rationale generated.")}</p>
+        </article>
+        <article>
+          <span>Ecosystem Readiness</span>
+          <strong>${escapeHtml(ecosystem.label || "Unavailable")}</strong>
+          <p>${escapeHtml(((ecosystem.rationale || [])[0]) || "No ecosystem readiness rationale generated.")}</p>
+        </article>
+        <article>
+          <span>Commercial Balance</span>
+          <strong>${escapeHtml(balance.label || "Unavailable")}</strong>
+          <p>${escapeHtml(((balance.warnings || [])[0]) || "No concentration warning.")}</p>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderEcosystemReadinessMatrix(metro) {
+  const evaluations = ((metro.ecosystemReadiness || {}).evaluations || []).filter((item) => item.relevance !== "not_applicable");
+  return `
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Ecosystem Readiness Matrix</h2>
+          <p>Layer-by-layer commercial ecosystem readiness. Existing Publisher score and status remain unchanged.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ecosystem</th><th>Relevance</th><th>Readiness</th><th>Districts</th><th>Recommendations</th><th>Rep. Buildings</th><th>Briefs</th><th>Blocking Gap</th></tr></thead>
+          <tbody>
+            ${evaluations.map((item) => `
+              <tr>
+                <td><strong>${escapeHtml(item.label)}</strong><small>${escapeHtml((item.targetSubtypes || []).slice(0, 3).join(", "))}</small></td>
+                <td>${escapeHtml(item.relevanceLabel)}</td>
+                <td><span class="severity ${item.blocking ? "is-high" : "is-low"}">${escapeHtml(item.readinessLabel)}</span></td>
+                <td>${escapeHtml(String(item.counts.districts || 0))}</td>
+                <td>${escapeHtml(String(item.counts.recommendations || 0))}</td>
+                <td>${escapeHtml(String(item.counts.representativeBuildings || 0))}</td>
+                <td>${escapeHtml(String(item.counts.buildingBriefs || 0))}</td>
+                <td>${escapeHtml((item.gaps || [])[0] || "None")}</td>
+              </tr>
+            `).join("") || `<tr><td colspan="8">No ecosystem readiness matrix generated.</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderRecommendedEcosystemSprint(plan) {
+  const sprint = plan && plan.recommendedEcosystemSprint;
+  if (!sprint) return "";
+  return `
+    <section class="panel planner-sprint" id="recommended-ecosystem-sprint">
+      <div class="section-header">
+        <div>
+          <h2>Recommended Ecosystem Sprint</h2>
+          <p>This sprint targets commercial balance instead of continuing the strongest ecosystem by default.</p>
+        </div>
+      </div>
+      <div class="sprint-summary">
+        <h3>${escapeHtml(sprint.title)}</h3>
+        <p>${escapeHtml(sprint.objective)}</p>
+        <p><strong>Reason:</strong> ${escapeHtml(sprint.rationale)}</p>
+        ${sprint.alternativeSprint ? `<p><strong>Alternative:</strong> ${escapeHtml(sprint.alternativeSprint.title)}. ${escapeHtml(sprint.alternativeSprint.whyNotFirst)}</p>` : ""}
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Target</th><th>Current Layer Coverage</th><th>Known Gaps</th><th>Completion Criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>${escapeHtml(sprint.ecosystemLabel)}</strong><small>${escapeHtml(sprint.relevanceLabel)} · ${escapeHtml(sprint.readinessLabel)}</small></td>
+              <td>${escapeHtml(Object.entries(sprint.layers || {}).map(([key, value]) => `${key}: ${value}`).join("; "))}</td>
+              <td>${escapeHtml((sprint.gaps || []).join("; "))}</td>
+              <td>${escapeHtml((sprint.completionCriteria || []).join("; "))}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="prompt-export">
+        <summary>Codex ecosystem prompt export</summary>
+        <textarea readonly>${escapeHtml(sprint.codexPrompt || "")}</textarea>
+      </details>
+    </section>
+  `;
+}
+
 function renderPriorityGaps(plan, mode) {
   if (!plan) return "";
   const gaps = (plan.priorities || []).slice().sort((a, b) =>
@@ -420,6 +519,9 @@ function renderMetroDetailWithPlan(metro, token, plan, mode = "balanced") {
       `).join("")}
     </section>
 
+    ${renderReadinessSummary(metro)}
+    ${renderEcosystemReadinessMatrix(metro)}
+    ${renderRecommendedEcosystemSprint(plan)}
     ${renderRecommendedSprint(plan, mode, token)}
     ${renderPriorityGaps(plan, mode)}
     ${renderCoverageMatrix(plan)}
@@ -584,6 +686,10 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
     .score { display: block; font-size: 2.8rem; letter-spacing: -0.04em; }
     .category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
     .dimension-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .readiness-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .readiness-grid article { border: 1px solid var(--border); border-radius: 12px; background: var(--soft); padding: 14px; }
+    .readiness-grid span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+    .readiness-grid strong { display: block; margin: 7px 0 5px; font-size: 1.2rem; }
     .category-card, .dimension-card { padding: 16px; }
     .category-card__top { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
     .category-card dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
@@ -617,8 +723,8 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
     .prompt-export summary { cursor: pointer; color: var(--blue); font-weight: 900; }
     .prompt-export textarea { width: 100%; min-height: 360px; margin-top: 12px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: #0f172a; color: #e5edf8; font: 0.85rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
     .back-link, .quiet { display: inline-block; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 800; }
-    @media (max-width: 1120px) { .metrics, .category-grid, .dimension-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 720px) { main { width: min(100% - 24px, 1480px); padding-top: 22px; } .metrics, .category-grid, .dimension-grid, .detail-grid { grid-template-columns: 1fr; } .panel { padding: 16px; } th, td { padding: 10px 8px; } }
+    @media (max-width: 1120px) { .metrics, .category-grid, .dimension-grid, .readiness-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 720px) { main { width: min(100% - 24px, 1480px); padding-top: 22px; } .metrics, .category-grid, .dimension-grid, .readiness-grid, .detail-grid { grid-template-columns: 1fr; } .panel { padding: 16px; } th, td { padding: 10px 8px; } }
   </style>
 </head>
 <body>

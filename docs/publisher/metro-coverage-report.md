@@ -1,6 +1,6 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-21T20:58:29.633Z
+Generated: 2026-07-22T01:14:50.731Z
 Rules: publisher-rules-v1
 
 ## Overview
@@ -34,15 +34,25 @@ Rules: publisher-rules-v1
 
 ## Commercial Ecosystem Coverage
 
-| Metro | Office | Industrial & Flex | Retail | Medical | Life Science | Missing Ecosystems | Review Required |
-| --- | --- | --- | --- | --- | --- | ---: | ---: |
-| San Francisco | Developed (5/41/13) | Partial (7/36/0) | Partial (5/16/0) | Partial (0/0/0) | Developed (1/14/3) | 2 | 0 |
-| Sacramento | Partial (2/6/0) | Thin (5/0/0) | Partial (0/0/0) | Partial (5/9/0) | Missing (0/0/0) | 3 | 0 |
-| San Diego | Partial (3/12/0) | Partial (8/28/0) | Partial (0/0/0) | Partial (1/4/0) | Partial (0/0/0) | 1 | 0 |
-| Orange County | Partial (4/18/0) | Partial (4/8/0) | Partial (0/0/0) | Partial (2/4/0) | Partial (0/0/0) | 2 | 0 |
-| Denver | Partial (10/24/0) | Partial (5/8/0) | Partial (0/0/0) | Partial (4/10/0) | Partial (0/0/0) | 1 | 0 |
+| Metro | Geographic | Ecosystem | Balance | Blocking Ecosystems | Recommended Ecosystem Sprint |
+| --- | --- | --- | --- | --- | --- |
+| San Francisco | Strong | Partial | Office Brief Concentrated | None | San Francisco Industrial & Flex Ecosystem Building Brief Migration |
+| Sacramento | Developed | Partial | Balanced | industrial_flex | Sacramento Industrial & Flex Ecosystem Representative Building Foundation |
+| San Diego | Developed | Partial | Balanced | None | San Diego Industrial & Flex Ecosystem Building Brief Migration |
+| Orange County | Developed | Partial | Balanced | None | Orange County Industrial & Flex Ecosystem Building Brief Migration |
+| Denver | Developed | Partial | Balanced | None | Denver Industrial & Flex Ecosystem Building Brief Migration |
 
-Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem reporting is not included in Publisher readiness scoring yet.
+## Commercial Ecosystem Layer Summary
+
+| Metro | Office | Industrial & Flex | Retail | Medical | Life Science | Highest Ecosystem Gap |
+| --- | --- | --- | --- | --- | --- | --- |
+| San Francisco | Developed / Core (5/41/13) | Partial / Core (7/36/0) | Partial / Important (5/16/0) | Partial / Important (0/0/0) | Partial / Core (1/14/3) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
+| Sacramento | Partial / Core (2/6/0) | Thin / Core (5/0/0) | Partial / Important (0/0/0) | Partial / Important (5/9/0) | Missing / Secondary (0/0/0) | Industrial & Flex: District foundation exists, but Representative Buildings are missing. |
+| San Diego | Partial / Core (3/12/0) | Partial / Core (8/28/0) | Partial / Important (0/0/0) | Partial / Important (1/4/0) | Partial / Core (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
+| Orange County | Partial / Core (4/18/0) | Partial / Core (4/8/0) | Partial / Important (0/0/0) | Partial / Important (2/4/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
+| Denver | Partial / Core (10/24/0) | Partial / Core (5/8/0) | Partial / Important (0/0/0) | Partial / Important (4/10/0) | Partial / Secondary (0/0/0) | Industrial & Flex: Representative Buildings exist, but Building Brief depth is missing. |
+
+Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem readiness is reported separately and is not included in the current Publisher numeric score.
 
 ## Category Coverage
 

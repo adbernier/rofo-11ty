@@ -139,16 +139,87 @@ Publisher now includes `ecosystemCoverage` in the generated metro analysis snaps
 
 This reporting is not part of Publisher readiness scoring in v1. Strong office coverage should be visible separately from weak industrial/flex, medical, retail, or life-science coverage.
 
+## Ecosystem Readiness
+
+Publisher now adds two additive readiness dimensions beside the existing Publisher score:
+
+- `geographicReadiness`
+- `ecosystemReadiness`
+
+Geographic Readiness describes whether the metro has enough district, comparison, recommendation, and publishing foundation to support expansion work.
+
+Ecosystem Readiness describes whether the metro represents its relevant commercial ecosystems with enough depth across:
+
+- district coverage
+- recommendation-active district coverage
+- Representative Buildings
+- Building Briefs
+- subtype coverage
+- business archetype coverage
+- business activity coverage
+- editorial review status
+
+Readiness states are deterministic:
+
+- `developed`
+- `strong`
+- `partial`
+- `thin`
+- `missing`
+- `not_applicable`
+- `review_required`
+
+These are descriptive gates, not a replacement for the existing Publisher score.
+
+## Ecosystem Relevance and Strategic Priority
+
+Metro relevance is explicitly configured in `data/publisher-rules.js`. A missing ecosystem is not automatically treated as unimportant.
+
+Relevance values:
+
+- `core`
+- `important`
+- `secondary`
+- `specialized`
+- `not_applicable`
+- `review_required`
+
+Strategic priority is also centralized in Publisher rules. The initial strategic order is:
+
+1. `industrial_flex`
+2. `office`
+3. `medical`
+4. `life_science`
+5. `retail`
+6. `special_purpose`
+7. `hospitality`
+
+Industrial/flex receives explicit protection because Rofo historically serves many operators whose needs are not well represented by office-first brokerage content: contractors, trades, makers, distributors, wholesalers, importers, light manufacturers, food producers, e-commerce operators, and equipment-service companies.
+
+## Concentration Analysis
+
+Publisher now reports `ecosystemBalance` for each metro. It identifies patterns such as:
+
+- balanced
+- specialized
+- thin across all ecosystems
+- Representative Building concentration
+- Building Brief concentration
+
+Concentration is not automatically bad. It becomes a planning concern when a strategically relevant ecosystem remains missing or thin while another ecosystem, usually office, receives most of the building or Building Brief depth.
+
 ## Expansion Planner Awareness
 
-The Publisher Expansion Planner includes ecosystem coverage in generated metro plans and warnings. It may flag:
+The Publisher Expansion Planner includes ecosystem readiness in generated metro plans. It may flag:
 
 - absent industrial/flex coverage
 - office-heavy coverage
 - review-required ecosystem classifications
 - thin representative-building coverage in important ecosystems
+- Building Brief concentration
+- missing core ecosystem layers
 
-Planner priority scoring is unchanged in v1. Ecosystem data is context for editorial planning, not an automated readiness gate yet.
+Planner priority scoring for the existing queue is unchanged. The planner now also generates a separate `recommendedEcosystemSprint` so ecosystem work can outrank a normal Building Brief migration queue when the metro is geographically mature but commercially incomplete.
 
 ## Validation
 

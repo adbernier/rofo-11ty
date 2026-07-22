@@ -34,6 +34,8 @@ Publisher does not create a second source of truth for editorial content. The ru
 
 Commercial ecosystem coverage is generated from the Commercial Location Graph and canonical taxonomy. It is reporting-only in v1 and does not alter Publisher readiness scores.
 
+Publisher also reports additive Geographic Readiness and Ecosystem Readiness gates. These make it clear when a metro is geographically developed but commercially incomplete. They do not replace the existing Overall Publisher Score.
+
 ## Metro Discovery
 
 Publisher starts with the configured metro groups in `data/publisher-rules.js` because the repository stores cities and location nodes at a city level while Publisher evaluates metro completeness.
@@ -138,7 +140,7 @@ Broken references become queue items.
 
 ### Commercial Ecosystem Coverage
 
-Reports, but does not score:
+Reports:
 
 - districts by primary ecosystem
 - secondary ecosystem presence in mixed-use districts
@@ -148,8 +150,17 @@ Reports, but does not score:
 - subtype, activity, and archetype coverage
 - missing or thin ecosystems
 - review-required classifications
+- geographic readiness
+- ecosystem readiness
+- ecosystem balance and concentration
+- blocking ecosystems
+- recommended ecosystem sprint
 
 Coverage states are descriptive: `Developed`, `Partial`, `Thin`, `Missing`, and `Review Required`. A metro can be strong in office and still visibly weak in industrial/flex, medical, retail, life science, hospitality, or special-purpose coverage.
+
+Readiness states are stored as machine IDs: `developed`, `strong`, `partial`, `thin`, `missing`, `not_applicable`, and `review_required`.
+
+Ecosystem relevance is explicitly configured per metro in `data/publisher-rules.js`. Publisher does not infer that an ecosystem is unimportant merely because current coverage is missing.
 
 ## Calibrated Scoring Model
 

@@ -8,6 +8,8 @@ This is an architectural and editorial standard. It does not change runtime reco
 
 The machine-readable v1 implementation is documented in `docs/commercial-ecosystem-data-model.md` and owned by `_data/commercialEcosystemTaxonomy.js`. That data model is additive: it exposes ecosystem metadata to Publisher, QA, the Commercial Location Graph, Representative Buildings, and future recommendation/Search Profile work without changing current production outcomes.
 
+Commercial Ecosystem Readiness & Expansion Planning v1 extends that foundation with Publisher readiness gates and ecosystem sprint planning. Publisher now distinguishes geographic readiness from ecosystem readiness so a metro can be geographically mature while still commercially incomplete.
+
 ## 1. Vision and Philosophy
 
 Businesses search for places where their operations can succeed, not for property types. Rofo translates business needs into the commercial ecosystems where those businesses thrive.

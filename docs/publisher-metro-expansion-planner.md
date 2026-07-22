@@ -131,6 +131,40 @@ Planner warnings may flag:
 
 Future phases may turn these warnings into scored ecosystem gates, but v1 keeps them separate so Publisher remains transparent.
 
+## Ecosystem Sprint Planning
+
+The generated plan now includes `recommendedEcosystemSprint` in addition to the existing queue-based `recommendedSprint`.
+
+The ecosystem sprint is selected from deterministic ecosystem gaps using:
+
+- strategic ecosystem priority
+- metro relevance
+- readiness severity
+- core-gate blockage
+- layer depth
+- concentration warnings
+- dependency readiness
+
+This lets a metro such as Sacramento recommend an Industrial & Flex Representative Building Foundation before another office Building Brief migration when industrial/flex is core, geographically ready, and commercially thin.
+
+Ecosystem sprint families include:
+
+- Ecosystem District Foundation
+- Ecosystem Recommendation Foundation
+- Ecosystem Representative Building Foundation
+- Ecosystem Building Brief Migration
+- Ecosystem Subtype Expansion
+- Archetype Coverage Expansion
+- Business Activity Coverage Review
+- Ecosystem Classification Review
+- Ecosystem Balance Sprint
+
+Dependencies follow this order:
+
+Ecosystem Classification -> District Foundation -> Recommendation Foundation -> Representative Building Foundation -> Building Brief Migration.
+
+The Codex prompt export for ecosystem sprints includes framework context, target ecosystem, target subtypes, target archetypes, target business activities, current layer coverage, known gaps, dependencies, completion criteria, and guardrails against office-only expansion.
+
 ## Confidence States
 
 Planner tasks use four confidence states:

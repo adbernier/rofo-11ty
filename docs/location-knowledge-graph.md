@@ -72,6 +72,8 @@ Rules:
 
 Publisher uses this metadata to report ecosystem coverage by metro without changing readiness scores.
 
+Publisher also evaluates ecosystem readiness from this metadata. For that reason, graph authors should be careful not to overuse office as a default classification. A district with industrial, medical, retail, or life-science operating signals should declare those ecosystems explicitly through primary or secondary ecosystem metadata.
+
 ## Space-Type Fit
 
 Use `spaceTypeFit` to describe how a location works for different users:

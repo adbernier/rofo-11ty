@@ -1,0 +1,173 @@
+const publisherSnapshot = require("../data/generated/publisher-analysis.json");
+const publisherPlans = require("../data/generated/publisher-expansion-plans.json");
+const { buildPublisherExpansionPlans } = require("../lib/publisher/expansion-planner.js");
+const rules = require("../data/publisher-rules.js");
+
+const VALID_STATES = new Set(["developed", "strong", "partial", "thin", "missing", "not_applicable", "review_required"]);
+const VALID_RELEVANCE = new Set(["core", "important", "secondary", "specialized", "not_applicable", "review_required"]);
+const EXPECTED_SCORES = {
+  "san-francisco": { overall: 74, status: "Editorially Developed" },
+  sacramento: { overall: 84, status: "Expansion Ready" },
+  "san-diego": { overall: 84, status: "Expansion Ready" },
+  "orange-county": { overall: 84, status: "Expansion Ready" },
+  denver: { overall: 84, status: "Expansion Ready" },
+  seattle: { overall: 19, status: "In Development" },
+};
+
+const errors = [];
+const warnings = [];
+
+function stableJson(value) {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function requireField(condition, message) {
+  if (!condition) errors.push(message);
+}
+
+function metroById(id) {
+  return (publisherSnapshot.analysis.metros || []).find((metro) => metro.metroId === id);
+}
+
+function planById(id) {
+  return (publisherPlans.metros || []).find((metro) => metro.metroId === id);
+}
+
+function evaluationFor(metro, ecosystemId) {
+  return (((metro.ecosystemReadiness || {}).evaluations) || []).find((item) => item.ecosystemId === ecosystemId);
+}
+
+function validateMetro(metro) {
+  requireField(metro.geographicReadiness, `${metro.metroName}: missing geographic readiness`);
+  requireField(metro.ecosystemReadiness, `${metro.metroName}: missing ecosystem readiness`);
+  requireField(metro.ecosystemBalance, `${metro.metroName}: missing ecosystem balance`);
+  if (metro.geographicReadiness) requireField(VALID_STATES.has(metro.geographicReadiness.state), `${metro.metroName}: invalid geographic readiness state ${metro.geographicReadiness.state}`);
+  if (metro.ecosystemReadiness) requireField(VALID_STATES.has(metro.ecosystemReadiness.state), `${metro.metroName}: invalid ecosystem readiness state ${metro.ecosystemReadiness.state}`);
+
+  const expected = EXPECTED_SCORES[metro.metroId];
+  if (expected) {
+    requireField(metro.overallScore === expected.overall, `${metro.metroName}: Publisher overall score changed from expected ${expected.overall} to ${metro.overallScore}`);
+    requireField(metro.readinessStatus === expected.status, `${metro.metroName}: Publisher status changed from expected ${expected.status} to ${metro.readinessStatus}`);
+  }
+
+  const relevanceConfig = (((rules.ecosystemReadiness || {}).metroRelevance || {})[metro.metroId]) || {};
+  const evaluations = (metro.ecosystemReadiness || {}).evaluations || [];
+  requireField(evaluations.length >= 7, `${metro.metroName}: missing ecosystem evaluations`);
+  for (const evaluation of evaluations) {
+    requireField(VALID_STATES.has(evaluation.readinessState), `${metro.metroName}: ${evaluation.ecosystemId} invalid readiness state ${evaluation.readinessState}`);
+    requireField(VALID_RELEVANCE.has(evaluation.relevance), `${metro.metroName}: ${evaluation.ecosystemId} invalid relevance ${evaluation.relevance}`);
+    requireField(evaluation.relevance === relevanceConfig[evaluation.ecosystemId] || Boolean(relevanceConfig[evaluation.ecosystemId]), `${metro.metroName}: ${evaluation.ecosystemId} relevance is not explicitly declared`);
+    if (evaluation.relevance === "core") {
+      requireField(evaluation.layers && Object.keys(evaluation.layers).length >= 6, `${metro.metroName}: core ecosystem ${evaluation.ecosystemId} missing layer analysis`);
+      if (evaluation.readinessState === "missing" || evaluation.readinessState === "thin") {
+        requireField(evaluation.blocking, `${metro.metroName}: core ${evaluation.ecosystemId} should block ecosystem readiness when ${evaluation.readinessState}`);
+      }
+    }
+    if (evaluation.relevance === "not_applicable") {
+      requireField(relevanceConfig[evaluation.ecosystemId] === "not_applicable", `${metro.metroName}: ${evaluation.ecosystemId} not_applicable was inferred instead of declared`);
+    }
+  }
+
+  const office = evaluationFor(metro, "office");
+  const industrial = evaluationFor(metro, "industrial_flex");
+  if (office && industrial && office.readinessState === "developed" && industrial.relevance === "core" && ["missing", "thin"].includes(industrial.readinessState)) {
+    requireField(!metro.ecosystemReadiness.passed, `${metro.metroName}: developed office coverage masked missing/thin industrial/flex coverage`);
+  }
+
+  const serialized = JSON.stringify({
+    geographicReadiness: metro.geographicReadiness,
+    ecosystemReadiness: metro.ecosystemReadiness,
+    ecosystemBalance: metro.ecosystemBalance,
+    ecosystemGaps: metro.ecosystemGaps,
+  });
+  ["undefined", "N/A", "[object Object]"].forEach((token) => {
+    if (serialized.includes(token)) errors.push(`${metro.metroName}: ecosystem readiness output contains ${token}`);
+  });
+}
+
+function validatePlans() {
+  const recomputed = buildPublisherExpansionPlans(publisherSnapshot.analysis, { generatedAt: publisherPlans.generatedAt || publisherSnapshot.analysis.generatedAt });
+  if (stableJson(recomputed) !== stableJson(publisherPlans)) {
+    errors.push("Publisher expansion plans are not deterministic after ecosystem readiness changes.");
+  }
+  for (const plan of publisherPlans.metros || []) {
+    requireField(plan.geographicReadiness, `${plan.metroName}: plan missing geographic readiness`);
+    requireField(plan.ecosystemReadiness, `${plan.metroName}: plan missing ecosystem readiness`);
+    requireField(plan.recommendedEcosystemSprint, `${plan.metroName}: plan missing recommended ecosystem sprint`);
+    const sprint = plan.recommendedEcosystemSprint;
+    if (sprint) {
+      requireField(sprint.title && sprint.objective && sprint.rationale, `${plan.metroName}: ecosystem sprint missing title/objective/rationale`);
+      requireField((sprint.completionCriteria || []).length > 0, `${plan.metroName}: ecosystem sprint missing completion criteria`);
+      requireField((sprint.codexPrompt || "").includes("Commercial Ecosystem Framework"), `${plan.metroName}: ecosystem prompt missing framework context`);
+      requireField(!(sprint.ecosystemId !== "office" && /Target ecosystem: Office/i.test(sprint.codexPrompt || "")), `${plan.metroName}: ecosystem prompt targets office for non-office sprint`);
+    }
+    const serialized = JSON.stringify(plan);
+    ["undefined", "N/A", "[object Object]"].forEach((token) => {
+      if (serialized.includes(token)) errors.push(`${plan.metroName}: generated plan contains ${token}`);
+    });
+  }
+}
+
+for (const metro of publisherSnapshot.analysis.metros || []) {
+  validateMetro(metro);
+}
+validatePlans();
+
+const sacramento = metroById("sacramento");
+const sacramentoPlan = planById("sacramento");
+if (sacramento) {
+  const office = evaluationFor(sacramento, "office");
+  const industrial = evaluationFor(sacramento, "industrial_flex");
+  requireField(office && industrial, "Sacramento: missing office or industrial/flex evaluation");
+  requireField(industrial && industrial.relevance === "core", "Sacramento: industrial/flex should be core");
+  requireField(industrial && ["thin", "partial"].includes(industrial.readinessState), `Sacramento: industrial/flex should remain visible as thin or partial, got ${industrial && industrial.readinessState}`);
+  requireField(sacramento.ecosystemReadiness.state === "partial", `Sacramento: expected ecosystem readiness partial, got ${sacramento.ecosystemReadiness.state}`);
+  requireField(sacramento.blockingEcosystems.includes("industrial_flex"), "Sacramento: industrial/flex should block ecosystem readiness");
+}
+if (sacramentoPlan && sacramentoPlan.recommendedEcosystemSprint) {
+  requireField(sacramentoPlan.recommendedEcosystemSprint.ecosystemId === "industrial_flex", `Sacramento: expected industrial/flex ecosystem sprint, got ${sacramentoPlan.recommendedEcosystemSprint.ecosystemId}`);
+  requireField(!/Office Building Brief Migration$/.test(sacramentoPlan.recommendedEcosystemSprint.title), "Sacramento: office Building Brief migration outranked industrial/flex ecosystem work");
+}
+
+const sanFrancisco = metroById("san-francisco");
+if (sanFrancisco) {
+  requireField(["strong", "partial"].includes(sanFrancisco.ecosystemReadiness.state), `San Francisco: expected ecosystem readiness strong or partial, got ${sanFrancisco.ecosystemReadiness.state}`);
+  requireField(evaluationFor(sanFrancisco, "office").readinessState === "developed", "San Francisco: office should be developed");
+  requireField(evaluationFor(sanFrancisco, "industrial_flex").readinessState === "partial", "San Francisco: industrial/flex should be partial");
+}
+
+["san-diego", "orange-county", "denver"].forEach((id) => {
+  const metro = metroById(id);
+  if (!metro) return;
+  requireField(["partial", "strong"].includes(metro.ecosystemReadiness.state), `${metro.metroName}: expected partial or strong ecosystem readiness`);
+  ["office", "industrial_flex", "medical", "retail"].forEach((ecosystemId) => {
+    requireField(Boolean(evaluationFor(metro, ecosystemId)), `${metro.metroName}: missing ${ecosystemId} ecosystem visibility`);
+  });
+});
+
+const seattle = metroById("seattle");
+if (seattle) {
+  requireField(["thin", "missing"].includes(seattle.geographicReadiness.state), `Seattle: expected thin or missing geographic readiness, got ${seattle.geographicReadiness.state}`);
+  requireField(["thin", "missing"].includes(seattle.ecosystemReadiness.state), `Seattle: expected thin or missing ecosystem readiness, got ${seattle.ecosystemReadiness.state}`);
+}
+
+console.log("Publisher Ecosystem Readiness QA");
+for (const id of ["san-francisco", "sacramento", "san-diego", "orange-county", "denver", "seattle"]) {
+  const metro = metroById(id);
+  const plan = planById(id);
+  if (!metro) continue;
+  console.log(`\n${metro.metroName}`);
+  console.log(`Geographic readiness: ${metro.geographicReadiness.label}`);
+  console.log(`Ecosystem readiness: ${metro.ecosystemReadiness.label}`);
+  console.log(`Balance: ${metro.ecosystemBalance.label}`);
+  console.log(`Blocking ecosystems: ${(metro.blockingEcosystems || []).join(", ") || "none"}`);
+  console.log(`Recommended ecosystem sprint: ${plan && plan.recommendedEcosystemSprint ? plan.recommendedEcosystemSprint.title : "none"}`);
+}
+
+if (warnings.length) console.log(`\nWarnings: ${warnings.join("; ")}`);
+console.log(`\nErrors: ${errors.length ? errors.join("; ") : "none"}`);
+if (errors.length) process.exit(1);

@@ -14,6 +14,8 @@ Publisher Metro Expansion Planner now translates Publisher coverage gaps into re
 
 Commercial Ecosystem Foundation v1 adds canonical ecosystem, subtype, activity, and archetype metadata for future recommendation work. The implementation is documented in `docs/commercial-ecosystem-data-model.md`. It does not change current recommendation rankings or Search Profile questions; future phases should map business archetypes and activities into recommendation inputs before changing resolver behavior.
 
+Commercial Ecosystem Readiness & Expansion Planning v1 makes Publisher ecosystem-aware. It adds Geographic Readiness, Ecosystem Readiness, Commercial Balance, and recommended ecosystem sprints. These outputs should guide expansion work before recommendation logic changes: first make the metro commercially balanced enough, then calibrate ecosystem-aware recommendation behavior.
+
 ## Compass Ready
 
 ### SF Bay Area
