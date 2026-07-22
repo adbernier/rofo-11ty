@@ -73,8 +73,10 @@ The admin page processes the selected image before upload:
 - resizes the public image to a maximum long edge of 1,600 pixels
 - creates a thumbnail at a maximum long edge of 480 pixels
 - preserves aspect ratio
-- exports WebP when supported, with quality `0.82`
-- falls back to JPEG when WebP conversion fails
+- exports WebP when supported, starting at quality `0.82`
+- retries compression at `0.76`, `0.70`, `0.64`, and `0.58` only when needed
+- targets `1,100,000` bytes for the public image and `300,000` bytes for the thumbnail
+- falls back to JPEG when WebP conversion cannot produce a valid optimized file
 - shows preview dimensions and approximate file size
 
 V1 does not upload the original full-resolution phone photo. That is a deliberate limitation so the field test proves publishing workflow before archival storage.

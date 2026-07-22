@@ -191,8 +191,11 @@ function renderPage({ token, env }) {
     const TOKEN = ${JSON.stringify(token)};
     const IMAGE_TYPES = ${imageTypesJson};
     const DEFAULT_QUALITY = 0.82;
+    const COMPRESSION_QUALITIES = [0.82, 0.76, 0.70, 0.64, 0.58];
     const PUBLIC_MAX_EDGE = 1600;
     const THUMB_MAX_EDGE = 480;
+    const PUBLIC_TARGET_BYTES = 1100000;
+    const THUMB_TARGET_BYTES = 300000;
     const state = { subject: null, publicBlob: null, thumbBlob: null, width: 0, height: 0, uploading: false };
 
     const form = document.getElementById("field-photo-form");
@@ -297,7 +300,15 @@ function renderPage({ token, env }) {
       return new Promise((resolve) => canvas.toBlob(resolve, type, quality));
     }
 
-    async function processImage(file, maxEdge) {
+    async function encodeCanvasWithinTarget(canvas, preferredType, targetBytes) {
+      for (const quality of COMPRESSION_QUALITIES) {
+        const blob = await canvasToBlob(canvas, preferredType, quality);
+        if (blob && blob.size <= targetBytes) return { blob, type: preferredType, quality };
+      }
+      return null;
+    }
+
+    async function processImage(file, maxEdge, targetBytes) {
       const url = URL.createObjectURL(file);
       try {
         const image = new Image();
@@ -312,14 +323,14 @@ function renderPage({ token, env }) {
         canvas.height = height;
         const ctx = canvas.getContext("2d", { alpha: false });
         ctx.drawImage(image, 0, 0, width, height);
-        let type = "image/webp";
-        let blob = await canvasToBlob(canvas, type, DEFAULT_QUALITY);
-        if (!blob) {
-          type = "image/jpeg";
-          blob = await canvasToBlob(canvas, type, DEFAULT_QUALITY);
+        let encoded = await encodeCanvasWithinTarget(canvas, "image/webp", targetBytes);
+        if (!encoded) {
+          encoded = await encodeCanvasWithinTarget(canvas, "image/jpeg", targetBytes);
         }
-        if (!blob) throw new Error("Browser could not process this image.");
-        return { blob, width, height, type };
+        if (!encoded || !encoded.blob) {
+          throw new Error("Browser could not produce an optimized image under the upload target. Try a simpler crop or a lower-resolution source photo.");
+        }
+        return { blob: encoded.blob, width, height, type: encoded.type, quality: encoded.quality };
       } finally {
         URL.revokeObjectURL(url);
       }
@@ -336,8 +347,8 @@ function renderPage({ token, env }) {
       }
       setStatus("Optimizing image...");
       try {
-        const publicImage = await processImage(file, PUBLIC_MAX_EDGE);
-        const thumb = await processImage(file, THUMB_MAX_EDGE);
+        const publicImage = await processImage(file, PUBLIC_MAX_EDGE, PUBLIC_TARGET_BYTES);
+        const thumb = await processImage(file, THUMB_MAX_EDGE, THUMB_TARGET_BYTES);
         state.publicBlob = publicImage.blob;
         state.thumbBlob = thumb.blob;
         state.width = publicImage.width;

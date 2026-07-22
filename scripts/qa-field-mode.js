@@ -72,6 +72,7 @@ includes("functions/api/field-photos/_shared.js", /field-photo-subjects\.json/, 
 includes("functions/api/field-photos/_shared.js", /publicHeroPhoto\(row\)/, "Public response helper is missing");
 includes("functions/api/field-photos/_shared.js", /source_type.*rofo_original/s, "Rofo-owned provenance defaults are missing");
 includes("functions/api/field-photos/upload.js", /archiveActiveHero/, "Upload does not supersede the active hero");
+includes("functions/api/field-photos/upload.js", /contentLength > 3_000_000/, "Upload total multipart request limit is not 3 MB");
 includes("functions/api/field-photos/action.js", /action === "publish"/, "Publish action is missing");
 includes("functions/api/field-photos/action.js", /action === "archive"/, "Archive action is missing");
 includes("functions/api/field-photos/hero.js", /status = 'published'/, "Public hero endpoint can resolve non-published photos");
@@ -87,11 +88,18 @@ if (publicHeroMatch) {
   });
 }
 
-includes("functions/admin/field-photos.js", /accept="image\\/\\*"/, "Admin upload input accepts image files");
+includes("functions/admin/field-photos.js", /accept="image\/\*"/, "Admin upload input accepts image files");
 includes("functions/admin/field-photos.js", /Rofo-owned photo/, "Rights disclosure is missing");
 includes("functions/admin/field-photos.js", /PUBLIC_MAX_EDGE = 1600/, "Browser public image max edge is not 1600");
 includes("functions/admin/field-photos.js", /THUMB_MAX_EDGE = 480/, "Browser thumbnail max edge is not 480");
 includes("functions/admin/field-photos.js", /DEFAULT_QUALITY = 0\.82/, "Browser WebP quality target is not documented in code");
+includes("functions/admin/field-photos.js", /PUBLIC_TARGET_BYTES = 1100000/, "Browser public image target is not 1,100,000 bytes");
+includes("functions/admin/field-photos.js", /THUMB_TARGET_BYTES = 300000/, "Browser thumbnail target is not 300,000 bytes");
+includes("functions/admin/field-photos.js", /COMPRESSION_QUALITIES = \[0\.82, 0\.76, 0\.70, 0\.64, 0\.58\]/, "Adaptive compression quality ladder is missing");
+includes("functions/admin/field-photos.js", /blob\.size <= targetBytes/, "Adaptive compression does not stop when blob is under target bytes");
+includes("functions/admin/field-photos.js", /processImage\(file, PUBLIC_MAX_EDGE, PUBLIC_TARGET_BYTES\)/, "Public image processing does not use the public target byte size");
+includes("functions/admin/field-photos.js", /processImage\(file, THUMB_MAX_EDGE, THUMB_TARGET_BYTES\)/, "Thumbnail processing does not use the thumbnail target byte size");
+includes("functions/admin/field-photos.js", /encodeCanvasWithinTarget\(canvas, "image\/jpeg", targetBytes\)/, "JPEG fallback is not preserved");
 
 includes("city.njk", /fieldPhotoSubjectType = "city"[\s\S]*editorial-photo-slot/, "City page missing Field Photo slot");
 includes("pages/commercial-real-estate/neighborhood.njk", /fieldPhotoSubjectType = "district"[\s\S]*editorial-photo-slot/, "District page missing Field Photo slot");
