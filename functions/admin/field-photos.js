@@ -124,7 +124,7 @@ function renderPage({ token, env }) {
 
           <div style="margin-top: 18px;">
             <label for="photo-input">3. Photo</label>
-            <input id="photo-input" name="photo" type="file" accept="image/*" capture="environment">
+            <input id="photo-input" name="photo" type="file" accept="image/*">
             <p class="small">The original phone image stays out of the repository. Field Mode strips EXIF by drawing the photo through canvas before upload.</p>
           </div>
 

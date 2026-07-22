@@ -87,7 +87,7 @@ if (publicHeroMatch) {
   });
 }
 
-includes("functions/admin/field-photos.js", /capture="environment"/, "Admin upload input does not support camera capture");
+includes("functions/admin/field-photos.js", /accept="image\\/\\*"/, "Admin upload input accepts image files");
 includes("functions/admin/field-photos.js", /Rofo-owned photo/, "Rights disclosure is missing");
 includes("functions/admin/field-photos.js", /PUBLIC_MAX_EDGE = 1600/, "Browser public image max edge is not 1600");
 includes("functions/admin/field-photos.js", /THUMB_MAX_EDGE = 480/, "Browser thumbnail max edge is not 480");
