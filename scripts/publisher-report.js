@@ -67,6 +67,28 @@ function renderReport(analysis) {
     ]));
   }
   lines.push("");
+  lines.push("## Commercial Ecosystem Coverage");
+  lines.push("");
+  lines.push(row(["Metro", "Office", "Industrial & Flex", "Retail", "Medical", "Life Science", "Missing Ecosystems", "Review Required"]));
+  lines.push(row(["---", "---", "---", "---", "---", "---", "---:", "---:"]));
+  for (const metro of analysis.primaryMetros) {
+    const coverage = metro.ecosystemCoverage || {};
+    const ecosystems = coverage.ecosystems || {};
+    const statusFor = (id) => ecosystems[id] ? `${ecosystems[id].status} (${ecosystems[id].districtCount}/${ecosystems[id].representativeBuildingCount}/${ecosystems[id].buildingBriefCount})` : "Missing";
+    lines.push(row([
+      metro.metroName,
+      statusFor("office"),
+      statusFor("industrial_flex"),
+      statusFor("retail"),
+      statusFor("medical"),
+      statusFor("life_science"),
+      coverage.summary ? coverage.summary.missingCount : 0,
+      coverage.summary ? coverage.summary.reviewRequiredDistrictCount : 0,
+    ]));
+  }
+  lines.push("");
+  lines.push("Counts in parentheses are primary districts / representative buildings / Building Briefs. Ecosystem reporting is not included in Publisher readiness scoring yet.");
+  lines.push("");
   lines.push("## Category Coverage");
   for (const metro of analysis.primaryMetros) {
     lines.push("");
