@@ -112,10 +112,10 @@ eleventyComputed:
             loading="eager"
             data-building-photo-subject-id="{{ fieldPhotoSubjectId }}"
           />
-          <div class="hero-overlay">
-            <p class="hero-overlay-title">{{ building.address }}</p>
-            <p class="hero-overlay-meta">{{ building.type }} · {{ building.city }}, {{ building.state_abbr }}</p>
-          </div>
+          <p class="hero-photo-caption" data-building-photo-caption hidden>
+            <span data-building-photo-caption-text></span>
+            <small data-building-photo-credit hidden></small>
+          </p>
         </div>
       </div>
     </div>

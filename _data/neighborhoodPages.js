@@ -153,6 +153,13 @@ function normalizeRepresentativeBuilding(building) {
   const address = cleanBuildingName(building.address);
   const name = cleanBuildingName(building.display_name || building.name);
   const displayName = hasUsableAddress(address) ? address : name;
+  const pathMatch = clean(building.building_path).match(/^\/commercial-real-estate\/building\/([^/]+)\/([^/]+)\/([^/]+)\//);
+  const state = clean(building.state_abbr || pathMatch?.[1]).toLowerCase();
+  const citySlug = clean(building.city_slug || pathMatch?.[2] || slugify(building.city)).toLowerCase();
+  const buildingSlug = clean(building.building_slug || pathMatch?.[3]).toLowerCase();
+  const fieldPhotoSubjectId =
+    clean(building.semantic_source_building_id) ||
+    (state && citySlug && buildingSlug ? `${state}-${citySlug}-${buildingSlug}` : "");
 
   return {
     ...building,
@@ -160,6 +167,7 @@ function normalizeRepresentativeBuilding(building) {
     short_display_name: shortBuildingLabel(displayName),
     editorial_type_label: editorialTypeLabel(building.type || building.primary_type_label || "commercial"),
     editorial_descriptor: editorialBuildingDescriptor(building),
+    fieldPhotoSubjectId,
   };
 }
 
@@ -6823,18 +6831,23 @@ function representativeBuildingsFor(areaId) {
       return (b.historical_listing_activity || 0) - (a.historical_listing_activity || 0);
     })
     .slice(0, 6)
-    .map((relationship) =>
-      normalizeRepresentativeBuilding({
+    .map((relationship) => {
+      const canonicalBuilding = buildingByPath.get(relationship.building_path) || {};
+      return normalizeRepresentativeBuilding({
         address: relationship.address,
         display_name: relationship.address || relationship.building_name,
         name: relationship.building_name,
         building_path: relationship.building_path,
+        state_abbr: canonicalBuilding.state_abbr,
+        city_slug: canonicalBuilding.city_slug,
+        building_slug: canonicalBuilding.building_slug,
+        semantic_source_building_id: canonicalBuilding.semantic_source_building_id,
         type: typeLabel(relationship.inferred_space_type_mix?.[0]?.space_type || "commercial"),
         size_label: "",
         primary_area_id: relationship.primary_area_id,
         relationship_confidence: relationship.confidence,
-      })
-    );
+      });
+    });
 }
 
 const representativeBuildingLimitByAreaId = {
@@ -6929,6 +6942,10 @@ function representativeBuildingsFromPaths(paths = [], areaId = "") {
         display_name: building.address || building.display_name || building.name,
         name: building.name,
         building_path: building.building_path,
+        state_abbr: building.state_abbr,
+        city_slug: building.city_slug,
+        building_slug: building.building_slug,
+        semantic_source_building_id: building.semantic_source_building_id,
         type: building.primary_type_label || building.type || "Commercial Space",
         size_label: building.size_label || "",
         primary_area_id: areaId,

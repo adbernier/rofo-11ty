@@ -100,7 +100,13 @@
     image.removeAttribute("srcset");
     if (photo.altText) image.alt = photo.altText;
     const card = image.closest("[data-building-photo-card]") || image.closest(".building-card, .building-card-compact, .recommendation-building-card");
-    const credit = card ? card.querySelector("[data-building-photo-credit]") : null;
+    const photoContainer = card || image.closest(".hero-media");
+    const credit = photoContainer ? photoContainer.querySelector("[data-building-photo-credit]") : null;
+    const caption = photoContainer ? photoContainer.querySelector("[data-building-photo-caption]") : null;
+    const captionText = photoContainer ? photoContainer.querySelector("[data-building-photo-caption-text]") : null;
+    if (captionText) {
+      captionText.textContent = photo.caption || "";
+    }
     if (credit) {
       const creditText = photo.attribution || "";
       if (creditText) {
@@ -110,6 +116,9 @@
         credit.textContent = "";
         credit.hidden = true;
       }
+    }
+    if (caption) {
+      caption.hidden = !(photo.caption || photo.attribution);
     }
     image.dataset.buildingPhotoLoaded = "true";
     recordDiagnostic("image_replaced", { subjectId: image.dataset.buildingPhotoSubjectId });
