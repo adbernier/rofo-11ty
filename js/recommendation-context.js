@@ -24,6 +24,7 @@
     not_sure: "Not sure yet",
   };
   let currentBriefState = null;
+  const buildingPhotoRequests = new Map();
 
   function investigationSubmissionToken() {
     if (window.crypto && typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();
@@ -193,6 +194,28 @@
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
+  }
+
+  function fetchBuildingHeroPhoto(subjectId) {
+    if (!subjectId || !window.fetch) return Promise.resolve(null);
+    const key = `building:${subjectId}`;
+    if (!buildingPhotoRequests.has(key)) {
+      const params = new URLSearchParams({ subjectType: "building", subjectId });
+      buildingPhotoRequests.set(key, fetch(`/api/field-photos/hero?${params.toString()}`, { credentials: "omit" })
+        .then((response) => response.ok ? response.json() : null)
+        .then((data) => data && data.ok ? data.photo : null)
+        .catch(() => null));
+    }
+    return buildingPhotoRequests.get(key);
+  }
+
+  function hydrateBuildingCardImage(image, subjectId) {
+    fetchBuildingHeroPhoto(subjectId).then((photo) => {
+      if (!photo || !photo.imageUrl) return;
+      image.src = photo.imageUrl;
+      if (photo.altText) image.alt = photo.altText;
+      image.dataset.buildingPhotoLoaded = "true";
+    });
   }
 
   function trackRecommendationEvent(eventName, properties = {}) {
@@ -735,6 +758,10 @@
       const image = createElement("img", "", "");
       image.src = building.image;
       image.alt = `${building.name} in ${building.city}, ${building.state}`;
+      if (building.fieldPhotoSubjectId) {
+        image.dataset.buildingPhotoSubjectId = building.fieldPhotoSubjectId;
+        hydrateBuildingCardImage(image, building.fieldPhotoSubjectId);
+      }
       image.loading = "lazy";
       image.decoding = "async";
       card.appendChild(image);

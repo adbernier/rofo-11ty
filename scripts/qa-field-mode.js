@@ -101,6 +101,13 @@ includes("functions/admin/field-photos.js", /blob\.size <= targetBytes/, "Adapti
 includes("functions/admin/field-photos.js", /processImage\(file, PUBLIC_MAX_EDGE, PUBLIC_TARGET_BYTES\)/, "Public image processing does not use the public target byte size");
 includes("functions/admin/field-photos.js", /processImage\(file, THUMB_MAX_EDGE, THUMB_TARGET_BYTES\)/, "Thumbnail processing does not use the thumbnail target byte size");
 includes("functions/admin/field-photos.js", /encodeCanvasWithinTarget\(canvas, "image\/jpeg", targetBytes\)/, "JPEG fallback is not preserved");
+includes("_includes/partials/shared/building-card.njk", /data-building-photo-subject-id/, "Standard building cards do not expose canonical building photo subject IDs");
+includes("_includes/partials/shared/building-card-compact.njk", /data-building-photo-subject-id/, "Compact building cards do not expose canonical building photo subject IDs");
+includes("js/field-photos-public.js", /img\[data-building-photo-subject-id\]/, "Public Field Photo loader does not scan building card images");
+includes("js/field-photos-public.js", /image\.src = photo\.imageUrl/, "Public Field Photo loader does not replace building card image sources");
+includes("_data/recommendationRepresentativeBuildings.js", /fieldPhotoSubjectId/, "Representative building card data does not retain Field Photo subject IDs");
+includes("pages/recommendations.njk", /fieldPhotosPublic: true/, "Recommendation page does not load public Field Photo propagation");
+includes("js/recommendation-context.js", /hydrateBuildingCardImage/, "Dynamic representative building cards do not hydrate uploaded Field Photos");
 
 includes("city.njk", /fieldPhotoSubjectType = "city"[\s\S]*editorial-photo-slot/, "City page missing Field Photo slot");
 includes("pages/commercial-real-estate/neighborhood.njk", /fieldPhotoSubjectType = "district"[\s\S]*editorial-photo-slot/, "District page missing Field Photo slot");

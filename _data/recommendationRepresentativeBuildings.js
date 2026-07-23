@@ -28,6 +28,16 @@ function buildingImage(building) {
   return clean(building.hero_image || building.image || building.photo || "");
 }
 
+function buildingFieldPhotoSubjectId(building, intelligence) {
+  return clean(building.semantic_source_building_id) ||
+    clean(intelligence && intelligence.id) ||
+    [
+      clean(building.state_abbr).toLowerCase(),
+      clean(building.city_slug),
+      clean(building.building_slug),
+    ].filter(Boolean).join("-");
+}
+
 function cardFor(building, intelligence) {
   const brief = briefFor(building);
   if (!brief) return null;
@@ -55,6 +65,7 @@ function cardFor(building, intelligence) {
     secondaryDistrictPaths: secondaryDistricts.map((district) => clean(district.path)).filter(Boolean),
     canonicalUrl: building.building_path,
     image: buildingImage(building),
+    fieldPhotoSubjectId: buildingFieldPhotoSubjectId(building, intelligence),
     buildingType: clean(identity.buildingType || building.type || building.primary_space_type),
     representativeReason,
     bestFitSummary,

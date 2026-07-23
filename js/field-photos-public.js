@@ -1,6 +1,8 @@
 (function () {
   const slots = Array.from(document.querySelectorAll("[data-photo-subject-type][data-photo-subject-id]"));
-  if (!slots.length) return;
+  const buildingImages = Array.from(document.querySelectorAll("img[data-building-photo-subject-id]"));
+  if (!slots.length && !buildingImages.length) return;
+  const photoRequests = new Map();
 
   function escapeHtml(value) {
     return String(value || "").replace(/[&<>"']/g, (char) => ({
@@ -35,16 +37,32 @@
     slot.hidden = false;
   }
 
+  function fetchHeroPhoto(subjectType, subjectId) {
+    const key = `${subjectType}:${subjectId}`;
+    if (!photoRequests.has(key)) {
+      const params = new URLSearchParams({ subjectType, subjectId });
+      photoRequests.set(key, fetch(`/api/field-photos/hero?${params.toString()}`, { credentials: "omit" })
+        .then((response) => response.ok ? response.json() : null)
+        .then((data) => data && data.ok ? data.photo : null)
+        .catch(() => null));
+    }
+    return photoRequests.get(key);
+  }
+
+  function renderBuildingImage(image, photo) {
+    if (!photo || !photo.imageUrl) return;
+    image.src = photo.imageUrl;
+    if (photo.altText) image.alt = photo.altText;
+    image.dataset.buildingPhotoLoaded = "true";
+  }
+
   slots.forEach((slot) => {
-    const params = new URLSearchParams({
-      subjectType: slot.dataset.photoSubjectType,
-      subjectId: slot.dataset.photoSubjectId,
-    });
-    fetch(`/api/field-photos/hero?${params.toString()}`, { credentials: "omit" })
-      .then((response) => response.ok ? response.json() : null)
-      .then((data) => {
-        if (data && data.ok && data.photo) renderPhoto(slot, data.photo);
-      })
-      .catch(() => {});
+    fetchHeroPhoto(slot.dataset.photoSubjectType, slot.dataset.photoSubjectId)
+      .then((photo) => renderPhoto(slot, photo));
+  });
+
+  buildingImages.forEach((image) => {
+    fetchHeroPhoto("building", image.dataset.buildingPhotoSubjectId)
+      .then((photo) => renderBuildingImage(image, photo));
   });
 }());

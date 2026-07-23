@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+fieldPhotosPublic: true
 permalink: /recommendations/
 title: Initial Location Analysis | Rofo
 description: Review an initial commercial location analysis with recommended starting areas, confidence signals, building examples, alternatives, and next steps.
@@ -180,7 +181,7 @@ eleventyComputed:
               {% if loop.index <= 3 %}
                 <article class="recommendation-building-card recommendation-building-card--representative">
                   {% if building.image %}
-                    <img src="{{ building.image }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" loading="lazy" decoding="async">
+                    <img src="{{ building.image }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" {% if building.fieldPhotoSubjectId %}data-building-photo-subject-id="{{ building.fieldPhotoSubjectId }}"{% endif %} loading="lazy" decoding="async">
                   {% endif %}
                   <div>
                     <span>{{ building.address }} · {{ building.buildingType }}</span>

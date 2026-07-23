@@ -1,6 +1,7 @@
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set buildingPath = building.building_path %}
 {% set buildingTitle = building.address or building.name %}
+{% set fieldPhotoBuildingSubjectId = building.semantic_source_building_id or (building.commercial_building_intelligence.id if building.commercial_building_intelligence and building.commercial_building_intelligence.id else ((building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug)) %}
 
 <article class="building-card">
 
@@ -13,6 +14,7 @@
         class="building-card__image"
         src="{{ building.hero_image or placeholderSrc }}"
         alt="{{ buildingTitle }}"
+        data-building-photo-subject-id="{{ fieldPhotoBuildingSubjectId }}"
         loading="lazy"
         decoding="async"
       />
