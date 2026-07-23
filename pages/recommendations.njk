@@ -180,8 +180,8 @@ eleventyComputed:
             {% for building in recommendationRepresentativeBuildings.byDistrictSlug["mission-bay"].buildings %}
               {% if loop.index <= 3 %}
                 <article class="recommendation-building-card recommendation-building-card--representative">
-                  {% if building.image %}
-                    <img src="{{ building.image }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" {% if building.fieldPhotoSubjectId %}data-building-photo-subject-id="{{ building.fieldPhotoSubjectId }}"{% endif %} loading="lazy" decoding="async">
+                  {% if building.image or building.fieldPhotoSubjectId %}
+                    <img src="{{ building.image or '/images/placeholders/building-c.svg' }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" {% if building.fieldPhotoSubjectId %}data-building-photo-subject-id="{{ building.fieldPhotoSubjectId }}"{% endif %} loading="lazy" decoding="async">
                   {% endif %}
                   <div>
                     <span>{{ building.address }} · {{ building.buildingType }}</span>

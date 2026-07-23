@@ -105,13 +105,24 @@ includes("_includes/partials/shared/building-card.njk", /data-building-photo-sub
 includes("_includes/partials/shared/building-card-compact.njk", /data-building-photo-subject-id/, "Compact building cards do not expose canonical building photo subject IDs");
 includes("js/field-photos-public.js", /img\[data-building-photo-subject-id\]/, "Public Field Photo loader does not scan building card images");
 includes("js/field-photos-public.js", /image\.src = photo\.imageUrl/, "Public Field Photo loader does not replace building card image sources");
+includes("js/field-photos-public.js", /image\.removeAttribute\("srcset"\)/, "Public Field Photo loader does not clear stale srcset values");
+includes("js/field-photos-public.js", /building_slot_consolidated/, "Building profile Field Photo slots are not consolidated into the hero image");
+includes("js/field-photos-public.js", /ROFO_FIELD_PHOTO_DIAGNOSTICS/, "Field Photo runtime diagnostics are missing");
 includes("_data/recommendationRepresentativeBuildings.js", /fieldPhotoSubjectId/, "Representative building card data does not retain Field Photo subject IDs");
 includes("pages/recommendations.njk", /fieldPhotosPublic: true/, "Recommendation page does not load public Field Photo propagation");
+includes("pages/recommendations.njk", /building\.image or '\/images\/placeholders\/building-c\.svg'/, "Static representative building cards do not provide a fallback image hydration target");
+includes("city-buildings.njk", /fieldPhotosPublic: true/, "City building index pages do not load public Field Photo propagation");
+includes("company.njk", /fieldPhotosPublic: true/, "Company building-card pages do not load public Field Photo propagation");
+includes("pages/commercial-real-estate/market-guide.njk", /fieldPhotosPublic: true/, "Market guide building-card pages do not load public Field Photo propagation");
+includes("pages/space-type.njk", /fieldPhotosPublic: true/, "Space-type representative building pages do not load public Field Photo propagation");
 includes("js/recommendation-context.js", /hydrateBuildingCardImage/, "Dynamic representative building cards do not hydrate uploaded Field Photos");
+includes("js/recommendation-context.js", /building\.image \|\| "\/images\/placeholders\/building-c\.svg"/, "Dynamic representative building cards do not provide a fallback image hydration target");
+includes("building.njk", /class="hero-image"[\s\S]*data-building-photo-subject-id/, "Building page hero image is not the Field Photo hydration target");
+assert(!/fieldPhotoPlacement = "building-profile"/.test(read("building.njk")), "Building page still renders a separate Field Photo slot below the hero image");
 
 includes("city.njk", /fieldPhotoSubjectType = "city"[\s\S]*editorial-photo-slot/, "City page missing Field Photo slot");
 includes("pages/commercial-real-estate/neighborhood.njk", /fieldPhotoSubjectType = "district"[\s\S]*editorial-photo-slot/, "District page missing Field Photo slot");
-includes("building.njk", /fieldPhotoSubjectType = "building"[\s\S]*editorial-photo-slot/, "Building page missing Field Photo slot");
+includes("building.njk", /data-building-photo-subject-id="{{ fieldPhotoSubjectId }}"/, "Building page missing hero image Field Photo hydration target");
 includes("_includes/base.njk", /field-photos-public\.js/, "Public Field Photo loader is not conditionally included");
 includes("assets/css/system.css", /\.editorial-photo__figure/, "Public Field Photo CSS is missing");
 

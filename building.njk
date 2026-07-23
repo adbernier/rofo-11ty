@@ -35,6 +35,13 @@ eleventyComputed:
 {% set relatedHandbookTopics = building.related_handbook_topics or [] %}
 {% set relatedComparisonPaths = commercialBuildingComparisons.relationshipGraph.bySubjectPath[building.building_path] or [] %}
 {% set buildingStartSearchUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+{% if building.semantic_source_building_id %}
+  {% set fieldPhotoSubjectId = building.semantic_source_building_id %}
+{% elseif building.commercial_building_intelligence and building.commercial_building_intelligence.id %}
+  {% set fieldPhotoSubjectId = building.commercial_building_intelligence.id %}
+{% else %}
+  {% set fieldPhotoSubjectId = (building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug %}
+{% endif %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": stateName, "url": "/commercial-real-estate/" + building.state_abbr + "/" },
@@ -103,6 +110,7 @@ eleventyComputed:
             decoding="async"
             fetchpriority="high"
             loading="eager"
+            data-building-photo-subject-id="{{ fieldPhotoSubjectId }}"
           />
           <div class="hero-overlay">
             <p class="hero-overlay-title">{{ building.address }}</p>
@@ -111,17 +119,6 @@ eleventyComputed:
         </div>
       </div>
     </div>
-
-    {% set fieldPhotoSubjectType = "building" %}
-    {% if building.semantic_source_building_id %}
-      {% set fieldPhotoSubjectId = building.semantic_source_building_id %}
-    {% elseif building.commercial_building_intelligence and building.commercial_building_intelligence.id %}
-      {% set fieldPhotoSubjectId = building.commercial_building_intelligence.id %}
-    {% else %}
-      {% set fieldPhotoSubjectId = (building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug %}
-    {% endif %}
-    {% set fieldPhotoPlacement = "building-profile" %}
-    {% include "partials/shared/editorial-photo-slot.njk" %}
 
     {% if isRepresentativeBuilding %}
       {% if buildingBrief %}

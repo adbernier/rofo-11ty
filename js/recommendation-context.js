@@ -754,9 +754,9 @@
 
   function representativeBuildingCard(building, primary, index) {
     const card = createElement("article", "recommendation-building-card recommendation-building-card--representative");
-    if (building.image) {
+    if (building.image || building.fieldPhotoSubjectId) {
       const image = createElement("img", "", "");
-      image.src = building.image;
+      image.src = building.image || "/images/placeholders/building-c.svg";
       image.alt = `${building.name} in ${building.city}, ${building.state}`;
       if (building.fieldPhotoSubjectId) {
         image.dataset.buildingPhotoSubjectId = building.fieldPhotoSubjectId;
