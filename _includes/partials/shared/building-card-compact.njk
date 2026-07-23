@@ -7,9 +7,9 @@
 {% set buildingMetaDetail = building.editorial_descriptor if isNeighborhoodBuildingCard and building.editorial_descriptor else building.size_label %}
 {% set fieldPhotoBuildingSubjectId = building.fieldPhotoSubjectId or building.field_photo_subject_id or building.semantic_source_building_id or (building.commercial_building_intelligence.id if building.commercial_building_intelligence and building.commercial_building_intelligence.id else ((building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug)) %}
 
-<article class="building-card-compact{% if isNeighborhoodBuildingCard %} building-card-compact--neighborhood{% endif %}">
+<article class="building-card-compact{% if isNeighborhoodBuildingCard %} building-card-compact--neighborhood{% endif %}" data-building-photo-card>
 
-  <div class="building-card-compact__media" data-building-photo-card>
+  <div class="building-card-compact__media">
     <a
       class="building-card-compact__image-link"
       href="{{ buildingPath }}"
@@ -24,8 +24,6 @@
         decoding="async"
       />
     </a>
-
-    <p class="building-card-compact__credit" data-building-photo-credit hidden></p>
   </div>
 
   <div class="building-card-compact__content">
@@ -51,6 +49,7 @@
     </a>
   </p>
 {% endif %}
+    <p class="building-card-compact__credit" data-building-photo-credit hidden></p>
   </div>
 
 </article>

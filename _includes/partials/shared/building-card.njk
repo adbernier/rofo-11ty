@@ -3,9 +3,9 @@
 {% set buildingTitle = building.address or building.name %}
 {% set fieldPhotoBuildingSubjectId = building.fieldPhotoSubjectId or building.field_photo_subject_id or building.semantic_source_building_id or (building.commercial_building_intelligence.id if building.commercial_building_intelligence and building.commercial_building_intelligence.id else ((building.state_abbr | lower) + "-" + building.city_slug + "-" + building.building_slug)) %}
 
-<article class="building-card">
+<article class="building-card" data-building-photo-card>
 
-  <div class="building-card__media" data-building-photo-card>
+  <div class="building-card__media">
     <a
       class="building-card__image-link"
       href="{{ buildingPath }}"
@@ -20,8 +20,6 @@
         decoding="async"
       />
     </a>
-
-    <p class="building-card__credit" data-building-photo-credit hidden></p>
   </div>
 
   <div class="building-card__content">
@@ -47,6 +45,7 @@
     </a>
   </p>
 {% endif %}
+    <p class="building-card__credit" data-building-photo-credit hidden></p>
   </div>
 
 </article>

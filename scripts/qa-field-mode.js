@@ -109,6 +109,8 @@ includes("_includes/partials/shared/building-card-compact.njk", /building\.field
 includes("_includes/partials/shared/building-card-compact.njk", /class="building-card-compact__image"/, "Compact building cards do not expose an image hydration target");
 includes("_includes/partials/shared/building-card-compact.njk", /building-card-compact__content/, "Compact building cards do not render content beneath the image");
 includes("_includes/partials/shared/building-card-compact.njk", /data-building-photo-credit/, "Compact building cards do not include conditional photo credit markup");
+includes("_includes/partials/shared/building-card-compact.njk", /building-card-compact__content[\s\S]*building-card-compact__title[\s\S]*building-card-compact__meta[\s\S]*building-card-compact__credit/, "Compact building card credit is not ordered after title and metadata");
+assert(!/building-card-compact__media[\s\S]*building-card-compact__credit[\s\S]*<\/div>\s*<div class="building-card-compact__content"/.test(read("_includes/partials/shared/building-card-compact.njk")), "Compact building card credit still sits inside the image frame");
 assert(!/building-card-compact__overlay/.test(read("_includes/partials/shared/building-card-compact.njk")), "Compact building cards still render image-overlay markup");
 assert(!/building-card__overlay/.test(read("_includes/partials/shared/building-card.njk")), "Standard building cards still render image-overlay markup");
 assert(!/building-card-compact__overlay|building-card__overlay/.test(read("assets/css/system.css")), "Building card overlay CSS is still active");
@@ -133,6 +135,8 @@ includes("js/recommendation-context.js", /hydrateBuildingCardImage/, "Dynamic re
 includes("js/recommendation-context.js", /building\.image \|\| "\/images\/placeholders\/building-c\.svg"/, "Dynamic representative building cards do not provide a fallback image hydration target");
 includes("building.njk", /class="hero-image"[\s\S]*data-building-photo-subject-id/, "Building page hero image is not the Field Photo hydration target");
 includes("building.njk", /hero-photo-caption[\s\S]*data-building-photo-credit/, "Building page hero does not provide below-image caption and credit targets");
+includes("assets/css/system.css", /\.building-page \.building-sidecard \{[\s\S]*padding: 12px/, "Building page photo card padding was not tightened");
+includes("assets/css/system.css", /\.building-page \.hero-photo-caption small \{[\s\S]*font-size: 0\.78rem/, "Building hero credit is not visually secondary");
 assert(!/hero-overlay/.test(read("building.njk")), "Building page still renders a white hero image overlay");
 assert(!/fieldPhotoPlacement = "building-profile"/.test(read("building.njk")), "Building page still renders a separate Field Photo slot below the hero image");
 
