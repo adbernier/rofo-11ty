@@ -103,9 +103,18 @@ includes("functions/admin/field-photos.js", /processImage\(file, THUMB_MAX_EDGE,
 includes("functions/admin/field-photos.js", /encodeCanvasWithinTarget\(canvas, "image\/jpeg", targetBytes\)/, "JPEG fallback is not preserved");
 includes("_includes/partials/shared/building-card.njk", /data-building-photo-subject-id/, "Standard building cards do not expose canonical building photo subject IDs");
 includes("_includes/partials/shared/building-card-compact.njk", /data-building-photo-subject-id/, "Compact building cards do not expose canonical building photo subject IDs");
+includes("_includes/partials/shared/building-card-compact.njk", /class="building-card-compact__image"/, "Compact building cards do not expose an image hydration target");
+includes("_includes/partials/shared/building-card-compact.njk", /building-card-compact__content/, "Compact building cards do not render content beneath the image");
+includes("_includes/partials/shared/building-card-compact.njk", /data-building-photo-credit/, "Compact building cards do not include conditional photo credit markup");
+assert(!/building-card-compact__overlay/.test(read("_includes/partials/shared/building-card-compact.njk")), "Compact building cards still render image-overlay markup");
+assert(!/building-card__overlay/.test(read("_includes/partials/shared/building-card.njk")), "Standard building cards still render image-overlay markup");
+assert(!/building-card-compact__overlay|building-card__overlay/.test(read("assets/css/system.css")), "Building card overlay CSS is still active");
 includes("js/field-photos-public.js", /img\[data-building-photo-subject-id\]/, "Public Field Photo loader does not scan building card images");
 includes("js/field-photos-public.js", /image\.src = photo\.imageUrl/, "Public Field Photo loader does not replace building card image sources");
 includes("js/field-photos-public.js", /image\.removeAttribute\("srcset"\)/, "Public Field Photo loader does not clear stale srcset values");
+includes("js/field-photos-public.js", /data-building-photo-card/, "Public Field Photo loader does not look up the containing building photo card");
+includes("js/field-photos-public.js", /data-building-photo-credit/, "Public Field Photo loader does not hydrate below-image photo credits");
+includes("js/field-photos-public.js", /credit\.hidden = false/, "Public Field Photo loader does not reveal populated photo credits");
 includes("js/field-photos-public.js", /building_slot_consolidated/, "Building profile Field Photo slots are not consolidated into the hero image");
 includes("js/field-photos-public.js", /ROFO_FIELD_PHOTO_DIAGNOSTICS/, "Field Photo runtime diagnostics are missing");
 includes("_data/recommendationRepresentativeBuildings.js", /fieldPhotoSubjectId/, "Representative building card data does not retain Field Photo subject IDs");

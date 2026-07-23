@@ -765,6 +765,10 @@
       image.loading = "lazy";
       image.decoding = "async";
       card.appendChild(image);
+      const credit = createElement("p", "recommendation-building-card__credit", "");
+      credit.dataset.buildingPhotoCredit = "";
+      credit.hidden = true;
+      card.appendChild(credit);
     }
     const content = createElement("div", "recommendation-building-card__content");
     const meta = createElement("span", "", `${building.address} · ${building.buildingType || building.districtName || primary.label}`);

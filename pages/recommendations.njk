@@ -182,6 +182,7 @@ eleventyComputed:
                 <article class="recommendation-building-card recommendation-building-card--representative">
                   {% if building.image or building.fieldPhotoSubjectId %}
                     <img src="{{ building.image or '/images/placeholders/building-c.svg' }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" {% if building.fieldPhotoSubjectId %}data-building-photo-subject-id="{{ building.fieldPhotoSubjectId }}"{% endif %} loading="lazy" decoding="async">
+                    <p class="recommendation-building-card__credit" data-building-photo-credit hidden></p>
                   {% endif %}
                   <div>
                     <span>{{ building.address }} · {{ building.buildingType }}</span>

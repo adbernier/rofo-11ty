@@ -5,8 +5,9 @@
 
 <article class="building-card">
 
-  <div class="building-card__media">
+  <div class="building-card__media" data-building-photo-card>
     <a
+      class="building-card__image-link"
       href="{{ buildingPath }}"
       aria-label="View {{ buildingTitle }}"
     >
@@ -20,22 +21,25 @@
       />
     </a>
 
-    <div class="building-card__overlay">
-      <h3 class="building-card__title">
-        <a href="{{ buildingPath }}">
-          {{ buildingTitle }}
-        </a>
-      </h3>
+    <p class="building-card__credit" data-building-photo-credit hidden></p>
+  </div>
 
-      {% if building.type or building.size_label %}
-        <p class="building-card__meta">
-          {% if building.type %}{{ building.type }}{% endif %}
-          {% if building.type and building.size_label %} • {% endif %}
-          {% if building.size_label %}{{ building.size_label }}{% endif %}
-        </p>
-      {% endif %}
+  <div class="building-card__content">
+    <h3 class="building-card__title">
+      <a href="{{ buildingPath }}">
+        {{ buildingTitle }}
+      </a>
+    </h3>
 
-      {% if building.featured_company_name and building.featured_company_slug %}
+    {% if building.type or building.size_label %}
+      <p class="building-card__meta">
+        {% if building.type %}{{ building.type }}{% endif %}
+        {% if building.type and building.size_label %} • {% endif %}
+        {% if building.size_label %}{{ building.size_label }}{% endif %}
+      </p>
+    {% endif %}
+
+    {% if building.featured_company_name and building.featured_company_slug %}
   <p class="building-presented-by">
     Presented by
     <a href="/commercial-real-estate/company/{{ building.featured_company_slug }}/">
@@ -43,7 +47,6 @@
     </a>
   </p>
 {% endif %}
-    </div>
   </div>
 
 </article>

@@ -211,7 +211,9 @@ a:hover {
    ========================= */
 
 .building-card {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   height: 100%;
 }
 
@@ -253,13 +255,17 @@ a:hover {
 }
 
 .building-card__media {
-  position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 14px;
   border: 1px solid #dbe4ef;
   background: #f8fafc;
-  box-shadow: var(--rofo-shadow);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.building-card__image-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .building-card__image {
@@ -271,17 +277,21 @@ a:hover {
   transition: transform 0.25s ease;
 }
 
-.building-card__overlay {
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  bottom: 22px;
-  padding: 20px 24px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(219, 228, 239, 0.95);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+.building-card__credit {
+  margin: 7px 10px 9px;
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.building-card__credit[hidden] {
+  display: none;
+}
+
+.building-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .building-card__title {
@@ -302,27 +312,29 @@ a:hover {
   text-decoration: none;
 }
 
-.building-card__link:hover .building-card__media {
+.building-card:hover .building-card__media {
   transform: translateY(-2px);
   box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
   border-color: #d2dbe7;
 }
 
-.building-card__link:hover .building-card__image {
+.building-card:hover .building-card__image {
   transform: scale(1.02);
 }
 
-.building-card__link:hover .building-card__title {
+.building-card:hover .building-card__title a {
   text-decoration: underline;
 }
 
 /* =========================
    BUILDING CARD — COMPACT
-   same language, lighter overlay
+   image with below-card content
    ========================= */
 
 .building-card-compact {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   height: 100%;
 }
 
@@ -333,43 +345,43 @@ a:hover {
 }
 
 .building-card-compact__media {
-  position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 12px;
   border: 1px solid #dbe4ef;
   background: #f8fafc;
-  box-shadow: var(--rofo-shadow);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.building-card-compact__image-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .building-card-compact__image {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
   background: #f7f9fc;
   transition: transform 0.25s ease;
 }
 
-.building-card-compact__overlay {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 10px;
+.building-card-compact__credit {
+  margin: 6px 9px 8px;
+  color: #64748b;
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
 
+.building-card-compact__credit[hidden] {
+  display: none;
+}
+
+.building-card-compact__content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* push content to bottom */
-
-  padding: 10px 10px; /* reduced vertical padding */
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  gap: 4px;
 }
 
 .building-card-compact__title {
@@ -392,17 +404,17 @@ a:hover {
   text-decoration: none;
 }
 
-.building-card-compact__link:hover .building-card-compact__media {
+.building-card-compact:hover .building-card-compact__media {
   transform: translateY(-2px);
   box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
   border-color: #d2dbe7;
 }
 
-.building-card-compact__link:hover .building-card-compact__image {
+.building-card-compact:hover .building-card-compact__image {
   transform: scale(1.02);
 }
 
-.building-card-compact__link:hover .building-card-compact__title {
+.building-card-compact:hover .building-card-compact__title a {
   text-decoration: underline;
 }
 
@@ -424,19 +436,6 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-  .building-card-compact__overlay {
-    left: 12px;
-    right: 12px;
-    bottom: 8px;
-
-    padding: 9px 12px;
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.70);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
   .building-card-compact__title {
     font-size: 1rem;
     line-height: 1.11;
@@ -1331,14 +1330,6 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .building-card__overlay {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    padding: 16px 18px;
-    border-radius: 18px;
-  }
-
   .building-card__title {
     font-size: 1.05rem;
   }
@@ -1346,14 +1337,6 @@ p {
   .building-card__meta {
     font-size: 0.94rem;
     margin-top: 8px;
-  }
-
-  .building-card-compact__overlay {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    padding: 16px 18px;
-    border-radius: 18px;
   }
 
   .building-card-compact__title {
@@ -1891,8 +1874,8 @@ section.market-page--space-type .market-links a {
    BUILDING CARD TIGHTENING
    ========================= */
 
-.building-card-compact__overlay,
-.building-card__overlay {
+.building-card-compact__content,
+.building-card__content {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -2031,14 +2014,6 @@ section.market-page--space-type .market-links a {
   aspect-ratio: 16 / 10;
 }
 
-.company-page .building-card-compact__overlay {
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  padding: 13px 15px;
-  border-radius: 18px;
-}
-
 .company-page .building-card-compact__title {
   font-size: clamp(1rem, 1.4vw, 1.14rem);
   line-height: 1.1;
@@ -2050,12 +2025,6 @@ section.market-page--space-type .market-links a {
   font-size: 0.92rem;
   line-height: 1.24;
   color: #64748b;
-}
-
-.company-page .building-card-compact__overlay {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
 .company-page .building-card-compact .building-presented-by {
@@ -2070,7 +2039,7 @@ section.market-page--space-type .market-links a {
 }
 
 /* Optional: slightly reduce hover zoom on company page */
-.company-page .building-card-compact__link:hover .building-card-compact__image {
+.company-page .building-card-compact:hover .building-card-compact__image {
   transform: scale(1.015);
 }
 
@@ -2097,14 +2066,6 @@ section.market-page--space-type .market-links a {
   .company-hero {
     padding: 24px 20px;
     margin-bottom: 22px;
-  }
-
-  .company-page .building-card-compact__overlay {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 12px 14px;
-    border-radius: 16px;
   }
 
   .company-footer-card {
@@ -2165,17 +2126,6 @@ section.market-page--space-type .market-links a {
   aspect-ratio: 16 / 10;
 }
 
-.featured-portfolio-card .building-card-compact__overlay {
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .featured-portfolio-card .building-card-compact__title {
   margin: 0;
   font-size: clamp(1rem, 1.35vw, 1.12rem);
@@ -2200,11 +2150,11 @@ section.market-page--space-type .market-links a {
   color: #475569;
 }
 
-.featured-portfolio-card .building-card-compact__link:hover .building-card-compact__image {
+.featured-portfolio-card .building-card-compact:hover .building-card-compact__image {
   transform: scale(1.01);
 }
 
-.featured-portfolio-card .building-card-compact__link:hover .building-card-compact__media {
+.featured-portfolio-card .building-card-compact:hover .building-card-compact__media {
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
 }
 
@@ -2222,13 +2172,6 @@ section.market-page--space-type .market-links a {
     grid-template-columns: 1fr;
   }
 
-  .featured-portfolio-card .building-card-compact__overlay {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 12px 14px;
-    border-radius: 16px;
-  }
 }
 
 /* =========================
@@ -2279,17 +2222,6 @@ section.market-page--space-type .market-links a {
   aspect-ratio: 16 / 10;
 }
 
-.buildings-explore-card .building-card-compact__overlay {
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .buildings-explore-card .building-card-compact__title {
   margin: 0;
   font-size: clamp(1rem, 1.35vw, 1.12rem);
@@ -2314,22 +2246,12 @@ section.market-page--space-type .market-links a {
   color: #475569;
 }
 
-.buildings-explore-card .building-card-compact__link:hover .building-card-compact__image {
+.buildings-explore-card .building-card-compact:hover .building-card-compact__image {
   transform: scale(1.01);
 }
 
-.buildings-explore-card .building-card-compact__link:hover .building-card-compact__media {
+.buildings-explore-card .building-card-compact:hover .building-card-compact__media {
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
-}
-
-@media (max-width: 680px) {
-  .buildings-explore-card .building-card-compact__overlay {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 12px 14px;
-    border-radius: 16px;
-  }
 }
 
 /* =========================
@@ -3075,6 +2997,17 @@ section.market-page--space-type .market-links a {
   object-fit: cover;
   border-radius: 10px;
   background: #e2e8f0;
+}
+
+.recommendation-building-card__credit {
+  margin: -6px 0 0;
+  color: #64748b;
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+.recommendation-building-card__credit[hidden] {
+  display: none;
 }
 
 .recommendation-building-card--representative p strong {
@@ -5370,15 +5303,6 @@ section.market-page--space-type .market-links a {
     min-height: 220px;
   }
 
-  .city-page .city-buildings-card .building-card-compact__overlay {
-    left: 12px;
-    right: 12px;
-    bottom: 10px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.86);
-  }
-
   .city-page .city-buildings-card .building-card-compact__title {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -6234,29 +6158,11 @@ section.market-page--space-type .market-links a {
   height: auto;
 }
 
-.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__media {
-  overflow: visible;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
 .neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__image {
   aspect-ratio: 16 / 10;
-  border: 1px solid #dbe3ee;
-  border-radius: 12px;
 }
 
-.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__overlay {
-  position: static;
-  padding: 10px 2px 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+.neighborhood-building-grid .building-card-compact--neighborhood .building-card-compact__content {
   gap: 4px;
 }
 

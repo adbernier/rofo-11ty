@@ -99,6 +99,18 @@
     image.src = photo.imageUrl;
     image.removeAttribute("srcset");
     if (photo.altText) image.alt = photo.altText;
+    const card = image.closest("[data-building-photo-card]") || image.closest(".building-card, .building-card-compact, .recommendation-building-card");
+    const credit = card ? card.querySelector("[data-building-photo-credit]") : null;
+    if (credit) {
+      const creditText = photo.attribution || "";
+      if (creditText) {
+        credit.textContent = creditText;
+        credit.hidden = false;
+      } else {
+        credit.textContent = "";
+        credit.hidden = true;
+      }
+    }
     image.dataset.buildingPhotoLoaded = "true";
     recordDiagnostic("image_replaced", { subjectId: image.dataset.buildingPhotoSubjectId });
   }
