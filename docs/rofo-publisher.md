@@ -4,6 +4,8 @@ Rofo Publisher is the internal coverage and production-planning system for metro
 
 Publisher v1 does not generate content, publish pages, call external AI services, create branches, or open pull requests. It inspects the repository, measures current coverage, identifies gaps, and produces a deterministic work queue.
 
+Publisher now sits inside the broader Editorial Operating System documented in `docs/editorial-operating-system.md`. EOS uses Publisher output as one source of truth for metro planning, but it also has room for Compass, Field Mode, Handbook, Search Intelligence, QA, and future analytics signals. Publisher scoring remains unchanged by EOS.
+
 ## Purpose
 
 Publisher answers one operational question:

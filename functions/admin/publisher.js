@@ -82,6 +82,7 @@ function severityClass(severity) {
 function renderNav(token) {
   return `
     <nav class="admin-nav" aria-label="Admin navigation">
+      <a class="button-link" href="/admin/eos?${tokenParam(token)}">EOS</a>
       <a class="button-link" href="/admin/operations?${tokenParam(token)}">Operations</a>
       <a class="button-link button-link--active" href="/admin/publisher?${tokenParam(token)}">Publisher</a>
       <a class="button-link" href="/admin/compass?${tokenParam(token)}">Rofo Compass</a>

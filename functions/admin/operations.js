@@ -395,6 +395,11 @@ function renderAdminModules(token) {
       current: true,
     },
     {
+      title: "Editorial Operating System",
+      purpose: "Editorial health, planning, and cross-module work queue",
+      href: `/admin/eos?token=${encodeURIComponent(token)}`,
+    },
+    {
       title: "Rofo Compass",
       purpose: "Commercial location intelligence engine health",
       href: `/admin/compass?token=${encodeURIComponent(token)}`,
@@ -540,6 +545,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
       </div>
       <nav class="nav" aria-label="Admin links">
         <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
+        <a class="button-link" href="/admin/eos?token=${encodeURIComponent(token)}">EOS</a>
         <a class="button-link" href="/admin/field-photos?token=${encodeURIComponent(token)}">Field Photos</a>
         <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
         <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>

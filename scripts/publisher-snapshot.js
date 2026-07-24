@@ -3,6 +3,7 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const { analyzePublisher } = require("../lib/publisher/analyze-metros.js");
 const { buildPublisherExpansionPlans } = require("../lib/publisher/expansion-planner.js");
+const { buildEditorialOperatingSystem } = require("../lib/eos/editorial-operating-system.js");
 
 function gitValue(args) {
   try {
@@ -33,11 +34,15 @@ function buildSnapshot() {
 const snapshot = buildSnapshot();
 const outputPath = path.join(process.cwd(), "data", "generated", "publisher-analysis.json");
 const plansPath = path.join(process.cwd(), "data", "generated", "publisher-expansion-plans.json");
+const eosPath = path.join(process.cwd(), "data", "generated", "eos-analysis.json");
 const plans = buildPublisherExpansionPlans(snapshot.analysis, { generatedAt: snapshot.generatedAt });
+const eos = buildEditorialOperatingSystem(snapshot, plans, { generatedAt: snapshot.generatedAt });
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`);
 fs.writeFileSync(plansPath, `${JSON.stringify(plans, null, 2)}\n`);
+fs.writeFileSync(eosPath, `${JSON.stringify(eos, null, 2)}\n`);
 
 console.log(`Publisher snapshot written to ${path.relative(process.cwd(), outputPath)}`);
 console.log(`Publisher expansion plans written to ${path.relative(process.cwd(), plansPath)}`);
+console.log(`EOS analysis written to ${path.relative(process.cwd(), eosPath)}`);
