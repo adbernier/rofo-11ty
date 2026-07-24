@@ -1,4 +1,5 @@
 const sacramentoIndustrialFlexBuildingBriefs = require("./sacramentoIndustrialFlexBuildingBriefs.js");
+const denverIndustrialFlexBuildingBriefs = require("./denverIndustrialFlexBuildingBriefs.js");
 
 const CITY = "San Francisco";
 const STATE = "CA";
@@ -487,7 +488,9 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "3150 18th", address: "3150 18th St", districtKey: "missionDistrict", role: "Creative Benchmark", themes: ["Creative Office", "Maker", "Adaptive Reuse"], reason: "Helps explain the Alabama and 18th Street creative-production cluster.", comparisonAddresses: ["2900 18th St", "2741 16th St", "2400 16th St"] }),
   canonicalBuilding({ name: "2400 16th", address: "2400 16th St", districtKey: "missionDistrict", role: "Production / Flex Benchmark", themes: ["Flex", "Production", "Neighborhood Edge"], reason: "Represents the Mission's production/flex edge near Potrero and Showplace Square.", comparisonAddresses: ["1850 Bryant St", "1700 17th St", "3150 18th St"] }),
   canonicalBuilding({ name: "2601 Mission / New Mission Theater", address: "2601 Mission St", districtKey: "missionDistrict", role: "Neighborhood Anchor", themes: ["Historic", "Mixed Use", "Neighborhood Anchor"], reason: "A key commercial landmark for understanding Mission Street's neighborhood-serving and entertainment identity.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1800 Mission St", "1880 Mission St", "2741 16th St"] }),
-].concat(sacramentoIndustrialFlexBuildingBriefs.canonicalBuildings || []);
+]
+  .concat(sacramentoIndustrialFlexBuildingBriefs.canonicalBuildings || [])
+  .concat(denverIndustrialFlexBuildingBriefs.canonicalBuildings || []);
 
 function buildingBrief(fields) {
   const snapshot = Array.isArray(fields.snapshot) ? fields.snapshot : [];

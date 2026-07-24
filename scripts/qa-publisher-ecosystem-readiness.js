@@ -10,7 +10,7 @@ const EXPECTED_SCORES = {
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
-  denver: { overall: 84, status: "Expansion Ready" },
+  denver: { overall: 91, status: "Expansion Ready" },
   seattle: { overall: 19, status: "In Development" },
 };
 
@@ -159,6 +159,13 @@ if (sanFrancisco) {
     requireField(Boolean(evaluationFor(metro, ecosystemId)), `${metro.metroName}: missing ${ecosystemId} ecosystem visibility`);
   });
 });
+
+const denver = metroById("denver");
+if (denver) {
+  const industrial = evaluationFor(denver, "industrial_flex");
+  requireField(industrial && industrial.readinessState === "strong", `Denver: expected industrial/flex readiness strong after Building Brief migration, got ${industrial && industrial.readinessState}`);
+  requireField(industrial && industrial.layers && industrial.layers.buildingBriefs === "developed", `Denver: expected developed industrial/flex Building Brief depth, got ${industrial && industrial.layers && industrial.layers.buildingBriefs}`);
+}
 
 const seattle = metroById("seattle");
 if (seattle) {

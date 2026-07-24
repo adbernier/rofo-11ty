@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T10:27:04-07:00",
-  "sourceCommit": "5c8052c644bbab8f572614f794d35528c8f6861c",
+  "generatedAt": "2026-07-24T14:27:55-07:00",
+  "sourceCommit": "513b9a18843550383cc54cf6c67f34c1711ed494",
   "analysis": {
-    "generatedAt": "2026-07-24T10:27:04-07:00",
+    "generatedAt": "2026-07-24T14:27:55-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
-      "averageScore": 85,
+      "averageScore": 86,
       "criticalIssues": 0,
-      "queuedTasks": 322,
+      "queuedTasks": 318,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -24440,29 +24440,20 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 65,
+            "score": 74,
             "status": "",
-            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 0 Building Briefs are available.",
+            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 19,
               "representativeBuildings": 42,
-              "buildingBriefs": 0
+              "buildingBriefs": 3
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [
-              {
-                "gate": "editorially-developed",
-                "severity": "medium",
-                "code": "building-brief-collection-missing",
-                "message": "No initial Building Brief collection exists.",
-                "sourceId": "denver",
-                "relatedTaskId": ""
-              }
-            ],
+            "blockers": [],
             "topOpportunity": "Create an initial collection of 5 Building Briefs."
           },
           "publishingReadiness": {
@@ -24484,28 +24475,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 88,
-        "scoreCapReasons": [
-          {
-            "cap": 84,
-            "code": "no-building-briefs-overall-cap",
-            "reason": "Metro has representative buildings but no initial Building Brief collection."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "editorialCoverage",
-            "cap": 72,
-            "reason": "Representative buildings exist, but no Building Briefs have been migrated.",
-            "code": "no-building-briefs-editorial-cap"
-          }
-        ],
-        "overallScore": 84,
-        "score": 84,
+        "rawOverallScore": 91,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 91,
+        "score": 91,
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 19,
         "representativeBuildingCount": 42,
-        "buildingBriefCount": 0,
+        "buildingBriefCount": 3,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -24527,7 +24505,9 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office is Partial; Industrial & Flex is Partial; Retail is Partial; Medical is Partial."
+            "Industrial & Flex coverage is strong or developed.",
+            "Office is Partial; Retail is Partial; Medical is Partial.",
+            "Building Brief coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -24728,13 +24708,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -24745,27 +24725,24 @@
                 "secondaryDistricts": 7,
                 "recommendations": 5,
                 "representativeBuildings": 8,
-                "buildingBriefs": 0,
+                "buildingBriefs": 3,
                 "subtypes": 9,
                 "archetypes": 5,
                 "activities": 5,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 4,
-                "operationalCharacteristics": 5,
-                "reviewRequiredRepresentativeBuildings": 8
+                "representativeRoles": 3,
+                "operationalCategories": 5,
+                "operationalCharacteristics": 12,
+                "reviewRequiredRepresentativeBuildings": 5
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -24792,14 +24769,16 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 8,
-                "reviewRequiredCount": 8,
+                "reviewRequiredCount": 5,
                 "rolesCovered": [
-                  "small_bay_service_environment"
+                  "warehouse_distribution_environment",
+                  "small_bay_service_environment",
+                  "contractor_service_cluster"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -24810,12 +24789,15 @@
                   "research_development"
                 ],
                 "activityCoverage": [
-                  "service_dispatch",
-                  "equipment_storage",
                   "receiving",
                   "shipping",
+                  "distribution",
+                  "inventory_management",
                   "storage",
-                  "light_manufacturing"
+                  "service_dispatch",
+                  "light_manufacturing",
+                  "equipment_storage",
+                  "vehicle_storage"
                 ],
                 "archetypeCoverage": [
                   "general_contractor",
@@ -24828,32 +24810,39 @@
                   "plumbing_company"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "dock_high_loading",
+                  "truck_court",
+                  "high_clearance",
+                  "regional_distribution_access",
                   "grade_level_loading",
                   "small_suite_sizes",
                   "service_vehicle_parking",
                   "office_warehouse_mix",
-                  "freeway_access"
+                  "freeway_access",
+                  "outdoor_storage",
+                  "contractor_yard",
+                  "drive_in_access"
                 ],
                 "operationalCategoriesCovered": [
                   "access_loading",
                   "configuration",
+                  "location_workforce",
                   "parking_vehicles",
-                  "location_workforce"
+                  "outdoor_special_use"
                 ],
                 "missingRoles": [
                   "flex_business_park",
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "large_scale_distribution_environment",
+                  "urban_industrial_environment"
                 ],
                 "missingOperationalCategories": [
                   "infrastructure",
-                  "market_presence",
-                  "outdoor_special_use"
+                  "market_presence"
                 ],
                 "highestPriorityMissingRole": "flex_business_park",
                 "highestPriorityMissingOperationalCategory": "infrastructure",
@@ -24861,8 +24850,8 @@
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
@@ -24873,8 +24862,8 @@
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "11551 E 49th Ave",
@@ -24891,8 +24880,8 @@
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   }
                 ]
               },
@@ -25568,58 +25557,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -25628,12 +25565,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -25654,12 +25591,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -26249,24 +26186,82 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_concentration",
+              "code": "ecosystem_concentration",
+              "label": "Ecosystem Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+              "evidence": [
+                "5 primary districts and 7 secondary districts.",
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+              "evidence": [
+                "5 primary districts and 7 secondary districts.",
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "balanced",
-            "label": "Balanced",
-            "dominantEcosystem": "office",
+            "state": "industrial_flex_brief_concentrated",
+            "label": "Industrial Flex Brief Concentrated",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.57,
-            "buildingBriefShare": 0,
-            "warnings": []
+            "buildingBriefShare": 1,
+            "warnings": [
+              "Building Brief coverage is concentrated in Industrial & Flex.",
+              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+            ]
           }
         },
         "ecosystemBalance": {
-          "state": "balanced",
-          "label": "Balanced",
-          "dominantEcosystem": "office",
+          "state": "industrial_flex_brief_concentrated",
+          "label": "Industrial Flex Brief Concentrated",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.57,
-          "buildingBriefShare": 0,
-          "warnings": []
+          "buildingBriefShare": 1,
+          "warnings": [
+            "Building Brief coverage is concentrated in Industrial & Flex.",
+            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+          ]
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -26487,8 +26482,8 @@
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 8,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 3,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "northeast-denver-industrial",
@@ -26550,14 +26545,16 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 8,
-                "reviewRequiredCount": 8,
+                "reviewRequiredCount": 5,
                 "rolesCovered": {
-                  "small_bay_service_environment": 8
+                  "warehouse_distribution_environment": 2,
+                  "small_bay_service_environment": 5,
+                  "contractor_service_cluster": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 8,
@@ -26568,12 +26565,15 @@
                   "research_development": 1
                 },
                 "activityCoverage": {
-                  "service_dispatch": 8,
-                  "equipment_storage": 8,
                   "receiving": 8,
                   "shipping": 8,
+                  "distribution": 2,
+                  "inventory_management": 2,
                   "storage": 8,
-                  "light_manufacturing": 8
+                  "service_dispatch": 8,
+                  "light_manufacturing": 8,
+                  "equipment_storage": 6,
+                  "vehicle_storage": 1
                 },
                 "archetypeCoverage": {
                   "general_contractor": 8,
@@ -26586,32 +26586,39 @@
                   "plumbing_company": 8
                 },
                 "operationalCharacteristicsCovered": {
-                  "grade_level_loading": 8,
-                  "small_suite_sizes": 8,
-                  "service_vehicle_parking": 8,
-                  "office_warehouse_mix": 8,
-                  "freeway_access": 8
+                  "dock_high_loading": 2,
+                  "truck_court": 2,
+                  "high_clearance": 2,
+                  "regional_distribution_access": 2,
+                  "grade_level_loading": 5,
+                  "small_suite_sizes": 5,
+                  "service_vehicle_parking": 6,
+                  "office_warehouse_mix": 5,
+                  "freeway_access": 6,
+                  "outdoor_storage": 1,
+                  "contractor_yard": 1,
+                  "drive_in_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 8,
-                  "configuration": 16,
-                  "parking_vehicles": 8,
-                  "location_workforce": 8
+                  "access_loading": 10,
+                  "configuration": 12,
+                  "location_workforce": 8,
+                  "parking_vehicles": 6,
+                  "outdoor_special_use": 2
                 },
                 "missingRoles": [
                   "flex_business_park",
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "large_scale_distribution_environment",
+                  "urban_industrial_environment"
                 ],
                 "missingOperationalCategories": [
                   "infrastructure",
-                  "market_presence",
-                  "outdoor_special_use"
+                  "market_presence"
                 ],
                 "highestPriorityMissingRole": "flex_business_park",
                 "highestPriorityMissingOperationalCategory": "infrastructure",
@@ -26619,8 +26626,8 @@
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
@@ -26631,8 +26638,8 @@
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "11551 E 49th Ave",
@@ -26649,8 +26656,8 @@
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   }
                 ]
               }
@@ -27064,8 +27071,8 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 0,
-            "partialCount": 6,
+            "developedCount": 1,
+            "partialCount": 5,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
@@ -27073,22 +27080,22 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "strong",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -27099,22 +27106,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:industrial_flex:ecosystem_concentration",
+            "code": "ecosystem_concentration",
+            "label": "Ecosystem Concentration",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "strong",
+            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -27133,12 +27140,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27314,12 +27321,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27875,12 +27882,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Balance Sprint",
+          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -27889,16 +27896,7 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "editorially-developed",
-            "severity": "medium",
-            "code": "building-brief-collection-missing",
-            "message": "No initial Building Brief collection exists.",
-            "sourceId": "denver",
-            "relatedTaskId": ""
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -28154,11 +28152,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 0,
-            "completed": 0,
+            "score": 7,
+            "completed": 3,
             "total": 42,
-            "missing": 42,
-            "explanation": "0 of 42 representative building records use the canonical Building Brief journey.",
+            "missing": 39,
+            "explanation": "3 of 42 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
@@ -28484,25 +28482,6 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "10445 E 49th Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
                 "code": "missing-brief",
                 "metroId": "denver",
@@ -28516,25 +28495,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "10515-10525 E 40th Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -28573,25 +28533,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "4550 Kingston St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -28974,8 +28915,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 19,
-            "total": 19,
+            "completed": 22,
+            "total": 22,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -28992,25 +28933,6 @@
           }
         },
         "queue": [
-          {
-            "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-            "code": "initial-building-brief-collection",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "initial Building Brief collection",
-            "itemName": "Denver",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-            "sourceId": "denver",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
           {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
             "code": "missing-brief",
@@ -29031,25 +28953,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "10445 E 49th Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
             "code": "missing-brief",
             "metroId": "denver",
@@ -29063,25 +28966,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "10515-10525 E 40th Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -29424,25 +29308,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
             "publicUrl": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "4550 Kingston St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -30020,21 +29885,21 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-          "code": "initial-building-brief-collection",
+          "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+          "code": "missing-brief",
           "metroId": "denver",
           "metroName": "Denver",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "initial Building Brief collection",
-          "itemName": "Denver",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-          "sourceId": "denver",
-          "publicUrl": "",
+          "taskType": "representative building missing Building Brief",
+          "itemName": "100 Fillmore Place",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "adminUrl": "",
-          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "automationCandidate": true,
           "readinessState": ""
         }
@@ -57690,29 +57555,20 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 65,
+            "score": 74,
             "status": "",
-            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 0 Building Briefs are available.",
+            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 19,
               "representativeBuildings": 42,
-              "buildingBriefs": 0
+              "buildingBriefs": 3
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [
-              {
-                "gate": "editorially-developed",
-                "severity": "medium",
-                "code": "building-brief-collection-missing",
-                "message": "No initial Building Brief collection exists.",
-                "sourceId": "denver",
-                "relatedTaskId": ""
-              }
-            ],
+            "blockers": [],
             "topOpportunity": "Create an initial collection of 5 Building Briefs."
           },
           "publishingReadiness": {
@@ -57734,28 +57590,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 88,
-        "scoreCapReasons": [
-          {
-            "cap": 84,
-            "code": "no-building-briefs-overall-cap",
-            "reason": "Metro has representative buildings but no initial Building Brief collection."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "editorialCoverage",
-            "cap": 72,
-            "reason": "Representative buildings exist, but no Building Briefs have been migrated.",
-            "code": "no-building-briefs-editorial-cap"
-          }
-        ],
-        "overallScore": 84,
-        "score": 84,
+        "rawOverallScore": 91,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 91,
+        "score": 91,
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 19,
         "representativeBuildingCount": 42,
-        "buildingBriefCount": 0,
+        "buildingBriefCount": 3,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -57777,7 +57620,9 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office is Partial; Industrial & Flex is Partial; Retail is Partial; Medical is Partial."
+            "Industrial & Flex coverage is strong or developed.",
+            "Office is Partial; Retail is Partial; Medical is Partial.",
+            "Building Brief coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -57978,13 +57823,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -57995,27 +57840,24 @@
                 "secondaryDistricts": 7,
                 "recommendations": 5,
                 "representativeBuildings": 8,
-                "buildingBriefs": 0,
+                "buildingBriefs": 3,
                 "subtypes": 9,
                 "archetypes": 5,
                 "activities": 5,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 4,
-                "operationalCharacteristics": 5,
-                "reviewRequiredRepresentativeBuildings": 8
+                "representativeRoles": 3,
+                "operationalCategories": 5,
+                "operationalCharacteristics": 12,
+                "reviewRequiredRepresentativeBuildings": 5
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -58042,14 +57884,16 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 8,
-                "reviewRequiredCount": 8,
+                "reviewRequiredCount": 5,
                 "rolesCovered": [
-                  "small_bay_service_environment"
+                  "warehouse_distribution_environment",
+                  "small_bay_service_environment",
+                  "contractor_service_cluster"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -58060,12 +57904,15 @@
                   "research_development"
                 ],
                 "activityCoverage": [
-                  "service_dispatch",
-                  "equipment_storage",
                   "receiving",
                   "shipping",
+                  "distribution",
+                  "inventory_management",
                   "storage",
-                  "light_manufacturing"
+                  "service_dispatch",
+                  "light_manufacturing",
+                  "equipment_storage",
+                  "vehicle_storage"
                 ],
                 "archetypeCoverage": [
                   "general_contractor",
@@ -58078,32 +57925,39 @@
                   "plumbing_company"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "dock_high_loading",
+                  "truck_court",
+                  "high_clearance",
+                  "regional_distribution_access",
                   "grade_level_loading",
                   "small_suite_sizes",
                   "service_vehicle_parking",
                   "office_warehouse_mix",
-                  "freeway_access"
+                  "freeway_access",
+                  "outdoor_storage",
+                  "contractor_yard",
+                  "drive_in_access"
                 ],
                 "operationalCategoriesCovered": [
                   "access_loading",
                   "configuration",
+                  "location_workforce",
                   "parking_vehicles",
-                  "location_workforce"
+                  "outdoor_special_use"
                 ],
                 "missingRoles": [
                   "flex_business_park",
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "large_scale_distribution_environment",
+                  "urban_industrial_environment"
                 ],
                 "missingOperationalCategories": [
                   "infrastructure",
-                  "market_presence",
-                  "outdoor_special_use"
+                  "market_presence"
                 ],
                 "highestPriorityMissingRole": "flex_business_park",
                 "highestPriorityMissingOperationalCategory": "infrastructure",
@@ -58111,8 +57965,8 @@
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
@@ -58123,8 +57977,8 @@
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "11551 E 49th Ave",
@@ -58141,8 +57995,8 @@
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   }
                 ]
               },
@@ -58818,58 +58672,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -58878,12 +58680,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -58904,12 +58706,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -59499,24 +59301,82 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_concentration",
+              "code": "ecosystem_concentration",
+              "label": "Ecosystem Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
+              "evidence": [
+                "5 primary districts and 7 secondary districts.",
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
+              "severity": "medium",
+              "layer": "balance",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "strong",
+              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+              "evidence": [
+                "5 primary districts and 7 secondary districts.",
+                "8 Representative Buildings and 3 Building Briefs.",
+                "3 representative roles and 5 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Balance Sprint",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "balanced",
-            "label": "Balanced",
-            "dominantEcosystem": "office",
+            "state": "industrial_flex_brief_concentrated",
+            "label": "Industrial Flex Brief Concentrated",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.57,
-            "buildingBriefShare": 0,
-            "warnings": []
+            "buildingBriefShare": 1,
+            "warnings": [
+              "Building Brief coverage is concentrated in Industrial & Flex.",
+              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+            ]
           }
         },
         "ecosystemBalance": {
-          "state": "balanced",
-          "label": "Balanced",
-          "dominantEcosystem": "office",
+          "state": "industrial_flex_brief_concentrated",
+          "label": "Industrial Flex Brief Concentrated",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.57,
-          "buildingBriefShare": 0,
-          "warnings": []
+          "buildingBriefShare": 1,
+          "warnings": [
+            "Building Brief coverage is concentrated in Industrial & Flex.",
+            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
+          ]
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -59737,8 +59597,8 @@
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 8,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 3,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "northeast-denver-industrial",
@@ -59800,14 +59660,16 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 8,
-                "reviewRequiredCount": 8,
+                "reviewRequiredCount": 5,
                 "rolesCovered": {
-                  "small_bay_service_environment": 8
+                  "warehouse_distribution_environment": 2,
+                  "small_bay_service_environment": 5,
+                  "contractor_service_cluster": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 8,
@@ -59818,12 +59680,15 @@
                   "research_development": 1
                 },
                 "activityCoverage": {
-                  "service_dispatch": 8,
-                  "equipment_storage": 8,
                   "receiving": 8,
                   "shipping": 8,
+                  "distribution": 2,
+                  "inventory_management": 2,
                   "storage": 8,
-                  "light_manufacturing": 8
+                  "service_dispatch": 8,
+                  "light_manufacturing": 8,
+                  "equipment_storage": 6,
+                  "vehicle_storage": 1
                 },
                 "archetypeCoverage": {
                   "general_contractor": 8,
@@ -59836,32 +59701,39 @@
                   "plumbing_company": 8
                 },
                 "operationalCharacteristicsCovered": {
-                  "grade_level_loading": 8,
-                  "small_suite_sizes": 8,
-                  "service_vehicle_parking": 8,
-                  "office_warehouse_mix": 8,
-                  "freeway_access": 8
+                  "dock_high_loading": 2,
+                  "truck_court": 2,
+                  "high_clearance": 2,
+                  "regional_distribution_access": 2,
+                  "grade_level_loading": 5,
+                  "small_suite_sizes": 5,
+                  "service_vehicle_parking": 6,
+                  "office_warehouse_mix": 5,
+                  "freeway_access": 6,
+                  "outdoor_storage": 1,
+                  "contractor_yard": 1,
+                  "drive_in_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 8,
-                  "configuration": 16,
-                  "parking_vehicles": 8,
-                  "location_workforce": 8
+                  "access_loading": 10,
+                  "configuration": 12,
+                  "location_workforce": 8,
+                  "parking_vehicles": 6,
+                  "outdoor_special_use": 2
                 },
                 "missingRoles": [
                   "flex_business_park",
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "large_scale_distribution_environment",
+                  "urban_industrial_environment"
                 ],
                 "missingOperationalCategories": [
                   "infrastructure",
-                  "market_presence",
-                  "outdoor_special_use"
+                  "market_presence"
                 ],
                 "highestPriorityMissingRole": "flex_business_park",
                 "highestPriorityMissingOperationalCategory": "infrastructure",
@@ -59869,8 +59741,8 @@
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
@@ -59881,8 +59753,8 @@
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "11551 E 49th Ave",
@@ -59899,8 +59771,8 @@
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "district_inferred"
                   }
                 ]
               }
@@ -60314,8 +60186,8 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 0,
-            "partialCount": 6,
+            "developedCount": 1,
+            "partialCount": 5,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
@@ -60323,22 +60195,22 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "strong",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -60349,22 +60221,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:industrial_flex:ecosystem_concentration",
+            "code": "ecosystem_concentration",
+            "label": "Ecosystem Concentration",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "strong",
+            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -60383,12 +60255,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60564,12 +60436,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
+              "8 Representative Buildings and 3 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -61125,12 +60997,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Balance Sprint",
+          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -61139,16 +61011,7 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "editorially-developed",
-            "severity": "medium",
-            "code": "building-brief-collection-missing",
-            "message": "No initial Building Brief collection exists.",
-            "sourceId": "denver",
-            "relatedTaskId": ""
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -61404,11 +61267,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 0,
-            "completed": 0,
+            "score": 7,
+            "completed": 3,
             "total": 42,
-            "missing": 42,
-            "explanation": "0 of 42 representative building records use the canonical Building Brief journey.",
+            "missing": 39,
+            "explanation": "3 of 42 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
@@ -61734,25 +61597,6 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "10445 E 49th Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
                 "code": "missing-brief",
                 "metroId": "denver",
@@ -61766,25 +61610,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "10515-10525 E 40th Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -61823,25 +61648,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "4550 Kingston St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -62224,8 +62030,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 19,
-            "total": 19,
+            "completed": 22,
+            "total": 22,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -62242,25 +62048,6 @@
           }
         },
         "queue": [
-          {
-            "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-            "code": "initial-building-brief-collection",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "initial Building Brief collection",
-            "itemName": "Denver",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-            "sourceId": "denver",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
           {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
             "code": "missing-brief",
@@ -62281,25 +62068,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "10445 E 49th Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
             "code": "missing-brief",
             "metroId": "denver",
@@ -62313,25 +62081,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "10515-10525 E 40th Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -62674,25 +62423,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
             "publicUrl": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "4550 Kingston St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -63270,21 +63000,21 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-          "code": "initial-building-brief-collection",
+          "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+          "code": "missing-brief",
           "metroId": "denver",
           "metroName": "Denver",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "initial Building Brief collection",
-          "itemName": "Denver",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-          "sourceId": "denver",
-          "publicUrl": "",
+          "taskType": "representative building missing Building Brief",
+          "itemName": "100 Fillmore Place",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "adminUrl": "",
-          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "automationCandidate": true,
           "readinessState": ""
         }
@@ -66517,25 +66247,6 @@
     ],
     "primaryQueue": [
       {
-        "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-        "code": "initial-building-brief-collection",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "initial Building Brief collection",
-        "itemName": "Denver",
-        "severity": "high",
-        "priority": 70,
-        "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-        "sourceId": "denver",
-        "publicUrl": "",
-        "adminUrl": "",
-        "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "orange-county:buildingBriefs:initial Building Brief collection:orange-county",
         "code": "initial-building-brief-collection",
         "metroId": "orange-county",
@@ -66612,25 +66323,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "10445 E 49th Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
         "code": "missing-brief",
         "metroId": "denver",
@@ -66644,25 +66336,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "10515-10525 E 40th Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -67005,25 +66678,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
         "publicUrl": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "4550 Kingston St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -72637,25 +72291,6 @@
     ],
     "queue": [
       {
-        "id": "denver:buildingBriefs:initial Building Brief collection:denver",
-        "code": "initial-building-brief-collection",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "initial Building Brief collection",
-        "itemName": "Denver",
-        "severity": "high",
-        "priority": 70,
-        "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
-        "sourceId": "denver",
-        "publicUrl": "",
-        "adminUrl": "",
-        "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "orange-county:buildingBriefs:initial Building Brief collection:orange-county",
         "code": "initial-building-brief-collection",
         "metroId": "orange-county",
@@ -72751,25 +72386,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10445-e-49th-ave",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "10445 E 49th Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
         "code": "missing-brief",
         "metroId": "denver",
@@ -72783,25 +72399,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10515-10525-e-40th-ave",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "10515-10525 E 40th Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -73144,25 +72741,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
         "publicUrl": "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-4550-kingston-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "4550 Kingston St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
