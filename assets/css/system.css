@@ -5199,6 +5199,7 @@ section.market-page--space-type .market-links a {
   .city-page .city-primary-layout,
   .city-page .city-main,
   .city-page .city-hero,
+  .city-page .city-learning-panel,
   .city-page .city-browse-panel {
     grid-template-columns: 1fr;
   }
@@ -5323,8 +5324,49 @@ section.market-page--space-type .market-links a {
   }
 }
 
+@media (min-width: 681px) and (max-width: 1024px) {
+  .city-page .city-shell {
+    padding: 0 24px;
+  }
+
+  .city-page .city-learning-panel,
+  .city-page .city-browse-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .city-page .city-decision-section {
+    padding: 28px;
+  }
+
+  .city-page .city-decision-section__header h2 {
+    font-size: clamp(2rem, 4.8vw, 2.6rem);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+}
+
 /* MOBILE */
 @media (max-width: 680px) {
+  .city-page,
+  .city-page * {
+    box-sizing: border-box;
+  }
+
+  .city-page {
+    padding-bottom: 40px;
+  }
+
+  .city-page .city-shell {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .city-page .city-primary-main,
+  .city-page .city-primary-content {
+    gap: 22px;
+  }
+
   .city-page .stats-grid,
   .city-page .building-grid,
   .city-page .city-market-snapshot__grid,
@@ -5334,20 +5376,106 @@ section.market-page--space-type .market-links a {
 
   .city-page .hero-actions {
     align-items: stretch;
+    gap: 10px;
+  }
+
+  .city-page .hero-actions .btn-primary,
+  .city-page .hero-actions .btn-secondary,
+  .city-page .hero-actions .city-decision-hero__secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   .city-page h1 {
     max-width: none;
   }
 
+  .city-page .city-hero--decision-v2 h1 {
+    font-size: clamp(2.25rem, 11vw, 2.75rem);
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .city-page .city-hero--decision-v2 .lead,
+  .city-page .city-decision-section__header p,
+  .city-page .city-support-module p,
+  .city-page .city-learning-feature__link p {
+    font-size: 1.06rem;
+    line-height: 1.56;
+  }
+
+  .city-page .eyebrow,
+  .city-page .city-support-module .eyebrow,
+  .city-page .city-learning-feature .eyebrow {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    font-size: 0.68rem;
+    line-height: 1.15;
+    letter-spacing: 0.045em;
+    white-space: normal;
+  }
+
+  .city-page .city-decision-hero,
   .city-page .city-decision-section {
-    padding: 34px 0;
+    padding: 22px;
+    border-radius: 22px;
+    border-color: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.045);
+  }
+
+  .city-page .city-decision-section {
+    gap: 18px;
+  }
+
+  .city-page .city-decision-section--broker {
+    padding-bottom: 22px;
+  }
+
+  .city-page .city-decision-section__header h2 {
+    max-width: 100%;
+    font-size: clamp(2.1rem, 9.4vw, 2.55rem);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .city-page .city-decision-section__header p {
+    margin-top: 2px;
+  }
+
+  .city-page h2 {
+    font-size: 1.3rem;
+    line-height: 1.18;
+  }
+
+  .city-page p {
+    margin-bottom: 10px;
   }
 
   .city-page .city-decision-flow--commercial-areas,
   .city-page .city-learning-panel {
-    padding: 18px;
+    gap: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .city-page .city-learning-feature {
+    padding: 20px;
     border-radius: 18px;
+  }
+
+  .city-page .city-learning-feature__link {
+    gap: 8px;
+  }
+
+  .city-page .city-learning-feature__link h3 {
+    font-size: clamp(1.72rem, 8vw, 2.1rem);
+    line-height: 1.08;
+    text-wrap: balance;
   }
 
   .city-page .city-support-module,
@@ -5357,6 +5485,123 @@ section.market-page--space-type .market-links a {
     border-bottom: 0;
     border-left: 0;
     border-radius: 0;
+  }
+
+  .city-page .city-support-module h2 {
+    font-size: 1.18rem;
+    line-height: 1.22;
+  }
+
+  .city-page .city-market-snapshot__item {
+    padding: 13px;
+    border-radius: 14px;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list,
+  .city-page .city-leasing-guides-card .mini-list,
+  .city-page .city-popular-searches-card .mini-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    columns: auto;
+    column-count: 1;
+    margin-top: 14px;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list li,
+  .city-page .city-leasing-guides-card .mini-list li,
+  .city-page .city-popular-searches-card .mini-list li {
+    min-width: 0;
+    margin: 0;
+    break-inside: avoid;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list a,
+  .city-page .city-leasing-guides-card .mini-list a,
+  .city-page .city-popular-searches-card .mini-list a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 15px;
+    background: #f8fafc;
+    color: #1e3a8a;
+    font-size: 1rem;
+    line-height: 1.28;
+    font-weight: 800;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list a::before,
+  .city-page .city-leasing-guides-card .mini-list a::before {
+    grid-column: 1 / -1;
+    color: #64748b;
+    font-size: 0.68rem;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list a::before {
+    content: "Commercial Leasing Guide";
+  }
+
+  .city-page .city-leasing-guides-card .mini-list a::before {
+    content: "Market Guide";
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list a::after,
+  .city-page .city-leasing-guides-card .mini-list a::after,
+  .city-page .city-popular-searches-card .mini-list a::after {
+    content: "→";
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .city-page .city-commercial-knowledge-card .mini-list a:hover,
+  .city-page .city-commercial-knowledge-card .mini-list a:focus-visible,
+  .city-page .city-leasing-guides-card .mini-list a:hover,
+  .city-page .city-leasing-guides-card .mini-list a:focus-visible,
+  .city-page .city-popular-searches-card .mini-list a:hover,
+  .city-page .city-popular-searches-card .mini-list a:focus-visible {
+    border-color: #bfdbfe;
+    background: #ffffff;
+    color: #1d4ed8;
+    text-decoration: none;
+  }
+
+  .city-page .editorial-photo {
+    margin: 18px 0 22px;
+  }
+
+  .city-page .editorial-photo__figure {
+    border-radius: 20px;
+    border-color: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.045);
+  }
+
+  .city-page .editorial-photo__figure img {
+    max-height: 420px;
+  }
+
+  .city-page .editorial-photo__figure figcaption {
+    padding: 9px 12px 11px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .city-page .editorial-photo__figure figcaption small {
+    font-size: 0.74rem;
+    font-weight: 700;
   }
 
   .city-page .city-broker-journey-card .btn-primary {
