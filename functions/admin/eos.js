@@ -68,6 +68,10 @@ function renderMetric(label, value, note = "") {
   `;
 }
 
+function taskUrl(token, taskId) {
+  return `/admin/eos?${tokenParam(token)}&task=${encodeURIComponent(taskId)}`;
+}
+
 function signalRow(signal) {
   return `
     <div class="signal-row">
@@ -117,7 +121,7 @@ function renderMetroCard(metro, token) {
   `;
 }
 
-function renderWorkItem(item) {
+function renderWorkItem(item, token) {
   return `
     <article class="work-item">
       <div class="work-item__priority">
@@ -148,8 +152,73 @@ function renderWorkItem(item) {
         ${item.dependencies && item.dependencies.length ? `
           <p class="dependencies"><strong>Dependencies:</strong> ${escapeHtml(item.dependencies.join(", "))}</p>
         ` : ""}
+        ${item.executionPacket ? `<a class="start-work" href="${taskUrl(token, item.id)}">Commence Work</a>` : ""}
       </div>
     </article>
+  `;
+}
+
+function renderExecutionPacket(eos, taskId, token) {
+  const allTasks = [
+    ...(eos.workQueue || []),
+    ...(((eos.portfolioQueues || {}).expansionQueue) || []),
+  ];
+  const task = allTasks.find((item) => item.id === taskId);
+  if (!task || !task.executionPacket) return "";
+  const packet = task.executionPacket;
+  return `
+    <section class="panel execution-packet">
+      <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to EOS</a>
+      <div class="section-heading">
+        <div>
+          <h2>Execution Packet</h2>
+          <p>${escapeHtml(task.title)}</p>
+        </div>
+        <span class="automation">${escapeHtml(packet.automationLevel.label)}</span>
+      </div>
+      <div class="packet-grid">
+        <article>
+          <h3>Objective</h3>
+          <p>${escapeHtml(packet.objective)}</p>
+          <h3>Reason</h3>
+          <ul>${(packet.reason || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          <h3>Current Health</h3>
+          <p>${escapeHtml(packet.currentHealth)}</p>
+        </article>
+        <article>
+          <h3>Execution Providers</h3>
+          <ul>${(packet.providers || []).map((provider) => `<li>${escapeHtml(provider.label)} · ${escapeHtml(provider.description)}</li>`).join("")}</ul>
+          <h3>Required Review</h3>
+          <p>${packet.requiredReview ? "Yes" : "No"}</p>
+        </article>
+      </div>
+      <div class="handoff-rail">
+        ${(packet.handoff || []).map((step) => `
+          <article>
+            <span>${escapeHtml(step.label)}</span>
+            <p>${escapeHtml(step.description)}</p>
+          </article>
+        `).join("")}
+      </div>
+      <div class="packet-grid packet-grid--wide">
+        <article>
+          <h3>Files</h3>
+          <ul>${(packet.files || []).map((item) => `<li><code>${escapeHtml(item)}</code></li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>Acceptance Criteria</h3>
+          <ul>${(packet.acceptanceCriteria || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>Expected Deliverables</h3>
+          <ul>${(packet.expectedDeliverables || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h3>QA Commands</h3>
+          <ul>${(packet.qaCommands || []).map((item) => `<li><code>${escapeHtml(item)}</code></li>`).join("")}</ul>
+        </article>
+      </div>
+    </section>
   `;
 }
 
@@ -192,20 +261,165 @@ function renderSelectedMetro(eos, metroId, token) {
           <p>Prioritized EOS items with automation level, effort, dependencies, and measurable rationale.</p>
         </div>
       </div>
-      <div class="work-queue">${queue.map(renderWorkItem).join("")}</div>
+      <div class="work-queue">${queue.map((item) => renderWorkItem(item, token)).join("")}</div>
+    </section>
+  `;
+}
+
+function renderQueueSummary(eos) {
+  const queues = eos.portfolioQueues || {};
+  return `
+    <section class="queue-summary">
+      <article>
+        <span>Editorial Queue</span>
+        <strong>${escapeHtml((queues.editorialQueue || []).length)}</strong>
+        <p>Existing metro improvement work.</p>
+      </article>
+      <article>
+        <span>Expansion Queue</span>
+        <strong>${escapeHtml((queues.expansionQueue || []).length)}</strong>
+        <p>Future metro projects.</p>
+      </article>
+      <article>
+        <span>Field Mode Queue</span>
+        <strong>${escapeHtml((queues.fieldModeQueue || []).length)}</strong>
+        <p>Photography summaries by metro.</p>
+      </article>
+      <article>
+        <span>Review Queue</span>
+        <strong>${escapeHtml((queues.reviewQueue || []).length)}</strong>
+        <p>Returned execution work.</p>
+      </article>
+    </section>
+  `;
+}
+
+function renderExpansionProject(project, token) {
+  return `
+    <article class="expansion-card">
+      <div class="expansion-card__top">
+        <div>
+          <h3>${escapeHtml(project.metroName)}</h3>
+          <span class="status-pill status--planning">${escapeHtml(project.statusLabel)}</span>
+        </div>
+        <div class="health-score">
+          <strong>${pct(project.investmentScore.score)}</strong>
+          <span>Investment Score</span>
+        </div>
+      </div>
+      ${progress(project.overallProgress, `${project.metroName} expansion progress`)}
+      <ol class="stage-list">
+        ${(project.stages || []).map((stage) => `<li class="stage stage--${escapeHtml(stage.status)}">${escapeHtml(stage.label)}</li>`).join("")}
+      </ol>
+      <div class="workstream-list" aria-label="${escapeHtml(project.metroName)} expansion workstreams">
+        ${(project.workstreams || []).map((stream) => `
+          <div class="workstream-row">
+            <span>${escapeHtml(stream.label)}</span>
+            <strong>${pct(stream.progress)}</strong>
+            ${progress(stream.progress, `${project.metroName} ${stream.label}`)}
+          </div>
+        `).join("")}
+      </div>
+      <p>${escapeHtml(project.nextAction)}</p>
+      <a href="${taskUrl(token, `expansion-queue:${project.metroId}`)}">Commence Work</a>
+    </article>
+  `;
+}
+
+function renderFieldModeCard(item, token) {
+  return `
+    <article class="field-mode-card">
+      <div>
+        <h3>${escapeHtml(item.metroName)}</h3>
+        <p>${escapeHtml(item.title)}</p>
+      </div>
+      <div class="health-score">
+        <strong>${pct(item.coverageScore)}</strong>
+        <span>Photography Coverage</span>
+      </div>
+      ${progress(item.coverageScore, item.title)}
+      <p><strong>Remaining Targets:</strong> ${escapeHtml(item.remainingTargets)}</p>
+      <a href="/admin/field-photos?${tokenParam(token)}">Open Field Mode</a>
+    </article>
+  `;
+}
+
+function renderReviewQueue(eos, token) {
+  const items = ((eos.portfolioQueues || {}).reviewQueue || []);
+  if (!items.length) {
+    return `
+      <section class="panel review-empty">
+        <h2>Review Queue</h2>
+        <p>No autonomous execution work has been returned for review yet. Future providers will move completed packets here before approval.</p>
+      </section>
+    `;
+  }
+  return `
+    <section class="queue-section">
+      <div class="section-heading"><div><h2>Review Queue</h2><p>Returned autonomous work waiting on editorial approval.</p></div></div>
+      <div class="work-queue">${items.map((item) => renderWorkItem(item, token)).join("")}</div>
+    </section>
+  `;
+}
+
+function renderHandoffSummary(eos) {
+  return `
+    <section class="handoff-summary">
+      ${(eos.executionHandoff || []).map((step) => `
+        <article>
+          <span>${escapeHtml(step.label)}</span>
+          <p>${escapeHtml(step.description)}</p>
+        </article>
+      `).join("")}
+    </section>
+  `;
+}
+
+function renderInventory(eos, token) {
+  const items = ((eos.portfolioQueues || {}).editorialQueue || []).slice(0, 100);
+  return `
+    <section class="queue-section">
+      <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to EOS</a>
+      <div class="section-heading">
+        <div>
+          <h2>Opportunity Inventory</h2>
+          <p>The complete editorial opportunity inventory remains available, but it is intentionally not the EOS homepage.</p>
+        </div>
+      </div>
+      <div class="work-queue">${items.map((item) => renderWorkItem(item, token)).join("")}</div>
     </section>
   `;
 }
 
 function renderOverview(eos, token) {
+  const queues = eos.portfolioQueues || {};
+  const todaysWork = queues.todaysRecommendedWork || [];
+  const inventory = queues.opportunityInventory || {};
+  const expansionProjects = eos.expansionProjects || [];
+  const fieldMode = (queues.fieldModeQueue || []).slice(0, 4);
   return `
     <section class="metrics" aria-label="EOS overview">
       ${renderMetric("Metros", eos.overview.metroCount, "Publisher-configured operating markets")}
       ${renderMetric("Average Health", pct(eos.overview.averageHealth), "EOS editorial health model")}
-      ${renderMetric("Need Attention", eos.overview.needsAttention, "Planning, research, or attention states")}
-      ${renderMetric("Open Work", eos.overview.openWorkItems, "Generated work items")}
-      ${renderMetric("Human Only", eos.overview.humanOnlyWorkItems, "Mostly Field Mode photography")}
+      ${renderMetric("Today's Work", eos.overview.activeWorkItems, "Recommended execution focus")}
+      ${renderMetric("Opportunity Inventory", inventory.total || 0, "Hidden from homepage by default")}
+      ${renderMetric("Expansion Projects", eos.overview.expansionProjects, "Future metros")}
+      ${renderMetric("Review Items", eos.overview.reviewItems, "Returned execution work")}
       ${renderMetric("Autonomous Candidates", eos.overview.autonomousCandidates, "Future automation-ready work")}
+    </section>
+
+    ${renderQueueSummary(eos)}
+    ${renderHandoffSummary(eos)}
+
+    <section class="queue-section">
+      <div class="section-heading">
+        <div>
+          <h2>Today's Recommended Work</h2>
+          <p>EOS highlights the next 5-10 editorial items instead of exposing the full opportunity inventory.</p>
+        </div>
+        <a href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Opportunities · View All</a>
+      </div>
+      <div class="work-queue">${todaysWork.map((item) => renderWorkItem(item, token)).join("")}</div>
     </section>
 
     <section class="section-heading section-heading--standalone">
@@ -221,12 +435,24 @@ function renderOverview(eos, token) {
     <section class="queue-section">
       <div class="section-heading">
         <div>
-          <h2>Priority Work Queue</h2>
-          <p>EOS turns measurable gaps into work items and identifies whether Publisher can eventually automate the work.</p>
+          <h2>Expansion Queue</h2>
+          <p>Future metros are managed as multi-stage projects with Investment Scores.</p>
         </div>
       </div>
-      <div class="work-queue">${eos.workQueue.slice(0, 12).map(renderWorkItem).join("")}</div>
+      <div class="expansion-grid">${expansionProjects.map((project) => renderExpansionProject(project, token)).join("")}</div>
     </section>
+
+    <section class="queue-section">
+      <div class="section-heading">
+        <div>
+          <h2>Field Mode Queue</h2>
+          <p>Photography work is summarized by metro and executed inside Field Mode.</p>
+        </div>
+      </div>
+      <div class="field-mode-grid">${fieldMode.map((item) => renderFieldModeCard(item, token)).join("")}</div>
+    </section>
+
+    ${renderReviewQueue(eos, token)}
   `;
 }
 
@@ -248,7 +474,15 @@ function renderSnapshotError(token) {
 </html>`;
 }
 
-function renderPage({ token, eos, selectedMetro }) {
+function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) {
+  const body = selectedTask
+    ? renderExecutionPacket(eos, selectedTask, token)
+    : selectedQueue === "inventory"
+      ? renderInventory(eos, token)
+      : selectedMetro
+        ? renderSelectedMetro(eos, selectedMetro, token)
+        : renderOverview(eos, token);
+
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -317,6 +551,7 @@ function renderPage({ token, eos, selectedMetro }) {
     .work-item__heading { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
     .work-item__heading h3 { margin-top: 7px; margin-bottom: 4px; font-size: 1.15rem; }
     .work-item__heading p { margin-bottom: 0; font-size: 0.9rem; }
+    .start-work { display: inline-flex; width: fit-content; min-height: 36px; align-items: center; margin-top: 12px; padding: 0 12px; border-radius: 9px; background: var(--blue); color: #fff; font-size: 0.85rem; font-weight: 900; }
     dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
     dl div { padding: 9px; border: 1px solid #e5edf7; border-radius: 10px; background: var(--soft); }
     dd { margin: 3px 0 0; color: var(--ink); font-weight: 850; }
@@ -329,11 +564,35 @@ function renderPage({ token, eos, selectedMetro }) {
     .signal-grid--detail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .detail-panel { padding: 14px; border: 1px solid #e5edf7; border-radius: 14px; background: var(--soft); }
     .detail-panel ul { margin-top: 0; padding-left: 18px; }
+    .queue-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 24px; }
+    .queue-summary article, .expansion-card, .field-mode-card, .execution-packet article, .handoff-summary article, .handoff-rail article { border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,0.94); padding: 16px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045); }
+    .queue-summary span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+    .queue-summary strong { display: block; margin: 7px 0 4px; font-size: 1.7rem; }
+    .queue-summary p, .field-mode-card p, .expansion-card p { margin-bottom: 0; font-size: 0.88rem; }
+    .expansion-grid, .field-mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .expansion-card, .field-mode-card { display: grid; gap: 12px; }
+    .expansion-card__top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .stage-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .stage { padding: 4px 7px; border-radius: 999px; background: #eef2f7; color: #64748b; font-size: 0.68rem; font-weight: 900; }
+    .stage--completed { background: #ccfbf1; color: #0f766e; }
+    .stage--active { background: #dbeafe; color: #1d4ed8; }
+    .workstream-list { display: grid; gap: 8px; }
+    .workstream-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; align-items: center; padding: 9px; border: 1px solid #e5edf7; border-radius: 12px; background: var(--soft); }
+    .workstream-row span { color: #334155; font-size: 0.82rem; font-weight: 850; }
+    .workstream-row strong { color: var(--muted); font-size: 0.78rem; }
+    .workstream-row .progress { grid-column: 1 / -1; height: 6px; }
+    .packet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+    .packet-grid--wide { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .handoff-summary, .handoff-rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 24px; }
+    .handoff-rail { margin: 14px 0 0; }
+    .handoff-summary span, .handoff-rail span { display: block; color: #334155; font-size: 0.82rem; font-weight: 900; }
+    .handoff-summary p, .handoff-rail p { margin: 6px 0 0; font-size: 0.84rem; }
+    code { padding: 2px 5px; border-radius: 6px; background: #eef2f7; color: #0f172a; font-size: 0.82rem; }
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl { grid-template-columns: 1fr; }
-      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading { flex-direction: column; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail { grid-template-columns: 1fr; }
+      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
     }
@@ -343,10 +602,10 @@ function renderPage({ token, eos, selectedMetro }) {
   <main>
     <header class="hero">
       <h1>Editorial Operating System</h1>
-      <p>EOS is Rofo's planning layer for commercial knowledge. It measures metro health, turns gaps into prioritized work, and shows which module should handle the next editorial decision.</p>
+      <p>EOS is Rofo's planner, prioritizer, and orchestrator for commercial knowledge. It separates active editorial work, expansion projects, Field Mode photography, and review.</p>
       ${renderNav(token)}
     </header>
-    ${selectedMetro ? renderSelectedMetro(eos, selectedMetro, token) : renderOverview(eos, token)}
+    ${body}
   </main>
 </body>
 </html>`;
@@ -372,5 +631,7 @@ export async function onRequestGet({ request, env }) {
     token,
     eos: eosAnalysis,
     selectedMetro: url.searchParams.get("metro") || "",
+    selectedTask: url.searchParams.get("task") || "",
+    selectedQueue: url.searchParams.get("queue") || "",
   }));
 }

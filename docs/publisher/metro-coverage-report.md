@@ -1,6 +1,6 @@
 # Rofo Publisher Metro Coverage Report
 
-Generated: 2026-07-22T15:01:54.023Z
+Generated: 2026-07-24T17:17:28.700Z
 Rules: publisher-rules-v1
 
 ## Overview
