@@ -72,6 +72,102 @@ function taskUrl(token, taskId) {
   return `/admin/eos?${tokenParam(token)}&task=${encodeURIComponent(taskId)}`;
 }
 
+function plainText(value) {
+  return String(value || "").replace(/\r\n/g, "\n").trim();
+}
+
+function listLines(items) {
+  const values = (items || []).filter(Boolean).map((item) => plainText(item)).filter(Boolean);
+  return values.length ? values.map((item) => `- ${item}`).join("\n") : "- None specified";
+}
+
+function architectureDocsForTask(task, packet) {
+  const docs = new Set([
+    "docs/product/rofo-master-plan.md",
+    "docs/editorial-operating-system.md",
+  ]);
+  const category = task.category || "";
+  const moduleId = task.suggestedModule && task.suggestedModule.id;
+  if (moduleId === "publisher" || category === "commercialEcosystem") {
+    docs.add("docs/rofo-publisher.md");
+    docs.add("docs/publisher-metro-expansion-planner.md");
+  }
+  if (moduleId === "compass" || category === "recommendationReadiness") {
+    docs.add("docs/rofo-compass.md");
+    docs.add("docs/recommendation-expansion-roadmap.md");
+  }
+  if (moduleId === "fieldMode" || category === "photography") docs.add("docs/field-mode.md");
+  if (moduleId === "knowledgeGraph" || category === "districtCoverage" || category === "comparisonGraph" || category === "internalLinking") {
+    docs.add("docs/location-knowledge-graph.md");
+  }
+  if (category === "buildingBriefs") {
+    docs.add("docs/building-page-standard.md");
+    docs.add("docs/industrial-flex-building-brief-standard.md");
+  }
+  if (category === "representativeBuildings") docs.add("docs/representative-building-intelligence.md");
+  if (category === "commercialEcosystem") docs.add("docs/commercial-ecosystem-data-model.md");
+  for (const file of packet.files || []) {
+    if (String(file).startsWith("docs/")) docs.add(file);
+  }
+  return Array.from(docs);
+}
+
+function codexPromptForTask(task, packet) {
+  const docs = architectureDocsForTask(task, packet);
+  const dependencies = packet.dependencies && packet.dependencies.length
+    ? `\nDependencies\n${listLines(packet.dependencies)}\n`
+    : "";
+  return plainText(`
+Read docs/product/rofo-master-plan.md and the relevant architecture documentation before making changes.
+
+Relevant architecture documentation
+${listLines(docs)}
+
+Task
+${plainText(task.title)}
+
+Objective
+${plainText(packet.objective)}
+
+Reason
+${listLines(packet.reason)}
+
+Current health
+${plainText(packet.currentHealth)}
+
+Relevant files
+${listLines(packet.files)}
+${dependencies}
+Acceptance criteria
+${listLines(packet.acceptanceCriteria)}
+
+Expected deliverables
+${listLines(packet.expectedDeliverables)}
+
+QA commands
+${listLines(packet.qaCommands)}
+
+Required review
+${packet.requiredReview ? "Yes" : "No"}
+
+Scope constraints
+- Inspect the current repository state, git status, and relevant diff before editing.
+- Verify this task remains valid against the current generated data before changing source files.
+- Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries.
+- Regenerate required snapshots when source data or generated analysis changes.
+- Do not broaden scope beyond this execution packet.
+- Do not begin persistent lifecycle state, review intake, or EOS v2.3 unless explicitly requested.
+- Preserve recommendation rankings, Search Profile behavior, Publisher scoring, public URLs, and unrelated public-page behavior unless this packet explicitly requires otherwise.
+- Keep changes additive and deterministic where possible.
+
+Final response
+- Summarize the implementation.
+- List files changed.
+- Report QA and build results.
+- Call out limitations or follow-up work.
+`);
+}
+
 function signalRow(signal) {
   return `
     <div class="signal-row">
@@ -166,6 +262,7 @@ function renderExecutionPacket(eos, taskId, token) {
   const task = allTasks.find((item) => item.id === taskId);
   if (!task || !task.executionPacket) return "";
   const packet = task.executionPacket;
+  const codexPrompt = codexPromptForTask(task, packet);
   return `
     <section class="panel execution-packet">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to EOS</a>
@@ -200,6 +297,21 @@ function renderExecutionPacket(eos, taskId, token) {
           </article>
         `).join("")}
       </div>
+      <section class="codex-handoff" aria-label="Codex prompt handoff">
+        <div class="codex-handoff__top">
+          <div>
+            <h3>Codex Prompt Handoff</h3>
+            <p>Copy a deterministic prompt generated from this execution packet. No execution is started from EOS.</p>
+          </div>
+          <button class="copy-prompt-button" type="button" data-copy-prompt>Copy Codex Prompt</button>
+        </div>
+        <p class="terminal-guidance">After copying, run <code>eoscodex</code> if you have that alias configured, or paste the prompt into the current Codex session.</p>
+        <details class="prompt-preview">
+          <summary>Prompt Preview</summary>
+          <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(codexPrompt)}</textarea>
+        </details>
+        <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
+      </section>
       <div class="packet-grid packet-grid--wide">
         <article>
           <h3>Files</h3>
@@ -587,16 +699,70 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .handoff-rail { margin: 14px 0 0; }
     .handoff-summary span, .handoff-rail span { display: block; color: #334155; font-size: 0.82rem; font-weight: 900; }
     .handoff-summary p, .handoff-rail p { margin: 6px 0 0; font-size: 0.84rem; }
+    .codex-handoff { margin: 16px 0; padding: 16px; border: 1px solid #bfdbfe; border-radius: 16px; background: #eff6ff; }
+    .codex-handoff__top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
+    .codex-handoff__top h3 { margin-bottom: 4px; }
+    .copy-prompt-button { min-height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-size: 0.88rem; font-weight: 900; cursor: pointer; white-space: nowrap; }
+    .copy-prompt-button:disabled { cursor: default; opacity: 0.72; }
+    .terminal-guidance { margin: 8px 0 12px; font-size: 0.88rem; }
+    .prompt-preview { border: 1px solid #dbeafe; border-radius: 12px; background: #fff; }
+    .prompt-preview summary { padding: 10px 12px; color: #1e3a8a; font-weight: 900; cursor: pointer; }
+    .prompt-preview__text { display: block; width: 100%; min-height: 360px; padding: 12px; border: 0; border-top: 1px solid #dbeafe; border-radius: 0 0 12px 12px; color: #0f172a; background: #fff; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
+    .copy-status { min-height: 1.3em; margin: 8px 0 0; color: #1e3a8a; font-size: 0.86rem; font-weight: 850; }
     code { padding: 2px 5px; border-radius: 6px; background: #eef2f7; color: #0f172a; font-size: 0.82rem; }
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
       .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail { grid-template-columns: 1fr; }
-      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top { flex-direction: column; }
+      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
+      .copy-prompt-button { width: 100%; }
     }
   </style>
+  <script>
+    function copyEosCodexPrompt(button) {
+      const section = button.closest(".codex-handoff");
+      const prompt = section && section.querySelector("[data-codex-prompt]");
+      const status = section && section.querySelector("[data-copy-status]");
+      if (!prompt || !status) return;
+      const setStatus = (message) => {
+        status.textContent = message;
+      };
+      const resetLabel = () => {
+        window.setTimeout(() => {
+          button.textContent = "Copy Codex Prompt";
+          button.disabled = false;
+        }, 1800);
+      };
+      button.disabled = true;
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        prompt.focus();
+        prompt.select();
+        setStatus("Clipboard access is unavailable. Select and copy the preview text manually.");
+        button.textContent = "Copy manually";
+        resetLabel();
+        return;
+      }
+      navigator.clipboard.writeText(prompt.value).then(() => {
+        button.textContent = "Copied";
+        setStatus("Copied");
+        resetLabel();
+      }).catch(() => {
+        prompt.focus();
+        prompt.select();
+        button.textContent = "Copy failed";
+        setStatus("Clipboard copy failed. Select and copy the preview text manually.");
+        resetLabel();
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-copy-prompt]");
+      if (!button) return;
+      copyEosCodexPrompt(button);
+    });
+  </script>
 </head>
 <body>
   <main>

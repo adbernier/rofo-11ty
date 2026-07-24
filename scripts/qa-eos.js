@@ -48,7 +48,7 @@ const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf
 
 if (!eos) process.exit();
 
-if (eos.eosVersion !== "editorial-operating-system-v2.2") {
+if (eos.eosVersion !== "editorial-operating-system-v2.2.1") {
   fail("EOS version is missing or invalid.");
 }
 
@@ -223,6 +223,32 @@ if (!adminSource.includes("executionHandoff") || !adminSource.includes("renderHa
 
 if (!adminSource.includes("workstream-list") || !adminSource.includes("project.workstreams")) {
   fail("/admin/eos must render expansion project workstreams.");
+}
+
+for (const promptSource of [
+  "codexPromptForTask",
+  "Copy Codex Prompt",
+  "Prompt Preview",
+  "docs/product/rofo-master-plan.md",
+  "Relevant architecture documentation",
+  "Current health",
+  "Relevant files",
+  "Acceptance criteria",
+  "Expected deliverables",
+  "QA commands",
+  "Required review",
+  "Scope constraints",
+  "Inspect the current repository state",
+  "Verify this task remains valid against the current generated data",
+  "Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries",
+  "Regenerate required snapshots",
+  "Do not broaden scope beyond this execution packet",
+  "After copying, run",
+  "navigator.clipboard.writeText",
+  "data-copy-prompt",
+  "data-codex-prompt",
+]) {
+  if (!adminSource.includes(promptSource)) fail(`/admin/eos Codex prompt handoff is missing: ${promptSource}`);
 }
 
 if (!adminSource.includes("Editorial Operating System")) {

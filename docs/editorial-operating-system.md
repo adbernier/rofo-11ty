@@ -164,6 +164,10 @@ Every executable task can be opened through Commence Work. EOS does not start Co
 - eligible execution providers
 - execution handoff
 
+EOS v2.2.1 adds Codex Prompt Handoff to each execution packet. The packet view generates a deterministic plain-text prompt from the structured packet data, shows it in an expandable Prompt Preview, and provides a Copy Codex Prompt action that uses the browser clipboard without an API call. The prompt tells the next Codex session to read `docs/product/rofo-master-plan.md`, inspect the current repository state, verify the task against current generated data, preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries, regenerate required snapshots, run QA, and avoid broadening scope beyond the packet.
+
+Direct Codex launching is intentionally deferred until Rofo has a supported browser-to-Codex handoff or a locally installed mechanism that can be documented and validated. The current handoff is copy-and-paste only: after copying, run a local alias such as `eoscodex` if configured, or paste the prompt into the current Codex session.
+
 The handoff is:
 
 ```text
