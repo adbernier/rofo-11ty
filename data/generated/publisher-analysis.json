@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-25T09:15:10-07:00",
-  "sourceCommit": "9b4e9e3a8bbb35253cb3f72c8b76177261d2e1d9",
+  "generatedAt": "2026-07-25T09:39:05-07:00",
+  "sourceCommit": "4386eb41dc987785a2a5fb0b9f4ac1e31e7d6dfc",
   "analysis": {
-    "generatedAt": "2026-07-25T09:15:10-07:00",
+    "generatedAt": "2026-07-25T09:39:05-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
@@ -24540,9 +24540,9 @@
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 10,
-                "secondaryDistricts": 7,
-                "recommendations": 10,
+                "districts": 9,
+                "secondaryDistricts": 8,
+                "recommendations": 9,
                 "representativeBuildings": 23,
                 "buildingBriefs": 1,
                 "subtypes": 9,
@@ -24559,7 +24559,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "10 primary districts and 7 secondary districts.",
+                "9 primary districts and 8 secondary districts.",
                 "23 Representative Buildings and 1 Building Briefs.",
                 "8 representative roles and 5 operational categories are covered."
               ],
@@ -24590,7 +24590,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 22,
+                "inheritedOnlyCount": 20,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
@@ -24615,6 +24615,9 @@
                   "collaboration",
                   "product_development",
                   "customer_showroom",
+                  "walk_in_retail",
+                  "walk_in_service",
+                  "food_preparation",
                   "research"
                 ],
                 "archetypeCoverage": [
@@ -24626,6 +24629,8 @@
                   "marketing_agency",
                   "creative_studio",
                   "startup",
+                  "wellness_practice",
+                  "physical_therapy_practice",
                   "research_company",
                   "biotech_company"
                 ],
@@ -24644,10 +24649,10 @@
                   "creative_environment",
                   "open_workspace",
                   "flexible_suite_sizes",
+                  "customer_parking",
                   "campus_environment",
                   "surface_parking",
-                  "suburban_access",
-                  "customer_parking"
+                  "suburban_access"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
@@ -24923,44 +24928,40 @@
               "readinessState": "partial",
               "readinessLabel": "Partial",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "partial",
                 "buildingBriefs": "strong",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "partial",
+                "activities": "strong",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
-                "secondaryDistricts": 12,
-                "recommendations": 0,
+                "districts": 1,
+                "secondaryDistricts": 11,
+                "recommendations": 1,
                 "representativeBuildings": 1,
                 "buildingBriefs": 1,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 2,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 1,
-                "operationalCategories": 2,
+                "operationalCategories": 1,
                 "operationalCharacteristics": 3,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Ecosystem appears only as a secondary district expression.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin.",
                 "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -24986,61 +24987,58 @@
                 "state": "thin",
                 "stateLabel": "Thin",
                 "buildingCount": 1,
-                "explicitCount": 0,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
-                  "neighborhood_service_retail"
+                  "showroom_retail_environment"
                 ],
                 "subtypesCovered": [
-                  "neighborhood_retail",
-                  "service_retail"
+                  "lifestyle_retail",
+                  "showroom_retail",
+                  "service_retail",
+                  "neighborhood_retail"
                 ],
                 "activityCoverage": [
+                  "customer_showroom",
                   "walk_in_service",
                   "walk_in_retail",
-                  "knowledge_work",
-                  "client_meetings",
-                  "collaboration",
-                  "administrative_operations"
+                  "food_preparation"
                 ],
                 "archetypeCoverage": [
-                  "professional_office",
-                  "law_firm",
-                  "accounting_firm",
-                  "consulting_firm",
-                  "startup",
-                  "marketing_agency",
                   "wellness_practice",
-                  "food_producer"
+                  "marketing_agency",
+                  "physical_therapy_practice",
+                  "food_producer",
+                  "training_center"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "showroom_frontage",
                   "street_visibility",
-                  "walk_in_customer_access",
-                  "customer_parking"
+                  "destination_customer_access"
                 ],
                 "operationalCategoriesCovered": [
-                  "market_presence",
-                  "parking_vehicles"
+                  "market_presence"
                 ],
                 "missingRoles": [
-                  "destination_retail_environment",
-                  "showroom_retail_environment"
+                  "neighborhood_service_retail",
+                  "destination_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
+                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "destination_retail_environment",
+                "highestPriorityMissingRole": "neighborhood_service_retail",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
                     "name": "100 Fillmore Place",
                     "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "district_inferred"
+                    "role": "showroom_retail_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -25538,84 +25536,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -25627,9 +25547,9 @@
               "readinessState": "partial",
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -25653,9 +25573,9 @@
               "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -25679,37 +25599,11 @@
               "readinessState": "partial",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_secondary_only",
-              "code": "ecosystem_secondary_only",
-              "label": "Ecosystem Secondary Only",
-              "severity": "low",
-              "layer": "districts",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Ecosystem appears only as secondary context.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -26092,9 +25986,9 @@
             "office": {
               "id": "office",
               "label": "Office",
-              "districtCount": 10,
-              "secondaryDistrictCount": 7,
-              "recommendationNodeCount": 10,
+              "districtCount": 9,
+              "secondaryDistrictCount": 8,
+              "recommendationNodeCount": 9,
               "representativeBuildingCount": 23,
               "buildingBriefCount": 1,
               "status": "Developed",
@@ -26118,11 +26012,6 @@
                   "slug": "rino",
                   "label": "RiNo",
                   "path": "/commercial-real-estate/CO/denver/rino/"
-                },
-                {
-                  "slug": "cherry-creek",
-                  "label": "Cherry Creek",
-                  "path": "/commercial-real-estate/CO/denver/cherry-creek/"
                 },
                 {
                   "slug": "denver-tech-center",
@@ -26151,9 +26040,9 @@
                 }
               ],
               "subtypes": {
-                "professional_office": 8,
-                "medical_office": 3,
-                "neighborhood_retail": 3,
+                "professional_office": 7,
+                "medical_office": 2,
+                "neighborhood_retail": 2,
                 "downtown_office": 1,
                 "executive_office": 1,
                 "creative_office": 1,
@@ -26162,11 +26051,11 @@
                 "research_development": 4
               },
               "archetypes": {
-                "professional_office": 7,
-                "law_firm": 8,
-                "accounting_firm": 7,
-                "consulting_firm": 8,
-                "startup": 9,
+                "professional_office": 6,
+                "law_firm": 7,
+                "accounting_firm": 6,
+                "consulting_firm": 7,
+                "startup": 8,
                 "financial_services_firm": 1,
                 "creative_studio": 1,
                 "marketing_agency": 1,
@@ -26174,10 +26063,10 @@
                 "biotech_company": 1
               },
               "activities": {
-                "knowledge_work": 10,
-                "client_meetings": 8,
-                "collaboration": 8,
-                "administrative_operations": 8,
+                "knowledge_work": 9,
+                "client_meetings": 7,
+                "collaboration": 7,
+                "administrative_operations": 7,
                 "customer_showroom": 1,
                 "research": 1,
                 "product_development": 1
@@ -26195,7 +26084,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 22,
+                "inheritedOnlyCount": 20,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 1,
@@ -26209,17 +26098,20 @@
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
-                  "executive_office": 4,
+                  "executive_office": 5,
                   "professional_office": 17,
                   "creative_office": 2
                 },
                 "activityCoverage": {
                   "knowledge_work": 23,
                   "client_meetings": 22,
-                  "administrative_operations": 20,
-                  "collaboration": 17,
+                  "administrative_operations": 19,
+                  "collaboration": 16,
                   "product_development": 4,
-                  "customer_showroom": 2,
+                  "customer_showroom": 4,
+                  "walk_in_retail": 2,
+                  "walk_in_service": 2,
+                  "food_preparation": 2,
                   "research": 2
                 },
                 "archetypeCoverage": {
@@ -26229,13 +26121,15 @@
                   "professional_office": 23,
                   "accounting_firm": 23,
                   "marketing_agency": 21,
-                  "creative_studio": 21,
-                  "startup": 23,
+                  "creative_studio": 19,
+                  "startup": 21,
+                  "wellness_practice": 2,
+                  "physical_therapy_practice": 2,
                   "research_company": 2,
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 11,
+                  "professional_image": 12,
                   "transit_access": 3,
                   "large_floorplates": 1,
                   "structured_parking": 1,
@@ -26245,20 +26139,20 @@
                   "walkability": 4,
                   "small_suite_sizes": 5,
                   "multi_tenant": 5,
-                  "neighborhood_access": 5,
+                  "neighborhood_access": 6,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
+                  "customer_parking": 5,
                   "campus_environment": 5,
                   "surface_parking": 5,
-                  "suburban_access": 5,
-                  "customer_parking": 4
+                  "suburban_access": 5
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 18,
-                  "location_workforce": 18,
+                  "market_presence": 19,
+                  "location_workforce": 19,
                   "configuration": 22,
-                  "parking_vehicles": 10,
+                  "parking_vehicles": 11,
                   "infrastructure": 4
                 },
                 "missingRoles": [],
@@ -26513,19 +26407,37 @@
             "retail": {
               "id": "retail",
               "label": "Retail",
-              "districtCount": 0,
-              "secondaryDistrictCount": 12,
-              "recommendationNodeCount": 0,
+              "districtCount": 1,
+              "secondaryDistrictCount": 11,
+              "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
               "buildingBriefCount": 1,
-              "status": "Partial",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "status": "Developed",
+              "districts": [
+                {
+                  "slug": "cherry-creek",
+                  "label": "Cherry Creek",
+                  "path": "/commercial-real-estate/CO/denver/cherry-creek/"
+                }
+              ],
+              "subtypes": {
+                "lifestyle_retail": 1,
+                "service_retail": 1,
+                "showroom_retail": 1,
+                "neighborhood_retail": 1
+              },
+              "archetypes": {
+                "wellness_practice": 1,
+                "physical_therapy_practice": 1
+              },
+              "activities": {
+                "walk_in_retail": 1,
+                "walk_in_service": 1,
+                "customer_showroom": 1,
+                "food_preparation": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "neighborhood_retail",
                 "downtown_retail",
                 "shopping_center",
                 "power_center"
@@ -26535,61 +26447,58 @@
                 "state": "thin",
                 "stateLabel": "Thin",
                 "buildingCount": 1,
-                "explicitCount": 0,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "neighborhood_service_retail": 1
+                  "showroom_retail_environment": 1
                 },
                 "subtypesCovered": {
-                  "neighborhood_retail": 1,
-                  "service_retail": 1
+                  "lifestyle_retail": 1,
+                  "showroom_retail": 1,
+                  "service_retail": 1,
+                  "neighborhood_retail": 1
                 },
                 "activityCoverage": {
+                  "customer_showroom": 1,
                   "walk_in_service": 1,
                   "walk_in_retail": 1,
-                  "knowledge_work": 1,
-                  "client_meetings": 1,
-                  "collaboration": 1,
-                  "administrative_operations": 1
+                  "food_preparation": 1
                 },
                 "archetypeCoverage": {
-                  "professional_office": 1,
-                  "law_firm": 1,
-                  "accounting_firm": 1,
-                  "consulting_firm": 1,
-                  "startup": 1,
-                  "marketing_agency": 1,
                   "wellness_practice": 1,
-                  "food_producer": 1
+                  "marketing_agency": 1,
+                  "physical_therapy_practice": 1,
+                  "food_producer": 1,
+                  "training_center": 1
                 },
                 "operationalCharacteristicsCovered": {
+                  "showroom_frontage": 1,
                   "street_visibility": 1,
-                  "walk_in_customer_access": 1,
-                  "customer_parking": 1
+                  "destination_customer_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 2,
-                  "parking_vehicles": 1
+                  "market_presence": 3
                 },
                 "missingRoles": [
-                  "destination_retail_environment",
-                  "showroom_retail_environment"
+                  "neighborhood_service_retail",
+                  "destination_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
+                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "destination_retail_environment",
+                "highestPriorityMissingRole": "neighborhood_service_retail",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
                     "name": "100 Fillmore Place",
                     "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "district_inferred"
+                    "role": "showroom_retail_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -26893,8 +26802,8 @@
             }
           },
           "subtypeCoverage": {
-            "professional_office": 15,
-            "medical_office": 8,
+            "professional_office": 14,
+            "medical_office": 7,
             "neighborhood_retail": 9,
             "downtown_office": 1,
             "executive_office": 1,
@@ -26905,14 +26814,17 @@
             "small_bay_industrial": 4,
             "warehouse": 2,
             "distribution": 2,
-            "manufacturing": 1
+            "manufacturing": 1,
+            "lifestyle_retail": 1,
+            "service_retail": 1,
+            "showroom_retail": 1
           },
           "activityCoverage": {
-            "knowledge_work": 10,
-            "client_meetings": 8,
-            "collaboration": 8,
-            "administrative_operations": 12,
-            "customer_showroom": 1,
+            "knowledge_work": 9,
+            "client_meetings": 7,
+            "collaboration": 7,
+            "administrative_operations": 11,
+            "customer_showroom": 2,
             "research": 1,
             "product_development": 1,
             "receiving": 5,
@@ -26920,15 +26832,17 @@
             "storage": 5,
             "service_dispatch": 5,
             "light_manufacturing": 5,
-            "healthcare_delivery": 4,
-            "walk_in_service": 4
+            "walk_in_retail": 1,
+            "walk_in_service": 5,
+            "food_preparation": 1,
+            "healthcare_delivery": 4
           },
           "archetypeCoverage": {
-            "professional_office": 7,
-            "law_firm": 8,
-            "accounting_firm": 7,
-            "consulting_firm": 8,
-            "startup": 9,
+            "professional_office": 6,
+            "law_firm": 7,
+            "accounting_firm": 6,
+            "consulting_firm": 7,
+            "startup": 8,
             "financial_services_firm": 1,
             "creative_studio": 1,
             "marketing_agency": 1,
@@ -26939,10 +26853,11 @@
             "light_manufacturer": 5,
             "distributor": 5,
             "ecommerce_fulfillment_business": 5,
+            "wellness_practice": 5,
+            "physical_therapy_practice": 1,
             "medical_practice": 4,
             "dental_practice": 4,
-            "outpatient_clinic": 4,
-            "wellness_practice": 4
+            "outpatient_clinic": 4
           },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
@@ -26957,40 +26872,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 3,
+            "developedCount": 4,
+            "partialCount": 2,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:retail:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:retail:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -27003,9 +26892,9 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27144,84 +27033,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_secondary_only",
-            "code": "ecosystem_secondary_only",
-            "label": "Ecosystem Secondary Only",
-            "severity": "low",
-            "layer": "districts",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Ecosystem appears only as secondary context.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:retail:operational_category_gap",
             "code": "operational_category_gap",
             "label": "Operational Category Gap",
@@ -27233,9 +27044,9 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27259,9 +27070,9 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27539,12 +27350,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Retail Ecosystem Subtype Expansion",
+          "title": "Denver Retail Ecosystem Representative Building Foundation",
           "ecosystemId": "retail",
           "ecosystemLabel": "Retail",
-          "sprintFamily": "Ecosystem Subtype Expansion",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "gapCode": "ecosystem_subtype_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -57312,9 +57123,9 @@
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 10,
-                "secondaryDistricts": 7,
-                "recommendations": 10,
+                "districts": 9,
+                "secondaryDistricts": 8,
+                "recommendations": 9,
                 "representativeBuildings": 23,
                 "buildingBriefs": 1,
                 "subtypes": 9,
@@ -57331,7 +57142,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "10 primary districts and 7 secondary districts.",
+                "9 primary districts and 8 secondary districts.",
                 "23 Representative Buildings and 1 Building Briefs.",
                 "8 representative roles and 5 operational categories are covered."
               ],
@@ -57362,7 +57173,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 22,
+                "inheritedOnlyCount": 20,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
@@ -57387,6 +57198,9 @@
                   "collaboration",
                   "product_development",
                   "customer_showroom",
+                  "walk_in_retail",
+                  "walk_in_service",
+                  "food_preparation",
                   "research"
                 ],
                 "archetypeCoverage": [
@@ -57398,6 +57212,8 @@
                   "marketing_agency",
                   "creative_studio",
                   "startup",
+                  "wellness_practice",
+                  "physical_therapy_practice",
                   "research_company",
                   "biotech_company"
                 ],
@@ -57416,10 +57232,10 @@
                   "creative_environment",
                   "open_workspace",
                   "flexible_suite_sizes",
+                  "customer_parking",
                   "campus_environment",
                   "surface_parking",
-                  "suburban_access",
-                  "customer_parking"
+                  "suburban_access"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
@@ -57695,44 +57511,40 @@
               "readinessState": "partial",
               "readinessLabel": "Partial",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "partial",
                 "buildingBriefs": "strong",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "partial",
+                "activities": "strong",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
-                "secondaryDistricts": 12,
-                "recommendations": 0,
+                "districts": 1,
+                "secondaryDistricts": 11,
+                "recommendations": 1,
                 "representativeBuildings": 1,
                 "buildingBriefs": 1,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 2,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 1,
-                "operationalCategories": 2,
+                "operationalCategories": 1,
                 "operationalCharacteristics": 3,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Ecosystem appears only as a secondary district expression.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin.",
                 "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -57758,61 +57570,58 @@
                 "state": "thin",
                 "stateLabel": "Thin",
                 "buildingCount": 1,
-                "explicitCount": 0,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
-                  "neighborhood_service_retail"
+                  "showroom_retail_environment"
                 ],
                 "subtypesCovered": [
-                  "neighborhood_retail",
-                  "service_retail"
+                  "lifestyle_retail",
+                  "showroom_retail",
+                  "service_retail",
+                  "neighborhood_retail"
                 ],
                 "activityCoverage": [
+                  "customer_showroom",
                   "walk_in_service",
                   "walk_in_retail",
-                  "knowledge_work",
-                  "client_meetings",
-                  "collaboration",
-                  "administrative_operations"
+                  "food_preparation"
                 ],
                 "archetypeCoverage": [
-                  "professional_office",
-                  "law_firm",
-                  "accounting_firm",
-                  "consulting_firm",
-                  "startup",
-                  "marketing_agency",
                   "wellness_practice",
-                  "food_producer"
+                  "marketing_agency",
+                  "physical_therapy_practice",
+                  "food_producer",
+                  "training_center"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "showroom_frontage",
                   "street_visibility",
-                  "walk_in_customer_access",
-                  "customer_parking"
+                  "destination_customer_access"
                 ],
                 "operationalCategoriesCovered": [
-                  "market_presence",
-                  "parking_vehicles"
+                  "market_presence"
                 ],
                 "missingRoles": [
-                  "destination_retail_environment",
-                  "showroom_retail_environment"
+                  "neighborhood_service_retail",
+                  "destination_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
+                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "destination_retail_environment",
+                "highestPriorityMissingRole": "neighborhood_service_retail",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
                     "name": "100 Fillmore Place",
                     "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "district_inferred"
+                    "role": "showroom_retail_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -58310,84 +58119,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -58399,9 +58130,9 @@
               "readinessState": "partial",
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -58425,9 +58156,9 @@
               "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -58451,37 +58182,11 @@
               "readinessState": "partial",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
-                "0 primary districts and 12 secondary districts.",
+                "1 primary districts and 11 secondary districts.",
                 "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "1 representative roles and 1 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:retail:ecosystem_secondary_only",
-              "code": "ecosystem_secondary_only",
-              "label": "Ecosystem Secondary Only",
-              "severity": "low",
-              "layer": "districts",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Ecosystem appears only as secondary context.",
-              "evidence": [
-                "0 primary districts and 12 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -58864,9 +58569,9 @@
             "office": {
               "id": "office",
               "label": "Office",
-              "districtCount": 10,
-              "secondaryDistrictCount": 7,
-              "recommendationNodeCount": 10,
+              "districtCount": 9,
+              "secondaryDistrictCount": 8,
+              "recommendationNodeCount": 9,
               "representativeBuildingCount": 23,
               "buildingBriefCount": 1,
               "status": "Developed",
@@ -58890,11 +58595,6 @@
                   "slug": "rino",
                   "label": "RiNo",
                   "path": "/commercial-real-estate/CO/denver/rino/"
-                },
-                {
-                  "slug": "cherry-creek",
-                  "label": "Cherry Creek",
-                  "path": "/commercial-real-estate/CO/denver/cherry-creek/"
                 },
                 {
                   "slug": "denver-tech-center",
@@ -58923,9 +58623,9 @@
                 }
               ],
               "subtypes": {
-                "professional_office": 8,
-                "medical_office": 3,
-                "neighborhood_retail": 3,
+                "professional_office": 7,
+                "medical_office": 2,
+                "neighborhood_retail": 2,
                 "downtown_office": 1,
                 "executive_office": 1,
                 "creative_office": 1,
@@ -58934,11 +58634,11 @@
                 "research_development": 4
               },
               "archetypes": {
-                "professional_office": 7,
-                "law_firm": 8,
-                "accounting_firm": 7,
-                "consulting_firm": 8,
-                "startup": 9,
+                "professional_office": 6,
+                "law_firm": 7,
+                "accounting_firm": 6,
+                "consulting_firm": 7,
+                "startup": 8,
                 "financial_services_firm": 1,
                 "creative_studio": 1,
                 "marketing_agency": 1,
@@ -58946,10 +58646,10 @@
                 "biotech_company": 1
               },
               "activities": {
-                "knowledge_work": 10,
-                "client_meetings": 8,
-                "collaboration": 8,
-                "administrative_operations": 8,
+                "knowledge_work": 9,
+                "client_meetings": 7,
+                "collaboration": 7,
+                "administrative_operations": 7,
                 "customer_showroom": 1,
                 "research": 1,
                 "product_development": 1
@@ -58967,7 +58667,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 22,
+                "inheritedOnlyCount": 20,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 1,
@@ -58981,17 +58681,20 @@
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
-                  "executive_office": 4,
+                  "executive_office": 5,
                   "professional_office": 17,
                   "creative_office": 2
                 },
                 "activityCoverage": {
                   "knowledge_work": 23,
                   "client_meetings": 22,
-                  "administrative_operations": 20,
-                  "collaboration": 17,
+                  "administrative_operations": 19,
+                  "collaboration": 16,
                   "product_development": 4,
-                  "customer_showroom": 2,
+                  "customer_showroom": 4,
+                  "walk_in_retail": 2,
+                  "walk_in_service": 2,
+                  "food_preparation": 2,
                   "research": 2
                 },
                 "archetypeCoverage": {
@@ -59001,13 +58704,15 @@
                   "professional_office": 23,
                   "accounting_firm": 23,
                   "marketing_agency": 21,
-                  "creative_studio": 21,
-                  "startup": 23,
+                  "creative_studio": 19,
+                  "startup": 21,
+                  "wellness_practice": 2,
+                  "physical_therapy_practice": 2,
                   "research_company": 2,
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 11,
+                  "professional_image": 12,
                   "transit_access": 3,
                   "large_floorplates": 1,
                   "structured_parking": 1,
@@ -59017,20 +58722,20 @@
                   "walkability": 4,
                   "small_suite_sizes": 5,
                   "multi_tenant": 5,
-                  "neighborhood_access": 5,
+                  "neighborhood_access": 6,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
+                  "customer_parking": 5,
                   "campus_environment": 5,
                   "surface_parking": 5,
-                  "suburban_access": 5,
-                  "customer_parking": 4
+                  "suburban_access": 5
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 18,
-                  "location_workforce": 18,
+                  "market_presence": 19,
+                  "location_workforce": 19,
                   "configuration": 22,
-                  "parking_vehicles": 10,
+                  "parking_vehicles": 11,
                   "infrastructure": 4
                 },
                 "missingRoles": [],
@@ -59285,19 +58990,37 @@
             "retail": {
               "id": "retail",
               "label": "Retail",
-              "districtCount": 0,
-              "secondaryDistrictCount": 12,
-              "recommendationNodeCount": 0,
+              "districtCount": 1,
+              "secondaryDistrictCount": 11,
+              "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
               "buildingBriefCount": 1,
-              "status": "Partial",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "status": "Developed",
+              "districts": [
+                {
+                  "slug": "cherry-creek",
+                  "label": "Cherry Creek",
+                  "path": "/commercial-real-estate/CO/denver/cherry-creek/"
+                }
+              ],
+              "subtypes": {
+                "lifestyle_retail": 1,
+                "service_retail": 1,
+                "showroom_retail": 1,
+                "neighborhood_retail": 1
+              },
+              "archetypes": {
+                "wellness_practice": 1,
+                "physical_therapy_practice": 1
+              },
+              "activities": {
+                "walk_in_retail": 1,
+                "walk_in_service": 1,
+                "customer_showroom": 1,
+                "food_preparation": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "neighborhood_retail",
                 "downtown_retail",
                 "shopping_center",
                 "power_center"
@@ -59307,61 +59030,58 @@
                 "state": "thin",
                 "stateLabel": "Thin",
                 "buildingCount": 1,
-                "explicitCount": 0,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "neighborhood_service_retail": 1
+                  "showroom_retail_environment": 1
                 },
                 "subtypesCovered": {
-                  "neighborhood_retail": 1,
-                  "service_retail": 1
+                  "lifestyle_retail": 1,
+                  "showroom_retail": 1,
+                  "service_retail": 1,
+                  "neighborhood_retail": 1
                 },
                 "activityCoverage": {
+                  "customer_showroom": 1,
                   "walk_in_service": 1,
                   "walk_in_retail": 1,
-                  "knowledge_work": 1,
-                  "client_meetings": 1,
-                  "collaboration": 1,
-                  "administrative_operations": 1
+                  "food_preparation": 1
                 },
                 "archetypeCoverage": {
-                  "professional_office": 1,
-                  "law_firm": 1,
-                  "accounting_firm": 1,
-                  "consulting_firm": 1,
-                  "startup": 1,
-                  "marketing_agency": 1,
                   "wellness_practice": 1,
-                  "food_producer": 1
+                  "marketing_agency": 1,
+                  "physical_therapy_practice": 1,
+                  "food_producer": 1,
+                  "training_center": 1
                 },
                 "operationalCharacteristicsCovered": {
+                  "showroom_frontage": 1,
                   "street_visibility": 1,
-                  "walk_in_customer_access": 1,
-                  "customer_parking": 1
+                  "destination_customer_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 2,
-                  "parking_vehicles": 1
+                  "market_presence": 3
                 },
                 "missingRoles": [
-                  "destination_retail_environment",
-                  "showroom_retail_environment"
+                  "neighborhood_service_retail",
+                  "destination_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
+                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "destination_retail_environment",
+                "highestPriorityMissingRole": "neighborhood_service_retail",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
                     "name": "100 Fillmore Place",
                     "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "district_inferred"
+                    "role": "showroom_retail_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -59665,8 +59385,8 @@
             }
           },
           "subtypeCoverage": {
-            "professional_office": 15,
-            "medical_office": 8,
+            "professional_office": 14,
+            "medical_office": 7,
             "neighborhood_retail": 9,
             "downtown_office": 1,
             "executive_office": 1,
@@ -59677,14 +59397,17 @@
             "small_bay_industrial": 4,
             "warehouse": 2,
             "distribution": 2,
-            "manufacturing": 1
+            "manufacturing": 1,
+            "lifestyle_retail": 1,
+            "service_retail": 1,
+            "showroom_retail": 1
           },
           "activityCoverage": {
-            "knowledge_work": 10,
-            "client_meetings": 8,
-            "collaboration": 8,
-            "administrative_operations": 12,
-            "customer_showroom": 1,
+            "knowledge_work": 9,
+            "client_meetings": 7,
+            "collaboration": 7,
+            "administrative_operations": 11,
+            "customer_showroom": 2,
             "research": 1,
             "product_development": 1,
             "receiving": 5,
@@ -59692,15 +59415,17 @@
             "storage": 5,
             "service_dispatch": 5,
             "light_manufacturing": 5,
-            "healthcare_delivery": 4,
-            "walk_in_service": 4
+            "walk_in_retail": 1,
+            "walk_in_service": 5,
+            "food_preparation": 1,
+            "healthcare_delivery": 4
           },
           "archetypeCoverage": {
-            "professional_office": 7,
-            "law_firm": 8,
-            "accounting_firm": 7,
-            "consulting_firm": 8,
-            "startup": 9,
+            "professional_office": 6,
+            "law_firm": 7,
+            "accounting_firm": 6,
+            "consulting_firm": 7,
+            "startup": 8,
             "financial_services_firm": 1,
             "creative_studio": 1,
             "marketing_agency": 1,
@@ -59711,10 +59436,11 @@
             "light_manufacturer": 5,
             "distributor": 5,
             "ecommerce_fulfillment_business": 5,
+            "wellness_practice": 5,
+            "physical_therapy_practice": 1,
             "medical_practice": 4,
             "dental_practice": 4,
-            "outpatient_clinic": 4,
-            "wellness_practice": 4
+            "outpatient_clinic": 4
           },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
@@ -59729,40 +59455,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 3,
+            "developedCount": 4,
+            "partialCount": 2,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:retail:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:retail:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -59775,9 +59475,9 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -59916,84 +59616,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_secondary_only",
-            "code": "ecosystem_secondary_only",
-            "label": "Ecosystem Secondary Only",
-            "severity": "low",
-            "layer": "districts",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Ecosystem appears only as secondary context.",
-            "evidence": [
-              "0 primary districts and 12 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:retail:operational_category_gap",
             "code": "operational_category_gap",
             "label": "Operational Category Gap",
@@ -60005,9 +59627,9 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60031,9 +59653,9 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 12 secondary districts.",
+              "1 primary districts and 11 secondary districts.",
               "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "1 representative roles and 1 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60311,12 +59933,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Retail Ecosystem Subtype Expansion",
+          "title": "Denver Retail Ecosystem Representative Building Foundation",
           "ecosystemId": "retail",
           "ecosystemLabel": "Retail",
-          "sprintFamily": "Ecosystem Subtype Expansion",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "gapCode": "ecosystem_subtype_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
