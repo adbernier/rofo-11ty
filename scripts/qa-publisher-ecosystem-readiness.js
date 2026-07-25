@@ -10,7 +10,7 @@ const EXPECTED_SCORES = {
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
-  denver: { overall: 91, status: "Expansion Ready" },
+  denver: { overall: 94, status: "Distribution Ready" },
   seattle: { overall: 19, status: "In Development" },
 };
 
@@ -163,8 +163,16 @@ if (sanFrancisco) {
 const denver = metroById("denver");
 if (denver) {
   const industrial = evaluationFor(denver, "industrial_flex");
+  const office = evaluationFor(denver, "office");
+  const retail = evaluationFor(denver, "retail");
+  const medical = evaluationFor(denver, "medical");
   requireField(industrial && industrial.readinessState === "strong", `Denver: expected industrial/flex readiness strong after Building Brief migration, got ${industrial && industrial.readinessState}`);
   requireField(industrial && industrial.layers && industrial.layers.buildingBriefs === "developed", `Denver: expected developed industrial/flex Building Brief depth, got ${industrial && industrial.layers && industrial.layers.buildingBriefs}`);
+  requireField(denver.ecosystemBalance && denver.ecosystemBalance.state === "balanced", `Denver: expected balanced ecosystem state after balance sprint, got ${denver.ecosystemBalance && denver.ecosystemBalance.state}`);
+  requireField(!((denver.ecosystemBalance || {}).warnings || []).some((warning) => /Industrial & Flex Building Brief depth may mask gaps/i.test(warning)), "Denver: industrial/flex brief concentration warning should be closed after balance sprint");
+  requireField(office && office.counts && office.counts.buildingBriefs >= 1, "Denver: office Building Brief depth should be visible after balance sprint");
+  requireField(retail && retail.counts && retail.counts.buildingBriefs >= 1, "Denver: retail Building Brief depth should be visible after balance sprint");
+  requireField(medical && medical.counts && medical.counts.buildingBriefs >= 1, "Denver: medical Building Brief depth should be visible after balance sprint");
 }
 
 const seattle = metroById("seattle");

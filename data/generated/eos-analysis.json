@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T16:09:47-07:00",
+  "generatedAt": "2026-07-24T17:21:48-07:00",
   "eosVersion": "editorial-operating-system-v2.2.2",
   "sourceSystems": [
     "Publisher",
@@ -254,7 +254,7 @@
   },
   "overview": {
     "metroCount": 6,
-    "averageHealth": 61,
+    "averageHealth": 62,
     "needsAttention": 1,
     "activeWorkItems": 8,
     "opportunityInventory": 329,
@@ -263,8 +263,8 @@
     "fieldModeMetros": 6,
     "openWorkItems": 329,
     "humanOnlyWorkItems": 6,
-    "autonomousCandidates": 74,
-    "topWorkItem": "Denver Industrial & Flex Ecosystem Balance Sprint"
+    "autonomousCandidates": 77,
+    "topWorkItem": "Denver Industrial & Flex Ecosystem Representative Building Foundation"
   },
   "metros": [
     {
@@ -1225,7 +1225,7 @@
         "label": "Improving"
       },
       "overallEditorialHealth": {
-        "score": 72,
+        "score": 74,
         "state": {
           "id": "improving",
           "label": "Improving"
@@ -1233,7 +1233,7 @@
         "label": "Improving",
         "rationale": [
           "Representative Building Coverage: 42 representative building relationships; v1 target is 3 per covered district.",
-          "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Medical is Partial. Building Brief coverage is concentrated in Industrial & Flex.",
+          "Commercial Ecosystem Coverage: Office, Industrial & Flex, Medical coverage is strong or developed. Retail is Partial.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "Handbook Coverage: Initial proxy based on Building Brief depth and public city foundation."
         ]
@@ -1250,16 +1250,16 @@
       "publisherConfidence": {
         "id": "publisherConfidence",
         "label": "Publisher Confidence",
-        "score": 91,
+        "score": 94,
         "state": {
           "id": "ready",
           "label": "Ready"
         },
-        "note": "Expansion Ready",
+        "note": "Distribution Ready",
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 56,
+        "score": 63,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -1273,15 +1273,12 @@
         ],
         "blockingEcosystems": [],
         "balance": {
-          "state": "industrial_flex_brief_concentrated",
-          "label": "Industrial Flex Brief Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.57,
-          "buildingBriefShare": 1,
-          "warnings": [
-            "Building Brief coverage is concentrated in Industrial & Flex.",
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
-          ]
+          "representativeBuildingShare": 0.55,
+          "buildingBriefShare": 0.5,
+          "warnings": []
         }
       },
       "recommendationCoverage": {
@@ -1320,12 +1317,12 @@
       "editorialCoverage": {
         "id": "editorialDepth",
         "label": "Editorial Coverage",
-        "score": 74,
+        "score": 84,
         "state": {
           "id": "improving",
           "label": "Improving"
         },
-        "note": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
+        "note": "19 of 19 districts have substantive descriptions; 42 representative buildings and 6 Building Briefs are available.",
         "source": "publisher"
       },
       "internalLinking": {
@@ -1376,12 +1373,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 56,
+          "score": 63,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
-          "note": "Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Medical is Partial. Building Brief coverage is concentrated in Industrial & Flex.",
+          "note": "Office, Industrial & Flex, Medical coverage is strong or developed. Retail is Partial.",
           "source": "publisher"
         },
         "photography": {
@@ -1409,12 +1406,12 @@
         "editorialDepth": {
           "id": "editorialDepth",
           "label": "Editorial Coverage",
-          "score": 74,
+          "score": 84,
           "state": {
             "id": "improving",
             "label": "Improving"
           },
-          "note": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
+          "note": "19 of 19 districts have substantive descriptions; 42 representative buildings and 6 Building Briefs are available.",
           "source": "publisher"
         },
         "internalLinks": {
@@ -1443,17 +1440,17 @@
       "counts": {
         "districts": 19,
         "representativeBuildings": 42,
-        "buildingBriefs": 3,
+        "buildingBriefs": 6,
         "queueItems": 50
       },
       "examples": [
         "100 Fillmore Place",
         "Denver Building Brief Migration Sprint",
-        "Denver Industrial & Flex Ecosystem Balance Sprint"
+        "Denver Industrial & Flex Ecosystem Representative Building Foundation"
       ],
       "source": {
-        "publisherStatus": "Expansion Ready",
-        "publisherScore": 91,
+        "publisherStatus": "Distribution Ready",
+        "publisherScore": 94,
         "cityPath": "/commercial-real-estate/CO/denver/"
       }
     },
@@ -2157,7 +2154,7 @@
         "id": "ecosystem:denver:industrial_flex",
         "metroId": "denver",
         "metroName": "Denver",
-        "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
+        "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
         "itemName": "Industrial & Flex",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -2191,9 +2188,9 @@
           "label": "Publisher"
         },
         "why": [
-          "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "Representative role coverage is too narrow for this ecosystem.",
           "Ecosystem readiness: Partial",
-          "Commercial balance: Industrial Flex Brief Concentrated"
+          "Commercial balance: Balanced"
         ],
         "source": {
           "system": "Publisher",
@@ -2201,13 +2198,13 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "Denver Industrial & Flex Ecosystem Balance Sprint",
+          "objective": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
           "reason": [
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+            "Representative role coverage is too narrow for this ecosystem.",
             "Ecosystem readiness: Partial",
-            "Commercial balance: Industrial Flex Brief Concentrated"
+            "Commercial balance: Balanced"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -3153,7 +3150,7 @@
         "id": "ecosystem:denver:industrial_flex",
         "metroId": "denver",
         "metroName": "Denver",
-        "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
+        "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
         "itemName": "Industrial & Flex",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -3187,9 +3184,9 @@
           "label": "Publisher"
         },
         "why": [
-          "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "Representative role coverage is too narrow for this ecosystem.",
           "Ecosystem readiness: Partial",
-          "Commercial balance: Industrial Flex Brief Concentrated"
+          "Commercial balance: Balanced"
         ],
         "source": {
           "system": "Publisher",
@@ -3197,13 +3194,13 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "Denver Industrial & Flex Ecosystem Balance Sprint",
+          "objective": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
           "reason": [
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+            "Representative role coverage is too narrow for this ecosystem.",
             "Ecosystem readiness: Partial",
-            "Commercial balance: Industrial Flex Brief Concentrated"
+            "Commercial balance: Balanced"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -4431,7 +4428,7 @@
             "Handbook coverage is below the EOS target.",
             "Market pages should connect durable commercial guidance to the user decision journey."
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/denver/",
             "_data/commercialLeasingHandbook.js",
@@ -4868,126 +4865,6 @@
         }
       },
       {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "100 Fillmore Place",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "72% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
         "metroId": "denver",
         "metroName": "Denver",
@@ -5039,7 +4916,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
             "_data/buildingPages.js",
@@ -5159,7 +5036,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/englewood/109-inverness-dr-e/",
             "_data/buildingPages.js",
@@ -5279,129 +5156,9 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "1200 17th St",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "72% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/denver/1200-17th-st/",
             "_data/buildingPages.js",
             "_data/commercialBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
@@ -5519,7 +5276,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
             "_data/buildingPages.js",
@@ -5639,7 +5396,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/centennial/15152-e-fremont-dr/",
             "_data/buildingPages.js",
@@ -5759,7 +5516,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
             "_data/buildingPages.js",
@@ -5879,7 +5636,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
             "_data/buildingPages.js",
@@ -5999,7 +5756,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/1600-broadway/",
             "_data/buildingPages.js",
@@ -6119,7 +5876,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/1615-platte-st/",
             "_data/buildingPages.js",
@@ -6239,7 +5996,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
             "_data/buildingPages.js",
@@ -6359,7 +6116,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
             "_data/buildingPages.js",
@@ -6479,7 +6236,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/205-detroit-st/",
             "_data/buildingPages.js",
@@ -6599,7 +6356,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/",
             "_data/buildingPages.js",
@@ -6719,7 +6476,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
             "_data/buildingPages.js",
@@ -6839,129 +6596,9 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "3401 Quebec St",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "72% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
             "_data/buildingPages.js",
             "_data/commercialBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
@@ -7079,7 +6716,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
             "_data/buildingPages.js",
@@ -7199,7 +6836,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
             "_data/buildingPages.js",
@@ -7319,7 +6956,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/4643-s-ulster-st/",
             "_data/buildingPages.js",
@@ -7439,7 +7076,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/4665-paris-st/",
             "_data/buildingPages.js",
@@ -7559,7 +7196,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/471-kalamath-st/",
             "_data/buildingPages.js",
@@ -7679,7 +7316,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/louisville/699-ctc-blvd/",
             "_data/buildingPages.js",
@@ -7799,7 +7436,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/centennial/9100-e-panorama-dr/",
             "_data/buildingPages.js",
@@ -7919,7 +7556,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/boulder/4770-baseline-rd/",
             "_data/buildingPages.js",
@@ -8039,7 +7676,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/englewood/6300-s-syracuse-way/",
             "_data/buildingPages.js",
@@ -8159,7 +7796,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
             "_data/buildingPages.js",
@@ -8279,7 +7916,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
             "_data/buildingPages.js",
@@ -8399,7 +8036,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/999-18th-st/",
             "_data/buildingPages.js",
@@ -8519,7 +8156,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/7900-e-union-ave/",
             "_data/buildingPages.js",
@@ -8639,7 +8276,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/4600-s-syracuse-st/",
             "_data/buildingPages.js",
@@ -8759,7 +8396,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
             "_data/buildingPages.js",
@@ -8879,7 +8516,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
             "_data/buildingPages.js",
@@ -8999,7 +8636,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
             "_data/buildingPages.js",
@@ -9119,7 +8756,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
             "_data/buildingPages.js",
@@ -9239,7 +8876,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/2301-blake-st/",
             "_data/buildingPages.js",
@@ -9359,7 +8996,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/denver/250-fillmore-st/",
             "_data/buildingPages.js",
@@ -9479,7 +9116,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/building/CO/englewood/8310-s-valley-hwy/",
             "_data/buildingPages.js",
@@ -9510,6 +9147,366 @@
             "id": "review_required",
             "label": "Review Required",
             "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+        "metroId": "denver",
+        "metroName": "Denver",
+        "title": "Complete the missing editorial fields.",
+        "itemName": "100 Fillmore Place",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+          "adminUrl": "",
+          "expansionPlan": "Denver Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Complete the missing editorial fields.",
+          "reason": [
+            "Building Brief is missing: nearbyDistricts.",
+            "Task type: incomplete Building Brief",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "74% Improving",
+          "files": [
+            "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "autonomous",
+            "label": "Autonomous",
+            "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+        "metroId": "denver",
+        "metroName": "Denver",
+        "title": "Complete the missing editorial fields.",
+        "itemName": "1200 17th St",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
+          "adminUrl": "",
+          "expansionPlan": "Denver Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Complete the missing editorial fields.",
+          "reason": [
+            "Building Brief is missing: nearbyDistricts.",
+            "Task type: incomplete Building Brief",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "74% Improving",
+          "files": [
+            "/commercial-real-estate/building/CO/denver/1200-17th-st/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "autonomous",
+            "label": "Autonomous",
+            "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+        "metroId": "denver",
+        "metroName": "Denver",
+        "title": "Complete the missing editorial fields.",
+        "itemName": "3401 Quebec St",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
+          "adminUrl": "",
+          "expansionPlan": "Denver Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Complete the missing editorial fields.",
+          "reason": [
+            "Building Brief is missing: nearbyDistricts.",
+            "Task type: incomplete Building Brief",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "74% Improving",
+          "files": [
+            "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "autonomous",
+            "label": "Autonomous",
+            "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
           },
           "providers": [
             {
@@ -9599,7 +9596,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CA/glendale/glendale/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -9714,7 +9711,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/golden/golden/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -9829,7 +9826,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/broomfield/interlocken/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -9944,7 +9941,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/westminster/westminster/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -37363,7 +37360,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/denver/central-park/",
             "_data/locationKnowledgeGraph.js",
@@ -37483,7 +37480,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CA/glendale/glendale/",
             "_data/locationKnowledgeGraph.js",
@@ -37603,7 +37600,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/golden/golden/",
             "_data/locationKnowledgeGraph.js",
@@ -37723,7 +37720,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/golden/golden/",
             "_data/locationKnowledgeGraph.js",
@@ -37843,7 +37840,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/lakewood/lakewood/",
             "_data/locationKnowledgeGraph.js",
@@ -37963,7 +37960,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
             "_data/locationKnowledgeGraph.js",
@@ -38083,7 +38080,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "72% Improving",
+          "currentHealth": "74% Improving",
           "files": [
             "/commercial-real-estate/CO/westminster/westminster/",
             "_data/locationKnowledgeGraph.js",
@@ -43239,7 +43236,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/denver/",
           "functions/admin/field-photos.js",
@@ -43784,7 +43781,7 @@
       "id": "ecosystem:denver:industrial_flex",
       "metroId": "denver",
       "metroName": "Denver",
-      "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
+      "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
       "itemName": "Industrial & Flex",
       "priorityScore": 78,
       "priorityStars": 4,
@@ -43818,9 +43815,9 @@
         "label": "Publisher"
       },
       "why": [
-        "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+        "Representative role coverage is too narrow for this ecosystem.",
         "Ecosystem readiness: Partial",
-        "Commercial balance: Industrial Flex Brief Concentrated"
+        "Commercial balance: Balanced"
       ],
       "source": {
         "system": "Publisher",
@@ -43828,13 +43825,13 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "Denver Industrial & Flex Ecosystem Balance Sprint",
+        "objective": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
         "reason": [
-          "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "Representative role coverage is too narrow for this ecosystem.",
           "Ecosystem readiness: Partial",
-          "Commercial balance: Industrial Flex Brief Concentrated"
+          "Commercial balance: Balanced"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -45062,7 +45059,7 @@
           "Handbook coverage is below the EOS target.",
           "Market pages should connect durable commercial guidance to the user decision journey."
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/denver/",
           "_data/commercialLeasingHandbook.js",
@@ -45618,126 +45615,6 @@
       }
     },
     {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "100 Fillmore Place",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "72% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
       "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
       "metroId": "denver",
       "metroName": "Denver",
@@ -45789,7 +45666,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
           "_data/buildingPages.js",
@@ -45909,7 +45786,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/englewood/109-inverness-dr-e/",
           "_data/buildingPages.js",
@@ -46029,129 +45906,9 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "1200 17th St",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "72% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/denver/1200-17th-st/",
           "_data/buildingPages.js",
           "_data/commercialBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",
@@ -46269,7 +46026,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
           "_data/buildingPages.js",
@@ -46389,7 +46146,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/centennial/15152-e-fremont-dr/",
           "_data/buildingPages.js",
@@ -46509,7 +46266,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
           "_data/buildingPages.js",
@@ -46629,7 +46386,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
           "_data/buildingPages.js",
@@ -46749,7 +46506,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/1600-broadway/",
           "_data/buildingPages.js",
@@ -46869,7 +46626,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/1615-platte-st/",
           "_data/buildingPages.js",
@@ -46989,7 +46746,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
           "_data/buildingPages.js",
@@ -47109,7 +46866,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
           "_data/buildingPages.js",
@@ -47229,7 +46986,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/205-detroit-st/",
           "_data/buildingPages.js",
@@ -47349,7 +47106,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/",
           "_data/buildingPages.js",
@@ -47469,7 +47226,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
           "_data/buildingPages.js",
@@ -47589,129 +47346,9 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "3401 Quebec St",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "72% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
           "_data/buildingPages.js",
           "_data/commercialBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",
@@ -47829,7 +47466,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
           "_data/buildingPages.js",
@@ -47949,7 +47586,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/englewood/365-inverness-pkwy/",
           "_data/buildingPages.js",
@@ -48069,7 +47706,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/4643-s-ulster-st/",
           "_data/buildingPages.js",
@@ -48189,7 +47826,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/4665-paris-st/",
           "_data/buildingPages.js",
@@ -48309,7 +47946,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/471-kalamath-st/",
           "_data/buildingPages.js",
@@ -48429,7 +48066,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/louisville/699-ctc-blvd/",
           "_data/buildingPages.js",
@@ -48549,7 +48186,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/centennial/9100-e-panorama-dr/",
           "_data/buildingPages.js",
@@ -48669,7 +48306,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/boulder/4770-baseline-rd/",
           "_data/buildingPages.js",
@@ -48789,7 +48426,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/englewood/6300-s-syracuse-way/",
           "_data/buildingPages.js",
@@ -48909,7 +48546,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
           "_data/buildingPages.js",
@@ -49029,7 +48666,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
           "_data/buildingPages.js",
@@ -49149,7 +48786,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/999-18th-st/",
           "_data/buildingPages.js",
@@ -49269,7 +48906,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/7900-e-union-ave/",
           "_data/buildingPages.js",
@@ -49389,7 +49026,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/4600-s-syracuse-st/",
           "_data/buildingPages.js",
@@ -49509,7 +49146,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
           "_data/buildingPages.js",
@@ -49629,7 +49266,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
           "_data/buildingPages.js",
@@ -49749,7 +49386,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
           "_data/buildingPages.js",
@@ -49869,7 +49506,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
           "_data/buildingPages.js",
@@ -49989,7 +49626,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/2301-blake-st/",
           "_data/buildingPages.js",
@@ -50109,7 +49746,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/denver/250-fillmore-st/",
           "_data/buildingPages.js",
@@ -50229,7 +49866,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/building/CO/englewood/8310-s-valley-hwy/",
           "_data/buildingPages.js",
@@ -50260,6 +49897,366 @@
           "id": "review_required",
           "label": "Review Required",
           "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+      "metroId": "denver",
+      "metroName": "Denver",
+      "title": "Complete the missing editorial fields.",
+      "itemName": "100 Fillmore Place",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "autonomous",
+        "label": "Autonomous",
+        "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Building Brief is missing: nearbyDistricts.",
+        "Task type: incomplete Building Brief",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+        "adminUrl": "",
+        "expansionPlan": "Denver Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Complete the missing editorial fields.",
+        "reason": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "74% Improving",
+        "files": [
+          "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+      "metroId": "denver",
+      "metroName": "Denver",
+      "title": "Complete the missing editorial fields.",
+      "itemName": "1200 17th St",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "autonomous",
+        "label": "Autonomous",
+        "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Building Brief is missing: nearbyDistricts.",
+        "Task type: incomplete Building Brief",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
+        "adminUrl": "",
+        "expansionPlan": "Denver Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Complete the missing editorial fields.",
+        "reason": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "74% Improving",
+        "files": [
+          "/commercial-real-estate/building/CO/denver/1200-17th-st/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+      "metroId": "denver",
+      "metroName": "Denver",
+      "title": "Complete the missing editorial fields.",
+      "itemName": "3401 Quebec St",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "autonomous",
+        "label": "Autonomous",
+        "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Building Brief is missing: nearbyDistricts.",
+        "Task type: incomplete Building Brief",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
+        "adminUrl": "",
+        "expansionPlan": "Denver Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Complete the missing editorial fields.",
+        "reason": [
+          "Building Brief is missing: nearbyDistricts.",
+          "Task type: incomplete Building Brief",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "74% Improving",
+        "files": [
+          "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
         },
         "providers": [
           {
@@ -50349,7 +50346,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CA/glendale/glendale/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -50464,7 +50461,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/golden/golden/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -50579,7 +50576,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/broomfield/interlocken/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -50694,7 +50691,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/westminster/westminster/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -78113,7 +78110,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/denver/central-park/",
           "_data/locationKnowledgeGraph.js",
@@ -78233,7 +78230,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CA/glendale/glendale/",
           "_data/locationKnowledgeGraph.js",
@@ -78353,7 +78350,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/golden/golden/",
           "_data/locationKnowledgeGraph.js",
@@ -78473,7 +78470,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/golden/golden/",
           "_data/locationKnowledgeGraph.js",
@@ -78593,7 +78590,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/lakewood/lakewood/",
           "_data/locationKnowledgeGraph.js",
@@ -78713,7 +78710,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
           "_data/locationKnowledgeGraph.js",
@@ -78833,7 +78830,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "72% Improving",
+        "currentHealth": "74% Improving",
         "files": [
           "/commercial-real-estate/CO/westminster/westminster/",
           "_data/locationKnowledgeGraph.js",

@@ -1,5 +1,6 @@
 const sacramentoIndustrialFlexBuildingBriefs = require("./sacramentoIndustrialFlexBuildingBriefs.js");
 const denverIndustrialFlexBuildingBriefs = require("./denverIndustrialFlexBuildingBriefs.js");
+const denverEcosystemBalanceBuildingBriefs = require("./denverEcosystemBalanceBuildingBriefs.js");
 
 const CITY = "San Francisco";
 const STATE = "CA";
@@ -490,7 +491,8 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "2601 Mission / New Mission Theater", address: "2601 Mission St", districtKey: "missionDistrict", role: "Neighborhood Anchor", themes: ["Historic", "Mixed Use", "Neighborhood Anchor"], reason: "A key commercial landmark for understanding Mission Street's neighborhood-serving and entertainment identity.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1800 Mission St", "1880 Mission St", "2741 16th St"] }),
 ]
   .concat(sacramentoIndustrialFlexBuildingBriefs.canonicalBuildings || [])
-  .concat(denverIndustrialFlexBuildingBriefs.canonicalBuildings || []);
+  .concat(denverIndustrialFlexBuildingBriefs.canonicalBuildings || [])
+  .concat(denverEcosystemBalanceBuildingBriefs.canonicalBuildings || []);
 
 function buildingBrief(fields) {
   const snapshot = Array.isArray(fields.snapshot) ? fields.snapshot : [];
@@ -1630,6 +1632,7 @@ function toRuntimeBuilding(item) {
   const citySlug = slugify(city);
   const description = `${identity.name} is a ${editorial.editorialRole.toLowerCase()} in ${canonicalDistrict.name}. ${editorial.editorialReason}`;
   const buildingBrief = item.buildingBrief || buildingBriefsByPath[item.building_path] || null;
+  const ecosystemContext = buildingBrief && buildingBrief.ecosystemContext;
 
   return {
     name: identity.name,
@@ -1690,6 +1693,10 @@ function toRuntimeBuilding(item) {
     related_buildings: comparisonCards(item),
     related_districts: item.relationships.relatedDistricts,
     building_brief: buildingBrief,
+    commercialEcosystem: ecosystemContext && ecosystemContext.primaryEcosystem ? {
+      primary: ecosystemContext.primaryEcosystem,
+      subtypes: ecosystemContext.ecosystemSubtypes || [],
+    } : null,
     commercial_area: {
       ...canonicalDistrict,
       confidence: "commercial-building-intelligence",

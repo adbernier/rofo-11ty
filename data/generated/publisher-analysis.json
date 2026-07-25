@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T16:09:47-07:00",
-  "sourceCommit": "541fd8d1376b7d282db4d0170dc5d65375805b0e",
+  "generatedAt": "2026-07-24T17:21:48-07:00",
+  "sourceCommit": "ebee848d7ab53a6b99f4d974a476d9f39454d9df",
   "analysis": {
-    "generatedAt": "2026-07-24T16:09:47-07:00",
+    "generatedAt": "2026-07-24T17:21:48-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
-      "averageScore": 86,
+      "averageScore": 87,
       "criticalIssues": 0,
       "queuedTasks": 318,
       "closestToDistributionReady": "Sacramento",
@@ -9127,7 +9127,8 @@
                   "contractor_yard",
                   "light_manufacturing",
                   "showroom_flex",
-                  "research_development"
+                  "research_development",
+                  "manufacturing"
                 ],
                 "activityCoverage": [
                   "service_dispatch",
@@ -10851,7 +10852,8 @@
                   "contractor_yard": 2,
                   "light_manufacturing": 4,
                   "showroom_flex": 2,
-                  "research_development": 1
+                  "research_development": 1,
+                  "manufacturing": 1
                 },
                 "activityCoverage": {
                   "service_dispatch": 16,
@@ -24418,7 +24420,7 @@
           "reportPath": "/docs/recommendation-qa/denver-pilot/",
           "notes": "Denver pilot scenarios produce differentiated, graph-backed market paths across central office, creative office, client-facing executive office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro professional-service, and flex/R&D support profiles. Representative-building depth remains an editorial enhancement workstream, not a readiness blocker."
         },
-        "readinessStatus": "Expansion Ready",
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
@@ -24440,13 +24442,13 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 74,
+            "score": 84,
             "status": "",
-            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
+            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 6 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 19,
               "representativeBuildings": 42,
-              "buildingBriefs": 3
+              "buildingBriefs": 6
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -24454,7 +24456,7 @@
               "distributionReadyBuildingBriefs": 8
             },
             "blockers": [],
-            "topOpportunity": "Create an initial collection of 5 Building Briefs."
+            "topOpportunity": "Continue Building Brief migration across priority districts."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
@@ -24475,15 +24477,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 91,
+        "rawOverallScore": 94,
         "scoreCapReasons": [],
         "dimensionCaps": [],
-        "overallScore": 91,
-        "score": 91,
+        "overallScore": 94,
+        "score": 94,
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 19,
         "representativeBuildingCount": 42,
-        "buildingBriefCount": 3,
+        "buildingBriefCount": 6,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -24505,9 +24507,8 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Industrial & Flex coverage is strong or developed.",
-            "Office is Partial; Retail is Partial; Medical is Partial.",
-            "Building Brief coverage is concentrated in Industrial & Flex."
+            "Office, Industrial & Flex, Medical coverage is strong or developed.",
+            "Retail is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -24526,13 +24527,13 @@
               "label": "Office",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -24542,8 +24543,8 @@
                 "districts": 10,
                 "secondaryDistricts": 7,
                 "recommendations": 10,
-                "representativeBuildings": 24,
-                "buildingBriefs": 0,
+                "representativeBuildings": 23,
+                "buildingBriefs": 1,
                 "subtypes": 9,
                 "archetypes": 10,
                 "activities": 7,
@@ -24551,18 +24552,15 @@
                 "representativeRoles": 3,
                 "operationalCategories": 5,
                 "operationalCharacteristics": 8,
-                "reviewRequiredRepresentativeBuildings": 24
+                "reviewRequiredRepresentativeBuildings": 22
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -24588,12 +24586,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 24,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 23,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 24,
-                "reviewRequiredCount": 24,
+                "inheritedOnlyCount": 22,
+                "reviewRequiredCount": 22,
                 "rolesCovered": [
                   "executive_office_environment",
                   "professional_office_environment",
@@ -24661,7 +24659,7 @@
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "1600 Broadway",
@@ -24773,7 +24771,7 @@
                 "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 8,
+                "inheritedOnlyCount": 5,
                 "reviewRequiredCount": 5,
                 "rolesCovered": [
                   "warehouse_distribution_environment",
@@ -24781,11 +24779,13 @@
                   "contractor_service_cluster"
                 ],
                 "subtypesCovered": [
-                  "small_bay_industrial",
-                  "warehouse",
                   "distribution",
+                  "warehouse",
+                  "last_mile_logistics",
+                  "small_bay_industrial",
                   "flex",
                   "manufacturing",
+                  "contractor_service",
                   "research_development"
                 ],
                 "activityCoverage": [
@@ -24903,8 +24903,8 @@
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
-                "representativeBuildings": "missing",
-                "buildingBriefs": "missing",
+                "representativeBuildings": "partial",
+                "buildingBriefs": "strong",
                 "subtypes": "missing",
                 "archetypes": "missing",
                 "activities": "missing",
@@ -24914,29 +24914,31 @@
                 "districts": 0,
                 "secondaryDistricts": 12,
                 "recommendations": 0,
-                "representativeBuildings": 0,
-                "buildingBriefs": 0,
+                "representativeBuildings": 1,
+                "buildingBriefs": 1,
                 "subtypes": 0,
                 "archetypes": 0,
                 "activities": 0,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 2,
+                "operationalCharacteristics": 3,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
                 "Ecosystem appears only as a secondary district expression.",
                 "Subtype breadth is thin.",
                 "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Business activity coverage is thin.",
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -24959,34 +24961,66 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
+                "rolesCovered": [
+                  "neighborhood_service_retail"
+                ],
+                "subtypesCovered": [
+                  "neighborhood_retail",
+                  "service_retail"
+                ],
+                "activityCoverage": [
+                  "walk_in_service",
+                  "walk_in_retail",
+                  "knowledge_work",
+                  "client_meetings",
+                  "collaboration",
+                  "administrative_operations"
+                ],
+                "archetypeCoverage": [
+                  "professional_office",
+                  "law_firm",
+                  "accounting_firm",
+                  "consulting_firm",
+                  "startup",
+                  "marketing_agency",
+                  "wellness_practice",
+                  "food_producer"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "street_visibility",
+                  "walk_in_customer_access",
+                  "customer_parking"
+                ],
+                "operationalCategoriesCovered": [
+                  "market_presence",
+                  "parking_vehicles"
+                ],
                 "missingRoles": [
-                  "neighborhood_service_retail",
                   "destination_retail_environment",
                   "showroom_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
-                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
-                  "market_presence",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "100 Fillmore Place",
+                    "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -25001,13 +25035,13 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -25018,7 +25052,7 @@
                 "secondaryDistricts": 4,
                 "recommendations": 4,
                 "representativeBuildings": 10,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 5,
                 "archetypes": 4,
                 "activities": 3,
@@ -25026,18 +25060,17 @@
                 "representativeRoles": 1,
                 "operationalCategories": 3,
                 "operationalCharacteristics": 3,
-                "reviewRequiredRepresentativeBuildings": 10
+                "reviewRequiredRepresentativeBuildings": 9
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -25061,12 +25094,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "thin",
+                "stateLabel": "Thin",
                 "buildingCount": 10,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 10,
+                "inheritedOnlyCount": 9,
+                "reviewRequiredCount": 9,
                 "rolesCovered": [
                   "medical_office_environment"
                 ],
@@ -25118,7 +25151,7 @@
                     "name": "3401 Quebec St",
                     "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                     "role": "medical_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "12375 E Cornell Ave",
@@ -25453,58 +25486,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:office:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -25513,11 +25494,11 @@
               "ecosystemId": "office",
               "ecosystemLabel": "Office",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -25539,11 +25520,11 @@
               "ecosystemId": "office",
               "ecosystemLabel": "Office",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -25621,7 +25602,8 @@
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
               "completionCriteria": [
@@ -25646,7 +25628,8 @@
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
               "completionCriteria": [
@@ -25671,9 +25654,36 @@
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
+              "severity": "medium",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+              "evidence": [
+                "0 primary districts and 12 secondary districts.",
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -25696,7 +25706,34 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:operational_category_gap",
+              "code": "operational_category_gap",
+              "label": "Operational Category Gap",
+              "severity": "low",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "evidence": [
+                "0 primary districts and 12 secondary districts.",
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -25721,7 +25758,8 @@
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
@@ -25734,48 +25772,22 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 3 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
               "severity": "medium",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
+              "readinessState": "strong",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -25794,11 +25806,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -25820,11 +25832,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -26186,82 +26198,24 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "industrial_flex_brief_concentrated",
-            "label": "Industrial Flex Brief Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.57,
-            "buildingBriefShare": 1,
-            "warnings": [
-              "Building Brief coverage is concentrated in Industrial & Flex.",
-              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
-            ]
+            "representativeBuildingShare": 0.55,
+            "buildingBriefShare": 0.5,
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_brief_concentrated",
-          "label": "Industrial Flex Brief Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.57,
-          "buildingBriefShare": 1,
-          "warnings": [
-            "Building Brief coverage is concentrated in Industrial & Flex.",
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
-          ]
+          "representativeBuildingShare": 0.55,
+          "buildingBriefShare": 0.5,
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -26271,9 +26225,9 @@
               "districtCount": 10,
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 10,
-              "representativeBuildingCount": 24,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "representativeBuildingCount": 23,
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "glendale",
@@ -26367,59 +26321,59 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 24,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 23,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 24,
-                "reviewRequiredCount": 24,
+                "inheritedOnlyCount": 22,
+                "reviewRequiredCount": 22,
                 "rolesCovered": {
                   "executive_office_environment": 4,
-                  "professional_office_environment": 18,
+                  "professional_office_environment": 17,
                   "creative_office_environment": 2
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
                   "executive_office": 4,
-                  "professional_office": 18,
+                  "professional_office": 17,
                   "creative_office": 2
                 },
                 "activityCoverage": {
-                  "client_meetings": 22,
-                  "knowledge_work": 24,
-                  "administrative_operations": 22,
-                  "collaboration": 18,
+                  "client_meetings": 21,
+                  "knowledge_work": 23,
+                  "administrative_operations": 21,
+                  "collaboration": 17,
                   "product_development": 4,
                   "customer_showroom": 2,
                   "research": 2
                 },
                 "archetypeCoverage": {
-                  "law_firm": 24,
-                  "financial_services_firm": 24,
-                  "consulting_firm": 24,
-                  "professional_office": 24,
-                  "accounting_firm": 24,
-                  "marketing_agency": 22,
-                  "creative_studio": 22,
-                  "startup": 24,
+                  "law_firm": 23,
+                  "financial_services_firm": 23,
+                  "consulting_firm": 23,
+                  "professional_office": 23,
+                  "accounting_firm": 23,
+                  "marketing_agency": 21,
+                  "creative_studio": 21,
+                  "startup": 23,
                   "research_company": 2,
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 22,
-                  "private_office_layout": 22,
+                  "professional_image": 21,
+                  "private_office_layout": 21,
                   "enhanced_security": 4,
-                  "customer_parking": 18,
+                  "customer_parking": 17,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
                   "walkability": 2
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 24,
-                  "configuration": 26,
+                  "market_presence": 23,
+                  "configuration": 25,
                   "infrastructure": 4,
-                  "parking_vehicles": 18,
+                  "parking_vehicles": 17,
                   "location_workforce": 2
                 },
                 "missingRoles": [
@@ -26440,7 +26394,7 @@
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "1600 Broadway",
@@ -26549,7 +26503,7 @@
                 "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 8,
+                "inheritedOnlyCount": 5,
                 "reviewRequiredCount": 5,
                 "rolesCovered": {
                   "warehouse_distribution_environment": 2,
@@ -26557,11 +26511,13 @@
                   "contractor_service_cluster": 1
                 },
                 "subtypesCovered": {
-                  "small_bay_industrial": 8,
-                  "warehouse": 7,
                   "distribution": 7,
+                  "warehouse": 7,
+                  "last_mile_logistics": 2,
+                  "small_bay_industrial": 8,
                   "flex": 8,
                   "manufacturing": 4,
+                  "contractor_service": 1,
                   "research_development": 1
                 },
                 "activityCoverage": {
@@ -26668,8 +26624,8 @@
               "districtCount": 0,
               "secondaryDistrictCount": 12,
               "recommendationNodeCount": 0,
-              "representativeBuildingCount": 0,
-              "buildingBriefCount": 0,
+              "representativeBuildingCount": 1,
+              "buildingBriefCount": 1,
               "status": "Partial",
               "districts": [],
               "subtypes": {},
@@ -26684,34 +26640,66 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
+                "rolesCovered": {
+                  "neighborhood_service_retail": 1
+                },
+                "subtypesCovered": {
+                  "neighborhood_retail": 1,
+                  "service_retail": 1
+                },
+                "activityCoverage": {
+                  "walk_in_service": 1,
+                  "walk_in_retail": 1,
+                  "knowledge_work": 1,
+                  "client_meetings": 1,
+                  "collaboration": 1,
+                  "administrative_operations": 1
+                },
+                "archetypeCoverage": {
+                  "professional_office": 1,
+                  "law_firm": 1,
+                  "accounting_firm": 1,
+                  "consulting_firm": 1,
+                  "startup": 1,
+                  "marketing_agency": 1,
+                  "wellness_practice": 1,
+                  "food_producer": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "street_visibility": 1,
+                  "walk_in_customer_access": 1,
+                  "customer_parking": 1
+                },
+                "operationalCategoriesCovered": {
+                  "market_presence": 2,
+                  "parking_vehicles": 1
+                },
                 "missingRoles": [
-                  "neighborhood_service_retail",
                   "destination_retail_environment",
                   "showroom_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
-                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
-                  "market_presence",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "100 Fillmore Place",
+                    "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
+                  }
+                ]
               }
             },
             "medical": {
@@ -26721,8 +26709,8 @@
               "secondaryDistrictCount": 4,
               "recommendationNodeCount": 4,
               "representativeBuildingCount": 10,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "central-park",
@@ -26772,12 +26760,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "thin",
+                "stateLabel": "Thin",
                 "buildingCount": 10,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 10,
+                "inheritedOnlyCount": 9,
+                "reviewRequiredCount": 9,
                 "rolesCovered": {
                   "medical_office_environment": 10
                 },
@@ -26829,7 +26817,7 @@
                     "name": "3401 Quebec St",
                     "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                     "role": "medical_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "12375 E Cornell Ave",
@@ -27071,66 +27059,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 1,
-            "partialCount": 5,
+            "developedCount": 3,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
@@ -27158,58 +27094,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:office:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -27218,11 +27102,11 @@
             "ecosystemId": "office",
             "ecosystemLabel": "Office",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
+              "23 Representative Buildings and 1 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -27236,48 +27120,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
             "severity": "medium",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "strong",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -27300,9 +27158,36 @@
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
+            "severity": "medium",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+            "evidence": [
+              "0 primary districts and 12 secondary districts.",
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -27347,11 +27232,11 @@
             "ecosystemId": "office",
             "ecosystemLabel": "Office",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
+              "23 Representative Buildings and 1 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -27473,11 +27358,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -27499,11 +27384,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -27529,7 +27414,8 @@
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
@@ -27554,7 +27440,8 @@
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
             "completionCriteria": [
@@ -27579,9 +27466,36 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
+            "severity": "low",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "evidence": [
+              "0 primary districts and 12 secondary districts.",
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -27604,7 +27518,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27882,12 +27797,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
+          "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-          "gapCode": "ecosystem_building_brief_concentration",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -28152,28 +28067,28 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 7,
-            "completed": 3,
+            "score": 14,
+            "completed": 6,
             "total": 42,
-            "missing": 39,
-            "explanation": "3 of 42 representative building records use the canonical Building Brief journey.",
+            "missing": 36,
+            "explanation": "6 of 42 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "1200 17th St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -28330,21 +28245,21 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "100 Fillmore Place",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -28463,21 +28378,21 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3401 Quebec St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -28915,8 +28830,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 22,
-            "total": 22,
+            "completed": 25,
+            "total": 25,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -28934,21 +28849,21 @@
         },
         "queue": [
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "100 Fillmore Place",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -29010,21 +28925,21 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "1200 17th St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -29257,21 +29172,21 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3401 Quebec St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -29885,21 +29800,21 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-          "code": "missing-brief",
+          "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+          "code": "incomplete-brief",
           "metroId": "denver",
           "metroName": "Denver",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "representative building missing Building Brief",
+          "taskType": "incomplete Building Brief",
           "itemName": "100 Fillmore Place",
           "severity": "medium",
           "priority": 40,
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "reason": "Building Brief is missing: nearbyDistricts.",
           "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "adminUrl": "",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "suggestedNextAction": "Complete the missing editorial fields.",
           "automationCandidate": true,
           "readinessState": ""
         }
@@ -42242,7 +42157,8 @@
                   "contractor_yard",
                   "light_manufacturing",
                   "showroom_flex",
-                  "research_development"
+                  "research_development",
+                  "manufacturing"
                 ],
                 "activityCoverage": [
                   "service_dispatch",
@@ -43966,7 +43882,8 @@
                   "contractor_yard": 2,
                   "light_manufacturing": 4,
                   "showroom_flex": 2,
-                  "research_development": 1
+                  "research_development": 1,
+                  "manufacturing": 1
                 },
                 "activityCoverage": {
                   "service_dispatch": 16,
@@ -57533,7 +57450,7 @@
           "reportPath": "/docs/recommendation-qa/denver-pilot/",
           "notes": "Denver pilot scenarios produce differentiated, graph-backed market paths across central office, creative office, client-facing executive office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro professional-service, and flex/R&D support profiles. Representative-building depth remains an editorial enhancement workstream, not a readiness blocker."
         },
-        "readinessStatus": "Expansion Ready",
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
@@ -57555,13 +57472,13 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 74,
+            "score": 84,
             "status": "",
-            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 3 Building Briefs are available.",
+            "explanation": "19 of 19 districts have substantive descriptions; 42 representative buildings and 6 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 19,
               "representativeBuildings": 42,
-              "buildingBriefs": 3
+              "buildingBriefs": 6
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -57569,7 +57486,7 @@
               "distributionReadyBuildingBriefs": 8
             },
             "blockers": [],
-            "topOpportunity": "Create an initial collection of 5 Building Briefs."
+            "topOpportunity": "Continue Building Brief migration across priority districts."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
@@ -57590,15 +57507,15 @@
             "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 91,
+        "rawOverallScore": 94,
         "scoreCapReasons": [],
         "dimensionCaps": [],
-        "overallScore": 91,
-        "score": 91,
+        "overallScore": 94,
+        "score": 94,
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 19,
         "representativeBuildingCount": 42,
-        "buildingBriefCount": 3,
+        "buildingBriefCount": 6,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -57620,9 +57537,8 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Industrial & Flex coverage is strong or developed.",
-            "Office is Partial; Retail is Partial; Medical is Partial.",
-            "Building Brief coverage is concentrated in Industrial & Flex."
+            "Office, Industrial & Flex, Medical coverage is strong or developed.",
+            "Retail is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -57641,13 +57557,13 @@
               "label": "Office",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -57657,8 +57573,8 @@
                 "districts": 10,
                 "secondaryDistricts": 7,
                 "recommendations": 10,
-                "representativeBuildings": 24,
-                "buildingBriefs": 0,
+                "representativeBuildings": 23,
+                "buildingBriefs": 1,
                 "subtypes": 9,
                 "archetypes": 10,
                 "activities": 7,
@@ -57666,18 +57582,15 @@
                 "representativeRoles": 3,
                 "operationalCategories": 5,
                 "operationalCharacteristics": 8,
-                "reviewRequiredRepresentativeBuildings": 24
+                "reviewRequiredRepresentativeBuildings": 22
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -57703,12 +57616,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 24,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 23,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 24,
-                "reviewRequiredCount": 24,
+                "inheritedOnlyCount": 22,
+                "reviewRequiredCount": 22,
                 "rolesCovered": [
                   "executive_office_environment",
                   "professional_office_environment",
@@ -57776,7 +57689,7 @@
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "1600 Broadway",
@@ -57888,7 +57801,7 @@
                 "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 8,
+                "inheritedOnlyCount": 5,
                 "reviewRequiredCount": 5,
                 "rolesCovered": [
                   "warehouse_distribution_environment",
@@ -57896,11 +57809,13 @@
                   "contractor_service_cluster"
                 ],
                 "subtypesCovered": [
-                  "small_bay_industrial",
-                  "warehouse",
                   "distribution",
+                  "warehouse",
+                  "last_mile_logistics",
+                  "small_bay_industrial",
                   "flex",
                   "manufacturing",
+                  "contractor_service",
                   "research_development"
                 ],
                 "activityCoverage": [
@@ -58018,8 +57933,8 @@
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
-                "representativeBuildings": "missing",
-                "buildingBriefs": "missing",
+                "representativeBuildings": "partial",
+                "buildingBriefs": "strong",
                 "subtypes": "missing",
                 "archetypes": "missing",
                 "activities": "missing",
@@ -58029,29 +57944,31 @@
                 "districts": 0,
                 "secondaryDistricts": 12,
                 "recommendations": 0,
-                "representativeBuildings": 0,
-                "buildingBriefs": 0,
+                "representativeBuildings": 1,
+                "buildingBriefs": 1,
                 "subtypes": 0,
                 "archetypes": 0,
                 "activities": 0,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 2,
+                "operationalCharacteristics": 3,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
                 "Ecosystem appears only as a secondary district expression.",
                 "Subtype breadth is thin.",
                 "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Business activity coverage is thin.",
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -58074,34 +57991,66 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
+                "rolesCovered": [
+                  "neighborhood_service_retail"
+                ],
+                "subtypesCovered": [
+                  "neighborhood_retail",
+                  "service_retail"
+                ],
+                "activityCoverage": [
+                  "walk_in_service",
+                  "walk_in_retail",
+                  "knowledge_work",
+                  "client_meetings",
+                  "collaboration",
+                  "administrative_operations"
+                ],
+                "archetypeCoverage": [
+                  "professional_office",
+                  "law_firm",
+                  "accounting_firm",
+                  "consulting_firm",
+                  "startup",
+                  "marketing_agency",
+                  "wellness_practice",
+                  "food_producer"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "street_visibility",
+                  "walk_in_customer_access",
+                  "customer_parking"
+                ],
+                "operationalCategoriesCovered": [
+                  "market_presence",
+                  "parking_vehicles"
+                ],
                 "missingRoles": [
-                  "neighborhood_service_retail",
                   "destination_retail_environment",
                   "showroom_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
-                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
-                  "market_presence",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "100 Fillmore Place",
+                    "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -58116,13 +58065,13 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -58133,7 +58082,7 @@
                 "secondaryDistricts": 4,
                 "recommendations": 4,
                 "representativeBuildings": 10,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 5,
                 "archetypes": 4,
                 "activities": 3,
@@ -58141,18 +58090,17 @@
                 "representativeRoles": 1,
                 "operationalCategories": 3,
                 "operationalCharacteristics": 3,
-                "reviewRequiredRepresentativeBuildings": 10
+                "reviewRequiredRepresentativeBuildings": 9
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -58176,12 +58124,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "thin",
+                "stateLabel": "Thin",
                 "buildingCount": 10,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 10,
+                "inheritedOnlyCount": 9,
+                "reviewRequiredCount": 9,
                 "rolesCovered": [
                   "medical_office_environment"
                 ],
@@ -58233,7 +58181,7 @@
                     "name": "3401 Quebec St",
                     "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                     "role": "medical_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "12375 E Cornell Ave",
@@ -58568,58 +58516,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:office:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -58628,11 +58524,11 @@
               "ecosystemId": "office",
               "ecosystemLabel": "Office",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -58654,11 +58550,11 @@
               "ecosystemId": "office",
               "ecosystemLabel": "Office",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
-                "24 Representative Buildings and 0 Building Briefs.",
+                "23 Representative Buildings and 1 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -58736,7 +58632,8 @@
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
               "completionCriteria": [
@@ -58761,7 +58658,8 @@
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
               "completionCriteria": [
@@ -58786,9 +58684,36 @@
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
+              "severity": "medium",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+              "evidence": [
+                "0 primary districts and 12 secondary districts.",
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -58811,7 +58736,34 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:operational_category_gap",
+              "code": "operational_category_gap",
+              "label": "Operational Category Gap",
+              "severity": "low",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "evidence": [
+                "0 primary districts and 12 secondary districts.",
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -58836,7 +58788,8 @@
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
                 "0 primary districts and 12 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 1 Building Briefs.",
+                "1 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
@@ -58849,48 +58802,22 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 3 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
               "severity": "medium",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
+              "readinessState": "strong",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -58909,11 +58836,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -58935,11 +58862,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "partial",
+              "readinessState": "strong",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "4 primary districts and 4 secondary districts.",
-                "10 Representative Buildings and 0 Building Briefs.",
+                "10 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 3 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -59301,82 +59228,24 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "industrial_flex_brief_concentrated",
-            "label": "Industrial Flex Brief Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.57,
-            "buildingBriefShare": 1,
-            "warnings": [
-              "Building Brief coverage is concentrated in Industrial & Flex.",
-              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
-            ]
+            "representativeBuildingShare": 0.55,
+            "buildingBriefShare": 0.5,
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_brief_concentrated",
-          "label": "Industrial Flex Brief Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.57,
-          "buildingBriefShare": 1,
-          "warnings": [
-            "Building Brief coverage is concentrated in Industrial & Flex.",
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical."
-          ]
+          "representativeBuildingShare": 0.55,
+          "buildingBriefShare": 0.5,
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -59386,9 +59255,9 @@
               "districtCount": 10,
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 10,
-              "representativeBuildingCount": 24,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "representativeBuildingCount": 23,
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "glendale",
@@ -59482,59 +59351,59 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 24,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 23,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 24,
-                "reviewRequiredCount": 24,
+                "inheritedOnlyCount": 22,
+                "reviewRequiredCount": 22,
                 "rolesCovered": {
                   "executive_office_environment": 4,
-                  "professional_office_environment": 18,
+                  "professional_office_environment": 17,
                   "creative_office_environment": 2
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
                   "executive_office": 4,
-                  "professional_office": 18,
+                  "professional_office": 17,
                   "creative_office": 2
                 },
                 "activityCoverage": {
-                  "client_meetings": 22,
-                  "knowledge_work": 24,
-                  "administrative_operations": 22,
-                  "collaboration": 18,
+                  "client_meetings": 21,
+                  "knowledge_work": 23,
+                  "administrative_operations": 21,
+                  "collaboration": 17,
                   "product_development": 4,
                   "customer_showroom": 2,
                   "research": 2
                 },
                 "archetypeCoverage": {
-                  "law_firm": 24,
-                  "financial_services_firm": 24,
-                  "consulting_firm": 24,
-                  "professional_office": 24,
-                  "accounting_firm": 24,
-                  "marketing_agency": 22,
-                  "creative_studio": 22,
-                  "startup": 24,
+                  "law_firm": 23,
+                  "financial_services_firm": 23,
+                  "consulting_firm": 23,
+                  "professional_office": 23,
+                  "accounting_firm": 23,
+                  "marketing_agency": 21,
+                  "creative_studio": 21,
+                  "startup": 23,
                   "research_company": 2,
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 22,
-                  "private_office_layout": 22,
+                  "professional_image": 21,
+                  "private_office_layout": 21,
                   "enhanced_security": 4,
-                  "customer_parking": 18,
+                  "customer_parking": 17,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
                   "walkability": 2
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 24,
-                  "configuration": 26,
+                  "market_presence": 23,
+                  "configuration": 25,
                   "infrastructure": 4,
-                  "parking_vehicles": 18,
+                  "parking_vehicles": 17,
                   "location_workforce": 2
                 },
                 "missingRoles": [
@@ -59555,7 +59424,7 @@
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "1600 Broadway",
@@ -59664,7 +59533,7 @@
                 "stateLabel": "Strong",
                 "buildingCount": 8,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 8,
+                "inheritedOnlyCount": 5,
                 "reviewRequiredCount": 5,
                 "rolesCovered": {
                   "warehouse_distribution_environment": 2,
@@ -59672,11 +59541,13 @@
                   "contractor_service_cluster": 1
                 },
                 "subtypesCovered": {
-                  "small_bay_industrial": 8,
-                  "warehouse": 7,
                   "distribution": 7,
+                  "warehouse": 7,
+                  "last_mile_logistics": 2,
+                  "small_bay_industrial": 8,
                   "flex": 8,
                   "manufacturing": 4,
+                  "contractor_service": 1,
                   "research_development": 1
                 },
                 "activityCoverage": {
@@ -59783,8 +59654,8 @@
               "districtCount": 0,
               "secondaryDistrictCount": 12,
               "recommendationNodeCount": 0,
-              "representativeBuildingCount": 0,
-              "buildingBriefCount": 0,
+              "representativeBuildingCount": 1,
+              "buildingBriefCount": 1,
               "status": "Partial",
               "districts": [],
               "subtypes": {},
@@ -59799,34 +59670,66 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
+                "rolesCovered": {
+                  "neighborhood_service_retail": 1
+                },
+                "subtypesCovered": {
+                  "neighborhood_retail": 1,
+                  "service_retail": 1
+                },
+                "activityCoverage": {
+                  "walk_in_service": 1,
+                  "walk_in_retail": 1,
+                  "knowledge_work": 1,
+                  "client_meetings": 1,
+                  "collaboration": 1,
+                  "administrative_operations": 1
+                },
+                "archetypeCoverage": {
+                  "professional_office": 1,
+                  "law_firm": 1,
+                  "accounting_firm": 1,
+                  "consulting_firm": 1,
+                  "startup": 1,
+                  "marketing_agency": 1,
+                  "wellness_practice": 1,
+                  "food_producer": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "street_visibility": 1,
+                  "walk_in_customer_access": 1,
+                  "customer_parking": 1
+                },
+                "operationalCategoriesCovered": {
+                  "market_presence": 2,
+                  "parking_vehicles": 1
+                },
                 "missingRoles": [
-                  "neighborhood_service_retail",
                   "destination_retail_environment",
                   "showroom_retail_environment"
                 ],
                 "missingOperationalCategories": [
                   "access_loading",
-                  "parking_vehicles",
                   "configuration",
                   "infrastructure",
-                  "market_presence",
                   "location_workforce"
                 ],
-                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "100 Fillmore Place",
+                    "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
+                  }
+                ]
               }
             },
             "medical": {
@@ -59836,8 +59739,8 @@
               "secondaryDistrictCount": 4,
               "recommendationNodeCount": 4,
               "representativeBuildingCount": 10,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "central-park",
@@ -59887,12 +59790,12 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "review_required",
-                "stateLabel": "Review Required",
+                "state": "thin",
+                "stateLabel": "Thin",
                 "buildingCount": 10,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 10,
+                "inheritedOnlyCount": 9,
+                "reviewRequiredCount": 9,
                 "rolesCovered": {
                   "medical_office_environment": 10
                 },
@@ -59944,7 +59847,7 @@
                     "name": "3401 Quebec St",
                     "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                     "role": "medical_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "12375 E Cornell Ave",
@@ -60186,66 +60089,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 1,
-            "partialCount": 5,
+            "developedCount": 3,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
@@ -60273,58 +60124,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:office:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -60333,11 +60132,11 @@
             "ecosystemId": "office",
             "ecosystemLabel": "Office",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
+              "23 Representative Buildings and 1 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -60351,48 +60150,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
             "severity": "medium",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "strong",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -60415,9 +60188,36 @@
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
+            "severity": "medium",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+            "evidence": [
+              "0 primary districts and 12 secondary districts.",
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -60462,11 +60262,11 @@
             "ecosystemId": "office",
             "ecosystemLabel": "Office",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "10 primary districts and 7 secondary districts.",
-              "24 Representative Buildings and 0 Building Briefs.",
+              "23 Representative Buildings and 1 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -60588,11 +60388,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -60614,11 +60414,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "partial",
+            "readinessState": "strong",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 0 Building Briefs.",
+              "10 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 3 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -60644,7 +60444,8 @@
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
@@ -60669,7 +60470,8 @@
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
             "completionCriteria": [
@@ -60694,9 +60496,36 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
+            "severity": "low",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "evidence": [
+              "0 primary districts and 12 secondary districts.",
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -60719,7 +60548,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "0 primary districts and 12 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 1 Building Briefs.",
+              "1 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60997,12 +60827,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Balance Sprint",
+          "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-          "gapCode": "ecosystem_building_brief_concentration",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -61267,28 +61097,28 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 7,
-            "completed": 3,
+            "score": 14,
+            "completed": 6,
             "total": 42,
-            "missing": 39,
-            "explanation": "3 of 42 representative building records use the canonical Building Brief journey.",
+            "missing": 36,
+            "explanation": "6 of 42 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "1200 17th St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -61445,21 +61275,21 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "100 Fillmore Place",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -61578,21 +61408,21 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-                "code": "missing-brief",
+                "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+                "code": "incomplete-brief",
                 "metroId": "denver",
                 "metroName": "Denver",
                 "category": "buildingBriefs",
                 "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
+                "taskType": "incomplete Building Brief",
                 "itemName": "3401 Quebec St",
                 "severity": "medium",
                 "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "reason": "Building Brief is missing: nearbyDistricts.",
                 "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                 "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                 "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "suggestedNextAction": "Complete the missing editorial fields.",
                 "automationCandidate": true,
                 "readinessState": ""
               },
@@ -62030,8 +61860,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 22,
-            "total": 22,
+            "completed": 25,
+            "total": 25,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -62049,21 +61879,21 @@
         },
         "queue": [
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "100 Fillmore Place",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -62125,21 +61955,21 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "1200 17th St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -62372,21 +62202,21 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-            "code": "missing-brief",
+            "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+            "code": "incomplete-brief",
             "metroId": "denver",
             "metroName": "Denver",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
+            "taskType": "incomplete Building Brief",
             "itemName": "3401 Quebec St",
             "severity": "medium",
             "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "reason": "Building Brief is missing: nearbyDistricts.",
             "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
             "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "suggestedNextAction": "Complete the missing editorial fields.",
             "automationCandidate": true,
             "readinessState": ""
           },
@@ -63000,21 +62830,21 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-          "code": "missing-brief",
+          "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+          "code": "incomplete-brief",
           "metroId": "denver",
           "metroName": "Denver",
           "category": "buildingBriefs",
           "categoryLabel": "Building Briefs",
-          "taskType": "representative building missing Building Brief",
+          "taskType": "incomplete Building Brief",
           "itemName": "100 Fillmore Place",
           "severity": "medium",
           "priority": 40,
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "reason": "Building Brief is missing: nearbyDistricts.",
           "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
           "adminUrl": "",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "suggestedNextAction": "Complete the missing editorial fields.",
           "automationCandidate": true,
           "readinessState": ""
         }
@@ -66304,21 +66134,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "100 Fillmore Place",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
@@ -66380,21 +66210,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "1200 17th St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
@@ -66627,21 +66457,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3401 Quebec St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
@@ -72367,21 +72197,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-100-fillmore-place",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "100 Fillmore Place",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
@@ -72443,21 +72273,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-1200-17th-st",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "1200 17th St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
@@ -72690,21 +72520,21 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
-        "code": "missing-brief",
+        "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
+        "code": "incomplete-brief",
         "metroId": "denver",
         "metroName": "Denver",
         "category": "buildingBriefs",
         "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
+        "taskType": "incomplete Building Brief",
         "itemName": "3401 Quebec St",
         "severity": "medium",
         "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "reason": "Building Brief is missing: nearbyDistricts.",
         "sourceId": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
         "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "suggestedNextAction": "Complete the missing editorial fields.",
         "automationCandidate": true,
         "readinessState": ""
       },
