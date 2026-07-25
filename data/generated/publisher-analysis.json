@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-25T08:28:47-07:00",
-  "sourceCommit": "4acfba5a700d14613e78777213fd3f93d5078780",
+  "generatedAt": "2026-07-25T08:48:55-07:00",
+  "sourceCommit": "8201bd9ad71ef5087973089bdc79d9a4d11c447c",
   "analysis": {
-    "generatedAt": "2026-07-25T08:28:47-07:00",
+    "generatedAt": "2026-07-25T08:48:55-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
@@ -24549,10 +24549,10 @@
                 "archetypes": 10,
                 "activities": 7,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 8,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 8,
-                "reviewRequiredRepresentativeBuildings": 22
+                "operationalCharacteristics": 18,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -24561,7 +24561,7 @@
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
                 "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "8 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -24586,16 +24586,21 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 23,
-                "explicitCount": 0,
+                "explicitCount": 23,
                 "inheritedOnlyCount": 22,
-                "reviewRequiredCount": 22,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "downtown_class_a_office",
+                  "government_office_environment",
                   "executive_office_environment",
-                  "professional_office_environment",
-                  "creative_office_environment"
+                  "transit_oriented_office_environment",
+                  "small_tenant_office_environment",
+                  "creative_office_environment",
+                  "suburban_office_campus",
+                  "professional_office_environment"
                 ],
                 "subtypesCovered": [
                   "downtown_office",
@@ -24604,8 +24609,8 @@
                   "creative_office"
                 ],
                 "activityCoverage": [
-                  "client_meetings",
                   "knowledge_work",
+                  "client_meetings",
                   "administrative_operations",
                   "collaboration",
                   "product_development",
@@ -24626,70 +24631,71 @@
                 ],
                 "operationalCharacteristicsCovered": [
                   "professional_image",
-                  "private_office_layout",
+                  "transit_access",
+                  "large_floorplates",
+                  "structured_parking",
+                  "urban_core_access",
                   "enhanced_security",
-                  "customer_parking",
+                  "private_office_layout",
+                  "walkability",
+                  "small_suite_sizes",
+                  "multi_tenant",
+                  "neighborhood_access",
                   "creative_environment",
                   "open_workspace",
                   "flexible_suite_sizes",
-                  "walkability"
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "customer_parking"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "location_workforce",
                   "configuration",
-                  "infrastructure",
                   "parking_vehicles",
-                  "location_workforce"
+                  "infrastructure"
                 ],
-                "missingRoles": [
-                  "downtown_class_a_office",
-                  "suburban_office_campus",
-                  "government_office_environment",
-                  "small_tenant_office_environment",
-                  "transit_oriented_office_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "outdoor_special_use"
-                ],
-                "highestPriorityMissingRole": "downtown_class_a_office",
-                "highestPriorityMissingOperationalCategory": "access_loading",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "district_inferred"
+                    "role": "downtown_class_a_office",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1600 Broadway",
                     "path": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "government_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1700 Lincoln St",
                     "path": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Denver Place",
                     "path": "/commercial-real-estate/building/CO/denver/999-18th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "16 Market Square",
                     "path": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "small_tenant_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1550 Wewatta St",
                     "path": "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -25502,58 +25508,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:operational_category_gap",
               "code": "operational_category_gap",
               "label": "Operational Category Gap",
@@ -26311,16 +26265,21 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 23,
-                "explicitCount": 0,
+                "explicitCount": 23,
                 "inheritedOnlyCount": 22,
-                "reviewRequiredCount": 22,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "executive_office_environment": 4,
-                  "professional_office_environment": 17,
-                  "creative_office_environment": 2
+                  "downtown_class_a_office": 1,
+                  "government_office_environment": 1,
+                  "executive_office_environment": 3,
+                  "transit_oriented_office_environment": 2,
+                  "small_tenant_office_environment": 5,
+                  "creative_office_environment": 2,
+                  "suburban_office_campus": 5,
+                  "professional_office_environment": 4
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
@@ -26329,9 +26288,9 @@
                   "creative_office": 2
                 },
                 "activityCoverage": {
-                  "client_meetings": 21,
                   "knowledge_work": 23,
-                  "administrative_operations": 21,
+                  "client_meetings": 22,
+                  "administrative_operations": 20,
                   "collaboration": 17,
                   "product_development": 4,
                   "customer_showroom": 2,
@@ -26350,71 +26309,72 @@
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 21,
-                  "private_office_layout": 21,
+                  "professional_image": 11,
+                  "transit_access": 3,
+                  "large_floorplates": 1,
+                  "structured_parking": 1,
+                  "urban_core_access": 1,
                   "enhanced_security": 4,
-                  "customer_parking": 17,
+                  "private_office_layout": 7,
+                  "walkability": 4,
+                  "small_suite_sizes": 5,
+                  "multi_tenant": 5,
+                  "neighborhood_access": 5,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
-                  "walkability": 2
+                  "campus_environment": 5,
+                  "surface_parking": 5,
+                  "suburban_access": 5,
+                  "customer_parking": 4
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 23,
-                  "configuration": 25,
-                  "infrastructure": 4,
-                  "parking_vehicles": 17,
-                  "location_workforce": 2
+                  "market_presence": 18,
+                  "location_workforce": 18,
+                  "configuration": 22,
+                  "parking_vehicles": 10,
+                  "infrastructure": 4
                 },
-                "missingRoles": [
-                  "downtown_class_a_office",
-                  "suburban_office_campus",
-                  "government_office_environment",
-                  "small_tenant_office_environment",
-                  "transit_oriented_office_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "outdoor_special_use"
-                ],
-                "highestPriorityMissingRole": "downtown_class_a_office",
-                "highestPriorityMissingOperationalCategory": "access_loading",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "district_inferred"
+                    "role": "downtown_class_a_office",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1600 Broadway",
                     "path": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "government_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1700 Lincoln St",
                     "path": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Denver Place",
                     "path": "/commercial-real-estate/building/CO/denver/999-18th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "16 Market Square",
                     "path": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "small_tenant_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1550 Wewatta St",
                     "path": "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -27074,32 +27034,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "23 Representative Buildings and 1 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
             "label": "Representative Building Intelligence Missing",
@@ -27192,32 +27126,6 @@
               "5 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "23 Representative Buildings and 1 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27777,12 +27685,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
+          "title": "Denver Medical Ecosystem Representative Building Foundation",
+          "ecosystemId": "medical",
+          "ecosystemLabel": "Medical",
           "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -57559,10 +57467,10 @@
                 "archetypes": 10,
                 "activities": 7,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 8,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 8,
-                "reviewRequiredRepresentativeBuildings": 22
+                "operationalCharacteristics": 18,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -57571,7 +57479,7 @@
               "evidence": [
                 "10 primary districts and 7 secondary districts.",
                 "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "8 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -57596,16 +57504,21 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 23,
-                "explicitCount": 0,
+                "explicitCount": 23,
                 "inheritedOnlyCount": 22,
-                "reviewRequiredCount": 22,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "downtown_class_a_office",
+                  "government_office_environment",
                   "executive_office_environment",
-                  "professional_office_environment",
-                  "creative_office_environment"
+                  "transit_oriented_office_environment",
+                  "small_tenant_office_environment",
+                  "creative_office_environment",
+                  "suburban_office_campus",
+                  "professional_office_environment"
                 ],
                 "subtypesCovered": [
                   "downtown_office",
@@ -57614,8 +57527,8 @@
                   "creative_office"
                 ],
                 "activityCoverage": [
-                  "client_meetings",
                   "knowledge_work",
+                  "client_meetings",
                   "administrative_operations",
                   "collaboration",
                   "product_development",
@@ -57636,70 +57549,71 @@
                 ],
                 "operationalCharacteristicsCovered": [
                   "professional_image",
-                  "private_office_layout",
+                  "transit_access",
+                  "large_floorplates",
+                  "structured_parking",
+                  "urban_core_access",
                   "enhanced_security",
-                  "customer_parking",
+                  "private_office_layout",
+                  "walkability",
+                  "small_suite_sizes",
+                  "multi_tenant",
+                  "neighborhood_access",
                   "creative_environment",
                   "open_workspace",
                   "flexible_suite_sizes",
-                  "walkability"
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "customer_parking"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "location_workforce",
                   "configuration",
-                  "infrastructure",
                   "parking_vehicles",
-                  "location_workforce"
+                  "infrastructure"
                 ],
-                "missingRoles": [
-                  "downtown_class_a_office",
-                  "suburban_office_campus",
-                  "government_office_environment",
-                  "small_tenant_office_environment",
-                  "transit_oriented_office_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "outdoor_special_use"
-                ],
-                "highestPriorityMissingRole": "downtown_class_a_office",
-                "highestPriorityMissingOperationalCategory": "access_loading",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "district_inferred"
+                    "role": "downtown_class_a_office",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1600 Broadway",
                     "path": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "government_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1700 Lincoln St",
                     "path": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Denver Place",
                     "path": "/commercial-real-estate/building/CO/denver/999-18th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "16 Market Square",
                     "path": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "small_tenant_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1550 Wewatta St",
                     "path": "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -58512,58 +58426,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "10 primary districts and 7 secondary districts.",
-                "23 Representative Buildings and 1 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:operational_category_gap",
               "code": "operational_category_gap",
               "label": "Operational Category Gap",
@@ -59321,16 +59183,21 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 23,
-                "explicitCount": 0,
+                "explicitCount": 23,
                 "inheritedOnlyCount": 22,
-                "reviewRequiredCount": 22,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "executive_office_environment": 4,
-                  "professional_office_environment": 17,
-                  "creative_office_environment": 2
+                  "downtown_class_a_office": 1,
+                  "government_office_environment": 1,
+                  "executive_office_environment": 3,
+                  "transit_oriented_office_environment": 2,
+                  "small_tenant_office_environment": 5,
+                  "creative_office_environment": 2,
+                  "suburban_office_campus": 5,
+                  "professional_office_environment": 4
                 },
                 "subtypesCovered": {
                   "downtown_office": 4,
@@ -59339,9 +59206,9 @@
                   "creative_office": 2
                 },
                 "activityCoverage": {
-                  "client_meetings": 21,
                   "knowledge_work": 23,
-                  "administrative_operations": 21,
+                  "client_meetings": 22,
+                  "administrative_operations": 20,
                   "collaboration": 17,
                   "product_development": 4,
                   "customer_showroom": 2,
@@ -59360,71 +59227,72 @@
                   "biotech_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 21,
-                  "private_office_layout": 21,
+                  "professional_image": 11,
+                  "transit_access": 3,
+                  "large_floorplates": 1,
+                  "structured_parking": 1,
+                  "urban_core_access": 1,
                   "enhanced_security": 4,
-                  "customer_parking": 17,
+                  "private_office_layout": 7,
+                  "walkability": 4,
+                  "small_suite_sizes": 5,
+                  "multi_tenant": 5,
+                  "neighborhood_access": 5,
                   "creative_environment": 2,
                   "open_workspace": 2,
                   "flexible_suite_sizes": 2,
-                  "walkability": 2
+                  "campus_environment": 5,
+                  "surface_parking": 5,
+                  "suburban_access": 5,
+                  "customer_parking": 4
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 23,
-                  "configuration": 25,
-                  "infrastructure": 4,
-                  "parking_vehicles": 17,
-                  "location_workforce": 2
+                  "market_presence": 18,
+                  "location_workforce": 18,
+                  "configuration": 22,
+                  "parking_vehicles": 10,
+                  "infrastructure": 4
                 },
-                "missingRoles": [
-                  "downtown_class_a_office",
-                  "suburban_office_campus",
-                  "government_office_environment",
-                  "small_tenant_office_environment",
-                  "transit_oriented_office_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "outdoor_special_use"
-                ],
-                "highestPriorityMissingRole": "downtown_class_a_office",
-                "highestPriorityMissingOperationalCategory": "access_loading",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "1200 17th St",
                     "path": "/commercial-real-estate/building/CO/denver/1200-17th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "district_inferred"
+                    "role": "downtown_class_a_office",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1600 Broadway",
                     "path": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "government_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1700 Lincoln St",
                     "path": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
                     "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Denver Place",
                     "path": "/commercial-real-estate/building/CO/denver/999-18th-st/",
-                    "role": "executive_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "16 Market Square",
                     "path": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "small_tenant_office_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "1550 Wewatta St",
                     "path": "/commercial-real-estate/building/CO/denver/1550-wewatta-st/",
-                    "role": "professional_office_environment",
-                    "confidence": "review_required"
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -60084,32 +59952,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "23 Representative Buildings and 1 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
             "label": "Representative Building Intelligence Missing",
@@ -60202,32 +60044,6 @@
               "5 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "10 primary districts and 7 secondary districts.",
-              "23 Representative Buildings and 1 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60787,12 +60603,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
+          "title": "Denver Medical Ecosystem Representative Building Foundation",
+          "ecosystemId": "medical",
+          "ecosystemLabel": "Medical",
           "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",

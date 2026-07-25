@@ -136,7 +136,7 @@ Representative Building Intelligence v2 adds a normalized intelligence layer for
 
 Full rules are documented in `docs/representative-building-intelligence.md`.
 
-Publisher may define metro-specific target representative roles in `data/publisher-rules.js` when the global role taxonomy is broader than the commercial environments a metro currently needs to represent. This prevents unsupported roles, such as food production or showroom flex, from keeping a metro's Representative Building Foundation open when the graph evidence does not establish them as required. These targets are explicit editorial planning metadata; they do not remove roles from the canonical taxonomy or change recommendation rankings.
+Publisher may define metro-specific target representative roles and operational categories in `data/publisher-rules.js` when the global taxonomy is broader than the commercial environments a metro currently needs to represent. This prevents unsupported roles, such as food production, showroom flex, or office roles not evidenced in a specific metro, from keeping a Representative Building Foundation open when the graph evidence does not establish them as required. These targets are explicit editorial planning metadata; they do not remove roles from the canonical taxonomy or change recommendation rankings.
 
 ## Publisher Reporting
 

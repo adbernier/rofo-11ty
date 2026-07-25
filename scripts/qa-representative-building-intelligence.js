@@ -25,6 +25,17 @@ const DENVER_INDUSTRIAL_TARGET_ROLES = [
   "research_development_environment",
 ];
 
+const DENVER_OFFICE_TARGET_ROLES = [
+  "downtown_class_a_office",
+  "professional_office_environment",
+  "creative_office_environment",
+  "executive_office_environment",
+  "suburban_office_campus",
+  "government_office_environment",
+  "small_tenant_office_environment",
+  "transit_oriented_office_environment",
+];
+
 const VALID_CONFIDENCE = new Set([
   "verified_property_fact",
   "editorially_supported",
@@ -234,13 +245,23 @@ function validatePublisherAndPlans() {
   const denverPlan = planById(firstPlans, "denver");
   if (denver) {
     const industrial = evaluationFor(denver, "industrial_flex");
-    const intelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
+    const industrialIntelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
     DENVER_INDUSTRIAL_TARGET_ROLES.forEach((roleId) => {
-      requireField((intelligence.rolesCovered || []).includes(roleId), `Denver: missing industrial/flex target role ${roleId}`);
+      requireField((industrialIntelligence.rolesCovered || []).includes(roleId), `Denver: missing industrial/flex target role ${roleId}`);
     });
-    requireField((intelligence.missingRoles || []).length === 0, "Denver: completed industrial/flex target role foundation should not expose missing target roles");
-    requireField((intelligence.reviewRequiredCount || 0) === 0, "Denver: industrial/flex foundation should not leave review-required representative buildings");
+    requireField((industrialIntelligence.missingRoles || []).length === 0, "Denver: completed industrial/flex target role foundation should not expose missing target roles");
+    requireField((industrialIntelligence.reviewRequiredCount || 0) === 0, "Denver: industrial/flex foundation should not leave review-required representative buildings");
     requireField(!((denverPlan && denverPlan.recommendedEcosystemSprint && denverPlan.recommendedEcosystemSprint.title) || "").includes("Industrial & Flex Ecosystem Representative Building Foundation"), "Denver: completed industrial/flex representative-building foundation is still recommended");
+
+    const office = evaluationFor(denver, "office");
+    const officeIntelligence = (office && office.representativeBuildingIntelligence) || {};
+    DENVER_OFFICE_TARGET_ROLES.forEach((roleId) => {
+      requireField((officeIntelligence.rolesCovered || []).includes(roleId), `Denver: missing office target role ${roleId}`);
+    });
+    requireField((officeIntelligence.missingRoles || []).length === 0, "Denver: completed office target role foundation should not expose missing target roles");
+    requireField((officeIntelligence.missingOperationalCategories || []).length === 0, "Denver: completed office foundation should not expose missing target operational categories");
+    requireField((officeIntelligence.reviewRequiredCount || 0) === 0, "Denver: office foundation should not leave review-required representative buildings");
+    requireField(!((denverPlan && denverPlan.recommendedEcosystemSprint && denverPlan.recommendedEcosystemSprint.title) || "").includes("Office Ecosystem Representative Building Foundation"), "Denver: completed office representative-building foundation is still recommended");
   }
 
   const seattle = metroById({ analysis: first }, "seattle");

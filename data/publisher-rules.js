@@ -129,6 +129,16 @@ const ECOSYSTEM_READINESS = {
   },
   targetRepresentativeRoles: {
     denver: {
+      office: [
+        "downtown_class_a_office",
+        "professional_office_environment",
+        "creative_office_environment",
+        "executive_office_environment",
+        "suburban_office_campus",
+        "government_office_environment",
+        "small_tenant_office_environment",
+        "transit_oriented_office_environment",
+      ],
       industrial_flex: [
         "large_scale_distribution_environment",
         "warehouse_distribution_environment",
@@ -138,6 +148,11 @@ const ECOSYSTEM_READINESS = {
         "flex_business_park",
         "research_development_environment",
       ],
+    },
+  },
+  targetOperationalCategories: {
+    denver: {
+      office: ["market_presence", "configuration", "infrastructure", "parking_vehicles", "location_workforce"],
     },
   },
   concentrationThresholds: {
