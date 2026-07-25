@@ -139,6 +139,10 @@ const ECOSYSTEM_READINESS = {
         "small_tenant_office_environment",
         "transit_oriented_office_environment",
       ],
+      medical: [
+        "medical_office_environment",
+        "outpatient_clinic_environment",
+      ],
       industrial_flex: [
         "large_scale_distribution_environment",
         "warehouse_distribution_environment",
@@ -153,6 +157,7 @@ const ECOSYSTEM_READINESS = {
   targetOperationalCategories: {
     denver: {
       office: ["market_presence", "configuration", "infrastructure", "parking_vehicles", "location_workforce"],
+      medical: ["parking_vehicles", "configuration", "infrastructure", "market_presence", "location_workforce", "outdoor_special_use"],
     },
   },
   concentrationThresholds: {

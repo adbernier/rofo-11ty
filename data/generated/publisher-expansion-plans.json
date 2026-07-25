@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-25T08:48:55-07:00",
+  "generatedAt": "2026-07-25T09:15:10-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -18255,7 +18255,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27095,7 +27095,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36917,7 +36917,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45909,7 +45909,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -46530,88 +46530,94 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "medical",
-              "state": "thin",
-              "stateLabel": "Thin",
+              "state": "partial",
+              "stateLabel": "Partial",
               "buildingCount": 10,
-              "explicitCount": 0,
-              "inheritedOnlyCount": 9,
-              "reviewRequiredCount": 9,
+              "explicitCount": 10,
+              "inheritedOnlyCount": 0,
+              "reviewRequiredCount": 0,
               "rolesCovered": {
-                "medical_office_environment": 10
+                "outpatient_clinic_environment": 5,
+                "medical_office_environment": 5
               },
               "subtypesCovered": {
+                "outpatient_clinic": 5,
+                "wellness": 3,
                 "medical_office": 10
               },
               "activityCoverage": {
                 "healthcare_delivery": 10,
-                "administrative_operations": 10,
-                "walk_in_service": 10
+                "walk_in_service": 10,
+                "administrative_operations": 10
               },
               "archetypeCoverage": {
-                "medical_practice": 10,
-                "dental_practice": 10,
                 "outpatient_clinic": 10,
                 "wellness_practice": 10,
+                "medical_practice": 10,
+                "dental_practice": 10,
                 "physical_therapy_practice": 10
               },
               "operationalCharacteristicsCovered": {
                 "customer_parking": 10,
+                "walk_in_customer_access": 5,
+                "retail_adjacent": 1,
+                "suburban_access": 8,
                 "medical_use_compatible": 10,
-                "plumbing_intensive": 10
+                "private_office_layout": 4,
+                "professional_image": 4,
+                "freeway_access": 2,
+                "plumbing_intensive": 5,
+                "street_visibility": 1,
+                "neighborhood_access": 1
               },
               "operationalCategoriesCovered": {
                 "parking_vehicles": 10,
+                "market_presence": 11,
+                "location_workforce": 11,
                 "outdoor_special_use": 10,
-                "infrastructure": 10
+                "configuration": 4,
+                "infrastructure": 5
               },
-              "missingRoles": [
-                "hospital_adjacent_medical_environment",
-                "outpatient_clinic_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "configuration",
-                "market_presence",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "Northfield at Stapleton",
                   "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3401 Quebec St",
                   "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                   "role": "medical_office_environment",
-                  "confidence": "district_inferred"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "12375 E Cornell Ave",
                   "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Pavilion Towers",
                   "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
                   "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3250 Abilene St",
                   "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Clock Tower Square",
                   "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 }
               ]
             }
@@ -47429,21 +47435,19 @@
               "archetypes": 4,
               "activities": 3,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 1,
-              "operationalCategories": 3,
-              "operationalCharacteristics": 3,
-              "reviewRequiredRepresentativeBuildings": 9
+              "representativeRoles": 2,
+              "operationalCategories": 6,
+              "operationalCharacteristics": 11,
+              "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building operational coverage is thin."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 3,
             "evidence": [
               "4 primary districts and 4 secondary districts.",
               "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
+              "2 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "medical_office",
@@ -47466,88 +47470,94 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "medical",
-              "state": "thin",
-              "stateLabel": "Thin",
+              "state": "partial",
+              "stateLabel": "Partial",
               "buildingCount": 10,
-              "explicitCount": 0,
-              "inheritedOnlyCount": 9,
-              "reviewRequiredCount": 9,
+              "explicitCount": 10,
+              "inheritedOnlyCount": 0,
+              "reviewRequiredCount": 0,
               "rolesCovered": [
+                "outpatient_clinic_environment",
                 "medical_office_environment"
               ],
               "subtypesCovered": [
+                "outpatient_clinic",
+                "wellness",
                 "medical_office"
               ],
               "activityCoverage": [
                 "healthcare_delivery",
-                "administrative_operations",
-                "walk_in_service"
+                "walk_in_service",
+                "administrative_operations"
               ],
               "archetypeCoverage": [
-                "medical_practice",
-                "dental_practice",
                 "outpatient_clinic",
                 "wellness_practice",
+                "medical_practice",
+                "dental_practice",
                 "physical_therapy_practice"
               ],
               "operationalCharacteristicsCovered": [
                 "customer_parking",
+                "walk_in_customer_access",
+                "retail_adjacent",
+                "suburban_access",
                 "medical_use_compatible",
-                "plumbing_intensive"
+                "private_office_layout",
+                "professional_image",
+                "freeway_access",
+                "plumbing_intensive",
+                "street_visibility",
+                "neighborhood_access"
               ],
               "operationalCategoriesCovered": [
                 "parking_vehicles",
+                "market_presence",
+                "location_workforce",
                 "outdoor_special_use",
+                "configuration",
                 "infrastructure"
               ],
-              "missingRoles": [
-                "hospital_adjacent_medical_environment",
-                "outpatient_clinic_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "configuration",
-                "market_presence",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "Northfield at Stapleton",
                   "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3401 Quebec St",
                   "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                   "role": "medical_office_environment",
-                  "confidence": "district_inferred"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "12375 E Cornell Ave",
                   "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Pavilion Towers",
                   "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
                   "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3250 Abilene St",
                   "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Clock Tower Square",
                   "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 }
               ]
             },
@@ -48066,84 +48076,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -48513,32 +48445,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:medical:representative_building_intelligence_missing",
-          "code": "representative_building_intelligence_missing",
-          "label": "Representative Building Intelligence Missing",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:retail:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
           "label": "Ecosystem Subtype Gap",
@@ -48707,58 +48613,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:medical:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:medical:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -49150,144 +49004,96 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Denver Medical Ecosystem Representative Building Foundation",
-        "objective": "Improve Denver commercial balance by advancing Medical from Strong toward stronger ecosystem readiness.",
-        "ecosystemId": "medical",
-        "ecosystemLabel": "Medical",
+        "title": "Denver Retail Ecosystem Subtype Expansion",
+        "objective": "Improve Denver commercial balance by advancing Retail from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "retail",
+        "ecosystemLabel": "Retail",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "strong",
-        "readinessLabel": "Strong",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Medical is Important for Denver and is currently Strong. Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "gapCode": "representative_building_intelligence_missing",
-        "priorityScore": 78,
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Retail is Important for Denver and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
+        "priorityScore": 72,
         "layers": {
-          "districts": "developed",
-          "recommendations": "developed",
-          "representativeBuildings": "developed",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "partial",
           "buildingBriefs": "strong",
-          "subtypes": "developed",
-          "archetypes": "strong",
-          "activities": "strong",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 4,
-          "secondaryDistricts": 4,
-          "recommendations": 4,
-          "representativeBuildings": 10,
+          "districts": 0,
+          "secondaryDistricts": 12,
+          "recommendations": 0,
+          "representativeBuildings": 1,
           "buildingBriefs": 1,
-          "subtypes": 5,
-          "archetypes": 4,
-          "activities": 3,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 1,
-          "operationalCategories": 3,
+          "operationalCategories": 2,
           "operationalCharacteristics": 3,
-          "reviewRequiredRepresentativeBuildings": 9
+          "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
+          "Ecosystem appears only as a secondary district expression.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin.",
           "Representative Building operational coverage is thin."
         ],
         "targetSubtypes": [
-          "medical_office",
-          "outpatient_clinic",
-          "dental",
-          "wellness",
-          "hospital_adjacent"
+          "neighborhood_retail",
+          "downtown_retail",
+          "shopping_center",
+          "power_center",
+          "lifestyle_retail"
         ],
         "targetArchetypes": [
-          "medical_practice",
-          "dental_practice",
-          "physical_therapy_practice",
+          "marketing_agency",
           "wellness_practice",
-          "outpatient_clinic"
+          "food_producer",
+          "training_center"
         ],
         "targetActivities": [
-          "healthcare_delivery",
+          "walk_in_retail",
           "walk_in_service",
-          "administrative_operations"
+          "customer_showroom",
+          "food_preparation"
         ],
         "missingRepresentativeRoles": [
-          "hospital_adjacent_medical_environment",
-          "outpatient_clinic_environment"
+          "destination_retail_environment",
+          "showroom_retail_environment"
         ],
         "missingOperationalCategories": [
           "access_loading",
           "configuration",
-          "market_presence",
+          "infrastructure",
           "location_workforce"
         ],
         "currentRepresentativeRoles": [
-          "medical_office_environment"
+          "neighborhood_service_retail"
         ],
         "currentOperationalCategories": [
-          "parking_vehicles",
-          "outdoor_special_use",
-          "infrastructure"
+          "market_presence",
+          "parking_vehicles"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "Northfield at Stapleton",
-            "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "3401 Quebec St",
-            "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
-            "role": "medical_office_environment",
+            "name": "100 Fillmore Place",
+            "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+            "role": "neighborhood_service_retail",
             "confidence": "district_inferred"
-          },
-          {
-            "name": "12375 E Cornell Ave",
-            "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "Pavilion Towers",
-            "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "3250 Abilene St",
-            "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "Clock Tower Square",
-            "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
           }
         ],
-        "districtCandidates": [
-          {
-            "slug": "central-park",
-            "label": "Central Park",
-            "path": "/commercial-real-estate/CO/denver/central-park/"
-          },
-          {
-            "slug": "aurora",
-            "label": "Aurora",
-            "path": "/commercial-real-estate/CO/aurora/aurora/"
-          },
-          {
-            "slug": "centennial",
-            "label": "Centennial",
-            "path": "/commercial-real-estate/CO/centennial/centennial/"
-          },
-          {
-            "slug": "lakewood",
-            "label": "Lakewood",
-            "path": "/commercial-real-estate/CO/lakewood/lakewood/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -49310,7 +49116,7 @@
           "title": "Denver Office Building Brief Migration",
           "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Medical Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Important\nCurrent readiness: Strong\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: strong\n- subtypes: developed\n- archetypes: strong\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, configuration, market_presence, location_workforce\nExisting representative buildings:\n- Northfield at Stapleton (medical_office_environment); 3401 Quebec St (medical_office_environment); 12375 E Cornell Ave (medical_office_environment); Pavilion Towers (medical_office_environment); 3250 Abilene St (medical_office_environment); Clock Tower Square (medical_office_environment)\nDistrict candidates:\n- Central Park, Aurora, Centennial, Lakewood\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Retail Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: partial\n- buildingBriefs: strong\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- destination_retail_environment, showroom_retail_environment\nMissing operational categories:\n- access_loading, configuration, infrastructure, location_workforce\nExisting representative buildings:\n- 100 Fillmore Place (neighborhood_service_retail)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -55666,7 +55472,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "In Development",
         "overallScore": 19,
@@ -59129,7 +58935,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -77329,7 +77135,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86169,7 +85975,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -95991,7 +95797,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104983,7 +104789,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-25T08:48:55-07:00",
+      "generatedAt": "2026-07-25T09:15:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -105604,88 +105410,94 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "medical",
-              "state": "thin",
-              "stateLabel": "Thin",
+              "state": "partial",
+              "stateLabel": "Partial",
               "buildingCount": 10,
-              "explicitCount": 0,
-              "inheritedOnlyCount": 9,
-              "reviewRequiredCount": 9,
+              "explicitCount": 10,
+              "inheritedOnlyCount": 0,
+              "reviewRequiredCount": 0,
               "rolesCovered": {
-                "medical_office_environment": 10
+                "outpatient_clinic_environment": 5,
+                "medical_office_environment": 5
               },
               "subtypesCovered": {
+                "outpatient_clinic": 5,
+                "wellness": 3,
                 "medical_office": 10
               },
               "activityCoverage": {
                 "healthcare_delivery": 10,
-                "administrative_operations": 10,
-                "walk_in_service": 10
+                "walk_in_service": 10,
+                "administrative_operations": 10
               },
               "archetypeCoverage": {
-                "medical_practice": 10,
-                "dental_practice": 10,
                 "outpatient_clinic": 10,
                 "wellness_practice": 10,
+                "medical_practice": 10,
+                "dental_practice": 10,
                 "physical_therapy_practice": 10
               },
               "operationalCharacteristicsCovered": {
                 "customer_parking": 10,
+                "walk_in_customer_access": 5,
+                "retail_adjacent": 1,
+                "suburban_access": 8,
                 "medical_use_compatible": 10,
-                "plumbing_intensive": 10
+                "private_office_layout": 4,
+                "professional_image": 4,
+                "freeway_access": 2,
+                "plumbing_intensive": 5,
+                "street_visibility": 1,
+                "neighborhood_access": 1
               },
               "operationalCategoriesCovered": {
                 "parking_vehicles": 10,
+                "market_presence": 11,
+                "location_workforce": 11,
                 "outdoor_special_use": 10,
-                "infrastructure": 10
+                "configuration": 4,
+                "infrastructure": 5
               },
-              "missingRoles": [
-                "hospital_adjacent_medical_environment",
-                "outpatient_clinic_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "configuration",
-                "market_presence",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "Northfield at Stapleton",
                   "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3401 Quebec St",
                   "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                   "role": "medical_office_environment",
-                  "confidence": "district_inferred"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "12375 E Cornell Ave",
                   "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Pavilion Towers",
                   "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
                   "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3250 Abilene St",
                   "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Clock Tower Square",
                   "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 }
               ]
             }
@@ -106503,21 +106315,19 @@
               "archetypes": 4,
               "activities": 3,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 1,
-              "operationalCategories": 3,
-              "operationalCharacteristics": 3,
-              "reviewRequiredRepresentativeBuildings": 9
+              "representativeRoles": 2,
+              "operationalCategories": 6,
+              "operationalCharacteristics": 11,
+              "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building operational coverage is thin."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 3,
             "evidence": [
               "4 primary districts and 4 secondary districts.",
               "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
+              "2 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "medical_office",
@@ -106540,88 +106350,94 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "medical",
-              "state": "thin",
-              "stateLabel": "Thin",
+              "state": "partial",
+              "stateLabel": "Partial",
               "buildingCount": 10,
-              "explicitCount": 0,
-              "inheritedOnlyCount": 9,
-              "reviewRequiredCount": 9,
+              "explicitCount": 10,
+              "inheritedOnlyCount": 0,
+              "reviewRequiredCount": 0,
               "rolesCovered": [
+                "outpatient_clinic_environment",
                 "medical_office_environment"
               ],
               "subtypesCovered": [
+                "outpatient_clinic",
+                "wellness",
                 "medical_office"
               ],
               "activityCoverage": [
                 "healthcare_delivery",
-                "administrative_operations",
-                "walk_in_service"
+                "walk_in_service",
+                "administrative_operations"
               ],
               "archetypeCoverage": [
-                "medical_practice",
-                "dental_practice",
                 "outpatient_clinic",
                 "wellness_practice",
+                "medical_practice",
+                "dental_practice",
                 "physical_therapy_practice"
               ],
               "operationalCharacteristicsCovered": [
                 "customer_parking",
+                "walk_in_customer_access",
+                "retail_adjacent",
+                "suburban_access",
                 "medical_use_compatible",
-                "plumbing_intensive"
+                "private_office_layout",
+                "professional_image",
+                "freeway_access",
+                "plumbing_intensive",
+                "street_visibility",
+                "neighborhood_access"
               ],
               "operationalCategoriesCovered": [
                 "parking_vehicles",
+                "market_presence",
+                "location_workforce",
                 "outdoor_special_use",
+                "configuration",
                 "infrastructure"
               ],
-              "missingRoles": [
-                "hospital_adjacent_medical_environment",
-                "outpatient_clinic_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "configuration",
-                "market_presence",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "Northfield at Stapleton",
                   "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3401 Quebec St",
                   "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
                   "role": "medical_office_environment",
-                  "confidence": "district_inferred"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "12375 E Cornell Ave",
                   "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Pavilion Towers",
                   "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
                   "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "3250 Abilene St",
                   "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "Clock Tower Square",
                   "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "medical_office_environment",
-                  "confidence": "review_required"
+                  "role": "outpatient_clinic_environment",
+                  "confidence": "editorially_supported"
                 }
               ]
             },
@@ -107140,84 +106956,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "4 primary districts and 4 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 3 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -107587,32 +107325,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:medical:representative_building_intelligence_missing",
-          "code": "representative_building_intelligence_missing",
-          "label": "Representative Building Intelligence Missing",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:retail:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
           "label": "Ecosystem Subtype Gap",
@@ -107781,58 +107493,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:medical:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:medical:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "strong",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "4 primary districts and 4 secondary districts.",
-            "10 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 3 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -108224,144 +107884,96 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Denver Medical Ecosystem Representative Building Foundation",
-        "objective": "Improve Denver commercial balance by advancing Medical from Strong toward stronger ecosystem readiness.",
-        "ecosystemId": "medical",
-        "ecosystemLabel": "Medical",
+        "title": "Denver Retail Ecosystem Subtype Expansion",
+        "objective": "Improve Denver commercial balance by advancing Retail from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "retail",
+        "ecosystemLabel": "Retail",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "strong",
-        "readinessLabel": "Strong",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Medical is Important for Denver and is currently Strong. Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "gapCode": "representative_building_intelligence_missing",
-        "priorityScore": 78,
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Retail is Important for Denver and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
+        "priorityScore": 72,
         "layers": {
-          "districts": "developed",
-          "recommendations": "developed",
-          "representativeBuildings": "developed",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "partial",
           "buildingBriefs": "strong",
-          "subtypes": "developed",
-          "archetypes": "strong",
-          "activities": "strong",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 4,
-          "secondaryDistricts": 4,
-          "recommendations": 4,
-          "representativeBuildings": 10,
+          "districts": 0,
+          "secondaryDistricts": 12,
+          "recommendations": 0,
+          "representativeBuildings": 1,
           "buildingBriefs": 1,
-          "subtypes": 5,
-          "archetypes": 4,
-          "activities": 3,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 1,
-          "operationalCategories": 3,
+          "operationalCategories": 2,
           "operationalCharacteristics": 3,
-          "reviewRequiredRepresentativeBuildings": 9
+          "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
+          "Ecosystem appears only as a secondary district expression.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin.",
           "Representative Building operational coverage is thin."
         ],
         "targetSubtypes": [
-          "medical_office",
-          "outpatient_clinic",
-          "dental",
-          "wellness",
-          "hospital_adjacent"
+          "neighborhood_retail",
+          "downtown_retail",
+          "shopping_center",
+          "power_center",
+          "lifestyle_retail"
         ],
         "targetArchetypes": [
-          "medical_practice",
-          "dental_practice",
-          "physical_therapy_practice",
+          "marketing_agency",
           "wellness_practice",
-          "outpatient_clinic"
+          "food_producer",
+          "training_center"
         ],
         "targetActivities": [
-          "healthcare_delivery",
+          "walk_in_retail",
           "walk_in_service",
-          "administrative_operations"
+          "customer_showroom",
+          "food_preparation"
         ],
         "missingRepresentativeRoles": [
-          "hospital_adjacent_medical_environment",
-          "outpatient_clinic_environment"
+          "destination_retail_environment",
+          "showroom_retail_environment"
         ],
         "missingOperationalCategories": [
           "access_loading",
           "configuration",
-          "market_presence",
+          "infrastructure",
           "location_workforce"
         ],
         "currentRepresentativeRoles": [
-          "medical_office_environment"
+          "neighborhood_service_retail"
         ],
         "currentOperationalCategories": [
-          "parking_vehicles",
-          "outdoor_special_use",
-          "infrastructure"
+          "market_presence",
+          "parking_vehicles"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "Northfield at Stapleton",
-            "path": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "3401 Quebec St",
-            "path": "/commercial-real-estate/building/CO/denver/3401-quebec-street-suite-9000/",
-            "role": "medical_office_environment",
+            "name": "100 Fillmore Place",
+            "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
+            "role": "neighborhood_service_retail",
             "confidence": "district_inferred"
-          },
-          {
-            "name": "12375 E Cornell Ave",
-            "path": "/commercial-real-estate/building/CO/aurora/12375-e-cornell-ave/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "Pavilion Towers",
-            "path": "/commercial-real-estate/building/CO/aurora/2821-2851-south-parker-road/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "3250 Abilene St",
-            "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
-          },
-          {
-            "name": "Clock Tower Square",
-            "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-            "role": "medical_office_environment",
-            "confidence": "review_required"
           }
         ],
-        "districtCandidates": [
-          {
-            "slug": "central-park",
-            "label": "Central Park",
-            "path": "/commercial-real-estate/CO/denver/central-park/"
-          },
-          {
-            "slug": "aurora",
-            "label": "Aurora",
-            "path": "/commercial-real-estate/CO/aurora/aurora/"
-          },
-          {
-            "slug": "centennial",
-            "label": "Centennial",
-            "path": "/commercial-real-estate/CO/centennial/centennial/"
-          },
-          {
-            "slug": "lakewood",
-            "label": "Lakewood",
-            "path": "/commercial-real-estate/CO/lakewood/lakewood/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -108384,7 +107996,7 @@
           "title": "Denver Office Building Brief Migration",
           "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Medical Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Important\nCurrent readiness: Strong\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: strong\n- subtypes: developed\n- archetypes: strong\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, configuration, market_presence, location_workforce\nExisting representative buildings:\n- Northfield at Stapleton (medical_office_environment); 3401 Quebec St (medical_office_environment); 12375 E Cornell Ave (medical_office_environment); Pavilion Towers (medical_office_environment); 3250 Abilene St (medical_office_environment); Clock Tower Square (medical_office_environment)\nDistrict candidates:\n- Central Park, Aurora, Centennial, Lakewood\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Retail Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: partial\n- buildingBriefs: strong\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- destination_retail_environment, showroom_retail_environment\nMissing operational categories:\n- access_loading, configuration, infrastructure, location_workforce\nExisting representative buildings:\n- 100 Fillmore Place (neighborhood_service_retail)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {

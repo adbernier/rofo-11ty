@@ -36,6 +36,20 @@ const DENVER_OFFICE_TARGET_ROLES = [
   "transit_oriented_office_environment",
 ];
 
+const DENVER_MEDICAL_TARGET_ROLES = [
+  "medical_office_environment",
+  "outpatient_clinic_environment",
+];
+
+const DENVER_MEDICAL_TARGET_OPERATIONAL_CATEGORIES = [
+  "parking_vehicles",
+  "configuration",
+  "infrastructure",
+  "market_presence",
+  "location_workforce",
+  "outdoor_special_use",
+];
+
 const VALID_CONFIDENCE = new Set([
   "verified_property_fact",
   "editorially_supported",
@@ -262,6 +276,19 @@ function validatePublisherAndPlans() {
     requireField((officeIntelligence.missingOperationalCategories || []).length === 0, "Denver: completed office foundation should not expose missing target operational categories");
     requireField((officeIntelligence.reviewRequiredCount || 0) === 0, "Denver: office foundation should not leave review-required representative buildings");
     requireField(!((denverPlan && denverPlan.recommendedEcosystemSprint && denverPlan.recommendedEcosystemSprint.title) || "").includes("Office Ecosystem Representative Building Foundation"), "Denver: completed office representative-building foundation is still recommended");
+
+    const medical = evaluationFor(denver, "medical");
+    const medicalIntelligence = (medical && medical.representativeBuildingIntelligence) || {};
+    DENVER_MEDICAL_TARGET_ROLES.forEach((roleId) => {
+      requireField((medicalIntelligence.rolesCovered || []).includes(roleId), `Denver: missing medical target role ${roleId}`);
+    });
+    DENVER_MEDICAL_TARGET_OPERATIONAL_CATEGORIES.forEach((categoryId) => {
+      requireField((medicalIntelligence.operationalCategoriesCovered || []).includes(categoryId), `Denver: missing medical target operational category ${categoryId}`);
+    });
+    requireField((medicalIntelligence.missingRoles || []).length === 0, "Denver: completed medical target role foundation should not expose missing target roles");
+    requireField((medicalIntelligence.missingOperationalCategories || []).length === 0, "Denver: completed medical foundation should not expose missing target operational categories");
+    requireField((medicalIntelligence.reviewRequiredCount || 0) === 0, "Denver: medical foundation should not leave review-required representative buildings");
+    requireField(!((denverPlan && denverPlan.recommendedEcosystemSprint && denverPlan.recommendedEcosystemSprint.title) || "").includes("Medical Ecosystem Representative Building Foundation"), "Denver: completed medical representative-building foundation is still recommended");
   }
 
   const seattle = metroById({ analysis: first }, "seattle");
