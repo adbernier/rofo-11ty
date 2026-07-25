@@ -11,9 +11,19 @@ const EXPECTED_SCORES = {
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
-  denver: { overall: 84, status: "Expansion Ready" },
+  denver: { overall: 94, status: "Distribution Ready" },
   seattle: { overall: 19, status: "In Development" },
 };
+
+const DENVER_INDUSTRIAL_TARGET_ROLES = [
+  "large_scale_distribution_environment",
+  "warehouse_distribution_environment",
+  "contractor_service_cluster",
+  "light_manufacturing_environment",
+  "last_mile_logistics_environment",
+  "flex_business_park",
+  "research_development_environment",
+];
 
 const VALID_CONFIDENCE = new Set([
   "verified_property_fact",
@@ -219,6 +229,19 @@ function validatePublisherAndPlans() {
       requireField(Boolean(evaluation && evaluation.representativeBuildingIntelligence), `${metro.metroName}: missing ${ecosystemId} Representative Building Intelligence visibility`);
     });
   });
+
+  const denver = metroById({ analysis: first }, "denver");
+  const denverPlan = planById(firstPlans, "denver");
+  if (denver) {
+    const industrial = evaluationFor(denver, "industrial_flex");
+    const intelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
+    DENVER_INDUSTRIAL_TARGET_ROLES.forEach((roleId) => {
+      requireField((intelligence.rolesCovered || []).includes(roleId), `Denver: missing industrial/flex target role ${roleId}`);
+    });
+    requireField((intelligence.missingRoles || []).length === 0, "Denver: completed industrial/flex target role foundation should not expose missing target roles");
+    requireField((intelligence.reviewRequiredCount || 0) === 0, "Denver: industrial/flex foundation should not leave review-required representative buildings");
+    requireField(!((denverPlan && denverPlan.recommendedEcosystemSprint && denverPlan.recommendedEcosystemSprint.title) || "").includes("Industrial & Flex Ecosystem Representative Building Foundation"), "Denver: completed industrial/flex representative-building foundation is still recommended");
+  }
 
   const seattle = metroById({ analysis: first }, "seattle");
   if (seattle) {

@@ -3684,10 +3684,94 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     tradeoffs: ["less suitable for executive or client-facing office users", "truck, loading, yard, and trailer parking vary by property", "less polished than Central Park or Aurora office/medical nodes"],
     strengths: ["I-70 and airport access", "Denver-side industrial utility", "warehouse and service-industrial formats", "regional labor and last-mile access"],
     representativeBuildings: [
-      { name: "10445 E 49th Ave", address: "10445 E 49th Ave", path: "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/" },
-      { name: "10500-10600 E. 54th Ave", address: "10500-10600 E. 54th Ave", path: "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/" },
-      { name: "10515-10525 E 40th Ave", address: "10515-10525 E 40th Ave", path: "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/" },
-      { name: "11551 E 49th Ave", address: "11551 E 49th Ave", path: "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/" },
+      {
+        name: "10445 E 49th Ave",
+        address: "10445 E 49th Ave",
+        path: "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["distribution", "warehouse"],
+          representativeRole: "large_scale_distribution_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "inventory_management"],
+          businessArchetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business"],
+          representativeReasons: [
+            "Represents the larger warehouse and distribution end of Northeast Denver Industrial's I-70 industrial corridor.",
+            "Helps distinguish scaled goods-movement requirements from smaller service-industrial and flex environments."
+          ],
+          tradeoffs: [
+            "Large-format distribution utility may exceed the needs of smaller service businesses.",
+            "Truck circulation, loading, clear height, and trailer parking must be validated property by property."
+          ],
+          validationFocus: ["Loading configuration", "Truck circulation", "Clear height", "Trailer parking", "Permitted uses"],
+          confidence: "editorially_supported",
+        },
+      },
+      {
+        name: "10500-10600 E. 54th Ave",
+        address: "10500-10600 E. 54th Ave",
+        path: "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "storage"],
+          businessArchetypes: ["distributor", "wholesaler", "ecommerce_fulfillment_business"],
+          representativeReasons: [
+            "Illustrates a Northeast Denver warehouse environment where storage, receiving, shipping, and I-70 access shape fit.",
+            "Provides a mid-corridor warehouse example distinct from contractor/service and office-heavy flex settings."
+          ],
+          tradeoffs: [
+            "Warehouse-oriented locations may offer less customer-facing image than Central Park, RiNo, or DTC.",
+            "Loading, suite size, truck access, and parking should be confirmed for any available space."
+          ],
+          validationFocus: ["Loading configuration", "Truck access", "Parking allocation", "Clear height", "Office percentage", "Permitted uses"],
+          confidence: "editorially_supported",
+        },
+      },
+      {
+        name: "10515-10525 E 40th Ave",
+        address: "10515-10525 E 40th Ave",
+        path: "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["contractor_service", "small_bay_industrial"],
+          representativeRole: "contractor_service_cluster",
+          businessActivities: ["service_dispatch", "equipment_storage", "vehicle_storage"],
+          businessArchetypes: ["general_contractor", "electrician", "hvac_company", "plumbing_company", "building_services_company"],
+          representativeReasons: [
+            "Represents the service-industrial side of Northeast Denver, where vehicle movement, equipment storage, and dispatch needs matter.",
+            "Helps explain why contractor and service businesses evaluate industrial corridors differently from pure warehouse users."
+          ],
+          tradeoffs: [
+            "Operational utility may matter more than customer-facing image.",
+            "Vehicle storage, yard rights, loading, and permitted uses require direct validation."
+          ],
+          validationFocus: ["Permitted uses", "Vehicle storage", "Yard rights", "Loading configuration", "Parking allocation"],
+          confidence: "editorially_supported",
+        },
+      },
+      {
+        name: "11551 E 49th Ave",
+        address: "11551 E 49th Ave",
+        path: "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["light_manufacturing", "manufacturing"],
+          representativeRole: "light_manufacturing_environment",
+          businessActivities: ["assembly", "light_manufacturing", "receiving", "shipping"],
+          businessArchetypes: ["light_manufacturer", "cabinet_shop", "furniture_maker"],
+          representativeReasons: [
+            "Uses Northeast Denver Industrial's documented manufacturing fit to represent production-oriented industrial evaluation.",
+            "Adds a light-manufacturing example distinct from distribution, contractor/service, and airport logistics environments."
+          ],
+          tradeoffs: [
+            "Manufacturing fit depends on power, ventilation, loading, code, and use approval rather than district identity alone.",
+            "Production needs should be validated before treating the environment as more than a representative example."
+          ],
+          validationFocus: ["Power capacity", "Ventilation", "Permitted manufacturing use", "Loading configuration", "Clear height", "Hazardous-material restrictions"],
+          confidence: "editorially_supported",
+        },
+      },
     ],
     questionsToValidate: ["Do you need I-70, airport, or central Denver industrial access?", "What loading, truck circulation, yard, or trailer parking is required?", "Is last-mile access more important than customer-facing image?", "Would Commerce City, Aurora, or the airport corridor better fit operations?"],
     relationships: { compareWith: [
@@ -3717,9 +3801,72 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     tradeoffs: ["less central than Northeast Denver Industrial", "less customer-facing than Aurora or Central Park", "building format and truck access need validation"],
     strengths: ["DIA/Pena Boulevard access", "airport-support business geography", "regional east metro reach", "industrial and service utility"],
     representativeBuildings: [
-      { name: "3559 N Himalaya Rd", address: "3559 N Himalaya Rd", path: "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/" },
-      { name: "4550 Kingston St", address: "4550 Kingston St", path: "/commercial-real-estate/building/CO/denver/4550-kingston-st/" },
-      { name: "4665 Paris St", address: "4665 Paris St", path: "/commercial-real-estate/building/CO/denver/4665-paris-st/" },
+      {
+        name: "3559 N Himalaya Rd",
+        address: "3559 N Himalaya Rd",
+        path: "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["last_mile_logistics", "distribution"],
+          representativeRole: "last_mile_logistics_environment",
+          businessActivities: ["shipping", "distribution", "service_dispatch"],
+          businessArchetypes: ["ecommerce_fulfillment_business", "building_services_company", "distributor"],
+          representativeReasons: [
+            "Represents the airport/Pena Boulevard corridor's last-mile and east-metro service reach.",
+            "Helps separate delivery-territory and airport-access decisions from central I-70 warehouse decisions."
+          ],
+          tradeoffs: [
+            "Airport-proximate reach can be less central for Denver customer or employee geography.",
+            "Fleet parking, delivery access, truck circulation, and loading must be validated at the property level."
+          ],
+          validationFocus: ["Delivery access", "Fleet parking", "Truck circulation", "Loading configuration", "Permitted uses"],
+          confidence: "editorially_supported",
+        },
+      },
+      {
+        name: "4550 Kingston St",
+        address: "4550 Kingston St",
+        path: "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "inventory_management"],
+          businessArchetypes: ["distributor", "wholesaler", "ecommerce_fulfillment_business"],
+          representativeReasons: [
+            "Provides an airport-corridor warehouse and distribution example for users comparing DIA/Pena access against Northeast Denver Industrial.",
+            "Shows that Denver warehouse decisions can hinge on regional access pattern as much as building size."
+          ],
+          tradeoffs: [
+            "The airport corridor may be less practical for users prioritizing central Denver customers.",
+            "Loading, clear height, trailer circulation, and parking should be verified for the specific space."
+          ],
+          validationFocus: ["Loading configuration", "Clear height", "Trailer circulation", "Parking allocation", "Permitted uses"],
+          confidence: "editorially_supported",
+        },
+      },
+      {
+        name: "4665 Paris St",
+        address: "4665 Paris St",
+        path: "/commercial-real-estate/building/CO/denver/4665-paris-st/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["flex", "research_development"],
+          representativeRole: "flex_business_park",
+          businessActivities: ["knowledge_work", "product_development", "service_dispatch", "storage"],
+          businessArchetypes: ["equipment_service_company", "research_company", "building_services_company"],
+          representativeReasons: [
+            "Represents the office/flex and airport-support side of the Pena Boulevard corridor.",
+            "Helps compare hybrid operational users against pure warehouse, contractor/service, and southeast business-park alternatives."
+          ],
+          tradeoffs: [
+            "Office-heavy flex may not provide the same storage efficiency, loading, or yard utility as traditional industrial space.",
+            "Suite mix, loading, parking, and operational permissions should be confirmed before relying on the environment."
+          ],
+          validationFocus: ["Office percentage", "Loading configuration", "Parking allocation", "Permitted uses", "Power and ventilation needs"],
+          confidence: "editorially_supported",
+        },
+      },
     ],
     questionsToValidate: ["Is airport access a core operational requirement?", "Do you need warehouse, aviation support, or service-industrial functionality?", "How important are loading, trailer parking, and truck circulation?", "Would Northeast Denver Industrial or Aurora be more practical for employees and customers?"],
     relationships: { compareWith: [
@@ -3990,7 +4137,28 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     tradeoffs: ["less brand identity than Boulder", "less concentrated corporate scale than Interlocken", "large logistics users should compare other industrial corridors"],
     strengths: ["Boulder proximity", "US-36 access", "office/flex and R&D support formats", "parking and practical business-park setting"],
     representativeBuildings: [
-      { name: "699 CTC Blvd", address: "699 CTC Blvd", path: "/commercial-real-estate/building/CO/louisville/699-ctc-blvd/" },
+      {
+        name: "699 CTC Blvd",
+        address: "699 CTC Blvd",
+        path: "/commercial-real-estate/building/CO/louisville/699-ctc-blvd/",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["research_development", "flex"],
+          representativeRole: "research_development_environment",
+          businessActivities: ["product_development", "research", "assembly", "knowledge_work"],
+          businessArchetypes: ["research_company", "light_manufacturer", "equipment_service_company"],
+          representativeReasons: [
+            "Represents Louisville/Superior's Boulder-adjacent office/flex and R&D-support environment.",
+            "Adds a northwest-corridor technical flex example that is distinct from Denver-side warehouse and service-industrial space."
+          ],
+          tradeoffs: [
+            "R&D-support fit does not automatically mean specialized lab, power, ventilation, or production infrastructure exists.",
+            "Businesses should validate systems, loading, office percentage, and allowed uses before treating the environment as operationally ready."
+          ],
+          validationFocus: ["Power capacity", "Ventilation", "Loading configuration", "Office percentage", "Permitted uses", "Research or production buildout requirements"],
+          confidence: "editorially_supported",
+        },
+      },
     ],
     questionsToValidate: ["Is Boulder proximity more important than Boulder address?", "Do you need office/flex, R&D support, or light production functionality?", "How important are parking and practical building format?", "Would Boulder, Broomfield, or Interlocken better fit talent and image?"],
     relationships: { compareWith: [

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-24T17:21:48-07:00",
-  "sourceCommit": "ebee848d7ab53a6b99f4d974a476d9f39454d9df",
+  "generatedAt": "2026-07-25T08:28:47-07:00",
+  "sourceCommit": "4acfba5a700d14613e78777213fd3f93d5078780",
   "analysis": {
-    "generatedAt": "2026-07-24T17:21:48-07:00",
+    "generatedAt": "2026-07-25T08:28:47-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
@@ -24728,10 +24728,10 @@
                 "archetypes": 5,
                 "activities": 5,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
-                "operationalCategories": 5,
-                "operationalCharacteristics": 12,
-                "reviewRequiredRepresentativeBuildings": 5
+                "representativeRoles": 7,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 22,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -24740,7 +24740,7 @@
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
                 "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "7 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -24767,16 +24767,20 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 8,
-                "explicitCount": 0,
-                "inheritedOnlyCount": 5,
-                "reviewRequiredCount": 5,
+                "explicitCount": 8,
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "large_scale_distribution_environment",
                   "warehouse_distribution_environment",
-                  "small_bay_service_environment",
-                  "contractor_service_cluster"
+                  "contractor_service_cluster",
+                  "light_manufacturing_environment",
+                  "last_mile_logistics_environment",
+                  "flex_business_park",
+                  "research_development_environment"
                 ],
                 "subtypesCovered": [
                   "distribution",
@@ -24786,6 +24790,7 @@
                   "flex",
                   "manufacturing",
                   "contractor_service",
+                  "light_manufacturing",
                   "research_development"
                 ],
                 "activityCoverage": [
@@ -24797,91 +24802,102 @@
                   "service_dispatch",
                   "light_manufacturing",
                   "equipment_storage",
-                  "vehicle_storage"
+                  "vehicle_storage",
+                  "assembly",
+                  "knowledge_work",
+                  "product_development",
+                  "research"
                 ],
                 "archetypeCoverage": [
+                  "distributor",
+                  "wholesaler",
+                  "importer",
+                  "ecommerce_fulfillment_business",
                   "general_contractor",
                   "cabinet_shop",
                   "light_manufacturer",
-                  "distributor",
-                  "ecommerce_fulfillment_business",
                   "electrician",
                   "hvac_company",
-                  "plumbing_company"
+                  "plumbing_company",
+                  "building_services_company",
+                  "furniture_maker",
+                  "equipment_service_company",
+                  "research_company"
                 ],
                 "operationalCharacteristicsCovered": [
                   "dock_high_loading",
+                  "heavy_truck_access",
                   "truck_court",
                   "high_clearance",
                   "regional_distribution_access",
-                  "grade_level_loading",
-                  "small_suite_sizes",
                   "service_vehicle_parking",
-                  "office_warehouse_mix",
-                  "freeway_access",
                   "outdoor_storage",
                   "contractor_yard",
-                  "drive_in_access"
+                  "drive_in_access",
+                  "freeway_access",
+                  "grade_level_loading",
+                  "moderate_clearance",
+                  "high_power",
+                  "assembly_compatible",
+                  "last_mile_access",
+                  "fleet_parking",
+                  "delivery_access",
+                  "flexible_suite_sizes",
+                  "high_office_percentage",
+                  "surface_parking",
+                  "fiber_connectivity",
+                  "research_compatible"
                 ],
                 "operationalCategoriesCovered": [
                   "access_loading",
                   "configuration",
                   "location_workforce",
                   "parking_vehicles",
-                  "outdoor_special_use"
+                  "outdoor_special_use",
+                  "infrastructure"
                 ],
-                "missingRoles": [
-                  "flex_business_park",
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "research_development_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
-                  "infrastructure",
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "flex_business_park",
-                "highestPriorityMissingOperationalCategory": "infrastructure",
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "role": "large_scale_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                     "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "11551 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "light_manufacturing_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "3559 N Himalaya Rd",
                     "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "last_mile_logistics_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                     "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -25538,32 +25554,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:operational_category_gap",
               "code": "operational_category_gap",
               "label": "Operational Category Gap",
@@ -25577,7 +25567,7 @@
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
                 "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "7 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -26499,121 +26489,137 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 8,
-                "explicitCount": 0,
-                "inheritedOnlyCount": 5,
-                "reviewRequiredCount": 5,
+                "explicitCount": 8,
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
+                  "large_scale_distribution_environment": 1,
                   "warehouse_distribution_environment": 2,
-                  "small_bay_service_environment": 5,
-                  "contractor_service_cluster": 1
+                  "contractor_service_cluster": 1,
+                  "light_manufacturing_environment": 1,
+                  "last_mile_logistics_environment": 1,
+                  "flex_business_park": 1,
+                  "research_development_environment": 1
                 },
                 "subtypesCovered": {
                   "distribution": 7,
                   "warehouse": 7,
-                  "last_mile_logistics": 2,
+                  "last_mile_logistics": 3,
                   "small_bay_industrial": 8,
                   "flex": 8,
                   "manufacturing": 4,
                   "contractor_service": 1,
-                  "research_development": 1
+                  "light_manufacturing": 1,
+                  "research_development": 2
                 },
                 "activityCoverage": {
                   "receiving": 8,
                   "shipping": 8,
-                  "distribution": 2,
-                  "inventory_management": 2,
+                  "distribution": 4,
+                  "inventory_management": 3,
                   "storage": 8,
                   "service_dispatch": 8,
-                  "light_manufacturing": 8,
-                  "equipment_storage": 6,
-                  "vehicle_storage": 1
+                  "light_manufacturing": 7,
+                  "equipment_storage": 1,
+                  "vehicle_storage": 1,
+                  "assembly": 3,
+                  "knowledge_work": 2,
+                  "product_development": 2,
+                  "research": 1
                 },
                 "archetypeCoverage": {
+                  "distributor": 8,
+                  "wholesaler": 3,
+                  "importer": 1,
+                  "ecommerce_fulfillment_business": 7,
                   "general_contractor": 8,
                   "cabinet_shop": 8,
                   "light_manufacturer": 8,
-                  "distributor": 8,
-                  "ecommerce_fulfillment_business": 8,
-                  "electrician": 8,
-                  "hvac_company": 8,
-                  "plumbing_company": 8
+                  "electrician": 7,
+                  "hvac_company": 5,
+                  "plumbing_company": 1,
+                  "building_services_company": 3,
+                  "furniture_maker": 1,
+                  "equipment_service_company": 2,
+                  "research_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "dock_high_loading": 2,
-                  "truck_court": 2,
-                  "high_clearance": 2,
-                  "regional_distribution_access": 2,
-                  "grade_level_loading": 5,
-                  "small_suite_sizes": 5,
-                  "service_vehicle_parking": 6,
-                  "office_warehouse_mix": 5,
-                  "freeway_access": 6,
+                  "dock_high_loading": 3,
+                  "heavy_truck_access": 1,
+                  "truck_court": 3,
+                  "high_clearance": 3,
+                  "regional_distribution_access": 3,
+                  "service_vehicle_parking": 1,
                   "outdoor_storage": 1,
                   "contractor_yard": 1,
-                  "drive_in_access": 1
+                  "drive_in_access": 1,
+                  "freeway_access": 2,
+                  "grade_level_loading": 1,
+                  "moderate_clearance": 1,
+                  "high_power": 1,
+                  "assembly_compatible": 1,
+                  "last_mile_access": 1,
+                  "fleet_parking": 1,
+                  "delivery_access": 1,
+                  "flexible_suite_sizes": 2,
+                  "high_office_percentage": 2,
+                  "surface_parking": 1,
+                  "fiber_connectivity": 1,
+                  "research_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 10,
-                  "configuration": 12,
-                  "location_workforce": 8,
-                  "parking_vehicles": 6,
-                  "outdoor_special_use": 2
+                  "access_loading": 11,
+                  "configuration": 8,
+                  "location_workforce": 5,
+                  "parking_vehicles": 3,
+                  "outdoor_special_use": 4,
+                  "infrastructure": 2
                 },
-                "missingRoles": [
-                  "flex_business_park",
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "research_development_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
-                  "infrastructure",
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "flex_business_park",
-                "highestPriorityMissingOperationalCategory": "infrastructure",
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "role": "large_scale_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                     "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "11551 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "light_manufacturing_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "3559 N Himalaya Rd",
                     "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "last_mile_logistics_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                     "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -27068,32 +27074,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -27211,7 +27191,7 @@
             "evidence": [
               "5 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
+              "7 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -27797,9 +27777,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
+          "title": "Denver Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
           "sprintFamily": "Ecosystem Representative Building Foundation",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "gapCode": "representative_role_thin",
@@ -57758,10 +57738,10 @@
                 "archetypes": 5,
                 "activities": 5,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
-                "operationalCategories": 5,
-                "operationalCharacteristics": 12,
-                "reviewRequiredRepresentativeBuildings": 5
+                "representativeRoles": 7,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 22,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -57770,7 +57750,7 @@
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
                 "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "7 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -57797,16 +57777,20 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 8,
-                "explicitCount": 0,
-                "inheritedOnlyCount": 5,
-                "reviewRequiredCount": 5,
+                "explicitCount": 8,
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "large_scale_distribution_environment",
                   "warehouse_distribution_environment",
-                  "small_bay_service_environment",
-                  "contractor_service_cluster"
+                  "contractor_service_cluster",
+                  "light_manufacturing_environment",
+                  "last_mile_logistics_environment",
+                  "flex_business_park",
+                  "research_development_environment"
                 ],
                 "subtypesCovered": [
                   "distribution",
@@ -57816,6 +57800,7 @@
                   "flex",
                   "manufacturing",
                   "contractor_service",
+                  "light_manufacturing",
                   "research_development"
                 ],
                 "activityCoverage": [
@@ -57827,91 +57812,102 @@
                   "service_dispatch",
                   "light_manufacturing",
                   "equipment_storage",
-                  "vehicle_storage"
+                  "vehicle_storage",
+                  "assembly",
+                  "knowledge_work",
+                  "product_development",
+                  "research"
                 ],
                 "archetypeCoverage": [
+                  "distributor",
+                  "wholesaler",
+                  "importer",
+                  "ecommerce_fulfillment_business",
                   "general_contractor",
                   "cabinet_shop",
                   "light_manufacturer",
-                  "distributor",
-                  "ecommerce_fulfillment_business",
                   "electrician",
                   "hvac_company",
-                  "plumbing_company"
+                  "plumbing_company",
+                  "building_services_company",
+                  "furniture_maker",
+                  "equipment_service_company",
+                  "research_company"
                 ],
                 "operationalCharacteristicsCovered": [
                   "dock_high_loading",
+                  "heavy_truck_access",
                   "truck_court",
                   "high_clearance",
                   "regional_distribution_access",
-                  "grade_level_loading",
-                  "small_suite_sizes",
                   "service_vehicle_parking",
-                  "office_warehouse_mix",
-                  "freeway_access",
                   "outdoor_storage",
                   "contractor_yard",
-                  "drive_in_access"
+                  "drive_in_access",
+                  "freeway_access",
+                  "grade_level_loading",
+                  "moderate_clearance",
+                  "high_power",
+                  "assembly_compatible",
+                  "last_mile_access",
+                  "fleet_parking",
+                  "delivery_access",
+                  "flexible_suite_sizes",
+                  "high_office_percentage",
+                  "surface_parking",
+                  "fiber_connectivity",
+                  "research_compatible"
                 ],
                 "operationalCategoriesCovered": [
                   "access_loading",
                   "configuration",
                   "location_workforce",
                   "parking_vehicles",
-                  "outdoor_special_use"
+                  "outdoor_special_use",
+                  "infrastructure"
                 ],
-                "missingRoles": [
-                  "flex_business_park",
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "research_development_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
-                  "infrastructure",
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "flex_business_park",
-                "highestPriorityMissingOperationalCategory": "infrastructure",
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "role": "large_scale_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                     "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "11551 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "light_manufacturing_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "3559 N Himalaya Rd",
                     "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "last_mile_logistics_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                     "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   }
                 ]
               },
@@ -58568,32 +58564,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 7 secondary districts.",
-                "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:operational_category_gap",
               "code": "operational_category_gap",
               "label": "Operational Category Gap",
@@ -58607,7 +58577,7 @@
               "evidence": [
                 "5 primary districts and 7 secondary districts.",
                 "8 Representative Buildings and 3 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "7 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -59529,121 +59499,137 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
-                "state": "strong",
-                "stateLabel": "Strong",
+                "state": "developed",
+                "stateLabel": "Developed",
                 "buildingCount": 8,
-                "explicitCount": 0,
-                "inheritedOnlyCount": 5,
-                "reviewRequiredCount": 5,
+                "explicitCount": 8,
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
+                  "large_scale_distribution_environment": 1,
                   "warehouse_distribution_environment": 2,
-                  "small_bay_service_environment": 5,
-                  "contractor_service_cluster": 1
+                  "contractor_service_cluster": 1,
+                  "light_manufacturing_environment": 1,
+                  "last_mile_logistics_environment": 1,
+                  "flex_business_park": 1,
+                  "research_development_environment": 1
                 },
                 "subtypesCovered": {
                   "distribution": 7,
                   "warehouse": 7,
-                  "last_mile_logistics": 2,
+                  "last_mile_logistics": 3,
                   "small_bay_industrial": 8,
                   "flex": 8,
                   "manufacturing": 4,
                   "contractor_service": 1,
-                  "research_development": 1
+                  "light_manufacturing": 1,
+                  "research_development": 2
                 },
                 "activityCoverage": {
                   "receiving": 8,
                   "shipping": 8,
-                  "distribution": 2,
-                  "inventory_management": 2,
+                  "distribution": 4,
+                  "inventory_management": 3,
                   "storage": 8,
                   "service_dispatch": 8,
-                  "light_manufacturing": 8,
-                  "equipment_storage": 6,
-                  "vehicle_storage": 1
+                  "light_manufacturing": 7,
+                  "equipment_storage": 1,
+                  "vehicle_storage": 1,
+                  "assembly": 3,
+                  "knowledge_work": 2,
+                  "product_development": 2,
+                  "research": 1
                 },
                 "archetypeCoverage": {
+                  "distributor": 8,
+                  "wholesaler": 3,
+                  "importer": 1,
+                  "ecommerce_fulfillment_business": 7,
                   "general_contractor": 8,
                   "cabinet_shop": 8,
                   "light_manufacturer": 8,
-                  "distributor": 8,
-                  "ecommerce_fulfillment_business": 8,
-                  "electrician": 8,
-                  "hvac_company": 8,
-                  "plumbing_company": 8
+                  "electrician": 7,
+                  "hvac_company": 5,
+                  "plumbing_company": 1,
+                  "building_services_company": 3,
+                  "furniture_maker": 1,
+                  "equipment_service_company": 2,
+                  "research_company": 2
                 },
                 "operationalCharacteristicsCovered": {
-                  "dock_high_loading": 2,
-                  "truck_court": 2,
-                  "high_clearance": 2,
-                  "regional_distribution_access": 2,
-                  "grade_level_loading": 5,
-                  "small_suite_sizes": 5,
-                  "service_vehicle_parking": 6,
-                  "office_warehouse_mix": 5,
-                  "freeway_access": 6,
+                  "dock_high_loading": 3,
+                  "heavy_truck_access": 1,
+                  "truck_court": 3,
+                  "high_clearance": 3,
+                  "regional_distribution_access": 3,
+                  "service_vehicle_parking": 1,
                   "outdoor_storage": 1,
                   "contractor_yard": 1,
-                  "drive_in_access": 1
+                  "drive_in_access": 1,
+                  "freeway_access": 2,
+                  "grade_level_loading": 1,
+                  "moderate_clearance": 1,
+                  "high_power": 1,
+                  "assembly_compatible": 1,
+                  "last_mile_access": 1,
+                  "fleet_parking": 1,
+                  "delivery_access": 1,
+                  "flexible_suite_sizes": 2,
+                  "high_office_percentage": 2,
+                  "surface_parking": 1,
+                  "fiber_connectivity": 1,
+                  "research_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 10,
-                  "configuration": 12,
-                  "location_workforce": 8,
-                  "parking_vehicles": 6,
-                  "outdoor_special_use": 2
+                  "access_loading": 11,
+                  "configuration": 8,
+                  "location_workforce": 5,
+                  "parking_vehicles": 3,
+                  "outdoor_special_use": 4,
+                  "infrastructure": 2
                 },
-                "missingRoles": [
-                  "flex_business_park",
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "research_development_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
-                  "infrastructure",
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "flex_business_park",
-                "highestPriorityMissingOperationalCategory": "infrastructure",
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "10445 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
-                    "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "role": "large_scale_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10500-10600 E. 54th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10500-10600-e-54th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "warehouse_distribution_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "10515-10525 E 40th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                     "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "11551 E 49th Ave",
                     "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "light_manufacturing_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "3559 N Himalaya Rd",
                     "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "last_mile_logistics_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "4550 Kingston St",
                     "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
                     "role": "warehouse_distribution_environment",
-                    "confidence": "district_inferred"
+                    "confidence": "editorially_supported"
                   }
                 ]
               }
@@ -60098,32 +60084,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -60241,7 +60201,7 @@
             "evidence": [
               "5 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
+              "7 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -60827,9 +60787,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Denver Industrial & Flex Ecosystem Representative Building Foundation",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
+          "title": "Denver Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
           "sprintFamily": "Ecosystem Representative Building Foundation",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "gapCode": "representative_role_thin",

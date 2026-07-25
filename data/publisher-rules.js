@@ -127,6 +127,19 @@ const ECOSYSTEM_READINESS = {
       specialized: { strong: 2, developed: 3 },
     },
   },
+  targetRepresentativeRoles: {
+    denver: {
+      industrial_flex: [
+        "large_scale_distribution_environment",
+        "warehouse_distribution_environment",
+        "contractor_service_cluster",
+        "light_manufacturing_environment",
+        "last_mile_logistics_environment",
+        "flex_business_park",
+        "research_development_environment",
+      ],
+    },
+  },
   concentrationThresholds: {
     representativeBuildingShare: 0.7,
     buildingBriefShare: 0.75,

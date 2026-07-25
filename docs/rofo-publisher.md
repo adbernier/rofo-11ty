@@ -165,6 +165,8 @@ Readiness states are stored as machine IDs: `developed`, `strong`, `partial`, `t
 
 Ecosystem relevance is explicitly configured per metro in `data/publisher-rules.js`. Publisher does not infer that an ecosystem is unimportant merely because current coverage is missing.
 
+Representative Building role expectations can also be calibrated per metro in `data/publisher-rules.js`. When a metro's current commercial graph supports a defined industrial/flex foundation but not every role in the global taxonomy, Publisher uses the explicit target role list to determine whether the Representative Building Foundation is complete. Unsupported roles remain available for future expansion, but they do not keep a completed foundation sprint open by default.
+
 ## Calibrated Scoring Model
 
 Publisher does not treat metro completeness as a single unconstrained percentage. A metro can be strong in recommendations and weak in public editorial coverage, or editorially rich while still missing formal recommendation QA. Publisher therefore reports three primary dimension scores.
