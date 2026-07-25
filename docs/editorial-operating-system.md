@@ -166,6 +166,52 @@ Every executable task can be opened through Commence Work. EOS does not start Co
 
 EOS v2.2.1 adds Codex Prompt Handoff to each execution packet. The packet view generates a deterministic plain-text prompt from the structured packet data, shows it in an expandable Prompt Preview, and provides a Copy Codex Prompt action that uses the browser clipboard without an API call. The prompt tells the next Codex session to read `docs/product/rofo-master-plan.md`, inspect the current repository state, verify the task against current generated data, preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries, regenerate required snapshots, run QA, and avoid broadening scope beyond the packet.
 
+EOS v2.2.2 adds the EOS Standardized Execution Report v1 protocol. Every generated Codex prompt now ends by asking for this exact report structure:
+
+```text
+EOS Standardized Execution Report v1
+Architecture Discovery
+Implementation Summary
+Files Changed
+Results
+Validation
+Remaining Limitations
+Recommended Next Highest-Leverage Improvement
+```
+
+This is the deterministic reporting protocol between EOS and AI execution systems. The goal is to avoid parsing arbitrary completion prose. EOS can treat the returned report as structured review evidence while still requiring human judgment before approval or publishing.
+
+The Execution Packet view now includes Mission Debrief. A reviewer can paste an EOS Standardized Execution Report, import it, and compare the original Mission against the Execution Report. The import runs entirely in browser state. It does not write to D1, does not call an API, does not persist lifecycle state, and does not move work into the Review Queue.
+
+Mission Debrief extracts:
+
+- Architecture Discovery
+- Implementation Summary
+- Files Changed
+- Results
+- Validation
+- Remaining Limitations
+- Recommended Next Highest-Leverage Improvement
+- Raw Report
+
+Missing sections degrade gracefully as "Not provided" rather than blocking import.
+
+Mission Review summarizes the imported evidence into:
+
+- Implementation Completed
+- Validation Status
+- Outstanding Limitations
+- Suggested Follow-up
+
+The deterministic recommendation engine returns one of:
+
+- Ready for Manual Review
+- Needs Manual QA
+- Needs Additional Engineering
+- Needs Clarification
+
+The recommendation is review guidance only. It does not infer publication, approve a task, update persistent status, or trigger an execution provider.
+
 Direct Codex launching is intentionally deferred until Rofo has a supported browser-to-Codex handoff or a locally installed mechanism that can be documented and validated. The current handoff is copy-and-paste only: after copying, run a local alias such as `eoscodex` if configured, or paste the prompt into the current Codex session.
 
 The handoff is:

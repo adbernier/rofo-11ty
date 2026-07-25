@@ -48,7 +48,7 @@ const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf
 
 if (!eos) process.exit();
 
-if (eos.eosVersion !== "editorial-operating-system-v2.2.1") {
+if (eos.eosVersion !== "editorial-operating-system-v2.2.2") {
   fail("EOS version is missing or invalid.");
 }
 
@@ -229,6 +229,7 @@ for (const promptSource of [
   "codexPromptForTask",
   "Copy Codex Prompt",
   "Prompt Preview",
+  "EOS Standardized Execution Report v1",
   "docs/product/rofo-master-plan.md",
   "Relevant architecture documentation",
   "Current health",
@@ -243,12 +244,50 @@ for (const promptSource of [
   "Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries",
   "Regenerate required snapshots",
   "Do not broaden scope beyond this execution packet",
+  "Return your final implementation using the following format exactly",
+  "Architecture Discovery",
+  "Implementation Summary",
+  "Files Changed",
+  "Results",
+  "Validation",
+  "Remaining Limitations",
+  "Recommended Next Highest-Leverage Improvement",
   "After copying, run",
   "navigator.clipboard.writeText",
   "data-copy-prompt",
   "data-codex-prompt",
 ]) {
   if (!adminSource.includes(promptSource)) fail(`/admin/eos Codex prompt handoff is missing: ${promptSource}`);
+}
+
+for (const serSource of [
+  "Mission Debrief",
+  "Paste EOS Standardized Execution Report here.",
+  "Import Report",
+  "Clear",
+  "parseStandardizedExecutionReport",
+  "missionReviewForReport",
+  "reviewRecommendationForReport",
+  "Ready for Manual Review",
+  "Needs Manual QA",
+  "Needs Additional Engineering",
+  "Needs Clarification",
+  "Implementation Completed",
+  "Validation Status",
+  "Outstanding Limitations",
+  "Suggested Follow-up",
+  "Reviewer Notes",
+  "Raw Report",
+  "data-import-ser",
+  "data-clear-ser",
+  "data-ser-input",
+  "data-mission-review",
+]) {
+  if (!adminSource.includes(serSource)) fail(`/admin/eos SER v1 support is missing: ${serSource}`);
+}
+
+if (/localStorage|sessionStorage|indexedDB|fetch\(/.test(adminSource)) {
+  fail("/admin/eos Mission Debrief must remain browser-only and must not add persistence or API calls.");
 }
 
 if (!adminSource.includes("Editorial Operating System")) {

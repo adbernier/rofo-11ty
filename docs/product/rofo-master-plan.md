@@ -255,6 +255,8 @@ It also separates operating lanes:
 
 Executable tasks use Commence Work to open a structured execution packet. The packet includes objective, reason, current health, files, dependencies, acceptance criteria, deliverables, QA commands, required review, automation level, providers, and handoff.
 
+EOS Standardized Execution Report v1 is the standard interface between EOS and AI execution systems. Codex-ready prompts should request the same structured final report every time: Architecture Discovery, Implementation Summary, Files Changed, Results, Validation, Remaining Limitations, and Recommended Next Highest-Leverage Improvement. EOS can then import the report into a Mission Debrief for human review without parsing arbitrary prose.
+
 The execution handoff is:
 
 ```text

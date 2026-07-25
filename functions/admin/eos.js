@@ -161,10 +161,30 @@ Scope constraints
 - Keep changes additive and deterministic where possible.
 
 Final response
-- Summarize the implementation.
-- List files changed.
-- Report QA and build results.
-- Call out limitations or follow-up work.
+Return your final implementation using the following format exactly.
+
+EOS Standardized Execution Report v1
+
+Architecture Discovery
+[Summarize the relevant architecture discovered before implementation.]
+
+Implementation Summary
+[Summarize what changed.]
+
+Files Changed
+[List source, generated, documentation, and QA files changed.]
+
+Results
+[Report measurable before/after results and whether the objective was satisfied.]
+
+Validation
+[List commands run and their outcomes.]
+
+Remaining Limitations
+[Call out unresolved limitations, deferred work, or review-required items.]
+
+Recommended Next Highest-Leverage Improvement
+[Name the next focused improvement suggested by the evidence.]
 `);
 }
 
@@ -311,6 +331,72 @@ function renderExecutionPacket(eos, taskId, token) {
           <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(codexPrompt)}</textarea>
         </details>
         <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
+      </section>
+      <section class="mission-debrief" aria-label="Mission Debrief">
+        <div class="section-heading">
+          <div>
+            <h3>Mission Debrief</h3>
+            <p>Paste EOS Standardized Execution Report here. Imported reports are browser state only and are not persisted.</p>
+          </div>
+        </div>
+        <div class="mission-debrief__actions">
+          <button class="secondary-button" type="button" data-import-ser>Import Report</button>
+          <button class="secondary-button secondary-button--muted" type="button" data-clear-ser>Clear</button>
+        </div>
+        <textarea class="mission-debrief__input" data-ser-input placeholder="Paste EOS Standardized Execution Report here."></textarea>
+        <div class="mission-review" data-mission-review hidden>
+          <div class="section-heading">
+            <div>
+              <h3>Mission Review</h3>
+              <p>Deterministic review generated from the imported execution report. This does not approve or publish work.</p>
+            </div>
+            <span class="automation" data-ser-recommendation>Needs Manual QA</span>
+          </div>
+          <div class="review-grid">
+            <article>
+              <span>Implementation Completed</span>
+              <strong data-review-completed>Not reported</strong>
+            </article>
+            <article>
+              <span>Validation Status</span>
+              <strong data-review-validation>Not reported</strong>
+            </article>
+            <article>
+              <span>Outstanding Limitations</span>
+              <strong data-review-limitations>Not reported</strong>
+            </article>
+            <article>
+              <span>Suggested Follow-up</span>
+              <strong data-review-followup>Not reported</strong>
+            </article>
+          </div>
+          <div class="mission-comparison">
+            <article>
+              <h3>Mission</h3>
+              <dl>
+                <div><dt>Objective</dt><dd>${escapeHtml(packet.objective)}</dd></div>
+                <div><dt>Current Health</dt><dd>${escapeHtml(packet.currentHealth)}</dd></div>
+                <div><dt>Required Review</dt><dd>${packet.requiredReview ? "Yes" : "No"}</dd></div>
+              </dl>
+              <h4>Acceptance Criteria</h4>
+              <ul>${(packet.acceptanceCriteria || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+              <h4>QA Commands</h4>
+              <ul>${(packet.qaCommands || []).map((item) => `<li><code>${escapeHtml(item)}</code></li>`).join("")}</ul>
+            </article>
+            <article>
+              <h3>Execution Report</h3>
+              <div class="ser-sections" data-ser-sections></div>
+              <details class="raw-report">
+                <summary>Raw Report</summary>
+                <pre data-ser-raw></pre>
+              </details>
+            </article>
+          </div>
+          <label class="reviewer-notes">
+            <span>Reviewer Notes</span>
+            <textarea data-reviewer-notes placeholder="Add manual review notes. Browser state only."></textarea>
+          </label>
+        </div>
       </section>
       <div class="packet-grid packet-grid--wide">
         <article>
@@ -704,16 +790,38 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .codex-handoff__top h3 { margin-bottom: 4px; }
     .copy-prompt-button { min-height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-size: 0.88rem; font-weight: 900; cursor: pointer; white-space: nowrap; }
     .copy-prompt-button:disabled { cursor: default; opacity: 0.72; }
+    .secondary-button { min-height: 38px; padding: 0 12px; border: 1px solid #bfdbfe; border-radius: 10px; background: #fff; color: #1d4ed8; font: inherit; font-size: 0.86rem; font-weight: 900; cursor: pointer; }
+    .secondary-button--muted { border-color: var(--border); color: var(--muted); }
     .terminal-guidance { margin: 8px 0 12px; font-size: 0.88rem; }
     .prompt-preview { border: 1px solid #dbeafe; border-radius: 12px; background: #fff; }
     .prompt-preview summary { padding: 10px 12px; color: #1e3a8a; font-weight: 900; cursor: pointer; }
     .prompt-preview__text { display: block; width: 100%; min-height: 360px; padding: 12px; border: 0; border-top: 1px solid #dbeafe; border-radius: 0 0 12px 12px; color: #0f172a; background: #fff; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
     .copy-status { min-height: 1.3em; margin: 8px 0 0; color: #1e3a8a; font-size: 0.86rem; font-weight: 850; }
+    .mission-debrief { margin: 16px 0; padding: 16px; border: 1px solid #dbe4ef; border-radius: 16px; background: #fff; }
+    .mission-debrief__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .mission-debrief__input, .reviewer-notes textarea { display: block; width: 100%; min-height: 180px; padding: 12px; border: 1px solid #dbe4ef; border-radius: 12px; color: #0f172a; background: #fff; font: 0.88rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
+    .mission-review { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e5edf7; }
+    .review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .review-grid article { padding: 12px; box-shadow: none; }
+    .review-grid span, .reviewer-notes span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+    .review-grid strong { display: block; margin-top: 5px; color: var(--ink); font-size: 0.92rem; }
+    .mission-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+    .mission-comparison article { box-shadow: none; }
+    .mission-comparison h4 { margin: 14px 0 6px; font-size: 0.86rem; }
+    .ser-sections { display: grid; gap: 10px; }
+    .ser-section { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: var(--soft); }
+    .ser-section h4 { margin: 0 0 6px; color: #334155; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ser-section p { margin: 0; white-space: pre-wrap; }
+    .raw-report { margin-top: 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
+    .raw-report summary { padding: 9px 10px; cursor: pointer; font-weight: 900; }
+    .raw-report pre { max-height: 240px; margin: 0; padding: 10px; overflow: auto; border-top: 1px solid #e5edf7; white-space: pre-wrap; font-size: 0.78rem; }
+    .reviewer-notes { display: grid; gap: 7px; margin-top: 12px; }
+    .reviewer-notes textarea { min-height: 110px; font-family: inherit; }
     code { padding: 2px 5px; border-radius: 6px; background: #eef2f7; color: #0f172a; font-size: 0.82rem; }
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
@@ -757,10 +865,141 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       });
     }
 
+    const SER_SECTIONS = [
+      "Architecture Discovery",
+      "Implementation Summary",
+      "Files Changed",
+      "Results",
+      "Validation",
+      "Remaining Limitations",
+      "Recommended Next Highest-Leverage Improvement",
+    ];
+
+    function normalizeSerHeading(value) {
+      return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    }
+
+    function parseStandardizedExecutionReport(rawReport) {
+      const report = String(rawReport || "").trim();
+      const sections = Object.fromEntries(SER_SECTIONS.map((section) => [section, ""]));
+      if (!report) return { recognized: false, sections, rawReport: "" };
+      const headingByNormalized = Object.fromEntries(SER_SECTIONS.map((section) => [normalizeSerHeading(section), section]));
+      let current = "";
+      for (const line of report.split(/\\r?\\n/)) {
+        const normalized = normalizeSerHeading(line);
+        if (/^eos standardized execution report v1$/i.test(line.trim())) {
+          current = "";
+          continue;
+        }
+        if (headingByNormalized[normalized]) {
+          current = headingByNormalized[normalized];
+          continue;
+        }
+        if (current) sections[current] = sections[current] + (sections[current] ? "\\n" : "") + line;
+      }
+      for (const key of Object.keys(sections)) sections[key] = sections[key].trim();
+      return {
+        recognized: /EOS Standardized Execution Report v1/i.test(report) || Object.values(sections).some(Boolean),
+        sections,
+        rawReport: report,
+      };
+    }
+
+    function reviewRecommendationForReport(parsed) {
+      const summary = parsed.sections["Implementation Summary"];
+      const results = parsed.sections.Results;
+      const validation = parsed.sections.Validation;
+      const limitations = parsed.sections["Remaining Limitations"];
+      const combined = [summary, results, validation, limitations].join("\\n").toLowerCase();
+      if (!summary && !results) return "Needs Clarification";
+      if (/\\b(failed|failure|error|errors|build failed|qa failed|not fixed|blocked)\\b/.test(combined)) return "Needs Additional Engineering";
+      if (!validation || /\\b(not run|not tested|unable to run|skipped)\\b/.test(validation.toLowerCase())) return "Needs Manual QA";
+      if (/\\b(passed|pass|succeeds|succeeded|green|errors: none)\\b/.test(validation.toLowerCase())) return "Ready for Manual Review";
+      return "Needs Manual QA";
+    }
+
+    function missionReviewForReport(parsed) {
+      const recommendation = reviewRecommendationForReport(parsed);
+      const validation = parsed.sections.Validation || "";
+      const limitations = parsed.sections["Remaining Limitations"] || "";
+      const followup = parsed.sections["Recommended Next Highest-Leverage Improvement"] || "";
+      return {
+        recommendation,
+        completed: parsed.sections["Implementation Summary"] || parsed.sections.Results ? "Reported" : "Not reported",
+        validationStatus: /\\b(failed|failure|error|errors|build failed|qa failed)\\b/i.test(validation)
+          ? "Issues reported"
+          : /\\b(passed|pass|succeeds|succeeded|green|errors: none)\\b/i.test(validation)
+            ? "Passed"
+            : validation
+              ? "Needs manual QA"
+              : "Not reported",
+        limitations: limitations ? "Reported" : "None reported",
+        followup: followup || "Not reported",
+      };
+    }
+
+    function escapeSerHtml(value) {
+      return String(value || "").replace(/[&<>"]/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+      }[char]));
+    }
+
+    function renderSerSections(container, sections) {
+      container.innerHTML = SER_SECTIONS.map((section) => {
+        const value = sections[section] || "Not provided.";
+        return '<section class="ser-section"><h4>' + escapeSerHtml(section) + '</h4><p>' + escapeSerHtml(value) + '</p></section>';
+      }).join("");
+    }
+
+    function importStandardizedExecutionReport(button) {
+      const section = button.closest(".mission-debrief");
+      if (!section) return;
+      const input = section.querySelector("[data-ser-input]");
+      const review = section.querySelector("[data-mission-review]");
+      const sectionsContainer = section.querySelector("[data-ser-sections]");
+      const raw = section.querySelector("[data-ser-raw]");
+      if (!input || !review || !sectionsContainer || !raw) return;
+      const parsed = parseStandardizedExecutionReport(input.value);
+      const missionReview = missionReviewForReport(parsed);
+      renderSerSections(sectionsContainer, parsed.sections);
+      raw.textContent = parsed.rawReport || "No report pasted.";
+      section.querySelector("[data-ser-recommendation]").textContent = parsed.recognized ? missionReview.recommendation : "Needs Clarification";
+      section.querySelector("[data-review-completed]").textContent = missionReview.completed;
+      section.querySelector("[data-review-validation]").textContent = missionReview.validationStatus;
+      section.querySelector("[data-review-limitations]").textContent = missionReview.limitations;
+      section.querySelector("[data-review-followup]").textContent = missionReview.followup;
+      review.hidden = false;
+    }
+
+    function clearStandardizedExecutionReport(button) {
+      const section = button.closest(".mission-debrief");
+      if (!section) return;
+      const input = section.querySelector("[data-ser-input]");
+      const notes = section.querySelector("[data-reviewer-notes]");
+      const review = section.querySelector("[data-mission-review]");
+      if (input) input.value = "";
+      if (notes) notes.value = "";
+      if (review) review.hidden = true;
+    }
+
     document.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-copy-prompt]");
-      if (!button) return;
-      copyEosCodexPrompt(button);
+      const copyButton = event.target.closest("[data-copy-prompt]");
+      if (copyButton) {
+        copyEosCodexPrompt(copyButton);
+        return;
+      }
+      const importButton = event.target.closest("[data-import-ser]");
+      if (importButton) {
+        importStandardizedExecutionReport(importButton);
+        return;
+      }
+      const clearButton = event.target.closest("[data-clear-ser]");
+      if (clearButton) {
+        clearStandardizedExecutionReport(clearButton);
+      }
     });
   </script>
 </head>
