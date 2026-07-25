@@ -345,30 +345,43 @@ function renderExecutionPacket(eos, taskId, token) {
         </div>
         <textarea class="mission-debrief__input" data-ser-input placeholder="Paste EOS Standardized Execution Report here."></textarea>
         <div class="mission-review" data-mission-review hidden>
-          <div class="section-heading">
+          <section class="mission-review__hero" aria-label="Mission Review">
             <div>
-              <h3>Mission Review</h3>
+              <span class="mission-kicker">Mission Review</span>
+              <h3 data-ser-recommendation>Needs Manual QA</h3>
               <p>Deterministic review generated from the imported execution report. This does not approve or publish work.</p>
             </div>
-            <span class="automation" data-ser-recommendation>Needs Manual QA</span>
-          </div>
-          <div class="review-grid">
+            <div class="mission-review__status">
+              <span>Mission Status</span>
+              <strong data-review-status>Report Imported</strong>
+            </div>
+          </section>
+          <div class="review-grid review-grid--hero">
             <article>
-              <span>Implementation Completed</span>
+              <span>Objective Satisfied</span>
               <strong data-review-completed>Not reported</strong>
             </article>
             <article>
-              <span>Validation Status</span>
+              <span>Validation Outcome</span>
               <strong data-review-validation>Not reported</strong>
+            </article>
+            <article>
+              <span>Current Constraint</span>
+              <strong data-review-followup>Not reported</strong>
             </article>
             <article>
               <span>Outstanding Limitations</span>
               <strong data-review-limitations>Not reported</strong>
             </article>
-            <article>
-              <span>Suggested Follow-up</span>
-              <strong data-review-followup>Not reported</strong>
-            </article>
+          </div>
+          <div class="improvement-panel" data-improvement-panel hidden>
+            <span>Measurable Improvement</span>
+            <div data-improvement-list></div>
+          </div>
+          <div class="recommendation-panel">
+            <h4>Why this recommendation</h4>
+            <p>EOS selected this mission from structured packet evidence:</p>
+            <ul>${(packet.reason || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
           </div>
           <div class="mission-comparison">
             <article>
@@ -797,21 +810,37 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .prompt-preview summary { padding: 10px 12px; color: #1e3a8a; font-weight: 900; cursor: pointer; }
     .prompt-preview__text { display: block; width: 100%; min-height: 360px; padding: 12px; border: 0; border-top: 1px solid #dbeafe; border-radius: 0 0 12px 12px; color: #0f172a; background: #fff; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
     .copy-status { min-height: 1.3em; margin: 8px 0 0; color: #1e3a8a; font-size: 0.86rem; font-weight: 850; }
-    .mission-debrief { margin: 16px 0; padding: 16px; border: 1px solid #dbe4ef; border-radius: 16px; background: #fff; }
+    .mission-debrief { margin: 20px 0; padding: 22px; border: 1px solid #dbe4ef; border-radius: 20px; background: #fff; box-shadow: 0 18px 48px rgba(15, 23, 42, 0.055); }
     .mission-debrief__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
     .mission-debrief__input, .reviewer-notes textarea { display: block; width: 100%; min-height: 180px; padding: 12px; border: 1px solid #dbe4ef; border-radius: 12px; color: #0f172a; background: #fff; font: 0.88rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
-    .mission-review { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e5edf7; }
-    .review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
-    .review-grid article { padding: 12px; box-shadow: none; }
+    .mission-review { margin-top: 22px; padding-top: 22px; border-top: 1px solid #e5edf7; }
+    .mission-review__hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 18px; align-items: stretch; margin-bottom: 16px; padding: 22px; border: 1px solid #c7d7ee; border-radius: 18px; background: linear-gradient(135deg, #f8fbff, #eef6ff); }
+    .mission-kicker { display: block; margin-bottom: 8px; color: #1d4ed8; font-size: 0.72rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mission-review__hero h3 { margin-bottom: 8px; color: #0f172a; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.05; }
+    .mission-review__hero p { max-width: 720px; margin-bottom: 0; }
+    .mission-review__status { display: grid; align-content: center; justify-items: start; padding: 14px; border: 1px solid #dbeafe; border-radius: 14px; background: rgba(255, 255, 255, 0.76); }
+    .mission-review__status span, .mission-kicker, .improvement-panel span { color: var(--muted); font-size: 0.72rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
+    .mission-review__status strong { display: block; margin-top: 6px; color: #0f172a; font-size: 1.02rem; }
+    .review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .review-grid article { padding: 14px; box-shadow: none; }
+    .review-grid--hero article { border-color: #dbeafe; background: #fbfdff; }
     .review-grid span, .reviewer-notes span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
     .review-grid strong { display: block; margin-top: 5px; color: var(--ink); font-size: 0.92rem; }
-    .mission-comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+    .improvement-panel, .recommendation-panel { margin: 0 0 16px; padding: 16px; border: 1px solid #e5edf7; border-radius: 16px; background: #f8fafc; }
+    .improvement-panel div { display: grid; gap: 8px; margin-top: 10px; }
+    .improvement-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 12px; background: #fff; }
+    .improvement-row strong { color: #0f172a; }
+    .improvement-row em { color: var(--muted); font-style: normal; font-weight: 850; }
+    .recommendation-panel h4 { margin: 0 0 6px; font-size: 1rem; }
+    .recommendation-panel p { margin-bottom: 8px; }
+    .recommendation-panel ul { display: grid; gap: 5px; margin: 0; padding-left: 18px; }
+    .mission-comparison { display: grid; grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); gap: 18px; align-items: start; margin-top: 20px; }
     .mission-comparison article { box-shadow: none; }
     .mission-comparison h4 { margin: 14px 0 6px; font-size: 0.86rem; }
-    .ser-sections { display: grid; gap: 10px; }
-    .ser-section { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: var(--soft); }
-    .ser-section h4 { margin: 0 0 6px; color: #334155; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
-    .ser-section p { margin: 0; white-space: pre-wrap; }
+    .ser-sections { display: grid; gap: 8px; }
+    .ser-section { border: 1px solid #e5edf7; border-radius: 13px; background: var(--soft); overflow: hidden; }
+    .ser-section summary { padding: 11px 12px; color: #334155; font-size: 0.78rem; font-weight: 950; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; }
+    .ser-section p { margin: 0; padding: 0 12px 12px; white-space: pre-wrap; }
     .raw-report { margin-top: 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
     .raw-report summary { padding: 9px 10px; cursor: pointer; font-weight: 900; }
     .raw-report pre { max-height: 240px; margin: 0; padding: 10px; overflow: auto; border-top: 1px solid #e5edf7; white-space: pre-wrap; font-size: 0.78rem; }
@@ -821,7 +850,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .mission-review__hero, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
@@ -938,6 +967,23 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       };
     }
 
+    function extractMeasurableImprovements(parsed) {
+      const source = [parsed.sections.Results, parsed.sections["Implementation Summary"]].filter(Boolean).join("\\n");
+      if (!source) return [];
+      return source.split(/\\r?\\n/)
+        .map((line) => line.replace(/^[-*]\\s*/, "").trim())
+        .filter(Boolean)
+        .map((line) => {
+          const labeledArrow = line.match(/^([^:]{3,72}):\\s*(.+?)\\s*(?:->|\\u2192|\\u2193)\\s*(.+)$/);
+          if (labeledArrow) return { label: labeledArrow[1].trim(), before: labeledArrow[2].trim(), after: labeledArrow[3].trim() };
+          const inlineArrow = line.match(/^(.{3,72}?)\\s+(\\d+%?|[A-Z][A-Za-z ]{2,40})\\s*(?:->|\\u2192|\\u2193)\\s*(\\d+%?|[A-Z][A-Za-z ]{2,60})$/);
+          if (inlineArrow) return { label: inlineArrow[1].trim(), before: inlineArrow[2].trim(), after: inlineArrow[3].trim() };
+          return null;
+        })
+        .filter(Boolean)
+        .slice(0, 4);
+    }
+
     function escapeSerHtml(value) {
       return String(value || "").replace(/[&<>"]/g, (char) => ({
         "&": "&amp;",
@@ -948,10 +994,25 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     }
 
     function renderSerSections(container, sections) {
-      container.innerHTML = SER_SECTIONS.map((section) => {
+      container.innerHTML = SER_SECTIONS.map((section, index) => {
         const value = sections[section] || "Not provided.";
-        return '<section class="ser-section"><h4>' + escapeSerHtml(section) + '</h4><p>' + escapeSerHtml(value) + '</p></section>';
+        return '<details class="ser-section"' + (index === 0 ? " open" : "") + '><summary>' + escapeSerHtml(section) + '</summary><p>' + escapeSerHtml(value) + '</p></details>';
       }).join("");
+    }
+
+    function renderMeasurableImprovements(section, improvements) {
+      const panel = section.querySelector("[data-improvement-panel]");
+      const list = section.querySelector("[data-improvement-list]");
+      if (!panel || !list) return;
+      if (!improvements.length) {
+        panel.hidden = true;
+        list.innerHTML = "";
+        return;
+      }
+      list.innerHTML = improvements.map((item) =>
+        '<div class="improvement-row"><strong>' + escapeSerHtml(item.label) + '</strong><em>' + escapeSerHtml(item.before) + '</em><span aria-hidden="true">&rarr;</span><em>' + escapeSerHtml(item.after) + '</em></div>'
+      ).join("");
+      panel.hidden = false;
     }
 
     function importStandardizedExecutionReport(button) {
@@ -964,9 +1025,12 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       if (!input || !review || !sectionsContainer || !raw) return;
       const parsed = parseStandardizedExecutionReport(input.value);
       const missionReview = missionReviewForReport(parsed);
+      const improvements = extractMeasurableImprovements(parsed);
       renderSerSections(sectionsContainer, parsed.sections);
+      renderMeasurableImprovements(section, improvements);
       raw.textContent = parsed.rawReport || "No report pasted.";
       section.querySelector("[data-ser-recommendation]").textContent = parsed.recognized ? missionReview.recommendation : "Needs Clarification";
+      section.querySelector("[data-review-status]").textContent = parsed.recognized ? "Report Imported" : "Needs Clarification";
       section.querySelector("[data-review-completed]").textContent = missionReview.completed;
       section.querySelector("[data-review-validation]").textContent = missionReview.validationStatus;
       section.querySelector("[data-review-limitations]").textContent = missionReview.limitations;
@@ -980,9 +1044,11 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       const input = section.querySelector("[data-ser-input]");
       const notes = section.querySelector("[data-reviewer-notes]");
       const review = section.querySelector("[data-mission-review]");
+      const improvements = section.querySelector("[data-improvement-panel]");
       if (input) input.value = "";
       if (notes) notes.value = "";
       if (review) review.hidden = true;
+      if (improvements) improvements.hidden = true;
     }
 
     document.addEventListener("click", (event) => {

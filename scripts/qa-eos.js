@@ -268,14 +268,22 @@ for (const serSource of [
   "parseStandardizedExecutionReport",
   "missionReviewForReport",
   "reviewRecommendationForReport",
+  "mission-review__hero",
+  "Mission Status",
   "Ready for Manual Review",
   "Needs Manual QA",
   "Needs Additional Engineering",
   "Needs Clarification",
-  "Implementation Completed",
-  "Validation Status",
+  "Objective Satisfied",
+  "Validation Outcome",
+  "Current Constraint",
   "Outstanding Limitations",
-  "Suggested Follow-up",
+  "Why this recommendation",
+  "Measurable Improvement",
+  "extractMeasurableImprovements",
+  "data-improvement-panel",
+  "details class=\"ser-section\"",
+  "data-review-status",
   "Reviewer Notes",
   "Raw Report",
   "data-import-ser",
@@ -284,6 +292,10 @@ for (const serSource of [
   "data-mission-review",
 ]) {
   if (!adminSource.includes(serSource)) fail(`/admin/eos SER v1 support is missing: ${serSource}`);
+}
+
+if (adminSource.includes("Suggested Follow-up")) {
+  fail("/admin/eos Mission Review should label the follow-up field as Current Constraint.");
 }
 
 if (/localStorage|sessionStorage|indexedDB|fetch\(/.test(adminSource)) {
