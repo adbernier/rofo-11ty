@@ -7,6 +7,12 @@ const { resolveMarketPath } = require("../js/recommendation-resolver");
 const root = path.join(__dirname, "..");
 const qaSuites = [
   {
+    key: "san-francisco",
+    metro: "San Francisco",
+    scenarioPath: path.join(root, "data/recommendation-qa/san-francisco-scenarios.json"),
+    reportPath: path.join(root, "docs/recommendation-qa/san-francisco-pilot.md"),
+  },
+  {
     key: "sacramento",
     metro: "Sacramento",
     scenarioPath: path.join(root, "data/recommendation-qa/sacramento-scenarios.json"),
@@ -39,6 +45,31 @@ const qaSuites = [
 ];
 
 const editorialReviews = {
+  "san-francisco": {
+    findings: [
+      "San Francisco scenarios produce differentiated recommendations across core San Francisco office, life-science/growth, creative office, boutique executive office, Palo Alto executive/startup, Redwood City midpoint office, North Bayshore technology campus, and Moffett Park R&D profiles.",
+      "City-level San Francisco discovery routes into distinct local market paths for Mission Bay, SoMa, and the Financial District rather than returning a generic city answer.",
+      "Peninsula and South Bay district scenarios use focused graph-backed recommendations with meaningful comparison alternatives, tradeoffs, and validation questions.",
+      "North San Jose and Stanford Research Park still have separate explainability-refinement opportunities outside this bounded mission.",
+    ],
+    calibrations: [
+      "Added node-level tradeoffs for Downtown Palo Alto, Downtown Redwood City, North Bayshore, and Moffett Park so recommendation and Location Brief explainability can surface durable commercial compromises.",
+      "Added a San Francisco QA suite to the shared recommendation runner without changing resolver scoring, recommendation rankings, or Search Profile behavior.",
+      "Registered San Francisco in the authoritative recommendation QA status data so Publisher can distinguish completed Compass QA from a missing QA record.",
+    ],
+    beforeAfter: [
+      "Before this mission, Publisher reported San Francisco recommendation readiness as missing authoritative QA status.",
+      "Before this mission, the included Peninsula and South Bay nodes had strengths and validation questions but lacked explicit node-level tradeoffs.",
+      "After this mission, San Francisco has a generated QA report and 8 passing scenarios.",
+      "No recommendation resolver changes were made; scenario outputs document current graph behavior.",
+    ],
+    remaining: [
+      "North San Jose and Stanford Research Park still need explicit node-level tradeoffs in a follow-on explainability refinement.",
+      "Retail and medical guidance remain lighter than office, technology, and life-science paths.",
+      "Representative-building and Building Profile depth can continue improving independently of Compass QA readiness.",
+    ],
+    readiness: "San Francisco is recommended as Compass Ready for V1 Location Briefs after this QA baseline. The graph supports differentiated, explainable market paths across core San Francisco, Peninsula, and South Bay scenarios, while remaining explainability refinements should continue as editorial maturity work.",
+  },
   "san-diego": {
     findings: [
       "Primary recommendations are commercially believable across downtown office, medical, executive office, life science/R&D, showroom/flex, warehouse, manufacturing, suburban headquarters, and North County professional-service scenarios.",

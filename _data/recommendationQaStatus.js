@@ -1,4 +1,13 @@
 module.exports = {
+  "san-francisco": {
+    metro: "San Francisco",
+    qaStatus: "completed",
+    lastQaDate: "2026-07-26",
+    validationStatus: "compass_ready_editorial_developing",
+    scenarioCount: 8,
+    reportPath: "/docs/recommendation-qa/san-francisco-pilot/",
+    notes: "San Francisco pilot scenarios produce differentiated, graph-backed market paths across core San Francisco office, life-science/growth, creative office, boutique executive office, Palo Alto executive/startup, Redwood City Peninsula midpoint office, North Bayshore technology campus, and Moffett Park R&D profiles. Remaining node-level explainability refinements should continue as editorial maturity work, not a Compass QA blocker.",
+  },
   sacramento: {
     metro: "Sacramento",
     qaStatus: "completed",

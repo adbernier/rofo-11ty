@@ -1,0 +1,114 @@
+[
+  {
+    "id": "sf-mission-bay-life-science-growth",
+    "name": "Mission Bay Life Science / Growth Office",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "San Francisco", "type": "city", "city": "San Francisco", "state": "CA", "slug": "san-francisco", "path": "/commercial-real-estate/CA/san-francisco/" }],
+      "locationIntent": "discover",
+      "spaceType": "Office",
+      "size": "18,000 sqft",
+      "priorities": ["life science", "growth company", "newer buildings", "Caltrain", "UCSF proximity"]
+    },
+    "expectedDirection": "Favor Mission Bay and adjacent core San Francisco alternatives when modern growth-company and life-science-adjacent signals matter.",
+    "expectedSlugs": ["mission-bay", "soma", "financial-district"]
+  },
+  {
+    "id": "sf-soma-creative-tech-office",
+    "name": "SoMa Creative Technology Office",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "San Francisco", "type": "city", "city": "San Francisco", "state": "CA", "slug": "san-francisco", "path": "/commercial-real-estate/CA/san-francisco/" }],
+      "locationIntent": "discover",
+      "spaceType": "Office",
+      "size": "10,000 sqft",
+      "priorities": ["creative office", "startup", "central San Francisco", "adaptive buildings", "restaurants"]
+    },
+    "expectedDirection": "Favor SoMa and nearby creative or growth-office alternatives over a default formal CBD path.",
+    "expectedSlugs": ["soma", "jackson-square", "mission-bay"]
+  },
+  {
+    "id": "sf-financial-district-professional-services",
+    "name": "Financial District Professional Services",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "San Francisco", "type": "city", "city": "San Francisco", "state": "CA", "slug": "san-francisco", "path": "/commercial-real-estate/CA/san-francisco/" }],
+      "locationIntent": "discover",
+      "spaceType": "Office",
+      "size": "7,500 sqft",
+      "priorities": ["law firm", "financial services", "client meetings", "transit", "traditional business address"]
+    },
+    "expectedDirection": "Favor the Financial District for formal professional-service office requirements while preserving Mission Bay and SoMa as comparison context.",
+    "expectedSlugs": ["financial-district", "mission-bay", "soma"]
+  },
+  {
+    "id": "sf-jackson-square-boutique-office",
+    "name": "Jackson Square Boutique Office",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "Jackson Square", "type": "district", "city": "San Francisco", "state": "CA", "slug": "jackson-square", "path": "/commercial-real-estate/CA/san-francisco/jackson-square/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "3,500 sqft",
+      "priorities": ["boutique office", "venture capital", "client meetings", "historic buildings", "walkability"]
+    },
+    "expectedDirection": "Treat Jackson Square as the focused boutique office path with Financial District, SoMa, and Mission Bay as alternatives.",
+    "expectedSlugs": ["jackson-square"]
+  },
+  {
+    "id": "sf-downtown-palo-alto-executive-startup",
+    "name": "Downtown Palo Alto Executive Startup",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "Downtown Palo Alto", "type": "district", "city": "Palo Alto", "state": "CA", "slug": "downtown-palo-alto", "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "5,500 sqft",
+      "priorities": ["startup", "executive access", "venture capital", "Caltrain", "walkability"]
+    },
+    "expectedDirection": "Favor Downtown Palo Alto for executive, venture, Caltrain, and walkable startup-office needs.",
+    "expectedSlugs": ["downtown-palo-alto"]
+  },
+  {
+    "id": "sf-downtown-redwood-city-peninsula-office",
+    "name": "Downtown Redwood City Peninsula Office",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "Downtown Redwood City", "type": "district", "city": "Redwood City", "state": "CA", "slug": "downtown-redwood-city", "path": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "8,000 sqft",
+      "priorities": ["Peninsula midpoint", "professional services", "Caltrain", "walkability", "balanced cost"]
+    },
+    "expectedDirection": "Favor Downtown Redwood City as a balanced Peninsula downtown alternative to Palo Alto and technology campus districts.",
+    "expectedSlugs": ["downtown-redwood-city"]
+  },
+  {
+    "id": "sf-north-bayshore-ai-research",
+    "name": "North Bayshore AI Research Team",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "North Bayshore", "type": "district", "city": "Mountain View", "state": "CA", "slug": "north-bayshore", "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/" }],
+      "locationIntent": "focus",
+      "spaceType": "R&D",
+      "size": "24,000 sqft",
+      "priorities": ["AI", "research", "large campus", "Highway 101", "engineering talent"]
+    },
+    "expectedDirection": "Favor North Bayshore for larger technology campus, AI, research, and engineering-team needs.",
+    "expectedSlugs": ["north-bayshore"]
+  },
+  {
+    "id": "sf-moffett-park-rd-engineering",
+    "name": "Moffett Park R&D Engineering User",
+    "metro": "San Francisco",
+    "profile": {
+      "locations": [{ "label": "Moffett Park", "type": "district", "city": "Sunnyvale", "state": "CA", "slug": "moffett-park", "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/" }],
+      "locationIntent": "focus",
+      "spaceType": "R&D",
+      "size": "16,000 sqft",
+      "priorities": ["engineering", "R&D", "campus-style buildings", "parking", "Highway 101"]
+    },
+    "expectedDirection": "Favor Moffett Park for R&D and engineering teams seeking practical campus-style Sunnyvale access.",
+    "expectedSlugs": ["moffett-park"]
+  }
+]

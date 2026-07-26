@@ -646,6 +646,7 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     },
     attributes: businessAttrs({ transit: "high", parking: "medium", walkability: "high", freewayAccess: "medium", executiveImage: "high", customerAccess: "high", expansionFlexibility: "low", talentAccess: "high", visibility: "high", amenities: "high", costPosition: "low", corporateEnvironment: "high" }),
     retailAttributes: retailAttrs({ footTraffic: "high", customerParking: "medium", coTenancy: "high", streetPresence: "high", daytimePopulation: "high", eveningWeekendActivity: "high", signageVisibility: "high" }),
+    tradeoffs: ["executive and venture identity can add cost without helping every operating model", "larger contiguous growth requirements may be easier in campus or business-park districts"],
     questionsToValidate: ["Is Palo Alto's executive and recruiting signal worth the cost premium?", "Do you need Caltrain access?", "How much expansion room will you need?", "Is customer parking important?"],
     relationships: { compareWith: [
       { slug: "stanford-research-park", label: "Stanford Research Park", reason: "More campus-oriented office and R&D environment.", relationshipType: "more_growth_oriented" },
@@ -688,6 +689,7 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     },
     attributes: businessAttrs({ transit: "high", parking: "medium", walkability: "high", freewayAccess: "medium", executiveImage: "medium", customerAccess: "high", expansionFlexibility: "medium", talentAccess: "high", visibility: "high", amenities: "high", costPosition: "medium", corporateEnvironment: "medium" }),
     retailAttributes: retailAttrs({ footTraffic: "high", customerParking: "medium", coTenancy: "high", streetPresence: "high", daytimePopulation: "high", eveningWeekendActivity: "high", signageVisibility: "medium" }),
+    tradeoffs: ["mid-Peninsula balance may be less distinctive than Palo Alto for executive image or North Bayshore for technology campus scale", "parking, storefront visibility, and expansion options vary by downtown block"],
     questionsToValidate: ["Is a Peninsula midpoint more useful than Palo Alto prestige?", "Do employees need Caltrain access?", "Is walkability part of recruiting?", "Would a campus market fit better than downtown?"],
     relationships: { compareWith: [
       { slug: "downtown-palo-alto", label: "Downtown Palo Alto", reason: "Stronger executive and venture ecosystem.", relationshipType: "more_executive" },
@@ -709,6 +711,7 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     },
     attributes: businessAttrs({ transit: "medium", parking: "high", walkability: "low", freewayAccess: "high", executiveImage: "high", customerAccess: "medium", expansionFlexibility: "high", talentAccess: "high", amenities: "medium", costPosition: "low", corporateEnvironment: "high" }),
     industrialAttributes: industrialAttrs({ truckAccess: "medium", highwayAccess: "high", loading: "medium", power: "medium", laborAccess: "high" }),
+    tradeoffs: ["campus scale and Highway 101 access come with a less walkable daily environment", "small client-facing or transit-first teams may find downtown Palo Alto or Redwood City easier to use"],
     questionsToValidate: ["Do you need campus scale or smaller flexible office?", "Are Highway 101 commute patterns workable?", "Is Mountain View technology ecosystem central to recruiting?", "Would North San Jose or Moffett Park offer better flexibility?"],
     relationships: { compareWith: [
       { slug: "moffett-park", label: "Moffett Park", reason: "Similar engineering/R&D business park context with a different Sunnyvale access pattern.", relationshipType: "similar" },
@@ -731,6 +734,7 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     },
     attributes: businessAttrs({ transit: "medium", parking: "high", walkability: "low", freewayAccess: "high", executiveImage: "medium", customerAccess: "medium", expansionFlexibility: "high", talentAccess: "high", amenities: "medium", costPosition: "medium", corporateEnvironment: "medium" }),
     industrialAttributes: industrialAttrs({ truckAccess: "medium", highwayAccess: "high", loading: "medium", power: "medium", zoningFlexibility: "medium", laborAccess: "high", parkingTrailer: "low" }),
+    tradeoffs: ["business-park utility may matter more than street-level identity or walkability", "technical, loading, and flex requirements still need building-level validation"],
     questionsToValidate: ["Do you need campus-style buildings and parking?", "Is Highway 101 access more important than walkability?", "Are R&D/flex functions part of the requirement?", "Would North Bayshore's ecosystem justify a higher-cost search?"],
     relationships: { compareWith: [
       { slug: "north-bayshore", label: "North Bayshore", reason: "More prominent large technology campus ecosystem.", relationshipType: "more_growth_oriented" },
