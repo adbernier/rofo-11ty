@@ -24,6 +24,10 @@ const OPERATING_LANES = new Set(["engineering", "execution_field_mode", "editori
 const PROVIDERS = new Set(["manual", "codex"]);
 const EXPANSION_WORKSTREAMS = new Set(["engineering", "field_mode", "editorial", "publishing_readiness"]);
 const EXPANSION_WORKSTREAM_LABELS = new Set(["Engineering Work", "Field Work", "Editorial Work", "Publishing Readiness"]);
+const MISSION_CLASSES = new Set(["Foundation", "Readiness Blocker", "Meaningful Depth Improvement", "Refinement", "Maintenance"]);
+const EXPECTED_IMPACTS = new Set(["High", "Medium", "Low"]);
+const ESTIMATED_EFFORTS = new Set(["Small", "Medium", "Large"]);
+const CONFIDENCE_LEVELS = new Set(["High", "Medium", "Low"]);
 
 function fail(message) {
   console.error(`EOS QA error: ${message}`);
@@ -48,7 +52,7 @@ const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf
 
 if (!eos) process.exit();
 
-if (eos.eosVersion !== "editorial-operating-system-v2.2.2") {
+if (eos.eosVersion !== "editorial-operating-system-v2.2.4") {
   fail("EOS version is missing or invalid.");
 }
 
@@ -120,6 +124,18 @@ for (const metro of eos.metros || []) {
   if (!metro.publisherConfidence || !validScore(metro.publisherConfidence.score)) {
     fail(`${metro.metroName} is missing Publisher Confidence.`);
   }
+  for (const readinessKey of ["knowledgeReadiness", "experienceReadiness"]) {
+    const readiness = metro[readinessKey];
+    if (!readiness || !readiness.label || !validScore(readiness.score) || !Array.isArray(readiness.sourceSignals) || !readiness.sourceSignals.length) {
+      fail(`${metro.metroName} is missing ${readinessKey} interpretation.`);
+    }
+  }
+  if (metro.photographyCoverage && metro.experienceReadiness && !metro.experienceReadiness.sourceSignals.includes("photography")) {
+    fail(`${metro.metroName} Experience Readiness should include photography as an experience signal.`);
+  }
+  if (metro.knowledgeReadiness && metro.knowledgeReadiness.sourceSignals.includes("photography")) {
+    fail(`${metro.metroName} Knowledge Readiness should not include photography.`);
+  }
 }
 
 if (!Array.isArray(eos.workQueue) || eos.workQueue.length === 0) {
@@ -151,6 +167,55 @@ if ((portfolioQueues.fieldModeQueue || []).some((item) => !item.remainingTargets
 if (!portfolioQueues.opportunityInventory || portfolioQueues.opportunityInventory.total < portfolioQueues.todaysRecommendedWork.length) {
   fail("Opportunity Inventory must summarize work hidden from the homepage.");
 }
+
+if (!Array.isArray(portfolioQueues.missionQueue) || portfolioQueues.missionQueue.length < portfolioQueues.todaysRecommendedWork.length) {
+  fail("EOS must expose a mission queue above raw opportunities.");
+}
+
+const missionIds = new Set();
+for (const mission of portfolioQueues.missionQueue || []) {
+  if (!mission.id || missionIds.has(mission.id)) fail(`Duplicate or missing mission id: ${mission.id}`);
+  missionIds.add(mission.id);
+  if (mission.category !== "mission") fail(`${mission.id} should use mission category.`);
+  if (!MISSION_CLASSES.has(mission.missionClass)) fail(`${mission.id} has invalid mission class: ${mission.missionClass}`);
+  if (!EXPECTED_IMPACTS.has(mission.expectedImpact)) fail(`${mission.id} has invalid expected impact: ${mission.expectedImpact}`);
+  if (!ESTIMATED_EFFORTS.has(mission.estimatedEffort)) fail(`${mission.id} has invalid estimated effort: ${mission.estimatedEffort}`);
+  if (!CONFIDENCE_LEVELS.has(mission.confidence)) fail(`${mission.id} has invalid confidence: ${mission.confidence}`);
+  if (!Array.isArray(mission.includedOpportunityIds) || !mission.includedOpportunityIds.length) fail(`${mission.id} is missing included opportunity ids.`);
+  if (!Array.isArray(mission.includedTasks) || mission.includedTasks.length !== mission.includedOpportunityIds.length) fail(`${mission.id} included task details do not match opportunity ids.`);
+  if (!Array.isArray(mission.deferredTasks)) fail(`${mission.id} must expose deferred tasks explicitly.`);
+  if (!mission.currentConstraint) fail(`${mission.id} is missing current constraint.`);
+  if (!mission.impactEffortClass || !mission.impactEffortClass.includes(mission.expectedImpact) || !mission.impactEffortClass.includes(mission.estimatedEffort)) {
+    fail(`${mission.id} is missing deterministic impact/effort class.`);
+  }
+  if (!mission.executionPacket) fail(`${mission.id} is missing bundled execution packet.`);
+  if (mission.executionPacket && (!Array.isArray(mission.executionPacket.includedTasks) || !mission.executionPacket.includedTasks.length)) {
+    fail(`${mission.id} execution packet must include bundled tasks.`);
+  }
+  if (mission.executionPacket && !Array.isArray(mission.executionPacket.deferredTasks)) {
+    fail(`${mission.id} execution packet must include deferred work.`);
+  }
+  if (mission.executionPacket && !(mission.executionPacket.qaCommands || []).includes("npm run publisher:snapshot")) {
+    fail(`${mission.id} execution packet must instruct Publisher snapshot regeneration.`);
+  }
+  if ((mission.deferredTasks || []).some((task) => task.suggestedModule && task.suggestedModule.id === "fieldMode") && !mission.rationale.join(" ").includes("Deferred")) {
+    fail(`${mission.id} should explain deferred Field Mode or out-of-scope work.`);
+  }
+}
+
+const bundledMission = (portfolioQueues.missionQueue || []).find((mission) => (mission.includedOpportunityIds || []).length > 1);
+if (!bundledMission) fail("Related micro-opportunities should form at least one bundled mission.");
+if ((bundledMission.includedTasks || []).some((task) => task.suggestedModule && task.suggestedModule.id === "fieldMode")) {
+  fail("Photography must not be silently bundled into an engineering/editorial mission.");
+}
+
+const todaysMissions = portfolioQueues.todaysRecommendedWork || [];
+if (todaysMissions.some((item) => item.category !== "mission")) {
+  fail("Today's Recommended Work should prioritize missions, not raw micro-tasks.");
+}
+const refinementBeforeFoundation = todaysMissions.findIndex((item) => item.missionClass === "Refinement") > -1
+  && todaysMissions.findIndex((item) => item.missionClass === "Foundation" || item.missionClass === "Readiness Blocker") > todaysMissions.findIndex((item) => item.missionClass === "Refinement");
+if (refinementBeforeFoundation) fail("Low-impact refinement should not outrank foundation or blocker missions in Today's Work.");
 
 const ids = new Set();
 for (const item of eos.workQueue || []) {
@@ -242,7 +307,13 @@ for (const promptSource of [
   "Inspect the current repository state",
   "Verify this task remains valid against the current generated data",
   "Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries",
-  "Regenerate required snapshots",
+  "Run npm run publisher:snapshot",
+  "Included tasks",
+  "Deferred work",
+  "Reason for bundling",
+  "Complete the coherent mission",
+  "Avoid deferred work",
+  "Verify each included opportunity remains valid",
   "Do not broaden scope beyond this execution packet",
   "Return your final implementation using the following format exactly",
   "Architecture Discovery",
@@ -258,6 +329,17 @@ for (const promptSource of [
   "data-codex-prompt",
 ]) {
   if (!adminSource.includes(promptSource)) fail(`/admin/eos Codex prompt handoff is missing: ${promptSource}`);
+}
+
+for (const adminMissionSource of [
+  "missionQueue",
+  "Why this mission",
+  "Included and deferred work",
+  "Knowledge Readiness",
+  "Experience Readiness",
+  "photography gaps do not obscure recommendation-ready knowledge foundations",
+]) {
+  if (!adminSource.includes(adminMissionSource)) fail(`/admin/eos mission presentation is missing: ${adminMissionSource}`);
 }
 
 for (const serSource of [

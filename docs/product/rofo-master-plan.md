@@ -117,6 +117,10 @@ EOS answers:
 
 EOS coordinates work. It does not replace the systems that produce the work.
 
+EOS should recommend coherent missions, not only the smallest measurable tasks. A mission is the best next focused engineering or editorial session, generated from related opportunities that share a metro, ecosystem or product layer, source files, and validation path. Raw opportunities remain visible, but daily work should avoid unnecessary cycles of prompt, snapshot, QA, build, report, review, commit, and push when several safe related gaps can be handled together.
+
+EOS should also distinguish knowledge readiness from experience readiness. Knowledge readiness reflects the Commercial Knowledge Graph, ecosystem metadata, Representative Building Intelligence, Building Profiles, recommendation QA, explainability, and validation coverage. Experience readiness reflects photography, handbook guidance, visual completeness, and public-page richness. Photography remains visible and important, but it belongs to Field Mode and should not obscure whether a metro's underlying commercial knowledge and recommendations are ready.
+
 ### Field Mode
 
 Field Mode is Rofo's Rofo-owned photography workflow. It lets an admin upload city, district, and Building Profile photos from a phone without resizing images, using Git, or rebuilding the site.

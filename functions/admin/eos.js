@@ -138,6 +138,7 @@ ${plainText(packet.currentHealth)}
 Relevant files
 ${listLines(packet.files)}
 ${dependencies}
+${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}
 Acceptance criteria
 ${listLines(packet.acceptanceCriteria)}
 
@@ -153,8 +154,11 @@ ${packet.requiredReview ? "Yes" : "No"}
 Scope constraints
 - Inspect the current repository state, git status, and relevant diff before editing.
 - Verify this task remains valid against the current generated data before changing source files.
+- Verify each included opportunity remains valid against current generated data.
+- Complete the coherent mission rather than stopping after the first sub-gap.
+- Avoid deferred work unless a deferred item is required to preserve correctness.
 - Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries.
-- Regenerate required snapshots when source data or generated analysis changes.
+- Run npm run publisher:snapshot before reporting completion so Publisher and EOS measure product impact.
 - Do not broaden scope beyond this execution packet.
 - Do not begin persistent lifecycle state, review intake, or EOS v2.3 unless explicitly requested.
 - Preserve recommendation rankings, Search Profile behavior, Publisher scoring, public URLs, and unrelated public-page behavior unless this packet explicitly requires otherwise.
@@ -175,7 +179,7 @@ Files Changed
 [List source, generated, documentation, and QA files changed.]
 
 Results
-[Report measurable before/after results and whether the objective was satisfied.]
+[Report measurable before/after results for each included task when available and whether the objective was satisfied.]
 
 Validation
 [List commands run and their outcomes.]
@@ -229,6 +233,10 @@ function renderMetroCard(metro, token) {
       <div class="signal-grid">
         ${signals.map(signalRow).join("")}
       </div>
+      <div class="readiness-split">
+        <span>Knowledge: <strong>${escapeHtml(metro.knowledgeReadiness && metro.knowledgeReadiness.label)}</strong></span>
+        <span>Experience: <strong>${escapeHtml(metro.experienceReadiness && metro.experienceReadiness.label)}</strong></span>
+      </div>
       <div class="metro-card__footer">
         <p>${escapeHtml((metro.overallEditorialHealth.rationale || [])[0] || metro.source.publisherStatus || "No immediate blocker detected.")}</p>
         <a href="/admin/eos?${tokenParam(token)}&metro=${encodeURIComponent(metro.metroId)}">View plan</a>
@@ -238,18 +246,19 @@ function renderMetroCard(metro, token) {
 }
 
 function renderWorkItem(item, token) {
+  const isMission = item.category === "mission";
   return `
     <article class="work-item">
       <div class="work-item__priority">
         ${stars(item.priorityStars)}
-        <span>${escapeHtml(item.expectedEditorialImpact)} impact</span>
+        <span>${escapeHtml(item.expectedImpact || item.expectedEditorialImpact)} impact</span>
       </div>
       <div class="work-item__body">
         <div class="work-item__heading">
           <div>
             <span class="module-pill">${escapeHtml(item.suggestedModule.label)}</span>
             <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.metroName)}${item.itemName ? ` · ${escapeHtml(item.itemName)}` : ""}</p>
+            <p>${escapeHtml(item.metroName)}${item.ecosystem ? ` · ${escapeHtml(item.ecosystem)}` : item.itemName ? ` · ${escapeHtml(item.itemName)}` : ""}</p>
           </div>
           <span class="automation">${escapeHtml(item.automationLevel.label)}</span>
         </div>
@@ -257,14 +266,30 @@ function renderWorkItem(item, token) {
           <div><dt>Effort</dt><dd>${escapeHtml(item.estimatedEffort)}</dd></div>
           <div><dt>Confidence</dt><dd>${escapeHtml(item.confidence)}</dd></div>
           <div><dt>Status</dt><dd>${escapeHtml(item.status)}</dd></div>
-          <div><dt>Category</dt><dd>${escapeHtml(item.categoryLabel)}</dd></div>
+          <div><dt>${isMission ? "Mission Class" : "Category"}</dt><dd>${escapeHtml(isMission ? item.missionClass : item.categoryLabel)}</dd></div>
         </dl>
+        ${isMission ? `
+          <div class="mission-meta">
+            <span>${escapeHtml((item.includedTasks || []).length)} included</span>
+            <span>${escapeHtml((item.deferredTasks || []).length)} deferred</span>
+            <span>${escapeHtml(item.impactEffortClass)}</span>
+          </div>
+        ` : ""}
         <div class="why">
-          <strong>Why this task</strong>
+          <strong>${isMission ? "Why this mission" : "Why this task"}</strong>
           <ul>
             ${(item.why || []).slice(0, 4).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}
           </ul>
         </div>
+        ${isMission ? `
+          <details class="mission-scope">
+            <summary>Included and deferred work</summary>
+            <h4>Included work</h4>
+            <ul>${(item.includedTasks || []).map((task) => `<li>${escapeHtml(task.title)}</li>`).join("")}</ul>
+            <h4>Deferred work</h4>
+            <ul>${(item.deferredTasks || []).map((task) => `<li>${escapeHtml(task.title)} · ${escapeHtml(task.reason)}</li>`).join("") || "<li>None specified.</li>"}</ul>
+          </details>
+        ` : ""}
         ${item.dependencies && item.dependencies.length ? `
           <p class="dependencies"><strong>Dependencies:</strong> ${escapeHtml(item.dependencies.join(", "))}</p>
         ` : ""}
@@ -276,6 +301,7 @@ function renderWorkItem(item, token) {
 
 function renderExecutionPacket(eos, taskId, token) {
   const allTasks = [
+    ...(((eos.portfolioQueues || {}).missionQueue) || []),
     ...(eos.workQueue || []),
     ...(((eos.portfolioQueues || {}).expansionQueue) || []),
   ];
@@ -301,14 +327,28 @@ function renderExecutionPacket(eos, taskId, token) {
           <ul>${(packet.reason || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
           <h3>Current Health</h3>
           <p>${escapeHtml(packet.currentHealth)}</p>
+          ${packet.currentConstraint ? `<h3>Current Constraint</h3><p>${escapeHtml(packet.currentConstraint)}</p>` : ""}
         </article>
         <article>
           <h3>Execution Providers</h3>
           <ul>${(packet.providers || []).map((provider) => `<li>${escapeHtml(provider.label)} · ${escapeHtml(provider.description)}</li>`).join("")}</ul>
           <h3>Required Review</h3>
           <p>${packet.requiredReview ? "Yes" : "No"}</p>
+          ${packet.expectedImpact ? `<h3>Mission Classification</h3><p>${escapeHtml(packet.missionClass)} · ${escapeHtml(packet.expectedImpact)} impact · ${escapeHtml(packet.estimatedEffort)} effort</p>` : ""}
         </article>
       </div>
+      ${packet.includedTasks && packet.includedTasks.length ? `
+        <div class="packet-grid">
+          <article>
+            <h3>Included Tasks</h3>
+            <ul>${packet.includedTasks.map((item) => `<li>${escapeHtml(item.title)}</li>`).join("")}</ul>
+          </article>
+          <article>
+            <h3>Deferred Work</h3>
+            <ul>${(packet.deferredTasks || []).map((item) => `<li>${escapeHtml(item.title)} · ${escapeHtml(item.reason)}</li>`).join("") || "<li>None specified.</li>"}</ul>
+          </article>
+        </div>
+      ` : ""}
       <div class="handoff-rail">
         ${(packet.handoff || []).map((step) => `
           <article>
@@ -462,6 +502,8 @@ function renderSelectedMetro(eos, metroId, token) {
           <h3>Commercial Ecosystem</h3>
           <p>${escapeHtml(metro.commercialEcosystemCoverage.label || "Not measured")}</p>
           <p>${escapeHtml((metro.commercialEcosystemCoverage.blockingEcosystems || []).length ? `Blocking ecosystems: ${metro.commercialEcosystemCoverage.blockingEcosystems.join(", ")}` : "No blocking ecosystem reported by Publisher.")}</p>
+          <h3>Knowledge vs Experience</h3>
+          <p>${escapeHtml(`Knowledge Readiness: ${metro.knowledgeReadiness.label}. Experience Readiness: ${metro.experienceReadiness.label}.`)}</p>
         </div>
       </div>
     </section>
@@ -626,7 +668,7 @@ function renderOverview(eos, token) {
       <div class="section-heading">
         <div>
           <h2>Today's Recommended Work</h2>
-          <p>EOS highlights the next 5-10 editorial items instead of exposing the full opportunity inventory.</p>
+          <p>EOS highlights coherent missions as the next focused engineering sessions instead of exposing raw micro-tasks.</p>
         </div>
         <a href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Opportunities · View All</a>
       </div>
@@ -636,7 +678,7 @@ function renderOverview(eos, token) {
     <section class="section-heading section-heading--standalone">
       <div>
         <h2>Metro Health</h2>
-        <p>Overall Editorial Health is separate from the Publisher score and combines coverage, confidence, photography, links, handbook integration, and ecosystem balance.</p>
+        <p>Overall Editorial Health is separate from the Publisher score. EOS also separates Knowledge Readiness from Experience Readiness so photography gaps do not obscure recommendation-ready knowledge foundations.</p>
       </div>
     </section>
     <section class="metro-grid">
@@ -750,6 +792,9 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .signal-row small { display: block; margin-top: 2px; font-size: 0.74rem; }
     .signal-row strong { font-size: 0.9rem; }
     .signal-row .progress { grid-column: 1 / -1; height: 6px; }
+    .readiness-split, .mission-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .readiness-split span, .mission-meta span { display: inline-flex; align-items: center; min-height: 28px; padding: 0 9px; border: 1px solid #dbeafe; border-radius: 999px; background: #eff6ff; color: #475569; font-size: 0.78rem; font-weight: 850; }
+    .readiness-split strong { color: #0f172a; margin-left: 4px; }
     .metro-card__footer { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding-top: 2px; }
     .metro-card__footer p { margin-bottom: 0; font-size: 0.88rem; }
     .queue-section, .panel { margin-top: 20px; }
@@ -769,6 +814,12 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .why { padding: 12px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5edf7; }
     .why strong { display: block; margin-bottom: 7px; }
     .why ul { display: grid; gap: 5px; margin: 0; padding-left: 18px; }
+    .mission-meta { margin: -2px 0 12px; }
+    .mission-meta span { border-color: #e5edf7; background: #fff; }
+    .mission-scope { margin-top: 10px; padding: 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
+    .mission-scope summary { color: #1e3a8a; font-size: 0.86rem; font-weight: 900; cursor: pointer; }
+    .mission-scope h4 { margin: 12px 0 6px; font-size: 0.82rem; letter-spacing: 0; }
+    .mission-scope ul { margin: 0; padding-left: 18px; }
     .dependencies { margin: 10px 0 0; font-size: 0.88rem; }
     .back-link { display: inline-flex; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 850; }
     .selected-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }

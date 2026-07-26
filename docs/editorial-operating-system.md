@@ -75,7 +75,7 @@ Future signals should plug into the health model by adding a signal and a weight
 
 EOS v2.2 separates active work from opportunity inventory.
 
-- Today's Recommended Work: 5-10 highest-priority active editorial items for existing metros.
+- Today's Recommended Work: 5-10 highest-priority missions for existing metros.
 - Opportunity Inventory: the broader measurable backlog, kept out of the homepage by default.
 - Metro Health: current operating metro health across Publisher, Compass, Field Mode planning, Handbook, and Knowledge Graph signals.
 - Expansion Projects: future metros managed as multi-stage projects.
@@ -83,6 +83,70 @@ EOS v2.2 separates active work from opportunity inventory.
 - Review: returned work from future execution providers.
 
 This keeps EOS useful as an operating system rather than a long queue report.
+
+## Mission Bundling
+
+EOS v2.2.4 introduces mission bundling. A mission is the recommended unit of focused engineering or editorial execution. It is generated from existing measurable opportunities, but it can include several related opportunities when they share the same metro, commercial ecosystem or product layer, source files, and validation path.
+
+Mission bundling is conservative. EOS does not bundle unrelated metros, unrelated systems, Field Mode photography, or broad public-template changes into a knowledge-focused mission merely to reduce queue length.
+
+Each mission contains included opportunity IDs, included task summaries, deferred tasks, objective, current constraint, expected impact, estimated effort, mission class, confidence, relevant files, dependencies, completion criteria, QA commands, and an execution packet.
+
+Raw opportunities remain visible in Opportunity Inventory. Today's Recommended Work uses missions so the operator can answer:
+
+```text
+What is the best use of the next focused engineering session?
+```
+
+instead of:
+
+```text
+What is the smallest remaining measurable gap?
+```
+
+## Impact, Effort, and Diminishing Returns
+
+EOS v2.2.4 uses deterministic mission classifications rather than hour estimates.
+
+Expected Impact:
+
+- High
+- Medium
+- Low
+
+Estimated Effort:
+
+- Small
+- Medium
+- Large
+
+Confidence:
+
+- High
+- Medium
+- Low
+
+Mission Class:
+
+- Foundation
+- Readiness Blocker
+- Meaningful Depth Improvement
+- Refinement
+- Maintenance
+
+Impact considers whether work removes a readiness blocker, closes several related gaps, improves foundation coverage, changes ecosystem readiness evidence, or only adds presentation depth. Effort considers included opportunity count, source-file overlap, system count, public-template involvement, content weight, and QA breadth.
+
+EOS also applies diminishing-returns awareness. A healthy metro with no readiness blocker can still show remaining work, but that work should generally move below foundation or blocker missions in weaker metros. This does not suppress refinements; it keeps them in Opportunity Inventory or lower-priority mission positions.
+
+## Knowledge and Experience Readiness
+
+EOS v2.2.4 adds operator-facing Knowledge Readiness and Experience Readiness labels. These are EOS interpretations generated from existing signals; they do not change Publisher scoring.
+
+Knowledge Readiness may include Knowledge Graph coverage, ecosystem metadata, Representative Building Intelligence, Building Brief depth, recommendation QA, explainability and validation coverage, and internal-link integrity.
+
+Experience Readiness may include Field Mode photography, handbook guidance, public-page richness, visual completeness, and editorial depth.
+
+Photography remains visible and actionable, but it is treated as Experience Readiness and routed to Field Mode. A photography gap should not make a recommendation-ready metro appear broadly unhealthy from a knowledge perspective.
 
 ## Queue Model
 
@@ -149,11 +213,17 @@ The current implementation generates Open, Ready, and Blocked states from determ
 
 ## Execution Model
 
-Every executable task can be opened through Commence Work. EOS does not start Codex or any other provider in v2.2. It generates a structured execution packet containing:
+Every executable mission can be opened through Commence Work. EOS does not start Codex or any other provider in v2.2. It generates a structured execution packet containing:
 
 - objective
 - reason
 - current health
+- current constraint
+- included tasks
+- deferred work
+- reason for bundling
+- expected impact
+- estimated effort classification
 - files
 - dependencies
 - acceptance criteria
@@ -164,7 +234,7 @@ Every executable task can be opened through Commence Work. EOS does not start Co
 - eligible execution providers
 - execution handoff
 
-EOS v2.2.1 adds Codex Prompt Handoff to each execution packet. The packet view generates a deterministic plain-text prompt from the structured packet data, shows it in an expandable Prompt Preview, and provides a Copy Codex Prompt action that uses the browser clipboard without an API call. The prompt tells the next Codex session to read `docs/product/rofo-master-plan.md`, inspect the current repository state, verify the task against current generated data, preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries, regenerate required snapshots, run QA, and avoid broadening scope beyond the packet.
+EOS v2.2.1 adds Codex Prompt Handoff to each execution packet. The packet view generates a deterministic plain-text prompt from the structured packet data, shows it in an expandable Prompt Preview, and provides a Copy Codex Prompt action that uses the browser clipboard without an API call. The prompt tells the next Codex session to read `docs/product/rofo-master-plan.md`, inspect the current repository state, verify the mission against current generated data, verify every included opportunity remains valid, preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries, run `npm run publisher:snapshot`, run QA, and avoid broadening scope beyond the packet or into deferred work.
 
 EOS v2.2.2 adds the EOS Standardized Execution Report v1 protocol. Every generated Codex prompt now ends by asking for this exact report structure:
 
@@ -227,7 +297,21 @@ Execution providers are intentionally abstract:
 
 Additional providers can be added by extending the provider enum and packet contract.
 
-EOS v2.2 explicitly avoids generating premature subtasks. A task expands into one execution packet, not a nested project plan.
+EOS v2.2 explicitly avoids generating premature subtasks. A mission expands into one execution packet, not a nested project plan.
+
+EOS v2.2.4 preserves that rule. A bundled mission has included tasks as scope evidence, but it does not create persistent subtasks, lifecycle state, approvals, or a mission archive.
+
+## Validation Strategy
+
+Bundled missions reduce repeated work cycles; they do not weaken validation. The normal mission prompt includes targeted QA commands based on the included opportunities, then requires:
+
+```bash
+npm run publisher:snapshot
+npm run build
+git diff --check
+```
+
+Full Publisher snapshot generation remains the supported product-analysis path. Incremental Publisher analysis is not implemented in v2.2.4 because it would require broader Publisher architecture changes. Where targeted scripts exist, EOS can list them before the final full checks, but it should not skip final snapshot/build validation for completed missions.
 
 ## Expansion Workflow
 
@@ -317,6 +401,8 @@ Keeping EOS separate prevents Publisher's score from becoming an opaque blended 
 - Field Mode summaries
 - review queue
 - execution handoff
+- mission bundling
+- Knowledge Readiness and Experience Readiness
 - task explanations
 - automation level and suggested module
 
