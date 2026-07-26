@@ -152,12 +152,18 @@ const ECOSYSTEM_READINESS = {
         "flex_business_park",
         "research_development_environment",
       ],
+      retail: [
+        "showroom_retail_environment",
+        "neighborhood_service_retail",
+      ],
     },
   },
   targetOperationalCategories: {
     denver: {
       office: ["market_presence", "configuration", "infrastructure", "parking_vehicles", "location_workforce"],
       medical: ["parking_vehicles", "configuration", "infrastructure", "market_presence", "location_workforce", "outdoor_special_use"],
+      industrial_flex: ["access_loading", "parking_vehicles", "configuration", "infrastructure", "location_workforce", "outdoor_special_use"],
+      retail: ["market_presence", "configuration", "parking_vehicles"],
     },
   },
   concentrationThresholds: {

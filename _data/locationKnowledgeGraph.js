@@ -3572,6 +3572,56 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     ] },
   },
   {
+    slug: "santa-fe-arts-district",
+    label: "Santa Fe Arts District",
+    type: "district",
+    city: "Denver",
+    state: "CO",
+    path: "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+    confidence: "high",
+    spaceTypeFit: {
+      retail: fit("good", "Good fit for neighborhood retail, service retail, galleries, showrooms, and customer-facing businesses that benefit from Santa Fe's arts-district identity and street-oriented commercial pattern.", ["walk-in retail", "service retail", "showroom users", "customer-facing brands"], ["parking, frontage, signage, and customer arrival should be validated by property"]),
+      office: fit("good", "Good fit for creative, nonprofit, professional-service, and small-team users that want an arts-district environment rather than a conventional office node.", ["creative offices", "nonprofits", "small professional services"], ["less formal than Downtown Denver or Cherry Creek"]),
+      showroom: fit("good", "Good fit for selective showroom and gallery-oriented users that benefit from visible customer-facing space and district identity.", ["showroom users", "gallery-oriented businesses", "creative retail"], ["not a substitute for deeper industrial or warehouse functionality"]),
+    },
+    attributes: businessAttrs({ transit: "medium", parking: "medium", walkability: "high", freewayAccess: "medium", executiveImage: "medium", customerAccess: "high", expansionFlexibility: "medium", talentAccess: "medium", visibility: "high", amenities: "medium", costPosition: "medium", creativeEnvironment: "high", corporateEnvironment: "low" }),
+    retailAttributes: retailAttrs({ footTraffic: "medium", customerParking: "medium", coTenancy: "medium", streetPresence: "high", daytimePopulation: "medium", eveningWeekendActivity: "high", signageVisibility: "high" }),
+    bestFor: ["neighborhood retail users", "service retail", "showroom users", "creative customer-facing businesses"],
+    tradeoffs: ["less polished than Cherry Creek", "less parking-oriented than Central Park", "frontage, signage, and customer arrival are property-specific"],
+    strengths: ["arts-district identity", "street-oriented retail pattern", "creative customer-facing context", "central Denver access"],
+    representativeBuildings: [
+      {
+        name: "1023 Santa Fe Dr",
+        address: "1023 Santa Fe Dr",
+        path: "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+        commercialIntelligence: {
+          primaryEcosystem: "retail",
+          ecosystemSubtypes: ["neighborhood_retail", "service_retail"],
+          representativeRole: "neighborhood_service_retail",
+          businessActivities: ["walk_in_retail", "walk_in_service", "customer_showroom"],
+          businessArchetypes: ["wellness_practice", "physical_therapy_practice", "marketing_agency"],
+          operationalCharacteristics: ["street_visibility", "walk_in_customer_access", "ground_floor_access", "customer_parking", "signage_opportunity"],
+          representativeReasons: [
+            "Represents Denver's street-oriented neighborhood retail and service-retail pattern outside Cherry Creek.",
+            "Helps distinguish smaller customer-facing retail environments from destination shopping-center and showroom-oriented retail examples."
+          ],
+          tradeoffs: [
+            "Arts-district identity and street presence may matter more than polished district image or auto-oriented parking.",
+            "Customer parking, signage, frontage, and permitted use should be validated before treating the space as a fit."
+          ],
+          validationFocus: ["Permitted retail or service use", "Customer parking", "Frontage and visibility", "Signage rights", "Customer arrival pattern"],
+          confidence: "editorially_supported",
+        },
+      },
+    ],
+    questionsToValidate: ["Does arts-district identity support the customer or brand strategy?", "Is street visibility more important than structured parking or polished image?", "Do customers need walk-in access, appointment access, or showroom browsing?", "Would Cherry Creek, RiNo, or Central Park better support the use case?"],
+    relationships: { compareWith: [
+      { slug: "cherry-creek", label: "Cherry Creek", reason: "More polished and established retail-adjacent customer geography.", relationshipType: "more_executive" },
+      { slug: "rino", label: "RiNo", reason: "More mixed creative and restaurant-oriented commercial alternative.", relationshipType: "more_creative" },
+      { slug: "central-park", label: "Central Park", reason: "More parking-oriented northeast Denver retail, medical, and service alternative.", relationshipType: "better_parking" },
+    ] },
+  },
+  {
     slug: "cherry-creek",
     label: "Cherry Creek",
     type: "district",

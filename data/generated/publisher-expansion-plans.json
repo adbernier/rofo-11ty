@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-25T09:39:05-07:00",
+  "generatedAt": "2026-07-25T10:23:21-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -18255,7 +18255,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27095,7 +27095,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36917,7 +36917,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45909,18 +45909,18 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
         "recommendationScore": 100,
-        "editorialScore": 84,
+        "editorialScore": 83,
         "publishingScore": 100,
         "buildingScore": 14,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
-        "ecosystemReadiness": "partial",
+        "ecosystemReadiness": "strong",
         "commercialBalance": "balanced"
       },
       "coverage": {
@@ -45929,19 +45929,19 @@
           "status": 100
         },
         "districts": {
-          "count": 19,
+          "count": 20,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 19,
+          "count": 20,
           "score": 100
         },
         "comparisons": {
           "score": 100
         },
         "representativeBuildings": {
-          "count": 42,
-          "score": 66
+          "count": 43,
+          "score": 65
         },
         "buildingBriefs": {
           "count": 6,
@@ -45971,7 +45971,7 @@
             "id": "office",
             "label": "Office",
             "districtCount": 9,
-            "secondaryDistrictCount": 8,
+            "secondaryDistrictCount": 9,
             "recommendationNodeCount": 9,
             "representativeBuildingCount": 23,
             "buildingBriefCount": 1,
@@ -46343,11 +46343,9 @@
                 "infrastructure": 2
               },
               "missingRoles": [],
-              "missingOperationalCategories": [
-                "market_presence"
-              ],
+              "missingOperationalCategories": [],
               "highestPriorityMissingRole": "",
-              "highestPriorityMissingOperationalCategory": "market_presence",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "10445 E 49th Ave",
@@ -46391,13 +46389,18 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 1,
+            "districtCount": 2,
             "secondaryDistrictCount": 11,
-            "recommendationNodeCount": 1,
-            "representativeBuildingCount": 1,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 2,
             "buildingBriefCount": 1,
             "status": "Developed",
             "districts": [
+              {
+                "slug": "santa-fe-arts-district",
+                "label": "Santa Fe Arts District",
+                "path": "/commercial-real-estate/CO/denver/santa-fe-arts-district/"
+              },
               {
                 "slug": "cherry-creek",
                 "label": "Cherry Creek",
@@ -46405,19 +46408,21 @@
               }
             ],
             "subtypes": {
+              "neighborhood_retail": 2,
+              "professional_office": 1,
+              "showroom_retail": 2,
               "lifestyle_retail": 1,
-              "service_retail": 1,
-              "showroom_retail": 1,
-              "neighborhood_retail": 1
+              "service_retail": 1
             },
             "archetypes": {
-              "wellness_practice": 1,
+              "wellness_practice": 2,
+              "marketing_agency": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
-              "walk_in_retail": 1,
-              "walk_in_service": 1,
-              "customer_showroom": 1,
+              "walk_in_retail": 2,
+              "walk_in_service": 2,
+              "customer_showroom": 2,
               "food_preparation": 1
             },
             "reviewRequiredDistricts": [],
@@ -46428,56 +46433,60 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "thin",
-              "stateLabel": "Thin",
-              "buildingCount": 1,
-              "explicitCount": 1,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "neighborhood_service_retail": 1,
                 "showroom_retail_environment": 1
               },
               "subtypesCovered": {
-                "lifestyle_retail": 1,
-                "showroom_retail": 1,
-                "service_retail": 1,
-                "neighborhood_retail": 1
+                "neighborhood_retail": 2,
+                "service_retail": 2,
+                "showroom_retail": 2,
+                "lifestyle_retail": 1
               },
               "activityCoverage": {
-                "customer_showroom": 1,
-                "walk_in_service": 1,
-                "walk_in_retail": 1,
+                "walk_in_retail": 2,
+                "walk_in_service": 2,
+                "customer_showroom": 2,
                 "food_preparation": 1
               },
               "archetypeCoverage": {
-                "wellness_practice": 1,
-                "marketing_agency": 1,
-                "physical_therapy_practice": 1,
-                "food_producer": 1,
-                "training_center": 1
+                "wellness_practice": 2,
+                "physical_therapy_practice": 2,
+                "marketing_agency": 2,
+                "food_producer": 2,
+                "training_center": 2
               },
               "operationalCharacteristicsCovered": {
+                "street_visibility": 2,
+                "walk_in_customer_access": 1,
+                "ground_floor_access": 1,
+                "customer_parking": 1,
+                "signage_opportunity": 1,
                 "showroom_frontage": 1,
-                "street_visibility": 1,
                 "destination_customer_access": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 3
+                "market_presence": 6,
+                "configuration": 1,
+                "parking_vehicles": 1
               },
-              "missingRoles": [
-                "neighborhood_service_retail",
-                "destination_retail_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
-                "configuration",
-                "infrastructure",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "1023 Santa Fe Dr",
+                  "path": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "100 Fillmore Place",
                   "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
@@ -46786,9 +46795,9 @@
           }
         },
         "subtypeCoverage": {
-          "professional_office": 14,
+          "professional_office": 15,
           "medical_office": 7,
-          "neighborhood_retail": 9,
+          "neighborhood_retail": 10,
           "downtown_office": 1,
           "executive_office": 1,
           "creative_office": 1,
@@ -46799,16 +46808,16 @@
           "warehouse": 2,
           "distribution": 2,
           "manufacturing": 1,
+          "showroom_retail": 2,
           "lifestyle_retail": 1,
-          "service_retail": 1,
-          "showroom_retail": 1
+          "service_retail": 1
         },
         "activityCoverage": {
           "knowledge_work": 9,
           "client_meetings": 7,
           "collaboration": 7,
           "administrative_operations": 11,
-          "customer_showroom": 2,
+          "customer_showroom": 3,
           "research": 1,
           "product_development": 1,
           "receiving": 5,
@@ -46816,8 +46825,8 @@
           "storage": 5,
           "service_dispatch": 5,
           "light_manufacturing": 5,
-          "walk_in_retail": 1,
-          "walk_in_service": 5,
+          "walk_in_retail": 2,
+          "walk_in_service": 6,
           "food_preparation": 1,
           "healthcare_delivery": 4
         },
@@ -46829,7 +46838,7 @@
           "startup": 8,
           "financial_services_firm": 1,
           "creative_studio": 1,
-          "marketing_agency": 1,
+          "marketing_agency": 2,
           "research_company": 1,
           "biotech_company": 1,
           "general_contractor": 5,
@@ -46837,7 +46846,7 @@
           "light_manufacturer": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "wellness_practice": 5,
+          "wellness_practice": 6,
           "physical_therapy_practice": 1,
           "medical_practice": 4,
           "dental_practice": 4,
@@ -46867,27 +46876,26 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "19 district nodes are available for the metro.",
+          "20 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 19,
+          "districtCount": 20,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
           "recommendationReadinessScore": 100
         }
       },
       "ecosystemReadiness": {
-        "state": "partial",
-        "label": "Partial",
+        "state": "strong",
+        "label": "Strong",
         "rationale": [
-          "Office, Industrial & Flex, Medical coverage is strong or developed.",
-          "Retail is Partial."
+          "Office, Industrial & Flex, Retail, Medical coverage is strong or developed."
         ],
-        "passed": false,
+        "passed": true,
         "relevantEcosystems": [
           "office",
           "industrial_flex",
@@ -46918,7 +46926,7 @@
             },
             "counts": {
               "districts": 9,
-              "secondaryDistricts": 8,
+              "secondaryDistricts": 9,
               "recommendations": 9,
               "representativeBuildings": 23,
               "buildingBriefs": 1,
@@ -46936,7 +46944,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "9 primary districts and 8 secondary districts.",
+              "9 primary districts and 9 secondary districts.",
               "23 Representative Buildings and 1 Building Briefs.",
               "8 representative roles and 5 operational categories are covered."
             ],
@@ -47245,11 +47253,9 @@
                 "infrastructure"
               ],
               "missingRoles": [],
-              "missingOperationalCategories": [
-                "market_presence"
-              ],
+              "missingOperationalCategories": [],
               "highestPriorityMissingRole": "",
-              "highestPriorityMissingOperationalCategory": "market_presence",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "10445 E 49th Ave",
@@ -47302,43 +47308,41 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "partial",
-            "readinessLabel": "Partial",
+            "readinessState": "strong",
+            "readinessLabel": "Strong",
             "layers": {
-              "districts": "strong",
-              "recommendations": "strong",
-              "representativeBuildings": "partial",
+              "districts": "developed",
+              "recommendations": "developed",
+              "representativeBuildings": "strong",
               "buildingBriefs": "strong",
               "subtypes": "developed",
-              "archetypes": "partial",
+              "archetypes": "strong",
               "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 1,
+              "districts": 2,
               "secondaryDistricts": 11,
-              "recommendations": 1,
-              "representativeBuildings": 1,
+              "recommendations": 2,
+              "representativeBuildings": 2,
               "buildingBriefs": 1,
-              "subtypes": 4,
-              "archetypes": 2,
+              "subtypes": 5,
+              "archetypes": 3,
               "activities": 4,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 1,
-              "operationalCategories": 1,
-              "operationalCharacteristics": 3,
+              "representativeRoles": 2,
+              "operationalCategories": 3,
+              "operationalCharacteristics": 7,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building operational coverage is thin."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
+              "2 primary districts and 11 secondary districts.",
+              "2 Representative Buildings and 1 Building Briefs.",
+              "2 representative roles and 3 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -47361,56 +47365,60 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "thin",
-              "stateLabel": "Thin",
-              "buildingCount": 1,
-              "explicitCount": 1,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
+                "neighborhood_service_retail",
                 "showroom_retail_environment"
               ],
               "subtypesCovered": [
-                "lifestyle_retail",
-                "showroom_retail",
+                "neighborhood_retail",
                 "service_retail",
-                "neighborhood_retail"
+                "showroom_retail",
+                "lifestyle_retail"
               ],
               "activityCoverage": [
-                "customer_showroom",
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
                 "food_preparation"
               ],
               "archetypeCoverage": [
                 "wellness_practice",
-                "marketing_agency",
                 "physical_therapy_practice",
+                "marketing_agency",
                 "food_producer",
                 "training_center"
               ],
               "operationalCharacteristicsCovered": [
-                "showroom_frontage",
                 "street_visibility",
+                "walk_in_customer_access",
+                "ground_floor_access",
+                "customer_parking",
+                "signage_opportunity",
+                "showroom_frontage",
                 "destination_customer_access"
               ],
               "operationalCategoriesCovered": [
-                "market_presence"
-              ],
-              "missingRoles": [
-                "neighborhood_service_retail",
-                "destination_retail_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
+                "market_presence",
                 "configuration",
-                "infrastructure",
-                "location_workforce"
+                "parking_vehicles"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "1023 Santa Fe Dr",
+                  "path": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "100 Fillmore Place",
                   "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
@@ -47887,110 +47895,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:industrial_flex:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "7 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -48345,7 +48249,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.55,
+          "representativeBuildingShare": 0.53,
           "buildingBriefShare": 0.5,
           "warnings": []
         }
@@ -48354,63 +48258,11 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
-        "representativeBuildingShare": 0.55,
+        "representativeBuildingShare": 0.53,
         "buildingBriefShare": 0.5,
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:retail:representative_building_intelligence_missing",
-          "code": "representative_building_intelligence_missing",
-          "label": "Representative Building Intelligence Missing",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:industrial_flex:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "5 primary districts and 7 secondary districts.",
-            "8 Representative Buildings and 3 Building Briefs.",
-            "7 representative roles and 6 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:life_science:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
@@ -48502,58 +48354,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -48815,98 +48615,84 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Denver Retail Ecosystem Representative Building Foundation",
-        "objective": "Improve Denver commercial balance by advancing Retail from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "retail",
-        "ecosystemLabel": "Retail",
-        "relevance": "important",
-        "relevanceLabel": "Important",
+        "title": "Denver Life Science Ecosystem Subtype Expansion",
+        "objective": "Improve Denver commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "life_science",
+        "ecosystemLabel": "Life Science",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
         "readinessState": "partial",
         "readinessLabel": "Partial",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Retail is Important for Denver and is currently Partial. Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "gapCode": "representative_building_intelligence_missing",
-        "priorityScore": 72,
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Life Science is Secondary for Denver and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
+        "priorityScore": 63,
         "layers": {
-          "districts": "strong",
-          "recommendations": "strong",
-          "representativeBuildings": "partial",
-          "buildingBriefs": "strong",
-          "subtypes": "developed",
-          "archetypes": "partial",
-          "activities": "strong",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "missing",
+          "buildingBriefs": "missing",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 1,
-          "secondaryDistricts": 11,
-          "recommendations": 1,
-          "representativeBuildings": 1,
-          "buildingBriefs": 1,
-          "subtypes": 4,
-          "archetypes": 2,
-          "activities": 4,
+          "districts": 0,
+          "secondaryDistricts": 1,
+          "recommendations": 0,
+          "representativeBuildings": 0,
+          "buildingBriefs": 0,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 1,
-          "operationalCategories": 1,
-          "operationalCharacteristics": 3,
+          "representativeRoles": 0,
+          "operationalCategories": 0,
+          "operationalCharacteristics": 0,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building operational coverage is thin."
+          "Ecosystem appears only as a secondary district expression.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin."
         ],
         "targetSubtypes": [
-          "neighborhood_retail",
-          "downtown_retail",
-          "shopping_center",
-          "power_center",
-          "lifestyle_retail"
+          "research_lab",
+          "wet_lab",
+          "life_science_office",
+          "biotech_research",
+          "innovation_campus"
         ],
         "targetArchetypes": [
-          "marketing_agency",
-          "wellness_practice",
-          "food_producer",
-          "training_center"
+          "research_company",
+          "biotech_company",
+          "startup"
         ],
         "targetActivities": [
-          "walk_in_retail",
-          "walk_in_service",
-          "customer_showroom",
-          "food_preparation"
+          "research",
+          "product_development",
+          "collaboration",
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "neighborhood_service_retail",
-          "destination_retail_environment"
+          "research_lab_environment",
+          "life_science_campus",
+          "biotech_research_environment"
         ],
         "missingOperationalCategories": [
-          "access_loading",
-          "parking_vehicles",
           "configuration",
           "infrastructure",
-          "location_workforce"
+          "market_presence",
+          "location_workforce",
+          "outdoor_special_use"
         ],
-        "currentRepresentativeRoles": [
-          "showroom_retail_environment"
-        ],
-        "currentOperationalCategories": [
-          "market_presence"
-        ],
-        "existingRepresentativeBuildings": [
-          {
-            "name": "100 Fillmore Place",
-            "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-            "role": "showroom_retail_environment",
-            "confidence": "editorially_supported"
-          }
-        ],
-        "districtCandidates": [
-          {
-            "slug": "cherry-creek",
-            "label": "Cherry Creek",
-            "path": "/commercial-real-estate/CO/denver/cherry-creek/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "currentRepresentativeRoles": [],
+        "currentOperationalCategories": [],
+        "existingRepresentativeBuildings": [],
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -48929,7 +48715,7 @@
           "title": "Denver Office Building Brief Migration",
           "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Retail Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: strong\n- subtypes: developed\n- archetypes: partial\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- neighborhood_service_retail, destination_retail_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, location_workforce\nExisting representative buildings:\n- 100 Fillmore Place (showroom_retail_environment)\nDistrict candidates:\n- Cherry Creek\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Life Science Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Secondary\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -48951,6 +48737,55 @@
           "description": "Building Brief is missing: nearbyDistricts.",
           "reason": "Building Brief is missing: nearbyDistricts.",
           "suggestedNextAction": "Complete the missing editorial fields.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1023 Santa Fe Dr",
+          "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "confidence": "Ready",
           "automationCandidate": true,
           "priorityFactors": {
@@ -51284,6 +51119,147 @@
           "itemName": "Northeast Denver Industrial -> Aurora",
           "sourceId": "northeast-denver-industrial:aurora",
           "publicUrl": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-central-park",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Central Park",
+          "sourceId": "santa-fe-arts-district:central-park",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-cherry-creek",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Cherry Creek",
+          "sourceId": "santa-fe-arts-district:cherry-creek",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-rino",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> RiNo",
+          "sourceId": "santa-fe-arts-district:rino",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -51416,6 +51392,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1023 Santa Fe Dr",
+          "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
           "metroId": "denver",
           "metroName": "Denver",
@@ -53752,6 +53777,147 @@
           }
         },
         {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-central-park",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Central Park",
+          "sourceId": "santa-fe-arts-district:central-park",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-cherry-creek",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Cherry Creek",
+          "sourceId": "santa-fe-arts-district:cherry-creek",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-rino",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> RiNo",
+          "sourceId": "santa-fe-arts-district:rino",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
           "id": "gap:denver:comparisonGraph:one-way comparison:westminster-boulder",
           "metroId": "denver",
           "metroName": "Denver",
@@ -53804,8 +53970,25 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
+          {
+            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "1023 Santa Fe Dr",
+            "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+            "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+            "priorityScore": 80,
+            "confidence": "Ready",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
             "category": "buildingBriefs",
@@ -53916,23 +54099,6 @@
             "itemName": "16 Market Square",
             "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1600-broadway",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "1600 Broadway",
-            "sourceId": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/1600-broadway/",
             "priorityScore": 80,
             "confidence": "Ready",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -54116,7 +54282,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -54124,8 +54290,25 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 80,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
               "category": "buildingBriefs",
@@ -54236,23 +54419,6 @@
               "itemName": "16 Market Square",
               "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
               "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1600-broadway",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1600 Broadway",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1600-broadway/",
               "priorityScore": 80,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -54436,14 +54602,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
@@ -54656,8 +54822,25 @@
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 87,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
               "category": "buildingBriefs",
@@ -54802,23 +54985,6 @@
               "itemName": "1615 Platte St",
               "sourceId": "/commercial-real-estate/building/CO/denver/1615-platte-st/",
               "publicUrl": "/commercial-real-estate/building/CO/denver/1615-platte-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1700-lincoln-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1700 Lincoln St",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -54972,14 +55138,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St, 1700 Lincoln St\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1700 Lincoln St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
@@ -55047,6 +55213,23 @@
               "unlocks": [
                 "Building Brief migration",
                 "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 91,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -55201,23 +55384,6 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1700-lincoln-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1700 Lincoln St",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
@@ -55276,7 +55442,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St, 1700 Lincoln St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1700 Lincoln St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -55285,7 +55451,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "In Development",
         "overallScore": 19,
@@ -58748,7 +58914,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -76948,7 +77114,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -85788,7 +85954,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -95610,7 +95776,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104602,18 +104768,18 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-25T09:39:05-07:00",
+      "generatedAt": "2026-07-25T10:23:21-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
         "recommendationScore": 100,
-        "editorialScore": 84,
+        "editorialScore": 83,
         "publishingScore": 100,
         "buildingScore": 14,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
-        "ecosystemReadiness": "partial",
+        "ecosystemReadiness": "strong",
         "commercialBalance": "balanced"
       },
       "coverage": {
@@ -104622,19 +104788,19 @@
           "status": 100
         },
         "districts": {
-          "count": 19,
+          "count": 20,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 19,
+          "count": 20,
           "score": 100
         },
         "comparisons": {
           "score": 100
         },
         "representativeBuildings": {
-          "count": 42,
-          "score": 66
+          "count": 43,
+          "score": 65
         },
         "buildingBriefs": {
           "count": 6,
@@ -104664,7 +104830,7 @@
             "id": "office",
             "label": "Office",
             "districtCount": 9,
-            "secondaryDistrictCount": 8,
+            "secondaryDistrictCount": 9,
             "recommendationNodeCount": 9,
             "representativeBuildingCount": 23,
             "buildingBriefCount": 1,
@@ -105036,11 +105202,9 @@
                 "infrastructure": 2
               },
               "missingRoles": [],
-              "missingOperationalCategories": [
-                "market_presence"
-              ],
+              "missingOperationalCategories": [],
               "highestPriorityMissingRole": "",
-              "highestPriorityMissingOperationalCategory": "market_presence",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "10445 E 49th Ave",
@@ -105084,13 +105248,18 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 1,
+            "districtCount": 2,
             "secondaryDistrictCount": 11,
-            "recommendationNodeCount": 1,
-            "representativeBuildingCount": 1,
+            "recommendationNodeCount": 2,
+            "representativeBuildingCount": 2,
             "buildingBriefCount": 1,
             "status": "Developed",
             "districts": [
+              {
+                "slug": "santa-fe-arts-district",
+                "label": "Santa Fe Arts District",
+                "path": "/commercial-real-estate/CO/denver/santa-fe-arts-district/"
+              },
               {
                 "slug": "cherry-creek",
                 "label": "Cherry Creek",
@@ -105098,19 +105267,21 @@
               }
             ],
             "subtypes": {
+              "neighborhood_retail": 2,
+              "professional_office": 1,
+              "showroom_retail": 2,
               "lifestyle_retail": 1,
-              "service_retail": 1,
-              "showroom_retail": 1,
-              "neighborhood_retail": 1
+              "service_retail": 1
             },
             "archetypes": {
-              "wellness_practice": 1,
+              "wellness_practice": 2,
+              "marketing_agency": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
-              "walk_in_retail": 1,
-              "walk_in_service": 1,
-              "customer_showroom": 1,
+              "walk_in_retail": 2,
+              "walk_in_service": 2,
+              "customer_showroom": 2,
               "food_preparation": 1
             },
             "reviewRequiredDistricts": [],
@@ -105121,56 +105292,60 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "thin",
-              "stateLabel": "Thin",
-              "buildingCount": 1,
-              "explicitCount": 1,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "neighborhood_service_retail": 1,
                 "showroom_retail_environment": 1
               },
               "subtypesCovered": {
-                "lifestyle_retail": 1,
-                "showroom_retail": 1,
-                "service_retail": 1,
-                "neighborhood_retail": 1
+                "neighborhood_retail": 2,
+                "service_retail": 2,
+                "showroom_retail": 2,
+                "lifestyle_retail": 1
               },
               "activityCoverage": {
-                "customer_showroom": 1,
-                "walk_in_service": 1,
-                "walk_in_retail": 1,
+                "walk_in_retail": 2,
+                "walk_in_service": 2,
+                "customer_showroom": 2,
                 "food_preparation": 1
               },
               "archetypeCoverage": {
-                "wellness_practice": 1,
-                "marketing_agency": 1,
-                "physical_therapy_practice": 1,
-                "food_producer": 1,
-                "training_center": 1
+                "wellness_practice": 2,
+                "physical_therapy_practice": 2,
+                "marketing_agency": 2,
+                "food_producer": 2,
+                "training_center": 2
               },
               "operationalCharacteristicsCovered": {
+                "street_visibility": 2,
+                "walk_in_customer_access": 1,
+                "ground_floor_access": 1,
+                "customer_parking": 1,
+                "signage_opportunity": 1,
                 "showroom_frontage": 1,
-                "street_visibility": 1,
                 "destination_customer_access": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 3
+                "market_presence": 6,
+                "configuration": 1,
+                "parking_vehicles": 1
               },
-              "missingRoles": [
-                "neighborhood_service_retail",
-                "destination_retail_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
-                "configuration",
-                "infrastructure",
-                "location_workforce"
-              ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "1023 Santa Fe Dr",
+                  "path": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "100 Fillmore Place",
                   "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
@@ -105479,9 +105654,9 @@
           }
         },
         "subtypeCoverage": {
-          "professional_office": 14,
+          "professional_office": 15,
           "medical_office": 7,
-          "neighborhood_retail": 9,
+          "neighborhood_retail": 10,
           "downtown_office": 1,
           "executive_office": 1,
           "creative_office": 1,
@@ -105492,16 +105667,16 @@
           "warehouse": 2,
           "distribution": 2,
           "manufacturing": 1,
+          "showroom_retail": 2,
           "lifestyle_retail": 1,
-          "service_retail": 1,
-          "showroom_retail": 1
+          "service_retail": 1
         },
         "activityCoverage": {
           "knowledge_work": 9,
           "client_meetings": 7,
           "collaboration": 7,
           "administrative_operations": 11,
-          "customer_showroom": 2,
+          "customer_showroom": 3,
           "research": 1,
           "product_development": 1,
           "receiving": 5,
@@ -105509,8 +105684,8 @@
           "storage": 5,
           "service_dispatch": 5,
           "light_manufacturing": 5,
-          "walk_in_retail": 1,
-          "walk_in_service": 5,
+          "walk_in_retail": 2,
+          "walk_in_service": 6,
           "food_preparation": 1,
           "healthcare_delivery": 4
         },
@@ -105522,7 +105697,7 @@
           "startup": 8,
           "financial_services_firm": 1,
           "creative_studio": 1,
-          "marketing_agency": 1,
+          "marketing_agency": 2,
           "research_company": 1,
           "biotech_company": 1,
           "general_contractor": 5,
@@ -105530,7 +105705,7 @@
           "light_manufacturer": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "wellness_practice": 5,
+          "wellness_practice": 6,
           "physical_therapy_practice": 1,
           "medical_practice": 4,
           "dental_practice": 4,
@@ -105560,27 +105735,26 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "19 district nodes are available for the metro.",
+          "20 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 19,
+          "districtCount": 20,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
           "recommendationReadinessScore": 100
         }
       },
       "ecosystemReadiness": {
-        "state": "partial",
-        "label": "Partial",
+        "state": "strong",
+        "label": "Strong",
         "rationale": [
-          "Office, Industrial & Flex, Medical coverage is strong or developed.",
-          "Retail is Partial."
+          "Office, Industrial & Flex, Retail, Medical coverage is strong or developed."
         ],
-        "passed": false,
+        "passed": true,
         "relevantEcosystems": [
           "office",
           "industrial_flex",
@@ -105611,7 +105785,7 @@
             },
             "counts": {
               "districts": 9,
-              "secondaryDistricts": 8,
+              "secondaryDistricts": 9,
               "recommendations": 9,
               "representativeBuildings": 23,
               "buildingBriefs": 1,
@@ -105629,7 +105803,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "9 primary districts and 8 secondary districts.",
+              "9 primary districts and 9 secondary districts.",
               "23 Representative Buildings and 1 Building Briefs.",
               "8 representative roles and 5 operational categories are covered."
             ],
@@ -105938,11 +106112,9 @@
                 "infrastructure"
               ],
               "missingRoles": [],
-              "missingOperationalCategories": [
-                "market_presence"
-              ],
+              "missingOperationalCategories": [],
               "highestPriorityMissingRole": "",
-              "highestPriorityMissingOperationalCategory": "market_presence",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
                 {
                   "name": "10445 E 49th Ave",
@@ -105995,43 +106167,41 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "partial",
-            "readinessLabel": "Partial",
+            "readinessState": "strong",
+            "readinessLabel": "Strong",
             "layers": {
-              "districts": "strong",
-              "recommendations": "strong",
-              "representativeBuildings": "partial",
+              "districts": "developed",
+              "recommendations": "developed",
+              "representativeBuildings": "strong",
               "buildingBriefs": "strong",
               "subtypes": "developed",
-              "archetypes": "partial",
+              "archetypes": "strong",
               "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 1,
+              "districts": 2,
               "secondaryDistricts": 11,
-              "recommendations": 1,
-              "representativeBuildings": 1,
+              "recommendations": 2,
+              "representativeBuildings": 2,
               "buildingBriefs": 1,
-              "subtypes": 4,
-              "archetypes": 2,
+              "subtypes": 5,
+              "archetypes": 3,
               "activities": 4,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 1,
-              "operationalCategories": 1,
-              "operationalCharacteristics": 3,
+              "representativeRoles": 2,
+              "operationalCategories": 3,
+              "operationalCharacteristics": 7,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building operational coverage is thin."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
+              "2 primary districts and 11 secondary districts.",
+              "2 Representative Buildings and 1 Building Briefs.",
+              "2 representative roles and 3 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -106054,56 +106224,60 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "thin",
-              "stateLabel": "Thin",
-              "buildingCount": 1,
-              "explicitCount": 1,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
+                "neighborhood_service_retail",
                 "showroom_retail_environment"
               ],
               "subtypesCovered": [
-                "lifestyle_retail",
-                "showroom_retail",
+                "neighborhood_retail",
                 "service_retail",
-                "neighborhood_retail"
+                "showroom_retail",
+                "lifestyle_retail"
               ],
               "activityCoverage": [
-                "customer_showroom",
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
                 "food_preparation"
               ],
               "archetypeCoverage": [
                 "wellness_practice",
-                "marketing_agency",
                 "physical_therapy_practice",
+                "marketing_agency",
                 "food_producer",
                 "training_center"
               ],
               "operationalCharacteristicsCovered": [
-                "showroom_frontage",
                 "street_visibility",
+                "walk_in_customer_access",
+                "ground_floor_access",
+                "customer_parking",
+                "signage_opportunity",
+                "showroom_frontage",
                 "destination_customer_access"
               ],
               "operationalCategoriesCovered": [
-                "market_presence"
-              ],
-              "missingRoles": [
-                "neighborhood_service_retail",
-                "destination_retail_environment"
-              ],
-              "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
+                "market_presence",
                 "configuration",
-                "infrastructure",
-                "location_workforce"
+                "parking_vehicles"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "access_loading",
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "1023 Santa Fe Dr",
+                  "path": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "100 Fillmore Place",
                   "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
@@ -106580,110 +106754,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:industrial_flex:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "5 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "7 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "1 primary districts and 11 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 1 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -107038,7 +107108,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.55,
+          "representativeBuildingShare": 0.53,
           "buildingBriefShare": 0.5,
           "warnings": []
         }
@@ -107047,63 +107117,11 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
-        "representativeBuildingShare": 0.55,
+        "representativeBuildingShare": 0.53,
         "buildingBriefShare": 0.5,
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:retail:representative_building_intelligence_missing",
-          "code": "representative_building_intelligence_missing",
-          "label": "Representative Building Intelligence Missing",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:industrial_flex:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "strong",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "5 primary districts and 7 secondary districts.",
-            "8 Representative Buildings and 3 Building Briefs.",
-            "7 representative roles and 6 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:life_science:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
@@ -107195,58 +107213,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "1 primary districts and 11 secondary districts.",
-            "1 Representative Buildings and 1 Building Briefs.",
-            "1 representative roles and 1 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -107508,98 +107474,84 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Denver Retail Ecosystem Representative Building Foundation",
-        "objective": "Improve Denver commercial balance by advancing Retail from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "retail",
-        "ecosystemLabel": "Retail",
-        "relevance": "important",
-        "relevanceLabel": "Important",
+        "title": "Denver Life Science Ecosystem Subtype Expansion",
+        "objective": "Improve Denver commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "life_science",
+        "ecosystemLabel": "Life Science",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
         "readinessState": "partial",
         "readinessLabel": "Partial",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Retail is Important for Denver and is currently Partial. Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "gapCode": "representative_building_intelligence_missing",
-        "priorityScore": 72,
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Life Science is Secondary for Denver and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
+        "priorityScore": 63,
         "layers": {
-          "districts": "strong",
-          "recommendations": "strong",
-          "representativeBuildings": "partial",
-          "buildingBriefs": "strong",
-          "subtypes": "developed",
-          "archetypes": "partial",
-          "activities": "strong",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "missing",
+          "buildingBriefs": "missing",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 1,
-          "secondaryDistricts": 11,
-          "recommendations": 1,
-          "representativeBuildings": 1,
-          "buildingBriefs": 1,
-          "subtypes": 4,
-          "archetypes": 2,
-          "activities": 4,
+          "districts": 0,
+          "secondaryDistricts": 1,
+          "recommendations": 0,
+          "representativeBuildings": 0,
+          "buildingBriefs": 0,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 1,
-          "operationalCategories": 1,
-          "operationalCharacteristics": 3,
+          "representativeRoles": 0,
+          "operationalCategories": 0,
+          "operationalCharacteristics": 0,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building operational coverage is thin."
+          "Ecosystem appears only as a secondary district expression.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin."
         ],
         "targetSubtypes": [
-          "neighborhood_retail",
-          "downtown_retail",
-          "shopping_center",
-          "power_center",
-          "lifestyle_retail"
+          "research_lab",
+          "wet_lab",
+          "life_science_office",
+          "biotech_research",
+          "innovation_campus"
         ],
         "targetArchetypes": [
-          "marketing_agency",
-          "wellness_practice",
-          "food_producer",
-          "training_center"
+          "research_company",
+          "biotech_company",
+          "startup"
         ],
         "targetActivities": [
-          "walk_in_retail",
-          "walk_in_service",
-          "customer_showroom",
-          "food_preparation"
+          "research",
+          "product_development",
+          "collaboration",
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "neighborhood_service_retail",
-          "destination_retail_environment"
+          "research_lab_environment",
+          "life_science_campus",
+          "biotech_research_environment"
         ],
         "missingOperationalCategories": [
-          "access_loading",
-          "parking_vehicles",
           "configuration",
           "infrastructure",
-          "location_workforce"
+          "market_presence",
+          "location_workforce",
+          "outdoor_special_use"
         ],
-        "currentRepresentativeRoles": [
-          "showroom_retail_environment"
-        ],
-        "currentOperationalCategories": [
-          "market_presence"
-        ],
-        "existingRepresentativeBuildings": [
-          {
-            "name": "100 Fillmore Place",
-            "path": "/commercial-real-estate/building/CO/denver/100-fillmore-place/",
-            "role": "showroom_retail_environment",
-            "confidence": "editorially_supported"
-          }
-        ],
-        "districtCandidates": [
-          {
-            "slug": "cherry-creek",
-            "label": "Cherry Creek",
-            "path": "/commercial-real-estate/CO/denver/cherry-creek/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "currentRepresentativeRoles": [],
+        "currentOperationalCategories": [],
+        "existingRepresentativeBuildings": [],
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -107622,7 +107574,7 @@
           "title": "Denver Office Building Brief Migration",
           "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Retail Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: strong\n- subtypes: developed\n- archetypes: partial\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building operational coverage is thin.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- neighborhood_service_retail, destination_retail_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, location_workforce\nExisting representative buildings:\n- 100 Fillmore Place (showroom_retail_environment)\nDistrict candidates:\n- Cherry Creek\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for Denver: Denver Life Science Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Secondary\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -107644,6 +107596,55 @@
           "description": "Building Brief is missing: nearbyDistricts.",
           "reason": "Building Brief is missing: nearbyDistricts.",
           "suggestedNextAction": "Complete the missing editorial fields.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1023 Santa Fe Dr",
+          "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
           "confidence": "Ready",
           "automationCandidate": true,
           "priorityFactors": {
@@ -109977,6 +109978,147 @@
           "itemName": "Northeast Denver Industrial -> Aurora",
           "sourceId": "northeast-denver-industrial:aurora",
           "publicUrl": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-central-park",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Central Park",
+          "sourceId": "santa-fe-arts-district:central-park",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-cherry-creek",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Cherry Creek",
+          "sourceId": "santa-fe-arts-district:cherry-creek",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-rino",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> RiNo",
+          "sourceId": "santa-fe-arts-district:rino",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -110109,6 +110251,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1023 Santa Fe Dr",
+          "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
           "metroId": "denver",
           "metroName": "Denver",
@@ -112445,6 +112636,147 @@
           }
         },
         {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-central-park",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Central Park",
+          "sourceId": "santa-fe-arts-district:central-park",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-cherry-creek",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> Cherry Creek",
+          "sourceId": "santa-fe-arts-district:cherry-creek",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:santa-fe-arts-district-rino",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Santa Fe Arts District -> RiNo",
+          "sourceId": "santa-fe-arts-district:rino",
+          "publicUrl": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
           "id": "gap:denver:comparisonGraph:one-way comparison:westminster-boulder",
           "metroId": "denver",
           "metroName": "Denver",
@@ -112497,8 +112829,25 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
+          {
+            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "1023 Santa Fe Dr",
+            "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+            "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+            "priorityScore": 80,
+            "confidence": "Ready",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
             "category": "buildingBriefs",
@@ -112609,23 +112958,6 @@
             "itemName": "16 Market Square",
             "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1600-broadway",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "1600 Broadway",
-            "sourceId": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/1600-broadway/",
             "priorityScore": 80,
             "confidence": "Ready",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -112809,7 +113141,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -112817,8 +113149,25 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 80,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
               "category": "buildingBriefs",
@@ -112929,23 +113278,6 @@
               "itemName": "16 Market Square",
               "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
               "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1600-broadway",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1600 Broadway",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1600-broadway/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1600-broadway/",
               "priorityScore": 80,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -113129,14 +113461,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
@@ -113349,8 +113681,25 @@
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 87,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-10500-10600-e-54th-ave",
               "category": "buildingBriefs",
@@ -113495,23 +113844,6 @@
               "itemName": "1615 Platte St",
               "sourceId": "/commercial-real-estate/building/CO/denver/1615-platte-st/",
               "publicUrl": "/commercial-real-estate/building/CO/denver/1615-platte-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1700-lincoln-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1700 Lincoln St",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -113665,14 +113997,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St, 1700 Lincoln St\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1700 Lincoln St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
@@ -113740,6 +114072,23 @@
               "unlocks": [
                 "Building Brief migration",
                 "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1023 Santa Fe Dr",
+              "sourceId": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "publicUrl": "/commercial-real-estate/building/CO/denver/1023-santa-fe-dr/",
+              "priorityScore": 91,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -113894,23 +114243,6 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1700-lincoln-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "1700 Lincoln St",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1700-lincoln-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
@@ -113969,7 +114301,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St, 1700 Lincoln St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1700 Lincoln St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1600 Broadway, 1615 Platte St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1600 Broadway - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -113979,8 +114311,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 318,
-    "totalPriorities": 318,
+    "totalGaps": 322,
+    "totalPriorities": 322,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
