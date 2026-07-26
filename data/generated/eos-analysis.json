@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T09:57:28-07:00",
+  "generatedAt": "2026-07-26T10:09:43-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -276,17 +276,17 @@
   },
   "overview": {
     "metroCount": 6,
-    "averageHealth": 62,
+    "averageHealth": 68,
     "needsAttention": 1,
     "activeWorkItems": 8,
-    "opportunityInventory": 333,
+    "opportunityInventory": 336,
     "expansionProjects": 4,
     "reviewItems": 0,
     "fieldModeMetros": 6,
-    "openWorkItems": 333,
+    "openWorkItems": 336,
     "humanOnlyWorkItems": 6,
     "autonomousCandidates": 80,
-    "topWorkItem": "Seattle Industrial & Flex Ecosystem District Foundation"
+    "topWorkItem": "Seattle Industrial & Flex Ecosystem Representative Building Foundation"
   },
   "metros": [
     {
@@ -1595,26 +1595,26 @@
       "metroId": "seattle",
       "metroName": "Seattle",
       "status": {
-        "id": "research",
-        "label": "Research"
+        "id": "needs_attention",
+        "label": "Needs Attention"
       },
       "overallEditorialHealth": {
-        "score": 11,
+        "score": 45,
         "state": {
-          "id": "research",
-          "label": "Research"
+          "id": "needs_attention",
+          "label": "Needs Attention"
         },
-        "label": "Research",
+        "label": "Needs Attention",
         "rationale": [
-          "District Coverage: Public district pages, substantive descriptions, structured qualities, and decision positioning.",
           "Representative Building Coverage: 0 representative building relationships; v1 target is 3 per covered district.",
-          "Commercial Ecosystem Coverage: Office is Missing; Industrial & Flex is Missing; Retail is Missing; Medical is Missing; Life Science is Missing.",
-          "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal."
+          "Commercial Ecosystem Coverage: Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing.",
+          "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
+          "Editorial Coverage: 3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available."
         ]
       },
       "investmentScore": {
-        "score": 57,
-        "label": "57/100",
+        "score": 56,
+        "label": "56/100",
         "rationale": [
           "Existing foundation from Publisher score.",
           "Editorial leverage based on remaining health gap.",
@@ -1624,16 +1624,16 @@
       "publisherConfidence": {
         "id": "publisherConfidence",
         "label": "Publisher Confidence",
-        "score": 19,
+        "score": 64,
         "state": {
-          "id": "research",
-          "label": "Research"
+          "id": "needs_attention",
+          "label": "Needs Attention"
         },
         "note": "In Development",
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 0,
+        "score": 14,
         "state": "missing",
         "label": "Missing",
         "relevantEcosystems": [
@@ -1648,7 +1648,6 @@
         "blockingEcosystems": [
           "office",
           "industrial_flex",
-          "retail",
           "medical",
           "life_science"
         ],
@@ -1662,8 +1661,8 @@
         }
       },
       "knowledgeReadiness": {
-        "label": "Thin",
-        "score": 17,
+        "label": "Partial",
+        "score": 55,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -1676,7 +1675,7 @@
       },
       "experienceReadiness": {
         "label": "Thin",
-        "score": 12,
+        "score": 27,
         "interpretation": "EOS interpretation from photography, handbook, public-page richness, and editorial-depth signals.",
         "sourceSignals": [
           "photography",
@@ -1687,10 +1686,10 @@
       "recommendationCoverage": {
         "id": "recommendationConfidence",
         "label": "Recommendation Coverage",
-        "score": 4,
+        "score": 70,
         "state": {
-          "id": "research",
-          "label": "Research"
+          "id": "improving",
+          "label": "Improving"
         },
         "note": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
         "source": "publisher"
@@ -1720,12 +1719,12 @@
       "editorialCoverage": {
         "id": "editorialDepth",
         "label": "Editorial Coverage",
-        "score": 0,
+        "score": 45,
         "state": {
-          "id": "research",
-          "label": "Research"
+          "id": "needs_attention",
+          "label": "Needs Attention"
         },
-        "note": "0 of 0 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+        "note": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
         "source": "publisher"
       },
       "internalLinking": {
@@ -1754,10 +1753,10 @@
         "districtCoverage": {
           "id": "districtCoverage",
           "label": "District Coverage",
-          "score": 0,
+          "score": 100,
           "state": {
-            "id": "research",
-            "label": "Research"
+            "id": "ready",
+            "label": "Ready"
           },
           "note": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
           "source": "publisher"
@@ -1776,12 +1775,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 0,
+          "score": 14,
           "state": {
             "id": "research",
             "label": "Research"
           },
-          "note": "Office is Missing; Industrial & Flex is Missing; Retail is Missing; Medical is Missing; Life Science is Missing.",
+          "note": "Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing.",
           "source": "publisher"
         },
         "photography": {
@@ -1798,10 +1797,10 @@
         "recommendationConfidence": {
           "id": "recommendationConfidence",
           "label": "Recommendation Coverage",
-          "score": 4,
+          "score": 70,
           "state": {
-            "id": "research",
-            "label": "Research"
+            "id": "improving",
+            "label": "Improving"
           },
           "note": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
           "source": "publisher"
@@ -1809,12 +1808,12 @@
         "editorialDepth": {
           "id": "editorialDepth",
           "label": "Editorial Coverage",
-          "score": 0,
+          "score": 45,
           "state": {
-            "id": "research",
-            "label": "Research"
+            "id": "needs_attention",
+            "label": "Needs Attention"
           },
-          "note": "0 of 0 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+          "note": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
           "source": "publisher"
         },
         "internalLinks": {
@@ -1841,19 +1840,19 @@
         }
       },
       "counts": {
-        "districts": 0,
+        "districts": 3,
         "representativeBuildings": 0,
         "buildingBriefs": 0,
-        "queueItems": 1
+        "queueItems": 4
       },
       "examples": [
         "Seattle",
         "Seattle Recommendation Readiness Sprint",
-        "Seattle Industrial & Flex Ecosystem District Foundation"
+        "Seattle Industrial & Flex Ecosystem Representative Building Foundation"
       ],
       "source": {
         "publisherStatus": "In Development",
-        "publisherScore": 19,
+        "publisherScore": 64,
         "cityPath": "/commercial-real-estate/WA/seattle/"
       }
     }
@@ -2200,17 +2199,17 @@
       "metroId": "seattle",
       "metroName": "Seattle",
       "state": "",
-      "status": "research",
-      "statusLabel": "Research",
-      "overallProgress": 11,
+      "status": "knowledge_graph",
+      "statusLabel": "Knowledge Graph",
+      "overallProgress": 22,
       "investmentScore": {
-        "score": 52,
-        "label": "52/100",
+        "score": 50,
+        "label": "50/100",
         "inputs": {
           "searchOpportunity": 60,
-          "editorialLeverage": 81,
-          "buildEffort": 72,
-          "existingFoundation": 19,
+          "editorialLeverage": 36,
+          "buildEffort": 54,
+          "existingFoundation": 64,
           "automationPotential": 50,
           "brokerCoverage": 35
         },
@@ -2228,12 +2227,12 @@
         {
           "id": "research",
           "label": "Research",
-          "status": "active"
+          "status": "completed"
         },
         {
           "id": "knowledge_graph",
           "label": "Knowledge Graph",
-          "status": "open"
+          "status": "active"
         },
         {
           "id": "representative_buildings",
@@ -2276,7 +2275,7 @@
           "id": "engineering",
           "label": "Engineering Work",
           "description": "Graph architecture, data structure, routes, generated output, and validation surfaces.",
-          "progress": 13,
+          "progress": 38,
           "status": "active"
         },
         {
@@ -2301,7 +2300,7 @@
           "status": "open"
         }
       ],
-      "nextAction": "Advance to Knowledge Graph.",
+      "nextAction": "Advance to Representative Buildings.",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
@@ -2311,8 +2310,8 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-district-foundation",
-        "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-representative-building-foundation",
+        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "metroId": "seattle",
         "metroName": "Seattle",
         "ecosystem": "Industrial & Flex",
@@ -2324,10 +2323,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:seattle:industrial_flex",
-            "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+            "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -2363,10 +2362,10 @@
             }
           }
         ],
-        "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Missing",
           "Commercial balance: Thin Across All Ecosystems"
         ],
@@ -2374,7 +2373,7 @@
         "estimatedEffort": "Small",
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -2432,7 +2431,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -2443,22 +2442,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Missing",
             "Commercial balance: Thin Across All Ecosystems"
           ],
-          "currentHealth": "11% Research",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "45% Needs Attention",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
               "id": "ecosystem:seattle:industrial_flex",
-              "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+              "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -3002,7 +3001,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "11% Research",
+          "currentHealth": "45% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -4959,8 +4958,8 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-district-foundation",
-        "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-representative-building-foundation",
+        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "metroId": "seattle",
         "metroName": "Seattle",
         "ecosystem": "Industrial & Flex",
@@ -4972,10 +4971,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:seattle:industrial_flex",
-            "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+            "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -5011,10 +5010,10 @@
             }
           }
         ],
-        "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Missing",
           "Commercial balance: Thin Across All Ecosystems"
         ],
@@ -5022,7 +5021,7 @@
         "estimatedEffort": "Small",
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -5080,7 +5079,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -5091,22 +5090,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Missing",
             "Commercial balance: Thin Across All Ecosystems"
           ],
-          "currentHealth": "11% Research",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "45% Needs Attention",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
               "id": "ecosystem:seattle:industrial_flex",
-              "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+              "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -5650,7 +5649,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "11% Research",
+          "currentHealth": "45% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -8981,7 +8980,7 @@
         "id": "ecosystem:seattle:industrial_flex",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "itemName": "Industrial & Flex",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -9012,14 +9011,14 @@
         "categoryLabel": "Commercial Ecosystem",
         "ecosystemId": "industrial_flex",
         "ecosystemLabel": "Industrial & Flex",
-        "sprintFamily": "Ecosystem District Foundation",
-        "gapCode": "core_ecosystem_missing",
+        "sprintFamily": "Ecosystem Representative Building Foundation",
+        "gapCode": "ecosystem_representative_building_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Missing",
           "Commercial balance: Thin Across All Ecosystems"
         ],
@@ -9029,13 +9028,13 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
           "reason": [
-            "Relevant ecosystem has no meaningful district coverage.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Missing",
             "Commercial balance: Thin Across All Ecosystems"
           ],
-          "currentHealth": "11% Research",
+          "currentHealth": "45% Needs Attention",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -9515,7 +9514,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "11% Research",
+          "currentHealth": "45% Needs Attention",
           "files": [
             "_data/recommendationQaStatus.js",
             "scripts/run-recommendation-qa.js",
@@ -10129,7 +10128,7 @@
             "Handbook coverage is below the EOS target.",
             "Market pages should connect durable commercial guidance to the user decision journey."
           ],
-          "currentHealth": "11% Research",
+          "currentHealth": "45% Needs Attention",
           "files": [
             "/commercial-real-estate/WA/seattle/",
             "_data/commercialLeasingHandbook.js",
@@ -42764,6 +42763,351 @@
         }
       },
       {
+        "id": "publisher:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Curate representative buildings that explain this district.",
+        "itemName": "Ballard / Interbay Industrial",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "estimatedEffort": "60-120 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        },
+        "executionPacket": {
+          "objective": "Curate representative buildings that explain this district.",
+          "reason": [
+            "District has no representative building examples.",
+            "Task type: district missing representative buildings",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "45% Needs Attention",
+          "files": [
+            "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+            "_data/recommendationRepresentativeBuildings.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it."
+          ],
+          "expectedDeliverables": [
+            "Representative Building records",
+            "Canonical building relationships",
+            "QA summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-representative-building-intelligence.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "human_only",
+            "label": "Human Only",
+            "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Curate representative buildings that explain this district.",
+        "itemName": "Georgetown Industrial",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "estimatedEffort": "60-120 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        },
+        "executionPacket": {
+          "objective": "Curate representative buildings that explain this district.",
+          "reason": [
+            "District has no representative building examples.",
+            "Task type: district missing representative buildings",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "45% Needs Attention",
+          "files": [
+            "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+            "_data/recommendationRepresentativeBuildings.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it."
+          ],
+          "expectedDeliverables": [
+            "Representative Building records",
+            "Canonical building relationships",
+            "QA summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-representative-building-intelligence.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "human_only",
+            "label": "Human Only",
+            "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Curate representative buildings that explain this district.",
+        "itemName": "SODO Industrial",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "estimatedEffort": "60-120 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        },
+        "executionPacket": {
+          "objective": "Curate representative buildings that explain this district.",
+          "reason": [
+            "District has no representative building examples.",
+            "Task type: district missing representative buildings",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "45% Needs Attention",
+          "files": [
+            "/commercial-real-estate/WA/seattle/sodo-industrial/",
+            "_data/recommendationRepresentativeBuildings.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it."
+          ],
+          "expectedDeliverables": [
+            "Representative Building records",
+            "Canonical building relationships",
+            "QA summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-representative-building-intelligence.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "human_only",
+            "label": "Human Only",
+            "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
         "id": "publisher:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
         "metroId": "denver",
         "metroName": "Denver",
@@ -48756,9 +49100,9 @@
         "metroId": "seattle",
         "metroName": "Seattle",
         "title": "Build Seattle",
-        "priorityScore": 52,
+        "priorityScore": 50,
         "priorityStars": 3,
-        "status": "Research",
+        "status": "Knowledge Graph",
         "lifecycleState": {
           "id": "open",
           "label": "Open"
@@ -48792,12 +49136,12 @@
           "Investment Score is a planning model; no external Search Console, analytics, or broker-performance data is connected yet."
         ],
         "executionPacket": {
-          "objective": "Advance Seattle expansion from Research",
+          "objective": "Advance Seattle expansion from Knowledge Graph",
           "reason": [
             "Seattle is configured as an in-development Publisher metro and should be tracked as an expansion project.",
             "Investment Score is a planning model; no external Search Console, analytics, or broker-performance data is connected yet."
           ],
-          "currentHealth": "11% expansion progress",
+          "currentHealth": "22% expansion progress",
           "files": [
             "docs/recommendation-expansion-roadmap.md",
             "_data/locationKnowledgeGraph.js",
@@ -48971,7 +49315,7 @@
         "title": "Seattle Photography Coverage",
         "coverageScore": 0,
         "coverageLabel": "0%",
-        "remainingTargets": 1,
+        "remainingTargets": 4,
         "status": "Open",
         "suggestedModule": {
           "id": "fieldMode",
@@ -48986,16 +49330,16 @@
     ],
     "reviewQueue": [],
     "opportunityInventory": {
-      "total": 333,
+      "total": 336,
       "missions": 11,
       "byQueue": {
-        "editorial": 333,
+        "editorial": 336,
         "missions": 11,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0
       },
-      "hiddenFromHomepage": 303
+      "hiddenFromHomepage": 306
     }
   },
   "workQueue": [
@@ -50118,7 +50462,7 @@
       "id": "ecosystem:seattle:industrial_flex",
       "metroId": "seattle",
       "metroName": "Seattle",
-      "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+      "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
       "itemName": "Industrial & Flex",
       "priorityScore": 78,
       "priorityStars": 4,
@@ -50149,14 +50493,14 @@
       "categoryLabel": "Commercial Ecosystem",
       "ecosystemId": "industrial_flex",
       "ecosystemLabel": "Industrial & Flex",
-      "sprintFamily": "Ecosystem District Foundation",
-      "gapCode": "core_ecosystem_missing",
+      "sprintFamily": "Ecosystem Representative Building Foundation",
+      "gapCode": "ecosystem_representative_building_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "Relevant ecosystem has no meaningful district coverage.",
+        "District foundation exists, but Representative Buildings are missing.",
         "Ecosystem readiness: Missing",
         "Commercial balance: Thin Across All Ecosystems"
       ],
@@ -50166,13 +50510,13 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "Seattle Industrial & Flex Ecosystem District Foundation",
+        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
         "reason": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Missing",
           "Commercial balance: Thin Across All Ecosystems"
         ],
-        "currentHealth": "11% Research",
+        "currentHealth": "45% Needs Attention",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -50218,6 +50562,125 @@
             "id": "codex",
             "label": "Codex",
             "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "field-mode:seattle:primary-photography",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Photograph Seattle priority pages",
+      "itemName": "Seattle",
+      "priorityScore": 72,
+      "priorityStars": 4,
+      "automationLevel": {
+        "id": "human_only",
+        "label": "Human Only",
+        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+      },
+      "estimatedEffort": "20 min",
+      "expectedEditorialImpact": "High",
+      "dependencies": [
+        "Field Mode upload workflow",
+        "Canonical city, district, or building subject"
+      ],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "field_mode",
+      "operatingLane": {
+        "id": "execution_field_mode",
+        "label": "Execution / Field Mode",
+        "description": "Operational execution, field photography, and provider handoff."
+      },
+      "category": "photography",
+      "categoryLabel": "Photography",
+      "suggestedModule": {
+        "id": "fieldMode",
+        "label": "Field Mode"
+      },
+      "why": [
+        "Photography coverage is tracked as an EOS planning signal.",
+        "Field Mode requires a human to capture Rofo-owned photos.",
+        "A real city, district, or building photo improves public editorial trust without changing recommendations."
+      ],
+      "source": {
+        "system": "Field Mode",
+        "publicUrl": "/commercial-real-estate/WA/seattle/",
+        "adminUrl": ""
+      },
+      "executionPacket": {
+        "objective": "Photograph Seattle priority pages",
+        "reason": [
+          "Photography coverage is tracked as an EOS planning signal.",
+          "Field Mode requires a human to capture Rofo-owned photos.",
+          "A real city, district, or building photo improves public editorial trust without changing recommendations."
+        ],
+        "currentHealth": "45% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/seattle/",
+          "functions/admin/field-photos.js",
+          "docs/field-mode.md",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [
+          "Field Mode upload workflow",
+          "Canonical city, district, or building subject"
+        ],
+        "acceptanceCriteria": [
+          "Field Mode remains the operational workspace.",
+          "Published photos appear through existing Field Mode runtime rendering.",
+          "No new photography task is added to the Editorial Queue."
+        ],
+        "expectedDeliverables": [
+          "Field Mode photo capture or replacement",
+          "Updated public visual coverage"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-field-mode.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
           }
         ],
         "handoff": [
@@ -50652,7 +51115,7 @@
           "Task type: missing recommendation QA status",
           "Publisher severity: high"
         ],
-        "currentHealth": "11% Research",
+        "currentHealth": "45% Needs Attention",
         "files": [
           "_data/recommendationQaStatus.js",
           "scripts/run-recommendation-qa.js",
@@ -51085,125 +51548,6 @@
       }
     },
     {
-      "id": "field-mode:seattle:primary-photography",
-      "metroId": "seattle",
-      "metroName": "Seattle",
-      "title": "Photograph Seattle priority pages",
-      "itemName": "Seattle",
-      "priorityScore": 58,
-      "priorityStars": 3,
-      "automationLevel": {
-        "id": "human_only",
-        "label": "Human Only",
-        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-      },
-      "estimatedEffort": "20 min",
-      "expectedEditorialImpact": "High",
-      "dependencies": [
-        "Field Mode upload workflow",
-        "Canonical city, district, or building subject"
-      ],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "field_mode",
-      "operatingLane": {
-        "id": "execution_field_mode",
-        "label": "Execution / Field Mode",
-        "description": "Operational execution, field photography, and provider handoff."
-      },
-      "category": "photography",
-      "categoryLabel": "Photography",
-      "suggestedModule": {
-        "id": "fieldMode",
-        "label": "Field Mode"
-      },
-      "why": [
-        "Photography coverage is tracked as an EOS planning signal.",
-        "Field Mode requires a human to capture Rofo-owned photos.",
-        "A real city, district, or building photo improves public editorial trust without changing recommendations."
-      ],
-      "source": {
-        "system": "Field Mode",
-        "publicUrl": "/commercial-real-estate/WA/seattle/",
-        "adminUrl": ""
-      },
-      "executionPacket": {
-        "objective": "Photograph Seattle priority pages",
-        "reason": [
-          "Photography coverage is tracked as an EOS planning signal.",
-          "Field Mode requires a human to capture Rofo-owned photos.",
-          "A real city, district, or building photo improves public editorial trust without changing recommendations."
-        ],
-        "currentHealth": "11% Research",
-        "files": [
-          "/commercial-real-estate/WA/seattle/",
-          "functions/admin/field-photos.js",
-          "docs/field-mode.md",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [
-          "Field Mode upload workflow",
-          "Canonical city, district, or building subject"
-        ],
-        "acceptanceCriteria": [
-          "Field Mode remains the operational workspace.",
-          "Published photos appear through existing Field Mode runtime rendering.",
-          "No new photography task is added to the Editorial Queue."
-        ],
-        "expectedDeliverables": [
-          "Field Mode photo capture or replacement",
-          "Updated public visual coverage"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-field-mode.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "human_only",
-          "label": "Human Only",
-          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
       "id": "ecosystem:denver:life_science",
       "metroId": "denver",
       "metroName": "Denver",
@@ -51385,7 +51729,7 @@
           "Handbook coverage is below the EOS target.",
           "Market pages should connect durable commercial guidance to the user decision journey."
         ],
-        "currentHealth": "11% Research",
+        "currentHealth": "45% Needs Attention",
         "files": [
           "/commercial-real-estate/WA/seattle/",
           "_data/commercialLeasingHandbook.js",
@@ -83959,6 +84303,351 @@
         "currentHealth": "68% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+          "_data/recommendationRepresentativeBuildings.js",
+          "_data/representativeBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it."
+        ],
+        "expectedDeliverables": [
+          "Representative Building records",
+          "Canonical building relationships",
+          "QA summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-representative-building-intelligence.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Curate representative buildings that explain this district.",
+      "itemName": "Ballard / Interbay Industrial",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "human_only",
+        "label": "Human Only",
+        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+      },
+      "estimatedEffort": "60-120 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "representativeBuildings",
+      "categoryLabel": "Representative Buildings",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "District has no representative building examples.",
+        "Task type: district missing representative buildings",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+      },
+      "executionPacket": {
+        "objective": "Curate representative buildings that explain this district.",
+        "reason": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "45% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+          "_data/recommendationRepresentativeBuildings.js",
+          "_data/representativeBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it."
+        ],
+        "expectedDeliverables": [
+          "Representative Building records",
+          "Canonical building relationships",
+          "QA summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-representative-building-intelligence.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Curate representative buildings that explain this district.",
+      "itemName": "Georgetown Industrial",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "human_only",
+        "label": "Human Only",
+        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+      },
+      "estimatedEffort": "60-120 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "representativeBuildings",
+      "categoryLabel": "Representative Buildings",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "District has no representative building examples.",
+        "Task type: district missing representative buildings",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+      },
+      "executionPacket": {
+        "objective": "Curate representative buildings that explain this district.",
+        "reason": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "45% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+          "_data/recommendationRepresentativeBuildings.js",
+          "_data/representativeBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it."
+        ],
+        "expectedDeliverables": [
+          "Representative Building records",
+          "Canonical building relationships",
+          "QA summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-representative-building-intelligence.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "human_only",
+          "label": "Human Only",
+          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Curate representative buildings that explain this district.",
+      "itemName": "SODO Industrial",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "human_only",
+        "label": "Human Only",
+        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+      },
+      "estimatedEffort": "60-120 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "representativeBuildings",
+      "categoryLabel": "Representative Buildings",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "District has no representative building examples.",
+        "Task type: district missing representative buildings",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+      },
+      "executionPacket": {
+        "objective": "Curate representative buildings that explain this district.",
+        "reason": [
+          "District has no representative building examples.",
+          "Task type: district missing representative buildings",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "45% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/seattle/sodo-industrial/",
           "_data/recommendationRepresentativeBuildings.js",
           "_data/representativeBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",

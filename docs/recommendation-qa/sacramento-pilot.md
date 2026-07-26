@@ -469,4 +469,3 @@ Future Rofo Compass Coverage dashboards can track metro QA with these fields:
 - reportPath
 
 Sacramento pilot metadata is stored in `_data/recommendationQaStatus.js`.
-

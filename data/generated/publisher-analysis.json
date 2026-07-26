@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T09:57:28-07:00",
-  "sourceCommit": "3ee29a722d6f6f5303a443c68dc99049baa86f93",
+  "generatedAt": "2026-07-26T10:09:43-07:00",
+  "sourceCommit": "72eb14c9f3b88e73df19e8204158618f92cd9958",
   "analysis": {
-    "generatedAt": "2026-07-26T09:57:28-07:00",
+    "generatedAt": "2026-07-26T10:09:43-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
@@ -29334,12 +29334,12 @@
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 4,
+            "score": 70,
             "status": "missing",
             "explanation": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
             "completed": {
-              "districts": 0,
-              "comparisons": 0,
+              "districts": 3,
+              "comparisons": 6,
               "qaScenarios": 0
             },
             "targets": {
@@ -29360,11 +29360,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 0,
+            "score": 45,
             "status": "",
-            "explanation": "0 of 0 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+            "explanation": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 0,
+              "districtsWithDescriptions": 3,
               "representativeBuildings": 0,
               "buildingBriefs": 0
             },
@@ -29373,23 +29373,32 @@
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [],
+            "blockers": [
+              {
+                "gate": "editorially-developed",
+                "severity": "medium",
+                "code": "representative-buildings-missing",
+                "message": "Priority districts have no representative buildings.",
+                "sourceId": "seattle",
+                "relatedTaskId": ""
+              }
+            ],
             "topOpportunity": "Curate representative buildings before Building Brief migration."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 71,
+            "score": 82,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 0,
-              "internalLinks": 9
+              "districtPages": 3,
+              "internalLinks": 12
             },
             "targets": {
-              "districtPages": 0,
-              "internalLinks": 9
+              "districtPages": 3,
+              "internalLinks": 12
             },
             "blockers": [
               {
@@ -29404,12 +29413,17 @@
             "topOpportunity": "Add authoritative QA status before distribution."
           }
         },
-        "rawOverallScore": 19,
+        "rawOverallScore": 64,
         "scoreCapReasons": [
           {
             "cap": 74,
             "code": "not-compass-ready-overall-cap",
             "reason": "Recommendation QA is pending verification."
+          },
+          {
+            "cap": 72,
+            "code": "no-representative-buildings-overall-cap",
+            "reason": "Metro has priority districts but no representative-building layer."
           }
         ],
         "dimensionCaps": [
@@ -29420,37 +29434,46 @@
             "code": "missing-qa-compass-cap"
           },
           {
+            "dimension": "editorialCoverage",
+            "cap": 45,
+            "reason": "Priority districts have no representative buildings.",
+            "code": "no-representative-buildings-editorial-cap"
+          },
+          {
             "dimension": "publishingReadiness",
             "cap": 82,
             "reason": "Distribution readiness cannot be verified without authoritative recommendation QA status.",
             "code": "missing-qa-publishing-cap"
           }
         ],
-        "overallScore": 19,
-        "score": 19,
+        "overallScore": 64,
+        "score": 64,
         "cityPath": "/commercial-real-estate/WA/seattle/",
-        "districtCount": 0,
+        "districtCount": 3,
         "representativeBuildingCount": 0,
         "buildingBriefCount": 0,
         "geographicReadiness": {
-          "state": "missing",
-          "label": "Missing",
+          "state": "strong",
+          "label": "Strong",
           "rationale": [
+            "3 district nodes are available for the metro.",
+            "District coverage is mature enough for expansion planning.",
+            "District comparison relationships are meaningfully developed.",
             "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
           ],
-          "passed": false,
+          "passed": true,
           "metrics": {
-            "districtCount": 0,
-            "districtCoverageScore": 0,
-            "comparisonGraphScore": 0,
-            "recommendationReadinessScore": 0
+            "districtCount": 3,
+            "districtCoverageScore": 100,
+            "comparisonGraphScore": 100,
+            "recommendationReadinessScore": 38
           }
         },
         "ecosystemReadiness": {
           "state": "missing",
           "label": "Missing",
           "rationale": [
-            "Office is Missing; Industrial & Flex is Missing; Retail is Missing; Medical is Missing; Life Science is Missing."
+            "Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -29465,7 +29488,6 @@
           "blockingEcosystems": [
             "office",
             "industrial_flex",
-            "retail",
             "medical",
             "life_science"
           ],
@@ -29587,27 +29609,27 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
+                "districts": 3,
                 "secondaryDistricts": 0,
-                "recommendations": 0,
+                "recommendations": 3,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 7,
+                "archetypes": 13,
+                "activities": 9,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -29615,18 +29637,15 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": true,
               "blockingCodes": [
-                "core_ecosystem_missing"
+                "ecosystem_representative_building_gap"
               ],
               "strategicPriority": 1,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -29701,8 +29720,8 @@
               "label": "Retail",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
@@ -29715,7 +29734,7 @@
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 2,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
@@ -29729,7 +29748,7 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
+                "Ecosystem appears only as a secondary district expression.",
                 "Subtype breadth is thin.",
                 "Business archetype coverage is thin.",
                 "Business activity coverage is thin."
@@ -29738,7 +29757,7 @@
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -30326,118 +30345,18 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:core_ecosystem_missing",
-              "code": "core_ecosystem_missing",
-              "label": "Core Ecosystem Missing",
+              "id": "ecosystem:industrial_flex:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "high",
-              "layer": "districts",
+              "layer": "representativeBuildings",
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": true
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -30448,24 +30367,49 @@
                 "Building Brief migration only after canonical records and district association exist",
                 "Publisher ecosystem QA passes without hard errors"
               ],
-              "blocksEcosystemReadiness": false
+              "blocksEcosystemReadiness": true
             },
             {
-              "id": "ecosystem:retail:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
+              "severity": "high",
+              "layer": "representativeBuildings",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": true
+            },
+            {
+              "id": "ecosystem:industrial_flex:representative_role_thin",
+              "code": "representative_role_thin",
+              "label": "Representative Role Thin",
+              "severity": "medium",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "thin",
+              "rationale": "Representative role coverage is too narrow for this ecosystem.",
+              "evidence": [
+                "3 primary districts and 0 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -30484,10 +30428,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -30509,10 +30453,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -30534,10 +30478,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -30559,13 +30503,38 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 2 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -31130,22 +31099,70 @@
             "industrial_flex": {
               "id": "industrial_flex",
               "label": "Industrial & Flex",
-              "districtCount": 0,
+              "districtCount": 3,
               "secondaryDistrictCount": 0,
-              "recommendationNodeCount": 0,
+              "recommendationNodeCount": 3,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "status": "Thin",
+              "districts": [
+                {
+                  "slug": "sodo-industrial",
+                  "label": "SODO Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/sodo-industrial/"
+                },
+                {
+                  "slug": "georgetown-industrial",
+                  "label": "Georgetown Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/"
+                },
+                {
+                  "slug": "ballard-interbay-industrial",
+                  "label": "Ballard / Interbay Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/"
+                }
+              ],
+              "subtypes": {
+                "warehouse": 2,
+                "distribution": 1,
+                "last_mile_logistics": 1,
+                "small_bay_industrial": 3,
+                "contractor_service": 2,
+                "light_manufacturing": 2,
+                "flex": 1
+              },
+              "archetypes": {
+                "distributor": 1,
+                "wholesaler": 1,
+                "importer": 1,
+                "ecommerce_fulfillment_business": 1,
+                "building_services_company": 2,
+                "general_contractor": 2,
+                "electrician": 1,
+                "hvac_company": 1,
+                "plumbing_company": 1,
+                "cabinet_shop": 2,
+                "light_manufacturer": 1,
+                "equipment_service_company": 1,
+                "furniture_maker": 1
+              },
+              "activities": {
+                "receiving": 2,
+                "shipping": 1,
+                "storage": 3,
+                "distribution": 1,
+                "service_dispatch": 3,
+                "equipment_storage": 2,
+                "light_manufacturing": 2,
+                "assembly": 1,
+                "inventory_management": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "small_bay_industrial",
-                "flex",
-                "warehouse",
-                "distribution"
+                "manufacturing",
+                "contractor_yard",
+                "showroom_flex",
+                "research_development"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
@@ -31188,11 +31205,11 @@
               "id": "retail",
               "label": "Retail",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 2,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
               "subtypes": {},
               "archetypes": {},
@@ -31436,9 +31453,41 @@
               }
             }
           },
-          "subtypeCoverage": {},
-          "activityCoverage": {},
-          "archetypeCoverage": {},
+          "subtypeCoverage": {
+            "warehouse": 2,
+            "distribution": 1,
+            "last_mile_logistics": 1,
+            "small_bay_industrial": 3,
+            "contractor_service": 2,
+            "light_manufacturing": 2,
+            "flex": 1
+          },
+          "activityCoverage": {
+            "receiving": 2,
+            "shipping": 1,
+            "storage": 3,
+            "distribution": 1,
+            "service_dispatch": 3,
+            "equipment_storage": 2,
+            "light_manufacturing": 2,
+            "assembly": 1,
+            "inventory_management": 1
+          },
+          "archetypeCoverage": {
+            "distributor": 1,
+            "wholesaler": 1,
+            "importer": 1,
+            "ecommerce_fulfillment_business": 1,
+            "building_services_company": 2,
+            "general_contractor": 2,
+            "electrician": 1,
+            "hvac_company": 1,
+            "plumbing_company": 1,
+            "cabinet_shop": 2,
+            "light_manufacturer": 1,
+            "equipment_service_company": 1,
+            "furniture_maker": 1
+          },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
@@ -31452,15 +31501,8 @@
             {
               "id": "industrial_flex",
               "label": "Industrial & Flex",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
-            },
-            {
-              "id": "retail",
-              "label": "Retail",
-              "status": "Missing",
-              "districtCount": 0,
+              "status": "Thin",
+              "districtCount": 3,
               "representativeBuildingCount": 0
             },
             {
@@ -31495,29 +31537,54 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 0,
-            "partialCount": 0,
-            "thinCount": 0,
-            "missingCount": 7,
+            "partialCount": 1,
+            "thinCount": 1,
+            "missingCount": 5,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:core_ecosystem_missing",
-            "code": "core_ecosystem_missing",
-            "label": "Core Ecosystem Missing",
+            "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "high",
-            "layer": "districts",
+            "layer": "representativeBuildings",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "3 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": true
+          },
+          {
+            "id": "ecosystem:industrial_flex:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
+            "severity": "high",
+            "layer": "representativeBuildings",
+            "ecosystemId": "industrial_flex",
+            "ecosystemLabel": "Industrial & Flex",
+            "relevance": "core",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "evidence": [
+              "3 primary districts and 0 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -31553,31 +31620,6 @@
             "blocksEcosystemReadiness": true
           },
           {
-            "id": "ecosystem:industrial_flex:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -31586,10 +31628,10 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "missing",
+            "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "3 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -31753,31 +31795,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:retail:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -31786,63 +31803,13 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -32161,10 +32128,10 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -32186,13 +32153,38 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
+            "layer": "districts",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
+            "evidence": [
+              "0 primary districts and 2 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -32211,10 +32203,10 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -32356,15 +32348,14 @@
         "blockingEcosystems": [
           "office",
           "industrial_flex",
-          "retail",
           "medical",
           "life_science"
         ],
         "readinessGates": {
           "geographic": {
-            "passed": false,
-            "state": "missing",
-            "label": "Missing"
+            "passed": true,
+            "state": "strong",
+            "label": "Strong"
           },
           "ecosystem": {
             "passed": false,
@@ -32373,19 +32364,18 @@
             "blockingEcosystems": [
               "office",
               "industrial_flex",
-              "retail",
               "medical",
               "life_science"
             ]
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+          "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem District Foundation",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "gapCode": "core_ecosystem_missing",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "gapCode": "ecosystem_representative_building_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -32402,37 +32392,45 @@
             "message": "Authoritative recommendation QA status was not found.",
             "sourceId": "seattle",
             "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
+          },
+          {
+            "gate": "editorially-developed",
+            "severity": "medium",
+            "code": "representative-buildings-missing",
+            "message": "Priority districts have no representative buildings.",
+            "sourceId": "seattle",
+            "relatedTaskId": ""
           }
         ],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
             "label": "Metro Foundation",
-            "score": 40,
-            "completed": 2,
+            "score": 60,
+            "completed": 3,
             "total": 5,
-            "missing": 3,
+            "missing": 2,
             "explanation": "Canonical city, public route, graph support, Compass designation, and QA documentation.",
             "issues": []
           },
           "districtCoverage": {
             "key": "districtCoverage",
             "label": "District Coverage",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "score": 100,
+            "completed": 12,
+            "total": 12,
+            "missing": 0,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": []
           },
           "comparisonGraph": {
             "key": "comparisonGraph",
             "label": "Comparison Graph",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
-            "explanation": "0 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "score": 100,
+            "completed": 6,
+            "total": 6,
+            "missing": 0,
+            "explanation": "6 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": []
           },
           "representativeBuildings": {
@@ -32440,10 +32438,68 @@
             "label": "Representative Buildings",
             "score": 0,
             "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "total": 6,
+            "missing": 6,
             "explanation": "0 representative building relationships; v1 target is 3 per covered district.",
-            "issues": []
+            "issues": [
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "SODO Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "sodo-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Georgetown Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "georgetown-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Ballard / Interbay Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "ballard-interbay-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              }
+            ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
@@ -32458,10 +32514,10 @@
           "recommendationReadiness": {
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
-            "score": 0,
-            "completed": 0,
-            "total": 5,
-            "missing": 5,
+            "score": 38,
+            "completed": 3,
+            "total": 7,
+            "missing": 4,
             "explanation": "No recommendation QA status row found.",
             "issues": [
               {
@@ -32488,10 +32544,10 @@
           "editorialQuality": {
             "key": "editorialQuality",
             "label": "Editorial Quality",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "score": 100,
+            "completed": 3,
+            "total": 3,
+            "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
           },
@@ -32499,8 +32555,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 9,
-            "total": 9,
+            "completed": 12,
+            "total": 12,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -32524,6 +32580,63 @@
             "adminUrl": "",
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Ballard / Interbay Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "ballard-interbay-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Georgetown Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "georgetown-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "SODO Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "sodo-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
             "readinessState": ""
           }
         ],
@@ -61871,12 +61984,12 @@
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 4,
+            "score": 70,
             "status": "missing",
             "explanation": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
             "completed": {
-              "districts": 0,
-              "comparisons": 0,
+              "districts": 3,
+              "comparisons": 6,
               "qaScenarios": 0
             },
             "targets": {
@@ -61897,11 +62010,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 0,
+            "score": 45,
             "status": "",
-            "explanation": "0 of 0 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+            "explanation": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 0,
+              "districtsWithDescriptions": 3,
               "representativeBuildings": 0,
               "buildingBriefs": 0
             },
@@ -61910,23 +62023,32 @@
               "editoriallyDevelopedBuildingBriefs": 5,
               "distributionReadyBuildingBriefs": 8
             },
-            "blockers": [],
+            "blockers": [
+              {
+                "gate": "editorially-developed",
+                "severity": "medium",
+                "code": "representative-buildings-missing",
+                "message": "Priority districts have no representative buildings.",
+                "sourceId": "seattle",
+                "relatedTaskId": ""
+              }
+            ],
             "topOpportunity": "Curate representative buildings before Building Brief migration."
           },
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 71,
+            "score": 82,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 0,
-              "internalLinks": 9
+              "districtPages": 3,
+              "internalLinks": 12
             },
             "targets": {
-              "districtPages": 0,
-              "internalLinks": 9
+              "districtPages": 3,
+              "internalLinks": 12
             },
             "blockers": [
               {
@@ -61941,12 +62063,17 @@
             "topOpportunity": "Add authoritative QA status before distribution."
           }
         },
-        "rawOverallScore": 19,
+        "rawOverallScore": 64,
         "scoreCapReasons": [
           {
             "cap": 74,
             "code": "not-compass-ready-overall-cap",
             "reason": "Recommendation QA is pending verification."
+          },
+          {
+            "cap": 72,
+            "code": "no-representative-buildings-overall-cap",
+            "reason": "Metro has priority districts but no representative-building layer."
           }
         ],
         "dimensionCaps": [
@@ -61957,37 +62084,46 @@
             "code": "missing-qa-compass-cap"
           },
           {
+            "dimension": "editorialCoverage",
+            "cap": 45,
+            "reason": "Priority districts have no representative buildings.",
+            "code": "no-representative-buildings-editorial-cap"
+          },
+          {
             "dimension": "publishingReadiness",
             "cap": 82,
             "reason": "Distribution readiness cannot be verified without authoritative recommendation QA status.",
             "code": "missing-qa-publishing-cap"
           }
         ],
-        "overallScore": 19,
-        "score": 19,
+        "overallScore": 64,
+        "score": 64,
         "cityPath": "/commercial-real-estate/WA/seattle/",
-        "districtCount": 0,
+        "districtCount": 3,
         "representativeBuildingCount": 0,
         "buildingBriefCount": 0,
         "geographicReadiness": {
-          "state": "missing",
-          "label": "Missing",
+          "state": "strong",
+          "label": "Strong",
           "rationale": [
+            "3 district nodes are available for the metro.",
+            "District coverage is mature enough for expansion planning.",
+            "District comparison relationships are meaningfully developed.",
             "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
           ],
-          "passed": false,
+          "passed": true,
           "metrics": {
-            "districtCount": 0,
-            "districtCoverageScore": 0,
-            "comparisonGraphScore": 0,
-            "recommendationReadinessScore": 0
+            "districtCount": 3,
+            "districtCoverageScore": 100,
+            "comparisonGraphScore": 100,
+            "recommendationReadinessScore": 38
           }
         },
         "ecosystemReadiness": {
           "state": "missing",
           "label": "Missing",
           "rationale": [
-            "Office is Missing; Industrial & Flex is Missing; Retail is Missing; Medical is Missing; Life Science is Missing."
+            "Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -62002,7 +62138,6 @@
           "blockingEcosystems": [
             "office",
             "industrial_flex",
-            "retail",
             "medical",
             "life_science"
           ],
@@ -62124,27 +62259,27 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
+                "districts": 3,
                 "secondaryDistricts": 0,
-                "recommendations": 0,
+                "recommendations": 3,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 7,
+                "archetypes": 13,
+                "activities": 9,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -62152,18 +62287,15 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": true,
               "blockingCodes": [
-                "core_ecosystem_missing"
+                "ecosystem_representative_building_gap"
               ],
               "strategicPriority": 1,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -62238,8 +62370,8 @@
               "label": "Retail",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
@@ -62252,7 +62384,7 @@
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 2,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
@@ -62266,7 +62398,7 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
+                "Ecosystem appears only as a secondary district expression.",
                 "Subtype breadth is thin.",
                 "Business archetype coverage is thin.",
                 "Business activity coverage is thin."
@@ -62275,7 +62407,7 @@
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -62863,118 +62995,18 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:core_ecosystem_missing",
-              "code": "core_ecosystem_missing",
-              "label": "Core Ecosystem Missing",
+              "id": "ecosystem:industrial_flex:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "high",
-              "layer": "districts",
+              "layer": "representativeBuildings",
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": true
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "missing",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -62985,24 +63017,49 @@
                 "Building Brief migration only after canonical records and district association exist",
                 "Publisher ecosystem QA passes without hard errors"
               ],
-              "blocksEcosystemReadiness": false
+              "blocksEcosystemReadiness": true
             },
             {
-              "id": "ecosystem:retail:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "retail",
-              "ecosystemLabel": "Retail",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
+              "severity": "high",
+              "layer": "representativeBuildings",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "3 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": true
+            },
+            {
+              "id": "ecosystem:industrial_flex:representative_role_thin",
+              "code": "representative_role_thin",
+              "label": "Representative Role Thin",
+              "severity": "medium",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial & Flex",
+              "relevance": "core",
+              "readinessState": "thin",
+              "rationale": "Representative role coverage is too narrow for this ecosystem.",
+              "evidence": [
+                "3 primary districts and 0 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -63021,10 +63078,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -63046,10 +63103,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -63071,10 +63128,10 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -63096,13 +63153,38 @@
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 2 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:retail:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 2 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -63667,22 +63749,70 @@
             "industrial_flex": {
               "id": "industrial_flex",
               "label": "Industrial & Flex",
-              "districtCount": 0,
+              "districtCount": 3,
               "secondaryDistrictCount": 0,
-              "recommendationNodeCount": 0,
+              "recommendationNodeCount": 3,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "status": "Thin",
+              "districts": [
+                {
+                  "slug": "sodo-industrial",
+                  "label": "SODO Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/sodo-industrial/"
+                },
+                {
+                  "slug": "georgetown-industrial",
+                  "label": "Georgetown Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/"
+                },
+                {
+                  "slug": "ballard-interbay-industrial",
+                  "label": "Ballard / Interbay Industrial",
+                  "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/"
+                }
+              ],
+              "subtypes": {
+                "warehouse": 2,
+                "distribution": 1,
+                "last_mile_logistics": 1,
+                "small_bay_industrial": 3,
+                "contractor_service": 2,
+                "light_manufacturing": 2,
+                "flex": 1
+              },
+              "archetypes": {
+                "distributor": 1,
+                "wholesaler": 1,
+                "importer": 1,
+                "ecommerce_fulfillment_business": 1,
+                "building_services_company": 2,
+                "general_contractor": 2,
+                "electrician": 1,
+                "hvac_company": 1,
+                "plumbing_company": 1,
+                "cabinet_shop": 2,
+                "light_manufacturer": 1,
+                "equipment_service_company": 1,
+                "furniture_maker": 1
+              },
+              "activities": {
+                "receiving": 2,
+                "shipping": 1,
+                "storage": 3,
+                "distribution": 1,
+                "service_dispatch": 3,
+                "equipment_storage": 2,
+                "light_manufacturing": 2,
+                "assembly": 1,
+                "inventory_management": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "small_bay_industrial",
-                "flex",
-                "warehouse",
-                "distribution"
+                "manufacturing",
+                "contractor_yard",
+                "showroom_flex",
+                "research_development"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "industrial_flex",
@@ -63725,11 +63855,11 @@
               "id": "retail",
               "label": "Retail",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 2,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
               "subtypes": {},
               "archetypes": {},
@@ -63973,9 +64103,41 @@
               }
             }
           },
-          "subtypeCoverage": {},
-          "activityCoverage": {},
-          "archetypeCoverage": {},
+          "subtypeCoverage": {
+            "warehouse": 2,
+            "distribution": 1,
+            "last_mile_logistics": 1,
+            "small_bay_industrial": 3,
+            "contractor_service": 2,
+            "light_manufacturing": 2,
+            "flex": 1
+          },
+          "activityCoverage": {
+            "receiving": 2,
+            "shipping": 1,
+            "storage": 3,
+            "distribution": 1,
+            "service_dispatch": 3,
+            "equipment_storage": 2,
+            "light_manufacturing": 2,
+            "assembly": 1,
+            "inventory_management": 1
+          },
+          "archetypeCoverage": {
+            "distributor": 1,
+            "wholesaler": 1,
+            "importer": 1,
+            "ecommerce_fulfillment_business": 1,
+            "building_services_company": 2,
+            "general_contractor": 2,
+            "electrician": 1,
+            "hvac_company": 1,
+            "plumbing_company": 1,
+            "cabinet_shop": 2,
+            "light_manufacturer": 1,
+            "equipment_service_company": 1,
+            "furniture_maker": 1
+          },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
@@ -63989,15 +64151,8 @@
             {
               "id": "industrial_flex",
               "label": "Industrial & Flex",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
-            },
-            {
-              "id": "retail",
-              "label": "Retail",
-              "status": "Missing",
-              "districtCount": 0,
+              "status": "Thin",
+              "districtCount": 3,
               "representativeBuildingCount": 0
             },
             {
@@ -64032,29 +64187,54 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 0,
-            "partialCount": 0,
-            "thinCount": 0,
-            "missingCount": 7,
+            "partialCount": 1,
+            "thinCount": 1,
+            "missingCount": 5,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:core_ecosystem_missing",
-            "code": "core_ecosystem_missing",
-            "label": "Core Ecosystem Missing",
+            "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "high",
-            "layer": "districts",
+            "layer": "representativeBuildings",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "3 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": true
+          },
+          {
+            "id": "ecosystem:industrial_flex:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
+            "severity": "high",
+            "layer": "representativeBuildings",
+            "ecosystemId": "industrial_flex",
+            "ecosystemLabel": "Industrial & Flex",
+            "relevance": "core",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "evidence": [
+              "3 primary districts and 0 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -64090,31 +64270,6 @@
             "blocksEcosystemReadiness": true
           },
           {
-            "id": "ecosystem:industrial_flex:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -64123,10 +64278,10 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "missing",
+            "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "3 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -64290,31 +64445,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:retail:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -64323,63 +64453,13 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -64698,10 +64778,10 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -64723,13 +64803,38 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:retail:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
+            "layer": "districts",
+            "ecosystemId": "retail",
+            "ecosystemLabel": "Retail",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
+            "evidence": [
+              "0 primary districts and 2 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -64748,10 +64853,10 @@
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -64893,15 +64998,14 @@
         "blockingEcosystems": [
           "office",
           "industrial_flex",
-          "retail",
           "medical",
           "life_science"
         ],
         "readinessGates": {
           "geographic": {
-            "passed": false,
-            "state": "missing",
-            "label": "Missing"
+            "passed": true,
+            "state": "strong",
+            "label": "Strong"
           },
           "ecosystem": {
             "passed": false,
@@ -64910,19 +65014,18 @@
             "blockingEcosystems": [
               "office",
               "industrial_flex",
-              "retail",
               "medical",
               "life_science"
             ]
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Seattle Industrial & Flex Ecosystem District Foundation",
+          "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem District Foundation",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "gapCode": "core_ecosystem_missing",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "gapCode": "ecosystem_representative_building_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -64939,37 +65042,45 @@
             "message": "Authoritative recommendation QA status was not found.",
             "sourceId": "seattle",
             "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
+          },
+          {
+            "gate": "editorially-developed",
+            "severity": "medium",
+            "code": "representative-buildings-missing",
+            "message": "Priority districts have no representative buildings.",
+            "sourceId": "seattle",
+            "relatedTaskId": ""
           }
         ],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
             "label": "Metro Foundation",
-            "score": 40,
-            "completed": 2,
+            "score": 60,
+            "completed": 3,
             "total": 5,
-            "missing": 3,
+            "missing": 2,
             "explanation": "Canonical city, public route, graph support, Compass designation, and QA documentation.",
             "issues": []
           },
           "districtCoverage": {
             "key": "districtCoverage",
             "label": "District Coverage",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "score": 100,
+            "completed": 12,
+            "total": 12,
+            "missing": 0,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": []
           },
           "comparisonGraph": {
             "key": "comparisonGraph",
             "label": "Comparison Graph",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
-            "explanation": "0 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "score": 100,
+            "completed": 6,
+            "total": 6,
+            "missing": 0,
+            "explanation": "6 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": []
           },
           "representativeBuildings": {
@@ -64977,10 +65088,68 @@
             "label": "Representative Buildings",
             "score": 0,
             "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "total": 6,
+            "missing": 6,
             "explanation": "0 representative building relationships; v1 target is 3 per covered district.",
-            "issues": []
+            "issues": [
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "SODO Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "sodo-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Georgetown Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "georgetown-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Ballard / Interbay Industrial",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "ballard-interbay-industrial",
+                "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              }
+            ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
@@ -64995,10 +65164,10 @@
           "recommendationReadiness": {
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
-            "score": 0,
-            "completed": 0,
-            "total": 5,
-            "missing": 5,
+            "score": 38,
+            "completed": 3,
+            "total": 7,
+            "missing": 4,
             "explanation": "No recommendation QA status row found.",
             "issues": [
               {
@@ -65025,10 +65194,10 @@
           "editorialQuality": {
             "key": "editorialQuality",
             "label": "Editorial Quality",
-            "score": 0,
-            "completed": 0,
-            "total": 1,
-            "missing": 1,
+            "score": 100,
+            "completed": 3,
+            "total": 3,
+            "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
           },
@@ -65036,8 +65205,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 9,
-            "total": 9,
+            "completed": 12,
+            "total": 12,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -65061,6 +65230,63 @@
             "adminUrl": "",
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Ballard / Interbay Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "ballard-interbay-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Georgetown Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "georgetown-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "SODO Industrial",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "sodo-industrial",
+            "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
             "readinessState": ""
           }
         ],
@@ -76445,6 +76671,63 @@
         "reason": "District has no representative building examples.",
         "sourceId": "stanford-research-park",
         "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+        "code": "district-no-reps",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "Ballard / Interbay Industrial",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "ballard-interbay-industrial",
+        "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
+        "code": "district-no-reps",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "Georgetown Industrial",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "georgetown-industrial",
+        "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+        "code": "district-no-reps",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "SODO Industrial",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "sodo-industrial",
+        "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
