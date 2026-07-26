@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T10:09:43-07:00",
+  "generatedAt": "2026-07-26T10:33:13-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -276,17 +276,17 @@
   },
   "overview": {
     "metroCount": 6,
-    "averageHealth": 68,
+    "averageHealth": 69,
     "needsAttention": 1,
     "activeWorkItems": 8,
-    "opportunityInventory": 336,
+    "opportunityInventory": 340,
     "expansionProjects": 4,
     "reviewItems": 0,
     "fieldModeMetros": 6,
-    "openWorkItems": 336,
+    "openWorkItems": 340,
     "humanOnlyWorkItems": 6,
-    "autonomousCandidates": 80,
-    "topWorkItem": "Seattle Industrial & Flex Ecosystem Representative Building Foundation"
+    "autonomousCandidates": 82,
+    "topWorkItem": "Seattle Office Ecosystem Completion"
   },
   "metros": [
     {
@@ -1599,22 +1599,22 @@
         "label": "Needs Attention"
       },
       "overallEditorialHealth": {
-        "score": 45,
+        "score": 53,
         "state": {
           "id": "needs_attention",
           "label": "Needs Attention"
         },
         "label": "Needs Attention",
         "rationale": [
-          "Representative Building Coverage: 0 representative building relationships; v1 target is 3 per covered district.",
-          "Commercial Ecosystem Coverage: Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing.",
+          "Representative Building Coverage: 3 representative building relationships; v1 target is 3 per covered district.",
+          "Commercial Ecosystem Coverage: Office is Missing; Industrial & Flex is Partial; Retail is Partial; Medical is Missing; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
-          "Editorial Coverage: 3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available."
+          "Editorial Coverage: 4 of 4 districts have substantive descriptions; 3 representative buildings and 0 Building Briefs are available."
         ]
       },
       "investmentScore": {
-        "score": 56,
-        "label": "56/100",
+        "score": 55,
+        "label": "55/100",
         "rationale": [
           "Existing foundation from Publisher score.",
           "Editorial leverage based on remaining health gap.",
@@ -1624,16 +1624,16 @@
       "publisherConfidence": {
         "id": "publisherConfidence",
         "label": "Publisher Confidence",
-        "score": 64,
+        "score": 69,
         "state": {
-          "id": "needs_attention",
-          "label": "Needs Attention"
+          "id": "improving",
+          "label": "Improving"
         },
         "note": "In Development",
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 14,
+        "score": 18,
         "state": "missing",
         "label": "Missing",
         "relevantEcosystems": [
@@ -1647,22 +1647,23 @@
         ],
         "blockingEcosystems": [
           "office",
-          "industrial_flex",
           "medical",
           "life_science"
         ],
         "balance": {
-          "state": "thin_across_all_ecosystems",
-          "label": "Thin Across All Ecosystems",
+          "state": "industrial_flex_representative_building_concentrated",
+          "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0,
+          "representativeBuildingShare": 1,
           "buildingBriefShare": 0,
-          "warnings": []
+          "warnings": [
+            "Representative Building coverage is concentrated in Industrial & Flex."
+          ]
         }
       },
       "knowledgeReadiness": {
         "label": "Partial",
-        "score": 55,
+        "score": 64,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -1675,7 +1676,7 @@
       },
       "experienceReadiness": {
         "label": "Thin",
-        "score": 27,
+        "score": 30,
         "interpretation": "EOS interpretation from photography, handbook, public-page richness, and editorial-depth signals.",
         "sourceSignals": [
           "photography",
@@ -1686,7 +1687,7 @@
       "recommendationCoverage": {
         "id": "recommendationConfidence",
         "label": "Recommendation Coverage",
-        "score": 70,
+        "score": 73,
         "state": {
           "id": "improving",
           "label": "Improving"
@@ -1697,12 +1698,12 @@
       "representativeBuildingCoverage": {
         "id": "representativeBuildings",
         "label": "Representative Building Coverage",
-        "score": 0,
+        "score": 38,
         "state": {
-          "id": "research",
-          "label": "Research"
+          "id": "planning",
+          "label": "Planning"
         },
-        "note": "0 representative building relationships; v1 target is 3 per covered district.",
+        "note": "3 representative building relationships; v1 target is 3 per covered district.",
         "source": "publisher"
       },
       "photographyCoverage": {
@@ -1719,12 +1720,12 @@
       "editorialCoverage": {
         "id": "editorialDepth",
         "label": "Editorial Coverage",
-        "score": 45,
+        "score": 56,
         "state": {
           "id": "needs_attention",
           "label": "Needs Attention"
         },
-        "note": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+        "note": "4 of 4 districts have substantive descriptions; 3 representative buildings and 0 Building Briefs are available.",
         "source": "publisher"
       },
       "internalLinking": {
@@ -1764,23 +1765,23 @@
         "representativeBuildings": {
           "id": "representativeBuildings",
           "label": "Representative Building Coverage",
-          "score": 0,
+          "score": 38,
           "state": {
-            "id": "research",
-            "label": "Research"
+            "id": "planning",
+            "label": "Planning"
           },
-          "note": "0 representative building relationships; v1 target is 3 per covered district.",
+          "note": "3 representative building relationships; v1 target is 3 per covered district.",
           "source": "publisher"
         },
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 14,
+          "score": 18,
           "state": {
             "id": "research",
             "label": "Research"
           },
-          "note": "Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing.",
+          "note": "Office is Missing; Industrial & Flex is Partial; Retail is Partial; Medical is Missing; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
           "source": "publisher"
         },
         "photography": {
@@ -1797,7 +1798,7 @@
         "recommendationConfidence": {
           "id": "recommendationConfidence",
           "label": "Recommendation Coverage",
-          "score": 70,
+          "score": 73,
           "state": {
             "id": "improving",
             "label": "Improving"
@@ -1808,12 +1809,12 @@
         "editorialDepth": {
           "id": "editorialDepth",
           "label": "Editorial Coverage",
-          "score": 45,
+          "score": 56,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
-          "note": "3 of 3 districts have substantive descriptions; 0 representative buildings and 0 Building Briefs are available.",
+          "note": "4 of 4 districts have substantive descriptions; 3 representative buildings and 0 Building Briefs are available.",
           "source": "publisher"
         },
         "internalLinks": {
@@ -1840,19 +1841,19 @@
         }
       },
       "counts": {
-        "districts": 3,
-        "representativeBuildings": 0,
+        "districts": 4,
+        "representativeBuildings": 3,
         "buildingBriefs": 0,
-        "queueItems": 4
+        "queueItems": 8
       },
       "examples": [
         "Seattle",
-        "Seattle Recommendation Readiness Sprint",
-        "Seattle Industrial & Flex Ecosystem Representative Building Foundation"
+        "Seattle Building Brief Migration Sprint",
+        "Seattle Office Ecosystem District Foundation"
       ],
       "source": {
         "publisherStatus": "In Development",
-        "publisherScore": 64,
+        "publisherScore": 69,
         "cityPath": "/commercial-real-estate/WA/seattle/"
       }
     }
@@ -2207,9 +2208,9 @@
         "label": "50/100",
         "inputs": {
           "searchOpportunity": 60,
-          "editorialLeverage": 36,
+          "editorialLeverage": 31,
           "buildEffort": 54,
-          "existingFoundation": 64,
+          "existingFoundation": 69,
           "automationPotential": 50,
           "brokerCoverage": 35
         },
@@ -2310,23 +2311,71 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-representative-building-foundation",
-        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+        "id": "mission:seattle:seattle-office-ecosystem-district-foundation",
+        "title": "Seattle Office Ecosystem Completion",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "ecosystem": "Industrial & Flex",
-        "ecosystemId": "industrial_flex",
+        "ecosystem": "Office",
+        "ecosystemId": "office",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:seattle:industrial_flex"
+          "ecosystem:seattle:office",
+          "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:seattle:industrial_flex",
-            "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+            "id": "ecosystem:seattle:office",
+            "title": "Seattle Office Ecosystem District Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "District foundation exists, but Representative Buildings are missing.",
+            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+            "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -2362,30 +2411,36 @@
             }
           }
         ],
-        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+        "objective": "Complete the related Seattle Office opportunities as one bounded mission.",
         "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "District foundation exists, but Representative Buildings are missing.",
+          "5 related opportunities share metro, source, and validation paths.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Missing",
-          "Commercial balance: Thin Across All Ecosystems"
+          "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
         "expectedImpact": "High",
-        "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
+        "estimatedEffort": "Medium",
+        "impactEffortClass": "High Impact / Medium Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
           "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
         ],
         "relevantFiles": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
           "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
+          "data/generated/eos-analysis.json",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "/commercial-real-estate/building/WA/kent/7818-s-212th-st/"
         ],
         "dependencies": [
           "Canonical ecosystem metadata",
@@ -2395,6 +2450,7 @@
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -2427,11 +2483,11 @@
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -2442,22 +2498,66 @@
           ]
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+          "objective": "Complete the related Seattle Office opportunities as one bounded mission.",
           "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "5 related opportunities share metro, source, and validation paths.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Missing",
-            "Commercial balance: Thin Across All Ecosystems"
+            "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "45% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentHealth": "53% Needs Attention",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "ecosystem:seattle:industrial_flex",
-              "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+              "id": "ecosystem:seattle:office",
+              "title": "Seattle Office Ecosystem District Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "District foundation exists, but Representative Buildings are missing.",
+              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -2495,18 +2595,23 @@
           ],
           "reasonForBundling": [
             "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
             "Deferred work is explicit so unrelated scope does not leak into the mission."
           ],
           "expectedImpact": "High",
-          "estimatedEffort": "Small",
+          "estimatedEffort": "Medium",
           "missionClass": "Readiness Blocker",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
             "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
+            "data/generated/eos-analysis.json",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+            "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+            "/commercial-real-estate/building/WA/kent/7818-s-212th-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -2516,7 +2621,8 @@
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
             "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -2528,6 +2634,7 @@
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -3001,7 +3108,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -4958,23 +5065,71 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:seattle:seattle-industrial-and-flex-ecosystem-representative-building-foundation",
-        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+        "id": "mission:seattle:seattle-office-ecosystem-district-foundation",
+        "title": "Seattle Office Ecosystem Completion",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "ecosystem": "Industrial & Flex",
-        "ecosystemId": "industrial_flex",
+        "ecosystem": "Office",
+        "ecosystemId": "office",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:seattle:industrial_flex"
+          "ecosystem:seattle:office",
+          "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+          "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:seattle:industrial_flex",
-            "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+            "id": "ecosystem:seattle:office",
+            "title": "Seattle Office Ecosystem District Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "District foundation exists, but Representative Buildings are missing.",
+            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+            "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -5010,30 +5165,36 @@
             }
           }
         ],
-        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+        "objective": "Complete the related Seattle Office opportunities as one bounded mission.",
         "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "District foundation exists, but Representative Buildings are missing.",
+          "5 related opportunities share metro, source, and validation paths.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Missing",
-          "Commercial balance: Thin Across All Ecosystems"
+          "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
         "expectedImpact": "High",
-        "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
+        "estimatedEffort": "Medium",
+        "impactEffortClass": "High Impact / Medium Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
           "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
         ],
         "relevantFiles": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
           "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
+          "data/generated/eos-analysis.json",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "/commercial-real-estate/building/WA/kent/7818-s-212th-st/"
         ],
         "dependencies": [
           "Canonical ecosystem metadata",
@@ -5043,6 +5204,7 @@
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -5075,11 +5237,11 @@
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -5090,22 +5252,66 @@
           ]
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+          "objective": "Complete the related Seattle Office opportunities as one bounded mission.",
           "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "5 related opportunities share metro, source, and validation paths.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Missing",
-            "Commercial balance: Thin Across All Ecosystems"
+            "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "45% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentHealth": "53% Needs Attention",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "ecosystem:seattle:industrial_flex",
-              "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+              "id": "ecosystem:seattle:office",
+              "title": "Seattle Office Ecosystem District Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "District foundation exists, but Representative Buildings are missing.",
+              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -5143,18 +5349,23 @@
           ],
           "reasonForBundling": [
             "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
             "Deferred work is explicit so unrelated scope does not leak into the mission."
           ],
           "expectedImpact": "High",
-          "estimatedEffort": "Small",
+          "estimatedEffort": "Medium",
           "missionClass": "Readiness Blocker",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
             "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
+            "data/generated/eos-analysis.json",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+            "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+            "/commercial-real-estate/building/WA/kent/7818-s-212th-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -5164,7 +5375,8 @@
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
             "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -5176,6 +5388,7 @@
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -5649,7 +5862,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -8977,11 +9190,11 @@
         }
       },
       {
-        "id": "ecosystem:seattle:industrial_flex",
+        "id": "ecosystem:seattle:office",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
-        "itemName": "Industrial & Flex",
+        "title": "Seattle Office Ecosystem District Foundation",
+        "itemName": "Office",
         "priorityScore": 78,
         "priorityStars": 4,
         "automationLevel": {
@@ -9009,18 +9222,18 @@
         },
         "category": "commercialEcosystem",
         "categoryLabel": "Commercial Ecosystem",
-        "ecosystemId": "industrial_flex",
-        "ecosystemLabel": "Industrial & Flex",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "gapCode": "ecosystem_representative_building_gap",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
+        "sprintFamily": "Ecosystem District Foundation",
+        "gapCode": "core_ecosystem_missing",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Missing",
-          "Commercial balance: Thin Across All Ecosystems"
+          "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
         "source": {
           "system": "Publisher",
@@ -9028,13 +9241,13 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+          "objective": "Seattle Office Ecosystem District Foundation",
           "reason": [
-            "District foundation exists, but Representative Buildings are missing.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Missing",
-            "Commercial balance: Thin Across All Ecosystems"
+            "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -9505,7 +9718,7 @@
           "system": "Publisher",
           "publicUrl": "",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
         },
         "executionPacket": {
           "objective": "Add or update recommendation QA documentation for this metro.",
@@ -9514,7 +9727,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "files": [
             "_data/recommendationQaStatus.js",
             "scripts/run-recommendation-qa.js",
@@ -9536,6 +9749,125 @@
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+        "itemName": "Seattle",
+        "priorityScore": 70,
+        "priorityStars": 4,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "High",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Representative buildings exist, but no canonical Building Brief collection has been started.",
+          "Task type: initial Building Brief collection",
+          "Publisher severity: high"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "reason": [
+            "Representative buildings exist, but no canonical Building Brief collection has been started.",
+            "Task type: initial Building Brief collection",
+            "Publisher severity: high"
+          ],
+          "currentHealth": "53% Needs Attention",
+          "files": [
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
             "git diff --check"
           ],
           "requiredReview": true,
@@ -10128,7 +10460,7 @@
             "Handbook coverage is below the EOS target.",
             "Market pages should connect durable commercial guidance to the user decision journey."
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "files": [
             "/commercial-real-estate/WA/seattle/",
             "_data/commercialLeasingHandbook.js",
@@ -42763,22 +43095,22 @@
         }
       },
       {
-        "id": "publisher:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+        "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "title": "Curate representative buildings that explain this district.",
-        "itemName": "Ballard / Interbay Industrial",
+        "title": "Author a Building Brief for this representative building.",
+        "itemName": "1455 NW Leary Way",
         "priorityScore": 40,
         "priorityStars": 2,
         "automationLevel": {
-          "id": "human_only",
-          "label": "Human Only",
-          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
         },
-        "estimatedEffort": "60-120 min",
+        "estimatedEffort": "90-180 min",
         "expectedEditorialImpact": "Medium",
         "dependencies": [],
-        "confidence": "Ready",
+        "confidence": "representative-foundation",
         "lifecycleState": {
           "id": "ready",
           "label": "Ready"
@@ -42790,35 +43122,35 @@
           "label": "Editorial",
           "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
         },
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "District has no representative building examples.",
-          "Task type: district missing representative buildings",
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
         "source": {
           "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
         },
         "executionPacket": {
-          "objective": "Curate representative buildings that explain this district.",
+          "objective": "Author a Building Brief for this representative building.",
           "reason": [
-            "District has no representative building examples.",
-            "Task type: district missing representative buildings",
+            "Representative building has not migrated to the canonical Building Brief journey.",
+            "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "files": [
-            "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-            "_data/recommendationRepresentativeBuildings.js",
-            "_data/representativeBuildingIntelligence.js",
+            "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
             "data/generated/eos-analysis.json"
           ],
@@ -42826,31 +43158,276 @@
           "acceptanceCriteria": [
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it."
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
           ],
           "expectedDeliverables": [
-            "Representative Building records",
-            "Canonical building relationships",
-            "QA summary"
+            "Building Brief data updates",
+            "Migration notes or review summary"
           ],
           "qaCommands": [
             "npm run build",
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-representative-building-intelligence.js",
+            "node scripts/qa-building-brief-depth.js",
             "git diff --check"
           ],
           "requiredReview": true,
           "automationLevel": {
-            "id": "human_only",
-            "label": "Human Only",
-            "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
           },
           "providers": [
             {
               "id": "manual",
               "label": "Manual",
               "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Author a Building Brief for this representative building.",
+        "itemName": "255 S King St",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "representative-foundation",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Author a Building Brief for this representative building.",
+          "reason": [
+            "Representative building has not migrated to the canonical Building Brief journey.",
+            "Task type: representative building missing Building Brief",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "53% Needs Attention",
+          "files": [
+            "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Author a Building Brief for this representative building.",
+        "itemName": "Kent - 212 Business Park",
+        "priorityScore": 40,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "estimatedEffort": "90-180 min",
+        "expectedEditorialImpact": "Medium",
+        "dependencies": [],
+        "confidence": "representative-foundation",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "why": [
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
+          "Publisher severity: medium"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Author a Building Brief for this representative building.",
+          "reason": [
+            "Representative building has not migrated to the canonical Building Brief journey.",
+            "Task type: representative building missing Building Brief",
+            "Publisher severity: medium"
+          ],
+          "currentHealth": "53% Needs Attention",
+          "files": [
+            "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Building Brief data updates",
+            "Migration notes or review summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-building-brief-depth.js",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
             }
           ],
           "handoff": [
@@ -42920,7 +43497,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
         },
         "executionPacket": {
           "objective": "Curate representative buildings that explain this district.",
@@ -42929,124 +43506,9 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "45% Needs Attention",
+          "currentHealth": "53% Needs Attention",
           "files": [
             "/commercial-real-estate/WA/seattle/georgetown-industrial/",
-            "_data/recommendationRepresentativeBuildings.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it."
-          ],
-          "expectedDeliverables": [
-            "Representative Building records",
-            "Canonical building relationships",
-            "QA summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-representative-building-intelligence.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "human_only",
-            "label": "Human Only",
-            "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-        "metroId": "seattle",
-        "metroName": "Seattle",
-        "title": "Curate representative buildings that explain this district.",
-        "itemName": "SODO Industrial",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "human_only",
-          "label": "Human Only",
-          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-        },
-        "estimatedEffort": "60-120 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "District has no representative building examples.",
-          "Task type: district missing representative buildings",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-          "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
-        },
-        "executionPacket": {
-          "objective": "Curate representative buildings that explain this district.",
-          "reason": [
-            "District has no representative building examples.",
-            "Task type: district missing representative buildings",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "45% Needs Attention",
-          "files": [
-            "/commercial-real-estate/WA/seattle/sodo-industrial/",
             "_data/recommendationRepresentativeBuildings.js",
             "_data/representativeBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
@@ -48740,6 +49202,246 @@
             }
           ]
         }
+      },
+      {
+        "id": "publisher:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Review whether the comparison should be reciprocal.",
+        "itemName": "Kent Valley -> Georgetown Industrial",
+        "priorityScore": 15,
+        "priorityStars": 1,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "estimatedEffort": "20-45 min",
+        "expectedEditorialImpact": "Low",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "engineering",
+          "label": "Engineering",
+          "description": "Schema, graph, routing, generated data, validation, and integration work."
+        },
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "suggestedModule": {
+          "id": "knowledgeGraph",
+          "label": "Knowledge Graph"
+        },
+        "why": [
+          "Comparison relationship is not reciprocated.",
+          "Task type: one-way comparison",
+          "Publisher severity: low"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Review whether the comparison should be reciprocal.",
+          "reason": [
+            "Comparison relationship is not reciprocated.",
+            "Task type: one-way comparison",
+            "Publisher severity: low"
+          ],
+          "currentHealth": "53% Needs Attention",
+          "files": [
+            "/commercial-real-estate/WA/kent/kent-valley/",
+            "_data/locationKnowledgeGraph.js",
+            "_data/locationKnowledgeSchema.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Comparison relationships remain valid and non-duplicative."
+          ],
+          "expectedDeliverables": [
+            "Source data change",
+            "Verification results",
+            "Brief implementation summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "git diff --check"
+          ],
+          "requiredReview": false,
+          "automationLevel": {
+            "id": "autonomous",
+            "label": "Autonomous",
+            "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "publisher:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "title": "Review whether the comparison should be reciprocal.",
+        "itemName": "Kent Valley -> SODO Industrial",
+        "priorityScore": 15,
+        "priorityStars": 1,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "estimatedEffort": "20-45 min",
+        "expectedEditorialImpact": "Low",
+        "dependencies": [],
+        "confidence": "Ready",
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "engineering",
+          "label": "Engineering",
+          "description": "Schema, graph, routing, generated data, validation, and integration work."
+        },
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "suggestedModule": {
+          "id": "knowledgeGraph",
+          "label": "Knowledge Graph"
+        },
+        "why": [
+          "Comparison relationship is not reciprocated.",
+          "Task type: one-way comparison",
+          "Publisher severity: low"
+        ],
+        "source": {
+          "system": "Publisher",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+          "adminUrl": "",
+          "expansionPlan": "Seattle Building Brief Migration Sprint"
+        },
+        "executionPacket": {
+          "objective": "Review whether the comparison should be reciprocal.",
+          "reason": [
+            "Comparison relationship is not reciprocated.",
+            "Task type: one-way comparison",
+            "Publisher severity: low"
+          ],
+          "currentHealth": "53% Needs Attention",
+          "files": [
+            "/commercial-real-estate/WA/kent/kent-valley/",
+            "_data/locationKnowledgeGraph.js",
+            "_data/locationKnowledgeSchema.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Comparison relationships remain valid and non-duplicative."
+          ],
+          "expectedDeliverables": [
+            "Source data change",
+            "Verification results",
+            "Brief implementation summary"
+          ],
+          "qaCommands": [
+            "npm run build",
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "git diff --check"
+          ],
+          "requiredReview": false,
+          "automationLevel": {
+            "id": "autonomous",
+            "label": "Autonomous",
+            "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
       }
     ],
     "expansionQueue": [
@@ -49315,7 +50017,7 @@
         "title": "Seattle Photography Coverage",
         "coverageScore": 0,
         "coverageLabel": "0%",
-        "remainingTargets": 4,
+        "remainingTargets": 8,
         "status": "Open",
         "suggestedModule": {
           "id": "fieldMode",
@@ -49330,10 +50032,10 @@
     ],
     "reviewQueue": [],
     "opportunityInventory": {
-      "total": 336,
+      "total": 340,
       "missions": 11,
       "byQueue": {
-        "editorial": 336,
+        "editorial": 340,
         "missions": 11,
         "expansion": 4,
         "fieldMode": 6,
@@ -50459,11 +51161,11 @@
       }
     },
     {
-      "id": "ecosystem:seattle:industrial_flex",
+      "id": "ecosystem:seattle:office",
       "metroId": "seattle",
       "metroName": "Seattle",
-      "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
-      "itemName": "Industrial & Flex",
+      "title": "Seattle Office Ecosystem District Foundation",
+      "itemName": "Office",
       "priorityScore": 78,
       "priorityStars": 4,
       "automationLevel": {
@@ -50491,18 +51193,18 @@
       },
       "category": "commercialEcosystem",
       "categoryLabel": "Commercial Ecosystem",
-      "ecosystemId": "industrial_flex",
-      "ecosystemLabel": "Industrial & Flex",
-      "sprintFamily": "Ecosystem Representative Building Foundation",
-      "gapCode": "ecosystem_representative_building_gap",
+      "ecosystemId": "office",
+      "ecosystemLabel": "Office",
+      "sprintFamily": "Ecosystem District Foundation",
+      "gapCode": "core_ecosystem_missing",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "District foundation exists, but Representative Buildings are missing.",
+        "Relevant ecosystem has no meaningful district coverage.",
         "Ecosystem readiness: Missing",
-        "Commercial balance: Thin Across All Ecosystems"
+        "Commercial balance: Industrial Flex Representative Building Concentrated"
       ],
       "source": {
         "system": "Publisher",
@@ -50510,13 +51212,13 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
+        "objective": "Seattle Office Ecosystem District Foundation",
         "reason": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Missing",
-          "Commercial balance: Thin Across All Ecosystems"
+          "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -50642,7 +51344,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
           "/commercial-real-estate/WA/seattle/",
           "functions/admin/field-photos.js",
@@ -51106,7 +51808,7 @@
         "system": "Publisher",
         "publicUrl": "",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
       },
       "executionPacket": {
         "objective": "Add or update recommendation QA documentation for this metro.",
@@ -51115,7 +51817,7 @@
           "Task type: missing recommendation QA status",
           "Publisher severity: high"
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
           "_data/recommendationQaStatus.js",
           "scripts/run-recommendation-qa.js",
@@ -51137,6 +51839,125 @@
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/run-recommendation-qa.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:buildingBriefs:initial Building Brief collection:seattle",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+      "itemName": "Seattle",
+      "priorityScore": 70,
+      "priorityStars": 4,
+      "automationLevel": {
+        "id": "review_required",
+        "label": "Review Required",
+        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "High",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Representative buildings exist, but no canonical Building Brief collection has been started.",
+        "Task type: initial Building Brief collection",
+        "Publisher severity: high"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+        "reason": [
+          "Representative buildings exist, but no canonical Building Brief collection has been started.",
+          "Task type: initial Building Brief collection",
+          "Publisher severity: high"
+        ],
+        "currentHealth": "53% Needs Attention",
+        "files": [
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
           "git diff --check"
         ],
         "requiredReview": true,
@@ -51729,7 +52550,7 @@
           "Handbook coverage is below the EOS target.",
           "Market pages should connect durable commercial guidance to the user decision journey."
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
           "/commercial-real-estate/WA/seattle/",
           "_data/commercialLeasingHandbook.js",
@@ -84364,22 +85185,22 @@
       }
     },
     {
-      "id": "publisher:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+      "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
       "metroId": "seattle",
       "metroName": "Seattle",
-      "title": "Curate representative buildings that explain this district.",
-      "itemName": "Ballard / Interbay Industrial",
+      "title": "Author a Building Brief for this representative building.",
+      "itemName": "1455 NW Leary Way",
       "priorityScore": 40,
       "priorityStars": 2,
       "automationLevel": {
-        "id": "human_only",
-        "label": "Human Only",
-        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+        "id": "review_required",
+        "label": "Review Required",
+        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
       },
-      "estimatedEffort": "60-120 min",
+      "estimatedEffort": "90-180 min",
       "expectedEditorialImpact": "Medium",
       "dependencies": [],
-      "confidence": "Ready",
+      "confidence": "representative-foundation",
       "lifecycleState": {
         "id": "ready",
         "label": "Ready"
@@ -84391,35 +85212,35 @@
         "label": "Editorial",
         "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
       },
-      "category": "representativeBuildings",
-      "categoryLabel": "Representative Buildings",
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "District has no representative building examples.",
-        "Task type: district missing representative buildings",
+        "Representative building has not migrated to the canonical Building Brief journey.",
+        "Task type: representative building missing Building Brief",
         "Publisher severity: medium"
       ],
       "source": {
         "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+        "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
       },
       "executionPacket": {
-        "objective": "Curate representative buildings that explain this district.",
+        "objective": "Author a Building Brief for this representative building.",
         "reason": [
-          "District has no representative building examples.",
-          "Task type: district missing representative buildings",
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
-          "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-          "_data/recommendationRepresentativeBuildings.js",
-          "_data/representativeBuildingIntelligence.js",
+          "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",
           "data/generated/eos-analysis.json"
         ],
@@ -84427,31 +85248,276 @@
         "acceptanceCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it."
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
         ],
         "expectedDeliverables": [
-          "Representative Building records",
-          "Canonical building relationships",
-          "QA summary"
+          "Building Brief data updates",
+          "Migration notes or review summary"
         ],
         "qaCommands": [
           "npm run build",
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-representative-building-intelligence.js",
+          "node scripts/qa-building-brief-depth.js",
           "git diff --check"
         ],
         "requiredReview": true,
         "automationLevel": {
-          "id": "human_only",
-          "label": "Human Only",
-          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
         },
         "providers": [
           {
             "id": "manual",
             "label": "Manual",
             "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Author a Building Brief for this representative building.",
+      "itemName": "255 S King St",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "review_required",
+        "label": "Review Required",
+        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "representative-foundation",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Representative building has not migrated to the canonical Building Brief journey.",
+        "Task type: representative building missing Building Brief",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Author a Building Brief for this representative building.",
+        "reason": [
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "53% Needs Attention",
+        "files": [
+          "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Author a Building Brief for this representative building.",
+      "itemName": "Kent - 212 Business Park",
+      "priorityScore": 40,
+      "priorityStars": 2,
+      "automationLevel": {
+        "id": "review_required",
+        "label": "Review Required",
+        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+      },
+      "estimatedEffort": "90-180 min",
+      "expectedEditorialImpact": "Medium",
+      "dependencies": [],
+      "confidence": "representative-foundation",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "editorial",
+        "label": "Editorial",
+        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+      },
+      "category": "buildingBriefs",
+      "categoryLabel": "Building Briefs",
+      "suggestedModule": {
+        "id": "publisher",
+        "label": "Publisher"
+      },
+      "why": [
+        "Representative building has not migrated to the canonical Building Brief journey.",
+        "Task type: representative building missing Building Brief",
+        "Publisher severity: medium"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Author a Building Brief for this representative building.",
+        "reason": [
+          "Representative building has not migrated to the canonical Building Brief journey.",
+          "Task type: representative building missing Building Brief",
+          "Publisher severity: medium"
+        ],
+        "currentHealth": "53% Needs Attention",
+        "files": [
+          "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "expectedDeliverables": [
+          "Building Brief data updates",
+          "Migration notes or review summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-building-brief-depth.js",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
           }
         ],
         "handoff": [
@@ -84521,7 +85587,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
       },
       "executionPacket": {
         "objective": "Curate representative buildings that explain this district.",
@@ -84530,124 +85596,9 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "45% Needs Attention",
+        "currentHealth": "53% Needs Attention",
         "files": [
           "/commercial-real-estate/WA/seattle/georgetown-industrial/",
-          "_data/recommendationRepresentativeBuildings.js",
-          "_data/representativeBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it."
-        ],
-        "expectedDeliverables": [
-          "Representative Building records",
-          "Canonical building relationships",
-          "QA summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-representative-building-intelligence.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "human_only",
-          "label": "Human Only",
-          "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-      "metroId": "seattle",
-      "metroName": "Seattle",
-      "title": "Curate representative buildings that explain this district.",
-      "itemName": "SODO Industrial",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "human_only",
-        "label": "Human Only",
-        "description": "The work requires human capture, review, relationship judgment, or external evidence not yet available to automation."
-      },
-      "estimatedEffort": "60-120 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "representativeBuildings",
-      "categoryLabel": "Representative Buildings",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "District has no representative building examples.",
-        "Task type: district missing representative buildings",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-        "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
-      },
-      "executionPacket": {
-        "objective": "Curate representative buildings that explain this district.",
-        "reason": [
-          "District has no representative building examples.",
-          "Task type: district missing representative buildings",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "45% Needs Attention",
-        "files": [
-          "/commercial-real-estate/WA/seattle/sodo-industrial/",
           "_data/recommendationRepresentativeBuildings.js",
           "_data/representativeBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",
@@ -90277,6 +91228,246 @@
         "currentHealth": "68% Improving",
         "files": [
           "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+          "_data/locationKnowledgeGraph.js",
+          "_data/locationKnowledgeSchema.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Comparison relationships remain valid and non-duplicative."
+        ],
+        "expectedDeliverables": [
+          "Source data change",
+          "Verification results",
+          "Brief implementation summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "git diff --check"
+        ],
+        "requiredReview": false,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Review whether the comparison should be reciprocal.",
+      "itemName": "Kent Valley -> Georgetown Industrial",
+      "priorityScore": 15,
+      "priorityStars": 1,
+      "automationLevel": {
+        "id": "autonomous",
+        "label": "Autonomous",
+        "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+      },
+      "estimatedEffort": "20-45 min",
+      "expectedEditorialImpact": "Low",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "engineering",
+        "label": "Engineering",
+        "description": "Schema, graph, routing, generated data, validation, and integration work."
+      },
+      "category": "comparisonGraph",
+      "categoryLabel": "Comparison Graph",
+      "suggestedModule": {
+        "id": "knowledgeGraph",
+        "label": "Knowledge Graph"
+      },
+      "why": [
+        "Comparison relationship is not reciprocated.",
+        "Task type: one-way comparison",
+        "Publisher severity: low"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Review whether the comparison should be reciprocal.",
+        "reason": [
+          "Comparison relationship is not reciprocated.",
+          "Task type: one-way comparison",
+          "Publisher severity: low"
+        ],
+        "currentHealth": "53% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/kent/kent-valley/",
+          "_data/locationKnowledgeGraph.js",
+          "_data/locationKnowledgeSchema.js",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json"
+        ],
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Comparison relationships remain valid and non-duplicative."
+        ],
+        "expectedDeliverables": [
+          "Source data change",
+          "Verification results",
+          "Brief implementation summary"
+        ],
+        "qaCommands": [
+          "npm run build",
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "git diff --check"
+        ],
+        "requiredReview": false,
+        "automationLevel": {
+          "id": "autonomous",
+          "label": "Autonomous",
+          "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+        },
+        "providers": [
+          {
+            "id": "manual",
+            "label": "Manual",
+            "description": "A human uses the execution packet as a checklist and updates EOS externally."
+          },
+          {
+            "id": "codex",
+            "label": "Codex",
+            "description": "A future execution provider can consume the packet and return work for review."
+          }
+        ],
+        "handoff": [
+          {
+            "id": "engineering",
+            "label": "Engineering",
+            "description": "Prepare source files, schema, generated data, or implementation scope."
+          },
+          {
+            "id": "execution",
+            "label": "Execution / Field Mode",
+            "description": "Execute the work manually, through Field Mode, or through a future provider."
+          },
+          {
+            "id": "qa",
+            "label": "QA",
+            "description": "Run deterministic validation and return exceptions to review."
+          },
+          {
+            "id": "publish",
+            "label": "Publish",
+            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "publisher:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+      "metroId": "seattle",
+      "metroName": "Seattle",
+      "title": "Review whether the comparison should be reciprocal.",
+      "itemName": "Kent Valley -> SODO Industrial",
+      "priorityScore": 15,
+      "priorityStars": 1,
+      "automationLevel": {
+        "id": "autonomous",
+        "label": "Autonomous",
+        "description": "EOS can eventually prepare this work without new field input, with deterministic QA before publishing."
+      },
+      "estimatedEffort": "20-45 min",
+      "expectedEditorialImpact": "Low",
+      "dependencies": [],
+      "confidence": "Ready",
+      "lifecycleState": {
+        "id": "ready",
+        "label": "Ready"
+      },
+      "status": "Ready",
+      "queueType": "editorial",
+      "operatingLane": {
+        "id": "engineering",
+        "label": "Engineering",
+        "description": "Schema, graph, routing, generated data, validation, and integration work."
+      },
+      "category": "comparisonGraph",
+      "categoryLabel": "Comparison Graph",
+      "suggestedModule": {
+        "id": "knowledgeGraph",
+        "label": "Knowledge Graph"
+      },
+      "why": [
+        "Comparison relationship is not reciprocated.",
+        "Task type: one-way comparison",
+        "Publisher severity: low"
+      ],
+      "source": {
+        "system": "Publisher",
+        "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+        "adminUrl": "",
+        "expansionPlan": "Seattle Building Brief Migration Sprint"
+      },
+      "executionPacket": {
+        "objective": "Review whether the comparison should be reciprocal.",
+        "reason": [
+          "Comparison relationship is not reciprocated.",
+          "Task type: one-way comparison",
+          "Publisher severity: low"
+        ],
+        "currentHealth": "53% Needs Attention",
+        "files": [
+          "/commercial-real-estate/WA/kent/kent-valley/",
           "_data/locationKnowledgeGraph.js",
           "_data/locationKnowledgeSchema.js",
           "data/generated/publisher-analysis.json",

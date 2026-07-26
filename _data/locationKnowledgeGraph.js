@@ -4321,6 +4321,39 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["urban industrial users", "warehouse users", "service dispatch", "last-mile distribution", "contractor operations"],
     tradeoffs: ["urban industrial utility may come with less customer-facing polish", "parking, loading, truck circulation, and yard rights vary by property", "larger users may need a broader south King County logistics search"],
     strengths: ["central Seattle access", "I-5 and SR-99 reach", "port and stadium-area adjacency", "urban warehouse and service-industrial identity"],
+    representativeBuildings: [
+      {
+        name: "255 S King St",
+        address: "255 S King St",
+        path: "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+        buildingType: "Office",
+        representativeRole: "urban_industrial_environment",
+        representativeReason: "Represents a south downtown Seattle commercial building that helps explain the urban edge between office use, Pioneer Square, stadium-area access, and nearby SODO industrial geography.",
+        bestFitSummary: "Best used as an orientation example for businesses comparing urban-core access against more operations-forward SODO, Georgetown, or Kent industrial settings.",
+        primaryTradeoff: "The existing Rofo source identifies office space, so industrial/flex suitability should be treated as district-context teaching value rather than a verified property capability.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["small_bay_industrial", "flex"],
+          representativeRole: "urban_industrial_environment",
+          businessActivities: ["knowledge_work", "storage", "service_dispatch"],
+          businessArchetypes: ["building_services_company", "equipment_service_company"],
+          operationalCharacteristics: ["urban_core_access", "industrial_identity", "loading_constrained", "transit_access"],
+          representativeReasons: [
+            "Shows the urban edge of Seattle industrial/flex decisions where central access can matter more than suburban building format.",
+            "Helps users compare SODO-adjacent urban commercial space against deeper warehouse and contractor-service environments."
+          ],
+          tradeoffs: [
+            "The source record is office-oriented and should not be treated as proof of loading, storage, yard, or production capability.",
+            "Businesses should validate permitted use, building access, loading, parking, and operational compatibility before considering similar space."
+          ],
+          validationFocus: ["Permitted use", "Loading access", "Parking allocation", "Storage needs", "Operational compatibility"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Existing Rofo canonical record identifies office space at 255 S King St; representative value is based on district-edge context, not verified industrial property features."],
+      },
+    ],
     commercialEcosystem: {
       primary: "industrial_flex",
       secondary: [],
@@ -4389,6 +4422,39 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     bestFor: ["north Seattle service businesses", "contractor operations", "office/warehouse users", "maker and light-production users", "equipment-service companies"],
     tradeoffs: ["north Seattle proximity can come with tighter sites and less expansion room", "larger distribution or yard-heavy needs should compare SODO, Georgetown, or south King County", "building systems and loading should be validated before assuming production fit"],
     strengths: ["north Seattle customer geography", "service-industrial and flex character", "marine and maker adjacency", "access to Ballard, Interbay, Fremont, Queen Anne, and Magnolia"],
+    representativeBuildings: [
+      {
+        name: "1455 NW Leary Way",
+        address: "1455 NW Leary Way",
+        path: "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+        buildingType: "Office",
+        representativeRole: "flex_business_park",
+        representativeReason: "Represents Ballard's office/flex edge where creative workspace, waterfront identity, and industrial-neighborhood context overlap.",
+        bestFitSummary: "Best used to help smaller businesses compare office-heavy flex and creative-operational environments against more utilitarian warehouse or contractor-service districts.",
+        primaryTradeoff: "The source record is office/coworking-oriented; loading, storage, production, and vehicle needs require direct validation before treating similar space as operationally usable.",
+        sourceConfidence: "medium",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["flex", "small_bay_industrial"],
+          representativeRole: "flex_business_park",
+          businessActivities: ["knowledge_work", "service_dispatch", "storage", "customer_showroom"],
+          businessArchetypes: ["creative_studio", "equipment_service_company", "building_services_company"],
+          operationalCharacteristics: ["flexible_suite_sizes", "creative_environment", "industrial_identity", "urban_core_access"],
+          representativeReasons: [
+            "Uses a Ballard commercial building with source-described industrial-neighborhood context to explain north Seattle flex decisions.",
+            "Shows how creative workspace and operational adjacency can overlap without implying verified warehouse or production capability."
+          ],
+          tradeoffs: [
+            "Office-heavy flex may provide better image and workspace than storage efficiency.",
+            "Loading, parking, permitted use, and operational buildout should be validated suite by suite."
+          ],
+          validationFocus: ["Permitted use", "Loading configuration", "Parking allocation", "Office versus storage ratio", "Customer access"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Existing Rofo source describes 1455 NW Leary Way as creative workspace in Ballard and places it in an industrial neighborhood; operational characteristics remain validation topics."],
+      },
+    ],
     commercialEcosystem: {
       primary: "industrial_flex",
       secondary: ["retail"],
@@ -4402,6 +4468,73 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     relationships: { compareWith: [
       { slug: "sodo-industrial", label: "SODO Industrial", reason: "More central warehouse, last-mile, and port-adjacent industrial alternative.", relationshipType: "better_truck_access" },
       { slug: "georgetown-industrial", label: "Georgetown Industrial", reason: "More south Seattle contractor, small-bay, and production-adjacent alternative.", relationshipType: "similar" },
+    ] },
+  },
+  {
+    slug: "kent-valley",
+    label: "Kent Valley",
+    type: "district",
+    city: "Kent",
+    state: "WA",
+    path: "/commercial-real-estate/WA/kent/kent-valley/",
+    confidence: "high",
+    spaceTypeFit: {
+      industrial: fit("excellent", "Excellent fit for Seattle-area industrial users that need a more operations-forward warehouse, service, or distribution environment than central Seattle districts can usually provide.", ["warehouse users", "distribution users", "service industrial companies", "regional operations"], ["less central for Seattle customer visits than SODO or Ballard/Interbay", "property-level loading, truck circulation, and parking remain decisive"]),
+      warehouse: fit("strong", "Strong fit for warehouse, storage, receiving, shipping, and regional goods-movement users serving the broader Seattle metro.", ["warehouse users", "regional distribution", "inventory operations"], ["larger specifications still need direct building validation"]),
+      distribution: fit("strong", "Strong fit for companies comparing Seattle-area regional distribution, south metro customer access, and practical industrial building formats.", ["distributors", "wholesalers", "e-commerce fulfillment", "service distribution"], ["last-mile users focused on central Seattle may prefer SODO despite tighter sites"]),
+      flex: fit("good", "Good selective fit for office/warehouse or service users that need practical industrial access with some office support.", ["office/warehouse users", "service operations", "technical support users"], ["office-heavy users may prefer Bellevue, Redmond, or Seattle flex/office districts"]),
+    },
+    attributes: businessAttrs({ transit: "low", parking: "high", walkability: "low", freewayAccess: "high", executiveImage: "low", customerAccess: "medium", expansionFlexibility: "high", talentAccess: "medium", visibility: "medium", amenities: "low", costPosition: "high", creativeEnvironment: "low", corporateEnvironment: "low" }),
+    industrialAttributes: industrialAttrs({ truckAccess: "high", highwayAccess: "high", lastMileAccess: "medium", portAirportAccess: "high", clearHeight: "medium", loading: "medium", yard: "medium", power: "medium", zoningFlexibility: "high", laborAccess: "high", parkingTrailer: "medium", outdoorStorage: "medium" }),
+    bestFor: ["warehouse users", "distribution companies", "service industrial users", "regional operations", "office/warehouse users"],
+    tradeoffs: ["less urban and customer-facing than Seattle city districts", "employee and customer geography should be compared against central Seattle, Bellevue, and south King County alternatives", "loading, truck access, yard, and clear height must be validated by building"],
+    strengths: ["south King County industrial scale", "regional freeway and airport/port reach", "warehouse and distribution utility", "parking and expansion potential"],
+    representativeBuildings: [
+      {
+        name: "Kent - 212 Business Park",
+        address: "7818 S 212th St",
+        path: "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+        buildingType: "Industrial",
+        representativeRole: "warehouse_distribution_environment",
+        representativeReason: "Represents the Seattle-area warehouse and distribution alternative that businesses compare when central Seattle industrial districts are too constrained.",
+        bestFitSummary: "Best for distributors, warehouse users, wholesalers, and service operations that need industrial utility and regional south metro access.",
+        primaryTradeoff: "The source confirms industrial space, but loading, clear height, truck circulation, parking, and exact warehouse suitability still require property-level validation.",
+        sourceConfidence: "high",
+        buildingBriefReadiness: "representative-foundation",
+        commercialIntelligence: {
+          primaryEcosystem: "industrial_flex",
+          ecosystemSubtypes: ["warehouse", "distribution"],
+          representativeRole: "warehouse_distribution_environment",
+          businessActivities: ["receiving", "shipping", "distribution", "storage", "inventory_management"],
+          businessArchetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business"],
+          operationalCharacteristics: ["delivery_access", "regional_distribution_access", "industrial_identity"],
+          representativeReasons: [
+            "Adds a true industrial canonical building record to Seattle's industrial/flex representative foundation.",
+            "Helps distinguish regional warehouse and distribution decisions from central-city flex or SODO-adjacent urban industrial choices."
+          ],
+          tradeoffs: [
+            "Regional industrial utility may be less convenient for businesses prioritizing central Seattle customers or employees.",
+            "Loading, truck circulation, clear height, and parking must be validated before treating the building as a distribution match."
+          ],
+          validationFocus: ["Loading configuration", "Truck circulation", "Clear height", "Parking allocation", "Permitted uses"],
+          confidence: "editorially_supported",
+        },
+        sourceNotes: ["Existing Rofo canonical record identifies 7818 S 212th St as industrial space in Kent."],
+      },
+    ],
+    commercialEcosystem: {
+      primary: "industrial_flex",
+      secondary: [],
+      subtypes: ["warehouse", "distribution", "flex"],
+      activities: ["receiving", "shipping", "storage", "distribution", "inventory_management"],
+      archetypes: ["distributor", "wholesaler", "importer", "ecommerce_fulfillment_business", "building_services_company"],
+      confidence: "high",
+      reviewNotes: [],
+    },
+    questionsToValidate: ["Is south King County regional access stronger than central Seattle proximity?", "What loading, truck circulation, clear height, or parking is required?", "Do customers, employees, or suppliers require a Seattle city location?", "Would SODO or Georgetown better support last-mile or service-territory needs?"],
+    relationships: { compareWith: [
+      { slug: "sodo-industrial", label: "SODO Industrial", reason: "More central Seattle industrial and last-mile alternative.", relationshipType: "better_last_mile" },
+      { slug: "georgetown-industrial", label: "Georgetown Industrial", reason: "More Seattle-city small-bay, contractor, and maker-oriented alternative.", relationshipType: "similar" },
     ] },
   },
 ].forEach((card) => mergeKnowledgeCard(graph, card));

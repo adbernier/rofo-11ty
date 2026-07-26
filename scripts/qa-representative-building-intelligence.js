@@ -12,7 +12,7 @@ const EXPECTED_SCORES = {
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
   denver: { overall: 94, status: "Distribution Ready" },
-  seattle: { overall: 19, status: "In Development" },
+  seattle: { overall: 69, status: "In Development" },
 };
 
 const DENVER_INDUSTRIAL_TARGET_ROLES = [
@@ -293,7 +293,15 @@ function validatePublisherAndPlans() {
 
   const seattle = metroById({ analysis: first }, "seattle");
   if (seattle) {
-    requireField(["missing", "thin"].includes(seattle.ecosystemReadiness.state), `Seattle: expected thin/missing ecosystem readiness, got ${seattle.ecosystemReadiness.state}`);
+    const industrial = evaluationFor(seattle, "industrial_flex");
+    const industrialIntelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
+    const seattlePlan = planById(firstPlans, "seattle");
+    requireField(seattle.ecosystemReadiness.state === "missing", `Seattle: expected missing ecosystem readiness while other core ecosystems remain unfounded, got ${seattle.ecosystemReadiness.state}`);
+    requireField(industrial && industrial.readinessState === "partial", `Seattle: expected partial industrial/flex readiness after representative-building foundation, got ${industrial && industrial.readinessState}`);
+    requireField((industrialIntelligence.buildingCount || 0) >= 3, `Seattle: expected industrial/flex representative-building foundation count, got ${industrialIntelligence.buildingCount || 0}`);
+    requireField((industrialIntelligence.rolesCovered || []).length >= 3, "Seattle: industrial/flex representative-role breadth remains too narrow after foundation");
+    requireField(industrialIntelligence.state === "strong", `Seattle: expected strong industrial/flex representative intelligence, got ${industrialIntelligence.state}`);
+    requireField(!((seattlePlan && seattlePlan.recommendedEcosystemSprint && seattlePlan.recommendedEcosystemSprint.title) || "").includes("Industrial & Flex Ecosystem Representative Building Foundation"), "Seattle: completed industrial/flex representative-building foundation is still recommended");
   }
 
   const serialized = JSON.stringify({

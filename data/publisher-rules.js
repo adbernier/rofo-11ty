@@ -234,7 +234,7 @@ const METROS = [
     primaryCity: "Seattle",
     state: "WA",
     compassAliases: ["seattle"],
-    cities: ["Seattle", "Bellevue", "Redmond", "Kirkland"],
+    cities: ["Seattle", "Bellevue", "Redmond", "Kirkland", "Kent"],
     developmentOnly: true,
   },
 ];

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T10:09:43-07:00",
+  "generatedAt": "2026-07-26T10:33:13-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -18255,7 +18255,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27095,7 +27095,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36917,7 +36917,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45909,7 +45909,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -55451,19 +55451,19 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "In Development",
-        "overallScore": 64,
-        "recommendationScore": 70,
-        "editorialScore": 45,
+        "overallScore": 69,
+        "recommendationScore": 73,
+        "editorialScore": 56,
         "publishingScore": 82,
-        "buildingScore": 100,
+        "buildingScore": 0,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "strong",
         "ecosystemReadiness": "missing",
-        "commercialBalance": "thin_across_all_ecosystems"
+        "commercialBalance": "industrial_flex_representative_building_concentrated"
       },
       "coverage": {
         "cities": {
@@ -55471,23 +55471,23 @@
           "status": 60
         },
         "districts": {
-          "count": 3,
+          "count": 4,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 3,
-          "score": 38
+          "count": 4,
+          "score": 45
         },
         "comparisons": {
           "score": 100
         },
         "representativeBuildings": {
-          "count": 0,
-          "score": 0
+          "count": 3,
+          "score": 38
         },
         "buildingBriefs": {
           "count": 0,
-          "score": 100
+          "score": 0
         },
         "insights": {
           "score": 100,
@@ -55500,8 +55500,8 @@
         "ecosystems": {
           "count": 7,
           "developed": 0,
-          "partial": 1,
-          "thin": 1,
+          "partial": 2,
+          "thin": 0,
           "missing": 5,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
@@ -55569,12 +55569,12 @@
           "industrial_flex": {
             "id": "industrial_flex",
             "label": "Industrial & Flex",
-            "districtCount": 3,
+            "districtCount": 4,
             "secondaryDistrictCount": 0,
-            "recommendationNodeCount": 3,
-            "representativeBuildingCount": 0,
+            "recommendationNodeCount": 4,
+            "representativeBuildingCount": 3,
             "buildingBriefCount": 0,
-            "status": "Thin",
+            "status": "Partial",
             "districts": [
               {
                 "slug": "sodo-industrial",
@@ -55590,23 +55590,28 @@
                 "slug": "ballard-interbay-industrial",
                 "label": "Ballard / Interbay Industrial",
                 "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/"
+              },
+              {
+                "slug": "kent-valley",
+                "label": "Kent Valley",
+                "path": "/commercial-real-estate/WA/kent/kent-valley/"
               }
             ],
             "subtypes": {
-              "warehouse": 2,
-              "distribution": 1,
+              "warehouse": 3,
+              "distribution": 2,
               "last_mile_logistics": 1,
               "small_bay_industrial": 3,
               "contractor_service": 2,
               "light_manufacturing": 2,
-              "flex": 1
+              "flex": 2
             },
             "archetypes": {
-              "distributor": 1,
-              "wholesaler": 1,
-              "importer": 1,
-              "ecommerce_fulfillment_business": 1,
-              "building_services_company": 2,
+              "distributor": 2,
+              "wholesaler": 2,
+              "importer": 2,
+              "ecommerce_fulfillment_business": 2,
+              "building_services_company": 3,
               "general_contractor": 2,
               "electrician": 1,
               "hvac_company": 1,
@@ -55617,15 +55622,15 @@
               "furniture_maker": 1
             },
             "activities": {
-              "receiving": 2,
-              "shipping": 1,
-              "storage": 3,
-              "distribution": 1,
+              "receiving": 3,
+              "shipping": 2,
+              "storage": 4,
+              "distribution": 2,
               "service_dispatch": 3,
               "equipment_storage": 2,
               "light_manufacturing": 2,
               "assembly": 1,
-              "inventory_management": 1
+              "inventory_management": 2
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
@@ -55636,39 +55641,114 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 3,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": {},
-              "subtypesCovered": {},
-              "activityCoverage": {},
-              "archetypeCoverage": {},
-              "operationalCharacteristicsCovered": {},
-              "operationalCategoriesCovered": {},
+              "rolesCovered": {
+                "urban_industrial_environment": 1,
+                "flex_business_park": 1,
+                "warehouse_distribution_environment": 1
+              },
+              "subtypesCovered": {
+                "small_bay_industrial": 2,
+                "flex": 3,
+                "warehouse": 2,
+                "distribution": 2,
+                "last_mile_logistics": 1,
+                "contractor_service": 1,
+                "light_manufacturing": 1
+              },
+              "activityCoverage": {
+                "knowledge_work": 2,
+                "storage": 3,
+                "service_dispatch": 2,
+                "light_manufacturing": 1,
+                "receiving": 2,
+                "shipping": 2,
+                "distribution": 2,
+                "customer_showroom": 1,
+                "product_development": 1,
+                "assembly": 1,
+                "equipment_storage": 1,
+                "inventory_management": 2
+              },
+              "archetypeCoverage": {
+                "building_services_company": 3,
+                "equipment_service_company": 2,
+                "distributor": 2,
+                "wholesaler": 2,
+                "importer": 2,
+                "ecommerce_fulfillment_business": 2,
+                "general_contractor": 3,
+                "electrician": 3,
+                "creative_studio": 1,
+                "cabinet_shop": 1,
+                "furniture_maker": 1,
+                "hvac_company": 2
+              },
+              "operationalCharacteristicsCovered": {
+                "urban_core_access": 2,
+                "industrial_identity": 3,
+                "loading_constrained": 1,
+                "transit_access": 1,
+                "small_suite_sizes": 1,
+                "flexible_suite_sizes": 1,
+                "creative_environment": 1,
+                "high_office_percentage": 1,
+                "surface_parking": 1,
+                "freeway_access": 1,
+                "delivery_access": 1,
+                "regional_distribution_access": 1,
+                "dock_high_loading": 1,
+                "truck_court": 1,
+                "high_clearance": 1
+              },
+              "operationalCategoriesCovered": {
+                "location_workforce": 5,
+                "market_presence": 4,
+                "access_loading": 4,
+                "configuration": 4,
+                "parking_vehicles": 1
+              },
               "missingRoles": [
                 "small_bay_service_environment",
-                "flex_business_park",
                 "contractor_service_cluster",
-                "warehouse_distribution_environment",
                 "last_mile_logistics_environment",
                 "light_manufacturing_environment",
                 "food_production_environment",
-                "showroom_flex_environment"
+                "showroom_flex_environment",
+                "research_development_environment",
+                "large_scale_distribution_environment"
               ],
               "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
-                "configuration",
                 "infrastructure",
-                "market_presence",
-                "location_workforce"
+                "outdoor_special_use"
               ],
               "highestPriorityMissingRole": "small_bay_service_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
-              "exampleBuildings": []
+              "highestPriorityMissingOperationalCategory": "infrastructure",
+              "exampleBuildings": [
+                {
+                  "name": "255 S King St",
+                  "path": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+                  "role": "urban_industrial_environment",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "1455 NW Leary Way",
+                  "path": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "Kent - 212 Business Park",
+                  "path": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+                  "role": "warehouse_distribution_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             }
           },
           "retail": {
@@ -55924,31 +56004,31 @@
           }
         },
         "subtypeCoverage": {
-          "warehouse": 2,
-          "distribution": 1,
+          "warehouse": 3,
+          "distribution": 2,
           "last_mile_logistics": 1,
           "small_bay_industrial": 3,
           "contractor_service": 2,
           "light_manufacturing": 2,
-          "flex": 1
+          "flex": 2
         },
         "activityCoverage": {
-          "receiving": 2,
-          "shipping": 1,
-          "storage": 3,
-          "distribution": 1,
+          "receiving": 3,
+          "shipping": 2,
+          "storage": 4,
+          "distribution": 2,
           "service_dispatch": 3,
           "equipment_storage": 2,
           "light_manufacturing": 2,
           "assembly": 1,
-          "inventory_management": 1
+          "inventory_management": 2
         },
         "archetypeCoverage": {
-          "distributor": 1,
-          "wholesaler": 1,
-          "importer": 1,
-          "ecommerce_fulfillment_business": 1,
-          "building_services_company": 2,
+          "distributor": 2,
+          "wholesaler": 2,
+          "importer": 2,
+          "ecommerce_fulfillment_business": 2,
+          "building_services_company": 3,
           "general_contractor": 2,
           "electrician": 1,
           "hvac_company": 1,
@@ -55966,13 +56046,6 @@
             "label": "Office",
             "status": "Missing",
             "districtCount": 0,
-            "representativeBuildingCount": 0
-          },
-          {
-            "id": "industrial_flex",
-            "label": "Industrial & Flex",
-            "status": "Thin",
-            "districtCount": 3,
             "representativeBuildingCount": 0
           },
           {
@@ -56007,8 +56080,8 @@
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 0,
-          "partialCount": 1,
-          "thinCount": 1,
+          "partialCount": 2,
+          "thinCount": 0,
           "missingCount": 5,
           "reviewRequiredDistrictCount": 0
         }
@@ -56017,24 +56090,25 @@
         "state": "strong",
         "label": "Strong",
         "rationale": [
-          "3 district nodes are available for the metro.",
+          "4 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 3,
+          "districtCount": 4,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
-          "recommendationReadinessScore": 38
+          "recommendationReadinessScore": 45
         }
       },
       "ecosystemReadiness": {
         "state": "missing",
         "label": "Missing",
         "rationale": [
-          "Office is Missing; Industrial & Flex is Thin; Retail is Partial; Medical is Missing; Life Science is Missing."
+          "Office is Missing; Industrial & Flex is Partial; Retail is Partial; Medical is Missing; Life Science is Missing.",
+          "Representative Building coverage is concentrated in Industrial & Flex."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -56048,7 +56122,6 @@
         ],
         "blockingEcosystems": [
           "office",
-          "industrial_flex",
           "medical",
           "life_science"
         ],
@@ -56170,12 +56243,12 @@
             "label": "Industrial & Flex",
             "relevance": "core",
             "relevanceLabel": "Core",
-            "readinessState": "thin",
-            "readinessLabel": "Thin",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
-              "districts": "strong",
-              "recommendations": "strong",
-              "representativeBuildings": "missing",
+              "districts": "developed",
+              "recommendations": "developed",
+              "representativeBuildings": "strong",
               "buildingBriefs": "missing",
               "subtypes": "developed",
               "archetypes": "developed",
@@ -56183,31 +56256,30 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 3,
+              "districts": 4,
               "secondaryDistricts": 0,
-              "recommendations": 3,
-              "representativeBuildings": 0,
+              "recommendations": 4,
+              "representativeBuildings": 3,
               "buildingBriefs": 0,
               "subtypes": 7,
               "archetypes": 13,
               "activities": 9,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 0,
-              "operationalCategories": 0,
-              "operationalCharacteristics": 0,
+              "representativeRoles": 3,
+              "operationalCategories": 5,
+              "operationalCharacteristics": 15,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "Representative Building coverage is missing for this ecosystem."
+              "Building Brief coverage is missing for this ecosystem."
             ],
-            "blocking": true,
-            "blockingCodes": [
-              "ecosystem_representative_building_gap"
-            ],
+            "blocking": false,
+            "blockingCodes": [],
             "strategicPriority": 1,
             "evidence": [
-              "3 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "4 primary districts and 0 secondary districts.",
+              "3 Representative Buildings and 0 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
               "small_bay_industrial",
@@ -56234,39 +56306,114 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 3,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": [],
-              "subtypesCovered": [],
-              "activityCoverage": [],
-              "archetypeCoverage": [],
-              "operationalCharacteristicsCovered": [],
-              "operationalCategoriesCovered": [],
+              "rolesCovered": [
+                "urban_industrial_environment",
+                "flex_business_park",
+                "warehouse_distribution_environment"
+              ],
+              "subtypesCovered": [
+                "small_bay_industrial",
+                "flex",
+                "warehouse",
+                "distribution",
+                "last_mile_logistics",
+                "contractor_service",
+                "light_manufacturing"
+              ],
+              "activityCoverage": [
+                "knowledge_work",
+                "storage",
+                "service_dispatch",
+                "light_manufacturing",
+                "receiving",
+                "shipping",
+                "distribution",
+                "customer_showroom",
+                "product_development",
+                "assembly",
+                "equipment_storage",
+                "inventory_management"
+              ],
+              "archetypeCoverage": [
+                "building_services_company",
+                "equipment_service_company",
+                "distributor",
+                "wholesaler",
+                "importer",
+                "ecommerce_fulfillment_business",
+                "general_contractor",
+                "electrician",
+                "creative_studio",
+                "cabinet_shop",
+                "furniture_maker",
+                "hvac_company"
+              ],
+              "operationalCharacteristicsCovered": [
+                "urban_core_access",
+                "industrial_identity",
+                "loading_constrained",
+                "transit_access",
+                "small_suite_sizes",
+                "flexible_suite_sizes",
+                "creative_environment",
+                "high_office_percentage",
+                "surface_parking",
+                "freeway_access",
+                "delivery_access",
+                "regional_distribution_access",
+                "dock_high_loading",
+                "truck_court",
+                "high_clearance"
+              ],
+              "operationalCategoriesCovered": [
+                "location_workforce",
+                "market_presence",
+                "access_loading",
+                "configuration",
+                "parking_vehicles"
+              ],
               "missingRoles": [
                 "small_bay_service_environment",
-                "flex_business_park",
                 "contractor_service_cluster",
-                "warehouse_distribution_environment",
                 "last_mile_logistics_environment",
                 "light_manufacturing_environment",
                 "food_production_environment",
-                "showroom_flex_environment"
+                "showroom_flex_environment",
+                "research_development_environment",
+                "large_scale_distribution_environment"
               ],
               "missingOperationalCategories": [
-                "access_loading",
-                "parking_vehicles",
-                "configuration",
                 "infrastructure",
-                "market_presence",
-                "location_workforce"
+                "outdoor_special_use"
               ],
               "highestPriorityMissingRole": "small_bay_service_environment",
-              "highestPriorityMissingOperationalCategory": "access_loading",
-              "exampleBuildings": []
+              "highestPriorityMissingOperationalCategory": "infrastructure",
+              "exampleBuildings": [
+                {
+                  "name": "255 S King St",
+                  "path": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+                  "role": "urban_industrial_environment",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "1455 NW Leary Way",
+                  "path": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "Kent - 212 Business Park",
+                  "path": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+                  "role": "warehouse_distribution_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             },
             "completionCriteria": [
               "Validated district ecosystem classification",
@@ -56906,21 +57053,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
-            "severity": "high",
-            "layer": "representativeBuildings",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
+            "severity": "medium",
+            "layer": "buildingBriefs",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
-              "3 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "4 primary districts and 0 secondary districts.",
+              "3 Representative Buildings and 0 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -56928,32 +57076,7 @@
               "Building Brief migration only after canonical records and district association exist",
               "Publisher ecosystem QA passes without hard errors"
             ],
-            "blocksEcosystemReadiness": true
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
-            "severity": "high",
-            "layer": "representativeBuildings",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
-            "evidence": [
-              "3 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": true
+            "blocksEcosystemReadiness": false
           },
           {
             "id": "ecosystem:industrial_flex:representative_role_thin",
@@ -56964,11 +57087,38 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "thin",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "3 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "4 primary districts and 0 secondary districts.",
+              "3 Representative Buildings and 0 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:industrial_flex:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
+            "severity": "low",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "industrial_flex",
+            "ecosystemLabel": "Industrial & Flex",
+            "relevance": "core",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "evidence": [
+              "4 primary districts and 0 secondary districts.",
+              "3 Representative Buildings and 0 Building Briefs.",
+              "3 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -57579,76 +57729,55 @@
               "Publisher ecosystem QA passes without hard errors"
             ],
             "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:office:ecosystem_concentration",
+            "code": "ecosystem_concentration",
+            "label": "Ecosystem Concentration",
+            "severity": "medium",
+            "layer": "balance",
+            "ecosystemId": "office",
+            "ecosystemLabel": "Office",
+            "relevance": "core",
+            "readinessState": "missing",
+            "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
+            "evidence": [
+              "0 primary districts and 0 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
           }
         ],
         "balance": {
-          "state": "thin_across_all_ecosystems",
-          "label": "Thin Across All Ecosystems",
+          "state": "industrial_flex_representative_building_concentrated",
+          "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0,
+          "representativeBuildingShare": 1,
           "buildingBriefShare": 0,
-          "warnings": []
+          "warnings": [
+            "Representative Building coverage is concentrated in Industrial & Flex."
+          ]
         }
       },
       "ecosystemBalance": {
-        "state": "thin_across_all_ecosystems",
-        "label": "Thin Across All Ecosystems",
+        "state": "industrial_flex_representative_building_concentrated",
+        "label": "Industrial Flex Representative Building Concentrated",
         "dominantEcosystem": "office",
-        "representativeBuildingShare": 0,
+        "representativeBuildingShare": 1,
         "buildingBriefShare": 0,
-        "warnings": []
+        "warnings": [
+          "Representative Building coverage is concentrated in Industrial & Flex."
+        ]
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:industrial_flex:ecosystem_representative_building_gap",
-          "code": "ecosystem_representative_building_gap",
-          "label": "Ecosystem Representative Building Gap",
-          "severity": "high",
-          "layer": "representativeBuildings",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "thin",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "evidence": [
-            "3 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": true
-        },
-        {
-          "id": "ecosystem:industrial_flex:ecosystem_thin",
-          "code": "ecosystem_thin",
-          "label": "Ecosystem Thin",
-          "severity": "high",
-          "layer": "representativeBuildings",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "thin",
-          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-          "evidence": [
-            "3 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": true
-        },
         {
           "id": "ecosystem:office:core_ecosystem_missing",
           "code": "core_ecosystem_missing",
@@ -57675,6 +57804,32 @@
           "blocksEcosystemReadiness": true
         },
         {
+          "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
+          "code": "ecosystem_building_brief_gap",
+          "label": "Ecosystem Building Brief Gap",
+          "severity": "medium",
+          "layer": "buildingBriefs",
+          "ecosystemId": "industrial_flex",
+          "ecosystemLabel": "Industrial & Flex",
+          "relevance": "core",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "evidence": [
+            "4 primary districts and 0 secondary districts.",
+            "3 Representative Buildings and 0 Building Briefs.",
+            "3 representative roles and 5 operational categories are covered."
+          ],
+          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+          "completionCriteria": [
+            "Validated district ecosystem classification",
+            "Representative Building coverage across the most important subtypes",
+            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+            "Building Brief migration only after canonical records and district association exist",
+            "Publisher ecosystem QA passes without hard errors"
+          ],
+          "blocksEcosystemReadiness": false
+        },
+        {
           "id": "ecosystem:industrial_flex:representative_role_thin",
           "code": "representative_role_thin",
           "label": "Representative Role Thin",
@@ -57683,13 +57838,39 @@
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
           "relevance": "core",
-          "readinessState": "thin",
+          "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "3 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
+            "4 primary districts and 0 secondary districts.",
+            "3 Representative Buildings and 0 Building Briefs.",
+            "3 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+          "completionCriteria": [
+            "Validated district ecosystem classification",
+            "Representative Building coverage across the most important subtypes",
+            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+            "Building Brief migration only after canonical records and district association exist",
+            "Publisher ecosystem QA passes without hard errors"
+          ],
+          "blocksEcosystemReadiness": false
+        },
+        {
+          "id": "ecosystem:office:ecosystem_concentration",
+          "code": "ecosystem_concentration",
+          "label": "Ecosystem Concentration",
+          "severity": "medium",
+          "layer": "balance",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "relevance": "core",
+          "readinessState": "missing",
+          "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
+          "evidence": [
+            "0 primary districts and 0 secondary districts.",
+            "0 Representative Buildings and 0 Building Briefs."
+          ],
+          "recommendedSprintFamily": "Ecosystem Balance Sprint",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -57865,6 +58046,32 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+          "completionCriteria": [
+            "Validated district ecosystem classification",
+            "Representative Building coverage across the most important subtypes",
+            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+            "Building Brief migration only after canonical records and district association exist",
+            "Publisher ecosystem QA passes without hard errors"
+          ],
+          "blocksEcosystemReadiness": false
+        },
+        {
+          "id": "ecosystem:industrial_flex:operational_category_gap",
+          "code": "operational_category_gap",
+          "label": "Operational Category Gap",
+          "severity": "low",
+          "layer": "representativeBuildingIntelligence",
+          "ecosystemId": "industrial_flex",
+          "ecosystemLabel": "Industrial & Flex",
+          "relevance": "core",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+          "evidence": [
+            "4 primary districts and 0 secondary districts.",
+            "3 Representative Buildings and 0 Building Briefs.",
+            "3 representative roles and 5 operational categories are covered."
+          ],
+          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -58401,37 +58608,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Seattle Industrial & Flex Ecosystem Representative Building Foundation",
-        "objective": "Improve Seattle commercial balance by advancing Industrial & Flex from Thin toward stronger ecosystem readiness.",
-        "ecosystemId": "industrial_flex",
-        "ecosystemLabel": "Industrial & Flex",
+        "title": "Seattle Office Ecosystem District Foundation",
+        "objective": "Improve Seattle commercial balance by advancing Office from Missing toward stronger ecosystem readiness.",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
         "relevance": "core",
         "relevanceLabel": "Core",
-        "readinessState": "thin",
-        "readinessLabel": "Thin",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Industrial & Flex is Core for Seattle and is currently Thin. District foundation exists, but Representative Buildings are missing.",
-        "gapCode": "ecosystem_representative_building_gap",
-        "priorityScore": 149,
+        "readinessState": "missing",
+        "readinessLabel": "Missing",
+        "sprintFamily": "Ecosystem District Foundation",
+        "rationale": "Office is Core for Seattle and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
+        "gapCode": "core_ecosystem_missing",
+        "priorityScore": 146,
         "layers": {
-          "districts": "strong",
-          "recommendations": "strong",
+          "districts": "missing",
+          "recommendations": "missing",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "developed",
-          "archetypes": "developed",
-          "activities": "developed",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 3,
+          "districts": 0,
           "secondaryDistricts": 0,
-          "recommendations": 3,
+          "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 7,
-          "archetypes": 13,
-          "activities": 9,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -58439,40 +58646,41 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building coverage is missing for this ecosystem."
+          "No district coverage for this relevant ecosystem.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin."
         ],
         "targetSubtypes": [
-          "small_bay_industrial",
-          "flex",
-          "warehouse",
-          "distribution",
-          "light_manufacturing"
+          "downtown_office",
+          "professional_office",
+          "creative_office",
+          "executive_office",
+          "suburban_office"
         ],
         "targetArchetypes": [
-          "general_contractor",
-          "electrician",
-          "hvac_company",
-          "plumbing_company",
-          "landscaper",
-          "cabinet_shop"
+          "professional_office",
+          "law_firm",
+          "accounting_firm",
+          "financial_services_firm",
+          "consulting_firm",
+          "marketing_agency"
         ],
         "targetActivities": [
-          "receiving",
-          "shipping",
-          "storage",
-          "distribution",
-          "service_dispatch",
-          "light_manufacturing"
+          "knowledge_work",
+          "client_meetings",
+          "collaboration",
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "small_bay_service_environment",
-          "flex_business_park",
-          "contractor_service_cluster",
-          "warehouse_distribution_environment",
-          "last_mile_logistics_environment",
-          "light_manufacturing_environment",
-          "food_production_environment",
-          "showroom_flex_environment"
+          "downtown_class_a_office",
+          "professional_office_environment",
+          "creative_office_environment",
+          "executive_office_environment",
+          "suburban_office_campus",
+          "government_office_environment",
+          "small_tenant_office_environment",
+          "transit_oriented_office_environment"
         ],
         "missingOperationalCategories": [
           "access_loading",
@@ -58485,24 +58693,8 @@
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
         "existingRepresentativeBuildings": [],
-        "districtCandidates": [
-          {
-            "slug": "sodo-industrial",
-            "label": "SODO Industrial",
-            "path": "/commercial-real-estate/WA/seattle/sodo-industrial/"
-          },
-          {
-            "slug": "georgetown-industrial",
-            "label": "Georgetown Industrial",
-            "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/"
-          },
-          {
-            "slug": "ballard-interbay-industrial",
-            "label": "Ballard / Interbay Industrial",
-            "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -58521,13 +58713,61 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": true,
-        "alternativeSprint": {
-          "title": "Seattle Office Building Brief Migration",
-          "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
-        },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Seattle: Seattle Industrial & Flex Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Industrial & Flex (industrial_flex)\nMetro relevance: Core\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- small_bay_industrial, flex, warehouse, distribution, light_manufacturing\nTarget archetypes:\n- general_contractor, electrician, hvac_company, plumbing_company, landscaper, cabinet_shop\nTarget business activities:\n- receiving, shipping, storage, distribution, service_dispatch, light_manufacturing\nMissing representative roles:\n- small_bay_service_environment, flex_business_park, contractor_service_cluster, warehouse_distribution_environment, last_mile_logistics_environment, light_manufacturing_environment, food_production_environment, showroom_flex_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- SODO Industrial, Georgetown Industrial, Ballard / Interbay Industrial\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": null,
+        "codexPrompt": "Implement Publisher ecosystem sprint for Seattle: Seattle Office Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- downtown_class_a_office, professional_office_environment, creative_office_environment, executive_office_environment, suburban_office_campus, government_office_environment, small_tenant_office_environment, transit_oriented_office_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
+        {
+          "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "initial-building-brief-collection",
+          "taskType": "initial Building Brief collection",
+          "affectedType": "building-or-district",
+          "itemName": "Seattle",
+          "sourceId": "seattle",
+          "publicUrl": "",
+          "adminUrl": "",
+          "severity": "high",
+          "description": "Metro has representative buildings but no initial Building Brief collection.",
+          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "confidence": "Blocked",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [
+            "canonical-building-url"
+          ],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 83,
+          "modeScores": {
+            "balanced": 83,
+            "recommendation": 82,
+            "editorial": 88,
+            "building": 95
+          }
+        },
         {
           "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
           "metroId": "seattle",
@@ -58575,51 +58815,150 @@
           }
         },
         {
-          "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
           "gapType": "representativeBuilding",
           "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
           "affectedType": "building-or-district",
-          "itemName": "Ballard / Interbay Industrial",
-          "sourceId": "ballard-interbay-industrial",
-          "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+          "itemName": "1455 NW Leary Way",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
           "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
             "recommendationImpact": 3,
             "coverageUnlock": 5,
-            "seoValue": 3,
+            "seoValue": 4,
             "estimatedEffort": 4,
-            "dependencyRisk": 3
+            "dependencyRisk": 2
           },
           "blockedBy": [],
           "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
           ],
           "prerequisite": [
-            "district commercial identity"
+            "canonical representative building record",
+            "district association"
           ],
           "followUp": [
-            "author initial Building Briefs after canonical records exist"
+            "QA Building Brief depth"
           ],
-          "priorityScore": 69,
+          "priorityScore": 77,
           "modeScores": {
-            "balanced": 69,
-            "recommendation": 69,
-            "editorial": 72,
-            "building": 81
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
+          }
+        },
+        {
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "255 S King St",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 77,
+          "modeScores": {
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
+          }
+        },
+        {
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "Kent - 212 Business Park",
+          "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 77,
+          "modeScores": {
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
           }
         },
         {
@@ -58671,56 +59010,153 @@
           }
         },
         {
-          "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+          "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "SODO Industrial",
-          "sourceId": "sodo-industrial",
-          "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Kent Valley -> Georgetown Industrial",
+          "sourceId": "kent-valley:georgetown-industrial",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
           "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
           "automationCandidate": true,
           "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 3,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 4,
+            "seoValue": 2,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
           },
           "blockedBy": [],
           "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
+            "stronger recommendation alternatives"
           ],
           "prerequisite": [
-            "district commercial identity"
+            "district identity"
           ],
           "followUp": [
-            "author initial Building Briefs after canonical records exist"
+            "recommendation QA scenario coverage"
           ],
-          "priorityScore": 69,
+          "priorityScore": 66,
           "modeScores": {
-            "balanced": 69,
-            "recommendation": 69,
-            "editorial": 72,
-            "building": 81
+            "balanced": 66,
+            "recommendation": 74,
+            "editorial": 66,
+            "building": 74
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Kent Valley -> SODO Industrial",
+          "sourceId": "kent-valley:sodo-industrial",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 4,
+            "seoValue": 2,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 74,
+            "editorial": 66,
+            "building": 74
           }
         }
       ],
       "priorities": [
         {
+          "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "initial-building-brief-collection",
+          "taskType": "initial Building Brief collection",
+          "affectedType": "building-or-district",
+          "itemName": "Seattle",
+          "sourceId": "seattle",
+          "publicUrl": "",
+          "adminUrl": "",
+          "severity": "high",
+          "description": "Metro has representative buildings but no initial Building Brief collection.",
+          "reason": "Representative buildings exist, but no canonical Building Brief collection has been started.",
+          "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "confidence": "Blocked",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [
+            "canonical-building-url"
+          ],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 83,
+          "modeScores": {
+            "balanced": 83,
+            "recommendation": 82,
+            "editorial": 88,
+            "building": 95
+          }
+        },
+        {
           "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
           "metroId": "seattle",
           "metroName": "Seattle",
@@ -58767,51 +59203,150 @@
           }
         },
         {
-          "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
           "gapType": "representativeBuilding",
           "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
           "affectedType": "building-or-district",
-          "itemName": "Ballard / Interbay Industrial",
-          "sourceId": "ballard-interbay-industrial",
-          "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+          "itemName": "1455 NW Leary Way",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
           "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
             "recommendationImpact": 3,
             "coverageUnlock": 5,
-            "seoValue": 3,
+            "seoValue": 4,
             "estimatedEffort": 4,
-            "dependencyRisk": 3
+            "dependencyRisk": 2
           },
           "blockedBy": [],
           "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
           ],
           "prerequisite": [
-            "district commercial identity"
+            "canonical representative building record",
+            "district association"
           ],
           "followUp": [
-            "author initial Building Briefs after canonical records exist"
+            "QA Building Brief depth"
           ],
-          "priorityScore": 69,
+          "priorityScore": 77,
           "modeScores": {
-            "balanced": 69,
-            "recommendation": 69,
-            "editorial": 72,
-            "building": 81
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
+          }
+        },
+        {
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "255 S King St",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 77,
+          "modeScores": {
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
+          }
+        },
+        {
+          "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "Kent - 212 Business Park",
+          "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Ready",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 77,
+          "modeScores": {
+            "balanced": 77,
+            "recommendation": 76,
+            "editorial": 82,
+            "building": 89
           }
         },
         {
@@ -58863,61 +59398,126 @@
           }
         },
         {
-          "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
+          "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "SODO Industrial",
-          "sourceId": "sodo-industrial",
-          "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Kent Valley -> Georgetown Industrial",
+          "sourceId": "kent-valley:georgetown-industrial",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
           "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
           "automationCandidate": true,
           "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 3,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 4,
+            "seoValue": 2,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
           },
           "blockedBy": [],
           "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
+            "stronger recommendation alternatives"
           ],
           "prerequisite": [
-            "district commercial identity"
+            "district identity"
           ],
           "followUp": [
-            "author initial Building Briefs after canonical records exist"
+            "recommendation QA scenario coverage"
           ],
-          "priorityScore": 69,
+          "priorityScore": 66,
           "modeScores": {
-            "balanced": 69,
-            "recommendation": 69,
-            "editorial": 72,
-            "building": 81
+            "balanced": 66,
+            "recommendation": 74,
+            "editorial": 66,
+            "building": 74
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Kent Valley -> SODO Industrial",
+          "sourceId": "kent-valley:sodo-industrial",
+          "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 4,
+            "seoValue": 2,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 74,
+            "editorial": 66,
+            "building": 74
           }
         }
       ],
       "recommendedSprint": {
         "mode": "balanced",
         "modeLabel": "Balanced Expansion",
-        "title": "Seattle Recommendation Readiness Sprint",
-        "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 4 deterministic Publisher gaps using balanced expansion weighting.",
+        "title": "Seattle Building Brief Migration Sprint",
+        "objective": "Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+        "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
+          {
+            "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "Seattle",
+            "sourceId": "seattle",
+            "publicUrl": "",
+            "priorityScore": 83,
+            "confidence": "Blocked",
+            "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "blockedBy": [
+              "canonical-building-url"
+            ],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
           {
             "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
             "category": "recommendationReadiness",
@@ -58936,20 +59536,54 @@
             ]
           },
           {
-            "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
+            "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
             "gapType": "representativeBuilding",
-            "itemName": "Ballard / Interbay Industrial",
-            "sourceId": "ballard-interbay-industrial",
-            "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-            "priorityScore": 69,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "itemName": "1455 NW Leary Way",
+            "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+            "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+            "priorityScore": 77,
+            "confidence": "Ready",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
             "blockedBy": [],
             "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
+          {
+            "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "255 S King St",
+            "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+            "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+            "priorityScore": 77,
+            "confidence": "Ready",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
+          {
+            "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "Kent - 212 Business Park",
+            "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+            "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+            "priorityScore": 77,
+            "confidence": "Ready",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
             ]
           },
           {
@@ -58970,46 +59604,77 @@
             ]
           },
           {
-            "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "SODO Industrial",
-            "sourceId": "sodo-industrial",
-            "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-            "priorityScore": 69,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "gapType": "comparison",
+            "itemName": "Kent Valley -> Georgetown Industrial",
+            "sourceId": "kent-valley:georgetown-industrial",
+            "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+            "priorityScore": 66,
+            "confidence": "Review recommended",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
             "blockedBy": [],
             "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
+              "stronger recommendation alternatives"
+            ]
+          },
+          {
+            "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "gapType": "comparison",
+            "itemName": "Kent Valley -> SODO Industrial",
+            "sourceId": "kent-valley:sodo-industrial",
+            "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+            "priorityScore": 66,
+            "confidence": "Review recommended",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "blockedBy": [],
+            "unlocks": [
+              "stronger recommendation alternatives"
             ]
           }
         ],
         "dataTasks": [
+          "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "Author a Building Brief for this representative building.",
+          "Author a Building Brief for this representative building.",
+          "Author a Building Brief for this representative building.",
           "Curate representative buildings that explain this district.",
-          "Curate representative buildings that explain this district.",
-          "Curate representative buildings that explain this district."
+          "Review whether the comparison should be reciprocal.",
+          "Review whether the comparison should be reciprocal."
         ],
-        "contentTasks": [],
+        "contentTasks": [
+          "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+          "Author a Building Brief for this representative building.",
+          "Author a Building Brief for this representative building.",
+          "Author a Building Brief for this representative building."
+        ],
         "qaTasks": [
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/run-recommendation-qa.js",
+          "node scripts/qa-building-brief-depth.js",
           "node scripts/qa-recommendation-representative-buildings.js"
         ],
         "dependencies": [
-          "district commercial identity"
+          "canonical representative building record",
+          "district association",
+          "canonical-building-url",
+          "district commercial identity",
+          "district identity"
         ],
         "expectedImpact": [
+          "clearer recommendation alternatives",
           "representative-building modules can unlock after curation",
+          "deeper public building intelligence and stronger internal links",
           "more defensible Compass and Location Brief output"
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
-          "comparisonTasks": 0,
-          "representativeBuildingTasks": 3,
-          "buildingBriefTasks": 0,
+          "comparisonTasks": 2,
+          "representativeBuildingTasks": 1,
+          "buildingBriefTasks": 4,
           "recommendationTasks": 1
         },
         "exclusions": [
@@ -59018,16 +59683,35 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Ballard / Interbay Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: SODO Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1455 NW Leary Way, 255 S King St, Kent - 212 Business Park\n- Comparisons: Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Building Briefs: Seattle - Create an initial Building Brief collection covering 5 distinct commercial environments.\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Ready] Building Briefs: 1455 NW Leary Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 255 S King St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: Kent - 212 Business Park - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
           "mode": "balanced",
           "modeLabel": "Balanced Expansion",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 4 deterministic Publisher gaps using balanced expansion weighting.",
+          "title": "Seattle Building Brief Migration Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Seattle",
+              "sourceId": "seattle",
+              "publicUrl": "",
+              "priorityScore": 83,
+              "confidence": "Blocked",
+              "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "blockedBy": [
+                "canonical-building-url"
+              ],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
               "category": "recommendationReadiness",
@@ -59046,20 +59730,54 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "Ballard / Interbay Industrial",
-              "sourceId": "ballard-interbay-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-              "priorityScore": 69,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "itemName": "1455 NW Leary Way",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "priorityScore": 77,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "255 S King St",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "priorityScore": 77,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Kent - 212 Business Park",
+              "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "priorityScore": 77,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -59080,46 +59798,77 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "SODO Industrial",
-              "sourceId": "sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-              "priorityScore": 69,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> Georgetown Industrial",
+              "sourceId": "kent-valley:georgetown-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> SODO Industrial",
+              "sourceId": "kent-valley:sodo-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
               ]
             }
           ],
           "dataTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district."
+            "Review whether the comparison should be reciprocal.",
+            "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [],
+          "contentTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building."
+          ],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "district commercial identity"
+            "canonical representative building record",
+            "district association",
+            "canonical-building-url",
+            "district commercial identity",
+            "district identity"
           ],
           "expectedImpact": [
+            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
+            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 0,
-            "representativeBuildingTasks": 3,
-            "buildingBriefTasks": 0,
+            "comparisonTasks": 2,
+            "representativeBuildingTasks": 1,
+            "buildingBriefTasks": 4,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -59128,14 +59877,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Ballard / Interbay Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: SODO Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1455 NW Leary Way, 255 S King St, Kent - 212 Business Park\n- Comparisons: Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Building Briefs: Seattle - Create an initial Building Brief collection covering 5 distinct commercial environments.\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Ready] Building Briefs: 1455 NW Leary Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 255 S King St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: Kent - 212 Business Park - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 4 deterministic Publisher gaps using recommendation readiness weighting.",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
@@ -59155,20 +59904,54 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
+              "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "Ballard / Interbay Industrial",
-              "sourceId": "ballard-interbay-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-              "priorityScore": 69,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "itemName": "Seattle",
+              "sourceId": "seattle",
+              "publicUrl": "",
+              "priorityScore": 82,
+              "confidence": "Blocked",
+              "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "blockedBy": [
+                "canonical-building-url"
+              ],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> Georgetown Industrial",
+              "sourceId": "kent-valley:georgetown-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 74,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> SODO Industrial",
+              "sourceId": "kent-valley:sodo-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 74,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
               ]
             },
             {
@@ -59187,48 +59970,41 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
-            },
-            {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "SODO Industrial",
-              "sourceId": "sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-              "priorityScore": 69,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
             }
           ],
           "dataTasks": [
-            "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Review whether the comparison should be reciprocal.",
+            "Review whether the comparison should be reciprocal.",
             "Curate representative buildings that explain this district."
           ],
-          "contentTasks": [],
+          "contentTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments."
+          ],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
+            "canonical representative building record",
+            "district association",
+            "canonical-building-url",
+            "district identity",
             "district commercial identity"
           ],
           "expectedImpact": [
+            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
+            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 0,
-            "representativeBuildingTasks": 3,
-            "buildingBriefTasks": 0,
+            "comparisonTasks": 2,
+            "representativeBuildingTasks": 1,
+            "buildingBriefTasks": 1,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -59237,15 +60013,34 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Ballard / Interbay Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: SODO Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Blocked] Building Briefs: Seattle - Create an initial Building Brief collection covering 5 distinct commercial environments.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 4 deterministic Publisher gaps using editorial depth weighting.",
+          "title": "Seattle Building Brief Migration Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Seattle",
+              "sourceId": "seattle",
+              "publicUrl": "",
+              "priorityScore": 88,
+              "confidence": "Blocked",
+              "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "blockedBy": [
+                "canonical-building-url"
+              ],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
               "category": "recommendationReadiness",
@@ -59264,20 +60059,54 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "Ballard / Interbay Industrial",
-              "sourceId": "ballard-interbay-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "itemName": "1455 NW Leary Way",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "priorityScore": 82,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "255 S King St",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "priorityScore": 82,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Kent - 212 Business Park",
+              "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "priorityScore": 82,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -59298,46 +60127,77 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "SODO Industrial",
-              "sourceId": "sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> Georgetown Industrial",
+              "sourceId": "kent-valley:georgetown-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Kent Valley -> SODO Industrial",
+              "sourceId": "kent-valley:sodo-industrial",
+              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
               ]
             }
           ],
           "dataTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district."
+            "Review whether the comparison should be reciprocal.",
+            "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [],
+          "contentTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building."
+          ],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "district commercial identity"
+            "canonical representative building record",
+            "district association",
+            "canonical-building-url",
+            "district commercial identity",
+            "district identity"
           ],
           "expectedImpact": [
+            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
+            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 0,
-            "representativeBuildingTasks": 3,
-            "buildingBriefTasks": 0,
+            "comparisonTasks": 2,
+            "representativeBuildingTasks": 1,
+            "buildingBriefTasks": 4,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -59346,15 +60206,34 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Ballard / Interbay Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: SODO Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1455 NW Leary Way, 255 S King St, Kent - 212 Business Park\n- Comparisons: Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Building Briefs: Seattle - Create an initial Building Brief collection covering 5 distinct commercial environments.\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Ready] Building Briefs: 1455 NW Leary Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 255 S King St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: Kent - 212 Business Park - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 4 deterministic Publisher gaps using building depth weighting.",
+          "title": "Seattle Building Brief Migration Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:buildingBriefs:initial Building Brief collection:seattle",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Seattle",
+              "sourceId": "seattle",
+              "publicUrl": "",
+              "priorityScore": 95,
+              "confidence": "Blocked",
+              "suggestedNextAction": "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+              "blockedBy": [
+                "canonical-building-url"
+              ],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
             {
               "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
               "category": "recommendationReadiness",
@@ -59373,23 +60252,6 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:ballard-interbay-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Ballard / Interbay Industrial",
-              "sourceId": "ballard-interbay-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
-              "priorityScore": 81,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -59407,46 +60269,92 @@
               ]
             },
             {
-              "id": "gap:seattle:representativeBuildings:district missing representative buildings:sodo-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "SODO Industrial",
-              "sourceId": "sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/seattle/sodo-industrial/",
-              "priorityScore": 81,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "itemName": "1455 NW Leary Way",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+              "priorityScore": 89,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
               "blockedBy": [],
               "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-seattle-255-s-king-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "255 S King St",
+              "sourceId": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
+              "priorityScore": 89,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
+              "id": "gap:seattle:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-wa-kent-7818-s-212th-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "Kent - 212 Business Park",
+              "sourceId": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
+              "priorityScore": 89,
+              "confidence": "Ready",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
               ]
             }
           ],
           "dataTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district."
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building."
           ],
-          "contentTasks": [],
+          "contentTasks": [
+            "Create an initial Building Brief collection covering 5 distinct commercial environments.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building.",
+            "Author a Building Brief for this representative building."
+          ],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
+            "canonical representative building record",
+            "district association",
+            "canonical-building-url",
             "district commercial identity"
           ],
           "expectedImpact": [
             "representative-building modules can unlock after curation",
+            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 3,
-            "buildingBriefTasks": 0,
+            "representativeBuildingTasks": 1,
+            "buildingBriefTasks": 4,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -59455,7 +60363,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Ballard / Interbay Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: SODO Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Building Brief Migration Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Building Briefs, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1455 NW Leary Way, 255 S King St, Kent - 212 Business Park\n- Comparisons: none named\n\nTasks:\n- [Blocked] Building Briefs: Seattle - Create an initial Building Brief collection covering 5 distinct commercial environments.\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1455 NW Leary Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 255 S King St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: Kent - 212 Business Park - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [
@@ -59466,10 +60374,16 @@
           "gate": "distribution-ready"
         },
         {
-          "code": "representative-buildings-missing",
+          "code": "building-brief-collection-missing",
           "severity": "medium",
-          "message": "Priority districts have no representative buildings.",
+          "message": "No initial Building Brief collection exists.",
           "gate": "editorially-developed"
+        },
+        {
+          "code": "initial-building-brief-collection",
+          "severity": "high",
+          "message": "Metro has representative buildings but no initial Building Brief collection.",
+          "sourceId": "seattle"
         },
         {
           "code": "recommendation-qa-missing",
@@ -59479,8 +60393,7 @@
         }
       ],
       "warnings": [
-        "Representative-building coverage is absent.",
-        "Industrial/flex ecosystem coverage exists but lacks representative-building depth."
+        "Representative buildings exist, but no Building Briefs are migrated."
       ]
     }
   ],
@@ -59488,7 +60401,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -77688,7 +78601,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86528,7 +87441,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -96350,7 +97263,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -105342,7 +106255,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-26T10:09:43-07:00",
+      "generatedAt": "2026-07-26T10:33:13-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
