@@ -11,7 +11,7 @@ const EXPECTED_SCORES = {
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
   denver: { overall: 94, status: "Distribution Ready" },
-  seattle: { overall: 74, status: "Editorially Developed" },
+  seattle: { overall: 94, status: "Distribution Ready" },
 };
 
 const errors = [];
@@ -179,7 +179,10 @@ const seattle = metroById("seattle");
 if (seattle) {
   const office = evaluationFor(seattle, "office");
   const industrial = evaluationFor(seattle, "industrial_flex");
-  requireField(seattle.geographicReadiness.state === "strong", `Seattle: expected strong geographic readiness after industrial/flex district foundation, got ${seattle.geographicReadiness.state}`);
+  requireField(seattle.compassStatus === "ready", `Seattle: expected Compass ready after recommendation QA documentation, got ${seattle.compassStatus}`);
+  requireField(seattle.qaStatus && seattle.qaStatus.qaStatus === "completed", "Seattle: expected completed recommendation QA status");
+  requireField(!((seattle.gateBlockers || []).some((blocker) => blocker.code === "recommendation-qa-missing")), "Seattle: recommendation QA missing blocker should be closed");
+  requireField(seattle.geographicReadiness.state === "developed", `Seattle: expected developed geographic readiness after QA documentation, got ${seattle.geographicReadiness.state}`);
   requireField(seattle.ecosystemReadiness.state === "partial", `Seattle: expected partial ecosystem readiness after office completion, got ${seattle.ecosystemReadiness.state}`);
   requireField(office && office.counts && office.counts.districts >= 5, `Seattle: expected office district foundation coverage, got ${office && office.counts && office.counts.districts}`);
   requireField(office && office.counts && office.counts.representativeBuildings >= 5, `Seattle: expected office representative-building foundation coverage, got ${office && office.counts && office.counts.representativeBuildings}`);

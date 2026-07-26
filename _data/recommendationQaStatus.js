@@ -35,4 +35,13 @@ module.exports = {
     reportPath: "/docs/recommendation-qa/denver-pilot/",
     notes: "Denver pilot scenarios produce differentiated, graph-backed market paths across central office, creative office, client-facing executive office, southeast suburban office, Boulder/US-36 technology, industrial/logistics, medical, west metro professional-service, and flex/R&D support profiles. Representative-building depth remains an editorial enhancement workstream, not a readiness blocker.",
   },
+  seattle: {
+    metro: "Seattle",
+    qaStatus: "completed",
+    lastQaDate: "2026-07-26",
+    validationStatus: "compass_ready_editorial_developing",
+    scenarioCount: 9,
+    reportPath: "/docs/recommendation-qa/seattle-pilot/",
+    notes: "Seattle pilot scenarios produce differentiated, graph-backed district-level paths across downtown office, historic executive office, creative waterfront office, Bellevue professional office, Eastside technology office, SODO urban warehouse, Georgetown contractor/service industrial, Ballard/Interbay flex, and Kent Valley distribution profiles. Broad city-level Seattle discovery remains a Compass enhancement because a canonical Seattle city starter node is not yet present.",
+  },
 };

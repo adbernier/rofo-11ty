@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T11:00:06-07:00",
-  "sourceCommit": "1b28d699e1189598c1faea2b82322a2028b15638",
+  "generatedAt": "2026-07-26T11:44:37-07:00",
+  "sourceCommit": "24f7dec26dca5551c3f0f640318cde288c666562",
   "analysis": {
-    "generatedAt": "2026-07-26T11:00:06-07:00",
+    "generatedAt": "2026-07-26T11:44:37-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 4,
@@ -29327,35 +29327,34 @@
       {
         "metroId": "seattle",
         "metroName": "Seattle",
-        "compassStatus": "pending-verification",
-        "qaStatus": null,
-        "readinessStatus": "Editorially Developed",
+        "compassStatus": "ready",
+        "qaStatus": {
+          "metro": "Seattle",
+          "qaStatus": "completed",
+          "lastQaDate": "2026-07-26",
+          "validationStatus": "compass_ready_editorial_developing",
+          "scenarioCount": 9,
+          "reportPath": "/docs/recommendation-qa/seattle-pilot/",
+          "notes": "Seattle pilot scenarios produce differentiated, graph-backed district-level paths across downtown office, historic executive office, creative waterfront office, Bellevue professional office, Eastside technology office, SODO urban warehouse, Georgetown contractor/service industrial, Ballard/Interbay flex, and Kent Valley distribution profiles. Broad city-level Seattle discovery remains a Compass enhancement because a canonical Seattle city starter node is not yet present."
+        },
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 80,
-            "status": "missing",
-            "explanation": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
+            "score": 100,
+            "status": "passed",
+            "explanation": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
               "districts": 9,
               "comparisons": 23,
-              "qaScenarios": 0
+              "qaScenarios": 9
             },
             "targets": {
               "minComparisonsPerDistrict": 2
             },
-            "blockers": [
-              {
-                "gate": "distribution-ready",
-                "severity": "high",
-                "code": "recommendation-qa-missing",
-                "message": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-              }
-            ],
-            "topOpportunity": "Add an authoritative recommendation QA status row."
+            "blockers": [],
+            "topOpportunity": "Maintain QA coverage as graph content changes."
           },
           "editorialCoverage": {
             "key": "editorialCoverage",
@@ -29379,7 +29378,7 @@
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 82,
+            "score": 100,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
@@ -29391,62 +29390,34 @@
               "districtPages": 9,
               "internalLinks": 28
             },
-            "blockers": [
-              {
-                "gate": "distribution-ready",
-                "severity": "high",
-                "code": "recommendation-qa-missing",
-                "message": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-              }
-            ],
-            "topOpportunity": "Add authoritative QA status before distribution."
+            "blockers": [],
+            "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 82,
-        "scoreCapReasons": [
-          {
-            "cap": 74,
-            "code": "not-compass-ready-overall-cap",
-            "reason": "Recommendation QA is pending verification."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "compassReadiness",
-            "cap": 82,
-            "reason": "Recommendation QA status is missing.",
-            "code": "missing-qa-compass-cap"
-          },
-          {
-            "dimension": "publishingReadiness",
-            "cap": 82,
-            "reason": "Distribution readiness cannot be verified without authoritative recommendation QA status.",
-            "code": "missing-qa-publishing-cap"
-          }
-        ],
-        "overallScore": 74,
-        "score": 74,
+        "rawOverallScore": 94,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 94,
+        "score": 94,
         "cityPath": "/commercial-real-estate/WA/seattle/",
         "districtCount": 9,
         "representativeBuildingCount": 8,
         "buildingBriefCount": 8,
         "geographicReadiness": {
-          "state": "strong",
-          "label": "Strong",
+          "state": "developed",
+          "label": "Developed",
           "rationale": [
             "9 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
-            "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
+            "Recommendation QA indicates Compass Ready status."
           ],
           "passed": true,
           "metrics": {
             "districtCount": 9,
             "districtCoverageScore": 100,
             "comparisonGraphScore": 100,
-            "recommendationReadinessScore": 64
+            "recommendationReadinessScore": 100
           }
         },
         "ecosystemReadiness": {
@@ -32230,8 +32201,8 @@
         "readinessGates": {
           "geographic": {
             "passed": true,
-            "state": "strong",
-            "label": "Strong"
+            "state": "developed",
+            "label": "Developed"
           },
           "ecosystem": {
             "passed": false,
@@ -32257,24 +32228,15 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "distribution-ready",
-            "severity": "high",
-            "code": "recommendation-qa-missing",
-            "message": "Authoritative recommendation QA status was not found.",
-            "sourceId": "seattle",
-            "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
             "label": "Metro Foundation",
-            "score": 60,
-            "completed": 3,
+            "score": 100,
+            "completed": 5,
             "total": 5,
-            "missing": 2,
+            "missing": 0,
             "explanation": "Canonical city, public route, graph support, Compass designation, and QA documentation.",
             "issues": []
           },
@@ -32666,32 +32628,12 @@
           "recommendationReadiness": {
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
-            "score": 64,
-            "completed": 9,
+            "score": 100,
+            "completed": 13,
             "total": 13,
-            "missing": 4,
-            "explanation": "No recommendation QA status row found.",
-            "issues": [
-              {
-                "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-                "code": "recommendation-qa-missing",
-                "metroId": "seattle",
-                "metroName": "Seattle",
-                "category": "recommendationReadiness",
-                "categoryLabel": "Recommendation Readiness",
-                "taskType": "missing recommendation QA status",
-                "itemName": "Seattle",
-                "severity": "high",
-                "priority": 70,
-                "reason": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "publicUrl": "",
-                "adminUrl": "",
-                "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-                "automationCandidate": false,
-                "readinessState": ""
-              }
-            ]
+            "missing": 0,
+            "explanation": "9 QA scenarios; last QA 2026-07-26.",
+            "issues": []
           },
           "editorialQuality": {
             "key": "editorialQuality",
@@ -32715,25 +32657,6 @@
           }
         },
         "queue": [
-          {
-            "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "code": "recommendation-qa-missing",
-            "metroId": "seattle",
-            "metroName": "Seattle",
-            "category": "recommendationReadiness",
-            "categoryLabel": "Recommendation Readiness",
-            "taskType": "missing recommendation QA status",
-            "itemName": "Seattle",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Authoritative recommendation QA status was not found.",
-            "sourceId": "seattle",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-            "automationCandidate": false,
-            "readinessState": ""
-          },
           {
             "id": "seattle:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
             "code": "incomplete-brief",
@@ -33078,22 +33001,22 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-          "code": "recommendation-qa-missing",
+          "id": "seattle:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+          "code": "incomplete-brief",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "recommendationReadiness",
-          "categoryLabel": "Recommendation Readiness",
-          "taskType": "missing recommendation QA status",
-          "itemName": "Seattle",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Authoritative recommendation QA status was not found.",
-          "sourceId": "seattle",
-          "publicUrl": "",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "taskType": "incomplete Building Brief",
+          "itemName": "1455 NW Leary Way",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Building Brief is missing: nearbyDistricts.",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
-          "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-          "automationCandidate": false,
+          "suggestedNextAction": "Complete the missing editorial fields.",
+          "automationCandidate": true,
           "readinessState": ""
         }
       }
@@ -62414,35 +62337,34 @@
       {
         "metroId": "seattle",
         "metroName": "Seattle",
-        "compassStatus": "pending-verification",
-        "qaStatus": null,
-        "readinessStatus": "Editorially Developed",
+        "compassStatus": "ready",
+        "qaStatus": {
+          "metro": "Seattle",
+          "qaStatus": "completed",
+          "lastQaDate": "2026-07-26",
+          "validationStatus": "compass_ready_editorial_developing",
+          "scenarioCount": 9,
+          "reportPath": "/docs/recommendation-qa/seattle-pilot/",
+          "notes": "Seattle pilot scenarios produce differentiated, graph-backed district-level paths across downtown office, historic executive office, creative waterfront office, Bellevue professional office, Eastside technology office, SODO urban warehouse, Georgetown contractor/service industrial, Ballard/Interbay flex, and Kent Valley distribution profiles. Broad city-level Seattle discovery remains a Compass enhancement because a canonical Seattle city starter node is not yet present."
+        },
+        "readinessStatus": "Distribution Ready",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 80,
-            "status": "missing",
-            "explanation": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
+            "score": 100,
+            "status": "passed",
+            "explanation": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
               "districts": 9,
               "comparisons": 23,
-              "qaScenarios": 0
+              "qaScenarios": 9
             },
             "targets": {
               "minComparisonsPerDistrict": 2
             },
-            "blockers": [
-              {
-                "gate": "distribution-ready",
-                "severity": "high",
-                "code": "recommendation-qa-missing",
-                "message": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-              }
-            ],
-            "topOpportunity": "Add an authoritative recommendation QA status row."
+            "blockers": [],
+            "topOpportunity": "Maintain QA coverage as graph content changes."
           },
           "editorialCoverage": {
             "key": "editorialCoverage",
@@ -62466,7 +62388,7 @@
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 82,
+            "score": 100,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
@@ -62478,62 +62400,34 @@
               "districtPages": 9,
               "internalLinks": 28
             },
-            "blockers": [
-              {
-                "gate": "distribution-ready",
-                "severity": "high",
-                "code": "recommendation-qa-missing",
-                "message": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-              }
-            ],
-            "topOpportunity": "Add authoritative QA status before distribution."
+            "blockers": [],
+            "topOpportunity": "Maintain public route integrity."
           }
         },
-        "rawOverallScore": 82,
-        "scoreCapReasons": [
-          {
-            "cap": 74,
-            "code": "not-compass-ready-overall-cap",
-            "reason": "Recommendation QA is pending verification."
-          }
-        ],
-        "dimensionCaps": [
-          {
-            "dimension": "compassReadiness",
-            "cap": 82,
-            "reason": "Recommendation QA status is missing.",
-            "code": "missing-qa-compass-cap"
-          },
-          {
-            "dimension": "publishingReadiness",
-            "cap": 82,
-            "reason": "Distribution readiness cannot be verified without authoritative recommendation QA status.",
-            "code": "missing-qa-publishing-cap"
-          }
-        ],
-        "overallScore": 74,
-        "score": 74,
+        "rawOverallScore": 94,
+        "scoreCapReasons": [],
+        "dimensionCaps": [],
+        "overallScore": 94,
+        "score": 94,
         "cityPath": "/commercial-real-estate/WA/seattle/",
         "districtCount": 9,
         "representativeBuildingCount": 8,
         "buildingBriefCount": 8,
         "geographicReadiness": {
-          "state": "strong",
-          "label": "Strong",
+          "state": "developed",
+          "label": "Developed",
           "rationale": [
             "9 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
-            "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
+            "Recommendation QA indicates Compass Ready status."
           ],
           "passed": true,
           "metrics": {
             "districtCount": 9,
             "districtCoverageScore": 100,
             "comparisonGraphScore": 100,
-            "recommendationReadinessScore": 64
+            "recommendationReadinessScore": 100
           }
         },
         "ecosystemReadiness": {
@@ -65317,8 +65211,8 @@
         "readinessGates": {
           "geographic": {
             "passed": true,
-            "state": "strong",
-            "label": "Strong"
+            "state": "developed",
+            "label": "Developed"
           },
           "ecosystem": {
             "passed": false,
@@ -65344,24 +65238,15 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [
-          {
-            "gate": "distribution-ready",
-            "severity": "high",
-            "code": "recommendation-qa-missing",
-            "message": "Authoritative recommendation QA status was not found.",
-            "sourceId": "seattle",
-            "relatedTaskId": "seattle:recommendationReadiness:missing recommendation QA status:seattle"
-          }
-        ],
+        "gateBlockers": [],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
             "label": "Metro Foundation",
-            "score": 60,
-            "completed": 3,
+            "score": 100,
+            "completed": 5,
             "total": 5,
-            "missing": 2,
+            "missing": 0,
             "explanation": "Canonical city, public route, graph support, Compass designation, and QA documentation.",
             "issues": []
           },
@@ -65753,32 +65638,12 @@
           "recommendationReadiness": {
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
-            "score": 64,
-            "completed": 9,
+            "score": 100,
+            "completed": 13,
             "total": 13,
-            "missing": 4,
-            "explanation": "No recommendation QA status row found.",
-            "issues": [
-              {
-                "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-                "code": "recommendation-qa-missing",
-                "metroId": "seattle",
-                "metroName": "Seattle",
-                "category": "recommendationReadiness",
-                "categoryLabel": "Recommendation Readiness",
-                "taskType": "missing recommendation QA status",
-                "itemName": "Seattle",
-                "severity": "high",
-                "priority": 70,
-                "reason": "Authoritative recommendation QA status was not found.",
-                "sourceId": "seattle",
-                "publicUrl": "",
-                "adminUrl": "",
-                "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-                "automationCandidate": false,
-                "readinessState": ""
-              }
-            ]
+            "missing": 0,
+            "explanation": "9 QA scenarios; last QA 2026-07-26.",
+            "issues": []
           },
           "editorialQuality": {
             "key": "editorialQuality",
@@ -65802,25 +65667,6 @@
           }
         },
         "queue": [
-          {
-            "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "code": "recommendation-qa-missing",
-            "metroId": "seattle",
-            "metroName": "Seattle",
-            "category": "recommendationReadiness",
-            "categoryLabel": "Recommendation Readiness",
-            "taskType": "missing recommendation QA status",
-            "itemName": "Seattle",
-            "severity": "high",
-            "priority": 70,
-            "reason": "Authoritative recommendation QA status was not found.",
-            "sourceId": "seattle",
-            "publicUrl": "",
-            "adminUrl": "",
-            "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-            "automationCandidate": false,
-            "readinessState": ""
-          },
           {
             "id": "seattle:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
             "code": "incomplete-brief",
@@ -66165,22 +66011,22 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-          "code": "recommendation-qa-missing",
+          "id": "seattle:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
+          "code": "incomplete-brief",
           "metroId": "seattle",
           "metroName": "Seattle",
-          "category": "recommendationReadiness",
-          "categoryLabel": "Recommendation Readiness",
-          "taskType": "missing recommendation QA status",
-          "itemName": "Seattle",
-          "severity": "high",
-          "priority": 70,
-          "reason": "Authoritative recommendation QA status was not found.",
-          "sourceId": "seattle",
-          "publicUrl": "",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "taskType": "incomplete Building Brief",
+          "itemName": "1455 NW Leary Way",
+          "severity": "medium",
+          "priority": 40,
+          "reason": "Building Brief is missing: nearbyDistricts.",
+          "sourceId": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
+          "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
-          "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-          "automationCandidate": false,
+          "suggestedNextAction": "Complete the missing editorial fields.",
+          "automationCandidate": true,
           "readinessState": ""
         }
       }
@@ -72357,25 +72203,6 @@
         "priority": 70,
         "reason": "Authoritative recommendation QA status was not found.",
         "sourceId": "san-francisco",
-        "publicUrl": "",
-        "adminUrl": "",
-        "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-        "automationCandidate": false,
-        "readinessState": ""
-      },
-      {
-        "id": "seattle:recommendationReadiness:missing recommendation QA status:seattle",
-        "code": "recommendation-qa-missing",
-        "metroId": "seattle",
-        "metroName": "Seattle",
-        "category": "recommendationReadiness",
-        "categoryLabel": "Recommendation Readiness",
-        "taskType": "missing recommendation QA status",
-        "itemName": "Seattle",
-        "severity": "high",
-        "priority": 70,
-        "reason": "Authoritative recommendation QA status was not found.",
-        "sourceId": "seattle",
         "publicUrl": "",
         "adminUrl": "",
         "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",

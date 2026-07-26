@@ -1,0 +1,128 @@
+[
+  {
+    "id": "seattle-downtown-law-firm",
+    "name": "Downtown Seattle Law Firm",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Downtown Seattle Office Core", "type": "district", "city": "Seattle", "state": "WA", "slug": "downtown-seattle-office", "path": "/commercial-real-estate/WA/seattle/downtown-seattle-office/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "6,000 sqft",
+      "priorities": ["law firm", "client meetings", "central Seattle", "transit", "downtown business identity"]
+    },
+    "expectedDirection": "Treat Downtown Seattle Office Core as the focused starting point for legal, civic, transit-oriented, and client-facing office searches.",
+    "expectedSlugs": ["downtown-seattle-office"]
+  },
+  {
+    "id": "seattle-pioneer-square-boutique-office",
+    "name": "Pioneer Square Boutique Professional Office",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Pioneer Square / Waterfront Office", "type": "district", "city": "Seattle", "state": "WA", "slug": "pioneer-square-waterfront-office", "path": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "4,500 sqft",
+      "priorities": ["boutique law firm", "historic character", "client meetings", "waterfront", "civic access"]
+    },
+    "expectedDirection": "Favor historic, client-facing central office context while preserving comparisons to modern downtown and creative waterfront alternatives.",
+    "expectedSlugs": ["pioneer-square-waterfront-office"]
+  },
+  {
+    "id": "seattle-belltown-creative-team",
+    "name": "Belltown Creative Team",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Belltown / Waterfront Creative Office", "type": "district", "city": "Seattle", "state": "WA", "slug": "belltown-waterfront-office", "path": "/commercial-real-estate/WA/seattle/belltown-waterfront-office/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "7,500 sqft",
+      "priorities": ["creative agency", "startup", "waterfront", "employee experience", "walkability"]
+    },
+    "expectedDirection": "Treat Belltown and the waterfront as the creative office reference point rather than a formal tower-office recommendation.",
+    "expectedSlugs": ["belltown-waterfront-office"]
+  },
+  {
+    "id": "seattle-bellevue-professional-services",
+    "name": "Bellevue Professional Services Office",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Bellevue CBD Office", "type": "district", "city": "Bellevue", "state": "WA", "slug": "bellevue-cbd-office", "path": "/commercial-real-estate/WA/bellevue/bellevue-cbd-office/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "8,000 sqft",
+      "priorities": ["Eastside clients", "professional services", "Bellevue", "parking important", "executive image"]
+    },
+    "expectedDirection": "Keep Bellevue as the focused Eastside professional-office path with Downtown Seattle and Redmond/Kirkland as comparison context.",
+    "expectedSlugs": ["bellevue-cbd-office"]
+  },
+  {
+    "id": "seattle-eastside-technology-office",
+    "name": "Eastside Technology Office",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Eastside Tech Office Corridor", "type": "district", "city": "Redmond", "state": "WA", "slug": "eastside-tech-office-corridor", "path": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/" }],
+      "locationIntent": "focus",
+      "spaceType": "Office",
+      "size": "18,000 sqft",
+      "priorities": ["technology company", "Redmond", "Kirkland", "product team", "Eastside workforce", "parking"]
+    },
+    "expectedDirection": "Favor the Eastside technology corridor for product, technology, and workforce-geography needs over central Seattle office alternatives.",
+    "expectedSlugs": ["eastside-tech-office-corridor"]
+  },
+  {
+    "id": "seattle-sodo-urban-warehouse",
+    "name": "SODO Urban Warehouse User",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "SODO Industrial", "type": "district", "city": "Seattle", "state": "WA", "slug": "sodo-industrial", "path": "/commercial-real-estate/WA/seattle/sodo-industrial/" }],
+      "locationIntent": "focus",
+      "spaceType": "Warehouse",
+      "size": "20,000 sqft",
+      "priorities": ["warehouse", "central Seattle", "loading", "port access", "last mile", "I-5"]
+    },
+    "expectedDirection": "Treat SODO as the urban warehouse and last-mile benchmark while comparing it against smaller south and north Seattle industrial alternatives.",
+    "expectedSlugs": ["sodo-industrial"]
+  },
+  {
+    "id": "seattle-georgetown-contractor-service",
+    "name": "Georgetown Contractor Service User",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Georgetown Industrial", "type": "district", "city": "Seattle", "state": "WA", "slug": "georgetown-industrial", "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/" }],
+      "locationIntent": "focus",
+      "spaceType": "Industrial",
+      "size": "10,000 sqft",
+      "priorities": ["contractor", "small bay", "equipment storage", "service dispatch", "south Seattle", "light manufacturing"]
+    },
+    "expectedDirection": "Favor Georgetown for contractor, service-industrial, small-bay, and maker-oriented operating needs.",
+    "expectedSlugs": ["georgetown-industrial"]
+  },
+  {
+    "id": "seattle-ballard-flex-service",
+    "name": "Ballard / Interbay Flex Service User",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Ballard / Interbay Industrial", "type": "district", "city": "Seattle", "state": "WA", "slug": "ballard-interbay-industrial", "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/" }],
+      "locationIntent": "focus",
+      "spaceType": "Flex",
+      "size": "6,500 sqft",
+      "priorities": ["north Seattle", "Ballard", "office warehouse", "creative production", "service business", "storage"]
+    },
+    "expectedDirection": "Favor Ballard / Interbay for north Seattle flex, maker, and service-industrial decisions before heavier SODO or Georgetown alternatives.",
+    "expectedSlugs": ["ballard-interbay-industrial"]
+  },
+  {
+    "id": "seattle-kent-valley-distribution",
+    "name": "Kent Valley Distribution User",
+    "metro": "Seattle",
+    "profile": {
+      "locations": [{ "label": "Kent Valley", "type": "district", "city": "Kent", "state": "WA", "slug": "kent-valley", "path": "/commercial-real-estate/WA/kent/kent-valley/" }],
+      "locationIntent": "focus",
+      "spaceType": "Distribution",
+      "size": "40,000 sqft",
+      "priorities": ["regional distribution", "warehouse", "truck access", "south King County", "airport access", "shipping"]
+    },
+    "expectedDirection": "Favor Kent Valley for regional warehouse and distribution needs that exceed constrained central Seattle industrial formats.",
+    "expectedSlugs": ["kent-valley"]
+  }
+]

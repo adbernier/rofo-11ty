@@ -30,6 +30,12 @@ const qaSuites = [
     scenarioPath: path.join(root, "data/recommendation-qa/denver-scenarios.json"),
     reportPath: path.join(root, "docs/recommendation-qa/denver-pilot.md"),
   },
+  {
+    key: "seattle",
+    metro: "Seattle",
+    scenarioPath: path.join(root, "data/recommendation-qa/seattle-scenarios.json"),
+    reportPath: path.join(root, "docs/recommendation-qa/seattle-pilot.md"),
+  },
 ];
 
 const editorialReviews = {
@@ -115,6 +121,30 @@ const editorialReviews = {
       "Second-pass Knowledge Cards should be added only when real Location Brief demand exposes gaps, not simply because public pages exist.",
     ],
     readiness: "Denver is recommended as Compass Ready for V1 Location Briefs after Q1. The graph supports differentiated, explainable, graph-backed recommendations across realistic business profiles. Editorial maturity and representative-building depth should continue improving as separate enhancement workstreams.",
+  },
+  seattle: {
+    findings: [
+      "Seattle scenarios produce differentiated district-level recommendations across downtown office, historic executive office, creative waterfront office, Bellevue professional office, Eastside technology office, urban warehouse, contractor/service industrial, north Seattle flex, and Kent Valley distribution profiles.",
+      "The current QA suite intentionally validates graph-backed district recommendations rather than broad city discovery because Seattle does not yet have a canonical city-level Compass starter node.",
+      "Office and industrial/flex scenarios are explainable enough for a first Seattle Compass QA baseline: the recommendations surface tradeoffs, validation questions, and comparison alternatives rather than generic market-path copy.",
+      "Medical, retail, handbook integration, and photography remain separate Publisher/EOS opportunities and were not treated as prerequisites for this bounded recommendation QA status update.",
+    ],
+    calibrations: [
+      "Added a Seattle QA suite to the shared recommendation runner without changing recommendation scoring, resolver behavior, or graph rankings.",
+      "Covered focused district scenarios for the Seattle nodes already present in the Commercial Location Knowledge Graph.",
+      "Registered Seattle in the authoritative recommendation QA status data so Publisher can distinguish documented Compass QA from a missing QA record.",
+    ],
+    beforeAfter: [
+      "Before this QA update, Publisher reported Seattle recommendation readiness as missing authoritative QA status.",
+      "After this QA update, Seattle has a generated QA report and 9 passing district-level scenarios.",
+      "No recommendation resolver changes were made; scenario outputs document current graph behavior.",
+    ],
+    remaining: [
+      "Seattle still needs a city-level Compass starter node before broad Seattle discovery scenarios can be treated as graph-backed instead of expert-guided.",
+      "Medical ecosystem district coverage remains a Publisher/EOS knowledge gap.",
+      "Building Brief depth, Field Mode photography, handbook integration, and comparison reciprocity remain separate improvement workstreams.",
+    ],
+    readiness: "Seattle is recommended as Compass Ready for focused V1 district-level Location Briefs across the currently modeled office and industrial/flex graph. Broad city-level Seattle discovery should remain a follow-on Compass enhancement because the city starter node is not yet present.",
   },
 };
 
@@ -304,6 +334,7 @@ function generateSuiteReport(suite) {
   lines.push(`${suite.metro} pilot metadata is stored in \`_data/recommendationQaStatus.js\`.`);
   lines.push("");
 
+  while (lines[lines.length - 1] === "") lines.pop();
   fs.mkdirSync(path.dirname(suite.reportPath), { recursive: true });
   fs.writeFileSync(suite.reportPath, `${lines.join("\n")}\n`);
 

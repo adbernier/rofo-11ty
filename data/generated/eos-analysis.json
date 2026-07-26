@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T11:00:06-07:00",
+  "generatedAt": "2026-07-26T11:44:37-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -276,17 +276,17 @@
   },
   "overview": {
     "metroCount": 6,
-    "averageHealth": 71,
-    "needsAttention": 1,
+    "averageHealth": 72,
+    "needsAttention": 0,
     "activeWorkItems": 8,
-    "opportunityInventory": 350,
+    "opportunityInventory": 349,
     "expansionProjects": 4,
     "reviewItems": 0,
     "fieldModeMetros": 6,
-    "openWorkItems": 350,
+    "openWorkItems": 349,
     "humanOnlyWorkItems": 6,
     "autonomousCandidates": 97,
-    "topWorkItem": "Seattle Medical Ecosystem District Foundation"
+    "topWorkItem": "San Francisco Life Science Ecosystem Representative Building Foundation"
   },
   "metros": [
     {
@@ -1595,16 +1595,16 @@
       "metroId": "seattle",
       "metroName": "Seattle",
       "status": {
-        "id": "needs_attention",
-        "label": "Needs Attention"
+        "id": "improving",
+        "label": "Improving"
       },
       "overallEditorialHealth": {
-        "score": 65,
+        "score": 69,
         "state": {
-          "id": "needs_attention",
-          "label": "Needs Attention"
+          "id": "improving",
+          "label": "Improving"
         },
-        "label": "Needs Attention",
+        "label": "Improving",
         "rationale": [
           "Representative Building Coverage: 8 representative building relationships; v1 target is 3 per covered district.",
           "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Missing; Life Science is Partial.",
@@ -1612,8 +1612,8 @@
         ]
       },
       "investmentScore": {
-        "score": 56,
-        "label": "56/100",
+        "score": 58,
+        "label": "58/100",
         "rationale": [
           "Existing foundation from Publisher score.",
           "Editorial leverage based on remaining health gap.",
@@ -1623,12 +1623,12 @@
       "publisherConfidence": {
         "id": "publisherConfidence",
         "label": "Publisher Confidence",
-        "score": 74,
+        "score": 94,
         "state": {
-          "id": "improving",
-          "label": "Improving"
+          "id": "ready",
+          "label": "Ready"
         },
-        "note": "Editorially Developed",
+        "note": "Distribution Ready",
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
@@ -1658,7 +1658,7 @@
       },
       "knowledgeReadiness": {
         "label": "Developed",
-        "score": 75,
+        "score": 78,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -1682,12 +1682,12 @@
       "recommendationCoverage": {
         "id": "recommendationConfidence",
         "label": "Recommendation Coverage",
-        "score": 80,
+        "score": 100,
         "state": {
-          "id": "improving",
-          "label": "Improving"
+          "id": "ready",
+          "label": "Ready"
         },
-        "note": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
+        "note": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
         "source": "publisher"
       },
       "representativeBuildingCoverage": {
@@ -1793,12 +1793,12 @@
         "recommendationConfidence": {
           "id": "recommendationConfidence",
           "label": "Recommendation Coverage",
-          "score": 80,
+          "score": 100,
           "state": {
-            "id": "improving",
-            "label": "Improving"
+            "id": "ready",
+            "label": "Ready"
           },
-          "note": "Graph depth is measurable, but authoritative recommendation QA status is missing.",
+          "note": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
           "source": "publisher"
         },
         "editorialDepth": {
@@ -1839,16 +1839,16 @@
         "districts": 9,
         "representativeBuildings": 8,
         "buildingBriefs": 8,
-        "queueItems": 19
+        "queueItems": 18
       },
       "examples": [
-        "Seattle",
-        "Seattle Recommendation Readiness Sprint",
+        "1455 NW Leary Way",
+        "Seattle Representative Building Foundation Sprint",
         "Seattle Medical Ecosystem District Foundation"
       ],
       "source": {
-        "publisherStatus": "Editorially Developed",
-        "publisherScore": 74,
+        "publisherStatus": "Distribution Ready",
+        "publisherScore": 94,
         "cityPath": "/commercial-real-estate/WA/seattle/"
       }
     }
@@ -2199,13 +2199,13 @@
       "statusLabel": "Knowledge Graph",
       "overallProgress": 22,
       "investmentScore": {
-        "score": 49,
-        "label": "49/100",
+        "score": 48,
+        "label": "48/100",
         "inputs": {
           "searchOpportunity": 60,
-          "editorialLeverage": 26,
+          "editorialLeverage": 6,
           "buildEffort": 54,
-          "existingFoundation": 74,
+          "existingFoundation": 94,
           "automationPotential": 50,
           "brokerCoverage": 35
         },
@@ -2305,253 +2305,6 @@
   ],
   "portfolioQueues": {
     "todaysRecommendedWork": [
-      {
-        "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
-        "title": "Seattle Medical Ecosystem District Foundation",
-        "metroId": "seattle",
-        "metroName": "Seattle",
-        "ecosystem": "Medical",
-        "ecosystemId": "medical",
-        "workstream": "Commercial Ecosystem",
-        "includedOpportunityIds": [
-          "ecosystem:seattle:medical"
-        ],
-        "includedTasks": [
-          {
-            "id": "ecosystem:seattle:medical",
-            "title": "Seattle Medical Ecosystem District Foundation",
-            "category": "commercialEcosystem",
-            "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "field-mode-summary:seattle",
-            "title": "Seattle Photography Coverage",
-            "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-            "suggestedModule": {
-              "id": "fieldMode",
-              "label": "Field Mode"
-            }
-          },
-          {
-            "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "title": "Add or update recommendation QA documentation for this metro.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
-          }
-        ],
-        "objective": "Seattle Medical Ecosystem District Foundation",
-        "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
-          "Ecosystem readiness: Partial",
-          "Commercial balance: Specialized"
-        ],
-        "expectedImpact": "High",
-        "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-        "completionCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-        ],
-        "relevantFiles": [
-          "_data/commercialEcosystemTaxonomy.js",
-          "_data/locationKnowledgeGraph.js",
-          "docs/commercial-ecosystem-data-model.md",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [
-          "Canonical ecosystem metadata",
-          "Publisher ecosystem readiness analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-publisher-ecosystem-readiness.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 100,
-        "priorityStars": 5,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "rationale": [
-          "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
-          "Deferred work is explicit so unrelated scope does not leak into the mission."
-        ],
-        "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
-          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
-          "Effort remains bounded by shared source files and validation paths."
-        ],
-        "source": {
-          "system": "EOS",
-          "includedSystems": [
-            "Publisher"
-          ]
-        },
-        "executionPacket": {
-          "objective": "Seattle Medical Ecosystem District Foundation",
-          "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
-            "Ecosystem readiness: Partial",
-            "Commercial balance: Specialized"
-          ],
-          "currentHealth": "65% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-          "includedTasks": [
-            {
-              "id": "ecosystem:seattle:medical",
-              "title": "Seattle Medical Ecosystem District Foundation",
-              "category": "commercialEcosystem",
-              "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "field-mode-summary:seattle",
-              "title": "Seattle Photography Coverage",
-              "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-              "suggestedModule": {
-                "id": "fieldMode",
-                "label": "Field Mode"
-              }
-            },
-            {
-              "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "title": "Add or update recommendation QA documentation for this metro.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
-              }
-            }
-          ],
-          "reasonForBundling": [
-            "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
-            "Deferred work is explicit so unrelated scope does not leak into the mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Small",
-          "missionClass": "Readiness Blocker",
-          "files": [
-            "_data/commercialEcosystemTaxonomy.js",
-            "_data/locationKnowledgeGraph.js",
-            "docs/commercial-ecosystem-data-model.md",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Canonical ecosystem metadata",
-            "Publisher ecosystem readiness analysis"
-          ],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-          ],
-          "expectedDeliverables": [
-            "Completed included opportunities or explicit reclassification for each included gap",
-            "Publisher and EOS snapshots regenerated",
-            "Before/after evidence for each included task when available",
-            "Remaining gap summary with deferred work preserved"
-          ],
-          "qaCommands": [
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-publisher-ecosystem-readiness.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
       {
         "id": "mission:san-francisco:san-francisco-life-science-ecosystem-representative-building-foundation",
         "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
@@ -2854,26 +2607,26 @@
         }
       },
       {
-        "id": "mission:seattle:add-or-update-recommendation-qa-documentation-for-this-metro",
-        "title": "Add or update recommendation QA documentation for this metro.",
+        "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
+        "title": "Seattle Medical Ecosystem District Foundation",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "ecosystem": "",
-        "ecosystemId": "",
-        "workstream": "Recommendation Readiness",
+        "ecosystem": "Medical",
+        "ecosystemId": "medical",
+        "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle"
+          "ecosystem:seattle:medical"
         ],
         "includedTasks": [
           {
-            "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "title": "Add or update recommendation QA documentation for this metro.",
-            "category": "recommendationReadiness",
-            "categoryLabel": "Recommendation Readiness",
-            "reason": "Authoritative recommendation QA status was not found.",
+            "id": "ecosystem:seattle:medical",
+            "title": "Seattle Medical Ecosystem District Foundation",
+            "category": "commercialEcosystem",
+            "categoryLabel": "Commercial Ecosystem",
+            "reason": "Relevant ecosystem has no meaningful district coverage.",
             "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
+              "id": "publisher",
+              "label": "Publisher"
             }
           }
         ],
@@ -2888,34 +2641,39 @@
             }
           }
         ],
-        "objective": "Add or update recommendation QA documentation for this metro.",
+        "objective": "Seattle Medical Ecosystem District Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Authoritative recommendation QA status was not found.",
-          "Task type: missing recommendation QA status",
-          "Publisher severity: high"
+          "Relevant ecosystem has no meaningful district coverage.",
+          "Ecosystem readiness: Partial",
+          "Commercial balance: Specialized"
         ],
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Authoritative recommendation QA status was not found.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it."
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
         ],
         "relevantFiles": [
-          "_data/recommendationQaStatus.js",
-          "scripts/run-recommendation-qa.js",
+          "_data/commercialEcosystemTaxonomy.js",
+          "_data/locationKnowledgeGraph.js",
+          "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
           "data/generated/eos-analysis.json"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "Canonical ecosystem metadata",
+          "Publisher ecosystem readiness analysis"
+        ],
         "qaCommands": [
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/run-recommendation-qa.js",
+          "node scripts/qa-publisher-ecosystem-readiness.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -2936,15 +2694,15 @@
         "status": "Ready",
         "queueType": "editorial",
         "operatingLane": {
-          "id": "qa",
-          "label": "QA",
-          "description": "Deterministic checks, recommendation validation, review approval, and publishing readiness."
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
         },
         "category": "mission",
         "categoryLabel": "Mission",
         "suggestedModule": {
-          "id": "compass",
-          "label": "Compass"
+          "id": "publisher",
+          "label": "Publisher"
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
@@ -2952,7 +2710,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Authoritative recommendation QA status was not found.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -2963,25 +2721,25 @@
           ]
         },
         "executionPacket": {
-          "objective": "Add or update recommendation QA documentation for this metro.",
+          "objective": "Seattle Medical Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Authoritative recommendation QA status was not found.",
-            "Task type: missing recommendation QA status",
-            "Publisher severity: high"
+            "Relevant ecosystem has no meaningful district coverage.",
+            "Ecosystem readiness: Partial",
+            "Commercial balance: Specialized"
           ],
-          "currentHealth": "65% Needs Attention",
-          "currentConstraint": "Authoritative recommendation QA status was not found.",
+          "currentHealth": "69% Improving",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "title": "Add or update recommendation QA documentation for this metro.",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "reason": "Authoritative recommendation QA status was not found.",
+              "id": "ecosystem:seattle:medical",
+              "title": "Seattle Medical Ecosystem District Foundation",
+              "category": "commercialEcosystem",
+              "categoryLabel": "Commercial Ecosystem",
+              "reason": "Relevant ecosystem has no meaningful district coverage.",
               "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -3005,16 +2763,21 @@
           "estimatedEffort": "Small",
           "missionClass": "Readiness Blocker",
           "files": [
-            "_data/recommendationQaStatus.js",
-            "scripts/run-recommendation-qa.js",
+            "_data/commercialEcosystemTaxonomy.js",
+            "_data/locationKnowledgeGraph.js",
+            "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
             "data/generated/eos-analysis.json"
           ],
-          "dependencies": [],
+          "dependencies": [
+            "Canonical ecosystem metadata",
+            "Publisher ecosystem readiness analysis"
+          ],
           "acceptanceCriteria": [
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it."
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -3025,7 +2788,7 @@
           "qaCommands": [
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-publisher-ecosystem-readiness.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -4914,94 +4677,80 @@
             }
           ]
         }
-      }
-    ],
-    "missionQueue": [
+      },
       {
-        "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
-        "title": "Seattle Medical Ecosystem District Foundation",
-        "metroId": "seattle",
-        "metroName": "Seattle",
-        "ecosystem": "Medical",
-        "ecosystemId": "medical",
-        "workstream": "Commercial Ecosystem",
+        "id": "mission:orange-county:connect-orange-county-pages-to-leasing-handbook-guidance",
+        "title": "Connect Orange County pages to leasing handbook guidance",
+        "metroId": "orange-county",
+        "metroName": "Orange County",
+        "ecosystem": "",
+        "ecosystemId": "",
+        "workstream": "Handbook",
         "includedOpportunityIds": [
-          "ecosystem:seattle:medical"
+          "handbook:orange-county:integration"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:seattle:medical",
-            "title": "Seattle Medical Ecosystem District Foundation",
-            "category": "commercialEcosystem",
-            "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "id": "handbook:orange-county:integration",
+            "title": "Connect Orange County pages to leasing handbook guidance",
+            "category": "handbook",
+            "categoryLabel": "Handbook",
+            "reason": "Handbook coverage is below the EOS target.",
             "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
+              "id": "handbook",
+              "label": "Handbook"
             }
           }
         ],
         "deferredTasks": [
           {
-            "id": "field-mode-summary:seattle",
-            "title": "Seattle Photography Coverage",
+            "id": "field-mode-summary:orange-county",
+            "title": "Orange County Photography Coverage",
             "reason": "Photography remains Experience Readiness work owned by Field Mode.",
             "suggestedModule": {
               "id": "fieldMode",
               "label": "Field Mode"
             }
-          },
-          {
-            "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "title": "Add or update recommendation QA documentation for this metro.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
           }
         ],
-        "objective": "Seattle Medical Ecosystem District Foundation",
+        "objective": "Connect Orange County pages to leasing handbook guidance",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
-          "Ecosystem readiness: Partial",
-          "Commercial balance: Specialized"
+          "Handbook coverage is below the EOS target.",
+          "Market pages should connect durable commercial guidance to the user decision journey."
         ],
-        "expectedImpact": "High",
+        "expectedImpact": "Medium",
         "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "impactEffortClass": "Medium Impact / Small Effort",
+        "missionClass": "Meaningful Depth Improvement",
+        "currentConstraint": "Handbook coverage is below the EOS target.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+          "No production recommendation rankings change unless a separate approved sprint requires it."
         ],
         "relevantFiles": [
-          "_data/commercialEcosystemTaxonomy.js",
-          "_data/locationKnowledgeGraph.js",
-          "docs/commercial-ecosystem-data-model.md",
+          "/commercial-real-estate/CA/irvine/",
+          "_data/commercialLeasingHandbook.js",
+          "docs/commercial-leasing-handbook.md",
           "data/generated/publisher-analysis.json",
           "data/generated/eos-analysis.json"
         ],
         "dependencies": [
-          "Canonical ecosystem metadata",
-          "Publisher ecosystem readiness analysis"
+          "Relevant handbook guide exists",
+          "Public city or district page exists"
         ],
         "qaCommands": [
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-publisher-ecosystem-readiness.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 100,
-        "priorityStars": 5,
+        "priorityScore": 69,
+        "priorityStars": 4,
         "automationLevel": {
           "id": "review_required",
           "label": "Review Required",
@@ -5021,8 +4770,8 @@
         "category": "mission",
         "categoryLabel": "Mission",
         "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
+          "id": "handbook",
+          "label": "Handbook"
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
@@ -5030,56 +4779,46 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
-          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
+          "Current constraint: Handbook coverage is below the EOS target.",
+          "Expected impact is bounded by current readiness evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
         "source": {
           "system": "EOS",
           "includedSystems": [
-            "Publisher"
+            "EOS"
           ]
         },
         "executionPacket": {
-          "objective": "Seattle Medical Ecosystem District Foundation",
+          "objective": "Connect Orange County pages to leasing handbook guidance",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
-            "Ecosystem readiness: Partial",
-            "Commercial balance: Specialized"
+            "Handbook coverage is below the EOS target.",
+            "Market pages should connect durable commercial guidance to the user decision journey."
           ],
-          "currentHealth": "65% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "69% Improving",
+          "currentConstraint": "Handbook coverage is below the EOS target.",
           "includedTasks": [
             {
-              "id": "ecosystem:seattle:medical",
-              "title": "Seattle Medical Ecosystem District Foundation",
-              "category": "commercialEcosystem",
-              "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "id": "handbook:orange-county:integration",
+              "title": "Connect Orange County pages to leasing handbook guidance",
+              "category": "handbook",
+              "categoryLabel": "Handbook",
+              "reason": "Handbook coverage is below the EOS target.",
               "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
+                "id": "handbook",
+                "label": "Handbook"
               }
             }
           ],
           "deferredTasks": [
             {
-              "id": "field-mode-summary:seattle",
-              "title": "Seattle Photography Coverage",
+              "id": "field-mode-summary:orange-county",
+              "title": "Orange County Photography Coverage",
               "reason": "Photography remains Experience Readiness work owned by Field Mode.",
               "suggestedModule": {
                 "id": "fieldMode",
                 "label": "Field Mode"
-              }
-            },
-            {
-              "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "title": "Add or update recommendation QA documentation for this metro.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
               }
             }
           ],
@@ -5088,25 +4827,24 @@
             "Kept as a single mission because no safe related work should be bundled.",
             "Deferred work is explicit so unrelated scope does not leak into the mission."
           ],
-          "expectedImpact": "High",
+          "expectedImpact": "Medium",
           "estimatedEffort": "Small",
-          "missionClass": "Readiness Blocker",
+          "missionClass": "Meaningful Depth Improvement",
           "files": [
-            "_data/commercialEcosystemTaxonomy.js",
-            "_data/locationKnowledgeGraph.js",
-            "docs/commercial-ecosystem-data-model.md",
+            "/commercial-real-estate/CA/irvine/",
+            "_data/commercialLeasingHandbook.js",
+            "docs/commercial-leasing-handbook.md",
             "data/generated/publisher-analysis.json",
             "data/generated/eos-analysis.json"
           ],
           "dependencies": [
-            "Canonical ecosystem metadata",
-            "Publisher ecosystem readiness analysis"
+            "Relevant handbook guide exists",
+            "Public city or district page exists"
           ],
           "acceptanceCriteria": [
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+            "No production recommendation rankings change unless a separate approved sprint requires it."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -5117,7 +4855,6 @@
           "qaCommands": [
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-publisher-ecosystem-readiness.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -5163,7 +4900,9 @@
             }
           ]
         }
-      },
+      }
+    ],
+    "missionQueue": [
       {
         "id": "mission:san-francisco:san-francisco-life-science-ecosystem-representative-building-foundation",
         "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
@@ -5466,26 +5205,26 @@
         }
       },
       {
-        "id": "mission:seattle:add-or-update-recommendation-qa-documentation-for-this-metro",
-        "title": "Add or update recommendation QA documentation for this metro.",
+        "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
+        "title": "Seattle Medical Ecosystem District Foundation",
         "metroId": "seattle",
         "metroName": "Seattle",
-        "ecosystem": "",
-        "ecosystemId": "",
-        "workstream": "Recommendation Readiness",
+        "ecosystem": "Medical",
+        "ecosystemId": "medical",
+        "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle"
+          "ecosystem:seattle:medical"
         ],
         "includedTasks": [
           {
-            "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "title": "Add or update recommendation QA documentation for this metro.",
-            "category": "recommendationReadiness",
-            "categoryLabel": "Recommendation Readiness",
-            "reason": "Authoritative recommendation QA status was not found.",
+            "id": "ecosystem:seattle:medical",
+            "title": "Seattle Medical Ecosystem District Foundation",
+            "category": "commercialEcosystem",
+            "categoryLabel": "Commercial Ecosystem",
+            "reason": "Relevant ecosystem has no meaningful district coverage.",
             "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
+              "id": "publisher",
+              "label": "Publisher"
             }
           }
         ],
@@ -5500,34 +5239,39 @@
             }
           }
         ],
-        "objective": "Add or update recommendation QA documentation for this metro.",
+        "objective": "Seattle Medical Ecosystem District Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Authoritative recommendation QA status was not found.",
-          "Task type: missing recommendation QA status",
-          "Publisher severity: high"
+          "Relevant ecosystem has no meaningful district coverage.",
+          "Ecosystem readiness: Partial",
+          "Commercial balance: Specialized"
         ],
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Authoritative recommendation QA status was not found.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it."
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
         ],
         "relevantFiles": [
-          "_data/recommendationQaStatus.js",
-          "scripts/run-recommendation-qa.js",
+          "_data/commercialEcosystemTaxonomy.js",
+          "_data/locationKnowledgeGraph.js",
+          "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
           "data/generated/eos-analysis.json"
         ],
-        "dependencies": [],
+        "dependencies": [
+          "Canonical ecosystem metadata",
+          "Publisher ecosystem readiness analysis"
+        ],
         "qaCommands": [
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/run-recommendation-qa.js",
+          "node scripts/qa-publisher-ecosystem-readiness.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -5548,15 +5292,15 @@
         "status": "Ready",
         "queueType": "editorial",
         "operatingLane": {
-          "id": "qa",
-          "label": "QA",
-          "description": "Deterministic checks, recommendation validation, review approval, and publishing readiness."
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
         },
         "category": "mission",
         "categoryLabel": "Mission",
         "suggestedModule": {
-          "id": "compass",
-          "label": "Compass"
+          "id": "publisher",
+          "label": "Publisher"
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
@@ -5564,7 +5308,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Authoritative recommendation QA status was not found.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Effort remains bounded by shared source files and validation paths."
         ],
@@ -5575,25 +5319,25 @@
           ]
         },
         "executionPacket": {
-          "objective": "Add or update recommendation QA documentation for this metro.",
+          "objective": "Seattle Medical Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Authoritative recommendation QA status was not found.",
-            "Task type: missing recommendation QA status",
-            "Publisher severity: high"
+            "Relevant ecosystem has no meaningful district coverage.",
+            "Ecosystem readiness: Partial",
+            "Commercial balance: Specialized"
           ],
-          "currentHealth": "65% Needs Attention",
-          "currentConstraint": "Authoritative recommendation QA status was not found.",
+          "currentHealth": "69% Improving",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "title": "Add or update recommendation QA documentation for this metro.",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "reason": "Authoritative recommendation QA status was not found.",
+              "id": "ecosystem:seattle:medical",
+              "title": "Seattle Medical Ecosystem District Foundation",
+              "category": "commercialEcosystem",
+              "categoryLabel": "Commercial Ecosystem",
+              "reason": "Relevant ecosystem has no meaningful district coverage.",
               "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -5617,16 +5361,21 @@
           "estimatedEffort": "Small",
           "missionClass": "Readiness Blocker",
           "files": [
-            "_data/recommendationQaStatus.js",
-            "scripts/run-recommendation-qa.js",
+            "_data/commercialEcosystemTaxonomy.js",
+            "_data/locationKnowledgeGraph.js",
+            "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
             "data/generated/eos-analysis.json"
           ],
-          "dependencies": [],
+          "dependencies": [
+            "Canonical ecosystem metadata",
+            "Publisher ecosystem readiness analysis"
+          ],
           "acceptanceCriteria": [
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it."
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -5637,7 +5386,7 @@
           "qaCommands": [
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/run-recommendation-qa.js",
+            "node scripts/qa-publisher-ecosystem-readiness.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -8958,7 +8707,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Specialized"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -9321,124 +9070,6 @@
             "Publisher severity: high"
           ],
           "currentHealth": "68% Improving",
-          "files": [
-            "_data/recommendationQaStatus.js",
-            "scripts/run-recommendation-qa.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it."
-          ],
-          "expectedDeliverables": [
-            "QA status update",
-            "Scenario result summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/run-recommendation-qa.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-        "metroId": "seattle",
-        "metroName": "Seattle",
-        "title": "Add or update recommendation QA documentation for this metro.",
-        "itemName": "Seattle",
-        "priorityScore": 70,
-        "priorityStars": 4,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "30-75 min",
-        "expectedEditorialImpact": "High",
-        "dependencies": [],
-        "confidence": "Review Required",
-        "lifecycleState": {
-          "id": "open",
-          "label": "Open"
-        },
-        "status": "Open",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "qa",
-          "label": "QA",
-          "description": "Deterministic checks, recommendation validation, review approval, and publishing readiness."
-        },
-        "category": "recommendationReadiness",
-        "categoryLabel": "Recommendation Readiness",
-        "suggestedModule": {
-          "id": "compass",
-          "label": "Compass"
-        },
-        "why": [
-          "Authoritative recommendation QA status was not found.",
-          "Task type: missing recommendation QA status",
-          "Publisher severity: high"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "",
-          "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
-        },
-        "executionPacket": {
-          "objective": "Add or update recommendation QA documentation for this metro.",
-          "reason": [
-            "Authoritative recommendation QA status was not found.",
-            "Task type: missing recommendation QA status",
-            "Publisher severity: high"
-          ],
-          "currentHealth": "65% Needs Attention",
           "files": [
             "_data/recommendationQaStatus.js",
             "scripts/run-recommendation-qa.js",
@@ -42607,7 +42238,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -42616,7 +42247,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
             "_data/buildingPages.js",
@@ -42727,7 +42358,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -42736,7 +42367,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
             "_data/buildingPages.js",
@@ -42847,7 +42478,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/seattle/701-fifth-avenue/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -42856,7 +42487,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/seattle/701-fifth-avenue/",
             "_data/buildingPages.js",
@@ -42967,7 +42598,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -42976,7 +42607,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
             "_data/buildingPages.js",
@@ -43087,7 +42718,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -43096,7 +42727,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/",
             "_data/buildingPages.js",
@@ -43207,7 +42838,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/redmond/2525-152nd-ave-ne/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -43216,7 +42847,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/redmond/2525-152nd-ave-ne/",
             "_data/buildingPages.js",
@@ -43327,7 +42958,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/seattle/506-second-avenue/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -43336,7 +42967,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/seattle/506-second-avenue/",
             "_data/buildingPages.js",
@@ -43447,7 +43078,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/building/WA/seattle/2815-elliott-ave/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Complete the missing editorial fields.",
@@ -43456,7 +43087,7 @@
             "Task type: incomplete Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/building/WA/seattle/2815-elliott-ave/",
             "_data/buildingPages.js",
@@ -43567,7 +43198,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Curate representative buildings that explain this district.",
@@ -43576,7 +43207,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/georgetown-industrial/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -49316,7 +48947,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49325,7 +48956,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
             "_data/locationKnowledgeGraph.js",
@@ -49436,7 +49067,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49445,7 +49076,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
             "_data/locationKnowledgeGraph.js",
@@ -49556,7 +49187,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49565,7 +49196,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
             "_data/locationKnowledgeGraph.js",
@@ -49676,7 +49307,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49685,7 +49316,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
             "_data/locationKnowledgeGraph.js",
@@ -49796,7 +49427,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49805,7 +49436,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/kent/kent-valley/",
             "_data/locationKnowledgeGraph.js",
@@ -49916,7 +49547,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -49925,7 +49556,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/kent/kent-valley/",
             "_data/locationKnowledgeGraph.js",
@@ -50036,7 +49667,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -50045,7 +49676,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
             "_data/locationKnowledgeGraph.js",
@@ -50156,7 +49787,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -50165,7 +49796,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
             "_data/locationKnowledgeGraph.js",
@@ -50276,7 +49907,7 @@
           "system": "Publisher",
           "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "adminUrl": "",
-          "expansionPlan": "Seattle Recommendation Readiness Sprint"
+          "expansionPlan": "Seattle Representative Building Foundation Sprint"
         },
         "executionPacket": {
           "objective": "Review whether the comparison should be reciprocal.",
@@ -50285,7 +49916,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "65% Needs Attention",
+          "currentHealth": "69% Improving",
           "files": [
             "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
             "_data/locationKnowledgeGraph.js",
@@ -50712,7 +50343,7 @@
         "metroId": "seattle",
         "metroName": "Seattle",
         "title": "Build Seattle",
-        "priorityScore": 49,
+        "priorityScore": 48,
         "priorityStars": 3,
         "status": "Knowledge Graph",
         "lifecycleState": {
@@ -50942,16 +50573,16 @@
     ],
     "reviewQueue": [],
     "opportunityInventory": {
-      "total": 350,
-      "missions": 11,
+      "total": 349,
+      "missions": 10,
       "byQueue": {
-        "editorial": 350,
-        "missions": 11,
+        "editorial": 349,
+        "missions": 10,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0
       },
-      "hiddenFromHomepage": 320
+      "hiddenFromHomepage": 319
     }
   },
   "workQueue": [
@@ -51604,7 +51235,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/",
           "functions/admin/field-photos.js",
@@ -52247,7 +51878,7 @@
           "Ecosystem readiness: Partial",
           "Commercial balance: Specialized"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -52610,124 +52241,6 @@
           "Publisher severity: high"
         ],
         "currentHealth": "68% Improving",
-        "files": [
-          "_data/recommendationQaStatus.js",
-          "scripts/run-recommendation-qa.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it."
-        ],
-        "expectedDeliverables": [
-          "QA status update",
-          "Scenario result summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/run-recommendation-qa.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-      "metroId": "seattle",
-      "metroName": "Seattle",
-      "title": "Add or update recommendation QA documentation for this metro.",
-      "itemName": "Seattle",
-      "priorityScore": 70,
-      "priorityStars": 4,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "30-75 min",
-      "expectedEditorialImpact": "High",
-      "dependencies": [],
-      "confidence": "Review Required",
-      "lifecycleState": {
-        "id": "open",
-        "label": "Open"
-      },
-      "status": "Open",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "qa",
-        "label": "QA",
-        "description": "Deterministic checks, recommendation validation, review approval, and publishing readiness."
-      },
-      "category": "recommendationReadiness",
-      "categoryLabel": "Recommendation Readiness",
-      "suggestedModule": {
-        "id": "compass",
-        "label": "Compass"
-      },
-      "why": [
-        "Authoritative recommendation QA status was not found.",
-        "Task type: missing recommendation QA status",
-        "Publisher severity: high"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "",
-        "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
-      },
-      "executionPacket": {
-        "objective": "Add or update recommendation QA documentation for this metro.",
-        "reason": [
-          "Authoritative recommendation QA status was not found.",
-          "Task type: missing recommendation QA status",
-          "Publisher severity: high"
-        ],
-        "currentHealth": "65% Needs Attention",
         "files": [
           "_data/recommendationQaStatus.js",
           "scripts/run-recommendation-qa.js",
@@ -85896,7 +85409,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -85905,7 +85418,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/seattle/1455-nw-leary-way/",
           "_data/buildingPages.js",
@@ -86016,7 +85529,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86025,7 +85538,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/seattle/255-s-king-st/",
           "_data/buildingPages.js",
@@ -86136,7 +85649,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/seattle/701-fifth-avenue/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86145,7 +85658,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/seattle/701-fifth-avenue/",
           "_data/buildingPages.js",
@@ -86256,7 +85769,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86265,7 +85778,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/kent/7818-s-212th-st/",
           "_data/buildingPages.js",
@@ -86376,7 +85889,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86385,7 +85898,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/bellevue/601-108th-ave-ne/",
           "_data/buildingPages.js",
@@ -86496,7 +86009,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/redmond/2525-152nd-ave-ne/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86505,7 +86018,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/redmond/2525-152nd-ave-ne/",
           "_data/buildingPages.js",
@@ -86616,7 +86129,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/seattle/506-second-avenue/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86625,7 +86138,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/seattle/506-second-avenue/",
           "_data/buildingPages.js",
@@ -86736,7 +86249,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/building/WA/seattle/2815-elliott-ave/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Complete the missing editorial fields.",
@@ -86745,7 +86258,7 @@
           "Task type: incomplete Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/building/WA/seattle/2815-elliott-ave/",
           "_data/buildingPages.js",
@@ -86856,7 +86369,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Curate representative buildings that explain this district.",
@@ -86865,7 +86378,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/georgetown-industrial/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -92605,7 +92118,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -92614,7 +92127,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
           "_data/locationKnowledgeGraph.js",
@@ -92725,7 +92238,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -92734,7 +92247,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
           "_data/locationKnowledgeGraph.js",
@@ -92845,7 +92358,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -92854,7 +92367,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
           "_data/locationKnowledgeGraph.js",
@@ -92965,7 +92478,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -92974,7 +92487,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
           "_data/locationKnowledgeGraph.js",
@@ -93085,7 +92598,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -93094,7 +92607,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/kent/kent-valley/",
           "_data/locationKnowledgeGraph.js",
@@ -93205,7 +92718,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -93214,7 +92727,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/kent/kent-valley/",
           "_data/locationKnowledgeGraph.js",
@@ -93325,7 +92838,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -93334,7 +92847,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "_data/locationKnowledgeGraph.js",
@@ -93445,7 +92958,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -93454,7 +92967,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "_data/locationKnowledgeGraph.js",
@@ -93565,7 +93078,7 @@
         "system": "Publisher",
         "publicUrl": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
         "adminUrl": "",
-        "expansionPlan": "Seattle Recommendation Readiness Sprint"
+        "expansionPlan": "Seattle Representative Building Foundation Sprint"
       },
       "executionPacket": {
         "objective": "Review whether the comparison should be reciprocal.",
@@ -93574,7 +93087,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "65% Needs Attention",
+        "currentHealth": "69% Improving",
         "files": [
           "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
           "_data/locationKnowledgeGraph.js",

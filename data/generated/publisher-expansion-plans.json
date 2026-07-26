@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T11:00:06-07:00",
+  "generatedAt": "2026-07-26T11:44:37-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -18255,7 +18255,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27095,7 +27095,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36917,7 +36917,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45909,7 +45909,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -55451,24 +55451,24 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
-        "readinessStatus": "Editorially Developed",
-        "overallScore": 74,
-        "recommendationScore": 80,
+        "readinessStatus": "Distribution Ready",
+        "overallScore": 94,
+        "recommendationScore": 100,
         "editorialScore": 83,
-        "publishingScore": 82,
+        "publishingScore": 100,
         "buildingScore": 100,
         "comparisonScore": 100,
         "insightScore": 100,
-        "geographicReadiness": "strong",
+        "geographicReadiness": "developed",
         "ecosystemReadiness": "partial",
         "commercialBalance": "specialized"
       },
       "coverage": {
         "cities": {
           "primaryCityPath": "/commercial-real-estate/WA/seattle/",
-          "status": 60
+          "status": 100
         },
         "districts": {
           "count": 9,
@@ -55476,7 +55476,7 @@
         },
         "recommendationNodes": {
           "count": 9,
-          "score": 64
+          "score": 100
         },
         "comparisons": {
           "score": 100
@@ -56194,20 +56194,20 @@
         }
       },
       "geographicReadiness": {
-        "state": "strong",
-        "label": "Strong",
+        "state": "developed",
+        "label": "Developed",
         "rationale": [
           "9 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
-          "Recommendation QA authority is missing, but geographic graph coverage can still be measured."
+          "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
           "districtCount": 9,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
-          "recommendationReadinessScore": 64
+          "recommendationReadinessScore": 100
         }
       },
       "ecosystemReadiness": {
@@ -58406,52 +58406,6 @@
       },
       "gaps": [
         {
-          "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-          "metroId": "seattle",
-          "metroName": "Seattle",
-          "category": "recommendationReadiness",
-          "categoryLabel": "Recommendation Readiness",
-          "gapType": "recommendation",
-          "gapLabel": "Recommendation Gap",
-          "code": "recommendation-qa-missing",
-          "taskType": "missing recommendation QA status",
-          "affectedType": "district",
-          "itemName": "Seattle",
-          "sourceId": "seattle",
-          "publicUrl": "",
-          "adminUrl": "",
-          "severity": "high",
-          "description": "Authoritative recommendation QA status is missing.",
-          "reason": "Authoritative recommendation QA status was not found.",
-          "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-          "confidence": "Blocked",
-          "automationCandidate": false,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 5,
-            "coverageUnlock": 4,
-            "seoValue": 2,
-            "estimatedEffort": 3,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Compass readiness confidence",
-            "Distribution Ready gate clearance"
-          ],
-          "prerequisite": [],
-          "followUp": [
-            "rerun recommendation QA"
-          ],
-          "priorityScore": 78,
-          "modeScores": {
-            "balanced": 78,
-            "recommendation": 84,
-            "editorial": 78,
-            "building": 86
-          }
-        },
-        {
           "id": "gap:seattle:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-wa-seattle-1455-nw-leary-way",
           "metroId": "seattle",
           "metroName": "Seattle",
@@ -59709,52 +59663,6 @@
           }
         },
         {
-          "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-          "metroId": "seattle",
-          "metroName": "Seattle",
-          "category": "recommendationReadiness",
-          "categoryLabel": "Recommendation Readiness",
-          "gapType": "recommendation",
-          "gapLabel": "Recommendation Gap",
-          "code": "recommendation-qa-missing",
-          "taskType": "missing recommendation QA status",
-          "affectedType": "district",
-          "itemName": "Seattle",
-          "sourceId": "seattle",
-          "publicUrl": "",
-          "adminUrl": "",
-          "severity": "high",
-          "description": "Authoritative recommendation QA status is missing.",
-          "reason": "Authoritative recommendation QA status was not found.",
-          "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-          "confidence": "Blocked",
-          "automationCandidate": false,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 5,
-            "coverageUnlock": 4,
-            "seoValue": 2,
-            "estimatedEffort": 3,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Compass readiness confidence",
-            "Distribution Ready gate clearance"
-          ],
-          "prerequisite": [],
-          "followUp": [
-            "rerun recommendation QA"
-          ],
-          "priorityScore": 78,
-          "modeScores": {
-            "balanced": 78,
-            "recommendation": 84,
-            "editorial": 78,
-            "building": 86
-          }
-        },
-        {
           "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
           "metroId": "seattle",
           "metroName": "Seattle",
@@ -60229,27 +60137,10 @@
       "recommendedSprint": {
         "mode": "balanced",
         "modeLabel": "Balanced Expansion",
-        "title": "Seattle Recommendation Readiness Sprint",
-        "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 19 deterministic Publisher gaps using balanced expansion weighting.",
+        "title": "Seattle Representative Building Foundation Sprint",
+        "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
+        "rationale": "Selected from 18 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
-          {
-            "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-            "category": "recommendationReadiness",
-            "categoryLabel": "Recommendation Readiness",
-            "gapType": "recommendation",
-            "itemName": "Seattle",
-            "sourceId": "seattle",
-            "publicUrl": "",
-            "priorityScore": 78,
-            "confidence": "Blocked",
-            "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-            "blockedBy": [],
-            "unlocks": [
-              "Compass readiness confidence",
-              "Distribution Ready gate clearance"
-            ]
-          },
           {
             "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
             "category": "representativeBuildings",
@@ -60351,15 +60242,14 @@
         ],
         "expectedImpact": [
           "clearer recommendation alternatives",
-          "representative-building modules can unlock after curation",
-          "more defensible Compass and Location Brief output"
+          "representative-building modules can unlock after curation"
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
           "comparisonTasks": 4,
           "representativeBuildingTasks": 1,
           "buildingBriefTasks": 0,
-          "recommendationTasks": 1
+          "recommendationTasks": 0
         },
         "exclusions": [
           "No automatic content commits.",
@@ -60367,33 +60257,16 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
           "mode": "balanced",
           "modeLabel": "Balanced Expansion",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 19 deterministic Publisher gaps using balanced expansion weighting.",
+          "title": "Seattle Representative Building Foundation Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 18 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
-            {
-              "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "gapType": "recommendation",
-              "itemName": "Seattle",
-              "sourceId": "seattle",
-              "publicUrl": "",
-              "priorityScore": 78,
-              "confidence": "Blocked",
-              "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-              "blockedBy": [],
-              "unlocks": [
-                "Compass readiness confidence",
-                "Distribution Ready gate clearance"
-              ]
-            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -60495,15 +60368,14 @@
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
-            "representative-building modules can unlock after curation",
-            "more defensible Compass and Location Brief output"
+            "representative-building modules can unlock after curation"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 4,
             "representativeBuildingTasks": 1,
             "buildingBriefTasks": 0,
-            "recommendationTasks": 1
+            "recommendationTasks": 0
           },
           "exclusions": [
             "No automatic content commits.",
@@ -60511,32 +60383,15 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 19 deterministic Publisher gaps using recommendation readiness weighting.",
+          "title": "Seattle District Comparison Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 18 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
-            {
-              "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "gapType": "recommendation",
-              "itemName": "Seattle",
-              "sourceId": "seattle",
-              "publicUrl": "",
-              "priorityScore": 84,
-              "confidence": "Blocked",
-              "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-              "blockedBy": [],
-              "unlocks": [
-                "Compass readiness confidence",
-                "Distribution Ready gate clearance"
-              ]
-            },
             {
               "id": "gap:seattle:comparisonGraph:one-way comparison:belltown-waterfront-office-ballard-interbay-industrial",
               "category": "comparisonGraph",
@@ -60672,15 +60527,14 @@
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
-            "representative-building modules can unlock after curation",
-            "more defensible Compass and Location Brief output"
+            "representative-building modules can unlock after curation"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
             "representativeBuildingTasks": 1,
             "buildingBriefTasks": 0,
-            "recommendationTasks": 1
+            "recommendationTasks": 0
           },
           "exclusions": [
             "No automatic content commits.",
@@ -60688,32 +60542,15 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 19 deterministic Publisher gaps using editorial depth weighting.",
+          "title": "Seattle Representative Building Foundation Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 18 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
-            {
-              "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "gapType": "recommendation",
-              "itemName": "Seattle",
-              "sourceId": "seattle",
-              "publicUrl": "",
-              "priorityScore": 78,
-              "confidence": "Blocked",
-              "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-              "blockedBy": [],
-              "unlocks": [
-                "Compass readiness confidence",
-                "Distribution Ready gate clearance"
-              ]
-            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -60849,15 +60686,14 @@
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
-            "representative-building modules can unlock after curation",
-            "more defensible Compass and Location Brief output"
+            "representative-building modules can unlock after curation"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
             "representativeBuildingTasks": 1,
             "buildingBriefTasks": 0,
-            "recommendationTasks": 1
+            "recommendationTasks": 0
           },
           "exclusions": [
             "No automatic content commits.",
@@ -60865,32 +60701,15 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
-          "title": "Seattle Recommendation Readiness Sprint",
-          "objective": "Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 19 deterministic Publisher gaps using building depth weighting.",
+          "title": "Seattle Representative Building Foundation Sprint",
+          "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 18 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
-            {
-              "id": "gap:seattle:recommendationReadiness:missing recommendation QA status:seattle",
-              "category": "recommendationReadiness",
-              "categoryLabel": "Recommendation Readiness",
-              "gapType": "recommendation",
-              "itemName": "Seattle",
-              "sourceId": "seattle",
-              "publicUrl": "",
-              "priorityScore": 86,
-              "confidence": "Blocked",
-              "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
-              "blockedBy": [],
-              "unlocks": [
-                "Compass readiness confidence",
-                "Distribution Ready gate clearance"
-              ]
-            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -60922,15 +60741,14 @@
             "district commercial identity"
           ],
           "expectedImpact": [
-            "representative-building modules can unlock after curation",
-            "more defensible Compass and Location Brief output"
+            "representative-building modules can unlock after curation"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
             "representativeBuildingTasks": 1,
             "buildingBriefTasks": 0,
-            "recommendationTasks": 1
+            "recommendationTasks": 0
           },
           "exclusions": [
             "No automatic content commits.",
@@ -60938,23 +60756,10 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: Seattle - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
-      "blockers": [
-        {
-          "code": "recommendation-qa-missing",
-          "severity": "high",
-          "message": "Authoritative recommendation QA status was not found.",
-          "gate": "distribution-ready"
-        },
-        {
-          "code": "recommendation-qa-missing",
-          "severity": "high",
-          "message": "Authoritative recommendation QA status is missing.",
-          "sourceId": "seattle"
-        }
-      ],
+      "blockers": [],
       "warnings": []
     }
   ],
@@ -60962,7 +60767,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -79162,7 +78967,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -88002,7 +87807,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -97824,7 +97629,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -106816,7 +106621,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-26T11:00:06-07:00",
+      "generatedAt": "2026-07-26T11:44:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
