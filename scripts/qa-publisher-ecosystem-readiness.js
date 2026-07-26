@@ -11,7 +11,7 @@ const EXPECTED_SCORES = {
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
   denver: { overall: 94, status: "Distribution Ready" },
-  seattle: { overall: 69, status: "In Development" },
+  seattle: { overall: 74, status: "Editorially Developed" },
 };
 
 const errors = [];
@@ -177,16 +177,26 @@ if (denver) {
 
 const seattle = metroById("seattle");
 if (seattle) {
+  const office = evaluationFor(seattle, "office");
   const industrial = evaluationFor(seattle, "industrial_flex");
   requireField(seattle.geographicReadiness.state === "strong", `Seattle: expected strong geographic readiness after industrial/flex district foundation, got ${seattle.geographicReadiness.state}`);
-  requireField(seattle.ecosystemReadiness.state === "missing", `Seattle: expected ecosystem readiness to remain missing until other core ecosystems are founded, got ${seattle.ecosystemReadiness.state}`);
+  requireField(seattle.ecosystemReadiness.state === "partial", `Seattle: expected partial ecosystem readiness after office completion, got ${seattle.ecosystemReadiness.state}`);
+  requireField(office && office.counts && office.counts.districts >= 5, `Seattle: expected office district foundation coverage, got ${office && office.counts && office.counts.districts}`);
+  requireField(office && office.counts && office.counts.representativeBuildings >= 5, `Seattle: expected office representative-building foundation coverage, got ${office && office.counts && office.counts.representativeBuildings}`);
+  requireField(office && office.counts && office.counts.buildingBriefs >= 5, `Seattle: expected initial office Building Brief collection, got ${office && office.counts && office.counts.buildingBriefs}`);
+  requireField(office && office.layers && office.layers.districts === "developed", `Seattle: expected developed office district layer, got ${office && office.layers && office.layers.districts}`);
+  requireField(office && office.layers && office.layers.representativeBuildings === "strong", `Seattle: expected strong office representative-building layer, got ${office && office.layers && office.layers.representativeBuildings}`);
+  requireField(office && office.layers && office.layers.buildingBriefs === "developed", `Seattle: expected developed office Building Brief layer, got ${office && office.layers && office.layers.buildingBriefs}`);
+  requireField(office && office.readinessState === "strong", `Seattle: expected strong office readiness after completion, got ${office && office.readinessState}`);
   requireField(industrial && industrial.counts && industrial.counts.districts >= 4, `Seattle: expected industrial/flex district foundation coverage, got ${industrial && industrial.counts && industrial.counts.districts}`);
   requireField(industrial && industrial.counts && industrial.counts.representativeBuildings >= 3, `Seattle: expected industrial/flex representative-building foundation coverage, got ${industrial && industrial.counts && industrial.counts.representativeBuildings}`);
   requireField(industrial && industrial.layers && industrial.layers.districts === "developed", `Seattle: expected developed industrial/flex district layer, got ${industrial && industrial.layers && industrial.layers.districts}`);
   requireField(industrial && industrial.layers && industrial.layers.representativeBuildings === "strong", `Seattle: expected strong industrial/flex representative-building layer, got ${industrial && industrial.layers && industrial.layers.representativeBuildings}`);
-  requireField(industrial && industrial.readinessState === "partial", `Seattle: expected industrial/flex to reclassify to partial after representative-building foundation, got ${industrial && industrial.readinessState}`);
+  requireField(industrial && industrial.readinessState === "strong", `Seattle: expected industrial/flex to reclassify to strong after Building Brief coverage, got ${industrial && industrial.readinessState}`);
   requireField(!((planById("seattle") || {}).recommendedEcosystemSprint || {}).title.includes("Industrial & Flex Ecosystem District Foundation"), "Seattle: completed industrial/flex District Foundation is still recommended");
   requireField(!((planById("seattle") || {}).recommendedEcosystemSprint || {}).title.includes("Industrial & Flex Ecosystem Representative Building Foundation"), "Seattle: completed industrial/flex Representative Building Foundation is still recommended");
+  requireField(!((planById("seattle") || {}).recommendedEcosystemSprint || {}).title.includes("Office Ecosystem District Foundation"), "Seattle: completed office District Foundation is still recommended");
+  requireField(!((planById("seattle") || {}).recommendedEcosystemSprint || {}).title.includes("Office Ecosystem Representative Building Foundation"), "Seattle: completed office Representative Building Foundation is still recommended");
 }
 
 console.log("Publisher Ecosystem Readiness QA");

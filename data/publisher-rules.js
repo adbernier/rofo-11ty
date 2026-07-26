@@ -157,6 +157,20 @@ const ECOSYSTEM_READINESS = {
         "neighborhood_service_retail",
       ],
     },
+    seattle: {
+      office: [
+        "downtown_class_a_office",
+        "executive_office_environment",
+        "creative_office_environment",
+        "professional_office_environment",
+        "suburban_office_campus",
+      ],
+      industrial_flex: [
+        "urban_industrial_environment",
+        "flex_business_park",
+        "warehouse_distribution_environment",
+      ],
+    },
   },
   targetOperationalCategories: {
     denver: {
@@ -164,6 +178,10 @@ const ECOSYSTEM_READINESS = {
       medical: ["parking_vehicles", "configuration", "infrastructure", "market_presence", "location_workforce", "outdoor_special_use"],
       industrial_flex: ["access_loading", "parking_vehicles", "configuration", "infrastructure", "location_workforce", "outdoor_special_use"],
       retail: ["market_presence", "configuration", "parking_vehicles"],
+    },
+    seattle: {
+      office: ["market_presence", "configuration", "parking_vehicles", "location_workforce"],
+      industrial_flex: ["access_loading", "configuration", "location_workforce"],
     },
   },
   concentrationThresholds: {

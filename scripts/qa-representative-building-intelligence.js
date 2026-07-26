@@ -12,7 +12,7 @@ const EXPECTED_SCORES = {
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
   denver: { overall: 94, status: "Distribution Ready" },
-  seattle: { overall: 69, status: "In Development" },
+  seattle: { overall: 74, status: "Editorially Developed" },
 };
 
 const DENVER_INDUSTRIAL_TARGET_ROLES = [
@@ -293,15 +293,31 @@ function validatePublisherAndPlans() {
 
   const seattle = metroById({ analysis: first }, "seattle");
   if (seattle) {
+    const office = evaluationFor(seattle, "office");
     const industrial = evaluationFor(seattle, "industrial_flex");
+    const officeIntelligence = (office && office.representativeBuildingIntelligence) || {};
     const industrialIntelligence = (industrial && industrial.representativeBuildingIntelligence) || {};
     const seattlePlan = planById(firstPlans, "seattle");
-    requireField(seattle.ecosystemReadiness.state === "missing", `Seattle: expected missing ecosystem readiness while other core ecosystems remain unfounded, got ${seattle.ecosystemReadiness.state}`);
-    requireField(industrial && industrial.readinessState === "partial", `Seattle: expected partial industrial/flex readiness after representative-building foundation, got ${industrial && industrial.readinessState}`);
+    requireField(seattle.ecosystemReadiness.state === "partial", `Seattle: expected partial ecosystem readiness after office completion, got ${seattle.ecosystemReadiness.state}`);
+    requireField(office && office.readinessState === "strong", `Seattle: expected strong office readiness after completion, got ${office && office.readinessState}`);
+    [
+      "downtown_class_a_office",
+      "executive_office_environment",
+      "creative_office_environment",
+      "professional_office_environment",
+      "suburban_office_campus",
+    ].forEach((roleId) => {
+      requireField((officeIntelligence.rolesCovered || []).includes(roleId), `Seattle: missing office target role ${roleId}`);
+    });
+    requireField((officeIntelligence.buildingCount || 0) >= 5, `Seattle: expected office representative-building foundation count, got ${officeIntelligence.buildingCount || 0}`);
+    requireField(officeIntelligence.state === "strong", `Seattle: expected strong office representative intelligence, got ${officeIntelligence.state}`);
+    requireField((officeIntelligence.missingRoles || []).length === 0, "Seattle: completed office target role foundation should not expose missing target roles");
+    requireField(industrial && industrial.readinessState === "strong", `Seattle: expected strong industrial/flex readiness after Building Brief coverage, got ${industrial && industrial.readinessState}`);
     requireField((industrialIntelligence.buildingCount || 0) >= 3, `Seattle: expected industrial/flex representative-building foundation count, got ${industrialIntelligence.buildingCount || 0}`);
     requireField((industrialIntelligence.rolesCovered || []).length >= 3, "Seattle: industrial/flex representative-role breadth remains too narrow after foundation");
     requireField(industrialIntelligence.state === "strong", `Seattle: expected strong industrial/flex representative intelligence, got ${industrialIntelligence.state}`);
     requireField(!((seattlePlan && seattlePlan.recommendedEcosystemSprint && seattlePlan.recommendedEcosystemSprint.title) || "").includes("Industrial & Flex Ecosystem Representative Building Foundation"), "Seattle: completed industrial/flex representative-building foundation is still recommended");
+    requireField(!((seattlePlan && seattlePlan.recommendedEcosystemSprint && seattlePlan.recommendedEcosystemSprint.title) || "").includes("Office Ecosystem Representative Building Foundation"), "Seattle: completed office representative-building foundation is still recommended");
   }
 
   const serialized = JSON.stringify({

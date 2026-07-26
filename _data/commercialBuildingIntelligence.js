@@ -1,6 +1,7 @@
 const sacramentoIndustrialFlexBuildingBriefs = require("./sacramentoIndustrialFlexBuildingBriefs.js");
 const denverIndustrialFlexBuildingBriefs = require("./denverIndustrialFlexBuildingBriefs.js");
 const denverEcosystemBalanceBuildingBriefs = require("./denverEcosystemBalanceBuildingBriefs.js");
+const seattleOfficeBuildingBriefs = require("./seattleOfficeBuildingBriefs.js");
 
 const CITY = "San Francisco";
 const STATE = "CA";
@@ -492,7 +493,8 @@ const canonicalBuildings = [
 ]
   .concat(sacramentoIndustrialFlexBuildingBriefs.canonicalBuildings || [])
   .concat(denverIndustrialFlexBuildingBriefs.canonicalBuildings || [])
-  .concat(denverEcosystemBalanceBuildingBriefs.canonicalBuildings || []);
+  .concat(denverEcosystemBalanceBuildingBriefs.canonicalBuildings || [])
+  .concat(seattleOfficeBuildingBriefs.canonicalBuildings || []);
 
 function buildingBrief(fields) {
   const snapshot = Array.isArray(fields.snapshot) ? fields.snapshot : [];
