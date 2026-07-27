@@ -306,6 +306,7 @@ function canonicalBuilding({
   publicationStatus = "published",
   comparisonAddresses = [],
   nearbyAddresses = [],
+  commercialIntelligence = null,
 }) {
   const canonicalDistrict = getDistrict(districtKey);
   const defaults = getDefaults(districtKey);
@@ -385,6 +386,10 @@ function canonicalBuilding({
     },
   };
 
+  if (commercialIntelligence) {
+    intelligence.commercialIntelligence = commercialIntelligence;
+  }
+
   return intelligence;
 }
 
@@ -416,12 +421,80 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "909 Harrison", address: "909 Harrison St", districtKey: "soma", role: "Value Benchmark", themes: ["Creative Office", "Startup", "Mid-Market", "Adaptive Reuse"], reason: "Shows the more flexible, less corporate SoMa inventory that can appeal to earlier-stage companies.", comparisonAddresses: ["414 Brannan St", "144 2nd St", "999 Brannan St"] }),
 
   canonicalBuilding({ name: "Uber Mission Bay", address: "1455 3rd St", districtKey: "missionBay", role: "Innovation Benchmark", themes: ["Corporate Headquarters", "Technology", "Campus Style", "Modern Class A"], reason: "Defines Mission Bay's modern headquarters identity and campus-like office environment.", comparisonAddresses: ["1800 Owens St", "500 Terry Francois Blvd", "415 Mission St"] }),
-  canonicalBuilding({ name: "Alexandria Center at Mission Bay - 1700 Owens", address: "1700 Owens St", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Innovation", "Campus Style", "Research"], reason: "A core life-science reference for the private lab and R&D cluster around UCSF.", comparisonAddresses: ["1500 Owens St", "455 Mission Bay Blvd S", "1800 Owens St"] }),
-  canonicalBuilding({ name: "Alexandria Center at Mission Bay - 1500 Owens", address: "1500 Owens St", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Research", "Innovation", "Campus Style"], reason: "Complements 1700 Owens and helps show Mission Bay as an ecosystem rather than a one-building choice.", comparisonAddresses: ["1700 Owens St", "455 Mission Bay Blvd S", "550 Terry A Francois Blvd"] }),
-  canonicalBuilding({ name: "455 Mission Bay Boulevard South", address: "455 Mission Bay Blvd S", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Research", "Innovation", "Campus Style"], reason: "Important life-science building for understanding UCSF adjacency and research-tenant demand.", comparisonAddresses: ["1700 Owens St", "1500 Owens St", "550 Terry A Francois Blvd"] }),
+  canonicalBuilding({ name: "Alexandria Center at Mission Bay - 1700 Owens", address: "1700 Owens St", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Innovation", "Campus Style", "Research"], reason: "A core life-science reference for the private lab and R&D cluster around UCSF.", comparisonAddresses: ["1500 Owens St", "455 Mission Bay Blvd S", "1800 Owens St"], commercialIntelligence: {
+    primaryEcosystem: "life_science",
+    ecosystemSubtypes: ["research_lab", "biotech_research", "innovation_campus"],
+    representativeRole: "research_lab_environment",
+    businessActivities: ["research", "product_development", "collaboration"],
+    businessArchetypes: ["biotech_company", "research_company", "startup"],
+    operationalCharacteristics: ["lab_infrastructure", "wet_lab_potential", "specialized_ventilation", "high_power", "campus_environment", "large_floorplates"],
+    representativeReasons: [
+      "Represents Mission Bay's private lab and R&D cluster around UCSF.",
+      "Helps distinguish lab-oriented life-science environments from general Mission Bay office buildings.",
+    ],
+    tradeoffs: [
+      "Lab, power, ventilation, security, and buildout assumptions must be validated for the specific suite.",
+      "Mission Bay specialization may be less useful for general office users that do not benefit from research adjacency.",
+    ],
+    validationFocus: ["Lab infrastructure", "Wet-lab suitability", "Ventilation", "Power capacity", "Hazardous-material restrictions", "Permitted research use", "Current suite configuration"],
+    confidence: "editorially_supported",
+  } }),
+  canonicalBuilding({ name: "Alexandria Center at Mission Bay - 1500 Owens", address: "1500 Owens St", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Research", "Innovation", "Campus Style"], reason: "Complements 1700 Owens and helps show Mission Bay as an ecosystem rather than a one-building choice.", comparisonAddresses: ["1700 Owens St", "455 Mission Bay Blvd S", "550 Terry A Francois Blvd"], commercialIntelligence: {
+    primaryEcosystem: "life_science",
+    ecosystemSubtypes: ["biotech_research", "research_lab", "innovation_campus"],
+    representativeRole: "biotech_research_environment",
+    businessActivities: ["research", "product_development", "collaboration"],
+    businessArchetypes: ["biotech_company", "research_company", "startup"],
+    operationalCharacteristics: ["lab_infrastructure", "wet_lab_potential", "backup_power", "specialized_ventilation", "campus_environment", "large_floorplates"],
+    representativeReasons: [
+      "Complements 1700 Owens by showing Mission Bay as a life-science ecosystem rather than a single-building choice.",
+      "Represents biotech-oriented research adjacency within the Mission Bay cluster.",
+    ],
+    tradeoffs: [
+      "Biotech suitability depends on suite-level infrastructure, code, landlord approval, and operating requirements.",
+      "Companies should compare whether the Mission Bay research cluster matters more than broader office flexibility.",
+    ],
+    validationFocus: ["Biotech research use", "Lab infrastructure", "Wet-lab suitability", "Backup power", "Ventilation", "Power capacity", "Hazardous-material restrictions"],
+    confidence: "editorially_supported",
+  } }),
+  canonicalBuilding({ name: "455 Mission Bay Boulevard South", address: "455 Mission Bay Blvd S", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Research", "Innovation", "Campus Style"], reason: "Important life-science building for understanding UCSF adjacency and research-tenant demand.", comparisonAddresses: ["1700 Owens St", "1500 Owens St", "550 Terry A Francois Blvd"], commercialIntelligence: {
+    primaryEcosystem: "life_science",
+    ecosystemSubtypes: ["research_lab", "life_science_office", "innovation_campus"],
+    representativeRole: "research_lab_environment",
+    businessActivities: ["research", "product_development", "collaboration", "knowledge_work"],
+    businessArchetypes: ["research_company", "biotech_company", "startup"],
+    operationalCharacteristics: ["lab_infrastructure", "wet_lab_potential", "specialized_ventilation", "campus_environment", "transit_access", "large_floorplates"],
+    representativeReasons: [
+      "Helps explain UCSF adjacency and research-tenant demand inside Mission Bay.",
+      "Adds a research-lab reference distinct from general waterfront or technology office examples.",
+    ],
+    tradeoffs: [
+      "Specific lab, ventilation, loading, waste, and safety requirements remain property- and suite-level validation topics.",
+      "A research-oriented Mission Bay setting can be over-specialized for users that mainly need conventional office space.",
+    ],
+    validationFocus: ["Research use approval", "Lab infrastructure", "Wet-lab suitability", "Ventilation", "Power capacity", "Waste handling", "Current suite configuration"],
+    confidence: "editorially_supported",
+  } }),
   canonicalBuilding({ name: "The Exchange", address: "1800 Owens St", districtKey: "missionBay", role: "Innovation Benchmark", themes: ["Modern Class A", "Technology", "Life Science Adjacent", "Large Floorplates"], reason: "A major modern office building that shows Mission Bay's appeal beyond wet lab use.", comparisonAddresses: ["1455 3rd St", "500 Terry Francois Blvd", "550 Terry A Francois Blvd"] }),
   canonicalBuilding({ name: "500 Terry Francois", address: "500 Terry Francois Blvd", districtKey: "missionBay", role: "Waterfront Benchmark", themes: ["Waterfront", "Modern Office", "Technology", "Innovation"], reason: "Explains the bayfront office character of Mission Bay and the appeal of newer buildings outside downtown.", comparisonAddresses: ["550 Terry A Francois Blvd", "1800 Owens St", "185 Berry St"] }),
-  canonicalBuilding({ name: "550 Terry Francois", address: "550 Terry A Francois Blvd", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Office/Lab", "Waterfront", "Modern Class A"], reason: "Represents newer office/lab supply deepening Mission Bay's innovation identity.", comparisonAddresses: ["500 Terry Francois Blvd", "1700 Owens St", "409 Illinois St"] }),
+  canonicalBuilding({ name: "550 Terry Francois", address: "550 Terry A Francois Blvd", districtKey: "missionBay", role: "Life Science Benchmark", themes: ["Life Science", "Office/Lab", "Waterfront", "Modern Class A"], reason: "Represents newer office/lab supply deepening Mission Bay's innovation identity.", comparisonAddresses: ["500 Terry Francois Blvd", "1700 Owens St", "409 Illinois St"], commercialIntelligence: {
+    primaryEcosystem: "life_science",
+    ecosystemSubtypes: ["life_science_office", "research_lab", "innovation_campus"],
+    representativeRole: "life_science_campus",
+    businessActivities: ["research", "product_development", "collaboration", "knowledge_work"],
+    businessArchetypes: ["biotech_company", "research_company", "startup"],
+    operationalCharacteristics: ["campus_environment", "research_compatible", "transit_access", "enhanced_security", "large_floorplates", "lab_infrastructure"],
+    representativeReasons: [
+      "Represents newer office/lab supply deepening Mission Bay's innovation identity.",
+      "Shows how waterfront access, office needs, and life-science adjacency can coexist in one Mission Bay environment.",
+    ],
+    tradeoffs: [
+      "Office/lab orientation should not be treated as proof that any available suite supports specialized research use.",
+      "Waterfront and event-area circulation can affect commute, visitor, and operating patterns.",
+    ],
+    validationFocus: ["Office/lab configuration", "Lab infrastructure", "Power capacity", "Ventilation", "Parking and visitor access", "Event-area circulation", "Current suite configuration"],
+    confidence: "editorially_supported",
+  } }),
   canonicalBuilding({ name: "UCSF Mission Bay / Genentech Hall", address: "600 16th St", districtKey: "missionBay", role: "District Anchor", themes: ["Research", "Life Science", "Institutional Anchor", "Innovation"], reason: "Essential to understanding why Mission Bay became a life-science district.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1700 Owens St", "455 Mission Bay Blvd S", "654 Minnesota St"] }),
   canonicalBuilding({ name: "UCSF Medical Center at Mission Bay", address: "1825 4th St", districtKey: "missionBay", role: "District Anchor", themes: ["Medical", "Institutional Anchor", "Life Science", "Campus Style"], reason: "Explains the health-care and clinical side of Mission Bay's commercial ecosystem.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["600 16th St", "1700 Owens St"] }),
   canonicalBuilding({ name: "Chase Center", address: "1 Warriors Way", districtKey: "missionBay", role: "Neighborhood Anchor", themes: ["Mixed Use", "Neighborhood Anchor", "Amenity", "Entertainment"], reason: "A major amenity and demand anchor that shapes how companies experience Mission Bay.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["555 Mission Rock St", "500 Terry Francois Blvd"] }),

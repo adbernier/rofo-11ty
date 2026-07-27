@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T16:00:30-07:00",
-  "sourceCommit": "d006effaf5fb05ac62fdd92637561cd4da9fbc3f",
+  "generatedAt": "2026-07-26T17:32:05-07:00",
+  "sourceCommit": "4fb874d05c8a8ec1474b9249396a6ac6fc30c7c0",
   "analysis": {
-    "generatedAt": "2026-07-26T16:00:30-07:00",
+    "generatedAt": "2026-07-26T17:32:05-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -795,21 +795,19 @@
                 "archetypes": 3,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 4,
-                "operationalCharacteristics": 4,
+                "representativeRoles": 3,
+                "operationalCategories": 5,
+                "operationalCharacteristics": 10,
                 "reviewRequiredRepresentativeBuildings": 2
               },
-              "gaps": [
-                "Representative Building operational coverage is thin."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
                 "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "research_lab",
@@ -831,18 +829,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "life_science",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 17,
-                "explicitCount": 3,
-                "inheritedOnlyCount": 14,
+                "explicitCount": 7,
+                "inheritedOnlyCount": 10,
                 "reviewRequiredCount": 2,
                 "rolesCovered": [
-                  "life_science_campus"
+                  "life_science_campus",
+                  "biotech_research_environment",
+                  "research_lab_environment"
                 ],
                 "subtypesCovered": [
                   "life_science_office",
-                  "innovation_campus"
+                  "innovation_campus",
+                  "biotech_research",
+                  "research_lab"
                 ],
                 "activityCoverage": [
                   "research",
@@ -859,23 +861,25 @@
                   "campus_environment",
                   "research_compatible",
                   "transit_access",
-                  "enhanced_security"
+                  "enhanced_security",
+                  "lab_infrastructure",
+                  "wet_lab_potential",
+                  "backup_power",
+                  "specialized_ventilation",
+                  "large_floorplates",
+                  "high_power"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
                   "outdoor_special_use",
                   "location_workforce",
-                  "infrastructure"
-                ],
-                "missingRoles": [
-                  "research_lab_environment",
-                  "biotech_research_environment"
-                ],
-                "missingOperationalCategories": [
+                  "infrastructure",
                   "configuration"
                 ],
-                "highestPriorityMissingRole": "research_lab_environment",
-                "highestPriorityMissingOperationalCategory": "configuration",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "Chase Center",
@@ -892,14 +896,14 @@
                   {
                     "name": "Alexandria Center at Mission Bay - 1500 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "biotech_research_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Alexandria Center at Mission Bay - 1700 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "research_lab_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "The Exchange",
@@ -1470,84 +1474,6 @@
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:representative_building_intelligence_missing",
-              "code": "representative_building_intelligence_missing",
-              "label": "Representative Building Intelligence Missing",
-              "severity": "high",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -2486,18 +2412,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "life_science",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 17,
-                "explicitCount": 3,
-                "inheritedOnlyCount": 14,
+                "explicitCount": 7,
+                "inheritedOnlyCount": 10,
                 "reviewRequiredCount": 2,
                 "rolesCovered": {
-                  "life_science_campus": 17
+                  "life_science_campus": 14,
+                  "biotech_research_environment": 1,
+                  "research_lab_environment": 2
                 },
                 "subtypesCovered": {
                   "life_science_office": 17,
-                  "innovation_campus": 17
+                  "innovation_campus": 17,
+                  "biotech_research": 2,
+                  "research_lab": 4
                 },
                 "activityCoverage": {
                   "research": 17,
@@ -2512,25 +2442,27 @@
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 17,
-                  "research_compatible": 17,
-                  "transit_access": 17,
-                  "enhanced_security": 17
+                  "research_compatible": 14,
+                  "transit_access": 15,
+                  "enhanced_security": 14,
+                  "lab_infrastructure": 4,
+                  "wet_lab_potential": 3,
+                  "backup_power": 1,
+                  "specialized_ventilation": 3,
+                  "large_floorplates": 4,
+                  "high_power": 2
                 },
                 "operationalCategoriesCovered": {
                   "market_presence": 17,
-                  "outdoor_special_use": 17,
-                  "location_workforce": 17,
-                  "infrastructure": 17
+                  "outdoor_special_use": 14,
+                  "location_workforce": 15,
+                  "infrastructure": 27,
+                  "configuration": 4
                 },
-                "missingRoles": [
-                  "research_lab_environment",
-                  "biotech_research_environment"
-                ],
-                "missingOperationalCategories": [
-                  "configuration"
-                ],
-                "highestPriorityMissingRole": "research_lab_environment",
-                "highestPriorityMissingOperationalCategory": "configuration",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "Chase Center",
@@ -2547,14 +2479,14 @@
                   {
                     "name": "Alexandria Center at Mission Bay - 1500 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "biotech_research_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Alexandria Center at Mission Bay - 1700 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "research_lab_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "The Exchange",
@@ -2748,32 +2680,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:life_science:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "high",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
             "code": "ecosystem_building_brief_gap",
             "label": "Ecosystem Building Brief Gap",
@@ -2904,32 +2810,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -3047,32 +2927,6 @@
               "5 primary districts and 10 secondary districts.",
               "41 Representative Buildings and 13 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -3477,12 +3331,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "gapCode": "representative_building_intelligence_missing",
+          "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+          "ecosystemId": "industrial_flex",
+          "ecosystemLabel": "Industrial & Flex",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -33423,21 +33277,19 @@
                 "archetypes": 3,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 4,
-                "operationalCharacteristics": 4,
+                "representativeRoles": 3,
+                "operationalCategories": 5,
+                "operationalCharacteristics": 10,
                 "reviewRequiredRepresentativeBuildings": 2
               },
-              "gaps": [
-                "Representative Building operational coverage is thin."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
                 "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
+                "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "research_lab",
@@ -33459,18 +33311,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "life_science",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 17,
-                "explicitCount": 3,
-                "inheritedOnlyCount": 14,
+                "explicitCount": 7,
+                "inheritedOnlyCount": 10,
                 "reviewRequiredCount": 2,
                 "rolesCovered": [
-                  "life_science_campus"
+                  "life_science_campus",
+                  "biotech_research_environment",
+                  "research_lab_environment"
                 ],
                 "subtypesCovered": [
                   "life_science_office",
-                  "innovation_campus"
+                  "innovation_campus",
+                  "biotech_research",
+                  "research_lab"
                 ],
                 "activityCoverage": [
                   "research",
@@ -33487,23 +33343,25 @@
                   "campus_environment",
                   "research_compatible",
                   "transit_access",
-                  "enhanced_security"
+                  "enhanced_security",
+                  "lab_infrastructure",
+                  "wet_lab_potential",
+                  "backup_power",
+                  "specialized_ventilation",
+                  "large_floorplates",
+                  "high_power"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
                   "outdoor_special_use",
                   "location_workforce",
-                  "infrastructure"
-                ],
-                "missingRoles": [
-                  "research_lab_environment",
-                  "biotech_research_environment"
-                ],
-                "missingOperationalCategories": [
+                  "infrastructure",
                   "configuration"
                 ],
-                "highestPriorityMissingRole": "research_lab_environment",
-                "highestPriorityMissingOperationalCategory": "configuration",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "Chase Center",
@@ -33520,14 +33378,14 @@
                   {
                     "name": "Alexandria Center at Mission Bay - 1500 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "biotech_research_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Alexandria Center at Mission Bay - 1700 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "research_lab_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "The Exchange",
@@ -34098,84 +33956,6 @@
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:representative_building_intelligence_missing",
-              "code": "representative_building_intelligence_missing",
-              "label": "Representative Building Intelligence Missing",
-              "severity": "high",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -35114,18 +34894,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "life_science",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 17,
-                "explicitCount": 3,
-                "inheritedOnlyCount": 14,
+                "explicitCount": 7,
+                "inheritedOnlyCount": 10,
                 "reviewRequiredCount": 2,
                 "rolesCovered": {
-                  "life_science_campus": 17
+                  "life_science_campus": 14,
+                  "biotech_research_environment": 1,
+                  "research_lab_environment": 2
                 },
                 "subtypesCovered": {
                   "life_science_office": 17,
-                  "innovation_campus": 17
+                  "innovation_campus": 17,
+                  "biotech_research": 2,
+                  "research_lab": 4
                 },
                 "activityCoverage": {
                   "research": 17,
@@ -35140,25 +34924,27 @@
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 17,
-                  "research_compatible": 17,
-                  "transit_access": 17,
-                  "enhanced_security": 17
+                  "research_compatible": 14,
+                  "transit_access": 15,
+                  "enhanced_security": 14,
+                  "lab_infrastructure": 4,
+                  "wet_lab_potential": 3,
+                  "backup_power": 1,
+                  "specialized_ventilation": 3,
+                  "large_floorplates": 4,
+                  "high_power": 2
                 },
                 "operationalCategoriesCovered": {
                   "market_presence": 17,
-                  "outdoor_special_use": 17,
-                  "location_workforce": 17,
-                  "infrastructure": 17
+                  "outdoor_special_use": 14,
+                  "location_workforce": 15,
+                  "infrastructure": 27,
+                  "configuration": 4
                 },
-                "missingRoles": [
-                  "research_lab_environment",
-                  "biotech_research_environment"
-                ],
-                "missingOperationalCategories": [
-                  "configuration"
-                ],
-                "highestPriorityMissingRole": "research_lab_environment",
-                "highestPriorityMissingOperationalCategory": "configuration",
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
                   {
                     "name": "Chase Center",
@@ -35175,14 +34961,14 @@
                   {
                     "name": "Alexandria Center at Mission Bay - 1500 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "biotech_research_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "Alexandria Center at Mission Bay - 1700 Owens",
                     "path": "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
-                    "role": "life_science_campus",
-                    "confidence": "district_inferred"
+                    "role": "research_lab_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "The Exchange",
@@ -35376,32 +35162,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:life_science:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "high",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
             "code": "ecosystem_building_brief_gap",
             "label": "Ecosystem Building Brief Gap",
@@ -35532,32 +35292,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -35675,32 +35409,6 @@
               "5 primary districts and 10 secondary districts.",
               "41 Representative Buildings and 13 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "14 Representative Buildings and 3 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -36105,12 +35813,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "gapCode": "representative_building_intelligence_missing",
+          "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+          "ecosystemId": "industrial_flex",
+          "ecosystemLabel": "Industrial & Flex",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",

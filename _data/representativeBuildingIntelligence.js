@@ -307,6 +307,7 @@ function buildRecord(source, buildingByPath, districtsByPath) {
 
 function collectSources() {
   const buildingByPath = new Map((Array.isArray(buildingPages) ? buildingPages : []).map((record) => [buildingPath(record), record]).filter(([path]) => path));
+  const commercialByPath = new Map((commercialBuildingIntelligence.canonicalBuildings || []).map((record) => [normalizePath(record.building_path), record]).filter(([path]) => path));
   const districtsByPath = new Map(locationGraph.filter((node) => node.type === "district").map((district) => [normalizePath(district.path), district]).filter(([path]) => path));
   const sources = [];
   const seen = new Set();
@@ -317,7 +318,15 @@ function collectSources() {
       const key = path || `${district.slug}:${item.name || item.address}`;
       if (!key || seen.has(key)) continue;
       seen.add(key);
-      sources.push({ district, item, source: "location_knowledge_graph" });
+      const commercialRecord = commercialByPath.get(path);
+      sources.push({
+        district,
+        item: {
+          ...item,
+          commercialIntelligence: item.commercialIntelligence || item.commercial_intelligence || (commercialRecord && (commercialRecord.commercialIntelligence || commercialRecord.commercial_intelligence)) || null,
+        },
+        source: "location_knowledge_graph",
+      });
     }
   }
 
@@ -328,7 +337,15 @@ function collectSources() {
     const path = buildingPath(building);
     if (!path || seen.has(path)) continue;
     seen.add(path);
-    sources.push({ district, item: building, source: building.building_brief ? "building_brief" : "canonical_building" });
+    const commercialRecord = commercialByPath.get(path);
+    sources.push({
+      district,
+      item: {
+        ...building,
+        commercialIntelligence: building.commercialIntelligence || building.commercial_intelligence || building.representative_building_intelligence || (commercialRecord && (commercialRecord.commercialIntelligence || commercialRecord.commercial_intelligence)) || null,
+      },
+      source: building.building_brief ? "building_brief" : "canonical_building",
+    });
   }
 
   for (const canonical of commercialBuildingIntelligence.canonicalBuildings || []) {
@@ -355,6 +372,7 @@ function collectSources() {
         representativeRole: (canonical.editorial || {}).editorialRole,
         representativeReason: (canonical.editorial || {}).editorialReason,
         representativeThemes: (canonical.editorial || {}).representativeThemes || [],
+        commercialIntelligence: canonical.commercialIntelligence || canonical.commercial_intelligence || null,
         sourceConfidence: (canonical.quality || {}).sourceConfidence,
         buildingBriefReadiness: "commercial-building-intelligence",
       },

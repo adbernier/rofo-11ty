@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T16:00:30-07:00",
+  "generatedAt": "2026-07-26T17:32:05-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -286,7 +286,7 @@
     "openWorkItems": 340,
     "humanOnlyWorkItems": 6,
     "autonomousCandidates": 89,
-    "topWorkItem": "San Francisco Life Science Ecosystem Representative Building Foundation"
+    "topWorkItem": "Seattle Medical Ecosystem District Foundation"
   },
   "metros": [
     {
@@ -543,7 +543,7 @@
       "examples": [
         "1 Bush St",
         "San Francisco Building Brief Migration Sprint",
-        "San Francisco Life Science Ecosystem Representative Building Foundation"
+        "San Francisco Industrial & Flex Ecosystem Building Brief Migration"
       ],
       "source": {
         "publisherStatus": "Distribution Ready",
@@ -2306,307 +2306,6 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:san-francisco:san-francisco-life-science-ecosystem-representative-building-foundation",
-        "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "Life Science",
-        "ecosystemId": "life_science",
-        "workstream": "Commercial Ecosystem",
-        "includedOpportunityIds": [
-          "ecosystem:san-francisco:life_science"
-        ],
-        "includedTasks": [
-          {
-            "id": "ecosystem:san-francisco:life_science",
-            "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-            "category": "commercialEcosystem",
-            "categoryLabel": "Commercial Ecosystem",
-            "reason": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "field-mode-summary:san-francisco",
-            "title": "San Francisco Photography Coverage",
-            "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-            "suggestedModule": {
-              "id": "fieldMode",
-              "label": "Field Mode"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
-            "title": "Add explainability fields used by recommendations and Location Briefs.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
-            "title": "Add explainability fields used by recommendations and Location Briefs.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
-        "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "Ecosystem readiness: Partial",
-          "Commercial balance: Office Brief Concentrated"
-        ],
-        "expectedImpact": "High",
-        "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "completionCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-        ],
-        "relevantFiles": [
-          "_data/commercialEcosystemTaxonomy.js",
-          "_data/locationKnowledgeGraph.js",
-          "docs/commercial-ecosystem-data-model.md",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [
-          "Canonical ecosystem metadata",
-          "Publisher ecosystem readiness analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-publisher-ecosystem-readiness.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 98,
-        "priorityStars": 5,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "rationale": [
-          "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
-          "Deferred work is explicit so unrelated scope does not leak into the mission."
-        ],
-        "why": [
-          "Current constraint: Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
-          "Effort remains bounded by shared source files and validation paths."
-        ],
-        "source": {
-          "system": "EOS",
-          "includedSystems": [
-            "Publisher"
-          ]
-        },
-        "executionPacket": {
-          "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
-          "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "Ecosystem readiness: Partial",
-            "Commercial balance: Office Brief Concentrated"
-          ],
-          "currentHealth": "72% Improving",
-          "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "includedTasks": [
-            {
-              "id": "ecosystem:san-francisco:life_science",
-              "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-              "category": "commercialEcosystem",
-              "categoryLabel": "Commercial Ecosystem",
-              "reason": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "field-mode-summary:san-francisco",
-              "title": "San Francisco Photography Coverage",
-              "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-              "suggestedModule": {
-                "id": "fieldMode",
-                "label": "Field Mode"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
-              "title": "Add explainability fields used by recommendations and Location Briefs.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
-              "title": "Add explainability fields used by recommendations and Location Briefs.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "reasonForBundling": [
-            "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
-            "Deferred work is explicit so unrelated scope does not leak into the mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Small",
-          "missionClass": "Readiness Blocker",
-          "files": [
-            "_data/commercialEcosystemTaxonomy.js",
-            "_data/locationKnowledgeGraph.js",
-            "docs/commercial-ecosystem-data-model.md",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Canonical ecosystem metadata",
-            "Publisher ecosystem readiness analysis"
-          ],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-          ],
-          "expectedDeliverables": [
-            "Completed included opportunities or explicit reclassification for each included gap",
-            "Publisher and EOS snapshots regenerated",
-            "Before/after evidence for each included task when available",
-            "Remaining gap summary with deferred work preserved"
-          ],
-          "qaCommands": [
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-publisher-ecosystem-readiness.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
         "title": "Seattle Medical Ecosystem District Foundation",
         "metroId": "seattle",
@@ -4067,6 +3766,465 @@
             "/commercial-real-estate/building/CA/poway/12120-tech-center-dr/",
             "/commercial-real-estate/building/CA/vista/1235-activity-dr/",
             "/commercial-real-estate/building/CA/poway/14035-14055-kirkham-way/"
+          ],
+          "dependencies": [
+            "Canonical ecosystem metadata",
+            "Publisher ecosystem readiness analysis"
+          ],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Completed included opportunities or explicit reclassification for each included gap",
+            "Publisher and EOS snapshots regenerated",
+            "Before/after evidence for each included task when available",
+            "Remaining gap summary with deferred work preserved"
+          ],
+          "qaCommands": [
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
+            "npm run publisher:snapshot",
+            "npm run build",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "mission:san-francisco:san-francisco-industrial-and-flex-ecosystem-building-brief-migration",
+        "title": "San Francisco Industrial & Flex Ecosystem Completion",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "ecosystem": "Industrial & Flex",
+        "ecosystemId": "industrial_flex",
+        "workstream": "Commercial Ecosystem",
+        "includedOpportunityIds": [
+          "ecosystem:san-francisco:industrial_flex",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st"
+        ],
+        "includedTasks": [
+          {
+            "id": "ecosystem:san-francisco:industrial_flex",
+            "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+            "category": "commercialEcosystem",
+            "categoryLabel": "Commercial Ecosystem",
+            "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          }
+        ],
+        "deferredTasks": [
+          {
+            "id": "field-mode-summary:san-francisco",
+            "title": "San Francisco Photography Coverage",
+            "reason": "Photography remains Experience Readiness work owned by Field Mode.",
+            "suggestedModule": {
+              "id": "fieldMode",
+              "label": "Field Mode"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
+            "title": "Add explainability fields used by recommendations and Location Briefs.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "compass",
+              "label": "Compass"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
+            "title": "Add explainability fields used by recommendations and Location Briefs.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "compass",
+              "label": "Compass"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
+            "title": "Curate representative buildings that explain this district.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
+            "title": "Curate representative buildings that explain this district.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          }
+        ],
+        "objective": "Complete the related San Francisco Industrial & Flex opportunities as one bounded mission.",
+        "reason": [
+          "7 related opportunities share metro, source, and validation paths.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
+          "Ecosystem readiness: Partial",
+          "Commercial balance: Office Brief Concentrated"
+        ],
+        "expectedImpact": "High",
+        "estimatedEffort": "Large",
+        "impactEffortClass": "High Impact / Large Effort",
+        "missionClass": "Readiness Blocker",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+        "completionCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "relevantFiles": [
+          "_data/commercialEcosystemTaxonomy.js",
+          "_data/locationKnowledgeGraph.js",
+          "docs/commercial-ecosystem-data-model.md",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json",
+          "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+          "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+          "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+          "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+          "/commercial-real-estate/building/CA/oakland/119-filbert-st/"
+        ],
+        "dependencies": [
+          "Canonical ecosystem metadata",
+          "Publisher ecosystem readiness analysis"
+        ],
+        "qaCommands": [
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
+          "npm run publisher:snapshot",
+          "npm run build",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "confidence": "Medium",
+        "priorityScore": 92,
+        "priorityStars": 5,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "mission",
+        "categoryLabel": "Mission",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "rationale": [
+          "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
+          "Deferred work is explicit so unrelated scope does not leak into the mission."
+        ],
+        "why": [
+          "Current constraint: Representative Buildings exist, but Building Brief depth is missing.",
+          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
+          "Effort is large because the mission includes several related tasks or systems."
+        ],
+        "source": {
+          "system": "EOS",
+          "includedSystems": [
+            "Publisher"
+          ]
+        },
+        "executionPacket": {
+          "objective": "Complete the related San Francisco Industrial & Flex opportunities as one bounded mission.",
+          "reason": [
+            "7 related opportunities share metro, source, and validation paths.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
+            "Ecosystem readiness: Partial",
+            "Commercial balance: Office Brief Concentrated"
+          ],
+          "currentHealth": "72% Improving",
+          "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+          "includedTasks": [
+            {
+              "id": "ecosystem:san-francisco:industrial_flex",
+              "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+              "category": "commercialEcosystem",
+              "categoryLabel": "Commercial Ecosystem",
+              "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            }
+          ],
+          "deferredTasks": [
+            {
+              "id": "field-mode-summary:san-francisco",
+              "title": "San Francisco Photography Coverage",
+              "reason": "Photography remains Experience Readiness work owned by Field Mode.",
+              "suggestedModule": {
+                "id": "fieldMode",
+                "label": "Field Mode"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
+              "title": "Add explainability fields used by recommendations and Location Briefs.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "compass",
+                "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
+              "title": "Add explainability fields used by recommendations and Location Briefs.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "compass",
+                "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
+              "title": "Curate representative buildings that explain this district.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
+              "title": "Curate representative buildings that explain this district.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            }
+          ],
+          "reasonForBundling": [
+            "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
+            "Deferred work is explicit so unrelated scope does not leak into the mission."
+          ],
+          "expectedImpact": "High",
+          "estimatedEffort": "Large",
+          "missionClass": "Readiness Blocker",
+          "files": [
+            "_data/commercialEcosystemTaxonomy.js",
+            "_data/locationKnowledgeGraph.js",
+            "docs/commercial-ecosystem-data-model.md",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+            "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+            "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+            "/commercial-real-estate/building/CA/oakland/119-filbert-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -4808,307 +4966,6 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:san-francisco:san-francisco-life-science-ecosystem-representative-building-foundation",
-        "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "Life Science",
-        "ecosystemId": "life_science",
-        "workstream": "Commercial Ecosystem",
-        "includedOpportunityIds": [
-          "ecosystem:san-francisco:life_science"
-        ],
-        "includedTasks": [
-          {
-            "id": "ecosystem:san-francisco:life_science",
-            "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-            "category": "commercialEcosystem",
-            "categoryLabel": "Commercial Ecosystem",
-            "reason": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "field-mode-summary:san-francisco",
-            "title": "San Francisco Photography Coverage",
-            "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-            "suggestedModule": {
-              "id": "fieldMode",
-              "label": "Field Mode"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
-            "title": "Add explainability fields used by recommendations and Location Briefs.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
-            "title": "Add explainability fields used by recommendations and Location Briefs.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "compass",
-              "label": "Compass"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
-        "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "Ecosystem readiness: Partial",
-          "Commercial balance: Office Brief Concentrated"
-        ],
-        "expectedImpact": "High",
-        "estimatedEffort": "Small",
-        "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-        "completionCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-        ],
-        "relevantFiles": [
-          "_data/commercialEcosystemTaxonomy.js",
-          "_data/locationKnowledgeGraph.js",
-          "docs/commercial-ecosystem-data-model.md",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [
-          "Canonical ecosystem metadata",
-          "Publisher ecosystem readiness analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-publisher-ecosystem-readiness.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 98,
-        "priorityStars": 5,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "rationale": [
-          "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
-          "Deferred work is explicit so unrelated scope does not leak into the mission."
-        ],
-        "why": [
-          "Current constraint: Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
-          "Effort remains bounded by shared source files and validation paths."
-        ],
-        "source": {
-          "system": "EOS",
-          "includedSystems": [
-            "Publisher"
-          ]
-        },
-        "executionPacket": {
-          "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
-          "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "Ecosystem readiness: Partial",
-            "Commercial balance: Office Brief Concentrated"
-          ],
-          "currentHealth": "72% Improving",
-          "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "includedTasks": [
-            {
-              "id": "ecosystem:san-francisco:life_science",
-              "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-              "category": "commercialEcosystem",
-              "categoryLabel": "Commercial Ecosystem",
-              "reason": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "field-mode-summary:san-francisco",
-              "title": "San Francisco Photography Coverage",
-              "reason": "Photography remains Experience Readiness work owned by Field Mode.",
-              "suggestedModule": {
-                "id": "fieldMode",
-                "label": "Field Mode"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
-              "title": "Add explainability fields used by recommendations and Location Briefs.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
-              "title": "Add explainability fields used by recommendations and Location Briefs.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "compass",
-                "label": "Compass"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "reasonForBundling": [
-            "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
-            "Deferred work is explicit so unrelated scope does not leak into the mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Small",
-          "missionClass": "Readiness Blocker",
-          "files": [
-            "_data/commercialEcosystemTaxonomy.js",
-            "_data/locationKnowledgeGraph.js",
-            "docs/commercial-ecosystem-data-model.md",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Canonical ecosystem metadata",
-            "Publisher ecosystem readiness analysis"
-          ],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
-          ],
-          "expectedDeliverables": [
-            "Completed included opportunities or explicit reclassification for each included gap",
-            "Publisher and EOS snapshots regenerated",
-            "Before/after evidence for each included task when available",
-            "Remaining gap summary with deferred work preserved"
-          ],
-          "qaCommands": [
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-publisher-ecosystem-readiness.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "mission:seattle:seattle-medical-ecosystem-district-foundation",
         "title": "Seattle Medical Ecosystem District Foundation",
         "metroId": "seattle",
@@ -6569,6 +6426,465 @@
             "/commercial-real-estate/building/CA/poway/12120-tech-center-dr/",
             "/commercial-real-estate/building/CA/vista/1235-activity-dr/",
             "/commercial-real-estate/building/CA/poway/14035-14055-kirkham-way/"
+          ],
+          "dependencies": [
+            "Canonical ecosystem metadata",
+            "Publisher ecosystem readiness analysis"
+          ],
+          "acceptanceCriteria": [
+            "The cited measurable gap is closed or explicitly reclassified.",
+            "Existing Publisher, EOS, and relevant QA checks pass.",
+            "No production recommendation rankings change unless a separate approved sprint requires it.",
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
+          ],
+          "expectedDeliverables": [
+            "Completed included opportunities or explicit reclassification for each included gap",
+            "Publisher and EOS snapshots regenerated",
+            "Before/after evidence for each included task when available",
+            "Remaining gap summary with deferred work preserved"
+          ],
+          "qaCommands": [
+            "node scripts/qa-eos.js",
+            "node scripts/qa-publisher-expansion-planner.js",
+            "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
+            "npm run publisher:snapshot",
+            "npm run build",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ]
+        }
+      },
+      {
+        "id": "mission:san-francisco:san-francisco-industrial-and-flex-ecosystem-building-brief-migration",
+        "title": "San Francisco Industrial & Flex Ecosystem Completion",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "ecosystem": "Industrial & Flex",
+        "ecosystemId": "industrial_flex",
+        "workstream": "Commercial Ecosystem",
+        "includedOpportunityIds": [
+          "ecosystem:san-francisco:industrial_flex",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st"
+        ],
+        "includedTasks": [
+          {
+            "id": "ecosystem:san-francisco:industrial_flex",
+            "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+            "category": "commercialEcosystem",
+            "categoryLabel": "Commercial Ecosystem",
+            "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          }
+        ],
+        "deferredTasks": [
+          {
+            "id": "field-mode-summary:san-francisco",
+            "title": "San Francisco Photography Coverage",
+            "reason": "Photography remains Experience Readiness work owned by Field Mode.",
+            "suggestedModule": {
+              "id": "fieldMode",
+              "label": "Field Mode"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
+            "title": "Add explainability fields used by recommendations and Location Briefs.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "compass",
+              "label": "Compass"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
+            "title": "Add explainability fields used by recommendations and Location Briefs.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "compass",
+              "label": "Compass"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
+            "title": "Curate representative buildings that explain this district.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
+            "title": "Curate representative buildings that explain this district.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          }
+        ],
+        "objective": "Complete the related San Francisco Industrial & Flex opportunities as one bounded mission.",
+        "reason": [
+          "7 related opportunities share metro, source, and validation paths.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
+          "Ecosystem readiness: Partial",
+          "Commercial balance: Office Brief Concentrated"
+        ],
+        "expectedImpact": "High",
+        "estimatedEffort": "Large",
+        "impactEffortClass": "High Impact / Large Effort",
+        "missionClass": "Readiness Blocker",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+        "completionCriteria": [
+          "The cited measurable gap is closed or explicitly reclassified.",
+          "Existing Publisher, EOS, and relevant QA checks pass.",
+          "No production recommendation rankings change unless a separate approved sprint requires it.",
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
+        ],
+        "relevantFiles": [
+          "_data/commercialEcosystemTaxonomy.js",
+          "_data/locationKnowledgeGraph.js",
+          "docs/commercial-ecosystem-data-model.md",
+          "data/generated/publisher-analysis.json",
+          "data/generated/eos-analysis.json",
+          "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+          "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+          "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+          "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+          "/commercial-real-estate/building/CA/oakland/119-filbert-st/"
+        ],
+        "dependencies": [
+          "Canonical ecosystem metadata",
+          "Publisher ecosystem readiness analysis"
+        ],
+        "qaCommands": [
+          "node scripts/qa-eos.js",
+          "node scripts/qa-publisher-expansion-planner.js",
+          "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
+          "npm run publisher:snapshot",
+          "npm run build",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "confidence": "Medium",
+        "priorityScore": 92,
+        "priorityStars": 5,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "mission",
+        "categoryLabel": "Mission",
+        "suggestedModule": {
+          "id": "publisher",
+          "label": "Publisher"
+        },
+        "rationale": [
+          "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
+          "Deferred work is explicit so unrelated scope does not leak into the mission."
+        ],
+        "why": [
+          "Current constraint: Representative Buildings exist, but Building Brief depth is missing.",
+          "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
+          "Effort is large because the mission includes several related tasks or systems."
+        ],
+        "source": {
+          "system": "EOS",
+          "includedSystems": [
+            "Publisher"
+          ]
+        },
+        "executionPacket": {
+          "objective": "Complete the related San Francisco Industrial & Flex opportunities as one bounded mission.",
+          "reason": [
+            "7 related opportunities share metro, source, and validation paths.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
+            "Ecosystem readiness: Partial",
+            "Commercial balance: Office Brief Concentrated"
+          ],
+          "currentHealth": "72% Improving",
+          "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+          "includedTasks": [
+            {
+              "id": "ecosystem:san-francisco:industrial_flex",
+              "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+              "category": "commercialEcosystem",
+              "categoryLabel": "Commercial Ecosystem",
+              "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1000-sansome-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            }
+          ],
+          "deferredTasks": [
+            {
+              "id": "field-mode-summary:san-francisco",
+              "title": "San Francisco Photography Coverage",
+              "reason": "Photography remains Experience Readiness work owned by Field Mode.",
+              "suggestedModule": {
+                "id": "fieldMode",
+                "label": "Field Mode"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
+              "title": "Add explainability fields used by recommendations and Location Briefs.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "compass",
+                "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
+              "title": "Add explainability fields used by recommendations and Location Briefs.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "compass",
+                "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
+              "title": "Curate representative buildings that explain this district.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
+              "title": "Curate representative buildings that explain this district.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            }
+          ],
+          "reasonForBundling": [
+            "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
+            "Deferred work is explicit so unrelated scope does not leak into the mission."
+          ],
+          "expectedImpact": "High",
+          "estimatedEffort": "Large",
+          "missionClass": "Readiness Blocker",
+          "files": [
+            "_data/commercialEcosystemTaxonomy.js",
+            "_data/locationKnowledgeGraph.js",
+            "docs/commercial-ecosystem-data-model.md",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+            "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
+            "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+            "/commercial-real-estate/building/CA/oakland/119-filbert-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -8105,11 +8421,11 @@
         }
       },
       {
-        "id": "ecosystem:san-francisco:life_science",
+        "id": "ecosystem:san-francisco:industrial_flex",
         "metroId": "san-francisco",
         "metroName": "San Francisco",
-        "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-        "itemName": "Life Science",
+        "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+        "itemName": "Industrial & Flex",
         "priorityScore": 78,
         "priorityStars": 4,
         "automationLevel": {
@@ -8137,16 +8453,16 @@
         },
         "category": "commercialEcosystem",
         "categoryLabel": "Commercial Ecosystem",
-        "ecosystemId": "life_science",
-        "ecosystemLabel": "Life Science",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "gapCode": "representative_building_intelligence_missing",
+        "ecosystemId": "industrial_flex",
+        "ecosystemLabel": "Industrial & Flex",
+        "sprintFamily": "Ecosystem Building Brief Migration",
+        "gapCode": "ecosystem_building_brief_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Office Brief Concentrated"
         ],
@@ -8156,9 +8472,9 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
+          "objective": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
           "reason": [
-            "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Office Brief Concentrated"
           ],
@@ -49097,7 +49413,7 @@
         "fieldMode": 6,
         "review": 0
       },
-      "hiddenFromHomepage": 314
+      "hiddenFromHomepage": 308
     }
   },
   "workQueue": [
@@ -50206,11 +50522,11 @@
       }
     },
     {
-      "id": "ecosystem:san-francisco:life_science",
+      "id": "ecosystem:san-francisco:industrial_flex",
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "title": "San Francisco Life Science Ecosystem Representative Building Foundation",
-      "itemName": "Life Science",
+      "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+      "itemName": "Industrial & Flex",
       "priorityScore": 78,
       "priorityStars": 4,
       "automationLevel": {
@@ -50238,16 +50554,16 @@
       },
       "category": "commercialEcosystem",
       "categoryLabel": "Commercial Ecosystem",
-      "ecosystemId": "life_science",
-      "ecosystemLabel": "Life Science",
-      "sprintFamily": "Ecosystem Representative Building Foundation",
-      "gapCode": "representative_building_intelligence_missing",
+      "ecosystemId": "industrial_flex",
+      "ecosystemLabel": "Industrial & Flex",
+      "sprintFamily": "Ecosystem Building Brief Migration",
+      "gapCode": "ecosystem_building_brief_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+        "Representative Buildings exist, but Building Brief depth is missing.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Office Brief Concentrated"
       ],
@@ -50257,9 +50573,9 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "San Francisco Life Science Ecosystem Representative Building Foundation",
+        "objective": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
         "reason": [
-          "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Office Brief Concentrated"
         ],
