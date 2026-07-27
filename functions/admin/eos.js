@@ -48,7 +48,8 @@ function statusClass(statusId) {
 function renderNav(token) {
   return `
     <nav class="admin-nav" aria-label="Admin navigation">
-      <a class="button-link button-link--active" href="/admin/eos?${tokenParam(token)}">EOS</a>
+      <a class="button-link button-link--active" href="/admin/eos?${tokenParam(token)}">Mission Control</a>
+      <a class="button-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Mission Archive</a>
       <a class="button-link" href="/admin/publisher?${tokenParam(token)}">Publisher</a>
       <a class="button-link" href="/admin/compass?${tokenParam(token)}">Rofo Compass</a>
       <a class="button-link" href="/admin/field-photos?${tokenParam(token)}">Field Photos</a>
@@ -56,6 +57,12 @@ function renderNav(token) {
       <a class="button-link" href="/admin/operations?${tokenParam(token)}">Operations</a>
     </nav>
   `;
+}
+
+function labelOf(value, fallback = "Not measured") {
+  if (!value) return fallback;
+  if (typeof value === "string") return value;
+  return value.label || value.state?.label || fallback;
 }
 
 function renderMetric(label, value, note = "") {
@@ -66,6 +73,31 @@ function renderMetric(label, value, note = "") {
       ${note ? `<p>${escapeHtml(note)}</p>` : ""}
     </article>
   `;
+}
+
+function currentFocusSummary(eos, topMission) {
+  const flagship = (eos.metros || []).find((metro) => metro.metroId === "san-francisco") || (eos.metros || [])[0];
+  if (!topMission) {
+    return `${flagship ? `${flagship.metroName} remains the flagship production market while EOS waits for the next measured mission.` : "EOS is waiting for generated mission data."}`;
+  }
+  const metroLabel = topMission.metroName || topMission.metro || "the next metro";
+  const title = topMission.title || "the next focused mission";
+  const flagshipClause = flagship && flagship.metroName && flagship.metroName !== metroLabel
+    ? ` while ${flagship.metroName} remains the flagship production market`
+    : "";
+  const constraint = topMission.currentConstraint
+    ? ` Current constraint: ${topMission.currentConstraint}.`
+    : "";
+  return `${title} is the best next focused engineering session for ${metroLabel}${flagshipClause}.${constraint}`;
+}
+
+function compactMissionFacts(item) {
+  return [
+    ["Impact", item.expectedImpact || item.expectedEditorialImpact || ""],
+    ["Effort", item.estimatedEffort || ""],
+    ["Class", item.missionClass || item.categoryLabel || ""],
+    ["Confidence", item.confidence || ""],
+  ].filter(([, value]) => value);
 }
 
 function taskUrl(token, taskId) {
@@ -206,10 +238,14 @@ function signalRow(signal) {
 }
 
 function renderMetroCard(metro, token) {
-  const signals = [
-    metro.publisherConfidence,
+  const primarySignals = [
+    { label: "Publisher", value: labelOf(metro.source?.publisherStatus || metro.publisherConfidence), note: pct(metro.publisherConfidence?.score) },
+    { label: "Knowledge", value: labelOf(metro.knowledgeReadiness), note: "EOS interpretation" },
+    { label: "Experience", value: labelOf(metro.experienceReadiness), note: "EOS interpretation" },
+    { label: "Recommendation Coverage", value: labelOf(metro.recommendationCoverage?.state || metro.recommendationCoverage), note: pct(metro.recommendationCoverage?.score) },
+  ];
+  const secondarySignals = [
     metro.commercialEcosystemCoverage,
-    metro.recommendationCoverage,
     metro.representativeBuildingCoverage,
     metro.photographyCoverage,
     metro.editorialCoverage,
@@ -230,13 +266,21 @@ function renderMetroCard(metro, token) {
         </div>
       </div>
       ${progress(metro.overallEditorialHealth.score, `${metro.metroName} editorial health`)}
-      <div class="signal-grid">
-        ${signals.map(signalRow).join("")}
+      <div class="readiness-dashboard">
+        ${primarySignals.map((signal) => `
+          <div class="readiness-tile">
+            <span>${escapeHtml(signal.label)}</span>
+            <strong>${escapeHtml(signal.value)}</strong>
+            <small>${escapeHtml(signal.note)}</small>
+          </div>
+        `).join("")}
       </div>
-      <div class="readiness-split">
-        <span>Knowledge: <strong>${escapeHtml(metro.knowledgeReadiness && metro.knowledgeReadiness.label)}</strong></span>
-        <span>Experience: <strong>${escapeHtml(metro.experienceReadiness && metro.experienceReadiness.label)}</strong></span>
-      </div>
+      <details class="mission-scope metro-details">
+        <summary>More health signals</summary>
+        <div class="signal-grid">
+          ${secondarySignals.map(signalRow).join("")}
+        </div>
+      </details>
       <div class="metro-card__footer">
         <p>${escapeHtml((metro.overallEditorialHealth.rationale || [])[0] || metro.source.publisherStatus || "No immediate blocker detected.")}</p>
         <a href="/admin/eos?${tokenParam(token)}&metro=${encodeURIComponent(metro.metroId)}">View plan</a>
@@ -247,6 +291,7 @@ function renderMetroCard(metro, token) {
 
 function renderWorkItem(item, token) {
   const isMission = item.category === "mission";
+  const facts = compactMissionFacts(item);
   return `
     <article class="work-item">
       <div class="work-item__priority">
@@ -256,18 +301,15 @@ function renderWorkItem(item, token) {
       <div class="work-item__body">
         <div class="work-item__heading">
           <div>
-            <span class="module-pill">${escapeHtml(item.suggestedModule.label)}</span>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.metroName)}${item.ecosystem ? ` · ${escapeHtml(item.ecosystem)}` : item.itemName ? ` · ${escapeHtml(item.itemName)}` : ""}</p>
           </div>
-          <span class="automation">${escapeHtml(item.automationLevel.label)}</span>
+          <span class="module-pill">${escapeHtml(item.suggestedModule.label)}</span>
         </div>
-        <dl>
-          <div><dt>Effort</dt><dd>${escapeHtml(item.estimatedEffort)}</dd></div>
-          <div><dt>Confidence</dt><dd>${escapeHtml(item.confidence)}</dd></div>
-          <div><dt>Status</dt><dd>${escapeHtml(item.status)}</dd></div>
-          <div><dt>${isMission ? "Mission Class" : "Category"}</dt><dd>${escapeHtml(isMission ? item.missionClass : item.categoryLabel)}</dd></div>
-        </dl>
+        <div class="mission-facts">
+          ${facts.map(([label, value]) => `<span><em>${escapeHtml(label)}</em>${escapeHtml(value)}</span>`).join("")}
+        </div>
+        ${item.currentConstraint ? `<p class="current-constraint"><strong>Current Constraint:</strong> ${escapeHtml(item.currentConstraint)}</p>` : ""}
         ${isMission ? `
           <div class="mission-meta">
             <span>${escapeHtml((item.includedTasks || []).length)} included</span>
@@ -275,23 +317,27 @@ function renderWorkItem(item, token) {
             <span>${escapeHtml(item.impactEffortClass)}</span>
           </div>
         ` : ""}
-        <div class="why">
-          <strong>${isMission ? "Why this mission" : "Why this task"}</strong>
-          <ul>
-            ${(item.why || []).slice(0, 4).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}
-          </ul>
-        </div>
+        <details class="mission-scope">
+          <summary>${isMission ? "Why this mission" : "Why this task"}</summary>
+          <ul>${(item.why || []).slice(0, 5).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("") || "<li>No rationale specified.</li>"}</ul>
+        </details>
         ${isMission ? `
           <details class="mission-scope">
-            <summary>Included and deferred work</summary>
+            <summary>Included work</summary>
             <h4>Included work</h4>
             <ul>${(item.includedTasks || []).map((task) => `<li>${escapeHtml(task.title)}</li>`).join("")}</ul>
+          </details>
+          <details class="mission-scope">
+            <summary>Deferred work</summary>
             <h4>Deferred work</h4>
             <ul>${(item.deferredTasks || []).map((task) => `<li>${escapeHtml(task.title)} · ${escapeHtml(task.reason)}</li>`).join("") || "<li>None specified.</li>"}</ul>
           </details>
         ` : ""}
         ${item.dependencies && item.dependencies.length ? `
-          <p class="dependencies"><strong>Dependencies:</strong> ${escapeHtml(item.dependencies.join(", "))}</p>
+          <details class="mission-scope">
+            <summary>Dependencies</summary>
+            <ul>${item.dependencies.map((dependency) => `<li>${escapeHtml(dependency)}</li>`).join("")}</ul>
+          </details>
         ` : ""}
         ${item.executionPacket ? `<a class="start-work" href="${taskUrl(token, item.id)}">Commence Work</a>` : ""}
       </div>
@@ -404,6 +450,10 @@ function renderExecutionPacket(eos, taskId, token) {
             <article>
               <span>Validation Outcome</span>
               <strong data-review-validation>Not reported</strong>
+            </article>
+            <article>
+              <span>Publisher Outcome</span>
+              <strong data-review-publisher>Not reported</strong>
             </article>
             <article>
               <span>Current Constraint</span>
@@ -548,32 +598,51 @@ function renderQueueSummary(eos) {
 }
 
 function renderExpansionProject(project, token) {
+  const activeStage = (project.stages || []).find((stage) => stage.status === "active") || (project.stages || []).find((stage) => stage.status !== "completed") || {};
+  const remainingMilestones = (project.stages || [])
+    .filter((stage) => stage.status !== "completed")
+    .map((stage) => stage.label);
+  const remainingStreams = (project.workstreams || [])
+    .filter((stream) => Number(stream.progress) < 100)
+    .map((stream) => stream.label);
+  const expectedRemainingMissions = remainingStreams.length || remainingMilestones.length || (project.nextAction ? 1 : 0);
   return `
     <article class="expansion-card">
       <div class="expansion-card__top">
         <div>
           <h3>${escapeHtml(project.metroName)}</h3>
-          <span class="status-pill status--planning">${escapeHtml(project.statusLabel)}</span>
+          <span class="status-pill status--planning">${escapeHtml(activeStage.label || project.statusLabel)}</span>
         </div>
         <div class="health-score">
           <strong>${pct(project.investmentScore.score)}</strong>
           <span>Investment Score</span>
         </div>
       </div>
-      ${progress(project.overallProgress, `${project.metroName} expansion progress`)}
-      <ol class="stage-list">
-        ${(project.stages || []).map((stage) => `<li class="stage stage--${escapeHtml(stage.status)}">${escapeHtml(stage.label)}</li>`).join("")}
-      </ol>
-      <div class="workstream-list" aria-label="${escapeHtml(project.metroName)} expansion workstreams">
-        ${(project.workstreams || []).map((stream) => `
-          <div class="workstream-row">
-            <span>${escapeHtml(stream.label)}</span>
-            <strong>${pct(stream.progress)}</strong>
-            ${progress(stream.progress, `${project.metroName} ${stream.label}`)}
-          </div>
-        `).join("")}
+      <div class="remaining-work">
+        <span>Current Stage</span>
+        <strong>${escapeHtml(activeStage.label || project.statusLabel)}</strong>
+        <p>${escapeHtml(project.nextAction)}</p>
       </div>
-      <p>${escapeHtml(project.nextAction)}</p>
+      <div class="remaining-work">
+        <span>Remaining Milestones</span>
+        <ul>${remainingMilestones.slice(0, 5).map((milestone) => `<li>${escapeHtml(milestone)}</li>`).join("") || "<li>Final review only.</li>"}</ul>
+      </div>
+      <div class="mission-facts">
+        <span><em>Expected Remaining Missions</em>${escapeHtml(expectedRemainingMissions)}</span>
+        <span><em>Progress</em>${pct(project.overallProgress)}</span>
+      </div>
+      <details class="mission-scope">
+        <summary>Workstreams</summary>
+        <div class="workstream-list" aria-label="${escapeHtml(project.metroName)} expansion workstreams">
+          ${(project.workstreams || []).map((stream) => `
+            <div class="workstream-row">
+              <span>${escapeHtml(stream.label)}</span>
+              <strong>${pct(stream.progress)}</strong>
+              ${progress(stream.progress, `${project.metroName} ${stream.label}`)}
+            </div>
+          `).join("")}
+        </div>
+      </details>
       <a href="${taskUrl(token, `expansion-queue:${project.metroId}`)}">Commence Work</a>
     </article>
   `;
@@ -644,21 +713,98 @@ function renderInventory(eos, token) {
   `;
 }
 
+const missionArchive = [
+  {
+    mission: "Denver Industrial & Flex Ecosystem Balance Sprint",
+    metro: "Denver",
+    date: "2026-07-26",
+    publisherBeforeAfter: "Industrial Flex Brief Concentrated -> Balanced",
+    objective: "Restore commercial ecosystem balance after industrial/flex Brief depth improved.",
+    filesChanged: "_data/commercialBuildingIntelligence.js, generated Publisher/EOS snapshots",
+    serSummary: "Added bounded office, retail, and medical Building Profiles so industrial/flex depth no longer masked other ecosystems.",
+    currentConstraint: "Life Science subtype coverage remains the next ecosystem constraint.",
+  },
+  {
+    mission: "Seattle Office Ecosystem Completion",
+    metro: "Seattle",
+    date: "2026-07-26",
+    publisherBeforeAfter: "Office Missing -> Strong",
+    objective: "Complete Seattle office district, representative-building, and initial Building Brief coverage.",
+    filesChanged: "_data/locationKnowledgeGraph.js, _data/seattleOfficeBuildingBriefs.js, generated Publisher/EOS snapshots",
+    serSummary: "Created a multi-district Seattle office foundation and migrated initial office Building Profiles.",
+    currentConstraint: "Medical ecosystem foundation remains before final Live readiness.",
+  },
+  {
+    mission: "San Francisco Industrial & Flex Ecosystem Completion",
+    metro: "San Francisco",
+    date: "2026-07-27",
+    publisherBeforeAfter: "Industrial/Flex Briefs 0 -> 6; Office Brief Concentrated -> Balanced",
+    objective: "Migrate a bounded industrial/flex Building Profile set across Bay Area operating models.",
+    filesChanged: "_data/sanFranciscoIndustrialFlexBuildingBriefs.js, _data/commercialBuildingIntelligence.js, generated Publisher/EOS snapshots",
+    serSummary: "Added West Berkeley, Moffett Park, Hayward, Union City, and Warm Springs industrial/flex Building Profiles.",
+    currentConstraint: "Industrial/flex representative-role breadth remains too narrow.",
+  },
+];
+
+function renderMissionArchive(eos, token) {
+  return `
+    <section class="queue-section mission-archive">
+      <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Mission Control</a>
+      <div class="section-heading">
+        <div>
+          <h2>Mission Archive</h2>
+          <p>Mocked browser-only history that demonstrates the intended review model before persistent mission state exists.</p>
+        </div>
+        <span class="archive-note">Architecture preview · No persistence</span>
+      </div>
+      <div class="archive-grid">
+        ${missionArchive.map((item) => `
+          <article class="archive-card">
+            <div>
+              <span class="mission-kicker">${escapeHtml(item.metro)} · ${escapeHtml(item.date)}</span>
+              <h3>${escapeHtml(item.mission)}</h3>
+              <p>${escapeHtml(item.objective)}</p>
+            </div>
+            <dl>
+              <div><dt>Publisher Before/After</dt><dd>${escapeHtml(item.publisherBeforeAfter)}</dd></div>
+              <div><dt>Current Constraint</dt><dd>${escapeHtml(item.currentConstraint)}</dd></div>
+            </dl>
+            <details class="mission-scope">
+              <summary>SER summary</summary>
+              <p>${escapeHtml(item.serSummary)}</p>
+            </details>
+            <details class="mission-scope">
+              <summary>Files changed</summary>
+              <p>${escapeHtml(item.filesChanged)}</p>
+            </details>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderOverview(eos, token) {
   const queues = eos.portfolioQueues || {};
   const todaysWork = queues.todaysRecommendedWork || [];
+  const focusMissions = todaysWork.slice(0, 3);
+  const remainingMissions = todaysWork.slice(3);
   const inventory = queues.opportunityInventory || {};
   const expansionProjects = eos.expansionProjects || [];
   const fieldMode = (queues.fieldModeQueue || []).slice(0, 4);
+  const topMission = todaysWork[0];
   return `
-    <section class="metrics" aria-label="EOS overview">
+    <section class="current-focus" aria-label="Current Focus">
+      <span>Current Focus</span>
+      <p>${escapeHtml(currentFocusSummary(eos, topMission))}</p>
+    </section>
+
+    <section class="metrics metrics--mission-control" aria-label="Mission Control overview">
       ${renderMetric("Metros", eos.overview.metroCount, "Publisher-configured operating markets")}
       ${renderMetric("Average Health", pct(eos.overview.averageHealth), "EOS editorial health model")}
-      ${renderMetric("Today's Work", eos.overview.activeWorkItems, "Recommended execution focus")}
-      ${renderMetric("Opportunity Inventory", inventory.total || 0, "Hidden from homepage by default")}
+      ${renderMetric("Focus Today", focusMissions.length, "Highest-priority missions shown by default")}
       ${renderMetric("Expansion Projects", eos.overview.expansionProjects, "Future metros")}
       ${renderMetric("Review Items", eos.overview.reviewItems, "Returned execution work")}
-      ${renderMetric("Autonomous Candidates", eos.overview.autonomousCandidates, "Future automation-ready work")}
     </section>
 
     ${renderQueueSummary(eos)}
@@ -667,18 +813,24 @@ function renderOverview(eos, token) {
     <section class="queue-section">
       <div class="section-heading">
         <div>
-          <h2>Today's Recommended Work</h2>
-          <p>EOS highlights coherent missions as the next focused engineering sessions instead of exposing raw micro-tasks.</p>
+          <h2>Focus Today</h2>
+          <p>Mission Control shows the three highest-priority missions first so the next focused engineering session is obvious.</p>
         </div>
-        <a href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Opportunities · View All</a>
+        <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Opportunities</a>
       </div>
-      <div class="work-queue">${todaysWork.map((item) => renderWorkItem(item, token)).join("")}</div>
+      <div class="work-queue">${focusMissions.map((item) => renderWorkItem(item, token)).join("")}</div>
+      ${remainingMissions.length ? `
+        <details class="show-all-missions">
+          <summary>Show All Missions</summary>
+          <div class="work-queue">${remainingMissions.map((item) => renderWorkItem(item, token)).join("")}</div>
+        </details>
+      ` : ""}
     </section>
 
     <section class="section-heading section-heading--standalone">
       <div>
         <h2>Metro Health</h2>
-        <p>Overall Editorial Health is separate from the Publisher score. EOS also separates Knowledge Readiness from Experience Readiness so photography gaps do not obscure recommendation-ready knowledge foundations.</p>
+        <p>Mission Control separates Publisher state, Knowledge Readiness, Experience Readiness, and Recommendation Coverage before showing secondary diagnostics.</p>
       </div>
     </section>
     <section class="metro-grid">
@@ -689,10 +841,19 @@ function renderOverview(eos, token) {
       <div class="section-heading">
         <div>
           <h2>Expansion Queue</h2>
-          <p>Future metros are managed as multi-stage projects with Investment Scores.</p>
+          <p>Future metros are shown by what remains before they can become Live, not only by completion percentage.</p>
         </div>
       </div>
       <div class="expansion-grid">${expansionProjects.map((project) => renderExpansionProject(project, token)).join("")}</div>
+    </section>
+
+    <section class="inventory-strip">
+      <div>
+        <span>Opportunity Inventory</span>
+        <strong>${escapeHtml(inventory.total || 0)} Opportunities</strong>
+        <p>Raw measurable gaps remain available, but they are intentionally secondary to Focus Today.</p>
+      </div>
+      <a href="/admin/eos?${tokenParam(token)}&queue=inventory">View Inventory</a>
     </section>
 
     <section class="queue-section">
@@ -730,7 +891,9 @@ function renderSnapshotError(token) {
 function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) {
   const body = selectedTask
     ? renderExecutionPacket(eos, selectedTask, token)
-    : selectedQueue === "inventory"
+    : selectedQueue === "archive"
+      ? renderMissionArchive(eos, token)
+      : selectedQueue === "inventory"
       ? renderInventory(eos, token)
       : selectedMetro
         ? renderSelectedMetro(eos, selectedMetro, token)
@@ -741,12 +904,12 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Editorial Operating System | Rofo Admin</title>
+  <title>Mission Control | Rofo Admin</title>
   <style>
     :root { --ink: #152033; --muted: #66758b; --blue: #2457d6; --border: #dbe4ef; --bg: #f4f7fb; --card: #ffffff; --soft: #f8fafc; --green: #0f766e; --amber: #b45309; --red: #b91c1c; --purple: #6d28d9; }
     * { box-sizing: border-box; }
-    body { margin: 0; color: var(--ink); background: radial-gradient(circle at top left, #eef5ff 0, transparent 340px), var(--bg); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 58px; }
+    body { margin: 0; color: var(--ink); background: linear-gradient(180deg, #f8fbff 0, #f4f7fb 460px, #f4f7fb 100%); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(1360px, calc(100% - 48px)); margin: 0 auto; padding: 38px 0 64px; }
     h1, h2, h3, p { margin-top: 0; }
     h1 { max-width: 900px; margin-bottom: 10px; font-size: clamp(2.25rem, 4.8vw, 4.6rem); line-height: 0.98; letter-spacing: 0; }
     h2 { margin-bottom: 8px; font-size: 1.35rem; letter-spacing: 0; }
@@ -758,8 +921,12 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .admin-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
     .button-link { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--card); color: var(--ink); font-weight: 850; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; }
-    .metrics { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
-    .metric-card, .metro-card, .panel, .work-item { border: 1px solid var(--border); border-radius: 18px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 16px 44px rgba(15, 23, 42, 0.055); }
+    .current-focus { margin: 0 0 20px; padding: 24px 28px; border-radius: 24px; background: #0f172a; box-shadow: 0 20px 52px rgba(15, 23, 42, 0.16); }
+    .current-focus span { display: block; margin-bottom: 8px; color: #93c5fd; font-size: 0.76rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+    .current-focus p { max-width: 980px; margin: 0; color: #f8fafc; font-size: clamp(1.25rem, 2vw, 1.8rem); line-height: 1.28; }
+    .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+    .metrics--mission-control { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .metric-card, .metro-card, .panel, .work-item { border: 1px solid rgba(203, 213, 225, 0.86); border-radius: 20px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.045); }
     .metric-card { padding: 16px; }
     .metric-card span, dt { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
     .metric-card strong { display: block; margin: 8px 0 5px; font-size: 1.55rem; letter-spacing: 0; }
@@ -786,6 +953,11 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .status--research { color: var(--red); background: #fee2e2; }
     .progress { height: 9px; border-radius: 999px; background: #e9eef6; overflow: hidden; }
     .progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #2457d6, #14b8a6); }
+    .readiness-dashboard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .readiness-tile { min-height: 92px; padding: 12px; border-radius: 14px; background: #f8fafc; }
+    .readiness-tile span { display: block; color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .readiness-tile strong { display: block; margin: 7px 0 3px; color: #0f172a; font-size: 1.02rem; line-height: 1.12; }
+    .readiness-tile small { font-size: 0.74rem; }
     .signal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
     .signal-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px 10px; padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: var(--soft); }
     .signal-row span { display: block; color: #334155; font-size: 0.82rem; font-weight: 850; }
@@ -800,14 +972,18 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .queue-section, .panel { margin-top: 20px; }
     .panel { padding: 20px; }
     .work-queue { display: grid; gap: 12px; }
-    .work-item { display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 16px; padding: 16px; }
+    .work-item { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 14px; }
     .work-item__priority { display: grid; align-content: start; gap: 7px; }
     .stars { color: #f59e0b; font-size: 1.05rem; letter-spacing: 0; }
     .work-item__priority span:last-child { color: var(--muted); font-size: 0.78rem; font-weight: 850; }
     .work-item__heading { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
-    .work-item__heading h3 { margin-top: 7px; margin-bottom: 4px; font-size: 1.15rem; }
+    .work-item__heading h3 { margin: 0 0 4px; font-size: 1.08rem; }
     .work-item__heading p { margin-bottom: 0; font-size: 0.9rem; }
-    .start-work { display: inline-flex; width: fit-content; min-height: 36px; align-items: center; margin-top: 12px; padding: 0 12px; border-radius: 9px; background: var(--blue); color: #fff; font-size: 0.85rem; font-weight: 900; }
+    .start-work { display: inline-flex; width: fit-content; min-height: 36px; align-items: center; margin-top: 10px; padding: 0 12px; border-radius: 9px; background: var(--blue); color: #fff; font-size: 0.85rem; font-weight: 900; }
+    .mission-facts { display: flex; flex-wrap: wrap; gap: 7px; margin: 11px 0 9px; }
+    .mission-facts span { display: inline-flex; gap: 6px; align-items: baseline; min-height: 28px; padding: 0 9px; border-radius: 999px; background: #f1f5f9; color: #0f172a; font-size: 0.8rem; font-weight: 850; }
+    .mission-facts em { color: var(--muted); font-style: normal; font-size: 0.68rem; font-weight: 950; letter-spacing: 0.04em; text-transform: uppercase; }
+    .current-constraint { margin: 0 0 8px; color: #334155; font-size: 0.9rem; }
     dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
     dl div { padding: 9px; border: 1px solid #e5edf7; border-radius: 10px; background: var(--soft); }
     dd { margin: 3px 0 0; color: var(--ink); font-weight: 850; }
@@ -816,10 +992,15 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .why ul { display: grid; gap: 5px; margin: 0; padding-left: 18px; }
     .mission-meta { margin: -2px 0 12px; }
     .mission-meta span { border-color: #e5edf7; background: #fff; }
-    .mission-scope { margin-top: 10px; padding: 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
+    .mission-scope { margin-top: 8px; padding: 10px 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
     .mission-scope summary { color: #1e3a8a; font-size: 0.86rem; font-weight: 900; cursor: pointer; }
     .mission-scope h4 { margin: 12px 0 6px; font-size: 0.82rem; letter-spacing: 0; }
     .mission-scope ul { margin: 0; padding-left: 18px; }
+    .mission-scope p { margin: 8px 0 0; }
+    .show-all-missions { margin-top: 14px; padding: 14px; border: 1px solid rgba(203, 213, 225, 0.82); border-radius: 18px; background: rgba(255,255,255,0.72); }
+    .show-all-missions summary { color: #1d4ed8; font-weight: 950; cursor: pointer; }
+    .show-all-missions .work-queue { margin-top: 14px; }
+    .subtle-link { color: #64748b; font-size: 0.9rem; }
     .dependencies { margin: 10px 0 0; font-size: 0.88rem; }
     .back-link { display: inline-flex; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 850; }
     .selected-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
@@ -843,6 +1024,18 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .workstream-row span { color: #334155; font-size: 0.82rem; font-weight: 850; }
     .workstream-row strong { color: var(--muted); font-size: 0.78rem; }
     .workstream-row .progress { grid-column: 1 / -1; height: 6px; }
+    .remaining-work { padding: 12px; border-radius: 14px; background: #f8fafc; }
+    .remaining-work span, .archive-note { display: block; color: var(--muted); font-size: 0.7rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .remaining-work strong { display: block; margin: 5px 0 4px; color: #0f172a; }
+    .remaining-work ul { display: grid; gap: 4px; margin: 8px 0 0; padding-left: 18px; }
+    .inventory-strip { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin: 22px 0; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); }
+    .inventory-strip span { display: block; color: var(--muted); font-size: 0.7rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .inventory-strip strong { display: block; margin: 4px 0 3px; color: #334155; font-size: 1.12rem; }
+    .inventory-strip p { margin: 0; font-size: 0.86rem; }
+    .archive-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .archive-card { display: grid; gap: 10px; padding: 18px; border: 1px solid rgba(203, 213, 225, 0.84); border-radius: 20px; background: rgba(255,255,255,0.96); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.045); }
+    .archive-card h3 { margin-bottom: 6px; font-size: 1.15rem; }
+    .archive-card dl { grid-template-columns: 1fr; margin: 4px 0; }
     .packet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
     .packet-grid--wide { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .handoff-summary, .handoff-rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 24px; }
@@ -872,7 +1065,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .mission-review__status { display: grid; align-content: center; justify-items: start; padding: 14px; border: 1px solid #dbeafe; border-radius: 14px; background: rgba(255, 255, 255, 0.76); }
     .mission-review__status span, .mission-kicker, .improvement-panel span { color: var(--muted); font-size: 0.72rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
     .mission-review__status strong { display: block; margin-top: 6px; color: #0f172a; font-size: 1.02rem; }
-    .review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .review-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
     .review-grid article { padding: 14px; box-shadow: none; }
     .review-grid--hero article { border-color: #dbeafe; background: #fbfdff; }
     .review-grid span, .reviewer-notes span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
@@ -1003,6 +1196,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       const validation = parsed.sections.Validation || "";
       const limitations = parsed.sections["Remaining Limitations"] || "";
       const followup = parsed.sections["Recommended Next Highest-Leverage Improvement"] || "";
+      const improvements = extractMeasurableImprovements(parsed);
       return {
         recommendation,
         completed: parsed.sections["Implementation Summary"] || parsed.sections.Results ? "Reported" : "Not reported",
@@ -1013,6 +1207,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
             : validation
               ? "Needs manual QA"
               : "Not reported",
+        publisherOutcome: improvements[0] ? `${improvements[0].before} -> ${improvements[0].after}` : "Not reported",
         limitations: limitations ? "Reported" : "None reported",
         followup: followup || "Not reported",
       };
@@ -1084,6 +1279,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       section.querySelector("[data-review-status]").textContent = parsed.recognized ? "Report Imported" : "Needs Clarification";
       section.querySelector("[data-review-completed]").textContent = missionReview.completed;
       section.querySelector("[data-review-validation]").textContent = missionReview.validationStatus;
+      section.querySelector("[data-review-publisher]").textContent = missionReview.publisherOutcome;
       section.querySelector("[data-review-limitations]").textContent = missionReview.limitations;
       section.querySelector("[data-review-followup]").textContent = missionReview.followup;
       review.hidden = false;
@@ -1123,8 +1319,8 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
 <body>
   <main>
     <header class="hero">
-      <h1>Editorial Operating System</h1>
-      <p>EOS is Rofo's planner, prioritizer, and orchestrator for commercial knowledge. It separates active editorial work, expansion projects, Field Mode photography, and review.</p>
+      <h1>Mission Control</h1>
+      <p>Mission Control is Rofo's operator-facing EOS surface: a focused briefing for the next engineering session, the state of each metro, expansion blockers, Field Mode, and review.</p>
       ${renderNav(token)}
     </header>
     ${body}

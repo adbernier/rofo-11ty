@@ -279,11 +279,11 @@ if (!adminSource.includes("../../data/generated/eos-analysis.json")) {
   fail("/admin/eos must consume the generated EOS snapshot.");
 }
 
-if (/require\(|locationKnowledgeGraph|analyzePublisher/.test(adminSource)) {
+if (/require\(|analyzePublisher\(/.test(adminSource) || /from\s+["'][^"']*locationKnowledgeGraph/.test(adminSource)) {
   fail("/admin/eos should not perform repository analysis at request time.");
 }
 
-for (const section of ["Today's Recommended Work", "Metro Health", "Expansion Queue", "Field Mode Queue", "Review Queue", "Commence Work"]) {
+for (const section of ["Mission Control", "Current Focus", "Focus Today", "Show All Missions", "Metro Health", "Expansion Queue", "Field Mode Queue", "Review Queue", "Mission Archive", "Commence Work"]) {
   if (!adminSource.includes(section)) fail(`/admin/eos is missing section or action: ${section}`);
 }
 
@@ -339,10 +339,17 @@ for (const promptSource of [
 for (const adminMissionSource of [
   "missionQueue",
   "Why this mission",
-  "Included and deferred work",
+  "Included work",
+  "Deferred work",
+  "Dependencies",
   "Knowledge Readiness",
   "Experience Readiness",
-  "photography gaps do not obscure recommendation-ready knowledge foundations",
+  "Publisher state, Knowledge Readiness, Experience Readiness, and Recommendation Coverage",
+  "currentFocusSummary",
+  "missionArchive",
+  "Current Stage",
+  "Remaining Milestones",
+  "Expected Remaining Missions",
 ]) {
   if (!adminSource.includes(adminMissionSource)) fail(`/admin/eos mission presentation is missing: ${adminMissionSource}`);
 }
@@ -357,6 +364,7 @@ for (const serSource of [
   "reviewRecommendationForReport",
   "mission-review__hero",
   "Mission Status",
+  "Publisher Outcome",
   "Ready for Manual Review",
   "Needs Manual QA",
   "Needs Additional Engineering",
@@ -389,8 +397,8 @@ if (/localStorage|sessionStorage|indexedDB|fetch\(/.test(adminSource)) {
   fail("/admin/eos Mission Debrief must remain browser-only and must not add persistence or API calls.");
 }
 
-if (!adminSource.includes("Editorial Operating System")) {
-  fail("/admin/eos admin page is missing expected dashboard sections.");
+if (!adminSource.includes("Mission Control")) {
+  fail("/admin/eos admin page is missing expected Mission Control sections.");
 }
 
 if (!process.exitCode) {

@@ -107,6 +107,8 @@ Publisher remains responsible for metro analysis and publishing-planning signals
 
 EOS is the operating layer above Publisher, Compass, Field Mode, Knowledge Graph, QA, Handbook, Search Intelligence, and future automation.
 
+The operator-facing EOS product is Mission Control. Mission Control is the morning briefing surface: it should make the next focused engineering session obvious, keep raw opportunities secondary, and show mission outcomes without exposing implementation detail.
+
 EOS answers:
 
 - How healthy are Rofo's metros?

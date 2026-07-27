@@ -6,6 +6,8 @@ EOS exists because Rofo's commercial knowledge is no longer one workflow. A metr
 
 EOS implementation decisions should remain aligned with the durable Rofo product orientation in `docs/product/rofo-master-plan.md`.
 
+The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
+
 ## Vision
 
 EOS should eventually answer three operating questions:
