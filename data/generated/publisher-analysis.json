@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T17:32:05-07:00",
-  "sourceCommit": "4fb874d05c8a8ec1474b9249396a6ac6fc30c7c0",
+  "generatedAt": "2026-07-26T18:08:15-07:00",
+  "sourceCommit": "ed96c39216fc77d84de769405d5192eb7b1dcd0a",
   "analysis": {
-    "generatedAt": "2026-07-26T17:32:05-07:00",
+    "generatedAt": "2026-07-26T18:08:15-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 91,
       "criticalIssues": 0,
-      "queuedTasks": 313,
+      "queuedTasks": 307,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -51,11 +51,11 @@
             "label": "Editorial Coverage",
             "score": 88,
             "status": "",
-            "explanation": "18 of 18 districts have substantive descriptions; 107 representative buildings and 16 Building Briefs are available.",
+            "explanation": "18 of 18 districts have substantive descriptions; 107 representative buildings and 22 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 18,
               "representativeBuildings": 107,
-              "buildingBriefs": 16
+              "buildingBriefs": 22
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -92,7 +92,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 18,
         "representativeBuildingCount": 107,
-        "buildingBriefCount": 16,
+        "buildingBriefCount": 22,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -114,9 +114,8 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office coverage is strong or developed.",
-            "Industrial & Flex is Partial; Retail is Partial; Medical is Partial; Life Science is Partial.",
-            "Building Brief coverage is concentrated in Office."
+            "Office, Industrial & Flex coverage is strong or developed.",
+            "Retail is Partial; Medical is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -317,13 +316,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "developed",
+              "readinessLabel": "Developed",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -334,26 +333,24 @@
                 "secondaryDistricts": 3,
                 "recommendations": 7,
                 "representativeBuildings": 36,
-                "buildingBriefs": 0,
+                "buildingBriefs": 6,
                 "subtypes": 7,
                 "archetypes": 9,
                 "activities": 9,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 5,
                 "operationalCategories": 6,
-                "operationalCharacteristics": 10,
-                "reviewRequiredRepresentativeBuildings": 36
+                "operationalCharacteristics": 17,
+                "reviewRequiredRepresentativeBuildings": 30
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -384,12 +381,14 @@
                 "stateLabel": "Strong",
                 "buildingCount": 39,
                 "explicitCount": 3,
-                "inheritedOnlyCount": 36,
-                "reviewRequiredCount": 36,
+                "inheritedOnlyCount": 30,
+                "reviewRequiredCount": 30,
                 "rolesCovered": [
+                  "contractor_service_cluster",
                   "small_bay_service_environment",
-                  "research_development_environment",
-                  "flex_business_park"
+                  "flex_business_park",
+                  "warehouse_distribution_environment",
+                  "research_development_environment"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -401,16 +400,19 @@
                 ],
                 "activityCoverage": [
                   "service_dispatch",
+                  "vehicle_storage",
                   "equipment_storage",
-                  "receiving",
-                  "shipping",
                   "light_manufacturing",
                   "customer_showroom",
                   "knowledge_work",
-                  "storage",
+                  "receiving",
+                  "shipping",
                   "product_development",
-                  "research",
-                  "assembly"
+                  "assembly",
+                  "storage",
+                  "distribution",
+                  "inventory_management",
+                  "research"
                 ],
                 "archetypeCoverage": [
                   "cabinet_shop",
@@ -428,46 +430,52 @@
                   "auto_repair_business"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "service_vehicle_parking",
+                  "outdoor_storage",
+                  "contractor_yard",
+                  "drive_in_access",
+                  "freeway_access",
                   "grade_level_loading",
                   "small_suite_sizes",
-                  "service_vehicle_parking",
                   "office_warehouse_mix",
-                  "freeway_access",
-                  "high_office_percentage",
-                  "fiber_connectivity",
-                  "research_compatible",
                   "flexible_suite_sizes",
-                  "surface_parking"
+                  "high_office_percentage",
+                  "surface_parking",
+                  "dock_high_loading",
+                  "truck_court",
+                  "high_clearance",
+                  "regional_distribution_access",
+                  "fiber_connectivity",
+                  "research_compatible"
                 ],
                 "operationalCategoriesCovered": [
-                  "access_loading",
-                  "configuration",
                   "parking_vehicles",
+                  "outdoor_special_use",
+                  "access_loading",
                   "location_workforce",
-                  "infrastructure",
-                  "outdoor_special_use"
+                  "configuration",
+                  "infrastructure"
                 ],
                 "missingRoles": [
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
                   "large_scale_distribution_environment",
-                  "urban_industrial_environment"
+                  "urban_industrial_environment",
+                  "industrial_campus_environment"
                 ],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "contractor_service_cluster",
+                "highestPriorityMissingRole": "last_mile_logistics_environment",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "2501 9th St",
@@ -1177,32 +1185,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -1211,12 +1193,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "developed",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -1237,12 +1219,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "developed",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -1707,82 +1689,24 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Building Brief coverage is concentrated in Office.",
-              "evidence": [
-                "5 primary districts and 10 secondary districts.",
-                "41 Representative Buildings and 13 Building Briefs.",
-                "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science.",
-              "evidence": [
-                "5 primary districts and 10 secondary districts.",
-                "41 Representative Buildings and 13 Building Briefs.",
-                "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "office_brief_concentrated",
-            "label": "Office Brief Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.38,
-            "buildingBriefShare": 0.81,
-            "warnings": [
-              "Building Brief coverage is concentrated in Office.",
-              "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science."
-            ]
+            "buildingBriefShare": 0.59,
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "office_brief_concentrated",
-          "label": "Office Brief Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.38,
-          "buildingBriefShare": 0.81,
-          "warnings": [
-            "Building Brief coverage is concentrated in Office.",
-            "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science."
-          ]
+          "buildingBriefShare": 0.59,
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -1978,8 +1902,8 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 7,
               "representativeBuildingCount": 36,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 6,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "north-san-jose",
@@ -2061,33 +1985,38 @@
                 "stateLabel": "Strong",
                 "buildingCount": 39,
                 "explicitCount": 3,
-                "inheritedOnlyCount": 36,
-                "reviewRequiredCount": 36,
+                "inheritedOnlyCount": 30,
+                "reviewRequiredCount": 30,
                 "rolesCovered": {
-                  "small_bay_service_environment": 35,
-                  "research_development_environment": 1,
-                  "flex_business_park": 3
+                  "contractor_service_cluster": 1,
+                  "small_bay_service_environment": 30,
+                  "flex_business_park": 6,
+                  "warehouse_distribution_environment": 1,
+                  "research_development_environment": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 35,
-                  "flex": 31,
-                  "light_manufacturing": 12,
+                  "flex": 32,
+                  "light_manufacturing": 13,
                   "research_development": 11,
                   "warehouse": 16,
                   "manufacturing": 8
                 },
                 "activityCoverage": {
                   "service_dispatch": 36,
-                  "equipment_storage": 35,
-                  "receiving": 36,
-                  "shipping": 36,
+                  "vehicle_storage": 1,
+                  "equipment_storage": 31,
                   "light_manufacturing": 36,
                   "customer_showroom": 12,
-                  "knowledge_work": 15,
+                  "knowledge_work": 18,
+                  "receiving": 35,
+                  "shipping": 35,
+                  "product_development": 7,
+                  "assembly": 7,
                   "storage": 27,
-                  "product_development": 4,
-                  "research": 1,
-                  "assembly": 4
+                  "distribution": 1,
+                  "inventory_management": 1,
+                  "research": 1
                 },
                 "archetypeCoverage": {
                   "cabinet_shop": 39,
@@ -2105,46 +2034,52 @@
                   "auto_repair_business": 3
                 },
                 "operationalCharacteristicsCovered": {
-                  "grade_level_loading": 35,
-                  "small_suite_sizes": 35,
-                  "service_vehicle_parking": 35,
-                  "office_warehouse_mix": 35,
-                  "freeway_access": 38,
-                  "high_office_percentage": 4,
+                  "service_vehicle_parking": 31,
+                  "outdoor_storage": 1,
+                  "contractor_yard": 1,
+                  "drive_in_access": 1,
+                  "freeway_access": 37,
+                  "grade_level_loading": 30,
+                  "small_suite_sizes": 30,
+                  "office_warehouse_mix": 30,
+                  "flexible_suite_sizes": 7,
+                  "high_office_percentage": 7,
+                  "surface_parking": 6,
+                  "dock_high_loading": 1,
+                  "truck_court": 1,
+                  "high_clearance": 1,
+                  "regional_distribution_access": 1,
                   "fiber_connectivity": 1,
-                  "research_compatible": 1,
-                  "flexible_suite_sizes": 4,
-                  "surface_parking": 3
+                  "research_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 35,
-                  "configuration": 78,
-                  "parking_vehicles": 38,
+                  "parking_vehicles": 37,
+                  "outdoor_special_use": 3,
+                  "access_loading": 33,
                   "location_workforce": 38,
-                  "infrastructure": 1,
-                  "outdoor_special_use": 1
+                  "configuration": 75,
+                  "infrastructure": 1
                 },
                 "missingRoles": [
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
                   "large_scale_distribution_environment",
-                  "urban_industrial_environment"
+                  "urban_industrial_environment",
+                  "industrial_campus_environment"
                 ],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "contractor_service_cluster",
+                "highestPriorityMissingRole": "last_mile_logistics_environment",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "2501 9th St",
@@ -2671,40 +2606,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 2,
-            "partialCount": 3,
+            "developedCount": 3,
+            "partialCount": 2,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
@@ -2714,66 +2623,14 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "developed",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
+              "36 Representative Buildings and 6 Building Briefs.",
+              "5 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science.",
-            "evidence": [
-              "5 primary districts and 10 secondary districts.",
-              "41 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Building Brief coverage is concentrated in Office.",
-            "evidence": [
-              "5 primary districts and 10 secondary districts.",
-              "41 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -2895,12 +2752,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "developed",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
+              "36 Representative Buildings and 6 Building Briefs.",
+              "5 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -3331,12 +3188,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -3697,31 +3554,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 15,
-            "completed": 16,
+            "score": 21,
+            "completed": 22,
             "total": 107,
-            "missing": 91,
-            "explanation": "16 of 107 representative building records use the canonical Building Brief journey.",
+            "missing": 85,
+            "explanation": "22 of 107 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1608 4th St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
                 "code": "missing-brief",
@@ -4122,44 +3960,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "45101-45169 Industrial Dr",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-                "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "46723 Lakeview Blvd",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-                "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-47697-westinghouse-dr",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -4268,25 +4068,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2340 Industrial Pkwy W",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-                "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -5566,44 +5347,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1195 Borregas Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-                "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1550 Pacific St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-30100-30150-ahern-st",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -5791,8 +5534,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 34,
-            "total": 34,
+            "completed": 40,
+            "total": 40,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -6000,25 +5743,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1195 Borregas Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-            "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -6114,25 +5838,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1550 Pacific St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-156-2nd-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -6165,25 +5870,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
             "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1608 4th St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -6526,25 +6212,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
             "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2340 Industrial Pkwy W",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-            "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -7178,25 +6845,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "45101-45169 Industrial Dr",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-            "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-455-mission-bay-blvd-s",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -7210,25 +6858,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "46723 Lakeview Blvd",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-            "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -32533,11 +32162,11 @@
             "label": "Editorial Coverage",
             "score": 88,
             "status": "",
-            "explanation": "18 of 18 districts have substantive descriptions; 107 representative buildings and 16 Building Briefs are available.",
+            "explanation": "18 of 18 districts have substantive descriptions; 107 representative buildings and 22 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 18,
               "representativeBuildings": 107,
-              "buildingBriefs": 16
+              "buildingBriefs": 22
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -32574,7 +32203,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 18,
         "representativeBuildingCount": 107,
-        "buildingBriefCount": 16,
+        "buildingBriefCount": 22,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -32596,9 +32225,8 @@
           "state": "partial",
           "label": "Partial",
           "rationale": [
-            "Office coverage is strong or developed.",
-            "Industrial & Flex is Partial; Retail is Partial; Medical is Partial; Life Science is Partial.",
-            "Building Brief coverage is concentrated in Office."
+            "Office, Industrial & Flex coverage is strong or developed.",
+            "Retail is Partial; Medical is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -32799,13 +32427,13 @@
               "label": "Industrial & Flex",
               "relevance": "core",
               "relevanceLabel": "Core",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "developed",
+              "readinessLabel": "Developed",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
                 "representativeBuildings": "developed",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -32816,26 +32444,24 @@
                 "secondaryDistricts": 3,
                 "recommendations": 7,
                 "representativeBuildings": 36,
-                "buildingBriefs": 0,
+                "buildingBriefs": 6,
                 "subtypes": 7,
                 "archetypes": 9,
                 "activities": 9,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 5,
                 "operationalCategories": 6,
-                "operationalCharacteristics": 10,
-                "reviewRequiredRepresentativeBuildings": 36
+                "operationalCharacteristics": 17,
+                "reviewRequiredRepresentativeBuildings": 30
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 1,
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "small_bay_industrial",
@@ -32866,12 +32492,14 @@
                 "stateLabel": "Strong",
                 "buildingCount": 39,
                 "explicitCount": 3,
-                "inheritedOnlyCount": 36,
-                "reviewRequiredCount": 36,
+                "inheritedOnlyCount": 30,
+                "reviewRequiredCount": 30,
                 "rolesCovered": [
+                  "contractor_service_cluster",
                   "small_bay_service_environment",
-                  "research_development_environment",
-                  "flex_business_park"
+                  "flex_business_park",
+                  "warehouse_distribution_environment",
+                  "research_development_environment"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -32883,16 +32511,19 @@
                 ],
                 "activityCoverage": [
                   "service_dispatch",
+                  "vehicle_storage",
                   "equipment_storage",
-                  "receiving",
-                  "shipping",
                   "light_manufacturing",
                   "customer_showroom",
                   "knowledge_work",
-                  "storage",
+                  "receiving",
+                  "shipping",
                   "product_development",
-                  "research",
-                  "assembly"
+                  "assembly",
+                  "storage",
+                  "distribution",
+                  "inventory_management",
+                  "research"
                 ],
                 "archetypeCoverage": [
                   "cabinet_shop",
@@ -32910,46 +32541,52 @@
                   "auto_repair_business"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "service_vehicle_parking",
+                  "outdoor_storage",
+                  "contractor_yard",
+                  "drive_in_access",
+                  "freeway_access",
                   "grade_level_loading",
                   "small_suite_sizes",
-                  "service_vehicle_parking",
                   "office_warehouse_mix",
-                  "freeway_access",
-                  "high_office_percentage",
-                  "fiber_connectivity",
-                  "research_compatible",
                   "flexible_suite_sizes",
-                  "surface_parking"
+                  "high_office_percentage",
+                  "surface_parking",
+                  "dock_high_loading",
+                  "truck_court",
+                  "high_clearance",
+                  "regional_distribution_access",
+                  "fiber_connectivity",
+                  "research_compatible"
                 ],
                 "operationalCategoriesCovered": [
-                  "access_loading",
-                  "configuration",
                   "parking_vehicles",
+                  "outdoor_special_use",
+                  "access_loading",
                   "location_workforce",
-                  "infrastructure",
-                  "outdoor_special_use"
+                  "configuration",
+                  "infrastructure"
                 ],
                 "missingRoles": [
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
                   "large_scale_distribution_environment",
-                  "urban_industrial_environment"
+                  "urban_industrial_environment",
+                  "industrial_campus_environment"
                 ],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "contractor_service_cluster",
+                "highestPriorityMissingRole": "last_mile_logistics_environment",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "2501 9th St",
@@ -33659,32 +33296,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:industrial_flex:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -33693,12 +33304,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "developed",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -33719,12 +33330,12 @@
               "ecosystemId": "industrial_flex",
               "ecosystemLabel": "Industrial & Flex",
               "relevance": "core",
-              "readinessState": "partial",
+              "readinessState": "developed",
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 0 Building Briefs.",
-                "3 representative roles and 6 operational categories are covered."
+                "36 Representative Buildings and 6 Building Briefs.",
+                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -34189,82 +33800,24 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Building Brief coverage is concentrated in Office.",
-              "evidence": [
-                "5 primary districts and 10 secondary districts.",
-                "41 Representative Buildings and 13 Building Briefs.",
-                "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science.",
-              "evidence": [
-                "5 primary districts and 10 secondary districts.",
-                "41 Representative Buildings and 13 Building Briefs.",
-                "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "office_brief_concentrated",
-            "label": "Office Brief Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.38,
-            "buildingBriefShare": 0.81,
-            "warnings": [
-              "Building Brief coverage is concentrated in Office.",
-              "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science."
-            ]
+            "buildingBriefShare": 0.59,
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "office_brief_concentrated",
-          "label": "Office Brief Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.38,
-          "buildingBriefShare": 0.81,
-          "warnings": [
-            "Building Brief coverage is concentrated in Office.",
-            "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science."
-          ]
+          "buildingBriefShare": 0.59,
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -34460,8 +34013,8 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 7,
               "representativeBuildingCount": 36,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 6,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "north-san-jose",
@@ -34543,33 +34096,38 @@
                 "stateLabel": "Strong",
                 "buildingCount": 39,
                 "explicitCount": 3,
-                "inheritedOnlyCount": 36,
-                "reviewRequiredCount": 36,
+                "inheritedOnlyCount": 30,
+                "reviewRequiredCount": 30,
                 "rolesCovered": {
-                  "small_bay_service_environment": 35,
-                  "research_development_environment": 1,
-                  "flex_business_park": 3
+                  "contractor_service_cluster": 1,
+                  "small_bay_service_environment": 30,
+                  "flex_business_park": 6,
+                  "warehouse_distribution_environment": 1,
+                  "research_development_environment": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 35,
-                  "flex": 31,
-                  "light_manufacturing": 12,
+                  "flex": 32,
+                  "light_manufacturing": 13,
                   "research_development": 11,
                   "warehouse": 16,
                   "manufacturing": 8
                 },
                 "activityCoverage": {
                   "service_dispatch": 36,
-                  "equipment_storage": 35,
-                  "receiving": 36,
-                  "shipping": 36,
+                  "vehicle_storage": 1,
+                  "equipment_storage": 31,
                   "light_manufacturing": 36,
                   "customer_showroom": 12,
-                  "knowledge_work": 15,
+                  "knowledge_work": 18,
+                  "receiving": 35,
+                  "shipping": 35,
+                  "product_development": 7,
+                  "assembly": 7,
                   "storage": 27,
-                  "product_development": 4,
-                  "research": 1,
-                  "assembly": 4
+                  "distribution": 1,
+                  "inventory_management": 1,
+                  "research": 1
                 },
                 "archetypeCoverage": {
                   "cabinet_shop": 39,
@@ -34587,46 +34145,52 @@
                   "auto_repair_business": 3
                 },
                 "operationalCharacteristicsCovered": {
-                  "grade_level_loading": 35,
-                  "small_suite_sizes": 35,
-                  "service_vehicle_parking": 35,
-                  "office_warehouse_mix": 35,
-                  "freeway_access": 38,
-                  "high_office_percentage": 4,
+                  "service_vehicle_parking": 31,
+                  "outdoor_storage": 1,
+                  "contractor_yard": 1,
+                  "drive_in_access": 1,
+                  "freeway_access": 37,
+                  "grade_level_loading": 30,
+                  "small_suite_sizes": 30,
+                  "office_warehouse_mix": 30,
+                  "flexible_suite_sizes": 7,
+                  "high_office_percentage": 7,
+                  "surface_parking": 6,
+                  "dock_high_loading": 1,
+                  "truck_court": 1,
+                  "high_clearance": 1,
+                  "regional_distribution_access": 1,
                   "fiber_connectivity": 1,
-                  "research_compatible": 1,
-                  "flexible_suite_sizes": 4,
-                  "surface_parking": 3
+                  "research_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "access_loading": 35,
-                  "configuration": 78,
-                  "parking_vehicles": 38,
+                  "parking_vehicles": 37,
+                  "outdoor_special_use": 3,
+                  "access_loading": 33,
                   "location_workforce": 38,
-                  "infrastructure": 1,
-                  "outdoor_special_use": 1
+                  "configuration": 75,
+                  "infrastructure": 1
                 },
                 "missingRoles": [
-                  "contractor_service_cluster",
-                  "warehouse_distribution_environment",
                   "last_mile_logistics_environment",
                   "light_manufacturing_environment",
                   "food_production_environment",
                   "showroom_flex_environment",
                   "large_scale_distribution_environment",
-                  "urban_industrial_environment"
+                  "urban_industrial_environment",
+                  "industrial_campus_environment"
                 ],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "contractor_service_cluster",
+                "highestPriorityMissingRole": "last_mile_logistics_environment",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "small_bay_service_environment",
-                    "confidence": "review_required"
+                    "role": "contractor_service_cluster",
+                    "confidence": "district_inferred"
                   },
                   {
                     "name": "2501 9th St",
@@ -35153,40 +34717,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 2,
-            "partialCount": 3,
+            "developedCount": 3,
+            "partialCount": 2,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:industrial_flex:representative_role_thin",
             "code": "representative_role_thin",
@@ -35196,66 +34734,14 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "developed",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
+              "36 Representative Buildings and 6 Building Briefs.",
+              "5 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Office Building Brief depth may mask gaps in Industrial & Flex, Retail, Medical, Life Science.",
-            "evidence": [
-              "5 primary districts and 10 secondary districts.",
-              "41 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Building Brief coverage is concentrated in Office.",
-            "evidence": [
-              "5 primary districts and 10 secondary districts.",
-              "41 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -35377,12 +34863,12 @@
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
-            "readinessState": "partial",
+            "readinessState": "developed",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 0 Building Briefs.",
-              "3 representative roles and 6 operational categories are covered."
+              "36 Representative Buildings and 6 Building Briefs.",
+              "5 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -35813,12 +35299,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Industrial & Flex Ecosystem Building Brief Migration",
+          "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -36179,31 +35665,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 15,
-            "completed": 16,
+            "score": 21,
+            "completed": 22,
             "total": 107,
-            "missing": 91,
-            "explanation": "16 of 107 representative building records use the canonical Building Brief journey.",
+            "missing": 85,
+            "explanation": "22 of 107 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1608 4th St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
                 "code": "missing-brief",
@@ -36604,44 +36071,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "45101-45169 Industrial Dr",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-                "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "46723 Lakeview Blvd",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-                "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-47697-westinghouse-dr",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -36750,25 +36179,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
                 "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2340 Industrial Pkwy W",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-                "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -38048,44 +37458,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1195 Borregas Ave",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-                "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1550 Pacific St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-30100-30150-ahern-st",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -38273,8 +37645,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 34,
-            "total": 34,
+            "completed": 40,
+            "total": 40,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -38482,25 +37854,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1195 Borregas Ave",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-            "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -38596,25 +37949,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1550 Pacific St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-156-2nd-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -38647,25 +37981,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
             "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1608 4th St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -39008,25 +38323,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
             "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2340 Industrial Pkwy W",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-            "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -39660,25 +38956,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "45101-45169 Industrial Dr",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-            "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-455-mission-bay-blvd-s",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -39692,25 +38969,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "46723 Lakeview Blvd",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-            "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -68116,25 +67374,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1195 Borregas Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-        "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -68230,25 +67469,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1550 Pacific St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-156-2nd-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -68281,25 +67501,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
         "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1608 4th St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -68642,25 +67843,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
         "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2340 Industrial Pkwy W",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-        "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -69294,25 +68476,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "45101-45169 Industrial Dr",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-        "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-455-mission-bay-blvd-s",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -69326,25 +68489,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "46723 Lakeview Blvd",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-        "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -74065,25 +73209,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sunnyvale-1195-borregas-ave",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1195 Borregas Ave",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-        "publicUrl": "/commercial-real-estate/building/CA/sunnyvale/1195-borregas-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -74179,25 +73304,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-union-city-1550-pacific-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1550 Pacific St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/union-city/1550-pacific-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-156-2nd-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -74230,25 +73336,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
         "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1608-4th-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1608 4th St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -74591,25 +73678,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
         "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-2340-industrial-pkwy-w",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2340 Industrial Pkwy W",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
-        "publicUrl": "/commercial-real-estate/building/CA/hayward/2340-industrial-pkwy-w/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -75243,25 +74311,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-45101-45169-industrial-dr",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "45101-45169 Industrial Dr",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-        "publicUrl": "/commercial-real-estate/building/CA/fremont/45101-45169-industrial-dr/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-455-mission-bay-blvd-s",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -75275,25 +74324,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-fremont-46723-lakeview-blvd",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "46723 Lakeview Blvd",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
-        "publicUrl": "/commercial-real-estate/building/CA/fremont/46723-lakeview-blvd/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,

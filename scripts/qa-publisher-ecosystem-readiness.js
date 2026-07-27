@@ -148,7 +148,7 @@ const sanFrancisco = metroById("san-francisco");
 if (sanFrancisco) {
   requireField(["strong", "partial"].includes(sanFrancisco.ecosystemReadiness.state), `San Francisco: expected ecosystem readiness strong or partial, got ${sanFrancisco.ecosystemReadiness.state}`);
   requireField(evaluationFor(sanFrancisco, "office").readinessState === "developed", "San Francisco: office should be developed");
-  requireField(evaluationFor(sanFrancisco, "industrial_flex").readinessState === "partial", "San Francisco: industrial/flex should be partial");
+  requireField(["partial", "developed"].includes(evaluationFor(sanFrancisco, "industrial_flex").readinessState), "San Francisco: industrial/flex should be partial or developed");
 }
 
 ["san-diego", "orange-county", "denver"].forEach((id) => {
