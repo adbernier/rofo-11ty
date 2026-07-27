@@ -210,6 +210,21 @@ function record(fields) {
       comparisonBuildings: (fields.comparisonBuildingPaths || []).slice(0, 5),
       relatedDistricts: fields.relatedDistrictPaths || [],
     },
+    commercialIntelligence: {
+      primaryEcosystem: brief.ecosystemContext.primaryEcosystem,
+      ecosystemSubtypes: brief.ecosystemContext.ecosystemSubtypes,
+      representativeRole: brief.ecosystemContext.representativeRole,
+      businessActivities: brief.businessFit.activities,
+      businessArchetypes: brief.businessFit.archetypes,
+      operationalCharacteristics: brief.operationalCharacteristics,
+      representativeReasons: [
+        fields.editorialReason,
+        brief.environmentExplanation.representativeValue,
+      ],
+      tradeoffs: brief.tradeoffs,
+      validationFocus: brief.validationChecklist,
+      confidence: brief.confidence,
+    },
     quality: {
       sourceConfidence: fields.sourceConfidence || "medium",
       publicationStatus: "published",

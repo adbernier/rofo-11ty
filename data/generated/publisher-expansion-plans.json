@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T08:37:17-07:00",
+  "generatedAt": "2026-07-27T09:01:07-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -387,15 +387,15 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 39,
-              "explicitCount": 3,
+              "explicitCount": 9,
               "inheritedOnlyCount": 30,
               "reviewRequiredCount": 30,
               "rolesCovered": {
-                "contractor_service_cluster": 1,
-                "small_bay_service_environment": 30,
-                "flex_business_park": 6,
+                "small_bay_service_environment": 31,
+                "flex_business_park": 5,
                 "warehouse_distribution_environment": 1,
-                "research_development_environment": 1
+                "research_development_environment": 1,
+                "light_manufacturing_environment": 1
               },
               "subtypesCovered": {
                 "small_bay_industrial": 35,
@@ -406,15 +406,14 @@
                 "manufacturing": 8
               },
               "activityCoverage": {
-                "service_dispatch": 36,
-                "vehicle_storage": 1,
+                "service_dispatch": 35,
                 "equipment_storage": 31,
+                "receiving": 36,
+                "shipping": 36,
                 "light_manufacturing": 36,
                 "customer_showroom": 12,
                 "knowledge_work": 18,
-                "receiving": 35,
-                "shipping": 35,
-                "product_development": 7,
+                "product_development": 6,
                 "assembly": 7,
                 "storage": 27,
                 "distribution": 1,
@@ -426,63 +425,57 @@
                 "creative_studio": 12,
                 "food_producer": 12,
                 "general_contractor": 39,
+                "light_manufacturer": 25,
                 "electrician": 39,
-                "hvac_company": 39,
-                "plumbing_company": 39,
-                "landscaper": 15,
-                "light_manufacturer": 24,
+                "hvac_company": 36,
+                "plumbing_company": 36,
+                "landscaper": 14,
+                "research_company": 3,
+                "startup": 3,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
                 "furniture_maker": 3,
                 "auto_repair_business": 3
               },
               "operationalCharacteristicsCovered": {
-                "service_vehicle_parking": 31,
-                "outdoor_storage": 1,
-                "contractor_yard": 1,
-                "drive_in_access": 1,
-                "freeway_access": 37,
-                "grade_level_loading": 30,
-                "small_suite_sizes": 30,
-                "office_warehouse_mix": 30,
-                "flexible_suite_sizes": 7,
-                "high_office_percentage": 7,
+                "grade_level_loading": 33,
+                "small_suite_sizes": 33,
+                "service_vehicle_parking": 33,
+                "office_warehouse_mix": 35,
+                "freeway_access": 38,
+                "research_compatible": 3,
                 "surface_parking": 6,
+                "flexible_suite_sizes": 6,
+                "high_office_percentage": 6,
                 "dock_high_loading": 1,
                 "truck_court": 1,
                 "high_clearance": 1,
                 "regional_distribution_access": 1,
                 "fiber_connectivity": 1,
-                "research_compatible": 1
+                "moderate_clearance": 1,
+                "high_power": 1,
+                "assembly_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "parking_vehicles": 37,
-                "outdoor_special_use": 3,
-                "access_loading": 33,
-                "location_workforce": 38,
-                "configuration": 75,
-                "infrastructure": 1
+                "access_loading": 35,
+                "configuration": 82,
+                "parking_vehicles": 39,
+                "location_workforce": 39,
+                "outdoor_special_use": 4,
+                "infrastructure": 2
               },
-              "missingRoles": [
-                "last_mile_logistics_environment",
-                "light_manufacturing_environment",
-                "food_production_environment",
-                "showroom_flex_environment",
-                "large_scale_distribution_environment",
-                "urban_industrial_environment",
-                "industrial_campus_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "market_presence"
               ],
-              "highestPriorityMissingRole": "last_mile_logistics_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "market_presence",
               "exampleBuildings": [
                 {
                   "name": "1608 4th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                  "role": "contractor_service_cluster",
-                  "confidence": "district_inferred"
+                  "role": "small_bay_service_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2501 9th St",
@@ -1303,15 +1296,15 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 39,
-              "explicitCount": 3,
+              "explicitCount": 9,
               "inheritedOnlyCount": 30,
               "reviewRequiredCount": 30,
               "rolesCovered": [
-                "contractor_service_cluster",
                 "small_bay_service_environment",
                 "flex_business_park",
                 "warehouse_distribution_environment",
-                "research_development_environment"
+                "research_development_environment",
+                "light_manufacturing_environment"
               ],
               "subtypesCovered": [
                 "small_bay_industrial",
@@ -1323,13 +1316,12 @@
               ],
               "activityCoverage": [
                 "service_dispatch",
-                "vehicle_storage",
                 "equipment_storage",
+                "receiving",
+                "shipping",
                 "light_manufacturing",
                 "customer_showroom",
                 "knowledge_work",
-                "receiving",
-                "shipping",
                 "product_development",
                 "assembly",
                 "storage",
@@ -1342,63 +1334,57 @@
                 "creative_studio",
                 "food_producer",
                 "general_contractor",
+                "light_manufacturer",
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
                 "landscaper",
-                "light_manufacturer",
+                "research_company",
+                "startup",
                 "distributor",
                 "ecommerce_fulfillment_business",
                 "furniture_maker",
                 "auto_repair_business"
               ],
               "operationalCharacteristicsCovered": [
-                "service_vehicle_parking",
-                "outdoor_storage",
-                "contractor_yard",
-                "drive_in_access",
-                "freeway_access",
                 "grade_level_loading",
                 "small_suite_sizes",
+                "service_vehicle_parking",
                 "office_warehouse_mix",
+                "freeway_access",
+                "research_compatible",
+                "surface_parking",
                 "flexible_suite_sizes",
                 "high_office_percentage",
-                "surface_parking",
                 "dock_high_loading",
                 "truck_court",
                 "high_clearance",
                 "regional_distribution_access",
                 "fiber_connectivity",
-                "research_compatible"
+                "moderate_clearance",
+                "high_power",
+                "assembly_compatible"
               ],
               "operationalCategoriesCovered": [
-                "parking_vehicles",
-                "outdoor_special_use",
                 "access_loading",
-                "location_workforce",
                 "configuration",
+                "parking_vehicles",
+                "location_workforce",
+                "outdoor_special_use",
                 "infrastructure"
               ],
-              "missingRoles": [
-                "last_mile_logistics_environment",
-                "light_manufacturing_environment",
-                "food_production_environment",
-                "showroom_flex_environment",
-                "large_scale_distribution_environment",
-                "urban_industrial_environment",
-                "industrial_campus_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "market_presence"
               ],
-              "highestPriorityMissingRole": "last_mile_logistics_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "market_presence",
               "exampleBuildings": [
                 {
                   "name": "1608 4th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                  "role": "contractor_service_cluster",
-                  "confidence": "district_inferred"
+                  "role": "small_bay_service_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2501 9th St",
@@ -2108,32 +2094,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 6 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:operational_category_gap",
             "code": "operational_category_gap",
             "label": "Operational Category Gap",
@@ -2632,32 +2592,6 @@
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:industrial_flex:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "developed",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "7 primary districts and 3 secondary districts.",
-            "36 Representative Buildings and 6 Building Briefs.",
-            "5 representative roles and 6 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:office:representative_role_thin",
           "code": "representative_role_thin",
@@ -3192,18 +3126,18 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
-        "objective": "Improve San Francisco commercial balance by advancing Industrial & Flex from Developed toward stronger ecosystem readiness.",
-        "ecosystemId": "industrial_flex",
-        "ecosystemLabel": "Industrial & Flex",
+        "title": "San Francisco Office Ecosystem Representative Building Foundation",
+        "objective": "Improve San Francisco commercial balance by advancing Office from Developed toward stronger ecosystem readiness.",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
         "relevance": "core",
         "relevanceLabel": "Core",
         "readinessState": "developed",
         "readinessLabel": "Developed",
         "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Industrial & Flex is Core for San Francisco and is currently Developed. Representative role coverage is too narrow for this ecosystem.",
+        "rationale": "Office is Core for San Francisco and is currently Developed. Representative role coverage is too narrow for this ecosystem.",
         "gapCode": "representative_role_thin",
-        "priorityScore": 94,
+        "priorityScore": 91,
         "layers": {
           "districts": "developed",
           "recommendations": "developed",
@@ -3215,144 +3149,128 @@
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 7,
-          "secondaryDistricts": 3,
-          "recommendations": 7,
-          "representativeBuildings": 36,
-          "buildingBriefs": 6,
+          "districts": 5,
+          "secondaryDistricts": 10,
+          "recommendations": 5,
+          "representativeBuildings": 41,
+          "buildingBriefs": 13,
           "subtypes": 7,
-          "archetypes": 9,
-          "activities": 9,
+          "archetypes": 10,
+          "activities": 7,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 5,
-          "operationalCategories": 6,
-          "operationalCharacteristics": 17,
-          "reviewRequiredRepresentativeBuildings": 30
+          "operationalCategories": 5,
+          "operationalCharacteristics": 12,
+          "reviewRequiredRepresentativeBuildings": 9
         },
         "gaps": [],
         "targetSubtypes": [
-          "small_bay_industrial",
-          "flex",
-          "warehouse",
-          "distribution",
-          "light_manufacturing"
+          "downtown_office",
+          "professional_office",
+          "creative_office",
+          "executive_office",
+          "suburban_office"
         ],
         "targetArchetypes": [
-          "general_contractor",
-          "electrician",
-          "hvac_company",
-          "plumbing_company",
-          "landscaper",
-          "cabinet_shop"
+          "professional_office",
+          "law_firm",
+          "accounting_firm",
+          "financial_services_firm",
+          "consulting_firm",
+          "marketing_agency"
         ],
         "targetActivities": [
-          "receiving",
-          "shipping",
-          "storage",
-          "distribution",
-          "service_dispatch",
-          "light_manufacturing"
+          "knowledge_work",
+          "client_meetings",
+          "collaboration",
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "last_mile_logistics_environment",
-          "light_manufacturing_environment",
-          "food_production_environment",
-          "showroom_flex_environment",
-          "large_scale_distribution_environment",
-          "urban_industrial_environment",
-          "industrial_campus_environment"
+          "downtown_class_a_office",
+          "government_office_environment",
+          "small_tenant_office_environment"
         ],
         "missingOperationalCategories": [
-          "market_presence"
+          "access_loading",
+          "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [
-          "contractor_service_cluster",
-          "small_bay_service_environment",
-          "flex_business_park",
-          "warehouse_distribution_environment",
-          "research_development_environment"
+          "creative_office_environment",
+          "professional_office_environment",
+          "executive_office_environment",
+          "suburban_office_campus",
+          "transit_oriented_office_environment"
         ],
         "currentOperationalCategories": [
-          "parking_vehicles",
-          "outdoor_special_use",
-          "access_loading",
-          "location_workforce",
+          "market_presence",
           "configuration",
+          "location_workforce",
+          "parking_vehicles",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "1608 4th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-            "role": "contractor_service_cluster",
+            "name": "One Bush Plaza / Crown Zellerbach Building",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
+            "role": "creative_office_environment",
             "confidence": "district_inferred"
           },
           {
-            "name": "2501 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "One Sansome",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
+            "role": "creative_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2550 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "100 Pine",
+            "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "role": "professional_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2560 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "1000 Sansome",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+            "role": "creative_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2600 10th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "101 California",
+            "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
+            "role": "executive_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2929 7th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-            "role": "small_bay_service_environment",
+            "name": "1100 Grant Ave",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+            "role": "creative_office_environment",
             "confidence": "review_required"
           }
         ],
         "districtCandidates": [
           {
-            "slug": "north-san-jose",
-            "label": "North San Jose",
-            "path": "/commercial-real-estate/CA/san-jose/north-san-jose/"
+            "slug": "soma",
+            "label": "SoMa",
+            "path": "/commercial-real-estate/CA/san-francisco/soma/"
           },
           {
-            "slug": "moffett-park",
-            "label": "Moffett Park",
-            "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/"
+            "slug": "financial-district",
+            "label": "Financial District",
+            "path": "/commercial-real-estate/CA/san-francisco/financial-district/"
           },
           {
-            "slug": "north-bayshore",
-            "label": "North Bayshore",
-            "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/"
+            "slug": "jackson-square",
+            "label": "Jackson Square",
+            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/"
           },
           {
-            "slug": "hayward-industrial",
-            "label": "Hayward Industrial",
-            "path": "/commercial-real-estate/CA/hayward/hayward-industrial/"
+            "slug": "stanford-research-park",
+            "label": "Stanford Research Park",
+            "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/"
           },
           {
-            "slug": "union-city-industrial",
-            "label": "Union City Industrial",
-            "path": "/commercial-real-estate/CA/union-city/union-city-industrial/"
-          },
-          {
-            "slug": "warm-springs-innovation-district",
-            "label": "Warm Springs Innovation District",
-            "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
-          },
-          {
-            "slug": "west-berkeley",
-            "label": "West Berkeley",
-            "path": "/commercial-real-estate/CA/berkeley/west-berkeley/"
+            "slug": "emeryville-commercial-core",
+            "label": "Emeryville Commercial Core",
+            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
           }
         ],
         "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
@@ -3374,11 +3292,8 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": {
-          "title": "San Francisco Office Building Brief Migration",
-          "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
-        },
-        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Industrial & Flex Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Industrial & Flex (industrial_flex)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- small_bay_industrial, flex, warehouse, distribution, light_manufacturing\nTarget archetypes:\n- general_contractor, electrician, hvac_company, plumbing_company, landscaper, cabinet_shop\nTarget business activities:\n- receiving, shipping, storage, distribution, service_dispatch, light_manufacturing\nMissing representative roles:\n- last_mile_logistics_environment, light_manufacturing_environment, food_production_environment, showroom_flex_environment, large_scale_distribution_environment, urban_industrial_environment, industrial_campus_environment\nMissing operational categories:\n- market_presence\nExisting representative buildings:\n- 1608 4th St (contractor_service_cluster); 2501 9th St (small_bay_service_environment); 2550 9th St (small_bay_service_environment); 2560 9th St (small_bay_service_environment); 2600 10th St (small_bay_service_environment); 2929 7th St (small_bay_service_environment)\nDistrict candidates:\n- North San Jose, Moffett Park, North Bayshore, Hayward Industrial, Union City Industrial, Warm Springs Innovation District, West Berkeley\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": null,
+        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- downtown_class_a_office, government_office_environment, small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- One Bush Plaza / Crown Zellerbach Building (creative_office_environment); One Sansome (creative_office_environment); 100 Pine (professional_office_environment); 1000 Sansome (creative_office_environment); 101 California (executive_office_environment); 1100 Grant Ave (creative_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -16584,7 +16499,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -25424,7 +25339,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -35246,7 +35161,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -44238,7 +44153,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -53780,7 +53695,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -59096,7 +59011,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -59428,15 +59343,15 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 39,
-              "explicitCount": 3,
+              "explicitCount": 9,
               "inheritedOnlyCount": 30,
               "reviewRequiredCount": 30,
               "rolesCovered": {
-                "contractor_service_cluster": 1,
-                "small_bay_service_environment": 30,
-                "flex_business_park": 6,
+                "small_bay_service_environment": 31,
+                "flex_business_park": 5,
                 "warehouse_distribution_environment": 1,
-                "research_development_environment": 1
+                "research_development_environment": 1,
+                "light_manufacturing_environment": 1
               },
               "subtypesCovered": {
                 "small_bay_industrial": 35,
@@ -59447,15 +59362,14 @@
                 "manufacturing": 8
               },
               "activityCoverage": {
-                "service_dispatch": 36,
-                "vehicle_storage": 1,
+                "service_dispatch": 35,
                 "equipment_storage": 31,
+                "receiving": 36,
+                "shipping": 36,
                 "light_manufacturing": 36,
                 "customer_showroom": 12,
                 "knowledge_work": 18,
-                "receiving": 35,
-                "shipping": 35,
-                "product_development": 7,
+                "product_development": 6,
                 "assembly": 7,
                 "storage": 27,
                 "distribution": 1,
@@ -59467,63 +59381,57 @@
                 "creative_studio": 12,
                 "food_producer": 12,
                 "general_contractor": 39,
+                "light_manufacturer": 25,
                 "electrician": 39,
-                "hvac_company": 39,
-                "plumbing_company": 39,
-                "landscaper": 15,
-                "light_manufacturer": 24,
+                "hvac_company": 36,
+                "plumbing_company": 36,
+                "landscaper": 14,
+                "research_company": 3,
+                "startup": 3,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
                 "furniture_maker": 3,
                 "auto_repair_business": 3
               },
               "operationalCharacteristicsCovered": {
-                "service_vehicle_parking": 31,
-                "outdoor_storage": 1,
-                "contractor_yard": 1,
-                "drive_in_access": 1,
-                "freeway_access": 37,
-                "grade_level_loading": 30,
-                "small_suite_sizes": 30,
-                "office_warehouse_mix": 30,
-                "flexible_suite_sizes": 7,
-                "high_office_percentage": 7,
+                "grade_level_loading": 33,
+                "small_suite_sizes": 33,
+                "service_vehicle_parking": 33,
+                "office_warehouse_mix": 35,
+                "freeway_access": 38,
+                "research_compatible": 3,
                 "surface_parking": 6,
+                "flexible_suite_sizes": 6,
+                "high_office_percentage": 6,
                 "dock_high_loading": 1,
                 "truck_court": 1,
                 "high_clearance": 1,
                 "regional_distribution_access": 1,
                 "fiber_connectivity": 1,
-                "research_compatible": 1
+                "moderate_clearance": 1,
+                "high_power": 1,
+                "assembly_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "parking_vehicles": 37,
-                "outdoor_special_use": 3,
-                "access_loading": 33,
-                "location_workforce": 38,
-                "configuration": 75,
-                "infrastructure": 1
+                "access_loading": 35,
+                "configuration": 82,
+                "parking_vehicles": 39,
+                "location_workforce": 39,
+                "outdoor_special_use": 4,
+                "infrastructure": 2
               },
-              "missingRoles": [
-                "last_mile_logistics_environment",
-                "light_manufacturing_environment",
-                "food_production_environment",
-                "showroom_flex_environment",
-                "large_scale_distribution_environment",
-                "urban_industrial_environment",
-                "industrial_campus_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "market_presence"
               ],
-              "highestPriorityMissingRole": "last_mile_logistics_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "market_presence",
               "exampleBuildings": [
                 {
                   "name": "1608 4th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                  "role": "contractor_service_cluster",
-                  "confidence": "district_inferred"
+                  "role": "small_bay_service_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2501 9th St",
@@ -60344,15 +60252,15 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 39,
-              "explicitCount": 3,
+              "explicitCount": 9,
               "inheritedOnlyCount": 30,
               "reviewRequiredCount": 30,
               "rolesCovered": [
-                "contractor_service_cluster",
                 "small_bay_service_environment",
                 "flex_business_park",
                 "warehouse_distribution_environment",
-                "research_development_environment"
+                "research_development_environment",
+                "light_manufacturing_environment"
               ],
               "subtypesCovered": [
                 "small_bay_industrial",
@@ -60364,13 +60272,12 @@
               ],
               "activityCoverage": [
                 "service_dispatch",
-                "vehicle_storage",
                 "equipment_storage",
+                "receiving",
+                "shipping",
                 "light_manufacturing",
                 "customer_showroom",
                 "knowledge_work",
-                "receiving",
-                "shipping",
                 "product_development",
                 "assembly",
                 "storage",
@@ -60383,63 +60290,57 @@
                 "creative_studio",
                 "food_producer",
                 "general_contractor",
+                "light_manufacturer",
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
                 "landscaper",
-                "light_manufacturer",
+                "research_company",
+                "startup",
                 "distributor",
                 "ecommerce_fulfillment_business",
                 "furniture_maker",
                 "auto_repair_business"
               ],
               "operationalCharacteristicsCovered": [
-                "service_vehicle_parking",
-                "outdoor_storage",
-                "contractor_yard",
-                "drive_in_access",
-                "freeway_access",
                 "grade_level_loading",
                 "small_suite_sizes",
+                "service_vehicle_parking",
                 "office_warehouse_mix",
+                "freeway_access",
+                "research_compatible",
+                "surface_parking",
                 "flexible_suite_sizes",
                 "high_office_percentage",
-                "surface_parking",
                 "dock_high_loading",
                 "truck_court",
                 "high_clearance",
                 "regional_distribution_access",
                 "fiber_connectivity",
-                "research_compatible"
+                "moderate_clearance",
+                "high_power",
+                "assembly_compatible"
               ],
               "operationalCategoriesCovered": [
-                "parking_vehicles",
-                "outdoor_special_use",
                 "access_loading",
-                "location_workforce",
                 "configuration",
+                "parking_vehicles",
+                "location_workforce",
+                "outdoor_special_use",
                 "infrastructure"
               ],
-              "missingRoles": [
-                "last_mile_logistics_environment",
-                "light_manufacturing_environment",
-                "food_production_environment",
-                "showroom_flex_environment",
-                "large_scale_distribution_environment",
-                "urban_industrial_environment",
-                "industrial_campus_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "market_presence"
               ],
-              "highestPriorityMissingRole": "last_mile_logistics_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "market_presence",
               "exampleBuildings": [
                 {
                   "name": "1608 4th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                  "role": "contractor_service_cluster",
-                  "confidence": "district_inferred"
+                  "role": "small_bay_service_environment",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2501 9th St",
@@ -61149,32 +61050,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 6 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:industrial_flex:operational_category_gap",
             "code": "operational_category_gap",
             "label": "Operational Category Gap",
@@ -61673,32 +61548,6 @@
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:industrial_flex:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "medium",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "relevance": "core",
-          "readinessState": "developed",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "7 primary districts and 3 secondary districts.",
-            "36 Representative Buildings and 6 Building Briefs.",
-            "5 representative roles and 6 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:office:representative_role_thin",
           "code": "representative_role_thin",
@@ -62233,18 +62082,18 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
-        "objective": "Improve San Francisco commercial balance by advancing Industrial & Flex from Developed toward stronger ecosystem readiness.",
-        "ecosystemId": "industrial_flex",
-        "ecosystemLabel": "Industrial & Flex",
+        "title": "San Francisco Office Ecosystem Representative Building Foundation",
+        "objective": "Improve San Francisco commercial balance by advancing Office from Developed toward stronger ecosystem readiness.",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
         "relevance": "core",
         "relevanceLabel": "Core",
         "readinessState": "developed",
         "readinessLabel": "Developed",
         "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Industrial & Flex is Core for San Francisco and is currently Developed. Representative role coverage is too narrow for this ecosystem.",
+        "rationale": "Office is Core for San Francisco and is currently Developed. Representative role coverage is too narrow for this ecosystem.",
         "gapCode": "representative_role_thin",
-        "priorityScore": 94,
+        "priorityScore": 91,
         "layers": {
           "districts": "developed",
           "recommendations": "developed",
@@ -62256,144 +62105,128 @@
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 7,
-          "secondaryDistricts": 3,
-          "recommendations": 7,
-          "representativeBuildings": 36,
-          "buildingBriefs": 6,
+          "districts": 5,
+          "secondaryDistricts": 10,
+          "recommendations": 5,
+          "representativeBuildings": 41,
+          "buildingBriefs": 13,
           "subtypes": 7,
-          "archetypes": 9,
-          "activities": 9,
+          "archetypes": 10,
+          "activities": 7,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 5,
-          "operationalCategories": 6,
-          "operationalCharacteristics": 17,
-          "reviewRequiredRepresentativeBuildings": 30
+          "operationalCategories": 5,
+          "operationalCharacteristics": 12,
+          "reviewRequiredRepresentativeBuildings": 9
         },
         "gaps": [],
         "targetSubtypes": [
-          "small_bay_industrial",
-          "flex",
-          "warehouse",
-          "distribution",
-          "light_manufacturing"
+          "downtown_office",
+          "professional_office",
+          "creative_office",
+          "executive_office",
+          "suburban_office"
         ],
         "targetArchetypes": [
-          "general_contractor",
-          "electrician",
-          "hvac_company",
-          "plumbing_company",
-          "landscaper",
-          "cabinet_shop"
+          "professional_office",
+          "law_firm",
+          "accounting_firm",
+          "financial_services_firm",
+          "consulting_firm",
+          "marketing_agency"
         ],
         "targetActivities": [
-          "receiving",
-          "shipping",
-          "storage",
-          "distribution",
-          "service_dispatch",
-          "light_manufacturing"
+          "knowledge_work",
+          "client_meetings",
+          "collaboration",
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "last_mile_logistics_environment",
-          "light_manufacturing_environment",
-          "food_production_environment",
-          "showroom_flex_environment",
-          "large_scale_distribution_environment",
-          "urban_industrial_environment",
-          "industrial_campus_environment"
+          "downtown_class_a_office",
+          "government_office_environment",
+          "small_tenant_office_environment"
         ],
         "missingOperationalCategories": [
-          "market_presence"
+          "access_loading",
+          "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [
-          "contractor_service_cluster",
-          "small_bay_service_environment",
-          "flex_business_park",
-          "warehouse_distribution_environment",
-          "research_development_environment"
+          "creative_office_environment",
+          "professional_office_environment",
+          "executive_office_environment",
+          "suburban_office_campus",
+          "transit_oriented_office_environment"
         ],
         "currentOperationalCategories": [
-          "parking_vehicles",
-          "outdoor_special_use",
-          "access_loading",
-          "location_workforce",
+          "market_presence",
           "configuration",
+          "location_workforce",
+          "parking_vehicles",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "1608 4th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-            "role": "contractor_service_cluster",
+            "name": "One Bush Plaza / Crown Zellerbach Building",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
+            "role": "creative_office_environment",
             "confidence": "district_inferred"
           },
           {
-            "name": "2501 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "One Sansome",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
+            "role": "creative_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2550 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "100 Pine",
+            "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "role": "professional_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2560 9th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "1000 Sansome",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
+            "role": "creative_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2600 10th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-            "role": "small_bay_service_environment",
-            "confidence": "review_required"
+            "name": "101 California",
+            "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
+            "role": "executive_office_environment",
+            "confidence": "district_inferred"
           },
           {
-            "name": "2929 7th St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-            "role": "small_bay_service_environment",
+            "name": "1100 Grant Ave",
+            "path": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+            "role": "creative_office_environment",
             "confidence": "review_required"
           }
         ],
         "districtCandidates": [
           {
-            "slug": "north-san-jose",
-            "label": "North San Jose",
-            "path": "/commercial-real-estate/CA/san-jose/north-san-jose/"
+            "slug": "soma",
+            "label": "SoMa",
+            "path": "/commercial-real-estate/CA/san-francisco/soma/"
           },
           {
-            "slug": "moffett-park",
-            "label": "Moffett Park",
-            "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/"
+            "slug": "financial-district",
+            "label": "Financial District",
+            "path": "/commercial-real-estate/CA/san-francisco/financial-district/"
           },
           {
-            "slug": "north-bayshore",
-            "label": "North Bayshore",
-            "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/"
+            "slug": "jackson-square",
+            "label": "Jackson Square",
+            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/"
           },
           {
-            "slug": "hayward-industrial",
-            "label": "Hayward Industrial",
-            "path": "/commercial-real-estate/CA/hayward/hayward-industrial/"
+            "slug": "stanford-research-park",
+            "label": "Stanford Research Park",
+            "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/"
           },
           {
-            "slug": "union-city-industrial",
-            "label": "Union City Industrial",
-            "path": "/commercial-real-estate/CA/union-city/union-city-industrial/"
-          },
-          {
-            "slug": "warm-springs-innovation-district",
-            "label": "Warm Springs Innovation District",
-            "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
-          },
-          {
-            "slug": "west-berkeley",
-            "label": "West Berkeley",
-            "path": "/commercial-real-estate/CA/berkeley/west-berkeley/"
+            "slug": "emeryville-commercial-core",
+            "label": "Emeryville Commercial Core",
+            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
           }
         ],
         "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
@@ -62415,11 +62248,8 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": {
-          "title": "San Francisco Office Building Brief Migration",
-          "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
-        },
-        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Industrial & Flex Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Industrial & Flex (industrial_flex)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- small_bay_industrial, flex, warehouse, distribution, light_manufacturing\nTarget archetypes:\n- general_contractor, electrician, hvac_company, plumbing_company, landscaper, cabinet_shop\nTarget business activities:\n- receiving, shipping, storage, distribution, service_dispatch, light_manufacturing\nMissing representative roles:\n- last_mile_logistics_environment, light_manufacturing_environment, food_production_environment, showroom_flex_environment, large_scale_distribution_environment, urban_industrial_environment, industrial_campus_environment\nMissing operational categories:\n- market_presence\nExisting representative buildings:\n- 1608 4th St (contractor_service_cluster); 2501 9th St (small_bay_service_environment); 2550 9th St (small_bay_service_environment); 2560 9th St (small_bay_service_environment); 2600 10th St (small_bay_service_environment); 2929 7th St (small_bay_service_environment)\nDistrict candidates:\n- North San Jose, Moffett Park, North Bayshore, Hayward Industrial, Union City Industrial, Warm Springs Innovation District, West Berkeley\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": null,
+        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- downtown_class_a_office, government_office_environment, small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- One Bush Plaza / Crown Zellerbach Building (creative_office_environment); One Sansome (creative_office_environment); 100 Pine (professional_office_environment); 1000 Sansome (creative_office_environment); 101 California (executive_office_environment); 1100 Grant Ave (creative_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -75625,7 +75455,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -84465,7 +84295,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -94287,7 +94117,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -103279,7 +103109,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-27T08:37:17-07:00",
+      "generatedAt": "2026-07-27T09:01:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,

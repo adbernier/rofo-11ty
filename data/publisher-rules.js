@@ -128,6 +128,15 @@ const ECOSYSTEM_READINESS = {
     },
   },
   targetRepresentativeRoles: {
+    "san-francisco": {
+      industrial_flex: [
+        "small_bay_service_environment",
+        "research_development_environment",
+        "warehouse_distribution_environment",
+        "light_manufacturing_environment",
+        "flex_business_park",
+      ],
+    },
     denver: {
       office: [
         "downtown_class_a_office",

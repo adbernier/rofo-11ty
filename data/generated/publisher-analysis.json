@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T08:37:17-07:00",
-  "sourceCommit": "824e3d15b4071001d967c25a9b7e06448cd92e9e",
+  "generatedAt": "2026-07-27T09:01:07-07:00",
+  "sourceCommit": "bb941fac3b9a5e467e9628d556e015c7f508a7c0",
   "analysis": {
-    "generatedAt": "2026-07-27T08:37:17-07:00",
+    "generatedAt": "2026-07-27T09:01:07-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -380,15 +380,15 @@
                 "state": "strong",
                 "stateLabel": "Strong",
                 "buildingCount": 39,
-                "explicitCount": 3,
+                "explicitCount": 9,
                 "inheritedOnlyCount": 30,
                 "reviewRequiredCount": 30,
                 "rolesCovered": [
-                  "contractor_service_cluster",
                   "small_bay_service_environment",
                   "flex_business_park",
                   "warehouse_distribution_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "light_manufacturing_environment"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -400,13 +400,12 @@
                 ],
                 "activityCoverage": [
                   "service_dispatch",
-                  "vehicle_storage",
                   "equipment_storage",
+                  "receiving",
+                  "shipping",
                   "light_manufacturing",
                   "customer_showroom",
                   "knowledge_work",
-                  "receiving",
-                  "shipping",
                   "product_development",
                   "assembly",
                   "storage",
@@ -419,63 +418,57 @@
                   "creative_studio",
                   "food_producer",
                   "general_contractor",
+                  "light_manufacturer",
                   "electrician",
                   "hvac_company",
                   "plumbing_company",
                   "landscaper",
-                  "light_manufacturer",
+                  "research_company",
+                  "startup",
                   "distributor",
                   "ecommerce_fulfillment_business",
                   "furniture_maker",
                   "auto_repair_business"
                 ],
                 "operationalCharacteristicsCovered": [
-                  "service_vehicle_parking",
-                  "outdoor_storage",
-                  "contractor_yard",
-                  "drive_in_access",
-                  "freeway_access",
                   "grade_level_loading",
                   "small_suite_sizes",
+                  "service_vehicle_parking",
                   "office_warehouse_mix",
+                  "freeway_access",
+                  "research_compatible",
+                  "surface_parking",
                   "flexible_suite_sizes",
                   "high_office_percentage",
-                  "surface_parking",
                   "dock_high_loading",
                   "truck_court",
                   "high_clearance",
                   "regional_distribution_access",
                   "fiber_connectivity",
-                  "research_compatible"
+                  "moderate_clearance",
+                  "high_power",
+                  "assembly_compatible"
                 ],
                 "operationalCategoriesCovered": [
-                  "parking_vehicles",
-                  "outdoor_special_use",
                   "access_loading",
-                  "location_workforce",
                   "configuration",
+                  "parking_vehicles",
+                  "location_workforce",
+                  "outdoor_special_use",
                   "infrastructure"
                 ],
-                "missingRoles": [
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment",
-                  "industrial_campus_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "last_mile_logistics_environment",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "role": "small_bay_service_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "2501 9th St",
@@ -1173,32 +1166,6 @@
                 "5 primary districts and 10 secondary districts.",
                 "41 Representative Buildings and 13 Building Briefs.",
                 "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 6 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -1984,15 +1951,15 @@
                 "state": "strong",
                 "stateLabel": "Strong",
                 "buildingCount": 39,
-                "explicitCount": 3,
+                "explicitCount": 9,
                 "inheritedOnlyCount": 30,
                 "reviewRequiredCount": 30,
                 "rolesCovered": {
-                  "contractor_service_cluster": 1,
-                  "small_bay_service_environment": 30,
-                  "flex_business_park": 6,
+                  "small_bay_service_environment": 31,
+                  "flex_business_park": 5,
                   "warehouse_distribution_environment": 1,
-                  "research_development_environment": 1
+                  "research_development_environment": 1,
+                  "light_manufacturing_environment": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 35,
@@ -2003,15 +1970,14 @@
                   "manufacturing": 8
                 },
                 "activityCoverage": {
-                  "service_dispatch": 36,
-                  "vehicle_storage": 1,
+                  "service_dispatch": 35,
                   "equipment_storage": 31,
+                  "receiving": 36,
+                  "shipping": 36,
                   "light_manufacturing": 36,
                   "customer_showroom": 12,
                   "knowledge_work": 18,
-                  "receiving": 35,
-                  "shipping": 35,
-                  "product_development": 7,
+                  "product_development": 6,
                   "assembly": 7,
                   "storage": 27,
                   "distribution": 1,
@@ -2023,63 +1989,57 @@
                   "creative_studio": 12,
                   "food_producer": 12,
                   "general_contractor": 39,
+                  "light_manufacturer": 25,
                   "electrician": 39,
-                  "hvac_company": 39,
-                  "plumbing_company": 39,
-                  "landscaper": 15,
-                  "light_manufacturer": 24,
+                  "hvac_company": 36,
+                  "plumbing_company": 36,
+                  "landscaper": 14,
+                  "research_company": 3,
+                  "startup": 3,
                   "distributor": 24,
                   "ecommerce_fulfillment_business": 24,
                   "furniture_maker": 3,
                   "auto_repair_business": 3
                 },
                 "operationalCharacteristicsCovered": {
-                  "service_vehicle_parking": 31,
-                  "outdoor_storage": 1,
-                  "contractor_yard": 1,
-                  "drive_in_access": 1,
-                  "freeway_access": 37,
-                  "grade_level_loading": 30,
-                  "small_suite_sizes": 30,
-                  "office_warehouse_mix": 30,
-                  "flexible_suite_sizes": 7,
-                  "high_office_percentage": 7,
+                  "grade_level_loading": 33,
+                  "small_suite_sizes": 33,
+                  "service_vehicle_parking": 33,
+                  "office_warehouse_mix": 35,
+                  "freeway_access": 38,
+                  "research_compatible": 3,
                   "surface_parking": 6,
+                  "flexible_suite_sizes": 6,
+                  "high_office_percentage": 6,
                   "dock_high_loading": 1,
                   "truck_court": 1,
                   "high_clearance": 1,
                   "regional_distribution_access": 1,
                   "fiber_connectivity": 1,
-                  "research_compatible": 1
+                  "moderate_clearance": 1,
+                  "high_power": 1,
+                  "assembly_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "parking_vehicles": 37,
-                  "outdoor_special_use": 3,
-                  "access_loading": 33,
-                  "location_workforce": 38,
-                  "configuration": 75,
-                  "infrastructure": 1
+                  "access_loading": 35,
+                  "configuration": 82,
+                  "parking_vehicles": 39,
+                  "location_workforce": 39,
+                  "outdoor_special_use": 4,
+                  "infrastructure": 2
                 },
-                "missingRoles": [
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment",
-                  "industrial_campus_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "last_mile_logistics_environment",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "role": "small_bay_service_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "2501 9th St",
@@ -2614,32 +2574,6 @@
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 6 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
@@ -3188,9 +3122,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
+          "title": "San Francisco Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
           "sprintFamily": "Ecosystem Representative Building Foundation",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "gapCode": "representative_role_thin",
@@ -32491,15 +32425,15 @@
                 "state": "strong",
                 "stateLabel": "Strong",
                 "buildingCount": 39,
-                "explicitCount": 3,
+                "explicitCount": 9,
                 "inheritedOnlyCount": 30,
                 "reviewRequiredCount": 30,
                 "rolesCovered": [
-                  "contractor_service_cluster",
                   "small_bay_service_environment",
                   "flex_business_park",
                   "warehouse_distribution_environment",
-                  "research_development_environment"
+                  "research_development_environment",
+                  "light_manufacturing_environment"
                 ],
                 "subtypesCovered": [
                   "small_bay_industrial",
@@ -32511,13 +32445,12 @@
                 ],
                 "activityCoverage": [
                   "service_dispatch",
-                  "vehicle_storage",
                   "equipment_storage",
+                  "receiving",
+                  "shipping",
                   "light_manufacturing",
                   "customer_showroom",
                   "knowledge_work",
-                  "receiving",
-                  "shipping",
                   "product_development",
                   "assembly",
                   "storage",
@@ -32530,63 +32463,57 @@
                   "creative_studio",
                   "food_producer",
                   "general_contractor",
+                  "light_manufacturer",
                   "electrician",
                   "hvac_company",
                   "plumbing_company",
                   "landscaper",
-                  "light_manufacturer",
+                  "research_company",
+                  "startup",
                   "distributor",
                   "ecommerce_fulfillment_business",
                   "furniture_maker",
                   "auto_repair_business"
                 ],
                 "operationalCharacteristicsCovered": [
-                  "service_vehicle_parking",
-                  "outdoor_storage",
-                  "contractor_yard",
-                  "drive_in_access",
-                  "freeway_access",
                   "grade_level_loading",
                   "small_suite_sizes",
+                  "service_vehicle_parking",
                   "office_warehouse_mix",
+                  "freeway_access",
+                  "research_compatible",
+                  "surface_parking",
                   "flexible_suite_sizes",
                   "high_office_percentage",
-                  "surface_parking",
                   "dock_high_loading",
                   "truck_court",
                   "high_clearance",
                   "regional_distribution_access",
                   "fiber_connectivity",
-                  "research_compatible"
+                  "moderate_clearance",
+                  "high_power",
+                  "assembly_compatible"
                 ],
                 "operationalCategoriesCovered": [
-                  "parking_vehicles",
-                  "outdoor_special_use",
                   "access_loading",
-                  "location_workforce",
                   "configuration",
+                  "parking_vehicles",
+                  "location_workforce",
+                  "outdoor_special_use",
                   "infrastructure"
                 ],
-                "missingRoles": [
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment",
-                  "industrial_campus_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "last_mile_logistics_environment",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "role": "small_bay_service_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "2501 9th St",
@@ -33284,32 +33211,6 @@
                 "5 primary districts and 10 secondary districts.",
                 "41 Representative Buildings and 13 Building Briefs.",
                 "5 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "7 primary districts and 3 secondary districts.",
-                "36 Representative Buildings and 6 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -34095,15 +33996,15 @@
                 "state": "strong",
                 "stateLabel": "Strong",
                 "buildingCount": 39,
-                "explicitCount": 3,
+                "explicitCount": 9,
                 "inheritedOnlyCount": 30,
                 "reviewRequiredCount": 30,
                 "rolesCovered": {
-                  "contractor_service_cluster": 1,
-                  "small_bay_service_environment": 30,
-                  "flex_business_park": 6,
+                  "small_bay_service_environment": 31,
+                  "flex_business_park": 5,
                   "warehouse_distribution_environment": 1,
-                  "research_development_environment": 1
+                  "research_development_environment": 1,
+                  "light_manufacturing_environment": 1
                 },
                 "subtypesCovered": {
                   "small_bay_industrial": 35,
@@ -34114,15 +34015,14 @@
                   "manufacturing": 8
                 },
                 "activityCoverage": {
-                  "service_dispatch": 36,
-                  "vehicle_storage": 1,
+                  "service_dispatch": 35,
                   "equipment_storage": 31,
+                  "receiving": 36,
+                  "shipping": 36,
                   "light_manufacturing": 36,
                   "customer_showroom": 12,
                   "knowledge_work": 18,
-                  "receiving": 35,
-                  "shipping": 35,
-                  "product_development": 7,
+                  "product_development": 6,
                   "assembly": 7,
                   "storage": 27,
                   "distribution": 1,
@@ -34134,63 +34034,57 @@
                   "creative_studio": 12,
                   "food_producer": 12,
                   "general_contractor": 39,
+                  "light_manufacturer": 25,
                   "electrician": 39,
-                  "hvac_company": 39,
-                  "plumbing_company": 39,
-                  "landscaper": 15,
-                  "light_manufacturer": 24,
+                  "hvac_company": 36,
+                  "plumbing_company": 36,
+                  "landscaper": 14,
+                  "research_company": 3,
+                  "startup": 3,
                   "distributor": 24,
                   "ecommerce_fulfillment_business": 24,
                   "furniture_maker": 3,
                   "auto_repair_business": 3
                 },
                 "operationalCharacteristicsCovered": {
-                  "service_vehicle_parking": 31,
-                  "outdoor_storage": 1,
-                  "contractor_yard": 1,
-                  "drive_in_access": 1,
-                  "freeway_access": 37,
-                  "grade_level_loading": 30,
-                  "small_suite_sizes": 30,
-                  "office_warehouse_mix": 30,
-                  "flexible_suite_sizes": 7,
-                  "high_office_percentage": 7,
+                  "grade_level_loading": 33,
+                  "small_suite_sizes": 33,
+                  "service_vehicle_parking": 33,
+                  "office_warehouse_mix": 35,
+                  "freeway_access": 38,
+                  "research_compatible": 3,
                   "surface_parking": 6,
+                  "flexible_suite_sizes": 6,
+                  "high_office_percentage": 6,
                   "dock_high_loading": 1,
                   "truck_court": 1,
                   "high_clearance": 1,
                   "regional_distribution_access": 1,
                   "fiber_connectivity": 1,
-                  "research_compatible": 1
+                  "moderate_clearance": 1,
+                  "high_power": 1,
+                  "assembly_compatible": 1
                 },
                 "operationalCategoriesCovered": {
-                  "parking_vehicles": 37,
-                  "outdoor_special_use": 3,
-                  "access_loading": 33,
-                  "location_workforce": 38,
-                  "configuration": 75,
-                  "infrastructure": 1
+                  "access_loading": 35,
+                  "configuration": 82,
+                  "parking_vehicles": 39,
+                  "location_workforce": 39,
+                  "outdoor_special_use": 4,
+                  "infrastructure": 2
                 },
-                "missingRoles": [
-                  "last_mile_logistics_environment",
-                  "light_manufacturing_environment",
-                  "food_production_environment",
-                  "showroom_flex_environment",
-                  "large_scale_distribution_environment",
-                  "urban_industrial_environment",
-                  "industrial_campus_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [
                   "market_presence"
                 ],
-                "highestPriorityMissingRole": "last_mile_logistics_environment",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "market_presence",
                 "exampleBuildings": [
                   {
                     "name": "1608 4th St",
                     "path": "/commercial-real-estate/building/CA/berkeley/1608-4th-st/",
-                    "role": "contractor_service_cluster",
-                    "confidence": "district_inferred"
+                    "role": "small_bay_service_environment",
+                    "confidence": "editorially_supported"
                   },
                   {
                     "name": "2501 9th St",
@@ -34725,32 +34619,6 @@
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 3 secondary districts.",
-              "36 Representative Buildings and 6 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
@@ -35299,9 +35167,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Industrial & Flex Ecosystem Representative Building Foundation",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
+          "title": "San Francisco Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
           "sprintFamily": "Ecosystem Representative Building Foundation",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "gapCode": "representative_role_thin",
