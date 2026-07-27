@@ -6,6 +6,8 @@ It turns curated commercial environments into product evidence. A building, camp
 
 This document is architectural. It does not implement runtime behavior, change Publisher scoring, change Compass recommendations, or migrate existing records.
 
+The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.
@@ -512,4 +514,3 @@ Do not use Commercial Market Evidence to:
 - reward quantity over explanatory value
 
 Commercial Market Evidence should make Rofo more credible because the examples are selected, sourced, and useful.
-
