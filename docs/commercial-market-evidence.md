@@ -6,7 +6,7 @@ It turns curated commercial environments into product evidence. A building, camp
 
 This document is architectural. It does not implement runtime behavior, change Publisher scoring, change Compass recommendations, or migrate existing records.
 
-The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
+The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Its first production source dataset lives in `data/commercial-market-evidence/san-francisco/financial-district.js` and is exposed to Eleventy through `_data/commercialMarketEvidence.js`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
 
 ## Purpose
 
