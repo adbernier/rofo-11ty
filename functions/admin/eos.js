@@ -1207,7 +1207,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
             : validation
               ? "Needs manual QA"
               : "Not reported",
-        publisherOutcome: improvements[0] ? `${improvements[0].before} -> ${improvements[0].after}` : "Not reported",
+        publisherOutcome: improvements[0] ? improvements[0].before + " -> " + improvements[0].after : "Not reported",
         limitations: limitations ? "Reported" : "None reported",
         followup: followup || "Not reported",
       };
