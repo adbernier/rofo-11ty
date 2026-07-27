@@ -19,12 +19,6 @@ const neighboringDistrictRelationships = [
       "Jackson Square is a stronger comparison when boutique character, smaller floorplates, historic texture, and a less tower-oriented executive environment matter more than formal CBD scale.",
   },
   {
-    districtId: "south-financial-district",
-    districtName: "South Financial District",
-    relationship:
-      "South Financial District and the Transbay edge are stronger comparisons when newer headquarters towers, SoMa adjacency, and contemporary large-company identity matter more than traditional professional-service routines.",
-  },
-  {
     districtId: "soma",
     districtName: "SoMa",
     relationship:
@@ -746,4 +740,3 @@ module.exports = {
     },
   ],
 };
-

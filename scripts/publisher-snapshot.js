@@ -4,6 +4,7 @@ const { execFileSync } = require("child_process");
 const { analyzePublisher } = require("../lib/publisher/analyze-metros.js");
 const { buildPublisherExpansionPlans } = require("../lib/publisher/expansion-planner.js");
 const { buildEditorialOperatingSystem } = require("../lib/eos/editorial-operating-system.js");
+const { runValidation: validateCommercialMarketEvidence } = require("./qa-commercial-market-evidence.js");
 
 function gitValue(args) {
   try {
@@ -22,12 +23,37 @@ function buildSnapshot() {
   const generatedAt = process.env.SOURCE_DATE_EPOCH
     ? new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString()
     : gitValue(["show", "-s", "--format=%cI", "HEAD"]) || "unknown";
+  const commercialMarketEvidenceValidation = validateCommercialMarketEvidence();
+  const commercialMarketEvidence = {
+    schemaVersion: "commercial-market-evidence-platform-v1",
+    service: "Commercial Market Evidence",
+    status: commercialMarketEvidenceValidation.validationStatus === "PASS" ? "Validated" : "Needs Attention",
+    validationStatus: commercialMarketEvidenceValidation.validationStatus,
+    collections: commercialMarketEvidenceValidation.collections,
+    districts: commercialMarketEvidenceValidation.districts,
+    evidenceRecords: commercialMarketEvidenceValidation.evidenceRecords,
+    evidenceTypes: commercialMarketEvidenceValidation.evidenceTypes,
+    evidenceRoles: commercialMarketEvidenceValidation.evidenceRoles,
+    confidenceSummary: commercialMarketEvidenceValidation.confidenceBuckets,
+    deferredCandidates: commercialMarketEvidenceValidation.deferredCandidates,
+    latestValidation: generatedAt,
+    errors: commercialMarketEvidenceValidation.errors,
+    warnings: commercialMarketEvidenceValidation.warnings,
+    source: {
+      system: "Commercial Market Evidence Validator",
+      script: "scripts/qa-commercial-market-evidence.js",
+    },
+    scoringImpact: "None. Reporting only; Publisher scoring and readiness calculations are unchanged.",
+  };
+  const analysis = analyzePublisher({ generatedAt });
+  analysis.commercialMarketEvidence = commercialMarketEvidence;
 
   return {
     schemaVersion: 1,
     generatedAt,
     sourceCommit,
-    analysis: analyzePublisher({ generatedAt }),
+    commercialMarketEvidence,
+    analysis,
   };
 }
 

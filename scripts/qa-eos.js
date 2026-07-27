@@ -3,6 +3,7 @@ const path = require("path");
 
 const ROOT = process.cwd();
 const EOS_PATH = path.join(ROOT, "data/generated/eos-analysis.json");
+const PUBLISHER_PATH = path.join(ROOT, "data/generated/publisher-analysis.json");
 const ADMIN_PATH = path.join(ROOT, "functions/admin/eos.js");
 
 const REQUIRED_SIGNALS = [
@@ -48,9 +49,10 @@ function validScore(value) {
 }
 
 const eos = readJson(EOS_PATH);
+const publisher = readJson(PUBLISHER_PATH);
 const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf8") : "";
 
-if (!eos) process.exit();
+if (!eos || !publisher) process.exit();
 
 if (eos.eosVersion !== "editorial-operating-system-v2.2.4") {
   fail("EOS version is missing or invalid.");
@@ -90,6 +92,24 @@ for (const lane of eos.operatingLanes || []) {
 
 if (!Array.isArray(eos.executionHandoff) || eos.executionHandoff.map((step) => step.id).join(">") !== "engineering>execution>qa>publish") {
   fail("EOS execution handoff must be Engineering -> Execution -> QA -> Publish.");
+}
+
+const publisherMarketEvidence = publisher.analysis && publisher.analysis.commercialMarketEvidence;
+if (!publisherMarketEvidence || publisherMarketEvidence.schemaVersion !== "commercial-market-evidence-platform-v1") {
+  fail("Publisher snapshot must expose the Commercial Market Evidence platform summary.");
+}
+
+if (publisherMarketEvidence && (!publisherMarketEvidence.scoringImpact || !publisherMarketEvidence.scoringImpact.includes("scoring"))) {
+  fail("Commercial Market Evidence platform summary must state that Publisher scoring is unchanged.");
+}
+
+const eosMarketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
+if (!eosMarketEvidence || eosMarketEvidence.service !== "Commercial Market Evidence") {
+  fail("EOS must expose Commercial Market Evidence as a read-only platform service.");
+}
+
+if (eosMarketEvidence && !String(eosMarketEvidence.planningImpact || "").includes("without generating Market Evidence missions")) {
+  fail("Commercial Market Evidence must not generate Mission Control planning in v1.");
 }
 
 for (const level of eos.automationLevels || []) {
@@ -140,6 +160,10 @@ for (const metro of eos.metros || []) {
 
 if (!Array.isArray(eos.workQueue) || eos.workQueue.length === 0) {
   fail("EOS work queue is empty.");
+}
+
+if ((eos.workQueue || []).some((item) => /Commercial Market Evidence|Market Evidence/.test(JSON.stringify(item)))) {
+  fail("Commercial Market Evidence must not generate Mission Control work items in v1.");
 }
 
 if (!eos.portfolioQueues) {
@@ -285,6 +309,16 @@ if (/require\(|analyzePublisher\(/.test(adminSource) || /from\s+["'][^"']*locati
 
 for (const section of ["Mission Control", "Current Focus", "Focus Today", "Show All Missions", "Metro Health", "Expansion Queue", "Field Mode Queue", "Review Queue", "Mission Archive", "Commence Work"]) {
   if (!adminSource.includes(section)) fail(`/admin/eos is missing section or action: ${section}`);
+}
+
+for (const marketEvidenceSource of [
+  "renderCommercialMarketEvidenceService",
+  "Commercial Market Evidence",
+  "Read-only platform health",
+  "does not generate Market Evidence missions",
+  "platformServices",
+]) {
+  if (!adminSource.includes(marketEvidenceSource)) fail(`/admin/eos Commercial Market Evidence display is missing: ${marketEvidenceSource}`);
 }
 
 if (!adminSource.includes("executionHandoff") || !adminSource.includes("renderHandoffSummary")) {

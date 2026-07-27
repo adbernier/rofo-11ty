@@ -1,15 +1,68 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T09:01:07-07:00",
+  "generatedAt": "2026-07-27T14:04:50-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
     "Compass",
     "Commercial Knowledge Graph",
+    "Commercial Market Evidence",
     "Field Mode",
     "QA",
     "Editorial Planning"
   ],
+  "platformServices": {
+    "commercialMarketEvidence": {
+      "schemaVersion": "commercial-market-evidence-platform-v1",
+      "service": "Commercial Market Evidence",
+      "status": "Validated",
+      "validationStatus": "PASS",
+      "collections": 1,
+      "districts": [
+        "Financial District"
+      ],
+      "evidenceRecords": 10,
+      "evidenceTypes": [
+        "Boutique-Leaning Class A Tower",
+        "Class A Office Tower",
+        "Historic Modernist Office",
+        "Institutional Office Tower",
+        "Landmark / Waterfront-Edge Office",
+        "Landmark Tower",
+        "Mixed-Use Commercial Center",
+        "Professional Services Tower",
+        "Repositioned Downtown Tower",
+        "Trophy Office Tower"
+      ],
+      "evidenceRoles": [
+        "Adaptive Reuse / Amenity Repositioning Benchmark",
+        "Architectural Identity / Legacy Office Benchmark",
+        "District Anchor / Corporate Benchmark",
+        "District Anchor / Waterfront Edge",
+        "District Icon / North Downtown Edge",
+        "Embarcadero-Facing Professional Services Benchmark",
+        "Executive Benchmark / Scale Comparison",
+        "North Financial District Edge / Comparison Example",
+        "Practical Mid-Market CBD Benchmark",
+        "Transit-Oriented Professional Services Benchmark"
+      ],
+      "confidenceSummary": {
+        "High": 10
+      },
+      "deferredCandidates": 5,
+      "latestValidation": "2026-07-27T14:04:50-07:00",
+      "errors": [],
+      "warnings": [],
+      "source": {
+        "system": "Commercial Market Evidence Validator",
+        "script": "scripts/qa-commercial-market-evidence.js"
+      },
+      "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged.",
+      "owner": "Commercial Market Evidence",
+      "displayedBy": "Mission Control",
+      "planningImpact": "None in v1. Mission Control displays platform health without generating Market Evidence missions."
+    }
+  },
   "automationLevels": [
     {
       "id": "autonomous",

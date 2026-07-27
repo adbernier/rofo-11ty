@@ -8,6 +8,8 @@ This document is architectural. It does not implement runtime behavior, change P
 
 The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Its first production source dataset lives in `data/commercial-market-evidence/san-francisco/financial-district.js` and is exposed to Eleventy through `_data/commercialMarketEvidence.js`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
 
+Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as read-only platform health, and Mission Control displays that health without generating missions or changing prioritization.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.
@@ -346,9 +348,13 @@ Human review confirms whether the candidate actually explains the market. Approv
 
 Publisher measures the approved evidence layer and reports gaps, imbalance, review-required records, and migration opportunities.
 
+Current v1 platform integration is intentionally narrower: Publisher includes the Commercial Market Evidence validator summary in generated analysis for visibility only. It reports collections, validation status, evidence-record count, coverage, confidence buckets, and deferred candidates without changing Publisher scores or readiness calculations.
+
 ### Mission Control Planning
 
 Mission Control converts measurable gaps into missions. It should bundle related evidence work conservatively and route photography to Field Mode.
+
+Current v1 platform integration displays the generated Commercial Market Evidence health summary in Mission Control as read-only platform status. Mission generation from Market Evidence signals remains deferred.
 
 ### Building Profile Migration
 
@@ -383,9 +389,23 @@ Publisher should avoid:
 - inferring market importance from missing data
 - mixing photography coverage into knowledge readiness without labeling it separately
 
+## Validation
+
+Commercial Market Evidence source data is validated by:
+
+```bash
+node scripts/qa-commercial-market-evidence.js
+```
+
+The validator loads `_data/commercialMarketEvidence.js`, checks dataset integrity, required fields, relationship references, Building Profile references, confidence values, source notes, and editorial quality signals such as placeholders, empty arrays, missing tradeoffs, missing alternatives, duplicate descriptions, and overly short narrative fields.
+
+The script prints a concise coverage report and exposes a structured summary object. `npm run publisher:snapshot` consumes that summary and writes a read-only Commercial Market Evidence platform section into `data/generated/publisher-analysis.json` and `data/generated/eos-analysis.json`.
+
 ## Mission Control Integration
 
-Mission Control should generate Market Evidence missions from Publisher signals.
+Mission Control currently displays Market Evidence platform health from generated EOS analysis. This is visibility-only and does not alter mission bundling, prioritization, execution packets, or review flow.
+
+Future Mission Control work should generate Market Evidence missions from Publisher signals.
 
 Mission types may include:
 

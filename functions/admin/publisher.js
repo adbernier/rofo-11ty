@@ -103,6 +103,46 @@ function renderMetric(label, value, note) {
   `;
 }
 
+function renderCommercialMarketEvidence(summary) {
+  if (!summary) {
+    return `
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <h2>Commercial Market Evidence</h2>
+            <p>Commercial Market Evidence has no generated validation summary in this snapshot.</p>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+  const confidence = Object.entries(summary.confidenceSummary || {})
+    .map(([label, count]) => `${label}: ${count}`)
+    .join("; ") || "No confidence records";
+  const validationNote = summary.latestValidation
+    ? "Latest validation: " + summary.latestValidation
+    : "No validation timestamp";
+  return `
+    <section class="panel commercial-market-evidence">
+      <div class="section-header">
+        <div>
+          <h2>Commercial Market Evidence</h2>
+          <p>Validated evidence collections are reported as an additive platform layer. This section does not change Publisher scoring or readiness calculations.</p>
+        </div>
+        <span class="severity ${summary.validationStatus === "PASS" ? "is-low" : "is-high"}">${escapeHtml(summary.status || summary.validationStatus || "Unknown")}</span>
+      </div>
+      <section class="metrics metrics--compact" aria-label="Commercial Market Evidence summary">
+        ${renderMetric("Collections", String(summary.collections || 0), "Validated source collections")}
+        ${renderMetric("Evidence Records", String(summary.evidenceRecords || 0), "Curated commercial environments")}
+        ${renderMetric("Coverage", (summary.districts || []).join(", ") || "No districts", "District collections")}
+        ${renderMetric("Confidence Summary", confidence, "Validator buckets")}
+        ${renderMetric("Validation Status", summary.validationStatus || "Unknown", validationNote)}
+        ${renderMetric("Deferred Candidates", String(summary.deferredCandidates || 0), "Future evidence candidates")}
+      </section>
+    </section>
+  `;
+}
+
 function renderProgress(value) {
   const safeValue = Math.max(0, Math.min(100, Math.round(Number(value) || 0)));
   return `
@@ -185,6 +225,8 @@ function renderOverview({ analysis, token }) {
       ${renderMetric("Closest to Distribution", analysis.overview.closestToDistributionReady, "Highest current score")}
       ${renderMetric("Largest Critical Gap", analysis.overview.largestCriticalGap, "None means no critical issues")}
     </section>
+
+    ${renderCommercialMarketEvidence(analysis.commercialMarketEvidence)}
 
     <section class="panel">
       <div class="section-header">
@@ -717,6 +759,7 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
     .panel, .metric, .category-card { border: 1px solid var(--border); border-radius: 14px; background: #fff; box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05); }
     .panel { margin-bottom: 18px; padding: 22px; }
     .metrics { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .metrics--compact { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 0; }
     .metric { padding: 16px; }
     .metric span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
     .metric strong { display: block; margin: 8px 0 5px; font-size: 1.55rem; letter-spacing: -0.02em; }
@@ -766,7 +809,7 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
     .prompt-export summary { cursor: pointer; color: var(--blue); font-weight: 900; }
     .prompt-export textarea { width: 100%; min-height: 360px; margin-top: 12px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: #0f172a; color: #e5edf8; font: 0.85rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
     .back-link, .quiet { display: inline-block; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 800; }
-    @media (max-width: 1120px) { .metrics, .category-grid, .dimension-grid, .readiness-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 1120px) { .metrics, .metrics--compact, .category-grid, .dimension-grid, .readiness-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 720px) { main { width: min(100% - 24px, 1480px); padding-top: 22px; } .metrics, .category-grid, .dimension-grid, .readiness-grid, .detail-grid { grid-template-columns: 1fr; } .panel { padding: 16px; } th, td { padding: 10px 8px; } }
   </style>
 </head>

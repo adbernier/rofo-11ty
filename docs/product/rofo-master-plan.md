@@ -101,6 +101,8 @@ Commercial Market Evidence is Rofo's curated evidence layer for explaining why a
 
 The architecture is documented in `docs/commercial-market-evidence.md`. Market Evidence should improve credibility and explainability without turning raw building count into quality, fabricating property facts, or changing recommendation rankings by default.
 
+Commercial Market Evidence is a first-class platform service. Its source data and validator own evidence quality; Publisher reports the validator summary for visibility; Mission Control displays platform health without planning from it until a focused future sprint connects those signals.
+
 ### Publisher
 
 Publisher is the deterministic coverage and production-planning system for metro readiness. It inspects repository data, measures coverage, identifies gaps, and produces work queues and expansion plans.

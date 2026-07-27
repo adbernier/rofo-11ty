@@ -8,6 +8,8 @@ Publisher now sits inside the broader Editorial Operating System documented in `
 
 Commercial Market Evidence is documented in `docs/commercial-market-evidence.md`. Future Publisher work can measure that evidence layer additively, but this document does not change current Publisher behavior or scoring.
 
+Publisher now includes a read-only Commercial Market Evidence platform section generated from `scripts/qa-commercial-market-evidence.js`. This reports validator health, collection count, evidence-record count, district coverage, confidence buckets, and deferred candidates. It is informational only and does not affect Publisher scoring, readiness calculations, or queue priority.
+
 ## Purpose
 
 Publisher answers one operational question:
@@ -29,14 +31,19 @@ Publisher v1 reads:
 - `_data/locationComparisonPages.js`
 - `_data/commercialBuildingComparisons.js`
 - `data/publisher-rules.js`
+- `_data/commercialMarketEvidence.js`
+- `data/commercial-market-evidence/`
 - `docs/editorial-style-guide.md`
 - `docs/building-page-standard.md`
 - `docs/commercial-ecosystem-data-model.md`
+- `scripts/qa-commercial-market-evidence.js`
 - recommendation QA documentation under `docs/recommendation-qa/`
 
 Publisher does not create a second source of truth for editorial content. The rules file only defines deterministic thresholds, metro grouping, scoring weights, and phrases that can be checked safely.
 
 Commercial ecosystem coverage is generated from the Commercial Location Graph and canonical taxonomy. It is reporting-only in v1 and does not alter Publisher readiness scores.
+
+Commercial Market Evidence platform status is generated from the Market Evidence validator and included in Publisher snapshots for visibility. It remains separate from commercial ecosystem scoring and readiness.
 
 Publisher also reports additive Geographic Readiness and Ecosystem Readiness gates. These make it clear when a metro is geographically developed but commercially incomplete. They do not replace the existing Overall Publisher Score.
 

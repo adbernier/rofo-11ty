@@ -8,6 +8,8 @@ EOS implementation decisions should remain aligned with the durable Rofo product
 
 Commercial Market Evidence planning decisions should remain aligned with `docs/commercial-market-evidence.md`. That architecture defines how Representative Buildings, Building Profiles, and curated commercial environments become measurable evidence without changing Publisher scoring or Compass recommendation ownership by default.
 
+Mission Control now displays Commercial Market Evidence as a read-only platform service. It consumes the generated validator summary through EOS analysis, but it does not plan Market Evidence missions or alter priority ordering in the current integration.
+
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
 ## Vision
@@ -28,6 +30,8 @@ EOS separates four layers:
 - Evaluation: reusable health signals with scores, states, rationale, and source-system metadata.
 - Planning: prioritized work items with automation level, effort, impact, dependencies, confidence, category, module, and measurable "why this task" explanations.
 - Presentation: `/admin/eos`, a dashboard that consumes generated EOS JSON and does not perform repository analysis at request time.
+
+Commercial Market Evidence is exposed through the generated `platformServices.commercialMarketEvidence` summary. The summary is produced by Publisher snapshot generation from the Market Evidence validator, then displayed by Mission Control as platform health only.
 
 The current generated artifact is:
 

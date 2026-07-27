@@ -697,6 +697,33 @@ function renderHandoffSummary(eos) {
   `;
 }
 
+function renderCommercialMarketEvidenceService(eos) {
+  const service = eos.platformServices && eos.platformServices.commercialMarketEvidence;
+  if (!service) return "";
+  const confidence = Object.entries(service.confidenceSummary || {})
+    .map(([label, count]) => `${label}: ${count}`)
+    .join("; ") || "No confidence records";
+  const validationNote = service.latestValidation
+    ? " · Latest validation: " + service.latestValidation
+    : "";
+  return `
+    <section class="platform-service" aria-label="Commercial Market Evidence">
+      <div>
+        <span>Commercial Market Evidence</span>
+        <h2>${escapeHtml(service.status || service.validationStatus || "Unavailable")}</h2>
+        <p>Read-only platform health from the Commercial Market Evidence validator. Mission Control does not generate Market Evidence missions from this signal in v1.</p>
+      </div>
+      <div class="platform-service__metrics">
+        <article><strong>${escapeHtml(String(service.collections || 0))}</strong><span>Collections</span></article>
+        <article><strong>${escapeHtml(String(service.evidenceRecords || 0))}</strong><span>Evidence Records</span></article>
+        <article><strong>${escapeHtml((service.districts || []).join(", ") || "No districts")}</strong><span>Coverage</span></article>
+        <article><strong>${escapeHtml(service.validationStatus || "Unknown")}</strong><span>Validation</span></article>
+      </div>
+      <p class="platform-service__meta">${escapeHtml(confidence + validationNote)}</p>
+    </section>
+  `;
+}
+
 function renderInventory(eos, token) {
   const items = ((eos.portfolioQueues || {}).editorialQueue || []).slice(0, 100);
   return `
@@ -809,6 +836,7 @@ function renderOverview(eos, token) {
 
     ${renderQueueSummary(eos)}
     ${renderHandoffSummary(eos)}
+    ${renderCommercialMarketEvidenceService(eos)}
 
     <section class="queue-section">
       <div class="section-heading">
@@ -1042,6 +1070,14 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .handoff-rail { margin: 14px 0 0; }
     .handoff-summary span, .handoff-rail span { display: block; color: #334155; font-size: 0.82rem; font-weight: 900; }
     .handoff-summary p, .handoff-rail p { margin: 6px 0 0; font-size: 0.84rem; }
+    .platform-service { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 18px; align-items: start; margin: 0 0 24px; padding: 20px; border: 1px solid #c7d7ee; border-radius: 20px; background: rgba(255,255,255,0.9); box-shadow: 0 16px 44px rgba(15, 23, 42, 0.055); }
+    .platform-service span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .platform-service h2 { margin: 7px 0 8px; font-size: 1.55rem; }
+    .platform-service p { margin-bottom: 0; }
+    .platform-service__metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .platform-service__metrics article { padding: 12px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; box-shadow: none; }
+    .platform-service__metrics strong { display: block; margin-bottom: 4px; color: #0f172a; font-size: 1.05rem; line-height: 1.18; }
+    .platform-service__meta { grid-column: 1 / -1; padding-top: 4px; font-size: 0.84rem; }
     .codex-handoff { margin: 16px 0; padding: 16px; border: 1px solid #bfdbfe; border-radius: 16px; background: #eff6ff; }
     .codex-handoff__top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
     .codex-handoff__top h3 { margin-bottom: 4px; }
@@ -1094,7 +1130,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .mission-review__hero, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
