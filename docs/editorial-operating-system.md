@@ -14,6 +14,8 @@ EOS also discovers Commercial Market Evidence expansion opportunities by compari
 
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
+Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.
+
 ## Vision
 
 EOS should eventually answer three operating questions:
@@ -96,6 +98,27 @@ EOS v2.2 separates active work from opportunity inventory.
 - Commercial Market Evidence Expansion: read-only collection coverage and suggested expansion order for districts without Market Evidence collections.
 
 This keeps EOS useful as an operating system rather than a long queue report.
+
+## Market-Centric Projection
+
+Mission Control v2 introduces an additive market-centric projection in `data/generated/eos-analysis.json`.
+
+The projection organizes existing EOS evidence as:
+
+```text
+Markets
+Programs
+Initiatives
+Missions
+Execution Packets
+Work Items
+```
+
+Markets are the primary planning object because Rofo is built market by market. Programs sit inside each market and represent durable product systems: Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph. Initiatives represent meaningful milestones inside a Program. Missions remain the executable unit and continue to generate the same execution packets. Work items remain hidden evidence used to explain why missions exist.
+
+This projection is additive. It does not change Publisher scoring, mission generation, execution behavior, SER v1, Field Mode, Compass, recommendations, or the current Mission Control UI. It is the future data model for Mission Control v2.
+
+EOS owns the projection. Publisher still determines readiness and constraints. Commercial Market Evidence owns collections and validation. Building Profiles own public building content. Field Mode owns photography. Mission Control will render the projection in a future UI sprint.
 
 ## Mission Bundling
 

@@ -119,6 +119,10 @@ EOS is the operating layer above Publisher, Compass, Field Mode, Knowledge Graph
 
 The operator-facing EOS product is Mission Control. Mission Control is the morning briefing surface: it should make the next focused engineering session obvious, keep raw opportunities secondary, and show mission outcomes without exposing implementation detail.
 
+Mission Control v2 operating-model decisions should remain aligned with `docs/mission-control-v2-operating-model.md`. That document defines the proposed Programs, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy for scaling Rofo's editorial operating system beyond Publisher-driven task queues.
+
+Mission Control v2 uses markets as the primary planning object. EOS projects existing work as Markets -> Programs -> Initiatives -> Missions -> Execution Packets -> hidden Work Items so Rofo can reason about market completion before redesigning the operator UI.
+
 EOS answers:
 
 - How healthy are Rofo's metros?
