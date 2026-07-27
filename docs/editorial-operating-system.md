@@ -10,6 +10,8 @@ Commercial Market Evidence planning decisions should remain aligned with `docs/c
 
 Mission Control now displays Commercial Market Evidence as a read-only platform service. It consumes the generated validator summary through EOS analysis, but it does not plan Market Evidence missions or alter priority ordering in the current integration.
 
+EOS also discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. This presence-based queue is informational only in v1 and does not create executable missions.
+
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
 ## Vision
@@ -32,6 +34,8 @@ EOS separates four layers:
 - Presentation: `/admin/eos`, a dashboard that consumes generated EOS JSON and does not perform repository analysis at request time.
 
 Commercial Market Evidence is exposed through the generated `platformServices.commercialMarketEvidence` summary. The summary is produced by Publisher snapshot generation from the Market Evidence validator, then displayed by Mission Control as platform health only.
+
+Commercial Market Evidence expansion planning is exposed through `platformServices.commercialMarketEvidence.expansion`. EOS owns this discovery layer because it is portfolio planning, while Commercial Market Evidence continues to own source data and validation.
 
 The current generated artifact is:
 
@@ -89,6 +93,7 @@ EOS v2.2 separates active work from opportunity inventory.
 - Expansion Projects: future metros managed as multi-stage projects.
 - Field Mode: photography coverage summaries that link to Field Mode instead of flooding EOS with photo tasks.
 - Review: returned work from future execution providers.
+- Commercial Market Evidence Expansion: read-only collection coverage and suggested expansion order for districts without Market Evidence collections.
 
 This keeps EOS useful as an operating system rather than a long queue report.
 

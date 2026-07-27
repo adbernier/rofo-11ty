@@ -10,6 +10,8 @@ The first reference implementation is `docs/commercial-market-evidence-financial
 
 Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as read-only platform health, and Mission Control displays that health without generating missions or changing prioritization.
 
+Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections and lists missing district collections as future expansion opportunities. This is planning visibility only; v1 does not measure quality or create executable missions.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.
@@ -356,6 +358,8 @@ Mission Control converts measurable gaps into missions. It should bundle related
 
 Current v1 platform integration displays the generated Commercial Market Evidence health summary in Mission Control as read-only platform status. Mission generation from Market Evidence signals remains deferred.
 
+Current expansion planning is also read-only. EOS identifies which Knowledge Graph districts have collections and which are missing collections, then produces a deterministic suggested expansion order.
+
 ### Building Profile Migration
 
 Only selected high-value evidence should become a public Building Profile. Migration should follow ecosystem-specific Building Profile standards and preserve the distinction between property facts and editorial interpretation.
@@ -389,6 +393,38 @@ Publisher should avoid:
 - inferring market importance from missing data
 - mixing photography coverage into knowledge readiness without labeling it separately
 
+## Expansion Planning
+
+Commercial Market Evidence Expansion Planning v1 is a presence-only EOS layer.
+
+It compares:
+
+```text
+Commercial Location Knowledge Graph districts
+Commercial Market Evidence collections
+```
+
+For each district, EOS records either:
+
+- Collection Exists
+- Missing Collection
+
+The suggested expansion order is deterministic. Current ordering favors:
+
+- districts assigned to Publisher-tracked metros
+- metros with stronger current Publisher readiness, because existing editorial infrastructure can support evidence expansion
+- high-confidence Knowledge Graph districts
+- districts with public district pages
+- districts with representative-building relationships
+- districts with comparison relationships
+- districts with recommendation-oriented fields such as space-type fit, best-fit guidance, and validation questions
+
+Ties are resolved by metro, city, and district name.
+
+This ordering is not a quality score. It does not mean the first district is more important commercially than every later district. It only gives the operator a stable starting point for future evidence-collection planning.
+
+Quality measurement is intentionally deferred. A future Publisher/EOS sprint should measure evidence quality only after more district collections exist.
+
 ## Validation
 
 Commercial Market Evidence source data is validated by:
@@ -403,7 +439,7 @@ The script prints a concise coverage report and exposes a structured summary obj
 
 ## Mission Control Integration
 
-Mission Control currently displays Market Evidence platform health from generated EOS analysis. This is visibility-only and does not alter mission bundling, prioritization, execution packets, or review flow.
+Mission Control currently displays Market Evidence platform health and expansion coverage from generated EOS analysis. This is visibility-only and does not alter Current Focus, mission bundling, prioritization, execution packets, or review flow.
 
 Future Mission Control work should generate Market Evidence missions from Publisher signals.
 

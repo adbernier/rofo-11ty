@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T14:04:50-07:00",
+  "generatedAt": "2026-07-27T14:30:02-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -50,7 +50,7 @@
         "High": 10
       },
       "deferredCandidates": 5,
-      "latestValidation": "2026-07-27T14:04:50-07:00",
+      "latestValidation": "2026-07-27T14:30:02-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -60,7 +60,4181 @@
       "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged.",
       "owner": "Commercial Market Evidence",
       "displayedBy": "Mission Control",
-      "planningImpact": "None in v1. Mission Control displays platform health without generating Market Evidence missions."
+      "planningImpact": "None in v1. Mission Control displays platform health without generating Market Evidence missions.",
+      "expansion": {
+        "schemaVersion": "commercial-market-evidence-expansion-v1",
+        "sourceSystems": [
+          "Commercial Location Knowledge Graph",
+          "Commercial Market Evidence",
+          "Publisher"
+        ],
+        "coverageSummary": {
+          "knowledgeGraphDistricts": 103,
+          "existingCollections": 1,
+          "missingCollections": 102,
+          "collectionCoverageLabel": "Partial"
+        },
+        "existingCollections": [
+          {
+            "districtId": "financial-district",
+            "districtName": "Financial District",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/financial-district/",
+            "collectionId": "sf-financial-district-commercial-market-evidence"
+          }
+        ],
+        "missingCollections": [
+          {
+            "districtId": "anaheim-canyon",
+            "districtName": "Anaheim Canyon",
+            "city": "Anaheim",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "downtown-berkeley",
+            "districtName": "Downtown Berkeley",
+            "city": "Berkeley",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "west-berkeley",
+            "districtName": "West Berkeley",
+            "city": "Berkeley",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/berkeley/west-berkeley/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "burbank",
+            "districtName": "Burbank",
+            "city": "Burbank",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/burbank/burbank/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "burbank-media-district",
+            "districtName": "Burbank Media District",
+            "city": "Burbank",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/burbank/burbank-media-district/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "carlsbad-business-park",
+            "districtName": "Carlsbad Business Park",
+            "city": "Carlsbad",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "carson",
+            "districtName": "Carson",
+            "city": "Carson",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/carson/carson/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "city-of-industry",
+            "districtName": "City of Industry",
+            "city": "City of Industry",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/city-of-industry/city-of-industry/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "commerce",
+            "districtName": "Commerce",
+            "city": "Commerce",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/commerce/commerce/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "south-coast-metro",
+            "districtName": "South Coast Metro",
+            "city": "Costa Mesa",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "culver-city",
+            "districtName": "Culver City",
+            "city": "Culver City",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/culver-city/culver-city/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 222
+          },
+          {
+            "districtId": "el-segundo",
+            "districtName": "El Segundo",
+            "city": "El Segundo",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/el-segundo/el-segundo/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "elk-grove-commercial-core",
+            "districtName": "Elk Grove Commercial Core",
+            "city": "Elk Grove",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "emeryville-commercial-core",
+            "districtName": "Emeryville Commercial Core",
+            "city": "Emeryville",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "folsom-commercial-core",
+            "districtName": "Folsom Commercial Core",
+            "city": "Folsom",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "warm-springs-innovation-district",
+            "districtName": "Warm Springs Innovation District",
+            "city": "Fremont",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "fullerton",
+            "districtName": "Fullerton",
+            "city": "Fullerton",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/fullerton/fullerton/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1518
+          },
+          {
+            "districtId": "glendale",
+            "districtName": "Glendale",
+            "city": "Glendale",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/glendale/glendale/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "hayward-industrial",
+            "districtName": "Hayward Industrial",
+            "city": "Hayward",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/hayward/hayward-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "irvine-business-complex",
+            "districtName": "Irvine Business Complex",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 5,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1648
+          },
+          {
+            "districtId": "irvine-spectrum",
+            "districtName": "Irvine Spectrum",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 5,
+              "comparisonRelationships": 5,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "university-research-park",
+            "districtName": "University Research Park",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/university-research-park/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1590
+          },
+          {
+            "districtId": "lake-forest-business-park",
+            "districtName": "Lake Forest Business Park",
+            "city": "Lake Forest",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1536
+          },
+          {
+            "districtId": "long-beach",
+            "districtName": "Long Beach Industrial / Port-adjacent",
+            "city": "Long Beach",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/long-beach/long-beach/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "arts-district",
+            "districtName": "Arts District",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/arts-district/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "century-city",
+            "districtName": "Century City",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/century-city/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 222
+          },
+          {
+            "districtId": "financial-district-bunker-hill",
+            "districtName": "Financial District / Bunker Hill",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/financial-district-bunker-hill/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "hollywood",
+            "districtName": "Hollywood",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/hollywood/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "south-bay-lax-industrial",
+            "districtName": "LAX / El Segundo Industrial",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/south-bay-lax-industrial/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "south-park",
+            "districtName": "South Park",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/south-park/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "west-la",
+            "districtName": "West LA / Brentwood",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/west-la/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "south-oc-medical-professional",
+            "districtName": "South OC Medical & Professional",
+            "city": "Mission Viejo",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/mission-viejo/mission-viejo/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1590
+          },
+          {
+            "districtId": "north-bayshore",
+            "districtName": "North Bayshore",
+            "city": "Mountain View",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "newport-center",
+            "districtName": "Newport Center",
+            "city": "Newport Beach",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "jack-london-square",
+            "districtName": "Jack London Square",
+            "city": "Oakland",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/oakland/jack-london-square/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "oceanside-industrial",
+            "districtName": "Oceanside Industrial",
+            "city": "Oceanside",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1562
+          },
+          {
+            "districtId": "downtown-palo-alto",
+            "districtName": "Downtown Palo Alto",
+            "city": "Palo Alto",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "stanford-research-park",
+            "districtName": "Stanford Research Park",
+            "city": "Palo Alto",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "pasadena",
+            "districtName": "Pasadena",
+            "city": "Pasadena",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/pasadena/pasadena/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "poway-business-park",
+            "districtName": "Poway Business Park",
+            "city": "Poway",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/poway/poway-business-park/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1602
+          },
+          {
+            "districtId": "rancho-cordova-commercial-core",
+            "districtName": "Rancho Cordova Commercial Core",
+            "city": "Rancho Cordova",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1686
+          },
+          {
+            "districtId": "downtown-redwood-city",
+            "districtName": "Downtown Redwood City",
+            "city": "Redwood City",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "rocklin-commercial-core",
+            "districtName": "Rocklin Commercial Core",
+            "city": "Rocklin",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1622
+          },
+          {
+            "districtId": "roseville-commercial-core",
+            "districtName": "Roseville Commercial Core",
+            "city": "Roseville",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1614
+          },
+          {
+            "districtId": "arden-point-west",
+            "districtName": "Arden / Point West",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/arden-point-west/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "downtown-sacramento",
+            "districtName": "Downtown Sacramento",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1668
+          },
+          {
+            "districtId": "east-sacramento-alhambra-corridor",
+            "districtName": "East Sacramento / Alhambra Corridor",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1604
+          },
+          {
+            "districtId": "midtown-sacramento",
+            "districtName": "Midtown Sacramento",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "natomas",
+            "districtName": "Natomas",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/natomas/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1686
+          },
+          {
+            "districtId": "power-inn-industrial",
+            "districtName": "Power Inn Industrial",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1686
+          },
+          {
+            "districtId": "downtown-san-diego",
+            "districtName": "Downtown San Diego",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1620
+          },
+          {
+            "districtId": "kearny-mesa",
+            "districtName": "Kearny Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "miramar",
+            "districtName": "Miramar",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/miramar/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1612
+          },
+          {
+            "districtId": "mission-valley",
+            "districtName": "Mission Valley",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/mission-valley/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1620
+          },
+          {
+            "districtId": "otay-mesa",
+            "districtName": "Otay Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/otay-mesa/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1620
+          },
+          {
+            "districtId": "rancho-bernardo",
+            "districtName": "Rancho Bernardo",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1612
+          },
+          {
+            "districtId": "sorrento-mesa",
+            "districtName": "Sorrento Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "utc-university-city",
+            "districtName": "UTC / University City",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/utc-university-city/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "jackson-square",
+            "districtName": "Jackson Square",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "mission-bay",
+            "districtName": "Mission Bay",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "soma",
+            "districtName": "SoMa",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/soma/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "north-san-jose",
+            "districtName": "North San Jose",
+            "city": "San Jose",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-jose/north-san-jose/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "downtown-san-mateo",
+            "districtName": "Downtown San Mateo",
+            "city": "San Mateo",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1538
+          },
+          {
+            "districtId": "santa-fe-springs",
+            "districtName": "Santa Fe Springs",
+            "city": "Santa Fe Springs",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "santa-monica",
+            "districtName": "Santa Monica",
+            "city": "Santa Monica",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/santa-monica/santa-monica/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "moffett-park",
+            "districtName": "Moffett Park",
+            "city": "Sunnyvale",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "torrance",
+            "districtName": "Torrance / South Bay Industrial",
+            "city": "Torrance",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/torrance/torrance/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "tustin-legacy",
+            "districtName": "Tustin Legacy",
+            "city": "Tustin",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/tustin/tustin-legacy/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1518
+          },
+          {
+            "districtId": "union-city-industrial",
+            "districtName": "Union City Industrial",
+            "city": "Union City",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/union-city/union-city-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "vernon",
+            "districtName": "Vernon",
+            "city": "Vernon",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/vernon/vernon/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "vista-business-park",
+            "districtName": "Vista Business Park",
+            "city": "Vista",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/vista/vista-business-park/",
+            "signals": {
+              "publisherReadiness": "Expansion Ready",
+              "publisherScore": 84,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1630
+          },
+          {
+            "districtId": "west-sacramento-industrial",
+            "districtName": "West Sacramento Industrial",
+            "city": "West Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 98,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1658
+          },
+          {
+            "districtId": "aurora",
+            "districtName": "Aurora",
+            "city": "Aurora",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/aurora/aurora/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1670
+          },
+          {
+            "districtId": "boulder",
+            "districtName": "Boulder",
+            "city": "Boulder",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/boulder/boulder/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 2,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1634
+          },
+          {
+            "districtId": "broomfield",
+            "districtName": "Broomfield",
+            "city": "Broomfield",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/broomfield/broomfield/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1652
+          },
+          {
+            "districtId": "interlocken",
+            "districtName": "Interlocken",
+            "city": "Broomfield",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/broomfield/interlocken/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 2,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1624
+          },
+          {
+            "districtId": "centennial",
+            "districtName": "Centennial",
+            "city": "Centennial",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/centennial/centennial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1652
+          },
+          {
+            "districtId": "commerce-city",
+            "districtName": "Commerce City",
+            "city": "Commerce City",
+            "state": "CO",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CO/commerce-city/commerce-city/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "central-park",
+            "districtName": "Central Park",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/central-park/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 2,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1624
+          },
+          {
+            "districtId": "cherry-creek",
+            "districtName": "Cherry Creek",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/cherry-creek/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1642
+          },
+          {
+            "districtId": "denver-airport-pena-boulevard-corridor",
+            "districtName": "Denver Airport / Pena Boulevard Corridor",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1642
+          },
+          {
+            "districtId": "denver-tech-center",
+            "districtName": "Denver Tech Center",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/denver-tech-center/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 5,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1662
+          },
+          {
+            "districtId": "downtown-denver",
+            "districtName": "Downtown Denver",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/downtown-denver/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 5,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1680
+          },
+          {
+            "districtId": "lodo",
+            "districtName": "LoDo",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/lodo/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1642
+          },
+          {
+            "districtId": "northeast-denver-industrial",
+            "districtName": "Northeast Denver Industrial",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1670
+          },
+          {
+            "districtId": "rino",
+            "districtName": "RiNo",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/rino/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 3,
+              "comparisonRelationships": 4,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1652
+          },
+          {
+            "districtId": "santa-fe-arts-district",
+            "districtName": "Santa Fe Arts District",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1606
+          },
+          {
+            "districtId": "inverness",
+            "districtName": "Inverness",
+            "city": "Englewood",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/englewood/inverness/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 4,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1660
+          },
+          {
+            "districtId": "golden",
+            "districtName": "Golden",
+            "city": "Golden",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/golden/golden/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1548
+          },
+          {
+            "districtId": "lakewood",
+            "districtName": "Lakewood",
+            "city": "Lakewood",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/lakewood/lakewood/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1606
+          },
+          {
+            "districtId": "lone-tree",
+            "districtName": "Lone Tree",
+            "city": "Lone Tree",
+            "state": "CO",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CO/lone-tree/lone-tree/",
+            "signals": {
+              "publisherReadiness": "Unassigned metro",
+              "publisherScore": 0,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 212
+          },
+          {
+            "districtId": "louisville-superior",
+            "districtName": "Louisville / Superior",
+            "city": "Louisville",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/louisville/louisville-superior/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1606
+          },
+          {
+            "districtId": "westminster",
+            "districtName": "Westminster",
+            "city": "Westminster",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/westminster/westminster/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1588
+          },
+          {
+            "districtId": "bellevue-cbd-office",
+            "districtName": "Bellevue CBD Office",
+            "city": "Bellevue",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/bellevue/bellevue-cbd-office/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1606
+          },
+          {
+            "districtId": "kent-valley",
+            "districtName": "Kent Valley",
+            "city": "Kent",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/kent/kent-valley/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1596
+          },
+          {
+            "districtId": "eastside-tech-office-corridor",
+            "districtName": "Eastside Tech Office Corridor",
+            "city": "Redmond",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1566
+          },
+          {
+            "districtId": "ballard-interbay-industrial",
+            "districtName": "Ballard / Interbay Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1556
+          },
+          {
+            "districtId": "belltown-waterfront-office",
+            "districtName": "Belltown / Waterfront Creative Office",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1566
+          },
+          {
+            "districtId": "downtown-seattle-office",
+            "districtName": "Downtown Seattle Office Core",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1606
+          },
+          {
+            "districtId": "georgetown-industrial",
+            "districtName": "Georgetown Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 0,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1578
+          },
+          {
+            "districtId": "pioneer-square-waterfront-office",
+            "districtName": "Pioneer Square / Waterfront Office",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "medium",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 3,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1566
+          },
+          {
+            "districtId": "sodo-industrial",
+            "districtName": "SODO Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+            "signals": {
+              "publisherReadiness": "Distribution Ready",
+              "publisherScore": 94,
+              "districtConfidence": "high",
+              "publicPage": "Yes",
+              "representativeBuildings": 1,
+              "comparisonRelationships": 2,
+              "recommendationSignals": [
+                "space type fit",
+                "best fit",
+                "validation questions"
+              ]
+            },
+            "expansionWeight": 1596
+          }
+        ],
+        "suggestedExpansionOrder": [
+          {
+            "rank": 1,
+            "districtId": "rancho-cordova-commercial-core",
+            "districtName": "Rancho Cordova Commercial Core",
+            "city": "Rancho Cordova",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 2,
+            "districtId": "natomas",
+            "districtName": "Natomas",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/natomas/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 3,
+            "districtId": "power-inn-industrial",
+            "districtName": "Power Inn Industrial",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 4,
+            "districtId": "downtown-denver",
+            "districtName": "Downtown Denver",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/downtown-denver/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "5 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 5,
+            "districtId": "aurora",
+            "districtName": "Aurora",
+            "city": "Aurora",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/aurora/aurora/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 6,
+            "districtId": "northeast-denver-industrial",
+            "districtName": "Northeast Denver Industrial",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 7,
+            "districtId": "downtown-sacramento",
+            "districtName": "Downtown Sacramento",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 8,
+            "districtId": "denver-tech-center",
+            "districtName": "Denver Tech Center",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/denver-tech-center/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "5 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 9,
+            "districtId": "inverness",
+            "districtName": "Inverness",
+            "city": "Englewood",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/englewood/inverness/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 10,
+            "districtId": "irvine-spectrum",
+            "districtName": "Irvine Spectrum",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/irvine-spectrum/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "5 representative building relationships exist.",
+              "5 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 11,
+            "districtId": "elk-grove-commercial-core",
+            "districtName": "Elk Grove Commercial Core",
+            "city": "Elk Grove",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/elk-grove/elk-grove-commercial-core/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 12,
+            "districtId": "folsom-commercial-core",
+            "districtName": "Folsom Commercial Core",
+            "city": "Folsom",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/folsom/folsom-commercial-core/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 13,
+            "districtId": "arden-point-west",
+            "districtName": "Arden / Point West",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/arden-point-west/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 14,
+            "districtId": "midtown-sacramento",
+            "districtName": "Midtown Sacramento",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 15,
+            "districtId": "west-sacramento-industrial",
+            "districtName": "West Sacramento Industrial",
+            "city": "West Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/west-sacramento/west-sacramento-industrial/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 16,
+            "districtId": "broomfield",
+            "districtName": "Broomfield",
+            "city": "Broomfield",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/broomfield/broomfield/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 17,
+            "districtId": "centennial",
+            "districtName": "Centennial",
+            "city": "Centennial",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/centennial/centennial/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 18,
+            "districtId": "rino",
+            "districtName": "RiNo",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/rino/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 19,
+            "districtId": "irvine-business-complex",
+            "districtName": "Irvine Business Complex",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/irvine-business-complex/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "5 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 20,
+            "districtId": "cherry-creek",
+            "districtName": "Cherry Creek",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/cherry-creek/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 21,
+            "districtId": "denver-airport-pena-boulevard-corridor",
+            "districtName": "Denver Airport / Pena Boulevard Corridor",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/denver-airport-pena-boulevard-corridor/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 22,
+            "districtId": "lodo",
+            "districtName": "LoDo",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/lodo/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 23,
+            "districtId": "boulder",
+            "districtName": "Boulder",
+            "city": "Boulder",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/boulder/boulder/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 24,
+            "districtId": "anaheim-canyon",
+            "districtName": "Anaheim Canyon",
+            "city": "Anaheim",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 25,
+            "districtId": "south-coast-metro",
+            "districtName": "South Coast Metro",
+            "city": "Costa Mesa",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/costa-mesa/south-coast-metro/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 26,
+            "districtId": "newport-center",
+            "districtName": "Newport Center",
+            "city": "Newport Beach",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/newport-beach/newport-center-fashion-island/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 27,
+            "districtId": "carlsbad-business-park",
+            "districtName": "Carlsbad Business Park",
+            "city": "Carlsbad",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/carlsbad/carlsbad-business-park/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 28,
+            "districtId": "kearny-mesa",
+            "districtName": "Kearny Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/kearny-mesa/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 29,
+            "districtId": "sorrento-mesa",
+            "districtName": "Sorrento Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/sorrento-mesa/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 30,
+            "districtId": "utc-university-city",
+            "districtName": "UTC / University City",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/utc-university-city/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 31,
+            "districtId": "vista-business-park",
+            "districtName": "Vista Business Park",
+            "city": "Vista",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/vista/vista-business-park/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 32,
+            "districtId": "interlocken",
+            "districtName": "Interlocken",
+            "city": "Broomfield",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/broomfield/interlocken/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 33,
+            "districtId": "central-park",
+            "districtName": "Central Park",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/central-park/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 34,
+            "districtId": "rocklin-commercial-core",
+            "districtName": "Rocklin Commercial Core",
+            "city": "Rocklin",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/rocklin/rocklin-commercial-core/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 35,
+            "districtId": "downtown-san-diego",
+            "districtName": "Downtown San Diego",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/downtown-san-diego/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 36,
+            "districtId": "mission-valley",
+            "districtName": "Mission Valley",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/mission-valley/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 37,
+            "districtId": "otay-mesa",
+            "districtName": "Otay Mesa",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/otay-mesa/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 38,
+            "districtId": "roseville-commercial-core",
+            "districtName": "Roseville Commercial Core",
+            "city": "Roseville",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/roseville/roseville-commercial-core/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 39,
+            "districtId": "miramar",
+            "districtName": "Miramar",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/miramar/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 40,
+            "districtId": "rancho-bernardo",
+            "districtName": "Rancho Bernardo",
+            "city": "San Diego",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/san-diego/rancho-bernardo/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 41,
+            "districtId": "santa-fe-arts-district",
+            "districtName": "Santa Fe Arts District",
+            "city": "Denver",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/denver/santa-fe-arts-district/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 42,
+            "districtId": "lakewood",
+            "districtName": "Lakewood",
+            "city": "Lakewood",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/lakewood/lakewood/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 43,
+            "districtId": "louisville-superior",
+            "districtName": "Louisville / Superior",
+            "city": "Louisville",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/louisville/louisville-superior/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 44,
+            "districtId": "bellevue-cbd-office",
+            "districtName": "Bellevue CBD Office",
+            "city": "Bellevue",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/bellevue/bellevue-cbd-office/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 45,
+            "districtId": "downtown-seattle-office",
+            "districtName": "Downtown Seattle Office Core",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/downtown-seattle-office/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 46,
+            "districtId": "east-sacramento-alhambra-corridor",
+            "districtName": "East Sacramento / Alhambra Corridor",
+            "city": "Sacramento",
+            "state": "CA",
+            "metroId": "sacramento",
+            "metroName": "Sacramento",
+            "path": "/commercial-real-estate/CA/sacramento/east-sacramento-alhambra-corridor/",
+            "rationale": [
+              "Sacramento is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 47,
+            "districtId": "poway-business-park",
+            "districtName": "Poway Business Park",
+            "city": "Poway",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/poway/poway-business-park/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 48,
+            "districtId": "kent-valley",
+            "districtName": "Kent Valley",
+            "city": "Kent",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/kent/kent-valley/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 49,
+            "districtId": "sodo-industrial",
+            "districtName": "SODO Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/sodo-industrial/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "1 representative building relationships exist.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 50,
+            "districtId": "university-research-park",
+            "districtName": "University Research Park",
+            "city": "Irvine",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/irvine/university-research-park/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 51,
+            "districtId": "south-oc-medical-professional",
+            "districtName": "South OC Medical & Professional",
+            "city": "Mission Viejo",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/mission-viejo/mission-viejo/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "4 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 52,
+            "districtId": "westminster",
+            "districtName": "Westminster",
+            "city": "Westminster",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/westminster/westminster/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 53,
+            "districtId": "west-berkeley",
+            "districtName": "West Berkeley",
+            "city": "Berkeley",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/berkeley/west-berkeley/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 54,
+            "districtId": "emeryville-commercial-core",
+            "districtName": "Emeryville Commercial Core",
+            "city": "Emeryville",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 55,
+            "districtId": "north-bayshore",
+            "districtName": "North Bayshore",
+            "city": "Mountain View",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 56,
+            "districtId": "downtown-palo-alto",
+            "districtName": "Downtown Palo Alto",
+            "city": "Palo Alto",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 57,
+            "districtId": "stanford-research-park",
+            "districtName": "Stanford Research Park",
+            "city": "Palo Alto",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 58,
+            "districtId": "downtown-redwood-city",
+            "districtName": "Downtown Redwood City",
+            "city": "Redwood City",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 59,
+            "districtId": "jackson-square",
+            "districtName": "Jackson Square",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 60,
+            "districtId": "mission-bay",
+            "districtName": "Mission Bay",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 61,
+            "districtId": "soma",
+            "districtName": "SoMa",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-francisco/soma/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 62,
+            "districtId": "downtown-berkeley",
+            "districtName": "Downtown Berkeley",
+            "city": "Berkeley",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 63,
+            "districtId": "warm-springs-innovation-district",
+            "districtName": "Warm Springs Innovation District",
+            "city": "Fremont",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 64,
+            "districtId": "hayward-industrial",
+            "districtName": "Hayward Industrial",
+            "city": "Hayward",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/hayward/hayward-industrial/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 65,
+            "districtId": "jack-london-square",
+            "districtName": "Jack London Square",
+            "city": "Oakland",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/oakland/jack-london-square/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 66,
+            "districtId": "north-san-jose",
+            "districtName": "North San Jose",
+            "city": "San Jose",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-jose/north-san-jose/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 67,
+            "districtId": "moffett-park",
+            "districtName": "Moffett Park",
+            "city": "Sunnyvale",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/sunnyvale/moffett-park/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 68,
+            "districtId": "union-city-industrial",
+            "districtName": "Union City Industrial",
+            "city": "Union City",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/union-city/union-city-industrial/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 69,
+            "districtId": "georgetown-industrial",
+            "districtName": "Georgetown Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/georgetown-industrial/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 70,
+            "districtId": "eastside-tech-office-corridor",
+            "districtName": "Eastside Tech Office Corridor",
+            "city": "Redmond",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 71,
+            "districtId": "belltown-waterfront-office",
+            "districtName": "Belltown / Waterfront Creative Office",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/belltown-waterfront-office/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 72,
+            "districtId": "pioneer-square-waterfront-office",
+            "districtName": "Pioneer Square / Waterfront Office",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/pioneer-square-waterfront-office/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "1 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 73,
+            "districtId": "oceanside-industrial",
+            "districtName": "Oceanside Industrial",
+            "city": "Oceanside",
+            "state": "CA",
+            "metroId": "san-diego",
+            "metroName": "San Diego",
+            "path": "/commercial-real-estate/CA/oceanside/oceanside-industrial/",
+            "rationale": [
+              "San Diego is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "3 representative building relationships exist.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 74,
+            "districtId": "ballard-interbay-industrial",
+            "districtName": "Ballard / Interbay Industrial",
+            "city": "Seattle",
+            "state": "WA",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "path": "/commercial-real-estate/WA/seattle/ballard-interbay-industrial/",
+            "rationale": [
+              "Seattle is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "1 representative building relationships exist.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 75,
+            "districtId": "golden",
+            "districtName": "Golden",
+            "city": "Golden",
+            "state": "CO",
+            "metroId": "denver",
+            "metroName": "Denver",
+            "path": "/commercial-real-estate/CO/golden/golden/",
+            "rationale": [
+              "Denver is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 76,
+            "districtId": "downtown-san-mateo",
+            "districtName": "Downtown San Mateo",
+            "city": "San Mateo",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
+            "rationale": [
+              "San Francisco is already tracked by Publisher.",
+              "Publisher readiness: Distribution Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "2 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 77,
+            "districtId": "lake-forest-business-park",
+            "districtName": "Lake Forest Business Park",
+            "city": "Lake Forest",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/lake-forest/lake-forest-business-center/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "1 representative building relationships exist.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 78,
+            "districtId": "fullerton",
+            "districtName": "Fullerton",
+            "city": "Fullerton",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/fullerton/fullerton/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 79,
+            "districtId": "tustin-legacy",
+            "districtName": "Tustin Legacy",
+            "city": "Tustin",
+            "state": "CA",
+            "metroId": "orange-county",
+            "metroName": "Orange County",
+            "path": "/commercial-real-estate/CA/tustin/tustin-legacy/",
+            "rationale": [
+              "Orange County is already tracked by Publisher.",
+              "Publisher readiness: Expansion Ready.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: medium.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 80,
+            "districtId": "culver-city",
+            "districtName": "Culver City",
+            "city": "Culver City",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/culver-city/culver-city/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 81,
+            "districtId": "century-city",
+            "districtName": "Century City",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/century-city/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "4 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 82,
+            "districtId": "burbank",
+            "districtName": "Burbank",
+            "city": "Burbank",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/burbank/burbank/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 83,
+            "districtId": "burbank-media-district",
+            "districtName": "Burbank Media District",
+            "city": "Burbank",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/burbank/burbank-media-district/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 84,
+            "districtId": "carson",
+            "districtName": "Carson",
+            "city": "Carson",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/carson/carson/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 85,
+            "districtId": "city-of-industry",
+            "districtName": "City of Industry",
+            "city": "City of Industry",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/city-of-industry/city-of-industry/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 86,
+            "districtId": "commerce",
+            "districtName": "Commerce",
+            "city": "Commerce",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/commerce/commerce/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 87,
+            "districtId": "commerce-city",
+            "districtName": "Commerce City",
+            "city": "Commerce City",
+            "state": "CO",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CO/commerce-city/commerce-city/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 88,
+            "districtId": "el-segundo",
+            "districtName": "El Segundo",
+            "city": "El Segundo",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/el-segundo/el-segundo/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 89,
+            "districtId": "glendale",
+            "districtName": "Glendale",
+            "city": "Glendale",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/glendale/glendale/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 90,
+            "districtId": "lone-tree",
+            "districtName": "Lone Tree",
+            "city": "Lone Tree",
+            "state": "CO",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CO/lone-tree/lone-tree/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 91,
+            "districtId": "long-beach",
+            "districtName": "Long Beach Industrial / Port-adjacent",
+            "city": "Long Beach",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/long-beach/long-beach/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 92,
+            "districtId": "arts-district",
+            "districtName": "Arts District",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/arts-district/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 93,
+            "districtId": "financial-district-bunker-hill",
+            "districtName": "Financial District / Bunker Hill",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/financial-district-bunker-hill/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 94,
+            "districtId": "hollywood",
+            "districtName": "Hollywood",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/hollywood/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 95,
+            "districtId": "south-bay-lax-industrial",
+            "districtName": "LAX / El Segundo Industrial",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/south-bay-lax-industrial/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 96,
+            "districtId": "south-park",
+            "districtName": "South Park",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/south-park/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 97,
+            "districtId": "west-la",
+            "districtName": "West LA / Brentwood",
+            "city": "Los Angeles",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/los-angeles/west-la/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 98,
+            "districtId": "pasadena",
+            "districtName": "Pasadena",
+            "city": "Pasadena",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/pasadena/pasadena/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 99,
+            "districtId": "santa-fe-springs",
+            "districtName": "Santa Fe Springs",
+            "city": "Santa Fe Springs",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/santa-fe-springs/santa-fe-springs/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 100,
+            "districtId": "santa-monica",
+            "districtName": "Santa Monica",
+            "city": "Santa Monica",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/santa-monica/santa-monica/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 101,
+            "districtId": "torrance",
+            "districtName": "Torrance / South Bay Industrial",
+            "city": "Torrance",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/torrance/torrance/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          },
+          {
+            "rank": 102,
+            "districtId": "vernon",
+            "districtName": "Vernon",
+            "city": "Vernon",
+            "state": "CA",
+            "metroId": "",
+            "metroName": "",
+            "path": "/commercial-real-estate/CA/vernon/vernon/",
+            "rationale": [
+              "District is not assigned to a current Publisher metro.",
+              "Publisher readiness: Unassigned metro.",
+              "Public district page exists.",
+              "Knowledge Graph confidence: high.",
+              "3 comparison relationships exist."
+            ]
+          }
+        ],
+        "orderingStrategy": [
+          "Publisher-tracked metros rank before unassigned districts.",
+          "Higher current Publisher readiness ranks earlier because existing editorial infrastructure can support evidence expansion.",
+          "High-confidence Knowledge Graph districts rank earlier.",
+          "Public district pages, representative-building relationships, comparison relationships, and recommendation-oriented fields increase priority.",
+          "Ties are resolved by metro, city, and district name for deterministic output."
+        ],
+        "planningImpact": "Read-only in v1. This expansion queue does not create executable missions or affect Current Focus.",
+        "qualityMeasurement": "Deferred. Presence or absence of a collection is the only v1 coverage signal."
+      }
     }
   },
   "automationLevels": [

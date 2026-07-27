@@ -51,6 +51,8 @@ function validScore(value) {
 const eos = readJson(EOS_PATH);
 const publisher = readJson(PUBLISHER_PATH);
 const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf8") : "";
+const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph");
+const commercialMarketEvidence = require("../_data/commercialMarketEvidence");
 
 if (!eos || !publisher) process.exit();
 
@@ -110,6 +112,35 @@ if (!eosMarketEvidence || eosMarketEvidence.service !== "Commercial Market Evide
 
 if (eosMarketEvidence && !String(eosMarketEvidence.planningImpact || "").includes("without generating Market Evidence missions")) {
   fail("Commercial Market Evidence must not generate Mission Control planning in v1.");
+}
+
+const marketEvidenceExpansion = eosMarketEvidence && eosMarketEvidence.expansion;
+const knowledgeGraphDistrictCount = (locationKnowledgeGraph || []).filter((node) => node && node.type === "district").length;
+const collectionCount = ((commercialMarketEvidence && commercialMarketEvidence.collections) || []).length;
+if (!marketEvidenceExpansion || marketEvidenceExpansion.schemaVersion !== "commercial-market-evidence-expansion-v1") {
+  fail("EOS must expose Commercial Market Evidence expansion planning.");
+}
+
+if (marketEvidenceExpansion) {
+  const coverage = marketEvidenceExpansion.coverageSummary || {};
+  if (coverage.knowledgeGraphDistricts !== knowledgeGraphDistrictCount) {
+    fail("Commercial Market Evidence expansion must compare against all Knowledge Graph districts.");
+  }
+  if (coverage.existingCollections !== collectionCount) {
+    fail("Commercial Market Evidence expansion must recognize all existing collections.");
+  }
+  if (coverage.missingCollections !== Math.max(knowledgeGraphDistrictCount - collectionCount, 0)) {
+    fail("Commercial Market Evidence expansion missing-collection count is inconsistent.");
+  }
+  if (!Array.isArray(marketEvidenceExpansion.suggestedExpansionOrder) || !marketEvidenceExpansion.suggestedExpansionOrder.length) {
+    fail("Commercial Market Evidence expansion must expose a deterministic suggested expansion order.");
+  }
+  if (!String(marketEvidenceExpansion.planningImpact || "").includes("does not create executable missions")) {
+    fail("Commercial Market Evidence expansion must remain non-executable in v1.");
+  }
+  if (!String(marketEvidenceExpansion.qualityMeasurement || "").includes("Deferred")) {
+    fail("Commercial Market Evidence expansion must defer quality measurement in v1.");
+  }
 }
 
 for (const level of eos.automationLevels || []) {
@@ -314,6 +345,9 @@ for (const section of ["Mission Control", "Current Focus", "Focus Today", "Show 
 for (const marketEvidenceSource of [
   "renderCommercialMarketEvidenceService",
   "Commercial Market Evidence",
+  "Commercial Market Evidence Expansion",
+  "Suggested Expansion Order",
+  "Ordering Logic",
   "Read-only platform health",
   "does not generate Market Evidence missions",
   "platformServices",

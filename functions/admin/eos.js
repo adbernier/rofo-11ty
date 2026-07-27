@@ -700,6 +700,9 @@ function renderHandoffSummary(eos) {
 function renderCommercialMarketEvidenceService(eos) {
   const service = eos.platformServices && eos.platformServices.commercialMarketEvidence;
   if (!service) return "";
+  const expansion = service.expansion || {};
+  const coverage = expansion.coverageSummary || {};
+  const suggested = (expansion.suggestedExpansionOrder || []).slice(0, 8);
   const confidence = Object.entries(service.confidenceSummary || {})
     .map(([label, count]) => `${label}: ${count}`)
     .join("; ") || "No confidence records";
@@ -720,6 +723,36 @@ function renderCommercialMarketEvidenceService(eos) {
         <article><strong>${escapeHtml(service.validationStatus || "Unknown")}</strong><span>Validation</span></article>
       </div>
       <p class="platform-service__meta">${escapeHtml(confidence + validationNote)}</p>
+      <div class="market-evidence-expansion">
+        <div class="section-heading">
+          <div>
+            <h3>Commercial Market Evidence Expansion</h3>
+            <p>Presence-based expansion planning from Knowledge Graph districts. Quality measurement and executable missions are deferred.</p>
+          </div>
+        </div>
+        <div class="platform-service__metrics">
+          <article><strong>${escapeHtml(String(coverage.existingCollections || 0))}</strong><span>Existing Collections</span></article>
+          <article><strong>${escapeHtml(String(coverage.missingCollections || 0))}</strong><span>Missing Collections</span></article>
+          <article><strong>${escapeHtml(String(coverage.knowledgeGraphDistricts || 0))}</strong><span>Knowledge Graph Districts</span></article>
+          <article><strong>${escapeHtml(coverage.collectionCoverageLabel || "Unknown")}</strong><span>Coverage Summary</span></article>
+        </div>
+        <details class="mission-scope">
+          <summary>Suggested Expansion Order</summary>
+          <ol class="expansion-order">
+            ${suggested.map((item) => `
+              <li>
+                <strong>${escapeHtml(item.districtName)}</strong>
+                <span>${escapeHtml([item.metroName, item.city, item.state].filter(Boolean).join(" · "))}</span>
+                <p>${escapeHtml((item.rationale || []).slice(0, 2).join(" "))}</p>
+              </li>
+            `).join("") || "<li>No missing collections detected.</li>"}
+          </ol>
+        </details>
+        <details class="mission-scope">
+          <summary>Ordering Logic</summary>
+          <ul>${(expansion.orderingStrategy || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        </details>
+      </div>
     </section>
   `;
 }
@@ -1078,6 +1111,13 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .platform-service__metrics article { padding: 12px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; box-shadow: none; }
     .platform-service__metrics strong { display: block; margin-bottom: 4px; color: #0f172a; font-size: 1.05rem; line-height: 1.18; }
     .platform-service__meta { grid-column: 1 / -1; padding-top: 4px; font-size: 0.84rem; }
+    .market-evidence-expansion { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid #e5edf7; }
+    .market-evidence-expansion .section-heading { margin-bottom: 10px; }
+    .expansion-order { display: grid; gap: 10px; margin: 10px 0 0; padding-left: 20px; }
+    .expansion-order li { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: #f8fafc; }
+    .expansion-order strong { display: block; color: #0f172a; }
+    .expansion-order span { display: block; margin-top: 2px; color: var(--muted); font-size: 0.78rem; font-weight: 850; letter-spacing: 0; text-transform: none; }
+    .expansion-order p { margin: 6px 0 0; font-size: 0.84rem; }
     .codex-handoff { margin: 16px 0; padding: 16px; border: 1px solid #bfdbfe; border-radius: 16px; background: #eff6ff; }
     .codex-handoff__top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
     .codex-handoff__top h3 { margin-bottom: 4px; }

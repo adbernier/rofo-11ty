@@ -103,6 +103,8 @@ The architecture is documented in `docs/commercial-market-evidence.md`. Market E
 
 Commercial Market Evidence is a first-class platform service. Its source data and validator own evidence quality; Publisher reports the validator summary for visibility; Mission Control displays platform health without planning from it until a focused future sprint connects those signals.
 
+Mission Control may perform presence-based expansion discovery for Commercial Market Evidence by comparing Knowledge Graph districts with existing evidence collections. That awareness should remain separate from Publisher scoring and recommendation behavior until a focused integration sprint approves deeper use.
+
 ### Publisher
 
 Publisher is the deterministic coverage and production-planning system for metro readiness. It inspects repository data, measures coverage, identifies gaps, and produces work queues and expansion plans.
