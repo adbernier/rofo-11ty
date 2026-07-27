@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T14:30:02-07:00",
+  "generatedAt": "2026-07-27T15:01:10-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -16499,7 +16499,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -25339,7 +25339,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -35161,7 +35161,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -44153,7 +44153,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -53695,19 +53695,19 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
         "recommendationScore": 100,
-        "editorialScore": 83,
+        "editorialScore": 82,
         "publishingScore": 100,
         "buildingScore": 100,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
         "ecosystemReadiness": "partial",
-        "commercialBalance": "specialized"
+        "commercialBalance": "balanced"
       },
       "coverage": {
         "cities": {
@@ -53715,11 +53715,11 @@
           "status": 100
         },
         "districts": {
-          "count": 9,
+          "count": 10,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 9,
+          "count": 10,
           "score": 100
         },
         "comparisons": {
@@ -53727,7 +53727,7 @@
         },
         "representativeBuildings": {
           "count": 8,
-          "score": 44
+          "score": 40
         },
         "buildingBriefs": {
           "count": 8,
@@ -53745,8 +53745,8 @@
           "count": 7,
           "developed": 2,
           "partial": 2,
-          "thin": 0,
-          "missing": 3,
+          "thin": 1,
+          "missing": 2,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -53757,7 +53757,7 @@
             "id": "office",
             "label": "Office",
             "districtCount": 5,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 1,
             "recommendationNodeCount": 5,
             "representativeBuildingCount": 5,
             "buildingBriefCount": 5,
@@ -54100,7 +54100,7 @@
             "id": "retail",
             "label": "Retail",
             "districtCount": 0,
-            "secondaryDistrictCount": 6,
+            "secondaryDistrictCount": 7,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
@@ -54151,23 +54151,40 @@
           "medical": {
             "id": "medical",
             "label": "Medical",
-            "districtCount": 0,
+            "districtCount": 1,
             "secondaryDistrictCount": 0,
-            "recommendationNodeCount": 0,
+            "recommendationNodeCount": 1,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
-            "districts": [],
-            "subtypes": {},
-            "archetypes": {},
-            "activities": {},
-            "reviewRequiredDistricts": [],
-            "notableSubtypeGaps": [
-              "medical_office",
-              "outpatient_clinic",
-              "dental",
-              "wellness"
+            "status": "Thin",
+            "districts": [
+              {
+                "slug": "first-hill-medical",
+                "label": "First Hill Medical District",
+                "path": "/commercial-real-estate/WA/seattle/first-hill-medical/"
+              }
             ],
+            "subtypes": {
+              "medical_office": 1,
+              "outpatient_clinic": 1,
+              "dental": 1,
+              "wellness": 1,
+              "hospital_adjacent": 1
+            },
+            "archetypes": {
+              "medical_practice": 1,
+              "dental_practice": 1,
+              "outpatient_clinic": 1,
+              "wellness_practice": 1,
+              "physical_therapy_practice": 1
+            },
+            "activities": {
+              "healthcare_delivery": 1,
+              "walk_in_service": 1,
+              "administrative_operations": 1
+            },
+            "reviewRequiredDistricts": [],
+            "notableSubtypeGaps": [],
             "representativeBuildingIntelligence": {
               "ecosystemId": "medical",
               "state": "missing",
@@ -54362,12 +54379,17 @@
           "small_bay_industrial": 3,
           "contractor_service": 2,
           "light_manufacturing": 2,
-          "flex": 2
+          "flex": 2,
+          "medical_office": 1,
+          "outpatient_clinic": 1,
+          "dental": 1,
+          "wellness": 1,
+          "hospital_adjacent": 1
         },
         "activityCoverage": {
           "knowledge_work": 5,
           "client_meetings": 4,
-          "administrative_operations": 4,
+          "administrative_operations": 5,
           "collaboration": 3,
           "product_development": 2,
           "receiving": 3,
@@ -54378,7 +54400,9 @@
           "equipment_storage": 2,
           "light_manufacturing": 2,
           "assembly": 1,
-          "inventory_management": 2
+          "inventory_management": 2,
+          "healthcare_delivery": 1,
+          "walk_in_service": 1
         },
         "archetypeCoverage": {
           "law_firm": 2,
@@ -54401,7 +54425,12 @@
           "cabinet_shop": 2,
           "light_manufacturer": 1,
           "equipment_service_company": 1,
-          "furniture_maker": 1
+          "furniture_maker": 1,
+          "medical_practice": 1,
+          "dental_practice": 1,
+          "outpatient_clinic": 1,
+          "wellness_practice": 1,
+          "physical_therapy_practice": 1
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
@@ -54409,8 +54438,8 @@
           {
             "id": "medical",
             "label": "Medical",
-            "status": "Missing",
-            "districtCount": 0,
+            "status": "Thin",
+            "districtCount": 1,
             "representativeBuildingCount": 0
           },
           {
@@ -54432,8 +54461,8 @@
           "ecosystemCount": 7,
           "developedCount": 2,
           "partialCount": 2,
-          "thinCount": 0,
-          "missingCount": 3,
+          "thinCount": 1,
+          "missingCount": 2,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -54441,14 +54470,14 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "9 district nodes are available for the metro.",
+          "10 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 9,
+          "districtCount": 10,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
           "recommendationReadinessScore": 100
@@ -54459,7 +54488,7 @@
         "label": "Partial",
         "rationale": [
           "Office, Industrial & Flex coverage is strong or developed.",
-          "Retail is Partial; Medical is Missing; Life Science is Partial."
+          "Retail is Partial; Medical is Thin; Life Science is Partial."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -54494,7 +54523,7 @@
             },
             "counts": {
               "districts": 5,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 1,
               "recommendations": 5,
               "representativeBuildings": 5,
               "buildingBriefs": 5,
@@ -54512,7 +54541,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "5 primary districts and 0 secondary districts.",
+              "5 primary districts and 1 secondary districts.",
               "5 Representative Buildings and 5 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
@@ -54838,7 +54867,7 @@
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 6,
+              "secondaryDistricts": 7,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
@@ -54861,7 +54890,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -54927,27 +54956,27 @@
             "label": "Medical",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "thin",
+            "readinessLabel": "Thin",
             "layers": {
-              "districts": "missing",
-              "recommendations": "missing",
+              "districts": "strong",
+              "recommendations": "strong",
               "representativeBuildings": "missing",
               "buildingBriefs": "missing",
-              "subtypes": "missing",
-              "archetypes": "missing",
-              "activities": "missing",
+              "subtypes": "developed",
+              "archetypes": "developed",
+              "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 0,
+              "districts": 1,
               "secondaryDistricts": 0,
-              "recommendations": 0,
+              "recommendations": 1,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
-              "subtypes": 0,
-              "archetypes": 0,
-              "activities": 0,
+              "subtypes": 5,
+              "archetypes": 5,
+              "activities": 3,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 0,
               "operationalCategories": 0,
@@ -54955,16 +54984,13 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
-              "Subtype breadth is thin.",
-              "Business archetype coverage is thin.",
-              "Business activity coverage is thin."
+              "Representative Building coverage is missing for this ecosystem."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 3,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -55335,7 +55361,7 @@
             "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -55360,7 +55386,7 @@
             "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -55385,7 +55411,7 @@
             "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -55410,7 +55436,7 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -55435,7 +55461,7 @@
             "readinessState": "partial",
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -55449,21 +55475,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
+            "id": "ecosystem:medical:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
             "severity": "medium",
-            "layer": "districts",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -55474,71 +55500,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
+            "id": "ecosystem:medical:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "medium",
-            "layer": "subtypes",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -55557,10 +55533,10 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -55925,8 +55901,8 @@
           }
         ],
         "balance": {
-          "state": "specialized",
-          "label": "Specialized",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.63,
           "buildingBriefShare": 0.63,
@@ -55934,8 +55910,8 @@
         }
       },
       "ecosystemBalance": {
-        "state": "specialized",
-        "label": "Specialized",
+        "state": "balanced",
+        "label": "Balanced",
         "dominantEcosystem": "office",
         "representativeBuildingShare": 0.63,
         "buildingBriefShare": 0.63,
@@ -55943,21 +55919,21 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:medical:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
+          "id": "ecosystem:medical:ecosystem_representative_building_gap",
+          "code": "ecosystem_representative_building_gap",
+          "label": "Ecosystem Representative Building Gap",
           "severity": "medium",
-          "layer": "districts",
+          "layer": "representativeBuildings",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
           "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
+          "readinessState": "thin",
+          "rationale": "District foundation exists, but Representative Buildings are missing.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "1 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
+          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -55968,21 +55944,21 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:medical:ecosystem_subtype_gap",
-          "code": "ecosystem_subtype_gap",
-          "label": "Ecosystem Subtype Gap",
+          "id": "ecosystem:medical:ecosystem_thin",
+          "code": "ecosystem_thin",
+          "label": "Ecosystem Thin",
           "severity": "medium",
-          "layer": "subtypes",
+          "layer": "representativeBuildings",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
           "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "readinessState": "thin",
+          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "1 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -56029,7 +56005,7 @@
           "readinessState": "partial",
           "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
           "evidence": [
-            "0 primary districts and 6 secondary districts.",
+            "0 primary districts and 7 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -56143,56 +56119,6 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:medical:ecosystem_activity_gap",
-          "code": "ecosystem_activity_gap",
-          "label": "Ecosystem Activity Gap",
-          "severity": "low",
-          "layer": "activities",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Business activity coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Business Activity Coverage Review",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:medical:ecosystem_archetype_gap",
-          "code": "ecosystem_archetype_gap",
-          "label": "Ecosystem Archetype Gap",
-          "severity": "low",
-          "layer": "archetypes",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Business archetype coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Archetype Coverage Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:medical:representative_role_thin",
           "code": "representative_role_thin",
           "label": "Representative Role Thin",
@@ -56201,10 +56127,10 @@
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "thin",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "1 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -56329,7 +56255,7 @@
           "readinessState": "partial",
           "rationale": "Business activity coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 6 secondary districts.",
+            "0 primary districts and 7 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -56354,7 +56280,7 @@
           "readinessState": "partial",
           "rationale": "Business archetype coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 6 secondary districts.",
+            "0 primary districts and 7 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -56379,7 +56305,7 @@
           "readinessState": "partial",
           "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
-            "0 primary districts and 6 secondary districts.",
+            "0 primary districts and 7 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -56404,7 +56330,7 @@
           "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "0 primary districts and 6 secondary districts.",
+            "0 primary districts and 7 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -56544,37 +56470,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "Seattle Medical Ecosystem District Foundation",
-        "objective": "Improve Seattle commercial balance by advancing Medical from Missing toward stronger ecosystem readiness.",
+        "title": "Seattle Medical Ecosystem Representative Building Foundation",
+        "objective": "Improve Seattle commercial balance by advancing Medical from Thin toward stronger ecosystem readiness.",
         "ecosystemId": "medical",
         "ecosystemLabel": "Medical",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "missing",
-        "readinessLabel": "Missing",
-        "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Medical is Important for Seattle and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
-        "gapCode": "ecosystem_missing",
+        "readinessState": "thin",
+        "readinessLabel": "Thin",
+        "sprintFamily": "Ecosystem Representative Building Foundation",
+        "rationale": "Medical is Important for Seattle and is currently Thin. District foundation exists, but Representative Buildings are missing.",
+        "gapCode": "ecosystem_representative_building_gap",
         "priorityScore": 78,
         "layers": {
-          "districts": "missing",
-          "recommendations": "missing",
+          "districts": "strong",
+          "recommendations": "strong",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "missing",
-          "archetypes": "missing",
-          "activities": "missing",
+          "subtypes": "developed",
+          "archetypes": "developed",
+          "activities": "strong",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 0,
+          "districts": 1,
           "secondaryDistricts": 0,
-          "recommendations": 0,
+          "recommendations": 1,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 0,
-          "archetypes": 0,
-          "activities": 0,
+          "subtypes": 5,
+          "archetypes": 5,
+          "activities": 3,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -56582,10 +56508,7 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "No district coverage for this relevant ecosystem.",
-          "Subtype breadth is thin.",
-          "Business archetype coverage is thin.",
-          "Business activity coverage is thin."
+          "Representative Building coverage is missing for this ecosystem."
         ],
         "targetSubtypes": [
           "medical_office",
@@ -56622,8 +56545,14 @@
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
         "existingRepresentativeBuildings": [],
-        "districtCandidates": [],
-        "expectedBuildingRange": "use Publisher task scope",
+        "districtCandidates": [
+          {
+            "slug": "first-hill-medical",
+            "label": "First Hill Medical District",
+            "path": "/commercial-real-estate/WA/seattle/first-hill-medical/"
+          }
+        ],
+        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -56646,7 +56575,7 @@
           "title": "Seattle Office Building Brief Migration",
           "whyNotFirst": "Office is already one of the metro's strongest ecosystems. Additional office depth would not improve commercial balance as much as the target ecosystem sprint."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for Seattle: Seattle Medical Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Important\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- medical_office_environment, hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for Seattle: Seattle Medical Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Important\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- medical_office_environment, hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- First Hill Medical District\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -57042,6 +56971,54 @@
           }
         },
         {
+          "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "First Hill Medical District",
+          "sourceId": "first-hill-medical",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
           "metroId": "seattle",
           "metroName": "Seattle",
@@ -57244,6 +57221,147 @@
           "itemName": "Eastside Tech Office Corridor -> Downtown Seattle Office Core",
           "sourceId": "eastside-tech-office-corridor:downtown-seattle-office",
           "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Bellevue CBD Office",
+          "sourceId": "first-hill-medical:bellevue-cbd-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+          "sourceId": "first-hill-medical:downtown-seattle-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+          "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -57907,6 +58025,54 @@
           }
         },
         {
+          "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "First Hill Medical District",
+          "sourceId": "first-hill-medical",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
           "metroId": "seattle",
           "metroName": "Seattle",
@@ -58109,6 +58275,147 @@
           "itemName": "Eastside Tech Office Corridor -> Downtown Seattle Office Core",
           "sourceId": "eastside-tech-office-corridor:downtown-seattle-office",
           "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Bellevue CBD Office",
+          "sourceId": "first-hill-medical:bellevue-cbd-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+          "sourceId": "first-hill-medical:downtown-seattle-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+          "metroId": "seattle",
+          "metroName": "Seattle",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+          "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+          "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -58383,8 +58690,25 @@
         "modeLabel": "Balanced Expansion",
         "title": "Seattle Representative Building Foundation Sprint",
         "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 18 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 22 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
+          {
+            "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "First Hill Medical District",
+            "sourceId": "first-hill-medical",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
           {
             "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
             "category": "representativeBuildings",
@@ -58469,6 +58793,7 @@
         ],
         "dataTasks": [
           "Curate representative buildings that explain this district.",
+          "Curate representative buildings that explain this district.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
@@ -58491,7 +58816,7 @@
         "expectedCoverageImprovements": {
           "districtTasks": 0,
           "comparisonTasks": 4,
-          "representativeBuildingTasks": 1,
+          "representativeBuildingTasks": 2,
           "buildingBriefTasks": 0,
           "recommendationTasks": 0
         },
@@ -58501,7 +58826,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: First Hill Medical District - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -58509,8 +58834,25 @@
           "modeLabel": "Balanced Expansion",
           "title": "Seattle Representative Building Foundation Sprint",
           "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 18 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 22 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "First Hill Medical District",
+              "sourceId": "first-hill-medical",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -58595,6 +58937,7 @@
           ],
           "dataTasks": [
             "Curate representative buildings that explain this district.",
+            "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
@@ -58617,7 +58960,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 4,
-            "representativeBuildingTasks": 1,
+            "representativeBuildingTasks": 2,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -58627,14 +58970,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Balanced Expansion\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: First Hill Medical District - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Seattle District Comparison Sprint",
           "objective": "Improve Seattle expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 18 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 22 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:seattle:comparisonGraph:one-way comparison:belltown-waterfront-office-ballard-interbay-industrial",
@@ -58701,13 +59044,13 @@
               ]
             },
             {
-              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Kent Valley -> Georgetown Industrial",
-              "sourceId": "kent-valley:georgetown-industrial",
-              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "itemName": "First Hill Medical District -> Bellevue CBD Office",
+              "sourceId": "first-hill-medical:bellevue-cbd-office",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
               "priorityScore": 72,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -58717,19 +59060,36 @@
               ]
             },
             {
-              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Kent Valley -> SODO Industrial",
-              "sourceId": "kent-valley:sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+              "sourceId": "first-hill-medical:downtown-seattle-office",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
               "priorityScore": 72,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
               "blockedBy": [],
               "unlocks": [
                 "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "First Hill Medical District",
+              "sourceId": "first-hill-medical",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+              "priorityScore": 72,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
               ]
             },
             {
@@ -58757,6 +59117,7 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district."
           ],
           "contentTasks": [],
@@ -58776,7 +59137,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 1,
+            "representativeBuildingTasks": 2,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -58786,15 +59147,32 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Seattle expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; First Hill Medical District -> Bellevue CBD Office; First Hill Medical District -> Downtown Seattle Office Core\n\nTasks:\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: First Hill Medical District -> Bellevue CBD Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: First Hill Medical District -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: First Hill Medical District - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "Seattle Representative Building Foundation Sprint",
           "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 18 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 22 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "First Hill Medical District",
+              "sourceId": "first-hill-medical",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -58877,13 +59255,13 @@
               ]
             },
             {
-              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Kent Valley -> Georgetown Industrial",
-              "sourceId": "kent-valley:georgetown-industrial",
-              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "itemName": "First Hill Medical District -> Bellevue CBD Office",
+              "sourceId": "first-hill-medical:bellevue-cbd-office",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
               "priorityScore": 68,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -58893,13 +59271,13 @@
               ]
             },
             {
-              "id": "gap:seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
+              "id": "gap:seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Kent Valley -> SODO Industrial",
-              "sourceId": "kent-valley:sodo-industrial",
-              "publicUrl": "/commercial-real-estate/WA/kent/kent-valley/",
+              "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+              "sourceId": "first-hill-medical:downtown-seattle-office",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
               "priorityScore": 68,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -58910,6 +59288,7 @@
             }
           ],
           "dataTasks": [
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
@@ -58935,7 +59314,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 1,
+            "representativeBuildingTasks": 2,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -58945,15 +59324,32 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; Kent Valley -> Georgetown Industrial; Kent Valley -> SODO Industrial\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> Georgetown Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Kent Valley -> SODO Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial; Downtown Seattle Office Core -> SODO Industrial; Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office; Eastside Tech Office Corridor -> Downtown Seattle Office Core; First Hill Medical District -> Bellevue CBD Office; First Hill Medical District -> Downtown Seattle Office Core\n\nTasks:\n- [Research required] Representative Buildings: First Hill Medical District - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Belltown / Waterfront Creative Office -> Ballard / Interbay Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Seattle Office Core -> SODO Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Belltown / Waterfront Creative Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Eastside Tech Office Corridor -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: First Hill Medical District -> Bellevue CBD Office - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: First Hill Medical District -> Downtown Seattle Office Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Seattle Representative Building Foundation Sprint",
           "objective": "Improve Seattle expansion readiness by completing the highest-value Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 18 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 22 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "First Hill Medical District",
+              "sourceId": "first-hill-medical",
+              "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
               "category": "representativeBuildings",
@@ -58973,6 +59369,7 @@
             }
           ],
           "dataTasks": [
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district."
           ],
           "contentTasks": [],
@@ -58990,7 +59387,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 1,
+            "representativeBuildingTasks": 2,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -59000,7 +59397,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Seattle: Seattle Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Seattle expansion readiness by completing the highest-value Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: First Hill Medical District - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Georgetown Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -59011,7 +59408,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -75455,7 +75852,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -84295,7 +84692,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -94117,7 +94514,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -103109,7 +103506,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-27T14:30:02-07:00",
+      "generatedAt": "2026-07-27T15:01:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,

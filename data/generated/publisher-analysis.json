@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T14:30:02-07:00",
-  "sourceCommit": "9532d0715bfaf3a508d2d417c32407ec5aa0aa57",
+  "generatedAt": "2026-07-27T15:01:10-07:00",
+  "sourceCommit": "042be631f4e01fa9b5e9014fbac7066a288d0bcd",
   "commercialMarketEvidence": {
     "schemaVersion": "commercial-market-evidence-platform-v1",
     "service": "Commercial Market Evidence",
@@ -40,7 +40,7 @@
       "High": 10
     },
     "deferredCandidates": 5,
-    "latestValidation": "2026-07-27T14:30:02-07:00",
+    "latestValidation": "2026-07-27T15:01:10-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -50,7 +50,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-07-27T14:30:02-07:00",
+    "generatedAt": "2026-07-27T15:01:10-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -28430,8 +28430,8 @@
             "status": "passed",
             "explanation": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
-              "districts": 9,
-              "comparisons": 23,
+              "districts": 10,
+              "comparisons": 26,
               "qaScenarios": 9
             },
             "targets": {
@@ -28443,11 +28443,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 83,
+            "score": 82,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 8 representative buildings and 8 Building Briefs are available.",
+            "explanation": "10 of 10 districts have substantive descriptions; 8 representative buildings and 8 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 9,
+              "districtsWithDescriptions": 10,
               "representativeBuildings": 8,
               "buildingBriefs": 8
             },
@@ -28467,12 +28467,12 @@
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 9,
-              "internalLinks": 28
+              "districtPages": 10,
+              "internalLinks": 29
             },
             "targets": {
-              "districtPages": 9,
-              "internalLinks": 28
+              "districtPages": 10,
+              "internalLinks": 29
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -28484,21 +28484,21 @@
         "overallScore": 94,
         "score": 94,
         "cityPath": "/commercial-real-estate/WA/seattle/",
-        "districtCount": 9,
+        "districtCount": 10,
         "representativeBuildingCount": 8,
         "buildingBriefCount": 8,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
           "rationale": [
-            "9 district nodes are available for the metro.",
+            "10 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
             "Recommendation QA indicates Compass Ready status."
           ],
           "passed": true,
           "metrics": {
-            "districtCount": 9,
+            "districtCount": 10,
             "districtCoverageScore": 100,
             "comparisonGraphScore": 100,
             "recommendationReadinessScore": 100
@@ -28509,7 +28509,7 @@
           "label": "Partial",
           "rationale": [
             "Office, Industrial & Flex coverage is strong or developed.",
-            "Retail is Partial; Medical is Missing; Life Science is Partial."
+            "Retail is Partial; Medical is Thin; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -28544,7 +28544,7 @@
               },
               "counts": {
                 "districts": 5,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 5,
                 "representativeBuildings": 5,
                 "buildingBriefs": 5,
@@ -28562,7 +28562,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "5 primary districts and 0 secondary districts.",
+                "5 primary districts and 1 secondary districts.",
                 "5 Representative Buildings and 5 Building Briefs.",
                 "5 representative roles and 5 operational categories are covered."
               ],
@@ -28888,7 +28888,7 @@
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 6,
+                "secondaryDistricts": 7,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
@@ -28911,7 +28911,7 @@
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -28977,27 +28977,27 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "strong",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
+                "districts": 1,
                 "secondaryDistricts": 0,
-                "recommendations": 0,
+                "recommendations": 1,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 5,
+                "archetypes": 5,
+                "activities": 3,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -29005,16 +29005,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -29385,7 +29382,7 @@
               "readinessState": "partial",
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -29410,7 +29407,7 @@
               "readinessState": "partial",
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -29435,7 +29432,7 @@
               "readinessState": "partial",
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -29460,7 +29457,7 @@
               "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -29485,7 +29482,7 @@
               "readinessState": "partial",
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -29499,21 +29496,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
+              "id": "ecosystem:medical:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "medium",
-              "layer": "districts",
+              "layer": "representativeBuildings",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -29524,71 +29521,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
+              "id": "ecosystem:medical:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
               "severity": "medium",
-              "layer": "subtypes",
+              "layer": "representativeBuildings",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -29607,10 +29554,10 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "thin",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -29975,8 +29922,8 @@
             }
           ],
           "balance": {
-            "state": "specialized",
-            "label": "Specialized",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.63,
             "buildingBriefShare": 0.63,
@@ -29984,8 +29931,8 @@
           }
         },
         "ecosystemBalance": {
-          "state": "specialized",
-          "label": "Specialized",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.63,
           "buildingBriefShare": 0.63,
@@ -29997,7 +29944,7 @@
               "id": "office",
               "label": "Office",
               "districtCount": 5,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 5,
               "buildingBriefCount": 5,
@@ -30340,7 +30287,7 @@
               "id": "retail",
               "label": "Retail",
               "districtCount": 0,
-              "secondaryDistrictCount": 6,
+              "secondaryDistrictCount": 7,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
@@ -30391,23 +30338,40 @@
             "medical": {
               "id": "medical",
               "label": "Medical",
-              "districtCount": 0,
+              "districtCount": 1,
               "secondaryDistrictCount": 0,
-              "recommendationNodeCount": 0,
+              "recommendationNodeCount": 1,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
-              "reviewRequiredDistricts": [],
-              "notableSubtypeGaps": [
-                "medical_office",
-                "outpatient_clinic",
-                "dental",
-                "wellness"
+              "status": "Thin",
+              "districts": [
+                {
+                  "slug": "first-hill-medical",
+                  "label": "First Hill Medical District",
+                  "path": "/commercial-real-estate/WA/seattle/first-hill-medical/"
+                }
               ],
+              "subtypes": {
+                "medical_office": 1,
+                "outpatient_clinic": 1,
+                "dental": 1,
+                "wellness": 1,
+                "hospital_adjacent": 1
+              },
+              "archetypes": {
+                "medical_practice": 1,
+                "dental_practice": 1,
+                "outpatient_clinic": 1,
+                "wellness_practice": 1,
+                "physical_therapy_practice": 1
+              },
+              "activities": {
+                "healthcare_delivery": 1,
+                "walk_in_service": 1,
+                "administrative_operations": 1
+              },
+              "reviewRequiredDistricts": [],
+              "notableSubtypeGaps": [],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
                 "state": "missing",
@@ -30602,12 +30566,17 @@
             "small_bay_industrial": 3,
             "contractor_service": 2,
             "light_manufacturing": 2,
-            "flex": 2
+            "flex": 2,
+            "medical_office": 1,
+            "outpatient_clinic": 1,
+            "dental": 1,
+            "wellness": 1,
+            "hospital_adjacent": 1
           },
           "activityCoverage": {
             "knowledge_work": 5,
             "client_meetings": 4,
-            "administrative_operations": 4,
+            "administrative_operations": 5,
             "collaboration": 3,
             "product_development": 2,
             "receiving": 3,
@@ -30618,7 +30587,9 @@
             "equipment_storage": 2,
             "light_manufacturing": 2,
             "assembly": 1,
-            "inventory_management": 2
+            "inventory_management": 2,
+            "healthcare_delivery": 1,
+            "walk_in_service": 1
           },
           "archetypeCoverage": {
             "law_firm": 2,
@@ -30641,7 +30612,12 @@
             "cabinet_shop": 2,
             "light_manufacturer": 1,
             "equipment_service_company": 1,
-            "furniture_maker": 1
+            "furniture_maker": 1,
+            "medical_practice": 1,
+            "dental_practice": 1,
+            "outpatient_clinic": 1,
+            "wellness_practice": 1,
+            "physical_therapy_practice": 1
           },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
@@ -30649,8 +30625,8 @@
             {
               "id": "medical",
               "label": "Medical",
-              "status": "Missing",
-              "districtCount": 0,
+              "status": "Thin",
+              "districtCount": 1,
               "representativeBuildingCount": 0
             },
             {
@@ -30672,28 +30648,28 @@
             "ecosystemCount": 7,
             "developedCount": 2,
             "partialCount": 2,
-            "thinCount": 0,
-            "missingCount": 3,
+            "thinCount": 1,
+            "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
+            "id": "ecosystem:medical:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "medium",
-            "layer": "districts",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -30704,21 +30680,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
+            "id": "ecosystem:medical:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
             "severity": "medium",
-            "layer": "subtypes",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -30765,7 +30741,7 @@
             "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -30879,56 +30855,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -30937,10 +30863,10 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -31065,7 +30991,7 @@
             "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -31090,7 +31016,7 @@
             "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -31115,7 +31041,7 @@
             "readinessState": "partial",
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -31140,7 +31066,7 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -31298,12 +31224,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Seattle Medical Ecosystem District Foundation",
+          "title": "Seattle Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem District Foundation",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "gapCode": "ecosystem_missing",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "gapCode": "ecosystem_representative_building_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -31328,8 +31254,8 @@
             "key": "districtCoverage",
             "label": "District Coverage",
             "score": 100,
-            "completed": 36,
-            "total": 36,
+            "completed": 40,
+            "total": 40,
             "missing": 0,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": []
@@ -31338,10 +31264,10 @@
             "key": "comparisonGraph",
             "label": "Comparison Graph",
             "score": 100,
-            "completed": 18,
-            "total": 18,
+            "completed": 20,
+            "total": 20,
             "missing": 0,
-            "explanation": "23 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "explanation": "26 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": [
               {
                 "id": "seattle:comparisonGraph:one-way comparison:downtown-seattle-office-sodo-industrial",
@@ -31477,6 +31403,63 @@
                 "readinessState": ""
               },
               {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:downtown-seattle-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Bellevue CBD Office",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:bellevue-cbd-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
                 "id": "seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
                 "code": "one-way-comparison",
                 "metroId": "seattle",
@@ -31519,12 +31502,31 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 44,
+            "score": 40,
             "completed": 8,
-            "total": 18,
-            "missing": 10,
+            "total": 20,
+            "missing": 12,
             "explanation": "8 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "First Hill Medical District",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "first-hill-medical",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
               {
                 "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
                 "code": "district-no-reps",
@@ -31713,8 +31715,8 @@
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
             "score": 100,
-            "completed": 13,
-            "total": 13,
+            "completed": 14,
+            "total": 14,
             "missing": 0,
             "explanation": "9 QA scenarios; last QA 2026-07-26.",
             "issues": []
@@ -31723,8 +31725,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 17,
-            "total": 17,
+            "completed": 18,
+            "total": 18,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -31733,8 +31735,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 28,
-            "total": 28,
+            "completed": 29,
+            "total": 29,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -31894,6 +31896,25 @@
             "readinessState": ""
           },
           {
+            "id": "seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "First Hill Medical District",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "first-hill-medical",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
             "code": "district-no-reps",
             "metroId": "seattle",
@@ -31983,6 +32004,63 @@
             "reason": "Comparison relationship is not reciprocated.",
             "sourceId": "eastside-tech-office-corridor:downtown-seattle-office",
             "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Bellevue CBD Office",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:bellevue-cbd-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:downtown-seattle-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
             "adminUrl": "",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
             "automationCandidate": true,
@@ -60477,8 +60555,8 @@
             "status": "passed",
             "explanation": "9 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
-              "districts": 9,
-              "comparisons": 23,
+              "districts": 10,
+              "comparisons": 26,
               "qaScenarios": 9
             },
             "targets": {
@@ -60490,11 +60568,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 83,
+            "score": 82,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 8 representative buildings and 8 Building Briefs are available.",
+            "explanation": "10 of 10 districts have substantive descriptions; 8 representative buildings and 8 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 9,
+              "districtsWithDescriptions": 10,
               "representativeBuildings": 8,
               "buildingBriefs": 8
             },
@@ -60514,12 +60592,12 @@
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 9,
-              "internalLinks": 28
+              "districtPages": 10,
+              "internalLinks": 29
             },
             "targets": {
-              "districtPages": 9,
-              "internalLinks": 28
+              "districtPages": 10,
+              "internalLinks": 29
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -60531,21 +60609,21 @@
         "overallScore": 94,
         "score": 94,
         "cityPath": "/commercial-real-estate/WA/seattle/",
-        "districtCount": 9,
+        "districtCount": 10,
         "representativeBuildingCount": 8,
         "buildingBriefCount": 8,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
           "rationale": [
-            "9 district nodes are available for the metro.",
+            "10 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
             "Recommendation QA indicates Compass Ready status."
           ],
           "passed": true,
           "metrics": {
-            "districtCount": 9,
+            "districtCount": 10,
             "districtCoverageScore": 100,
             "comparisonGraphScore": 100,
             "recommendationReadinessScore": 100
@@ -60556,7 +60634,7 @@
           "label": "Partial",
           "rationale": [
             "Office, Industrial & Flex coverage is strong or developed.",
-            "Retail is Partial; Medical is Missing; Life Science is Partial."
+            "Retail is Partial; Medical is Thin; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -60591,7 +60669,7 @@
               },
               "counts": {
                 "districts": 5,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 5,
                 "representativeBuildings": 5,
                 "buildingBriefs": 5,
@@ -60609,7 +60687,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "5 primary districts and 0 secondary districts.",
+                "5 primary districts and 1 secondary districts.",
                 "5 Representative Buildings and 5 Building Briefs.",
                 "5 representative roles and 5 operational categories are covered."
               ],
@@ -60935,7 +61013,7 @@
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 6,
+                "secondaryDistricts": 7,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
@@ -60958,7 +61036,7 @@
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -61024,27 +61102,27 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
-                "districts": "missing",
-                "recommendations": "missing",
+                "districts": "strong",
+                "recommendations": "strong",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "strong",
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 0,
+                "districts": 1,
                 "secondaryDistricts": 0,
-                "recommendations": 0,
+                "recommendations": 1,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 5,
+                "archetypes": 5,
+                "activities": 3,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -61052,16 +61130,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -61432,7 +61507,7 @@
               "readinessState": "partial",
               "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -61457,7 +61532,7 @@
               "readinessState": "partial",
               "rationale": "Business archetype coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -61482,7 +61557,7 @@
               "readinessState": "partial",
               "rationale": "Business activity coverage is too narrow.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -61507,7 +61582,7 @@
               "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -61532,7 +61607,7 @@
               "readinessState": "partial",
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
-                "0 primary districts and 6 secondary districts.",
+                "0 primary districts and 7 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -61546,21 +61621,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
+              "id": "ecosystem:medical:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "medium",
-              "layer": "districts",
+              "layer": "representativeBuildings",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -61571,71 +61646,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
+              "id": "ecosystem:medical:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
               "severity": "medium",
-              "layer": "subtypes",
+              "layer": "representativeBuildings",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:medical:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -61654,10 +61679,10 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "missing",
+              "readinessState": "thin",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "1 primary districts and 0 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -62022,8 +62047,8 @@
             }
           ],
           "balance": {
-            "state": "specialized",
-            "label": "Specialized",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.63,
             "buildingBriefShare": 0.63,
@@ -62031,8 +62056,8 @@
           }
         },
         "ecosystemBalance": {
-          "state": "specialized",
-          "label": "Specialized",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.63,
           "buildingBriefShare": 0.63,
@@ -62044,7 +62069,7 @@
               "id": "office",
               "label": "Office",
               "districtCount": 5,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 5,
               "representativeBuildingCount": 5,
               "buildingBriefCount": 5,
@@ -62387,7 +62412,7 @@
               "id": "retail",
               "label": "Retail",
               "districtCount": 0,
-              "secondaryDistrictCount": 6,
+              "secondaryDistrictCount": 7,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
@@ -62438,23 +62463,40 @@
             "medical": {
               "id": "medical",
               "label": "Medical",
-              "districtCount": 0,
+              "districtCount": 1,
               "secondaryDistrictCount": 0,
-              "recommendationNodeCount": 0,
+              "recommendationNodeCount": 1,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
-              "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
-              "reviewRequiredDistricts": [],
-              "notableSubtypeGaps": [
-                "medical_office",
-                "outpatient_clinic",
-                "dental",
-                "wellness"
+              "status": "Thin",
+              "districts": [
+                {
+                  "slug": "first-hill-medical",
+                  "label": "First Hill Medical District",
+                  "path": "/commercial-real-estate/WA/seattle/first-hill-medical/"
+                }
               ],
+              "subtypes": {
+                "medical_office": 1,
+                "outpatient_clinic": 1,
+                "dental": 1,
+                "wellness": 1,
+                "hospital_adjacent": 1
+              },
+              "archetypes": {
+                "medical_practice": 1,
+                "dental_practice": 1,
+                "outpatient_clinic": 1,
+                "wellness_practice": 1,
+                "physical_therapy_practice": 1
+              },
+              "activities": {
+                "healthcare_delivery": 1,
+                "walk_in_service": 1,
+                "administrative_operations": 1
+              },
+              "reviewRequiredDistricts": [],
+              "notableSubtypeGaps": [],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
                 "state": "missing",
@@ -62649,12 +62691,17 @@
             "small_bay_industrial": 3,
             "contractor_service": 2,
             "light_manufacturing": 2,
-            "flex": 2
+            "flex": 2,
+            "medical_office": 1,
+            "outpatient_clinic": 1,
+            "dental": 1,
+            "wellness": 1,
+            "hospital_adjacent": 1
           },
           "activityCoverage": {
             "knowledge_work": 5,
             "client_meetings": 4,
-            "administrative_operations": 4,
+            "administrative_operations": 5,
             "collaboration": 3,
             "product_development": 2,
             "receiving": 3,
@@ -62665,7 +62712,9 @@
             "equipment_storage": 2,
             "light_manufacturing": 2,
             "assembly": 1,
-            "inventory_management": 2
+            "inventory_management": 2,
+            "healthcare_delivery": 1,
+            "walk_in_service": 1
           },
           "archetypeCoverage": {
             "law_firm": 2,
@@ -62688,7 +62737,12 @@
             "cabinet_shop": 2,
             "light_manufacturer": 1,
             "equipment_service_company": 1,
-            "furniture_maker": 1
+            "furniture_maker": 1,
+            "medical_practice": 1,
+            "dental_practice": 1,
+            "outpatient_clinic": 1,
+            "wellness_practice": 1,
+            "physical_therapy_practice": 1
           },
           "missingPrimaryEcosystemDistricts": [],
           "reviewRequiredDistricts": [],
@@ -62696,8 +62750,8 @@
             {
               "id": "medical",
               "label": "Medical",
-              "status": "Missing",
-              "districtCount": 0,
+              "status": "Thin",
+              "districtCount": 1,
               "representativeBuildingCount": 0
             },
             {
@@ -62719,28 +62773,28 @@
             "ecosystemCount": 7,
             "developedCount": 2,
             "partialCount": 2,
-            "thinCount": 0,
-            "missingCount": 3,
+            "thinCount": 1,
+            "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
+            "id": "ecosystem:medical:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "medium",
-            "layer": "districts",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -62751,21 +62805,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
+            "id": "ecosystem:medical:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
             "severity": "medium",
-            "layer": "subtypes",
+            "layer": "representativeBuildings",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -62812,7 +62866,7 @@
             "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -62926,56 +62980,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:medical:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -62984,10 +62988,10 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "1 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -63112,7 +63116,7 @@
             "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -63137,7 +63141,7 @@
             "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -63162,7 +63166,7 @@
             "readinessState": "partial",
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -63187,7 +63191,7 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 6 secondary districts.",
+              "0 primary districts and 7 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -63345,12 +63349,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "Seattle Medical Ecosystem District Foundation",
+          "title": "Seattle Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem District Foundation",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "gapCode": "ecosystem_missing",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "gapCode": "ecosystem_representative_building_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -63375,8 +63379,8 @@
             "key": "districtCoverage",
             "label": "District Coverage",
             "score": 100,
-            "completed": 36,
-            "total": 36,
+            "completed": 40,
+            "total": 40,
             "missing": 0,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": []
@@ -63385,10 +63389,10 @@
             "key": "comparisonGraph",
             "label": "Comparison Graph",
             "score": 100,
-            "completed": 18,
-            "total": 18,
+            "completed": 20,
+            "total": 20,
             "missing": 0,
-            "explanation": "23 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "explanation": "26 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": [
               {
                 "id": "seattle:comparisonGraph:one-way comparison:downtown-seattle-office-sodo-industrial",
@@ -63524,6 +63528,63 @@
                 "readinessState": ""
               },
               {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:downtown-seattle-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Bellevue CBD Office",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:bellevue-cbd-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+                "code": "one-way-comparison",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
                 "id": "seattle:comparisonGraph:one-way comparison:kent-valley-sodo-industrial",
                 "code": "one-way-comparison",
                 "metroId": "seattle",
@@ -63566,12 +63627,31 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 44,
+            "score": 40,
             "completed": 8,
-            "total": 18,
-            "missing": 10,
+            "total": 20,
+            "missing": 12,
             "explanation": "8 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
+              {
+                "id": "seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+                "code": "district-no-reps",
+                "metroId": "seattle",
+                "metroName": "Seattle",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "First Hill Medical District",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "first-hill-medical",
+                "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
               {
                 "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
                 "code": "district-no-reps",
@@ -63760,8 +63840,8 @@
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
             "score": 100,
-            "completed": 13,
-            "total": 13,
+            "completed": 14,
+            "total": 14,
             "missing": 0,
             "explanation": "9 QA scenarios; last QA 2026-07-26.",
             "issues": []
@@ -63770,8 +63850,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 17,
-            "total": 17,
+            "completed": 18,
+            "total": 18,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -63780,8 +63860,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 28,
-            "total": 28,
+            "completed": 29,
+            "total": 29,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -63941,6 +64021,25 @@
             "readinessState": ""
           },
           {
+            "id": "seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+            "code": "district-no-reps",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "First Hill Medical District",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "first-hill-medical",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
             "code": "district-no-reps",
             "metroId": "seattle",
@@ -64030,6 +64129,63 @@
             "reason": "Comparison relationship is not reciprocated.",
             "sourceId": "eastside-tech-office-corridor:downtown-seattle-office",
             "publicUrl": "/commercial-real-estate/WA/redmond/eastside-tech-office-corridor/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Bellevue CBD Office",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:bellevue-cbd-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:downtown-seattle-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
+            "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+            "code": "one-way-comparison",
+            "metroId": "seattle",
+            "metroName": "Seattle",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+            "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
             "adminUrl": "",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
             "automationCandidate": true,
@@ -75157,6 +75313,25 @@
         "readinessState": ""
       },
       {
+        "id": "seattle:representativeBuildings:district missing representative buildings:first-hill-medical",
+        "code": "district-no-reps",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "First Hill Medical District",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "first-hill-medical",
+        "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
         "id": "seattle:representativeBuildings:district missing representative buildings:georgetown-industrial",
         "code": "district-no-reps",
         "metroId": "seattle",
@@ -76069,6 +76244,63 @@
         "readinessState": ""
       },
       {
+        "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-bellevue-cbd-office",
+        "code": "one-way-comparison",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "one-way comparison",
+        "itemName": "First Hill Medical District -> Bellevue CBD Office",
+        "severity": "low",
+        "priority": 15,
+        "reason": "Comparison relationship is not reciprocated.",
+        "sourceId": "first-hill-medical:bellevue-cbd-office",
+        "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+        "adminUrl": "",
+        "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-downtown-seattle-office",
+        "code": "one-way-comparison",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "one-way comparison",
+        "itemName": "First Hill Medical District -> Downtown Seattle Office Core",
+        "severity": "low",
+        "priority": 15,
+        "reason": "Comparison relationship is not reciprocated.",
+        "sourceId": "first-hill-medical:downtown-seattle-office",
+        "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+        "adminUrl": "",
+        "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "seattle:comparisonGraph:one-way comparison:first-hill-medical-pioneer-square-waterfront-office",
+        "code": "one-way-comparison",
+        "metroId": "seattle",
+        "metroName": "Seattle",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "one-way comparison",
+        "itemName": "First Hill Medical District -> Pioneer Square / Waterfront Office",
+        "severity": "low",
+        "priority": 15,
+        "reason": "Comparison relationship is not reciprocated.",
+        "sourceId": "first-hill-medical:pioneer-square-waterfront-office",
+        "publicUrl": "/commercial-real-estate/WA/seattle/first-hill-medical/",
+        "adminUrl": "",
+        "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
         "id": "seattle:comparisonGraph:one-way comparison:kent-valley-georgetown-industrial",
         "code": "one-way-comparison",
         "metroId": "seattle",
@@ -76202,7 +76434,7 @@
         "High": 10
       },
       "deferredCandidates": 5,
-      "latestValidation": "2026-07-27T14:30:02-07:00",
+      "latestValidation": "2026-07-27T15:01:10-07:00",
       "errors": [],
       "warnings": [],
       "source": {
