@@ -95,6 +95,12 @@ The Knowledge Graph stores durable commercial-location knowledge: how cities and
 
 It is not a listings feed, scoring model, or AI system. It stores reasons.
 
+### Commercial Market Evidence
+
+Commercial Market Evidence is Rofo's curated evidence layer for explaining why a district, ecosystem, or recommendation exists. It evolves Representative Buildings from isolated examples into source-supported evidence of commercial environments such as office towers, industrial parks, research campuses, medical campuses, retail destinations, logistics facilities, and mixed-use centers.
+
+The architecture is documented in `docs/commercial-market-evidence.md`. Market Evidence should improve credibility and explainability without turning raw building count into quality, fabricating property facts, or changing recommendation rankings by default.
+
 ### Publisher
 
 Publisher is the deterministic coverage and production-planning system for metro readiness. It inspects repository data, measures coverage, identifies gaps, and produces work queues and expansion plans.

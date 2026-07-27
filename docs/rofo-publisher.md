@@ -6,6 +6,8 @@ Publisher v1 does not generate content, publish pages, call external AI services
 
 Publisher now sits inside the broader Editorial Operating System documented in `docs/editorial-operating-system.md`. EOS uses Publisher output as one source of truth for metro planning, but it also has room for Compass, Field Mode, Handbook, Search Intelligence, QA, and future analytics signals. Publisher scoring remains unchanged by EOS.
 
+Commercial Market Evidence is documented in `docs/commercial-market-evidence.md`. Future Publisher work can measure that evidence layer additively, but this document does not change current Publisher behavior or scoring.
+
 ## Purpose
 
 Publisher answers one operational question:
