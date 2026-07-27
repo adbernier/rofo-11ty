@@ -187,28 +187,36 @@ Future enhancements:
 - Add second-pass Knowledge Cards only where they improve recommendations, especially Glendale, Arvada, Thornton/Northglenn, Longmont, Baker, Five Points, Santa Fe Arts District, or other Denver districts exposed by real demand.
 - Continue monitoring whether broad Denver office searches distinguish central Denver, Cherry Creek, DTC, Boulder/US-36, and west/south metro alternatives clearly enough for advisor-quality Location Briefs.
 
-## Planned
-
 ### Seattle
 
-Compass Maturity: Planned
+Compass Maturity: Compass Ready
+
+Expansion Status: Publishing Ready candidate / review required
 
 Current strengths:
 
-- Public city and district geography exists for major Seattle-area markets.
-- Several commercial districts are already visible in search/autocomplete.
+- Seattle is configured as an in-development Publisher metro and should remain tracked as a first-class EOS expansion project until final publishing review.
+- The Seattle Knowledge Graph now covers downtown office, historic executive office, creative waterfront office, Bellevue professional office, Eastside technology office, SODO urban industrial, Georgetown industrial, Ballard / Interbay industrial, and Kent Valley logistics environments.
+- Office, industrial/flex, warehouse, distribution, contractor/service, creative office, executive office, and Eastside technology paths are represented in graph-backed recommendations.
+- Seattle QA includes nine realistic business profiles and passes baseline recommendation-direction and explainability checks with differentiated district-level paths.
+- Publisher currently measures Seattle as Distribution Ready while keeping the metro in development-only status.
 
 Current weaknesses:
 
-- Knowledge Graph coverage is not yet Compass Ready.
-- Office, industrial, warehouse, flex, and life-science fit needs to be authored.
-- Comparison relationships need to be built from tenant decision paths.
+- Seattle is not live. Final publishing review must remain separate from Publisher and Compass measurement.
+- Medical ecosystem coverage remains a Publisher ecosystem gap.
+- Building Brief depth has started but several Seattle Building Profiles still need field completion, including nearby-district context.
+- Broad city-level Seattle discovery remains a Compass enhancement because a canonical Seattle city starter node is not yet present.
+- Photography and handbook integration remain experience-readiness work owned by Field Mode and editorial planning.
 
-Next priorities:
+Future enhancements:
 
-- Seed Downtown Seattle, South Lake Union, Bellevue, Redmond, Kirkland, Kent Valley, Tacoma Port / Industrial, and Everett Industrial.
-- Add office, technology, life science, industrial, and warehouse Knowledge Cards.
-- Add city-level market paths for Seattle and Bellevue.
+- Complete the remaining medical ecosystem foundation only where source-supported districts justify it.
+- Finish the bounded Seattle Building Profile field-completion queue before final publication review.
+- Add a canonical city-level Seattle starter node if it improves broad search routing without changing validated district recommendations.
+- Keep photography in Field Mode and handbook guidance in editorial planning rather than bundling them into graph or Publisher readiness work.
+
+## Planned
 
 ### Phoenix
 

@@ -339,6 +339,8 @@ Each expansion project also exposes cross-functional workstreams:
 
 This lets EOS show that a future metro requires graph/data work, field photography, editorial coverage, and QA/publishing readiness instead of treating expansion as one generic task.
 
+For Publisher in-development metros, EOS derives the active expansion stage from existing Publisher and Compass evidence rather than from a manual stage flag. District coverage can advance a metro to Knowledge Graph, representative buildings can advance it to Representative Buildings, Building Profiles can advance it to Editorial Draft, Compass readiness and completed recommendation QA can advance it through Compass and QA, and Publisher Distribution Ready evidence can advance it to Publishing Ready. EOS does not promote an in-development metro to Live; that remains an explicit publishing decision outside the analysis model.
+
 ## Investment Score
 
 Overall Editorial Health answers:

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-26T15:39:03-07:00",
+  "generatedAt": "2026-07-26T16:00:30-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -2195,16 +2195,16 @@
       "metroId": "seattle",
       "metroName": "Seattle",
       "state": "",
-      "status": "knowledge_graph",
-      "statusLabel": "Knowledge Graph",
-      "overallProgress": 22,
+      "status": "publishing_ready",
+      "statusLabel": "Publishing Ready",
+      "overallProgress": 89,
       "investmentScore": {
-        "score": 48,
-        "label": "48/100",
+        "score": 49,
+        "label": "49/100",
         "inputs": {
           "searchOpportunity": 60,
           "editorialLeverage": 6,
-          "buildEffort": 54,
+          "buildEffort": 38,
           "existingFoundation": 94,
           "automationPotential": 50,
           "brokerCoverage": 35
@@ -2228,37 +2228,37 @@
         {
           "id": "knowledge_graph",
           "label": "Knowledge Graph",
-          "status": "active"
+          "status": "completed"
         },
         {
           "id": "representative_buildings",
           "label": "Representative Buildings",
-          "status": "open"
+          "status": "completed"
         },
         {
           "id": "editorial_draft",
           "label": "Editorial Draft",
-          "status": "open"
+          "status": "completed"
         },
         {
           "id": "recommendations",
           "label": "Recommendations",
-          "status": "open"
+          "status": "completed"
         },
         {
           "id": "compass",
           "label": "Compass",
-          "status": "open"
+          "status": "completed"
         },
         {
           "id": "qa",
           "label": "QA",
-          "status": "open"
+          "status": "completed"
         },
         {
           "id": "publishing_ready",
           "label": "Publishing Ready",
-          "status": "open"
+          "status": "active"
         },
         {
           "id": "live",
@@ -2271,32 +2271,32 @@
           "id": "engineering",
           "label": "Engineering Work",
           "description": "Graph architecture, data structure, routes, generated output, and validation surfaces.",
-          "progress": 38,
-          "status": "active"
+          "progress": 100,
+          "status": "completed"
         },
         {
           "id": "field_mode",
           "label": "Field Work",
           "description": "Rofo-owned photography and visual coverage planning through Field Mode.",
-          "progress": 0,
-          "status": "open"
+          "progress": 100,
+          "status": "completed"
         },
         {
           "id": "editorial",
           "label": "Editorial Work",
           "description": "Representative environments, public editorial draft, handbook context, and market explanation.",
-          "progress": 0,
-          "status": "open"
+          "progress": 100,
+          "status": "completed"
         },
         {
           "id": "publishing_readiness",
           "label": "Publishing Readiness",
           "description": "QA, Publisher readiness, final publishing gate, and live status.",
-          "progress": 0,
-          "status": "open"
+          "progress": 50,
+          "status": "active"
         }
       ],
-      "nextAction": "Advance to Representative Buildings.",
+      "nextAction": "Complete final publishing review before Live.",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
@@ -48858,9 +48858,9 @@
         "metroId": "seattle",
         "metroName": "Seattle",
         "title": "Build Seattle",
-        "priorityScore": 48,
+        "priorityScore": 49,
         "priorityStars": 3,
-        "status": "Knowledge Graph",
+        "status": "Publishing Ready",
         "lifecycleState": {
           "id": "open",
           "label": "Open"
@@ -48894,12 +48894,12 @@
           "Investment Score is a planning model; no external Search Console, analytics, or broker-performance data is connected yet."
         ],
         "executionPacket": {
-          "objective": "Advance Seattle expansion from Knowledge Graph",
+          "objective": "Advance Seattle expansion from Publishing Ready",
           "reason": [
             "Seattle is configured as an in-development Publisher metro and should be tracked as an expansion project.",
             "Investment Score is a planning model; no external Search Console, analytics, or broker-performance data is connected yet."
           ],
-          "currentHealth": "22% expansion progress",
+          "currentHealth": "89% expansion progress",
           "files": [
             "docs/recommendation-expansion-roadmap.md",
             "_data/locationKnowledgeGraph.js",

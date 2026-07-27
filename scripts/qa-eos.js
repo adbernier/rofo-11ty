@@ -270,6 +270,11 @@ for (const project of eos.expansionProjects || []) {
   }
 }
 
+const seattleExpansionProject = (eos.expansionProjects || []).find((project) => project.metroId === "seattle");
+if (seattleExpansionProject && seattleExpansionProject.status !== "publishing_ready") {
+  fail("Seattle expansion project should advance to Publishing Ready when Publisher and Compass evidence are complete.");
+}
+
 if (!adminSource.includes("../../data/generated/eos-analysis.json")) {
   fail("/admin/eos must consume the generated EOS snapshot.");
 }
