@@ -492,6 +492,8 @@ This model preserves the existing Mission, Execution Packet, and SER v1 contract
 
 The first implemented projection lives in `data/generated/eos-analysis.json` as `marketProjection` with schema version `mission-control-v2-market-projection-v1`. It is additive. It associates current missions with `marketId`, `programId`, and `initiativeId`, projects Program status from existing EOS and Publisher evidence, resolves executable Program Missions where supported, and keeps work items hidden by default.
 
+Commercial Market Evidence uses this projection to separate operational market ownership from Publisher metro grouping. For example, San Francisco Publisher analysis can remain Bay Area-wide while East Bay districts are projected into an East Bay Market Workspace. The projection resolves district ownership before assigning Initiatives, reports ambiguous or unresolved districts, and excludes those districts from executable missions until ownership is deterministic.
+
 ## Migration Strategy
 
 Migration should be incremental.

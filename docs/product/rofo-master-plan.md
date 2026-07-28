@@ -103,7 +103,7 @@ The architecture is documented in `docs/commercial-market-evidence.md`. Market E
 
 Commercial Market Evidence is a first-class platform service. Its source data and validator own evidence quality; Publisher reports the validator summary for visibility; Mission Control displays platform health, and EOS can resolve missing district collections into bounded Program Missions.
 
-Mission Control performs presence-based expansion discovery for Commercial Market Evidence by comparing Knowledge Graph districts with existing evidence collections. EOS may resolve the next missing district collection into an executable Program Initiative and Mission, while Publisher scoring and recommendation behavior remain separate until a focused integration sprint approves deeper use.
+Mission Control performs presence-based expansion discovery for Commercial Market Evidence by comparing Knowledge Graph districts with existing evidence collections. EOS may resolve the next missing district collection into an executable Program Initiative and Mission, while Publisher scoring and recommendation behavior remain separate until a focused integration sprint approves deeper use. District collections are assigned to operational markets, not merely broad Publisher metro groups, so East Bay, Peninsula, South Bay, San Francisco, Seattle, Denver, and other workspaces can remain distinct even when Publisher uses broader analysis groupings.
 
 ### Publisher
 

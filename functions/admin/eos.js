@@ -874,6 +874,7 @@ function renderCommercialMarketEvidenceService(eos) {
   const expansion = service.expansion || {};
   const coverage = expansion.coverageSummary || {};
   const suggested = (expansion.suggestedExpansionOrder || []).slice(0, 8);
+  const unresolvedCount = Number(coverage.unresolvedDistricts || 0) + Number(coverage.ambiguousDistricts || 0);
   const confidence = Object.entries(service.confidenceSummary || {})
     .map(([label, count]) => `${label}: ${count}`)
     .join("; ") || "No confidence records";
@@ -907,13 +908,14 @@ function renderCommercialMarketEvidenceService(eos) {
           <article><strong>${escapeHtml(String(coverage.knowledgeGraphDistricts || 0))}</strong><span>Knowledge Graph Districts</span></article>
           <article><strong>${escapeHtml(coverage.collectionCoverageLabel || "Unknown")}</strong><span>Coverage Summary</span></article>
         </div>
+        ${unresolvedCount ? `<p class="platform-service__meta">Ownership warning: ${escapeHtml(String(unresolvedCount))} district${unresolvedCount === 1 ? "" : "s"} require market ownership review before executable missions are created.</p>` : ""}
         <details class="mission-scope">
           <summary>Suggested Expansion Order</summary>
           <ol class="expansion-order">
             ${suggested.map((item) => `
               <li>
                 <strong>${escapeHtml(item.districtName)}</strong>
-                <span>${escapeHtml([item.metroName, item.city, item.state].filter(Boolean).join(" · "))}</span>
+                <span>${escapeHtml([item.marketName || item.metroName, item.city, item.state].filter(Boolean).join(" · "))}</span>
                 <p>${escapeHtml((item.rationale || []).slice(0, 2).join(" "))}</p>
               </li>
             `).join("") || "<li>No missing collections detected.</li>"}

@@ -275,8 +275,14 @@ if (!marketProjection.workItems || marketProjection.workItems.hiddenByDefault !=
   fail("Mission Control v2 projection must keep work items hidden by default.");
 }
 
-if (!Array.isArray(marketProjection.markets) || marketProjection.markets.length !== (eos.metros || []).length) {
-  fail("Mission Control v2 projection must include every EOS market.");
+if (!Array.isArray(marketProjection.markets) || marketProjection.markets.length < (eos.metros || []).length) {
+  fail("Mission Control v2 projection must include every Publisher-backed EOS market.");
+}
+
+for (const metro of eos.metros || []) {
+  if (!(marketProjection.markets || []).some((market) => market.id === metro.metroId)) {
+    fail(`Mission Control v2 projection is missing Publisher-backed market: ${metro.metroId}`);
+  }
 }
 
 const projectedMissionIds = new Set((marketProjection.missions || []).map((mission) => mission.id));
@@ -343,9 +349,17 @@ for (const mission of cmeMissions) {
 }
 
 const initiativeIds = new Set();
+const cmeInitiativeByDistrict = new Map();
 for (const initiative of marketProjection.initiatives || []) {
   if (initiativeIds.has(initiative.id)) fail(`Duplicate projected Initiative id: ${initiative.id}`);
   initiativeIds.add(initiative.id);
+  if (initiative.programId === "commercial_market_evidence" && initiative.districtId) {
+    const districtId = initiative.districtId || String(initiative.id).split(":").pop();
+    if (cmeInitiativeByDistrict.has(districtId)) {
+      fail(`Commercial Market Evidence district Initiative appears in multiple markets: ${districtId}`);
+    }
+    cmeInitiativeByDistrict.set(districtId, initiative);
+  }
 }
 
 const sanFranciscoMarket = (marketProjection.markets || []).find((market) => market.id === "san-francisco");
@@ -365,9 +379,56 @@ if (!sanFranciscoCmeProgram) {
   if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
     fail("San Francisco Commercial Market Evidence next Initiative must map to one executable Mission.");
   }
+  if (nextInitiative.id.includes("west-berkeley")) {
+    fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
+  }
   const nextProjectedMission = (nextInitiative.missions || [])[0];
   if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
     fail("San Francisco Commercial Market Evidence Mission must map back to the Initiative and Execution Packet.");
+  }
+}
+
+const eastBayMarket = (marketProjection.markets || []).find((market) => market.id === "east-bay");
+const eastBayCmeProgram = eastBayMarket && (eastBayMarket.programs || []).find((program) => program.id === "commercial_market_evidence");
+if (!eastBayCmeProgram) {
+  fail("East Bay must expose a Commercial Market Evidence Program for Berkeley/Oakland districts.");
+} else {
+  const westBerkeley = (eastBayCmeProgram.initiatives || []).find((initiative) => initiative.id === "east-bay:commercial_market_evidence:west-berkeley");
+  if (!westBerkeley || westBerkeley.marketId !== "east-bay") {
+    fail("West Berkeley must resolve to the East Bay Commercial Market Evidence workspace.");
+  }
+}
+
+const ownershipResolution = marketEvidenceExpansion && marketEvidenceExpansion.ownershipResolution;
+if (!ownershipResolution || !Array.isArray(ownershipResolution.resolvedDistricts)) {
+  fail("Commercial Market Evidence expansion must expose district ownership resolution details.");
+}
+
+function assertResolvedDistrictMarket(districtId, expectedMarketId) {
+  const resolved = (ownershipResolution.resolvedDistricts || []).find((district) => district.districtId === districtId);
+  if (!resolved || resolved.marketId !== expectedMarketId) {
+    fail(`${districtId} must resolve to ${expectedMarketId}; found ${resolved ? resolved.marketId : "unresolved"}.`);
+  }
+}
+
+assertResolvedDistrictMarket("financial-district", "san-francisco");
+assertResolvedDistrictMarket("west-berkeley", "east-bay");
+assertResolvedDistrictMarket("downtown-seattle-office", "seattle");
+assertResolvedDistrictMarket("downtown-denver", "denver");
+
+for (const mission of cmeMissions) {
+  const initiative = initiativeIds.has(mission.initiativeId)
+    ? (marketProjection.initiatives || []).find((item) => item.id === mission.initiativeId)
+    : null;
+  if (!initiative || initiative.marketId !== mission.marketId) {
+    fail(`${mission.id} market must match its Commercial Market Evidence Initiative market.`);
+  }
+}
+
+for (const district of (ownershipResolution.unresolvedDistricts || []).concat(ownershipResolution.ambiguousDistricts || [])) {
+  const districtId = district.districtId;
+  if (cmeMissions.some((mission) => (mission.includedOpportunityIds || []).includes(`commercial-market-evidence:${districtId}`))) {
+    fail(`Unresolved or ambiguous district must not generate an executable Commercial Market Evidence mission: ${districtId}`);
   }
 }
 

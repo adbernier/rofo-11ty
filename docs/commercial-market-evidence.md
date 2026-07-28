@@ -441,9 +441,18 @@ The script prints a concise coverage report and exposes a structured summary obj
 
 ## Mission Control Integration
 
-Mission Control currently displays Market Evidence platform health and expansion coverage from generated EOS analysis. This is visibility-only and does not alter Current Focus, mission bundling, prioritization, execution packets, or review flow.
+Mission Control displays Market Evidence platform health and expansion coverage from generated EOS analysis. EOS also resolves the next missing district collection in each eligible operational market into one executable Program Mission. This does not alter Publisher scoring, recommendation rankings, Field Mode ownership, or Commercial Market Evidence quality standards.
 
-Future Mission Control work should generate Market Evidence missions from Publisher signals.
+Commercial Market Evidence expansion uses operational market ownership, not broad geographic metro adjacency. Publisher may analyze San Francisco as a Bay Area-wide readiness metro, but EOS must still assign Berkeley districts to the East Bay workspace, San Francisco districts to San Francisco, and Peninsula or South Bay districts to their own operating markets. Comparison relationships are useful for explanation, but they do not assign ownership.
+
+District ownership resolution follows this deterministic order:
+
+1. explicit district market ownership when available
+2. existing Commercial Market Evidence collection metadata
+3. canonical public city/state ownership
+4. Publisher metro fallback only when no stronger signal exists
+
+Ambiguous or unresolved ownership is surfaced in EOS analysis and does not generate executable Commercial Market Evidence missions.
 
 Mission types may include:
 
