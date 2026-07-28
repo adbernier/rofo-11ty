@@ -12,6 +12,8 @@ Mission Control displays Commercial Market Evidence as a platform service. It co
 
 EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based quality measurement remains intentionally simple, but the next missing collection becomes a bounded district-level Mission.
 
+EOS follows Rofo's one-commercial-geography principle: every canonical Knowledge Graph district is eligible for recommendations, Publisher coverage, Commercial Market Evidence planning, and Mission Control market-completion tracking. EOS may prioritize districts differently by maturity and evidence, but it should not maintain a separate district class that removes canonical districts from platform coverage.
+
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
 Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Campaigns, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.
@@ -135,6 +137,8 @@ Mission Control consumes `marketProjection` as its primary workspace. The home e
 Selecting a Mission still opens the existing Execution Packet. Selecting a market opens a market workspace detail with Program and Initiative context before raw opportunity inventory. Publisher remains the analysis engine, EOS remains the planning engine, and Mission Control remains the operating workspace that consumes generated EOS data.
 
 Commercial Market Evidence Initiatives are resolved from existing collections and missing Knowledge Graph districts. EOS assigns each district to one operational market before generating Initiatives. Operational market ownership is distinct from Publisher metro grouping: a district may be backed by San Francisco Publisher analysis while belonging to the East Bay, Peninsula, or South Bay Market Workspace. Comparison and adjacency relationships never assign ownership.
+
+Commercial Market Evidence Campaign progress is calculated as completed collections divided by canonical commercial districts assigned to the operational market. For example, San Francisco completion must count Financial District, Jackson Square, Mission Bay, SoMa, Dogpatch, Design District, Showplace Square, South Beach, Potrero Hill, and Mission District once those nodes are canonical in the Knowledge Graph.
 
 Completed collections, such as the Financial District pilot, remain non-executable completion evidence. The next missing collection in each eligible market receives one executable Mission. Queued collections remain visible as Initiatives without top-level execution until they become next. Individual evidence records, district narrative, research, source selection, validator fixes, and documentation updates remain hidden Work Items inside the Mission packet.
 

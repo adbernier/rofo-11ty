@@ -6,7 +6,7 @@ const rules = require("../data/publisher-rules.js");
 const VALID_STATES = new Set(["developed", "strong", "partial", "thin", "missing", "not_applicable", "review_required"]);
 const VALID_RELEVANCE = new Set(["core", "important", "secondary", "specialized", "not_applicable", "review_required"]);
 const EXPECTED_SCORES = {
-  "san-francisco": { overall: 94, status: "Distribution Ready" },
+  "san-francisco": { overall: 96, status: "Distribution Ready" },
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },

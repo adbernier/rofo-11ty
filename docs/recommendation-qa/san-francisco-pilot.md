@@ -1,6 +1,6 @@
 # San Francisco Recommendation QA Pilot
 
-Generated: 2026-07-26T22:51:55.088Z
+Generated: 2026-07-28T22:04:10.653Z
 
 This internal QA report validates whether San Francisco Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 
@@ -53,18 +53,18 @@ Compass readiness recommendation:
 - Priorities: life science, growth company, newer buildings, Caltrain, UCSF proximity
 - Expected direction: Favor Mission Bay and adjacent core San Francisco alternatives when modern growth-company and life-science-adjacent signals matter.
 - Top recommendation: Mission Bay (Strong fit)
-- Secondary recommendation: Financial District
+- Secondary recommendation: Dogpatch
 - Confidence: High Confidence
 - Baseline QA result: Pass
 - Explanation quality: Pass
 
 Recommended market path:
 - 1. Mission Bay - Strong fit: Strong fit for growth-stage office users that value newer inventory, transit, and access to San Francisco's technology and life-science ecosystem.
-- 2. Financial District - Strong fit: Strong fit for client-facing office users that value transit, a recognized business address, and traditional Class A office inventory.
-- 3. SoMa - Strong fit: Strong fit for teams that want central San Francisco access with more creative, adaptive, and flexible office character than a traditional tower core.
+- 2. Dogpatch - Good fit: Good fit for creative, innovation, and office/R&D users that value adaptive industrial character near Mission Bay.
+- 3. Financial District - Strong fit: Strong fit for client-facing office users that value transit, a recognized business address, and traditional Class A office inventory.
 
 Why this differs:
-- Matches expected directional nodes: mission-bay, soma, financial-district
+- Matches expected directional nodes: mission-bay, financial-district
 
 Selection rationale:
 - Mission Bay is recommended first because it is a strong fit for growth-stage office users that value newer inventory, transit, and access to San Francisco's technology and life-science ecosystem. It aligns with the profile priorities around life science, growth company, and newer buildings. The strongest supporting signals are newer office inventory, UCSF and life-science adjacency, and Caltrain and waterfront access.
@@ -79,7 +79,7 @@ Tradeoff summary:
 - premium pricing versus older central-city alternatives
 
 Alternative rationale:
-- Financial District remains relevant because it is a strong fit for client-facing office users that value transit, a recognized business address, and traditional Class A office inventory. Mission Bay appears to fit the initial profile more directly, while Financial District is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+- Dogpatch remains relevant because it is a good fit for creative, innovation, and office/R&D users that value adaptive industrial character near Mission Bay. Mission Bay appears to fit the initial profile more directly, while Dogpatch is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
 
 Validation focus:
 - Is proximity to UCSF or life-science partners important?
@@ -92,16 +92,15 @@ Strengths surfaced:
 - UCSF and life-science adjacency
 - Caltrain and waterfront access
 - modern innovation district context
-- traditional office core
-- BART and ferry access
+- industrial reuse character
+- Mission Bay adjacency
 
 Tradeoffs surfaced:
 - premium pricing versus older central-city alternatives
 - less traditional client-facing CBD identity than the Financial District
+- less polished and transit-rich than Mission Bay or the Financial District
 - less creative warehouse character than SoMa
 - less life-science adjacency than Mission Bay
-- building quality and street context vary by block
-- parking can be difficult for auto-oriented teams
 
 Questions to validate:
 - Is proximity to UCSF or life-science partners important?
@@ -118,18 +117,18 @@ Graph weaknesses exposed:
 - Priorities: creative office, startup, central San Francisco, adaptive buildings, restaurants
 - Expected direction: Favor SoMa and nearby creative or growth-office alternatives over a default formal CBD path.
 - Top recommendation: SoMa (Strong fit)
-- Secondary recommendation: Jackson Square
+- Secondary recommendation: Showplace Square
 - Confidence: High Confidence
 - Baseline QA result: Pass
 - Explanation quality: Pass
 
 Recommended market path:
 - 1. SoMa - Strong fit: Strong fit for teams that want central San Francisco access with more creative, adaptive, and flexible office character than a traditional tower core.
-- 2. Jackson Square - Strong fit: Strong fit for smaller office users that want a polished, walkable, downtown-adjacent setting with more character than a tower core.
-- 3. Mission Bay - Strong fit: Strong fit for growth-stage office users that value newer inventory, transit, and access to San Francisco's technology and life-science ecosystem.
+- 2. Showplace Square - Strong fit: Strong fit for creative office, AI, robotics, and product teams that value brick-and-timber character near SoMa and Potrero.
+- 3. Jackson Square - Strong fit: Strong fit for smaller office users that want a polished, walkable, downtown-adjacent setting with more character than a tower core.
 
 Why this differs:
-- Matches expected directional nodes: soma, jackson-square, mission-bay
+- Matches expected directional nodes: soma, jackson-square
 
 Selection rationale:
 - SoMa is recommended first because it is a strong fit for teams that want central San Francisco access with more creative, adaptive, and flexible office character than a traditional tower core. It aligns with the profile priorities around creative office, central San Francisco, and adaptive buildings. The strongest supporting signals are creative office inventory, central access, and adaptive buildings.
@@ -144,7 +143,7 @@ Tradeoff summary:
 - building quality and street context vary by block
 
 Alternative rationale:
-- Jackson Square remains relevant because it is a strong fit for smaller office users that want a polished, walkable, downtown-adjacent setting with more character than a tower core. SoMa appears to fit the initial profile more directly, while Jackson Square is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
+- Showplace Square remains relevant because it is a strong fit for creative office, AI, robotics, and product teams that value brick-and-timber character near SoMa and Potrero. SoMa appears to fit the initial profile more directly, while Showplace Square is useful for pressure-testing assumptions around commute, cost, building format, or customer access.
 
 Validation focus:
 - Do you want adaptive character or polished Class A office?
@@ -157,16 +156,15 @@ Strengths surfaced:
 - central access
 - adaptive buildings
 - proximity to downtown and Mission Bay
-- historic boutique buildings
-- walkable downtown adjacency
+- creative office texture
+- production-adjacent buildings
 
 Tradeoffs surfaced:
 - building quality and street context vary by block
 - parking can be difficult for auto-oriented teams
+- block conditions and building quality vary
 - smaller floorplates can limit expansion
 - large contiguous requirements may need nearby alternatives
-- premium pricing versus older central-city alternatives
-- less traditional client-facing CBD identity than the Financial District
 
 Questions to validate:
 - Do you want adaptive character or polished Class A office?
@@ -191,10 +189,10 @@ Graph weaknesses exposed:
 Recommended market path:
 - 1. Financial District - Strong fit: Strong fit for client-facing office users that value transit, a recognized business address, and traditional Class A office inventory.
 - 2. Mission Bay - Strong fit: Strong fit for growth-stage office users that value newer inventory, transit, and access to San Francisco's technology and life-science ecosystem.
-- 3. SoMa - Strong fit: Strong fit for teams that want central San Francisco access with more creative, adaptive, and flexible office character than a traditional tower core.
+- 3. Potrero Hill - Good fit: Good fit for smaller creative office and production-adjacent users that want neighborhood character near Mission Bay, Dogpatch, and Showplace Square.
 
 Why this differs:
-- Matches expected directional nodes: financial-district, mission-bay, soma
+- Matches expected directional nodes: financial-district, mission-bay
 
 Selection rationale:
 - Financial District is recommended first because it is a strong fit for client-facing office users that value transit, a recognized business address, and traditional Class A office inventory. It aligns with the profile priorities around financial services, client meetings, and transit. The strongest supporting signals are traditional office core, BART and ferry access, and client-facing business environment.
@@ -230,8 +228,7 @@ Tradeoffs surfaced:
 - less life-science adjacency than Mission Bay
 - premium pricing versus older central-city alternatives
 - less traditional client-facing CBD identity than the Financial District
-- building quality and street context vary by block
-- parking can be difficult for auto-oriented teams
+- less scalable and transit-rich than SoMa or the Financial District
 
 Questions to validate:
 - Do clients visit your office regularly?

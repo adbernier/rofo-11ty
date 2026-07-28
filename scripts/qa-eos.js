@@ -33,6 +33,18 @@ const CONFIDENCE_LEVELS = new Set(["High", "Medium", "Low"]);
 const MARKET_PROGRAMS = new Set(["publisher", "commercial_market_evidence", "building_profiles", "photography", "recommendation_qa", "knowledge_graph"]);
 const PORTFOLIO_RESOLUTION_SCHEMA_VERSION = "eos-portfolio-resolution-v1";
 const BUILDING_PROFILE_PORTFOLIO_MAX_ITEMS = 12;
+const SAN_FRANCISCO_CANONICAL_DISTRICTS = [
+  "design-district",
+  "dogpatch",
+  "financial-district",
+  "jackson-square",
+  "mission-bay",
+  "mission-district",
+  "potrero-hill",
+  "showplace-square",
+  "soma",
+  "south-beach",
+];
 
 function fail(message) {
   console.error(`EOS QA error: ${message}`);
@@ -120,9 +132,19 @@ if (eosMarketEvidence && !String(eosMarketEvidence.planningImpact || "").include
 
 const marketEvidenceExpansion = eosMarketEvidence && eosMarketEvidence.expansion;
 const knowledgeGraphDistrictCount = (locationKnowledgeGraph || []).filter((node) => node && node.type === "district").length;
+const canonicalDistricts = (locationKnowledgeGraph || []).filter((node) => node && node.type === "district");
 const collectionCount = ((commercialMarketEvidence && commercialMarketEvidence.collections) || []).length;
 if (!marketEvidenceExpansion || marketEvidenceExpansion.schemaVersion !== "commercial-market-evidence-expansion-v1") {
   fail("EOS must expose Commercial Market Evidence expansion planning.");
+}
+
+for (const district of canonicalDistricts) {
+  if (district.recommendationEligible !== true) {
+    fail(`Canonical district must be recommendation-eligible unless explicitly removed by a focused recommendation sprint: ${district.slug}`);
+  }
+  if (!district.commercialGeography || district.commercialGeography.canonicalDistrict !== true) {
+    fail(`Canonical district must expose commercial geography metadata: ${district.slug}`);
+  }
 }
 
 if (marketEvidenceExpansion) {
@@ -144,6 +166,16 @@ if (marketEvidenceExpansion) {
   }
   if (!String(marketEvidenceExpansion.qualityMeasurement || "").includes("Deferred")) {
     fail("Commercial Market Evidence expansion must defer quality measurement in v1.");
+  }
+
+  const resolvedOwnershipByDistrict = new Map(((marketEvidenceExpansion.ownershipResolution || {}).resolvedDistricts || []).map((district) => [district.districtId, district]));
+  const unresolvedOwnership = new Set(((marketEvidenceExpansion.ownershipResolution || {}).unresolvedDistricts || []).map((district) => district.districtId));
+  const ambiguousOwnership = new Set(((marketEvidenceExpansion.ownershipResolution || {}).ambiguousDistricts || []).map((district) => district.districtId));
+  for (const district of canonicalDistricts) {
+    const resolved = resolvedOwnershipByDistrict.get(district.slug);
+    if (!resolved || unresolvedOwnership.has(district.slug) || ambiguousOwnership.has(district.slug)) {
+      fail(`Canonical district must resolve to exactly one operational market before CME planning can execute: ${district.slug}`);
+    }
   }
 }
 
@@ -431,9 +463,34 @@ for (const initiative of marketProjection.initiatives || []) {
 
 const sanFranciscoMarket = (marketProjection.markets || []).find((market) => market.id === "san-francisco");
 const sanFranciscoCmeProgram = sanFranciscoMarket && (sanFranciscoMarket.programs || []).find((program) => program.id === "commercial_market_evidence");
+const sanFranciscoCanonicalDistricts = canonicalDistricts
+  .filter((district) => district.operationalMarketId === "san-francisco")
+  .map((district) => district.slug)
+  .sort();
+if (sanFranciscoCanonicalDistricts.join("|") !== SAN_FRANCISCO_CANONICAL_DISTRICTS.join("|")) {
+  fail(`San Francisco canonical district inventory changed unexpectedly: ${sanFranciscoCanonicalDistricts.join(", ")}`);
+}
 if (!sanFranciscoCmeProgram) {
   fail("San Francisco must expose a Commercial Market Evidence Program.");
 } else {
+  const cmeProgress = sanFranciscoCmeProgram.progress || {};
+  if (cmeProgress.completed !== 4 || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
+    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected 4/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
+  }
+  if (String(cmeProgress.statusLabel || "") === "Complete") {
+    fail("San Francisco Commercial Market Evidence must not report Complete while canonical districts remain missing.");
+  }
+  const sfExistingCollections = (marketEvidenceExpansion.existingCollections || []).filter((district) => district.marketId === "san-francisco");
+  const sfMissingCollections = (marketEvidenceExpansion.missingCollections || []).filter((district) => district.marketId === "san-francisco");
+  if (sfExistingCollections.length !== 4 || sfMissingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length - 4) {
+    fail(`San Francisco CME denominator must be canonical district count; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
+  }
+  for (const districtId of SAN_FRANCISCO_CANONICAL_DISTRICTS) {
+    const initiativeId = `san-francisco:commercial_market_evidence:${districtId}`;
+    if (!(sanFranciscoCmeProgram.initiatives || []).some((initiative) => initiative.id === initiativeId)) {
+      fail(`San Francisco CME Program must expose canonical district Initiative: ${districtId}`);
+    }
+  }
   const financialDistrict = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.id === "san-francisco:commercial_market_evidence:financial-district");
   if (!financialDistrict || financialDistrict.status !== "Complete" || financialDistrict.nextMissionId) {
     fail("Financial District must be recognized as a completed Commercial Market Evidence Initiative without an executable mission.");

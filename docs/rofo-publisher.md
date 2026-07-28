@@ -59,6 +59,8 @@ San Francisco is grouped as the Bay Area Compass-ready metro for current product
 
 ## Coverage Categories
 
+Publisher uses the Commercial Location Knowledge Graph as the canonical commercial district source. Every canonical district in a Publisher metro group participates in coverage analysis. Publisher should measure maturity and expose gaps; it should not exclude a district because its Commercial Market Evidence collection, photography, Building Profile depth, or public-page maturity is thin.
+
 ### Metro Foundation
 
 Checks for:
@@ -79,6 +81,8 @@ Checks each district node for:
 - decision-oriented best-fit and tradeoff fields
 
 A district name alone does not count as mature coverage.
+
+District coverage is maturity measurement, not eligibility. Low maturity lowers coverage status and produces work items, but the district remains part of the metro's commercial geography and can still participate in recommendations when Compass fit and confidence support it.
 
 ### Comparison Graph
 

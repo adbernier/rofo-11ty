@@ -53,6 +53,8 @@ The company context still exists above the operating model: Rofo's overall objec
 
 Markets are the primary Mission Control v2 planning object.
 
+Markets are built from canonical commercial districts in the Knowledge Graph. Every canonical district belongs to exactly one operational market for planning, even when Publisher analyzes a broader metro group or Compass compares adjacent districts. Adjacency and comparison relationships explain alternatives; they do not assign ownership.
+
 Market-level planning should answer:
 
 - what prevents this market from becoming stronger
@@ -311,7 +313,7 @@ Progress examples:
 - missing collections
 - deferred candidate count
 
-Commercial Market Evidence quality should remain owned by its source data and validator. Mission Control should plan from the evidence layer only after a focused future integration sprint.
+Commercial Market Evidence completion uses every canonical district assigned to the operational market as the denominator. Quality should remain owned by its source data and validator. Mission Control should plan from the evidence layer only after a focused future integration sprint.
 
 ### Building Profiles
 

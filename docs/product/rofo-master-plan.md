@@ -206,6 +206,8 @@ Do not change recommendation rankings without a focused recommendation sprint an
 
 Commercial geography is not generic geography. A district matters when businesses actually compare it as part of a location decision.
 
+Rofo uses one canonical commercial geography. The Commercial Location Knowledge Graph owns commercial district identity, and every canonical commercial district is first-class and recommendation-eligible. Systems should measure maturity, confidence, evidence depth, photography, Building Profile coverage, recommendation readiness, and public-page readiness; they should not create separate recommendation districts, editorial districts, Publisher-only districts, or Commercial Market Evidence-only districts.
+
 The graph should capture:
 
 - market paths
@@ -218,6 +220,8 @@ The graph should capture:
 - questions to validate
 
 Relationships should be tenant-decision paths, not generic nearby links.
+
+Equal district eligibility does not mean equal ranking, equal confidence, or equal editorial investment. Compass may rank districts differently for a Search Profile, Publisher may report different maturity states, and Mission Control may prioritize one district before another. The district identity itself should remain eligible and visible.
 
 ## Commercial Ecosystem Philosophy
 

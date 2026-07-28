@@ -14,6 +14,8 @@ Mission Control also performs presence-based expansion discovery. It compares Kn
 
 In the shared EOS Portfolio Resolver model, Commercial Market Evidence already behaves as a valid district-level resolver: one district collection becomes one Mission, and individual evidence records, research, narrative, validator fixes, and documentation notes remain hidden Work Items. EOS should not combine an entire market's missing CME collections into one execution packet.
 
+Commercial Market Evidence coverage uses the same canonical commercial geography as Publisher and Compass. A market's collection denominator is every canonical Knowledge Graph district assigned to that operational market, not only the districts that already have collections or the districts previously selected for a pilot. Missing collections are maturity gaps, not evidence that a district is ineligible.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.
