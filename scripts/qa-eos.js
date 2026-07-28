@@ -474,15 +474,15 @@ if (!sanFranciscoCmeProgram) {
   fail("San Francisco must expose a Commercial Market Evidence Program.");
 } else {
   const cmeProgress = sanFranciscoCmeProgram.progress || {};
-  if (cmeProgress.completed !== 6 || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
-    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected 6/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
+  if (cmeProgress.completed !== 7 || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
+    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected 7/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
   }
   if (String(cmeProgress.statusLabel || "") === "Complete") {
     fail("San Francisco Commercial Market Evidence must not report Complete while canonical districts remain missing.");
   }
   const sfExistingCollections = (marketEvidenceExpansion.existingCollections || []).filter((district) => district.marketId === "san-francisco");
   const sfMissingCollections = (marketEvidenceExpansion.missingCollections || []).filter((district) => district.marketId === "san-francisco");
-  if (sfExistingCollections.length !== 6 || sfMissingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length - 6) {
+  if (sfExistingCollections.length !== 7 || sfMissingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length - 7) {
     fail(`San Francisco CME denominator must be canonical district count; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
   }
   for (const districtId of SAN_FRANCISCO_CANONICAL_DISTRICTS) {

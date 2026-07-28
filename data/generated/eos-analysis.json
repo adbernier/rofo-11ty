@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T15:47:14-07:00",
+  "generatedAt": "2026-07-28T16:01:03-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -17,16 +17,17 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 6,
+      "collections": 7,
       "districts": [
         "Design District",
         "Dogpatch",
         "Financial District",
         "Jackson Square",
         "Mission Bay",
+        "Mission District",
         "SoMa"
       ],
-      "evidenceRecords": 59,
+      "evidenceRecords": 67,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
@@ -37,10 +38,14 @@
         "Central SoMa Mid-Rise Office",
         "Class A Office Tower",
         "Creative Mid-Rise Office",
+        "Creative Neighborhood Adaptive Reuse",
         "Design Event / Showroom Center",
         "Design Showroom Anchor",
+        "Emerging Office/R&D Innovation",
         "Historic Adaptive-Reuse Office",
         "Historic Creative Office",
+        "Historic Large-Format Adaptive Reuse",
+        "Historic Mixed-Use Neighborhood Anchor",
         "Historic Modernist Office",
         "Historic Neighborhood Creative Office",
         "Historic Shipyard Adaptive Reuse",
@@ -56,7 +61,9 @@
         "Large-Scale Adaptive-Reuse Office",
         "Life Science Research Campus",
         "Low-Rise Office Campus",
+        "Maker / Creative Adaptive Reuse",
         "Maker / Industrial Conversion",
+        "Maker / Retail / Production Anchor",
         "Medical Institutional Anchor",
         "Mixed-Use Amenity Anchor",
         "Mixed-Use Commercial Center",
@@ -81,6 +88,7 @@
         "Tower-Edge Executive Office",
         "Townsend Corridor Adaptive Office",
         "Townsend Corridor Creative Office",
+        "Transit-Oriented Neighborhood Office",
         "Trophy Office Tower",
         "Warehouse-to-Headquarters Office",
         "Waterfront Industrial Adaptive Reuse",
@@ -89,7 +97,9 @@
         "West SoMa Creative Technology Office"
       ],
       "evidenceRoles": [
+        "16th Street Creative Benchmark",
         "Adaptive Reuse / Amenity Repositioning Benchmark",
+        "Alabama / 18th Creative Production Cluster",
         "Architectural Identity / Legacy Office Benchmark",
         "Bayfront Office Character Benchmark",
         "Brick-and-Timber Character Benchmark",
@@ -106,6 +116,7 @@
         "District Anchor / Corporate Benchmark",
         "District Anchor / Waterfront Edge",
         "District Icon / North Downtown Edge",
+        "District Icon / Production Benchmark",
         "District Icon / Showroom Benchmark",
         "District Origin / Life Science Anchor",
         "Dogpatch / Potrero Operational Edge",
@@ -126,8 +137,13 @@
         "Lower-Rise Neighborhood Anchor",
         "Mid-Market Creative Demand",
         "Mid-Rise Creative Office Benchmark",
+        "Mission / Potrero Operational Edge",
         "Mission Bay Ecosystem Bridge",
+        "Mission Innovation Edge Benchmark",
+        "Mission Street Cultural Commercial Anchor",
+        "Mission Street Practical Office Benchmark",
         "Modern Headquarters Identity Benchmark",
+        "Neighborhood Commercial Ecosystem Anchor",
         "Next-Generation Workspace Benchmark",
         "North Financial District Edge / Comparison Example",
         "North Waterfront / Design Character Benchmark",
@@ -150,10 +166,10 @@
         "Warehouse Showroom Pattern"
       ],
       "confidenceSummary": {
-        "High": 59
+        "High": 67
       },
-      "deferredCandidates": 26,
-      "latestValidation": "2026-07-28T15:47:14-07:00",
+      "deferredCandidates": 30,
+      "latestValidation": "2026-07-28T16:01:03-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -173,8 +189,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 110,
-          "existingCollections": 6,
-          "missingCollections": 104,
+          "existingCollections": 7,
+          "missingCollections": 103,
           "resolvedDistricts": 110,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -251,8 +267,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 10,
-            "existingCollections": 6,
-            "missingCollections": 4
+            "existingCollections": 7,
+            "missingCollections": 3
           },
           {
             "marketId": "seattle",
@@ -1687,6 +1703,22 @@
             "resolutionSource": "explicit district ownership",
             "path": "/commercial-real-estate/CA/san-francisco/mission-bay/",
             "collectionId": "sf-mission-bay-commercial-market-evidence"
+          },
+          {
+            "districtId": "mission-district",
+            "districtName": "Mission District",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/CA/san-francisco/mission-district/",
+            "collectionId": "sf-mission-district-commercial-market-evidence"
           },
           {
             "districtId": "soma",
@@ -3909,49 +3941,6 @@
               ]
             },
             "expansionWeight": 1630
-          },
-          {
-            "districtId": "mission-district",
-            "districtName": "Mission District",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "explicit district ownership"
-              },
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/mission-district/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 96,
-              "districtConfidence": "medium",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1556
           },
           {
             "districtId": "potrero-hill",
@@ -7485,31 +7474,6 @@
           },
           {
             "rank": 71,
-            "districtId": "mission-district",
-            "districtName": "Mission District",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/mission-district/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: medium.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 72,
             "districtId": "potrero-hill",
             "districtName": "Potrero Hill",
             "city": "San Francisco",
@@ -7534,7 +7498,7 @@
             ]
           },
           {
-            "rank": 73,
+            "rank": 72,
             "districtId": "showplace-square",
             "districtName": "Showplace Square",
             "city": "San Francisco",
@@ -7559,7 +7523,7 @@
             ]
           },
           {
-            "rank": 74,
+            "rank": 73,
             "districtId": "south-beach",
             "districtName": "South Beach",
             "city": "San Francisco",
@@ -7584,7 +7548,7 @@
             ]
           },
           {
-            "rank": 75,
+            "rank": 74,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -7610,7 +7574,7 @@
             ]
           },
           {
-            "rank": 76,
+            "rank": 75,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -7635,7 +7599,7 @@
             ]
           },
           {
-            "rank": 77,
+            "rank": 76,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -7660,7 +7624,7 @@
             ]
           },
           {
-            "rank": 78,
+            "rank": 77,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -7685,7 +7649,7 @@
             ]
           },
           {
-            "rank": 79,
+            "rank": 78,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -7711,7 +7675,7 @@
             ]
           },
           {
-            "rank": 80,
+            "rank": 79,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -7736,7 +7700,7 @@
             ]
           },
           {
-            "rank": 81,
+            "rank": 80,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -7761,7 +7725,7 @@
             ]
           },
           {
-            "rank": 82,
+            "rank": 81,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -7786,7 +7750,7 @@
             ]
           },
           {
-            "rank": 83,
+            "rank": 82,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -14023,7 +13987,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 76,
+                "orderingRank": 75,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -14077,7 +14041,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 82,
+                "orderingRank": 81,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -14131,7 +14095,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 83,
+                "orderingRank": 82,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -18120,7 +18084,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 79,
+                "orderingRank": 78,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -18175,7 +18139,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 80,
+                "orderingRank": 79,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -18229,7 +18193,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 81,
+                "orderingRank": 80,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -19770,7 +19734,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 78,
+                "orderingRank": 77,
                 "orderingRationale": [
                   "Peninsula is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -25222,11 +25186,11 @@
             "status": "Partial",
             "progress": {
               "unit": "Collections",
-              "completed": 6,
+              "completed": 7,
               "target": 10,
-              "label": "6 / 10 Collections",
+              "label": "7 / 10 Collections",
               "statusLabel": "Partial",
-              "currentConstraint": "4 district collections remain unbuilt.",
+              "currentConstraint": "3 district collections remain unbuilt.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
@@ -25244,21 +25208,20 @@
                 "status": "Partial",
                 "progress": {
                   "unit": "Collections",
-                  "completed": 6,
+                  "completed": 7,
                   "target": 10,
-                  "label": "6 / 10 Collections",
+                  "label": "7 / 10 Collections",
                   "statusLabel": "Partial",
-                  "currentConstraint": "4 district collections remain unbuilt.",
+                  "currentConstraint": "3 district collections remain unbuilt.",
                   "sourceEvidence": [
                     "Commercial Market Evidence collection registry.",
                     "Commercial Location Knowledge Graph district nodes."
                   ]
                 },
-                "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
-                "nextInitiativeId": "san-francisco:commercial_market_evidence:mission-district",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-district",
+                "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
+                "nextInitiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+                "nextMissionId": "mission:san-francisco:commercial-market-evidence:potrero-hill",
                 "initiativeIds": [
-                  "san-francisco:commercial_market_evidence:mission-district",
                   "san-francisco:commercial_market_evidence:potrero-hill",
                   "san-francisco:commercial_market_evidence:showplace-square",
                   "san-francisco:commercial_market_evidence:south-beach",
@@ -25267,10 +25230,11 @@
                   "san-francisco:commercial_market_evidence:financial-district",
                   "san-francisco:commercial_market_evidence:jackson-square",
                   "san-francisco:commercial_market_evidence:mission-bay",
+                  "san-francisco:commercial_market_evidence:mission-district",
                   "san-francisco:commercial_market_evidence:soma"
                 ],
                 "missionIds": [
-                  "mission:san-francisco:commercial-market-evidence:mission-district"
+                  "mission:san-francisco:commercial-market-evidence:potrero-hill"
                 ],
                 "missionCount": 1,
                 "workItemCount": 1,
@@ -25288,20 +25252,20 @@
             ],
             "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
             "nextCampaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-            "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
-            "nextInitiativeId": "san-francisco:commercial_market_evidence:mission-district",
-            "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-district",
+            "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
+            "nextInitiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+            "nextMissionId": "mission:san-francisco:commercial-market-evidence:potrero-hill",
             "initiatives": [
               {
-                "id": "san-francisco:commercial_market_evidence:mission-district",
-                "districtId": "mission-district",
+                "id": "san-francisco:commercial_market_evidence:potrero-hill",
+                "districtId": "potrero-hill",
                 "marketId": "san-francisco",
                 "marketName": "San Francisco",
                 "programId": "commercial_market_evidence",
                 "programLabel": "Commercial Market Evidence",
-                "title": "Mission District Collection",
-                "scope": "Mission District",
-                "objective": "Create the Mission District Commercial Market Evidence source-data collection.",
+                "title": "Potrero Hill Collection",
+                "scope": "Potrero Hill",
+                "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection.",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -25314,10 +25278,10 @@
                     "Commercial Market Evidence expansion ordering."
                   ]
                 },
-                "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-district",
-                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
+                "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
+                "nextMissionId": "mission:san-francisco:commercial-market-evidence:potrero-hill",
+                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
+                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
                 "workItemCount": 6,
                 "remainingMilestones": [
                   "Source-supported evidence selection",
@@ -25346,19 +25310,19 @@
                 },
                 "missions": [
                   {
-                    "id": "mission:san-francisco:commercial-market-evidence:mission-district",
-                    "title": "Build the Mission District Commercial Market Evidence collection",
+                    "id": "mission:san-francisco:commercial-market-evidence:potrero-hill",
+                    "title": "Build the Potrero Hill Commercial Market Evidence collection",
                     "marketId": "san-francisco",
                     "marketName": "San Francisco",
                     "programId": "commercial_market_evidence",
                     "programLabel": "Commercial Market Evidence",
                     "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
                     "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-                    "initiativeId": "san-francisco:commercial_market_evidence:mission-district",
-                    "initiativeTitle": "Mission District Collection",
+                    "initiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+                    "initiativeTitle": "Potrero Hill Collection",
                     "portfolioId": "",
-                    "objective": "Create the Mission District Commercial Market Evidence source-data collection for San Francisco.",
-                    "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
+                    "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection for San Francisco.",
+                    "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
                     "expectedImpact": "Medium",
                     "estimatedEffort": "Medium",
                     "missionSize": {
@@ -25370,74 +25334,20 @@
                     "missionClass": "Foundation",
                     "confidence": "Medium",
                     "priorityScore": 12,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
                     "executionPacketAvailable": true,
                     "workItems": {
                       "hiddenByDefault": true,
                       "count": 1,
                       "includedOpportunityIds": [
-                        "commercial-market-evidence:mission-district"
+                        "commercial-market-evidence:potrero-hill"
                       ],
                       "deferredWorkItemIds": [
-                        "commercial-market-evidence:mission-district:quality-scoring"
+                        "commercial-market-evidence:potrero-hill:quality-scoring"
                       ]
                     }
                   }
                 ]
-              },
-              {
-                "id": "san-francisco:commercial_market_evidence:potrero-hill",
-                "districtId": "potrero-hill",
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "Potrero Hill Collection",
-                "scope": "Potrero Hill",
-                "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection.",
-                "status": "Queued",
-                "currentStage": "Queued",
-                "progress": {
-                  "unit": "Collection",
-                  "completed": 0,
-                  "target": 1,
-                  "label": "Queued",
-                  "statusLabel": "Queued",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence expansion ordering."
-                  ]
-                },
-                "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "",
-                "missionRef": "",
-                "executionPacketRef": "",
-                "workItemCount": 0,
-                "remainingMilestones": [
-                  "Source-supported evidence selection",
-                  "District narrative",
-                  "Validator pass"
-                ],
-                "confidence": "Medium",
-                "sourceEvidence": [
-                  "Commercial Location Knowledge Graph district node.",
-                  "Commercial Market Evidence expansion ordering."
-                ],
-                "readOnly": true,
-                "orderingRank": 72,
-                "orderingRationale": [
-                  "San Francisco is the operational Market Workspace.",
-                  "Publisher analysis backing: San Francisco.",
-                  "Ownership resolved by explicit district ownership.",
-                  "Publisher readiness: Distribution Ready.",
-                  "Public district page exists.",
-                  "Knowledge Graph confidence: medium.",
-                  "3 comparison relationships exist."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 0
-                },
-                "missions": []
               },
               {
                 "id": "san-francisco:commercial_market_evidence:showplace-square",
@@ -25477,7 +25387,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 73,
+                "orderingRank": 72,
                 "orderingRationale": [
                   "San Francisco is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -25531,7 +25441,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 74,
+                "orderingRank": 73,
                 "orderingRationale": [
                   "San Francisco is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -25742,6 +25652,47 @@
                 ],
                 "readOnly": true,
                 "completionEvidence": "sf-mission-bay-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
+                "id": "san-francisco:commercial_market_evidence:mission-district",
+                "districtId": "mission-district",
+                "marketId": "san-francisco",
+                "marketName": "San Francisco",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "Mission District Collection",
+                "scope": "Mission District",
+                "objective": "Maintain the completed Mission District Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry."
+                ],
+                "readOnly": true,
+                "completionEvidence": "sf-mission-district-commercial-market-evidence",
                 "orderingRank": null,
                 "orderingRationale": [
                   "Existing Commercial Market Evidence collection."
@@ -27440,7 +27391,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 75,
+                "orderingRank": 74,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -27495,7 +27446,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 77,
+                "orderingRank": 76,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -30970,21 +30921,20 @@
         "status": "Partial",
         "progress": {
           "unit": "Collections",
-          "completed": 6,
+          "completed": 7,
           "target": 10,
-          "label": "6 / 10 Collections",
+          "label": "7 / 10 Collections",
           "statusLabel": "Partial",
-          "currentConstraint": "4 district collections remain unbuilt.",
+          "currentConstraint": "3 district collections remain unbuilt.",
           "sourceEvidence": [
             "Commercial Market Evidence collection registry.",
             "Commercial Location Knowledge Graph district nodes."
           ]
         },
-        "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
-        "nextInitiativeId": "san-francisco:commercial_market_evidence:mission-district",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-district",
+        "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
+        "nextInitiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+        "nextMissionId": "mission:san-francisco:commercial-market-evidence:potrero-hill",
         "initiativeIds": [
-          "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:potrero-hill",
           "san-francisco:commercial_market_evidence:showplace-square",
           "san-francisco:commercial_market_evidence:south-beach",
@@ -30993,10 +30943,11 @@
           "san-francisco:commercial_market_evidence:financial-district",
           "san-francisco:commercial_market_evidence:jackson-square",
           "san-francisco:commercial_market_evidence:mission-bay",
+          "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:soma"
         ],
         "missionIds": [
-          "mission:san-francisco:commercial-market-evidence:mission-district"
+          "mission:san-francisco:commercial-market-evidence:potrero-hill"
         ],
         "missionCount": 1,
         "workItemCount": 1,
@@ -31011,7 +30962,6 @@
           "Commercial Location Knowledge Graph district nodes."
         ],
         "initiatives": [
-          "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:potrero-hill",
           "san-francisco:commercial_market_evidence:showplace-square",
           "san-francisco:commercial_market_evidence:south-beach",
@@ -31020,10 +30970,11 @@
           "san-francisco:commercial_market_evidence:financial-district",
           "san-francisco:commercial_market_evidence:jackson-square",
           "san-francisco:commercial_market_evidence:mission-bay",
+          "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:soma"
         ],
         "missions": [
-          "mission:san-francisco:commercial-market-evidence:mission-district"
+          "mission:san-francisco:commercial-market-evidence:potrero-hill"
         ]
       },
       {
@@ -32914,7 +32865,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 76,
+        "orderingRank": 75,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -32969,7 +32920,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 82,
+        "orderingRank": 81,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -33024,7 +32975,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 83,
+        "orderingRank": 82,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -34883,7 +34834,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 79,
+        "orderingRank": 78,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -34939,7 +34890,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 80,
+        "orderingRank": 79,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -34994,7 +34945,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 81,
+        "orderingRank": 80,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -35617,7 +35568,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 78,
+        "orderingRank": 77,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -38255,15 +38206,15 @@
         "campaignId": "san-francisco:publisher:completion-campaign"
       },
       {
-        "id": "san-francisco:commercial_market_evidence:mission-district",
-        "districtId": "mission-district",
+        "id": "san-francisco:commercial_market_evidence:potrero-hill",
+        "districtId": "potrero-hill",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "title": "Mission District Collection",
-        "scope": "Mission District",
-        "objective": "Create the Mission District Commercial Market Evidence source-data collection.",
+        "title": "Potrero Hill Collection",
+        "scope": "Potrero Hill",
+        "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection.",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -38276,10 +38227,10 @@
             "Commercial Market Evidence expansion ordering."
           ]
         },
-        "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-district",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
+        "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
+        "nextMissionId": "mission:san-francisco:commercial-market-evidence:potrero-hill",
+        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
         "workItemCount": 6,
         "remainingMilestones": [
           "Source-supported evidence selection",
@@ -38307,63 +38258,8 @@
           "count": 6
         },
         "missions": [
-          "mission:san-francisco:commercial-market-evidence:mission-district"
+          "mission:san-francisco:commercial-market-evidence:potrero-hill"
         ],
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
-      },
-      {
-        "id": "san-francisco:commercial_market_evidence:potrero-hill",
-        "districtId": "potrero-hill",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "Potrero Hill Collection",
-        "scope": "Potrero Hill",
-        "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection.",
-        "status": "Queued",
-        "currentStage": "Queued",
-        "progress": {
-          "unit": "Collection",
-          "completed": 0,
-          "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
-          "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
-          ]
-        },
-        "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "",
-        "missionRef": "",
-        "executionPacketRef": "",
-        "workItemCount": 0,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
-        "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
-        ],
-        "readOnly": true,
-        "orderingRank": 72,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: medium.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 0
-        },
-        "missions": [],
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
       },
       {
@@ -38404,7 +38300,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 73,
+        "orderingRank": 72,
         "orderingRationale": [
           "San Francisco is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -38459,7 +38355,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 74,
+        "orderingRank": 73,
         "orderingRationale": [
           "San Francisco is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -38675,6 +38571,48 @@
         ],
         "readOnly": true,
         "completionEvidence": "sf-mission-bay-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": [],
+        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
+      },
+      {
+        "id": "san-francisco:commercial_market_evidence:mission-district",
+        "districtId": "mission-district",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "Mission District Collection",
+        "scope": "Mission District",
+        "objective": "Maintain the completed Mission District Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry."
+        ],
+        "readOnly": true,
+        "completionEvidence": "sf-mission-district-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -39504,7 +39442,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 75,
+        "orderingRank": 74,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -39560,7 +39498,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 77,
+        "orderingRank": 76,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -42478,19 +42416,19 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:mission-district",
-        "title": "Build the Mission District Commercial Market Evidence collection",
+        "id": "mission:san-francisco:commercial-market-evidence:potrero-hill",
+        "title": "Build the Potrero Hill Commercial Market Evidence collection",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
         "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:mission-district",
-        "initiativeTitle": "Mission District Collection",
+        "initiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+        "initiativeTitle": "Potrero Hill Collection",
         "portfolioId": "",
-        "objective": "Create the Mission District Commercial Market Evidence source-data collection for San Francisco.",
-        "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
+        "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection for San Francisco.",
+        "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
         "expectedImpact": "Medium",
         "estimatedEffort": "Medium",
         "missionSize": {
@@ -42502,16 +42440,16 @@
         "missionClass": "Foundation",
         "confidence": "Medium",
         "priorityScore": 12,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-district",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:potrero-hill",
         "executionPacketAvailable": true,
         "workItems": {
           "hiddenByDefault": true,
           "count": 1,
           "includedOpportunityIds": [
-            "commercial-market-evidence:mission-district"
+            "commercial-market-evidence:potrero-hill"
           ],
           "deferredWorkItemIds": [
-            "commercial-market-evidence:mission-district:quality-scoring"
+            "commercial-market-evidence:potrero-hill:quality-scoring"
           ]
         }
       },
@@ -74441,28 +74379,28 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:mission-district",
-        "title": "Build the Mission District Commercial Market Evidence collection",
+        "id": "mission:san-francisco:commercial-market-evidence:potrero-hill",
+        "title": "Build the Potrero Hill Commercial Market Evidence collection",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
         "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:mission-district",
-        "initiativeTitle": "Mission District Collection",
+        "initiativeId": "san-francisco:commercial_market_evidence:potrero-hill",
+        "initiativeTitle": "Potrero Hill Collection",
         "metroId": "san-francisco",
         "metroName": "San Francisco",
         "ecosystem": "",
         "ecosystemId": "",
         "workstream": "Commercial Market Evidence",
         "includedOpportunityIds": [
-          "commercial-market-evidence:mission-district"
+          "commercial-market-evidence:potrero-hill"
         ],
         "includedTasks": [
           {
-            "id": "commercial-market-evidence:mission-district:collection",
-            "title": "Mission District Commercial Market Evidence collection",
+            "id": "commercial-market-evidence:potrero-hill:collection",
+            "title": "Potrero Hill Commercial Market Evidence collection",
             "category": "commercialMarketEvidence",
             "categoryLabel": "Commercial Market Evidence",
             "reason": "District is missing a Commercial Market Evidence collection.",
@@ -74474,7 +74412,7 @@
         ],
         "deferredTasks": [
           {
-            "id": "commercial-market-evidence:mission-district:quality-scoring",
+            "id": "commercial-market-evidence:potrero-hill:quality-scoring",
             "title": "Publisher quality scoring for Commercial Market Evidence",
             "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
             "suggestedModule": {
@@ -74483,9 +74421,9 @@
             }
           }
         ],
-        "objective": "Create the Mission District Commercial Market Evidence source-data collection for San Francisco.",
+        "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection for San Francisco.",
         "reason": [
-          "Mission District is missing a Commercial Market Evidence collection."
+          "Potrero Hill is missing a Commercial Market Evidence collection."
         ],
         "expectedImpact": "Medium",
         "estimatedEffort": "Medium",
@@ -74497,7 +74435,7 @@
         },
         "impactEffortClass": "Medium Impact / Medium Effort",
         "missionClass": "Foundation",
-        "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
+        "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
         "completionCriteria": [
           "A new district Commercial Market Evidence source collection exists in the canonical data path.",
           "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
@@ -74513,7 +74451,7 @@
           "_data/locationKnowledgeGraph.js",
           "_data/commercialMarketEvidence.js",
           "data/commercial-market-evidence/san-francisco/financial-district.js",
-          "data/commercial-market-evidence/san-francisco/mission-district.js",
+          "data/commercial-market-evidence/san-francisco/potrero-hill.js",
           "scripts/qa-commercial-market-evidence.js"
         ],
         "dependencies": [
@@ -74561,7 +74499,7 @@
           "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
         ],
         "why": [
-          "Current constraint: Mission District lacks a Commercial Market Evidence collection.",
+          "Current constraint: Potrero Hill lacks a Commercial Market Evidence collection.",
           "The district is present in the Knowledge Graph and missing from the Market Evidence registry.",
           "One collection mission avoids separate top-level tasks for each evidence record."
         ],
@@ -74596,16 +74534,16 @@
           ]
         },
         "executionPacket": {
-          "objective": "Create the Mission District Commercial Market Evidence source-data collection for San Francisco.",
+          "objective": "Create the Potrero Hill Commercial Market Evidence source-data collection for San Francisco.",
           "reason": [
-            "Mission District is missing a Commercial Market Evidence collection."
+            "Potrero Hill is missing a Commercial Market Evidence collection."
           ],
           "currentHealth": "75% Improving",
-          "currentConstraint": "Mission District lacks a Commercial Market Evidence collection.",
+          "currentConstraint": "Potrero Hill lacks a Commercial Market Evidence collection.",
           "includedTasks": [
             {
-              "id": "commercial-market-evidence:mission-district:collection",
-              "title": "Mission District Commercial Market Evidence collection",
+              "id": "commercial-market-evidence:potrero-hill:collection",
+              "title": "Potrero Hill Commercial Market Evidence collection",
               "category": "commercialMarketEvidence",
               "categoryLabel": "Commercial Market Evidence",
               "reason": "District is missing a Commercial Market Evidence collection.",
@@ -74617,7 +74555,7 @@
           ],
           "deferredTasks": [
             {
-              "id": "commercial-market-evidence:mission-district:quality-scoring",
+              "id": "commercial-market-evidence:potrero-hill:quality-scoring",
               "title": "Publisher quality scoring for Commercial Market Evidence",
               "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
               "suggestedModule": {
@@ -74648,7 +74586,7 @@
             "_data/locationKnowledgeGraph.js",
             "_data/commercialMarketEvidence.js",
             "data/commercial-market-evidence/san-francisco/financial-district.js",
-            "data/commercial-market-evidence/san-francisco/mission-district.js",
+            "data/commercial-market-evidence/san-francisco/potrero-hill.js",
             "scripts/qa-commercial-market-evidence.js"
           ],
           "dependencies": [
