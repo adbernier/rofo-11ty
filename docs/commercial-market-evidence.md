@@ -8,9 +8,9 @@ This document is architectural. It does not implement runtime behavior, change P
 
 The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Its first production source dataset lives in `data/commercial-market-evidence/san-francisco/financial-district.js` and is exposed to Eleventy through `_data/commercialMarketEvidence.js`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
 
-Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as read-only platform health, and Mission Control displays that health without generating missions or changing prioritization.
+Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as platform health, and Mission Control displays that health while EOS resolves the next missing district collection into an executable Program Mission.
 
-Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections and lists missing district collections as future expansion opportunities. This is planning visibility only; v1 does not measure quality or create executable missions.
+Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections, lists missing district collections as future expansion opportunities, and exposes the next missing collection per eligible market as one bounded Mission. V1 still does not measure collection quality beyond validator success and collection presence.
 
 ## Purpose
 
@@ -356,9 +356,11 @@ Current v1 platform integration is intentionally narrower: Publisher includes th
 
 Mission Control converts measurable gaps into missions. It should bundle related evidence work conservatively and route photography to Field Mode.
 
-Current v1 platform integration displays the generated Commercial Market Evidence health summary in Mission Control as read-only platform status. Mission generation from Market Evidence signals remains deferred.
+Current platform integration displays the generated Commercial Market Evidence health summary in Mission Control and lets EOS create one executable Program Mission for the next missing collection per eligible market.
 
-Current expansion planning is also read-only. EOS identifies which Knowledge Graph districts have collections and which are missing collections, then produces a deterministic suggested expansion order.
+Expansion planning remains deterministic. EOS identifies which Knowledge Graph districts have collections and which are missing collections, then produces a deterministic suggested expansion order.
+
+The executable unit is the district collection. A Mission should create one source-supported collection and keep evidence-record research, district narrative, validator fixes, and documentation updates as hidden Work Items inside the Execution Packet.
 
 ### Building Profile Migration
 

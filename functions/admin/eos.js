@@ -157,6 +157,11 @@ function architectureDocsForTask(task, packet) {
   }
   if (category === "representativeBuildings") docs.add("docs/representative-building-intelligence.md");
   if (category === "commercialEcosystem") docs.add("docs/commercial-ecosystem-data-model.md");
+  if (category === "commercialMarketEvidence" || moduleId === "commercialMarketEvidence") {
+    docs.add("docs/commercial-market-evidence.md");
+    docs.add("docs/commercial-market-evidence-financial-district.md");
+    docs.add("docs/rofo-publisher.md");
+  }
   for (const file of packet.files || []) {
     if (String(file).startsWith("docs/")) docs.add(file);
   }
@@ -318,6 +323,8 @@ function programStatusTone(status) {
 
 function renderProjectedProgram(program) {
   const progressLabel = program.progress && program.progress.label ? program.progress.label : "Measured by EOS";
+  const nextInitiative = (program.initiatives || []).find((initiative) => initiative.nextMissionId === program.nextMissionId) ||
+    (program.initiatives || []).find((initiative) => initiative.id === program.nextInitiativeId);
   return `
     <article class="program-card ${programStatusTone(program.status)}">
       <div class="program-card__top">
@@ -325,6 +332,7 @@ function renderProjectedProgram(program) {
         <span>${escapeHtml(program.status || "Not measured")}</span>
       </div>
       <p>${escapeHtml(progressLabel)}</p>
+      ${nextInitiative ? `<p class="program-card__next">Next: ${escapeHtml(nextInitiative.title)}</p>` : ""}
     </article>
   `;
 }
@@ -343,6 +351,26 @@ function renderProjectedMission(mission, eos, token) {
         <span><em>Class</em>${escapeHtml(mission.missionClass || "")}</span>
       </div>
       ${canonicalMission.executionPacket ? `<a class="start-work" href="${taskUrl(token, canonicalMission.id)}">Commence Work</a>` : ""}
+    </article>
+  `;
+}
+
+function initiativeStatusClass(status) {
+  return `initiative-status--${String(status || "tracked").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+function renderProjectedInitiative(initiative, eos, token) {
+  const projectedMission = (initiative.missions || [])[0] || null;
+  const canonicalMission = projectedMission ? missionById(eos, projectedMission.id) : null;
+  return `
+    <article class="initiative-row ${initiativeStatusClass(initiative.status || initiative.currentStage)}">
+      <div>
+        <span>${escapeHtml(initiative.status || initiative.currentStage || "Tracked")}</span>
+        <h5>${escapeHtml(initiative.title)}</h5>
+        <p>${escapeHtml(initiative.currentConstraint || initiative.objective || "")}</p>
+        ${canonicalMission ? `<p class="initiative-row__mission"><strong>Next Mission:</strong> ${escapeHtml(canonicalMission.title)}</p>` : ""}
+      </div>
+      ${canonicalMission && canonicalMission.executionPacket ? `<a class="start-work start-work--small" href="${taskUrl(token, canonicalMission.id)}">Commence Work</a>` : ""}
     </article>
   `;
 }
@@ -381,7 +409,9 @@ function renderMarketWorkspaceCard(market, eos, token) {
             <article>
               <h4>${escapeHtml(program.label)}</h4>
               <p>${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
-              <ul>${(program.initiatives || []).slice(0, 4).map((initiative) => `<li>${escapeHtml(initiative.title)} · ${escapeHtml(initiative.progress && initiative.progress.label ? initiative.progress.label : initiative.currentStage || "Tracked")}</li>`).join("")}</ul>
+              <div class="initiative-rows">
+                ${(program.initiatives || []).slice(0, 6).map((initiative) => renderProjectedInitiative(initiative, eos, token)).join("")}
+              </div>
             </article>
           `).join("")}
         </div>
@@ -686,9 +716,12 @@ function renderSelectedMetro(eos, metroId, token) {
               </div>
               <p>${escapeHtml(program.progress && program.progress.label ? program.progress.label : "Measured by EOS")}</p>
               <p><strong>Current constraint:</strong> ${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
+              ${program.nextMissionId ? `<p><strong>Next Mission:</strong> ${escapeHtml(((program.initiatives || []).find((initiative) => initiative.nextMissionId === program.nextMissionId) || {}).title || program.nextMissionId)}</p>` : ""}
               <details class="mission-scope">
                 <summary>Initiatives</summary>
-                <ul>${(program.initiatives || []).map((initiative) => `<li>${escapeHtml(initiative.title)} · ${escapeHtml(initiative.currentStage || "Tracked")}</li>`).join("")}</ul>
+                <div class="initiative-rows">
+                  ${(program.initiatives || []).map((initiative) => renderProjectedInitiative(initiative, eos, token)).join("")}
+                </div>
               </details>
             </article>
           `).join("")}
@@ -852,7 +885,7 @@ function renderCommercialMarketEvidenceService(eos) {
       <div>
         <span>Commercial Market Evidence</span>
         <h2>${escapeHtml(service.status || service.validationStatus || "Unavailable")}</h2>
-        <p>Read-only platform health from the Commercial Market Evidence validator. Mission Control does not generate Market Evidence missions from this signal in v1.</p>
+        <p>Platform health from the Commercial Market Evidence validator. EOS resolves the next missing district collection into an executable Program Mission in the Market Workspace.</p>
       </div>
       <div class="platform-service__metrics">
         <article><strong>${escapeHtml(String(service.collections || 0))}</strong><span>Collections</span></article>
@@ -865,7 +898,7 @@ function renderCommercialMarketEvidenceService(eos) {
         <div class="section-heading">
           <div>
             <h3>Commercial Market Evidence Expansion</h3>
-            <p>Presence-based expansion planning from Knowledge Graph districts. Quality measurement and executable missions are deferred.</p>
+            <p>Presence-based expansion planning from Knowledge Graph districts. Quality measurement remains deferred, while the next collection per eligible market is executable from its Program Initiative.</p>
           </div>
         </div>
         <div class="platform-service__metrics">
@@ -1194,11 +1227,22 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .program-card h4, .program-card__top h3 { margin: 0; color: #0f172a; font-size: 0.86rem; line-height: 1.2; }
     .program-card__top span { color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.05em; text-transform: uppercase; text-align: right; }
     .program-card p, .program-detail-card p { margin: 7px 0 0; color: #475569; font-size: 0.78rem; line-height: 1.35; }
+    .program-card__next { color: #0f172a !important; font-weight: 800; }
     .initiative-list { display: grid; gap: 10px; margin-top: 10px; }
     .initiative-list article { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: #f8fafc; }
     .initiative-list h4 { margin: 0 0 4px; font-size: 0.9rem; }
     .initiative-list p { margin: 0 0 6px; font-size: 0.82rem; }
     .initiative-list ul { display: grid; gap: 4px; margin: 0; padding-left: 18px; }
+    .initiative-rows { display: grid; gap: 8px; margin-top: 8px; }
+    .initiative-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: #fff; }
+    .initiative-row span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 0.66rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .initiative-row h5 { margin: 0 0 3px; color: #0f172a; font-size: 0.9rem; line-height: 1.22; }
+    .initiative-row p { margin: 0; color: #64748b; font-size: 0.78rem; }
+    .initiative-row__mission { margin-top: 6px !important; color: #334155 !important; }
+    .initiative-status--next { border-color: #bfdbfe; background: #eff6ff; }
+    .initiative-status--complete { border-color: #b7efe3; background: #f0fdfa; }
+    .initiative-status--queued { border-color: #e5edf7; background: #f8fafc; }
+    .initiative-status--not-currently-prioritized { opacity: 0.76; }
     .work-queue { display: grid; gap: 12px; }
     .work-item { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 14px; }
     .work-item__priority { display: grid; align-content: start; gap: 7px; }
@@ -1208,6 +1252,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .work-item__heading h3 { margin: 0 0 4px; font-size: 1.08rem; }
     .work-item__heading p { margin-bottom: 0; font-size: 0.9rem; }
     .start-work { display: inline-flex; width: fit-content; min-height: 36px; align-items: center; margin-top: 10px; padding: 0 12px; border-radius: 9px; background: var(--blue); color: #fff; font-size: 0.85rem; font-weight: 900; }
+    .start-work--small { min-height: 32px; margin-top: 0; padding: 0 10px; font-size: 0.78rem; white-space: nowrap; }
     .mission-facts { display: flex; flex-wrap: wrap; gap: 7px; margin: 11px 0 9px; }
     .mission-facts span { display: inline-flex; gap: 6px; align-items: baseline; min-height: 28px; padding: 0 9px; border-radius: 999px; background: #f1f5f9; color: #0f172a; font-size: 0.8rem; font-weight: 850; }
     .mission-facts em { color: var(--muted); font-style: normal; font-size: 0.68rem; font-weight: 950; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -1342,6 +1387,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
+      .initiative-row { grid-template-columns: 1fr; }
       .copy-prompt-button { width: 100%; }
     }
   </style>

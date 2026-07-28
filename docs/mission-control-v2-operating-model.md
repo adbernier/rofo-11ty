@@ -406,7 +406,7 @@ The first Mission Control v2 workspace consumes the generated market projection 
 - what the single highest-leverage Mission is for each active market
 - how each market is progressing across Programs
 
-Each market workspace card shows overall market health, Knowledge Readiness, Experience Readiness, the next projected Mission, and concise Program progress. Program detail remains read-only. Execution still happens by opening the existing Mission Execution Packet. Hidden Work Items remain available only through mission detail and Opportunity Inventory.
+Each market workspace card shows overall market health, Knowledge Readiness, Experience Readiness, the next projected Mission, and concise Program progress. Program detail can expose executable Initiatives when EOS can resolve a bounded Mission, as with Commercial Market Evidence district collections. Execution still happens by opening the existing Mission Execution Packet. Hidden Work Items remain available only through mission detail and Opportunity Inventory.
 
 The Market Workspace is the first UI step toward the operating model, but it does not change Publisher scoring, EOS mission generation, Commercial Market Evidence planning, Field Mode ownership, or execution packets.
 
@@ -490,7 +490,7 @@ Conceptual structure:
 
 This model preserves the existing Mission, Execution Packet, and SER v1 contract while moving the planning surface up one level.
 
-The first implemented projection lives in `data/generated/eos-analysis.json` as `marketProjection` with schema version `mission-control-v2-market-projection-v1`. It is intentionally read-only and additive. It associates current missions with `marketId`, `programId`, and `initiativeId`, projects Program status from existing EOS and Publisher evidence, and keeps work items hidden by default.
+The first implemented projection lives in `data/generated/eos-analysis.json` as `marketProjection` with schema version `mission-control-v2-market-projection-v1`. It is additive. It associates current missions with `marketId`, `programId`, and `initiativeId`, projects Program status from existing EOS and Publisher evidence, resolves executable Program Missions where supported, and keeps work items hidden by default.
 
 ## Migration Strategy
 
@@ -570,6 +570,6 @@ Mission Control v2 should keep the rigor of deterministic evidence while raising
 
 ## Next Implementation Sprint
 
-The next implementation sprint should add a read-only Program and Initiative projection to EOS generated data.
+The next implementation sprint should extend deterministic Initiative resolution beyond Commercial Market Evidence into Building Profiles where current data supports safe district, ecosystem, or portfolio grouping.
 
-It should not redesign the UI first. The first implementation should prove that the current Publisher, Market Evidence, Field Mode, Building Profile, and QA signals can be grouped into stable Programs and Initiatives without changing scoring or execution behavior.
+It should preserve the market-centric projection and avoid exposing every Building Brief as a top-level planning object. The first implementation should prove that current building, representative-building, and district signals can form stable portfolio Initiatives without changing Publisher scoring or execution behavior.

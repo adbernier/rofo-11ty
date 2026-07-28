@@ -8,9 +8,9 @@ EOS implementation decisions should remain aligned with the durable Rofo product
 
 Commercial Market Evidence planning decisions should remain aligned with `docs/commercial-market-evidence.md`. That architecture defines how Representative Buildings, Building Profiles, and curated commercial environments become measurable evidence without changing Publisher scoring or Compass recommendation ownership by default.
 
-Mission Control now displays Commercial Market Evidence as a read-only platform service. It consumes the generated validator summary through EOS analysis, but it does not plan Market Evidence missions or alter priority ordering in the current integration.
+Mission Control displays Commercial Market Evidence as a platform service. It consumes the generated validator summary through EOS analysis, and EOS resolves the next missing district collection per eligible market into an executable Program Initiative and Mission. Publisher scoring and recommendation behavior remain unchanged.
 
-EOS also discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. This presence-based queue is informational only in v1 and does not create executable missions.
+EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based quality measurement remains intentionally simple, but the next missing collection becomes a bounded district-level Mission.
 
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
@@ -95,7 +95,7 @@ EOS v2.2 separates active work from opportunity inventory.
 - Expansion Projects: future metros managed as multi-stage projects.
 - Field Mode: photography coverage summaries that link to Field Mode instead of flooding EOS with photo tasks.
 - Review: returned work from future execution providers.
-- Commercial Market Evidence Expansion: read-only collection coverage and suggested expansion order for districts without Market Evidence collections.
+- Commercial Market Evidence Expansion: collection coverage, suggested expansion order, and executable Program Missions for the next missing district collection per eligible market.
 
 This keeps EOS useful as an operating system rather than a long queue report.
 
@@ -130,6 +130,10 @@ Mission Control consumes `marketProjection` as its primary workspace. The home e
 - active Program progress for Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph
 
 Selecting a Mission still opens the existing Execution Packet. Selecting a market opens a market workspace detail with Program and Initiative context before raw opportunity inventory. Publisher remains the analysis engine, EOS remains the planning engine, and Mission Control remains the operating workspace that consumes generated EOS data.
+
+Commercial Market Evidence Initiatives are resolved from existing collections and missing Knowledge Graph districts. Completed collections, such as the Financial District pilot, remain non-executable completion evidence. The next missing collection in each eligible market receives one executable Mission. Queued collections remain visible as Initiatives without top-level execution until they become next. Individual evidence records, district narrative, research, source selection, validator fixes, and documentation updates remain hidden Work Items inside the Mission packet.
+
+Building Profile tasks still remain compatible with the legacy Opportunity Inventory unless EOS can deterministically bundle them from existing market, district, ecosystem, and building evidence. This avoids inventing brittle portfolio groupings while Commercial Market Evidence proves the executable Initiative pattern.
 
 ## Mission Bundling
 

@@ -108,11 +108,11 @@ if (publisherMarketEvidence && (!publisherMarketEvidence.scoringImpact || !publi
 
 const eosMarketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
 if (!eosMarketEvidence || eosMarketEvidence.service !== "Commercial Market Evidence") {
-  fail("EOS must expose Commercial Market Evidence as a read-only platform service.");
+  fail("EOS must expose Commercial Market Evidence as a first-class platform service.");
 }
 
-if (eosMarketEvidence && !String(eosMarketEvidence.planningImpact || "").includes("without generating Market Evidence missions")) {
-  fail("Commercial Market Evidence must not generate Mission Control planning in v1.");
+if (eosMarketEvidence && !String(eosMarketEvidence.planningImpact || "").includes("marketProjection resolves missing collections")) {
+  fail("Commercial Market Evidence platform health must route executable planning through EOS marketProjection.");
 }
 
 const marketEvidenceExpansion = eosMarketEvidence && eosMarketEvidence.expansion;
@@ -136,8 +136,8 @@ if (marketEvidenceExpansion) {
   if (!Array.isArray(marketEvidenceExpansion.suggestedExpansionOrder) || !marketEvidenceExpansion.suggestedExpansionOrder.length) {
     fail("Commercial Market Evidence expansion must expose a deterministic suggested expansion order.");
   }
-  if (!String(marketEvidenceExpansion.planningImpact || "").includes("does not create executable missions")) {
-    fail("Commercial Market Evidence expansion must remain non-executable in v1.");
+  if (!String(marketEvidenceExpansion.executionImpact || "").includes("executable Commercial Market Evidence Program Mission")) {
+    fail("Commercial Market Evidence expansion must document executable Program Mission projection.");
   }
   if (!String(marketEvidenceExpansion.qualityMeasurement || "").includes("Deferred")) {
     fail("Commercial Market Evidence expansion must defer quality measurement in v1.");
@@ -320,6 +320,57 @@ if (!Array.isArray(marketProjection.programs) || marketProjection.programs.lengt
   fail("Mission Control v2 projection must expose reusable program definitions.");
 }
 
+const cmeMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "commercial_market_evidence");
+if (!cmeMissions.length) {
+  fail("Commercial Market Evidence must project at least one executable Program Mission.");
+}
+
+const cmeMissionIds = new Set();
+for (const mission of cmeMissions) {
+  if (cmeMissionIds.has(mission.id)) fail(`Duplicate Commercial Market Evidence mission id: ${mission.id}`);
+  cmeMissionIds.add(mission.id);
+  if (!mission.initiativeId || !mission.initiativeTitle) fail(`${mission.id} is missing Initiative association.`);
+  if (!mission.executionPacket) fail(`${mission.id} is missing an Execution Packet.`);
+  if (!mission.workItems || mission.workItems.hiddenByDefault !== true || mission.workItems.count < 1) {
+    fail(`${mission.id} must hide evidence-record work items inside the mission.`);
+  }
+  if (!String(mission.title || "").includes("Commercial Market Evidence collection")) {
+    fail(`${mission.id} must be a bounded district collection mission.`);
+  }
+  if ((mission.executionPacket.qaCommands || []).indexOf("node scripts/qa-commercial-market-evidence.js") === -1) {
+    fail(`${mission.id} must run the Commercial Market Evidence validator.`);
+  }
+}
+
+const initiativeIds = new Set();
+for (const initiative of marketProjection.initiatives || []) {
+  if (initiativeIds.has(initiative.id)) fail(`Duplicate projected Initiative id: ${initiative.id}`);
+  initiativeIds.add(initiative.id);
+}
+
+const sanFranciscoMarket = (marketProjection.markets || []).find((market) => market.id === "san-francisco");
+const sanFranciscoCmeProgram = sanFranciscoMarket && (sanFranciscoMarket.programs || []).find((program) => program.id === "commercial_market_evidence");
+if (!sanFranciscoCmeProgram) {
+  fail("San Francisco must expose a Commercial Market Evidence Program.");
+} else {
+  const financialDistrict = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.id === "san-francisco:commercial_market_evidence:financial-district");
+  if (!financialDistrict || financialDistrict.status !== "Complete" || financialDistrict.nextMissionId) {
+    fail("Financial District must be recognized as a completed Commercial Market Evidence Initiative without an executable mission.");
+  }
+  const expectedNext = (marketEvidenceExpansion.suggestedExpansionOrder || []).find((district) => district.metroId === "san-francisco");
+  const nextInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status === "Next");
+  if (!expectedNext || !nextInitiative || nextInitiative.id !== `san-francisco:commercial_market_evidence:${expectedNext.districtId}`) {
+    fail("San Francisco Commercial Market Evidence next Initiative must follow deterministic expansion ordering.");
+  }
+  if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
+    fail("San Francisco Commercial Market Evidence next Initiative must map to one executable Mission.");
+  }
+  const nextProjectedMission = (nextInitiative.missions || [])[0];
+  if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
+    fail("San Francisco Commercial Market Evidence Mission must map back to the Initiative and Execution Packet.");
+  }
+}
+
 const bundledMission = (portfolioQueues.missionQueue || []).find((mission) => (mission.includedOpportunityIds || []).length > 1);
 if (!bundledMission) fail("Related micro-opportunities should form at least one bundled mission.");
 if ((bundledMission.includedTasks || []).some((task) => task.suggestedModule && task.suggestedModule.id === "fieldMode")) {
@@ -425,8 +476,9 @@ for (const marketEvidenceSource of [
   "Commercial Market Evidence Expansion",
   "Suggested Expansion Order",
   "Ordering Logic",
-  "Read-only platform health",
-  "does not generate Market Evidence missions",
+  "executable Program Mission",
+  "renderProjectedInitiative",
+  "initiative-status--next",
   "platformServices",
 ]) {
   if (!adminSource.includes(marketEvidenceSource)) fail(`/admin/eos Commercial Market Evidence display is missing: ${marketEvidenceSource}`);

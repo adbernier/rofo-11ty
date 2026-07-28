@@ -101,9 +101,9 @@ Commercial Market Evidence is Rofo's curated evidence layer for explaining why a
 
 The architecture is documented in `docs/commercial-market-evidence.md`. Market Evidence should improve credibility and explainability without turning raw building count into quality, fabricating property facts, or changing recommendation rankings by default.
 
-Commercial Market Evidence is a first-class platform service. Its source data and validator own evidence quality; Publisher reports the validator summary for visibility; Mission Control displays platform health without planning from it until a focused future sprint connects those signals.
+Commercial Market Evidence is a first-class platform service. Its source data and validator own evidence quality; Publisher reports the validator summary for visibility; Mission Control displays platform health, and EOS can resolve missing district collections into bounded Program Missions.
 
-Mission Control may perform presence-based expansion discovery for Commercial Market Evidence by comparing Knowledge Graph districts with existing evidence collections. That awareness should remain separate from Publisher scoring and recommendation behavior until a focused integration sprint approves deeper use.
+Mission Control performs presence-based expansion discovery for Commercial Market Evidence by comparing Knowledge Graph districts with existing evidence collections. EOS may resolve the next missing district collection into an executable Program Initiative and Mission, while Publisher scoring and recommendation behavior remain separate until a focused integration sprint approves deeper use.
 
 ### Publisher
 
