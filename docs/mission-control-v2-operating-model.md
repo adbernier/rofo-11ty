@@ -36,6 +36,7 @@ Mission Control v2 should organize work in progressively smaller units:
 ```text
 Markets
 Programs
+Campaigns
 Initiatives
 Missions
 Execution Packets
@@ -101,6 +102,45 @@ A Program has:
 
 Programs should not expose every task. They should show the state of a product system and the Initiatives that matter.
 
+## Campaigns
+
+Campaigns are the primary progress object inside a Program.
+
+A Campaign should answer:
+
+```text
+What market-completion outcome is this Program advancing?
+```
+
+Examples:
+
+- Commercial Market Evidence / San Francisco Completion
+- Building Profiles / Seattle Completion
+- Photography / Denver Completion
+- Recommendation QA / National Completion
+- Knowledge Graph / Orange County Completion
+
+Campaigns own progress and throughput strategy, but they are not executable. A Campaign may require several Missions. It should prevent Mission Control from presenting every missing evidence record, Building Brief, photo, QA scenario, or graph relationship as a top-level choice.
+
+A Campaign should contain:
+
+- id
+- marketId
+- programId
+- title
+- objective
+- progress
+- current constraint
+- next Initiative
+- next Mission
+- mission count
+- hidden Work Item count
+- sizing strategy
+- reviewability principle
+- source evidence
+
+Campaigns are the scale-control layer. Missions are the execution layer.
+
 ## Initiatives
 
 Initiatives are meaningful bodies of work inside a Program. They own progress.
@@ -125,6 +165,7 @@ Initiatives are not usually one session of work. They are the portfolio containe
 An Initiative should contain:
 
 - id
+- campaignId
 - programId
 - title
 - market or scope
@@ -162,6 +203,7 @@ Missions should remain bounded. They may include multiple hidden work items when
 A Mission should contain:
 
 - id
+- campaignId
 - initiativeId
 - title
 - objective
@@ -179,6 +221,7 @@ A Mission should contain:
 - QA commands
 - required review
 - execution packet
+- mission size
 
 ## Execution Packets
 
@@ -205,6 +248,14 @@ An Execution Packet should include:
 - SER v1 reporting requirement
 
 Execution Packets may contain many hidden work items. Those work items should be visible in detail views, not in the default operating surface.
+
+Mission sizing is deterministic:
+
+- Small: roughly 30-60 minutes and one to three hidden Work Items.
+- Standard: roughly 60-120 minutes and a bounded collection, scenario set, or source-aligned portfolio.
+- Large: roughly 2-4 hours and the upper bound for one SER review.
+
+Mission Control should never create mega missions. Larger bodies of work belong in Campaigns and should advance through multiple reviewable Missions.
 
 ## Work Items
 
@@ -333,7 +384,7 @@ Field Operations is a future Program for route planning, assignment, and field e
 
 ## Progress Model
 
-Mission Control v2 should report progress at Initiative level rather than task level.
+Mission Control v2 should report progress at Campaign and Initiative level rather than task level.
 
 Useful progress examples:
 
@@ -367,6 +418,8 @@ Recommended progress fields:
 - next mission
 - source system
 - confidence
+
+Campaign progress should be the default Program-level progress object. Initiative progress explains the next meaningful milestone. Work Item counts are supporting evidence and should remain hidden by default.
 
 When no defensible target exists, Mission Control should use labels such as `Foundation`, `Partial`, `Developed`, or `Needs Review` instead of inventing percentages.
 
@@ -436,9 +489,26 @@ Conceptual structure:
           currentConstraint,
           nextInitiativeId,
           nextMissionId,
+          campaigns: [
+            {
+              id,
+              programId,
+              marketId,
+              title,
+              objective,
+              progress,
+              currentConstraint,
+              nextInitiativeId,
+              nextMissionId,
+              missionIds,
+              workItemCount,
+              sizingStrategy
+            }
+          ],
           initiatives: [
             {
               id,
+              campaignId,
               programId,
               title,
               marketId,
@@ -464,6 +534,7 @@ Conceptual structure:
       id,
       marketId,
       programId,
+      campaignId,
       initiativeId,
       title,
       objective,
@@ -473,6 +544,7 @@ Conceptual structure:
       expectedImpact,
       estimatedEffort,
       missionClass,
+      missionSize,
       relevantFiles,
       dependencies,
       acceptanceCriteria,
@@ -490,7 +562,20 @@ Conceptual structure:
 
 This model preserves the existing Mission, Execution Packet, and SER v1 contract while moving the planning surface up one level.
 
-The first implemented projection lives in `data/generated/eos-analysis.json` as `marketProjection` with schema version `mission-control-v2-market-projection-v1`. It is additive. It associates current missions with `marketId`, `programId`, and `initiativeId`, projects Program status from existing EOS and Publisher evidence, resolves executable Program Missions where supported, and keeps work items hidden by default.
+The implemented projection lives in `data/generated/eos-analysis.json` as `marketProjection` with schema version `mission-control-v2-market-projection-v2`. It is additive. It associates current missions with `marketId`, `programId`, `campaignId`, and `initiativeId`, projects Campaign and Program status from existing EOS and Publisher evidence, resolves executable Program Missions where supported, and keeps work items hidden by default.
+
+## Bundling by Program
+
+Mission Control should optimize editorial throughput by selecting the largest coherent, reviewable Mission inside each Campaign.
+
+Program posture:
+
+- Publisher: keep current readiness and ecosystem bundling when work shares one market, ecosystem, source path, and validation route.
+- Commercial Market Evidence: keep one district collection as one Mission. Evidence records, narrative, research, validator fixes, and documentation notes remain hidden Work Items.
+- Building Profiles: increase bundling into district, ecosystem, or portfolio Missions when existing Publisher evidence provides a deterministic shared scope. Preserve individual Building Brief work items as compatibility fallback.
+- Photography: use Campaign progress and Field Mode summaries. Do not emit one executable Mission per photo target from Mission Control.
+- Recommendation QA: bundle QA status, scenario documentation, and explainability work when they share one market validation path.
+- Knowledge Graph: bundle graph, comparison, and internal-link updates only when the same market and source files are involved.
 
 Commercial Market Evidence uses this projection to separate operational market ownership from Publisher metro grouping. For example, San Francisco Publisher analysis can remain Bay Area-wide while East Bay districts are projected into an East Bay Market Workspace. The projection resolves district ownership before assigning Initiatives, reports ambiguous or unresolved districts, and excludes those districts from executable missions until ownership is deterministic.
 

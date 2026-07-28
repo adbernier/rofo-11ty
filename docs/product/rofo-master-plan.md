@@ -119,11 +119,11 @@ EOS is the operating layer above Publisher, Compass, Field Mode, Knowledge Graph
 
 The operator-facing EOS product is Mission Control. Mission Control is the morning briefing surface: it should make the next focused engineering session obvious, keep raw opportunities secondary, and show mission outcomes without exposing implementation detail.
 
-Mission Control v2 operating-model decisions should remain aligned with `docs/mission-control-v2-operating-model.md`. That document defines the proposed Programs, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy for scaling Rofo's editorial operating system beyond Publisher-driven task queues.
+Mission Control v2 operating-model decisions should remain aligned with `docs/mission-control-v2-operating-model.md`. That document defines the proposed Programs, Campaigns, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy for scaling Rofo's editorial operating system beyond Publisher-driven task queues.
 
-Mission Control v2 uses markets as the primary planning object. EOS projects existing work as Markets -> Programs -> Initiatives -> Missions -> Execution Packets -> hidden Work Items so Rofo can reason about market completion before redesigning the operator UI.
+Mission Control v2 uses markets as the primary planning object. EOS projects existing work as Markets -> Programs -> Campaigns -> Initiatives -> Missions -> Execution Packets -> hidden Work Items so Rofo can reason about market completion before redesigning the operator UI.
 
-Mission Control's market workspace is the operator home for this model. It should make the next mission per active market obvious, show Program progress inside each market, and keep raw work items secondary.
+Mission Control's market workspace is the operator home for this model. It should make the next mission per active market obvious, show Program and Campaign progress inside each market, and keep raw work items secondary.
 
 EOS answers:
 
@@ -136,6 +136,8 @@ EOS answers:
 EOS coordinates work. It does not replace the systems that produce the work.
 
 EOS should recommend coherent missions, not only the smallest measurable tasks. A mission is the best next focused engineering or editorial session, generated from related opportunities that share a metro, ecosystem or product layer, source files, and validation path. Raw opportunities remain visible, but daily work should avoid unnecessary cycles of prompt, snapshot, QA, build, report, review, commit, and push when several safe related gaps can be handled together.
+
+Campaigns are the throughput layer above Missions. A Campaign represents market completion for a Program, such as San Francisco Commercial Market Evidence Completion, Seattle Building Profile Completion, or Denver Photography Completion. Campaigns are not executable. They advance through bounded Missions sized to remain reviewable inside one SER. This lets Rofo optimize for time-to-complete a market rather than maximizing the number of small tasks exposed to an operator.
 
 EOS should also distinguish knowledge readiness from experience readiness. Knowledge readiness reflects the Commercial Knowledge Graph, ecosystem metadata, Representative Building Intelligence, Building Profiles, recommendation QA, explainability, and validation coverage. Experience readiness reflects photography, handbook guidance, visual completeness, and public-page richness. Photography remains visible and important, but it belongs to Field Mode and should not obscure whether a metro's underlying commercial knowledge and recommendations are ready.
 

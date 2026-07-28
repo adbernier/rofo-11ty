@@ -28,6 +28,7 @@ const EXPANSION_WORKSTREAM_LABELS = new Set(["Engineering Work", "Field Work", "
 const MISSION_CLASSES = new Set(["Foundation", "Readiness Blocker", "Meaningful Depth Improvement", "Refinement", "Maintenance"]);
 const EXPECTED_IMPACTS = new Set(["High", "Medium", "Low"]);
 const ESTIMATED_EFFORTS = new Set(["Small", "Medium", "Large"]);
+const MISSION_SIZES = new Set(["Small", "Standard", "Large"]);
 const CONFIDENCE_LEVELS = new Set(["High", "Medium", "Low"]);
 const MARKET_PROGRAMS = new Set(["publisher", "commercial_market_evidence", "building_profiles", "photography", "recommendation_qa", "knowledge_graph"]);
 
@@ -235,10 +236,12 @@ for (const mission of portfolioQueues.missionQueue || []) {
   if (mission.category !== "mission") fail(`${mission.id} should use mission category.`);
   if (!mission.marketId || mission.marketId !== mission.metroId) fail(`${mission.id} is missing market association.`);
   if (!mission.programId || !MARKET_PROGRAMS.has(mission.programId)) fail(`${mission.id} has invalid program association: ${mission.programId}`);
+  if (!mission.campaignId || !mission.campaignTitle) fail(`${mission.id} is missing campaign association.`);
   if (!mission.initiativeId || !mission.initiativeTitle) fail(`${mission.id} is missing initiative association.`);
   if (!MISSION_CLASSES.has(mission.missionClass)) fail(`${mission.id} has invalid mission class: ${mission.missionClass}`);
   if (!EXPECTED_IMPACTS.has(mission.expectedImpact)) fail(`${mission.id} has invalid expected impact: ${mission.expectedImpact}`);
   if (!ESTIMATED_EFFORTS.has(mission.estimatedEffort)) fail(`${mission.id} has invalid estimated effort: ${mission.estimatedEffort}`);
+  if (!mission.missionSize || !MISSION_SIZES.has(mission.missionSize.label) || !mission.missionSize.reviewWindow) fail(`${mission.id} has invalid mission size.`);
   if (!CONFIDENCE_LEVELS.has(mission.confidence)) fail(`${mission.id} has invalid confidence: ${mission.confidence}`);
   if (!Array.isArray(mission.includedOpportunityIds) || !mission.includedOpportunityIds.length) fail(`${mission.id} is missing included opportunity ids.`);
   if (!Array.isArray(mission.includedTasks) || mission.includedTasks.length !== mission.includedOpportunityIds.length) fail(`${mission.id} included task details do not match opportunity ids.`);
@@ -257,18 +260,21 @@ for (const mission of portfolioQueues.missionQueue || []) {
   if (mission.executionPacket && !(mission.executionPacket.qaCommands || []).includes("npm run publisher:snapshot")) {
     fail(`${mission.id} execution packet must instruct Publisher snapshot regeneration.`);
   }
+  if (mission.executionPacket && (!mission.executionPacket.missionSize || mission.executionPacket.missionSize.label !== mission.missionSize.label)) {
+    fail(`${mission.id} execution packet must retain mission-size context.`);
+  }
   if ((mission.deferredTasks || []).some((task) => task.suggestedModule && task.suggestedModule.id === "fieldMode") && !mission.rationale.join(" ").includes("Deferred")) {
     fail(`${mission.id} should explain deferred Field Mode or out-of-scope work.`);
   }
 }
 
 const marketProjection = eos.marketProjection || {};
-if (marketProjection.schemaVersion !== "mission-control-v2-market-projection-v1") {
+if (marketProjection.schemaVersion !== "mission-control-v2-market-projection-v2") {
   fail("EOS must expose the Mission Control v2 market projection.");
 }
 
-if (!Array.isArray(marketProjection.hierarchy) || marketProjection.hierarchy.join(">") !== "Markets>Programs>Initiatives>Missions>Execution Packets>Work Items") {
-  fail("Mission Control v2 projection must use Markets -> Programs -> Initiatives -> Missions -> Execution Packets -> Work Items.");
+if (!Array.isArray(marketProjection.hierarchy) || marketProjection.hierarchy.join(">") !== "Markets>Programs>Campaigns>Initiatives>Missions>Execution Packets>Work Items") {
+  fail("Mission Control v2 projection must use Markets -> Programs -> Campaigns -> Initiatives -> Missions -> Execution Packets -> Work Items.");
 }
 
 if (!marketProjection.workItems || marketProjection.workItems.hiddenByDefault !== true) {
@@ -290,8 +296,22 @@ for (const missionId of missionIds) {
   if (!projectedMissionIds.has(missionId)) fail(`Mission Control v2 projection is missing mission: ${missionId}`);
 }
 
-if ((marketProjection.missions || []).some((mission) => !mission.marketId || !mission.programId || !mission.initiativeId || !mission.executionPacketRef || mission.executionPacketAvailable !== true)) {
-  fail("Every projected mission must include market, program, initiative, and execution-packet reference data.");
+if (!Array.isArray(marketProjection.campaigns) || !marketProjection.campaigns.length) {
+  fail("Mission Control v2 projection must expose campaign progress objects.");
+}
+
+const projectedCampaignIds = new Set();
+for (const campaign of marketProjection.campaigns || []) {
+  if (!campaign.id || projectedCampaignIds.has(campaign.id)) fail(`Duplicate or missing projected Campaign id: ${campaign.id}`);
+  projectedCampaignIds.add(campaign.id);
+  if (!campaign.marketId || !campaign.programId || !campaign.title || !campaign.progress) fail(`${campaign.id} is missing market, program, title, or progress.`);
+  if (!Array.isArray(campaign.initiatives) || !Array.isArray(campaign.missions)) fail(`${campaign.id} must expose Initiative and Mission references.`);
+  if (!campaign.workItems || campaign.workItems.hiddenByDefault !== true) fail(`${campaign.id} must keep Work Items hidden by default.`);
+  if (!campaign.sizingStrategy || !campaign.reviewabilityPrinciple) fail(`${campaign.id} must document sizing and reviewability.`);
+}
+
+if ((marketProjection.missions || []).some((mission) => !mission.marketId || !mission.programId || !mission.campaignId || !mission.initiativeId || !mission.executionPacketRef || mission.executionPacketAvailable !== true)) {
+  fail("Every projected mission must include market, program, campaign, initiative, and execution-packet reference data.");
 }
 
 for (const market of marketProjection.markets || []) {
@@ -304,13 +324,17 @@ for (const market of marketProjection.markets || []) {
   for (const program of market.programs || []) {
     if (!MARKET_PROGRAMS.has(program.id)) fail(`${market.label} has invalid projected program: ${program.id}`);
     if (!program.status || !program.progress || !program.currentConstraint) fail(`${market.label} ${program.id} projection is missing status, progress, or constraint.`);
+    if (!Array.isArray(program.campaigns) || program.campaigns.length !== 1) fail(`${market.label} ${program.id} must expose one Campaign progress object.`);
+    const campaign = program.campaigns[0];
+    if (campaign.marketId !== market.id || campaign.programId !== program.id || !projectedCampaignIds.has(campaign.id)) fail(`${market.label} ${program.id} has an inconsistent Campaign projection.`);
     if (!Array.isArray(program.initiatives) || !program.initiatives.length) fail(`${market.label} ${program.id} must project at least one initiative.`);
     for (const initiative of program.initiatives || []) {
       if (initiative.marketId !== market.id || initiative.programId !== program.id) fail(`${market.label} has initiative with inconsistent market or program association.`);
+      if (initiative.campaignId && initiative.campaignId !== campaign.id) fail(`${market.label} has initiative with inconsistent Campaign association.`);
       if (!initiative.id || !initiative.title || !initiative.progress) fail(`${market.label} has incomplete initiative projection.`);
       for (const mission of initiative.missions || []) {
-        if (mission.marketId !== market.id || mission.programId !== program.id || mission.initiativeId !== initiative.id) {
-          fail(`${mission.id} projection has inconsistent market, program, or initiative association.`);
+        if (mission.marketId !== market.id || mission.programId !== program.id || mission.campaignId !== campaign.id || mission.initiativeId !== initiative.id) {
+          fail(`${mission.id} projection has inconsistent market, program, Campaign, or initiative association.`);
         }
         if (!mission.workItems || mission.workItems.hiddenByDefault !== true) fail(`${mission.id} must keep included work items hidden by default.`);
       }
@@ -448,6 +472,25 @@ if ((bundledMission.includedTasks || []).some((task) => task.suggestedModule && 
   fail("Photography must not be silently bundled into an engineering/editorial mission.");
 }
 
+const buildingProfileMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "building_profiles");
+if (buildingProfileMissions.length) {
+  const portfolioMission = buildingProfileMissions.find((mission) => (mission.includedTasks || []).length > 1);
+  if (!portfolioMission) fail("Building Profiles should expose bundled portfolio Missions instead of one Mission per Building Brief.");
+  if (!["Standard", "Large"].includes(portfolioMission.missionSize && portfolioMission.missionSize.label)) {
+    fail("Building Profile portfolio Missions should use Standard or Large sizing.");
+  }
+}
+
+const photographyPrograms = (marketProjection.markets || [])
+  .flatMap((market) => market.programs || [])
+  .filter((program) => program.id === "photography");
+if (!photographyPrograms.length || photographyPrograms.some((program) => !program.campaigns || !program.campaigns.length)) {
+  fail("Photography should be represented through Campaign progress in Mission Control.");
+}
+if ((portfolioQueues.missionQueue || []).some((mission) => mission.programId === "photography")) {
+  fail("Photography should not generate one executable Mission per photo target.");
+}
+
 const todaysMissions = portfolioQueues.todaysRecommendedWork || [];
 if (todaysMissions.some((item) => item.category !== "mission")) {
   fail("Today's Recommended Work should prioritize missions, not raw micro-tasks.");
@@ -531,8 +574,10 @@ for (const marketWorkspaceSource of [
   "activeProjectedMarkets",
   "renderMarketWorkspaceCard",
   "renderProjectedProgram",
+  "renderProjectedCampaign",
   "renderProjectedMission",
   "program-grid",
+  "Campaign",
   "program-detail-grid",
   "Hidden Work Items",
   "Markets are the primary Mission Control object",

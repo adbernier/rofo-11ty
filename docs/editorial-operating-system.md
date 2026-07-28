@@ -14,7 +14,7 @@ EOS discovers Commercial Market Evidence expansion opportunities by comparing Kn
 
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
-Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.
+Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Campaigns, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.
 
 ## Vision
 
@@ -108,13 +108,14 @@ The projection organizes existing EOS evidence as:
 ```text
 Markets
 Programs
+Campaigns
 Initiatives
 Missions
 Execution Packets
 Work Items
 ```
 
-Markets are the primary planning object because Rofo is built market by market. Programs sit inside each market and represent durable product systems: Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph. Initiatives represent meaningful milestones inside a Program. Missions remain the executable unit and continue to generate the same execution packets. Work items remain hidden evidence used to explain why missions exist.
+Markets are the primary planning object because Rofo is built market by market. Programs sit inside each market and represent durable product systems: Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph. Campaigns are the market-completion progress objects inside each Program. Initiatives represent meaningful milestones inside a Campaign. Missions remain the executable unit and continue to generate the same execution packets. Work items remain hidden evidence used to explain why missions exist.
 
 This projection is additive. It does not change Publisher scoring, mission generation, execution behavior, SER v1, Field Mode, Compass, recommendations, or the current Mission Control UI. It is the future data model for Mission Control v2.
 
@@ -137,7 +138,52 @@ Completed collections, such as the Financial District pilot, remain non-executab
 
 District-to-market resolution follows a deterministic order: explicit district ownership if present, existing Commercial Market Evidence collection metadata, canonical public city/state ownership, then Publisher metro fallback only when no stronger ownership signal exists. Ambiguous or unresolved districts are reported in generated EOS analysis and do not produce executable Commercial Market Evidence missions until ownership is clarified.
 
-Building Profile tasks still remain compatible with the legacy Opportunity Inventory unless EOS can deterministically bundle them from existing market, district, ecosystem, and building evidence. This avoids inventing brittle portfolio groupings while Commercial Market Evidence proves the executable Initiative pattern.
+Building Profile tasks remain compatible with the legacy Opportunity Inventory, but EOS now prefers portfolio Missions when existing Publisher work items share market, source files, and validation paths. This lets Building Profiles progress through bounded Campaign Missions instead of one Mission per Building Brief while preserving the smaller raw tasks as a fallback.
+
+## Campaigns and Throughput Optimization
+
+EOS Mission Bundling v2 adds Campaigns as the progress object between Programs and Initiatives:
+
+```text
+Market
+Program
+Campaign
+Initiative
+Mission
+Execution Packet
+Work Items
+```
+
+Campaigns answer:
+
+```text
+What market-completion body of work is this Program advancing?
+```
+
+Campaigns are never executed directly. They own progress, constraints, sizing strategy, and the list of Missions that advance the Program. Mission Control renders Campaign progress so operators see market completion rather than a raw inventory of small gaps.
+
+EOS optimizes editorial throughput by asking:
+
+```text
+What is the largest coherent body of work that can be completed confidently in one execution packet while remaining reviewable in one SER?
+```
+
+Mission sizing remains deterministic:
+
+- Small: roughly 30-60 minutes, usually one to three hidden Work Items.
+- Standard: roughly 60-120 minutes, usually a bounded collection or scenario set.
+- Large: roughly 2-4 hours and the upper bound for one reviewable SER.
+
+Large Missions must not become mega missions. Larger bodies of work stay at Campaign level and advance through several Missions.
+
+Program bundling posture:
+
+- Publisher: keep current readiness and ecosystem bundling where gaps share metro, ecosystem, source files, and validation.
+- Commercial Market Evidence: keep district collections as one Mission; individual evidence records remain hidden Work Items.
+- Building Profiles: increase bundling into portfolio Missions when representative buildings or Building Briefs share market, product layer, source files, and QA.
+- Photography: represent Campaign progress only; photo targets remain Field Mode work and are not silently bundled into editorial missions.
+- Recommendation QA: bundle coherent scenario/status sets where they share a market validation path.
+- Knowledge Graph: bundle geography, comparison, and internal-link work only when source and validation overlap.
 
 ## Mission Bundling
 

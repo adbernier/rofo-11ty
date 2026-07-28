@@ -194,7 +194,7 @@ ${plainText(packet.currentHealth)}
 Relevant files
 ${listLines(packet.files)}
 ${dependencies}
-${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}
+${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}${packet.missionSize ? `Mission size\n${plainText(packet.missionSize.label)} (${plainText(packet.missionSize.reviewWindow)})\n\n` : ""}
 Acceptance criteria
 ${listLines(packet.acceptanceCriteria)}
 
@@ -325,6 +325,7 @@ function renderProjectedProgram(program) {
   const progressLabel = program.progress && program.progress.label ? program.progress.label : "Measured by EOS";
   const nextInitiative = (program.initiatives || []).find((initiative) => initiative.nextMissionId === program.nextMissionId) ||
     (program.initiatives || []).find((initiative) => initiative.id === program.nextInitiativeId);
+  const campaign = (program.campaigns || [])[0] || null;
   return `
     <article class="program-card ${programStatusTone(program.status)}">
       <div class="program-card__top">
@@ -332,7 +333,28 @@ function renderProjectedProgram(program) {
         <span>${escapeHtml(program.status || "Not measured")}</span>
       </div>
       <p>${escapeHtml(progressLabel)}</p>
+      ${campaign ? `<p class="program-card__campaign">Campaign: ${escapeHtml(campaign.title)} · ${escapeHtml(String(campaign.missionCount || 0))} mission${campaign.missionCount === 1 ? "" : "s"}</p>` : ""}
       ${nextInitiative ? `<p class="program-card__next">Next: ${escapeHtml(nextInitiative.title)}</p>` : ""}
+    </article>
+  `;
+}
+
+function renderProjectedCampaign(campaign) {
+  if (!campaign) return "";
+  const progressLabel = campaign.progress && campaign.progress.label ? campaign.progress.label : "Measured by EOS";
+  return `
+    <article class="campaign-card">
+      <div>
+        <span>Campaign</span>
+        <h4>${escapeHtml(campaign.title)}</h4>
+        <p>${escapeHtml(campaign.currentConstraint || "No current constraint reported.")}</p>
+      </div>
+      <div class="campaign-card__facts">
+        <span><em>Progress</em>${escapeHtml(progressLabel)}</span>
+        <span><em>Missions</em>${escapeHtml(String(campaign.missionCount || 0))}</span>
+        <span><em>Hidden Work</em>${escapeHtml(String(campaign.workItemCount || 0))}</span>
+      </div>
+      <p>${escapeHtml(campaign.sizingStrategy || "Missions remain bounded and reviewable.")}</p>
     </article>
   `;
 }
@@ -409,6 +431,7 @@ function renderMarketWorkspaceCard(market, eos, token) {
             <article>
               <h4>${escapeHtml(program.label)}</h4>
               <p>${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
+              ${renderProjectedCampaign((program.campaigns || [])[0])}
               <div class="initiative-rows">
                 ${(program.initiatives || []).slice(0, 6).map((initiative) => renderProjectedInitiative(initiative, eos, token)).join("")}
               </div>
@@ -717,6 +740,7 @@ function renderSelectedMetro(eos, metroId, token) {
               <p>${escapeHtml(program.progress && program.progress.label ? program.progress.label : "Measured by EOS")}</p>
               <p><strong>Current constraint:</strong> ${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
               ${program.nextMissionId ? `<p><strong>Next Mission:</strong> ${escapeHtml(((program.initiatives || []).find((initiative) => initiative.nextMissionId === program.nextMissionId) || {}).title || program.nextMissionId)}</p>` : ""}
+              ${renderProjectedCampaign((program.campaigns || [])[0])}
               <details class="mission-scope">
                 <summary>Initiatives</summary>
                 <div class="initiative-rows">
@@ -1035,9 +1059,9 @@ function renderOverview(eos, token) {
     <section class="metrics metrics--mission-control" aria-label="Mission Control overview">
       ${renderMetric("Markets", projectionSummary.markets || eos.overview.metroCount, "Primary planning objects")}
       ${renderMetric("Programs", projectionSummary.markets && projectionSummary.programsPerMarket ? projectionSummary.markets * projectionSummary.programsPerMarket : "", "Projected across markets")}
+      ${renderMetric("Campaigns", projectionSummary.campaigns || 0, "Market completion progress")}
       ${renderMetric("Initiatives", projectionSummary.initiatives || 0, "Program milestones")}
       ${renderMetric("Missions", projectionSummary.missions || 0, "Executable packets unchanged")}
-      ${renderMetric("Average Health", pct(eos.overview.averageHealth), "EOS editorial health model")}
     </section>
 
     <section class="market-workspace" aria-label="Market Workspace">
@@ -1230,6 +1254,14 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .program-card__top span { color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.05em; text-transform: uppercase; text-align: right; }
     .program-card p, .program-detail-card p { margin: 7px 0 0; color: #475569; font-size: 0.78rem; line-height: 1.35; }
     .program-card__next { color: #0f172a !important; font-weight: 800; }
+    .program-card__campaign { color: #64748b !important; font-size: 0.74rem !important; }
+    .campaign-card { display: grid; gap: 9px; margin: 12px 0; padding: 13px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; }
+    .campaign-card span:first-child { display: block; color: #1d4ed8; font-size: 0.68rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
+    .campaign-card h4 { margin: 0 0 4px; font-size: 1rem; line-height: 1.2; }
+    .campaign-card p { margin: 0; color: #64748b; font-size: 0.84rem; }
+    .campaign-card__facts { display: flex; flex-wrap: wrap; gap: 7px; }
+    .campaign-card__facts span { display: inline-flex; gap: 6px; align-items: baseline; min-height: 26px; padding: 0 8px; border-radius: 999px; background: #fff; color: #0f172a; font-size: 0.78rem; font-weight: 850; }
+    .campaign-card__facts em { color: var(--muted); font-style: normal; font-size: 0.66rem; font-weight: 950; letter-spacing: 0.04em; text-transform: uppercase; }
     .initiative-list { display: grid; gap: 10px; margin-top: 10px; }
     .initiative-list article { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: #f8fafc; }
     .initiative-list h4 { margin: 0 0 4px; font-size: 0.9rem; }
