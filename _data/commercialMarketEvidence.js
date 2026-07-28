@@ -5,5 +5,6 @@ module.exports = {
     require("../data/commercial-market-evidence/san-francisco/mission-bay"),
     require("../data/commercial-market-evidence/san-francisco/soma"),
     require("../data/commercial-market-evidence/san-francisco/design-district"),
+    require("../data/commercial-market-evidence/san-francisco/dogpatch"),
   ],
 };
