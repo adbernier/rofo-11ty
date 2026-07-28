@@ -398,6 +398,18 @@ The operator should understand which Programs are moving, which markets they aff
 
 The default surface should show only a small set of active Initiatives. Raw opportunities and hidden Work Items should move into detail and inventory views.
 
+## Market Workspace
+
+The first Mission Control v2 workspace consumes the generated market projection directly. The home surface starts with markets and answers:
+
+- which markets need attention
+- what the single highest-leverage Mission is for each active market
+- how each market is progressing across Programs
+
+Each market workspace card shows overall market health, Knowledge Readiness, Experience Readiness, the next projected Mission, and concise Program progress. Program detail remains read-only. Execution still happens by opening the existing Mission Execution Packet. Hidden Work Items remain available only through mission detail and Opportunity Inventory.
+
+The Market Workspace is the first UI step toward the operating model, but it does not change Publisher scoring, EOS mission generation, Commercial Market Evidence planning, Field Mode ownership, or execution packets.
+
 ## Recommended Data Model
 
 Mission Control v2 can be introduced additively over the current EOS generated data.

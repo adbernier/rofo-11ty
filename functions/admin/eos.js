@@ -91,6 +91,21 @@ function currentFocusSummary(eos, topMission) {
   return `${title} is the best next focused engineering session for ${metroLabel}${flagshipClause}.${constraint}`;
 }
 
+function marketFocusSummary(eos, activeMarkets) {
+  const flagship = (eos.metros || []).find((metro) => metro.metroId === "san-francisco") || (eos.metros || [])[0];
+  const lead = (activeMarkets || [])[0];
+  if (!lead) {
+    return `${flagship ? flagship.metroName : "Rofo"} remains the operating reference while Mission Control waits for projected market missions.`;
+  }
+  const mission = (lead.nextMissions || [])[0];
+  const missionTitle = mission ? mission.title : "the next market mission";
+  const program = mission ? mission.programLabel : "Mission Control";
+  const flagshipClause = flagship && flagship.metroName && flagship.metroName !== lead.label
+    ? ` while ${flagship.metroName} remains the flagship production market`
+    : "";
+  return `${lead.label}: ${missionTitle} is the highest-leverage ${program} mission${flagshipClause}.`;
+}
+
 function compactMissionFacts(item) {
   return [
     ["Impact", item.expectedImpact || item.expectedEditorialImpact || ""],
@@ -102,6 +117,10 @@ function compactMissionFacts(item) {
 
 function taskUrl(token, taskId) {
   return `/admin/eos?${tokenParam(token)}&task=${encodeURIComponent(taskId)}`;
+}
+
+function missionById(eos, missionId) {
+  return (((eos.portfolioQueues || {}).missionQueue) || []).find((mission) => mission.id === missionId) || null;
 }
 
 function plainText(value) {
@@ -287,6 +306,98 @@ function renderMetroCard(metro, token) {
       </div>
     </article>
   `;
+}
+
+function programStatusTone(status) {
+  const text = String(status || "").toLowerCase();
+  if (/ready|strong|complete|distribution/.test(text)) return "program-card--strong";
+  if (/developed|partial|improving/.test(text)) return "program-card--developed";
+  if (/missing|thin|research|attention/.test(text)) return "program-card--attention";
+  return "";
+}
+
+function renderProjectedProgram(program) {
+  const progressLabel = program.progress && program.progress.label ? program.progress.label : "Measured by EOS";
+  return `
+    <article class="program-card ${programStatusTone(program.status)}">
+      <div class="program-card__top">
+        <h4>${escapeHtml(program.label)}</h4>
+        <span>${escapeHtml(program.status || "Not measured")}</span>
+      </div>
+      <p>${escapeHtml(progressLabel)}</p>
+    </article>
+  `;
+}
+
+function renderProjectedMission(mission, eos, token) {
+  const canonicalMission = missionById(eos, mission.id) || mission;
+  if (!mission) return "";
+  return `
+    <article class="market-next-mission">
+      <span>${escapeHtml(mission.programLabel || "Mission")} · Next Mission</span>
+      <h3>${escapeHtml(mission.title)}</h3>
+      <p>${escapeHtml(mission.currentConstraint || "No current constraint reported.")}</p>
+      <div class="mission-facts">
+        <span><em>Impact</em>${escapeHtml(mission.expectedImpact || "")}</span>
+        <span><em>Effort</em>${escapeHtml(mission.estimatedEffort || "")}</span>
+        <span><em>Class</em>${escapeHtml(mission.missionClass || "")}</span>
+      </div>
+      ${canonicalMission.executionPacket ? `<a class="start-work" href="${taskUrl(token, canonicalMission.id)}">Commence Work</a>` : ""}
+    </article>
+  `;
+}
+
+function renderMarketWorkspaceCard(market, eos, token) {
+  const nextMission = (market.nextMissions || [])[0];
+  const programs = (market.programs || []).slice(0, 6);
+  return `
+    <article class="market-workspace-card">
+      <div class="market-workspace-card__header">
+        <div>
+          <span class="mission-kicker">Market Workspace</span>
+          <h2>${escapeHtml(market.label)}</h2>
+          <p>${escapeHtml(labelOf(market.knowledgeReadiness))} Knowledge · ${escapeHtml(labelOf(market.experienceReadiness))} Experience</p>
+        </div>
+        <div class="health-score">
+          <strong>${pct(market.overallEditorialHealth && market.overallEditorialHealth.score)}</strong>
+          <span>${escapeHtml(market.status && market.status.label ? market.status.label : "Health")}</span>
+        </div>
+      </div>
+      ${progress(market.overallEditorialHealth && market.overallEditorialHealth.score, `${market.label} market progress`)}
+      ${nextMission ? renderProjectedMission(nextMission, eos, token) : `
+        <article class="market-next-mission market-next-mission--empty">
+          <span>No active mission</span>
+          <h3>${escapeHtml(market.label)} has no projected mission in the current queue.</h3>
+          <p>Program progress remains visible for planning.</p>
+        </article>
+      `}
+      <div class="program-grid" aria-label="${escapeHtml(market.label)} active programs">
+        ${programs.map(renderProjectedProgram).join("")}
+      </div>
+      <details class="mission-scope">
+        <summary>Programs and Initiatives</summary>
+        <div class="initiative-list">
+          ${(market.programs || []).map((program) => `
+            <article>
+              <h4>${escapeHtml(program.label)}</h4>
+              <p>${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
+              <ul>${(program.initiatives || []).slice(0, 4).map((initiative) => `<li>${escapeHtml(initiative.title)} · ${escapeHtml(initiative.progress && initiative.progress.label ? initiative.progress.label : initiative.currentStage || "Tracked")}</li>`).join("")}</ul>
+            </article>
+          `).join("")}
+        </div>
+      </details>
+      <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&metro=${encodeURIComponent(market.id)}">View ${escapeHtml(market.label)} plan</a>
+    </article>
+  `;
+}
+
+function activeProjectedMarkets(eos) {
+  const markets = (((eos.marketProjection || {}).markets) || []).slice();
+  return markets.sort((a, b) => {
+    const missionA = (a.nextMissions || [])[0] || {};
+    const missionB = (b.nextMissions || [])[0] || {};
+    return (Number(missionB.priorityScore || 0) - Number(missionA.priorityScore || 0)) || a.label.localeCompare(b.label);
+  });
 }
 
 function renderWorkItem(item, token) {
@@ -526,14 +637,15 @@ function renderExecutionPacket(eos, taskId, token) {
 function renderSelectedMetro(eos, metroId, token) {
   const metro = eos.metros.find((item) => item.metroId === metroId);
   if (!metro) return "";
+  const projectedMarket = (((eos.marketProjection || {}).markets) || []).find((item) => item.id === metroId);
   const queue = eos.workQueue.filter((item) => item.metroId === metroId).slice(0, 8);
   return `
     <section class="panel selected-metro">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}">All metros</a>
       <div class="section-heading">
         <div>
-          <h2>${escapeHtml(metro.metroName)} Editorial Plan</h2>
-          <p>Health signals and work recommendations generated from Publisher, Compass, Field Mode planning, and EOS rules.</p>
+          <h2>${escapeHtml(metro.metroName)} Market Workspace</h2>
+          <p>Market, Program, Initiative, and Mission projection generated by EOS from Publisher and platform evidence.</p>
         </div>
         <div class="health-score health-score--large">
           <strong>${pct(metro.overallEditorialHealth.score)}</strong>
@@ -557,11 +669,37 @@ function renderSelectedMetro(eos, metroId, token) {
         </div>
       </div>
     </section>
+    ${projectedMarket ? `
+      <section class="queue-section">
+        <div class="section-heading">
+          <div>
+            <h2>${escapeHtml(metro.metroName)} Programs</h2>
+            <p>Programs and Initiatives are projected from generated EOS data. Execution packets remain attached to Missions.</p>
+          </div>
+        </div>
+        <div class="program-detail-grid">
+          ${(projectedMarket.programs || []).map((program) => `
+            <article class="program-detail-card">
+              <div class="program-card__top">
+                <h3>${escapeHtml(program.label)}</h3>
+                <span>${escapeHtml(program.status || "Not measured")}</span>
+              </div>
+              <p>${escapeHtml(program.progress && program.progress.label ? program.progress.label : "Measured by EOS")}</p>
+              <p><strong>Current constraint:</strong> ${escapeHtml(program.currentConstraint || "No current constraint reported.")}</p>
+              <details class="mission-scope">
+                <summary>Initiatives</summary>
+                <ul>${(program.initiatives || []).map((initiative) => `<li>${escapeHtml(initiative.title)} · ${escapeHtml(initiative.currentStage || "Tracked")}</li>`).join("")}</ul>
+              </details>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    ` : ""}
     <section class="queue-section">
       <div class="section-heading">
         <div>
-          <h2>${escapeHtml(metro.metroName)} Work Queue</h2>
-          <p>Prioritized EOS items with automation level, effort, dependencies, and measurable rationale.</p>
+          <h2>${escapeHtml(metro.metroName)} Opportunity Inventory</h2>
+          <p>Raw measurable gaps remain available for inspection below the Program projection.</p>
         </div>
       </div>
       <div class="work-queue">${queue.map((item) => renderWorkItem(item, token)).join("")}</div>
@@ -846,47 +984,51 @@ function renderMissionArchive(eos, token) {
 
 function renderOverview(eos, token) {
   const queues = eos.portfolioQueues || {};
-  const todaysWork = queues.todaysRecommendedWork || [];
-  const focusMissions = todaysWork.slice(0, 3);
-  const remainingMissions = todaysWork.slice(3);
   const inventory = queues.opportunityInventory || {};
   const expansionProjects = eos.expansionProjects || [];
   const fieldMode = (queues.fieldModeQueue || []).slice(0, 4);
-  const topMission = todaysWork[0];
+  const projectedMarkets = activeProjectedMarkets(eos);
+  const activeMarkets = projectedMarkets.filter((market) => (market.nextMissions || []).length).slice(0, 4);
+  const remainingMarkets = projectedMarkets.filter((market) => !activeMarkets.some((active) => active.id === market.id));
+  const projectionSummary = (eos.marketProjection && eos.marketProjection.summary) || {};
   return `
     <section class="current-focus" aria-label="Current Focus">
       <span>Current Focus</span>
-      <p>${escapeHtml(currentFocusSummary(eos, topMission))}</p>
+      <p>${escapeHtml(marketFocusSummary(eos, activeMarkets))}</p>
     </section>
 
     <section class="metrics metrics--mission-control" aria-label="Mission Control overview">
-      ${renderMetric("Metros", eos.overview.metroCount, "Publisher-configured operating markets")}
+      ${renderMetric("Markets", projectionSummary.markets || eos.overview.metroCount, "Primary planning objects")}
+      ${renderMetric("Programs", projectionSummary.markets && projectionSummary.programsPerMarket ? projectionSummary.markets * projectionSummary.programsPerMarket : "", "Projected across markets")}
+      ${renderMetric("Initiatives", projectionSummary.initiatives || 0, "Program milestones")}
+      ${renderMetric("Missions", projectionSummary.missions || 0, "Executable packets unchanged")}
       ${renderMetric("Average Health", pct(eos.overview.averageHealth), "EOS editorial health model")}
-      ${renderMetric("Focus Today", focusMissions.length, "Highest-priority missions shown by default")}
-      ${renderMetric("Expansion Projects", eos.overview.expansionProjects, "Future metros")}
-      ${renderMetric("Review Items", eos.overview.reviewItems, "Returned execution work")}
+    </section>
+
+    <section class="market-workspace" aria-label="Market Workspace">
+      <div class="section-heading">
+        <div>
+          <h2>Market Workspace</h2>
+          <p>Markets are the primary Mission Control object. Each market shows a single top mission and active Programs from the EOS market projection.</p>
+        </div>
+        <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Hidden Work Items</a>
+      </div>
+      <div class="market-workspace-grid">
+        ${activeMarkets.map((market) => renderMarketWorkspaceCard(market, eos, token)).join("")}
+      </div>
+      ${remainingMarkets.length ? `
+        <details class="show-all-missions show-all-markets">
+          <summary>Show All Markets</summary>
+          <div class="market-workspace-grid">
+            ${remainingMarkets.map((market) => renderMarketWorkspaceCard(market, eos, token)).join("")}
+          </div>
+        </details>
+      ` : ""}
     </section>
 
     ${renderQueueSummary(eos)}
     ${renderHandoffSummary(eos)}
     ${renderCommercialMarketEvidenceService(eos)}
-
-    <section class="queue-section">
-      <div class="section-heading">
-        <div>
-          <h2>Focus Today</h2>
-          <p>Mission Control shows the three highest-priority missions first so the next focused engineering session is obvious.</p>
-        </div>
-        <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&queue=inventory">${escapeHtml(inventory.total || 0)} Opportunities</a>
-      </div>
-      <div class="work-queue">${focusMissions.map((item) => renderWorkItem(item, token)).join("")}</div>
-      ${remainingMissions.length ? `
-        <details class="show-all-missions">
-          <summary>Show All Missions</summary>
-          <div class="work-queue">${remainingMissions.map((item) => renderWorkItem(item, token)).join("")}</div>
-        </details>
-      ` : ""}
-    </section>
 
     <section class="section-heading section-heading--standalone">
       <div>
@@ -912,7 +1054,7 @@ function renderOverview(eos, token) {
       <div>
         <span>Opportunity Inventory</span>
         <strong>${escapeHtml(inventory.total || 0)} Opportunities</strong>
-        <p>Raw measurable gaps remain available, but they are intentionally secondary to Focus Today.</p>
+        <p>Raw measurable gaps remain available, but they are intentionally secondary to the Market Workspace.</p>
       </div>
       <a href="/admin/eos?${tokenParam(token)}&queue=inventory">View Inventory</a>
     </section>
@@ -1032,6 +1174,31 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .metro-card__footer p { margin-bottom: 0; font-size: 0.88rem; }
     .queue-section, .panel { margin-top: 20px; }
     .panel { padding: 20px; }
+    .market-workspace { margin-top: 22px; }
+    .market-workspace-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .market-workspace-card { display: grid; gap: 14px; padding: 18px; border: 1px solid rgba(203, 213, 225, 0.86); border-radius: 22px; background: rgba(255,255,255,0.97); box-shadow: 0 18px 46px rgba(15, 23, 42, 0.055); }
+    .market-workspace-card__header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+    .market-workspace-card__header h2 { margin-bottom: 5px; font-size: 1.55rem; }
+    .market-workspace-card__header p { margin-bottom: 0; font-size: 0.9rem; }
+    .market-next-mission { display: grid; gap: 8px; padding: 15px; border: 1px solid #bfdbfe; border-radius: 16px; background: linear-gradient(135deg, #eff6ff, #f8fafc); }
+    .market-next-mission span:first-child { display: block; color: #1d4ed8; font-size: 0.7rem; font-weight: 950; letter-spacing: 0.07em; text-transform: uppercase; }
+    .market-next-mission h3 { margin: 0; font-size: 1.14rem; line-height: 1.22; }
+    .market-next-mission p { margin: 0; color: #475569; font-size: 0.9rem; }
+    .market-next-mission--empty { border-color: #e5edf7; background: #f8fafc; }
+    .program-grid, .program-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+    .program-card, .program-detail-card { padding: 11px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; }
+    .program-card--strong { border-color: #b7efe3; background: #f0fdfa; }
+    .program-card--developed { border-color: #bfdbfe; background: #eff6ff; }
+    .program-card--attention { border-color: #fed7aa; background: #fff7ed; }
+    .program-card__top { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+    .program-card h4, .program-card__top h3 { margin: 0; color: #0f172a; font-size: 0.86rem; line-height: 1.2; }
+    .program-card__top span { color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.05em; text-transform: uppercase; text-align: right; }
+    .program-card p, .program-detail-card p { margin: 7px 0 0; color: #475569; font-size: 0.78rem; line-height: 1.35; }
+    .initiative-list { display: grid; gap: 10px; margin-top: 10px; }
+    .initiative-list article { padding: 10px; border: 1px solid #e5edf7; border-radius: 12px; background: #f8fafc; }
+    .initiative-list h4 { margin: 0 0 4px; font-size: 0.9rem; }
+    .initiative-list p { margin: 0 0 6px; font-size: 0.82rem; }
+    .initiative-list ul { display: grid; gap: 4px; margin: 0; padding-left: 18px; }
     .work-queue { display: grid; gap: 12px; }
     .work-item { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 14px; }
     .work-item__priority { display: grid; align-content: start; gap: 7px; }
@@ -1061,6 +1228,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .show-all-missions { margin-top: 14px; padding: 14px; border: 1px solid rgba(203, 213, 225, 0.82); border-radius: 18px; background: rgba(255,255,255,0.72); }
     .show-all-missions summary { color: #1d4ed8; font-weight: 950; cursor: pointer; }
     .show-all-missions .work-queue { margin-top: 14px; }
+    .show-all-markets .market-workspace-grid { margin-top: 14px; }
     .subtle-link { color: #64748b; font-size: 0.9rem; }
     .dependencies { margin: 10px 0 0; font-size: 0.88rem; }
     .back-link { display: inline-flex; margin-bottom: 12px; color: var(--muted); font-size: 0.86rem; font-weight: 850; }
@@ -1170,8 +1338,8 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison { grid-template-columns: 1fr; }
-      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top { flex-direction: column; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid { grid-template-columns: 1fr; }
+      .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
       .copy-prompt-button { width: 100%; }

@@ -120,6 +120,17 @@ This projection is additive. It does not change Publisher scoring, mission gener
 
 EOS owns the projection. Publisher still determines readiness and constraints. Commercial Market Evidence owns collections and validation. Building Profiles own public building content. Field Mode owns photography. Mission Control will render the projection in a future UI sprint.
 
+## Mission Control Market Workspace
+
+Mission Control consumes `marketProjection` as its primary workspace. The home experience starts with markets rather than a flat mission list. Each market card exposes:
+
+- overall status and health
+- Knowledge Readiness and Experience Readiness
+- the single highest-priority projected Mission for that market
+- active Program progress for Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph
+
+Selecting a Mission still opens the existing Execution Packet. Selecting a market opens a market workspace detail with Program and Initiative context before raw opportunity inventory. Publisher remains the analysis engine, EOS remains the planning engine, and Mission Control remains the operating workspace that consumes generated EOS data.
+
 ## Mission Bundling
 
 EOS v2.2.4 introduces mission bundling. A mission is the recommended unit of focused engineering or editorial execution. It is generated from existing measurable opportunities, but it can include several related opportunities when they share the same metro, commercial ecosystem or product layer, source files, and validation path.

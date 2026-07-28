@@ -400,8 +400,23 @@ if (/require\(|analyzePublisher\(/.test(adminSource) || /from\s+["'][^"']*locati
   fail("/admin/eos should not perform repository analysis at request time.");
 }
 
-for (const section of ["Mission Control", "Current Focus", "Focus Today", "Show All Missions", "Metro Health", "Expansion Queue", "Field Mode Queue", "Review Queue", "Mission Archive", "Commence Work"]) {
+for (const section of ["Mission Control", "Current Focus", "Market Workspace", "Show All Markets", "Metro Health", "Expansion Queue", "Field Mode Queue", "Review Queue", "Mission Archive", "Commence Work"]) {
   if (!adminSource.includes(section)) fail(`/admin/eos is missing section or action: ${section}`);
+}
+
+for (const marketWorkspaceSource of [
+  "marketProjection",
+  "activeProjectedMarkets",
+  "renderMarketWorkspaceCard",
+  "renderProjectedProgram",
+  "renderProjectedMission",
+  "program-grid",
+  "program-detail-grid",
+  "Hidden Work Items",
+  "Markets are the primary Mission Control object",
+  "single top mission",
+]) {
+  if (!adminSource.includes(marketWorkspaceSource)) fail(`/admin/eos Market Workspace is missing: ${marketWorkspaceSource}`);
 }
 
 for (const marketEvidenceSource of [
@@ -475,7 +490,7 @@ for (const adminMissionSource of [
   "Knowledge Readiness",
   "Experience Readiness",
   "Publisher state, Knowledge Readiness, Experience Readiness, and Recommendation Coverage",
-  "currentFocusSummary",
+  "marketFocusSummary",
   "missionArchive",
   "Current Stage",
   "Remaining Milestones",

@@ -123,6 +123,8 @@ Mission Control v2 operating-model decisions should remain aligned with `docs/mi
 
 Mission Control v2 uses markets as the primary planning object. EOS projects existing work as Markets -> Programs -> Initiatives -> Missions -> Execution Packets -> hidden Work Items so Rofo can reason about market completion before redesigning the operator UI.
 
+Mission Control's market workspace is the operator home for this model. It should make the next mission per active market obvious, show Program progress inside each market, and keep raw work items secondary.
+
 EOS answers:
 
 - How healthy are Rofo's metros?
