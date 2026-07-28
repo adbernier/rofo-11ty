@@ -373,18 +373,28 @@ if (!sanFranciscoCmeProgram) {
   }
   const expectedNext = (marketEvidenceExpansion.suggestedExpansionOrder || []).find((district) => district.metroId === "san-francisco");
   const nextInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status === "Next");
-  if (!expectedNext || !nextInitiative || nextInitiative.id !== `san-francisco:commercial_market_evidence:${expectedNext.districtId}`) {
-    fail("San Francisco Commercial Market Evidence next Initiative must follow deterministic expansion ordering.");
-  }
-  if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
-    fail("San Francisco Commercial Market Evidence next Initiative must map to one executable Mission.");
-  }
-  if (nextInitiative.id.includes("west-berkeley")) {
-    fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
-  }
-  const nextProjectedMission = (nextInitiative.missions || [])[0];
-  if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
-    fail("San Francisco Commercial Market Evidence Mission must map back to the Initiative and Execution Packet.");
+  if (expectedNext) {
+    if (!nextInitiative || nextInitiative.id !== `san-francisco:commercial_market_evidence:${expectedNext.districtId}`) {
+      fail("San Francisco Commercial Market Evidence next Initiative must follow deterministic expansion ordering.");
+    }
+    if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
+      fail("San Francisco Commercial Market Evidence next Initiative must map to one executable Mission.");
+    }
+    if (nextInitiative.id.includes("west-berkeley")) {
+      fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
+    }
+    const nextProjectedMission = (nextInitiative.missions || [])[0];
+    if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
+      fail("San Francisco Commercial Market Evidence Mission must map back to the Initiative and Execution Packet.");
+    }
+  } else {
+    if (nextInitiative) {
+      fail("San Francisco Commercial Market Evidence must not expose a next Initiative when all tracked district collections are complete.");
+    }
+    const incompleteInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status !== "Complete");
+    if (incompleteInitiative) {
+      fail("San Francisco Commercial Market Evidence must mark all tracked district Initiatives complete when no San Francisco collection is missing.");
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T07:22:41-07:00",
+  "generatedAt": "2026-07-28T07:44:38-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -17,27 +17,32 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 3,
+      "collections": 4,
       "districts": [
         "Financial District",
         "Jackson Square",
-        "Mission Bay"
+        "Mission Bay",
+        "SoMa"
       ],
-      "evidenceRecords": 29,
+      "evidenceRecords": 39,
       "evidenceTypes": [
         "Adaptive-Reuse Boutique Office",
         "Biotech Research Environment",
         "Boutique Executive Office",
         "Boutique-Leaning Class A Tower",
+        "Central SoMa Mid-Rise Office",
         "Class A Office Tower",
         "Creative Mid-Rise Office",
         "Historic Adaptive-Reuse Office",
         "Historic Creative Office",
         "Historic Modernist Office",
+        "Historic Technology Adaptive Reuse",
         "Institutional Office Tower",
         "Institutional Research Anchor",
         "Landmark / Waterfront-Edge Office",
         "Landmark Tower",
+        "Large-Floorplate Class A Office",
+        "Large-Scale Adaptive-Reuse Office",
         "Life Science Research Campus",
         "Low-Rise Office Campus",
         "Medical Institutional Anchor",
@@ -45,15 +50,21 @@
         "Mixed-Use Commercial Center",
         "Modern Class A Innovation Office",
         "Office/Lab Waterfront Building",
+        "Premium Transbay Mixed-Use Tower",
         "Professional Services Tower",
         "Repositioned Downtown Tower",
         "Research Lab Environment",
         "Small-Format Historic Office",
+        "Startup Creative Mid-Rise Office",
         "Technology Headquarters Campus",
+        "Technology Headquarters Tower",
         "Tower-Edge Executive Office",
+        "Townsend Corridor Creative Office",
         "Trophy Office Tower",
+        "Warehouse-to-Headquarters Office",
         "Waterfront Modern Office",
-        "Waterfront-Edge Innovation Office"
+        "Waterfront-Edge Innovation Office",
+        "West SoMa Creative Technology Office"
       ],
       "evidenceRoles": [
         "Adaptive Reuse / Amenity Repositioning Benchmark",
@@ -61,6 +72,8 @@
         "Bayfront Office Character Benchmark",
         "Brick-and-Timber Character Benchmark",
         "Broadway / North Beach Transition Benchmark",
+        "Caltrain-Oriented Workspace Benchmark",
+        "Central SoMa Adaptive-Reuse Benchmark",
         "Client-Facing Professional Services Benchmark",
         "Creative / Professional Services Benchmark",
         "District Anchor / Campus Benchmark",
@@ -74,7 +87,12 @@
         "Financial District Edge Comparison Benchmark",
         "General Office Beyond Lab Benchmark",
         "Healthcare and Clinical Ecosystem Anchor",
+        "High-End Transbay Comparison Benchmark",
+        "Historic SoMa Office Identity Benchmark",
+        "Large Adaptive Creative Technology Benchmark",
+        "Large Creative Floorplate Benchmark",
         "Life Science Ecosystem Depth Benchmark",
+        "Mid-Rise Creative Office Benchmark",
         "Modern Headquarters Identity Benchmark",
         "North Financial District Edge / Comparison Example",
         "North Waterfront / Design Character Benchmark",
@@ -83,14 +101,17 @@
         "Private Life Science Cluster Benchmark",
         "Small-Format Character Infill Benchmark",
         "Smaller Modern Office Format Benchmark",
+        "Smaller Technology Team Benchmark",
+        "SoMa / South Financial District Bridge",
+        "Transbay District Icon",
         "Transit-Oriented Professional Services Benchmark",
         "UCSF-Adjacency Research Benchmark"
       ],
       "confidenceSummary": {
-        "High": 29
+        "High": 39
       },
-      "deferredCandidates": 13,
-      "latestValidation": "2026-07-28T07:22:41-07:00",
+      "deferredCandidates": 18,
+      "latestValidation": "2026-07-28T07:44:38-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -110,8 +131,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 104,
-          "existingCollections": 3,
-          "missingCollections": 101,
+          "existingCollections": 4,
+          "missingCollections": 100,
           "resolvedDistricts": 104,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -188,8 +209,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 4,
-            "existingCollections": 3,
-            "missingCollections": 1
+            "existingCollections": 4,
+            "missingCollections": 0
           },
           {
             "marketId": "seattle",
@@ -960,7 +981,7 @@
               "marketName": "San Francisco",
               "publisherMetroId": "san-francisco",
               "publisherMetroName": "San Francisco",
-              "resolutionSource": "canonical public city ownership",
+              "resolutionSource": "Commercial Market Evidence collection metadata",
               "isFallbackAssignment": false
             },
             {
@@ -1520,6 +1541,22 @@
             "resolutionSource": "Commercial Market Evidence collection metadata",
             "path": "/commercial-real-estate/CA/san-francisco/mission-bay/",
             "collectionId": "sf-mission-bay-commercial-market-evidence"
+          },
+          {
+            "districtId": "soma",
+            "districtName": "SoMa",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "Commercial Market Evidence collection metadata",
+            "path": "/commercial-real-estate/CA/san-francisco/soma/",
+            "collectionId": "sf-soma-commercial-market-evidence"
           }
         ],
         "missingCollections": [
@@ -3726,44 +3763,6 @@
               ]
             },
             "expansionWeight": 1630
-          },
-          {
-            "districtId": "soma",
-            "districtName": "SoMa",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "canonical public city ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/soma/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 94,
-              "districtConfidence": "high",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1588
           },
           {
             "districtId": "north-san-jose",
@@ -6839,31 +6838,6 @@
           },
           {
             "rank": 58,
-            "districtId": "soma",
-            "districtName": "SoMa",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "canonical public city ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/soma/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by canonical public city ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 59,
             "districtId": "north-bayshore",
             "districtName": "North Bayshore",
             "city": "Mountain View",
@@ -6888,7 +6862,7 @@
             ]
           },
           {
-            "rank": 60,
+            "rank": 59,
             "districtId": "downtown-berkeley",
             "districtName": "Downtown Berkeley",
             "city": "Berkeley",
@@ -6913,7 +6887,7 @@
             ]
           },
           {
-            "rank": 61,
+            "rank": 60,
             "districtId": "warm-springs-innovation-district",
             "districtName": "Warm Springs Innovation District",
             "city": "Fremont",
@@ -6938,7 +6912,7 @@
             ]
           },
           {
-            "rank": 62,
+            "rank": 61,
             "districtId": "hayward-industrial",
             "districtName": "Hayward Industrial",
             "city": "Hayward",
@@ -6963,7 +6937,7 @@
             ]
           },
           {
-            "rank": 63,
+            "rank": 62,
             "districtId": "jack-london-square",
             "districtName": "Jack London Square",
             "city": "Oakland",
@@ -6988,7 +6962,7 @@
             ]
           },
           {
-            "rank": 64,
+            "rank": 63,
             "districtId": "union-city-industrial",
             "districtName": "Union City Industrial",
             "city": "Union City",
@@ -7013,7 +6987,7 @@
             ]
           },
           {
-            "rank": 65,
+            "rank": 64,
             "districtId": "georgetown-industrial",
             "districtName": "Georgetown Industrial",
             "city": "Seattle",
@@ -7038,7 +7012,7 @@
             ]
           },
           {
-            "rank": 66,
+            "rank": 65,
             "districtId": "north-san-jose",
             "districtName": "North San Jose",
             "city": "San Jose",
@@ -7063,7 +7037,7 @@
             ]
           },
           {
-            "rank": 67,
+            "rank": 66,
             "districtId": "moffett-park",
             "districtName": "Moffett Park",
             "city": "Sunnyvale",
@@ -7088,7 +7062,7 @@
             ]
           },
           {
-            "rank": 68,
+            "rank": 67,
             "districtId": "eastside-tech-office-corridor",
             "districtName": "Eastside Tech Office Corridor",
             "city": "Redmond",
@@ -7114,7 +7088,7 @@
             ]
           },
           {
-            "rank": 69,
+            "rank": 68,
             "districtId": "belltown-waterfront-office",
             "districtName": "Belltown / Waterfront Creative Office",
             "city": "Seattle",
@@ -7140,7 +7114,7 @@
             ]
           },
           {
-            "rank": 70,
+            "rank": 69,
             "districtId": "pioneer-square-waterfront-office",
             "districtName": "Pioneer Square / Waterfront Office",
             "city": "Seattle",
@@ -7166,7 +7140,7 @@
             ]
           },
           {
-            "rank": 71,
+            "rank": 70,
             "districtId": "oceanside-industrial",
             "districtName": "Oceanside Industrial",
             "city": "Oceanside",
@@ -7192,7 +7166,7 @@
             ]
           },
           {
-            "rank": 72,
+            "rank": 71,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -7218,7 +7192,7 @@
             ]
           },
           {
-            "rank": 73,
+            "rank": 72,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -7243,7 +7217,7 @@
             ]
           },
           {
-            "rank": 74,
+            "rank": 73,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -7268,7 +7242,7 @@
             ]
           },
           {
-            "rank": 75,
+            "rank": 74,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -7293,7 +7267,7 @@
             ]
           },
           {
-            "rank": 76,
+            "rank": 75,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -7319,7 +7293,7 @@
             ]
           },
           {
-            "rank": 77,
+            "rank": 76,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -7344,7 +7318,7 @@
             ]
           },
           {
-            "rank": 78,
+            "rank": 77,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -7369,7 +7343,7 @@
             ]
           },
           {
-            "rank": 79,
+            "rank": 78,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -7394,7 +7368,7 @@
             ]
           },
           {
-            "rank": 80,
+            "rank": 79,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -8813,7 +8787,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 73,
+                "orderingRank": 72,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -8867,7 +8841,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 79,
+                "orderingRank": 78,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -8921,7 +8895,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 80,
+                "orderingRank": 79,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -9597,7 +9571,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 60,
+                "orderingRank": 59,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9651,7 +9625,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 61,
+                "orderingRank": 60,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9705,7 +9679,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 62,
+                "orderingRank": 61,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9759,7 +9733,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 63,
+                "orderingRank": 62,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9813,7 +9787,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 64,
+                "orderingRank": 63,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -10808,7 +10782,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 76,
+                "orderingRank": 75,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -10863,7 +10837,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 77,
+                "orderingRank": 76,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -10917,7 +10891,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 78,
+                "orderingRank": 77,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -11650,7 +11624,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 75,
+                "orderingRank": 74,
                 "orderingRationale": [
                   "Peninsula is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -14044,7 +14018,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 71,
+                "orderingRank": 70,
                 "orderingRationale": [
                   "San Diego is the operational Market Workspace.",
                   "Publisher analysis backing: San Diego.",
@@ -14568,107 +14542,23 @@
             ],
             "marketId": "san-francisco",
             "marketName": "San Francisco",
-            "status": "Partial",
+            "status": "Complete",
             "progress": {
               "unit": "Collections",
-              "completed": 3,
+              "completed": 4,
               "target": 4,
-              "label": "3 / 4 Collections",
-              "statusLabel": "Partial",
-              "currentConstraint": "1 district collections remain unbuilt.",
+              "label": "4 / 4 Collections",
+              "statusLabel": "Complete",
+              "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
               ]
             },
-            "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-            "nextInitiativeId": "san-francisco:commercial_market_evidence:soma",
-            "nextMissionId": "mission:san-francisco:commercial-market-evidence:soma",
+            "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
+            "nextInitiativeId": "san-francisco:commercial_market_evidence:financial-district",
+            "nextMissionId": "",
             "initiatives": [
-              {
-                "id": "san-francisco:commercial_market_evidence:soma",
-                "districtId": "soma",
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "SoMa Collection",
-                "scope": "SoMa",
-                "objective": "Create the SoMa Commercial Market Evidence source-data collection.",
-                "status": "Next",
-                "currentStage": "Next",
-                "progress": {
-                  "unit": "Collection",
-                  "completed": 0,
-                  "target": 1,
-                  "label": "Next",
-                  "statusLabel": "Next",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence expansion ordering."
-                  ]
-                },
-                "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:soma",
-                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-                "workItemCount": 6,
-                "remainingMilestones": [
-                  "Source-supported evidence selection",
-                  "District narrative",
-                  "Validator pass"
-                ],
-                "confidence": "Medium",
-                "sourceEvidence": [
-                  "Commercial Location Knowledge Graph district node.",
-                  "Commercial Market Evidence expansion ordering."
-                ],
-                "readOnly": false,
-                "orderingRank": 58,
-                "orderingRationale": [
-                  "San Francisco is the operational Market Workspace.",
-                  "Publisher analysis backing: San Francisco.",
-                  "Ownership resolved by canonical public city ownership.",
-                  "Publisher readiness: Distribution Ready.",
-                  "Public district page exists.",
-                  "Knowledge Graph confidence: high.",
-                  "3 comparison relationships exist."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 6
-                },
-                "missions": [
-                  {
-                    "id": "mission:san-francisco:commercial-market-evidence:soma",
-                    "title": "Build the SoMa Commercial Market Evidence collection",
-                    "marketId": "san-francisco",
-                    "marketName": "San Francisco",
-                    "programId": "commercial_market_evidence",
-                    "programLabel": "Commercial Market Evidence",
-                    "initiativeId": "san-francisco:commercial_market_evidence:soma",
-                    "initiativeTitle": "SoMa Collection",
-                    "objective": "Create the SoMa Commercial Market Evidence source-data collection for San Francisco.",
-                    "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-                    "expectedImpact": "Medium",
-                    "estimatedEffort": "Medium",
-                    "missionClass": "Foundation",
-                    "confidence": "Medium",
-                    "priorityScore": 25,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-                    "executionPacketAvailable": true,
-                    "workItems": {
-                      "hiddenByDefault": true,
-                      "count": 1,
-                      "includedOpportunityIds": [
-                        "commercial-market-evidence:soma"
-                      ],
-                      "deferredWorkItemIds": [
-                        "commercial-market-evidence:soma:quality-scoring"
-                      ]
-                    }
-                  }
-                ]
-              },
               {
                 "id": "san-francisco:commercial_market_evidence:financial-district",
                 "districtId": "financial-district",
@@ -14782,6 +14672,47 @@
                 ],
                 "readOnly": true,
                 "completionEvidence": "sf-mission-bay-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
+                "id": "san-francisco:commercial_market_evidence:soma",
+                "districtId": "soma",
+                "marketId": "san-francisco",
+                "marketName": "San Francisco",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "SoMa Collection",
+                "scope": "SoMa",
+                "objective": "Maintain the completed SoMa Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry."
+                ],
+                "readOnly": true,
+                "completionEvidence": "sf-soma-commercial-market-evidence",
                 "orderingRank": null,
                 "orderingRationale": [
                   "Existing Commercial Market Evidence collection."
@@ -15078,35 +15009,6 @@
                 "publisher:san-francisco:recommendationReadiness:missing explainability fields:stanford-research-park",
                 "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
                 "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-100-pine-st"
-              ]
-            }
-          },
-          {
-            "id": "mission:san-francisco:commercial-market-evidence:soma",
-            "title": "Build the SoMa Commercial Market Evidence collection",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "programId": "commercial_market_evidence",
-            "programLabel": "Commercial Market Evidence",
-            "initiativeId": "san-francisco:commercial_market_evidence:soma",
-            "initiativeTitle": "SoMa Collection",
-            "objective": "Create the SoMa Commercial Market Evidence source-data collection for San Francisco.",
-            "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-            "expectedImpact": "Medium",
-            "estimatedEffort": "Medium",
-            "missionClass": "Foundation",
-            "confidence": "Medium",
-            "priorityScore": 25,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-            "executionPacketAvailable": true,
-            "workItems": {
-              "hiddenByDefault": true,
-              "count": 1,
-              "includedOpportunityIds": [
-                "commercial-market-evidence:soma"
-              ],
-              "deferredWorkItemIds": [
-                "commercial-market-evidence:soma:quality-scoring"
               ]
             }
           }
@@ -15569,7 +15471,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 65,
+                "orderingRank": 64,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15623,7 +15525,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 68,
+                "orderingRank": 67,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15678,7 +15580,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 69,
+                "orderingRank": 68,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15733,7 +15635,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 70,
+                "orderingRank": 69,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15788,7 +15690,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 72,
+                "orderingRank": 71,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15843,7 +15745,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 74,
+                "orderingRank": 73,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -16349,7 +16251,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": false,
-                "orderingRank": 59,
+                "orderingRank": 58,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16379,7 +16281,7 @@
                     "estimatedEffort": "Medium",
                     "missionClass": "Foundation",
                     "confidence": "Medium",
-                    "priorityScore": 24,
+                    "priorityScore": 25,
                     "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
                     "executionPacketAvailable": true,
                     "workItems": {
@@ -16433,7 +16335,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 66,
+                "orderingRank": 65,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16487,7 +16389,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 67,
+                "orderingRank": 66,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16774,7 +16676,7 @@
             "estimatedEffort": "Medium",
             "missionClass": "Foundation",
             "confidence": "Medium",
-            "priorityScore": 24,
+            "priorityScore": 25,
             "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
             "executionPacketAvailable": true,
             "workItems": {
@@ -17891,7 +17793,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 73,
+        "orderingRank": 72,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -17945,7 +17847,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 79,
+        "orderingRank": 78,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -17999,7 +17901,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 80,
+        "orderingRank": 79,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -18334,7 +18236,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 60,
+        "orderingRank": 59,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18388,7 +18290,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 61,
+        "orderingRank": 60,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18442,7 +18344,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 62,
+        "orderingRank": 61,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18496,7 +18398,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 63,
+        "orderingRank": 62,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18550,7 +18452,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 64,
+        "orderingRank": 63,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -19195,7 +19097,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 76,
+        "orderingRank": 75,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19250,7 +19152,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 77,
+        "orderingRank": 76,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19304,7 +19206,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 78,
+        "orderingRank": 77,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19693,7 +19595,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 75,
+        "orderingRank": 74,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -21387,7 +21289,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 71,
+        "orderingRank": 70,
         "orderingRationale": [
           "San Diego is the operational Market Workspace.",
           "Publisher analysis backing: San Diego.",
@@ -21574,62 +21476,6 @@
         ]
       },
       {
-        "id": "san-francisco:commercial_market_evidence:soma",
-        "districtId": "soma",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "SoMa Collection",
-        "scope": "SoMa",
-        "objective": "Create the SoMa Commercial Market Evidence source-data collection.",
-        "status": "Next",
-        "currentStage": "Next",
-        "progress": {
-          "unit": "Collection",
-          "completed": 0,
-          "target": 1,
-          "label": "Next",
-          "statusLabel": "Next",
-          "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
-          ]
-        },
-        "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:soma",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-        "workItemCount": 6,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
-        "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
-        ],
-        "readOnly": false,
-        "orderingRank": 58,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by canonical public city ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 6
-        },
-        "missions": [
-          "mission:san-francisco:commercial-market-evidence:soma"
-        ]
-      },
-      {
         "id": "san-francisco:commercial_market_evidence:financial-district",
         "districtId": "financial-district",
         "marketId": "san-francisco",
@@ -21742,6 +21588,47 @@
         ],
         "readOnly": true,
         "completionEvidence": "sf-mission-bay-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": []
+      },
+      {
+        "id": "san-francisco:commercial_market_evidence:soma",
+        "districtId": "soma",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "SoMa Collection",
+        "scope": "SoMa",
+        "objective": "Maintain the completed SoMa Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry."
+        ],
+        "readOnly": true,
+        "completionEvidence": "sf-soma-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -22181,7 +22068,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 65,
+        "orderingRank": 64,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22235,7 +22122,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 68,
+        "orderingRank": 67,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22290,7 +22177,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 69,
+        "orderingRank": 68,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22345,7 +22232,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 70,
+        "orderingRank": 69,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22400,7 +22287,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 72,
+        "orderingRank": 71,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22455,7 +22342,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 74,
+        "orderingRank": 73,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22680,7 +22567,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 59,
+        "orderingRank": 58,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -22736,7 +22623,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 66,
+        "orderingRank": 65,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -22790,7 +22677,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 67,
+        "orderingRank": 66,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -23386,35 +23273,6 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:soma",
-        "title": "Build the SoMa Commercial Market Evidence collection",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "initiativeId": "san-francisco:commercial_market_evidence:soma",
-        "initiativeTitle": "SoMa Collection",
-        "objective": "Create the SoMa Commercial Market Evidence source-data collection for San Francisco.",
-        "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "missionClass": "Foundation",
-        "confidence": "Medium",
-        "priorityScore": 25,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:soma",
-        "executionPacketAvailable": true,
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 1,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:soma"
-          ],
-          "deferredWorkItemIds": [
-            "commercial-market-evidence:soma:quality-scoring"
-          ]
-        }
-      },
-      {
         "id": "mission:seattle:seattle-medical-ecosystem-representative-building-foundation",
         "title": "Seattle Medical Ecosystem Representative Building Foundation",
         "marketId": "seattle",
@@ -23491,7 +23349,7 @@
         "estimatedEffort": "Medium",
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 25,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
         "executionPacketAvailable": true,
         "workItems": {
@@ -23515,7 +23373,7 @@
       "markets": 9,
       "programsPerMarket": 6,
       "initiatives": 131,
-      "missions": 18
+      "missions": 17
     },
     "note": "Additive projection for Mission Control v2. It does not change Publisher scoring, mission generation, execution packets, or the current Mission Control UI."
   },
@@ -33436,271 +33294,6 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:soma",
-        "title": "Build the SoMa Commercial Market Evidence collection",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "initiativeId": "san-francisco:commercial_market_evidence:soma",
-        "initiativeTitle": "SoMa Collection",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "",
-        "ecosystemId": "",
-        "workstream": "Commercial Market Evidence",
-        "includedOpportunityIds": [
-          "commercial-market-evidence:soma"
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:soma:collection",
-            "title": "SoMa Commercial Market Evidence collection",
-            "category": "commercialMarketEvidence",
-            "categoryLabel": "Commercial Market Evidence",
-            "reason": "District is missing a Commercial Market Evidence collection.",
-            "suggestedModule": {
-              "id": "commercialMarketEvidence",
-              "label": "Commercial Market Evidence"
-            }
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:soma:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "objective": "Create the SoMa Commercial Market Evidence source-data collection for San Francisco.",
-        "reason": [
-          "SoMa is missing a Commercial Market Evidence collection."
-        ],
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "impactEffortClass": "Medium Impact / Medium Effort",
-        "missionClass": "Foundation",
-        "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-        "completionCriteria": [
-          "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-          "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
-          "Evidence records remain source-supported, confidence-scoped, and editorially bounded.",
-          "The Commercial Market Evidence validator passes.",
-          "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain unchanged."
-        ],
-        "relevantFiles": [
-          "docs/product/rofo-master-plan.md",
-          "docs/commercial-market-evidence.md",
-          "docs/commercial-market-evidence-financial-district.md",
-          "docs/rofo-publisher.md",
-          "_data/locationKnowledgeGraph.js",
-          "_data/commercialMarketEvidence.js",
-          "data/commercial-market-evidence/san-francisco/financial-district.js",
-          "data/commercial-market-evidence/san-francisco/soma.js",
-          "scripts/qa-commercial-market-evidence.js"
-        ],
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection",
-          "Knowledge Graph district identity",
-          "Representative building and public-source evidence"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-eos.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 25,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "rationale": [
-          "Commercial Market Evidence collections are executed as one district-level Mission.",
-          "Individual evidence records, district narrative, source research, and validator fixes remain hidden Work Items inside the packet.",
-          "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
-        ],
-        "why": [
-          "Current constraint: SoMa lacks a Commercial Market Evidence collection.",
-          "The district is present in the Knowledge Graph and missing from the Market Evidence registry.",
-          "One collection mission avoids separate top-level tasks for each evidence record."
-        ],
-        "source": {
-          "system": "EOS",
-          "includedSystems": [
-            "Commercial Market Evidence",
-            "Commercial Location Knowledge Graph",
-            "Publisher"
-          ]
-        },
-        "orderingRank": 58,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by canonical public city ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 6,
-          "labels": [
-            "Inspect Commercial Market Evidence architecture.",
-            "Inspect Financial District canonical collection.",
-            "Inspect district Knowledge Graph and representative-building sources.",
-            "Research and select bounded representative evidence.",
-            "Create source-data collection with provenance and confidence.",
-            "Run Commercial Market Evidence validator."
-          ]
-        },
-        "executionPacket": {
-          "objective": "Create the SoMa Commercial Market Evidence source-data collection for San Francisco.",
-          "reason": [
-            "SoMa is missing a Commercial Market Evidence collection."
-          ],
-          "currentHealth": "73% Improving",
-          "currentConstraint": "SoMa lacks a Commercial Market Evidence collection.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:soma:collection",
-              "title": "SoMa Commercial Market Evidence collection",
-              "category": "commercialMarketEvidence",
-              "categoryLabel": "Commercial Market Evidence",
-              "reason": "District is missing a Commercial Market Evidence collection.",
-              "suggestedModule": {
-                "id": "commercialMarketEvidence",
-                "label": "Commercial Market Evidence"
-              }
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:soma:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collections are executed as one district-level Mission.",
-            "Individual evidence records, district narrative, source research, and validator fixes remain hidden Work Items inside the packet.",
-            "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
-          ],
-          "expectedImpact": "Medium",
-          "estimatedEffort": "Medium",
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/rofo-publisher.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "data/commercial-market-evidence/san-francisco/financial-district.js",
-            "data/commercial-market-evidence/san-francisco/soma.js",
-            "scripts/qa-commercial-market-evidence.js"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection",
-            "Knowledge Graph district identity",
-            "Representative building and public-source evidence"
-          ],
-          "acceptanceCriteria": [
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
-            "Evidence records remain source-supported, confidence-scoped, and editorially bounded.",
-            "The Commercial Market Evidence validator passes.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain unchanged."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence source-data collection",
-            "Validator pass result",
-            "Documentation updates only where needed",
-            "SER v1 implementation report"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-eos.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "mission:south-bay:commercial-market-evidence:north-bayshore",
         "title": "Build the North Bayshore Commercial Market Evidence collection",
         "marketId": "south-bay",
@@ -33783,7 +33376,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 25,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -33825,7 +33418,7 @@
             "Publisher"
           ]
         },
-        "orderingRank": 59,
+        "orderingRank": 58,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -75097,17 +74690,17 @@
     "reviewQueue": [],
     "opportunityInventory": {
       "total": 338,
-      "missions": 18,
+      "missions": 17,
       "byQueue": {
         "editorial": 338,
-        "missions": 18,
+        "missions": 17,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0,
-        "programMissions": 9
+        "programMissions": 8
       },
       "hiddenFromHomepage": 338,
-      "programMissions": 9
+      "programMissions": 8
     }
   },
   "workQueue": [
