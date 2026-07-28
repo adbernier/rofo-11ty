@@ -12,6 +12,8 @@ Commercial Market Evidence is now registered as a first-class platform service. 
 
 Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections, lists missing district collections as future expansion opportunities, and exposes the next missing collection per eligible market as one bounded Mission. V1 still does not measure collection quality beyond validator success and collection presence.
 
+In the shared EOS Portfolio Resolver model, Commercial Market Evidence already behaves as a valid district-level resolver: one district collection becomes one Mission, and individual evidence records, research, narrative, validator fixes, and documentation notes remain hidden Work Items. EOS should not combine an entire market's missing CME collections into one execution packet.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.

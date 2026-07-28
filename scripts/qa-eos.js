@@ -31,6 +31,8 @@ const ESTIMATED_EFFORTS = new Set(["Small", "Medium", "Large"]);
 const MISSION_SIZES = new Set(["Small", "Standard", "Large"]);
 const CONFIDENCE_LEVELS = new Set(["High", "Medium", "Low"]);
 const MARKET_PROGRAMS = new Set(["publisher", "commercial_market_evidence", "building_profiles", "photography", "recommendation_qa", "knowledge_graph"]);
+const PORTFOLIO_RESOLUTION_SCHEMA_VERSION = "eos-portfolio-resolution-v1";
+const BUILDING_PROFILE_PORTFOLIO_MAX_ITEMS = 12;
 
 function fail(message) {
   console.error(`EOS QA error: ${message}`);
@@ -273,6 +275,46 @@ if (marketProjection.schemaVersion !== "mission-control-v2-market-projection-v2"
   fail("EOS must expose the Mission Control v2 market projection.");
 }
 
+const portfolioResolution = eos.portfolioResolution || {};
+if (portfolioResolution.schemaVersion !== PORTFOLIO_RESOLUTION_SCHEMA_VERSION) {
+  fail("EOS must expose the Portfolio Resolver v1 output.");
+}
+
+const buildingProfileResolution = portfolioResolution.programs && portfolioResolution.programs.buildingProfiles;
+if (!buildingProfileResolution || buildingProfileResolution.resolverId !== "building-profile-portfolio-resolver-v1") {
+  fail("EOS must expose the Building Profile Portfolio Resolver v1 output.");
+}
+
+if (!buildingProfileResolution.summary || buildingProfileResolution.summary.executablePortfolios < 1) {
+  fail("Building Profile Portfolio Resolver must produce at least one real executable portfolio.");
+}
+
+if (!Array.isArray(buildingProfileResolution.ungroupedItems)) {
+  fail("Building Profile Portfolio Resolver must preserve ungrouped fallback items.");
+}
+
+const workQueueById = new Map((eos.workQueue || []).map((item) => [item.id, item]));
+const portfolioIds = new Set();
+const portfolioWorkItemIds = new Set();
+for (const portfolio of buildingProfileResolution.portfolios || []) {
+  if (!portfolio.portfolioId || portfolioIds.has(portfolio.portfolioId)) fail(`Duplicate or missing Building Profile portfolio id: ${portfolio.portfolioId}`);
+  portfolioIds.add(portfolio.portfolioId);
+  if (portfolio.programId !== "building_profiles") fail(`${portfolio.portfolioId} must belong to the Building Profiles Program.`);
+  if (!portfolio.marketId || !portfolio.campaignId || !portfolio.districtId || !portfolio.ecosystem) fail(`${portfolio.portfolioId} is missing market, campaign, district, or ecosystem.`);
+  if (!Array.isArray(portfolio.workItems) || portfolio.workItems.length !== portfolio.workItemCount) fail(`${portfolio.portfolioId} has inconsistent Work Item count.`);
+  if (portfolio.workItemCount > BUILDING_PROFILE_PORTFOLIO_MAX_ITEMS) fail(`${portfolio.portfolioId} exceeds the configured Building Profile portfolio upper bound.`);
+  if (!MISSION_SIZES.has(portfolio.missionSize && portfolio.missionSize.label)) fail(`${portfolio.portfolioId} has invalid mission size.`);
+  if (!portfolio.estimatedReviewability || !Array.isArray(portfolio.groupingRationale) || !portfolio.groupingRationale.length) fail(`${portfolio.portfolioId} must explain grouping and reviewability.`);
+  if (!Array.isArray(portfolio.validationPath) || !portfolio.validationPath.includes("node scripts/qa-building-brief-depth.js")) fail(`${portfolio.portfolioId} must carry the Building Brief validation path.`);
+  for (const workItem of portfolio.workItems || []) {
+    if (portfolioWorkItemIds.has(workItem.id)) fail(`Building Profile Work Item appears in multiple active portfolios: ${workItem.id}`);
+    portfolioWorkItemIds.add(workItem.id);
+    const sourceItem = workQueueById.get(workItem.id);
+    if (!sourceItem || sourceItem.category !== "buildingBriefs") fail(`${portfolio.portfolioId} includes a Work Item that is not an active Building Brief gap: ${workItem.id}`);
+    if (!workItem.buildingName || !workItem.buildingPath) fail(`${portfolio.portfolioId} includes a building Work Item without canonical identity.`);
+  }
+}
+
 if (!Array.isArray(marketProjection.hierarchy) || marketProjection.hierarchy.join(">") !== "Markets>Programs>Campaigns>Initiatives>Missions>Execution Packets>Work Items") {
   fail("Mission Control v2 projection must use Markets -> Programs -> Campaigns -> Initiatives -> Missions -> Execution Packets -> Work Items.");
 }
@@ -354,6 +396,7 @@ const cmeMissions = (portfolioQueues.missionQueue || []).filter((mission) => mis
 if (!cmeMissions.length) {
   fail("Commercial Market Evidence must project at least one executable Program Mission.");
 }
+const buildingProfileMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "building_profiles");
 
 const cmeMissionIds = new Set();
 for (const mission of cmeMissions) {
@@ -422,6 +465,26 @@ if (!sanFranciscoCmeProgram) {
   }
 }
 
+const sanFranciscoBuildingProfilesProgram = sanFranciscoMarket && (sanFranciscoMarket.programs || []).find((program) => program.id === "building_profiles");
+if (!sanFranciscoBuildingProfilesProgram) {
+  fail("San Francisco must expose a Building Profiles Program.");
+} else {
+  const campaign = (sanFranciscoBuildingProfilesProgram.campaigns || [])[0];
+  if (!campaign || campaign.resolvedPortfolioCount < 1 || !campaign.nextMissionId) {
+    fail("San Francisco Building Profiles Campaign must expose resolved portfolio progress and a next portfolio Mission.");
+  }
+  const financialDistrictPortfolio = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
+    /Financial District Office Portfolio/.test(initiative.title || "")
+  );
+  if (!financialDistrictPortfolio || !financialDistrictPortfolio.nextMissionId) {
+    fail("San Francisco Building Profiles must expose a Financial District Office portfolio Mission.");
+  }
+  const mission = buildingProfileMissions.find((item) => item.id === financialDistrictPortfolio.nextMissionId);
+  if (!mission || mission.marketId !== "san-francisco" || (mission.includedTasks || []).length < 2) {
+    fail("San Francisco Financial District Office portfolio must map to one multi-building Building Profile Mission.");
+  }
+}
+
 const eastBayMarket = (marketProjection.markets || []).find((market) => market.id === "east-bay");
 const eastBayCmeProgram = eastBayMarket && (eastBayMarket.programs || []).find((program) => program.id === "commercial_market_evidence");
 if (!eastBayCmeProgram) {
@@ -472,12 +535,42 @@ if ((bundledMission.includedTasks || []).some((task) => task.suggestedModule && 
   fail("Photography must not be silently bundled into an engineering/editorial mission.");
 }
 
-const buildingProfileMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "building_profiles");
 if (buildingProfileMissions.length) {
   const portfolioMission = buildingProfileMissions.find((mission) => (mission.includedTasks || []).length > 1);
   if (!portfolioMission) fail("Building Profiles should expose bundled portfolio Missions instead of one Mission per Building Brief.");
   if (!["Standard", "Large"].includes(portfolioMission.missionSize && portfolioMission.missionSize.label)) {
     fail("Building Profile portfolio Missions should use Standard or Large sizing.");
+  }
+}
+
+const buildingProfileMissionByPortfolio = new Map();
+for (const mission of buildingProfileMissions) {
+  if (!mission.portfolioId || !portfolioIds.has(mission.portfolioId)) fail(`${mission.id} must map to a resolved Building Profile portfolio.`);
+  if (buildingProfileMissionByPortfolio.has(mission.portfolioId)) fail(`Building Profile portfolio maps to multiple Missions: ${mission.portfolioId}`);
+  buildingProfileMissionByPortfolio.set(mission.portfolioId, mission);
+  const portfolio = (buildingProfileResolution.portfolios || []).find((item) => item.portfolioId === mission.portfolioId);
+  if (!portfolio || portfolio.marketId !== mission.marketId || portfolio.campaignId !== mission.campaignId) {
+    fail(`${mission.id} must match its portfolio market and Campaign.`);
+  }
+  if (!mission.executionPacket || !mission.executionPacket.workItems || mission.executionPacket.workItems.hiddenByDefault !== true) {
+    fail(`${mission.id} must expose hidden building Work Items inside its Execution Packet.`);
+  }
+  if ((mission.executionPacket.qaCommands || []).indexOf("node scripts/qa-building-brief-depth.js") === -1) {
+    fail(`${mission.id} must include Building Brief depth QA.`);
+  }
+}
+
+for (const portfolio of buildingProfileResolution.portfolios || []) {
+  if (portfolio.eligibleForExecution && !buildingProfileMissionByPortfolio.has(portfolio.portfolioId)) {
+    fail(`${portfolio.portfolioId} must map to one executable Mission.`);
+  }
+}
+
+for (const mission of portfolioQueues.missionQueue || []) {
+  if (mission.programId === "building_profiles") continue;
+  const duplicatePortfolioWork = (mission.includedOpportunityIds || []).find((id) => portfolioWorkItemIds.has(id));
+  if (duplicatePortfolioWork) {
+    fail(`${mission.id} duplicates a Building Profile portfolio Work Item as primary work: ${duplicatePortfolioWork}`);
   }
 }
 

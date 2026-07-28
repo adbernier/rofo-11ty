@@ -16,6 +16,8 @@ The operator-facing product name is Mission Control. EOS remains the internal ar
 
 Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Campaigns, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.
 
+Portfolio Resolver architecture is documented in `docs/eos-portfolio-resolver.md`. Resolvers sit between Publisher constraints and EOS mission generation so Mission Control can execute coherent portfolios rather than record-level tasks.
+
 ## Vision
 
 EOS should eventually answer three operating questions:
@@ -184,6 +186,31 @@ Program bundling posture:
 - Photography: represent Campaign progress only; photo targets remain Field Mode work and are not silently bundled into editorial missions.
 - Recommendation QA: bundle coherent scenario/status sets where they share a market validation path.
 - Knowledge Graph: bundle geography, comparison, and internal-link work only when source and validation overlap.
+
+## Portfolio Resolvers
+
+EOS Portfolio Resolver v1 formalizes the layer between Publisher work items and Mission generation.
+
+```text
+Publisher
+Portfolio Resolver
+EOS Mission Queue
+Mission Control
+Execution Packet
+```
+
+Publisher identifies constraints. Portfolio Resolvers determine the largest coherent, reviewable unit of work. EOS converts resolved portfolios into Missions, Campaign progress, Initiatives, and Execution Packets.
+
+The first production resolver is `building-profile-portfolio-resolver-v1`. It groups eligible Building Brief work into Building Profile portfolios using canonical market, district, ecosystem, source-path, and validation-path evidence. A resolved portfolio creates one Building Profiles Mission with hidden building Work Items. Individual Building Brief tasks remain in Opportunity Inventory as fallback, but resolved building Work Items are reserved out of generic mission bundling so Mission Control does not offer duplicate primary execution paths.
+
+Generated resolver output lives in:
+
+```text
+data/generated/eos-analysis.json
+portfolioResolution
+```
+
+Cloudflare admin routes consume this generated JSON only; they do not resolve portfolios at request time.
 
 ## Mission Bundling
 

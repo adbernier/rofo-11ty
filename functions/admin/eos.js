@@ -173,6 +173,9 @@ function codexPromptForTask(task, packet) {
   const dependencies = packet.dependencies && packet.dependencies.length
     ? `\nDependencies\n${listLines(packet.dependencies)}\n`
     : "";
+  const portfolioWorkItems = packet.workItems && Array.isArray(packet.workItems.buildings) && packet.workItems.buildings.length
+    ? `\nHidden building Work Items\n${listLines(packet.workItems.buildings.map((item) => `${item.name} — ${item.path}`))}\n`
+    : "";
   return plainText(`
 Read docs/product/rofo-master-plan.md and the relevant architecture documentation before making changes.
 
@@ -194,7 +197,7 @@ ${plainText(packet.currentHealth)}
 Relevant files
 ${listLines(packet.files)}
 ${dependencies}
-${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}${packet.missionSize ? `Mission size\n${plainText(packet.missionSize.label)} (${plainText(packet.missionSize.reviewWindow)})\n\n` : ""}
+${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${portfolioWorkItems}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}${packet.missionSize ? `Mission size\n${plainText(packet.missionSize.label)} (${plainText(packet.missionSize.reviewWindow)})\n\n` : ""}
 Acceptance criteria
 ${listLines(packet.acceptanceCriteria)}
 
@@ -215,6 +218,7 @@ Scope constraints
 - Avoid deferred work unless a deferred item is required to preserve correctness.
 - Preserve Publisher, Compass, EOS, Field Mode, Knowledge Graph, and editorial ownership boundaries.
 - Run npm run publisher:snapshot before reporting completion so Publisher and EOS measure product impact.
+- For portfolio missions, report per-building outcomes and any failed or deferred Work Items.
 - Do not broaden scope beyond this execution packet.
 - Do not begin persistent lifecycle state, review intake, or EOS v2.3 unless explicitly requested.
 - Preserve recommendation rankings, Search Profile behavior, Publisher scoring, public URLs, and unrelated public-page behavior unless this packet explicitly requires otherwise.
@@ -353,6 +357,8 @@ function renderProjectedCampaign(campaign) {
         <span><em>Progress</em>${escapeHtml(progressLabel)}</span>
         <span><em>Missions</em>${escapeHtml(String(campaign.missionCount || 0))}</span>
         <span><em>Hidden Work</em>${escapeHtml(String(campaign.workItemCount || 0))}</span>
+        ${Number.isFinite(Number(campaign.resolvedPortfolioCount)) ? `<span><em>Portfolios</em>${escapeHtml(String(campaign.resolvedPortfolioCount))}</span>` : ""}
+        ${campaign.estimatedMissionsRemaining ? `<span><em>Remaining</em>${escapeHtml(campaign.estimatedMissionsRemaining)}</span>` : ""}
       </div>
       <p>${escapeHtml(campaign.sizingStrategy || "Missions remain bounded and reviewable.")}</p>
     </article>
@@ -370,6 +376,8 @@ function renderProjectedMission(mission, eos, token) {
       <div class="mission-facts">
         <span><em>Impact</em>${escapeHtml(mission.expectedImpact || "")}</span>
         <span><em>Effort</em>${escapeHtml(mission.estimatedEffort || "")}</span>
+        ${mission.missionSize ? `<span><em>Size</em>${escapeHtml(mission.missionSize.label || "")}</span>` : ""}
+        ${mission.workItems && mission.workItems.count ? `<span><em>Work Items</em>${escapeHtml(String(mission.workItems.count))}</span>` : ""}
         <span><em>Class</em>${escapeHtml(mission.missionClass || "")}</span>
       </div>
       ${canonicalMission.executionPacket ? `<a class="start-work" href="${taskUrl(token, canonicalMission.id)}">Commence Work</a>` : ""}

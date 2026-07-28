@@ -139,6 +139,8 @@ EOS should recommend coherent missions, not only the smallest measurable tasks. 
 
 Campaigns are the throughput layer above Missions. A Campaign represents market completion for a Program, such as San Francisco Commercial Market Evidence Completion, Seattle Building Profile Completion, or Denver Photography Completion. Campaigns are not executable. They advance through bounded Missions sized to remain reviewable inside one SER. This lets Rofo optimize for time-to-complete a market rather than maximizing the number of small tasks exposed to an operator.
 
+Portfolio Resolvers are the deterministic bridge between Publisher's record-level work items and Mission Control's portfolio-scale execution model. The first resolver groups Building Profile work into district or ecosystem portfolios when buildings share market ownership, source files, validation paths, and editorial purpose. The resolver architecture is documented in `docs/eos-portfolio-resolver.md`.
+
 EOS should also distinguish knowledge readiness from experience readiness. Knowledge readiness reflects the Commercial Knowledge Graph, ecosystem metadata, Representative Building Intelligence, Building Profiles, recommendation QA, explainability, and validation coverage. Experience readiness reflects photography, handbook guidance, visual completeness, and public-page richness. Photography remains visible and important, but it belongs to Field Mode and should not obscure whether a metro's underlying commercial knowledge and recommendations are ready.
 
 ### Field Mode

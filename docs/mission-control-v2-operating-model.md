@@ -4,6 +4,8 @@ Mission Control v2 is the proposed operating model for Rofo's editorial and prod
 
 The purpose is to define how Rofo should organize work as the platform grows beyond Publisher-driven task queues.
 
+The Portfolio Resolver layer is documented in `docs/eos-portfolio-resolver.md`. It is the deterministic bridge between Publisher Work Items and Mission Control's portfolio-scale Missions.
+
 ## Problem
 
 Mission Control can already identify measurable opportunities and produce bounded missions. That model works for Publisher-driven work, but it will not scale cleanly when Rofo manages thousands of potential improvements across:
@@ -576,6 +578,24 @@ Program posture:
 - Photography: use Campaign progress and Field Mode summaries. Do not emit one executable Mission per photo target from Mission Control.
 - Recommendation QA: bundle QA status, scenario documentation, and explainability work when they share one market validation path.
 - Knowledge Graph: bundle graph, comparison, and internal-link updates only when the same market and source files are involved.
+
+## Portfolio Resolver Integration
+
+Portfolio Resolvers convert record-level Work Items into portfolio-scale Missions without changing Publisher scoring.
+
+Building Profile Portfolio Resolver v1 groups unfinished Building Brief work by operational market, canonical district, ecosystem or space type, source-data path, validation path, and editorial purpose. A resolved portfolio becomes one Initiative and one Mission inside the Building Profiles Campaign. The individual buildings remain hidden Work Items inside the Execution Packet.
+
+Resolver guardrails:
+
+- every building must have canonical identity
+- market ownership must resolve deterministically
+- district and ecosystem coherence must be explainable
+- source and validation paths must be compatible
+- portfolios must stay within the Large Mission review limit
+- duplicate buildings are excluded
+- ungrouped candidates remain visible as fallback
+
+Commercial Market Evidence already follows the same pattern at district level: one district collection is one Mission, with evidence records hidden as Work Items. It should not combine all missing district collections for a market into one execution packet.
 
 Commercial Market Evidence uses this projection to separate operational market ownership from Publisher metro grouping. For example, San Francisco Publisher analysis can remain Bay Area-wide while East Bay districts are projected into an East Bay Market Workspace. The projection resolves district ownership before assigning Initiatives, reports ambiguous or unresolved districts, and excludes those districts from executable missions until ownership is deterministic.
 
