@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T17:58:29-07:00",
+  "generatedAt": "2026-07-27T18:44:46-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -17,40 +17,57 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 1,
+      "collections": 2,
       "districts": [
-        "Financial District"
+        "Financial District",
+        "Jackson Square"
       ],
-      "evidenceRecords": 10,
+      "evidenceRecords": 18,
       "evidenceTypes": [
+        "Adaptive-Reuse Boutique Office",
+        "Boutique Executive Office",
         "Boutique-Leaning Class A Tower",
         "Class A Office Tower",
+        "Creative Mid-Rise Office",
+        "Historic Adaptive-Reuse Office",
+        "Historic Creative Office",
         "Historic Modernist Office",
         "Institutional Office Tower",
         "Landmark / Waterfront-Edge Office",
         "Landmark Tower",
+        "Low-Rise Office Campus",
         "Mixed-Use Commercial Center",
         "Professional Services Tower",
         "Repositioned Downtown Tower",
+        "Small-Format Historic Office",
+        "Tower-Edge Executive Office",
         "Trophy Office Tower"
       ],
       "evidenceRoles": [
         "Adaptive Reuse / Amenity Repositioning Benchmark",
         "Architectural Identity / Legacy Office Benchmark",
+        "Brick-and-Timber Character Benchmark",
+        "Broadway / North Beach Transition Benchmark",
+        "Client-Facing Professional Services Benchmark",
+        "Creative / Professional Services Benchmark",
+        "District Anchor / Campus Benchmark",
         "District Anchor / Corporate Benchmark",
         "District Anchor / Waterfront Edge",
         "District Icon / North Downtown Edge",
         "Embarcadero-Facing Professional Services Benchmark",
         "Executive Benchmark / Scale Comparison",
+        "Financial District Edge Comparison Benchmark",
         "North Financial District Edge / Comparison Example",
+        "North Waterfront / Design Character Benchmark",
         "Practical Mid-Market CBD Benchmark",
+        "Small-Format Character Infill Benchmark",
         "Transit-Oriented Professional Services Benchmark"
       ],
       "confidenceSummary": {
-        "High": 10
+        "High": 18
       },
-      "deferredCandidates": 5,
-      "latestValidation": "2026-07-27T17:58:29-07:00",
+      "deferredCandidates": 9,
+      "latestValidation": "2026-07-27T18:44:46-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -70,8 +87,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 104,
-          "existingCollections": 1,
-          "missingCollections": 103,
+          "existingCollections": 2,
+          "missingCollections": 102,
           "resolvedDistricts": 104,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -148,8 +165,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 4,
-            "existingCollections": 1,
-            "missingCollections": 3
+            "existingCollections": 2,
+            "missingCollections": 2
           },
           {
             "marketId": "seattle",
@@ -896,7 +913,7 @@
               "marketName": "San Francisco",
               "publisherMetroId": "san-francisco",
               "publisherMetroName": "San Francisco",
-              "resolutionSource": "canonical public city ownership",
+              "resolutionSource": "Commercial Market Evidence collection metadata",
               "isFallbackAssignment": false
             },
             {
@@ -1448,6 +1465,22 @@
             "resolutionSource": "Commercial Market Evidence collection metadata",
             "path": "/commercial-real-estate/CA/san-francisco/financial-district/",
             "collectionId": "sf-financial-district-commercial-market-evidence"
+          },
+          {
+            "districtId": "jackson-square",
+            "districtName": "Jackson Square",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "Commercial Market Evidence collection metadata",
+            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+            "collectionId": "sf-jackson-square-commercial-market-evidence"
           }
         ],
         "missingCollections": [
@@ -3654,44 +3687,6 @@
               ]
             },
             "expansionWeight": 1630
-          },
-          {
-            "districtId": "jackson-square",
-            "districtName": "Jackson Square",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "canonical public city ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 94,
-              "districtConfidence": "high",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1588
           },
           {
             "districtId": "mission-bay",
@@ -6843,31 +6838,6 @@
           },
           {
             "rank": 58,
-            "districtId": "jackson-square",
-            "districtName": "Jackson Square",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "canonical public city ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/jackson-square/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by canonical public city ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 59,
             "districtId": "mission-bay",
             "districtName": "Mission Bay",
             "city": "San Francisco",
@@ -6892,7 +6862,7 @@
             ]
           },
           {
-            "rank": 60,
+            "rank": 59,
             "districtId": "soma",
             "districtName": "SoMa",
             "city": "San Francisco",
@@ -6917,7 +6887,7 @@
             ]
           },
           {
-            "rank": 61,
+            "rank": 60,
             "districtId": "north-bayshore",
             "districtName": "North Bayshore",
             "city": "Mountain View",
@@ -6942,7 +6912,7 @@
             ]
           },
           {
-            "rank": 62,
+            "rank": 61,
             "districtId": "downtown-berkeley",
             "districtName": "Downtown Berkeley",
             "city": "Berkeley",
@@ -6967,7 +6937,7 @@
             ]
           },
           {
-            "rank": 63,
+            "rank": 62,
             "districtId": "warm-springs-innovation-district",
             "districtName": "Warm Springs Innovation District",
             "city": "Fremont",
@@ -6992,7 +6962,7 @@
             ]
           },
           {
-            "rank": 64,
+            "rank": 63,
             "districtId": "hayward-industrial",
             "districtName": "Hayward Industrial",
             "city": "Hayward",
@@ -7017,7 +6987,7 @@
             ]
           },
           {
-            "rank": 65,
+            "rank": 64,
             "districtId": "jack-london-square",
             "districtName": "Jack London Square",
             "city": "Oakland",
@@ -7042,7 +7012,7 @@
             ]
           },
           {
-            "rank": 66,
+            "rank": 65,
             "districtId": "union-city-industrial",
             "districtName": "Union City Industrial",
             "city": "Union City",
@@ -7067,7 +7037,7 @@
             ]
           },
           {
-            "rank": 67,
+            "rank": 66,
             "districtId": "georgetown-industrial",
             "districtName": "Georgetown Industrial",
             "city": "Seattle",
@@ -7092,7 +7062,7 @@
             ]
           },
           {
-            "rank": 68,
+            "rank": 67,
             "districtId": "north-san-jose",
             "districtName": "North San Jose",
             "city": "San Jose",
@@ -7117,7 +7087,7 @@
             ]
           },
           {
-            "rank": 69,
+            "rank": 68,
             "districtId": "moffett-park",
             "districtName": "Moffett Park",
             "city": "Sunnyvale",
@@ -7142,7 +7112,7 @@
             ]
           },
           {
-            "rank": 70,
+            "rank": 69,
             "districtId": "eastside-tech-office-corridor",
             "districtName": "Eastside Tech Office Corridor",
             "city": "Redmond",
@@ -7168,7 +7138,7 @@
             ]
           },
           {
-            "rank": 71,
+            "rank": 70,
             "districtId": "belltown-waterfront-office",
             "districtName": "Belltown / Waterfront Creative Office",
             "city": "Seattle",
@@ -7194,7 +7164,7 @@
             ]
           },
           {
-            "rank": 72,
+            "rank": 71,
             "districtId": "pioneer-square-waterfront-office",
             "districtName": "Pioneer Square / Waterfront Office",
             "city": "Seattle",
@@ -7220,7 +7190,7 @@
             ]
           },
           {
-            "rank": 73,
+            "rank": 72,
             "districtId": "oceanside-industrial",
             "districtName": "Oceanside Industrial",
             "city": "Oceanside",
@@ -7246,7 +7216,7 @@
             ]
           },
           {
-            "rank": 74,
+            "rank": 73,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -7272,7 +7242,7 @@
             ]
           },
           {
-            "rank": 75,
+            "rank": 74,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -7297,7 +7267,7 @@
             ]
           },
           {
-            "rank": 76,
+            "rank": 75,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -7322,7 +7292,7 @@
             ]
           },
           {
-            "rank": 77,
+            "rank": 76,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -7347,7 +7317,7 @@
             ]
           },
           {
-            "rank": 78,
+            "rank": 77,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -7373,7 +7343,7 @@
             ]
           },
           {
-            "rank": 79,
+            "rank": 78,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -7398,7 +7368,7 @@
             ]
           },
           {
-            "rank": 80,
+            "rank": 79,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -7423,7 +7393,7 @@
             ]
           },
           {
-            "rank": 81,
+            "rank": 80,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -7448,7 +7418,7 @@
             ]
           },
           {
-            "rank": 82,
+            "rank": 81,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -8867,7 +8837,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 75,
+                "orderingRank": 74,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -8921,7 +8891,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 81,
+                "orderingRank": 80,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -8975,7 +8945,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 82,
+                "orderingRank": 81,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -9651,7 +9621,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 62,
+                "orderingRank": 61,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9705,7 +9675,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 63,
+                "orderingRank": 62,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9759,7 +9729,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 64,
+                "orderingRank": 63,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9813,7 +9783,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 65,
+                "orderingRank": 64,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -9867,7 +9837,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 66,
+                "orderingRank": 65,
                 "orderingRationale": [
                   "East Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -10862,7 +10832,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 78,
+                "orderingRank": 77,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -10917,7 +10887,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 79,
+                "orderingRank": 78,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -10971,7 +10941,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 80,
+                "orderingRank": 79,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -11704,7 +11674,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 77,
+                "orderingRank": 76,
                 "orderingRationale": [
                   "Peninsula is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -14098,7 +14068,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 73,
+                "orderingRank": 72,
                 "orderingRationale": [
                   "San Diego is the operational Market Workspace.",
                   "Publisher analysis backing: San Diego.",
@@ -14625,30 +14595,30 @@
             "status": "Partial",
             "progress": {
               "unit": "Collections",
-              "completed": 1,
+              "completed": 2,
               "target": 4,
-              "label": "1 / 4 Collections",
+              "label": "2 / 4 Collections",
               "statusLabel": "Partial",
-              "currentConstraint": "3 district collections remain unbuilt.",
+              "currentConstraint": "2 district collections remain unbuilt.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
               ]
             },
-            "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
-            "nextInitiativeId": "san-francisco:commercial_market_evidence:jackson-square",
-            "nextMissionId": "mission:san-francisco:commercial-market-evidence:jackson-square",
+            "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
+            "nextInitiativeId": "san-francisco:commercial_market_evidence:mission-bay",
+            "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-bay",
             "initiatives": [
               {
-                "id": "san-francisco:commercial_market_evidence:jackson-square",
-                "districtId": "jackson-square",
+                "id": "san-francisco:commercial_market_evidence:mission-bay",
+                "districtId": "mission-bay",
                 "marketId": "san-francisco",
                 "marketName": "San Francisco",
                 "programId": "commercial_market_evidence",
                 "programLabel": "Commercial Market Evidence",
-                "title": "Jackson Square Collection",
-                "scope": "Jackson Square",
-                "objective": "Create the Jackson Square Commercial Market Evidence source-data collection.",
+                "title": "Mission Bay Collection",
+                "scope": "Mission Bay",
+                "objective": "Create the Mission Bay Commercial Market Evidence source-data collection.",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -14661,10 +14631,10 @@
                     "Commercial Market Evidence expansion ordering."
                   ]
                 },
-                "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:jackson-square",
-                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
+                "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
+                "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-bay",
+                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
+                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
                 "workItemCount": 6,
                 "remainingMilestones": [
                   "Source-supported evidence selection",
@@ -14693,89 +14663,35 @@
                 },
                 "missions": [
                   {
-                    "id": "mission:san-francisco:commercial-market-evidence:jackson-square",
-                    "title": "Build the Jackson Square Commercial Market Evidence collection",
+                    "id": "mission:san-francisco:commercial-market-evidence:mission-bay",
+                    "title": "Build the Mission Bay Commercial Market Evidence collection",
                     "marketId": "san-francisco",
                     "marketName": "San Francisco",
                     "programId": "commercial_market_evidence",
                     "programLabel": "Commercial Market Evidence",
-                    "initiativeId": "san-francisco:commercial_market_evidence:jackson-square",
-                    "initiativeTitle": "Jackson Square Collection",
-                    "objective": "Create the Jackson Square Commercial Market Evidence source-data collection for San Francisco.",
-                    "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
+                    "initiativeId": "san-francisco:commercial_market_evidence:mission-bay",
+                    "initiativeTitle": "Mission Bay Collection",
+                    "objective": "Create the Mission Bay Commercial Market Evidence source-data collection for San Francisco.",
+                    "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
                     "expectedImpact": "Medium",
                     "estimatedEffort": "Medium",
                     "missionClass": "Foundation",
                     "confidence": "Medium",
                     "priorityScore": 25,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
                     "executionPacketAvailable": true,
                     "workItems": {
                       "hiddenByDefault": true,
                       "count": 1,
                       "includedOpportunityIds": [
-                        "commercial-market-evidence:jackson-square"
+                        "commercial-market-evidence:mission-bay"
                       ],
                       "deferredWorkItemIds": [
-                        "commercial-market-evidence:jackson-square:quality-scoring"
+                        "commercial-market-evidence:mission-bay:quality-scoring"
                       ]
                     }
                   }
                 ]
-              },
-              {
-                "id": "san-francisco:commercial_market_evidence:mission-bay",
-                "districtId": "mission-bay",
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "Mission Bay Collection",
-                "scope": "Mission Bay",
-                "objective": "Create the Mission Bay Commercial Market Evidence source-data collection.",
-                "status": "Queued",
-                "currentStage": "Queued",
-                "progress": {
-                  "unit": "Collection",
-                  "completed": 0,
-                  "target": 1,
-                  "label": "Queued",
-                  "statusLabel": "Queued",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence expansion ordering."
-                  ]
-                },
-                "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "",
-                "missionRef": "",
-                "executionPacketRef": "",
-                "workItemCount": 0,
-                "remainingMilestones": [
-                  "Source-supported evidence selection",
-                  "District narrative",
-                  "Validator pass"
-                ],
-                "confidence": "Medium",
-                "sourceEvidence": [
-                  "Commercial Location Knowledge Graph district node.",
-                  "Commercial Market Evidence expansion ordering."
-                ],
-                "readOnly": true,
-                "orderingRank": 59,
-                "orderingRationale": [
-                  "San Francisco is the operational Market Workspace.",
-                  "Publisher analysis backing: San Francisco.",
-                  "Ownership resolved by canonical public city ownership.",
-                  "Publisher readiness: Distribution Ready.",
-                  "Public district page exists.",
-                  "Knowledge Graph confidence: high.",
-                  "3 comparison relationships exist."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 0
-                },
-                "missions": []
               },
               {
                 "id": "san-francisco:commercial_market_evidence:soma",
@@ -14815,7 +14731,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 60,
+                "orderingRank": 59,
                 "orderingRationale": [
                   "San Francisco is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -14862,6 +14778,47 @@
                 ],
                 "readOnly": true,
                 "completionEvidence": "sf-financial-district-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
+                "id": "san-francisco:commercial_market_evidence:jackson-square",
+                "districtId": "jackson-square",
+                "marketId": "san-francisco",
+                "marketName": "San Francisco",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "Jackson Square Collection",
+                "scope": "Jackson Square",
+                "objective": "Maintain the completed Jackson Square Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry."
+                ],
+                "readOnly": true,
+                "completionEvidence": "sf-jackson-square-commercial-market-evidence",
                 "orderingRank": null,
                 "orderingRationale": [
                   "Existing Commercial Market Evidence collection."
@@ -15162,31 +15119,31 @@
             }
           },
           {
-            "id": "mission:san-francisco:commercial-market-evidence:jackson-square",
-            "title": "Build the Jackson Square Commercial Market Evidence collection",
+            "id": "mission:san-francisco:commercial-market-evidence:mission-bay",
+            "title": "Build the Mission Bay Commercial Market Evidence collection",
             "marketId": "san-francisco",
             "marketName": "San Francisco",
             "programId": "commercial_market_evidence",
             "programLabel": "Commercial Market Evidence",
-            "initiativeId": "san-francisco:commercial_market_evidence:jackson-square",
-            "initiativeTitle": "Jackson Square Collection",
-            "objective": "Create the Jackson Square Commercial Market Evidence source-data collection for San Francisco.",
-            "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
+            "initiativeId": "san-francisco:commercial_market_evidence:mission-bay",
+            "initiativeTitle": "Mission Bay Collection",
+            "objective": "Create the Mission Bay Commercial Market Evidence source-data collection for San Francisco.",
+            "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
             "expectedImpact": "Medium",
             "estimatedEffort": "Medium",
             "missionClass": "Foundation",
             "confidence": "Medium",
             "priorityScore": 25,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
+            "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
             "executionPacketAvailable": true,
             "workItems": {
               "hiddenByDefault": true,
               "count": 1,
               "includedOpportunityIds": [
-                "commercial-market-evidence:jackson-square"
+                "commercial-market-evidence:mission-bay"
               ],
               "deferredWorkItemIds": [
-                "commercial-market-evidence:jackson-square:quality-scoring"
+                "commercial-market-evidence:mission-bay:quality-scoring"
               ]
             }
           }
@@ -15649,7 +15606,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 67,
+                "orderingRank": 66,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15703,7 +15660,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 70,
+                "orderingRank": 69,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15758,7 +15715,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 71,
+                "orderingRank": 70,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15813,7 +15770,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 72,
+                "orderingRank": 71,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15868,7 +15825,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 74,
+                "orderingRank": 73,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -15923,7 +15880,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 76,
+                "orderingRank": 75,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -16429,7 +16386,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": false,
-                "orderingRank": 61,
+                "orderingRank": 60,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16459,7 +16416,7 @@
                     "estimatedEffort": "Medium",
                     "missionClass": "Foundation",
                     "confidence": "Medium",
-                    "priorityScore": 22,
+                    "priorityScore": 23,
                     "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
                     "executionPacketAvailable": true,
                     "workItems": {
@@ -16513,7 +16470,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 68,
+                "orderingRank": 67,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16567,7 +16524,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 69,
+                "orderingRank": 68,
                 "orderingRationale": [
                   "South Bay is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -16854,7 +16811,7 @@
             "estimatedEffort": "Medium",
             "missionClass": "Foundation",
             "confidence": "Medium",
-            "priorityScore": 22,
+            "priorityScore": 23,
             "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
             "executionPacketAvailable": true,
             "workItems": {
@@ -17971,7 +17928,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 75,
+        "orderingRank": 74,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -18025,7 +17982,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 81,
+        "orderingRank": 80,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -18079,7 +18036,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 82,
+        "orderingRank": 81,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -18414,7 +18371,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 62,
+        "orderingRank": 61,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18468,7 +18425,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 63,
+        "orderingRank": 62,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18522,7 +18479,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 64,
+        "orderingRank": 63,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18576,7 +18533,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 65,
+        "orderingRank": 64,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -18630,7 +18587,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 66,
+        "orderingRank": 65,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -19275,7 +19232,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 78,
+        "orderingRank": 77,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19330,7 +19287,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 79,
+        "orderingRank": 78,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19384,7 +19341,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 80,
+        "orderingRank": 79,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -19773,7 +19730,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 77,
+        "orderingRank": 76,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -21467,7 +21424,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 73,
+        "orderingRank": 72,
         "orderingRationale": [
           "San Diego is the operational Market Workspace.",
           "Publisher analysis backing: San Diego.",
@@ -21654,15 +21611,15 @@
         ]
       },
       {
-        "id": "san-francisco:commercial_market_evidence:jackson-square",
-        "districtId": "jackson-square",
+        "id": "san-francisco:commercial_market_evidence:mission-bay",
+        "districtId": "mission-bay",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "title": "Jackson Square Collection",
-        "scope": "Jackson Square",
-        "objective": "Create the Jackson Square Commercial Market Evidence source-data collection.",
+        "title": "Mission Bay Collection",
+        "scope": "Mission Bay",
+        "objective": "Create the Mission Bay Commercial Market Evidence source-data collection.",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -21675,10 +21632,10 @@
             "Commercial Market Evidence expansion ordering."
           ]
         },
-        "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:jackson-square",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
+        "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
+        "nextMissionId": "mission:san-francisco:commercial-market-evidence:mission-bay",
+        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
         "workItemCount": 6,
         "remainingMilestones": [
           "Source-supported evidence selection",
@@ -21706,62 +21663,8 @@
           "count": 6
         },
         "missions": [
-          "mission:san-francisco:commercial-market-evidence:jackson-square"
+          "mission:san-francisco:commercial-market-evidence:mission-bay"
         ]
-      },
-      {
-        "id": "san-francisco:commercial_market_evidence:mission-bay",
-        "districtId": "mission-bay",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "Mission Bay Collection",
-        "scope": "Mission Bay",
-        "objective": "Create the Mission Bay Commercial Market Evidence source-data collection.",
-        "status": "Queued",
-        "currentStage": "Queued",
-        "progress": {
-          "unit": "Collection",
-          "completed": 0,
-          "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
-          "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
-          ]
-        },
-        "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "",
-        "missionRef": "",
-        "executionPacketRef": "",
-        "workItemCount": 0,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
-        "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
-        ],
-        "readOnly": true,
-        "orderingRank": 59,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by canonical public city ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 0
-        },
-        "missions": []
       },
       {
         "id": "san-francisco:commercial_market_evidence:soma",
@@ -21801,7 +21704,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 60,
+        "orderingRank": 59,
         "orderingRationale": [
           "San Francisco is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -21848,6 +21751,47 @@
         ],
         "readOnly": true,
         "completionEvidence": "sf-financial-district-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": []
+      },
+      {
+        "id": "san-francisco:commercial_market_evidence:jackson-square",
+        "districtId": "jackson-square",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "Jackson Square Collection",
+        "scope": "Jackson Square",
+        "objective": "Maintain the completed Jackson Square Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry."
+        ],
+        "readOnly": true,
+        "completionEvidence": "sf-jackson-square-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -22287,7 +22231,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 67,
+        "orderingRank": 66,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22341,7 +22285,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 70,
+        "orderingRank": 69,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22396,7 +22340,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 71,
+        "orderingRank": 70,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22451,7 +22395,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 72,
+        "orderingRank": 71,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22506,7 +22450,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 74,
+        "orderingRank": 73,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22561,7 +22505,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 76,
+        "orderingRank": 75,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -22786,7 +22730,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 61,
+        "orderingRank": 60,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -22842,7 +22786,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 68,
+        "orderingRank": 67,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -22896,7 +22840,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 69,
+        "orderingRank": 68,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -23492,31 +23436,31 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:jackson-square",
-        "title": "Build the Jackson Square Commercial Market Evidence collection",
+        "id": "mission:san-francisco:commercial-market-evidence:mission-bay",
+        "title": "Build the Mission Bay Commercial Market Evidence collection",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "initiativeId": "san-francisco:commercial_market_evidence:jackson-square",
-        "initiativeTitle": "Jackson Square Collection",
-        "objective": "Create the Jackson Square Commercial Market Evidence source-data collection for San Francisco.",
-        "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
+        "initiativeId": "san-francisco:commercial_market_evidence:mission-bay",
+        "initiativeTitle": "Mission Bay Collection",
+        "objective": "Create the Mission Bay Commercial Market Evidence source-data collection for San Francisco.",
+        "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
         "expectedImpact": "Medium",
         "estimatedEffort": "Medium",
         "missionClass": "Foundation",
         "confidence": "Medium",
         "priorityScore": 25,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:jackson-square",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:mission-bay",
         "executionPacketAvailable": true,
         "workItems": {
           "hiddenByDefault": true,
           "count": 1,
           "includedOpportunityIds": [
-            "commercial-market-evidence:jackson-square"
+            "commercial-market-evidence:mission-bay"
           ],
           "deferredWorkItemIds": [
-            "commercial-market-evidence:jackson-square:quality-scoring"
+            "commercial-market-evidence:mission-bay:quality-scoring"
           ]
         }
       },
@@ -23597,7 +23541,7 @@
         "estimatedEffort": "Medium",
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 22,
+        "priorityScore": 23,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:commercial-market-evidence:north-bayshore",
         "executionPacketAvailable": true,
         "workItems": {
@@ -33542,26 +33486,26 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:jackson-square",
-        "title": "Build the Jackson Square Commercial Market Evidence collection",
+        "id": "mission:san-francisco:commercial-market-evidence:mission-bay",
+        "title": "Build the Mission Bay Commercial Market Evidence collection",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "initiativeId": "san-francisco:commercial_market_evidence:jackson-square",
-        "initiativeTitle": "Jackson Square Collection",
+        "initiativeId": "san-francisco:commercial_market_evidence:mission-bay",
+        "initiativeTitle": "Mission Bay Collection",
         "metroId": "san-francisco",
         "metroName": "San Francisco",
         "ecosystem": "",
         "ecosystemId": "",
         "workstream": "Commercial Market Evidence",
         "includedOpportunityIds": [
-          "commercial-market-evidence:jackson-square"
+          "commercial-market-evidence:mission-bay"
         ],
         "includedTasks": [
           {
-            "id": "commercial-market-evidence:jackson-square:collection",
-            "title": "Jackson Square Commercial Market Evidence collection",
+            "id": "commercial-market-evidence:mission-bay:collection",
+            "title": "Mission Bay Commercial Market Evidence collection",
             "category": "commercialMarketEvidence",
             "categoryLabel": "Commercial Market Evidence",
             "reason": "District is missing a Commercial Market Evidence collection.",
@@ -33573,7 +33517,7 @@
         ],
         "deferredTasks": [
           {
-            "id": "commercial-market-evidence:jackson-square:quality-scoring",
+            "id": "commercial-market-evidence:mission-bay:quality-scoring",
             "title": "Publisher quality scoring for Commercial Market Evidence",
             "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
             "suggestedModule": {
@@ -33582,15 +33526,15 @@
             }
           }
         ],
-        "objective": "Create the Jackson Square Commercial Market Evidence source-data collection for San Francisco.",
+        "objective": "Create the Mission Bay Commercial Market Evidence source-data collection for San Francisco.",
         "reason": [
-          "Jackson Square is missing a Commercial Market Evidence collection."
+          "Mission Bay is missing a Commercial Market Evidence collection."
         ],
         "expectedImpact": "Medium",
         "estimatedEffort": "Medium",
         "impactEffortClass": "Medium Impact / Medium Effort",
         "missionClass": "Foundation",
-        "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
+        "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
         "completionCriteria": [
           "A new district Commercial Market Evidence source collection exists in the canonical data path.",
           "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
@@ -33606,7 +33550,7 @@
           "_data/locationKnowledgeGraph.js",
           "_data/commercialMarketEvidence.js",
           "data/commercial-market-evidence/san-francisco/financial-district.js",
-          "data/commercial-market-evidence/san-francisco/jackson-square.js",
+          "data/commercial-market-evidence/san-francisco/mission-bay.js",
           "scripts/qa-commercial-market-evidence.js"
         ],
         "dependencies": [
@@ -33654,7 +33598,7 @@
           "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
         ],
         "why": [
-          "Current constraint: Jackson Square lacks a Commercial Market Evidence collection.",
+          "Current constraint: Mission Bay lacks a Commercial Market Evidence collection.",
           "The district is present in the Knowledge Graph and missing from the Market Evidence registry.",
           "One collection mission avoids separate top-level tasks for each evidence record."
         ],
@@ -33689,16 +33633,16 @@
           ]
         },
         "executionPacket": {
-          "objective": "Create the Jackson Square Commercial Market Evidence source-data collection for San Francisco.",
+          "objective": "Create the Mission Bay Commercial Market Evidence source-data collection for San Francisco.",
           "reason": [
-            "Jackson Square is missing a Commercial Market Evidence collection."
+            "Mission Bay is missing a Commercial Market Evidence collection."
           ],
           "currentHealth": "73% Improving",
-          "currentConstraint": "Jackson Square lacks a Commercial Market Evidence collection.",
+          "currentConstraint": "Mission Bay lacks a Commercial Market Evidence collection.",
           "includedTasks": [
             {
-              "id": "commercial-market-evidence:jackson-square:collection",
-              "title": "Jackson Square Commercial Market Evidence collection",
+              "id": "commercial-market-evidence:mission-bay:collection",
+              "title": "Mission Bay Commercial Market Evidence collection",
               "category": "commercialMarketEvidence",
               "categoryLabel": "Commercial Market Evidence",
               "reason": "District is missing a Commercial Market Evidence collection.",
@@ -33710,7 +33654,7 @@
           ],
           "deferredTasks": [
             {
-              "id": "commercial-market-evidence:jackson-square:quality-scoring",
+              "id": "commercial-market-evidence:mission-bay:quality-scoring",
               "title": "Publisher quality scoring for Commercial Market Evidence",
               "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
               "suggestedModule": {
@@ -33735,7 +33679,7 @@
             "_data/locationKnowledgeGraph.js",
             "_data/commercialMarketEvidence.js",
             "data/commercial-market-evidence/san-francisco/financial-district.js",
-            "data/commercial-market-evidence/san-francisco/jackson-square.js",
+            "data/commercial-market-evidence/san-francisco/mission-bay.js",
             "scripts/qa-commercial-market-evidence.js"
           ],
           "dependencies": [
@@ -33889,7 +33833,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 22,
+        "priorityScore": 23,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -33931,7 +33875,7 @@
             "Publisher"
           ]
         },
-        "orderingRank": 61,
+        "orderingRank": 60,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
