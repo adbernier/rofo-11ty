@@ -516,6 +516,9 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "924 Sansome", address: "924 Sansome St", districtKey: "jacksonSquare", role: "Historic Benchmark", themes: ["Historic Character", "Creative Office", "Adaptive Reuse"], reason: "A strong small-format example of Jackson Square's older commercial buildings.", comparisonAddresses: ["1000 Sansome St", "75 Broadway", "901 Battery St"] }),
   canonicalBuilding({ name: "650 California", address: "650 California St", districtKey: "jacksonSquare", role: "Executive Benchmark", themes: ["Executive Presence", "Professional Services", "Tower Edge"], reason: "Helps compare Jackson Square with nearby Nob Hill and Financial District edge buildings.", comparisonAddresses: ["930 Montgomery St", "600 Montgomery St", "300 Clay St"] }),
   canonicalBuilding({ name: "The Ice House", address: "151 Union St", districtKey: "jacksonSquare", role: "Historic Benchmark", themes: ["Historic Character", "Adaptive Reuse", "Design", "Creative Office"], reason: "An important historical reference for design and warehouse reuse patterns near the north waterfront.", comparisonAddresses: ["1000 Sansome St", "1105 Battery St", "2 Henry Adams St"] }),
+  canonicalBuilding({ name: "1100 Grant Ave", address: "1100 Grant Ave", districtKey: "jacksonSquare", role: "Neighborhood Edge Benchmark", themes: ["Historic Character", "Boutique Office", "North Beach Edge", "Professional Services"], reason: "Shows how Jackson Square can blend downtown adjacency with North Beach edge character for smaller professional-service and creative users.", comparisonAddresses: ["75 Broadway", "930 Montgomery St", "1000 Sansome St"], semanticSourceBuildingId: "ca-san-francisco-1100-grant-ave" }),
+  canonicalBuilding({ name: "27 Drumm St", address: "27 Drumm St", districtKey: "jacksonSquare", role: "Downtown Edge Benchmark", themes: ["Downtown Edge", "Boutique Office", "Waterfront", "Professional Services"], reason: "Represents the compact downtown-waterfront edge where Jackson Square, Embarcadero, and Financial District decisions overlap.", comparisonAddresses: ["33 Drumm St", "930 Montgomery St", "315 Montgomery St"], semanticSourceBuildingId: "ca-san-francisco-27-drumm-st" }),
+  canonicalBuilding({ name: "33 Drumm St", address: "33 Drumm St", districtKey: "jacksonSquare", role: "Downtown Edge Benchmark", themes: ["Downtown Edge", "Boutique Office", "Waterfront", "Professional Services"], reason: "Helps tenants pressure-test whether their search is really Jackson Square, Embarcadero, or a more formal Financial District office need.", comparisonAddresses: ["27 Drumm St", "930 Montgomery St", "315 Montgomery St"], semanticSourceBuildingId: "ca-san-francisco-33-drumm-st" }),
 
   canonicalBuilding({ name: "Pier 70 Building 12", address: "70 Pier Bldg 102", districtKey: "dogpatch", role: "Adaptive Reuse Benchmark", themes: ["Adaptive Reuse", "Industrial Conversion", "Creative Office", "Waterfront"], reason: "The strongest current example of Dogpatch industrial reuse becoming a modern mixed commercial environment.", comparisonAddresses: ["Pier 70 Building 101", "1201 Illinois St", "2325 3rd St"] }),
   canonicalBuilding({ name: "Pier 70 Building 101", address: "Pier 70 Building 101", districtKey: "dogpatch", role: "Historic Benchmark", themes: ["Historic Industrial", "Adaptive Reuse", "Waterfront", "Creative Office"], reason: "Helps explain the historic shipyard character of Dogpatch and its long-term reuse potential.", comparisonAddresses: ["70 Pier Bldg 102", "1201 Illinois St", "2325 3rd St"] }),
@@ -1941,6 +1944,204 @@ const buildingBriefsByPath = {
       { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Use the district guide to understand the appeal and limits of San Francisco's character-driven north downtown office market." },
       { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare the north waterfront and Jackson Square edge with traditional downtown tower options." },
       { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Clarify whether workplace character, commute access, client perception, or expansion flexibility should drive the choice." },
+    ],
+  }),
+  [buildingPath("1100 Grant Ave")]: buildingBrief({
+    buildingSummary:
+      "1100 Grant Ave is a Jackson Square and North Beach edge office example for smaller teams that want downtown adjacency with more neighborhood character than a conventional tower. It helps tenants test whether client access and a boutique setting can coexist in the same search.",
+    buildingImportance:
+      "1100 Grant Ave matters because it shows Jackson Square as edge geography rather than a single building format. The building is most useful as a decision reference for teams comparing historic character, client arrival, and neighborhood feel against the stronger transit concentration of the Financial District.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Historic downtown-edge office building" },
+      { label: "Commercial role", value: "Jackson Square / North Beach edge reference" },
+      { label: "District", value: "Jackson Square" },
+      { label: "Secondary context", value: "North Beach edge" },
+      { label: "Floorplate character", value: "Smaller-format office context; suite layout and systems should be validated" },
+      { label: "Transit context", value: "Downtown-adjacent access, but less direct than the Market Street and Montgomery corridor tower core" },
+    ],
+    idealFor: [
+      "Boutique professional-service, creative, advisory, design, and relationship-driven teams that value neighborhood character.",
+      "Small firms comparing Jackson Square, North Beach edge, and Financial District access before touring.",
+      "Client-facing users that want a quieter historic setting without leaving downtown entirely.",
+      "Teams whose office decision depends on character, arrival experience, and fit more than tower image.",
+    ],
+    mayNotFit: [
+      "Companies that need a formal Financial District address signal or the strongest BART-oriented commute.",
+      "Larger users seeking broad modern floorplates, extensive amenities, or deep expansion options.",
+      "Teams that require specialized lab, production, showroom, or heavy operational functionality.",
+      "Businesses where easy parking, loading, or visitor volume matters more than district character.",
+    ],
+    buildingExperience:
+      "The experience should be evaluated as a boutique edge-location decision. It can support firms that want a more personal and character-driven office, but tenants should validate whether the block, suite condition, access, and building systems match the practical needs of the business.",
+    districtContext:
+      "1100 Grant Ave sits near the Jackson Square and North Beach transition. That makes it useful for comparing edge geography: more character and neighborhood texture than the Financial District core, but less direct transit concentration and less formal office identity than Montgomery Street or Market Street towers.",
+    advantages: [
+      "Shows the smaller, character-oriented edge of Jackson Square office demand.",
+      "Useful for boutique teams that still need downtown client access.",
+      "Helps compare North Beach edge character with core Jackson Square and Financial District options.",
+      "Can support firms that value identity and daily setting more than tower services.",
+    ],
+    tradeoffs: [
+      "Less direct transit access than central Financial District or Transbay alternatives.",
+      "May not feel as clearly Jackson Square as Sansome or Battery Street examples.",
+      "Building systems, suite condition, and after-hours access need validation.",
+      "May not work for larger teams or users needing more conventional office infrastructure.",
+    ],
+    validationNotes: [
+      "Does the edge location feel connected enough to the business core for clients and employees?",
+      "Does the available suite support the team's meetings, privacy, and growth needs?",
+      "Are building systems, elevator access, security, and after-hours use practical for the intended workday?",
+      "Would 75 Broadway, 930 Montgomery, or 1000 Sansome provide a clearer Jackson Square identity?",
+      "Would a Financial District tower solve the same client-access need with fewer commute tradeoffs?",
+    ],
+    nearbyAlternatives: [
+      { label: "75 Broadway", url: "/commercial-real-estate/building/CA/san-francisco/75-broadway/", reason: "A stronger comparison when the tenant wants smaller Jackson Square office stock closer to Broadway." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "Useful when boutique professional-service character should stay closer to the district's core office fabric." },
+      { label: "1000 Sansome", url: "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/", reason: "Compare when historic north waterfront office character matters more than North Beach edge context." },
+      { label: "Levi's Plaza", url: "/commercial-real-estate/building/CA/san-francisco/1105-battery-st/", reason: "A better fit when a lower-rise campus environment is more important than small-building character." },
+      { label: "Transamerica Pyramid Center", url: "/commercial-real-estate/building/CA/san-francisco/600-montgomery-st/", reason: "Compare when north-downtown identity should come with a more recognizable tower setting." },
+    ],
+    representativeCompanies: [
+      "Boutique professional-service, advisory, design, creative, executive-office, and relationship-driven teams are the clearest fit categories.",
+      "Named tenant and availability claims should be verified separately before publication or reliance.",
+    ],
+    relatedInsights: [
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Understand how Jackson Square blends historic office character, downtown adjacency, and north waterfront tradeoffs." },
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare Jackson Square edge buildings with the stronger transit and tower identity of the downtown core." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Validate layout, access, cost, building condition, and flexibility before shortlisting smaller downtown buildings." },
+    ],
+  }),
+  [buildingPath("27 Drumm St")]: buildingBrief({
+    buildingSummary:
+      "27 Drumm St is a compact downtown-edge office example for teams comparing Jackson Square, the Embarcadero, and the Financial District. It helps clarify whether the business needs formal CBD positioning or can use a smaller edge setting with nearby waterfront and downtown access.",
+    buildingImportance:
+      "27 Drumm St matters because it makes a common tenant dilemma concrete: some searches begin as Jackson Square searches but are really about the downtown-waterfront edge. The building should be used to test district identity, client arrival, transit access, and whether smaller-format space can meet the same need as a more formal downtown office.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Small-format downtown-edge office building" },
+      { label: "Commercial role", value: "Jackson Square / Embarcadero edge reference" },
+      { label: "District", value: "Jackson Square" },
+      { label: "Secondary context", value: "Embarcadero and Financial District edge" },
+      { label: "Floorplate character", value: "Smaller office context; exact suite layout and building systems should be validated" },
+      { label: "Transit context", value: "Downtown-adjacent access with different commute and visitor patterns than the Market Street core" },
+    ],
+    idealFor: [
+      "Small professional-service, advisory, consulting, finance, and client-facing teams comparing downtown edge options.",
+      "Businesses that want access to Jackson Square and the Embarcadero without committing to a major tower.",
+      "Teams whose location choice depends on client arrival, address perception, and suite practicality.",
+      "Users testing whether a smaller downtown-edge building can substitute for a formal CBD option.",
+    ],
+    mayNotFit: [
+      "Companies that need the clearest Financial District or Jackson Square identity.",
+      "Larger users requiring broad modern floorplates, extensive services, or expansion capacity.",
+      "Creative teams that want stronger historic texture than the downtown-waterfront edge provides.",
+      "Businesses that need easy parking, loading, or highly controlled visitor logistics.",
+    ],
+    buildingExperience:
+      "The experience is practical and edge-oriented. It should be validated around the specific suite, the block-level arrival experience, and how clients and employees read the location. The value is not broad trophy identity; it is whether this compact downtown edge solves the team's access and setting needs.",
+    districtContext:
+      "27 Drumm St sits in the transition between Jackson Square, the Embarcadero, and the Financial District. That makes it useful for comparing district boundaries, not for defining core Jackson Square. It should be pressure-tested against 33 Drumm, 930 Montgomery, and Montgomery Street office alternatives.",
+    advantages: [
+      "Adds a compact downtown-edge reference to the Jackson Square Building Profile set.",
+      "Useful for teams comparing client access across Jackson Square, Embarcadero, and Financial District options.",
+      "Can help avoid overcommitting to tower scale when smaller downtown access is enough.",
+      "Supports practical evaluation of district identity before touring spaces.",
+    ],
+    tradeoffs: [
+      "The address may feel less distinct than core Jackson Square or core Financial District alternatives.",
+      "May not provide the same historic texture as Sansome, Battery, or Broadway examples.",
+      "Suite condition, access, and building systems require careful diligence.",
+      "Large users or teams needing high-amenity infrastructure may outgrow the format quickly.",
+    ],
+    validationNotes: [
+      "Does the address read as Jackson Square, Embarcadero, or Financial District to clients and employees?",
+      "Does the available suite support the team's meeting, privacy, and growth requirements?",
+      "How do arrival, parking, transit, and after-hours access compare with Montgomery Street alternatives?",
+      "Would 33 Drumm, 930 Montgomery, or 315 Montgomery provide a clearer district tradeoff?",
+      "Is smaller-format downtown-edge space enough, or does the business need a stronger building signal?",
+    ],
+    nearbyAlternatives: [
+      { label: "33 Drumm St", url: "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/", reason: "A direct comparison for another compact Drumm Street option with similar edge-condition questions." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "Useful when the tenant wants boutique professional-service character closer to Jackson Square's core." },
+      { label: "315 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/", reason: "A better comparison when the search needs a clearer Financial District office-spine setting." },
+      { label: "Levi's Plaza", url: "/commercial-real-estate/building/CA/san-francisco/1105-battery-st/", reason: "Compare when north waterfront character and a calmer campus environment matter more than compact edge access." },
+      { label: "1000 Sansome", url: "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/", reason: "A stronger fit when historic Jackson Square character should lead the decision." },
+    ],
+    representativeCompanies: [
+      "Small professional-service, advisory, finance, consulting, and relationship-driven office users are most relevant.",
+      "Specific tenant and availability details should be verified from current building sources.",
+    ],
+    relatedInsights: [
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Compare district character, downtown access, and north waterfront tradeoffs before choosing an edge building." },
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Use the downtown core guide to test whether the search needs stronger formal office positioning." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Use client access, commute, culture, and operating needs to choose between adjacent districts." },
+    ],
+  }),
+  [buildingPath("33 Drumm St")]: buildingBrief({
+    buildingSummary:
+      "33 Drumm St is a downtown-waterfront edge office example for teams pressure-testing whether their search belongs in Jackson Square, the Embarcadero, or the Financial District. It is most useful as a comparison point for smaller client-facing users evaluating address perception and practical access.",
+    buildingImportance:
+      "33 Drumm St matters because it exposes the tradeoff between district character and office-core certainty. The building helps Rofo explain that some Jackson Square-adjacent decisions are really about whether a tenant values smaller edge geography more than a clearly defined historic district or formal downtown tower address.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Small-format downtown-edge office building" },
+      { label: "Commercial role", value: "Downtown-waterfront edge reference" },
+      { label: "District", value: "Jackson Square" },
+      { label: "Secondary context", value: "Embarcadero and Financial District edge" },
+      { label: "Floorplate character", value: "Smaller office context; suite condition and layout should be validated" },
+      { label: "Transit context", value: "Downtown-adjacent access with block-level differences from central Financial District transit" },
+    ],
+    idealFor: [
+      "Small and mid-size professional-service, advisory, finance, and consulting teams comparing downtown edge alternatives.",
+      "Client-facing users that need downtown access but do not require a major tower identity.",
+      "Companies testing whether an Embarcadero-edge setting can satisfy a Jackson Square or Financial District search.",
+      "Teams that care about suite practicality, arrival experience, and district perception more than amenities.",
+    ],
+    mayNotFit: [
+      "Companies that need a definitive Jackson Square historic-office story.",
+      "Users requiring formal Financial District positioning, large modern floorplates, or extensive amenities.",
+      "Businesses with specialized operational, lab, showroom, or heavy visitor-volume requirements.",
+      "Teams where parking, loading, or highly predictable visitor access outweighs downtown-edge convenience.",
+    ],
+    buildingExperience:
+      "The experience should be judged through the lens of edge-condition fit. It may work well when the company benefits from downtown proximity and smaller-suite practicality, but the team should validate whether the immediate setting feels clear enough for clients, employees, and recruiting.",
+    districtContext:
+      "33 Drumm St sits near the same transition zone as 27 Drumm, where Jackson Square, Embarcadero, and Financial District considerations overlap. It is useful for comparing adjacent district identities, not for replacing stronger core examples such as Levi's Plaza, 1000 Sansome, or 930 Montgomery.",
+    advantages: [
+      "Clarifies the downtown-waterfront edge of the Jackson Square decision.",
+      "Useful for client-facing teams that want smaller-format office access near downtown.",
+      "Supports comparison between address perception, commute access, and district character.",
+      "Can help tenants decide whether they need a tower, a historic district building, or an edge alternative.",
+    ],
+    tradeoffs: [
+      "May not provide the same clear district signal as core Jackson Square examples.",
+      "May not provide the same office-core certainty as Montgomery Street or Market Street buildings.",
+      "Suite condition, building services, and after-hours access should be validated early.",
+      "The compact format may not support larger growth plans or more complex workplace programs.",
+    ],
+    validationNotes: [
+      "Does the location feel like the right district to clients, employees, and candidates?",
+      "Does the building format support the team's layout, meeting, privacy, and growth needs?",
+      "Would 27 Drumm, 930 Montgomery, or 315 Montgomery provide a sharper comparison point?",
+      "Are transit, rideshare, visitor arrival, parking, and after-hours patterns practical?",
+      "Is the edge setting a real advantage, or would a core Jackson Square or Financial District building be clearer?",
+    ],
+    nearbyAlternatives: [
+      { label: "27 Drumm St", url: "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/", reason: "A direct comparison for another compact downtown-waterfront edge option." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "Useful when the tenant wants stronger boutique professional-service character near core Jackson Square." },
+      { label: "315 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/", reason: "Compare when the search may actually need a conventional Financial District office spine." },
+      { label: "1000 Sansome", url: "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/", reason: "A stronger fit when historic north waterfront character should lead the choice." },
+      { label: "Levi's Plaza", url: "/commercial-real-estate/building/CA/san-francisco/1105-battery-st/", reason: "Compare when the user wants a more defined north waterfront workplace setting." },
+    ],
+    representativeCompanies: [
+      "Small and mid-size professional-service, advisory, finance, consulting, and relationship-driven office users are most relevant.",
+      "Tenant, availability, and suite-specific claims should be verified from current sources before reliance.",
+    ],
+    relatedInsights: [
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Understand the district's historic-office and north waterfront context before choosing an edge building." },
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare edge-office ambiguity with the clearer client-service environment of the downtown core." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Evaluate layout, condition, access, cost, and flexibility before treating similar downtown spaces as equal." },
     ],
   }),
 };

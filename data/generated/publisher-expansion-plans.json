@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T17:14:11-07:00",
+  "generatedAt": "2026-07-28T17:36:10-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,14 +55,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 17,
+        "buildingScore": 19,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
@@ -90,8 +90,8 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 26,
-          "score": 17
+          "count": 29,
+          "score": 19
         },
         "insights": {
           "score": 100,
@@ -120,7 +120,7 @@
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 65,
-            "buildingBriefCount": 17,
+            "buildingBriefCount": 20,
             "status": "Developed",
             "districts": [
               {
@@ -202,7 +202,7 @@
               "buildingCount": 65,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
-              "reviewRequiredCount": 5,
+              "reviewRequiredCount": 2,
               "rolesCovered": {
                 "creative_office_environment": 45,
                 "professional_office_environment": 4,
@@ -1120,7 +1120,7 @@
               "secondaryDistricts": 14,
               "recommendations": 7,
               "representativeBuildings": 65,
-              "buildingBriefs": 17,
+              "buildingBriefs": 20,
               "subtypes": 7,
               "archetypes": 10,
               "activities": 7,
@@ -1128,7 +1128,7 @@
               "representativeRoles": 5,
               "operationalCategories": 5,
               "operationalCharacteristics": 12,
-              "reviewRequiredRepresentativeBuildings": 5
+              "reviewRequiredRepresentativeBuildings": 2
             },
             "gaps": [],
             "blocking": false,
@@ -1136,7 +1136,7 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -1167,7 +1167,7 @@
               "buildingCount": 65,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
-              "reviewRequiredCount": 5,
+              "reviewRequiredCount": 2,
               "rolesCovered": [
                 "creative_office_environment",
                 "professional_office_environment",
@@ -2120,7 +2120,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -2146,7 +2146,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -2619,7 +2619,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.65,
+          "buildingBriefShare": 0.69,
           "warnings": []
         }
       },
@@ -2628,7 +2628,7 @@
         "label": "Balanced",
         "dominantEcosystem": "office",
         "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.65,
+        "buildingBriefShare": 0.69,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -2645,7 +2645,7 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 17 Building Briefs.",
+            "65 Representative Buildings and 20 Building Briefs.",
             "5 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -2748,7 +2748,7 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 17 Building Briefs.",
+            "65 Representative Buildings and 20 Building Briefs.",
             "5 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3167,7 +3167,7 @@
           "secondaryDistricts": 14,
           "recommendations": 7,
           "representativeBuildings": 65,
-          "buildingBriefs": 17,
+          "buildingBriefs": 20,
           "subtypes": 7,
           "archetypes": 10,
           "activities": 7,
@@ -3175,7 +3175,7 @@
           "representativeRoles": 5,
           "operationalCategories": 5,
           "operationalCharacteristics": 12,
-          "reviewRequiredRepresentativeBuildings": 5
+          "reviewRequiredRepresentativeBuildings": 2
         },
         "gaps": [],
         "targetSubtypes": [
@@ -3677,55 +3677,6 @@
           "itemName": "101 Lytton Ave",
           "sourceId": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
           "publicUrl": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1100 Grant Ave",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -6065,55 +6016,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-27-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "27 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2741-16th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -6862,55 +6764,6 @@
           "itemName": "32900 Alvarado Niles Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-33-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "33 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -11448,55 +11301,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1100 Grant Ave",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -13800,55 +13604,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-27-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "27 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2741-16th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -14597,55 +14352,6 @@
           "itemName": "32900 Alvarado Niles Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-33-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "33 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -18794,7 +18500,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 159 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 156 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -19118,7 +18824,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -19441,7 +19147,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -19747,7 +19453,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -19920,13 +19626,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "1100 Grant Ave",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+              "itemName": "119 Filbert St",
+              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -19937,13 +19643,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1201-illinois-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "119 Filbert St",
-              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "itemName": "1201 Illinois St",
+              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -20065,14 +19771,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 1100 Grant Ave, 119 Filbert St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1100 Grant Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 119 Filbert St, 1201 Illinois St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1201 Illinois St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -20313,13 +20019,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "1100 Grant Ave",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+              "itemName": "119 Filbert St",
+              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
               "priorityScore": 91,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -20386,7 +20092,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 1100 Grant Ave\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1100 Grant Ave - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 119 Filbert St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -20395,7 +20101,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -29235,7 +28941,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -39057,7 +38763,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -48049,7 +47755,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -57591,7 +57297,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -63304,14 +63010,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 17,
+        "buildingScore": 19,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
@@ -63339,8 +63045,8 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 26,
-          "score": 17
+          "count": 29,
+          "score": 19
         },
         "insights": {
           "score": 100,
@@ -63369,7 +63075,7 @@
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 65,
-            "buildingBriefCount": 17,
+            "buildingBriefCount": 20,
             "status": "Developed",
             "districts": [
               {
@@ -63451,7 +63157,7 @@
               "buildingCount": 65,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
-              "reviewRequiredCount": 5,
+              "reviewRequiredCount": 2,
               "rolesCovered": {
                 "creative_office_environment": 45,
                 "professional_office_environment": 4,
@@ -64369,7 +64075,7 @@
               "secondaryDistricts": 14,
               "recommendations": 7,
               "representativeBuildings": 65,
-              "buildingBriefs": 17,
+              "buildingBriefs": 20,
               "subtypes": 7,
               "archetypes": 10,
               "activities": 7,
@@ -64377,7 +64083,7 @@
               "representativeRoles": 5,
               "operationalCategories": 5,
               "operationalCharacteristics": 12,
-              "reviewRequiredRepresentativeBuildings": 5
+              "reviewRequiredRepresentativeBuildings": 2
             },
             "gaps": [],
             "blocking": false,
@@ -64385,7 +64091,7 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -64416,7 +64122,7 @@
               "buildingCount": 65,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
-              "reviewRequiredCount": 5,
+              "reviewRequiredCount": 2,
               "rolesCovered": [
                 "creative_office_environment",
                 "professional_office_environment",
@@ -65369,7 +65075,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -65395,7 +65101,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 17 Building Briefs.",
+              "65 Representative Buildings and 20 Building Briefs.",
               "5 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -65868,7 +65574,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.65,
+          "buildingBriefShare": 0.69,
           "warnings": []
         }
       },
@@ -65877,7 +65583,7 @@
         "label": "Balanced",
         "dominantEcosystem": "office",
         "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.65,
+        "buildingBriefShare": 0.69,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -65894,7 +65600,7 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 17 Building Briefs.",
+            "65 Representative Buildings and 20 Building Briefs.",
             "5 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -65997,7 +65703,7 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 17 Building Briefs.",
+            "65 Representative Buildings and 20 Building Briefs.",
             "5 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -66416,7 +66122,7 @@
           "secondaryDistricts": 14,
           "recommendations": 7,
           "representativeBuildings": 65,
-          "buildingBriefs": 17,
+          "buildingBriefs": 20,
           "subtypes": 7,
           "archetypes": 10,
           "activities": 7,
@@ -66424,7 +66130,7 @@
           "representativeRoles": 5,
           "operationalCategories": 5,
           "operationalCharacteristics": 12,
-          "reviewRequiredRepresentativeBuildings": 5
+          "reviewRequiredRepresentativeBuildings": 2
         },
         "gaps": [],
         "targetSubtypes": [
@@ -66926,55 +66632,6 @@
           "itemName": "101 Lytton Ave",
           "sourceId": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
           "publicUrl": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1100 Grant Ave",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -69314,55 +68971,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-27-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "27 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2741-16th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -70111,55 +69719,6 @@
           "itemName": "32900 Alvarado Niles Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-33-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "33 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -74697,55 +74256,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1100 Grant Ave",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -77049,55 +76559,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-27-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "27 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/27-drumm-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2741-16th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -77846,55 +77307,6 @@
           "itemName": "32900 Alvarado Niles Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/32900-alvarado-niles-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-33-drumm-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "33 Drumm St",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/33-drumm-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -82043,7 +81455,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 159 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 156 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -82367,7 +81779,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -82690,7 +82102,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -82996,7 +82408,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -83169,13 +82581,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "1100 Grant Ave",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+              "itemName": "119 Filbert St",
+              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -83186,13 +82598,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1201-illinois-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "119 Filbert St",
-              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "itemName": "1201 Illinois St",
+              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/",
               "priorityScore": 87,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -83314,14 +82726,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 1100 Grant Ave, 119 Filbert St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1100 Grant Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 119 Filbert St, 1201 Illinois St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1201 Illinois St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 159 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 156 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -83562,13 +82974,13 @@
               ]
             },
             {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1100-grant-ave",
+              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
               "gapType": "representativeBuilding",
-              "itemName": "1100 Grant Ave",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1100-grant-ave/",
+              "itemName": "119 Filbert St",
+              "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
+              "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
               "priorityScore": 91,
               "confidence": "Ready",
               "suggestedNextAction": "Author a Building Brief for this representative building.",
@@ -83635,7 +83047,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 1100 Grant Ave\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1100 Grant Ave - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 119 Filbert St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Emeryville Commercial Core - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 119 Filbert St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -83644,7 +83056,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -92484,7 +91896,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -102306,7 +101718,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -111298,7 +110710,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-07-28T17:14:11-07:00",
+      "generatedAt": "2026-07-28T17:36:10-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -120841,8 +120253,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 347,
-    "totalPriorities": 347,
+    "totalGaps": 344,
+    "totalPriorities": 344,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
