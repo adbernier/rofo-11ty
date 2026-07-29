@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T16:34:48-07:00",
+  "generatedAt": "2026-07-28T16:52:56-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -17,7 +17,7 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 9,
+      "collections": 10,
       "districts": [
         "Design District",
         "Dogpatch",
@@ -27,9 +27,10 @@
         "Mission District",
         "Potrero Hill",
         "Showplace Square",
-        "SoMa"
+        "SoMa",
+        "South Beach"
       ],
-      "evidenceRecords": 84,
+      "evidenceRecords": 93,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
@@ -61,6 +62,7 @@
         "Historic Production Neighborhood Anchor",
         "Historic Shipyard Adaptive Reuse",
         "Historic Technology Adaptive Reuse",
+        "Historic Waterfront Adaptive-Reuse Office",
         "Industrial Innovation District Anchor",
         "Industrial Production Counterpoint",
         "Institutional Life Science Anchor",
@@ -82,8 +84,10 @@
         "Mid-Rise Production-Adjacent Creative Office",
         "Mixed-Use Amenity Anchor",
         "Mixed-Use Commercial Center",
+        "Mixed-Use Historic Neighborhood Anchor",
         "Mixed-Use Transit Edge Anchor",
         "Modern Class A Innovation Office",
+        "Modern Class A Transbay-Edge Office",
         "Modern Office/R&D Waterfront Building",
         "Neighborhood Value Creative Office",
         "Neighborhood-Scale Industrial Conversion",
@@ -94,9 +98,12 @@
         "Production-Adjacent Creative Office",
         "Professional Services Tower",
         "Repositioned Downtown Tower",
+        "Repositioned Waterfront-Adjacent Office",
         "Research Lab Environment",
+        "Residential / Commercial Mixed-Use Anchor",
         "Showroom / Creative Office Anchor",
         "Small-Format Historic Office",
+        "South Financial District Modernized Office",
         "Startup Creative Mid-Rise Office",
         "Startup-Scale Creative Office",
         "Technology / Creative / Adaptive Reuse / AI",
@@ -107,11 +114,13 @@
         "Townsend Corridor Adaptive Office",
         "Townsend Corridor Creative Office",
         "Transit-Oriented Neighborhood Office",
+        "Transit-Oriented Professional Services Mid-Rise",
         "Transit-Oriented Technology Creative Office",
         "Trophy Office Tower",
         "Warehouse-to-Headquarters Office",
         "Waterfront Industrial Adaptive Reuse",
         "Waterfront Modern Office",
+        "Waterfront Technology Ballpark Campus",
         "Waterfront-Edge Innovation Office",
         "West SoMa Creative Technology Office"
       ],
@@ -123,6 +132,7 @@
         "Alabama / 18th Creative Production Cluster",
         "Architectural Identity / Legacy Office Benchmark",
         "Bayfront Office Character Benchmark",
+        "Brannan Mixed-Use Fabric Benchmark",
         "Brick-and-Timber Character Benchmark",
         "Broadway / North Beach Transition Benchmark",
         "Caltrain / Showplace Connection",
@@ -142,6 +152,7 @@
         "District Icon / Showroom Benchmark",
         "District Origin / Life Science Anchor",
         "Dogpatch / Potrero Operational Edge",
+        "Embarcadero Access Professional Services Benchmark",
         "Embarcadero-Facing Professional Services Benchmark",
         "Event and Neighborhood Experience Anchor",
         "Executive Benchmark / Scale Comparison",
@@ -152,6 +163,7 @@
         "High-End Transbay Comparison Benchmark",
         "Historic SoMa Office Identity Benchmark",
         "Historic Waterfront Reuse Benchmark",
+        "Hospitality-Style Repositioning Benchmark",
         "Large Adaptive Creative Technology Benchmark",
         "Large Creative Floorplate Benchmark",
         "Larger Creative Inventory Benchmark",
@@ -162,6 +174,7 @@
         "Mid-Market Creative Demand",
         "Mid-Rise Creative Office Benchmark",
         "Mission / Potrero Operational Edge",
+        "Mission Bay / Ballpark Transition Benchmark",
         "Mission Bay Ecosystem Bridge",
         "Mission Innovation Edge Benchmark",
         "Mission Street Cultural Commercial Anchor",
@@ -185,6 +198,7 @@
         "Practical Mid-Market CBD Benchmark",
         "Private Life Science Cluster Benchmark",
         "Regional Access Creative Office Benchmark",
+        "Rincon Mixed-Use Identity Anchor",
         "Robotics and AI Comparison Benchmark",
         "Small Business Production Roots",
         "Small-Format Character Infill Benchmark",
@@ -192,19 +206,23 @@
         "Smaller Modern Office Format Benchmark",
         "Smaller Technology Team Benchmark",
         "Smaller-Format Potrero Benchmark",
+        "SoMa / Financial District Comparison Anchor",
         "SoMa / South Financial District Bridge",
+        "South Beach Neighborhood Balance Benchmark",
+        "Spear Street Office Benchmark",
         "Townsend Technology Office Anchor",
         "Trade Event / Ecosystem Anchor",
         "Transbay District Icon",
         "Transit-Oriented Professional Services Benchmark",
         "UCSF-Adjacency Research Benchmark",
-        "Warehouse Showroom Pattern"
+        "Warehouse Showroom Pattern",
+        "Waterfront Historic Office Benchmark"
       ],
       "confidenceSummary": {
-        "High": 84
+        "High": 93
       },
-      "deferredCandidates": 38,
-      "latestValidation": "2026-07-28T16:34:48-07:00",
+      "deferredCandidates": 42,
+      "latestValidation": "2026-07-28T16:52:56-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -224,8 +242,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 110,
-          "existingCollections": 9,
-          "missingCollections": 101,
+          "existingCollections": 10,
+          "missingCollections": 100,
           "resolvedDistricts": 110,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -302,8 +320,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 10,
-            "existingCollections": 9,
-            "missingCollections": 1
+            "existingCollections": 10,
+            "missingCollections": 0
           },
           {
             "marketId": "seattle",
@@ -1802,6 +1820,22 @@
             "resolutionSource": "explicit district ownership",
             "path": "/commercial-real-estate/CA/san-francisco/soma/",
             "collectionId": "sf-soma-commercial-market-evidence"
+          },
+          {
+            "districtId": "south-beach",
+            "districtName": "South Beach",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/CA/san-francisco/south-beach/",
+            "collectionId": "sf-south-beach-commercial-market-evidence"
           }
         ],
         "missingCollections": [
@@ -4008,49 +4042,6 @@
               ]
             },
             "expansionWeight": 1630
-          },
-          {
-            "districtId": "south-beach",
-            "districtName": "South Beach",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "explicit district ownership"
-              },
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/south-beach/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 96,
-              "districtConfidence": "medium",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1556
           },
           {
             "districtId": "north-san-jose",
@@ -7455,31 +7446,6 @@
           },
           {
             "rank": 71,
-            "districtId": "south-beach",
-            "districtName": "South Beach",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/south-beach/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: medium.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 72,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -7505,7 +7471,7 @@
             ]
           },
           {
-            "rank": 73,
+            "rank": 72,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -7530,7 +7496,7 @@
             ]
           },
           {
-            "rank": 74,
+            "rank": 73,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -7555,7 +7521,7 @@
             ]
           },
           {
-            "rank": 75,
+            "rank": 74,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -7580,7 +7546,7 @@
             ]
           },
           {
-            "rank": 76,
+            "rank": 75,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -7606,7 +7572,7 @@
             ]
           },
           {
-            "rank": 77,
+            "rank": 76,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -7631,7 +7597,7 @@
             ]
           },
           {
-            "rank": 78,
+            "rank": 77,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -7656,7 +7622,7 @@
             ]
           },
           {
-            "rank": 79,
+            "rank": 78,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -7681,7 +7647,7 @@
             ]
           },
           {
-            "rank": 80,
+            "rank": 79,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -13918,7 +13884,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 73,
+                "orderingRank": 72,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -13972,7 +13938,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 79,
+                "orderingRank": 78,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -14026,7 +13992,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 80,
+                "orderingRank": 79,
                 "orderingRationale": [
                   "Denver is the operational Market Workspace.",
                   "Publisher analysis backing: Denver.",
@@ -18015,7 +17981,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 76,
+                "orderingRank": 75,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -18070,7 +18036,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 77,
+                "orderingRank": 76,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -18124,7 +18090,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 78,
+                "orderingRank": 77,
                 "orderingRationale": [
                   "Orange County is the operational Market Workspace.",
                   "Publisher analysis backing: Orange County.",
@@ -19665,7 +19631,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 75,
+                "orderingRank": 74,
                 "orderingRationale": [
                   "Peninsula is the operational Market Workspace.",
                   "Publisher analysis backing: San Francisco.",
@@ -25114,14 +25080,14 @@
             ],
             "marketId": "san-francisco",
             "marketName": "San Francisco",
-            "status": "Partial",
+            "status": "Complete",
             "progress": {
               "unit": "Collections",
-              "completed": 9,
+              "completed": 10,
               "target": 10,
-              "label": "9 / 10 Collections",
-              "statusLabel": "Partial",
-              "currentConstraint": "1 district collections remain unbuilt.",
+              "label": "10 / 10 Collections",
+              "statusLabel": "Complete",
+              "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
@@ -25136,24 +25102,23 @@
                 "programLabel": "Commercial Market Evidence",
                 "title": "San Francisco Commercial Market Evidence Completion",
                 "objective": "Advance San Francisco Commercial Market Evidence toward market completion through coherent, reviewable missions.",
-                "status": "Partial",
+                "status": "Complete",
                 "progress": {
                   "unit": "Collections",
-                  "completed": 9,
+                  "completed": 10,
                   "target": 10,
-                  "label": "9 / 10 Collections",
-                  "statusLabel": "Partial",
-                  "currentConstraint": "1 district collections remain unbuilt.",
+                  "label": "10 / 10 Collections",
+                  "statusLabel": "Complete",
+                  "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
                   "sourceEvidence": [
                     "Commercial Market Evidence collection registry.",
                     "Commercial Location Knowledge Graph district nodes."
                   ]
                 },
-                "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-                "nextInitiativeId": "san-francisco:commercial_market_evidence:south-beach",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:south-beach",
+                "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
+                "nextInitiativeId": "san-francisco:commercial_market_evidence:design-district",
+                "nextMissionId": "",
                 "initiativeIds": [
-                  "san-francisco:commercial_market_evidence:south-beach",
                   "san-francisco:commercial_market_evidence:design-district",
                   "san-francisco:commercial_market_evidence:dogpatch",
                   "san-francisco:commercial_market_evidence:financial-district",
@@ -25162,16 +25127,15 @@
                   "san-francisco:commercial_market_evidence:mission-district",
                   "san-francisco:commercial_market_evidence:potrero-hill",
                   "san-francisco:commercial_market_evidence:showplace-square",
-                  "san-francisco:commercial_market_evidence:soma"
+                  "san-francisco:commercial_market_evidence:soma",
+                  "san-francisco:commercial_market_evidence:south-beach"
                 ],
-                "missionIds": [
-                  "mission:san-francisco:commercial-market-evidence:south-beach"
-                ],
-                "missionCount": 1,
-                "workItemCount": 1,
+                "missionIds": [],
+                "missionCount": 0,
+                "workItemCount": 0,
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 1
+                  "count": 0
                 },
                 "sizingStrategy": "District collections are Standard missions. Each mission hides evidence-record research, narrative, source selection, validator fixes, and minimal documentation work.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -25183,103 +25147,10 @@
             ],
             "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
             "nextCampaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-            "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-            "nextInitiativeId": "san-francisco:commercial_market_evidence:south-beach",
-            "nextMissionId": "mission:san-francisco:commercial-market-evidence:south-beach",
+            "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
+            "nextInitiativeId": "san-francisco:commercial_market_evidence:design-district",
+            "nextMissionId": "",
             "initiatives": [
-              {
-                "id": "san-francisco:commercial_market_evidence:south-beach",
-                "districtId": "south-beach",
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "South Beach Collection",
-                "scope": "South Beach",
-                "objective": "Create the South Beach Commercial Market Evidence source-data collection.",
-                "status": "Next",
-                "currentStage": "Next",
-                "progress": {
-                  "unit": "Collection",
-                  "completed": 0,
-                  "target": 1,
-                  "label": "Next",
-                  "statusLabel": "Next",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence expansion ordering."
-                  ]
-                },
-                "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-                "nextMissionId": "mission:san-francisco:commercial-market-evidence:south-beach",
-                "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-                "workItemCount": 6,
-                "remainingMilestones": [
-                  "Source-supported evidence selection",
-                  "District narrative",
-                  "Validator pass"
-                ],
-                "confidence": "Medium",
-                "sourceEvidence": [
-                  "Commercial Location Knowledge Graph district node.",
-                  "Commercial Market Evidence expansion ordering."
-                ],
-                "readOnly": false,
-                "orderingRank": 71,
-                "orderingRationale": [
-                  "San Francisco is the operational Market Workspace.",
-                  "Publisher analysis backing: San Francisco.",
-                  "Ownership resolved by explicit district ownership.",
-                  "Publisher readiness: Distribution Ready.",
-                  "Public district page exists.",
-                  "Knowledge Graph confidence: medium.",
-                  "3 comparison relationships exist."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 6
-                },
-                "missions": [
-                  {
-                    "id": "mission:san-francisco:commercial-market-evidence:south-beach",
-                    "title": "Build the South Beach Commercial Market Evidence collection",
-                    "marketId": "san-francisco",
-                    "marketName": "San Francisco",
-                    "programId": "commercial_market_evidence",
-                    "programLabel": "Commercial Market Evidence",
-                    "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-                    "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-                    "initiativeId": "san-francisco:commercial_market_evidence:south-beach",
-                    "initiativeTitle": "South Beach Collection",
-                    "portfolioId": "",
-                    "objective": "Create the South Beach Commercial Market Evidence source-data collection for San Francisco.",
-                    "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-                    "expectedImpact": "Medium",
-                    "estimatedEffort": "Medium",
-                    "missionSize": {
-                      "id": "standard",
-                      "label": "Standard",
-                      "reviewWindow": "60-120 minutes",
-                      "maximumWorkItems": 8
-                    },
-                    "missionClass": "Foundation",
-                    "confidence": "Medium",
-                    "priorityScore": 12,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-                    "executionPacketAvailable": true,
-                    "workItems": {
-                      "hiddenByDefault": true,
-                      "count": 1,
-                      "includedOpportunityIds": [
-                        "commercial-market-evidence:south-beach"
-                      ],
-                      "deferredWorkItemIds": [
-                        "commercial-market-evidence:south-beach:quality-scoring"
-                      ]
-                    }
-                  }
-                ]
-              },
               {
                 "id": "san-francisco:commercial_market_evidence:design-district",
                 "districtId": "design-district",
@@ -25639,6 +25510,47 @@
                 ],
                 "readOnly": true,
                 "completionEvidence": "sf-soma-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
+                "id": "san-francisco:commercial_market_evidence:south-beach",
+                "districtId": "south-beach",
+                "marketId": "san-francisco",
+                "marketName": "San Francisco",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "South Beach Collection",
+                "scope": "South Beach",
+                "objective": "Maintain the completed South Beach Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry."
+                ],
+                "readOnly": true,
+                "completionEvidence": "sf-south-beach-commercial-market-evidence",
                 "orderingRank": null,
                 "orderingRationale": [
                   "Existing Commercial Market Evidence collection."
@@ -27296,7 +27208,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 72,
+                "orderingRank": 71,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -27351,7 +27263,7 @@
                   "Commercial Market Evidence expansion ordering."
                 ],
                 "readOnly": true,
-                "orderingRank": 74,
+                "orderingRank": 73,
                 "orderingRationale": [
                   "Seattle is the operational Market Workspace.",
                   "Publisher analysis backing: Seattle.",
@@ -30823,24 +30735,23 @@
         "programLabel": "Commercial Market Evidence",
         "title": "San Francisco Commercial Market Evidence Completion",
         "objective": "Advance San Francisco Commercial Market Evidence toward market completion through coherent, reviewable missions.",
-        "status": "Partial",
+        "status": "Complete",
         "progress": {
           "unit": "Collections",
-          "completed": 9,
+          "completed": 10,
           "target": 10,
-          "label": "9 / 10 Collections",
-          "statusLabel": "Partial",
-          "currentConstraint": "1 district collections remain unbuilt.",
+          "label": "10 / 10 Collections",
+          "statusLabel": "Complete",
+          "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
           "sourceEvidence": [
             "Commercial Market Evidence collection registry.",
             "Commercial Location Knowledge Graph district nodes."
           ]
         },
-        "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-        "nextInitiativeId": "san-francisco:commercial_market_evidence:south-beach",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:south-beach",
+        "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
+        "nextInitiativeId": "san-francisco:commercial_market_evidence:design-district",
+        "nextMissionId": "",
         "initiativeIds": [
-          "san-francisco:commercial_market_evidence:south-beach",
           "san-francisco:commercial_market_evidence:design-district",
           "san-francisco:commercial_market_evidence:dogpatch",
           "san-francisco:commercial_market_evidence:financial-district",
@@ -30849,16 +30760,15 @@
           "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:potrero-hill",
           "san-francisco:commercial_market_evidence:showplace-square",
-          "san-francisco:commercial_market_evidence:soma"
+          "san-francisco:commercial_market_evidence:soma",
+          "san-francisco:commercial_market_evidence:south-beach"
         ],
-        "missionIds": [
-          "mission:san-francisco:commercial-market-evidence:south-beach"
-        ],
-        "missionCount": 1,
-        "workItemCount": 1,
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 1
+          "count": 0
         },
         "sizingStrategy": "District collections are Standard missions. Each mission hides evidence-record research, narrative, source selection, validator fixes, and minimal documentation work.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -30867,7 +30777,6 @@
           "Commercial Location Knowledge Graph district nodes."
         ],
         "initiatives": [
-          "san-francisco:commercial_market_evidence:south-beach",
           "san-francisco:commercial_market_evidence:design-district",
           "san-francisco:commercial_market_evidence:dogpatch",
           "san-francisco:commercial_market_evidence:financial-district",
@@ -30876,11 +30785,10 @@
           "san-francisco:commercial_market_evidence:mission-district",
           "san-francisco:commercial_market_evidence:potrero-hill",
           "san-francisco:commercial_market_evidence:showplace-square",
-          "san-francisco:commercial_market_evidence:soma"
+          "san-francisco:commercial_market_evidence:soma",
+          "san-francisco:commercial_market_evidence:south-beach"
         ],
-        "missions": [
-          "mission:san-francisco:commercial-market-evidence:south-beach"
-        ]
+        "missions": []
       },
       {
         "id": "san-francisco:building_profiles:completion-campaign",
@@ -32770,7 +32678,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 73,
+        "orderingRank": 72,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -32825,7 +32733,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 79,
+        "orderingRank": 78,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -32880,7 +32788,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 80,
+        "orderingRank": 79,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -34739,7 +34647,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 76,
+        "orderingRank": 75,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -34795,7 +34703,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 77,
+        "orderingRank": 76,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -34850,7 +34758,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 78,
+        "orderingRank": 77,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -35473,7 +35381,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 75,
+        "orderingRank": 74,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -38111,63 +38019,6 @@
         "campaignId": "san-francisco:publisher:completion-campaign"
       },
       {
-        "id": "san-francisco:commercial_market_evidence:south-beach",
-        "districtId": "south-beach",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "South Beach Collection",
-        "scope": "South Beach",
-        "objective": "Create the South Beach Commercial Market Evidence source-data collection.",
-        "status": "Next",
-        "currentStage": "Next",
-        "progress": {
-          "unit": "Collection",
-          "completed": 0,
-          "target": 1,
-          "label": "Next",
-          "statusLabel": "Next",
-          "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
-          ]
-        },
-        "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-        "nextMissionId": "mission:san-francisco:commercial-market-evidence:south-beach",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-        "workItemCount": 6,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
-        "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
-        ],
-        "readOnly": false,
-        "orderingRank": 71,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: medium.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 6
-        },
-        "missions": [
-          "mission:san-francisco:commercial-market-evidence:south-beach"
-        ],
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
-      },
-      {
         "id": "san-francisco:commercial_market_evidence:design-district",
         "districtId": "design-district",
         "marketId": "san-francisco",
@@ -38534,6 +38385,48 @@
         ],
         "readOnly": true,
         "completionEvidence": "sf-soma-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": [],
+        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
+      },
+      {
+        "id": "san-francisco:commercial_market_evidence:south-beach",
+        "districtId": "south-beach",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "South Beach Collection",
+        "scope": "South Beach",
+        "objective": "Maintain the completed South Beach Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry."
+        ],
+        "readOnly": true,
+        "completionEvidence": "sf-south-beach-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -39321,7 +39214,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 72,
+        "orderingRank": 71,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -39377,7 +39270,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": true,
-        "orderingRank": 74,
+        "orderingRank": 73,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -42295,44 +42188,6 @@
         }
       },
       {
-        "id": "mission:san-francisco:commercial-market-evidence:south-beach",
-        "title": "Build the South Beach Commercial Market Evidence collection",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:south-beach",
-        "initiativeTitle": "South Beach Collection",
-        "portfolioId": "",
-        "objective": "Create the South Beach Commercial Market Evidence source-data collection for San Francisco.",
-        "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "missionClass": "Foundation",
-        "confidence": "Medium",
-        "priorityScore": 12,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:commercial-market-evidence:south-beach",
-        "executionPacketAvailable": true,
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 1,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:south-beach"
-          ],
-          "deferredWorkItemIds": [
-            "commercial-market-evidence:south-beach:quality-scoring"
-          ]
-        }
-      },
-      {
         "id": "mission:san-francisco:building-profiles:financial-district:office",
         "title": "Complete the Financial District Office Building Profile portfolio",
         "marketId": "san-francisco",
@@ -42628,7 +42483,7 @@
       "programsPerMarket": 6,
       "campaigns": 54,
       "initiatives": 182,
-      "missions": 70
+      "missions": 69
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -74187,285 +74042,6 @@
             "_data/commercialMarketEvidence.js",
             "data/commercial-market-evidence/san-francisco/financial-district.js",
             "data/commercial-market-evidence/south-bay/north-bayshore.js",
-            "scripts/qa-commercial-market-evidence.js"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection",
-            "Knowledge Graph district identity",
-            "Representative building and public-source evidence"
-          ],
-          "acceptanceCriteria": [
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
-            "Evidence records remain source-supported, confidence-scoped, and editorially bounded.",
-            "The Commercial Market Evidence validator passes.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain unchanged."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence source-data collection",
-            "Validator pass result",
-            "Documentation updates only where needed",
-            "SER v1 implementation report"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-eos.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "mission:san-francisco:commercial-market-evidence:south-beach",
-        "title": "Build the South Beach Commercial Market Evidence collection",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Commercial Market Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:south-beach",
-        "initiativeTitle": "South Beach Collection",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "",
-        "ecosystemId": "",
-        "workstream": "Commercial Market Evidence",
-        "includedOpportunityIds": [
-          "commercial-market-evidence:south-beach"
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:south-beach:collection",
-            "title": "South Beach Commercial Market Evidence collection",
-            "category": "commercialMarketEvidence",
-            "categoryLabel": "Commercial Market Evidence",
-            "reason": "District is missing a Commercial Market Evidence collection.",
-            "suggestedModule": {
-              "id": "commercialMarketEvidence",
-              "label": "Commercial Market Evidence"
-            }
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:south-beach:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "objective": "Create the South Beach Commercial Market Evidence source-data collection for San Francisco.",
-        "reason": [
-          "South Beach is missing a Commercial Market Evidence collection."
-        ],
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "Medium Impact / Medium Effort",
-        "missionClass": "Foundation",
-        "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-        "completionCriteria": [
-          "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-          "The collection follows the Financial District reference implementation and Commercial Market Evidence architecture.",
-          "Evidence records remain source-supported, confidence-scoped, and editorially bounded.",
-          "The Commercial Market Evidence validator passes.",
-          "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain unchanged."
-        ],
-        "relevantFiles": [
-          "docs/product/rofo-master-plan.md",
-          "docs/commercial-market-evidence.md",
-          "docs/commercial-market-evidence-financial-district.md",
-          "docs/rofo-publisher.md",
-          "_data/locationKnowledgeGraph.js",
-          "_data/commercialMarketEvidence.js",
-          "data/commercial-market-evidence/san-francisco/financial-district.js",
-          "data/commercial-market-evidence/san-francisco/south-beach.js",
-          "scripts/qa-commercial-market-evidence.js"
-        ],
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection",
-          "Knowledge Graph district identity",
-          "Representative building and public-source evidence"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-eos.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 12,
-        "priorityStars": 1,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "rationale": [
-          "Commercial Market Evidence collections are executed as one district-level Mission.",
-          "Individual evidence records, district narrative, source research, and validator fixes remain hidden Work Items inside the packet.",
-          "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
-        ],
-        "why": [
-          "Current constraint: South Beach lacks a Commercial Market Evidence collection.",
-          "The district is present in the Knowledge Graph and missing from the Market Evidence registry.",
-          "One collection mission avoids separate top-level tasks for each evidence record."
-        ],
-        "source": {
-          "system": "EOS",
-          "includedSystems": [
-            "Commercial Market Evidence",
-            "Commercial Location Knowledge Graph",
-            "Publisher"
-          ]
-        },
-        "orderingRank": 71,
-        "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: medium.",
-          "3 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 6,
-          "labels": [
-            "Inspect Commercial Market Evidence architecture.",
-            "Inspect Financial District canonical collection.",
-            "Inspect district Knowledge Graph and representative-building sources.",
-            "Research and select bounded representative evidence.",
-            "Create source-data collection with provenance and confidence.",
-            "Run Commercial Market Evidence validator."
-          ]
-        },
-        "executionPacket": {
-          "objective": "Create the South Beach Commercial Market Evidence source-data collection for San Francisco.",
-          "reason": [
-            "South Beach is missing a Commercial Market Evidence collection."
-          ],
-          "currentHealth": "75% Improving",
-          "currentConstraint": "South Beach lacks a Commercial Market Evidence collection.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:south-beach:collection",
-              "title": "South Beach Commercial Market Evidence collection",
-              "category": "commercialMarketEvidence",
-              "categoryLabel": "Commercial Market Evidence",
-              "reason": "District is missing a Commercial Market Evidence collection.",
-              "suggestedModule": {
-                "id": "commercialMarketEvidence",
-                "label": "Commercial Market Evidence"
-              }
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:south-beach:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality measurement remains deferred; this mission creates the source collection and passes the validator.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collections are executed as one district-level Mission.",
-            "Individual evidence records, district narrative, source research, and validator fixes remain hidden Work Items inside the packet.",
-            "Ordering is inherited from deterministic Commercial Market Evidence expansion signals."
-          ],
-          "expectedImpact": "Medium",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/rofo-publisher.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "data/commercial-market-evidence/san-francisco/financial-district.js",
-            "data/commercial-market-evidence/san-francisco/south-beach.js",
             "scripts/qa-commercial-market-evidence.js"
           ],
           "dependencies": [
@@ -122868,19 +122444,19 @@
     "reviewQueue": [],
     "opportunityInventory": {
       "total": 398,
-      "missions": 70,
+      "missions": 69,
       "resolvedPortfolioMissions": 52,
       "byQueue": {
         "editorial": 398,
-        "missions": 70,
+        "missions": 69,
         "resolvedPortfolioMissions": 52,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0,
-        "programMissions": 9
+        "programMissions": 8
       },
       "hiddenFromHomepage": 398,
-      "programMissions": 9
+      "programMissions": 8
     }
   },
   "workQueue": [

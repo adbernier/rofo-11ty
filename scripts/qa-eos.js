@@ -474,15 +474,15 @@ if (!sanFranciscoCmeProgram) {
   fail("San Francisco must expose a Commercial Market Evidence Program.");
 } else {
   const cmeProgress = sanFranciscoCmeProgram.progress || {};
-  if (cmeProgress.completed !== 9 || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
-    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected 9/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
+  if (cmeProgress.completed !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
+    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected ${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
   }
-  if (String(cmeProgress.statusLabel || "") === "Complete") {
-    fail("San Francisco Commercial Market Evidence must not report Complete while canonical districts remain missing.");
+  if (String(cmeProgress.statusLabel || "") !== "Complete") {
+    fail("San Francisco Commercial Market Evidence must report Complete when all canonical district collections exist.");
   }
   const sfExistingCollections = (marketEvidenceExpansion.existingCollections || []).filter((district) => district.marketId === "san-francisco");
   const sfMissingCollections = (marketEvidenceExpansion.missingCollections || []).filter((district) => district.marketId === "san-francisco");
-  if (sfExistingCollections.length !== 9 || sfMissingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length - 9) {
+  if (sfExistingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length || sfMissingCollections.length !== 0) {
     fail(`San Francisco CME denominator must be canonical district count; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
   }
   for (const districtId of SAN_FRANCISCO_CANONICAL_DISTRICTS) {
