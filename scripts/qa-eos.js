@@ -527,18 +527,43 @@ if (!sanFranciscoBuildingProfilesProgram) {
   fail("San Francisco must expose a Building Profiles Program.");
 } else {
   const campaign = (sanFranciscoBuildingProfilesProgram.campaigns || [])[0];
-  if (!campaign || campaign.resolvedPortfolioCount < 1 || !campaign.nextMissionId) {
-    fail("San Francisco Building Profiles Campaign must expose resolved portfolio progress and a next portfolio Mission.");
-  }
-  const nextPortfolio = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
-    initiative.nextMissionId === campaign.nextMissionId
-  );
-  if (!nextPortfolio || !nextPortfolio.nextMissionId) {
-    fail("San Francisco Building Profiles must expose the next active portfolio Mission.");
-  }
-  const mission = buildingProfileMissions.find((item) => item.id === nextPortfolio.nextMissionId);
-  if (!mission || mission.marketId !== "san-francisco" || (mission.includedTasks || []).length < 2) {
-    fail("San Francisco next Building Profile portfolio must map to one multi-building Building Profile Mission.");
+  if (!campaign) {
+    fail("San Francisco Building Profiles Campaign must expose resolver progress.");
+  } else {
+    const sanFranciscoResolvedPortfolios = (buildingProfileResolution.portfolios || []).filter((portfolio) =>
+      portfolio.marketId === "san-francisco" && portfolio.eligibleForExecution
+    );
+    const sanFranciscoUngroupedItems = (buildingProfileResolution.ungroupedItems || []).filter((item) =>
+      item.marketId === "san-francisco"
+    );
+    if (sanFranciscoResolvedPortfolios.length) {
+      if (campaign.resolvedPortfolioCount < 1 || !campaign.nextMissionId) {
+        fail("San Francisco Building Profiles Campaign must expose resolved portfolio progress and a next portfolio Mission.");
+      }
+      const nextPortfolio = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
+        initiative.nextMissionId === campaign.nextMissionId
+      );
+      if (!nextPortfolio || !nextPortfolio.nextMissionId) {
+        fail("San Francisco Building Profiles must expose the next active portfolio Mission.");
+      }
+      const mission = buildingProfileMissions.find((item) => item.id === nextPortfolio.nextMissionId);
+      if (!mission || mission.marketId !== "san-francisco" || (mission.includedTasks || []).length < 2) {
+        fail("San Francisco next Building Profile portfolio must map to one multi-building Building Profile Mission.");
+      }
+    } else {
+      if (campaign.resolvedPortfolioCount !== 0 || campaign.nextMissionId || (campaign.missionIds || []).length) {
+        fail("San Francisco Building Profiles must not expose a next portfolio Mission when no eligible portfolio remains.");
+      }
+      if (!sanFranciscoUngroupedItems.length || campaign.ungroupedItemCount !== sanFranciscoUngroupedItems.length) {
+        fail("San Francisco Building Profiles must preserve explicit ungrouped fallback work when no portfolio remains.");
+      }
+      const statusInitiative = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
+        initiative.id === "san-francisco:building_profiles:status"
+      );
+      if (!statusInitiative || statusInitiative.readOnly !== true || statusInitiative.nextMissionId) {
+        fail("San Francisco Building Profiles fallback Initiative must remain read-only without an executable Mission.");
+      }
+    }
   }
   const completedFinancialDistrictUrls = [
     "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
@@ -551,6 +576,8 @@ if (!sanFranciscoBuildingProfilesProgram) {
     "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
     "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
     "/commercial-real-estate/building/CA/san-francisco/600-montgomery-st/",
+    "/commercial-real-estate/building/CA/san-francisco/156-2nd-st/",
+    "/commercial-real-estate/building/CA/san-francisco/699-2nd-st/",
   ];
   const completedFinancialDistrictWork = (eos.workQueue || []).filter((item) =>
     item.category === "buildingBriefs" && completedFinancialDistrictUrls.includes(item.publicUrl)

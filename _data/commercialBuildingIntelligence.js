@@ -423,8 +423,10 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "888 Brannan", address: "888 Brannan St", districtKey: "soma", role: "Adaptive Reuse Benchmark", themes: ["Technology", "Creative Office", "Adaptive Reuse", "Large Floorplates"], reason: "Explains SoMa's warehouse-to-headquarters pattern for large creative technology users.", comparisonAddresses: ["650 Townsend St", "680 Folsom St", "2 Henry Adams St"], secondaryDistrictKeys: ["designDistrict", "showplaceSquare"] }),
   canonicalBuilding({ name: "795 Folsom", address: "795 Folsom St", districtKey: "soma", role: "Creative Benchmark", themes: ["Technology", "Creative Office", "Mid-Rise", "Transit Oriented"], reason: "A useful mid-rise reference for central SoMa without jumping directly to trophy towers.", comparisonAddresses: ["144 2nd St", "140 New Montgomery St", "680 Folsom St"] }),
   canonicalBuilding({ name: "144 Second", address: "144 2nd St", districtKey: "soma", role: "Startup Benchmark", themes: ["Startup", "Creative Office", "Mid-Rise", "Transit Oriented"], reason: "A practical representative building for smaller and mid-sized technology, professional-service, and creative teams near the downtown boundary.", comparisonAddresses: ["156 2nd St", "140 New Montgomery St", "795 Folsom St"] }),
+  canonicalBuilding({ name: "156 2nd St", address: "156 2nd St", districtKey: "soma", role: "2nd Street Creative Office Benchmark", themes: ["Creative Office", "Adaptive Reuse", "Mid-Rise", "Central SoMa"], reason: "Pairs with 144 2nd St to show SoMa's smaller-grain adaptive office pattern near the downtown boundary.", comparisonAddresses: ["144 2nd St", "303 2nd St", "680 Folsom St"], semanticSourceBuildingId: "ca-san-francisco-156-2nd-st" }),
   canonicalBuilding({ name: "600 Townsend", address: "600 Townsend St", districtKey: "soma", role: "Creative Benchmark", themes: ["Creative Office", "Technology", "Adaptive Reuse", "Caltrain Access"], reason: "Helps explain the Townsend corridor for teams prioritizing Caltrain, creative space, and larger layouts.", comparisonAddresses: ["650 Townsend St", "460 Townsend St", "410 Townsend St"], secondaryDistrictKeys: ["showplaceSquare"] }),
   canonicalBuilding({ name: "414 Brannan", address: "414 Brannan St", districtKey: "soma", role: "Creative Benchmark", themes: ["Creative Office", "Startup", "Adaptive Reuse", "Neighborhood Anchor"], reason: "A lower-scale building that explains SoMa's older brick-and-timber creative-office environment.", comparisonAddresses: ["600 Townsend St", "909 Harrison St", "699 2nd St"] }),
+  canonicalBuilding({ name: "699 2nd St", address: "699 2nd St", districtKey: "soma", role: "China Basin Edge Benchmark", themes: ["China Basin", "Waterfront Edge", "Office", "Mission Bay Edge"], reason: "Shows the 2nd Street and China Basin transition where SoMa office searches begin to overlap with waterfront and Mission Bay-adjacent context.", comparisonAddresses: ["600 Townsend St", "500 Terry Francois Blvd", "1800 Owens St"], semanticSourceBuildingId: "ca-san-francisco-699-2nd-st" }),
   canonicalBuilding({ name: "909 Harrison", address: "909 Harrison St", districtKey: "soma", role: "Value Benchmark", themes: ["Creative Office", "Startup", "Mid-Market", "Adaptive Reuse"], reason: "Shows the more flexible, less corporate SoMa inventory that can appeal to earlier-stage companies.", comparisonAddresses: ["414 Brannan St", "144 2nd St", "999 Brannan St"] }),
 
   canonicalBuilding({ name: "Uber Mission Bay", address: "1455 3rd St", districtKey: "missionBay", role: "Innovation Benchmark", themes: ["Corporate Headquarters", "Technology", "Campus Style", "Modern Class A"], reason: "Defines Mission Bay's modern headquarters identity and campus-like office environment.", comparisonAddresses: ["1800 Owens St", "500 Terry Francois Blvd", "415 Mission St"] }),
@@ -1543,6 +1545,74 @@ const buildingBriefsByPath = {
       { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", summary: "Use this guide to evaluate buildout, infrastructure, timing, and cost before choosing a creative-office floorplate." },
     ],
   }),
+  [buildingPath("156 2nd St")]: buildingBrief({
+    buildingSummary:
+      "156 2nd St is a smaller-grain SoMa office building for teams comparing Central SoMa's 2nd Street corridor with more formal Financial District towers and larger SoMa creative-office buildings. It is useful when a search depends on downtown proximity, creative-office identity, and manageable scale rather than a flagship headquarters signal.",
+    buildingImportance:
+      "156 2nd St matters because it reinforces the part of SoMa that works for smaller professional, product, and creative teams near the downtown boundary. Read with 144 2nd St, it shows why not every SoMa decision is about trophy towers, warehouse headquarters, or Mission Bay-scale buildings.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Smaller Central SoMa office building" },
+      { label: "Commercial role", value: "2nd Street creative office benchmark" },
+      { label: "District", value: "SoMa" },
+      { label: "Submarket context", value: "2nd Street and Central SoMa transition" },
+      { label: "Floorplate character", value: "Smaller office environment; suite layout, systems, and expansion options should be validated" },
+      { label: "Transit context", value: "Central SoMa and downtown-edge access; commute fit depends on employee origins" },
+      { label: "Parking context", value: "Urban parking, loading, and visitor arrival should be checked before shortlisting" },
+    ],
+    idealFor: [
+      "Small and mid-sized technology, product, creative, and professional-service teams that want a SoMa address without a large headquarters footprint.",
+      "Companies comparing 2nd Street office texture against Financial District formality and Transbay tower scale.",
+      "Teams that value central access, practical floorplates, and neighborhood identity more than landmark visibility.",
+      "Organizations that want to understand whether Central SoMa fits before moving farther west or south in the district.",
+    ],
+    mayNotFit: [
+      "Companies that need a flagship tower image, large contiguous expansion path, or formal executive arrival.",
+      "Teams that want the broadest Financial District client-services environment.",
+      "Users requiring specialized lab, medical, production, or heavy operational infrastructure without specific validation.",
+      "Businesses whose employee commute pattern points more strongly to Caltrain-oriented Townsend corridor buildings.",
+    ],
+    buildingExperience:
+      "The experience is central, urban, and smaller in grain than SoMa's large creative-office buildings. It can work well for teams that want a practical workplace close to downtown while keeping a distinctly SoMa identity. Tenants should validate suite condition and daily arrival carefully because the value is in fit and context, not generic prestige.",
+    districtContext:
+      "156 2nd St sits in the 2nd Street transition area, where central SoMa, downtown access, older commercial blocks, and technology-office demand overlap. It should be compared with 144 2nd St for similar smaller-team logic, 680 Folsom for larger adaptive reuse, and 303 2nd St when a more corporate Class A profile is needed.",
+    advantages: [
+      "Good reference point for smaller Central SoMa office demand.",
+      "Supports a less formal workplace identity than Financial District towers.",
+      "Useful downtown-edge geography for teams comparing SoMa, Transbay, and Financial District options.",
+      "Pairs with 144 2nd St to show SoMa's smaller creative-office layer.",
+      "Can help teams test whether they need central access or larger creative-office scale.",
+    ],
+    tradeoffs: [
+      "Does not carry the same symbolic signal as Salesforce Tower, 181 Fremont, or Financial District landmarks.",
+      "May offer less expansion flexibility than larger SoMa creative-office buildings.",
+      "Block-by-block pedestrian experience and amenity fit should be validated.",
+      "Building systems, suite condition, and operating hours should not be assumed from district context alone.",
+    ],
+    validationNotes: [
+      "Does the available suite fit the team's size, meeting pattern, and near-term growth without overbuilding?",
+      "Would 144 2nd St, 303 2nd St, or 680 Folsom provide a clearer balance of image, scale, and access?",
+      "Is Central SoMa more useful for the employee base than Townsend corridor or Financial District access?",
+      "Do building systems, security, elevator access, delivery needs, and after-hours use match the company workflow?",
+      "Will the surrounding blocks support recruiting, visitors, lunch, and daily routines for this specific team?",
+    ],
+    nearbyAlternatives: [
+      { label: "144 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/", reason: "The closest conceptual comparison for smaller and mid-sized teams evaluating 2nd Street office context." },
+      { label: "303 2nd St", url: "/commercial-real-estate/building/CA/san-francisco/303-2nd-st/", reason: "A better comparison when the company wants a more corporate Class A building on the same corridor." },
+      { label: "680 Folsom", url: "/commercial-real-estate/building/CA/san-francisco/680-folsom-st/", reason: "Useful when central SoMa access matters but the team needs stronger adaptive reuse identity and larger scale." },
+      { label: "140 New Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/", reason: "Compare when historic character and Market Street adjacency are more important than 2nd Street texture." },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/", reason: "Use the district page to compare central SoMa, Transbay, South Park, Townsend, and Mission Bay-edge options." },
+    ],
+    representativeCompanies: [
+      "Small and mid-sized technology, product, creative, and professional-service teams are the most relevant company categories.",
+      "Named tenants, availability, suite condition, and building systems should be verified from current source materials before relying on them.",
+    ],
+    relatedInsights: [
+      { title: "SoMa commercial real estate", url: "/commercial-real-estate/CA/san-francisco/soma/", summary: "Compare the subareas inside SoMa before deciding whether 2nd Street is the right context." },
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare traditional downtown office settings when client-facing formality matters more than creative-office character." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Use a structured comparison of layout, commute, operating fit, and buildout before shortlisting." },
+    ],
+  }),
   [buildingPath("888 Brannan St")]: buildingBrief({
     buildingSummary:
       "888 Brannan is a large SoMa adaptive reuse office building for companies that want warehouse-to-headquarters character, larger creative floorplates, and a less formal setting than downtown towers. It is useful for tenants comparing West SoMa scale, creative identity, and production-adjacent surroundings.",
@@ -1676,6 +1746,74 @@ const buildingBriefsByPath = {
       { title: "SoMa commercial real estate", url: "/commercial-real-estate/CA/san-francisco/soma/", summary: "Understand how the Townsend corridor fits within SoMa's broader commercial geography." },
       { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare SoMa against Mission Bay, the Financial District, Jackson Square, and nearby districts." },
       { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Compare layout, access, buildout, cost, and flexibility before adding a building to the shortlist." },
+    ],
+  }),
+  [buildingPath("699 2nd St")]: buildingBrief({
+    buildingSummary:
+      "699 2nd St is a SoMa edge office building for teams comparing the district's China Basin and 2nd Street transition with Mission Bay, South Park, and the Townsend corridor. It is useful when the question is not simply central SoMa versus Financial District, but whether a southern waterfront-adjacent edge better fits the workday.",
+    buildingImportance:
+      "699 2nd St matters because it explains SoMa's southern edge. It shows how office searches can begin to overlap with larger blocks, service-commercial context, waterfront movement, and Mission Bay adjacency without becoming a pure Mission Bay or life-science decision.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "SoMa edge office building" },
+      { label: "Commercial role", value: "China Basin edge office benchmark" },
+      { label: "District", value: "SoMa" },
+      { label: "Secondary context", value: "China Basin, waterfront edge, and Mission Bay adjacency" },
+      { label: "Floorplate character", value: "Office-edge environment; suite scale, systems, and buildout should be validated directly" },
+      { label: "Transit context", value: "Southern SoMa access with Caltrain, Mission Bay, and waterfront circulation considerations" },
+      { label: "Parking context", value: "Parking, event-area movement, loading, and visitor access should be validated by operating pattern" },
+    ],
+    idealFor: [
+      "Technology, product, service-commercial, and professional teams comparing SoMa with Mission Bay and waterfront-adjacent options.",
+      "Companies that value SoMa access but want to understand the southern 2nd Street and China Basin edge.",
+      "Teams whose employee or visitor pattern may benefit from Caltrain, Mission Bay proximity, or a less central SoMa location.",
+      "Organizations evaluating whether a transitional district context supports their workday better than a formal downtown tower.",
+    ],
+    mayNotFit: [
+      "Firms that need a clear Financial District or Transbay tower identity.",
+      "Teams that want the densest central SoMa street life or the strongest downtown business-service environment.",
+      "Companies that need specialized laboratory, medical, or production infrastructure without direct property-level validation.",
+      "Businesses that would be confused by a location that feels more like a district edge than a single obvious neighborhood center.",
+    ],
+    buildingExperience:
+      "The experience is transitional and practical. Tenants should expect a SoMa office setting shaped by nearby waterfront, China Basin, Mission Bay, and service-commercial patterns rather than the more polished central downtown rhythm. That can be valuable for access and district flexibility, but it requires clearer diligence on commute, visitors, and daily employee routines.",
+    districtContext:
+      "699 2nd St sits near the southern 2nd Street and China Basin edge, where SoMa begins to connect with Mission Bay and the waterfront. It should be compared with 600 Townsend for Townsend corridor office logic, 500 Terry Francois for a clearer Mission Bay waterfront setting, and 1800 Owens when a newer Mission Bay office environment is more appropriate.",
+    advantages: [
+      "Strong reference for SoMa's southern China Basin edge.",
+      "Useful comparison for teams deciding between SoMa and Mission Bay adjacency.",
+      "Can support a practical office search where district access and edge conditions matter.",
+      "Helps explain that SoMa includes transitional commercial environments, not only central technology blocks.",
+      "Relevant for companies that want to test waterfront and Caltrain-adjacent context without defaulting to Mission Bay.",
+    ],
+    tradeoffs: [
+      "Location identity can feel less singular than core SoMa, Financial District, or Mission Bay choices.",
+      "Amenity, transit, and pedestrian experience should be tested block by block.",
+      "Event-area circulation and waterfront movement may affect employee and visitor patterns.",
+      "Specialized-use capability should not be inferred from proximity to Mission Bay or district context.",
+    ],
+    validationNotes: [
+      "Is the team intentionally choosing a SoMa edge, or would core SoMa, South Beach, or Mission Bay be clearer?",
+      "How do employees and visitors arrive by Caltrain, transit, rideshare, bike, car, and on event days?",
+      "Does the available suite support ordinary office needs without relying on unsupported specialized-use assumptions?",
+      "Would 600 Townsend, 500 Terry Francois, or 1800 Owens better match the company's district story?",
+      "Does the surrounding edge context support recruiting, clients, daily services, and after-hours operating needs?",
+    ],
+    nearbyAlternatives: [
+      { label: "600 Townsend", url: "/commercial-real-estate/building/CA/san-francisco/600-townsend-st/", reason: "A stronger comparison when Townsend corridor office access and southern SoMa practicality are central to the decision." },
+      { label: "500 Terry Francois", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", reason: "Useful when the company wants a clearer Mission Bay waterfront office context." },
+      { label: "1800 Owens", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", reason: "Compare when a newer Mission Bay office environment and institutional adjacency matter more than SoMa identity." },
+      { label: "414 Brannan", url: "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/", reason: "A better comparison when South Park and central creative-office context are more important than the China Basin edge." },
+      { label: "SoMa", url: "/commercial-real-estate/CA/san-francisco/soma/", reason: "Use the district page to compare central SoMa, South Park, Townsend, and Mission Bay-edge environments." },
+    ],
+    representativeCompanies: [
+      "Technology, product, professional-service, service-commercial, and operations-aware office users are the most relevant company categories.",
+      "Current tenant names, availability, suite condition, and specialized infrastructure should be verified from current source materials.",
+    ],
+    relatedInsights: [
+      { title: "SoMa commercial real estate", url: "/commercial-real-estate/CA/san-francisco/soma/", summary: "Compare SoMa's internal subareas before choosing a southern edge location." },
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Compare Mission Bay when the company wants a clearer health, research, waterfront, or planned-district identity." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Clarify whether commute, district identity, clients, operations, or future flexibility should lead the decision." },
     ],
   }),
   [buildingPath("1800 Owens St")]: buildingBrief({
