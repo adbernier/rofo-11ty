@@ -176,6 +176,16 @@ function codexPromptForTask(task, packet) {
   const portfolioWorkItems = packet.workItems && Array.isArray(packet.workItems.buildings) && packet.workItems.buildings.length
     ? `\nHidden building Work Items\n${listLines(packet.workItems.buildings.map((item) => `${item.name} — ${item.path}`))}\n`
     : "";
+  const componentStatuses = packet.componentStatuses
+    ? `\nComponent status\n${listLines([
+      packet.componentStatuses.commercialMarketEvidence ? `Commercial Market Evidence: ${packet.componentStatuses.commercialMarketEvidence}` : "",
+      packet.componentStatuses.evidenceBuildingProfiles && packet.componentStatuses.evidenceBuildingProfiles.label ? `Evidence Building Profiles: ${packet.componentStatuses.evidenceBuildingProfiles.label}` : "",
+      packet.componentStatuses.supportingBuildingProfiles && packet.componentStatuses.supportingBuildingProfiles.label ? `Supporting Building Profiles: ${packet.componentStatuses.supportingBuildingProfiles.label}` : "",
+      Number.isFinite(Number(packet.componentStatuses.unresolvedBuildingItems)) ? `Unresolved building items: ${packet.componentStatuses.unresolvedBuildingItems}` : "",
+      packet.componentStatuses.validationStatus ? `Validation: ${packet.componentStatuses.validationStatus}` : "",
+      packet.componentStatuses.districtBuildingEvidence ? `District Building Evidence: ${packet.componentStatuses.districtBuildingEvidence}` : "",
+    ].filter(Boolean))}\n`
+    : "";
   return plainText(`
 Read docs/product/rofo-master-plan.md and the relevant architecture documentation before making changes.
 
@@ -197,6 +207,7 @@ ${plainText(packet.currentHealth)}
 Relevant files
 ${listLines(packet.files)}
 ${dependencies}
+${componentStatuses}
 ${packet.includedTasks && packet.includedTasks.length ? `Included tasks\n${listLines(packet.includedTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${portfolioWorkItems}${packet.deferredTasks && packet.deferredTasks.length ? `Deferred work\n${listLines(packet.deferredTasks.map((item) => `${item.title}${item.reason ? ` — ${item.reason}` : ""}`))}\n\n` : ""}${packet.reasonForBundling && packet.reasonForBundling.length ? `Reason for bundling\n${listLines(packet.reasonForBundling)}\n\n` : ""}${packet.currentConstraint ? `Current constraint\n${plainText(packet.currentConstraint)}\n\n` : ""}${packet.expectedImpact ? `Expected impact\n${plainText(packet.expectedImpact)}\n\n` : ""}${packet.estimatedEffort ? `Estimated effort classification\n${plainText(packet.estimatedEffort)}\n\n` : ""}${packet.missionSize ? `Mission size\n${plainText(packet.missionSize.label)} (${plainText(packet.missionSize.reviewWindow)})\n\n` : ""}
 Acceptance criteria
 ${listLines(packet.acceptanceCriteria)}
@@ -346,6 +357,7 @@ function renderProjectedProgram(program) {
 function renderProjectedCampaign(campaign) {
   if (!campaign) return "";
   const progressLabel = campaign.progress && campaign.progress.label ? campaign.progress.label : "Measured by EOS";
+  const districtEvidence = campaign.districtBuildingEvidence || null;
   return `
     <article class="campaign-card">
       <div>
@@ -357,6 +369,8 @@ function renderProjectedCampaign(campaign) {
         <span><em>Progress</em>${escapeHtml(progressLabel)}</span>
         <span><em>Missions</em>${escapeHtml(String(campaign.missionCount || 0))}</span>
         <span><em>Hidden Work</em>${escapeHtml(String(campaign.workItemCount || 0))}</span>
+        ${districtEvidence ? `<span><em>Districts Complete</em>${escapeHtml(String(districtEvidence.completeDistrictCount || 0))}</span>` : ""}
+        ${districtEvidence ? `<span><em>In Progress</em>${escapeHtml(String(districtEvidence.inProgressDistrictCount || 0))}</span>` : ""}
         ${Number.isFinite(Number(campaign.resolvedPortfolioCount)) ? `<span><em>Portfolios</em>${escapeHtml(String(campaign.resolvedPortfolioCount))}</span>` : ""}
         ${campaign.estimatedMissionsRemaining ? `<span><em>Remaining</em>${escapeHtml(campaign.estimatedMissionsRemaining)}</span>` : ""}
       </div>
@@ -368,6 +382,8 @@ function renderProjectedCampaign(campaign) {
 function renderProjectedMission(mission, eos, token) {
   const canonicalMission = missionById(eos, mission.id) || mission;
   if (!mission) return "";
+  const components = mission.componentStatuses || {};
+  const evidenceProfiles = components.evidenceBuildingProfiles || null;
   return `
     <article class="market-next-mission">
       <span>${escapeHtml(mission.programLabel || "Mission")} · Next Mission</span>
@@ -378,6 +394,8 @@ function renderProjectedMission(mission, eos, token) {
         <span><em>Effort</em>${escapeHtml(mission.estimatedEffort || "")}</span>
         ${mission.missionSize ? `<span><em>Size</em>${escapeHtml(mission.missionSize.label || "")}</span>` : ""}
         ${mission.workItems && mission.workItems.count ? `<span><em>Work Items</em>${escapeHtml(String(mission.workItems.count))}</span>` : ""}
+        ${components.commercialMarketEvidence ? `<span><em>CME</em>${escapeHtml(components.commercialMarketEvidence)}</span>` : ""}
+        ${evidenceProfiles && evidenceProfiles.label ? `<span><em>Profiles</em>${escapeHtml(evidenceProfiles.label)}</span>` : ""}
         <span><em>Class</em>${escapeHtml(mission.missionClass || "")}</span>
       </div>
       ${canonicalMission.executionPacket ? `<a class="start-work" href="${taskUrl(token, canonicalMission.id)}">Commence Work</a>` : ""}

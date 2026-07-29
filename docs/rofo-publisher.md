@@ -45,7 +45,9 @@ Commercial ecosystem coverage is generated from the Commercial Location Graph an
 
 Commercial Market Evidence platform status is generated from the Market Evidence validator and included in Publisher snapshots for visibility. It remains separate from commercial ecosystem scoring and readiness.
 
-Commercial Market Evidence expansion discovery belongs to EOS, not Publisher. Publisher remains the reporting and snapshot substrate; EOS compares Knowledge Graph districts against evidence collections for read-only portfolio planning.
+Commercial Market Evidence expansion discovery belongs to EOS, not Publisher. Publisher remains the reporting and snapshot substrate; EOS compares Knowledge Graph districts against evidence collections for portfolio planning.
+
+District Building Evidence Missions may execute Commercial Market Evidence validation and selected Building Profile completion together, but Publisher continues measuring Commercial Market Evidence and Building Brief depth separately.
 
 Publisher also reports additive Geographic Readiness and Ecosystem Readiness gates. These make it clear when a metro is geographically developed but commercially incomplete. They do not replace the existing Overall Publisher Score.
 

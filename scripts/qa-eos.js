@@ -317,6 +317,11 @@ if (!buildingProfileResolution || buildingProfileResolution.resolverId !== "buil
   fail("EOS must expose the Building Profile Portfolio Resolver v1 output.");
 }
 
+const districtBuildingEvidenceResolution = portfolioResolution.programs && portfolioResolution.programs.districtBuildingEvidence;
+if (!districtBuildingEvidenceResolution || districtBuildingEvidenceResolution.resolverId !== "district-building-evidence-resolver-v1") {
+  fail("EOS must expose the District Building Evidence Resolver v1 output.");
+}
+
 if (!buildingProfileResolution.summary || buildingProfileResolution.summary.executablePortfolios < 1) {
   fail("Building Profile Portfolio Resolver must produce at least one real executable portfolio.");
 }
@@ -426,24 +431,85 @@ if (!Array.isArray(marketProjection.programs) || marketProjection.programs.lengt
 
 const cmeMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "commercial_market_evidence");
 if (!cmeMissions.length) {
-  fail("Commercial Market Evidence must project at least one executable Program Mission.");
+  fail("District Building Evidence must project at least one executable Program Mission.");
 }
 const buildingProfileMissions = (portfolioQueues.missionQueue || []).filter((mission) => mission.programId === "building_profiles");
 
 const cmeMissionIds = new Set();
+const districtBuildingEvidenceKeys = new Set();
+let futureMissingDistrictMissionFound = false;
 for (const mission of cmeMissions) {
   if (cmeMissionIds.has(mission.id)) fail(`Duplicate Commercial Market Evidence mission id: ${mission.id}`);
   cmeMissionIds.add(mission.id);
+  const districtKey = `${mission.marketId}|${mission.districtId}`;
+  if (!mission.districtId || districtBuildingEvidenceKeys.has(districtKey)) {
+    fail(`Duplicate or missing District Building Evidence mission ownership: ${districtKey}`);
+  }
+  districtBuildingEvidenceKeys.add(districtKey);
   if (!mission.initiativeId || !mission.initiativeTitle) fail(`${mission.id} is missing Initiative association.`);
   if (!mission.executionPacket) fail(`${mission.id} is missing an Execution Packet.`);
   if (!mission.workItems || mission.workItems.hiddenByDefault !== true || mission.workItems.count < 1) {
     fail(`${mission.id} must hide evidence-record work items inside the mission.`);
   }
-  if (!String(mission.title || "").includes("Commercial Market Evidence collection")) {
-    fail(`${mission.id} must be a bounded district collection mission.`);
+  if (!String(mission.title || "").includes("Building Evidence")) {
+    fail(`${mission.id} must be a bounded District Building Evidence mission.`);
+  }
+  if (!mission.componentStatuses || !mission.componentStatuses.commercialMarketEvidence || !mission.componentStatuses.evidenceBuildingProfiles) {
+    fail(`${mission.id} must expose separate CME and Building Profile component statuses.`);
+  }
+  if (((mission.workItems && mission.workItems.buildings) || []).length > BUILDING_PROFILE_PORTFOLIO_MAX_ITEMS) {
+    fail(`${mission.id} exceeds the Building Profile reviewable upper bound.`);
   }
   if ((mission.executionPacket.qaCommands || []).indexOf("node scripts/qa-commercial-market-evidence.js") === -1) {
     fail(`${mission.id} must run the Commercial Market Evidence validator.`);
+  }
+  if ((mission.executionPacket.qaCommands || []).indexOf("node scripts/qa-building-brief-depth.js") === -1) {
+    fail(`${mission.id} must run Building Brief depth QA.`);
+  }
+  if (mission.componentStatuses.commercialMarketEvidence === "Missing") {
+    futureMissingDistrictMissionFound = true;
+    if (!(mission.includedTasks || []).some((task) => task.id === `commercial-market-evidence:${mission.districtId}:collection`)) {
+      fail(`${mission.id} must include the missing district collection Work Item.`);
+    }
+  }
+}
+if (!futureMissingDistrictMissionFound) {
+  fail("District Building Evidence must demonstrate the future missing-district collection path.");
+}
+
+const districtEvidenceIds = new Set();
+const districtEvidenceOwnership = new Set();
+for (const district of districtBuildingEvidenceResolution.districts || []) {
+  if (!district.evidenceMissionId || districtEvidenceIds.has(district.evidenceMissionId)) {
+    fail(`Duplicate or missing District Building Evidence resolver id: ${district.evidenceMissionId}`);
+  }
+  districtEvidenceIds.add(district.evidenceMissionId);
+  const districtKey = `${district.marketId}|${district.districtId}`;
+  if (districtEvidenceOwnership.has(districtKey)) {
+    fail(`District Building Evidence resolver assigned a district more than once: ${districtKey}`);
+  }
+  districtEvidenceOwnership.add(districtKey);
+  const mappedMissions = cmeMissions.filter((mission) => mission.marketId === district.marketId && mission.districtId === district.districtId);
+  if (district.districtMissionStatus === "Complete" && mappedMissions.length) {
+    fail(`Completed district must not generate an executable District Building Evidence Mission: ${districtKey}`);
+  }
+  if (district.eligibleForExecution && mappedMissions.length !== 1) {
+    fail(`Executable district must map to exactly one District Building Evidence Mission: ${districtKey}`);
+  }
+  if (district.eligibleForExecution) {
+    const workItemIds = new Set();
+    const mission = mappedMissions[0];
+    for (const workItemId of mission.includedOpportunityIds || []) {
+      if (workItemIds.has(workItemId)) fail(`${mission.id} contains a duplicate hidden Work Item: ${workItemId}`);
+      workItemIds.add(workItemId);
+    }
+    if (district.cmeStatus === "Complete") {
+      const buildings = (mission.workItems && mission.workItems.buildings) || [];
+      const profileCoverage = district.evidenceProfileCoverage || {};
+      if (buildings.length + Number(district.unresolvedBuildingItems || 0) < Number(profileCoverage.missing || 0)) {
+        fail(`${mission.id} must expose selected evidence Building Profile gaps as hidden Work Items or explicit unresolved items.`);
+      }
+    }
   }
 }
 
@@ -495,30 +561,36 @@ if (!sanFranciscoCmeProgram) {
   if (!financialDistrict || financialDistrict.status !== "Complete" || financialDistrict.nextMissionId) {
     fail("Financial District must be recognized as a completed Commercial Market Evidence Initiative without an executable mission.");
   }
-  const expectedNext = (marketEvidenceExpansion.suggestedExpansionOrder || []).find((district) => district.metroId === "san-francisco");
   const nextInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status === "Next");
-  if (expectedNext) {
-    if (!nextInitiative || nextInitiative.id !== `san-francisco:commercial_market_evidence:${expectedNext.districtId}`) {
-      fail("San Francisco Commercial Market Evidence next Initiative must follow deterministic expansion ordering.");
-    }
-    if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
-      fail("San Francisco Commercial Market Evidence next Initiative must map to one executable Mission.");
-    }
-    if (nextInitiative.id.includes("west-berkeley")) {
-      fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
-    }
-    const nextProjectedMission = (nextInitiative.missions || [])[0];
-    if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
-      fail("San Francisco Commercial Market Evidence Mission must map back to the Initiative and Execution Packet.");
-    }
-  } else {
-    if (nextInitiative) {
-      fail("San Francisco Commercial Market Evidence must not expose a next Initiative when all tracked district collections are complete.");
-    }
-    const incompleteInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status !== "Complete");
-    if (incompleteInitiative) {
-      fail("San Francisco Commercial Market Evidence must mark all tracked district Initiatives complete when no San Francisco collection is missing.");
-    }
+  if (!nextInitiative || nextInitiative.id !== "san-francisco:commercial_market_evidence:dogpatch") {
+    fail("San Francisco next District Building Evidence Initiative must be Dogpatch based on deterministic profile-gap ordering.");
+  }
+  if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
+    fail("San Francisco District Building Evidence next Initiative must map to one executable Mission.");
+  }
+  if (nextInitiative.id.includes("west-berkeley")) {
+    fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
+  }
+  const nextProjectedMission = (nextInitiative.missions || [])[0];
+  if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
+    fail("San Francisco District Building Evidence Mission must map back to the Initiative and Execution Packet.");
+  }
+  const dogpatchMission = cmeMissions.find((mission) => mission.id === nextInitiative.nextMissionId);
+  if (!dogpatchMission || dogpatchMission.title !== "Complete Dogpatch Building Evidence") {
+    fail("San Francisco acceptance case must expose one Complete Dogpatch Building Evidence Mission.");
+  }
+  if (!dogpatchMission.componentStatuses || dogpatchMission.componentStatuses.commercialMarketEvidence !== "Complete") {
+    fail("Dogpatch catch-up Mission must preserve completed Commercial Market Evidence status.");
+  }
+  const dogpatchProfileCoverage = dogpatchMission.componentStatuses && dogpatchMission.componentStatuses.evidenceBuildingProfiles;
+  if (!dogpatchProfileCoverage || dogpatchProfileCoverage.completed !== 0 || dogpatchProfileCoverage.target !== 10) {
+    fail("Dogpatch catch-up Mission must expose incomplete selected evidence Building Profile coverage.");
+  }
+  const duplicateDogpatchBuildingProfileMission = buildingProfileMissions.find((mission) =>
+    mission.marketId === "san-francisco" && mission.districtId === "dogpatch"
+  );
+  if (duplicateDogpatchBuildingProfileMission) {
+    fail("Dogpatch must not expose a separate primary Building Profile Mission when District Building Evidence owns the work.");
   }
 }
 
@@ -626,8 +698,8 @@ for (const mission of cmeMissions) {
 
 for (const district of (ownershipResolution.unresolvedDistricts || []).concat(ownershipResolution.ambiguousDistricts || [])) {
   const districtId = district.districtId;
-  if (cmeMissions.some((mission) => (mission.includedOpportunityIds || []).includes(`commercial-market-evidence:${districtId}`))) {
-    fail(`Unresolved or ambiguous district must not generate an executable Commercial Market Evidence mission: ${districtId}`);
+  if (cmeMissions.some((mission) => (mission.includedOpportunityIds || []).some((id) => String(id).startsWith(`commercial-market-evidence:${districtId}:`)))) {
+    fail(`Unresolved or ambiguous district must not generate an executable District Building Evidence mission: ${districtId}`);
   }
 }
 
@@ -663,13 +735,18 @@ for (const mission of buildingProfileMissions) {
 }
 
 for (const portfolio of buildingProfileResolution.portfolios || []) {
-  if (portfolio.eligibleForExecution && !buildingProfileMissionByPortfolio.has(portfolio.portfolioId)) {
+  if (
+    portfolio.eligibleForExecution &&
+    !buildingProfileMissionByPortfolio.has(portfolio.portfolioId) &&
+    !districtBuildingEvidenceKeys.has(`${portfolio.marketId}|${portfolio.districtId}`)
+  ) {
     fail(`${portfolio.portfolioId} must map to one executable Mission.`);
   }
 }
 
 for (const mission of portfolioQueues.missionQueue || []) {
   if (mission.programId === "building_profiles") continue;
+  if (mission.source && mission.source.resolverId === "district-building-evidence-resolver-v1") continue;
   const duplicatePortfolioWork = (mission.includedOpportunityIds || []).find((id) => portfolioWorkItemIds.has(id));
   if (duplicatePortfolioWork) {
     fail(`${mission.id} duplicates a Building Profile portfolio Work Item as primary work: ${duplicatePortfolioWork}`);

@@ -463,7 +463,7 @@ The first Mission Control v2 workspace consumes the generated market projection 
 - what the single highest-leverage Mission is for each active market
 - how each market is progressing across Programs
 
-Each market workspace card shows overall market health, Knowledge Readiness, Experience Readiness, the next projected Mission, and concise Program progress. Program detail can expose executable Initiatives when EOS can resolve a bounded Mission, as with Commercial Market Evidence district collections. Execution still happens by opening the existing Mission Execution Packet. Hidden Work Items remain available only through mission detail and Opportunity Inventory.
+Each market workspace card shows overall market health, Knowledge Readiness, Experience Readiness, the next projected Mission, and concise Program progress. Program detail can expose executable Initiatives when EOS can resolve a bounded Mission, as with district building-evidence work. Execution still happens by opening the existing Mission Execution Packet. Hidden Work Items remain available only through mission detail and Opportunity Inventory.
 
 The Market Workspace is the first UI step toward the operating model, but it does not change Publisher scoring, EOS mission generation, Commercial Market Evidence planning, Field Mode ownership, or execution packets.
 
@@ -575,8 +575,8 @@ Mission Control should optimize editorial throughput by selecting the largest co
 Program posture:
 
 - Publisher: keep current readiness and ecosystem bundling when work shares one market, ecosystem, source path, and validation route.
-- Commercial Market Evidence: keep one district collection as one Mission. Evidence records, narrative, research, validator fixes, and documentation notes remain hidden Work Items.
-- Building Profiles: increase bundling into district, ecosystem, or portfolio Missions when existing Publisher evidence provides a deterministic shared scope. Preserve individual Building Brief work items as compatibility fallback.
+- Commercial Market Evidence: keep one district collection as the evidence unit, but prefer a District Building Evidence Mission when selected Building Profiles are part of the same district workflow. Evidence records, narrative, research, validator fixes, profile work, and documentation notes remain hidden Work Items.
+- Building Profiles: prefer District Building Evidence Missions for selected CME evidence buildings; otherwise increase bundling into district, ecosystem, or portfolio Missions when existing Publisher evidence provides a deterministic shared scope. Preserve individual Building Brief work items as compatibility fallback.
 - Photography: use Campaign progress and Field Mode summaries. Do not emit one executable Mission per photo target from Mission Control.
 - Recommendation QA: bundle QA status, scenario documentation, and explainability work when they share one market validation path.
 - Knowledge Graph: bundle graph, comparison, and internal-link updates only when the same market and source files are involved.
@@ -597,7 +597,9 @@ Resolver guardrails:
 - duplicate buildings are excluded
 - ungrouped candidates remain visible as fallback
 
-Commercial Market Evidence already follows the same pattern at district level: one district collection is one Mission, with evidence records hidden as Work Items. It should not combine all missing district collections for a market into one execution packet.
+Commercial Market Evidence follows the same pattern at district level, but the preferred execution path is now one District Building Evidence Mission when Commercial Market Evidence and selected Building Profiles share a district workflow. It should not combine all missing district collections for a market into one execution packet.
+
+For existing completed Commercial Market Evidence districts, Mission Control can still show an executable catch-up Mission when selected evidence buildings lack adequate Building Profiles. For future missing districts, the Mission should create the collection and complete the required selected profiles together. The underlying Commercial Market Evidence and Building Profile systems remain separately owned and separately measured.
 
 Commercial Market Evidence uses this projection to separate operational market ownership from Publisher metro grouping. For example, San Francisco Publisher analysis can remain Bay Area-wide while East Bay districts are projected into an East Bay Market Workspace. The projection resolves district ownership before assigning Initiatives, reports ambiguous or unresolved districts, and excludes those districts from executable missions until ownership is deterministic.
 

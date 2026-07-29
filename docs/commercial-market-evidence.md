@@ -8,11 +8,11 @@ This document is architectural. It does not implement runtime behavior, change P
 
 The first reference implementation is `docs/commercial-market-evidence-financial-district.md`. Its first production source dataset lives in `data/commercial-market-evidence/san-francisco/financial-district.js` and is exposed to Eleventy through `_data/commercialMarketEvidence.js`. Future district collections should use that Financial District model as the quality benchmark before Commercial Market Evidence becomes a generalized source-data system.
 
-Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as platform health, and Mission Control displays that health while EOS resolves the next missing district collection into an executable Program Mission.
+Commercial Market Evidence is now registered as a first-class platform service. Publisher consumes the validator summary as platform health, and Mission Control displays that health while EOS resolves district building-evidence work into executable Program Missions.
 
-Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections, lists missing district collections as future expansion opportunities, and exposes the next missing collection per eligible market as one bounded Mission. V1 still does not measure collection quality beyond validator success and collection presence.
+Mission Control also performs presence-based expansion discovery. It compares Knowledge Graph district nodes with existing Commercial Market Evidence collections, lists missing district collections as future expansion opportunities, and exposes eligible district work as bounded Missions. V1 still does not measure collection quality beyond validator success and collection presence.
 
-In the shared EOS Portfolio Resolver model, Commercial Market Evidence already behaves as a valid district-level resolver: one district collection becomes one Mission, and individual evidence records, research, narrative, validator fixes, and documentation notes remain hidden Work Items. EOS should not combine an entire market's missing CME collections into one execution packet.
+In the shared EOS Portfolio Resolver model, Commercial Market Evidence remains a valid district-level evidence unit. The operator-facing execution path can combine that collection work with selected Building Profiles through one District Building Evidence Mission when both belong to the same district workflow. Individual evidence records, research, narrative, validator fixes, profile work, and documentation notes remain hidden Work Items. EOS should not combine an entire market's missing CME collections into one execution packet.
 
 Commercial Market Evidence coverage uses the same canonical commercial geography as Publisher and Compass. A market's collection denominator is every canonical Knowledge Graph district assigned to that operational market, not only the districts that already have collections or the districts previously selected for a pilot. Missing collections are maturity gaps, not evidence that a district is ineligible.
 
@@ -360,11 +360,13 @@ Current v1 platform integration is intentionally narrower: Publisher includes th
 
 Mission Control converts measurable gaps into missions. It should bundle related evidence work conservatively and route photography to Field Mode.
 
-Current platform integration displays the generated Commercial Market Evidence health summary in Mission Control and lets EOS create one executable Program Mission for the next missing collection per eligible market.
+Current platform integration displays the generated Commercial Market Evidence health summary in Mission Control and lets EOS create executable District Building Evidence Missions for eligible districts.
 
 Expansion planning remains deterministic. EOS identifies which Knowledge Graph districts have collections and which are missing collections, then produces a deterministic suggested expansion order.
 
-The executable unit is the district collection. A Mission should create one source-supported collection and keep evidence-record research, district narrative, validator fixes, and documentation updates as hidden Work Items inside the Execution Packet.
+The source-data unit is the district collection. The operator-facing Mission may create one source-supported collection, validate an existing collection, and complete selected evidence Building Profiles in one packet. Evidence-record research, district narrative, validator fixes, Building Profile work, and documentation updates stay hidden inside the Execution Packet.
+
+Commercial Market Evidence and Building Profiles remain separately owned. CME records should reference canonical Building Profiles where available, but they should not duplicate full Building Profile content. Publisher may report both systems, but it should not treat a completed CME collection as proof that selected evidence buildings have complete public profiles.
 
 ### Building Profile Migration
 

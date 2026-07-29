@@ -4,6 +4,8 @@ The EOS Portfolio Resolver layer converts record-level Publisher opportunities i
 
 Publisher remains the source of readiness and constraint discovery. Portfolio Resolvers decide what belongs together. EOS converts resolved portfolios into Campaigns, Initiatives, Missions, and Execution Packets. Mission Control presents those Missions as the executable path.
 
+Commercial Market Evidence and Building Profiles remain separate source systems and measurements, but building-related district work now executes through one district-level Mission when the research context, canonical district, and validation paths overlap.
+
 ## Responsibility Model
 
 ```text
@@ -101,9 +103,33 @@ Building Profiles Campaigns now report:
 
 This lets Mission Control present market progress at portfolio scale while keeping individual buildings inside the Execution Packet.
 
+## District Building Evidence Resolver v1
+
+`district-building-evidence-resolver-v1` extends the same resolver architecture to the operational workflow shared by Commercial Market Evidence and Building Profiles.
+
+The resolver does not merge the underlying data products:
+
+- Commercial Market Evidence owns district narratives, evidence records, evidence roles, provenance, confidence, and deferred candidates.
+- Building Profiles own canonical building identity, Building Brief content, strengths, tradeoffs, facts, alternatives, validation questions, and public Building Page content.
+- Publisher continues measuring the two systems separately.
+
+EOS combines the execution path when both systems describe the same district building evidence. One district Mission can include:
+
+- a missing Commercial Market Evidence collection
+- validation of an existing Commercial Market Evidence collection
+- selected evidence Building Profiles referenced by the collection
+- supporting Building Profiles when they materially strengthen the district explanation
+- hidden Work Items and one SER v1 review
+
+Candidate selection prioritizes buildings selected as Commercial Market Evidence records, then representative buildings tied to the district, then supporting buildings with strong district ownership and a compatible validation path. The resolver does not profile every building merely because it exists.
+
+Completed Commercial Market Evidence districts can still produce catch-up Missions when selected evidence buildings lack adequate Building Profiles. Completed districts with complete selected evidence profiles do not generate executable Missions.
+
+For future missing districts, the default packet creates the collection and the required selected Building Profiles together. If a district is too large or heterogeneous, EOS splits deterministically by a clear editorial boundary such as space type, ecosystem, or subdistrict rather than creating a mega mission.
+
 ## Future Resolver Roadmap
 
-Commercial Market Evidence already behaves like a resolver: one district collection becomes one Mission and evidence records remain hidden Work Items.
+Commercial Market Evidence district collection work now routes through the District Building Evidence resolver when selected Building Profiles are part of the same district workflow. A standalone CME collection remains a valid internal evidence unit, but Mission Control should prefer the unified district Mission when both work types remain.
 
 Future resolvers should follow the same contract:
 

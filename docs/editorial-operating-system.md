@@ -8,9 +8,9 @@ EOS implementation decisions should remain aligned with the durable Rofo product
 
 Commercial Market Evidence planning decisions should remain aligned with `docs/commercial-market-evidence.md`. That architecture defines how Representative Buildings, Building Profiles, and curated commercial environments become measurable evidence without changing Publisher scoring or Compass recommendation ownership by default.
 
-Mission Control displays Commercial Market Evidence as a platform service. It consumes the generated validator summary through EOS analysis, and EOS resolves the next missing district collection per eligible market into an executable Program Initiative and Mission. Publisher scoring and recommendation behavior remain unchanged.
+Mission Control displays Commercial Market Evidence as a platform service. It consumes the generated validator summary through EOS analysis, and EOS resolves district building-evidence work into executable Program Initiatives and Missions. Publisher scoring and recommendation behavior remain unchanged.
 
-EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based quality measurement remains intentionally simple, but the next missing collection becomes a bounded district-level Mission.
+EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based collection measurement remains intentionally simple, but the operator-facing Mission can also include selected Building Profile work when it belongs to the same district evidence workflow.
 
 EOS follows Rofo's one-commercial-geography principle: every canonical Knowledge Graph district is eligible for recommendations, Publisher coverage, Commercial Market Evidence planning, and Mission Control market-completion tracking. EOS may prioritize districts differently by maturity and evidence, but it should not maintain a separate district class that removes canonical districts from platform coverage.
 
@@ -99,7 +99,7 @@ EOS v2.2 separates active work from opportunity inventory.
 - Expansion Projects: future metros managed as multi-stage projects.
 - Field Mode: photography coverage summaries that link to Field Mode instead of flooding EOS with photo tasks.
 - Review: returned work from future execution providers.
-- Commercial Market Evidence Expansion: collection coverage, suggested expansion order, and executable Program Missions for the next missing district collection per eligible market.
+- Commercial Market Evidence Expansion: collection coverage, suggested expansion order, and executable District Building Evidence Missions for eligible districts.
 
 This keeps EOS useful as an operating system rather than a long queue report.
 
@@ -140,11 +140,13 @@ Commercial Market Evidence Initiatives are resolved from existing collections an
 
 Commercial Market Evidence Campaign progress is calculated as completed collections divided by canonical commercial districts assigned to the operational market. For example, San Francisco completion must count Financial District, Jackson Square, Mission Bay, SoMa, Dogpatch, Design District, Showplace Square, South Beach, Potrero Hill, and Mission District once those nodes are canonical in the Knowledge Graph.
 
-Completed collections, such as the Financial District pilot, remain non-executable completion evidence. The next missing collection in each eligible market receives one executable Mission. Queued collections remain visible as Initiatives without top-level execution until they become next. Individual evidence records, district narrative, research, source selection, validator fixes, and documentation updates remain hidden Work Items inside the Mission packet.
+Completed collections, such as the Financial District pilot, remain completion evidence for the Commercial Market Evidence component. If selected evidence buildings still lack adequate Building Profiles, EOS can generate a catch-up District Building Evidence Mission that validates the existing collection and completes the remaining selected profiles. If both the collection and selected evidence profiles are complete, the district remains non-executable completion evidence.
+
+For future missing districts, EOS generates one District Building Evidence Mission that creates the Commercial Market Evidence collection and completes the required selected Building Profiles in the same execution packet. Individual evidence records, district narrative, research, source selection, validator fixes, Building Profile work, and documentation updates remain hidden Work Items inside the Mission packet.
 
 District-to-market resolution follows a deterministic order: explicit district ownership if present, existing Commercial Market Evidence collection metadata, canonical public city/state ownership, then Publisher metro fallback only when no stronger ownership signal exists. Ambiguous or unresolved districts are reported in generated EOS analysis and do not produce executable Commercial Market Evidence missions until ownership is clarified.
 
-Building Profile tasks remain compatible with the legacy Opportunity Inventory, but EOS now prefers portfolio Missions when existing Publisher work items share market, source files, and validation paths. This lets Building Profiles progress through bounded Campaign Missions instead of one Mission per Building Brief while preserving the smaller raw tasks as a fallback.
+Building Profile tasks remain compatible with the legacy Opportunity Inventory, but EOS now prefers district building-evidence Missions when Building Profile work is selected evidence for an existing or missing Commercial Market Evidence district. Remaining Building Profile portfolios continue to use portfolio Missions when existing Publisher work items share market, source files, and validation paths. Smaller raw tasks remain as fallback.
 
 ## Campaigns and Throughput Optimization
 
@@ -185,8 +187,8 @@ Large Missions must not become mega missions. Larger bodies of work stay at Camp
 Program bundling posture:
 
 - Publisher: keep current readiness and ecosystem bundling where gaps share metro, ecosystem, source files, and validation.
-- Commercial Market Evidence: keep district collections as one Mission; individual evidence records remain hidden Work Items.
-- Building Profiles: increase bundling into portfolio Missions when representative buildings or Building Briefs share market, product layer, source files, and QA.
+- Commercial Market Evidence: keep one district collection as the evidence unit, but execute it with selected Building Profiles through a District Building Evidence Mission when both work types remain.
+- Building Profiles: prefer district building-evidence Missions for selected CME evidence buildings; otherwise increase bundling into portfolio Missions when representative buildings or Building Briefs share market, product layer, source files, and QA.
 - Photography: represent Campaign progress only; photo targets remain Field Mode work and are not silently bundled into editorial missions.
 - Recommendation QA: bundle coherent scenario/status sets where they share a market validation path.
 - Knowledge Graph: bundle geography, comparison, and internal-link work only when source and validation overlap.
@@ -206,6 +208,8 @@ Execution Packet
 Publisher identifies constraints. Portfolio Resolvers determine the largest coherent, reviewable unit of work. EOS converts resolved portfolios into Missions, Campaign progress, Initiatives, and Execution Packets.
 
 The first production resolver is `building-profile-portfolio-resolver-v1`. It groups eligible Building Brief work into Building Profile portfolios using canonical market, district, ecosystem, source-path, and validation-path evidence. A resolved portfolio creates one Building Profiles Mission with hidden building Work Items. Individual Building Brief tasks remain in Opportunity Inventory as fallback, but resolved building Work Items are reserved out of generic mission bundling so Mission Control does not offer duplicate primary execution paths.
+
+`district-building-evidence-resolver-v1` is the preferred path for district building work that spans Commercial Market Evidence and selected Building Profiles. It keeps CME source data, Building Profile content, and Publisher measurements separate, while generating one district Mission and one Execution Packet. Existing CME collections are not regenerated unless validation identifies a real issue; the Mission can focus on profile catch-up and validation. Missing districts receive one unified packet for collection creation, representative evidence selection, profile completion, validation, snapshot regeneration, and SER v1.
 
 Generated resolver output lives in:
 
