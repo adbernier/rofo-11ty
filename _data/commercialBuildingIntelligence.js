@@ -305,6 +305,7 @@ function canonicalBuilding({
   secondaryDistrictKeys = [],
   sourceConfidence = "medium",
   publicationStatus = "published",
+  semanticSourceBuildingId = "",
   comparisonAddresses = [],
   nearbyAddresses = [],
   commercialIntelligence = null,
@@ -316,6 +317,7 @@ function canonicalBuilding({
 
   const intelligence = {
     id: `${CITY_SLUG}-${slugify(address)}`,
+    semanticSourceBuildingId,
     building_path: path,
     identity: {
       name,
@@ -401,6 +403,10 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "One Bush Plaza / Crown Zellerbach Building", address: "1 Bush St", districtKey: "financialDistrict", role: "Historic Benchmark", themes: ["Historic", "Modernist", "Professional Services", "Architectural Identity"], reason: "Essential architectural and market reference for San Francisco's older modernist downtown office stock.", comparisonAddresses: ["555 California St", "1 Sansome St", "44 Montgomery St"] }),
   canonicalBuilding({ name: "Transamerica Pyramid Center", address: "600 Montgomery St", districtKey: "financialDistrict", role: "District Icon", themes: ["Iconic", "Historic", "Tower", "High Amenity", "Executive Presence"], reason: "The clearest skyline reference for older downtown San Francisco and repositioned trophy office space.", comparisonAddresses: ["555 California St", "300 Clay St", "1105 Battery St"], secondaryDistrictKeys: ["jacksonSquare"] }),
   canonicalBuilding({ name: "One Sansome", address: "1 Sansome St", districtKey: "financialDistrict", role: "Adaptive Reuse Benchmark", themes: ["Transit Oriented", "Adaptive Reuse", "High Amenity", "Professional Services"], reason: "Shows how a Financial District tower can be repositioned around transit, amenities, and lobby-level activity.", comparisonAddresses: ["1 Bush St", "44 Montgomery St", "101 California St"] }),
+  canonicalBuilding({ name: "315 Montgomery", address: "315 Montgomery St", districtKey: "financialDistrict", role: "Professional Services Benchmark", themes: ["Professional Services", "Montgomery Corridor", "Downtown Core", "Client Access"], reason: "Represents the practical Montgomery Street professional-office layer between trophy towers and smaller downtown-edge buildings.", comparisonAddresses: ["44 Montgomery St", "101 California St", "100 Pine St"], semanticSourceBuildingId: "ca-san-francisco-315-montgomery-st" }),
+  canonicalBuilding({ name: "212 Sutter St", address: "212 Sutter St", districtKey: "financialDistrict", role: "Boutique Office Benchmark", themes: ["Boutique Office", "Professional Services", "Downtown Edge", "Client Access"], reason: "Adds smaller-format Financial District context for boutique professional-service teams comparing tower alternatives.", comparisonAddresses: ["315 Montgomery St", "325 Kearny St", "650 California St"], secondaryDistrictKeys: ["jacksonSquare"], semanticSourceBuildingId: "ca-san-francisco-212-sutter-st" }),
+  canonicalBuilding({ name: "325 Kearny St", address: "325 Kearny St", districtKey: "financialDistrict", role: "Downtown Edge Benchmark", themes: ["Downtown Edge", "Professional Services", "Boutique Office", "District Comparison"], reason: "Helps explain the Kearny Street edge where Financial District, Jackson Square, and Union Square considerations overlap.", comparisonAddresses: ["333 Kearny St", "212 Sutter St", "930 Montgomery St"], secondaryDistrictKeys: ["jacksonSquare"], semanticSourceBuildingId: "ca-san-francisco-325-kearny-st" }),
+  canonicalBuilding({ name: "333 Kearny St", address: "333 Kearny St", districtKey: "financialDistrict", role: "Downtown Edge Benchmark", themes: ["Downtown Edge", "Professional Services", "Boutique Office", "District Comparison"], reason: "Gives the portfolio a second Kearny corridor reference for small and mid-size teams testing downtown edge tradeoffs.", comparisonAddresses: ["325 Kearny St", "315 Montgomery St", "930 Montgomery St"], secondaryDistrictKeys: ["jacksonSquare"], semanticSourceBuildingId: "ca-san-francisco-333-kearny-st" }),
   canonicalBuilding({ name: "44 Montgomery", address: "44 Montgomery St", districtKey: "financialDistrict", role: "Value Benchmark", themes: ["Transit Oriented", "Mid-Century Tower", "Professional Services"], reason: "A practical mid-market downtown tower near BART and Market Street.", comparisonAddresses: ["1 Sansome St", "100 Pine St", "315 Montgomery St"] }),
   canonicalBuilding({ name: "50 California", address: "50 California St", districtKey: "financialDistrict", role: "Corporate Benchmark", themes: ["Institutional Office", "Tower", "Transit Oriented", "Professional Services"], reason: "Represents Embarcadero-facing Financial District office buildings serving law, finance, consulting, and corporate users.", comparisonAddresses: ["101 California St", "2 Embarcadero Ctr", "100 Pine St"] }),
   canonicalBuilding({ name: "425 Market", address: "425 Market St", districtKey: "financialDistrict", role: "Corporate Benchmark", themes: ["Corporate Headquarters", "Professional Services", "Modern Class A"], reason: "Helps explain the bridge between the traditional Financial District and South Financial District.", comparisonAddresses: ["555 California St", "303 2nd St", "415 Mission St"], secondaryDistrictKeys: ["southBeach"] }),
@@ -575,6 +581,9 @@ function buildingBrief(fields) {
   const snapshot = Array.isArray(fields.snapshot) ? fields.snapshot : [];
   const nearbyDistricts = Array.isArray(fields.nearbyDistricts) ? fields.nearbyDistricts : [];
   const nearbyAlternatives = Array.isArray(fields.nearbyAlternatives) ? fields.nearbyAlternatives : nearbyDistricts;
+  const quickFacts = Array.isArray(fields.quickFacts) ? fields.quickFacts : snapshot;
+  const idealFor = Array.isArray(fields.idealFor) ? fields.idealFor : fields.bestFit || [];
+  const districtContext = fields.districtContext || fields.locationContext || "";
 
   return {
     status: "published",
@@ -583,10 +592,14 @@ function buildingBrief(fields) {
     rofoTake: fields.rofoTake || fields.buildingImportance || "",
     buildingSummary: fields.buildingSummary || fields.summary || "",
     buildingImportance: fields.buildingImportance || fields.rofoTake || "",
-    quickFacts: Array.isArray(fields.quickFacts) ? fields.quickFacts : snapshot,
-    idealFor: Array.isArray(fields.idealFor) ? fields.idealFor : fields.bestFit || [],
-    districtContext: fields.districtContext || fields.locationContext || "",
+    snapshot: Array.isArray(fields.snapshot) ? fields.snapshot : quickFacts,
+    quickFacts,
+    bestFit: Array.isArray(fields.bestFit) ? fields.bestFit : idealFor,
+    idealFor,
+    locationContext: fields.locationContext || districtContext,
+    districtContext,
     validationNotes: Array.isArray(fields.validationNotes) ? fields.validationNotes : fields.validationChecklist || [],
+    nearbyDistricts: Array.isArray(fields.nearbyDistricts) ? fields.nearbyDistricts : nearbyAlternatives,
     nearbyAlternatives,
     relatedInsights: Array.isArray(fields.relatedInsights) ? fields.relatedInsights : [],
     representativeCompanies: Array.isArray(fields.representativeCompanies) ? fields.representativeCompanies : [],
@@ -726,6 +739,270 @@ const buildingBriefsByPath = {
       { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Use the district guide to compare central downtown towers against nearby San Francisco business areas." },
       { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Start with the city-level decision before narrowing to a single downtown tower." },
       { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Clarify whether the address, commute, clients, and operating needs justify a central Financial District choice." },
+    ],
+  }),
+  [buildingPath("315 Montgomery St")]: buildingBrief({
+    buildingSummary:
+      "315 Montgomery is a practical Montgomery Street office building for professional-service teams that need Financial District centrality, client access, and business-service proximity without choosing the most symbolic tower in the market. It is useful for comparing the everyday middle of downtown office demand.",
+    buildingImportance:
+      "315 Montgomery matters because it keeps the Financial District portfolio from reading as only trophy towers and landmarks. It explains the durable professional-office layer that many advisory, finance, legal, and consulting users evaluate when address, commute, suite fit, and client convenience matter together.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Downtown professional office building" },
+      { label: "Commercial role", value: "Montgomery Street professional-services reference" },
+      { label: "District", value: "Financial District" },
+      { label: "Floorplate character", value: "Conventional downtown office suites; layout and division should be validated by floor" },
+      { label: "Transit context", value: "Strong central downtown access near BART, Muni, and the Montgomery corridor" },
+      { label: "Parking context", value: "Downtown parking cost and visitor arrival should be reviewed early" },
+    ],
+    idealFor: [
+      "Professional-service, finance, legal, advisory, and consulting teams that need a central client-facing downtown office.",
+      "Small and mid-size firms comparing practical Financial District options before considering larger tower settings.",
+      "Businesses that value Montgomery Street access, nearby business services, and a recognizable downtown context.",
+      "Teams that want a traditional office decision driven by commute, client visits, and suite fit.",
+    ],
+    mayNotFit: [
+      "Companies seeking a high-image tower identity or a strongly branded headquarters setting.",
+      "Creative, lab, showroom, production, or operational users that need a different building format.",
+      "Teams whose main requirement is parking convenience, loading, or regional drive access.",
+      "Users that need a neighborhood-oriented workplace identity rather than a conventional downtown setting.",
+    ],
+    buildingExperience:
+      "The experience is practical and businesslike. Tenants should evaluate whether the available suite supports meetings, privacy, client arrival, and employee access before treating the building as interchangeable with larger towers or more character-driven nearby districts.",
+    districtContext:
+      "315 Montgomery sits on the Financial District's Montgomery Street office spine, close to the transit, client-service, banking, legal, and advisory patterns that define the traditional downtown core. Compare it with 101 California for a larger tower feel, 44 Montgomery for Market Street proximity, and Jackson Square when character matters more than conventional office utility.",
+    advantages: [
+      "Strong fit for client-facing professional-service users that want central downtown access.",
+      "Adds a practical mid-market reference to a portfolio otherwise led by larger towers.",
+      "Useful for comparing suite efficiency, client arrival, and business-service proximity.",
+      "Keeps the Financial District decision grounded in everyday office use rather than only image.",
+    ],
+    tradeoffs: [
+      "Less distinctive than landmark or high-amenity tower alternatives.",
+      "Downtown parking, visitor arrival, and after-hours access require diligence.",
+      "May not support teams that want a creative, neighborhood, or production-adjacent environment.",
+      "Suite quality and improvement needs can matter more than the building's general district role.",
+    ],
+    validationNotes: [
+      "Does the available suite support the team's meeting, privacy, and client-service pattern?",
+      "How do employee and visitor arrivals compare with 101 California, 44 Montgomery, and One Sansome?",
+      "Does the business gain enough value from a Montgomery Street address to justify downtown costs?",
+      "What buildout, building-system, security, and after-hours conditions apply to the specific space?",
+      "Would Jackson Square or SoMa provide a better balance of image, cost, and workplace character?",
+    ],
+    nearbyAlternatives: [
+      { label: "101 California", url: "/commercial-real-estate/building/CA/san-francisco/101-california-st/", reason: "A stronger comparison when the firm wants a larger and more polished downtown tower setting." },
+      { label: "44 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/", reason: "Useful when Market Street access and practical tower economics matter more than building identity." },
+      { label: "100 Pine", url: "/commercial-real-estate/building/CA/san-francisco/100-pine-st/", reason: "Compare when the user wants another durable professional-service building without trophy positioning." },
+      { label: "212 Sutter St", url: "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/", reason: "A better contrast when smaller-format downtown office space may fit the team better." },
+      { label: "One Sansome", url: "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/", reason: "Compare when transit orientation and a more active repositioned building experience carry more weight." },
+    ],
+    representativeCompanies: [
+      "Professional-services, finance, legal, advisory, consulting, and client-facing office users are the clearest fit categories.",
+      "Current named tenant details should be verified from current leasing materials before use.",
+    ],
+    relatedInsights: [
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare practical Montgomery Street office choices with landmark towers and nearby character-driven districts." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Use layout, access, cost, condition, and flexibility to separate similar downtown options." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Clarify whether client access, commute, image, or operations should lead the district decision." },
+    ],
+  }),
+  [buildingPath("212 Sutter St")]: buildingBrief({
+    buildingSummary:
+      "212 Sutter St is a smaller-format downtown office option for boutique professional-service teams that want Financial District access without a full tower experience. It helps compare core downtown credibility against nearby Jackson Square, Union Square, and smaller client-facing office environments.",
+    buildingImportance:
+      "212 Sutter St matters because it represents the smaller office layer that can otherwise disappear behind the district's tower examples. For Rofo, it helps tenants ask whether the business needs a large downtown building or simply needs centrality, client access, and a credible professional setting.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Smaller-format downtown office building" },
+      { label: "Commercial role", value: "Boutique Financial District edge office reference" },
+      { label: "District", value: "Financial District" },
+      { label: "Secondary context", value: "Jackson Square and Union Square edge" },
+      { label: "Floorplate character", value: "Smaller suites; layout, elevator access, and building systems should be validated" },
+      { label: "Transit context", value: "Central downtown access, with commute fit depending on exact employee and visitor patterns" },
+    ],
+    idealFor: [
+      "Boutique finance, legal, advisory, consulting, and professional-service firms that want a central downtown address.",
+      "Small teams comparing Financial District credibility with a less formal building experience.",
+      "Client-facing users that need meeting access but do not need a large corporate tower.",
+      "Companies deciding between core downtown, Jackson Square, and Union Square edge locations.",
+    ],
+    mayNotFit: [
+      "Larger companies that need broad floorplates, extensive amenities, or a stronger tower signal.",
+      "Teams seeking a highly modern headquarters environment or strong technology identity.",
+      "Operational, lab, production, showroom, or heavy visitor-volume users.",
+      "Businesses where parking, loading, or easy regional drive access is the highest priority.",
+    ],
+    buildingExperience:
+      "The experience should be evaluated as a smaller downtown office decision rather than a trophy-building decision. The key question is whether the building gives enough client-facing credibility, access, and suite functionality without adding unnecessary scale.",
+    districtContext:
+      "212 Sutter St sits near the Financial District's smaller downtown edge, where businesses may compare the core office market with Jackson Square and Union Square. It is most useful when a tenant wants downtown business access but may not need the formality, cost, or scale of a larger Montgomery Street tower.",
+    advantages: [
+      "Gives smaller professional-service users a concrete Financial District reference.",
+      "Useful for testing whether downtown access matters more than tower scale.",
+      "Supports comparison with Jackson Square character and Union Square edge conditions.",
+      "May fit client-facing teams that need centrality without a large-building identity.",
+    ],
+    tradeoffs: [
+      "Less address signal than the district's best-known towers.",
+      "Building systems, elevator access, and suite condition need careful validation.",
+      "May not have the amenities or expansion path larger teams expect.",
+      "The edge context may be less clearly Financial District than Montgomery Street buildings.",
+    ],
+    validationNotes: [
+      "Does the available suite size and layout match the team's client-facing work pattern?",
+      "Are elevator access, after-hours use, building systems, and visitor arrival practical?",
+      "Would a Jackson Square building provide more character with similar downtown access?",
+      "Does the team need a recognized tower address, or is smaller downtown centrality enough?",
+      "How do total occupancy cost and commute fit compare with 315 Montgomery and 325 Kearny?",
+    ],
+    nearbyAlternatives: [
+      { label: "315 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/", reason: "A stronger comparison when the user wants a more conventional Montgomery Street office setting." },
+      { label: "325 Kearny St", url: "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/", reason: "Useful when the search is testing a similar downtown edge with a Kearny corridor feel." },
+      { label: "650 California", url: "/commercial-real-estate/building/CA/san-francisco/650-california-st/", reason: "Compare when north-downtown executive identity may matter more than small-building scale." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "A better fit when Jackson Square character is more important than Financial District positioning." },
+      { label: "One Bush Plaza", url: "/commercial-real-estate/building/CA/san-francisco/1-bush-st/", reason: "Compare when architectural character and stronger Market Street adjacency matter more." },
+    ],
+    representativeCompanies: [
+      "Boutique professional-service, advisory, financial, legal, consulting, and relationship-driven office users are most relevant.",
+      "Specific tenant and availability claims should be verified independently before reliance.",
+    ],
+    relatedInsights: [
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Understand how smaller downtown offices compare with the district's larger tower choices." },
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Compare nearby character-driven office options for boutique and client-facing teams." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Pressure-test layout, access, systems, cost, and flexibility before shortlisting smaller downtown buildings." },
+    ],
+  }),
+  [buildingPath("325 Kearny St")]: buildingBrief({
+    buildingSummary:
+      "325 Kearny St is a downtown-edge office building for teams comparing Financial District access with nearby Jackson Square and Union Square conditions. It is most useful when a company wants central client access but needs to test whether the Kearny corridor feels right.",
+    buildingImportance:
+      "325 Kearny St matters because it makes the Financial District edge more legible. It gives Rofo a concrete way to explain how a tenant's decision can shift when the building is close to the core business district but not fully defined by Montgomery Street tower identity.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Downtown edge office building" },
+      { label: "Commercial role", value: "Kearny corridor Financial District edge reference" },
+      { label: "District", value: "Financial District" },
+      { label: "Secondary context", value: "Jackson Square and Union Square adjacency" },
+      { label: "Floorplate character", value: "Smaller downtown office context; exact suite condition should be validated" },
+      { label: "Transit context", value: "Central downtown access with block-by-block visitor and commute differences" },
+    ],
+    idealFor: [
+      "Small and mid-size professional-service teams that need downtown access but not a major tower presence.",
+      "Client-facing firms comparing Financial District credibility with more flexible edge locations.",
+      "Teams that want to evaluate Kearny Street before choosing Jackson Square or the Montgomery corridor.",
+      "Businesses whose suite fit and arrival experience matter more than landmark identity.",
+    ],
+    mayNotFit: [
+      "Large companies that need extensive amenities, major contiguous space, or formal tower image.",
+      "Users requiring specialized lab, showroom, production, or operational building formats.",
+      "Teams that want a clearly defined Jackson Square character story instead of a downtown-edge tradeoff.",
+      "Businesses where parking, loading, or suburban-style access is more important than centrality.",
+    ],
+    buildingExperience:
+      "The experience should be validated around edge-condition details: arrival, street context, suite size, building systems, and how clients perceive the address. It may solve practical downtown needs without feeling like a conventional tower-core choice.",
+    districtContext:
+      "325 Kearny St sits where Financial District, Jackson Square, and Union Square considerations begin to overlap. It should be compared with 333 Kearny for a similar edge pattern, 212 Sutter for smaller downtown office scale, and 315 Montgomery when a more central Financial District spine is preferred.",
+    advantages: [
+      "Shows how the Financial District changes near Kearny Street and nearby districts.",
+      "Useful for smaller professional-service teams that still need downtown access.",
+      "Supports clear comparison between core office identity and boutique-district character.",
+      "Can help tenants avoid overbuying tower image when edge centrality is enough.",
+    ],
+    tradeoffs: [
+      "District identity may be less clear than a Montgomery Street or Jackson Square alternative.",
+      "Visitor arrival and block-level perception should be validated in person.",
+      "May not offer the amenities, systems, or expansion options larger teams expect.",
+      "The building's value depends heavily on the specific suite condition and layout.",
+    ],
+    validationNotes: [
+      "Does the address feel sufficiently Financial District for clients, recruits, and partners?",
+      "How does the immediate block compare with Jackson Square, Union Square, and Montgomery Street alternatives?",
+      "Does the available suite support the team's meeting, privacy, and growth needs?",
+      "Are after-hours access, building services, and visitor protocols adequate for daily operations?",
+      "Would 315 Montgomery or 930 Montgomery provide a clearer district story for the same requirement?",
+    ],
+    nearbyAlternatives: [
+      { label: "333 Kearny St", url: "/commercial-real-estate/building/CA/san-francisco/333-kearny-st/", reason: "A direct comparison for another Kearny corridor office edge with similar district questions." },
+      { label: "212 Sutter St", url: "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/", reason: "Useful when smaller downtown office scale may matter more than Kearny corridor positioning." },
+      { label: "315 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/", reason: "A stronger choice when the tenant wants a clearer Montgomery Street business-spine setting." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "Compare when Jackson Square character and boutique identity matter more than Financial District access." },
+      { label: "One Sansome", url: "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/", reason: "A better fit when transit, amenities, and stronger downtown positioning are the priority." },
+    ],
+    representativeCompanies: [
+      "Small and mid-size professional-service, advisory, financial, consulting, and legal users are most relevant.",
+      "Current tenant details should be verified from current leasing materials before use.",
+    ],
+    relatedInsights: [
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Compare core downtown office choices with edge buildings near Jackson Square and Union Square." },
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Understand when a nearby character-driven district may fit better than a downtown-edge office." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Use client perception, commute, access, and building context to choose the right district." },
+    ],
+  }),
+  [buildingPath("333 Kearny St")]: buildingBrief({
+    buildingSummary:
+      "333 Kearny St is a downtown-edge office building for small and mid-size teams that want Financial District access while comparing nearby boutique and visitor-facing districts. It helps pressure-test whether a Kearny corridor address provides enough downtown value for the business.",
+    buildingImportance:
+      "333 Kearny St matters because it adds a second edge-condition reference to the Financial District portfolio. It helps Rofo explain that not every downtown office decision is a tower decision; some users are choosing between district identity, client arrival, cost, and smaller-suite practicality.",
+    quickFacts: [
+      { label: "Primary use", value: "Office" },
+      { label: "Building type", value: "Downtown edge office building" },
+      { label: "Commercial role", value: "Small and mid-size Kearny corridor office reference" },
+      { label: "District", value: "Financial District" },
+      { label: "Secondary context", value: "Jackson Square and Union Square adjacency" },
+      { label: "Floorplate character", value: "Smaller downtown office suites; layout and building condition require validation" },
+      { label: "Transit context", value: "Downtown transit access with block-level differences in arrival and perception" },
+    ],
+    idealFor: [
+      "Small and mid-size professional-service teams that want downtown access but do not need a major tower.",
+      "Boutique finance, legal, advisory, and consulting users comparing Financial District and Jackson Square tradeoffs.",
+      "Companies that care about client access, suite practicality, and address perception more than amenities.",
+      "Teams evaluating whether Kearny Street creates enough centrality without overcommitting to tower-core costs.",
+    ],
+    mayNotFit: [
+      "Large users seeking a formal headquarters signal, broad amenities, or large contiguous floorplates.",
+      "Technology, lab, production, showroom, or operational teams that need a different workplace format.",
+      "Companies that need the clearest possible Financial District address story.",
+      "Businesses where parking, loading, or regional drive access is more important than downtown centrality.",
+    ],
+    buildingExperience:
+      "The experience is best understood as practical downtown access with an edge-condition tradeoff. The building may serve relationship-driven teams well, but tenants should validate street context, suite condition, access, and whether the address supports the firm's client-facing work.",
+    districtContext:
+      "333 Kearny St sits near the transition between the Financial District office core and adjacent districts with more boutique, retail, and visitor-facing character. Compare it with 325 Kearny for the same corridor, 212 Sutter for smaller downtown scale, and 930 Montgomery when Jackson Square character should lead.",
+    advantages: [
+      "Adds a practical small and mid-size office reference to the Financial District portfolio.",
+      "Useful for firms comparing downtown centrality with adjacent boutique district character.",
+      "Supports diligence around client arrival, block context, and suite fit.",
+      "Can be a sensible option when tower image is less important than access and cost.",
+    ],
+    tradeoffs: [
+      "Less formal and less definitive than core Financial District tower options.",
+      "Immediate block context and visitor perception need careful review.",
+      "May not support larger teams or specialized workplace requirements.",
+      "Suite condition and building systems can drive the decision more than address alone.",
+    ],
+    validationNotes: [
+      "Does the specific suite support the team's client meetings, privacy, and day-to-day workflow?",
+      "Is Kearny Street the right district signal compared with Montgomery Street or Jackson Square?",
+      "How do employees and visitors experience the block at different times of day?",
+      "Are building systems, after-hours access, elevators, and security appropriate for the use?",
+      "Would 325 Kearny, 212 Sutter, or 315 Montgomery provide a better tradeoff?",
+    ],
+    nearbyAlternatives: [
+      { label: "325 Kearny St", url: "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/", reason: "A direct comparison for another Kearny corridor option with similar edge-condition questions." },
+      { label: "212 Sutter St", url: "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/", reason: "Compare when smaller downtown scale and Sutter Street context may fit better." },
+      { label: "930 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/", reason: "A better fit when Jackson Square character is more important than Financial District positioning." },
+      { label: "315 Montgomery", url: "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/", reason: "Useful when the tenant wants a clearer conventional downtown office-spine address." },
+      { label: "One Bush Plaza", url: "/commercial-real-estate/building/CA/san-francisco/1-bush-st/", reason: "Compare when architectural identity and Market Street adjacency matter more than small-building flexibility." },
+    ],
+    representativeCompanies: [
+      "Boutique professional-service, advisory, legal, financial, consulting, and relationship-driven office users are most relevant.",
+      "Named tenant or availability claims should be confirmed from current sources before publication.",
+    ],
+    relatedInsights: [
+      { title: "Financial District commercial real estate", url: "/commercial-real-estate/CA/san-francisco/financial-district/", summary: "Use the district guide to compare edge offices with the central downtown tower core." },
+      { title: "Jackson Square commercial real estate", url: "/commercial-real-estate/CA/san-francisco/jackson-square/", summary: "Compare nearby boutique office character against the Financial District's business-service environment." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Validate layout, cost, condition, access, and flexibility before treating similar buildings as equal." },
     ],
   }),
   [buildingPath("345 California St")]: buildingBrief({
@@ -1720,6 +1997,7 @@ function toRuntimeBuilding(item) {
     city_slug: citySlug,
     building_slug: slugify(identity.address),
     building_path: item.building_path,
+    semantic_source_building_id: item.semanticSourceBuildingId || "",
     type: identity.buildingType,
     primary_space_type: identity.primarySpaceType,
     space_type: identity.buildingType,

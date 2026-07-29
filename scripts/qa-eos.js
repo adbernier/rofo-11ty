@@ -530,15 +530,33 @@ if (!sanFranciscoBuildingProfilesProgram) {
   if (!campaign || campaign.resolvedPortfolioCount < 1 || !campaign.nextMissionId) {
     fail("San Francisco Building Profiles Campaign must expose resolved portfolio progress and a next portfolio Mission.");
   }
-  const financialDistrictPortfolio = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
-    /Financial District Office Portfolio/.test(initiative.title || "")
+  const nextPortfolio = (sanFranciscoBuildingProfilesProgram.initiatives || []).find((initiative) =>
+    initiative.nextMissionId === campaign.nextMissionId
   );
-  if (!financialDistrictPortfolio || !financialDistrictPortfolio.nextMissionId) {
-    fail("San Francisco Building Profiles must expose a Financial District Office portfolio Mission.");
+  if (!nextPortfolio || !nextPortfolio.nextMissionId) {
+    fail("San Francisco Building Profiles must expose the next active portfolio Mission.");
   }
-  const mission = buildingProfileMissions.find((item) => item.id === financialDistrictPortfolio.nextMissionId);
+  const mission = buildingProfileMissions.find((item) => item.id === nextPortfolio.nextMissionId);
   if (!mission || mission.marketId !== "san-francisco" || (mission.includedTasks || []).length < 2) {
-    fail("San Francisco Financial District Office portfolio must map to one multi-building Building Profile Mission.");
+    fail("San Francisco next Building Profile portfolio must map to one multi-building Building Profile Mission.");
+  }
+  const completedFinancialDistrictUrls = [
+    "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
+    "/commercial-real-estate/building/CA/san-francisco/212-sutter-st/",
+    "/commercial-real-estate/building/CA/san-francisco/315-montgomery-st/",
+    "/commercial-real-estate/building/CA/san-francisco/325-kearny-st/",
+    "/commercial-real-estate/building/CA/san-francisco/333-kearny-st/",
+    "/commercial-real-estate/building/CA/san-francisco/345-california-st/",
+    "/commercial-real-estate/building/CA/san-francisco/555-california-st/",
+    "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
+    "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
+    "/commercial-real-estate/building/CA/san-francisco/600-montgomery-st/",
+  ];
+  const completedFinancialDistrictWork = (eos.workQueue || []).filter((item) =>
+    item.category === "buildingBriefs" && completedFinancialDistrictUrls.includes(item.publicUrl)
+  );
+  if (completedFinancialDistrictWork.length) {
+    fail("Completed Financial District Office Building Profile work must not remain in the active EOS queue.");
   }
 }
 
