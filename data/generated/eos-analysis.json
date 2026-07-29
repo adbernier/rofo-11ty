@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T17:36:10-07:00",
+  "generatedAt": "2026-07-28T19:45:42-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -222,7 +222,7 @@
         "High": 93
       },
       "deferredCandidates": 42,
-      "latestValidation": "2026-07-28T17:36:10-07:00",
+      "latestValidation": "2026-07-28T19:45:42-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -11267,66 +11267,6 @@
             "eligibleForExecution": true
           },
           {
-            "portfolioId": "portfolio:san-francisco:building-profiles:mission-bay:life-science",
-            "portfolioTitle": "Mission Bay Life Science Portfolio",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "sourcePublisherMetroId": "san-francisco",
-            "sourcePublisherMetroName": "San Francisco",
-            "programId": "building_profiles",
-            "campaignId": "san-francisco:building_profiles:completion-campaign",
-            "districtId": "mission-bay",
-            "districtName": "Mission Bay",
-            "districtPath": "/commercial-real-estate/CA/san-francisco/mission-bay/",
-            "ecosystem": "life_science",
-            "ecosystemLabel": "Life Science",
-            "workItems": [
-              {
-                "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "title": "54 Jeff Adachi Way Building Profile",
-                "buildingName": "54 Jeff Adachi Way",
-                "buildingPath": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-                "sourceTaskId": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              },
-              {
-                "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-                "title": "555 Mission Rock St Building Profile",
-                "buildingName": "555 Mission Rock St",
-                "buildingPath": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-                "sourceTaskId": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              }
-            ],
-            "workItemCount": 2,
-            "completedCount": 0,
-            "remainingCount": 2,
-            "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
-            },
-            "estimatedReviewability": "Small: 30-60 minutes",
-            "groupingRationale": [
-              "Grouped by operational market, canonical district, ecosystem, source-data path, and Building Brief validation path.",
-              "2 Building Profile work items can be authored or migrated consistently in one reviewable SER."
-            ],
-            "splitRationale": [
-              "No split required; portfolio stays within the configured mission-size upper bound."
-            ],
-            "sourceOverlap": [
-              "_data/buildingPages.js",
-              "_data/commercialBuildingIntelligence.js"
-            ],
-            "validationPath": [
-              "node scripts/qa-building-brief-depth.js",
-              "node scripts/qa-eos.js"
-            ],
-            "confidence": "High",
-            "eligibleForExecution": true
-          },
-          {
             "portfolioId": "portfolio:san-francisco:building-profiles:soma:office",
             "portfolioTitle": "SoMa Office Portfolio",
             "marketId": "san-francisco",
@@ -12072,9 +12012,9 @@
           }
         ],
         "summary": {
-          "portfolios": 50,
-          "executablePortfolios": 50,
-          "hiddenWorkItems": 186,
+          "portfolios": 49,
+          "executablePortfolios": 49,
+          "hiddenWorkItems": 184,
           "ungroupedItems": 95,
           "maximumPortfolioSize": 12,
           "targetPortfolioRange": "8-12 buildings when source and validation paths are coherent; smaller portfolios remain valid when fewer buildings remain."
@@ -25306,11 +25246,11 @@
             "status": "Strong",
             "progress": {
               "unit": "Profiles",
-              "completed": 29,
+              "completed": 31,
               "target": 155,
-              "label": "29 / 155 Profiles",
+              "label": "31 / 155 Profiles",
               "statusLabel": "Strong",
-              "currentConstraint": "126 representative buildings do not yet have Building Profiles.",
+              "currentConstraint": "124 representative buildings do not yet have Building Profiles.",
               "sourceEvidence": [
                 "Publisher representative building and Building Brief counts."
               ]
@@ -25327,34 +25267,32 @@
                 "status": "Strong",
                 "progress": {
                   "unit": "Profiles",
-                  "completed": 29,
+                  "completed": 31,
                   "target": 155,
-                  "label": "29 / 155 Profiles",
+                  "label": "31 / 155 Profiles",
                   "statusLabel": "Strong",
-                  "currentConstraint": "126 representative buildings do not yet have Building Profiles.",
+                  "currentConstraint": "124 representative buildings do not yet have Building Profiles.",
                   "sourceEvidence": [
                     "Publisher representative building and Building Brief counts."
                   ]
                 },
-                "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-                "nextInitiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-                "nextMissionId": "mission:san-francisco:building-profiles:mission-bay:life-science",
+                "currentConstraint": "SoMa Office Building Profiles remain incomplete.",
+                "nextInitiativeId": "san-francisco:building_profiles:soma:office",
+                "nextMissionId": "mission:san-francisco:building-profiles:soma:office",
                 "initiativeIds": [
-                  "san-francisco:building_profiles:mission-bay:life-science",
                   "san-francisco:building_profiles:soma:office"
                 ],
                 "missionIds": [
-                  "mission:san-francisco:building-profiles:mission-bay:life-science",
                   "mission:san-francisco:building-profiles:soma:office"
                 ],
-                "missionCount": 2,
-                "workItemCount": 4,
-                "resolvedPortfolioCount": 2,
-                "estimatedMissionsRemaining": "2 resolved missions plus 76 ungrouped items",
+                "missionCount": 1,
+                "workItemCount": 2,
+                "resolvedPortfolioCount": 1,
+                "estimatedMissionsRemaining": "1 resolved missions plus 76 ungrouped items",
                 "ungroupedItemCount": 76,
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 4
+                  "count": 2
                 },
                 "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -25365,82 +25303,10 @@
             ],
             "campaignId": "san-francisco:building_profiles:completion-campaign",
             "nextCampaignId": "san-francisco:building_profiles:completion-campaign",
-            "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-            "nextInitiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-            "nextMissionId": "mission:san-francisco:building-profiles:mission-bay:life-science",
+            "currentConstraint": "SoMa Office Building Profiles remain incomplete.",
+            "nextInitiativeId": "san-francisco:building_profiles:soma:office",
+            "nextMissionId": "mission:san-francisco:building-profiles:soma:office",
             "initiatives": [
-              {
-                "id": "san-francisco:building_profiles:mission-bay:life-science",
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "programId": "building_profiles",
-                "programLabel": "Building Profiles",
-                "title": "Mission Bay Life Science Portfolio",
-                "scope": "Life Science",
-                "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-                "status": "Next",
-                "currentStage": "Next",
-                "progress": {
-                  "unit": "Missions",
-                  "completed": 0,
-                  "target": 1,
-                  "label": "Next",
-                  "statusLabel": "Next",
-                  "sourceEvidence": [
-                    "EOS mission queue."
-                  ]
-                },
-                "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-                "nextMissionId": "mission:san-francisco:building-profiles:mission-bay:life-science",
-                "remainingMilestones": [
-                  "Mission Bay Life Science Building Profiles remain incomplete."
-                ],
-                "confidence": "High",
-                "sourceEvidence": [
-                  "EOS mission bundling.",
-                  "Publisher queue evidence."
-                ],
-                "readOnly": false,
-                "missions": [
-                  {
-                    "id": "mission:san-francisco:building-profiles:mission-bay:life-science",
-                    "title": "Complete the Mission Bay Life Science Building Profile portfolio",
-                    "marketId": "san-francisco",
-                    "marketName": "San Francisco",
-                    "programId": "building_profiles",
-                    "programLabel": "Building Profiles",
-                    "campaignId": "san-francisco:building_profiles:completion-campaign",
-                    "campaignTitle": "San Francisco Building Profiles Completion",
-                    "initiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-                    "initiativeTitle": "Mission Bay Life Science Portfolio",
-                    "portfolioId": "portfolio:san-francisco:building-profiles:mission-bay:life-science",
-                    "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-                    "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-                    "expectedImpact": "Medium",
-                    "estimatedEffort": "Small",
-                    "missionSize": {
-                      "id": "small",
-                      "label": "Small",
-                      "reviewWindow": "30-60 minutes",
-                      "maximumWorkItems": 3
-                    },
-                    "missionClass": "Meaningful Depth Improvement",
-                    "confidence": "High",
-                    "priorityScore": 64,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:building-profiles:mission-bay:life-science",
-                    "executionPacketAvailable": true,
-                    "workItems": {
-                      "hiddenByDefault": true,
-                      "count": 2,
-                      "includedOpportunityIds": [
-                        "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                        "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st"
-                      ],
-                      "deferredWorkItemIds": []
-                    }
-                  }
-                ]
-              },
               {
                 "id": "san-francisco:building_profiles:soma:office",
                 "marketId": "san-francisco",
@@ -25450,14 +25316,14 @@
                 "title": "SoMa Office Portfolio",
                 "scope": "Office",
                 "objective": "Complete the SoMa Office Building Profile portfolio for San Francisco.",
-                "status": "Queued",
-                "currentStage": "Queued",
+                "status": "Next",
+                "currentStage": "Next",
                 "progress": {
                   "unit": "Missions",
                   "completed": 0,
                   "target": 1,
-                  "label": "Queued",
-                  "statusLabel": "Queued",
+                  "label": "Next",
+                  "statusLabel": "Next",
                   "sourceEvidence": [
                     "EOS mission queue."
                   ]
@@ -25877,43 +25743,6 @@
                 "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
                 "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way"
               ]
-            }
-          },
-          {
-            "id": "mission:san-francisco:building-profiles:mission-bay:life-science",
-            "title": "Complete the Mission Bay Life Science Building Profile portfolio",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "programId": "building_profiles",
-            "programLabel": "Building Profiles",
-            "campaignId": "san-francisco:building_profiles:completion-campaign",
-            "campaignTitle": "San Francisco Building Profiles Completion",
-            "initiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-            "initiativeTitle": "Mission Bay Life Science Portfolio",
-            "portfolioId": "portfolio:san-francisco:building-profiles:mission-bay:life-science",
-            "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-            "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-            "expectedImpact": "Medium",
-            "estimatedEffort": "Small",
-            "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
-            },
-            "missionClass": "Meaningful Depth Improvement",
-            "confidence": "High",
-            "priorityScore": 64,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:building-profiles:mission-bay:life-science",
-            "executionPacketAvailable": true,
-            "workItems": {
-              "hiddenByDefault": true,
-              "count": 2,
-              "includedOpportunityIds": [
-                "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st"
-              ],
-              "deferredWorkItemIds": []
             }
           },
           {
@@ -30348,34 +30177,32 @@
         "status": "Strong",
         "progress": {
           "unit": "Profiles",
-          "completed": 29,
+          "completed": 31,
           "target": 155,
-          "label": "29 / 155 Profiles",
+          "label": "31 / 155 Profiles",
           "statusLabel": "Strong",
-          "currentConstraint": "126 representative buildings do not yet have Building Profiles.",
+          "currentConstraint": "124 representative buildings do not yet have Building Profiles.",
           "sourceEvidence": [
             "Publisher representative building and Building Brief counts."
           ]
         },
-        "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-        "nextInitiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-        "nextMissionId": "mission:san-francisco:building-profiles:mission-bay:life-science",
+        "currentConstraint": "SoMa Office Building Profiles remain incomplete.",
+        "nextInitiativeId": "san-francisco:building_profiles:soma:office",
+        "nextMissionId": "mission:san-francisco:building-profiles:soma:office",
         "initiativeIds": [
-          "san-francisco:building_profiles:mission-bay:life-science",
           "san-francisco:building_profiles:soma:office"
         ],
         "missionIds": [
-          "mission:san-francisco:building-profiles:mission-bay:life-science",
           "mission:san-francisco:building-profiles:soma:office"
         ],
-        "missionCount": 2,
-        "workItemCount": 4,
-        "resolvedPortfolioCount": 2,
-        "estimatedMissionsRemaining": "2 resolved missions plus 76 ungrouped items",
+        "missionCount": 1,
+        "workItemCount": 2,
+        "resolvedPortfolioCount": 1,
+        "estimatedMissionsRemaining": "1 resolved missions plus 76 ungrouped items",
         "ungroupedItemCount": 76,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 4
+          "count": 2
         },
         "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -30383,11 +30210,9 @@
           "Publisher representative building and Building Brief counts."
         ],
         "initiatives": [
-          "san-francisco:building_profiles:mission-bay:life-science",
           "san-francisco:building_profiles:soma:office"
         ],
         "missions": [
-          "mission:san-francisco:building-profiles:mission-bay:life-science",
           "mission:san-francisco:building-profiles:soma:office"
         ]
       },
@@ -37978,43 +37803,6 @@
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
       },
       {
-        "id": "san-francisco:building_profiles:mission-bay:life-science",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "building_profiles",
-        "programLabel": "Building Profiles",
-        "title": "Mission Bay Life Science Portfolio",
-        "scope": "Life Science",
-        "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-        "status": "Next",
-        "currentStage": "Next",
-        "progress": {
-          "unit": "Missions",
-          "completed": 0,
-          "target": 1,
-          "label": "Next",
-          "statusLabel": "Next",
-          "sourceEvidence": [
-            "EOS mission queue."
-          ]
-        },
-        "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-        "nextMissionId": "mission:san-francisco:building-profiles:mission-bay:life-science",
-        "remainingMilestones": [
-          "Mission Bay Life Science Building Profiles remain incomplete."
-        ],
-        "confidence": "High",
-        "sourceEvidence": [
-          "EOS mission bundling.",
-          "Publisher queue evidence."
-        ],
-        "readOnly": false,
-        "missions": [
-          "mission:san-francisco:building-profiles:mission-bay:life-science"
-        ],
-        "campaignId": "san-francisco:building_profiles:completion-campaign"
-      },
-      {
         "id": "san-francisco:building_profiles:soma:office",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
@@ -38023,14 +37811,14 @@
         "title": "SoMa Office Portfolio",
         "scope": "Office",
         "objective": "Complete the SoMa Office Building Profile portfolio for San Francisco.",
-        "status": "Queued",
-        "currentStage": "Queued",
+        "status": "Next",
+        "currentStage": "Next",
         "progress": {
           "unit": "Missions",
           "completed": 0,
           "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
+          "label": "Next",
+          "statusLabel": "Next",
           "sourceEvidence": [
             "EOS mission queue."
           ]
@@ -41653,43 +41441,6 @@
         }
       },
       {
-        "id": "mission:san-francisco:building-profiles:mission-bay:life-science",
-        "title": "Complete the Mission Bay Life Science Building Profile portfolio",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "building_profiles",
-        "programLabel": "Building Profiles",
-        "campaignId": "san-francisco:building_profiles:completion-campaign",
-        "campaignTitle": "San Francisco Building Profiles Completion",
-        "initiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-        "initiativeTitle": "Mission Bay Life Science Portfolio",
-        "portfolioId": "portfolio:san-francisco:building-profiles:mission-bay:life-science",
-        "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-        "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Small",
-        "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
-        },
-        "missionClass": "Meaningful Depth Improvement",
-        "confidence": "High",
-        "priorityScore": 64,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:building-profiles:mission-bay:life-science",
-        "executionPacketAvailable": true,
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 2,
-          "includedOpportunityIds": [
-            "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-            "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st"
-          ],
-          "deferredWorkItemIds": []
-        }
-      },
-      {
         "id": "mission:san-francisco:building-profiles:soma:office",
         "title": "Complete the SoMa Office Building Profile portfolio",
         "marketId": "san-francisco",
@@ -41847,15 +41598,15 @@
     ],
     "workItems": {
       "hiddenByDefault": true,
-      "count": 375,
+      "count": 373,
       "note": "Work items remain evidence used to form missions and are not the primary Mission Control v2 planning object."
     },
     "summary": {
       "markets": 9,
       "programsPerMarket": 6,
       "campaigns": 54,
-      "initiatives": 180,
-      "missions": 67
+      "initiatives": 179,
+      "missions": 66
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -42128,11 +41879,11 @@
     "averageHealth": 73,
     "needsAttention": 0,
     "activeWorkItems": 8,
-    "opportunityInventory": 375,
+    "opportunityInventory": 373,
     "expansionProjects": 4,
     "reviewItems": 0,
     "fieldModeMetros": 6,
-    "openWorkItems": 375,
+    "openWorkItems": 373,
     "humanOnlyWorkItems": 6,
     "autonomousCandidates": 88,
     "topWorkItem": "Seattle Medical Ecosystem Representative Building Foundation"
@@ -42196,7 +41947,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.69,
+          "buildingBriefShare": 0.65,
           "warnings": []
         }
       },
@@ -42264,7 +42015,7 @@
           "id": "ready",
           "label": "Ready"
         },
-        "note": "24 of 24 districts have substantive descriptions; 155 representative buildings and 29 Building Briefs are available.",
+        "note": "24 of 24 districts have substantive descriptions; 155 representative buildings and 31 Building Briefs are available.",
         "source": "publisher"
       },
       "internalLinking": {
@@ -42353,7 +42104,7 @@
             "id": "ready",
             "label": "Ready"
           },
-          "note": "24 of 24 districts have substantive descriptions; 155 representative buildings and 29 Building Briefs are available.",
+          "note": "24 of 24 districts have substantive descriptions; 155 representative buildings and 31 Building Briefs are available.",
           "source": "publisher"
         },
         "internalLinks": {
@@ -42382,8 +42133,8 @@
       "counts": {
         "districts": 24,
         "representativeBuildings": 155,
-        "buildingBriefs": 29,
-        "queueItems": 156
+        "buildingBriefs": 31,
+        "queueItems": 154
       },
       "examples": [
         "1 Henry Adams St",
@@ -69719,324 +69470,6 @@
                 "id": "publisher:sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-sacramento-1610-r-st",
                 "name": "Spaces R Street",
                 "path": "/commercial-real-estate/building/CA/sacramento/1610-r-st/"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "mission:san-francisco:building-profiles:mission-bay:life-science",
-        "title": "Complete the Mission Bay Life Science Building Profile portfolio",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "building_profiles",
-        "programLabel": "Building Profiles",
-        "campaignId": "san-francisco:building_profiles:completion-campaign",
-        "campaignTitle": "San Francisco Building Profiles Completion",
-        "initiativeId": "san-francisco:building_profiles:mission-bay:life-science",
-        "initiativeTitle": "Mission Bay Life Science Portfolio",
-        "portfolioId": "portfolio:san-francisco:building-profiles:mission-bay:life-science",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "sourcePublisherMetroId": "san-francisco",
-        "sourcePublisherMetroName": "San Francisco",
-        "ecosystem": "Life Science",
-        "ecosystemId": "life_science",
-        "districtId": "mission-bay",
-        "districtName": "Mission Bay",
-        "workstream": "Building Profiles",
-        "includedOpportunityIds": [
-          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-          "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st"
-        ],
-        "includedTasks": [
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-            "title": "54 Jeff Adachi Way Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "buildingName": "54 Jeff Adachi Way",
-            "buildingPath": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-            "title": "555 Mission Rock St Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "buildingName": "555 Mission Rock St",
-            "buildingPath": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [],
-        "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-        "reason": [
-          "2 Building Profile work items share operational market, district, ecosystem, source files, and validation path.",
-          "Portfolio resolver grouped this as Small: 30-60 minutes.",
-          "Current portfolio constraint: 2 included buildings need Building Profile work."
-        ],
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Small",
-        "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
-        },
-        "impactEffortClass": "Medium Impact / Small Effort / Small Portfolio",
-        "missionClass": "Meaningful Depth Improvement",
-        "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-        "completionCriteria": [
-          "Every included building has canonical identity and remains in the portfolio scope.",
-          "All included Building Profiles are authored, migrated, completed, or explicitly deferred with per-building rationale.",
-          "Existing Building Brief gating and public URLs remain stable.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Publisher and EOS analysis regenerate and reflect the completed or reclassified portfolio work."
-        ],
-        "relevantFiles": [
-          "docs/product/rofo-master-plan.md",
-          "docs/editorial-operating-system.md",
-          "docs/mission-control-v2-operating-model.md",
-          "docs/rofo-publisher.md",
-          "docs/building-page-standard.md",
-          "docs/commercial-market-evidence.md",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "_data/representativeBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json",
-          "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-          "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/"
-        ],
-        "dependencies": [
-          "Canonical building identity",
-          "Building Profile editorial standard",
-          "Representative Building and Commercial Building Intelligence evidence",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-eos.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "High",
-        "priorityScore": 64,
-        "priorityStars": 3,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "rationale": [
-          "Grouped by operational market, canonical district, ecosystem, source-data path, and Building Brief validation path.",
-          "2 Building Profile work items can be authored or migrated consistently in one reviewable SER.",
-          "No split required; portfolio stays within the configured mission-size upper bound."
-        ],
-        "why": [
-          "Current constraint: Mission Bay Life Science Building Profiles remain incomplete.",
-          "The Portfolio Resolver selected the largest coherent batch that remains reviewable in one SER.",
-          "Included buildings remain hidden Work Items inside one Mission rather than separate top-level launches."
-        ],
-        "source": {
-          "system": "EOS Portfolio Resolver",
-          "resolverId": "building-profile-portfolio-resolver-v1",
-          "includedSystems": [
-            "Publisher",
-            "Building Profiles",
-            "Commercial Building Intelligence"
-          ]
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 2,
-          "buildings": [
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-              "name": "54 Jeff Adachi Way",
-              "path": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/"
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-              "name": "555 Mission Rock St",
-              "path": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/"
-            }
-          ]
-        },
-        "executionPacket": {
-          "objective": "Complete the Mission Bay Life Science Building Profile portfolio for San Francisco.",
-          "reason": [
-            "2 Building Profile work items share operational market, district, ecosystem, source files, and validation path.",
-            "Portfolio resolver grouped this as Small: 30-60 minutes.",
-            "Current portfolio constraint: 2 included buildings need Building Profile work."
-          ],
-          "currentHealth": "75% Improving",
-          "currentConstraint": "Mission Bay Life Science Building Profiles remain incomplete.",
-          "includedTasks": [
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-              "title": "54 Jeff Adachi Way Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-              "buildingName": "54 Jeff Adachi Way",
-              "buildingPath": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-              "title": "555 Mission Rock St Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-              "buildingName": "555 Mission Rock St",
-              "buildingPath": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [],
-          "reasonForBundling": [
-            "Grouped by operational market, canonical district, ecosystem, source-data path, and Building Brief validation path.",
-            "2 Building Profile work items can be authored or migrated consistently in one reviewable SER.",
-            "No split required; portfolio stays within the configured mission-size upper bound."
-          ],
-          "expectedImpact": "Medium",
-          "estimatedEffort": "Small",
-          "missionSize": {
-            "id": "small",
-            "label": "Small",
-            "reviewWindow": "30-60 minutes",
-            "maximumWorkItems": 3
-          },
-          "missionClass": "Meaningful Depth Improvement",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "docs/commercial-market-evidence.md",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json",
-            "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/"
-          ],
-          "dependencies": [
-            "Canonical building identity",
-            "Building Profile editorial standard",
-            "Representative Building and Commercial Building Intelligence evidence",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Every included building has canonical identity and remains in the portfolio scope.",
-            "All included Building Profiles are authored, migrated, completed, or explicitly deferred with per-building rationale.",
-            "Existing Building Brief gating and public URLs remain stable.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Publisher and EOS analysis regenerate and reflect the completed or reclassified portfolio work."
-          ],
-          "expectedDeliverables": [
-            "Completed Building Profiles for each included building or explicit per-building deferral",
-            "Publisher and EOS snapshots regenerated",
-            "Per-building before/after evidence in SER v1",
-            "Remaining portfolio gap summary with ungrouped fallback work preserved"
-          ],
-          "qaCommands": [
-            "node scripts/qa-eos.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "workItems": {
-            "hiddenByDefault": true,
-            "count": 2,
-            "buildings": [
-              {
-                "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "name": "54 Jeff Adachi Way",
-                "path": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/"
-              },
-              {
-                "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-                "name": "555 Mission Rock St",
-                "path": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/"
               }
             ]
           }
@@ -103342,126 +102775,6 @@
         }
       },
       {
-        "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "54 Jeff Adachi Way",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-          "adminUrl": "",
-          "expansionPlan": "San Francisco Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "75% Improving",
-          "files": [
-            "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
         "metroId": "san-francisco",
         "metroName": "San Francisco",
@@ -103636,126 +102949,6 @@
           "currentHealth": "75% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "555 Mission Rock St",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "Ready",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-          "adminUrl": "",
-          "expansionPlan": "San Francisco Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "75% Improving",
-          "files": [
-            "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
             "_data/buildingPages.js",
             "_data/commercialBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
@@ -117328,19 +116521,19 @@
     ],
     "reviewQueue": [],
     "opportunityInventory": {
-      "total": 375,
-      "missions": 67,
-      "resolvedPortfolioMissions": 50,
+      "total": 373,
+      "missions": 66,
+      "resolvedPortfolioMissions": 49,
       "byQueue": {
-        "editorial": 375,
-        "missions": 67,
-        "resolvedPortfolioMissions": 50,
+        "editorial": 373,
+        "missions": 66,
+        "resolvedPortfolioMissions": 49,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0,
         "programMissions": 8
       },
-      "hiddenFromHomepage": 375,
+      "hiddenFromHomepage": 373,
       "programMissions": 8
     }
   },
@@ -149642,126 +148835,6 @@
       }
     },
     {
-      "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-      "metroId": "san-francisco",
-      "metroName": "San Francisco",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "54 Jeff Adachi Way",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-        "adminUrl": "",
-        "expansionPlan": "San Francisco Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "75% Improving",
-        "files": [
-          "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
       "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
       "metroId": "san-francisco",
       "metroName": "San Francisco",
@@ -149936,126 +149009,6 @@
         "currentHealth": "75% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-      "metroId": "san-francisco",
-      "metroName": "San Francisco",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "555 Mission Rock St",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "Ready",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-        "adminUrl": "",
-        "expansionPlan": "San Francisco Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "75% Improving",
-        "files": [
-          "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
           "_data/buildingPages.js",
           "_data/commercialBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",

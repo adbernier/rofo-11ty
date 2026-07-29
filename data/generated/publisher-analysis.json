@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-28T17:36:10-07:00",
-  "sourceCommit": "8849bb7d5d1642959a2860b49a68531a00003d77",
+  "generatedAt": "2026-07-28T19:45:42-07:00",
+  "sourceCommit": "73013587b02c5c040fc3b4a16d5aa26f1062bcc0",
   "commercialMarketEvidence": {
     "schemaVersion": "commercial-market-evidence-platform-v1",
     "service": "Commercial Market Evidence",
@@ -212,7 +212,7 @@
       "High": 93
     },
     "deferredCandidates": 42,
-    "latestValidation": "2026-07-28T17:36:10-07:00",
+    "latestValidation": "2026-07-28T19:45:42-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -222,13 +222,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-07-28T17:36:10-07:00",
+    "generatedAt": "2026-07-28T19:45:42-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 91,
       "criticalIssues": 0,
-      "queuedTasks": 344,
+      "queuedTasks": 342,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -270,11 +270,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 29 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 31 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
               "representativeBuildings": 155,
-              "buildingBriefs": 29
+              "buildingBriefs": 31
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -311,7 +311,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
         "representativeBuildingCount": 155,
-        "buildingBriefCount": 29,
+        "buildingBriefCount": 31,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -1023,7 +1023,7 @@
                 "secondaryDistricts": 3,
                 "recommendations": 1,
                 "representativeBuildings": 14,
-                "buildingBriefs": 3,
+                "buildingBriefs": 5,
                 "subtypes": 2,
                 "archetypes": 3,
                 "activities": 4,
@@ -1031,7 +1031,7 @@
                 "representativeRoles": 3,
                 "operationalCategories": 5,
                 "operationalCharacteristics": 10,
-                "reviewRequiredRepresentativeBuildings": 2
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -1039,7 +1039,7 @@
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
+                "14 Representative Buildings and 5 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -1067,7 +1067,7 @@
                 "buildingCount": 14,
                 "explicitCount": 4,
                 "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 2,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "life_science_campus",
                   "biotech_research_environment",
@@ -1869,7 +1869,7 @@
             "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.42,
-            "buildingBriefShare": 0.69,
+            "buildingBriefShare": 0.65,
             "warnings": []
           }
         },
@@ -1878,7 +1878,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.69,
+          "buildingBriefShare": 0.65,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -2533,7 +2533,7 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 14,
-              "buildingBriefCount": 3,
+              "buildingBriefCount": 5,
               "status": "Developed",
               "districts": [
                 {
@@ -2570,7 +2570,7 @@
                 "buildingCount": 14,
                 "explicitCount": 4,
                 "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 2,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "life_science_campus": 11,
                   "biotech_research_environment": 1,
@@ -3949,11 +3949,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 19,
-            "completed": 29,
+            "score": 20,
+            "completed": 31,
             "total": 155,
-            "missing": 126,
-            "explanation": "29 of 155 representative building records use the canonical Building Brief journey.",
+            "missing": 124,
+            "explanation": "31 of 155 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
@@ -5761,25 +5761,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "54 Jeff Adachi Way",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-                "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -5812,25 +5793,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "555 Mission Rock St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -6404,8 +6366,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 53,
-            "total": 53,
+            "completed": 55,
+            "total": 55,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -8266,25 +8228,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "54 Jeff Adachi Way",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -8317,25 +8260,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "555 Mission Rock St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -33813,11 +33737,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 29 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 31 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
               "representativeBuildings": 155,
-              "buildingBriefs": 29
+              "buildingBriefs": 31
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -33854,7 +33778,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
         "representativeBuildingCount": 155,
-        "buildingBriefCount": 29,
+        "buildingBriefCount": 31,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -34566,7 +34490,7 @@
                 "secondaryDistricts": 3,
                 "recommendations": 1,
                 "representativeBuildings": 14,
-                "buildingBriefs": 3,
+                "buildingBriefs": 5,
                 "subtypes": 2,
                 "archetypes": 3,
                 "activities": 4,
@@ -34574,7 +34498,7 @@
                 "representativeRoles": 3,
                 "operationalCategories": 5,
                 "operationalCharacteristics": 10,
-                "reviewRequiredRepresentativeBuildings": 2
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
               "blocking": false,
@@ -34582,7 +34506,7 @@
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "14 Representative Buildings and 3 Building Briefs.",
+                "14 Representative Buildings and 5 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -34610,7 +34534,7 @@
                 "buildingCount": 14,
                 "explicitCount": 4,
                 "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 2,
+                "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "life_science_campus",
                   "biotech_research_environment",
@@ -35412,7 +35336,7 @@
             "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.42,
-            "buildingBriefShare": 0.69,
+            "buildingBriefShare": 0.65,
             "warnings": []
           }
         },
@@ -35421,7 +35345,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.69,
+          "buildingBriefShare": 0.65,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -36076,7 +36000,7 @@
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 14,
-              "buildingBriefCount": 3,
+              "buildingBriefCount": 5,
               "status": "Developed",
               "districts": [
                 {
@@ -36113,7 +36037,7 @@
                 "buildingCount": 14,
                 "explicitCount": 4,
                 "inheritedOnlyCount": 10,
-                "reviewRequiredCount": 2,
+                "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "life_science_campus": 11,
                   "biotech_research_environment": 1,
@@ -37492,11 +37416,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 19,
-            "completed": 29,
+            "score": 20,
+            "completed": 31,
             "total": 155,
-            "missing": 126,
-            "explanation": "29 of 155 representative building records use the canonical Building Brief journey.",
+            "missing": 124,
+            "explanation": "31 of 155 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
@@ -39304,25 +39228,6 @@
                 "readinessState": ""
               },
               {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "54 Jeff Adachi Way",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-                "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
                 "code": "missing-brief",
                 "metroId": "san-francisco",
@@ -39355,25 +39260,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "555 Mission Rock St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -39947,8 +39833,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 53,
-            "total": 53,
+            "completed": 55,
+            "total": 55,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -41809,25 +41695,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "54 Jeff Adachi Way",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -41860,25 +41727,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "555 Mission Rock St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -72110,25 +71958,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "54 Jeff Adachi Way",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -72161,25 +71990,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "555 Mission Rock St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -78648,25 +78458,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-54-jeff-adachi-way",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "54 Jeff Adachi Way",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-550-15th-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -78699,25 +78490,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-555-mission-rock-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "555 Mission Rock St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -81024,7 +80796,7 @@
         "High": 93
       },
       "deferredCandidates": 42,
-      "latestValidation": "2026-07-28T17:36:10-07:00",
+      "latestValidation": "2026-07-28T19:45:42-07:00",
       "errors": [],
       "warnings": [],
       "source": {

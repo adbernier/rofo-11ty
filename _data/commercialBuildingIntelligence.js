@@ -505,6 +505,8 @@ const canonicalBuildings = [
   canonicalBuilding({ name: "UCSF Mission Bay / Genentech Hall", address: "600 16th St", districtKey: "missionBay", role: "District Anchor", themes: ["Research", "Life Science", "Institutional Anchor", "Innovation"], reason: "Essential to understanding why Mission Bay became a life-science district.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["1700 Owens St", "455 Mission Bay Blvd S", "654 Minnesota St"] }),
   canonicalBuilding({ name: "UCSF Medical Center at Mission Bay", address: "1825 4th St", districtKey: "missionBay", role: "District Anchor", themes: ["Medical", "Institutional Anchor", "Life Science", "Campus Style"], reason: "Explains the health-care and clinical side of Mission Bay's commercial ecosystem.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["600 16th St", "1700 Owens St"] }),
   canonicalBuilding({ name: "Chase Center", address: "1 Warriors Way", districtKey: "missionBay", role: "Neighborhood Anchor", themes: ["Mixed Use", "Neighborhood Anchor", "Amenity", "Entertainment"], reason: "A major amenity and demand anchor that shapes how companies experience Mission Bay.", assetClass: "District Anchor", buildingType: "District Anchor", comparisonAddresses: ["555 Mission Rock St", "500 Terry Francois Blvd"] }),
+  canonicalBuilding({ name: "54 Jeff Adachi Way", address: "54 Jeff Adachi Way", districtKey: "missionBay", role: "Mixed-Use Edge Benchmark", themes: ["Mission Bay", "Mixed Use", "Newer Development", "Innovation"], reason: "Shows Mission Bay as a newer planned commercial environment where office, institutional, residential, event, and waterfront movement overlap.", comparisonAddresses: ["555 Mission Rock St", "1455 3rd St", "500 Terry Francois Blvd"], semanticSourceBuildingId: "ca-san-francisco-54-jeff-adachi-way" }),
+  canonicalBuilding({ name: "555 Mission Rock St", address: "555 Mission Rock St", districtKey: "missionBay", role: "Mixed-Use Benchmark", themes: ["Mission Rock", "Mixed Use", "Waterfront", "Event District"], reason: "Explains Mission Bay's newer Mission Rock development pattern near Chase Center, waterfront circulation, office demand, retail, and residential growth.", comparisonAddresses: ["54 Jeff Adachi Way", "1 Warriors Way", "500 Terry Francois Blvd"], semanticSourceBuildingId: "ca-san-francisco-555-mission-rock-st" }),
   canonicalBuilding({ name: "409 Illinois", address: "409 Illinois St", districtKey: "missionBay", role: "Innovation Benchmark", themes: ["Modern Office", "Innovation", "Waterfront", "Mid-Rise"], reason: "Explains the Illinois and Terry Francois edge and smaller modern office formats.", comparisonAddresses: ["499 Illinois St", "550 Terry A Francois Blvd", "500 Terry Francois Blvd"] }),
   canonicalBuilding({ name: "499 Illinois", address: "499 Illinois St", districtKey: "missionBay", role: "Innovation Benchmark", themes: ["Modern Office", "Innovation", "Waterfront", "Mid-Rise"], reason: "Shows the middle ground between campus lab buildings and large headquarters.", comparisonAddresses: ["409 Illinois St", "550 Terry A Francois Blvd", "1800 Owens St"] }),
 
@@ -1876,6 +1878,138 @@ const buildingBriefsByPath = {
       { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Understand how Mission Bay's health, science, technology, and waterfront context affects location fit." },
       { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", summary: "Validate buildout, infrastructure, timing, and delivery condition for specialized or technical-use space." },
       { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Compare geography, use fit, infrastructure, cost, access, and flexibility before touring." },
+    ],
+  }),
+  [buildingPath("54 Jeff Adachi Way")]: buildingBrief({
+    buildingSummary:
+      "54 Jeff Adachi Way is a newer Mission Bay mixed-use edge example for teams evaluating the district's planned commercial pattern near office, residential, waterfront, and event-area activity. It is useful when the question is whether Mission Bay's newer environment fits the company better than older SoMa or downtown office blocks.",
+    buildingImportance:
+      "54 Jeff Adachi Way matters because it explains Mission Bay as a district experience, not just a lab or office inventory story. It helps tenants evaluate newer development, institutional adjacency, arena-area circulation, and mixed-use neighborhood growth while keeping building-level claims separate from suite-specific facts.",
+    quickFacts: [
+      { label: "Primary use", value: "Office / mixed-use commercial context" },
+      { label: "Building type", value: "Newer Mission Bay commercial block" },
+      { label: "Commercial role", value: "Mission Bay mixed-use edge benchmark" },
+      { label: "District", value: "Mission Bay" },
+      { label: "Secondary context", value: "Mission Rock, Chase Center, waterfront, and planned district edge" },
+      { label: "Floorplate character", value: "Newer commercial context; suite layout, systems, and use permissions should be validated" },
+      { label: "Transit context", value: "Mission Bay light rail, Caltrain-adjacent access, driving, cycling, and event-day circulation all require commute testing" },
+    ],
+    idealFor: [
+      "Modern office, health-adjacent, technology, innovation, and professional teams that want a newer Mission Bay setting.",
+      "Companies comparing Mission Bay's planned environment with SoMa, South Beach, Dogpatch, and downtown alternatives.",
+      "Teams that benefit from being near institutional, event, residential, waterfront, and mixed-use activity without needing a traditional CBD address.",
+      "Users that want to pressure-test whether Mission Bay's district rhythm supports employees, visitors, partners, and recruiting.",
+    ],
+    mayNotFit: [
+      "Companies that need verified lab, medical, or technical infrastructure without building- and suite-level diligence.",
+      "Firms that need a formal Financial District address, dense downtown business services, or BART-first commute pattern.",
+      "Teams seeking historic character, adaptive reuse, or boutique neighborhood office texture.",
+      "Businesses whose daily operations would be disrupted by event-area traffic, parking demand, or district circulation swings.",
+    ],
+    buildingExperience:
+      "The experience should be evaluated as a newer Mission Bay mixed-use decision. It can support companies that want innovation-district context and a more planned daily setting, but tenants should validate the immediate block, suite condition, visitor access, event activity, and whether the location feels central enough for their actual users.",
+    districtContext:
+      "54 Jeff Adachi Way sits within Mission Bay's newer commercial geography where office, institutional, residential, waterfront, and event-area patterns overlap. It is best compared with Mission Rock, Chase Center, Terry Francois, and core Mission Bay office/life-science references before assuming that the building represents the district's strongest lab or headquarters identity.",
+    advantages: [
+      "Clarifies Mission Bay's newer planned and mixed-use commercial environment.",
+      "Useful for companies evaluating the district beyond pure lab or downtown office categories.",
+      "Strong comparison point for teams weighing Mission Bay against SoMa, South Beach, and Dogpatch.",
+      "Can support an innovation, health-adjacent, or modern-office location story when district context matters.",
+    ],
+    tradeoffs: [
+      "Specialized lab, medical, loading, power, ventilation, or technical capability should not be assumed.",
+      "Event-area circulation, parking demand, and visitor arrival patterns need practical validation.",
+      "Less traditional and less broadly familiar than the Financial District or central SoMa.",
+      "May not offer the historic character or adaptive-office feel some San Francisco teams prefer.",
+    ],
+    validationNotes: [
+      "Does the Mission Bay mixed-use setting improve recruiting, partner access, client perception, or employee routines?",
+      "How do light rail, Caltrain, driving, biking, rideshare, and event-day circulation work for the team?",
+      "Does the available suite support office, meeting, privacy, growth, and any technical requirements without unsupported assumptions?",
+      "Would 555 Mission Rock, 1455 3rd, 500 Terry Francois, or 1800 Owens provide a clearer Mission Bay fit?",
+      "Would South Beach, SoMa, or Dogpatch solve the same access need with fewer district-specialization tradeoffs?",
+    ],
+    nearbyAlternatives: [
+      { label: "555 Mission Rock St", url: "/commercial-real-estate/building/CA/san-francisco/555-mission-rock-st/", reason: "A direct comparison for Mission Rock mixed-use context and event-area commercial patterns." },
+      { label: "Uber Mission Bay", url: "/commercial-real-estate/building/CA/san-francisco/1455-3rd-st/", reason: "Compare when headquarters scale and stronger modern Mission Bay office identity matter more." },
+      { label: "500 Terry Francois", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", reason: "Useful when waterfront-adjacent office context is more central than Mission Rock mixed-use context." },
+      { label: "The Exchange", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", reason: "A stronger comparison when the company wants a major modern Mission Bay office building closer to the institutional core." },
+      { label: "Chase Center", url: "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/", reason: "Relevant when event-area demand, visitor patterns, and amenity context shape the location decision." },
+    ],
+    representativeCompanies: [
+      "Technology, health-adjacent, innovation, professional-service, and modern office users are the most relevant company categories.",
+      "Named tenants, availability, specialized-use capability, and current building condition should be verified from current sources.",
+    ],
+    relatedInsights: [
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Understand Mission Bay's planned, institutional, waterfront, medical, event, and innovation context before choosing a building." },
+      { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare Mission Bay with nearby waterfront, downtown, SoMa, and industrial-edge alternatives." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Clarify whether district identity, access, customers, employees, or operations should lead the location decision." },
+    ],
+  }),
+  [buildingPath("555 Mission Rock St")]: buildingBrief({
+    buildingSummary:
+      "555 Mission Rock St is a Mission Rock mixed-use commercial example for teams evaluating Mission Bay's newest waterfront and event-adjacent development pattern. It helps tenants compare the district's newer office, retail, residential, institutional, and arena-area context with more conventional San Francisco office districts.",
+    buildingImportance:
+      "555 Mission Rock St matters because it shows Mission Bay's growth pattern beyond the core life-science cluster. It should be used as a mixed-use and neighborhood-context reference: helpful for understanding Mission Rock, waterfront circulation, Chase Center adjacency, and new-development tradeoffs, but not a substitute for verifying specific building or suite capabilities.",
+    quickFacts: [
+      { label: "Primary use", value: "Office / mixed-use commercial context" },
+      { label: "Building type", value: "Mission Rock mixed-use commercial building" },
+      { label: "Commercial role", value: "Mission Bay mixed-use and event-area benchmark" },
+      { label: "District", value: "Mission Bay" },
+      { label: "Secondary context", value: "Mission Rock, waterfront, ballpark edge, and Chase Center area" },
+      { label: "Floorplate character", value: "New-development context; exact office layout, delivery condition, and infrastructure should be validated" },
+      { label: "Transit context", value: "Mission Bay access should be tested across light rail, Caltrain, driving, biking, rideshare, and event-day conditions" },
+    ],
+    idealFor: [
+      "Modern office, technology, health-adjacent, innovation, and growth-stage teams that value newer Mission Bay context.",
+      "Companies comparing Mission Rock with core Mission Bay, South Beach, SoMa, Dogpatch, and the Financial District.",
+      "Users whose location story benefits from waterfront, event-area, residential, retail, and institutional adjacency.",
+      "Teams prepared to validate new-development timing, suite delivery, buildout scope, access, and operating fit before shortlisting.",
+    ],
+    mayNotFit: [
+      "Companies that need a traditional CBD address, dense professional-service environment, or broad downtown familiarity.",
+      "Users seeking a verified lab, medical, production, or technical-use environment without direct property diligence.",
+      "Teams that prefer historic buildings, adaptive reuse, or established street texture over newer mixed-use development.",
+      "Businesses sensitive to arena, ballpark, event, traffic, parking, or visitor-arrival variability.",
+    ],
+    buildingExperience:
+      "The experience is newer, waterfront-oriented, and tied to Mission Rock's mixed-use growth. It can help companies signal innovation and Mission Bay adjacency, but the business case depends on the specific suite, delivery condition, access pattern, event-area circulation, and whether a new-development district supports the team's day-to-day needs.",
+    districtContext:
+      "555 Mission Rock St sits in the Mission Bay and Mission Rock context near Chase Center, the waterfront, ballpark-edge movement, residential growth, and newer commercial development. It is a strong comparison for Mission Bay's mixed-use future, while 1800 Owens, 1700 Owens, 500 Terry Francois, and 54 Jeff Adachi clarify different office, life-science, waterfront, and block-scale choices inside the district.",
+    advantages: [
+      "Explains Mission Bay's Mission Rock and mixed-use development pattern.",
+      "Useful for teams that want a newer waterfront and innovation-district identity.",
+      "Adds event-area and neighborhood-amenity context to the Building Profile portfolio.",
+      "Helps compare Mission Bay with South Beach, SoMa, Dogpatch, and downtown options.",
+    ],
+    tradeoffs: [
+      "New-development identity may be less familiar to clients and employees than established downtown districts.",
+      "Event and ballpark-area circulation can affect commute, visitor, and parking patterns.",
+      "Specific office condition, tenant-improvement needs, infrastructure, and timing must be validated.",
+      "Mixed-use context should not be treated as proof of life-science or technical suitability.",
+    ],
+    validationNotes: [
+      "Does the Mission Rock setting improve recruiting, partner access, client perception, or daily employee experience?",
+      "How do Chase Center, ballpark, waterfront, and event-area circulation patterns affect the workday?",
+      "Is the available suite delivered and configured for the team's timing, layout, buildout, and infrastructure needs?",
+      "Would 54 Jeff Adachi, 500 Terry Francois, 1800 Owens, or 1455 3rd provide a clearer Mission Bay comparison?",
+      "Would South Beach, SoMa, or the Financial District better match the company's visitor, commute, or client-facing needs?",
+    ],
+    nearbyAlternatives: [
+      { label: "54 Jeff Adachi Way", url: "/commercial-real-estate/building/CA/san-francisco/54-jeff-adachi-way/", reason: "A direct comparison for Mission Bay mixed-use edge context with a different block-scale feel." },
+      { label: "Chase Center", url: "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/", reason: "Relevant when event-area activity, visitor demand, and amenity context shape the location choice." },
+      { label: "500 Terry Francois", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", reason: "Compare when waterfront-adjacent office context matters more than Mission Rock mixed-use identity." },
+      { label: "The Exchange", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", reason: "A stronger Mission Bay office benchmark near the district's institutional and innovation core." },
+      { label: "Uber Mission Bay", url: "/commercial-real-estate/building/CA/san-francisco/1455-3rd-st/", reason: "Compare when headquarters scale and campus-style office identity matter more than mixed-use edge context." },
+    ],
+    representativeCompanies: [
+      "Modern office, technology, health-adjacent, innovation, consumer, professional-service, and growth-stage teams are the most relevant categories.",
+      "Named tenants, delivery timing, availability, and specialized infrastructure should be verified from current sources.",
+    ],
+    relatedInsights: [
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Understand Mission Bay's planned, innovation, life-science, medical, waterfront, and event-area roles before narrowing the building list." },
+      { title: "SoMa commercial real estate", url: "/commercial-real-estate/CA/san-francisco/soma/", summary: "Compare Mission Rock and Mission Bay with older SoMa office geography when the search may need more central access." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Compare location fit, buildout, access, infrastructure, and flexibility before treating newer buildings as interchangeable." },
     ],
   }),
   [buildingPath("1105 Battery St")]: buildingBrief({
