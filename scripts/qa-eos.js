@@ -561,30 +561,31 @@ if (!sanFranciscoCmeProgram) {
   if (!financialDistrict || financialDistrict.status !== "Complete" || financialDistrict.nextMissionId) {
     fail("Financial District must be recognized as a completed Commercial Market Evidence Initiative without an executable mission.");
   }
+  const dogpatchInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.id === "san-francisco:commercial_market_evidence:dogpatch");
+  if (!dogpatchInitiative || dogpatchInitiative.status !== "Complete" || dogpatchInitiative.nextMissionId || (dogpatchInitiative.workItems || {}).count !== 0) {
+    fail("Dogpatch must be recognized as completed Building Evidence without an executable catch-up mission after selected evidence profiles are complete.");
+  }
   const nextInitiative = (sanFranciscoCmeProgram.initiatives || []).find((initiative) => initiative.status === "Next");
-  if (!nextInitiative || nextInitiative.id !== "san-francisco:commercial_market_evidence:dogpatch") {
-    fail("San Francisco next District Building Evidence Initiative must be Dogpatch based on deterministic profile-gap ordering.");
+  if (!nextInitiative || nextInitiative.id === dogpatchInitiative.id || nextInitiative.id.includes("west-berkeley")) {
+    fail("San Francisco next District Building Evidence Initiative must advance to a valid incomplete San Francisco district after Dogpatch completion.");
   }
   if (!nextInitiative.nextMissionId || !cmeMissionIds.has(nextInitiative.nextMissionId)) {
     fail("San Francisco District Building Evidence next Initiative must map to one executable Mission.");
-  }
-  if (nextInitiative.id.includes("west-berkeley")) {
-    fail("West Berkeley must not be assigned to the San Francisco Market Workspace.");
   }
   const nextProjectedMission = (nextInitiative.missions || [])[0];
   if (!nextProjectedMission || nextProjectedMission.initiativeId !== nextInitiative.id || nextProjectedMission.executionPacketAvailable !== true) {
     fail("San Francisco District Building Evidence Mission must map back to the Initiative and Execution Packet.");
   }
-  const dogpatchMission = cmeMissions.find((mission) => mission.id === nextInitiative.nextMissionId);
-  if (!dogpatchMission || dogpatchMission.title !== "Complete Dogpatch Building Evidence") {
-    fail("San Francisco acceptance case must expose one Complete Dogpatch Building Evidence Mission.");
+  const nextMission = cmeMissions.find((mission) => mission.id === nextInitiative.nextMissionId);
+  if (!nextMission || !String(nextMission.title || "").startsWith("Complete ") || !String(nextMission.title || "").includes(" Building Evidence")) {
+    fail("San Francisco acceptance case must expose one executable District Building Evidence Mission.");
   }
-  if (!dogpatchMission.componentStatuses || dogpatchMission.componentStatuses.commercialMarketEvidence !== "Complete") {
-    fail("Dogpatch catch-up Mission must preserve completed Commercial Market Evidence status.");
+  if (!nextMission.componentStatuses || nextMission.componentStatuses.commercialMarketEvidence !== "Complete") {
+    fail("San Francisco catch-up Mission must preserve completed Commercial Market Evidence status.");
   }
-  const dogpatchProfileCoverage = dogpatchMission.componentStatuses && dogpatchMission.componentStatuses.evidenceBuildingProfiles;
-  if (!dogpatchProfileCoverage || dogpatchProfileCoverage.completed !== 0 || dogpatchProfileCoverage.target !== 10) {
-    fail("Dogpatch catch-up Mission must expose incomplete selected evidence Building Profile coverage.");
+  const nextProfileCoverage = nextMission.componentStatuses && nextMission.componentStatuses.evidenceBuildingProfiles;
+  if (!nextProfileCoverage || Number(nextProfileCoverage.missing || 0) < 1 || Number(nextProfileCoverage.target || 0) < 1) {
+    fail("San Francisco catch-up Mission must expose incomplete selected evidence Building Profile coverage.");
   }
   const duplicateDogpatchBuildingProfileMission = buildingProfileMissions.find((mission) =>
     mission.marketId === "san-francisco" && mission.districtId === "dogpatch"

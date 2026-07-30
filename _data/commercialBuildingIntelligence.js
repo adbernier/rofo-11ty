@@ -614,6 +614,666 @@ function buildingBrief(fields) {
 }
 
 const buildingBriefsByPath = {
+  [buildingPath("70 Pier Bldg 102")]: buildingBrief({
+    buildingSummary:
+      "Pier 70 Building 12 is a Dogpatch adaptive reuse Building Profile for teams comparing waterfront industrial character, creative office identity, and Mission Bay adjacency. It is useful when a company wants modern commercial function without losing the district's shipyard and production history.",
+    buildingImportance:
+      "Pier 70 Building 12 matters because it is one of the clearest examples of Dogpatch's commercial transition. It helps explain why the district is not just a cheaper Mission Bay alternative: the value comes from adapted industrial fabric, waterfront redevelopment, and a more character-driven workplace story.",
+    quickFacts: [
+      { label: "Primary use", value: "Creative office and adaptive reuse commercial environment" },
+      { label: "Building type", value: "Waterfront industrial adaptive reuse" },
+      { label: "Commercial role", value: "Pier 70 mixed commercial anchor" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "District-defining adaptive reuse benchmark" },
+      { label: "Transit context", value: "Dogpatch and Mission Bay edge access; commute fit should be validated by employee origins" },
+      { label: "Parking context", value: "Parking, loading, visitor access, and event-area circulation should be validated building by building" },
+    ],
+    idealFor: [
+      "Creative, product, maker-oriented, and innovation teams that want an office environment with visible industrial character.",
+      "Companies comparing Dogpatch's waterfront reuse story with Mission Bay's more planned innovation district.",
+      "Teams that want a memorable workplace setting without choosing a traditional downtown tower.",
+      "Organizations that can benefit from Pier 70 identity while still validating daily access and suite fit.",
+    ],
+    mayNotFit: [
+      "Firms that need the formal client-facing image of the Financial District.",
+      "Companies that require validated lab, medical, or heavy production infrastructure without property-specific diligence.",
+      "Teams whose commute pattern depends on immediate BART access or dense downtown services.",
+      "Users that prefer predictable new-construction office standards over adaptive reuse character.",
+    ],
+    buildingExperience:
+      "The experience is shaped by waterfront redevelopment, industrial reuse, and a less conventional office rhythm. That can strengthen culture and recruiting for teams that value character, but it also means the available suite, access pattern, and support services should be checked more carefully than in a standardized tower.",
+    districtContext:
+      "Pier 70 Building 12 anchors the waterfront side of Dogpatch and should be compared with Pier 70 Building 101 for historic reuse, Power Station buildings for future office/R&D scale, and American Industrial Center when practical maker and small-business roots matter more than redevelopment polish.",
+    advantages: [
+      "Strongest Dogpatch example of modern commercial use inside adapted industrial waterfront fabric.",
+      "Clear contrast against Mission Bay's newer and more institutional identity.",
+      "Useful for teams that want workplace character to carry part of the company story.",
+      "Helps explain Pier 70 as a district anchor rather than a generic building cluster.",
+    ],
+    tradeoffs: [
+      "Adaptive reuse character only matters if the specific suite supports the team's layout, systems, and access needs.",
+      "The setting may require more commute, visitor, parking, and delivery diligence than a central downtown building.",
+      "Companies needing formal executive image may find the industrial waterfront story too informal.",
+      "Specialized operations should not be inferred from district history without direct validation.",
+    ],
+    validationNotes: [
+      "Does the available space support the team's actual office, production-adjacent, or collaboration needs?",
+      "How do employees and visitors reach the building by transit, bike, rideshare, car, and on event days?",
+      "Are loading, after-hours access, power, ventilation, and buildout constraints relevant to the use case?",
+      "Would Mission Bay provide a clearer innovation identity, or does Pier 70's industrial character strengthen the decision?",
+      "Does the surrounding waterfront redevelopment support daily work routines, clients, and recruiting?",
+    ],
+    nearbyAlternatives: [
+      { label: "Pier 70 Building 101", url: "/commercial-real-estate/building/CA/san-francisco/pier-70-building-101/", reason: "A direct comparison for historic shipyard reuse and waterfront character." },
+      { label: "Power Station - Station A", url: "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/", reason: "Compare when the tenant wants a larger redevelopment anchor and office/R&D growth story." },
+      { label: "American Industrial Center", url: "/commercial-real-estate/building/CA/san-francisco/2325-3rd-st/", reason: "Useful when maker, studio, and practical production roots matter more than waterfront redevelopment identity." },
+      { label: "500 Terry Francois", url: "/commercial-real-estate/building/CA/san-francisco/500-terry-francois-blvd/", reason: "A stronger comparison when Mission Bay waterfront office context is more important than industrial reuse." },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", reason: "Use the district page to compare Pier 70, Power Station, maker, industrial, and Mission Bay-edge patterns." },
+    ],
+    representativeCompanies: [
+      "Creative office, product, maker, design, innovation, and production-adjacent teams are the most relevant company categories.",
+      "Current tenant names, availability, delivery condition, and technical specifications should be verified from current source materials.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand Dogpatch's industrial reuse, waterfront, and Mission Bay-adjacent commercial identity." },
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Compare the more planned innovation district when institutional adjacency matters more than industrial character." },
+      { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", summary: "Validate buildout, systems, delivery condition, and cost before leasing adaptive reuse space." },
+    ],
+  }),
+  [buildingPath("Pier 70 Building 101")]: buildingBrief({
+    buildingSummary:
+      "Pier 70 Building 101 is a historic Dogpatch shipyard reuse profile for businesses evaluating character-rich waterfront commercial environments. It helps teams compare older industrial identity with newer Dogpatch and Mission Bay innovation buildings.",
+    buildingImportance:
+      "Pier 70 Building 101 matters because it keeps Dogpatch's waterfront story grounded in historic industrial reuse rather than only future development. It helps Rofo explain the district's long-term commercial identity, where shipyard fabric, creative use, and redevelopment potential overlap.",
+    quickFacts: [
+      { label: "Primary use", value: "Adaptive reuse commercial environment" },
+      { label: "Building type", value: "Historic shipyard adaptive reuse" },
+      { label: "Commercial role", value: "Historic waterfront reuse benchmark" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Historic industrial character reference" },
+      { label: "Transit context", value: "Dogpatch waterfront access; last-mile commute and visitor movement should be validated" },
+      { label: "Parking context", value: "Parking, loading, and visitor arrival are building-specific and should be confirmed early" },
+    ],
+    idealFor: [
+      "Creative, design, production-adjacent, and innovation teams that want a visible connection to San Francisco industrial history.",
+      "Companies comparing historic adaptive reuse against newer Power Station or Mission Bay workspace.",
+      "Teams that value waterfront district character more than a conventional office address.",
+      "Organizations that can tolerate more building-specific diligence in exchange for a differentiated workplace story.",
+    ],
+    mayNotFit: [
+      "Client-facing professional-service firms that need a formal Financial District address.",
+      "Teams requiring predictable modern office systems without adaptive reuse diligence.",
+      "Users that need validated lab, medical, or heavy industrial capabilities before shortlisting.",
+      "Companies whose employees need the broadest central transit access.",
+    ],
+    buildingExperience:
+      "The experience is historic, waterfront-oriented, and more distinctive than conventional office inventory. It can work well for teams that want the building itself to explain the company culture, but users should validate systems, circulation, access, and buildout needs before relying on the character alone.",
+    districtContext:
+      "Pier 70 Building 101 reinforces Dogpatch's shipyard identity and pairs naturally with Pier 70 Building 12. It should be compared with Station A and the 200/300 23rd Street Power Station buildings when the tenant wants a more future-facing redevelopment setting.",
+    advantages: [
+      "Strong evidence of Dogpatch's historic industrial and waterfront identity.",
+      "Useful contrast to Mission Bay's newer institutional and innovation-campus environment.",
+      "Helps creative and production-adjacent users evaluate character as a real business fit factor.",
+      "Supports district storytelling without relying on trophy-building logic.",
+    ],
+    tradeoffs: [
+      "Historic character can come with more uncertainty around systems, layout, accessibility, and buildout.",
+      "The location may be less straightforward for some clients or employees than downtown or Mission Bay options.",
+      "Not every creative team benefits enough from character to offset operational diligence.",
+      "Specialized infrastructure should be confirmed from current property materials.",
+    ],
+    validationNotes: [
+      "Does the suite condition support the intended workplace without excessive tenant improvements?",
+      "How do access, loading, security, and after-hours use work for the team's operating pattern?",
+      "Would Pier 70 Building 12 or Station A provide a clearer balance of character and functionality?",
+      "Does the waterfront location help recruiting and culture, or does it complicate daily routines?",
+      "What current building systems and permitted uses must be confirmed before touring?",
+    ],
+    nearbyAlternatives: [
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "The closest comparison for modern commercial reuse at Pier 70." },
+      { label: "Power Station - Station A", url: "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/", reason: "Compare when a landmark redevelopment anchor is more useful than historic shipyard reuse." },
+      { label: "American Industrial Center", url: "/commercial-real-estate/building/CA/san-francisco/2325-3rd-st/", reason: "A practical counterpoint for maker, studio, and small-business production environments." },
+      { label: "900 Minnesota", url: "/commercial-real-estate/building/CA/san-francisco/900-minnesota-st/", reason: "Useful when lower-rise neighborhood creative character matters more than the Pier 70 waterfront story." },
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", reason: "Compare when the business needs a newer, more institutional innovation district." },
+    ],
+    representativeCompanies: [
+      "Creative office, design, maker, production-adjacent, and innovation teams are the most relevant categories.",
+      "Tenant names, suite condition, and building-system claims should be validated from current sources.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Compare Dogpatch's waterfront reuse, maker, and office/R&D patterns." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Compare layout, access, systems, buildout, and business fit before selecting adaptive reuse space." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Use district fit and operating needs to decide whether character should lead the search." },
+    ],
+  }),
+  [buildingPath("1201 Illinois St")]: buildingBrief({
+    buildingSummary:
+      "Power Station - Station A is a Dogpatch Building Profile for companies evaluating large-scale waterfront redevelopment, office/R&D potential, and industrial heritage near Mission Bay. It helps distinguish Dogpatch's future growth story from both older maker buildings and established Mission Bay campuses.",
+    buildingImportance:
+      "Station A matters because it is a landmark example of Dogpatch moving from industrial infrastructure toward innovation-oriented commercial use. It explains why the district can support more ambitious office and R&D conversations while still requiring careful validation around delivery, building systems, and district maturity.",
+    quickFacts: [
+      { label: "Primary use", value: "Office/R&D-oriented commercial redevelopment context" },
+      { label: "Building type", value: "Industrial innovation district anchor" },
+      { label: "Commercial role", value: "Power Station transition anchor" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Future-facing waterfront redevelopment benchmark" },
+      { label: "Transit context", value: "Dogpatch and Mission Bay access; commute fit should be tested by team origin" },
+      { label: "Parking context", value: "Parking, visitor access, and event-area circulation should be validated directly" },
+    ],
+    idealFor: [
+      "Innovation, office/R&D, technology, and life-science-adjacent teams that want a Dogpatch growth story.",
+      "Companies comparing future-oriented Dogpatch redevelopment against Mission Bay's established institutional setting.",
+      "Teams that value larger-scale identity but do not want a traditional Financial District or Transbay tower.",
+      "Organizations that can validate technical and timing requirements before assuming specialized fit.",
+    ],
+    mayNotFit: [
+      "Companies that need immediately proven lab or clinical infrastructure without uncertainty.",
+      "Firms that want a mature downtown client-services environment.",
+      "Teams that prefer established street amenities and transit density over future redevelopment upside.",
+      "Users that cannot tolerate delivery, buildout, or infrastructure validation risk.",
+    ],
+    buildingExperience:
+      "The experience is about transformation and scale. Station A can make a workplace feel connected to Dogpatch's future rather than its older small-bay roots, but tenants should treat that future orientation as a diligence item, not as proof that every space will fit advanced operations.",
+    districtContext:
+      "Station A anchors the Power Station side of Dogpatch and should be read with 300 23rd St and 200 23rd St. Together they explain the district's modern office/R&D potential, while Pier 70 and American Industrial Center explain the industrial reuse and maker roots around it.",
+    advantages: [
+      "Strong landmark signal for Dogpatch's waterfront redevelopment future.",
+      "Relevant to office/R&D and innovation users comparing Dogpatch with Mission Bay.",
+      "Helps explain district scale beyond small creative and maker buildings.",
+      "Useful anchor for companies that want a differentiated San Francisco location story.",
+    ],
+    tradeoffs: [
+      "Future-facing redevelopment may create more timing and delivery questions than established buildings.",
+      "Technical capability should be validated for the specific space, not assumed from positioning.",
+      "The district may feel less mature than Mission Bay for some institutional or life-science users.",
+      "Client-facing firms may prefer a more conventional downtown address.",
+    ],
+    validationNotes: [
+      "What is the current delivery status, suite condition, and buildout path for the specific requirement?",
+      "Does the building support office, R&D, or specialized use needs without unsupported assumptions?",
+      "How do commute, event-area movement, parking, and visitor access work in practice?",
+      "Would 300 23rd St, 200 23rd St, or Mission Bay provide a clearer fit?",
+      "Does Dogpatch's redevelopment story strengthen the company narrative enough to justify the tradeoffs?",
+    ],
+    nearbyAlternatives: [
+      { label: "Power Station - 300 23rd St", url: "/commercial-real-estate/building/CA/san-francisco/300-23rd-st/", reason: "A direct comparison for next-generation Dogpatch office/R&D workspace." },
+      { label: "Power Station - 200 23rd St", url: "/commercial-real-estate/building/CA/san-francisco/200-23rd-st/", reason: "Useful for understanding Power Station supply depth and scale." },
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "Compare when adaptive reuse character matters more than future redevelopment scale." },
+      { label: "550 Terry A Francois", url: "/commercial-real-estate/building/CA/san-francisco/550-terry-a-francois-blvd/", reason: "A stronger Mission Bay comparison when office/lab adjacency and innovation identity are central." },
+      { label: "600 16th St", url: "/commercial-real-estate/building/CA/san-francisco/600-16th-st/", reason: "Compare when institutional research adjacency matters more than Dogpatch flexibility." },
+    ],
+    representativeCompanies: [
+      "Innovation, technology, office/R&D, life-science-adjacent, and product teams are the most relevant categories.",
+      "Delivery status, infrastructure, tenant names, and availability should be verified from current building materials.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand how Power Station, Pier 70, maker, and Mission Bay-edge patterns fit together." },
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Compare a more established innovation and institutional district before choosing Dogpatch." },
+      { title: "Commercial Leasing Timeline", url: "/commercial-real-estate/lease-guide/commercial-leasing-timeline/", summary: "Plan timing carefully when redevelopment, buildout, or delivery status affects the decision." },
+    ],
+  }),
+  [buildingPath("300 23rd St")]: buildingBrief({
+    buildingSummary:
+      "Power Station - 300 23rd St is a Dogpatch office/R&D Building Profile for teams that need more scale and capability than legacy creative buildings usually provide. It is most useful for comparing Dogpatch's next-generation workspace with Mission Bay innovation buildings.",
+    buildingImportance:
+      "300 23rd St matters because it shows that Dogpatch can support a more modern office/R&D conversation without becoming Mission Bay. It gives Rofo a concrete example of the district's future supply: larger, flexible, waterfront-adjacent, and still tied to an industrial redevelopment story.",
+    quickFacts: [
+      { label: "Primary use", value: "Office/R&D-oriented workspace context" },
+      { label: "Building type", value: "Modern waterfront office/R&D building" },
+      { label: "Commercial role", value: "Next-generation workspace benchmark" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Modern Power Station workspace example" },
+      { label: "Transit context", value: "Dogpatch and Mission Bay access; last-mile employee routes should be validated" },
+      { label: "Parking context", value: "Parking, loading, deliveries, and visitor arrival should be confirmed for the specific use" },
+    ],
+    idealFor: [
+      "Office/R&D, innovation, technology, and product teams comparing Dogpatch with Mission Bay.",
+      "Companies that need a more capable modern environment than smaller converted industrial buildings.",
+      "Teams that value waterfront redevelopment identity and potential future scale.",
+      "Organizations that can validate technical requirements rather than assuming lab or specialized-use readiness.",
+    ],
+    mayNotFit: [
+      "Users that need fully proven laboratory infrastructure before shortlisting.",
+      "Companies that prefer the formal business-service ecosystem of the Financial District.",
+      "Small creative teams that would overpay for scale or technical positioning they do not need.",
+      "Tenants seeking the most mature neighborhood amenities and transit predictability.",
+    ],
+    buildingExperience:
+      "The experience is more modern and growth-oriented than Dogpatch's smaller maker buildings. It should be evaluated as a practical innovation workplace: useful when flexibility, scale, and Mission Bay adjacency matter, but dependent on suite-level validation for infrastructure, timing, and operations.",
+    districtContext:
+      "300 23rd St is part of the Power Station pattern with Station A and 200 23rd St. It helps explain Dogpatch's ability to support modern office/R&D users while nearby Pier 70 and American Industrial Center preserve the district's adaptive reuse and production roots.",
+    advantages: [
+      "Clear evidence of Dogpatch's modern office/R&D direction.",
+      "Stronger scale and capability signal than smaller neighborhood creative buildings.",
+      "Useful Mission Bay comparison for teams that want adjacency without a fully institutional setting.",
+      "Helps explain the Power Station cluster as a repeatable district pattern.",
+    ],
+    tradeoffs: [
+      "Technical suitability must be verified for the actual space and use case.",
+      "Future supply and redevelopment context can introduce timing and maturity questions.",
+      "May be too specialized or large-scale for smaller creative or maker users.",
+      "Daily access and visitor experience may be less obvious than in downtown districts.",
+    ],
+    validationNotes: [
+      "What uses, systems, ceiling heights, power, ventilation, and loading conditions are actually supported?",
+      "Does the available space fit office/R&D needs without assuming laboratory capability?",
+      "How does the commute compare with Mission Bay, SoMa, and South Beach alternatives?",
+      "Would 200 23rd St, Station A, 550 Terry A Francois, or 409 Illinois be a better comparison?",
+      "Does the team benefit from Dogpatch identity, or is Mission Bay's established ecosystem more important?",
+    ],
+    nearbyAlternatives: [
+      { label: "Power Station - 200 23rd St", url: "/commercial-real-estate/building/CA/san-francisco/200-23rd-st/", reason: "A direct comparison for similar Power Station supply and scale." },
+      { label: "Power Station - Station A", url: "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/", reason: "Compare when a larger landmark redevelopment anchor is central to the story." },
+      { label: "550 Terry A Francois", url: "/commercial-real-estate/building/CA/san-francisco/550-terry-a-francois-blvd/", reason: "Useful when Mission Bay office/lab adjacency is a stronger fit." },
+      { label: "409 Illinois", url: "/commercial-real-estate/building/CA/san-francisco/409-illinois-st/", reason: "A smaller Mission Bay waterfront-edge alternative for innovation users." },
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "Compare when adaptive reuse character matters more than modern workspace scale." },
+    ],
+    representativeCompanies: [
+      "Office/R&D, innovation, technology, product, and life-science-adjacent users are the most relevant categories.",
+      "Infrastructure, tenant names, suite condition, and availability should be verified from current sources.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Compare Dogpatch's modern redevelopment with its industrial and maker roots." },
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Use Mission Bay as the comparison when health, research, and institutional adjacency lead the decision." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Validate space, access, systems, cost, and operating fit before choosing a building." },
+    ],
+  }),
+  [buildingPath("200 23rd St")]: buildingBrief({
+    buildingSummary:
+      "Power Station - 200 23rd St is a Dogpatch Building Profile for tenants evaluating the depth of future office/R&D supply around Power Station. It helps companies decide whether Dogpatch offers a real multi-building option set or only a few isolated redevelopment examples.",
+    buildingImportance:
+      "200 23rd St matters because it complements Station A and 300 23rd St. It shows that the Power Station story is not a single-building signal; it is a district-scale pattern that may matter to companies needing growth options, innovation identity, and Mission Bay proximity with a different character.",
+    quickFacts: [
+      { label: "Primary use", value: "Office/R&D-oriented commercial environment" },
+      { label: "Building type", value: "Power Station office/R&D supply depth" },
+      { label: "Commercial role", value: "Power Station scale complement" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Multi-building redevelopment depth benchmark" },
+      { label: "Transit context", value: "Dogpatch and Mission Bay edge access; employee routes should be validated" },
+      { label: "Parking context", value: "Parking, loading, service access, and visitor movement should be confirmed by requirement" },
+    ],
+    idealFor: [
+      "R&D-oriented, technology, innovation, and growth companies that want multiple Dogpatch options in one district context.",
+      "Teams comparing Power Station supply depth against Mission Bay's more specialized building inventory.",
+      "Organizations that value flexible future growth more than a conventional downtown address.",
+      "Companies that need to understand Dogpatch as a portfolio of options rather than a one-off building.",
+    ],
+    mayNotFit: [
+      "Businesses that need established office tower image or immediate Financial District client access.",
+      "Users requiring proven wet-lab or specialized infrastructure without current building validation.",
+      "Small teams that would be better served by lower-rise creative or maker buildings.",
+      "Companies that cannot accept redevelopment timing or district-maturity uncertainty.",
+    ],
+    buildingExperience:
+      "The experience should be assessed as part of the Power Station cluster. It may support teams that want modern workplace options near Mission Bay, but the value depends on whether the specific building, suite, timing, and operating conditions match the business need.",
+    districtContext:
+      "200 23rd St gives Dogpatch's Power Station area more than one reference point. It should be compared with 300 23rd St for similar modern scale, Station A for landmark identity, and 409 Illinois or 550 Terry A Francois when Mission Bay's innovation context is more important.",
+    advantages: [
+      "Shows Dogpatch has more than one modern Power Station option.",
+      "Useful for growth companies evaluating district depth and future flexibility.",
+      "Connects Dogpatch's industrial redevelopment story to office/R&D demand.",
+      "Helps compare Dogpatch with Mission Bay without collapsing the two districts together.",
+    ],
+    tradeoffs: [
+      "Future supply depth does not guarantee the right suite, timing, or infrastructure.",
+      "The building may be less useful for tenants that need immediate neighborhood amenity density.",
+      "Specialized operations need direct validation rather than assumptions from evidence role.",
+      "The location story may be less familiar to clients than downtown or Mission Bay.",
+    ],
+    validationNotes: [
+      "Does the current building status align with the tenant's timeline?",
+      "What infrastructure, loading, power, ventilation, security, and operating limits apply?",
+      "Would 300 23rd St or Station A provide clearer scale, identity, or timing?",
+      "Is Dogpatch's flexibility more valuable than Mission Bay's established institutional cluster?",
+      "How do employee commute, parking, and visitor patterns compare with SoMa and Mission Bay alternatives?",
+    ],
+    nearbyAlternatives: [
+      { label: "Power Station - 300 23rd St", url: "/commercial-real-estate/building/CA/san-francisco/300-23rd-st/", reason: "The closest comparison for modern Power Station office/R&D context." },
+      { label: "Power Station - Station A", url: "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/", reason: "Compare when landmark redevelopment identity matters more than portfolio depth." },
+      { label: "409 Illinois", url: "/commercial-real-estate/building/CA/san-francisco/409-illinois-st/", reason: "A Mission Bay-edge comparison when smaller waterfront innovation space may be clearer." },
+      { label: "550 Terry A Francois", url: "/commercial-real-estate/building/CA/san-francisco/550-terry-a-francois-blvd/", reason: "Useful when office/lab adjacency and Mission Bay identity are stronger priorities." },
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "Compare when adapted industrial character is more important than modern supply depth." },
+    ],
+    representativeCompanies: [
+      "R&D-oriented, technology, innovation, product, and life-science-adjacent users are the most relevant categories.",
+      "Current delivery, tenant, availability, and infrastructure details should be verified before reliance.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Use the district guide to compare Power Station, Pier 70, maker, and Mission Bay-edge options." },
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Compare when institutional adjacency or stronger innovation-campus context matters." },
+      { title: "Commercial Leasing Timeline", url: "/commercial-real-estate/lease-guide/commercial-leasing-timeline/", summary: "Plan around delivery, buildout, infrastructure, and approval timing." },
+    ],
+  }),
+  [buildingPath("654 Minnesota St")]: buildingBrief({
+    buildingSummary:
+      "UCSF Life Sciences Building is a Dogpatch Building Profile for organizations comparing life-science adjacency, Mission Bay institutional gravity, and Dogpatch flexibility. It helps users understand that proximity to research anchors can matter without assuming every nearby building is lab-ready.",
+    buildingImportance:
+      "654 Minnesota matters because it links Dogpatch to the Mission Bay health, research, and life-science ecosystem. It gives Rofo a bridge example: relevant to research-adjacent users, but also a reminder that district adjacency is not the same as verified laboratory infrastructure.",
+    quickFacts: [
+      { label: "Primary use", value: "Institutional life-science and research-adjacent context" },
+      { label: "Building type", value: "Institutional life-science anchor" },
+      { label: "Commercial role", value: "Mission Bay ecosystem bridge" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Life-science adjacency benchmark" },
+      { label: "Transit context", value: "Dogpatch and Mission Bay access; institutional commute patterns should be checked" },
+      { label: "Parking context", value: "Parking, patient or visitor movement, and operational access should be validated for the specific use" },
+    ],
+    idealFor: [
+      "Research-adjacent, life-science support, health innovation, and institutional partner teams comparing Dogpatch with Mission Bay.",
+      "Organizations that value UCSF proximity but may not need the most specialized Mission Bay lab setting.",
+      "Companies trying to understand whether Dogpatch can support a flexible innovation-adjacent workplace.",
+      "Teams that need proximity evidence while still validating technical requirements building by building.",
+    ],
+    mayNotFit: [
+      "Users requiring confirmed wet lab, clinical, or regulated infrastructure before shortlisting.",
+      "Companies that need a conventional office district or client-service setting.",
+      "Teams that would be better served by Mission Bay's core institutional campus.",
+      "Businesses that do not benefit from health, research, or life-science adjacency.",
+    ],
+    buildingExperience:
+      "The experience is defined by institutional and Mission Bay adjacency rather than ordinary office identity. It can help a research-adjacent user stay near the ecosystem, but it requires careful validation of access, security, infrastructure, and whether Dogpatch's mixed industrial setting supports the actual work.",
+    districtContext:
+      "654 Minnesota sits at the point where Dogpatch starts to overlap with Mission Bay's life-science and research story. It should be compared with UCSF Mission Bay / Genentech Hall, 1700 Owens, and 550 Terry A Francois when institutional or technical fit is more important than Dogpatch character.",
+    advantages: [
+      "Strong bridge between Dogpatch and Mission Bay's health and research ecosystem.",
+      "Useful evidence for life-science-adjacent teams evaluating Dogpatch.",
+      "Helps distinguish proximity from true technical fit.",
+      "Adds institutional context to a district otherwise known for industrial reuse and maker space.",
+    ],
+    tradeoffs: [
+      "Adjacency to research anchors should not be treated as proof of suitable lab infrastructure.",
+      "Dogpatch may be less mature than Mission Bay for specialized life-science users.",
+      "Operational access, security, and visitor patterns may matter more than in ordinary office decisions.",
+      "Teams without research adjacency needs may find the context less relevant.",
+    ],
+    validationNotes: [
+      "What specific infrastructure, compliance, security, ventilation, or access needs must be verified?",
+      "Does the team need Mission Bay's core institutional campus, or is Dogpatch adjacency enough?",
+      "How do employees, collaborators, visitors, and deliveries move between Dogpatch and Mission Bay?",
+      "Would 600 16th St, 1700 Owens, 550 Terry A Francois, or Station A be a better comparison?",
+      "Is the use case office, research-adjacent, clinical-adjacent, or truly specialized laboratory work?",
+    ],
+    nearbyAlternatives: [
+      { label: "UCSF Mission Bay / Genentech Hall", url: "/commercial-real-estate/building/CA/san-francisco/600-16th-st/", reason: "A stronger comparison when core institutional research adjacency should lead the decision." },
+      { label: "The Exchange", url: "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/", reason: "Useful when modern Mission Bay office context matters more than Dogpatch flexibility." },
+      { label: "550 Terry A Francois", url: "/commercial-real-estate/building/CA/san-francisco/550-terry-a-francois-blvd/", reason: "Compare when office/lab adjacency and waterfront innovation identity are central." },
+      { label: "Power Station - Station A", url: "/commercial-real-estate/building/CA/san-francisco/1201-illinois-st/", reason: "A Dogpatch alternative when redevelopment flexibility matters more than institutional proximity." },
+      { label: "Mission Bay", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", reason: "Use the district guide to understand the stronger life-science and healthcare cluster." },
+    ],
+    representativeCompanies: [
+      "Research-adjacent, life-science support, health innovation, institutional partner, and specialized office users are the most relevant categories.",
+      "Tenant names, laboratory capabilities, clinical use, and infrastructure should be verified from current sources.",
+    ],
+    relatedInsights: [
+      { title: "Mission Bay commercial real estate", url: "/commercial-real-estate/CA/san-francisco/mission-bay/", summary: "Compare the core health, research, and innovation district before choosing a Dogpatch-edge location." },
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand how Dogpatch blends industrial reuse, waterfront redevelopment, and Mission Bay adjacency." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Validate infrastructure, access, buildout, and operating fit before relying on proximity." },
+    ],
+  }),
+  [buildingPath("2325 3rd St")]: buildingBrief({
+    buildingSummary:
+      "American Industrial Center is a Dogpatch Building Profile for maker, studio, production-adjacent, and small-business users evaluating converted industrial space. It is the practical counterweight to Pier 70 and Power Station redevelopment in the district evidence set.",
+    buildingImportance:
+      "American Industrial Center matters because it preserves the operating roots of Dogpatch. It shows that the district is not only about waterfront redevelopment or innovation branding; it also supports a durable mix of maker, studio, light production, and small-business environments.",
+    quickFacts: [
+      { label: "Primary use", value: "Maker, studio, creative, and production-adjacent commercial environment" },
+      { label: "Building type", value: "Maker and industrial conversion" },
+      { label: "Commercial role", value: "Small-business production roots" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Operational industrial conversion benchmark" },
+      { label: "Transit context", value: "Dogpatch local access; transit, bike, vehicle, and delivery patterns should be validated" },
+      { label: "Parking context", value: "Parking, loading, freight, and visitor access should be checked for each operation" },
+    ],
+    idealFor: [
+      "Maker, studio, design, production-adjacent, and small-business operators that need practical creative-commercial space.",
+      "Teams comparing Dogpatch with Potrero Hill, Showplace Square, and Mission District production edges.",
+      "Businesses that value flexible, work-oriented space more than polished office image.",
+      "Companies that need to understand operational fit before choosing a more expensive redevelopment asset.",
+    ],
+    mayNotFit: [
+      "Corporate office users that need a polished lobby, formal address, or conventional client arrival.",
+      "Tenants that require verified heavy industrial, lab, food production, or regulated infrastructure without direct diligence.",
+      "Teams that prioritize dense downtown transit and amenities over operating flexibility.",
+      "Large users that need standardized Class A floorplates or expansion predictability.",
+    ],
+    buildingExperience:
+      "The experience is practical, local, and production-oriented. It can be highly useful for teams that need a working creative or maker environment, but the right answer depends on details such as loading, power, access, noise, permitted use, suite condition, and customer presentation.",
+    districtContext:
+      "American Industrial Center grounds Dogpatch in its maker and production roots. It should be compared with 700 Indiana and 900 Minnesota for smaller neighborhood-scale character, 1501 Mariposa for the Potrero edge, and Pier 70 when adaptive reuse image matters more than everyday operational utility.",
+    advantages: [
+      "Strong non-trophy evidence of Dogpatch's maker and production identity.",
+      "Useful for small businesses and creative operators that need practical space.",
+      "Provides a counterpoint to Power Station and Pier 70 redevelopment examples.",
+      "Helps tenants compare Dogpatch with Potrero Hill and Showplace Square operating environments.",
+    ],
+    tradeoffs: [
+      "Operational fit is highly specific and cannot be assumed from district identity.",
+      "May not provide the image, amenities, or predictability expected by conventional office users.",
+      "Visitor experience and customer presentation should be tested for client-facing businesses.",
+      "Loading, power, ventilation, noise, access, and permitted use need explicit validation.",
+    ],
+    validationNotes: [
+      "Does the space support the required production, studio, maker, or office-adjacent workflow?",
+      "What loading, freight, power, ventilation, floor loading, access, and permitted-use details matter?",
+      "Will the building experience work for employees, customers, vendors, and deliveries?",
+      "Would 700 Indiana, 900 Minnesota, 1501 Mariposa, or Potrero Hill provide better operational fit?",
+      "Does the business need creative character, practical utility, or both?",
+    ],
+    nearbyAlternatives: [
+      { label: "700 Indiana", url: "/commercial-real-estate/building/CA/san-francisco/700-indiana-st/", reason: "A nearby smaller-format comparison for industrial conversion and creative use." },
+      { label: "900 Minnesota", url: "/commercial-real-estate/building/CA/san-francisco/900-minnesota-st/", reason: "Useful when lower-rise neighborhood creative character matters more than operational scale." },
+      { label: "1501 Mariposa", url: "/commercial-real-estate/building/CA/san-francisco/1501-mariposa-st/", reason: "Compare when production and flex needs point toward the Dogpatch and Potrero edge." },
+      { label: "1700 17th", url: "/commercial-real-estate/building/CA/san-francisco/1700-17th-st/", reason: "A Potrero Hill comparison for lower-rise production and flex context." },
+      { label: "2 Henry Adams St", url: "/commercial-real-estate/building/CA/san-francisco/2-henry-adams-st/", reason: "Compare when design, showroom, and production-adjacent demand needs more centrality." },
+    ],
+    representativeCompanies: [
+      "Maker, studio, creative production, design, service-commercial, and small-business operators are the most relevant categories.",
+      "Current tenants, availability, permitted use, and infrastructure should be verified from current property sources.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand Dogpatch's maker, production, waterfront, and redevelopment patterns." },
+      { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare nearby production, flex, creative, and waterfront environments across the city." },
+      { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", summary: "Validate buildout, infrastructure, use, timing, and cost before committing to converted industrial space." },
+    ],
+  }),
+  [buildingPath("700 Indiana St")]: buildingBrief({
+    buildingSummary:
+      "700 Indiana is a Dogpatch Building Profile for smaller creative office, studio, and production-adjacent users that want industrial conversion character without the scale of Pier 70 or Power Station. It helps explain the district's neighborhood-scale commercial fabric.",
+    buildingImportance:
+      "700 Indiana matters because it shows that Dogpatch is not only a set of large waterfront redevelopment projects. Smaller converted buildings help define the everyday commercial market for creative, maker, service, and local production users.",
+    quickFacts: [
+      { label: "Primary use", value: "Creative office and production-adjacent commercial environment" },
+      { label: "Building type", value: "Neighborhood-scale industrial conversion" },
+      { label: "Commercial role", value: "Smaller Dogpatch format benchmark" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Small-format adaptive building example" },
+      { label: "Transit context", value: "Local Dogpatch access; commute and visitor patterns should be tested by team origin" },
+      { label: "Parking context", value: "Parking, curb access, loading, and delivery conditions should be validated for the specific use" },
+    ],
+    idealFor: [
+      "Small creative, studio, design, production-adjacent, and service-commercial teams seeking Dogpatch character.",
+      "Companies that want converted industrial space without choosing a large redevelopment anchor.",
+      "Teams comparing Dogpatch's smaller buildings with Potrero Hill and Showplace Square alternatives.",
+      "Businesses that value flexibility, character, and practical scale more than formal office presentation.",
+    ],
+    mayNotFit: [
+      "Large users that need broad contiguous expansion or standardized Class A systems.",
+      "Client-facing firms that need a polished downtown or executive address.",
+      "Users that require heavy industrial, lab, or specialized infrastructure without detailed verification.",
+      "Companies that need dense transit, hotel, and client-service amenities immediately outside the building.",
+    ],
+    buildingExperience:
+      "The experience is smaller, more local, and more work-oriented than the district's largest redevelopment projects. It can be attractive for teams that want Dogpatch texture, but tenants should validate whether the building condition, access, and operational details fit the specific business.",
+    districtContext:
+      "700 Indiana sits in the everyday Dogpatch fabric between maker, creative, and industrial conversion patterns. It should be read with American Industrial Center and 900 Minnesota, then compared with Pier 70 Building 12 when a larger waterfront adaptive reuse setting is more appropriate.",
+    advantages: [
+      "Explains Dogpatch's smaller converted-building layer.",
+      "Useful for creative and production-adjacent teams that do not need campus scale.",
+      "Provides a practical comparison against American Industrial Center and 900 Minnesota.",
+      "Helps prevent the district narrative from over-indexing on major redevelopment projects.",
+    ],
+    tradeoffs: [
+      "Smaller converted buildings may offer less expansion flexibility and fewer amenities.",
+      "Suite-level systems, layout, loading, and access must be validated.",
+      "The visitor experience may be less polished than newer waterfront or downtown options.",
+      "The building may not fit users with specialized infrastructure or formal image needs.",
+    ],
+    validationNotes: [
+      "Does the available suite fit the team size, workflow, storage, collaboration, and production-adjacent needs?",
+      "What building systems, loading, access, parking, and permitted-use details require confirmation?",
+      "Would American Industrial Center or 900 Minnesota provide better operational fit or character?",
+      "Would Pier 70 Building 12 provide a stronger client or recruiting story?",
+      "Does the smaller building format support future growth, or only the current requirement?",
+    ],
+    nearbyAlternatives: [
+      { label: "American Industrial Center", url: "/commercial-real-estate/building/CA/san-francisco/2325-3rd-st/", reason: "A stronger fit when maker, studio, or production utility is more important." },
+      { label: "900 Minnesota", url: "/commercial-real-estate/building/CA/san-francisco/900-minnesota-st/", reason: "Useful when lower-rise neighborhood creative character is central." },
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "Compare when waterfront adaptive reuse and larger redevelopment identity matter more." },
+      { label: "99 Rhode Island", url: "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/", reason: "A Potrero Hill comparison for smaller creative office and neighborhood edge context." },
+      { label: "Dogpatch", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", reason: "Use the district guide to compare smaller converted buildings with Pier 70 and Power Station." },
+    ],
+    representativeCompanies: [
+      "Small creative, design, studio, production-adjacent, maker, and service-commercial teams are the most relevant categories.",
+      "Current tenants, suite condition, permitted uses, and operating infrastructure should be verified directly.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Compare Dogpatch's small-format, maker, waterfront, and redevelopment environments." },
+      { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare nearby lower-rise creative, production, and waterfront environments across the city." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", summary: "Evaluate layout, access, operations, cost, and flexibility before shortlisting." },
+    ],
+  }),
+  [buildingPath("900 Minnesota St")]: buildingBrief({
+    buildingSummary:
+      "900 Minnesota is a Dogpatch Building Profile for tenants evaluating lower-rise neighborhood creative office and production-adjacent character. It helps explain the human-scale side of Dogpatch between large waterfront redevelopment and practical maker buildings.",
+    buildingImportance:
+      "900 Minnesota matters because it shows Dogpatch as a lived-in commercial neighborhood, not only an emerging innovation district. It is useful for companies that want character, lower-rise identity, and production-adjacent surroundings while still comparing Mission Bay, Potrero Hill, and Showplace Square.",
+    quickFacts: [
+      { label: "Primary use", value: "Creative office and neighborhood commercial environment" },
+      { label: "Building type", value: "Historic neighborhood creative office" },
+      { label: "Commercial role", value: "Lower-rise neighborhood anchor" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Evidence role", value: "Human-scale creative-production benchmark" },
+      { label: "Transit context", value: "Dogpatch local and Mission Bay-adjacent access; route fit varies by commute pattern" },
+      { label: "Parking context", value: "Parking, loading, and visitor access should be validated by building and operating schedule" },
+    ],
+    idealFor: [
+      "Creative office, studio, neighborhood service, and production-adjacent teams that value lower-rise character.",
+      "Companies comparing Dogpatch's human-scale commercial fabric with Mission Bay's planned environment.",
+      "Teams that want a quieter, more local setting than central SoMa or downtown towers.",
+      "Businesses that can benefit from district character without needing highly specialized infrastructure.",
+    ],
+    mayNotFit: [
+      "Users that need large modern floorplates, formal tower amenities, or a flagship headquarters signal.",
+      "Life-science, medical, or industrial users requiring specialized infrastructure without validation.",
+      "Companies that need the densest transit and client-service access of the Financial District.",
+      "Teams expecting the same amenity depth as Mission Bay or central SoMa.",
+    ],
+    buildingExperience:
+      "The experience is lower-rise, neighborhood-oriented, and character-driven. It may fit teams that want Dogpatch's creative-production rhythm, but the building should be evaluated carefully for suite quality, employee routines, access, and whether the surrounding blocks support the company brand.",
+    districtContext:
+      "900 Minnesota helps explain the middle of Dogpatch's identity: less formal than Mission Bay, less large-scale than Power Station, and less operationally focused than American Industrial Center. It is a useful comparison for 700 Indiana and Potrero Hill creative buildings.",
+    advantages: [
+      "Shows Dogpatch's lower-rise neighborhood creative-office layer.",
+      "Useful contrast against larger Pier 70 and Power Station assets.",
+      "Helps creative teams evaluate district character and employee experience.",
+      "Supports comparisons with Potrero Hill and Showplace Square without leaving the local context.",
+    ],
+    tradeoffs: [
+      "May not offer the amenity depth or expansion path of larger modern buildings.",
+      "Specialized infrastructure, loading, and building systems should not be assumed.",
+      "The neighborhood setting may be less polished for client-facing users.",
+      "Transit and parking convenience need block-by-block validation.",
+    ],
+    validationNotes: [
+      "Does the suite fit the team's current size, collaboration style, and near-term growth?",
+      "Are building systems, access, security, and after-hours use compatible with the operation?",
+      "Would 700 Indiana, American Industrial Center, or 99 Rhode Island provide a clearer fit?",
+      "Does the lower-rise neighborhood identity help recruiting and client perception?",
+      "How do employees and visitors experience the surrounding blocks during normal work hours?",
+    ],
+    nearbyAlternatives: [
+      { label: "700 Indiana", url: "/commercial-real-estate/building/CA/san-francisco/700-indiana-st/", reason: "A direct comparison for smaller Dogpatch industrial conversion character." },
+      { label: "American Industrial Center", url: "/commercial-real-estate/building/CA/san-francisco/2325-3rd-st/", reason: "Useful when maker, studio, and operational utility matter more." },
+      { label: "99 Rhode Island", url: "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/", reason: "A Potrero Hill alternative for smaller creative office and neighborhood edge context." },
+      { label: "Pier 70 Building 12", url: "/commercial-real-estate/building/CA/san-francisco/70-pier-bldg-102/", reason: "Compare when waterfront adaptive reuse and redevelopment identity should be stronger." },
+      { label: "2 Henry Adams St", url: "/commercial-real-estate/building/CA/san-francisco/2-henry-adams-st/", reason: "Compare when creative office, design, robotics, or AI context needs more centrality." },
+    ],
+    representativeCompanies: [
+      "Creative office, studio, design, production-adjacent, and neighborhood service teams are the most relevant categories.",
+      "Current tenants, availability, suite condition, and infrastructure should be verified from current source materials.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand the district's lower-rise, maker, waterfront, and redevelopment options." },
+      { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare nearby creative-office and production-adjacent demand patterns across the city." },
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", summary: "Use employee access, clients, operations, and district identity to choose the right location." },
+    ],
+  }),
+  [buildingPath("1501 Mariposa St")]: buildingBrief({
+    buildingSummary:
+      "1501 Mariposa is a Dogpatch and Potrero-edge Building Profile for production, flex, service-commercial, and creative operations that need practical operating context. It helps Rofo explain the district's PDR edge rather than presenting Dogpatch as only waterfront office redevelopment.",
+    buildingImportance:
+      "1501 Mariposa matters because it protects the operational side of the Dogpatch story. The building is evidence that some companies evaluate this area for production, flex, deliveries, and practical use patterns, not just creative-office character or Mission Bay adjacency.",
+    quickFacts: [
+      { label: "Primary use", value: "Production, flex, and service-commercial context" },
+      { label: "Building type", value: "Production/flex neighborhood edge building" },
+      { label: "Commercial role", value: "Dogpatch and Potrero operational edge" },
+      { label: "District", value: "Dogpatch" },
+      { label: "Secondary context", value: "Potrero Hill production and flex edge" },
+      { label: "Transit context", value: "Local access varies; vehicle, delivery, and employee movement should be validated" },
+      { label: "Parking context", value: "Parking, loading, yard, curb, and service access should be confirmed for the use case" },
+    ],
+    idealFor: [
+      "Production, flex, maker, service-commercial, and creative operations that need practical building characteristics.",
+      "Businesses comparing Dogpatch with Potrero Hill, Showplace Square, and Mission District production edges.",
+      "Teams whose workflow includes equipment, deliveries, storage, or operational access that ordinary office buildings may not support.",
+      "Companies that want central San Francisco proximity without a traditional downtown office setting.",
+    ],
+    mayNotFit: [
+      "Conventional office users that want polished amenities, dense walkable services, or a formal client address.",
+      "Tenants that need heavy industrial or regulated uses without verifying permitted use and infrastructure.",
+      "Teams whose employees rely primarily on downtown transit and client-service amenities.",
+      "Companies that would be better served by a cleaner Mission Bay innovation or SoMa office identity.",
+    ],
+    buildingExperience:
+      "The experience is operational and edge-oriented. That can be valuable for businesses that need practical flexibility, but it means the leasing decision should start with use, access, loading, power, permitted activity, and employee experience rather than generic office appeal.",
+    districtContext:
+      "1501 Mariposa sits where Dogpatch, Potrero Hill, and production-oriented San Francisco overlap. It should be compared with American Industrial Center for maker roots, 1700 17th for Potrero flex context, and Mission District production examples when cultural or retail adjacency matters more.",
+    advantages: [
+      "Strong evidence for Dogpatch's production and flex relevance.",
+      "Useful counterpoint to office-heavy Mission Bay and waterfront redevelopment examples.",
+      "Helps operators evaluate real access, loading, and practical space needs.",
+      "Clarifies the Dogpatch and Potrero Hill overlap for production-adjacent businesses.",
+    ],
+    tradeoffs: [
+      "The operational edge may be less polished for clients, recruiting, or everyday amenities.",
+      "Permitted use, loading, power, access, noise, and ventilation require direct validation.",
+      "May not provide the workplace image expected by conventional office teams.",
+      "Transit and pedestrian experience can be more variable than central districts.",
+    ],
+    validationNotes: [
+      "What use, loading, power, ventilation, storage, access, and permitted-activity constraints apply?",
+      "Can employees, vendors, clients, and deliveries use the location efficiently?",
+      "Would American Industrial Center, 1700 17th, 1840 17th, or 2400 16th provide a better operating fit?",
+      "Does the business need Dogpatch identity, Potrero practicality, or a Mission District production edge?",
+      "Will the surrounding block context support brand, safety, hours, and customer expectations?",
+    ],
+    nearbyAlternatives: [
+      { label: "American Industrial Center", url: "/commercial-real-estate/building/CA/san-francisco/2325-3rd-st/", reason: "A stronger Dogpatch comparison for maker, studio, and production roots." },
+      { label: "1700 17th", url: "/commercial-real-estate/building/CA/san-francisco/1700-17th-st/", reason: "A Potrero Hill alternative for lower-rise production and flex context." },
+      { label: "1840 17th", url: "/commercial-real-estate/building/CA/san-francisco/1840-17th-st/", reason: "Useful when industrial and production needs should lead the comparison." },
+      { label: "2400 16th", url: "/commercial-real-estate/building/CA/san-francisco/2400-16th-st/", reason: "Compare when the Mission District production edge is more relevant." },
+      { label: "Mission", url: "/commercial-real-estate/CA/san-francisco/mission/", reason: "Compare when cultural adjacency and Mission District production edges matter more." },
+    ],
+    representativeCompanies: [
+      "Production, flex, maker, service-commercial, creative operations, and light industrial users are the most relevant categories.",
+      "Current tenancy, availability, permitted use, and infrastructure should be verified before relying on the profile.",
+    ],
+    relatedInsights: [
+      { title: "Dogpatch commercial real estate", url: "/commercial-real-estate/CA/san-francisco/dogpatch/", summary: "Understand Dogpatch's industrial, flex, maker, waterfront, and Mission Bay-edge patterns." },
+      { title: "San Francisco commercial real estate", url: "/commercial-real-estate/CA/san-francisco/", summary: "Compare nearby production and flex building environments across the city." },
+      { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", summary: "Validate buildout, utility, access, and permitted-use work before signing." },
+    ],
+  }),
   [buildingPath("555 California St")]: buildingBrief({
     status: "canonical-reference",
     buildingSummary:
