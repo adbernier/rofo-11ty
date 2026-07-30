@@ -6,6 +6,8 @@ Publisher v1 does not generate content, publish pages, call external AI services
 
 Publisher now sits inside the broader Editorial Operating System documented in `docs/editorial-operating-system.md`. EOS uses Publisher output as one source of truth for metro planning, but it also has room for Compass, Field Mode, Handbook, Search Intelligence, QA, and future analytics signals. Publisher scoring remains unchanged by EOS.
 
+Publisher geography should align with the canonical commercial geography model in `docs/commercial-geography-model.md`. Publisher may retain current metro grouping as a compatibility layer, but long-term readiness should be measured from canonical Market and District ownership.
+
 Commercial Market Evidence is documented in `docs/commercial-market-evidence.md`. Future Publisher work can measure that evidence layer additively, but this document does not change current Publisher behavior or scoring.
 
 Publisher now includes a read-only Commercial Market Evidence platform section generated from `scripts/qa-commercial-market-evidence.js`. This reports validator health, collection count, evidence-record count, district coverage, confidence buckets, and deferred candidates. It is informational only and does not affect Publisher scoring, readiness calculations, or queue priority.

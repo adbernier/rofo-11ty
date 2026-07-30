@@ -14,6 +14,8 @@ EOS discovers Commercial Market Evidence expansion opportunities by comparing Kn
 
 EOS follows Rofo's one-commercial-geography principle: every canonical Knowledge Graph district is eligible for recommendations, Publisher coverage, Commercial Market Evidence planning, and Mission Control market-completion tracking. EOS may prioritize districts differently by maturity and evidence, but it should not maintain a separate district class that removes canonical districts from platform coverage.
 
+The canonical geography model is defined in `docs/commercial-geography-model.md`. EOS should treat Market as the primary planning object, Region as expansion context, and District as the default unit for Commercial Market Evidence and District Building Evidence work.
+
 The operator-facing product name is Mission Control. EOS remains the internal architecture and generated-data model; Mission Control is the admin surface at `/admin/eos` that focuses daily work, mission review, metro health, expansion blockers, Field Mode, and archive previews.
 
 Mission Control v2 planning is documented in `docs/mission-control-v2-operating-model.md`. It proposes a Programs, Campaigns, Initiatives, Missions, Execution Packets, and hidden Work Items hierarchy so Mission Control can scale from task prioritization into Rofo's broader operating system without first redesigning the UI.

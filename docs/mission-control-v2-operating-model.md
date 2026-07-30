@@ -6,6 +6,8 @@ The purpose is to define how Rofo should organize work as the platform grows bey
 
 The Portfolio Resolver layer is documented in `docs/eos-portfolio-resolver.md`. It is the deterministic bridge between Publisher Work Items and Mission Control's portfolio-scale Missions.
 
+Mission Control geography should follow the canonical model in `docs/commercial-geography-model.md`: Region -> Market -> District. Mission Control starts at Market because Market is the primary operating geography; Region is expansion context, and District is the default scope for district building-evidence Missions.
+
 ## Problem
 
 Mission Control can already identify measurable opportunities and produce bounded missions. That model works for Publisher-driven work, but it will not scale cleanly when Rofo manages thousands of potential improvements across:
