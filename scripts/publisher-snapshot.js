@@ -4,6 +4,8 @@ const { execFileSync } = require("child_process");
 const { analyzePublisher } = require("../lib/publisher/analyze-metros.js");
 const { buildPublisherExpansionPlans } = require("../lib/publisher/expansion-planner.js");
 const { buildEditorialOperatingSystem } = require("../lib/eos/editorial-operating-system.js");
+const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph.js");
+const commercialGeography = require("../lib/geography/commercial-geography.js");
 const { runValidation: validateCommercialMarketEvidence } = require("./qa-commercial-market-evidence.js");
 
 function gitValue(args) {
@@ -46,12 +48,15 @@ function buildSnapshot() {
     scoringImpact: "None. Reporting only; Publisher scoring and readiness calculations are unchanged.",
   };
   const analysis = analyzePublisher({ generatedAt });
+  const geography = commercialGeography.geographySummary(locationKnowledgeGraph);
   analysis.commercialMarketEvidence = commercialMarketEvidence;
+  analysis.geography = geography;
 
   return {
     schemaVersion: 1,
     generatedAt,
     sourceCommit,
+    geography,
     commercialMarketEvidence,
     analysis,
   };

@@ -8,6 +8,8 @@ The Portfolio Resolver layer is documented in `docs/eos-portfolio-resolver.md`. 
 
 Mission Control geography should follow the canonical model in `docs/commercial-geography-model.md`: Region -> Market -> District. Mission Control starts at Market because Market is the primary operating geography; Region is expansion context, and District is the default scope for district building-evidence Missions.
 
+Implementation v1 exposes Region metadata in the generated Mission Control market projection while preserving the existing market-first workspace. East Bay, South Bay, Peninsula, and North Bay are canonical Markets under the Bay Area Region; only Markets with resolved district work generate executable Missions.
+
 ## Problem
 
 Mission Control can already identify measurable opportunities and produce bounded missions. That model works for Publisher-driven work, but it will not scale cleanly when Rofo manages thousands of potential improvements across:

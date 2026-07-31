@@ -69,6 +69,7 @@ const publisher = readJson(PUBLISHER_PATH);
 const adminSource = fs.existsSync(ADMIN_PATH) ? fs.readFileSync(ADMIN_PATH, "utf8") : "";
 const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph");
 const commercialMarketEvidence = require("../_data/commercialMarketEvidence");
+const commercialGeography = require("../lib/geography/commercial-geography");
 
 if (!eos || !publisher) process.exit();
 
@@ -307,6 +308,71 @@ if (marketProjection.schemaVersion !== "mission-control-v2-market-projection-v2"
   fail("EOS must expose the Mission Control v2 market projection.");
 }
 
+const geography = eos.geography || {};
+if (geography.schemaVersion !== "commercial-geography-summary-v1") {
+  fail("EOS must expose the canonical commercial geography summary.");
+}
+
+if (!publisher.geography || publisher.geography.schemaVersion !== "commercial-geography-summary-v1") {
+  fail("Publisher snapshot must expose the canonical commercial geography summary.");
+}
+
+const bayAreaRegion = (geography.regions || []).find((region) => region.regionId === "bay-area");
+if (!bayAreaRegion) fail("Bay Area must exist as a canonical Region.");
+
+const requiredBayAreaMarkets = ["san-francisco", "east-bay", "south-bay", "peninsula", "north-bay"];
+for (const marketId of requiredBayAreaMarkets) {
+  const market = (geography.markets || []).find((item) => item.marketId === marketId);
+  if (!market || market.regionId !== "bay-area") {
+    fail(`${marketId} must exist as a Bay Area canonical Market.`);
+  }
+}
+
+const districtOwnership = geography.ownershipByDistrict || [];
+const districtOwnerById = new Map();
+for (const district of districtOwnership) {
+  if (!district.districtId || !district.marketId || !district.regionId) {
+    fail(`Canonical district ownership is missing identity or market fields: ${district.districtId || "unknown"}`);
+  }
+  if (districtOwnerById.has(district.districtId)) {
+    fail(`Canonical district has duplicate ownership: ${district.districtId}`);
+  }
+  districtOwnerById.set(district.districtId, district.marketId);
+  if (district.recommendationEligible !== true) {
+    fail(`${district.districtId} must remain recommendation-eligible by default.`);
+  }
+}
+
+if ((geography.unresolvedDistricts || []).length) {
+  fail("Canonical commercial geography must not have unresolved district ownership.");
+}
+
+if ((geography.ambiguousDistricts || []).length) {
+  fail("Canonical commercial geography must not have ambiguous district ownership.");
+}
+
+function assertCanonicalMarket(districtId, marketId) {
+  const actual = districtOwnerById.get(districtId);
+  if (actual !== marketId) {
+    fail(`${districtId} must resolve to ${marketId}; found ${actual || "unresolved"}.`);
+  }
+}
+
+assertCanonicalMarket("financial-district", "san-francisco");
+assertCanonicalMarket("west-berkeley", "east-bay");
+assertCanonicalMarket("north-san-jose", "south-bay");
+assertCanonicalMarket("downtown-palo-alto", "peninsula");
+
+const northBayMarket = (geography.markets || []).find((market) => market.marketId === "north-bay");
+if (!northBayMarket || northBayMarket.districtCount !== 0 || !String(northBayMarket.implementationNote || "").includes("no canonical Knowledge Graph district")) {
+  fail("North Bay must be registered as an active Market with a documented zero-district implementation state.");
+}
+
+const registrySummary = commercialGeography.geographySummary(locationKnowledgeGraph);
+if (registrySummary.districtOwnershipSummary.resolvedDistricts !== geography.districtOwnershipSummary.resolvedDistricts) {
+  fail("Generated geography summary must match the canonical geography registry resolver.");
+}
+
 const portfolioResolution = eos.portfolioResolution || {};
 if (portfolioResolution.schemaVersion !== PORTFOLIO_RESOLUTION_SCHEMA_VERSION) {
   fail("EOS must expose the Portfolio Resolver v1 output.");
@@ -352,8 +418,8 @@ for (const portfolio of buildingProfileResolution.portfolios || []) {
   }
 }
 
-if (!Array.isArray(marketProjection.hierarchy) || marketProjection.hierarchy.join(">") !== "Markets>Programs>Campaigns>Initiatives>Missions>Execution Packets>Work Items") {
-  fail("Mission Control v2 projection must use Markets -> Programs -> Campaigns -> Initiatives -> Missions -> Execution Packets -> Work Items.");
+if (!Array.isArray(marketProjection.hierarchy) || marketProjection.hierarchy.join(">") !== "Regions>Markets>Programs>Campaigns>Initiatives>Missions>Execution Packets>Work Items") {
+  fail("Mission Control v2 projection must use Regions -> Markets -> Programs -> Campaigns -> Initiatives -> Missions -> Execution Packets -> Work Items.");
 }
 
 if (!marketProjection.workItems || marketProjection.workItems.hiddenByDefault !== true) {

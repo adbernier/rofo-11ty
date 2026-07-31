@@ -1,6 +1,7 @@
 const schema = require("./locationKnowledgeSchema");
 const recommendationProfiles = require("./recommendationProfiles");
 const commercialEcosystemTaxonomy = require("./commercialEcosystemTaxonomy");
+const commercialGeography = require("../lib/geography/commercial-geography");
 
 const businessAttributeMap = {
   transit: "transit",
@@ -5105,10 +5106,16 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
 graph.forEach((node) => {
   if (!Array.isArray(node.questionsToValidate)) node.questionsToValidate = [];
   if (node.type === "district") {
+    commercialGeography.enrichDistrict(node);
     if (node.recommendationEligible !== false) node.recommendationEligible = true;
     node.commercialGeography = {
       canonicalDistrict: true,
       eligibility: node.recommendationEligible ? "first_class" : "not_eligible",
+      regionId: node.regionId || "",
+      regionName: node.regionName || "",
+      marketId: node.marketId || node.operationalMarketId || "",
+      marketName: node.marketName || node.operationalMarketName || "",
+      operationalOwnership: node.marketId ? "canonical_market" : "unresolved",
       maturityMeasuredBy: ["Knowledge Graph", "Commercial Market Evidence", "Building Profiles", "Photography", "Recommendation QA"],
       ...(node.commercialGeography || {}),
     };

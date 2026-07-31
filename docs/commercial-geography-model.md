@@ -739,3 +739,24 @@ Current Rofo architecture is already close to this model:
 
 The missing piece is explicit Region identity and fully canonical Market ownership in source data. That should be the next implementation layer, not a runtime behavior change in this architecture sprint.
 
+## Implementation v1
+
+Canonical geography source data now lives in `_data/commercialGeography.js`, with resolver helpers in `lib/geography/commercial-geography.js`.
+
+The v1 source model defines:
+
+- Regions: canonical broad contexts such as Bay Area, Northern California, Southern California, Mountain West, and Pacific Northwest.
+- Markets: operational geographies with `marketId`, `marketName`, `regionId`, `regionName`, active status, city membership, optional public route, and Publisher compatibility mapping.
+- District ownership: Knowledge Graph district nodes are enriched at load time with `regionId`, `regionName`, `marketId`, `marketName`, `operationalMarketId`, `operationalMarketName`, and `recommendationEligible`.
+
+Bay Area v1 is implemented as:
+
+- San Francisco: 10 canonical districts.
+- East Bay: 7 canonical districts.
+- South Bay: 3 canonical districts.
+- Peninsula: 4 canonical districts.
+- North Bay: active Market registry entry with no canonical Knowledge Graph districts assigned yet.
+
+Publisher compatibility mappings remain explicit. East Bay, South Bay, Peninsula, and North Bay can use San Francisco Publisher analysis as backing while retaining their own operational Market ownership. This compatibility does not transfer district ownership into San Francisco.
+
+Generated Publisher and EOS snapshots expose a `geography` summary with Regions, Markets, district ownership, unresolved districts, ambiguous districts, duplicate assignments, and compatibility fallback assignments. Mission Control projection includes Region metadata while continuing to render market-first workspaces.

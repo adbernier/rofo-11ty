@@ -18,6 +18,8 @@ Commercial Market Evidence coverage uses the same canonical commercial geography
 
 Canonical Region, Market, and District definitions are maintained in `docs/commercial-geography-model.md`. Commercial Market Evidence should use District as the collection unit and Market as the completion denominator; Region remains expansion context only.
 
+Implementation v1 uses canonical Market ownership from `_data/commercialGeography.js` and Knowledge Graph district metadata. San Francisco, East Bay, South Bay, Peninsula, and North Bay are separate Bay Area Markets for CME planning; Publisher compatibility grouping must not move East Bay, South Bay, Peninsula, or North Bay districts into San Francisco collection counts.
+
 ## Purpose
 
 Commercial Market Evidence exists to make Rofo's location guidance more credible, concrete, and reviewable.

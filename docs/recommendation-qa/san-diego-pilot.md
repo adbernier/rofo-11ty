@@ -1,6 +1,6 @@
 # San Diego Recommendation QA Pilot
 
-Generated: 2026-07-28T22:04:10.668Z
+Generated: 2026-07-31T00:12:18.270Z
 
 This internal QA report validates whether San Diego Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 

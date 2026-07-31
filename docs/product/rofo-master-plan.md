@@ -210,6 +210,8 @@ Commercial geography is not generic geography. A district matters when businesse
 
 The canonical commercial geography model is documented in `docs/commercial-geography-model.md`. Rofo uses Region -> Market -> District as the durable hierarchy: Regions organize related markets, Markets are the largest commercial geography that can be developed and operated as one coherent editorial product, and Districts are the smallest canonical commercial geography Rofo plans and recommends as location decision objects.
 
+Implementation v1 stores canonical Region and Market records in `_data/commercialGeography.js` and enriches Knowledge Graph districts with canonical Market ownership at load time. Publisher metro grouping remains a compatibility layer; operational Market ownership should come from canonical geography metadata.
+
 Rofo uses one canonical commercial geography. The Commercial Location Knowledge Graph owns commercial district identity, and every canonical commercial district is first-class and recommendation-eligible. Systems should measure maturity, confidence, evidence depth, photography, Building Profile coverage, recommendation readiness, and public-page readiness; they should not create separate recommendation districts, editorial districts, Publisher-only districts, or Commercial Market Evidence-only districts.
 
 The graph should capture:

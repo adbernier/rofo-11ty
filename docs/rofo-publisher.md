@@ -8,6 +8,8 @@ Publisher now sits inside the broader Editorial Operating System documented in `
 
 Publisher geography should align with the canonical commercial geography model in `docs/commercial-geography-model.md`. Publisher may retain current metro grouping as a compatibility layer, but long-term readiness should be measured from canonical Market and District ownership.
 
+Publisher snapshots now expose an additive `geography` summary generated from `_data/commercialGeography.js` and `_data/locationKnowledgeGraph.js`. This summary reports Regions, Markets, district ownership, unresolved districts, ambiguous districts, duplicate assignments, recommendation eligibility, and Publisher compatibility mappings without changing Publisher scoring.
+
 Commercial Market Evidence is documented in `docs/commercial-market-evidence.md`. Future Publisher work can measure that evidence layer additively, but this document does not change current Publisher behavior or scoring.
 
 Publisher now includes a read-only Commercial Market Evidence platform section generated from `scripts/qa-commercial-market-evidence.js`. This reports validator health, collection count, evidence-record count, district coverage, confidence buckets, and deferred candidates. It is informational only and does not affect Publisher scoring, readiness calculations, or queue priority.
