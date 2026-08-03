@@ -30,38 +30,53 @@
   data-profile-space-type-context="{{ searchProfileContext.space_type_context_label or '' }}"
   data-profile-primary-cta="{{ searchProfileContext.primary_cta_label or '' }}"
   data-profile-contact-cta="{{ searchProfileContext.contact_cta_label or '' }}"
-  aria-label="Search profile"
+  aria-label="Business Profile"
 >
   <div class="search-profile-backdrop" data-profile-close></div>
   <section class="search-profile-card" data-profile-card>
-    <button class="search-profile-mobile-handle" type="button" data-profile-toggle aria-label="Open My Search Profile">
+    <button class="search-profile-mobile-handle" type="button" data-profile-toggle aria-label="Open Business Profile">
       <span></span>
     </button>
 
     {% if searchProfileContext.layout != "page" %}
       <div class="search-profile-card__top">
         <div>
-          <span class="search-profile-card__badge">Recommended</span>
-          <h2>{{ searchProfileContext.card_headline or "Get a personalized building shortlist" }}</h2>
-          <p>Enter the basics and see locations or buildings that fit.</p>
+          <span class="search-profile-card__badge">Business Profile</span>
+          <h2>{{ searchProfileContext.card_headline or "Get a personalized location recommendation" }}</h2>
+          <p>Share the basics so Rofo can recommend where to begin.</p>
           <p class="search-profile-card__trust">Private while exploring • Free • No obligation</p>
         </div>
-        <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse My Search Profile">
+        <button class="search-profile-icon-button" type="button" data-profile-toggle aria-label="Collapse Business Profile">
           <span aria-hidden="true">−</span>
         </button>
       </div>
 
       <button class="search-profile-summary" type="button" data-profile-toggle aria-expanded="true">
         <span>
-          <strong>Find buildings that fit your business</strong>
+          <strong>Create your Business Profile</strong>
           <small data-profile-summary-title>Private while exploring • Free</small>
         </span>
-        <span class="search-profile-summary__action" aria-hidden="true">Start Search</span>
+        <span class="search-profile-summary__action" aria-hidden="true">Start Profile</span>
         <span class="search-profile-summary__icon" data-profile-expand-icon aria-hidden="true">+</span>
       </button>
     {% endif %}
 
     <div class="search-profile-card__body" data-profile-body>
+      {% if searchProfileContext.layout == "page" %}
+        <section class="business-profile-card-intro" data-profile-editor aria-label="What Rofo will build from this profile">
+          <div>
+            <span>Business Profile</span>
+            <h2>{{ searchProfileContext.card_headline or "Create your Business Profile" }}</h2>
+            <p>Answer a few questions so Rofo can recommend where to begin and explain why in a Location Brief.</p>
+          </div>
+          <ul>
+            <li>About one minute</li>
+            <li>Recommendation before listings</li>
+            <li>Private while exploring</li>
+          </ul>
+        </section>
+      {% endif %}
+
       <div class="search-profile-step-meter" data-profile-editor>
         <span data-profile-step-count>1 / 5</span>
       </div>
@@ -80,11 +95,11 @@
           {% if searchProfileContext.space_type_context_label %}
             <p class="search-profile-fieldset__context">{{ searchProfileContext.space_type_context_label }}</p>
           {% endif %}
-          <legend>Location</legend>
+          <legend>Where should Rofo start?</legend>
           <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Where are you considering? You can select more than one area." }}</p>
           <div class="search-profile-location-search">
             <label class="sr-only" for="search-profile-location-search">Search city or district</label>
-            <input id="search-profile-location-search" name="locationSearch" type="text" placeholder="Search city or district" data-profile-location-search-input>
+            <input id="search-profile-location-search" name="locationSearch" type="text" placeholder="City or district" data-profile-location-search-input>
           </div>
           <div class="search-profile-options search-profile-options--multi search-profile-location-options" data-profile-location-options></div>
           <div class="search-profile-other" data-profile-location-other hidden>
@@ -92,13 +107,13 @@
             <input id="search-profile-target-area" name="targetArea" type="text" placeholder="City, district, or street" data-profile-location-other-input>
           </div>
           <div class="search-profile-location-intent" data-profile-location-intent hidden>
-            <p>How would you like Rofo to use this location?</p>
+            <p>How should this shape your recommendation?</p>
             <div class="search-profile-location-intent__options" data-profile-location-intent-options></div>
           </div>
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="spaceType" hidden>
-          <legend>Space Type</legend>
+          <legend>What kind of space does your business need?</legend>
           <div class="search-profile-options" data-profile-options="spaceType">
             <button type="button" data-profile-value="Office">Office</button>
             <button type="button" data-profile-value="Industrial / Warehouse">Industrial</button>
@@ -120,7 +135,7 @@
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="size" hidden>
-          <legend>Size</legend>
+          <legend>About how much space?</legend>
           <div class="search-profile-options" data-profile-options="size"></div>
         </fieldset>
 
@@ -148,7 +163,7 @@
             <input id="search-profile-feature-other" name="featureOther" type="text" data-profile-input="featureOther">
           </div>
         </fieldset>
-        <p class="search-profile-step-error" data-profile-step-error hidden>Select a space type, size, and location to find matching buildings.</p>
+        <p class="search-profile-step-error" data-profile-step-error hidden>Add a location, space type, and approximate size so Rofo can build your recommendation.</p>
       </form>
 
       <div class="search-profile-actions" data-profile-editor>
@@ -159,13 +174,13 @@
 
       <section class="search-profile-contact-step" data-profile-contact hidden>
         <div>
-          <h3>{{ searchProfileContext.contact_heading or "Your building shortlist is almost ready." }}</h3>
+          <h3>{{ searchProfileContext.contact_heading or "We have enough to build your Location Brief." }}</h3>
         </div>
 
         <ul class="search-profile-contact-step__reminder" data-profile-contact-reminder></ul>
 
         <div class="search-profile-contact-step__fields">
-          <p class="search-profile-contact-step__field-heading">{{ searchProfileContext.contact_prompt or "Add an email to save this profile." }}</p>
+          <p class="search-profile-contact-step__field-heading">{{ searchProfileContext.contact_prompt or "Add an email to save this Business Profile." }}</p>
 
           <label class="search-profile-contact-step__field" for="search-profile-contact-name">
             <span>Name</span>
@@ -194,15 +209,15 @@
         <p class="search-profile-contact-step__note">No spam • No obligation</p>
 
         <div class="search-profile-contact-step__actions">
-          <button class="btn-primary" type="button" data-profile-contact-submit>{{ searchProfileContext.contact_cta_label or "Get My Personalized Shortlist" }}</button>
+          <button class="btn-primary" type="button" data-profile-contact-submit>{{ searchProfileContext.contact_cta_label or "Build My Location Brief" }}</button>
           <button class="search-profile-edit-link" type="button" data-profile-edit>Edit profile</button>
         </div>
       </section>
 
       <section class="search-profile-finished" data-profile-finished hidden>
         <div class="search-profile-finished__intro">
-          <h3>{{ searchProfileContext.finished_heading or "Your building shortlist request has been sent." }}</h3>
-          <p>{{ searchProfileContext.finished_copy or "Matching buildings and nearby alternatives are ready to review." }}</p>
+          <h3>{{ searchProfileContext.finished_heading or "Your Business Profile is ready." }}</h3>
+          <p>{{ searchProfileContext.finished_copy or "Rofo has enough context to prepare your recommendation and Location Brief." }}</p>
         </div>
 
         <div>

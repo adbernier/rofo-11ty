@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 permalink: /find-locations/
-title: Start Your Commercial Real Estate Search | Rofo
-description: Enter the basics of the search and receive commercial location recommendations, building examples, and alternatives worth exploring.
+title: Business Profile for Location Recommendations | Rofo
+description: Create a short Business Profile so Rofo can recommend where your business should begin looking for commercial space.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/find-locations/"
 ---
@@ -12,24 +12,28 @@ eleventyComputed:
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
-      <span>Location Profile</span>
+      <span>Business Profile</span>
     </div>
 
     <div class="city-hero city-hero--district-identity">
       <div class="city-card">
         <div class="city-hero-copy">
-          <div class="eyebrow">LOCATION PROFILE</div>
+          <div class="eyebrow">Business Profile</div>
           <h1>
-            <span>Get location recommendations</span>
-            <span>that fit your business.</span>
+            <span>Tell Rofo about your business.</span>
           </h1>
           <p class="lead">
-            Enter the basics about the search. Rofo returns locations, buildings, and alternatives worth exploring.
+            Rofo uses this profile to recommend where your business should begin looking for commercial space and to prepare a Location Brief explaining the reasoning, tradeoffs, representative buildings, and questions to validate before touring.
           </p>
           <p class="search-profile-page__advisor-note">
-            <span aria-hidden="true">✦</span>
-            Start with a location. The recommendation may include places worth comparing before the search narrows.
+            Takes about one minute. Your answers directly shape the recommendation.
           </p>
+          <ol class="business-profile-journey" aria-label="Rofo recommendation journey">
+            <li>Business Profile</li>
+            <li>Location Recommendation</li>
+            <li>Location Brief</li>
+            <li>Live Market Review</li>
+          </ol>
         </div>
       </div>
     </div>
@@ -38,7 +42,7 @@ eleventyComputed:
       <section class="find-locations-context-note" data-profile-query-context hidden>
         <p>Based on what you were exploring:</p>
         <ul data-profile-query-context-list></ul>
-        <span>Finish your profile to see your recommendations.</span>
+        <span>Complete your Business Profile to receive your recommendation.</span>
       </section>
       {% set searchProfileContext = {
         "layout": "page",
@@ -50,15 +54,15 @@ eleventyComputed:
         "street": "",
         "state": "",
         "context_type": "find_locations",
-        "context_label": "Location Profile",
-        "card_headline": "Get location recommendations that fit",
-        "primary_cta_label": "See My Recommendations",
-        "contact_heading": "Your recommendations are almost ready.",
-        "contact_prompt": "Add an email to save this profile and view recommendations.",
-        "contact_cta_label": "Get My Recommendations",
-        "finished_heading": "Your profile is ready.",
-        "finished_copy": "Location guidance and nearby alternatives are ready to review.",
-        "location_helper": "Search for one or more cities or districts.",
+        "context_label": "Business Profile",
+        "card_headline": "Create your Business Profile",
+        "primary_cta_label": "Build My Location Brief",
+        "contact_heading": "We have enough to build your Location Brief.",
+        "contact_prompt": "Add an email to save this Business Profile and receive your recommendation.",
+        "contact_cta_label": "Build My Location Brief",
+        "finished_heading": "Your Business Profile is ready.",
+        "finished_copy": "Rofo has enough context to prepare your recommendation and Location Brief.",
+        "location_helper": "Choose any places already on your mind. Rofo can compare nearby markets when they may fit better.",
         "location_chip_mode": "selected_only",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
@@ -108,7 +112,7 @@ eleventyComputed:
         context: {
           page_type: pageType,
           page_url: pageUrl,
-          location_display: "Location Profile",
+          location_display: "Business Profile",
           device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
         },
         profile: {

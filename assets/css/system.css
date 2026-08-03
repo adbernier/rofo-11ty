@@ -10784,22 +10784,49 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-page__advisor-note {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
+  display: block;
   max-width: 600px;
   margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(148, 163, 184, 0.24);
-  color: #526173;
-  font-size: 0.94rem;
+  color: #243247;
+  font-size: 0.98rem;
+  font-weight: 700;
   line-height: 1.5;
 }
 
-.search-profile-page__advisor-note span {
-  color: #2563eb;
-  font-size: 0.82rem;
-  line-height: 1.7;
+.business-profile-journey {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  max-width: 640px;
+  margin: 26px 0 0;
+  padding: 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  list-style: none;
+}
+
+.business-profile-journey li {
+  position: relative;
+  padding: 13px 18px 13px 0;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.business-profile-journey li + li {
+  padding-left: 18px;
+  border-left: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.business-profile-journey li + li::before {
+  content: "→";
+  position: absolute;
+  top: 13px;
+  left: -7px;
+  color: #94a3b8;
+  background: #fff;
+  font-weight: 700;
 }
 
 .search-profile-page__shell {
@@ -10832,6 +10859,67 @@ section.market-page--space-type .market-links a {
 .search-profile-page .search-profile-shell--page .search-profile-card__body {
   max-height: none;
   padding: 22px;
+}
+
+.business-profile-card-intro {
+  display: grid;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.business-profile-card-intro span {
+  display: block;
+  margin-bottom: 7px;
+  color: #1346d8;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.business-profile-card-intro h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.28rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.business-profile-card-intro p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.business-profile-card-intro ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.business-profile-card-intro li {
+  padding: 9px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.76rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.search-profile-page .search-profile-fieldset legend {
+  font-size: 0.98rem;
+  line-height: 1.28;
+}
+
+.search-profile-page .search-profile-fieldset__helper {
+  max-width: 430px;
+  font-size: 0.84rem;
 }
 
 @media (max-width: 960px) {
@@ -10877,6 +10965,25 @@ section.market-page--space-type .market-links a {
 
   .search-profile-page .city-hero-copy h1 span {
     display: inline;
+  }
+
+  .business-profile-journey,
+  .business-profile-card-intro ul {
+    grid-template-columns: 1fr;
+  }
+
+  .business-profile-journey li {
+    padding: 12px 0;
+  }
+
+  .business-profile-journey li + li {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+  }
+
+  .business-profile-journey li + li::before {
+    content: none;
   }
 
   .search-profile-page .search-profile-backdrop,

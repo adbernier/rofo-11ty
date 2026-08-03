@@ -46,8 +46,8 @@
   const locationSuggestionLabels = parseSuggestionLabels(root.dataset.profileLocationSuggestions || "");
   const locationChipMode = root.dataset.profileLocationChipMode || "";
   const defaultSpaceType = root.dataset.profileDefaultSpaceType || "";
-  const primaryCtaLabel = root.dataset.profilePrimaryCta || "See Matching Buildings";
-  const contactCtaLabel = root.dataset.profileContactCta || "Get My Personalized Shortlist";
+  const primaryCtaLabel = root.dataset.profilePrimaryCta || "Build My Location Brief";
+  const contactCtaLabel = root.dataset.profileContactCta || "Build My Location Brief";
   const submitEnabled = root.dataset.profileSubmitEnabled === "true";
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
@@ -87,19 +87,19 @@
   ];
   const locationIntentOptions = [
     {
-      label: "Focus my search here",
+      label: "Start with this location",
       value: "focus",
-      description: "Help me find the best options within this area.",
+      description: "Use this as the primary location to evaluate.",
     },
     {
       label: "Compare with nearby markets",
       value: "compare",
-      description: "Show me nearby alternatives worth comparing.",
+      description: "Recommend this location and nearby alternatives worth testing.",
     },
     {
       label: "Recommend the best markets",
       value: "discover",
-      description: "I'm open to different locations.",
+      description: "Use my profile to find the strongest location fit.",
     },
   ];
 
@@ -1146,7 +1146,7 @@
     const summary = profileSummaryData();
     const features = selectedFeatureValues();
     return [
-      "Location requirement summary",
+      "Business Profile summary",
       "",
       `Location: ${summary.location.display || ""}`,
       `Space type: ${summary.spaceType || ""}`,
@@ -1513,9 +1513,9 @@
     const summary = profileSummaryData();
     list.innerHTML = "";
     const fields = [
-      ["Location", summary.location.display],
+      ["Starting location", summary.location.display],
       ["Space type", summary.spaceType],
-      ["Size", summary.sizeOrPeople],
+      ["Approximate size", summary.sizeOrPeople],
       summary.timing ? ["Move-in timing", summary.timing] : ["", ""],
       ["Features", selectedFeatureValues().join(" · ")],
     ].filter(([, value]) => String(value || "").trim());
@@ -1530,7 +1530,7 @@
 
     const heading = document.createElement("li");
     heading.className = "search-profile-contact-step__summary-heading";
-    heading.textContent = "Your location profile";
+    heading.textContent = "Your Business Profile";
     list.appendChild(heading);
 
     fields.forEach(([label, value]) => {
@@ -1562,7 +1562,7 @@
       fieldset.hidden = !["targetArea", "spaceType", "size"].includes(key);
     });
 
-    stepCount.textContent = "1 / 2";
+    stepCount.textContent = "Business Profile";
     root.classList.add("is-first-step");
     prevButton.hidden = true;
     resetButton.hidden = completedCount() === 0;
@@ -1582,7 +1582,7 @@
     card.dataset.profileState = completed >= 3 ? "ready" : completed > 0 ? "in-progress" : "empty";
     root.classList.toggle("has-progressed", activeStepIndex > 0 || viewMode !== "edit");
     if (summaryTitle) {
-      summaryTitle.textContent = "Free • Curated by local experts";
+      summaryTitle.textContent = "Private while exploring • Free";
     }
   }
 
@@ -1720,7 +1720,7 @@
     saveProfile();
     if (!validateInitialSearch()) return;
     saveRecommendationContext();
-    trackSearchProfileEvent("search_profile_find_matching_buildings_clicked");
+    trackSearchProfileEvent("search_profile_build_location_brief_clicked");
     trackStepCompleted("location");
     trackStepCompleted("space_type");
     trackStepCompleted("size");
