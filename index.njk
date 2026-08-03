@@ -1,258 +1,161 @@
 ---
 layout: base.njk
-title: A Smarter Way to Search for Commercial Space | Rofo
-description: Start with the business, compare markets, understand tradeoffs, and find commercial locations worth exploring before touring the wrong buildings.
+title: Commercial Location Recommendation Software | Rofo
+description: Find the right place to locate your business with a personalized Location Brief that explains where to begin and why.
 ---
 
-<section class="page-hero homepage-hero">
-  <div class="container hero-grid homepage-hero-grid">
+<section class="page-hero homepage-hero homepage-hero--recommendation">
+  <div class="container homepage-hero__inner">
     <div class="homepage-hero-copy">
-      <h1 class="home-hero__title">
-        <span>A smarter way</span>
-        <span>to search for</span>
-        <span>commercial space</span>
-        <span>for your business.</span>
-      </h1>
+      <div class="eyebrow">Commercial Location Recommendations</div>
+      <h1>Find the right place to locate your business.</h1>
       <p class="lead">
-        Finding the right commercial location starts with understanding where to look.
-        Compare markets, understand the tradeoffs, and discover which areas are worth exploring before spending time touring the wrong buildings.
+        Rofo analyzes your business and recommends where to begin your commercial real estate search. Behind every recommendation is decades of market expertise, structured commercial knowledge, and a personalized Location Brief explaining the reasoning, tradeoffs, representative buildings, and questions to validate before touring space.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="/find-locations/">Start Your Search</a>
+        <a class="btn btn-primary" href="/find-locations/">Get My Recommendation</a>
       </div>
     </div>
-    <div class="homepage-hero-visual">
-      <img
-        src="/assets/images/rofo-commercial-geography-hero.png"
-        alt="Abstract map of commercial districts and connected locations with a highlighted starting point."
-        width="1536"
-        height="1024"
-        decoding="async"
-        fetchpriority="high"
-      >
-    </div>
-  </div>
-</section>
 
-<section class="section homepage-recommendation-cta" id="recommendations">
-  <div class="container">
-    <div class="homepage-recommendation-cta__panel">
-      <div class="homepage-recommendation-cta__content">
-        <div class="kicker">How it works</div>
-        <h2>Begin with fit, not listings.</h2>
-        <p>
-          Enter the basics of the search. Rofo returns an initial location analysis with recommended starting areas, alternatives worth comparing, tradeoffs to understand, and representative buildings that give the market shape.
-        </p>
-        <div class="homepage-recommendation-cta__actions">
-          <a class="btn btn-primary" href="/find-locations/">Start Your Search</a>
-        </div>
-      </div>
-
-      <div class="homepage-recommendation-cta__cards">
-        <article>
+    <div class="homepage-process-visual" aria-label="Rofo recommendation process">
+      <ol>
+        <li>
           <span>01</span>
-          <h3>Start with requirements</h3>
-          <p>Space type, size, priorities, and preferred geography shape the first analysis.</p>
-        </article>
-        <article>
+          <strong>Business Profile</strong>
+          <p>Share the basics.</p>
+        </li>
+        <li>
           <span>02</span>
-          <h3>Review recommended areas</h3>
-          <p>See which districts or markets fit first, why they fit, and which alternatives deserve comparison.</p>
-        </article>
-        <article>
+          <strong>Location Recommendation</strong>
+          <p>See where to begin.</p>
+        </li>
+        <li>
           <span>03</span>
-          <h3>Evaluate buildings with context</h3>
-          <p>Use representative buildings and leasing guidance before checking live availability or involving a broker.</p>
-        </article>
-      </div>
+          <strong>Location Brief</strong>
+          <p>Understand why.</p>
+        </li>
+        <li>
+          <span>04</span>
+          <strong>Broker Partnership</strong>
+          <p>Execute with context.</p>
+        </li>
+      </ol>
     </div>
-
-    <p class="homepage-example-link">
-      Want to see what the result looks like? <a href="/example-location-brief/">View an Example Location Brief</a>
-    </p>
   </div>
 </section>
 
-<section class="section">
+<section class="section homepage-example-brief" id="example-location-brief">
+  <div class="container">
+    <div class="homepage-example-brief__layout">
+      <div class="homepage-example-brief__copy">
+        <div class="kicker">Example Location Brief</div>
+        <h2>Preview the advisory product Rofo creates.</h2>
+        <p>
+          The Location Brief turns a short business profile into a clear recommendation. It shows where to begin, why each location fits, what to compare, and which questions should be validated next.
+        </p>
+        <p>
+          It is designed to be useful before availability searches, tours, or broker outreach.
+        </p>
+      </div>
+
+      <article class="homepage-brief-preview" aria-label="Condensed example Location Brief">
+        <header class="homepage-brief-preview__header">
+          <span>Sample Location Brief</span>
+          <strong>Pacific Analytics</strong>
+        </header>
+
+        <dl class="homepage-brief-profile">
+          <div>
+            <dt>Business</dt>
+            <dd>Growing software company</dd>
+          </div>
+          <div>
+            <dt>Need</dt>
+            <dd>5,000-7,500 SF office</dd>
+          </div>
+          <div>
+            <dt>Priority</dt>
+            <dd>Transit, hiring, growth flexibility</dd>
+          </div>
+        </dl>
+
+        <section class="homepage-brief-preview__section homepage-brief-preview__section--recommendation">
+          <span>Recommended starting path</span>
+          <ol class="homepage-brief-rankings">
+            <li><strong>Mission Bay</strong><small>Recommended</small></li>
+            <li><strong>SoMa</strong><small>Compare</small></li>
+            <li><strong>South Financial District</strong><small>Benchmark</small></li>
+          </ol>
+        </section>
+
+        <section class="homepage-brief-preview__grid" aria-label="Recommendation reasoning">
+          <article>
+            <span>Why Mission Bay</span>
+            <p>Modern office context, strong transit access, and room to compare growth-oriented buildings.</p>
+          </article>
+          <article>
+            <span>What to validate</span>
+            <p>Pricing, commute patterns, current availability, and whether SoMa offers a better character-space fit.</p>
+          </article>
+        </section>
+
+        <section class="homepage-brief-preview__section homepage-brief-preview__section--quiet">
+          <span>Representative buildings</span>
+          <p>Reference buildings frame the market environment. They are examples to understand, not confirmed listings.</p>
+        </section>
+
+        <div class="homepage-brief-preview__actions">
+          <a class="btn btn-primary" href="/find-locations/">Get My Recommendation</a>
+          <a class="homepage-example-brief__link" href="/example-location-brief/">View full example</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section homepage-proof">
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="kicker">What Rofo helps with</div>
-        <h2>Make the first commercial real estate decision clearer.</h2>
+        <div class="kicker">Why the recommendation is useful</div>
+        <h2>The brief gives you a starting point, the reasoning, and what to validate next.</h2>
       </div>
       <p>
-        The first question is not which building is available. It is where the search should begin.
+        Recommendation first. Availability second.
       </p>
     </div>
 
     <div class="grid-3">
       <article class="feature">
         <div class="num">1</div>
-        <h3>Find locations that fit your business</h3>
-        <p>Receive recommended starting areas based on business type, space requirements, location intent, and priorities.</p>
+        <h3>Where to begin</h3>
+        <p>Markets, districts, and nearby alternatives that fit your business needs.</p>
       </article>
 
       <article class="feature">
         <div class="num">2</div>
-        <h3>Understand the market before touring</h3>
-        <p>Review district tradeoffs, nearby alternatives, and questions to validate before spending time on spaces.</p>
+        <h3>Why it fits</h3>
+        <p>Plain-language reasoning, tradeoffs, and comparison context.</p>
       </article>
 
       <article class="feature">
         <div class="num">3</div>
-        <h3>Evaluate representative buildings</h3>
-        <p>Use example buildings to understand commercial environments before checking current availability or scheduling tours.</p>
+        <h3>What to validate</h3>
+        <p>Representative buildings and questions to check before touring.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="markets">
+<section class="section homepage-final-cta">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Featured markets</div>
-        <h2>Explore commercial areas with local context.</h2>
-      </div>
+    <div class="homepage-final-cta__panel">
+      <div class="kicker">Start with a recommendation</div>
+      <h2>Find out where your business should search first.</h2>
       <p>
-        Use market pages when the geography is already clear. They explain districts, comparisons, nearby markets, and example commercial buildings.
+        Share the basics and Rofo will prepare an initial recommendation path you can review, compare, and use for live market follow-up.
       </p>
-    </div>
-
-    <div class="homepage-market-search-card">
-      <div>
-        <h3>Already know where you're looking?</h3>
-        <p>
-          Search a city or market to explore districts, representative buildings, and local commercial real estate guidance.
-        </p>
-      </div>
-
-      <div class="homepage-market-search-card__controls">
-        <div class="hero-search-wrap" data-market-search>
-          <label class="sr-only" for="heroMarketSearch">Search markets</label>
-          <input
-            id="heroMarketSearch"
-            class="hero-search__input"
-            type="text"
-            placeholder="Try San Francisco, Austin, Denver..."
-            autocomplete="off"
-          />
-          <div class="search-results" id="heroMarketResults"></div>
-          <p class="hero-search-error" id="heroMarketError" hidden>No matching market found. Try another city.</p>
-        </div>
-
-        <button class="btn btn-secondary" type="button" id="heroMarketSearchBtn">Search Markets</button>
-      </div>
-
-      <div class="hero-search-links">
-        <a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a>
-        <a href="/commercial-real-estate/TX/austin/">Austin</a>
-        <a href="/commercial-real-estate/CO/denver/">Denver</a>
-        <a href="/commercial-real-estate/ID/boise/">Boise</a>
-      </div>
-    </div>
-
-    <div class="grid-3">
-      <div class="market-card">
-        <h3><a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a></h3>
-        <p>Explore San Francisco districts, comparisons, leasing context, and example commercial buildings.</p>
-        <a class="city-link" href="/commercial-real-estate/CA/san-francisco/">
-          <div>
-            <h4>View San Francisco</h4>
-            <p class="muted">Rofo's prototype market experience</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-
-      <div class="market-card">
-        <h3><a href="/commercial-real-estate/TX/austin/">Austin</a></h3>
-        <p>Explore commercial real estate in Austin, TX.</p>
-        <a class="city-link" href="/commercial-real-estate/TX/austin/">
-          <div>
-            <h4>View Austin</h4>
-            <p class="muted">Fast-growing office and mixed-use market</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-
-      <div class="market-card">
-        <h3><a href="/commercial-real-estate/CO/denver/">Denver</a></h3>
-        <p>Explore commercial real estate in Denver, CO.</p>
-        <a class="city-link" href="/commercial-real-estate/CO/denver/">
-          <div>
-            <h4>View Denver</h4>
-            <p class="muted">Office, flex, and regional business districts</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Commercial Leasing Guide</div>
-        <h2>Know what to expect before comparing spaces.</h2>
-      </div>
-      <p>
-        The handbook explains the decisions that shape a search: location strategy, lease types, costs, timing, tenant improvements, broker roles, and common mistakes.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <article class="feature">
-        <h3><a href="/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/">Choosing the right location</a></h3>
-        <p>Understand why geography usually comes before buildings in a commercial real estate search.</p>
-      </article>
-
-      <article class="feature">
-        <h3><a href="/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/">Comparing commercial spaces</a></h3>
-        <p>Use tours and building comparisons to test fit, cost, access, timing, and operational requirements.</p>
-      </article>
-
-      <article class="feature">
-        <h3><a href="/commercial-real-estate/lease-guide/common-commercial-leasing-mistakes/">Common leasing mistakes</a></h3>
-        <p>Avoid wasting time on poor-fit spaces, misunderstood costs, weak timing assumptions, or unclear requirements.</p>
-      </article>
-    </div>
-
-    <p class="product-story__inline-link">
-      <a href="/commercial-real-estate/lease-guide/">Read the Commercial Leasing Guide</a>
-    </p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0; padding-bottom:36px;">
-  <div class="container">
-    <div class="panel" style="padding:18px 22px;">
-      <div class="kicker" style="margin-bottom:10px;">Why businesses trust Rofo</div>
-
-      <div class="stats">
-        <div class="stat-card">
-          <h3>Founded 2007</h3>
-          <p class="muted">Started in San Francisco with a mission to simplify commercial real estate discovery</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Trusted by 150,000+ Businesses</h3>
-          <p class="muted">Used by companies exploring office, retail, industrial, and flexible workspace markets</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Webby Finalist</h3>
-          <p class="muted">Recognized for innovation in digital product experience</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>Early CRE Technology Platform</h3>
-          <p class="muted">Built some of the industry’s earliest search, mapping, and location-discovery experiences</p>
-        </div>
-      </div>
+      <a class="btn btn-primary" href="/find-locations/">Get My Recommendation</a>
     </div>
   </div>
 </section>
