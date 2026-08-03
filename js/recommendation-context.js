@@ -322,7 +322,7 @@
     if (Array.isArray(profile.strengths) && profile.strengths.length) {
       return `${profile.label} is relevant because of ${profile.strengths.slice(0, 3).join(", ")}.`;
     }
-    return `${profile.label} is a relevant commercial location to review against your search profile.`;
+    return `${profile.label} is a relevant commercial location to review against your Business Profile.`;
   }
 
   function fitLabel(profile, spaceType) {
@@ -361,9 +361,9 @@
 
   function expertReviewHref(context) {
     const locations = formatLocations(context.locations || []);
-    const subject = encodeURIComponent(`Rofo expert review: ${locations}`);
+    const subject = encodeURIComponent(`Rofo live market review: ${locations}`);
     const body = encodeURIComponent([
-      "I'd like a market review for my Rofo Search Profile.",
+      "I'd like a live market review for my Rofo Business Profile.",
       "",
       `Location: ${locations}`,
       `Space: ${context.spaceType || "Not specified"}`,
@@ -395,12 +395,12 @@
         title: "Sample Recommendation",
         confidenceLabel: "Sample",
         primaryLocationLabel: "Mission Bay",
-        summaryCopy: "This is a sample recommendation. Start a profile to see recommendations based on your search.",
-        ctaLabel: "Start My Market Investigation",
+        summaryCopy: "This is a sample recommendation. Start a Business Profile to see recommendations based on your requirements.",
+        ctaLabel: "Start Live Market Review",
         ctaHref: "/find-locations/",
-      recommendedPath: [],
-      compareWith: [],
-      questionsToValidate: [],
+        recommendedPath: [],
+        compareWith: [],
+        questionsToValidate: [],
       };
     }
 
@@ -425,7 +425,7 @@
           : inputProfile
           ? `${inputLocation.label} is a relevant starting point, but this market needs additional review because Rofo's recommendation graph is still lighter here.`
           : "This market needs additional review before Rofo can provide a stronger location path.",
-        ctaLabel: "Request Expert Review",
+        ctaLabel: "Request Live Market Review",
         ctaHref: expertReviewHref(context),
       };
     }
@@ -471,7 +471,7 @@
         : mode === "market_path"
         ? `${inputProfile.label} has several commercial districts that fit different versions of your search. Start by comparing the strongest path before looking at individual buildings.`
         : `${inputProfile.label} appears to be a relevant starting point based on your profile.`,
-      ctaLabel: "Request Expert Review",
+      ctaLabel: "Request Live Market Review",
       ctaHref: expertReviewHref(context),
     };
   }
@@ -481,6 +481,18 @@
     if (location.type === "district") return "district";
     if (location.type === "city") return "city";
     return "market";
+  }
+
+  function renderHeroRecommendationPath(state, primaryLabel, compareLabels) {
+    const node = clearNode("[data-location-brief-hero-path]");
+    if (!node) return;
+    const path = state.recommendedPath && state.recommendedPath.length
+      ? state.recommendedPath.map((item) => item.label).filter(Boolean)
+      : [primaryLabel, ...compareLabels].filter(Boolean);
+    const fallback = primaryLabel ? [primaryLabel] : ["Recommended location to confirm"];
+    (path.length ? path : fallback).slice(0, 3).forEach((label) => {
+      node.appendChild(createElement("li", "", label));
+    });
   }
 
   function renderContext(context) {
@@ -498,7 +510,7 @@
     setText("[data-recommendation-location]", locationText);
     setText("[data-recommendation-space]", spaceText);
     setText("[data-recommendation-size]", sizeText);
-    setText("[data-recommendation-context-kicker]", "Based on your initial inputs");
+    setText("[data-recommendation-context-kicker]", "Location Brief Summary");
     setText("[data-recommendation-context-heading]", "Your Location Brief");
     setText("[data-recommendation-context-location]", locationText);
     setText("[data-recommendation-context-space]", spaceText);
@@ -515,11 +527,26 @@
       .slice(1, 3)
       .map((item) => item.label)
       .filter(Boolean);
+    renderHeroRecommendationPath(state, primaryLabel, compareLabels);
+    setText("[data-location-brief-summary-primary]", primaryLabel);
+    setText("[data-location-brief-summary-confidence]", state.confidenceLabel || "Medium Confidence");
     const compareSummary = locationIntent === "focus"
       ? " Expert review should first validate buildings and submarkets inside this preferred area; nearby alternatives should be treated as contingency options."
       : compareLabels.length
       ? ` Compare it with ${compareLabels.join(" and ")} before narrowing the search to individual buildings.`
       : " Pressure-test nearby alternatives before narrowing the search to individual buildings.";
+    setText(
+      "[data-location-brief-summary-path]",
+      compareLabels.length
+        ? `Begin with this location, then compare ${compareLabels.join(" and ")}.`
+        : "Use this as the baseline, then pressure-test nearby alternatives."
+    );
+    setText(
+      "[data-location-brief-summary-why]",
+      state.primaryRecommendation && (state.primaryRecommendation.selectionRationale || state.primaryRecommendation.summary)
+        ? state.primaryRecommendation.selectionRationale || state.primaryRecommendation.summary
+        : state.summaryCopy || "This gives the search a focused starting point."
+    );
     setText("[data-recommendation-context-heading]", "Recommended starting point.");
     setText(
       "[data-recommendation-context-copy]",
@@ -527,7 +554,7 @@
     );
     setText(
       "[data-recommendation-hero-copy]",
-      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, ${primaryLabel} is the recommended starting point. ${intentCopy}`
+      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, begin with ${primaryLabel}. ${intentCopy}`
     );
 
     if (state.mode === "expert_guided") {
@@ -545,16 +572,16 @@
   }
 
   function setSubmittedCta(state, context) {
-    setText("[data-recommendation-cta-kicker]", "Optional Expert Review");
-    setText("[data-recommendation-cta-heading]", "Request expert review when you are ready.");
+    setText("[data-recommendation-cta-kicker]", "Live Market Review");
+    setText("[data-recommendation-cta-heading]", "Validate the recommendation with live market help.");
     setText(
       "[data-recommendation-cta-copy]",
-      "Share your profile only when you want expert follow-up on listings, comps, sublease options, incentives, and market guidance."
+      "Share your brief only when you want help checking availability, comparable buildings, lease structure, and broker guidance."
     );
     const link = document.querySelector("[data-recommendation-cta-link]");
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
-      link.textContent = state.ctaLabel || "Request Expert Review";
+      link.textContent = state.ctaLabel || "Request Live Market Review";
       link.setAttribute("data-location-brief-review-trigger", "");
     }
   }
@@ -567,7 +594,7 @@
     status.classList.add("location-brief-contact-status--success");
     const isInvestigation = currentBriefState && currentBriefState.liveMarketInvestigation && currentBriefState.liveMarketInvestigation.investigationIntent;
     const investigation = isInvestigation ? currentBriefState.liveMarketInvestigation : null;
-    status.appendChild(createElement("strong", "", isInvestigation ? "Your market investigation request has been received." : "Your Location Brief has been sent."));
+    status.appendChild(createElement("strong", "", isInvestigation ? "Your live market review request has been received." : "Your Location Brief has been sent."));
     if (investigation) {
       const selectedCount = (investigation.representativeBuildings || []).filter((building) => building.selected !== false).length;
       const detail = [
@@ -608,7 +635,7 @@
       status.appendChild(copyButton);
       return;
     }
-    status.appendChild(createElement("span", "", "Your brief has been submitted for expert review."));
+    status.appendChild(createElement("span", "", "Your brief has been submitted for live market review."));
   }
 
   function renderExpertGuided(state, context) {
@@ -616,12 +643,12 @@
     setText("[data-recommendation-expert-guided] h2", `Expert Guided Location Brief for ${state.primaryLocationLabel}`);
     setText(
       "[data-recommendation-expert-guided] p",
-      `${state.summaryCopy} Your Search Profile includes the location, space type, and size context needed for expert review.`
+      `${state.summaryCopy} Your Business Profile includes the location, space type, and size context needed for live review.`
     );
     const link = document.querySelector("[data-recommendation-expert-guided] .recommendations-button");
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
-      link.textContent = state.ctaLabel || "Request Expert Review";
+      link.textContent = state.ctaLabel || "Request Live Market Review";
       link.setAttribute("data-location-brief-review-trigger", "");
     }
   }
@@ -643,7 +670,7 @@
 
     renderPathPanels(state, spaceText);
     renderAttributeGuidance(primary, spaceText);
-    setText("[data-recommendation-section-kicker]", "Recommended Starting Path");
+    setText("[data-recommendation-section-kicker]", "Recommendation Summary");
     setText("[data-recommendation-status]", "Recommended Starting Point");
     setText("[data-recommendation-fit-label]", state.title || "Relevant Starting Point");
     setText("[data-recommendation-judgment-label]", "Recommended start");
@@ -651,7 +678,7 @@
     setText("[data-recommendation-primary-name]", primary.label);
     setText(
       "[data-recommendation-section-heading]",
-      state.mode === "market_path" ? "Recommended Market Path" : `Start with ${primary.label}, then pressure-test alternatives.`
+      state.mode === "market_path" ? "Begin with this market path." : `Start with ${primary.label}, then pressure-test alternatives.`
     );
     setText("[data-recommendation-strategy]", `${primary.selectionRationale || state.summaryCopy} ${primary.alternativeRationale || compareText}`);
     setText(
@@ -723,7 +750,7 @@
     }
 
     module.hidden = false;
-    if (heading) heading.textContent = `Representative buildings to understand ${primary.label}`;
+    if (heading) heading.textContent = `Representative buildings that explain ${primary.label}`;
     if (list) {
       list.innerHTML = "";
       result.buildings.forEach((building, index) => {
@@ -732,7 +759,7 @@
     }
     if (cta) {
       cta.href = "#location-brief-contact";
-      cta.textContent = "Start Live Market Investigation";
+      cta.textContent = "Start Live Market Review";
       cta.setAttribute("data-investigation-district", primary.label || "");
     }
     updateInvestigationContext(primary, state, result.buildings);
@@ -940,10 +967,10 @@
       knownConstraints: requirements.knownConstraints,
     };
 
-    setText("[data-live-market-intake-heading]", `Investigate ${investigation.districtName || investigation.city || "this market"}`);
+    setText("[data-live-market-intake-heading]", `Review ${investigation.districtName || investigation.city || "this market"}`);
     setText(
       "[data-live-market-intake-summary]",
-      `Rofo already has the search profile and recommended ${investigation.districtName || "this district"} as the next market to investigate. These are representative buildings, not confirmed availability.`
+      `Rofo already has the Business Profile and recommended ${investigation.districtName || "this district"} as the next market to review. These are representative buildings, not confirmed availability.`
     );
     setText("[data-live-market-intake-city]", [investigation.city, investigation.state].filter(Boolean).join(", ") || "To confirm");
     setText("[data-live-market-intake-district]", investigation.districtName || "District-level review");
@@ -1061,7 +1088,7 @@
     }
 
     const submitButton = document.querySelector("[data-location-brief-submit-button]");
-    if (submitButton) submitButton.textContent = "Start Market Investigation";
+    if (submitButton) submitButton.textContent = "Start Live Market Review";
     persistBriefState();
   }
 
@@ -1481,7 +1508,7 @@
       persistBriefState();
       const isInvestigation = payload.liveMarketInvestigation && payload.liveMarketInvestigation.investigationIntent;
       if (status) status.textContent = isInvestigation
-        ? "Submitting your market investigation request..."
+        ? "Submitting your live market review request..."
         : "Creating your permanent Location Brief...";
       if (submitButton) submitButton.disabled = true;
 
@@ -1537,7 +1564,7 @@
           }
         } catch (error) {
           status.textContent = isInvestigation
-            ? "The market investigation request could not be submitted. Please try again, or contact Rofo if the problem continues."
+            ? "The live market review request could not be submitted. Please try again, or contact Rofo if the problem continues."
             : "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
           status.classList.remove("location-brief-contact-status--success");
           if (window.console && typeof window.console.warn === "function") {

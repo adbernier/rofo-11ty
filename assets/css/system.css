@@ -2259,7 +2259,7 @@ section.market-page--space-type .market-links a {
    ========================= */
 
 .recommendations-page {
-  background: #f6f8fb;
+  background: #f7f8fa;
   padding: 28px 0 72px;
 }
 
@@ -2273,8 +2273,8 @@ section.market-page--space-type .market-links a {
 .recommendations-cta {
   background: #fff;
   border: 1px solid #dbe3ee;
-  border-radius: 18px;
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
 }
 
 .recommendations-hero {
@@ -2292,16 +2292,114 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendations-hero h1 {
-  max-width: 13ch;
-  margin: 0 0 14px;
-  font-size: var(--type-display-lg);
-  line-height: var(--type-leading-display);
+  max-width: 19ch;
+  margin: 0 0 22px;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1;
 }
 
 .recommendations-hero .lead {
   max-width: 68ch;
+  margin: 20px 0 0;
+  color: #334155;
+  font-size: 1.06rem;
+  line-height: 1.62;
+}
+
+.location-brief-opening {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
+.location-brief-opening h2 {
   margin: 0;
-  color: #475569;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.location-brief-opening ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: recommended-location;
+}
+
+.location-brief-opening li {
+  counter-increment: recommended-location;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid #cfdcf0;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #172033;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.location-brief-opening li::before {
+  content: counter(recommended-location);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #1746cc;
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.location-brief-executive-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 24px;
+  border-top: 1px solid #dbe3ee;
+  border-bottom: 1px solid #dbe3ee;
+}
+
+.location-brief-executive-summary section {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 18px 18px 18px 0;
+}
+
+.location-brief-executive-summary section + section {
+  padding-left: 18px;
+  border-left: 1px solid #dbe3ee;
+}
+
+.location-brief-executive-summary span {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.location-brief-executive-summary strong {
+  color: #0f172a;
+  font-size: 1.02rem;
+  line-height: 1.2;
+}
+
+.location-brief-executive-summary p {
+  margin: 0;
+  color: #526174;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .recommendations-recap {
@@ -2347,7 +2445,7 @@ section.market-page--space-type .market-links a {
   margin: 0 0 24px;
   padding: clamp(20px, 4vw, 28px);
   border: 1px solid #d5e0ee;
-  border-radius: 18px;
+  border-radius: 12px;
   background: #fff;
 }
 
@@ -2520,7 +2618,7 @@ section.market-page--space-type .market-links a {
   gap: 8px;
   padding: 15px;
   border: 1px solid #e1e8f2;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #f8fafc;
 }
 
@@ -2632,7 +2730,7 @@ section.market-page--space-type .market-links a {
 .recommendation-card,
 .recommendation-building-card {
   border: 1px solid #dbe3ee;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #fff;
 }
 
@@ -2738,7 +2836,7 @@ section.market-page--space-type .market-links a {
 
 .recommendation-advisor-panel {
   border: 1px solid #e7edf5;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #f8fafc;
   padding: 15px;
 }
@@ -2916,7 +3014,7 @@ section.market-page--space-type .market-links a {
   max-width: 820px;
   margin-top: 18px;
   border: 1px solid #e1e8f2;
-  border-radius: 16px;
+  border-radius: 8px;
   background: #f8fafc;
   padding: 16px;
 }
@@ -2995,7 +3093,7 @@ section.market-page--space-type .market-links a {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #e2e8f0;
 }
 
@@ -3028,8 +3126,8 @@ section.market-page--space-type .market-links a {
   margin-top: 2px;
   padding: 18px;
   border: 1px solid #c9d9f2;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%);
+  border-radius: 8px;
+  background: #ffffff;
 }
 
 .recommendation-live-market-panel h5 {
@@ -4496,6 +4594,20 @@ section.market-page--space-type .market-links a {
     justify-content: flex-start;
   }
 
+  .location-brief-executive-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .location-brief-executive-summary section,
+  .location-brief-executive-summary section + section {
+    padding: 15px 0;
+    border-left: 0;
+  }
+
+  .location-brief-executive-summary section + section {
+    border-top: 1px solid #dbe3ee;
+  }
+
   .recommendations-grid--districts,
   .recommendations-grid--buildings,
   .recommendation-secondary-grid,
@@ -4570,7 +4682,7 @@ section.market-page--space-type .market-links a {
   .recommendations-hero,
   .recommendations-section,
   .recommendations-cta {
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .recommendations-grid--districts,

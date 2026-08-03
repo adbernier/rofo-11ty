@@ -2,8 +2,8 @@
 layout: base.njk
 fieldPhotosPublic: true
 permalink: /recommendations/
-title: Initial Location Analysis | Rofo
-description: Review an initial commercial location analysis with recommended starting areas, confidence signals, building examples, alternatives, and next steps.
+title: Location Brief | Rofo
+description: Review a personalized commercial Location Brief with recommended starting areas, evidence, tradeoffs, representative buildings, validation questions, and next steps.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/recommendations/"
 ---
@@ -13,17 +13,42 @@ eleventyComputed:
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
-      <span>Initial Location Analysis</span>
+      <span>Location Brief</span>
     </div>
 
     <section class="recommendations-hero">
       <div class="recommendations-hero__copy">
-        <div class="eyebrow" data-recommendation-hero-badge>SAMPLE LOCATION ANALYSIS</div>
-        <h1>Recommended starting locations for your search.</h1>
+        <div class="eyebrow" data-recommendation-hero-badge>LOCATION BRIEF</div>
+        <h1>Your commercial location recommendation.</h1>
+        <div class="location-brief-opening" aria-labelledby="location-brief-opening-heading">
+          <h2 id="location-brief-opening-heading">Recommended Starting Locations</h2>
+          <ol data-location-brief-hero-path>
+            <li>Mission Bay</li>
+            <li>SoMa</li>
+            <li>Financial District</li>
+          </ol>
+        </div>
         <p class="lead" data-recommendation-hero-copy>
-          Mission Bay is the strongest starting point for this profile. SoMa and the Financial District are useful comparisons before narrowing the search.
+          Begin with Mission Bay, then compare SoMa and the Financial District before narrowing to buildings.
         </p>
-        <dl class="recommendations-recap" aria-label="Search recap">
+        <div class="location-brief-executive-summary" aria-label="Location Brief executive summary">
+          <section>
+            <span>Where to begin</span>
+            <strong data-location-brief-summary-primary>Mission Bay</strong>
+            <p data-location-brief-summary-path>Use this as the baseline, then compare nearby alternatives.</p>
+          </section>
+          <section>
+            <span>Why it fits</span>
+            <strong>Business fit</strong>
+            <p data-location-brief-summary-why>Modern office context, transit access, and room to compare growth options.</p>
+          </section>
+          <section>
+            <span>Confidence</span>
+            <strong data-location-brief-summary-confidence>High Confidence</strong>
+            <p>Strong enough to guide the first market review; live availability still needs validation.</p>
+          </section>
+        </div>
+        <dl class="recommendations-recap" aria-label="Business Profile recap">
           <div>
             <dt>Location</dt>
             <dd data-recommendation-context-location data-recommendation-location>San Francisco</dd>
@@ -45,7 +70,7 @@ eleventyComputed:
     </section>
 
     <section class="recommendation-context-card recommendation-memo-section" aria-labelledby="recommendation-context-heading" data-recommendation-context-card hidden>
-      <div class="kicker" data-recommendation-context-kicker>Initial Analysis</div>
+      <div class="kicker" data-recommendation-context-kicker>Location Brief Summary</div>
       <h2 id="recommendation-context-heading" data-recommendation-context-heading>Recommended starting point.</h2>
       <p class="recommendation-memo-lead" data-recommendation-context-copy>
         Mission Bay is the strongest starting point because it offers modern office inventory, strong transit access, and room for growth. SoMa and the Financial District are useful comparisons before narrowing the search to individual buildings.
@@ -56,31 +81,31 @@ eleventyComputed:
     </section>
 
     <section class="recommendation-expert-guided" data-recommendation-expert-guided hidden>
-      <div class="kicker">Expert Guided Analysis</div>
-      <h2>This market needs expert review.</h2>
+      <div class="kicker">Expert Guided Brief</div>
+      <h2>This market needs live review.</h2>
       <p>
-        This profile has enough location, space type, and size context for a local market expert to review relevant options when you choose that next step.
+        This Business Profile has enough location, space type, and size context for a local market expert to review relevant options when you choose that next step.
       </p>
-      <a class="recommendations-button" href="/find-locations/">Update Location Profile</a>
+      <a class="recommendations-button" href="/find-locations/">Update Business Profile</a>
     </section>
 
     <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommended-districts" data-recommendation-supported>
       <div class="recommendations-section__header">
-        <div class="kicker" data-recommendation-section-kicker>Recommended Starting Path</div>
+        <div class="kicker" data-recommendation-section-kicker>Recommendation Summary</div>
         <h2 id="recommended-districts" data-recommendation-section-heading>Start with the strongest fit, then pressure-test alternatives.</h2>
         <p>
-          These are not live listing results. They are the first markets to evaluate before checking live availability, requesting introductions, or touring buildings.
+          These are the first locations to evaluate before checking live availability, requesting introductions, or touring buildings.
         </p>
       </div>
 
       <div class="recommendation-brief-grid" data-recommendation-brief-grid hidden>
         <section class="recommendation-brief-panel recommendation-brief-panel--path">
-          <h3>Recommended starting point and why</h3>
+          <h3>Where Rofo would begin</h3>
           <div class="recommendation-market-path" data-recommendation-market-path></div>
         </section>
 
         <section class="recommendation-brief-panel">
-          <h3>Why alternatives still matter</h3>
+          <h3>Why the comparison set matters</h3>
           <div class="recommendation-compare-list" data-recommendation-compare-with></div>
         </section>
       </div>
@@ -88,8 +113,8 @@ eleventyComputed:
 
     <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommendation-rationale">
       <div class="recommendations-section__header">
-        <div class="kicker">Decision Explanation</div>
-        <h2 id="recommendation-rationale">Why this location, and why not the others first.</h2>
+        <div class="kicker">Reasoning</div>
+        <h2 id="recommendation-rationale">Why this recommendation fits.</h2>
       </div>
       <p class="recommendation-strategy" data-recommendation-strategy>
         Mission Bay offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility for this profile. SoMa and the Financial District should still be pressure-tested for pricing, commute patterns, and building availability.
@@ -104,7 +129,7 @@ eleventyComputed:
 
     <section class="recommendations-section recommendation-memo-section recommendation-primary-section" aria-labelledby="primary-market-deep-dive">
       <div class="recommendations-section__header">
-        <div class="kicker">Primary Starting Point</div>
+        <div class="kicker">Evidence</div>
         <h2 id="primary-market-deep-dive" data-recommendation-primary-name>Mission Bay</h2>
         <p><span class="recommendation-status" data-recommendation-status>Recommended Starting Point</span></p>
       </div>
@@ -172,7 +197,7 @@ eleventyComputed:
       <aside class="recommendation-representative-buildings" aria-labelledby="primary-representative-buildings" data-recommendation-representative-buildings data-recommendation-demo-detail>
           <div class="recommendation-evidence__header">
             <div class="kicker">Representative examples</div>
-            <h4 id="primary-representative-buildings" data-representative-buildings-heading>Representative buildings to understand this area</h4>
+            <h4 id="primary-representative-buildings" data-representative-buildings-heading>Representative buildings that explain this recommendation</h4>
             <p data-representative-buildings-disclosure>These buildings are representative examples, not current availability. They help explain the kinds of commercial environments businesses commonly evaluate in this district.</p>
           </div>
 
@@ -199,7 +224,7 @@ eleventyComputed:
           <div class="recommendation-live-market-panel" data-live-market-investigation-panel>
             <div>
               <h5>Ready to investigate the live market?</h5>
-              <p>Representative buildings help explain the market. A Live Market Investigation looks at what is actually happening now.</p>
+              <p>The Location Brief explains where to begin and why. A Live Market Review checks what is actually available now.</p>
               <ul>
                 <li>current availability</li>
                 <li>future availability</li>
@@ -210,17 +235,17 @@ eleventyComputed:
               </ul>
               <p class="recommendation-live-market-panel__note">Availability and broker support depend on market coverage and current requirements.</p>
             </div>
-            <a class="recommendations-button" href="#location-brief-contact" data-location-brief-review-trigger data-live-market-investigation-cta>Start Live Market Investigation</a>
+            <a class="recommendations-button" href="#location-brief-contact" data-location-brief-review-trigger data-live-market-investigation-cta>Start Live Market Review</a>
           </div>
       </aside>
     </section>
 
     <section class="recommendations-section recommendation-memo-section" aria-labelledby="comparison-markets">
       <div class="recommendations-section__header">
-        <div class="kicker">Comparison Markets</div>
-        <h2 id="comparison-markets">Also worth comparing.</h2>
+        <div class="kicker">Comparison</div>
+        <h2 id="comparison-markets">How to compare the alternatives.</h2>
         <p>
-          These markets should not carry the same weight as the primary recommendation. Use them to test commute, cost, building character, and market flexibility before narrowing to individual buildings.
+          Use these alternatives to test commute, cost, building character, and market flexibility against the recommended starting point.
         </p>
       </div>
       <div class="recommendation-compare-list recommendation-compare-list--memo" data-recommendation-compare-with-secondary hidden></div>
@@ -257,14 +282,14 @@ eleventyComputed:
 
     <section class="location-brief-refinement" aria-labelledby="location-brief-refinement-heading" data-location-brief-refinement>
       <div class="location-brief-refinement__intro">
-        <div class="kicker">Refine the analysis</div>
-        <h2 id="location-brief-refinement-heading">Add detail when the first direction is visible.</h2>
-        <p>Additional requirements can sharpen the market review after the recommended direction is visible.</p>
+        <div class="kicker">Questions to Validate</div>
+        <h2 id="location-brief-refinement-heading">What to confirm before touring.</h2>
+        <p>Use these questions to turn the recommendation into a focused live market review.</p>
       </div>
 
       <div class="location-brief-refinement__grid">
         <section class="location-brief-refinement__panel" aria-labelledby="brief-feedback-heading">
-          <h3 id="brief-feedback-heading">Does this direction feel right?</h3>
+          <h3 id="brief-feedback-heading">Does this recommendation feel right?</h3>
           <div class="location-brief-choice-list" data-location-brief-feedback>
             <button type="button" data-feedback-value="yes">Yes, this looks right</button>
             <button type="button" data-feedback-value="another_direction">Show me another direction</button>
@@ -273,8 +298,8 @@ eleventyComputed:
         </section>
 
         <section class="location-brief-refinement__panel" aria-labelledby="brief-priorities-heading">
-          <h3 id="brief-priorities-heading">What matters most for this location?</h3>
-          <p>Choose any priorities that should shape the expert review.</p>
+          <h3 id="brief-priorities-heading">What should be validated first?</h3>
+          <p>Choose any priorities that should shape the live market review.</p>
           <div class="location-brief-priority-list" data-location-brief-priorities></div>
         </section>
 
@@ -290,7 +315,7 @@ eleventyComputed:
         <section class="location-brief-refinement__panel" aria-labelledby="brief-notes-heading">
           <h3 id="brief-notes-heading">Additional notes</h3>
           <label class="location-brief-notes-label" for="location-brief-notes">Optional notes</label>
-          <textarea id="location-brief-notes" data-location-brief-notes rows="4" placeholder="Example: We are growing quickly, parking is critical, or clients visit weekly."></textarea>
+          <textarea id="location-brief-notes" data-location-brief-notes rows="4" placeholder="Example: parking is critical, clients visit weekly, or we need room to expand."></textarea>
         </section>
       </div>
 
@@ -298,15 +323,15 @@ eleventyComputed:
 
     <form class="recommendations-cta location-brief-contact location-brief-contact--final" id="location-brief-contact" data-location-brief-contact aria-labelledby="market-investigation" method="post" action="/api/location-brief/submit">
       <div class="location-brief-contact__header">
-        <div class="kicker" data-recommendation-cta-kicker>Optional Expert Review</div>
-        <h2 id="market-investigation" data-recommendation-cta-heading>Request expert review when you are ready.</h2>
+        <div class="kicker" data-recommendation-cta-kicker>Live Market Review</div>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Validate the recommendation with live market help.</h2>
         <p data-recommendation-cta-copy>
-          Share your profile only when you want expert follow-up on listings, comps, sublease options, incentives, and market guidance.
+          Share your brief only when you want help checking availability, comparable buildings, lease structure, and broker guidance.
         </p>
       </div>
 
       <div class="recommendations-cta__panel">
-        <h3>What an expert can help with</h3>
+        <h3>What the live review can check</h3>
         <ul>
           <li>Current availability</li>
           <li>Asking rents</li>
@@ -320,7 +345,7 @@ eleventyComputed:
 
       <section class="live-market-intake" aria-labelledby="live-market-intake-heading" data-live-market-investigation-intake hidden>
         <div class="live-market-intake__header">
-          <div class="kicker">Live Market Investigation</div>
+          <div class="kicker">Live Market Review</div>
           <h3 id="live-market-intake-heading" data-live-market-intake-heading>Investigate this market</h3>
           <p data-live-market-intake-summary>Confirm what Rofo should investigate next. These are representative buildings, not confirmed availability.</p>
         </div>
@@ -419,7 +444,7 @@ eleventyComputed:
         </label>
       </div>
       <div class="location-brief-contact__actions">
-        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Request Expert Review</button>
+        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Start Live Market Review</button>
         <p data-location-brief-contact-status></p>
       </div>
     </form>
