@@ -1,0 +1,360 @@
+---
+layout: base.njk
+permalink: /prototype/recommendation-explorer/sf-office-interactive/
+eleventyExcludeFromCollections: true
+robots: noindex,nofollow
+title: "San Francisco Office Business Profile Workspace Prototype | Rofo"
+description: "Internal Business Profile Workspace prototype for the isolated San Francisco Office recommendation model."
+---
+
+<style>
+  .sf-workspace {
+    min-height: 100vh;
+    background: #f7f3ec;
+    color: #211f1b;
+    padding: 32px 0 56px;
+  }
+
+  .sf-workspace__shell {
+    width: min(1220px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  .sf-workspace__header {
+    display: grid;
+    gap: 10px;
+    max-width: 860px;
+    margin-bottom: 26px;
+  }
+
+  .sf-workspace__header h1 {
+    margin: 0;
+    color: #1e1c18;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+  }
+
+  .sf-workspace__header p {
+    margin: 0;
+    color: #615b52;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .sf-workspace__layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .sf-workspace-panel {
+    border: 1px solid rgba(35, 31, 25, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 18px 40px rgba(42, 35, 24, 0.06);
+    padding: 22px;
+  }
+
+  .sf-workspace-panel--profile {
+    position: sticky;
+    top: 18px;
+  }
+
+  .sf-workspace-kicker {
+    margin: 0 0 8px;
+    color: #8a623c;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .sf-workspace-panel h2,
+  .sf-workspace-panel h3,
+  .sf-workspace-panel h4 {
+    margin: 0;
+    color: #201d19;
+    letter-spacing: 0;
+  }
+
+  .sf-workspace-panel h2 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1.15;
+  }
+
+  .sf-workspace-panel h3 {
+    font-size: 1rem;
+  }
+
+  .sf-workspace-muted {
+    color: #655f56;
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .sf-workspace-scenarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .sf-workspace-chip,
+  .sf-workspace-action,
+  .sf-workspace-scenario {
+    border: 1px solid rgba(34, 31, 27, 0.15);
+    border-radius: 999px;
+    background: #fff;
+    color: #302b25;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .sf-workspace-chip[aria-pressed="true"] {
+    border-color: #1f1d19;
+    background: #1f1d19;
+    color: #fff;
+  }
+
+  .sf-workspace-chip[disabled] {
+    cursor: default;
+    opacity: 0.72;
+  }
+
+  .sf-workspace-section {
+    display: grid;
+    gap: 10px;
+    border-top: 1px solid rgba(35, 31, 25, 0.1);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .sf-workspace-section__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .sf-workspace-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sf-workspace-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .sf-workspace-action--primary {
+    border-color: #1f1d19;
+    background: #1f1d19;
+    color: #fff;
+  }
+
+  .sf-workspace-action[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .sf-workspace-best-fits {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .sf-workspace-fit-card {
+    border: 1px solid rgba(35, 31, 25, 0.12);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    padding: 16px;
+    text-align: left;
+    transition: border-color 160ms ease, transform 160ms ease;
+  }
+
+  .sf-workspace-fit-card:hover,
+  .sf-workspace-fit-card:focus-visible,
+  .sf-workspace-fit-card[aria-selected="true"] {
+    border-color: #8a623c;
+    transform: translateY(-1px);
+  }
+
+  .sf-workspace-fit-card h3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .sf-workspace-confidence {
+    color: #8a623c;
+    font-size: 0.78rem;
+    font-weight: 750;
+    text-transform: uppercase;
+  }
+
+  .sf-workspace-reasons {
+    display: grid;
+    gap: 4px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sf-workspace-reasons li {
+    color: #514b43;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .sf-workspace-empty {
+    border: 1px dashed rgba(35, 31, 25, 0.22);
+    border-radius: 8px;
+    color: #645e55;
+    line-height: 1.6;
+    margin-top: 18px;
+    padding: 18px;
+  }
+
+  .sf-workspace-detail {
+    border-top: 1px solid rgba(35, 31, 25, 0.1);
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
+  .sf-workspace-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .sf-workspace-detail-item {
+    border-radius: 8px;
+    background: #fbf8f2;
+    padding: 12px;
+  }
+
+  .sf-workspace-brief-bar {
+    position: sticky;
+    bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: 1px solid rgba(35, 31, 25, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 32px rgba(38, 32, 22, 0.12);
+    margin-top: 18px;
+    padding: 14px;
+  }
+
+  .sf-workspace-brief {
+    border: 1px solid rgba(35, 31, 25, 0.12);
+    border-radius: 8px;
+    background: #fff;
+    margin-top: 18px;
+    padding: 18px;
+  }
+
+  .sf-workspace-debug {
+    margin-top: 18px;
+  }
+
+  .sf-workspace-debug summary {
+    cursor: pointer;
+    font-weight: 750;
+  }
+
+  .sf-workspace-debug pre {
+    overflow: auto;
+    max-height: 360px;
+    border-radius: 8px;
+    background: #191714;
+    color: #f5efe4;
+    padding: 14px;
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 880px) {
+    .sf-workspace__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .sf-workspace-panel--profile,
+    .sf-workspace-brief-bar {
+      position: static;
+    }
+
+    .sf-workspace-detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="sf-workspace" data-sf-office-interactive>
+  <div class="sf-workspace__shell">
+    <div class="breadcrumbs">
+      <a href="/">Rofo</a>
+      <span aria-hidden="true">/</span>
+      <span>Business Profile Workspace Prototype</span>
+    </div>
+
+    <header class="sf-workspace__header">
+      <p class="sf-workspace-kicker">Internal Prototype - {{ sfOfficeRecommendationInteractivePrototype.modelKey }}</p>
+      <h1>Describe the business. Explore the best places to begin.</h1>
+      <p>
+        This isolated workspace preserves the San Francisco office recommendation engine while testing a calmer interaction model: editable Business Profile, Best Fits, district detail, and a Location Brief snapshot.
+      </p>
+      <div class="sf-workspace-scenarios" aria-label="Prototype scenarios">
+        {% for scenario in sfOfficeRecommendationInteractivePrototype.scenarios %}
+          <button class="sf-workspace-scenario" type="button" data-sf-scenario="{{ scenario.id }}">{{ scenario.label }}</button>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="sf-workspace__layout">
+      <aside class="sf-workspace-panel sf-workspace-panel--profile" aria-labelledby="business-profile-heading">
+        <p class="sf-workspace-kicker">Business Profile</p>
+        <h2 id="business-profile-heading">Who are we?</h2>
+        <p class="sf-workspace-muted">Edit the profile in any order. Rofo updates the Best Fits as the business description becomes clearer.</p>
+        <div data-sf-profile-editor></div>
+        <div class="sf-workspace-actions">
+          <button class="sf-workspace-action" type="button" data-sf-reset>Restart</button>
+        </div>
+      </aside>
+
+      <main class="sf-workspace-panel" aria-labelledby="best-fits-heading">
+        <p class="sf-workspace-kicker">Best Fits</p>
+        <h2 id="best-fits-heading">Where should we begin?</h2>
+        <p class="sf-workspace-muted" data-sf-fit-intro>Complete a few business details to see Rofo's best places to begin looking.</p>
+        <div data-sf-change-message></div>
+        <div class="sf-workspace-best-fits" data-sf-best-fits></div>
+        <section class="sf-workspace-detail" data-sf-district-detail hidden></section>
+        <section class="sf-workspace-brief" data-sf-brief hidden></section>
+        <details class="sf-workspace-debug">
+          <summary>Internal debug</summary>
+          <pre><code data-sf-debug>{}</code></pre>
+        </details>
+      </main>
+    </div>
+
+    <div class="sf-workspace-brief-bar" aria-label="Location Brief action">
+      <p class="sf-workspace-muted" data-sf-brief-status>Complete a few more business details to create your Location Brief.</p>
+      <button class="sf-workspace-action sf-workspace-action--primary" type="button" data-sf-create-brief disabled>Create My Location Brief</button>
+    </div>
+  </div>
+
+  <script type="application/json" data-sf-office-interactive-data>{{ sfOfficeRecommendationInteractivePrototype.json | safe }}</script>
+  <script src="/js/sf-office-recommendation-interactive.js" defer></script>
+</section>

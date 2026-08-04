@@ -1,4 +1,9 @@
 import leadRoutes from "../../../_data/leadRoutes.json";
+import {
+  buildProjectSnapshotFromLead,
+  locationBriefReferenceText,
+  projectSnapshotTextLines,
+} from "../../_shared/project-snapshot.js";
 
 export const OFFICEFINDER_TEST_ENDPOINT = "https://www.officefinder.com/scripts/_importLeadTest.cfm";
 export const OFFICEFINDER_PRODUCTION_ENDPOINT = "https://www.officefinder.com/scripts/_importLead.cfm";
@@ -103,6 +108,11 @@ export function normalizePhoneForOfficeFinder(phone) {
 
 function getMarketName(lead) {
   return normalizeField(lead.city || lead.market || lead.location);
+}
+
+function isLocationBriefLead(lead) {
+  const leadType = normalizeField(lead && lead.lead_type);
+  return leadType === "location_brief" || leadType === "live_market_investigation" || normalizeField(lead && lead.source) === "location_brief";
 }
 
 export function buildLeadPayload(formFields, request) {
@@ -540,23 +550,43 @@ export function buildOfficeFinderPayload(lead, env) {
   const spaceType = lead.requested_space_type || lead.space_type;
   const sqFt = normalizeSqFtForOfficeFinder(lead.space_needed);
   const normalizedPhone = normalizePhoneForOfficeFinder(lead.phone);
-  // This placeholder is used only for OfficeFinder routing when a location-profile tenant did not provide a phone.
-  const phone = normalizedPhone || (isLocationProfileLead(lead) ? OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE : "");
+  const usesPlaceholderPhone = !normalizedPhone && (isLocationProfileLead(lead) || isLocationBriefLead(lead));
+  // This placeholder is used only for OfficeFinder routing when a Location Profile or Location Brief tenant did not provide a phone.
+  const phone = normalizedPhone || (usesPlaceholderPhone ? OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE : "");
+  if (usesPlaceholderPhone) {
+    console.log("[officefinder-integration]", JSON.stringify({
+      event: "placeholder_phone_used",
+      leadId: normalizeField(lead.id),
+      locationBriefPublicId: normalizeField(lead.location_brief_public_id),
+      leadType: normalizeField(lead.lead_type),
+    }));
+  }
   const marketName = getMarketName(lead);
   const marketState = normalizeField(lead.state);
   const neighborhoodContext = normalizeField(lead.neighborhood_name)
     ? `Neighborhood/area context: ${normalizeField(lead.neighborhood_name)}${lead.city ? `, ${normalizeField(lead.city)}` : ""}.`
     : "";
 
-  const comments = [
-    lead.requirements,
-    neighborhoodContext,
-    lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
-    lead.move_timing && `Timing: ${lead.move_timing}`,
-    spaceType && `Requested/page space type: ${spaceType}`,
-    lead.page_type && `Page type: ${lead.page_type}`,
-    lead.source && `Source: ${lead.source}`,
-  ].filter(Boolean).join("\n");
+  const projectSnapshot = buildProjectSnapshotFromLead(lead);
+  const comments = isLocationBriefLead(lead)
+    ? [
+      locationBriefReferenceText({
+        url: normalizeField(lead.location_brief_url),
+        topDistricts: projectSnapshot.topDistricts || [],
+      }),
+      "",
+      "Project Snapshot",
+      ...projectSnapshotTextLines(projectSnapshot),
+    ].filter(Boolean).join("\n")
+    : [
+      lead.requirements,
+      neighborhoodContext,
+      lead.space_needed && `Raw submitted size: ${lead.space_needed}`,
+      lead.move_timing && `Timing: ${lead.move_timing}`,
+      spaceType && `Requested/page space type: ${spaceType}`,
+      lead.page_type && `Page type: ${lead.page_type}`,
+      lead.source && `Source: ${lead.source}`,
+    ].filter(Boolean).join("\n");
 
   const payload = {
     Referrer: "MM2",
@@ -918,6 +948,26 @@ function getTenantConfirmationDetails(lead) {
 }
 
 function buildTenantConfirmationText(lead) {
+  if (isLocationBriefLead(lead)) {
+    const snapshot = buildProjectSnapshotFromLead(lead);
+    return [
+      "Hi,",
+      "",
+      "Your Location Brief has been created.",
+      "",
+      "We've shared it with the appropriate broker review workflow.",
+      "",
+      "You can continue reviewing or sharing your Brief at:",
+      normalizeField(lead.location_brief_url) || "(Location Brief URL unavailable)",
+      "",
+      "Project Snapshot",
+      ...projectSnapshotTextLines(snapshot),
+      "",
+      "Thanks,",
+      "Rofo",
+    ].filter((line, index, lines) => line !== "" || lines[index - 1] !== "").join("\n");
+  }
+
   if (isLocationProfileLead(lead)) {
     const summary = getLocationRequirementSummary(lead);
     const profileLines = [
@@ -1003,6 +1053,52 @@ function buildTenantConfirmationText(lead) {
 }
 
 function buildTenantConfirmationHtml(lead) {
+  if (isLocationBriefLead(lead)) {
+    const snapshot = buildProjectSnapshotFromLead(lead);
+    const briefUrl = normalizeField(lead.location_brief_url);
+    const snapshotRows = projectSnapshotTextLines(snapshot)
+      .map((line) => {
+        const [label, ...rest] = line.split(": ");
+        return buildEmailField(label, escapeHtml(rest.join(": ")));
+      })
+      .join("");
+
+    return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div>
+                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">Your Location Brief has been created.</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px;font-size:15px;line-height:23px;">
+                <p style="margin:0 0 14px;">Hi,</p>
+                <p style="margin:0 0 14px;">We've shared it with the appropriate broker review workflow.</p>
+                ${briefUrl ? `<p style="margin:0 0 18px;">You can continue reviewing or sharing your Brief at:<br><a href="${escapeHtml(briefUrl)}" style="color:#1346d8;font-weight:700;text-decoration:none;">${escapeHtml(briefUrl)}</a></p>` : ""}
+                ${snapshotRows ? `
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Project Snapshot</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${snapshotRows}
+                  </table>
+                </div>` : ""}
+                <p style="margin:0;">Thanks,<br>Rofo</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+  }
+
   if (isLocationProfileLead(lead)) {
     const summaryRows = buildLocationRequirementRows(lead);
 
@@ -1122,7 +1218,9 @@ export async function sendTenantConfirmationEmail(env, record) {
     body: JSON.stringify({
       from: env.TENANT_CONFIRMATION_FROM || "Rofo <leads@rofo.com>",
       to: [lead.email],
-      subject: isLocationProfileLead(lead) ? "Your Rofo location profile" : "We received your Rofo space request",
+      subject: isLocationBriefLead(lead)
+        ? "Your Rofo Location Brief"
+        : isLocationProfileLead(lead) ? "Your Rofo location profile" : "We received your Rofo space request",
       html: buildTenantConfirmationHtml(lead),
       text: buildTenantConfirmationText(lead),
     }),
@@ -1526,19 +1624,39 @@ export async function sendApprovalEmail(env, request, record, token) {
   const market = getLeadMarket(lead);
   const spaceType = lead.effective_space_type || lead.requested_space_type || lead.space_type || "";
   const locationProfile = isLocationProfileLead(lead);
-  const subject = locationProfile
+  const locationBrief = isLocationBriefLead(lead);
+  const snapshot = buildProjectSnapshotFromLead(lead);
+  const subject = locationBrief
+    ? `New Rofo ${snapshot.propertyType || spaceType || "Space"} Requirement - ${snapshot.market || market || "Market"}`
+    : locationProfile
     ? buildLocationRequirementSubject(lead)
     : `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
   const requirements = lead.requirements || "(none provided)";
   const neighborhoodContext = lead.neighborhood_name
     ? `${lead.neighborhood_name}${lead.city ? `, ${lead.city}` : ""}`
     : "";
-  const alertHeading = locationProfile ? "New Location Requirement" : "New lead ready for review";
-  const alertKicker = locationProfile ? "Rofo location profile" : "Rofo lead alert";
+  const alertHeading = locationBrief ? "New Rofo Requirement" : locationProfile ? "New Location Requirement" : "New lead ready for review";
+  const alertKicker = locationBrief ? "Rofo Location Brief" : locationProfile ? "Rofo location profile" : "Rofo lead alert";
   const requirementRows = locationProfile ? buildLocationRequirementRows(lead) : "";
+  const snapshotLines = projectSnapshotTextLines(snapshot);
   const text = [
-    locationProfile ? "NEW LOCATION REQUIREMENT" : "NEW ROFO LEAD",
+    locationBrief ? "NEW ROFO REQUIREMENT" : locationProfile ? "NEW LOCATION REQUIREMENT" : "NEW ROFO LEAD",
     "",
+    locationBrief ? "A new Rofo requirement has been submitted." : "",
+    locationBrief ? "" : "",
+    locationBrief ? "LOCATION BRIEF" : "",
+    locationBrief ? normalizeField(lead.location_brief_url) || "(Location Brief URL unavailable)" : "",
+    locationBrief ? "" : "",
+    locationBrief ? "PROJECT SNAPSHOT" : "",
+    ...(locationBrief ? snapshotLines : []),
+    locationBrief ? "" : "",
+    locationBrief ? "ROUTING" : "",
+    locationBrief ? `Recommended route: ${formatRouteLabel(lead.route_recommendation && lead.route_recommendation.route_to)}` : "",
+    locationBrief ? `Assigned broker: ${lead.assigned_broker || lead.route_recommendation && lead.route_recommendation.broker_email || "(none)"}` : "",
+    locationBrief ? `OfficeFinder status: ${lead.officefinder_status || "officefinder_not_attempted"}` : "",
+    locationBrief ? `Submission status: ${record.status}` : "",
+    locationBrief ? `Route reason: ${lead.route_recommendation && lead.route_recommendation.route_reason || ""}` : "",
+    locationBrief ? "" : "",
     `Name: ${lead.name}`,
     `Company: ${lead.company || ""}`,
     `Email: ${lead.email}`,
@@ -1560,12 +1678,12 @@ export async function sendApprovalEmail(env, request, record, token) {
     locationProfile && lead.location_profile_features ? `Features: ${lead.location_profile_features}` : "",
     lead.spam_score ? `Spam score: ${lead.spam_score}` : "",
     "",
-    "NOTES",
-    requirements,
+    locationBrief ? "NOTES" : "NOTES",
+    locationBrief ? "Review the Location Brief before routing or contacting the client." : requirements,
     "",
     `Review Lead in Dashboard: ${dashboardUrl}`,
     "",
-    "Fallback approval links:",
+    "Approval links:",
     `Approve recommended: ${approveUrl}`,
     `Approve OfficeFinder: ${approveOfficeFinderUrl}`,
     `Approve broker: ${approveBrokerUrl}`,
@@ -1587,6 +1705,25 @@ export async function sendApprovalEmail(env, request, record, token) {
             </tr>
             <tr>
               <td style="padding:18px 18px 22px;">
+                ${locationBrief ? `
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Location Brief</div>
+                  ${lead.location_brief_url ? `<p style="margin:0 0 10px;"><a href="${escapeHtml(lead.location_brief_url)}" style="color:#2563eb;font-weight:700;text-decoration:none;">${escapeHtml(lead.location_brief_url)}</a></p>` : `<p style="margin:0 0 10px;color:#b45309;">Location Brief URL missing.</p>`}
+                  <p style="margin:0;color:#475569;font-size:14px;line-height:21px;">The Brief contains the Business Profile, Executive Summary, district recommendations, representative buildings, and project context.</p>
+                </div>
+
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Project Snapshot</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${snapshotLines.map((line) => {
+                      const [label, ...rest] = line.split(": ");
+                      return buildEmailField(label, escapeHtml(rest.join(": ")));
+                    }).join("")}
+                    ${buildEmailField("Assigned broker", escapeHtml(lead.assigned_broker || lead.route_recommendation && lead.route_recommendation.broker_email || "(none)"))}
+                    ${buildEmailField("OfficeFinder status", escapeHtml(lead.officefinder_status || "officefinder_not_attempted"))}
+                    ${buildEmailField("Submission status", escapeHtml(record.status))}
+                  </table>
+                </div>` : ""}
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:16px;">
                   ${buildEmailField("Name", escapeHtml(lead.name))}
                   ${lead.company ? buildEmailField("Company", escapeHtml(lead.company)) : ""}
@@ -1654,27 +1791,64 @@ export async function sendBrokerLeadEmail(env, record) {
   }
 
   const lead = record.lead;
-  const subject = `Rofo lead: ${lead.city || lead.market || "Unknown market"}, ${lead.state || ""} - ${lead.effective_space_type || lead.space_type || "space"}`;
-  const text = [
-    subject,
-    "",
-    `Name: ${lead.name}`,
-    `Email: ${lead.email}`,
-    `Phone: ${lead.phone}`,
-    `Company: ${lead.company || ""}`,
-    `Market: ${lead.market || lead.city || ""}`,
-    `County: ${lead.routing_county || lead.county || ""}`,
-    `State: ${lead.state || ""}`,
-    `Space type: ${lead.effective_space_type || lead.space_type || ""}`,
-    `Space needed: ${lead.space_needed || ""}`,
-    `Timing: ${lead.move_timing || ""}`,
-    `Requirements: ${lead.requirements || ""}`,
-    `Page type: ${lead.page_type || ""}`,
-    `Page URL: ${lead.page_url || ""}`,
-    `Source: ${lead.source || ""}`,
-    "",
-    "This lead was manually approved by Rofo before routing.",
-  ].join("\n");
+  const snapshot = buildProjectSnapshotFromLead(lead);
+  const propertyType = snapshot.propertyType || lead.effective_space_type || lead.space_type || "Space";
+  const market = snapshot.market || lead.city || lead.market || "Unknown market";
+  const subject = `New Rofo ${propertyType} Requirement - ${market}`;
+  const locationBriefUrl = normalizeField(lead.location_brief_url);
+  const isBrief = isLocationBriefLead(lead);
+  const text = isBrief
+    ? [
+      "New Rofo Requirement",
+      "",
+      "A new Rofo requirement has been submitted.",
+      "",
+      "Project Snapshot",
+      ...projectSnapshotTextLines(snapshot).map((line) => `- ${line}`),
+      "",
+      "Best Fits",
+      ...(snapshot.topDistricts && snapshot.topDistricts.length ? snapshot.topDistricts.map((district) => `- ${district}`) : ["- Review Location Brief"]),
+      "",
+      "Location Brief",
+      locationBriefUrl || "(Location Brief URL unavailable)",
+      "",
+      "The Brief contains:",
+      "- Business Profile",
+      "- Executive Summary",
+      "- District recommendations",
+      "- Representative buildings",
+      "- Project context",
+      "",
+      "Please review the Brief before contacting the client.",
+      "",
+      "Client",
+      `Name: ${lead.name}`,
+      `Company: ${lead.company || ""}`,
+      `Email: ${lead.email}`,
+      `Phone: ${lead.phone || ""}`,
+      "",
+      "This requirement was manually approved by Rofo before routing.",
+    ].join("\n")
+    : [
+      subject,
+      "",
+      `Name: ${lead.name}`,
+      `Email: ${lead.email}`,
+      `Phone: ${lead.phone}`,
+      `Company: ${lead.company || ""}`,
+      `Market: ${lead.market || lead.city || ""}`,
+      `County: ${lead.routing_county || lead.county || ""}`,
+      `State: ${lead.state || ""}`,
+      `Space type: ${lead.effective_space_type || lead.space_type || ""}`,
+      `Space needed: ${lead.space_needed || ""}`,
+      `Timing: ${lead.move_timing || ""}`,
+      `Requirements: ${lead.requirements || ""}`,
+      `Page type: ${lead.page_type || ""}`,
+      `Page URL: ${lead.page_url || ""}`,
+      `Source: ${lead.source || ""}`,
+      "",
+      "This lead was manually approved by Rofo before routing.",
+    ].join("\n");
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",

@@ -1,0 +1,212 @@
+---
+layout: base.njk
+permalink: /prototype/recommendation-explorer/sf-office/
+eleventyExcludeFromCollections: true
+robots: noindex,nofollow
+title: "San Francisco Office Recommendation Explorer Prototype | Rofo"
+description: "Internal prototype for reviewing the isolated San Francisco Office recommendation model output."
+---
+
+<section class="city-page">
+  <div class="city-shell">
+    <div class="breadcrumbs">
+      <a href="/">Rofo</a>
+      <span aria-hidden="true">/</span>
+      <span>Recommendation Explorer Prototype</span>
+    </div>
+
+    <section class="city-card">
+      <div class="eyebrow">Internal Prototype</div>
+      <h1>San Francisco Office Recommendation Explorer</h1>
+      <p class="lead">
+        This route renders the isolated <code>{{ sfOfficeRecommendationExplorerPrototype.modelKey }}</code> model for product review. It does not replace the production recommendation page.
+      </p>
+      <ul class="mini-list">
+        <li>Source answers are normalized through <code>lib/recommendations/normalize-sf-office-profile.js</code>.</li>
+        <li>Resolver output comes from <code>lib/recommendations/sf-office-recommendation-resolver.js</code>.</li>
+        <li>Budget and rent language is preserved only as ignored economics or broker context.</li>
+      </ul>
+    </section>
+
+    {% for sample in sfOfficeRecommendationExplorerPrototype.samples %}
+      {% set result = sample.result %}
+      <section class="city-card" id="{{ sample.id }}">
+        <div class="eyebrow">Review Scenario</div>
+        <h2>{{ sample.label }}</h2>
+
+        {% if result %}
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            <div class="neighborhood-mini-card">
+              <h3>Model Key</h3>
+              <p><code>{{ result.modelKey }}</code></p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>State</h3>
+              <p>{{ result.state.label }}{% if result.state.ordered %} · Ordered{% else %} · Unordered{% endif %}</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h3>Confidence</h3>
+              <p>{{ result.confidence.description }}</p>
+            </div>
+          </div>
+
+          <section>
+            <h3>Current Candidate Set</h3>
+            <ul class="mini-list">
+              {% for candidate in result.currentCandidates %}
+                <li>
+                  <strong>{{ candidate.districtName }}</strong>
+                  <span> · {{ candidate.movement }} · score {{ candidate.score }}</span>
+                  <span> · {{ candidate.strategyRole }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
+
+          {% if result.orderedCandidates and result.orderedCandidates.length %}
+            <section>
+              <h3>Ordered Candidates</h3>
+              <ol class="mini-list">
+                {% for candidate in result.orderedCandidates %}
+                  <li><strong>{{ candidate.districtName }}</strong> · score {{ candidate.score }} · {{ candidate.movement }}</li>
+                {% endfor %}
+              </ol>
+            </section>
+          {% else %}
+            <p><strong>Ordered candidates:</strong> Not shown because the resolver state does not justify ordering.</p>
+          {% endif %}
+
+          <section>
+            <h3>Shortlist</h3>
+            <p>{{ result.shortlistSizeRationale }}</p>
+            <ul class="mini-list">
+              {% for candidate in result.shortlist %}
+                <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.movement }} · score {{ candidate.score }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+
+          <section>
+            <h3>Ties and Near Ties</h3>
+            {% if result.tiedCandidates and result.tiedCandidates.length %}
+              {% for group in result.tiedCandidates %}
+                <p>
+                  {% for candidate in group %}
+                    <strong>{{ candidate.districtName }}</strong>{% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                </p>
+              {% endfor %}
+            {% else %}
+              <p>No near-tie groups in this resolver output.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Secondary Alternatives</h3>
+            {% if result.secondaryAlternatives and result.secondaryAlternatives.length %}
+              <ul class="mini-list">
+                {% for candidate in result.secondaryAlternatives %}
+                  <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.movement }} · score {{ candidate.score }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No secondary alternatives.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Exclusions</h3>
+            {% if result.excludedCandidates and result.excludedCandidates.length %}
+              <ul class="mini-list">
+                {% for candidate in result.excludedCandidates %}
+                  <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.reason }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No districts excluded.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Explanations</h3>
+            {% if result.explanations and result.explanations.length %}
+              <ul class="mini-list">
+                {% for explanation in result.explanations %}
+                  <li>
+                    <strong>{{ explanation.districtName }}</strong>
+                    <span> · {{ explanation.action }} · {{ explanation.signalLabel }} · {{ explanation.attributeLabel }}</span>
+                    <br>
+                    <span>{{ explanation.practicalImplication }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No movement explanations because this is still the starting set.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Ignored Economic Signals</h3>
+            {% if result.ignoredSignals and result.ignoredSignals.length %}
+              <ul class="mini-list">
+                {% for signal in result.ignoredSignals %}
+                  <li><strong>{{ signal.signalId }}</strong> · {{ signal.treatment }} · {{ signal.explanation }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No ignored economic signals.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Unresolved Tradeoffs</h3>
+            {% if result.unresolvedTradeoffs and result.unresolvedTradeoffs.length %}
+              <ul class="mini-list">
+                {% for tradeoff in result.unresolvedTradeoffs %}
+                  <li>{{ tradeoff }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No unresolved tradeoffs returned.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Next Question</h3>
+            {% if result.recommendedNextQuestion %}
+              <p><strong>{{ result.recommendedNextQuestion.prompt }}</strong></p>
+              <p>Targets: {{ result.recommendedNextQuestion.targets | join(", ") }}</p>
+              <p>{{ result.recommendedNextQuestion.rationale }}</p>
+            {% else %}
+              <p>No next question returned.</p>
+            {% endif %}
+          </section>
+
+          <section>
+            <h3>Normalized Profile Signals Used</h3>
+            {% if result.profileSignalsUsed and result.profileSignalsUsed.length %}
+              <p>{{ result.profileSignalsUsed | join(", ") }}</p>
+            {% else %}
+              <p>No resolver signals beyond city and space type.</p>
+            {% endif %}
+          </section>
+        {% else %}
+          <p><strong>Unsupported model input.</strong> This prototype only renders San Francisco office profiles.</p>
+        {% endif %}
+
+        <details>
+          <summary>Source Answers</summary>
+          <pre><code>{{ sample.sourceAnswersJson }}</code></pre>
+        </details>
+        <details>
+          <summary>Normalized Profile and Unsupported Answers</summary>
+          <pre><code>{{ sample.normalizedJson }}</code></pre>
+        </details>
+        <details>
+          <summary>Full Resolver Output</summary>
+          <pre><code>{{ sample.resultJson }}</code></pre>
+        </details>
+      </section>
+    {% endfor %}
+  </div>
+</section>

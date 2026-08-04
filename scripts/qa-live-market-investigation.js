@@ -30,14 +30,14 @@ const scenarios = [
     state: "CA",
     path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
   }),
-  scenario("Two-building district", {
+  scenario("Jackson Square representative district", {
     label: "Jackson Square",
     slug: "jackson-square",
     city: "San Francisco",
     state: "CA",
     path: "/commercial-real-estate/CA/san-francisco/jackson-square/",
   }),
-  scenario("Thin district", {
+  scenario("Dogpatch representative district", {
     label: "Dogpatch",
     slug: "dogpatch",
     city: "San Francisco",
@@ -101,7 +101,7 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["investigationSubmissionToken", "stable investigation submission token"],
   ["submissionToken", "investigation submission token persistence"],
   ["liveMarketInvestigation", "investigation state"],
-  ["Start Market Investigation", "investigation submit state"],
+  ["Discuss This Recommendation With a Broker", "broker handoff submit state"],
 ].forEach(([token, label]) => requireIncludes(recommendationContext, token, label));
 
 [
@@ -162,11 +162,11 @@ scenarios.forEach((item) => {
   if (item.label === "Mature San Francisco district" && (!item.shown || item.buildings.length !== 3)) {
     errors.push("Mature district did not resolve exactly three investigation buildings.");
   }
-  if (item.label === "Two-building district" && (!item.shown || item.buildings.length !== 2)) {
-    errors.push("Two-building district did not resolve exactly two investigation buildings.");
+  if (item.label === "Jackson Square representative district" && (!item.shown || item.buildings.length !== 3)) {
+    errors.push("Jackson Square did not resolve exactly three investigation buildings.");
   }
-  if (item.label === "Thin district" && item.shown) {
-    errors.push("Thin district rendered representative buildings when it should remain district-level.");
+  if (item.label === "Dogpatch representative district" && (!item.shown || item.buildings.length !== 3)) {
+    errors.push("Dogpatch did not resolve exactly three investigation buildings.");
   }
   if (item.label === "Non-San-Francisco market" && item.shown) {
     errors.push("Non-San-Francisco unsupported market rendered San Francisco building assumptions.");

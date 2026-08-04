@@ -135,11 +135,23 @@
       ? value.locations.map(normalizeLocation).filter(Boolean)
       : [];
     return {
+      modelKey: String(value.modelKey || value.model_key || "").trim(),
       locations,
       spaceType: String(value.spaceType || "").trim(),
       size: String(value.size || "").trim(),
       timing: String(value.timing || value.moveTiming || value.move_timing || "").trim(),
       locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent, "compare"),
+      city: String(value.city || "").trim(),
+      market: String(value.market || "").trim(),
+      businessType: String(value.businessType || value.business_type || "").trim(),
+      operationalUse: Array.isArray(value.operationalUse) ? value.operationalUse : Array.isArray(value.operational_use) ? value.operational_use : [],
+      officeEnvironment: String(value.officeEnvironment || value.office_environment || "").trim(),
+      commuteOrientation: String(value.commuteOrientation || value.commute_orientation || "").trim(),
+      expectedGrowth: String(value.expectedGrowth || value.expected_growth || "").trim(),
+      institutionProximity: String(value.institutionProximity || value.institution_proximity || "").trim(),
+      facts: value.facts && typeof value.facts === "object" ? value.facts : {},
+      constraints: value.constraints && typeof value.constraints === "object" ? value.constraints : {},
+      priorities: value.priorities && typeof value.priorities === "object" ? value.priorities : {},
       timestamp: String(value.timestamp || "").trim(),
     };
   }
@@ -282,6 +294,199 @@
 
   function formatSize(value) {
     return String(value || "Size to confirm").replace(/\bsqft\b/gi, "SF");
+  }
+
+  function titleizeToken(value) {
+    return String(value || "")
+      .replace(/[_-]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+  }
+
+  function businessTypeLabel(value) {
+    const labels = {
+      professional_services: "Professional Services",
+      technology: "Technology / Product",
+      design_creative: "Design / Creative",
+      life_science: "Healthcare / Life Science",
+      nonprofit: "Nonprofit / Mission-Driven",
+      mission_driven: "Mission-Driven",
+    };
+    return labels[String(value || "").trim()] || titleizeToken(value);
+  }
+
+  function operationalUseLabel(value) {
+    const labels = {
+      client_meetings: "Client-Facing",
+      team_collaboration: "Team Collaboration",
+      recruiting: "Recruiting",
+      quiet_focused_work: "Quiet Focused Work",
+      showroom_presentation: "Showroom / Presentation",
+      lab_rd_adjacency: "UCSF / R&D Adjacency",
+    };
+    return labels[String(value || "").trim()] || titleizeToken(value);
+  }
+
+  function environmentLabel(value) {
+    return titleizeToken(String(value || "").replace(/^not sure yet$/i, ""));
+  }
+
+  function commuteLabel(value) {
+    const key = String(value || "").trim().toLowerCase().replace(/[_-]+/g, " ");
+    if (!key || key === "mixed local") return "";
+    if (key === "peninsula south bay") return "Peninsula / South Bay Commute";
+    return `${titleizeToken(value)} Commute`;
+  }
+
+  function growthLabel(value) {
+    const key = String(value || "").trim().toLowerCase();
+    if (key === "significant" || key === "high") return "Growing Team";
+    if (key === "some" || key === "medium") return "Some Growth";
+    if (key === "low") return "Stable Team";
+    return titleizeToken(value);
+  }
+
+  function profileChips(context) {
+    const location = formatLocations(context.locations || []);
+    const chips = [
+      location && location !== "Your selected market" ? location : context.market || context.city || "",
+      context.spaceType,
+      businessTypeLabel(context.businessType),
+      ...((context.operationalUse || []).map(operationalUseLabel)),
+      environmentLabel(context.officeEnvironment),
+      commuteLabel(context.commuteOrientation),
+      growthLabel(context.expectedGrowth),
+      context.institutionProximity && context.institutionProximity !== "not_applicable" ? `Near ${context.institutionProximity}` : "",
+    ];
+    return Array.from(new Set(chips.map((chip) => String(chip || "").trim()).filter(Boolean))).slice(0, 9);
+  }
+
+  function renderProfileChips(context) {
+    const node = clearNode("[data-location-brief-profile-chips]");
+    if (!node) return;
+    const chips = profileChips(context);
+    (chips.length ? chips : ["San Francisco", "Office"]).forEach((chip) => {
+      node.appendChild(createElement("span", "", chip));
+    });
+  }
+
+  function bestFitItems(state, context, profiles) {
+    const indexes = profileIndexes(profiles || []);
+    const bySlug = (item) => {
+      const profile = profileBySlug(item.slug || item.districtId || item.label, indexes);
+      return profile ? recommendationItem(profile, context.spaceType || "Office") : null;
+    };
+    const items = [];
+    const add = (item) => {
+      if (!item || !item.label) return;
+      if (items.some((existing) => slugKey(existing.slug || existing.label) === slugKey(item.slug || item.label))) return;
+      const enriched = bySlug(item) || item;
+      items.push({
+        ...enriched,
+        label: item.label || enriched.label,
+        slug: item.slug || enriched.slug,
+        path: item.path || enriched.path || "",
+        city: item.city || enriched.city || "San Francisco",
+        state: item.state || enriched.state || "CA",
+        fitLabel: enriched.fitLabel || (items.length === 0 ? "Excellent Fit" : "Strong Fit"),
+        summary: enriched.summary || item.reason || item.alternativeRationale || `${item.label} is a useful place to begin from this Business Profile.`,
+        strengths: enriched.strengths || [],
+        tradeoffs: enriched.tradeoffs || [],
+        bestFor: enriched.bestFor || [],
+        questionsToValidate: enriched.questionsToValidate || [],
+      });
+    };
+
+    (state.recommendedPath || []).forEach(add);
+    if (state.primaryRecommendation) add(state.primaryRecommendation);
+    (state.compareWith || []).forEach(add);
+    return items.slice(0, 3);
+  }
+
+  function fitConfidenceLabel(index, item, state) {
+    if (index === 0 && state.confidenceLabel && state.confidenceLabel !== "Sample") return "Excellent Fit";
+    if (item.fitLabel && !/\d/.test(item.fitLabel)) return item.fitLabel;
+    return index === 0 ? "Excellent Fit" : "Strong Fit";
+  }
+
+  function fitReasons(item) {
+    const reasons = [
+      ...(item.strengths || []),
+      ...(item.bestFor || []),
+    ].filter(Boolean);
+    return Array.from(new Set(reasons)).slice(0, 3);
+  }
+
+  function fallbackReason(item, index) {
+    const fallbacks = [
+      "Matches the Business Profile direction.",
+      "Useful district to compare before touring.",
+      "Supported by Rofo district guidance.",
+    ];
+    return fallbacks[index] || `${item.label} helps explain the location decision.`;
+  }
+
+  function renderBestFits(state, context, profiles) {
+    const node = clearNode("[data-location-brief-best-fits]");
+    if (!node) return [];
+    const fits = bestFitItems(state, context, profiles);
+    fits.forEach((item, index) => {
+      const card = createElement("article", "location-brief-fit-card", "");
+      const button = createElement("button", "location-brief-fit-card__button", "");
+      button.type = "button";
+      button.setAttribute("data-location-brief-fit-index", String(index));
+      button.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+      button.appendChild(createElement("span", "location-brief-fit-card__confidence", fitConfidenceLabel(index, item, state)));
+      button.appendChild(createElement("h3", "", item.label));
+      button.appendChild(createElement("p", "", item.summary));
+      const list = createElement("ul", "location-brief-fit-card__reasons", "");
+      const reasons = fitReasons(item);
+      [0, 1, 2].forEach((reasonIndex) => {
+        list.appendChild(createElement("li", "", reasons[reasonIndex] || fallbackReason(item, reasonIndex)));
+      });
+      button.appendChild(list);
+      button.addEventListener("click", () => {
+        renderDistrictDetail(fits, index);
+        document.querySelectorAll("[data-location-brief-fit-index]").forEach((fitButton) => {
+          fitButton.setAttribute("aria-expanded", String(fitButton === button));
+        });
+      });
+      card.appendChild(button);
+      node.appendChild(card);
+    });
+    renderDistrictDetail(fits, 0);
+    return fits;
+  }
+
+  function districtDetailItems(item) {
+    const items = [
+      ["Office character", item.summary],
+      ["Commercial advantages", (item.strengths || []).slice(0, 2).join(" ")],
+      ["Tradeoffs", (item.tradeoffs || []).slice(0, 2).join(" ")],
+      ["Best suited for", (item.bestFor || []).slice(0, 2).join(" ")],
+    ];
+    return items.filter(([, value]) => String(value || "").trim());
+  }
+
+  function renderDistrictDetail(fits, activeIndex = 0) {
+    const node = clearNode("[data-location-brief-district-detail-grid]");
+    if (!node || !fits.length) return;
+    const item = fits[activeIndex] || fits[0];
+    const article = createElement("article", "location-brief-district-detail__panel", "");
+    article.appendChild(createElement("h3", "", item.label));
+    districtDetailItems(item).forEach(([label, value]) => {
+      const section = createElement("section", "", "");
+      section.appendChild(createElement("h4", "", label));
+      section.appendChild(createElement("p", "", value));
+      article.appendChild(section);
+    });
+    if (item.path) {
+      const link = createElement("a", "location-brief-text-link", "Explore district page");
+      link.href = item.path;
+      article.appendChild(link);
+    }
+    node.appendChild(article);
   }
 
   function profileIndexes(profiles) {
@@ -501,83 +706,57 @@
     const state = resolveMarketPath(context, graph, profiles);
     const locationText = formatLocations(context.locations || []);
     const spaceText = context.spaceType || "Commercial space";
-    const sizeText = formatSize(context.size);
-    const locationIntent = normalizeLocationIntent(context.locationIntent, "compare");
-    const intentCopy = locationIntentCopy(locationIntent);
-
-    setAllHidden("[data-recommendation-demo-detail]", true);
-    setText("[data-recommendation-hero-badge]", "LOCATION BRIEF");
-    setText("[data-recommendation-location]", locationText);
-    setText("[data-recommendation-space]", spaceText);
-    setText("[data-recommendation-size]", sizeText);
-    setText("[data-recommendation-context-kicker]", "Location Brief Summary");
-    setText("[data-recommendation-context-heading]", "Your Location Brief");
-    setText("[data-recommendation-context-location]", locationText);
-    setText("[data-recommendation-context-space]", spaceText);
-    setText("[data-recommendation-context-size]", sizeText);
-    setText("[data-recommendation-context-intent]", locationIntentLabel(locationIntent));
-    setText(
-      "[data-recommendation-context-copy]",
-      intentCopy
-    );
     setSubmittedCta(state, context);
 
-    const primaryLabel = state.primaryLocationLabel || (state.primaryRecommendation && state.primaryRecommendation.label) || locationText;
-    const compareLabels = (state.recommendedPath || [])
-      .slice(1, 3)
-      .map((item) => item.label)
-      .filter(Boolean);
-    renderHeroRecommendationPath(state, primaryLabel, compareLabels);
-    setText("[data-location-brief-summary-primary]", primaryLabel);
-    setText("[data-location-brief-summary-confidence]", state.confidenceLabel || "Medium Confidence");
-    const compareSummary = locationIntent === "focus"
-      ? " Expert review should first validate buildings and submarkets inside this preferred area; nearby alternatives should be treated as contingency options."
-      : compareLabels.length
-      ? ` Compare it with ${compareLabels.join(" and ")} before narrowing the search to individual buildings.`
-      : " Pressure-test nearby alternatives before narrowing the search to individual buildings.";
-    setText(
-      "[data-location-brief-summary-path]",
-      compareLabels.length
-        ? `Begin with this location, then compare ${compareLabels.join(" and ")}.`
-        : "Use this as the baseline, then pressure-test nearby alternatives."
-    );
-    setText(
-      "[data-location-brief-summary-why]",
-      state.primaryRecommendation && (state.primaryRecommendation.selectionRationale || state.primaryRecommendation.summary)
-        ? state.primaryRecommendation.selectionRationale || state.primaryRecommendation.summary
-        : state.summaryCopy || "This gives the search a focused starting point."
-    );
-    setText("[data-recommendation-context-heading]", "Recommended starting point.");
-    setText(
-      "[data-recommendation-context-copy]",
-      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, ${primaryLabel} is the recommended starting point. ${intentCopy} ${state.summaryCopy || "This gives the search a focused starting point."}${compareSummary}`
-    );
-    setText(
-      "[data-recommendation-hero-copy]",
-      `Based on your search for ${sizeText} of ${spaceText.toLowerCase()} space in ${locationText}, begin with ${primaryLabel}. ${intentCopy}`
-    );
-
     if (state.mode === "expert_guided") {
-      setHidden("[data-recommendation-supported]", true);
-      setHidden("[data-recommendation-expert-guided]", false);
+      renderProfileChips(context);
       renderExpertGuided(state, context);
       initializeBriefRefinement(state, context, spaceText);
       return;
     }
 
-    setHidden("[data-recommendation-supported]", false);
-    setHidden("[data-recommendation-expert-guided]", true);
+    renderProfileChips(context);
+    const fits = renderBestFits(state, context, profiles);
+    const fitNames = fits.map((item) => item.label).filter(Boolean);
+    const primaryLabel = fitNames[0] || state.primaryLocationLabel || locationText;
+    const comparisonNames = fitNames.slice(1);
+    const profilePhrase = profileChips(context)
+      .filter((chip) => chip !== locationText && chip !== spaceText)
+      .slice(0, 4)
+      .join(", ");
+
+    setText(
+      "[data-location-brief-summary-copy-one]",
+      fitNames.length > 1
+        ? `Based on your Business Profile, ${fitNames.join(", ")} are the strongest places to begin your ${spaceText.toLowerCase()} search.`
+        : `Based on your Business Profile, ${primaryLabel} is the strongest place to begin your ${spaceText.toLowerCase()} search.`
+    );
+    setText(
+      "[data-location-brief-summary-copy-two]",
+      profilePhrase
+        ? `Your emphasis on ${profilePhrase} points toward these districts before the search narrows to individual buildings, availability, and lease economics.`
+        : "This gives the search a clear starting point before the market is validated against specific buildings, availability, and lease economics."
+    );
+    setText(
+      "[data-location-brief-comparative-copy]",
+      comparisonNames.length
+        ? `If beginning tours this week, start by testing ${primaryLabel}. Compare ${comparisonNames.join(" and ")} if the Business Profile shifts toward a different office character, commute pattern, or building environment.`
+        : `If beginning tours this week, start by testing ${primaryLabel}. A broker should validate specific buildings, availability, and lease economics before committing to that direction.`
+    );
+
     initializeBriefRefinement(state, context, spaceText);
-    renderMarketPath(state, spaceText, sizeText);
+    renderRepresentativeBuildings(fits, state);
   }
 
   function setSubmittedCta(state, context) {
-    setText("[data-recommendation-cta-kicker]", "Live Market Review");
-    setText("[data-recommendation-cta-heading]", "Validate the recommendation with live market help.");
+    setText("[data-recommendation-cta-kicker]", "Next Steps");
+    setText("[data-recommendation-cta-heading]", "Discuss this recommendation with a broker.");
     setText(
       "[data-recommendation-cta-copy]",
-      "Share your brief only when you want help checking availability, comparable buildings, lease structure, and broker guidance."
+      "Share your Business Profile and Location Brief with a local expert who can recommend specific buildings and help plan tours."
     );
+    const button = document.querySelector("[data-location-brief-submit-button]");
+    if (button) button.textContent = "Discuss This Recommendation With a Broker";
     const link = document.querySelector("[data-recommendation-cta-link]");
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
@@ -639,18 +818,24 @@
   }
 
   function renderExpertGuided(state, context) {
-    setText("[data-recommendation-expert-guided] .kicker", state.title);
-    setText("[data-recommendation-expert-guided] h2", `Expert Guided Location Brief for ${state.primaryLocationLabel}`);
+    const locationText = formatLocations(context.locations || []);
     setText(
-      "[data-recommendation-expert-guided] p",
-      `${state.summaryCopy} Your Business Profile includes the location, space type, and size context needed for live review.`
+      "[data-location-brief-summary-copy-one]",
+      `Rofo has enough Business Profile context to prepare a Location Brief for ${state.primaryLocationLabel || locationText}.`
     );
-    const link = document.querySelector("[data-recommendation-expert-guided] .recommendations-button");
-    if (link) {
-      link.href = state.ctaHref || expertReviewHref(context);
-      link.textContent = state.ctaLabel || "Request Live Market Review";
-      link.setAttribute("data-location-brief-review-trigger", "");
-    }
+    setText(
+      "[data-location-brief-summary-copy-two]",
+      `${state.summaryCopy || "This market needs live review before Rofo can provide a stronger district recommendation."} A broker should validate specific buildings, availability, and lease economics.`
+    );
+    setText(
+      "[data-location-brief-comparative-copy]",
+      "Use this brief as the starting context for a live market review. Rofo should validate the preferred geography first, then compare nearby alternatives if the market does not support the Business Profile."
+    );
+    renderBestFits({
+      ...state,
+      recommendedPath: state.primaryRecommendation ? [state.primaryRecommendation] : [],
+      compareWith: [],
+    }, context, readRecommendationProfiles());
   }
 
   function renderMarketPath(state, spaceText, sizeText) {
@@ -732,51 +917,42 @@
     renderRepresentativeBuildings(primary, state);
   }
 
-  function renderRepresentativeBuildings(primary, state) {
-    const module = document.querySelector("[data-recommendation-representative-buildings]");
-    if (!module || !primary) return;
-    const list = module.querySelector("[data-representative-building-list]");
-    const heading = module.querySelector("[data-representative-buildings-heading]");
-    const cta = module.querySelector("[data-live-market-investigation-cta]");
+  function renderRepresentativeBuildings(fits, state) {
+    const module = document.querySelector("[data-location-brief-representative-buildings]");
+    const groupsNode = clearNode("[data-location-brief-building-groups]");
+    if (!module || !groupsNode || !fits.length) return;
     const data = readRepresentativeBuildings();
-    const result = window.RofoRecommendationRepresentativeBuildings && typeof window.RofoRecommendationRepresentativeBuildings.resolveForDistrict === "function"
-      ? window.RofoRecommendationRepresentativeBuildings.resolveForDistrict(primary, data)
-      : { shown: false, buildings: [] };
+    let shownCount = 0;
+    let primaryBuildings = [];
 
-    if (!result.shown) {
-      module.hidden = true;
-      updateInvestigationContext(primary, state, result.buildings || []);
-      return;
-    }
+    fits.forEach((fit, fitIndex) => {
+      const result = window.RofoRecommendationRepresentativeBuildings && typeof window.RofoRecommendationRepresentativeBuildings.resolveForDistrict === "function"
+        ? window.RofoRecommendationRepresentativeBuildings.resolveForDistrict(fit, data)
+        : { shown: false, buildings: [] };
+      if (!result.shown || !result.buildings.length) return;
+      shownCount += result.buildings.length;
+      if (fitIndex === 0) primaryBuildings = result.buildings;
 
-    module.hidden = false;
-    if (heading) heading.textContent = `Representative buildings that explain ${primary.label}`;
-    if (list) {
-      list.innerHTML = "";
-      result.buildings.forEach((building, index) => {
-        list.appendChild(representativeBuildingCard(building, primary, index));
+      const group = createElement("article", "location-brief-building-group", "");
+      group.appendChild(createElement("h3", "", fit.label));
+      const list = createElement("div", "recommendation-building-list", "");
+      result.buildings.slice(0, 3).forEach((building, index) => {
+        list.appendChild(representativeBuildingCard(building, fit, index));
+      });
+      group.appendChild(list);
+      groupsNode.appendChild(group);
+    });
+
+    module.hidden = shownCount === 0;
+    if (fits[0]) {
+      updateInvestigationContext(fits[0], state, primaryBuildings);
+      trackRecommendationEvent("representative_buildings_viewed", {
+        city: fits[0].city,
+        district: fits[0].label,
+        building_count: shownCount,
+        building_ids: primaryBuildings.map((building) => building.buildingId),
       });
     }
-    if (cta) {
-      cta.href = "#location-brief-contact";
-      cta.textContent = "Start Live Market Review";
-      cta.setAttribute("data-investigation-district", primary.label || "");
-    }
-    updateInvestigationContext(primary, state, result.buildings);
-    trackRecommendationEvent("representative_buildings_viewed", {
-      city: primary.city,
-      district: primary.label,
-      recommendation_rank: 1,
-      building_count: result.buildings.length,
-      building_ids: result.buildings.map((building) => building.buildingId),
-    });
-    trackRecommendationEvent("live_market_investigation_cta_viewed", {
-      city: primary.city,
-      district: primary.label,
-      recommendation_rank: 1,
-      cta_source: "recommendation_district_detail",
-      building_count: result.buildings.length,
-    });
   }
 
   function representativeBuildingCard(building, primary, index) {
@@ -1251,7 +1427,7 @@
       "Employee transit",
       "Parking",
       "Growth flexibility",
-      "Lower occupancy cost",
+      "Practical daily access",
       "Executive image",
       "Client-facing location",
       "Walkability",
@@ -1290,7 +1466,7 @@
       ? state.questionsToValidate
       : [
         "Which commute pattern matters most for employees?",
-        "Is lower occupancy cost or stronger location identity more important?",
+        "Is stronger location identity or a more practical daily environment more important?",
         "Do clients or customers visit regularly?",
         "How much room do you need to grow?",
       ];
@@ -1608,6 +1784,18 @@
   if (context && (context.locations.length || context.spaceType || context.size)) {
     renderContext(context);
   } else {
+    const demoContext = {
+      locations: [{ label: "San Francisco", type: "city", city: "San Francisco", state: "CA", slug: "san-francisco", path: "/commercial-real-estate/CA/san-francisco/" }],
+      spaceType: "Office",
+      size: "",
+      businessType: "technology",
+      operationalUse: ["team_collaboration"],
+      officeEnvironment: "Modern and polished",
+      commuteOrientation: "Peninsula South Bay",
+      expectedGrowth: "significant",
+      locationIntent: "compare",
+      timestamp: "",
+    };
     const demoState = {
       mode: "demo",
       title: "Sample Recommendation",
@@ -1624,17 +1812,26 @@
       compareWith: [],
       questionsToValidate: [
         "Which commute pattern matters most for employees?",
-        "Is lower occupancy cost or stronger location identity more important?",
+        "Is stronger location identity or a more practical daily environment more important?",
         "Do clients or customers visit regularly?",
         "How much room do you need to grow?",
       ],
     };
-    initializeBriefRefinement(demoState, {
-      locations: [{ label: "San Francisco", type: "city", city: "San Francisco", state: "CA", slug: "san-francisco", path: "/commercial-real-estate/CA/san-francisco/" }],
-      spaceType: "Office",
-      size: "2,500-5,000 sqft",
-      timestamp: "",
-    }, "Office");
-    renderRepresentativeBuildings(demoState.primaryRecommendation, demoState);
+    renderProfileChips(demoContext);
+    const fits = renderBestFits(demoState, demoContext, readRecommendationProfiles());
+    setText(
+      "[data-location-brief-summary-copy-one]",
+      "This sample Location Brief shows how Rofo turns a Business Profile into recommended starting locations."
+    );
+    setText(
+      "[data-location-brief-summary-copy-two]",
+      "Create a Business Profile to replace this sample with guidance based on your business, commute pattern, office environment, and growth expectations."
+    );
+    setText(
+      "[data-location-brief-comparative-copy]",
+      "Use the sample to understand the shape of the deliverable. A completed Business Profile will produce a more specific recommendation."
+    );
+    initializeBriefRefinement(demoState, demoContext, "Office");
+    renderRepresentativeBuildings(fits, demoState);
   }
 })();

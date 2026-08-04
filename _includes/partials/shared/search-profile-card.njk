@@ -63,17 +63,11 @@
 
     <div class="search-profile-card__body" data-profile-body>
       {% if searchProfileContext.layout == "page" %}
-        <section class="business-profile-card-intro" data-profile-editor aria-label="What Rofo will build from this profile">
+        <section class="business-profile-card-intro" data-profile-editor aria-label="Business Profile conversation introduction">
           <div>
-            <span>Business Profile</span>
-            <h2>{{ searchProfileContext.card_headline or "Create your Business Profile" }}</h2>
-            <p>Answer a few questions so Rofo can recommend where to begin and explain why in a Location Brief.</p>
+            <h1>Business Profile</h1>
+            <p data-profile-conversation-prompt>Start with the place already on your mind.</p>
           </div>
-          <ul>
-            <li>About one minute</li>
-            <li>Recommendation before listings</li>
-            <li>Private while exploring</li>
-          </ul>
         </section>
       {% endif %}
 
@@ -81,12 +75,12 @@
         <span data-profile-step-count>1 / 5</span>
       </div>
 
-      <div class="search-profile-progress" aria-label="Search profile progress" data-profile-editor>
+      <div class="search-profile-progress" aria-label="Business Profile readiness" data-profile-editor>
         <span data-profile-progress-bar></span>
       </div>
 
       <div class="search-profile-preview" data-profile-preview data-profile-editor>
-        <span data-profile-preview-empty>No profile yet</span>
+        <span data-profile-preview-empty>Rofo has not learned anything yet.</span>
         <ul data-profile-preview-list hidden></ul>
       </div>
 
@@ -95,7 +89,7 @@
           {% if searchProfileContext.space_type_context_label %}
             <p class="search-profile-fieldset__context">{{ searchProfileContext.space_type_context_label }}</p>
           {% endif %}
-          <legend>Where should Rofo start?</legend>
+          <legend>Where are you thinking about locating?</legend>
           <p class="search-profile-fieldset__helper">{{ searchProfileContext.location_helper or "Where are you considering? You can select more than one area." }}</p>
           <div class="search-profile-location-search">
             <label class="sr-only" for="search-profile-location-search">Search city or district</label>
@@ -106,8 +100,12 @@
             <label for="search-profile-target-area">Other location</label>
             <input id="search-profile-target-area" name="targetArea" type="text" placeholder="City, district, or street" data-profile-location-other-input>
           </div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="locationIntent" hidden>
+          <legend>Should Rofo focus there or compare nearby markets?</legend>
+          <p class="search-profile-fieldset__helper">Choose how open you are to stronger nearby options.</p>
           <div class="search-profile-location-intent" data-profile-location-intent hidden>
-            <p>How should this shape your recommendation?</p>
             <div class="search-profile-location-intent__options" data-profile-location-intent-options></div>
           </div>
         </fieldset>
@@ -124,6 +122,42 @@
           </div>
         </fieldset>
 
+        <fieldset class="search-profile-fieldset" data-profile-step="businessType" hidden>
+          <legend>What kind of business are you describing?</legend>
+          <p class="search-profile-fieldset__helper">Choose the closest fit so Rofo can weigh district ecosystems and business context.</p>
+          <div class="search-profile-options" data-profile-options="businessType"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="operationalUse" hidden>
+          <legend>What should the office help you do?</legend>
+          <p class="search-profile-fieldset__helper">Select any that describe the role of the office.</p>
+          <div class="search-profile-options search-profile-options--multi" data-profile-options="operationalUse"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="officeEnvironment" hidden>
+          <legend>What kind of office environment fits the business?</legend>
+          <p class="search-profile-fieldset__helper">Pick the strongest preference. This helps Rofo compare district character without asking for building details too early.</p>
+          <div class="search-profile-options" data-profile-options="officeEnvironment"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="commuteOrientation" hidden>
+          <legend>Where are employees generally coming from?</legend>
+          <p class="search-profile-fieldset__helper">Broad pattern only. Rofo uses this as directional context, not route-level commute guidance.</p>
+          <div class="search-profile-options" data-profile-options="commuteOrientation"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="expectedGrowth" hidden>
+          <legend>How much growth should Rofo plan around?</legend>
+          <p class="search-profile-fieldset__helper">Growth expectations help Rofo weigh flexibility and district fit.</p>
+          <div class="search-profile-options" data-profile-options="expectedGrowth"></div>
+        </fieldset>
+
+        <fieldset class="search-profile-fieldset" data-profile-step="institutionProximity" hidden>
+          <legend>Does institutional proximity matter?</legend>
+          <p class="search-profile-fieldset__helper">For healthcare or life-science-adjacent businesses, proximity to UCSF-related activity can affect district fit.</p>
+          <div class="search-profile-options" data-profile-options="institutionProximity"></div>
+        </fieldset>
+
         <fieldset class="search-profile-fieldset" data-profile-step="people" hidden>
           <legend>How many people are you planning for?</legend>
           <div class="search-profile-options" data-profile-options="people"></div>
@@ -135,7 +169,7 @@
         </fieldset>
 
         <fieldset class="search-profile-fieldset" data-profile-step="size" hidden>
-          <legend>About how much space?</legend>
+          <legend>About how much space do you need?</legend>
           <div class="search-profile-options" data-profile-options="size"></div>
         </fieldset>
 
@@ -163,13 +197,14 @@
             <input id="search-profile-feature-other" name="featureOther" type="text" data-profile-input="featureOther">
           </div>
         </fieldset>
-        <p class="search-profile-step-error" data-profile-step-error hidden>Add a location, space type, and approximate size so Rofo can build your recommendation.</p>
+        <p class="search-profile-step-error" data-profile-step-error hidden>Complete a few more business details to create your Location Brief.</p>
       </form>
 
       <div class="search-profile-actions" data-profile-editor>
         <button class="btn-secondary" type="button" data-profile-prev>Previous</button>
         <button class="btn-primary" type="button" data-profile-next>Next</button>
         <button class="search-profile-reset" type="button" data-profile-reset>Reset</button>
+        <p class="search-profile-readiness-note" data-profile-readiness-note></p>
       </div>
 
       <section class="search-profile-contact-step" data-profile-contact hidden>
@@ -209,7 +244,7 @@
         <p class="search-profile-contact-step__note">No spam • No obligation</p>
 
         <div class="search-profile-contact-step__actions">
-          <button class="btn-primary" type="button" data-profile-contact-submit>{{ searchProfileContext.contact_cta_label or "Build My Location Brief" }}</button>
+          <button class="btn-primary" type="button" data-profile-contact-submit>{{ searchProfileContext.contact_cta_label or "Create My Location Brief" }}</button>
           <button class="search-profile-edit-link" type="button" data-profile-edit>Edit profile</button>
         </div>
       </section>

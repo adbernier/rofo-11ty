@@ -1,0 +1,350 @@
+---
+layout: base.njk
+permalink: /prototype/recommendation-explorer/sf-office-review/
+eleventyExcludeFromCollections: true
+robots: noindex,nofollow
+title: "San Francisco Office Recommendation Review Harness | Rofo"
+description: "Internal product-review harness for evaluating the isolated San Francisco Office recommendation model across realistic business profiles."
+---
+
+<section class="city-page">
+  <div class="city-shell">
+    <div class="breadcrumbs">
+      <a href="/">Rofo</a>
+      <span aria-hidden="true">/</span>
+      <span>Recommendation Explorer Review</span>
+    </div>
+
+    <section class="city-card">
+      <div class="eyebrow">Internal Review Harness</div>
+      <h1>San Francisco Office Recommendation Review</h1>
+      <p class="lead">
+        This noindex route evaluates realistic business profiles through the isolated
+        <code>{{ sfOfficeRecommendationReviewProfiles.modelKey }}</code> model. It is for editorial and product review only.
+      </p>
+      <ul class="mini-list">
+        <li>Source answers use the current normalizer input shape.</li>
+        <li>Normalization runs through <code>lib/recommendations/normalize-sf-office-profile.js</code>.</li>
+        <li>Recommendation output runs through <code>lib/recommendations/sf-office-recommendation-resolver.js</code>.</li>
+        <li>Budget, rent, cost, and value language remains broker context only.</li>
+      </ul>
+    </section>
+
+    <section class="city-card" aria-labelledby="review-summary">
+      <div class="eyebrow">Review Set</div>
+      <h2 id="review-summary">Profiles and Sensitivity Checks</h2>
+      <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+        <div class="neighborhood-mini-card">
+          <h3>Review Profiles</h3>
+          <p>{{ sfOfficeRecommendationReviewProfiles.profiles.length }}</p>
+        </div>
+        <div class="neighborhood-mini-card">
+          <h3>Sensitivity Checks</h3>
+          <p>{{ sfOfficeRecommendationReviewProfiles.sensitivityChecks.length }}</p>
+        </div>
+        <div class="neighborhood-mini-card">
+          <h3>Model Key</h3>
+          <p><code>{{ sfOfficeRecommendationReviewProfiles.modelKey }}</code></p>
+        </div>
+      </div>
+      <ol class="mini-list">
+        {% for profile in sfOfficeRecommendationReviewProfiles.profiles %}
+          <li><a href="#{{ profile.id }}">{{ profile.label }}</a></li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    {% for profile in sfOfficeRecommendationReviewProfiles.profiles %}
+      {% set result = profile.result %}
+      {% set normalized = profile.normalized %}
+      <section class="city-card" id="{{ profile.id }}">
+        <div class="eyebrow">Review Profile {{ loop.index }}</div>
+        <h2>{{ profile.label }}</h2>
+        <p class="lead">{{ profile.businessDescription }}</p>
+
+        <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+          <div class="neighborhood-mini-card">
+            <h3>State</h3>
+            <p>{% if result %}{{ result.state.label }}{% else %}Unsupported{% endif %}</p>
+          </div>
+          <div class="neighborhood-mini-card">
+            <h3>Confidence</h3>
+            <p>{% if result %}{{ result.confidence.description }}{% else %}No resolver output.{% endif %}</p>
+          </div>
+          <div class="neighborhood-mini-card">
+            <h3>Ordering</h3>
+            <p>{% if result and result.state.ordered %}Resolver supplies ordered candidates{% else %}No justified ordering{% endif %}</p>
+          </div>
+        </div>
+
+        <section>
+          <h3>Source Profile</h3>
+          <p><strong>Important stated facts:</strong> {{ profile.importantFacts | join("; ") }}</p>
+          <p><strong>Important constraints:</strong> {{ profile.importantConstraints | join("; ") }}</p>
+          <p><strong>Priorities:</strong> {{ profile.priorities | join("; ") }}</p>
+          <p><strong>Intentionally missing:</strong> {{ profile.intentionallyMissing | join("; ") }}</p>
+          <p><strong>Expected editorial considerations:</strong> {{ profile.expectedEditorialConsiderations | join(" ") }}</p>
+        </section>
+
+        <section>
+          <h3>Normalization</h3>
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            <div class="neighborhood-mini-card">
+              <h4>Facts</h4>
+              <ul class="mini-list">
+                <li>City: {{ normalized.resolverProfile.city or "Not supplied" }}</li>
+                <li>Space type: {{ normalized.resolverProfile.spaceType or "Not supplied" }}</li>
+                <li>Headcount: {{ normalized.resolverProfile.headcount or "Not supplied" }}</li>
+                <li>Occupancy: {{ normalized.resolverProfile.regularOccupancy or "Not supplied" }}</li>
+                <li>Hybrid pattern: {{ normalized.resolverProfile.hybridWorkPattern or "Not supplied" }}</li>
+                <li>Growth: {{ normalized.resolverProfile.expectedGrowth or "Not supplied" }}</li>
+                <li>Business type: {{ normalized.resolverProfile.businessType or "Not supplied" }}</li>
+              </ul>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h4>Constraints</h4>
+              <ul class="mini-list">
+                <li>District anchor: {{ normalized.resolverProfile.districtAnchor or "Not supplied" }}</li>
+                <li>Commute orientation: {{ normalized.resolverProfile.commuteOrientation or "Not supplied" }}</li>
+                <li>Institution proximity: {{ normalized.resolverProfile.institutionProximity or "Not supplied" }}</li>
+                <li>Nearby alternatives: {{ normalized.resolverProfile.openToNearbyAlternatives }}</li>
+                <li>Hard district only: {{ normalized.resolverProfile.hardDistrictOnly }}</li>
+              </ul>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h4>Priorities</h4>
+              <ul class="mini-list">
+                <li>Client visits: {{ normalized.resolverProfile.clientVisitFrequency or "Not supplied" }}</li>
+                <li>Recruiting: {{ normalized.resolverProfile.recruitingImportance or "Not supplied" }}</li>
+                <li>Transit: {{ normalized.resolverProfile.transitImportance or "Not supplied" }}</li>
+                <li>Parking: {{ normalized.resolverProfile.parkingImportance or "Not supplied" }}</li>
+                <li>Amenities: {{ normalized.resolverProfile.walkabilityAmenitiesImportance or "Not supplied" }}</li>
+                <li>Office environment: {{ normalized.resolverProfile.officeEnvironment or "Not supplied" }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Source-to-Normalized Signal Trace</h4>
+          {% if normalized.sourceMappings and normalized.sourceMappings.length %}
+            <ul class="mini-list">
+              {% for mapping in normalized.sourceMappings %}
+                <li>
+                  <strong>{{ mapping.targetField }}</strong>
+                  from <code>{{ mapping.sourceField }}</code>
+                  {% if mapping.note %}<span> · {{ mapping.note }}</span>{% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No source mappings recorded.</p>
+          {% endif %}
+
+          <h4>Ignored Economics and Unsupported Answers</h4>
+          {% if normalized.ignoredEconomicSignals and normalized.ignoredEconomicSignals.length %}
+            <ul class="mini-list">
+              {% for signal in normalized.ignoredEconomicSignals %}
+                <li>{{ signal.sourceValue }} · {{ signal.treatment }} · ranking effect: {{ signal.rankingEffect }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No ignored economic signals.</p>
+          {% endif %}
+          {% if normalized.unsupportedAnswers and normalized.unsupportedAnswers.length %}
+            <ul class="mini-list">
+              {% for answer in normalized.unsupportedAnswers %}
+                <li><code>{{ answer.sourceField }}</code> · {{ answer.reason }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No unsupported answers.</p>
+          {% endif %}
+        </section>
+
+        {% if result %}
+          <section>
+            <h3>Recommendation Result</h3>
+            <p><strong>Shortlist rationale:</strong> {{ result.shortlistSizeRationale }}</p>
+
+            <h4>Current Candidates</h4>
+            <ul class="mini-list">
+              {% for candidate in result.currentCandidates %}
+                <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.movement }} · score {{ candidate.score }} · {{ candidate.strategyRole }}</li>
+              {% endfor %}
+            </ul>
+
+            {% if result.orderedCandidates and result.orderedCandidates.length %}
+              <h4>Ordered Candidates</h4>
+              <ol class="mini-list">
+                {% for candidate in result.orderedCandidates %}
+                  <li><strong>{{ candidate.districtName }}</strong> · score {{ candidate.score }} · {{ candidate.movement }}</li>
+                {% endfor %}
+              </ol>
+            {% else %}
+              <p><strong>Ordered candidates:</strong> Not shown because the resolver has not found meaningful differentiation.</p>
+            {% endif %}
+
+            <h4>Shortlist</h4>
+            <ul class="mini-list">
+              {% for candidate in result.shortlist %}
+                <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.movement }} · score {{ candidate.score }}</li>
+              {% endfor %}
+            </ul>
+
+            <h4>Ties</h4>
+            {% if result.tiedCandidates and result.tiedCandidates.length %}
+              {% for group in result.tiedCandidates %}
+                <p>
+                  {% for candidate in group %}
+                    <strong>{{ candidate.districtName }}</strong>{% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                </p>
+              {% endfor %}
+            {% else %}
+              <p>No near-tie groups returned.</p>
+            {% endif %}
+
+            <h4>Secondary Alternatives and Exclusions</h4>
+            {% if result.secondaryAlternatives and result.secondaryAlternatives.length %}
+              <ul class="mini-list">
+                {% for candidate in result.secondaryAlternatives %}
+                  <li><strong>{{ candidate.districtName }}</strong> · {{ candidate.movement }} · score {{ candidate.score }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No secondary alternatives.</p>
+            {% endif %}
+            {% if result.excludedCandidates and result.excludedCandidates.length %}
+              <ul class="mini-list">
+                {% for candidate in result.excludedCandidates %}
+                  <li><strong>{{ candidate.districtName }}</strong> excluded · {{ candidate.reason }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No districts excluded.</p>
+            {% endif %}
+
+            <h4>Explanations</h4>
+            {% if result.explanations and result.explanations.length %}
+              <ul class="mini-list">
+                {% for explanation in result.explanations %}
+                  <li>
+                    <strong>{{ explanation.districtName }}</strong>
+                    <span> · {{ explanation.action }} · {{ explanation.signalLabel }} · {{ explanation.attributeLabel }}</span>
+                    <br>
+                    <span>{{ explanation.practicalImplication }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No movement explanations because this remains the starting set.</p>
+            {% endif %}
+
+            <h4>Unresolved Tradeoffs</h4>
+            {% if result.unresolvedTradeoffs and result.unresolvedTradeoffs.length %}
+              <ul class="mini-list">
+                {% for tradeoff in result.unresolvedTradeoffs %}
+                  <li>{{ tradeoff }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No unresolved tradeoffs returned.</p>
+            {% endif %}
+
+            <h4>Next Question</h4>
+            {% if result.recommendedNextQuestion %}
+              <p><strong>{{ result.recommendedNextQuestion.prompt }}</strong></p>
+              <p>Targets: {{ result.recommendedNextQuestion.targets | join(", ") }}</p>
+              <p>{{ result.recommendedNextQuestion.rationale }}</p>
+            {% else %}
+              <p>No next question returned.</p>
+            {% endif %}
+          </section>
+        {% endif %}
+
+        <section>
+          <h3>Reviewer Evaluation</h3>
+          <ul class="mini-list">
+            {% for question in profile.reviewerQuestions %}
+              <li>{{ question }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <details>
+          <summary>Raw Source Answers</summary>
+          <pre><code>{{ profile.sourceAnswersJson }}</code></pre>
+        </details>
+        <details>
+          <summary>Full Normalization Output</summary>
+          <pre><code>{{ profile.normalizedJson }}</code></pre>
+        </details>
+        <details>
+          <summary>Full Resolver Output</summary>
+          <pre><code>{{ profile.resultJson }}</code></pre>
+        </details>
+      </section>
+    {% endfor %}
+
+    <section class="city-card" id="sensitivity-checks">
+      <div class="eyebrow">Sensitivity Checks</div>
+      <h2>Single-Answer Variations</h2>
+      {% for check in sfOfficeRecommendationReviewProfiles.sensitivityChecks %}
+        <section>
+          <h3>{{ check.label }}</h3>
+          <p>{{ check.expectedReviewFocus }}</p>
+          <div class="neighborhood-card-grid neighborhood-card-grid--compact">
+            <div class="neighborhood-mini-card">
+              <h4>Base</h4>
+              <p>State: {{ check.base.result.state.label }}</p>
+              <p>Shortlist: {% for candidate in check.base.result.shortlist %}{{ candidate.districtName }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+              <p>Next: {{ check.base.result.recommendedNextQuestion.prompt }}</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h4>Variation</h4>
+              <p>State: {{ check.variation.result.state.label }}</p>
+              <p>Shortlist: {% for candidate in check.variation.result.shortlist %}{{ candidate.districtName }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+              <p>Next: {{ check.variation.result.recommendedNextQuestion.prompt }}</p>
+            </div>
+            <div class="neighborhood-mini-card">
+              <h4>Observed Impact</h4>
+              <ul class="mini-list">
+                <li>Candidate set changed: {{ check.comparison.candidateSetChanged }}</li>
+                <li>Ordering changed: {{ check.comparison.orderedCandidatesChanged }}</li>
+                <li>Shortlist changed: {{ check.comparison.shortlistChanged }}</li>
+                <li>Confidence changed: {{ check.comparison.confidenceChanged }}</li>
+                <li>Next question changed: {{ check.comparison.nextQuestionChanged }}</li>
+              </ul>
+            </div>
+          </div>
+          <details>
+            <summary>Variation Comparison JSON</summary>
+            <pre><code>{{ check.comparisonJson }}</code></pre>
+          </details>
+        </section>
+      {% endfor %}
+    </section>
+
+    <section class="city-card" id="question-value-analysis">
+      <div class="eyebrow">Question-Value Analysis</div>
+      <h2>Preliminary Review Findings</h2>
+      <h3>Likely High Value</h3>
+      <ul class="mini-list">
+        {% for item in sfOfficeRecommendationReviewProfiles.questionValueAnalysis.likelyHighValue %}
+          <li><strong>{{ item.question }}</strong> · {{ item.reason }}</li>
+        {% endfor %}
+      </ul>
+      <h3>Possibly Useful</h3>
+      <ul class="mini-list">
+        {% for item in sfOfficeRecommendationReviewProfiles.questionValueAnalysis.possiblyUseful %}
+          <li><strong>{{ item.question }}</strong> · {{ item.reason }}</li>
+        {% endfor %}
+      </ul>
+      <h3>Low or Unproven Value</h3>
+      <ul class="mini-list">
+        {% for item in sfOfficeRecommendationReviewProfiles.questionValueAnalysis.lowOrUnprovenValue %}
+          <li><strong>{{ item.question }}</strong> · {{ item.reason }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</section>

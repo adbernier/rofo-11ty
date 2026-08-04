@@ -2440,6 +2440,245 @@ section.market-page--space-type .market-links a {
   color: #0f172a;
 }
 
+.location-brief-page {
+  background: #f6f8fb;
+}
+
+.location-brief-page__shell {
+  display: grid;
+  gap: 22px;
+}
+
+.location-brief-profile,
+.location-brief-summary,
+.location-brief-best-fits,
+.location-brief-district-detail,
+.location-brief-comparative-guidance,
+.location-brief-representative-buildings {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid #dbe3ee;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.035);
+}
+
+.location-brief-profile {
+  margin-top: 16px;
+}
+
+.location-brief-profile h1,
+.location-brief-summary h2,
+.location-brief-section-header h2,
+.location-brief-comparative-guidance h2 {
+  margin: 0;
+  color: #0f172a;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.location-brief-profile h1 {
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.location-brief-summary h2,
+.location-brief-section-header h2,
+.location-brief-comparative-guidance h2 {
+  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+}
+
+.location-brief-profile p,
+.location-brief-section-header p,
+.location-brief-comparative-guidance p,
+.location-brief-summary__copy p,
+.location-brief-district-detail__panel p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.location-brief-profile__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.location-brief-profile__chips span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #d4deea;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #172033;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.location-brief-edit-profile,
+.location-brief-text-link {
+  color: #1746cc;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.location-brief-edit-profile:hover,
+.location-brief-text-link:hover {
+  text-decoration: underline;
+}
+
+.location-brief-summary {
+  padding-top: clamp(28px, 5vw, 48px);
+  padding-bottom: clamp(28px, 5vw, 48px);
+}
+
+.location-brief-summary__copy {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.location-brief-summary__copy p {
+  color: #223044;
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+  line-height: 1.56;
+}
+
+.location-brief-section-header {
+  display: grid;
+  gap: 8px;
+  max-width: 720px;
+}
+
+.location-brief-best-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.location-brief-fit-card {
+  min-width: 0;
+}
+
+.location-brief-fit-card__button {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  min-height: 100%;
+  padding: 18px;
+  border: 1px solid #d8e2ef;
+  border-radius: 12px;
+  background: #fbfdff;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.location-brief-fit-card__button:hover,
+.location-brief-fit-card__button:focus-visible,
+.location-brief-fit-card__button[aria-expanded="true"] {
+  border-color: #9bbbf3;
+  background: #f6f9ff;
+  outline: none;
+}
+
+.location-brief-fit-card__confidence {
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e8f0ff;
+  color: #1746cc;
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.location-brief-fit-card h3,
+.location-brief-district-detail__panel h3,
+.location-brief-building-group h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.location-brief-fit-card p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.location-brief-fit-card__reasons {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.location-brief-fit-card__reasons li {
+  position: relative;
+  padding-left: 20px;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.location-brief-fit-card__reasons li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.location-brief-district-detail__grid {
+  display: grid;
+}
+
+.location-brief-district-detail__panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #d8e2ef;
+  border-radius: 12px;
+  background: #fbfdff;
+}
+
+.location-brief-district-detail__panel section {
+  display: grid;
+  gap: 5px;
+}
+
+.location-brief-district-detail__panel h4 {
+  margin: 0;
+  color: #172033;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.location-brief-building-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.location-brief-building-group {
+  display: grid;
+  gap: 12px;
+}
+
+.location-brief-building-group .recommendation-building-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .recommendation-context-card,
 .recommendation-expert-guided {
   margin: 0 0 24px;
@@ -10858,94 +11097,22 @@ section.market-page--space-type .market-links a {
 }
 
 .search-profile-page {
-  padding-bottom: 72px;
+  padding-bottom: 56px;
 }
 
 .search-profile-page .city-shell {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.9fr);
-  gap: 24px 36px;
-  align-items: start;
-  max-width: 1120px;
-}
-
-.search-profile-page .breadcrumbs {
-  grid-column: 1 / -1;
-}
-
-.search-profile-page .city-hero {
-  display: block;
-  max-width: none;
-  margin: 0;
-}
-
-.search-profile-page .city-hero-copy h1 {
-  max-width: 680px;
-  font-size: var(--type-display-lg);
-  line-height: var(--type-leading-display);
-  letter-spacing: 0;
-}
-
-.search-profile-page .city-hero-copy h1 span {
-  display: block;
-}
-
-.search-profile-page .city-hero-copy .lead {
-  max-width: 600px;
-  line-height: 1.58;
-}
-
-.search-profile-page__advisor-note {
-  display: block;
-  max-width: 600px;
-  margin-top: 18px;
-  color: #243247;
-  font-size: 0.98rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.business-profile-journey {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 0;
-  max-width: 640px;
-  margin: 26px 0 0;
-  padding: 0;
-  border-top: 1px solid rgba(148, 163, 184, 0.28);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
-  list-style: none;
-}
-
-.business-profile-journey li {
-  position: relative;
-  padding: 13px 18px 13px 0;
-  color: #334155;
-  font-size: 0.8rem;
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.business-profile-journey li + li {
-  padding-left: 18px;
-  border-left: 1px solid rgba(148, 163, 184, 0.28);
-}
-
-.business-profile-journey li + li::before {
-  content: "→";
-  position: absolute;
-  top: 13px;
-  left: -7px;
-  color: #94a3b8;
-  background: #fff;
-  font-weight: 700;
+  align-items: start;
+  max-width: 920px;
 }
 
 .search-profile-page__shell {
   width: 100%;
-  max-width: 520px;
-  margin: 0;
-  justify-self: end;
+  max-width: 880px;
+  margin: clamp(16px, 4vw, 36px) auto 0;
+  justify-self: center;
 }
 
 .search-profile-page .search-profile-shell--page {
@@ -10957,10 +11124,10 @@ section.market-page--space-type .market-links a {
 
 .search-profile-page .search-profile-shell--page .search-profile-card {
   max-height: none;
-  border-color: #cfe0f6;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 52%);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  border-color: #dbe6f1;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
 }
 
 .search-profile-page .search-profile-shell--page .search-profile-card__top,
@@ -10970,19 +11137,22 @@ section.market-page--space-type .market-links a {
 
 .search-profile-page .search-profile-shell--page .search-profile-card__body {
   max-height: none;
-  padding: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr);
+  gap: clamp(20px, 4vw, 34px);
+  padding: clamp(20px, 4vw, 34px);
 }
 
 .business-profile-card-intro {
-  display: grid;
-  gap: 14px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5eaf1;
+  display: block;
+  grid-column: 1;
+  max-width: 560px;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
-.business-profile-card-intro span {
+.business-profile-card-intro h1 {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 9px;
   color: #1346d8;
   font-size: 0.72rem;
   font-weight: 850;
@@ -10990,58 +11160,195 @@ section.market-page--space-type .market-links a {
   text-transform: uppercase;
 }
 
-.business-profile-card-intro h2 {
-  margin: 0 0 8px;
-  color: #0f172a;
-  font-size: 1.28rem;
-  line-height: 1.2;
-  letter-spacing: 0;
-}
-
 .business-profile-card-intro p {
   margin: 0;
-  color: #475569;
-  line-height: 1.55;
-}
-
-.business-profile-card-intro ul {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.business-profile-card-intro li {
-  padding: 9px 10px;
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-  background: #f8fafc;
   color: #334155;
-  font-size: 0.76rem;
-  font-weight: 750;
-  line-height: 1.25;
+  font-size: 0.94rem;
+  line-height: 1.5;
 }
 
 .search-profile-page .search-profile-fieldset legend {
-  font-size: 0.98rem;
+  max-width: 580px;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
   line-height: 1.28;
+  letter-spacing: 0;
 }
 
 .search-profile-page .search-profile-fieldset__helper {
   max-width: 430px;
+  margin: -2px 0 16px;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.search-profile-page .search-profile-step-meter {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.search-profile-page .search-profile-progress {
+  display: block;
+  grid-column: 1 / -1;
+  height: 4px;
+  background: #e6edf5;
+}
+
+.search-profile-page .search-profile-preview {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  align-self: start;
+  gap: 14px;
+  min-height: 220px;
+  padding: 18px;
+  border: 1px solid #d7e3f0;
+  border-radius: 10px;
+  background: #fbfdff;
+}
+
+.search-profile-page .search-profile-preview::before {
+  content: "Business Profile";
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.search-profile-page .search-profile-preview span {
+  color: #64748b;
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.search-profile-page .search-profile-preview ul {
+  display: grid;
+  gap: 9px;
+}
+
+.search-profile-page .search-profile-preview li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding-left: 22px;
+  color: #0f172a;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.search-profile-page .search-profile-preview li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.search-profile-page .search-profile-preview li + li::before {
+  content: "✓";
+  margin: 0;
+  color: #16a34a;
+}
+
+.search-profile-page .search-profile-preview li span {
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.search-profile-page .search-profile-preview li strong {
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.32;
+}
+
+.search-profile-page .search-profile-form,
+.search-profile-page .search-profile-actions,
+.search-profile-page .search-profile-step-meter,
+.search-profile-page .search-profile-progress {
+  grid-column: 1;
+}
+
+.search-profile-page .search-profile-form {
+  min-height: 240px;
+  align-content: start;
+}
+
+.search-profile-page .search-profile-options {
+  gap: 10px;
+}
+
+.search-profile-page .search-profile-options button,
+.search-profile-page .search-profile-location-intent__option {
+  border-radius: 8px;
+}
+
+.search-profile-page .search-profile-options button {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 0.94rem;
+}
+
+.search-profile-page .search-profile-location-intent {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.search-profile-page .search-profile-location-intent__option {
+  padding: 14px 15px;
+}
+
+.search-profile-page .search-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.search-profile-page .search-profile-actions .btn-primary {
+  flex: 1 1 220px;
+}
+
+.search-profile-page .search-profile-actions button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.search-profile-readiness-note {
+  flex: 1 1 100%;
+  margin: 0;
+  color: #64748b;
   font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 960px) {
-  .search-profile-page .city-shell {
-    display: block;
-    max-width: 760px;
+  .location-brief-best-fit-grid,
+  .location-brief-building-group .recommendation-building-list {
+    grid-template-columns: 1fr;
   }
 
-  .search-profile-page .city-hero {
-    margin-bottom: 24px;
+  .location-brief-profile,
+  .location-brief-summary,
+  .location-brief-best-fits,
+  .location-brief-district-detail,
+  .location-brief-comparative-guidance,
+  .location-brief-representative-buildings {
+    border-radius: 12px;
+  }
+
+  .search-profile-page .city-shell {
+    display: block;
+    max-width: 880px;
   }
 
   .search-profile-page__shell {
@@ -11075,27 +11382,48 @@ section.market-page--space-type .market-links a {
     box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
   }
 
-  .search-profile-page .city-hero-copy h1 span {
-    display: inline;
-  }
-
-  .business-profile-journey,
-  .business-profile-card-intro ul {
+  .search-profile-page .search-profile-shell--page .search-profile-card__body {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .business-profile-journey li {
-    padding: 12px 0;
+  .search-profile-page .search-profile-form,
+  .search-profile-page .search-profile-actions,
+  .search-profile-page .search-profile-step-meter,
+  .search-profile-page .search-profile-progress,
+  .search-profile-page .search-profile-preview {
+    grid-column: 1;
+    grid-row: auto;
   }
 
-  .business-profile-journey li + li {
-    padding-left: 0;
-    border-left: 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.28);
+  .business-profile-card-intro {
+    order: 1;
   }
 
-  .business-profile-journey li + li::before {
-    content: none;
+  .search-profile-page .search-profile-step-meter {
+    order: 2;
+  }
+
+  .search-profile-page .search-profile-progress {
+    order: 3;
+  }
+
+  .search-profile-page .search-profile-preview {
+    order: 5;
+    min-height: 0;
+  }
+
+  .search-profile-page .search-profile-form {
+    order: 4;
+  }
+
+  .search-profile-page .search-profile-actions {
+    order: 6;
+  }
+
+  .search-profile-page .search-profile-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .search-profile-page .search-profile-backdrop,

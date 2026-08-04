@@ -15,10 +15,17 @@ import {
   trackLocationBriefEvent,
 } from "./_shared.js";
 import {
+  buildOfficeFinderPayload,
   randomHex,
+  resolveLeadRoute,
   saveLead,
+  sendApprovalEmail,
   sha256,
 } from "../leads/_shared.js";
+import {
+  buildProjectSnapshotFromBrief,
+  projectSnapshotTextLines,
+} from "../../_shared/project-snapshot.js";
 
 function clean(value, max = 500) {
   return String(value || "").trim().slice(0, max);
@@ -276,6 +283,13 @@ function recommendedMarketPathSummary(brief) {
   return labels.join(" / ");
 }
 
+function logPipelineStep(step, details = {}) {
+  console.log("[location-brief-pipeline]", JSON.stringify({
+    step,
+    ...details,
+  }));
+}
+
 function investigationScopeSummary(investigation) {
   const scope = investigation && investigation.investigationScope || {};
   const labels = {
@@ -331,6 +345,9 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     brief.notes ? `Notes: ${brief.notes}` : "",
   ].filter(Boolean).join("\n\n");
   const selectedBuildings = selectedInvestigationBuildings(investigation);
+  const projectSnapshot = brief.projectSnapshot || buildProjectSnapshotFromBrief(brief);
+  const snapshotLines = projectSnapshotTextLines(projectSnapshot);
+  const businessProfile = brief.searchProfile || {};
 
   return {
     lead_type: investigation && investigation.investigationIntent ? "live_market_investigation" : "location_brief",
@@ -365,6 +382,15 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     location_brief_url: briefUrl,
     location_brief_status: brief.status,
     recommended_market_path: recommendedMarketPath,
+    project_snapshot_json: JSON.stringify(projectSnapshot),
+    project_snapshot_summary: snapshotLines.join("\n"),
+    top_three_districts: (projectSnapshot.topDistricts || []).join(", "),
+    location_profile_business_type: businessProfile.businessType || businessProfile.business_type || "",
+    location_profile_operational_use: Array.isArray(businessProfile.operationalUse) ? businessProfile.operationalUse.join(", ") : "",
+    location_profile_office_environment: businessProfile.officeEnvironment || businessProfile.office_environment || "",
+    location_profile_commute_orientation: businessProfile.commuteOrientation || businessProfile.commute_orientation || "",
+    location_profile_expected_growth: businessProfile.expectedGrowth || businessProfile.expected_growth || "",
+    location_profile_institution_proximity: businessProfile.institutionProximity || businessProfile.institution_proximity || "",
     business_priorities: priorities.join(", "),
     investigation_requested: investigation && investigation.investigationIntent ? "yes" : "",
     investigation_status: investigation && investigation.investigationIntent ? investigation.investigationStatus || "requested" : "",
@@ -405,20 +431,33 @@ async function createLocationBriefLead(env, request, brief, briefUrl) {
   const id = crypto.randomUUID ? crypto.randomUUID() : randomHex(16);
   const token = randomHex(32);
   const lead = buildLocationBriefLead(brief, request, briefUrl);
+  const routeRecommendation = resolveLeadRoute(lead);
+  lead.route_recommendation = routeRecommendation;
+  lead.assigned_broker = routeRecommendation.broker_email
+    ? routeRecommendation.broker_name
+      ? `${routeRecommendation.broker_name} <${routeRecommendation.broker_email}>`
+      : routeRecommendation.broker_email
+    : "";
+  lead.officefinder_status = "officefinder_pending_approval";
+  const officefinderPayload = buildOfficeFinderPayload(lead, env);
   const record = {
     id,
     token_hash: await sha256(token),
-    status: brief.liveMarketInvestigation && brief.liveMarketInvestigation.investigationIntent ? "market_investigation_requested" : "expert_review_requested",
+    status: "pending",
     lead,
-    officefinder_payload: {},
+    officefinder_payload: officefinderPayload,
   };
 
   const storage = await saveLead(env, record);
   return {
     stored: true,
     id,
+    token,
     status: record.status,
     storage,
+    routeRecommendation,
+    officefinderStatus: lead.officefinder_status,
+    record,
   };
 }
 
@@ -551,6 +590,12 @@ export async function onRequestPost({ request, env, waitUntil }) {
   };
 
   try {
+    logPipelineStep("brief_created", {
+      briefId: brief.id,
+      publicId: brief.publicId,
+      briefUrl: url,
+      storage,
+    });
     await trackLocationBriefEvent(env, "location_brief_created", brief, eventPayload);
     await trackLocationBriefEvent(env, "expert_review_requested", brief, eventPayload);
     await trackLocationBriefEvent(env, "location_brief_submitted", brief, eventPayload);
@@ -564,12 +609,6 @@ export async function onRequestPost({ request, env, waitUntil }) {
   let lead = { stored: false, reason: "Not attempted" };
   let email = { sent: false, reason: "Not attempted" };
   let confirmationEmail = { sent: false, status: isInvestigation ? "not_attempted" : "not_applicable", reason: isInvestigation ? "Not attempted" : "Not a Live Market Investigation request" };
-
-  try {
-    email = await sendLocationBriefEmail(env, request, brief);
-  } catch (error) {
-    email = { sent: false, reason: error.message };
-  }
 
   if (isInvestigation) {
     try {
@@ -596,10 +635,56 @@ export async function onRequestPost({ request, env, waitUntil }) {
 
   try {
     lead = await createLocationBriefLead(env, request, brief, url);
+    logPipelineStep("lead_created", {
+      leadId: lead.id,
+      briefId: brief.id,
+      publicId: brief.publicId,
+      routeTo: lead.routeRecommendation && lead.routeRecommendation.route_to || "",
+      assignedBroker: lead.routeRecommendation && lead.routeRecommendation.broker_email || "",
+      officefinderStatus: lead.officefinderStatus || "",
+    });
   } catch (error) {
     lead = { stored: false, reason: error.message };
     console.warn("Unable to create Location Brief lead dashboard record", error);
   }
+
+  if (lead && lead.stored && lead.record && lead.token) {
+    try {
+      email = await sendApprovalEmail(env, request, lead.record, lead.token);
+      logPipelineStep("internal_notification", {
+        leadId: lead.id,
+        briefId: brief.id,
+        sent: email.sent === true,
+        reason: email.reason || "",
+      });
+    } catch (error) {
+      email = { sent: false, reason: error.message };
+      console.warn("Unable to send Location Brief approval notification", error);
+    }
+  } else {
+    try {
+      email = await sendLocationBriefEmail(env, request, brief);
+      logPipelineStep("internal_notification_fallback", {
+        briefId: brief.id,
+        sent: email.sent === true,
+        reason: email.reason || "",
+      });
+    } catch (error) {
+      email = { sent: false, reason: error.message };
+    }
+  }
+
+  const leadResponse = lead && typeof lead === "object"
+    ? {
+      stored: lead.stored === true,
+      id: lead.id || "",
+      status: lead.status || "",
+      storage: lead.storage || "",
+      routeRecommendation: lead.routeRecommendation || null,
+      officefinderStatus: lead.officefinderStatus || "",
+      reason: lead.reason || "",
+    }
+    : lead;
 
   const responsePayload = {
     ok: true,
@@ -608,7 +693,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     status: isInvestigation ? "received" : brief.status,
     url,
     storage,
-    lead,
+    lead: leadResponse,
     email,
     confirmationEmail,
     duplicate: false,

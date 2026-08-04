@@ -15,9 +15,11 @@
   const summaryTitle = root.querySelector("[data-profile-summary-title]");
   const stepCount = root.querySelector("[data-profile-step-count]");
   const progressBar = root.querySelector("[data-profile-progress-bar]");
+  const conversationPromptNode = root.querySelector("[data-profile-conversation-prompt]");
   const expandIcon = root.querySelector("[data-profile-expand-icon]");
   const previewEmpty = root.querySelector("[data-profile-preview-empty]");
   const previewList = root.querySelector("[data-profile-preview-list]");
+  const readinessNote = root.querySelector("[data-profile-readiness-note]");
   const editorNodes = root.querySelectorAll("[data-profile-editor]");
   const finishedSummary = root.querySelector("[data-profile-finished]");
   const contactStep = root.querySelector("[data-profile-contact]");
@@ -46,8 +48,8 @@
   const locationSuggestionLabels = parseSuggestionLabels(root.dataset.profileLocationSuggestions || "");
   const locationChipMode = root.dataset.profileLocationChipMode || "";
   const defaultSpaceType = root.dataset.profileDefaultSpaceType || "";
-  const primaryCtaLabel = root.dataset.profilePrimaryCta || "Build My Location Brief";
-  const contactCtaLabel = root.dataset.profileContactCta || "Build My Location Brief";
+  const primaryCtaLabel = root.dataset.profilePrimaryCta || "Create My Location Brief";
+  const contactCtaLabel = root.dataset.profileContactCta || "Create My Location Brief";
   const submitEnabled = root.dataset.profileSubmitEnabled === "true";
   const submitEndpoint = root.dataset.profileSubmitEndpoint || "/api/leads/submit";
   const profileLayout = root.dataset.profileLayout || "";
@@ -77,6 +79,44 @@
   ]);
   const officeSizeOptions = ["Under 2,500 sqft", "2,500-5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
   const defaultSizeOptions = ["Under 5,000 sqft", "5,000-10,000 sqft", "10,000-25,000 sqft", "25,000+ sqft", "I'm not sure"];
+  const businessTypeOptions = [
+    { label: "Professional services", value: "professional_services" },
+    { label: "Technology / product", value: "technology" },
+    { label: "Design / creative", value: "design_creative" },
+    { label: "Healthcare / life science", value: "life_science" },
+    { label: "Nonprofit / mission-driven", value: "nonprofit" },
+  ];
+  const operationalUseOptions = [
+    { label: "Client meetings", value: "client_meetings" },
+    { label: "Team collaboration", value: "team_collaboration" },
+    { label: "Recruiting", value: "recruiting" },
+    { label: "Quiet focused work", value: "quiet_focused_work" },
+    { label: "Showroom / presentation", value: "showroom_presentation" },
+    { label: "UCSF / R&D adjacency", value: "lab_rd_adjacency" },
+  ];
+  const officeEnvironmentOptions = [
+    { label: "Modern and polished", value: "Modern and polished" },
+    { label: "Creative and informal", value: "Creative and informal" },
+    { label: "Historic and distinctive", value: "Historic and distinctive" },
+    { label: "Traditional and professional", value: "Traditional and professional" },
+    { label: "Lower-rise and neighborhood-oriented", value: "Lower-rise and neighborhood-oriented" },
+    { label: "Not sure yet", value: "Not sure yet" },
+  ];
+  const commuteOrientationOptions = [
+    { label: "Mixed / local", value: "mixed_local" },
+    { label: "Marin", value: "Marin" },
+    { label: "East Bay", value: "East Bay" },
+    { label: "Peninsula / South Bay", value: "Peninsula South Bay" },
+  ];
+  const growthExpectationOptions = [
+    { label: "Significant growth", value: "significant" },
+    { label: "Some growth", value: "some" },
+    { label: "Stable team", value: "low" },
+  ];
+  const institutionProximityOptions = [
+    { label: "UCSF proximity matters", value: "UCSF" },
+    { label: "Keep the search broader", value: "not_applicable" },
+  ];
   const spaceTypeOptions = [
     { label: "Office", value: "Office" },
     { label: "Industrial", value: "Industrial / Warehouse" },
@@ -824,6 +864,12 @@
       label: root.dataset.profileContextLabel || "",
     },
     spaceType: recommendationEntryContext.spaceType || (defaultSpaceType && pathConfig[defaultSpaceType] ? defaultSpaceType : ""),
+    businessType: "",
+    operationalUse: [],
+    officeEnvironment: "",
+    commuteOrientation: "",
+    expectedGrowth: "",
+    institutionProximity: "",
     people: "",
     use: "",
     size: "",
@@ -894,6 +940,9 @@
       if (!Array.isArray(merged.features)) {
         merged.features = merged.features ? [merged.features] : [];
       }
+      if (!Array.isArray(merged.operationalUse)) {
+        merged.operationalUse = merged.operationalUse ? [merged.operationalUse] : [];
+      }
       return applyRecommendationEntryContext(merged);
     } catch (error) {
       return applyRecommendationEntryContext({
@@ -946,6 +995,12 @@
       location_intent: summary.locationIntent || "compare",
       features: selectedFeatureValues(),
       features_count: selectedFeatureValues().length,
+      business_type: summary.businessType || "",
+      operational_use: summary.operationalUse,
+      office_environment: summary.officeEnvironment || "",
+      commute_orientation: summary.commuteOrientation || "",
+      expected_growth: summary.expectedGrowth || "",
+      institution_proximity: summary.institutionProximity || "",
     };
   }
 
@@ -1041,8 +1096,29 @@
     return pathConfig[profile.spaceType] || {};
   }
 
+  function isOfficeProfile() {
+    return profile.spaceType === "Office";
+  }
+
+  function isInstitutionProximityRelevant() {
+    return profile.businessType === "life_science" || profile.spaceType === "Medical";
+  }
+
   function activeSteps() {
-    return ["search"];
+    if (isOfficeProfile()) {
+      const steps = [
+        "targetArea",
+        "spaceType",
+        "businessType",
+        "operationalUse",
+        "officeEnvironment",
+        "commuteOrientation",
+        "expectedGrowth",
+      ];
+      if (isInstitutionProximityRelevant()) steps.push("institutionProximity");
+      return steps;
+    }
+    return ["targetArea", "spaceType", detailField(), "features"];
   }
 
   function detailField() {
@@ -1051,27 +1127,147 @@
 
   function meaningfulValue(key) {
     if (key === "targetArea") return Boolean(String(profile.location.display || "").trim());
+    if (key === "institutionProximity") return !isInstitutionProximityRelevant() || Boolean(String(profile.institutionProximity || "").trim());
     const value = profile[key];
     if (Array.isArray(value)) return value.length > 0;
     return Boolean(String(value || "").trim());
   }
 
-  function completedCount() {
-    const stepComplete = {
-      spaceType: meaningfulValue("spaceType"),
-      targetArea: meaningfulValue("targetArea"),
-      details: meaningfulValue(detailField()),
+  function profileReadiness() {
+    const requiredSteps = activeSteps();
+    const missing = requiredSteps.filter((step) => !meaningfulValue(step));
+    return {
+      ready: missing.length === 0,
+      missing,
+      completed: requiredSteps.length - missing.length,
+      total: requiredSteps.length,
     };
-    return ["targetArea", "spaceType", "details"].filter((step) => stepComplete[step]).length;
+  }
+
+  function completedCount() {
+    return profileReadiness().completed;
+  }
+
+  function optionLabel(options, value) {
+    const item = options.find((option) => String(option.value) === String(value));
+    return item ? item.label : String(value || "");
+  }
+
+  function selectedOptionLabels(options, values) {
+    return (Array.isArray(values) ? values : [])
+      .map((value) => optionLabel(options, value))
+      .filter(Boolean);
   }
 
   function previewValues() {
+    const detailValue = profile[detailField()] || profile.size || profile.people;
     const values = [
-      profile.location.display,
-      profile.spaceType,
-      profile.size,
+      ["Market", profile.location.display],
+      ["Property type", profile.spaceType],
     ];
-    return values.filter((value) => String(value || "").trim()).slice(0, 4);
+    if (isOfficeProfile()) {
+      values.push(
+        ["Business type", optionLabel(businessTypeOptions, profile.businessType)],
+        ["Office use", selectedOptionLabels(operationalUseOptions, profile.operationalUse).join(" / ")],
+        ["Environment", optionLabel(officeEnvironmentOptions, profile.officeEnvironment)],
+        ["Commute", optionLabel(commuteOrientationOptions, profile.commuteOrientation)],
+        ["Growth", optionLabel(growthExpectationOptions, profile.expectedGrowth)],
+      );
+      if (isInstitutionProximityRelevant()) {
+        values.push(["Institution proximity", optionLabel(institutionProximityOptions, profile.institutionProximity)]);
+      }
+      return values.map(([label, value]) => [label, String(value || "").trim()]);
+    }
+    values.push([detailField() === "people" ? "Team size" : "Size", detailValue]);
+    if (selectedFeatureValues().length) values.push(["Details", selectedFeatureValues().join(" / ")]);
+    return values.map(([label, value]) => [label, String(value || "").trim()]);
+  }
+
+  function completedPreviewValues() {
+    return previewValues().filter(([, value]) => value).slice(0, 4);
+  }
+
+  function currentStepKey() {
+    const steps = activeSteps();
+    if (activeStepIndex >= steps.length) activeStepIndex = steps.length - 1;
+    if (activeStepIndex < 0) activeStepIndex = 0;
+    return steps[activeStepIndex] || "targetArea";
+  }
+
+  function currentStepIsValid() {
+    const step = currentStepKey();
+    if (step === "targetArea") return meaningfulValue("targetArea");
+    if (step === "locationIntent") return meaningfulValue("locationIntent");
+    return meaningfulValue(step);
+  }
+
+  function stepErrorMessage() {
+    const step = currentStepKey();
+    const messages = {
+      targetArea: "Add at least one city or district so Rofo knows where to begin.",
+      spaceType: "Choose the type of commercial space your business needs.",
+      businessType: "Choose the closest business type.",
+      operationalUse: "Select at least one way the office should support the business.",
+      officeEnvironment: "Choose the office environment that best fits the business.",
+      commuteOrientation: "Choose the broad employee commute pattern Rofo should respect.",
+      expectedGrowth: "Choose the growth expectation Rofo should plan around.",
+      institutionProximity: "Choose whether institutional proximity should influence the brief.",
+      size: "Choose an approximate size so Rofo can prepare the next stage.",
+      people: "Choose the team size Rofo should prepare around.",
+      features: "Select at least one detail or choose Other.",
+    };
+    return messages[step] || "Answer this question to continue.";
+  }
+
+  function conversationPrompt() {
+    const step = currentStepKey();
+    const location = profile.location.display || "that location";
+    const space = profile.spaceType || "this kind of space";
+    const prompts = {
+      targetArea: "Start with the place already on your mind.",
+      spaceType: `Rofo will use ${location} as the market context for the brief.`,
+      businessType: "Add the business context Rofo should use when comparing districts.",
+      operationalUse: "Describe what the office needs to make possible.",
+      officeEnvironment: "Clarify the kind of place that would feel credible for the business.",
+      commuteOrientation: "Use a broad commute pattern only; exact routes can wait.",
+      expectedGrowth: "Growth helps Rofo think about flexibility before buildings.",
+      institutionProximity: "Only include this if it materially changes the location decision.",
+      size: `Rofo will keep this as execution context for ${space.toLowerCase()} options.`,
+      people: `Rofo will keep this as execution context for ${space.toLowerCase()} options.`,
+      features: "Add only the operational details that matter at this stage.",
+    };
+    return prompts[step] || "Answer the next question to continue building the profile.";
+  }
+
+  function nextStepLabel() {
+    const steps = activeSteps();
+    const isFinalQuestion = activeStepIndex >= steps.length - 1;
+    if (isFinalQuestion) return primaryCtaLabel;
+    return "Continue";
+  }
+
+  function advanceConversation() {
+    const steps = activeSteps();
+    if (activeStepIndex < steps.length - 1) {
+      activeStepIndex += 1;
+      render();
+      const fieldset = root.querySelector(`[data-profile-step="${currentStepKey()}"]`);
+      const control = fieldset && fieldset.querySelector("button, input, textarea");
+      if (control && typeof control.focus === "function") {
+        window.setTimeout(() => control.focus({ preventScroll: true }), 40);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  function firstIncompleteStepIndex() {
+    const steps = activeSteps();
+    const missingIndex = steps.findIndex((step) => {
+      if (step === "targetArea") return !meaningfulValue("targetArea");
+      return !meaningfulValue(step);
+    });
+    return missingIndex >= 0 ? missingIndex : Math.max(0, steps.length - 1);
   }
 
   function summaryValues() {
@@ -1094,17 +1290,35 @@
       },
       selectedLocations: normalizeSelectedLocations(profile.selectedLocations, selectedLocationLabels(profile)),
       spaceType: profile.spaceType || "",
-      sizeOrPeople: profile.size || "",
+      sizeOrPeople: profile[detailField()] || profile.size || profile.people || "",
       timing: profile.timing || "",
       features: Array.isArray(profile.features) ? [...profile.features] : [],
       featureOther: profile.featureOther || "",
       locationIntent: normalizeLocationIntent(profile.locationIntent, ""),
+      businessType: profile.businessType || "",
+      operationalUse: Array.isArray(profile.operationalUse) ? [...profile.operationalUse] : [],
+      officeEnvironment: profile.officeEnvironment || "",
+      commuteOrientation: profile.commuteOrientation || "",
+      expectedGrowth: profile.expectedGrowth || "",
+      institutionProximity: profile.institutionProximity || "",
     };
+  }
+
+  function resolvedMarketName(summary = profileSummaryData()) {
+    return summary.location.city || summary.location.display || "";
+  }
+
+  function recommendationModelKey(summary = profileSummaryData()) {
+    const market = `${summary.location.city || ""} ${summary.location.display || ""}`.toLowerCase();
+    return summary.spaceType === "Office" && market.includes("san francisco")
+      ? "san-francisco:office"
+      : "";
   }
 
   function recommendationContextData() {
     const summary = profileSummaryData();
     return {
+      modelKey: recommendationModelKey(summary),
       locations: normalizeSelectedLocations(summary.selectedLocations, selectedLocationLabels(profile)).map((item) => ({
         label: item.label || "",
         type: item.type || "location",
@@ -1117,6 +1331,30 @@
       size: summary.sizeOrPeople || "",
       timing: summary.timing || "",
       locationIntent: normalizeLocationIntent(summary.locationIntent, "compare"),
+      city: resolvedMarketName(summary),
+      market: summary.location.display || resolvedMarketName(summary),
+      businessType: summary.businessType || "",
+      operationalUse: summary.operationalUse,
+      officeEnvironment: summary.officeEnvironment || "",
+      commuteOrientation: summary.commuteOrientation || "",
+      expectedGrowth: summary.expectedGrowth || "",
+      institutionProximity: summary.institutionProximity || "",
+      facts: {
+        city: resolvedMarketName(summary),
+        market: summary.location.display || resolvedMarketName(summary),
+        spaceType: summary.spaceType || "",
+        businessType: summary.businessType || "",
+        operationalUse: summary.operationalUse,
+        expectedGrowth: summary.expectedGrowth || "",
+      },
+      constraints: {
+        commuteOrientation: summary.commuteOrientation || "",
+        institutionProximity: summary.institutionProximity === "not_applicable" ? "" : summary.institutionProximity || "",
+      },
+      priorities: {
+        officeEnvironment: summary.officeEnvironment || "",
+        growth: summary.expectedGrowth || "",
+      },
       timestamp: new Date().toISOString(),
     };
   }
@@ -1149,9 +1387,14 @@
       "Business Profile summary",
       "",
       `Location: ${summary.location.display || ""}`,
-      `Space type: ${summary.spaceType || ""}`,
-      `Size: ${summary.sizeOrPeople || ""}`,
-      `Location intent: ${locationIntentLabel(summary.locationIntent)}`,
+      `Property type: ${summary.spaceType || ""}`,
+      summary.businessType ? `Business type: ${optionLabel(businessTypeOptions, summary.businessType)}` : "",
+      summary.operationalUse.length ? `Primary office use: ${selectedOptionLabels(operationalUseOptions, summary.operationalUse).join(" • ")}` : "",
+      summary.officeEnvironment ? `Office environment: ${optionLabel(officeEnvironmentOptions, summary.officeEnvironment)}` : "",
+      summary.commuteOrientation ? `Employee commute orientation: ${optionLabel(commuteOrientationOptions, summary.commuteOrientation)}` : "",
+      summary.expectedGrowth ? `Growth expectations: ${optionLabel(growthExpectationOptions, summary.expectedGrowth)}` : "",
+      summary.institutionProximity && summary.institutionProximity !== "not_applicable" ? `Institution proximity: ${optionLabel(institutionProximityOptions, summary.institutionProximity)}` : "",
+      summary.sizeOrPeople ? `Execution-stage size context: ${summary.sizeOrPeople}` : "",
       summary.timing ? `Move-in timing: ${summary.timing}` : "",
       features.length ? `Features: ${features.join(" • ")}` : "",
       summary.featureOther ? `Other feature detail: ${summary.featureOther}` : "",
@@ -1211,9 +1454,16 @@
       location_intent: normalizeLocationIntent(summary.locationIntent, "compare"),
       location_intent_label: locationIntentLabel(summary.locationIntent),
       location_profile_feature_other: summary.featureOther || "",
+      location_profile_business_type: summary.businessType || "",
+      location_profile_operational_use: summary.operationalUse.join(", "),
+      location_profile_office_environment: summary.officeEnvironment || "",
+      location_profile_commute_orientation: summary.commuteOrientation || "",
+      location_profile_expected_growth: summary.expectedGrowth || "",
+      location_profile_institution_proximity: summary.institutionProximity || "",
       selected_locations: JSON.stringify(summary.selectedLocations),
       locations: JSON.stringify(summary.selectedLocations),
       location_profile_json: JSON.stringify({
+        model_key: recommendationModelKey(summary),
         location: summary.location,
         selected_locations: summary.selectedLocations,
         locations: summary.selectedLocations,
@@ -1221,6 +1471,12 @@
         location_intent_label: locationIntentLabel(summary.locationIntent),
         space_type: summary.spaceType,
         size_or_people: sizeOrPeople,
+        business_type: summary.businessType || "",
+        operational_use: summary.operationalUse,
+        office_environment: summary.officeEnvironment || "",
+        commute_orientation: summary.commuteOrientation || "",
+        expected_growth: summary.expectedGrowth || "",
+        institution_proximity: summary.institutionProximity || "",
         timing: summary.timing,
         features: selectedFeatureValues(),
         feature_other: summary.featureOther || "",
@@ -1313,9 +1569,15 @@
       profile[key] = [...current];
     } else {
       const previousValue = profile[key];
-      const requiredChoice = ["spaceType", "timing", "people", "size", "locationIntent"].includes(key);
+      const requiredChoice = ["spaceType", "timing", "people", "size", "locationIntent", "businessType", "officeEnvironment", "commuteOrientation", "expectedGrowth", "institutionProximity"].includes(key);
       profile[key] = requiredChoice ? value : profile[key] === value ? "" : value;
       if (key === "spaceType" && previousValue !== value) {
+        profile.businessType = "";
+        profile.operationalUse = [];
+        profile.officeEnvironment = "";
+        profile.commuteOrientation = "";
+        profile.expectedGrowth = "";
+        profile.institutionProximity = "";
         profile.people = "";
         profile.use = "";
         profile.size = "";
@@ -1324,11 +1586,20 @@
         profile.features = [];
         profile.featureOther = "";
       }
+      if (key === "businessType" && value !== "life_science") {
+        profile.institutionProximity = "";
+      }
     }
     saveProfile();
     if (stepError) stepError.hidden = true;
     if (key === "spaceType" && meaningfulValue("spaceType")) trackStepCompleted("space_type");
     if ((key === "people" || key === "size") && meaningfulValue(key)) trackStepCompleted("size");
+    if (key === "businessType" && meaningfulValue(key)) trackStepCompleted("business_type");
+    if (key === "operationalUse" && meaningfulValue(key)) trackStepCompleted("operational_use");
+    if (key === "officeEnvironment" && meaningfulValue(key)) trackStepCompleted("office_environment");
+    if (key === "commuteOrientation" && meaningfulValue(key)) trackStepCompleted("commute_orientation");
+    if (key === "expectedGrowth" && meaningfulValue(key)) trackStepCompleted("expected_growth");
+    if (key === "institutionProximity" && meaningfulValue(key)) trackStepCompleted("institution_proximity");
     if (key === "features") trackStepCompleted("features");
     render();
   }
@@ -1348,7 +1619,7 @@
       button.type = "button";
       button.textContent = optionLabel;
       button.dataset.profileValue = optionValue;
-      const multi = key === "important" || key === "features";
+      const multi = key === "important" || key === "features" || key === "operationalUse";
       const selected = multi
         ? Array.isArray(profile[key]) && profile[key].includes(optionValue)
         : profile[key] === optionValue;
@@ -1466,6 +1737,12 @@
     renderLocationOptions();
     renderLocationIntent();
     renderOptions("spaceType", spaceTypeOptions);
+    renderOptions("businessType", businessTypeOptions);
+    renderOptions("operationalUse", operationalUseOptions);
+    renderOptions("officeEnvironment", officeEnvironmentOptions);
+    renderOptions("commuteOrientation", commuteOrientationOptions);
+    renderOptions("expectedGrowth", growthExpectationOptions);
+    renderOptions("institutionProximity", institutionProximityOptions);
     renderOptions("features", activeConfig().features || ["Other"]);
     ["people", "use", "size", "workspaceStyle", "important"].forEach((key) => {
       renderOptions(key, key === "size" ? activeConfig()[key] || defaultSizeOptions : activeConfig()[key] || []);
@@ -1504,8 +1781,17 @@
   }
 
   function validateInitialSearch() {
-    const valid = meaningfulValue("targetArea") && meaningfulValue("spaceType") && meaningfulValue("size");
+    const valid = profileReadiness().ready;
     if (stepError) stepError.hidden = valid;
+    return valid;
+  }
+
+  function validateCurrentStep() {
+    const valid = currentStepIsValid();
+    if (stepError) {
+      stepError.textContent = stepErrorMessage();
+      stepError.hidden = valid;
+    }
     return valid;
   }
 
@@ -1513,9 +1799,15 @@
     const summary = profileSummaryData();
     list.innerHTML = "";
     const fields = [
-      ["Starting location", summary.location.display],
-      ["Space type", summary.spaceType],
-      ["Approximate size", summary.sizeOrPeople],
+      ["Market", summary.location.display],
+      ["Property type", summary.spaceType],
+      summary.businessType ? ["Business type", optionLabel(businessTypeOptions, summary.businessType)] : ["", ""],
+      summary.operationalUse.length ? ["Primary office use", selectedOptionLabels(operationalUseOptions, summary.operationalUse).join(" · ")] : ["", ""],
+      summary.officeEnvironment ? ["Office environment", optionLabel(officeEnvironmentOptions, summary.officeEnvironment)] : ["", ""],
+      summary.commuteOrientation ? ["Employee commute", optionLabel(commuteOrientationOptions, summary.commuteOrientation)] : ["", ""],
+      summary.expectedGrowth ? ["Growth", optionLabel(growthExpectationOptions, summary.expectedGrowth)] : ["", ""],
+      summary.institutionProximity && summary.institutionProximity !== "not_applicable" ? ["Institution proximity", optionLabel(institutionProximityOptions, summary.institutionProximity)] : ["", ""],
+      summary.sizeOrPeople ? ["Approximate size", summary.sizeOrPeople] : ["", ""],
       summary.timing ? ["Move-in timing", summary.timing] : ["", ""],
       ["Features", selectedFeatureValues().join(" · ")],
     ].filter(([, value]) => String(value || "").trim());
@@ -1551,24 +1843,37 @@
     item.textContent = [
       summary.location.display,
       summary.spaceType,
-      summary.sizeOrPeople,
+      summary.businessType ? optionLabel(businessTypeOptions, summary.businessType) : "",
+      summary.officeEnvironment ? optionLabel(officeEnvironmentOptions, summary.officeEnvironment) : "",
     ].filter((value) => String(value || "").trim()).join(" • ");
     contactReminder.appendChild(item);
   }
 
   function showActiveStep() {
+    const steps = activeSteps();
+    const step = currentStepKey();
+    const readiness = profileReadiness();
     root.querySelectorAll("[data-profile-step]").forEach((fieldset) => {
       const key = fieldset.dataset.profileStep;
-      fieldset.hidden = !["targetArea", "spaceType", "size"].includes(key);
+      fieldset.hidden = key !== step;
     });
 
-    stepCount.textContent = "Business Profile";
-    root.classList.add("is-first-step");
-    prevButton.hidden = true;
+    stepCount.textContent = readiness.ready ? "Business Profile ready" : "Business Profile";
+    root.classList.toggle("is-first-step", activeStepIndex === 0);
+    prevButton.hidden = activeStepIndex === 0;
     resetButton.hidden = completedCount() === 0;
     nextButton.hidden = false;
-    nextButton.textContent = primaryCtaLabel;
-    progressBar.style.width = "50%";
+    nextButton.textContent = nextStepLabel();
+    nextButton.disabled = activeStepIndex >= steps.length - 1 ? !readiness.ready : !currentStepIsValid();
+    nextButton.dataset.profileAction = activeStepIndex >= steps.length - 1 ? "build_location_brief" : "continue";
+    progressBar.style.width = `${Math.round((readiness.completed / Math.max(1, readiness.total)) * 100)}%`;
+    if (stepError) stepError.textContent = stepErrorMessage();
+    if (conversationPromptNode) conversationPromptNode.textContent = conversationPrompt();
+    if (readinessNote) {
+      readinessNote.textContent = readiness.ready
+        ? "Rofo has enough business context to create your Location Brief."
+        : "Complete a few more business details to create your Location Brief.";
+    }
   }
 
   function renderInputs() {
@@ -1579,7 +1884,7 @@
 
   function renderSummary() {
     const completed = completedCount();
-    card.dataset.profileState = completed >= 3 ? "ready" : completed > 0 ? "in-progress" : "empty";
+    card.dataset.profileState = completed >= activeSteps().length ? "ready" : completed > 0 ? "in-progress" : "empty";
     root.classList.toggle("has-progressed", activeStepIndex > 0 || viewMode !== "edit");
     if (summaryTitle) {
       summaryTitle.textContent = "Private while exploring • Free";
@@ -1601,13 +1906,17 @@
   }
 
   function renderPreview() {
-    const values = previewValues();
+    const values = completedPreviewValues();
     previewEmpty.hidden = values.length > 0;
     previewList.hidden = values.length === 0;
     previewList.innerHTML = "";
-    values.forEach((value) => {
+    values.forEach(([label, value]) => {
       const item = document.createElement("li");
-      item.textContent = value;
+      const labelEl = document.createElement("span");
+      const valueEl = document.createElement("strong");
+      labelEl.textContent = label;
+      valueEl.textContent = value;
+      item.append(labelEl, valueEl);
       previewList.appendChild(item);
     });
   }
@@ -1650,6 +1959,7 @@
     renderSummary();
     renderPreview();
     renderFinishedSummary();
+    showActiveStep();
   });
 
   if (locationSearchInput) {
@@ -1718,12 +2028,33 @@
     profile.skipped = false;
     updateLocationFromSelections();
     saveProfile();
+    if (!validateCurrentStep()) return;
+    const step = currentStepKey();
+    if (step === "targetArea") trackStepCompleted("location");
+    if (step === "spaceType") trackStepCompleted("space_type");
+    if (step === "businessType") trackStepCompleted("business_type");
+    if (step === "operationalUse") trackStepCompleted("operational_use");
+    if (step === "officeEnvironment") trackStepCompleted("office_environment");
+    if (step === "commuteOrientation") trackStepCompleted("commute_orientation");
+    if (step === "expectedGrowth") trackStepCompleted("expected_growth");
+    if (step === "institutionProximity") trackStepCompleted("institution_proximity");
+    if (step === "size" || step === "people") trackStepCompleted("size");
+    if (advanceConversation()) return;
     if (!validateInitialSearch()) return;
     saveRecommendationContext();
     trackSearchProfileEvent("search_profile_build_location_brief_clicked");
     trackStepCompleted("location");
     trackStepCompleted("space_type");
-    trackStepCompleted("size");
+    if (isOfficeProfile()) {
+      trackStepCompleted("business_type");
+      trackStepCompleted("operational_use");
+      trackStepCompleted("office_environment");
+      trackStepCompleted("commute_orientation");
+      trackStepCompleted("expected_growth");
+      if (isInstitutionProximityRelevant()) trackStepCompleted("institution_proximity");
+    } else {
+      trackStepCompleted("size");
+    }
     if (pageType === "find_locations") {
       window.location.assign(recommendationsUrl);
       return;
@@ -1742,6 +2073,12 @@
       locationSelections: locationOptionLabel() ? [locationOptionLabel()] : [],
       selectedLocations: normalizeSelectedLocations([], locationOptionLabel() ? [locationOptionLabel()] : []),
       locationOther: "",
+      businessType: "",
+      operationalUse: [],
+      officeEnvironment: "",
+      commuteOrientation: "",
+      expectedGrowth: "",
+      institutionProximity: "",
       sourceContext: { ...defaultProfile.sourceContext },
       contact: { ...defaultProfile.contact },
     });
@@ -1830,6 +2167,7 @@
   });
 
   renderRecommendationEntryNote();
+  if (viewMode === "edit") activeStepIndex = firstIncompleteStepIndex();
   render();
   setCollapsed(collapsed);
   if (analyticsEnabled && "IntersectionObserver" in window) {

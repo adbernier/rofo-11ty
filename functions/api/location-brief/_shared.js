@@ -4,6 +4,10 @@ import {
   jsonResponse,
   randomHex,
 } from "../leads/_shared.js";
+import {
+  buildProjectSnapshotFromBrief,
+  projectSnapshotTextLines,
+} from "../../_shared/project-snapshot.js";
 
 export { escapeHtml, htmlResponse, jsonResponse };
 
@@ -56,6 +60,16 @@ function normalizeSearchProfile(profile) {
     size: clean(value.size || value.size_or_people, 120),
     timing: clean(value.timing || value.moveTiming || value.move_timing, 120),
     locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent),
+    modelKey: clean(value.modelKey || value.model_key, 120),
+    businessType: clean(value.businessType || value.business_type, 120),
+    operationalUse: cleanArray(value.operationalUse || value.operational_use, 12),
+    officeEnvironment: clean(value.officeEnvironment || value.office_environment, 140),
+    commuteOrientation: clean(value.commuteOrientation || value.commute_orientation, 140),
+    expectedGrowth: clean(value.expectedGrowth || value.expected_growth, 120),
+    institutionProximity: clean(value.institutionProximity || value.institution_proximity, 140),
+    facts: value.facts && typeof value.facts === "object" ? value.facts : {},
+    constraints: value.constraints && typeof value.constraints === "object" ? value.constraints : {},
+    priorities: value.priorities && typeof value.priorities === "object" ? value.priorities : {},
     timestamp: clean(value.timestamp, 80),
   };
 }
@@ -283,7 +297,7 @@ export function canonicalizeBrief(input, request, existing = {}) {
       primaryLocationLabel: marketPath.primaryLocationLabel,
     };
 
-  return {
+  const brief = {
     id,
     publicId,
     createdAt: existing.createdAt || now,
@@ -312,6 +326,11 @@ export function canonicalizeBrief(input, request, existing = {}) {
       createdFrom: clean(input.createdFrom || "recommendations", 120),
       userAgent: clean(request.headers.get("user-agent"), 500),
     },
+  };
+
+  return {
+    ...brief,
+    projectSnapshot: buildProjectSnapshotFromBrief(brief),
   };
 }
 
@@ -570,16 +589,23 @@ export async function sendLocationBriefEmail(env, request, brief) {
   const size = sizeSummary(brief);
   const intentLabel = locationIntentLabel(brief.searchProfile && brief.searchProfile.locationIntent);
   const investigation = brief.liveMarketInvestigation;
+  const projectSnapshot = brief.projectSnapshot || buildProjectSnapshotFromBrief(brief);
+  const snapshotLines = projectSnapshotTextLines(projectSnapshot);
   const subject = investigation && investigation.investigationIntent
     ? `New Rofo Live Market Investigation - ${investigation.districtName || location}`
-    : `New Rofo Location Brief - ${location} ${spaceType} Search`;
+    : `New Rofo ${projectSnapshot.propertyType || spaceType || "Space"} Requirement - ${projectSnapshot.market || location}`;
   const marketPath = marketPathLabels(brief);
   const text = [
     investigation && investigation.investigationIntent ? "NEW ROFO LIVE MARKET INVESTIGATION" : "NEW ROFO LOCATION BRIEF",
     "",
+    "A new Rofo requirement has been submitted.",
+    "",
     `Location Brief ID: ${brief.publicId}`,
     `Location Brief URL: ${url}`,
     `Status: ${brief.status}`,
+    "",
+    "PROJECT SNAPSHOT",
+    ...snapshotLines,
     "",
     "CONTACT",
     `Name: ${brief.contact.name}`,
@@ -587,17 +613,11 @@ export async function sendLocationBriefEmail(env, request, brief) {
     `Email: ${brief.contact.email}`,
     `Phone: ${brief.contact.phone || ""}`,
     "",
-    "BUSINESS REQUIREMENTS",
-    `Location: ${location}`,
-    `Space type: ${spaceType}`,
-    `Size: ${size}`,
-    `Location intent: ${intentLabel}`,
+    "BEST FITS",
+    ...(projectSnapshot.topDistricts && projectSnapshot.topDistricts.length ? projectSnapshot.topDistricts.map((district) => `- ${district}`) : [marketPath || "Expert review needed"]),
     "",
-    "RECOMMENDED MARKET PATH",
-    marketPath || "Expert review needed",
-    "",
-    "BUSINESS PRIORITIES",
-    ...(brief.priorities && brief.priorities.length ? brief.priorities.map((item) => `- ${item}`) : ["(none selected)"]),
+    "ROUTING NOTE",
+    "Please review the Location Brief before contacting the client.",
     "",
     "FEEDBACK",
     brief.feedback || "(none selected)",

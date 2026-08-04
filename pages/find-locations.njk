@@ -9,35 +9,6 @@ eleventyComputed:
 
 <section class="city-page search-profile-page">
   <div class="city-shell">
-    <div class="breadcrumbs">
-      <a href="/">Rofo</a>
-      <span aria-hidden="true">/</span>
-      <span>Business Profile</span>
-    </div>
-
-    <div class="city-hero city-hero--district-identity">
-      <div class="city-card">
-        <div class="city-hero-copy">
-          <div class="eyebrow">Business Profile</div>
-          <h1>
-            <span>Tell Rofo about your business.</span>
-          </h1>
-          <p class="lead">
-            Rofo uses this profile to recommend where your business should begin looking for commercial space and to prepare a Location Brief explaining the reasoning, tradeoffs, representative buildings, and questions to validate before touring.
-          </p>
-          <p class="search-profile-page__advisor-note">
-            Takes about one minute. Your answers directly shape the recommendation.
-          </p>
-          <ol class="business-profile-journey" aria-label="Rofo recommendation journey">
-            <li>Business Profile</li>
-            <li>Location Recommendation</li>
-            <li>Location Brief</li>
-            <li>Live Market Review</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-
     <div class="search-profile-page__shell">
       <section class="find-locations-context-note" data-profile-query-context hidden>
         <p>Based on what you were exploring:</p>
@@ -55,14 +26,14 @@ eleventyComputed:
         "state": "",
         "context_type": "find_locations",
         "context_label": "Business Profile",
-        "card_headline": "Create your Business Profile",
-        "primary_cta_label": "Build My Location Brief",
+        "card_headline": "Business Profile",
+        "primary_cta_label": "Create My Location Brief",
         "contact_heading": "We have enough to build your Location Brief.",
         "contact_prompt": "Add an email to save this Business Profile and receive your recommendation.",
-        "contact_cta_label": "Build My Location Brief",
+        "contact_cta_label": "Create My Location Brief",
         "finished_heading": "Your Business Profile is ready.",
         "finished_copy": "Rofo has enough context to prepare your recommendation and Location Brief.",
-        "location_helper": "Choose any places already on your mind. Rofo can compare nearby markets when they may fit better.",
+        "location_helper": "A city, district, neighborhood, or street is enough.",
         "location_chip_mode": "selected_only",
         "page_url": metadata.siteUrl + page.url,
         "page_title": title,
@@ -154,6 +125,7 @@ eleventyComputed:
     document.addEventListener("click", (event) => {
       const button = event.target && event.target.closest("[data-profile-next]");
       if (!button) return;
+      if (button.dataset.profileAction !== "build_location_brief") return;
       track("find_locations_primary_cta_clicked");
     }, { capture: true });
   })();

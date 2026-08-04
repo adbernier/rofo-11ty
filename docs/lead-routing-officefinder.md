@@ -8,6 +8,31 @@ This workflow stores tenant leads as pending, emails Alan for approval, and send
 
 Partner and advertising forms should stay separate unless those inquiries should enter this tenant lead queue.
 
+## Location Brief Handoff
+
+The production recommendation handoff now treats the Location Brief as the canonical artifact. When a user submits the broker CTA from `/recommendations/`, Rofo:
+
+1. Stores the Location Brief and generates a stable `/location-brief/{briefId}` URL.
+2. Derives a reusable Project Snapshot from the Brief.
+3. Stores a pending lead-dashboard record with the Brief URL, Project Snapshot, route recommendation, and OfficeFinder payload.
+4. Sends the internal approval notification.
+5. Sends the customer confirmation email.
+6. Sends OfficeFinder and direct broker handoffs only after the existing approval action is used.
+
+OfficeFinder and broker messages do not duplicate the full recommendation. They include a concise Project Snapshot, the top districts, and the Location Brief URL.
+
+The Project Snapshot intentionally includes only execution-relevant fields:
+
+- Market
+- Property Type
+- Business Type
+- Approximate Size, when available
+- Timing, when available
+- Growth, when available
+- Top Three Districts
+
+Location Brief handoff helpers live in `functions/_shared/project-snapshot.js`. The canonical Brief submit path is `functions/api/location-brief/submit.js`.
+
 ## Architecture
 
 1. Tenant form posts to `/api/leads/submit`.
@@ -256,6 +281,29 @@ Field mapping:
 | `Comments` | requirements, raw size, page type, source, and space type |
 | `rofo_source` | `rofo_source`, falling back to `page_url` |
 
+For Location Brief leads, `Comments` is intentionally concise:
+
+```text
+Rofo Location Brief
+
+{Location Brief URL}
+
+Best Fits
+- District A
+- District B
+- District C
+
+Please review the Location Brief before contacting the client.
+
+Project Snapshot
+Market: ...
+Property Type: ...
+```
+
+The structured OfficeFinder fields remain unchanged.
+
+OfficeFinder requires a phone number. If a Location Profile or Location Brief customer does not provide one, the OfficeFinder adapter uses the existing integration-only placeholder `555-555-5555`. Rofo does not overwrite the stored customer phone value, does not show this placeholder in the Location Brief, and does not include it in direct broker or customer-facing emails. Placeholder usage is logged as `placeholder_phone_used`.
+
 Finance option mapping:
 
 - Office Space, Office, Flex Space, Flex, Not Sure, or blank: `leasing`
@@ -331,3 +379,18 @@ Verify:
 - Duplicate approvals do not resend.
 - Google Sheets webhook failure does not block submission.
 - Partner form still posts to Formspree.
+
+Additional Location Brief handoff QA:
+
+```bash
+node scripts/qa-location-brief-handoff.js
+```
+
+Verify:
+
+- Location Brief leads preserve the canonical Brief URL.
+- Project Snapshot is stored on the Brief-derived lead.
+- Internal approval notifications include routing and OfficeFinder status.
+- OfficeFinder comments point to the Brief instead of duplicating the full recommendation.
+- Broker email uses the concise Location Brief handoff format.
+- Customer confirmation links back to the Brief.

@@ -8,276 +8,73 @@ eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/recommendations/"
 ---
 
-<section class="recommendations-page">
-  <div class="recommendations-shell">
+<section class="recommendations-page location-brief-page">
+  <div class="recommendations-shell location-brief-page__shell">
     <div class="breadcrumbs">
       <a href="/">Rofo</a>
       <span aria-hidden="true">/</span>
       <span>Location Brief</span>
     </div>
 
-    <section class="recommendations-hero">
-      <div class="recommendations-hero__copy">
-        <div class="eyebrow" data-recommendation-hero-badge>LOCATION BRIEF</div>
-        <h1>Your commercial location recommendation.</h1>
-        <div class="location-brief-opening" aria-labelledby="location-brief-opening-heading">
-          <h2 id="location-brief-opening-heading">Recommended Starting Locations</h2>
-          <ol data-location-brief-hero-path>
-            <li>Mission Bay</li>
-            <li>SoMa</li>
-            <li>Financial District</li>
-          </ol>
-        </div>
-        <p class="lead" data-recommendation-hero-copy>
-          Begin with Mission Bay, then compare SoMa and the Financial District before narrowing to buildings.
-        </p>
-        <div class="location-brief-executive-summary" aria-label="Location Brief executive summary">
-          <section>
-            <span>Where to begin</span>
-            <strong data-location-brief-summary-primary>Mission Bay</strong>
-            <p data-location-brief-summary-path>Use this as the baseline, then compare nearby alternatives.</p>
-          </section>
-          <section>
-            <span>Why it fits</span>
-            <strong>Business fit</strong>
-            <p data-location-brief-summary-why>Modern office context, transit access, and room to compare growth options.</p>
-          </section>
-          <section>
-            <span>Confidence</span>
-            <strong data-location-brief-summary-confidence>High Confidence</strong>
-            <p>Strong enough to guide the first market review; live availability still needs validation.</p>
-          </section>
-        </div>
-        <dl class="recommendations-recap" aria-label="Business Profile recap">
-          <div>
-            <dt>Location</dt>
-            <dd data-recommendation-context-location data-recommendation-location>San Francisco</dd>
-          </div>
-          <div>
-            <dt>Space</dt>
-            <dd data-recommendation-context-space data-recommendation-space>Office</dd>
-          </div>
-          <div>
-            <dt>Size</dt>
-            <dd data-recommendation-context-size data-recommendation-size>2,500-5,000 sqft</dd>
-          </div>
-          <div>
-            <dt>Intent</dt>
-            <dd data-recommendation-context-intent>Compare with nearby markets</dd>
-          </div>
-        </dl>
+    <section class="location-brief-profile" aria-labelledby="location-brief-profile-heading">
+      <div>
+        <div class="kicker">Business Profile</div>
+        <h1 id="location-brief-profile-heading">Business Profile</h1>
+        <p data-location-brief-profile-intro>These are the business characteristics that shaped this Location Brief.</p>
       </div>
+      <div class="location-brief-profile__chips" data-location-brief-profile-chips>
+        <span>San Francisco</span>
+        <span>Office</span>
+      </div>
+      <a class="location-brief-edit-profile" href="/find-locations/">Edit Business Profile</a>
     </section>
 
-    <section class="recommendation-context-card recommendation-memo-section" aria-labelledby="recommendation-context-heading" data-recommendation-context-card hidden>
-      <div class="kicker" data-recommendation-context-kicker>Location Brief Summary</div>
-      <h2 id="recommendation-context-heading" data-recommendation-context-heading>Recommended starting point.</h2>
-      <p class="recommendation-memo-lead" data-recommendation-context-copy>
-        Mission Bay is the strongest starting point because it offers modern office inventory, strong transit access, and room for growth. SoMa and the Financial District are useful comparisons before narrowing the search to individual buildings.
-      </p>
-      <p data-recommendation-demo-detail>
-        <a href="/example-location-brief/">View an Example Location Brief</a>
-      </p>
-    </section>
-
-    <section class="recommendation-expert-guided" data-recommendation-expert-guided hidden>
-      <div class="kicker">Expert Guided Brief</div>
-      <h2>This market needs live review.</h2>
-      <p>
-        This Business Profile has enough location, space type, and size context for a local market expert to review relevant options when you choose that next step.
-      </p>
-      <a class="recommendations-button" href="/find-locations/">Update Business Profile</a>
-    </section>
-
-    <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommended-districts" data-recommendation-supported>
-      <div class="recommendations-section__header">
-        <div class="kicker" data-recommendation-section-kicker>Recommendation Summary</div>
-        <h2 id="recommended-districts" data-recommendation-section-heading>Start with the strongest fit, then pressure-test alternatives.</h2>
-        <p>
-          These are the first locations to evaluate before checking live availability, requesting introductions, or touring buildings.
+    <section class="location-brief-summary" aria-labelledby="location-brief-summary-heading">
+      <div class="kicker">Executive Summary</div>
+      <h2 id="location-brief-summary-heading">Where Rofo would begin.</h2>
+      <div class="location-brief-summary__copy">
+        <p data-location-brief-summary-copy-one>
+          Based on your Business Profile, Mission Bay, SoMa, and South Beach are the strongest places to begin your search.
+        </p>
+        <p data-location-brief-summary-copy-two>
+          These locations create a practical starting point before reviewing live availability, lease economics, or individual buildings with a broker.
         </p>
       </div>
-
-      <div class="recommendation-brief-grid" data-recommendation-brief-grid hidden>
-        <section class="recommendation-brief-panel recommendation-brief-panel--path">
-          <h3>Where Rofo would begin</h3>
-          <div class="recommendation-market-path" data-recommendation-market-path></div>
-        </section>
-
-        <section class="recommendation-brief-panel">
-          <h3>Why the comparison set matters</h3>
-          <div class="recommendation-compare-list" data-recommendation-compare-with></div>
-        </section>
-      </div>
     </section>
 
-    <section class="recommendations-section recommendation-memo-section" aria-labelledby="recommendation-rationale">
-      <div class="recommendations-section__header">
-        <div class="kicker">Reasoning</div>
-        <h2 id="recommendation-rationale">Why this recommendation fits.</h2>
+    <section class="location-brief-best-fits" aria-labelledby="location-brief-best-fits-heading" data-location-brief-best-fits-section>
+      <div class="location-brief-section-header">
+        <div class="kicker">Best Fits</div>
+        <h2 id="location-brief-best-fits-heading">Best Fits</h2>
+        <p>These are the districts Rofo would begin with from the current Business Profile.</p>
       </div>
-      <p class="recommendation-strategy" data-recommendation-strategy>
-        Mission Bay offers the strongest combination of modern inventory, accessibility, amenity context, and future flexibility for this profile. SoMa and the Financial District should still be pressure-tested for pricing, commute patterns, and building availability.
+      <div class="location-brief-best-fit-grid" data-location-brief-best-fits></div>
+    </section>
+
+    <section class="location-brief-district-detail" aria-labelledby="location-brief-district-detail-heading" data-location-brief-district-detail>
+      <div class="location-brief-section-header">
+        <div class="kicker">District Detail</div>
+        <h2 id="location-brief-district-detail-heading">Why these places fit.</h2>
+        <p>Use the district detail to understand the character of each recommended starting point.</p>
+      </div>
+      <div class="location-brief-district-detail__grid" data-location-brief-district-detail-grid></div>
+    </section>
+
+    <section class="location-brief-comparative-guidance" aria-labelledby="location-brief-comparative-heading">
+      <div class="kicker">Comparative Guidance</div>
+      <h2 id="location-brief-comparative-heading">How to use this recommendation.</h2>
+      <p data-location-brief-comparative-copy>
+        Begin with the strongest-fit district, then compare the alternatives against the tradeoffs that matter most to the business.
       </p>
-      <ul class="recommendation-evaluate-list recommendation-evaluate-list--memo" data-recommendation-evaluate-next>
-        <li>Modern and flexible office inventory.</li>
-        <li>Strong transit and talent access.</li>
-        <li>Good fit for growth-stage companies.</li>
-        <li>Useful comparison set before narrowing to individual buildings.</li>
-      </ul>
     </section>
 
-    <section class="recommendations-section recommendation-memo-section recommendation-primary-section" aria-labelledby="primary-market-deep-dive">
-      <div class="recommendations-section__header">
-        <div class="kicker">Evidence</div>
-        <h2 id="primary-market-deep-dive" data-recommendation-primary-name>Mission Bay</h2>
-        <p><span class="recommendation-status" data-recommendation-status>Recommended Starting Point</span></p>
+    <section class="location-brief-representative-buildings" aria-labelledby="location-brief-buildings-heading" data-location-brief-representative-buildings>
+      <div class="location-brief-section-header">
+        <div class="kicker">Representative Buildings</div>
+        <h2 id="location-brief-buildings-heading">Representative buildings to understand the district character.</h2>
+        <p>These are representative examples, not current availability. They help explain the kinds of commercial environments to evaluate next.</p>
       </div>
-      <article class="recommendation-primary">
-        <div class="recommendation-primary__body">
-          <div class="recommendation-confidence" aria-label="Recommendation confidence summary">
-            <span data-recommendation-fit-label><strong>96</strong> Match</span>
-            <span data-recommendation-judgment-label>Strongly Recommended</span>
-            <span data-recommendation-confidence-label>High Confidence</span>
-          </div>
-          <p class="recommendation-advice" data-recommendation-primary-advice>
-            Mission Bay gives this search the best mix of modern office context, technology and life science adjacency, and room to compare buildings with larger, more current floor plates. It also keeps the search close to Caltrain-oriented access while staying connected to SoMa and the downtown core.
-          </p>
-          <p class="recommendation-note" data-recommendation-primary-note>
-            Mission Bay should not be treated as the only answer. Use it as the baseline for quality, commute pattern, and expansion potential, then compare the alternatives against that standard.
-          </p>
-          <section class="recommendation-score-explainer" aria-labelledby="mission-bay-score">
-            <h4 id="mission-bay-score" data-recommendation-explainer-heading>Why Mission Bay ranks first</h4>
-            <div class="recommendation-advisor-grid">
-              <section class="recommendation-advisor-panel">
-                <h5>Why this location</h5>
-                <ul>
-                  <li data-recommendation-rationale-one>Requested office size aligns well with the type of modern buildings available to evaluate here.</li>
-                  <li data-recommendation-rationale-two>Mission Bay gives the search a strong technology and life science business context.</li>
-                  <li data-recommendation-rationale-three>Transit, Caltrain access, and regional commute routes make it a practical first market to test.</li>
-                  <li data-recommendation-rationale-four>Nearby amenities support teams that need a polished workplace environment.</li>
-                  <li data-recommendation-rationale-five>The district leaves room to compare multiple credible buildings before narrowing the search.</li>
-                </ul>
-              </section>
-
-              <section class="recommendation-advisor-panel">
-                <h5>Tradeoffs</h5>
-                <ul class="recommendation-score-tradeoffs">
-                  <li data-recommendation-tradeoff-one>Mission Bay can price at a premium versus nearby alternatives.</li>
-                  <li data-recommendation-tradeoff-two>It may not be the right first choice for a highly value-sensitive search.</li>
-                  <li data-recommendation-tradeoff-three>Some teams may prefer the older creative-office character found in SoMa.</li>
-                </ul>
-              </section>
-
-              <section class="recommendation-advisor-panel">
-                <h5>Best suited for</h5>
-                <ul>
-                  <li data-recommendation-fit-one>Technology companies that want modern office context.</li>
-                  <li data-recommendation-fit-two>Life science, healthcare, and research-adjacent teams.</li>
-                  <li data-recommendation-fit-three>Growth-stage companies that may need expansion flexibility.</li>
-                  <li data-recommendation-fit-four>Teams that value UCSF, Caltrain, and waterfront-adjacent amenities.</li>
-                </ul>
-              </section>
-
-              <section class="recommendation-advisor-panel recommendation-advisor-panel--confidence">
-                <h5>What High Confidence means</h5>
-                <p>
-                  <span data-recommendation-confidence-copy>The initial inputs are strong enough to make Mission Bay a credible starting point: location, space type, and size all point toward a district with relevant building examples and clear nearby alternatives. A local market check would still confirm live options before any decision.</span>
-                </p>
-              </section>
-            </div>
-          </section>
-          <div class="recommendation-actions">
-            <a href="/commercial-real-estate/CA/san-francisco/mission-bay/" data-recommendation-primary-link>Explore District</a>
-            <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/" data-recommendation-demo-detail>Compare to SoMa</a>
-          </div>
-        </div>
-      </article>
-
-      <aside class="recommendation-representative-buildings" aria-labelledby="primary-representative-buildings" data-recommendation-representative-buildings data-recommendation-demo-detail>
-          <div class="recommendation-evidence__header">
-            <div class="kicker">Representative examples</div>
-            <h4 id="primary-representative-buildings" data-representative-buildings-heading>Representative buildings that explain this recommendation</h4>
-            <p data-representative-buildings-disclosure>These buildings are representative examples, not current availability. They help explain the kinds of commercial environments businesses commonly evaluate in this district.</p>
-          </div>
-
-          <div class="recommendation-building-list" data-representative-building-list>
-            {% for building in recommendationRepresentativeBuildings.byDistrictSlug["mission-bay"].buildings %}
-              {% if loop.index <= 3 %}
-                <article class="recommendation-building-card recommendation-building-card--representative">
-                  {% if building.image or building.fieldPhotoSubjectId %}
-                    <img src="{{ building.image or '/images/placeholders/building-c.svg' }}" alt="{{ building.name }} in {{ building.city }}, {{ building.state }}" {% if building.fieldPhotoSubjectId %}data-building-photo-subject-id="{{ building.fieldPhotoSubjectId }}"{% endif %} loading="lazy" decoding="async">
-                    <p class="recommendation-building-card__credit" data-building-photo-credit hidden></p>
-                  {% endif %}
-                  <div>
-                    <span>{{ building.address }} · {{ building.buildingType }}</span>
-                    <h5><a href="{{ building.canonicalUrl }}">View Building Brief: {{ building.name }}</a></h5>
-                    <p><strong>Why it matters</strong>{{ building.representativeReason }}</p>
-                    <p><strong>Best for</strong>{{ building.bestFitSummary }}</p>
-                    <p><strong>Tradeoff</strong>{{ building.primaryTradeoff }}</p>
-                  </div>
-                </article>
-              {% endif %}
-            {% endfor %}
-          </div>
-
-          <div class="recommendation-live-market-panel" data-live-market-investigation-panel>
-            <div>
-              <h5>Ready to investigate the live market?</h5>
-              <p>The Location Brief explains where to begin and why. A Live Market Review checks what is actually available now.</p>
-              <ul>
-                <li>current availability</li>
-                <li>future availability</li>
-                <li>comparable buildings</li>
-                <li>recent leasing activity</li>
-                <li>market insight</li>
-                <li>broker guidance when available</li>
-              </ul>
-              <p class="recommendation-live-market-panel__note">Availability and broker support depend on market coverage and current requirements.</p>
-            </div>
-            <a class="recommendations-button" href="#location-brief-contact" data-location-brief-review-trigger data-live-market-investigation-cta>Start Live Market Review</a>
-          </div>
-      </aside>
-    </section>
-
-    <section class="recommendations-section recommendation-memo-section" aria-labelledby="comparison-markets">
-      <div class="recommendations-section__header">
-        <div class="kicker">Comparison</div>
-        <h2 id="comparison-markets">How to compare the alternatives.</h2>
-        <p>
-          Use these alternatives to test commute, cost, building character, and market flexibility against the recommended starting point.
-        </p>
-      </div>
-      <div class="recommendation-compare-list recommendation-compare-list--memo" data-recommendation-compare-with-secondary hidden></div>
-      <div class="recommendation-secondary-grid" aria-label="Alternative recommendations" data-recommendation-demo-detail>
-        <article class="recommendation-card">
-          <div class="recommendation-card__topline">
-            <span class="recommendation-status">Strong Alternative</span>
-          </div>
-          <h3>SoMa</h3>
-          <p class="recommendation-advice">
-            SoMa is the strongest alternative if the search needs more building variety, a more central downtown position, or a creative office feel. It is worth comparing closely against Mission Bay because it can offer flexible formats while keeping access to downtown, Mission Bay, and transit-oriented corridors.
-          </p>
-          <div class="recommendation-actions">
-            <a href="/commercial-real-estate/CA/san-francisco/soma/">Explore District</a>
-            <a href="/commercial-real-estate/CA/san-francisco/soma-vs-mission-bay/">Compare to Mission Bay</a>
-          </div>
-        </article>
-
-        <article class="recommendation-card">
-          <div class="recommendation-card__topline">
-            <span class="recommendation-status">Worth Exploring</span>
-          </div>
-          <h3>Financial District</h3>
-          <p class="recommendation-advice">
-            The Financial District is worth exploring if client access, transit, and a more traditional office-core environment matter. It may be less aligned with a newer innovation-campus feel, but it can be a smart benchmark for pricing, commute convenience, and professional-service credibility.
-          </p>
-          <div class="recommendation-actions">
-            <a href="/commercial-real-estate/CA/san-francisco/financial-district/">Explore District</a>
-            <a href="/commercial-real-estate/CA/san-francisco/financial-district-vs-soma/">Compare to SoMa</a>
-          </div>
-        </article>
-      </div>
+      <div class="location-brief-building-groups" data-location-brief-building-groups></div>
     </section>
 
     <section class="location-brief-refinement" aria-labelledby="location-brief-refinement-heading" data-location-brief-refinement>
@@ -306,8 +103,8 @@ eleventyComputed:
         <section class="location-brief-refinement__panel" aria-labelledby="brief-questions-heading">
           <h3 id="brief-questions-heading">Questions to validate next</h3>
           <ul class="location-brief-question-list" data-location-brief-questions>
-            <li>Current availability in the recommended market path.</li>
-            <li>Asking rents, concessions, and lease structure.</li>
+            <li>Current availability in the recommended districts.</li>
+            <li>Lease economics and timing for specific buildings.</li>
             <li>Comparable buildings and nearby alternatives.</li>
           </ul>
         </section>
@@ -318,28 +115,26 @@ eleventyComputed:
           <textarea id="location-brief-notes" data-location-brief-notes rows="4" placeholder="Example: parking is critical, clients visit weekly, or we need room to expand."></textarea>
         </section>
       </div>
-
     </section>
 
     <form class="recommendations-cta location-brief-contact location-brief-contact--final" id="location-brief-contact" data-location-brief-contact aria-labelledby="market-investigation" method="post" action="/api/location-brief/submit">
       <div class="location-brief-contact__header">
-        <div class="kicker" data-recommendation-cta-kicker>Live Market Review</div>
-        <h2 id="market-investigation" data-recommendation-cta-heading>Validate the recommendation with live market help.</h2>
+        <div class="kicker" data-recommendation-cta-kicker>Next Steps</div>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Discuss this recommendation with a broker.</h2>
         <p data-recommendation-cta-copy>
-          Share your brief only when you want help checking availability, comparable buildings, lease structure, and broker guidance.
+          Share your Business Profile and Location Brief with a local expert who can recommend specific buildings and help plan tours.
         </p>
       </div>
 
       <div class="recommendations-cta__panel">
-        <h3>What the live review can check</h3>
+        <h3>What a broker can validate</h3>
         <ul>
           <li>Current availability</li>
-          <li>Asking rents</li>
-          <li>Landlord incentives</li>
-          <li>Sublease opportunities</li>
-          <li>Upcoming vacancies</li>
-          <li>Off-market options</li>
-          <li>Comparable buildings</li>
+          <li>Specific buildings to tour</li>
+          <li>Asking rents and concessions</li>
+          <li>Lease structure and timing</li>
+          <li>Comparable options</li>
+          <li>Market conditions</li>
         </ul>
       </div>
 
@@ -361,7 +156,7 @@ eleventyComputed:
               <dd data-live-market-intake-district>To confirm</dd>
             </div>
             <div>
-              <dt>Search profile</dt>
+              <dt>Business Profile</dt>
               <dd data-live-market-intake-profile>Profile details preserved</dd>
             </div>
           </dl>
@@ -444,7 +239,7 @@ eleventyComputed:
         </label>
       </div>
       <div class="location-brief-contact__actions">
-        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Start Live Market Review</button>
+        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Discuss This Recommendation With a Broker</button>
         <p data-location-brief-contact-status></p>
       </div>
     </form>
