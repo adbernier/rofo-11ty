@@ -891,14 +891,14 @@
     setText("[data-recommendation-rationale-five]", validationFocus[2] ? `Validation focus: ${validationFocus[2]}` : "A local market check can compare credible options before narrowing the search.");
     setText("[data-recommendation-tradeoff-one]", primary.tradeoffSummary || (primary.tradeoffs && primary.tradeoffs[0]) || "This is a starting recommendation, not a final building decision.");
     setText("[data-recommendation-tradeoff-two]", primary.tradeoffs && primary.tradeoffs[1] ? primary.tradeoffs[1] : "Live availability, pricing, and lease terms still need to be verified.");
-    setText("[data-recommendation-tradeoff-three]", primary.tradeoffs && primary.tradeoffs[2] ? primary.tradeoffs[2] : "Nearby markets may prove stronger once commute, budget, and timing are reviewed.");
+    setText("[data-recommendation-tradeoff-three]", primary.tradeoffs && primary.tradeoffs[2] ? primary.tradeoffs[2] : "Nearby markets may prove stronger once commute, timing, and building requirements are reviewed.");
     setText("[data-recommendation-fit-one]", primary.bestFor && primary.bestFor[0] ? primary.bestFor[0] : `${spaceText} users looking for a focused market starting point.`);
     setText("[data-recommendation-fit-two]", primary.bestFor && primary.bestFor[1] ? primary.bestFor[1] : `Teams in the ${sizeText} range that want to compare realistic building options.`);
     setText("[data-recommendation-fit-three]", primary.bestFor && primary.bestFor[2] ? primary.bestFor[2] : "Businesses that want local guidance before reviewing live availability.");
     setText("[data-recommendation-fit-four]", primary.bestFor && primary.bestFor[3] ? primary.bestFor[3] : "Decision-makers who want to pressure-test nearby alternatives before committing to one market.");
     setText(
       "[data-recommendation-confidence-copy]",
-      `${state.confidenceLabel} means ${primary.label} has structured recommendation metadata in Rofo's Commercial Location Graph and your profile includes the key starting inputs: location, space type, and size. It does not mean Rofo has scored live availability yet.`
+      `${state.confidenceLabel} means ${primary.label} is supported by Rofo's commercial knowledge and the Business Profile gives enough context to begin. It does not mean live availability, pricing, or lease terms have been verified.`
     );
 
     const primaryLink = document.querySelector("[data-recommendation-primary-link]");

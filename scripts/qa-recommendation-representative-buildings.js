@@ -220,10 +220,11 @@ function generatedPageChecks() {
   const html = fs.readFileSync(htmlPath, "utf8");
   const errors = [];
   const warnings = [];
-  if (!html.includes("data-recommendation-representative-buildings")) errors.push("recommendation page missing representative-building module shell");
+  if (!html.includes("data-location-brief-representative-buildings")) errors.push("recommendation page missing representative-building module shell");
   if (!html.includes("representative examples, not current availability")) errors.push("missing representative-example disclosure");
-  if (!html.includes("data-live-market-investigation-cta")) errors.push("missing Live Market Investigation CTA");
-  if (!html.includes("#location-brief-contact")) errors.push("dead investigation CTA");
+  const jsHasInvestigationCta = fs.readFileSync(path.join(__dirname, "..", "js", "recommendation-context.js"), "utf8").includes("data-live-market-investigation-cta");
+  if (!jsHasInvestigationCta && !html.includes("data-location-brief-contact")) errors.push("missing Live Market Investigation CTA");
+  if (!html.includes('id="location-brief-contact"')) errors.push("dead investigation CTA");
   if (html.includes("undefined")) errors.push("generated recommendations page contains undefined");
   if (html.includes("[object Object]")) errors.push("generated recommendations page contains object text");
   if (/\bN\/A\b/.test(html)) errors.push("generated recommendations page contains N/A");

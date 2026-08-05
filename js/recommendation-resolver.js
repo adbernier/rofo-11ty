@@ -358,7 +358,7 @@
     const locations = (context.locations || []).map((location) => location.label).filter(Boolean).join(" / ") || "Your selected market";
     const subject = encodeURIComponent(`Rofo expert review: ${locations}`);
     const body = encodeURIComponent([
-      "I'd like a local expert to review my Rofo Search Profile.",
+      "I'd like a local expert to review my Rofo Business Profile.",
       "",
       `Location: ${locations}`,
       `Space: ${context.spaceType || "Not specified"}`,

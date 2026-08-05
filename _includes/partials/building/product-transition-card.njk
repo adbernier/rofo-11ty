@@ -1,17 +1,17 @@
 {% set transitionVariant = productTransitionVariant or "building" %}
 {% set transitionCtaUrl = productTransitionCtaUrl or "/find-locations/" %}
-{% set transitionCtaLabel = productTransitionCtaLabel or "Start Your Search" %}
+{% set transitionCtaLabel = productTransitionCtaLabel or "Create My Location Brief" %}
 {% set transitionSecondaryUrl = productTransitionSecondaryUrl or "" %}
 {% set transitionSecondaryLabel = productTransitionSecondaryLabel or "" %}
 
 {% if transitionVariant == "comparison" %}
   {% set transitionEyebrow = productTransitionEyebrow or "Next step" %}
   {% set transitionHeadline = productTransitionHeadline or "Ready to narrow your shortlist?" %}
-  {% set transitionBody = productTransitionBody or "This comparison explains the market-level tradeoffs. Rofo can evaluate buildings and districts against the company's specific priorities, including team needs, industry, budget, timing, growth plans, and workplace goals." %}
+  {% set transitionBody = productTransitionBody or "This comparison explains the market-level tradeoffs. Rofo can evaluate buildings and districts against the company's specific priorities, including team needs, industry, timing, growth plans, and workplace goals." %}
 {% else %}
   {% set transitionEyebrow = productTransitionEyebrow or "Evaluate fit" %}
   {% set transitionHeadline = productTransitionHeadline or "Could this building fit your business?" %}
-  {% set transitionBody = productTransitionBody or "Every business evaluates office space differently. The right location depends on your team, industry, budget, growth plans, and the kind of workplace you're trying to create. Create a Search Profile and Rofo will evaluate whether this building fits your business and recommend nearby buildings and districts that may be an even better match." %}
+  {% set transitionBody = productTransitionBody or "Every business evaluates office space differently. The right location depends on your team, industry, growth plans, and the kind of workplace you're trying to create. Create a Business Profile and Rofo will evaluate whether this building fits your business and recommend nearby buildings and districts that may be an even better match." %}
 {% endif %}
 
 <section class="product-transition-card{% if transitionVariant %} product-transition-card--{{ transitionVariant }}{% endif %}" data-product-transition-state="no-search-profile">

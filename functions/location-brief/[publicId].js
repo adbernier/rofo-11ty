@@ -214,8 +214,8 @@ function renderPage(brief) {
       </header>
 
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Business Requirements</div>
-        <h2>Search Profile</h2>
+        <div class="location-brief-kicker">Business Profile</div>
+        <h2>Business Profile</h2>
         ${descriptionList([
           ["Location", escapeHtml(location)],
           ["Space type", escapeHtml(space)],
@@ -228,7 +228,7 @@ function renderPage(brief) {
       </section>
 
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Recommended Market Path</div>
+        <div class="location-brief-kicker">Best Fits</div>
         <h2>${escapeHtml(brief.marketPath && brief.marketPath.title || "Recommended starting point")}</h2>
         <div class="location-brief-path-grid">
           ${renderMarketPath(brief)}
@@ -252,7 +252,7 @@ function renderPage(brief) {
       <section class="location-brief-card">
         <div class="location-brief-kicker">Questions for Expert Review</div>
         <h2>Questions for expert review</h2>
-        ${list(questions, "A local expert should confirm commute, budget, timing, and building requirements.")}
+        ${list(questions, "A local expert should confirm commute, timing, operating constraints, and building requirements.")}
       </section>
 
       <section class="location-brief-card">

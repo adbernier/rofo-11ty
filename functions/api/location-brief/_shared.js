@@ -316,7 +316,7 @@ export function canonicalizeBrief(input, request, existing = {}) {
     assignedBroker: null,
     officeFinderSubmission: {
       status: "not_submitted",
-      note: "Existing Search Profile and OfficeFinder referral workflow remains unchanged. This Location Brief is stored as an additional Rofo asset.",
+      note: "Existing Business Profile and OfficeFinder referral workflow remains unchanged. This Location Brief is stored as an additional Rofo asset.",
     },
     brokerNotes: [],
     metadata: {
