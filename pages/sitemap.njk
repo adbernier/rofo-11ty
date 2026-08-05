@@ -63,6 +63,14 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
+  {% for brief in businessBriefs.briefs %}
+  {% if brief.isIndexable %}
+  <url>
+    <loc>{{ siteUrl }}{{ brief.url }}</loc>
+  </url>
+  {% endif %}
+  {% endfor %}
+
   {% set guideUrls = [] %}
   {% for guide in marketGuides %}
   {% set guideLoc = siteUrl + guide.url %}

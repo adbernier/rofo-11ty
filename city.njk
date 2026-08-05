@@ -58,6 +58,12 @@ eleventyComputed:
 {% endfor %}
 {% set cityMarketGuideKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" %}
 {% set cityMarketGuide = marketGuideLookup[cityMarketGuideKey] %}
+{% set cityBusinessBriefs = [] %}
+{% for brief in businessBriefs.briefs %}
+  {% if brief.market.marketSlug == city.slug and brief.market.state == city.state_abbr and brief.propertyType == "office" and brief.isIndexable %}
+    {% set cityBusinessBriefs = (cityBusinessBriefs.push(brief), cityBusinessBriefs) %}
+  {% endif %}
+{% endfor %}
 {% set cityNeighborhoods = [] %}
 {% for neighborhood in neighborhoodPages %}
   {% if neighborhood.city_slug == city.slug and neighborhood.state_abbr == city.state_abbr and not neighborhood.noindex %}
@@ -466,6 +472,23 @@ eleventyComputed:
                 {% for guide in cityMarketGuides %}
                   <li>
                     <a href="{{ guide.url }}">{{ guide.space_type_label }} Guide</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if cityBusinessBriefs.length %}
+            <div class="city-card city-support-module">
+              <div class="eyebrow">Office by Business Type</div>
+              <h2>Start with the right office districts</h2>
+              <p>
+                Different businesses should begin the {{ city.city }} office search in different districts. These Business Briefs explain the first places Rofo would compare and why.
+              </p>
+              <ul class="mini-list">
+                {% for brief in cityBusinessBriefs %}
+                  <li>
+                    <a href="{{ brief.url }}">{{ brief.archetype.pluralLabel }}</a>
                   </li>
                 {% endfor %}
               </ul>
