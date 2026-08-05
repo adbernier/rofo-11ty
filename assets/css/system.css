@@ -12084,39 +12084,139 @@ section.market-page--space-type .market-links a {
 }
 
 .business-brief-page {
-  padding: 16px 0 72px;
+  padding: 18px 0 88px;
 }
 
 .business-brief-page .city-shell {
-  max-width: 1080px;
+  max-width: 1180px;
 }
 
 .business-brief {
   display: grid;
-  gap: 26px;
+  gap: 34px;
 }
 
 .business-brief-hero {
-  padding: 38px;
+  padding: 42px;
+  overflow: hidden;
+}
+
+.business-brief-hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 38px;
+  align-items: end;
 }
 
 .business-brief-hero h1 {
-  max-width: 760px;
+  max-width: 780px;
   margin-bottom: 16px;
+  letter-spacing: 0;
 }
 
 .business-brief-hero .lead {
   max-width: 720px;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.business-brief-context-row .pill {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.business-brief-hero-preview {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.business-brief-hero-preview__label {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.business-brief-hero-preview ol {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.business-brief-hero-preview li {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.business-brief-hero-preview li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.business-brief-hero-preview span {
+  color: #0f172a;
+  font-size: 1.06rem;
+  font-weight: 750;
+}
+
+.business-brief-hero-preview small {
+  color: #64748b;
+  font-size: 0.9rem;
 }
 
 .business-brief-section,
 .business-brief-review-note {
-  padding: 30px;
+  padding: 34px;
+}
+
+.business-brief-section {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.business-brief-section--priority {
+  max-width: none;
+}
+
+.business-brief-section--light {
+  max-width: none;
+  padding: 6px 0;
+}
+
+.business-brief-section__intro {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.business-brief-section__intro h2,
+.business-brief-section__intro p {
+  margin: 0;
 }
 
 .business-brief-section h2,
 .business-brief-review-note h2 {
   margin-top: 0;
+  letter-spacing: 0;
+}
+
+.business-brief-section p,
+.business-brief-review-note p {
+  line-height: 1.72;
 }
 
 .business-brief-section p:last-child,
@@ -12128,7 +12228,7 @@ section.market-page--space-type .market-links a {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
 .business-brief-token-row span,
@@ -12138,10 +12238,11 @@ section.market-page--space-type .market-links a {
   min-height: 30px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: #eef5ff;
-  color: #174ea6;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
   font-size: 0.86rem;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .business-brief-priority-grid,
@@ -12150,50 +12251,116 @@ section.market-page--space-type .market-links a {
 .business-brief-two-column {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
 .business-brief-priority,
 .business-brief-fit-card,
 .business-brief-building-group {
-  border: 1px solid #d8e0ea;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   background: #ffffff;
-  padding: 20px;
+  padding: 22px;
+}
+
+.business-brief-fit-card {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+  min-height: 100%;
+  border-color: #cbd5e1;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.055);
+}
+
+.business-brief-priority {
+  background: #f8fafc;
+}
+
+.business-brief-fit-card__reasons {
+  display: grid;
+  gap: 10px;
 }
 
 .business-brief-priority h3,
 .business-brief-fit-card h3,
 .business-brief-building-group h3 {
   margin-top: 0;
+  letter-spacing: 0;
 }
 
 .business-brief-fit-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  display: grid;
+  gap: 14px;
+}
+
+.business-brief-fit-card__header p {
+  margin: 8px 0 0;
+}
+
+.business-brief-fit-card__header span {
+  justify-self: start;
+}
+
+.business-brief-fit-card h4 {
+  margin: 0;
+  color: #334155;
+  font-size: 0.92rem;
 }
 
 .business-brief-fit-card ul,
-.business-brief-building-group ul,
 .business-brief-two-column ul {
   margin-bottom: 0;
   padding-left: 20px;
 }
 
 .business-brief-fit-card li + li,
-.business-brief-building-group li + li,
 .business-brief-two-column li + li {
   margin-top: 8px;
 }
 
-.business-brief-building-group li {
+.business-brief-building-list {
+  display: grid;
+  gap: 12px;
+}
+
+.business-brief-building-card {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.business-brief-building-card:hover strong {
+  text-decoration: underline;
+}
+
+.business-brief-building-card__media {
+  display: grid;
+  place-items: center;
+  min-height: 58px;
+  border-radius: 8px;
+  background-color: #edf2f7;
+  background-position: center;
+  background-size: cover;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.business-brief-building-card__media--empty {
+  border: 1px solid #e2e8f0;
+}
+
+.business-brief-building-card__body {
   display: grid;
   gap: 3px;
 }
 
-.business-brief-building-group span {
+.business-brief-building-card__body span {
   color: #64748b;
   font-size: 0.9rem;
 }
@@ -12204,20 +12371,35 @@ section.market-page--space-type .market-links a {
 }
 
 .business-brief-cta {
+  display: grid;
+  gap: 14px;
   background: #f8fbff;
 }
 
 .business-brief-cta .btn-primary {
   display: inline-flex;
-  margin: 10px 0 16px;
+  justify-self: start;
 }
 
 .space-type-business-briefs {
   display: grid;
-  gap: 18px;
+  gap: 24px;
+  padding: 34px;
 }
 
-.space-type-business-briefs > p {
+.space-type-business-briefs__header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
+  gap: 28px;
+  align-items: end;
+}
+
+.space-type-business-briefs__header h2,
+.space-type-business-briefs__header p {
+  margin: 0;
+}
+
+.space-type-business-briefs__header p {
   max-width: 760px;
 }
 
@@ -12229,11 +12411,17 @@ section.market-page--space-type .market-links a {
 
 .space-type-business-brief-card {
   display: grid;
-  gap: 12px;
-  padding: 20px;
+  gap: 18px;
+  align-content: start;
+  padding: 22px;
   border: 1px solid #d8e0ea;
   border-radius: 8px;
   background: #ffffff;
+}
+
+.space-type-business-brief-card__body {
+  display: grid;
+  gap: 10px;
 }
 
 .space-type-business-brief-card h3,
@@ -12243,7 +12431,9 @@ section.market-page--space-type .market-links a {
 
 .space-type-business-brief-card__fits {
   display: grid;
-  gap: 4px;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e8f0;
 }
 
 .space-type-business-brief-card__fits span {
@@ -12259,6 +12449,10 @@ section.market-page--space-type .market-links a {
   font-weight: 650;
 }
 
+.space-type-business-brief-card__link {
+  align-self: end;
+}
+
 .space-type-business-brief-cta {
   display: flex;
   justify-content: flex-start;
@@ -12269,14 +12463,24 @@ section.market-page--space-type .market-links a {
     padding-top: 10px;
   }
 
+  .business-brief {
+    gap: 24px;
+  }
+
+  .business-brief-hero__layout,
+  .space-type-business-briefs__header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .business-brief-hero,
   .business-brief-section,
-  .business-brief-review-note {
+  .business-brief-review-note,
+  .space-type-business-briefs {
     padding: 20px;
   }
 
-  .business-brief-fit-card__header {
-    display: grid;
+  .business-brief-hero-preview {
+    padding: 18px;
   }
 
   .business-brief-priority-grid,
@@ -12289,5 +12493,9 @@ section.market-page--space-type .market-links a {
 
   .space-type-business-brief-card {
     padding: 18px;
+  }
+
+  .business-brief-building-card {
+    grid-template-columns: 64px minmax(0, 1fr);
   }
 }

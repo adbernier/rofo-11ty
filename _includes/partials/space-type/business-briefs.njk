@@ -1,15 +1,21 @@
 {% if spaceTypeBusinessBriefs and spaceTypeBusinessBriefs.length %}
   <section class="city-card city-card--full space-type-business-briefs" aria-labelledby="space-type-business-briefs-heading">
-    <div class="eyebrow">Office Recommendations by Business Type</div>
-    <h2 id="space-type-business-briefs-heading">Find the right office location for your business</h2>
-    <p>
-      Different businesses value different office districts. These guides explain where Rofo would begin for common office search patterns in {{ city.city }}.
-    </p>
+    <div class="space-type-business-briefs__header">
+      <div>
+        <div class="eyebrow">Office Recommendations by Business Type</div>
+        <h2 id="space-type-business-briefs-heading">Find the right office location for your business</h2>
+      </div>
+      <p>
+        Different businesses value different office districts. These guides explain where Rofo would begin for common office search patterns in {{ city.city }}.
+      </p>
+    </div>
     <div class="space-type-business-brief-grid">
       {% for brief in spaceTypeBusinessBriefs %}
         <article class="space-type-business-brief-card">
-          <h3>{{ brief.archetype.pluralLabel }}</h3>
-          <p>{{ brief.archetype.description }}</p>
+          <div class="space-type-business-brief-card__body">
+            <h3>{{ brief.archetype.pluralLabel }}</h3>
+            <p>{{ brief.archetype.description }}</p>
+          </div>
           {% if brief.bestFits and brief.bestFits.length %}
             <div class="space-type-business-brief-card__fits">
               <span>Best Fits</span>
@@ -20,7 +26,7 @@
               </p>
             </div>
           {% endif %}
-          <a href="{{ brief.url }}">Explore office recommendations for {{ brief.archetype.pluralLabel | lower }}</a>
+          <a class="space-type-business-brief-card__link" href="{{ brief.url }}">Read the guide</a>
         </article>
       {% endfor %}
     </div>

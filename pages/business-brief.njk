@@ -22,20 +22,35 @@ eleventyComputed:
 
     <article class="business-brief">
       <header class="business-brief-hero city-card">
-        <div class="business-brief-hero__content">
-          <div class="eyebrow">{{ brief.market.marketName }} {{ brief.propertyTypeLabel }} Business Brief</div>
-          <h1>{{ brief.pageHeading }}</h1>
-          <p class="lead">
-            See where {{ brief.archetype.pluralLabel | lower }} should begin looking for {{ brief.propertyTypeLabel | lower }} space in {{ brief.market.marketName }}, and why those districts fit the way the business uses space.
-          </p>
-          <div class="pill-row">
-            <span class="pill">{{ brief.market.marketName }}</span>
-            <span class="pill">{{ brief.propertyTypeLabel }}</span>
-            <span class="pill">{{ brief.archetype.shortLabel or brief.archetype.label }}</span>
+        <div class="business-brief-hero__layout">
+          <div class="business-brief-hero__content">
+            <div class="eyebrow">{{ brief.market.marketName }} {{ brief.propertyTypeLabel }} Guide</div>
+            <h1>{{ brief.pageHeading }}</h1>
+            <p class="lead">
+              See where {{ brief.archetype.pluralLabel | lower }} should begin looking for {{ brief.propertyTypeLabel | lower }} space in {{ brief.market.marketName }}, and why those districts fit the way the business uses space.
+            </p>
+            <div class="pill-row business-brief-context-row">
+              <span class="pill">{{ brief.market.marketName }}</span>
+              <span class="pill">{{ brief.propertyTypeLabel }}</span>
+              <span class="pill">{{ brief.archetype.shortLabel or brief.archetype.label }}</span>
+            </div>
+            <div class="button-row">
+              <a class="btn-primary" href="{{ brief.cta.url }}">{{ brief.cta.label }}</a>
+            </div>
           </div>
-          <div class="button-row">
-            <a class="btn-primary" href="{{ brief.cta.url }}">{{ brief.cta.label }}</a>
-          </div>
+          {% if brief.bestFits and brief.bestFits.length %}
+            <aside class="business-brief-hero-preview" aria-label="Recommendation preview">
+              <div class="business-brief-hero-preview__label">Where Rofo would begin</div>
+              <ol>
+                {% for fit in brief.bestFits.slice(0, 3) %}
+                  <li>
+                    <span>{{ fit.districtName }}</span>
+                    <small>{{ fit.fitLabel }}</small>
+                  </li>
+                {% endfor %}
+              </ol>
+            </aside>
+          {% endif %}
         </div>
       </header>
 
@@ -46,6 +61,38 @@ eleventyComputed:
           <p>{{ brief.readinessRationale or "This Business Brief is available for internal review but is not yet indexable." }}</p>
         </section>
       {% endif %}
+
+      <section class="business-brief-section business-brief-section--priority" aria-labelledby="business-brief-best-fits-heading">
+        <div class="business-brief-section__intro">
+          <div class="eyebrow">Best Fits</div>
+          <h2 id="business-brief-best-fits-heading">Districts worth comparing first</h2>
+          <p>These are the places Rofo would investigate first for this business type, based on durable district character rather than live availability.</p>
+        </div>
+        <div class="business-brief-fit-grid">
+          {% for fit in brief.bestFits %}
+            <article class="business-brief-fit-card">
+              <div class="business-brief-fit-card__header">
+                <div>
+                  <h3>{{ fit.districtName }}</h3>
+                  <p>{{ fit.summary }}</p>
+                </div>
+                <span>{{ fit.fitLabel }}</span>
+              </div>
+              <div class="business-brief-fit-card__reasons">
+                <h4>Why it fits</h4>
+                <ul>
+                  {% for reason in fit.reasons %}
+                    <li>{{ reason }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% if fit.districtPath %}
+                <a href="{{ fit.districtPath }}">Explore {{ fit.districtName }}</a>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
 
       <section class="city-card business-brief-section" aria-labelledby="business-brief-summary-heading">
         <div class="eyebrow">Executive Summary</div>
@@ -68,40 +115,17 @@ eleventyComputed:
         {% endif %}
       </section>
 
-      <section class="city-card business-brief-section" aria-labelledby="business-brief-priorities-heading">
-        <div class="eyebrow">Location Priorities</div>
-        <h2 id="business-brief-priorities-heading">What changes the recommendation</h2>
+      <section class="business-brief-section business-brief-section--light" aria-labelledby="business-brief-priorities-heading">
+        <div class="business-brief-section__intro">
+          <div class="eyebrow">Location Priorities</div>
+          <h2 id="business-brief-priorities-heading">What changes the recommendation</h2>
+        </div>
         <div class="business-brief-priority-grid">
           {% for priority in brief.locationPriorities %}
             <div class="business-brief-priority">
               <h3>{{ priority.label }}</h3>
               <p>{{ priority.reason }}</p>
             </div>
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="city-card business-brief-section" aria-labelledby="business-brief-best-fits-heading">
-        <div class="eyebrow">Best Fits</div>
-        <h2 id="business-brief-best-fits-heading">Districts worth comparing first</h2>
-        <div class="business-brief-fit-grid">
-          {% for fit in brief.bestFits %}
-            <article class="business-brief-fit-card">
-              <div class="business-brief-fit-card__header">
-                <h3>{{ fit.districtName }}</h3>
-                <span>{{ fit.fitLabel }}</span>
-              </div>
-              <p>{{ fit.summary }}</p>
-              <h4>Why it fits</h4>
-              <ul>
-                {% for reason in fit.reasons %}
-                  <li>{{ reason }}</li>
-                {% endfor %}
-              </ul>
-              {% if fit.districtPath %}
-                <a href="{{ fit.districtPath }}">Explore {{ fit.districtName }}</a>
-              {% endif %}
-            </article>
           {% endfor %}
         </div>
       </section>
@@ -123,14 +147,21 @@ eleventyComputed:
             <div class="business-brief-building-group">
               <h3>{{ fit.districtName }}</h3>
               {% if fit.representativeBuildings.length %}
-                <ul>
+                <div class="business-brief-building-list">
                   {% for building in fit.representativeBuildings.slice(0, 3) %}
-                    <li>
-                      <a href="{{ building.canonicalUrl }}">{{ building.name }}</a>
-                      <span>{{ building.buildingType }}</span>
-                    </li>
+                    <a class="business-brief-building-card" href="{{ building.canonicalUrl }}">
+                      {% if building.image %}
+                        <span class="business-brief-building-card__media" style="background-image: url('{{ building.image }}');"></span>
+                      {% else %}
+                        <span class="business-brief-building-card__media business-brief-building-card__media--empty">Example</span>
+                      {% endif %}
+                      <span class="business-brief-building-card__body">
+                        <strong>{{ building.name }}</strong>
+                        <span>{{ building.buildingType or "Representative building" }}</span>
+                      </span>
+                    </a>
                   {% endfor %}
-                </ul>
+                </div>
               {% else %}
                 <p class="business-brief-muted">Representative building coverage for this district is a documented follow-on gap.</p>
               {% endif %}
@@ -165,7 +196,7 @@ eleventyComputed:
       <section class="city-card business-brief-section business-brief-cta" aria-labelledby="business-brief-cta-heading">
         <div class="eyebrow">Personalized Location Brief</div>
         <h2 id="business-brief-cta-heading">Create Your Personalized Location Brief</h2>
-        <p>{{ brief.cta.context }}</p>
+        <p>Want recommendations tailored to your own business? Create a Location Brief that considers your office use, commute orientation, environment preference, and growth expectations.</p>
         <a class="btn-primary" href="{{ brief.cta.url }}">{{ brief.cta.label }}</a>
         <p class="business-brief-muted">{{ brief.brokerContext }}</p>
       </section>
