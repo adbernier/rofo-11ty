@@ -1,0 +1,31 @@
+{% if spaceTypeBusinessBriefs and spaceTypeBusinessBriefs.length %}
+  <section class="city-card city-card--full space-type-business-briefs" aria-labelledby="space-type-business-briefs-heading">
+    <div class="eyebrow">Office Recommendations by Business Type</div>
+    <h2 id="space-type-business-briefs-heading">Find the right office location for your business</h2>
+    <p>
+      Different businesses value different office districts. These guides explain where Rofo would begin for common office search patterns in {{ city.city }}.
+    </p>
+    <div class="space-type-business-brief-grid">
+      {% for brief in spaceTypeBusinessBriefs %}
+        <article class="space-type-business-brief-card">
+          <h3>{{ brief.archetype.pluralLabel }}</h3>
+          <p>{{ brief.archetype.description }}</p>
+          {% if brief.bestFits and brief.bestFits.length %}
+            <div class="space-type-business-brief-card__fits">
+              <span>Best Fits</span>
+              <p>
+                {% for fit in brief.bestFits.slice(0, 3) %}
+                  {{ fit.districtName }}{% if not loop.last %} · {% endif %}
+                {% endfor %}
+              </p>
+            </div>
+          {% endif %}
+          <a href="{{ brief.url }}">Explore office recommendations for {{ brief.archetype.pluralLabel | lower }}</a>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="space-type-business-brief-cta">
+      <a class="btn-primary" href="/find-locations/?city={{ city.city | urlencode }}&state={{ stateAbbr | urlencode }}&space_type={{ spaceType.label | urlencode }}&source=office_space_hub">Create My Location Brief</a>
+    </div>
+  </section>
+{% endif %}

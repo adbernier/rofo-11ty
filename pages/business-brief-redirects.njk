@@ -1,0 +1,7 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+{% for redirect in businessBriefRedirects -%}
+{{ redirect.from }} {{ redirect.to }} {{ redirect.status }}
+{% endfor %}

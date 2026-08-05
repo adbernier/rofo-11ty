@@ -13,12 +13,7 @@ eleventyComputed:
   robots: "{% if brief.noindex %}noindex,follow{% endif %}"
 ---
 
-{% set crumbs = [
-  { "label": "Markets", "url": "/markets/" },
-  { "label": brief.market.marketName, "url": brief.market.route },
-  { "label": brief.propertyTypeLabel, "url": brief.internalLinks.propertyType },
-  { "label": brief.archetype.pluralLabel, "url": brief.url }
-] %}
+{% set crumbs = brief.breadcrumbs %}
 {% set isHeld = brief.publicationReadiness != "published" and brief.publicationReadiness != "ready" %}
 
 <section class="business-brief-page">

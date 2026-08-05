@@ -24,6 +24,14 @@ eleventyComputed:
     {% set searchProfileLocationSuggestions = (searchProfileLocationSuggestions.push(nearby.city), searchProfileLocationSuggestions) %}
   {% endfor %}
 {% endif %}
+{% set spaceTypeBusinessBriefs = [] %}
+{% if businessBriefs and businessBriefs.briefs and spaceType.slug == "office-space" %}
+  {% for brief in businessBriefs.briefs %}
+    {% if brief.isIndexable and brief.market.marketSlug == city.slug and brief.internalLinks.propertyType == "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" %}
+      {% set spaceTypeBusinessBriefs = (spaceTypeBusinessBriefs.push(brief), spaceTypeBusinessBriefs) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 {% set crumbs = [
   { "label": city.city + ", " + stateAbbr, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" },
   { "label": spaceType.pluralLabel, "url": "/commercial-real-estate/" + stateAbbr + "/" + (city.slug | lower) + "/" + spaceType.slug + "/" }
@@ -70,6 +78,7 @@ eleventyComputed:
       <div class="page-stack space-type-main-content">
         {% include "partials/space-type/market-snapshot.njk" %}
         {% include "partials/space-type/guide-card.njk" %}
+        {% include "partials/space-type/business-briefs.njk" %}
 
         {% include "partials/space-type/definitions-card.njk" %}
         {% include "partials/space-type/budget-card.njk" %}

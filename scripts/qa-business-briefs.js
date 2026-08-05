@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const businessBriefs = require("../_data/businessBriefs.js");
+const businessBriefRedirects = require("../_data/businessBriefRedirects.js");
+const spaceTypePages = require("../_data/spaceTypePages.js");
 const businessArchetypes = require("../_data/businessArchetypes.js");
 const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph.js");
 const sfOfficeModel = require("../_data/sfOfficeRecommendationModel.js");
@@ -171,8 +173,38 @@ for (const brief of briefs) {
   if (!clean(brief.seoTitle)) fail(`${context} missing SEO title`);
   if (!clean(brief.metaDescription)) fail(`${context} missing meta description`);
   if (!clean(brief.pageHeading)) fail(`${context} missing page heading`);
-  if (!brief.url || !brief.url.startsWith(`/${brief.market.marketSlug}/office/`)) {
-    fail(`${context} has invalid URL convention`);
+  const canonicalParentUrl = `/commercial-real-estate/${brief.market.state}/${brief.market.marketSlug}/office-space/`;
+  const canonicalBriefUrl = `${canonicalParentUrl}${brief.archetype.slug}/`;
+  if (brief.url !== canonicalBriefUrl) {
+    fail(`${context} has invalid canonical Business Brief URL; expected ${canonicalBriefUrl}`);
+  }
+  if (brief.canonicalUrl !== brief.url) {
+    fail(`${context} canonicalUrl must match migrated URL`);
+  }
+  if (brief.internalLinks.propertyType !== canonicalParentUrl) {
+    fail(`${context} property-type parent link must use canonical hierarchy`);
+  }
+  const oldRoute = `/${brief.market.marketSlug}/office/${brief.archetype.slug}/`;
+  const oldRouteNoSlash = oldRoute.slice(0, -1);
+  if (!Array.isArray(brief.legacyUrls) || !brief.legacyUrls.includes(oldRoute) || !brief.legacyUrls.includes(oldRouteNoSlash)) {
+    fail(`${context} must expose legacy URLs for redirects`);
+  }
+  if (!Array.isArray(brief.breadcrumbs) || brief.breadcrumbs.length !== 5) {
+    fail(`${context} must expose canonical breadcrumbs`);
+  } else {
+    const breadcrumbUrls = brief.breadcrumbs.map((crumb) => crumb.url);
+    if (breadcrumbUrls[1] !== `/commercial-real-estate/${brief.market.state}/`) {
+      fail(`${context} breadcrumb state URL must use canonical state route`);
+    }
+    if (breadcrumbUrls[2] !== brief.market.route) {
+      fail(`${context} breadcrumb market URL must use canonical market route`);
+    }
+    if (breadcrumbUrls[3] !== canonicalParentUrl) {
+      fail(`${context} breadcrumb property-type URL must use canonical office-space route`);
+    }
+    if (breadcrumbUrls[4] !== brief.url) {
+      fail(`${context} breadcrumb page URL must use migrated Business Brief route`);
+    }
   }
   if (!Array.isArray(brief.executiveSummary) || brief.executiveSummary.length !== 2) {
     fail(`${context} must have two executive-summary paragraphs`);
@@ -274,6 +306,7 @@ for (const brief of briefs) {
 
 const published = briefs.filter((brief) => brief.isIndexable);
 const held = briefs.filter((brief) => !brief.isIndexable);
+const redirects = businessBriefRedirects || [];
 const summaryPairs = briefs.map((brief) => clean(brief.executiveSummary[0]).toLowerCase());
 if (hasDuplicate(summaryPairs)) {
   fail("Executive summaries must not be exact duplicates");
@@ -281,6 +314,11 @@ if (hasDuplicate(summaryPairs)) {
 
 const publishedDenver = published.filter((brief) => brief.market.marketId === "denver");
 const heldDenver = held.filter((brief) => brief.market.marketId === "denver");
+const officeHubRoutes = new Set(
+  (spaceTypePages || [])
+    .filter((entry) => entry.page_slug === "office-space")
+    .map((entry) => `/commercial-real-estate/${entry.state_abbr}/${entry.city_slug}/${entry.page_slug}/`)
+);
 
 if (published.length !== 9) {
   fail(`Expected 9 published/indexable Business Briefs after Denver Phase 1B, found ${published.length}`);
@@ -296,6 +334,45 @@ if (publishedDenver.length !== 4) {
 
 if (heldDenver.length !== 1 || heldDenver[0].id !== "denver:office:healthcare-organization") {
   fail("Expected only Denver healthcare organization brief to remain held/noindex");
+}
+
+for (const brief of published) {
+  if (!officeHubRoutes.has(brief.internalLinks.propertyType)) {
+    fail(`${brief.id} published Business Brief parent Office Space route does not exist: ${brief.internalLinks.propertyType}`);
+  }
+}
+
+for (const brief of held) {
+  if (brief.isIndexable) fail(`${brief.id} held Business Brief must not be indexable`);
+}
+
+const redirectKeys = new Set();
+for (const redirect of redirects) {
+  const key = `${redirect.from} ${redirect.to}`;
+  if (redirectKeys.has(key)) fail(`Duplicate Business Brief redirect: ${key}`);
+  redirectKeys.add(key);
+  if (redirect.status !== 301) fail(`Business Brief redirect must be permanent: ${key}`);
+  if (!redirect.from || redirect.from.includes("/commercial-real-estate/")) {
+    fail(`Business Brief redirect source must be a legacy non-canonical URL: ${redirect.from}`);
+  }
+  if (!redirect.to || !redirect.to.startsWith("/commercial-real-estate/")) {
+    fail(`Business Brief redirect target must be canonical: ${redirect.to}`);
+  }
+  if (redirect.from === redirect.to) {
+    fail(`Business Brief redirect creates a self-redirect: ${key}`);
+  }
+}
+
+const expectedRedirectCount = briefs.reduce((sum, brief) => sum + (brief.legacyUrls || []).length, 0);
+if (redirects.length !== expectedRedirectCount) {
+  fail(`Expected ${expectedRedirectCount} Business Brief redirects, found ${redirects.length}`);
+}
+
+for (const brief of briefs) {
+  for (const legacy of brief.legacyUrls || []) {
+    const match = redirects.find((redirect) => redirect.from === legacy && redirect.to === brief.url && redirect.status === 301);
+    if (!match) fail(`${brief.id} missing permanent redirect from ${legacy} to ${brief.url}`);
+  }
 }
 
 if (!readinessSummary.byMarket || !readinessSummary.byMarket.denver) {
@@ -314,6 +391,7 @@ console.log(`- held/noindex: ${held.length}`);
 console.log(`- Denver published/indexable: ${publishedDenver.length}`);
 console.log(`- Denver held/noindex: ${heldDenver.length}`);
 console.log(`- route convention: ${businessBriefs.routeConvention}`);
+console.log(`- redirects: ${redirects.length}`);
 
 if (failures.length) {
   console.error("\nFailures:");

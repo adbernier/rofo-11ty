@@ -40,7 +40,10 @@ Phase 1 creates ten Business Brief records. San Francisco pages are published an
 - `_data/businessBriefDefinitions.js` owns market/property/archetype Business Brief definitions.
 - `lib/publisher/resolve-business-brief.js` assembles Business Briefs from canonical source data.
 - `_data/businessBriefs.js` exposes resolved briefs to Eleventy.
+- `_data/businessBriefRedirects.js` exposes legacy-to-canonical redirects generated from resolved briefs.
 - `pages/business-brief.njk` renders the shared public template.
+- `pages/business-brief-redirects.njk` writes the Cloudflare Pages `_redirects` file for migrated Business Brief URLs.
+- `_includes/partials/space-type/business-briefs.njk` renders published Business Brief summary cards on canonical Office Space pages.
 - `scripts/qa-business-briefs.js` validates identity, readiness, metadata, links, evidence, and duplication controls.
 - `_data/denverOfficeRecommendationModel.js`, `lib/recommendations/denver-office-recommendation-resolver.js`, and `scripts/qa-denver-office-recommendation-model.js` define and validate the Denver Office reference model used for Denver Business Brief readiness.
 
@@ -86,19 +89,53 @@ Briefs reference canonical districts and representative buildings. They do not d
 
 ## URL Convention
 
-Business Brief URLs use:
+Business Brief URLs are children of Rofo's canonical market/property-type hierarchy:
 
 ```text
-/{market-slug}/office/{archetype-slug}/
+/commercial-real-estate/{state}/{market-slug}/{space-type-slug}/{archetype-slug}/
 ```
 
 Examples:
 
-- `/san-francisco/office/technology-companies/`
-- `/san-francisco/office/law-firms/`
-- `/denver/office/nonprofits/`
+- `/commercial-real-estate/CA/san-francisco/office-space/technology-companies/`
+- `/commercial-real-estate/CA/san-francisco/office-space/law-firms/`
+- `/commercial-real-estate/CO/denver/office-space/nonprofits/`
 
-This convention is short, durable, market-readable, and scalable to future property types. It avoids conflict with existing district, building, listing, and commercial-real-estate routes.
+The parent Office Space pages are:
+
+- `/commercial-real-estate/CA/san-francisco/office-space/`
+- `/commercial-real-estate/CO/denver/office-space/`
+
+Routes are resolved in `lib/publisher/resolve-business-brief.js` from the canonical market route, property-type segment, and archetype slug. Templates, sitemap, breadcrumbs, structured-data breadcrumbs, hub cards, and redirects consume the resolved `brief.url` or `brief.internalLinks.propertyType` rather than rebuilding route strings.
+
+Legacy Phase 1 URLs permanently redirect to the canonical hierarchy:
+
+| Old URL | New canonical URL |
+| --- | --- |
+| `/san-francisco/office/technology-companies/` | `/commercial-real-estate/CA/san-francisco/office-space/technology-companies/` |
+| `/san-francisco/office/professional-services/` | `/commercial-real-estate/CA/san-francisco/office-space/professional-services/` |
+| `/san-francisco/office/law-firms/` | `/commercial-real-estate/CA/san-francisco/office-space/law-firms/` |
+| `/san-francisco/office/healthcare-organizations/` | `/commercial-real-estate/CA/san-francisco/office-space/healthcare-organizations/` |
+| `/san-francisco/office/nonprofits/` | `/commercial-real-estate/CA/san-francisco/office-space/nonprofits/` |
+| `/denver/office/technology-companies/` | `/commercial-real-estate/CO/denver/office-space/technology-companies/` |
+| `/denver/office/professional-services/` | `/commercial-real-estate/CO/denver/office-space/professional-services/` |
+| `/denver/office/law-firms/` | `/commercial-real-estate/CO/denver/office-space/law-firms/` |
+| `/denver/office/healthcare-organizations/` | `/commercial-real-estate/CO/denver/office-space/healthcare-organizations/` |
+| `/denver/office/nonprofits/` | `/commercial-real-estate/CO/denver/office-space/nonprofits/` |
+
+The no-trailing-slash form of each old URL also redirects directly to the same canonical destination. Redirects are permanent and generated from resolved Business Brief data to avoid hierarchy drift.
+
+Breadcrumbs use existing public pages only:
+
+```text
+Commercial Real Estate
+-> State
+-> Market
+-> Office Space
+-> Business Type Guide
+```
+
+The top breadcrumb points to the existing `/markets/` commercial real estate market index because the current site does not have a separate `/commercial-real-estate/` root page.
 
 ## Page Structure
 
@@ -146,11 +183,11 @@ Held pages are generated so editors can review portability, but they use `noinde
 
 Published:
 
-- `/san-francisco/office/technology-companies/`
-- `/san-francisco/office/professional-services/`
-- `/san-francisco/office/law-firms/`
-- `/san-francisco/office/healthcare-organizations/`
-- `/san-francisco/office/nonprofits/`
+- `/commercial-real-estate/CA/san-francisco/office-space/technology-companies/`
+- `/commercial-real-estate/CA/san-francisco/office-space/professional-services/`
+- `/commercial-real-estate/CA/san-francisco/office-space/law-firms/`
+- `/commercial-real-estate/CA/san-francisco/office-space/healthcare-organizations/`
+- `/commercial-real-estate/CA/san-francisco/office-space/nonprofits/`
 
 San Francisco uses the validated San Francisco Office editorial model, Knowledge Graph district data, Commercial Market Evidence coverage, and representative building data. Recommendations intentionally align with stable district behavior rather than live rents or availability.
 
@@ -158,16 +195,28 @@ San Francisco uses the validated San Francisco Office editorial model, Knowledge
 
 Published:
 
-- `/denver/office/technology-companies/`
-- `/denver/office/professional-services/`
-- `/denver/office/law-firms/`
-- `/denver/office/nonprofits/`
+- `/commercial-real-estate/CO/denver/office-space/technology-companies/`
+- `/commercial-real-estate/CO/denver/office-space/professional-services/`
+- `/commercial-real-estate/CO/denver/office-space/law-firms/`
+- `/commercial-real-estate/CO/denver/office-space/nonprofits/`
 
 Held:
 
-- `/denver/office/healthcare-organizations/`
+- `/commercial-real-estate/CO/denver/office-space/healthcare-organizations/`
 
 Denver now has a structured Office model for Downtown Denver, LoDo, RiNo, Cherry Creek, Denver Tech Center, Central Park, and Santa Fe Arts District. Four Denver Office Business Briefs are indexable because their Best Fits align with the resolver and can show representative-building examples from canonical Building Brief cards or authored Knowledge Graph representative-building records. The healthcare page remains `noindex,follow` because the resolver strongly concentrates healthcare-service/admin signals on Central Park and Denver still needs a stronger healthcare-office comparison model before public indexing.
+
+## Office Space Hub Discovery
+
+The canonical Office Space pages are the public discovery layer for Business Briefs. They render an "Office Recommendations by Business Type" section that draws from resolved, indexable Business Brief records. Each summary card includes:
+
+- reusable archetype name
+- reusable archetype description
+- the first three resolved Best Fit districts
+- a link to the canonical Business Brief URL
+- a `Create My Location Brief` CTA into `/find-locations/`
+
+Held pages are not shown in the hub cards. City pages should avoid duplicating the full Business Brief card set; they should point users toward the relevant Office Space hub when business-type discovery is needed.
 
 ## Recommendation Alignment
 
@@ -225,6 +274,9 @@ The QA checks:
 - every published page has unique metadata
 - every published page links to personalization
 - sitemap eligibility follows readiness state
+- Business Brief URLs use the canonical market/property-type hierarchy
+- old Business Brief URLs have generated permanent redirects
+- breadcrumbs use state, market, and office-space hierarchy URLs
 - no page uses live availability language or debug terminology
 - duplicate summary and rationale risk is flagged
 
@@ -232,7 +284,7 @@ The QA checks:
 
 - Business Briefs currently support Office only.
 - Archetype-to-district behavior is explicit editorial data, not yet a generalized cross-market resolver.
-- City pages only promote published Business Briefs.
+- Office Space pages are the primary public Business Brief discovery layer.
 - Denver healthcare-office guidance needs a focused comparison sprint before publication.
 - Denver Santa Fe Arts District is signal-specific and not yet promoted as a Business Brief Best Fit.
 - Broader Denver medical, Aurora, hospital-adjacent, and southeast suburban healthcare geography remain outside the Phase 1B model.
@@ -250,4 +302,4 @@ Scope:
 - normalize Denver healthcare-office sub-scenarios
 - evaluate Aurora, hospital-adjacent, Central Park, Cherry Creek, DTC, and Downtown Denver relationships
 - deepen healthcare representative-building evidence
-- decide whether `/denver/office/healthcare-organizations/` can move from held to published
+- decide whether `/commercial-real-estate/CO/denver/office-space/healthcare-organizations/` can move from held to published
