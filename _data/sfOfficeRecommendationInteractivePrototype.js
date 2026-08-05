@@ -42,26 +42,19 @@ function compactResult(result) {
     applicable: result.applicable,
     state: result.state,
     confidence: result.confidence,
-    currentCandidates: (result.currentCandidates || []).map(compactCandidate),
     orderedCandidates: (result.orderedCandidates || []).map(compactCandidate),
     shortlist: (result.shortlist || []).map(compactCandidate),
-    tiedCandidates: result.tiedCandidates || [],
     secondaryAlternatives: (result.secondaryAlternatives || []).map(compactCandidate),
-    excludedCandidates: result.excludedCandidates || [],
-    explanations: (result.explanations || []).slice(0, 8).map((explanation) => ({
+    explanations: (result.explanations || []).slice(0, 5).map((explanation) => ({
       districtId: explanation.districtId,
       districtName: explanation.districtName,
       action: explanation.action,
       signalLabel: explanation.signalLabel,
-      attributeLabel: explanation.attributeLabel,
       practicalImplication: explanation.practicalImplication,
     })),
     profileSignalsUsed: result.profileSignalsUsed || [],
-    ignoredSignals: result.ignoredSignals || [],
     unresolvedTradeoffs: result.unresolvedTradeoffs || [],
-    recommendedNextQuestion: result.recommendedNextQuestion,
     shortlistSizeRationale: result.shortlistSizeRationale,
-    economicsPolicy: result.economicsPolicy,
     signalCount: result.signalCount,
     ids: {
       currentCandidates: ids(result.currentCandidates),
@@ -69,6 +62,32 @@ function compactResult(result) {
       orderedCandidates: ids(result.orderedCandidates),
       secondaryAlternatives: ids(result.secondaryAlternatives),
     },
+  };
+}
+
+function compactQuestion(question) {
+  if (!question) return null;
+  return {
+    id: question.id,
+    prompt: question.prompt,
+    helper: question.helper,
+    options: (question.options || []).map((option) => ({
+      label: option.label,
+      patch: option.patch || {},
+    })),
+  };
+}
+
+function compactInteraction(interaction) {
+  if (!interaction) return null;
+  return {
+    modelKey: interaction.modelKey,
+    answeredQuestionIds: interaction.answeredQuestionIds || [],
+    usefulSignalCount: interaction.usefulSignalCount,
+    revealRecommendation: interaction.revealRecommendation,
+    phase: interaction.phase,
+    nextQuestion: compactQuestion(interaction.nextQuestion),
+    revealRule: interaction.revealRule,
   };
 }
 
@@ -89,7 +108,7 @@ function evaluate(sourceAnswers) {
       unsupportedAnswers: normalized.unsupportedAnswers,
     },
     result: compactResult(resolverResult),
-    interaction,
+    interaction: compactInteraction(interaction),
   };
 }
 
@@ -212,11 +231,30 @@ function enumerateStates() {
       businessType: "professional_services",
       officeEnvironment: "Traditional and professional",
       clientVisitFrequency: "often",
+    },
+    {
+      businessType: "professional_services",
+      officeEnvironment: "Traditional and professional",
+      clientVisitFrequency: "often",
       walkabilityAmenitiesImportance: "medium",
     },
+    {
+      notes: "Budget matters and we want lower rent.",
+      valuePreference: "good value",
+    },
+    {
+      businessType: "technology",
+      officeEnvironment: "Modern and polished",
+      expectedGrowth: "significant",
+      commuteOrientation: "Marin",
+    },
+    {
+      businessType: "technology",
+      officeEnvironment: "Modern and polished",
+      expectedGrowth: "significant",
+      commuteOrientation: "Peninsula South Bay",
+    },
     ...enumerateWorkspaceReviewStates(),
-    ...enumerateEarlyPrefixes(),
-    ...enumerateEarlyStates(),
   ];
 
   seedStates.forEach((sourceAnswers) => {

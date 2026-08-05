@@ -1,6 +1,6 @@
 # Sacramento Recommendation QA Pilot
 
-Generated: 2026-08-04T23:49:16.121Z
+Generated: 2026-08-05T00:10:22.566Z
 
 This internal QA report validates whether Sacramento Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 
