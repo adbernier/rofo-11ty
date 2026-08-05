@@ -1,6 +1,6 @@
 # Seattle Recommendation QA Pilot
 
-Generated: 2026-08-05T16:53:11.871Z
+Generated: 2026-08-05T17:14:13.795Z
 
 This internal QA report validates whether Seattle Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 

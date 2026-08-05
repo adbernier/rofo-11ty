@@ -32,7 +32,7 @@ Business archetypes:
 - Healthcare Organization
 - Nonprofit / Mission-Driven Organization
 
-Phase 1 creates ten Business Brief records. San Francisco pages are published and indexable. Denver pages are generated for review but held from indexable publication because representative-building and archetype-specific evidence depth is thinner.
+Phase 1 creates ten Business Brief records. San Francisco pages are published and indexable. Phase 1B adds a structured Denver Office model and publishes four Denver Office briefs whose recommendations align with the resolver and representative-building evidence. The Denver Healthcare Organization brief remains held because the healthcare-office comparison model needs additional evidence before indexed publication.
 
 ## Source Files
 
@@ -42,6 +42,7 @@ Phase 1 creates ten Business Brief records. San Francisco pages are published an
 - `_data/businessBriefs.js` exposes resolved briefs to Eleventy.
 - `pages/business-brief.njk` renders the shared public template.
 - `scripts/qa-business-briefs.js` validates identity, readiness, metadata, links, evidence, and duplication controls.
+- `_data/denverOfficeRecommendationModel.js`, `lib/recommendations/denver-office-recommendation-resolver.js`, and `scripts/qa-denver-office-recommendation-model.js` define and validate the Denver Office reference model used for Denver Business Brief readiness.
 
 ## Entity Model
 
@@ -153,17 +154,20 @@ Published:
 
 San Francisco uses the validated San Francisco Office editorial model, Knowledge Graph district data, Commercial Market Evidence coverage, and representative building data. Recommendations intentionally align with stable district behavior rather than live rents or availability.
 
-## Denver Phase 1 Pages
+## Denver Phase 1B Pages
 
-Generated but held:
+Published:
 
 - `/denver/office/technology-companies/`
 - `/denver/office/professional-services/`
 - `/denver/office/law-firms/`
-- `/denver/office/healthcare-organizations/`
 - `/denver/office/nonprofits/`
 
-Denver has useful office district graph coverage, including Downtown Denver, LoDo, RiNo, Cherry Creek, Denver Tech Center, and Central Park. However, representative-building depth and archetype-specific review are thinner than San Francisco. The pages are reviewable but not indexable until evidence improves.
+Held:
+
+- `/denver/office/healthcare-organizations/`
+
+Denver now has a structured Office model for Downtown Denver, LoDo, RiNo, Cherry Creek, Denver Tech Center, Central Park, and Santa Fe Arts District. Four Denver Office Business Briefs are indexable because their Best Fits align with the resolver and can show representative-building examples from canonical Building Brief cards or authored Knowledge Graph representative-building records. The healthcare page remains `noindex,follow` because the resolver strongly concentrates healthcare-service/admin signals on Central Park and Denver still needs a stronger healthcare-office comparison model before public indexing.
 
 ## Recommendation Alignment
 
@@ -177,15 +181,16 @@ For San Francisco Office:
 
 For Denver Office:
 
-- Briefs use Knowledge Graph district fit and existing representative-building coverage.
-- The system does not create a Denver publishing-only recommendation model that pretends to be production recommendation logic.
-- Held pages identify the need for a future structured Denver Office resolver.
+- Briefs use the structured `denver:office` model, Knowledge Graph district fit, and representative-building coverage.
+- Published Best Fits must be supported by `lib/recommendations/denver-office-recommendation-resolver.js`.
+- Budget, rent, cost, current availability, concessions, landlord motivation, and live economics must not influence district recommendations.
+- Held pages identify the exact evidence or model gap blocking publication.
 
 ## Publisher and EOS Integration
 
 Phase 1 does not modify Publisher scoring or EOS planning. It prepares a clean product layer that Publisher and EOS can measure later.
 
-Future readiness signals should include:
+Readiness signals include:
 
 - archetype coverage by Market and Property Type
 - Business Brief coverage by Market and Property Type
@@ -194,6 +199,8 @@ Future readiness signals should include:
 - missing representative buildings
 - broken internal links
 - duplicate or thin editorial content
+
+`_data/businessBriefs.js` exposes a `readinessSummary` object with market-level counts, Best Fits, representative-building counts, indexability, publication state, hold rationale, and missing-knowledge notes. This is a product-readiness surface; it does not change Publisher scoring or EOS planning.
 
 The success metric is useful, defensible, connected knowledge, not page count.
 
@@ -213,7 +220,8 @@ The QA checks:
 - Best Fits reference valid districts
 - representative buildings reference valid building URLs when present
 - San Francisco published pages align with the SF Office model
-- Denver pages are held from indexable publication
+- Denver published pages align with the Denver Office model
+- Denver healthcare remains held from indexable publication
 - every published page has unique metadata
 - every published page links to personalization
 - sitemap eligibility follows readiness state
@@ -222,23 +230,24 @@ The QA checks:
 
 ## Known Gaps
 
-- Denver needs deeper representative-building coverage for LoDo, RiNo, Denver Tech Center, Central Park, and additional office examples.
-- Denver needs a structured Office recommendation model before pages should move from hold to published.
 - Business Briefs currently support Office only.
 - Archetype-to-district behavior is explicit editorial data, not yet a generalized cross-market resolver.
 - City pages only promote published Business Briefs.
+- Denver healthcare-office guidance needs a focused comparison sprint before publication.
+- Denver Santa Fe Arts District is signal-specific and not yet promoted as a Business Brief Best Fit.
+- Broader Denver medical, Aurora, hospital-adjacent, and southeast suburban healthcare geography remain outside the Phase 1B model.
 
 ## Next Sprint
 
 Recommended next sprint:
 
 ```text
-Denver Office Evidence and Archetype Readiness
+Denver Healthcare Office Geography and Evidence
 ```
 
 Scope:
 
-- complete Denver representative office building evidence for the held districts
-- create a structured Denver Office editorial recommendation model
-- review the five held Denver Business Briefs against the model
-- move ready pages from hold to published only after QA supports the claims
+- normalize Denver healthcare-office sub-scenarios
+- evaluate Aurora, hospital-adjacent, Central Park, Cherry Creek, DTC, and Downtown Denver relationships
+- deepen healthcare representative-building evidence
+- decide whether `/denver/office/healthcare-organizations/` can move from held to published

@@ -4,6 +4,7 @@ const businessBriefs = require("../_data/businessBriefs.js");
 const businessArchetypes = require("../_data/businessArchetypes.js");
 const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph.js");
 const sfOfficeModel = require("../_data/sfOfficeRecommendationModel.js");
+const { resolveDenverOfficeRecommendation } = require("../lib/recommendations/denver-office-recommendation-resolver.js");
 
 const EXPECTED_MARKETS = ["san-francisco", "denver"];
 const EXPECTED_ARCHETYPES = [
@@ -31,6 +32,45 @@ const UNSUPPORTED_CLAIMS = [
   "concession",
   "vacancy rate",
 ];
+
+const DENVER_ARCHETYPE_PROFILES = {
+  "growing-technology-company": {
+    city: "Denver",
+    spaceType: "Office",
+    businessType: "technology",
+    recruitingImportance: "high",
+    expectedGrowth: "significant",
+    officeEnvironment: "modern and polished",
+  },
+  "client-facing-professional-services": {
+    city: "Denver",
+    spaceType: "Office",
+    businessType: "professional services",
+    clientVisitFrequency: "often",
+    officeEnvironment: "traditional and professional",
+    commuteOrientation: "central city",
+  },
+  "law-firm": {
+    city: "Denver",
+    spaceType: "Office",
+    businessType: "law firm",
+    clientVisitFrequency: "often",
+    officeEnvironment: "traditional and professional",
+  },
+  "healthcare-organization": {
+    city: "Denver",
+    spaceType: "Office",
+    businessType: "healthcare",
+    operationalUse: ["administrative office", "healthcare services"],
+    parkingImportance: "high",
+  },
+  "nonprofit-mission-driven-organization": {
+    city: "Denver",
+    spaceType: "Office",
+    businessType: "nonprofit",
+    transitImportance: "high",
+  },
+};
 
 function fail(message) {
   failures.push(message);
@@ -78,6 +118,7 @@ function assertUniqueBy(label, values) {
 
 const failures = [];
 const briefs = businessBriefs.briefs || [];
+const readinessSummary = businessBriefs.readinessSummary || {};
 const byId = new Map(briefs.map((brief) => [brief.id, brief]));
 
 if (briefs.length !== REQUIRED_COUNT) {
@@ -178,10 +219,6 @@ for (const brief of briefs) {
     }
   }
 
-  if (brief.market.marketId === "denver" && brief.isIndexable) {
-    fail(`${context} Denver Phase 1 pages must be held from indexable publication`);
-  }
-
   if (brief.market.marketId === "san-francisco" && !brief.isIndexable) {
     fail(`${context} San Francisco Phase 1 pages should be published`);
   }
@@ -191,6 +228,28 @@ for (const brief of briefs) {
     for (const fit of brief.bestFits) {
       if (!allowed.has(fit.districtSlug)) {
         fail(`${context} uses ${fit.districtSlug}, which is not in the San Francisco Office model`);
+      }
+    }
+  }
+
+  if (brief.market.marketId === "denver") {
+    const profile = DENVER_ARCHETYPE_PROFILES[brief.archetype.id];
+    if (!profile) {
+      fail(`${context} missing Denver resolver-alignment profile`);
+    } else {
+      const result = resolveDenverOfficeRecommendation(profile);
+      const resolverIds = new Set((result.currentCandidates || []).map((item) => item.districtId));
+      const shortlistIds = new Set((result.shortlist || []).map((item) => item.districtId));
+      for (const fit of brief.bestFits) {
+        if (!resolverIds.has(fit.districtSlug) && !shortlistIds.has(fit.districtSlug)) {
+          fail(`${context} uses ${fit.districtSlug}, which is not supported by the Denver Office resolver for ${brief.archetype.id}`);
+        }
+      }
+      if (brief.isIndexable && brief.id === "denver:office:healthcare-organization") {
+        fail(`${context} healthcare brief must remain held until Denver healthcare-office comparison evidence improves`);
+      }
+      if (brief.isIndexable && result.ignoredSignals.length) {
+        fail(`${context} published Denver resolver-alignment profile should not depend on ignored economics`);
       }
     }
   }
@@ -220,18 +279,40 @@ if (hasDuplicate(summaryPairs)) {
   fail("Executive summaries must not be exact duplicates");
 }
 
-if (published.length !== 5) {
-  fail(`Expected 5 published/indexable Business Briefs, found ${published.length}`);
+const publishedDenver = published.filter((brief) => brief.market.marketId === "denver");
+const heldDenver = held.filter((brief) => brief.market.marketId === "denver");
+
+if (published.length !== 9) {
+  fail(`Expected 9 published/indexable Business Briefs after Denver Phase 1B, found ${published.length}`);
 }
 
-if (held.length !== 5) {
-  fail(`Expected 5 held/noindex Business Briefs, found ${held.length}`);
+if (held.length !== 1) {
+  fail(`Expected 1 held/noindex Business Brief after Denver Phase 1B, found ${held.length}`);
+}
+
+if (publishedDenver.length !== 4) {
+  fail(`Expected 4 published/indexable Denver Business Briefs, found ${publishedDenver.length}`);
+}
+
+if (heldDenver.length !== 1 || heldDenver[0].id !== "denver:office:healthcare-organization") {
+  fail("Expected only Denver healthcare organization brief to remain held/noindex");
+}
+
+if (!readinessSummary.byMarket || !readinessSummary.byMarket.denver) {
+  fail("Business Brief readiness summary must include Denver");
+} else {
+  const denverSummary = readinessSummary.byMarket.denver;
+  if (denverSummary.published !== 4 || denverSummary.hold !== 1) {
+    fail(`Denver readiness summary should report 4 published and 1 hold, found ${denverSummary.published || 0} published and ${denverSummary.hold || 0} hold`);
+  }
 }
 
 console.log("Business Brief QA");
 console.log(`- total briefs: ${briefs.length}`);
 console.log(`- published/indexable: ${published.length}`);
 console.log(`- held/noindex: ${held.length}`);
+console.log(`- Denver published/indexable: ${publishedDenver.length}`);
+console.log(`- Denver held/noindex: ${heldDenver.length}`);
 console.log(`- route convention: ${businessBriefs.routeConvention}`);
 
 if (failures.length) {

@@ -328,11 +328,11 @@ const definitions = [
     title: "Denver Office Space for Technology Companies",
     seoTitle: "Denver Office Space for Technology Companies | Rofo",
     metaDescription:
-      "Review draft Rofo guidance for where technology companies may begin an office search in Denver.",
+      "See where growing technology companies should begin an office search in Denver, with district fit, tradeoffs, and representative buildings.",
     pageHeading: "Office Space for Growing Technology Companies in Denver",
     executiveSummary: [
       "For a growing technology company in Denver, Rofo would start by comparing Downtown Denver, RiNo, and the Denver Tech Center. These districts represent different office strategies: central professional access, creative mixed-use energy, and southeast metro office practicality.",
-      "This Denver brief is held from indexable publication until representative-building coverage and archetype-specific evidence are deeper. The current knowledge graph supports the direction, but the page should not imply the same evidence depth as San Francisco.",
+      "Downtown Denver and Denver Tech Center are strongest when the company needs central credibility or southeast corporate scale. RiNo remains important when recruiting, collaboration, and a creative mixed-use office environment matter more than a traditional office setting.",
     ],
     bestFitDistricts: [
       { districtSlug: "downtown-denver", fitLabel: "Strong Direction", summary: "Central office core for technology teams that still need client, transit, and professional access.", reasons: ["Central market access", "Professional office depth", "Regional visibility"] },
@@ -341,7 +341,7 @@ const definitions = [
     ],
     comparativeGuidance:
       "Downtown Denver leads when central access matters. RiNo becomes more relevant for creative technology culture. Denver Tech Center becomes more relevant when southeast employee geography, parking, or corporate office patterns matter.",
-    tradeoffs: ["Representative-building evidence is currently thin outside Downtown Denver.", "A structured Denver office resolver is still needed before this should become a fully indexed recommendation page."],
+    tradeoffs: ["Representative buildings should be treated as examples of district character, not live inventory.", "Broker review should validate current availability, expansion options, and building-level fit."],
     alternativeConditions: ["LoDo can enter for technology companies that want a more historic and client-friendly downtown-adjacent environment."],
     businessCharacteristics: ["technology", "growth", "hybrid collaboration"],
     locationPriorities: [
@@ -350,10 +350,10 @@ const definitions = [
       { label: "Growth flexibility", reason: "The search should validate whether the district can support the team's next stage." },
       { label: "Commute orientation", reason: "Southeast metro access can materially change the recommendation." },
     ],
-    sourceTrace: ["locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.rino", "locationKnowledgeGraph.denver-tech-center"],
-    editorialStatus: "hold",
-    publicationReadiness: "hold",
-    readinessRationale: "Denver office graph coverage is credible, but representative-building and archetype-specific evidence are not yet deep enough for indexable publication.",
+    sourceTrace: ["denverOfficeRecommendationModel.businessTypeEffects.technology", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.rino", "locationKnowledgeGraph.denver-tech-center"],
+    editorialStatus: "published",
+    publicationReadiness: "published",
+    readinessRationale: "Denver technology-office guidance now aligns with the structured Denver Office resolver and has representative-building evidence across all Best Fit districts.",
     lastReviewed: REVIEWED_AT,
   },
   {
@@ -364,11 +364,11 @@ const definitions = [
     title: "Denver Office Space for Professional Services Firms",
     seoTitle: "Denver Office Space for Professional Services Firms | Rofo",
     metaDescription:
-      "Review draft Denver office-location guidance for client-facing professional services firms.",
+      "Compare Denver office districts for client-facing professional services firms, including Downtown Denver, Cherry Creek, and LoDo.",
     pageHeading: "Office Space for Client-Facing Professional Services in Denver",
     executiveSummary: [
       "For client-facing professional services in Denver, Rofo would begin with Downtown Denver, Cherry Creek, and LoDo. This comparison separates traditional central business access, boutique client-facing polish, and historic downtown-adjacent character.",
-      "The guidance is directionally supported by Rofo's Denver knowledge graph, but the page remains held from indexable publication until representative-building evidence is stronger.",
+      "Downtown Denver and Cherry Creek lead when client convenience and professional image matter most. LoDo stays in the comparison for firms that want downtown adjacency with a more distinctive, hospitality-oriented office setting.",
     ],
     bestFitDistricts: [
       { districtSlug: "downtown-denver", fitLabel: "Strong Direction", summary: "Denver's central office core for firms that need client access, professional credibility, and transit-oriented downtown context.", reasons: ["Client-facing core", "Professional office identity", "Central access"] },
@@ -377,7 +377,7 @@ const definitions = [
     ],
     comparativeGuidance:
       "Downtown Denver is the default professional-services starting point. Cherry Creek rises when client experience and boutique polish matter. LoDo stays relevant when a firm wants downtown adjacency with more distinctive district character.",
-    tradeoffs: ["LoDo currently lacks representative-building depth in Rofo's public building layer.", "Visitor parking, building image, and conference-room quality need broker validation."],
+    tradeoffs: ["Historic and boutique office environments vary by building and should be validated before touring.", "Visitor parking, building image, and conference-room quality need broker validation."],
     alternativeConditions: ["Denver Tech Center can enter for firms with southeast metro client or employee geography."],
     businessCharacteristics: ["client-facing", "professional credibility", "meeting-oriented"],
     locationPriorities: [
@@ -386,10 +386,10 @@ const definitions = [
       { label: "Employee commute", reason: "Denver employee geography can shift the search toward the core or southeast metro." },
       { label: "Meeting environment", reason: "The district should support polished client meetings before individual buildings are compared." },
     ],
-    sourceTrace: ["locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.cherry-creek", "locationKnowledgeGraph.lodo"],
-    editorialStatus: "hold",
-    publicationReadiness: "hold",
-    readinessRationale: "Directional district logic exists, but LoDo and broader professional-services building evidence need review before indexed publication.",
+    sourceTrace: ["denverOfficeRecommendationModel.businessTypeEffects.professional_services", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.cherry-creek", "locationKnowledgeGraph.lodo"],
+    editorialStatus: "published",
+    publicationReadiness: "published",
+    readinessRationale: "Denver professional-services guidance aligns with the structured Denver Office resolver and has representative-building evidence across all Best Fit districts.",
     lastReviewed: REVIEWED_AT,
   },
   {
@@ -400,11 +400,11 @@ const definitions = [
     title: "Denver Office Space for Law Firms",
     seoTitle: "Denver Office Space for Law Firms | Rofo",
     metaDescription:
-      "Review draft Denver office-location guidance for law firms comparing downtown, Cherry Creek, and LoDo.",
+      "See where law firms should begin an office search in Denver, with district guidance for professional image, privacy, and client access.",
     pageHeading: "Office Space for Law Firms in Denver",
     executiveSummary: [
       "For a Denver law firm, Rofo would start with Downtown Denver, Cherry Creek, and LoDo. The initial question is whether the firm needs formal downtown professional presence, a boutique client-facing environment, or a historic downtown-adjacent setting.",
-      "This brief remains held because Denver's law-firm-specific evidence should be reviewed before the page is indexed. The district logic is credible, but Rofo should not overstate publication readiness.",
+      "Downtown Denver remains the clearest starting point for formal legal presence and civic access. Cherry Creek and LoDo are useful comparisons when the firm wants a more boutique client experience or a distinctive downtown-edge setting.",
     ],
     bestFitDistricts: [
       { districtSlug: "downtown-denver", fitLabel: "Strong Direction", summary: "Central office core for law firms that value formal presence, civic access, and client convenience.", reasons: ["Formal professional setting", "Central access", "Legal and professional-services fit"] },
@@ -422,10 +422,10 @@ const definitions = [
       { label: "Access", reason: "Clients, attorneys, and staff may need different access patterns." },
       { label: "Office character", reason: "Traditional and boutique settings communicate different firm positions." },
     ],
-    sourceTrace: ["businessArchetypes.law-firm", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.cherry-creek"],
-    editorialStatus: "hold",
-    publicationReadiness: "hold",
-    readinessRationale: "District logic is plausible, but law-firm-specific Denver evidence and building examples need editorial review before publication.",
+    sourceTrace: ["denverOfficeRecommendationModel.businessTypeEffects.law_firm", "businessArchetypes.law-firm", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.cherry-creek"],
+    editorialStatus: "published",
+    publicationReadiness: "published",
+    readinessRationale: "Denver law-firm guidance aligns with the structured Denver Office resolver and has representative-building evidence across all Best Fit districts.",
     lastReviewed: REVIEWED_AT,
   },
   {
@@ -440,7 +440,7 @@ const definitions = [
     pageHeading: "Office Space for Healthcare Organizations in Denver",
     executiveSummary: [
       "For an office-oriented healthcare organization in Denver, Rofo would begin with Central Park, Cherry Creek, and Downtown Denver. This set separates medical or healthcare-adjacent access, polished client or patient-facing context, and central administrative office needs.",
-      "The page remains held because healthcare-office guidance can easily overclaim clinical, medical, or infrastructure support. Rofo should strengthen Denver medical-office and healthcare-adjacent evidence before indexing this brief.",
+      "The structured Denver Office resolver strongly supports Central Park for healthcare-service and administrative signals, but the broader Denver healthcare-office comparison set still needs editorial review. This page remains held so Rofo does not imply clinical, medical-building, lab, or infrastructure suitability without a stronger Denver healthcare model.",
     ],
     bestFitDistricts: [
       { districtSlug: "central-park", fitLabel: "Promising Direction", summary: "Healthcare-adjacent Denver district for organizations that need patient, partner, or northeast market access.", reasons: ["Medical ecosystem signal", "Northeast Denver access", "Administrative office relevance"] },
@@ -458,10 +458,10 @@ const definitions = [
       { label: "Professional setting", reason: "Administrative healthcare teams may still need ordinary office credibility." },
       { label: "Validation", reason: "Clinical and medical requirements must be checked at building level." },
     ],
-    sourceTrace: ["locationKnowledgeGraph.central-park", "locationKnowledgeGraph.cherry-creek", "businessArchetypes.healthcare-organization"],
+    sourceTrace: ["denverOfficeRecommendationModel.businessTypeEffects.healthcare", "locationKnowledgeGraph.central-park", "locationKnowledgeGraph.cherry-creek", "businessArchetypes.healthcare-organization"],
     editorialStatus: "hold",
     publicationReadiness: "hold",
-    readinessRationale: "Healthcare-office page should wait for deeper Denver medical-office evidence and a clearer clinical-versus-administrative boundary.",
+    readinessRationale: "Held after Phase 1B because the resolver creates a one-district healthcare lead and Denver still needs a stronger healthcare-office comparison model before indexed publication.",
     lastReviewed: REVIEWED_AT,
   },
   {
@@ -472,11 +472,11 @@ const definitions = [
     title: "Denver Office Space for Nonprofits",
     seoTitle: "Denver Office Space for Nonprofits and Mission-Driven Organizations | Rofo",
     metaDescription:
-      "Review draft Denver office-location guidance for nonprofits and mission-driven organizations.",
+      "Compare Denver office districts for nonprofits and mission-driven organizations, with guidance on access, stakeholder convenience, and district character.",
     pageHeading: "Office Space for Nonprofits and Mission-Driven Organizations in Denver",
     executiveSummary: [
       "For a nonprofit or mission-driven organization in Denver, Rofo would start with Downtown Denver, LoDo, and RiNo. This set balances central access, stakeholder convenience, neighborhood identity, and practical office character without using unsupported cost assumptions.",
-      "This Denver brief remains held from indexed publication because nonprofit-specific evidence and representative buildings need more editorial depth.",
+      "Downtown Denver and LoDo are strongest when civic access, stakeholder convenience, and transit-oriented centrality matter. RiNo becomes more useful when the organization values creative district character and a less formal office environment.",
     ],
     bestFitDistricts: [
       { districtSlug: "downtown-denver", fitLabel: "Strong Direction", summary: "Central office district for organizations that need stakeholder, employee, and civic access.", reasons: ["Central access", "Stakeholder convenience", "Professional office context"] },
@@ -485,7 +485,7 @@ const definitions = [
     ],
     comparativeGuidance:
       "Downtown Denver leads when stakeholder access and centrality matter most. LoDo becomes stronger for a distinctive but still central office. RiNo enters when creative character and neighborhood energy matter more than formal office image.",
-    tradeoffs: ["Cost sensitivity should be preserved for broker execution, not used to rank districts.", "LoDo and RiNo need stronger representative-building evidence for nonprofit-specific publication."],
+    tradeoffs: ["Cost sensitivity should be preserved for broker execution, not used to rank districts.", "Representative buildings should be treated as examples of district character, not available nonprofit inventory."],
     alternativeConditions: ["Central Park may enter if the organization is healthcare- or community-service-oriented in northeast Denver."],
     businessCharacteristics: ["mission-driven", "stakeholder access", "community proximity"],
     locationPriorities: [
@@ -494,10 +494,10 @@ const definitions = [
       { label: "Neighborhood identity", reason: "Mission alignment can make district character more important." },
       { label: "Cost context", reason: "Budget belongs in broker review without driving unsupported district ranking." },
     ],
-    sourceTrace: ["businessArchetypes.nonprofit-mission-driven-organization", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.rino"],
-    editorialStatus: "hold",
-    publicationReadiness: "hold",
-    readinessRationale: "Directional geography exists, but nonprofit-specific Denver evidence and representative buildings are not yet publication-ready.",
+    sourceTrace: ["denverOfficeRecommendationModel.businessTypeEffects.nonprofit", "businessArchetypes.nonprofit-mission-driven-organization", "locationKnowledgeGraph.downtown-denver", "locationKnowledgeGraph.rino"],
+    editorialStatus: "published",
+    publicationReadiness: "published",
+    readinessRationale: "Denver nonprofit guidance aligns with the structured Denver Office resolver for central access and mission-driven office context, with representative-building evidence across all Best Fit districts.",
     lastReviewed: REVIEWED_AT,
   },
 ];

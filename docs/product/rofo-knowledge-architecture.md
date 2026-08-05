@@ -189,6 +189,8 @@ Used by: Recommendation models, Business Profile taxonomy, publishing, Location 
 
 Future opportunities: National archetype pages and market-specific archetype guidance.
 
+Phase 1B implementation note: San Francisco and Denver Office Business Briefs now use reusable archetypes with market-specific recommendation models. San Francisco uses `san-francisco:office`; Denver uses `denver:office`. Archetypes remain cross-market, while district fit stays market-specific.
+
 #### Business Scenario
 
 Purpose: A contextual situation that changes the location decision.
