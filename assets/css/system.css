@@ -12088,7 +12088,10 @@ section.market-page--space-type .market-links a {
 }
 
 .business-brief-page .city-shell {
+  width: min(100% - 40px, 1180px);
   max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 .business-brief {
@@ -12461,6 +12464,11 @@ section.market-page--space-type .market-links a {
 @media (max-width: 720px) {
   .business-brief-page {
     padding-top: 10px;
+  }
+
+  .business-brief-page .city-shell {
+    width: auto;
+    margin-inline: 20px;
   }
 
   .business-brief {
