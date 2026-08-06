@@ -349,11 +349,23 @@ const profiles = [
 const sensitivityChecks = [
   {
     id: "client-meetings-frequency",
-    label: "Client meetings: often versus rarely",
-    baseProfileId: "professional-services-client-meetings",
+    label: "Client meetings: often versus rarely without duplicate use signal",
+    baseSourceAnswers: {
+      city: "San Francisco",
+      spaceType: "Office",
+      headcount: "28",
+      expectedGrowth: "some",
+      clientVisitFrequency: "often",
+      recruitingImportance: "medium",
+      businessType: "professional_services",
+      operationalUse: ["quiet_focused_work"],
+      officeEnvironment: "Traditional and professional",
+      transitImportance: "high",
+      walkabilityAmenitiesImportance: "high",
+    },
     changedAnswer: "clientVisitFrequency",
     variationSourceAnswers: { clientVisitFrequency: "rarely" },
-    expectedReviewFocus: "Whether client-access priority materially changes ordering, explanation, and next question.",
+    expectedReviewFocus: "Whether client-access priority materially changes ordering, explanation, and next question when it is not duplicated by an operational-use answer.",
   },
   {
     id: "commute-marin-to-east-bay",

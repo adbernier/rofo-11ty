@@ -284,6 +284,17 @@ module.exports = {
     operationalUse: { required: false, behavior: "influences_office_job_to_be_done" },
     approximateSquareFootage: { required: false, behavior: "compatibility_only" },
   },
+  signalDeduplication: {
+    policy: "One scoring contribution per semantic priority family. Operational-use aliases such as team collaboration and recruiting may trigger a priority when no explicit priority has already supplied it, but they do not add multiple effective votes for the same underlying intent.",
+    semanticFamilies: {
+      "priority:recruiting": ["recruitingImportance", "operationalUse:team_collaboration", "operationalUse:recruiting"],
+      "priority:client_access": ["clientVisitFrequency", "operationalUse:client_meetings"],
+      "priority:growth_flexibility": ["expectedGrowth"],
+      "priority:regional_transit": ["transitImportance", "features:Transit access"],
+      "priority:parking": ["parkingImportance", "features:Parking"],
+      "priority:walkability_amenities": ["walkabilityAmenitiesImportance"],
+    },
+  },
   officeEnvironmentTaxonomy: {
     modern_polished: {
       label: "Modern and polished",
@@ -451,6 +462,23 @@ module.exports = {
       attributes: ["lowerRiseCharacter", "neighborhoodOrientation"],
     },
   },
+  crossSignalEffects: [
+    {
+      id: "design_creative_historic_client_facing",
+      signalId: "environmentUseFit",
+      label: "Design/creative, client-facing, historic office fit",
+      match: {
+        businessType: "design_creative",
+        officeEnvironment: "historic_distinctive",
+        operationalUseIncludes: ["client_meetings"],
+        expectedGrowth: ["low", ""],
+      },
+      rise: ["jackson-square"],
+      attributes: ["creativeCharacter", "lowerRiseCharacter", "clientAccessibility", "districtImage"],
+      points: 5,
+      practicalImplication: "The business combines creative work, client-facing use, stable growth, and a historic/distinctive office preference.",
+    },
+  ],
   confidenceStates: {
     starting_set: {
       label: "Starting set",

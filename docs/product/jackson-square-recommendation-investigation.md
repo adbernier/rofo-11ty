@@ -149,3 +149,97 @@ Adding a narrow technology + historic/distinctive Jackson Square lift would:
 The current output is explainable but not ideal. Jackson Square should become more competitive when a technology/product user selects a historic or distinctive office environment, especially when growth is stable rather than significant.
 
 The highest-leverage future fix is deduplicating repeated priority effects before changing district-specific weights. That would improve explanation quality and reduce overconfidence without expanding the model.
+
+## Calibration Implemented
+
+Date: 2026-08-06
+
+Files:
+
+- `_data/sfOfficeRecommendationModel.js`
+- `lib/recommendations/sf-office-recommendation-resolver.js`
+- `scripts/qa-sf-office-recommendation-calibration.js`
+
+The calibration implemented the first recommendation from this investigation and added one narrow editorial rule for the later production observation.
+
+### Root cause confirmed
+
+The resolver allowed priority aliases to add repeated effective votes for the same semantic intent. For example:
+
+- `recruitingImportance: high` applied `priority:recruiting`.
+- `operationalUse: team_collaboration` also aliased to `priority:recruiting`.
+- `operationalUse: recruiting` also aliased to `priority:recruiting`.
+
+This could give SoMa, Mission Bay, South Beach, and Financial District multiple recruiting contributions from one underlying business preference.
+
+### Deduplication policy
+
+The resolver now applies one scoring contribution per semantic priority family.
+
+Operational-use aliases may trigger a priority when no explicit priority has already supplied it, but they do not add multiple effective votes for the same underlying intent.
+
+The model documents these semantic families:
+
+- `priority:recruiting`: `recruitingImportance`, `operationalUse:team_collaboration`, `operationalUse:recruiting`
+- `priority:client_access`: `clientVisitFrequency`, `operationalUse:client_meetings`
+- `priority:growth_flexibility`: `expectedGrowth`
+- `priority:regional_transit`: `transitImportance`, `features:Transit access`
+- `priority:parking`: `parkingImportance`, `features:Parking`
+- `priority:walkability_amenities`: `walkabilityAmenitiesImportance`
+
+The resolver returns `signalAudit`, including deduplicated semantic contributions, so QA and product review can verify when a source answer was preserved but did not add another score.
+
+### Production observation calibration
+
+The later production observation used a different profile from the original technology example:
+
+- Business type: Design / Creative
+- Primary office use: Team collaboration
+- Additional use/context: Client-facing
+- Office environment: Historic and distinctive
+- Growth: Stable team
+
+For that profile, Jackson Square is supported by multiple stable district attributes:
+
+- historic/distinctive character
+- boutique professional environment
+- client-facing suitability
+- creative-office compatibility
+- lower-rise character
+
+After deduplication, a narrow cross-signal rule was added:
+
+`design_creative_historic_client_facing`
+
+This rule applies only when design/creative business type, client-facing use, historic/distinctive environment, and stable/no-growth context combine. It raises Jackson Square for the combination. It does not force Jackson Square for every historic/distinctive profile.
+
+### Before / after behavior
+
+After calibration, the production-observation profile resolves to:
+
+- Jackson Square: 14
+- SoMa: 12
+- Financial District: 6
+- South Beach: 6
+- Mission Bay: 1
+
+Shortlist:
+
+- Jackson Square
+- SoMa
+
+Mission Bay no longer leads this profile without a stronger modern, growth, commute, life-science, or larger-team signal.
+
+### Regression coverage
+
+`scripts/qa-sf-office-recommendation-calibration.js` now fails if:
+
+- Jackson Square is excluded from the production-observation top set.
+- repeated recruiting/collaboration aliases add multiple scoring reasons.
+- Mission Bay is weakened in technology, modern, growth, or Peninsula-oriented scenarios.
+- environment preferences change only explanation text and not recommendation behavior.
+- economics affect ranking.
+
+### Remaining limitation
+
+The original technology/product + historic/distinctive profile remains a separate editorial question. Deduplication makes that case less inflated, but the current explicit Jackson Square calibration is intentionally limited to the design/creative, client-facing, historic/stable production observation.

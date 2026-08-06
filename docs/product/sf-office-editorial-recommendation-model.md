@@ -2146,3 +2146,82 @@ Known integration gaps:
 - Commute orientation remains broad and should not be presented as precise BART, ferry, Caltrain, Marin, East Bay, Peninsula, or South Bay access guidance.
 - Relationship types remain coarse; `nearby`, `adjacent`, `substitute`, and `comparison` should not be presented as fully normalized until relationship metadata is expanded.
 - The production Location Brief is not wired to this resolver yet.
+
+## Calibration Addendum: Signal Deduplication and Historic/Distinctive Fit
+
+Date: 2026-08-06
+
+Related QA:
+
+```bash
+node scripts/qa-sf-office-recommendation-calibration.js
+```
+
+### Root Cause
+
+A production observation showed a design/creative, client-facing, stable-team profile with a historic/distinctive office preference producing a recommendation led by modern/growth-oriented districts. The underlying issue was not a need to force Jackson Square into every historic profile. The issue was twofold:
+
+- Priority aliases could amplify the same semantic intent more than once.
+- The model did not explicitly recognize the combined design/creative + client-facing + historic/distinctive + stable-team pattern that makes Jackson Square commercially defensible.
+
+### Deduplication Policy
+
+The resolver now applies at most one scoring contribution per semantic priority family.
+
+Operational-use aliases can still trigger a priority when that is the only source of the signal. They do not add another effective vote when an explicit priority already supplied the same family.
+
+Current semantic families:
+
+| Semantic family | Source signals |
+| --- | --- |
+| `priority:recruiting` | `recruitingImportance`, `operationalUse:team_collaboration`, `operationalUse:recruiting` |
+| `priority:client_access` | `clientVisitFrequency`, `operationalUse:client_meetings` |
+| `priority:growth_flexibility` | `expectedGrowth` |
+| `priority:regional_transit` | `transitImportance`, `features:Transit access` |
+| `priority:parking` | `parkingImportance`, `features:Parking` |
+| `priority:walkability_amenities` | `walkabilityAmenitiesImportance` |
+
+The resolver returns a `signalAudit` object showing applied and deduplicated contributions. This preserves source trace without allowing repeated scoring.
+
+### Historic/Distinctive Calibration
+
+The model adds one cross-signal effect:
+
+`design_creative_historic_client_facing`
+
+It applies only when the profile combines:
+
+- design/creative business type
+- client-facing office use
+- historic/distinctive office environment
+- stable or no-growth context
+
+It raises Jackson Square because that combination aligns with durable district attributes already in the model: historic/distinctive building character, lower-rise/boutique professional setting, client accessibility, and creative-office compatibility.
+
+This is not a rule that says "historic means Jackson Square." Historic/distinctive without client-facing use receives ordinary environment credit but does not trigger the cross-signal lift.
+
+### Calibrated Behavior
+
+For the production-observation profile:
+
+- Market: San Francisco
+- Space type: Office
+- Business type: Design / Creative
+- Use: Team collaboration and client meetings
+- Environment: Historic and distinctive
+- Growth: Stable
+
+The calibrated structured model returns:
+
+- Jackson Square: strongest fit
+- SoMa: strong fit
+- Financial District and South Beach: credible secondary options
+- Mission Bay: secondary unless a stronger modern, growth, commute, life-science, or larger-team signal appears
+
+Technology + modern + significant-growth profiles continue to keep Mission Bay and SoMa strong. Client-facing professional-services profiles continue to keep Financial District and Jackson Square strong. Economics remain quarantined from ranking.
+
+### Known Limitations
+
+- The deduplication policy covers priority-family aliases. It does not deduplicate every possible correlated editorial signal, such as district entry plus district rise from the same business type. Those can be reviewed later if they create overconfidence.
+- Stable team is used only in the narrow cross-signal calibration above. A broader stable-team model may be useful later, but it should be handled deliberately rather than as a hidden inverse of growth.
+- Confidence state remains based on signal count and spread. Future calibration may need to lower confidence when multiple strong signal families point toward different district archetypes.
