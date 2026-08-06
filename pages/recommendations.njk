@@ -64,7 +64,7 @@ eleventyComputed:
       <div class="kicker">Comparative Guidance</div>
       <h2 id="location-brief-comparative-heading">How to use this recommendation.</h2>
       <p data-location-brief-comparative-copy>
-        Begin with the strongest-fit district, then compare the alternatives against the tradeoffs that matter most to the business.
+        Use the Best Fits to decide which district character to validate first. Current availability, rents, and building-level fit still need market review.
       </p>
     </section>
 
@@ -85,18 +85,9 @@ eleventyComputed:
       </div>
 
       <div class="location-brief-refinement__grid">
-        <section class="location-brief-refinement__panel" aria-labelledby="brief-feedback-heading">
-          <h3 id="brief-feedback-heading">Does this recommendation feel right?</h3>
-          <div class="location-brief-choice-list" data-location-brief-feedback>
-            <button type="button" data-feedback-value="yes">Yes, this looks right</button>
-            <button type="button" data-feedback-value="another_direction">Show me another direction</button>
-            <button type="button" data-feedback-value="additional_requirements">I have additional requirements</button>
-          </div>
-        </section>
-
         <section class="location-brief-refinement__panel" aria-labelledby="brief-priorities-heading">
-          <h3 id="brief-priorities-heading">What should be validated first?</h3>
-          <p>Choose any priorities that should shape the live market review.</p>
+          <h3 id="brief-priorities-heading">What should be checked first?</h3>
+          <p>Choose the building and market issues that matter most before touring.</p>
           <div class="location-brief-priority-list" data-location-brief-priorities></div>
         </section>
 
@@ -120,9 +111,9 @@ eleventyComputed:
     <form class="recommendations-cta location-brief-contact location-brief-contact--final" id="location-brief-contact" data-location-brief-contact aria-labelledby="market-investigation" method="post" action="/api/location-brief/submit">
       <div class="location-brief-contact__header">
         <div class="kicker" data-recommendation-cta-kicker>Next Steps</div>
-        <h2 id="market-investigation" data-recommendation-cta-heading>Discuss this recommendation with a broker.</h2>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Request Current Availability.</h2>
         <p data-recommendation-cta-copy>
-          Share your Business Profile and Location Brief with a local expert who can recommend specific buildings and help plan tours.
+          Send this Location Brief to Rofo for review. We will check the request and determine the best next step.
         </p>
       </div>
 
@@ -140,9 +131,9 @@ eleventyComputed:
 
       <section class="live-market-intake" aria-labelledby="live-market-intake-heading" data-live-market-investigation-intake hidden>
         <div class="live-market-intake__header">
-          <div class="kicker">Live Market Review</div>
-          <h3 id="live-market-intake-heading" data-live-market-intake-heading>Investigate this market</h3>
-          <p data-live-market-intake-summary>Confirm what Rofo should investigate next. These are representative buildings, not confirmed availability.</p>
+          <div class="kicker">Current Availability Request</div>
+          <h3 id="live-market-intake-heading" data-live-market-intake-heading>Confirm what Rofo should check next</h3>
+          <p data-live-market-intake-summary>These details help fulfillment review current availability, comparable buildings, timing, and market context.</p>
         </div>
 
         <div class="live-market-intake__context" aria-label="Recommendation context">
@@ -173,8 +164,8 @@ eleventyComputed:
         </fieldset>
 
         <fieldset class="live-market-intake__fieldset">
-          <legend>What should Rofo investigate?</legend>
-          <p>Comp availability and quality vary by market. Select only what matters for the next review.</p>
+          <legend>What should Rofo check?</legend>
+          <p>Select only what matters for the next review.</p>
           <div class="live-market-scope-grid" data-live-market-scope-options>
             <label class="live-market-check"><input type="checkbox" value="currentAvailability" checked> <span>Current availability</span></label>
             <label class="live-market-check"><input type="checkbox" value="futureAvailability" checked> <span>Future or upcoming availability</span></label>
@@ -187,8 +178,16 @@ eleventyComputed:
 
         <div class="live-market-intake__grid">
           <section class="live-market-intake__fieldset" aria-labelledby="live-market-requirements-heading">
-            <h4 id="live-market-requirements-heading">Requirements to confirm</h4>
+            <h4 id="live-market-requirements-heading">Execution details</h4>
             <dl class="live-market-requirements" data-live-market-requirements></dl>
+            <label class="live-market-field">
+              <span>Headcount <em>optional</em></span>
+              <input type="text" data-live-market-headcount placeholder="Example: 18 people">
+            </label>
+            <label class="live-market-field">
+              <span>Approximate size <em>optional</em></span>
+              <input type="text" data-live-market-size placeholder="Example: 3,000-5,000 sq ft">
+            </label>
             <label class="live-market-field">
               <span>Timing</span>
               <select data-live-market-timing>
@@ -201,10 +200,14 @@ eleventyComputed:
                 <option value="exploring">Exploring with no fixed date</option>
               </select>
             </label>
+            <label class="live-market-field">
+              <span>Budget or rent context <em>optional</em></span>
+              <input type="text" data-live-market-budget placeholder="Preserved for review; not used to rank districts">
+            </label>
           </section>
 
           <fieldset class="live-market-intake__fieldset">
-            <legend>How should Rofo proceed?</legend>
+            <legend>How should Rofo follow up?</legend>
             <div class="live-market-radio-list" data-live-market-broker-preference>
               <label class="live-market-check"><input type="radio" name="broker_preference" value="research_first" checked> <span>Research first; contact me with findings</span></label>
               <label class="live-market-check"><input type="radio" name="broker_preference" value="include_local_broker"> <span>Include local broker guidance when available</span></label>
@@ -239,7 +242,7 @@ eleventyComputed:
         </label>
       </div>
       <div class="location-brief-contact__actions">
-        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Discuss This Recommendation With a Broker</button>
+        <button class="recommendations-button" type="submit" data-location-brief-submit-button>Request Current Availability</button>
         <p data-location-brief-contact-status></p>
       </div>
     </form>

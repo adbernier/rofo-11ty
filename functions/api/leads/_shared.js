@@ -949,19 +949,18 @@ function getTenantConfirmationDetails(lead) {
 
 function buildTenantConfirmationText(lead) {
   if (isLocationBriefLead(lead)) {
-    const snapshot = buildProjectSnapshotFromLead(lead);
     return [
       "Hi,",
       "",
-      "Your Location Brief has been created.",
+      "Thank you for requesting current availability from Rofo.",
       "",
-      "We've shared it with the appropriate broker review workflow.",
-      "",
-      "You can continue reviewing or sharing your Brief at:",
+      "Your Location Brief is here:",
       normalizeField(lead.location_brief_url) || "(Location Brief URL unavailable)",
       "",
-      "Project Snapshot",
-      ...projectSnapshotTextLines(snapshot),
+      "What happens next:",
+      "Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.",
+      "",
+      "This is not a promise of immediate broker contact.",
       "",
       "Thanks,",
       "Rofo",
@@ -1054,14 +1053,7 @@ function buildTenantConfirmationText(lead) {
 
 function buildTenantConfirmationHtml(lead) {
   if (isLocationBriefLead(lead)) {
-    const snapshot = buildProjectSnapshotFromLead(lead);
     const briefUrl = normalizeField(lead.location_brief_url);
-    const snapshotRows = projectSnapshotTextLines(snapshot)
-      .map((line) => {
-        const [label, ...rest] = line.split(": ");
-        return buildEmailField(label, escapeHtml(rest.join(": ")));
-      })
-      .join("");
 
     return `<!doctype html>
 <html>
@@ -1073,21 +1065,19 @@ function buildTenantConfirmationHtml(lead) {
             <tr>
               <td style="padding:22px;background:#123f8c;color:#ffffff;">
                 <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div>
-                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">Your Location Brief has been created.</h1>
+                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">Your Location Brief request was received.</h1>
               </td>
             </tr>
             <tr>
               <td style="padding:22px;font-size:15px;line-height:23px;">
                 <p style="margin:0 0 14px;">Hi,</p>
-                <p style="margin:0 0 14px;">We've shared it with the appropriate broker review workflow.</p>
-                ${briefUrl ? `<p style="margin:0 0 18px;">You can continue reviewing or sharing your Brief at:<br><a href="${escapeHtml(briefUrl)}" style="color:#1346d8;font-weight:700;text-decoration:none;">${escapeHtml(briefUrl)}</a></p>` : ""}
-                ${snapshotRows ? `
+                <p style="margin:0 0 14px;">Thank you for requesting current availability from Rofo.</p>
+                ${briefUrl ? `<p style="margin:0 0 18px;">Your Location Brief is here:<br><a href="${escapeHtml(briefUrl)}" style="color:#1346d8;font-weight:700;text-decoration:none;">${escapeHtml(briefUrl)}</a></p>` : ""}
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
-                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Project Snapshot</div>
-                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                    ${snapshotRows}
-                  </table>
-                </div>` : ""}
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
+                  <p style="margin:0;color:#334155;">Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.</p>
+                </div>
+                <p style="margin:0 0 18px;color:#64748b;">This is not a promise of immediate broker contact.</p>
                 <p style="margin:0;">Thanks,<br>Rofo</p>
               </td>
             </tr>

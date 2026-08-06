@@ -131,6 +131,13 @@
 
   function normalizeContext(value) {
     if (!value || typeof value !== "object") return null;
+    const commuteValues = Array.isArray(value.commuteOrientations)
+      ? value.commuteOrientations
+      : Array.isArray(value.commuteOrientation)
+      ? value.commuteOrientation
+      : Array.isArray(value.commute_orientation)
+      ? value.commute_orientation
+      : [];
     const locations = Array.isArray(value.locations)
       ? value.locations.map(normalizeLocation).filter(Boolean)
       : [];
@@ -146,7 +153,8 @@
       businessType: String(value.businessType || value.business_type || "").trim(),
       operationalUse: Array.isArray(value.operationalUse) ? value.operationalUse : Array.isArray(value.operational_use) ? value.operational_use : [],
       officeEnvironment: String(value.officeEnvironment || value.office_environment || "").trim(),
-      commuteOrientation: String(value.commuteOrientation || value.commute_orientation || "").trim(),
+      commuteOrientation: commuteValues.length ? commuteValues.join(" / ") : String(value.commuteOrientation || value.commute_orientation || "").trim(),
+      commuteOrientations: commuteValues.map((item) => String(item || "").trim()).filter(Boolean),
       expectedGrowth: String(value.expectedGrowth || value.expected_growth || "").trim(),
       institutionProximity: String(value.institutionProximity || value.institution_proximity || "").trim(),
       facts: value.facts && typeof value.facts === "object" ? value.facts : {},
@@ -333,6 +341,12 @@
   }
 
   function commuteLabel(value) {
+    if (Array.isArray(value)) {
+      return value.map(commuteLabel).filter(Boolean).join(" / ");
+    }
+    if (String(value || "").includes("/")) {
+      return String(value || "").split("/").map(commuteLabel).filter(Boolean).join(" / ");
+    }
     const key = String(value || "").trim().toLowerCase().replace(/[_-]+/g, " ");
     if (!key || key === "mixed local") return "";
     if (key === "peninsula south bay") return "Peninsula / South Bay Commute";
@@ -355,7 +369,7 @@
       businessTypeLabel(context.businessType),
       ...((context.operationalUse || []).map(operationalUseLabel)),
       environmentLabel(context.officeEnvironment),
-      commuteLabel(context.commuteOrientation),
+      commuteLabel(context.commuteOrientations && context.commuteOrientations.length ? context.commuteOrientations : context.commuteOrientation),
       growthLabel(context.expectedGrowth),
       context.institutionProximity && context.institutionProximity !== "not_applicable" ? `Near ${context.institutionProximity}` : "",
     ];
@@ -448,6 +462,7 @@
       button.appendChild(list);
       button.addEventListener("click", () => {
         renderDistrictDetail(fits, index);
+        renderRepresentativeBuildings([fits[index] || fits[0]], state);
         document.querySelectorAll("[data-location-brief-fit-index]").forEach((fitButton) => {
           fitButton.setAttribute("aria-expanded", String(fitButton === button));
         });
@@ -456,6 +471,7 @@
       node.appendChild(card);
     });
     renderDistrictDetail(fits, 0);
+    renderRepresentativeBuildings(fits.length ? [fits[0]] : [], state);
     return fits;
   }
 
@@ -601,7 +617,7 @@
         confidenceLabel: "Sample",
         primaryLocationLabel: "Mission Bay",
         summaryCopy: "This is a sample recommendation. Start a Business Profile to see recommendations based on your requirements.",
-        ctaLabel: "Start Live Market Review",
+        ctaLabel: "Request Current Availability",
         ctaHref: "/find-locations/",
         recommendedPath: [],
         compareWith: [],
@@ -745,18 +761,17 @@
     );
 
     initializeBriefRefinement(state, context, spaceText);
-    renderRepresentativeBuildings(fits, state);
   }
 
   function setSubmittedCta(state, context) {
     setText("[data-recommendation-cta-kicker]", "Next Steps");
-    setText("[data-recommendation-cta-heading]", "Discuss this recommendation with a broker.");
+    setText("[data-recommendation-cta-heading]", "Request Current Availability.");
     setText(
       "[data-recommendation-cta-copy]",
-      "Share your Business Profile and Location Brief with a local expert who can recommend specific buildings and help plan tours."
+      "Send this Location Brief to Rofo for review. We will check the request and determine the best next step."
     );
     const button = document.querySelector("[data-location-brief-submit-button]");
-    if (button) button.textContent = "Discuss This Recommendation With a Broker";
+    if (button) button.textContent = "Request Current Availability";
     const link = document.querySelector("[data-recommendation-cta-link]");
     if (link) {
       link.href = state.ctaHref || expertReviewHref(context);
@@ -773,7 +788,7 @@
     status.classList.add("location-brief-contact-status--success");
     const isInvestigation = currentBriefState && currentBriefState.liveMarketInvestigation && currentBriefState.liveMarketInvestigation.investigationIntent;
     const investigation = isInvestigation ? currentBriefState.liveMarketInvestigation : null;
-    status.appendChild(createElement("strong", "", isInvestigation ? "Your live market review request has been received." : "Your Location Brief has been sent."));
+    status.appendChild(createElement("strong", "", isInvestigation ? "Your current availability request has been received." : "Your Location Brief has been created."));
     if (investigation) {
       const selectedCount = (investigation.representativeBuildings || []).filter((building) => building.selected !== false).length;
       const detail = [
@@ -790,7 +805,7 @@
           confirmation.sent ? `Confirmation sent to ${currentBriefState.contact.email}.` : `Request received. Confirmation email may follow at ${currentBriefState.contact.email}.`
         ));
       }
-      status.appendChild(createElement("span", "", "Rofo will review available coverage before any live-market research or broker guidance is confirmed."));
+      status.appendChild(createElement("span", "", "Rofo will review your request and determine the best next step. This does not promise immediate broker contact."));
     }
     if (result.publicId) {
       status.appendChild(createElement("span", "", `Brief ID: ${result.publicId}`));
@@ -814,7 +829,7 @@
       status.appendChild(copyButton);
       return;
     }
-    status.appendChild(createElement("span", "", "Your brief has been submitted for live market review."));
+    status.appendChild(createElement("span", "", "Your brief has been submitted for review."));
   }
 
   function renderExpertGuided(state, context) {
@@ -914,7 +929,7 @@
       }, { once: true });
     }
 
-    renderRepresentativeBuildings(primary, state);
+    renderRepresentativeBuildings([primary], state);
   }
 
   function renderRepresentativeBuildings(fits, state) {
@@ -1104,6 +1119,9 @@
       location,
       spaceType: profile.spaceType || "",
       targetSize: profile.size || "",
+      headcount: "",
+      approximateSize: profile.size || "",
+      budgetContext: "",
       timing: timingFromProfile(),
       locationIntent: locationIntentLabel(profile.locationIntent || marketPath.locationIntent || ""),
       priorities: Array.isArray(currentBriefState && currentBriefState.priorities) ? currentBriefState.priorities : [],
@@ -1240,6 +1258,45 @@
       }
     }
 
+    const headcount = document.querySelector("[data-live-market-headcount]");
+    if (headcount) {
+      headcount.value = investigation.confirmedRequirements && investigation.confirmedRequirements.headcount || "";
+      if (!headcount.dataset.investigationBound) {
+        headcount.dataset.investigationBound = "true";
+        headcount.addEventListener("input", () => {
+          investigation.confirmedRequirements = investigation.confirmedRequirements || {};
+          investigation.confirmedRequirements.headcount = headcount.value;
+          persistBriefState();
+        });
+      }
+    }
+
+    const approximateSize = document.querySelector("[data-live-market-size]");
+    if (approximateSize) {
+      approximateSize.value = investigation.confirmedRequirements && investigation.confirmedRequirements.approximateSize || "";
+      if (!approximateSize.dataset.investigationBound) {
+        approximateSize.dataset.investigationBound = "true";
+        approximateSize.addEventListener("input", () => {
+          investigation.confirmedRequirements = investigation.confirmedRequirements || {};
+          investigation.confirmedRequirements.approximateSize = approximateSize.value;
+          persistBriefState();
+        });
+      }
+    }
+
+    const budget = document.querySelector("[data-live-market-budget]");
+    if (budget) {
+      budget.value = investigation.confirmedRequirements && investigation.confirmedRequirements.budgetContext || "";
+      if (!budget.dataset.investigationBound) {
+        budget.dataset.investigationBound = "true";
+        budget.addEventListener("input", () => {
+          investigation.confirmedRequirements = investigation.confirmedRequirements || {};
+          investigation.confirmedRequirements.budgetContext = budget.value;
+          persistBriefState();
+        });
+      }
+    }
+
     document.querySelectorAll("[data-live-market-broker-preference] input[type='radio']").forEach((input) => {
       input.checked = (investigation.brokerPreference || "research_first") === input.value;
       if (!input.dataset.investigationBound) {
@@ -1264,7 +1321,7 @@
     }
 
     const submitButton = document.querySelector("[data-location-brief-submit-button]");
-    if (submitButton) submitButton.textContent = "Start Live Market Review";
+    if (submitButton) submitButton.textContent = "Request Current Availability";
     persistBriefState();
   }
 
@@ -1581,12 +1638,18 @@
       };
     });
     investigation.timing = document.querySelector("[data-live-market-timing]")?.value || investigation.timing || timingFromProfile() || "";
+    const executionHeadcount = String(document.querySelector("[data-live-market-headcount]")?.value || "").trim();
+    const executionSize = String(document.querySelector("[data-live-market-size]")?.value || "").trim();
+    const budgetContext = String(document.querySelector("[data-live-market-budget]")?.value || "").trim();
     const broker = document.querySelector("[data-live-market-broker-preference] input[type='radio']:checked");
     investigation.brokerPreference = broker ? broker.value : investigation.brokerPreference || "research_first";
     investigation.additionalNotes = document.querySelector("[data-live-market-notes]")?.value || "";
     investigation.confirmedRequirements = {
       ...investigation.confirmedRequirements,
       ...investigationRequirements(),
+      headcount: executionHeadcount,
+      approximateSize: executionSize,
+      budgetContext,
       timing: investigation.timing || timingFromProfile() || "",
     };
     investigation.requestedAt = new Date().toISOString();
@@ -1684,7 +1747,7 @@
       persistBriefState();
       const isInvestigation = payload.liveMarketInvestigation && payload.liveMarketInvestigation.investigationIntent;
       if (status) status.textContent = isInvestigation
-        ? "Submitting your live market review request..."
+        ? "Submitting your current availability request..."
         : "Creating your permanent Location Brief...";
       if (submitButton) submitButton.disabled = true;
 
@@ -1736,11 +1799,11 @@
             submitButton.disabled = true;
             submitButton.textContent = "Sent";
             submitButton.classList.add("recommendations-button--sent");
-            submitButton.setAttribute("aria-label", isInvestigation ? "Market investigation request sent" : "Location Brief sent");
+            submitButton.setAttribute("aria-label", isInvestigation ? "Current availability request sent" : "Location Brief sent");
           }
         } catch (error) {
           status.textContent = isInvestigation
-            ? "The live market review request could not be submitted. Please try again, or contact Rofo if the problem continues."
+            ? "The current availability request could not be submitted. Please try again, or contact Rofo if the problem continues."
             : "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
           status.classList.remove("location-brief-contact-status--success");
           if (window.console && typeof window.console.warn === "function") {

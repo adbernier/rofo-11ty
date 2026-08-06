@@ -867,7 +867,7 @@
     businessType: "",
     operationalUse: [],
     officeEnvironment: "",
-    commuteOrientation: "",
+    commuteOrientation: [],
     expectedGrowth: "",
     institutionProximity: "",
     people: "",
@@ -943,6 +943,9 @@
       if (!Array.isArray(merged.operationalUse)) {
         merged.operationalUse = merged.operationalUse ? [merged.operationalUse] : [];
       }
+      if (!Array.isArray(merged.commuteOrientation)) {
+        merged.commuteOrientation = merged.commuteOrientation ? [merged.commuteOrientation] : [];
+      }
       return applyRecommendationEntryContext(merged);
     } catch (error) {
       return applyRecommendationEntryContext({
@@ -998,7 +1001,8 @@
       business_type: summary.businessType || "",
       operational_use: summary.operationalUse,
       office_environment: summary.officeEnvironment || "",
-      commute_orientation: summary.commuteOrientation || "",
+      commute_orientation: primarySelectedValue(summary.commuteOrientation),
+      commute_orientations: summary.commuteOrientation,
       expected_growth: summary.expectedGrowth || "",
       institution_proximity: summary.institutionProximity || "",
     };
@@ -1159,6 +1163,15 @@
       .filter(Boolean);
   }
 
+  function selectedValues(value) {
+    if (Array.isArray(value)) return value.filter(Boolean);
+    return value ? [value] : [];
+  }
+
+  function primarySelectedValue(value) {
+    return selectedValues(value)[0] || "";
+  }
+
   function previewValues() {
     const detailValue = profile[detailField()] || profile.size || profile.people;
     const values = [
@@ -1170,7 +1183,7 @@
         ["Business type", optionLabel(businessTypeOptions, profile.businessType)],
         ["Office use", selectedOptionLabels(operationalUseOptions, profile.operationalUse).join(" / ")],
         ["Environment", optionLabel(officeEnvironmentOptions, profile.officeEnvironment)],
-        ["Commute", optionLabel(commuteOrientationOptions, profile.commuteOrientation)],
+        ["Commute", selectedOptionLabels(commuteOrientationOptions, selectedValues(profile.commuteOrientation)).join(" / ")],
         ["Growth", optionLabel(growthExpectationOptions, profile.expectedGrowth)],
       );
       if (isInstitutionProximityRelevant()) {
@@ -1298,7 +1311,7 @@
       businessType: profile.businessType || "",
       operationalUse: Array.isArray(profile.operationalUse) ? [...profile.operationalUse] : [],
       officeEnvironment: profile.officeEnvironment || "",
-      commuteOrientation: profile.commuteOrientation || "",
+      commuteOrientation: selectedValues(profile.commuteOrientation),
       expectedGrowth: profile.expectedGrowth || "",
       institutionProximity: profile.institutionProximity || "",
     };
@@ -1336,7 +1349,8 @@
       businessType: summary.businessType || "",
       operationalUse: summary.operationalUse,
       officeEnvironment: summary.officeEnvironment || "",
-      commuteOrientation: summary.commuteOrientation || "",
+      commuteOrientation: primarySelectedValue(summary.commuteOrientation),
+      commuteOrientations: summary.commuteOrientation,
       expectedGrowth: summary.expectedGrowth || "",
       institutionProximity: summary.institutionProximity || "",
       facts: {
@@ -1348,7 +1362,8 @@
         expectedGrowth: summary.expectedGrowth || "",
       },
       constraints: {
-        commuteOrientation: summary.commuteOrientation || "",
+        commuteOrientation: primarySelectedValue(summary.commuteOrientation),
+        commuteOrientations: summary.commuteOrientation,
         institutionProximity: summary.institutionProximity === "not_applicable" ? "" : summary.institutionProximity || "",
       },
       priorities: {
@@ -1391,7 +1406,7 @@
       summary.businessType ? `Business type: ${optionLabel(businessTypeOptions, summary.businessType)}` : "",
       summary.operationalUse.length ? `Primary office use: ${selectedOptionLabels(operationalUseOptions, summary.operationalUse).join(" • ")}` : "",
       summary.officeEnvironment ? `Office environment: ${optionLabel(officeEnvironmentOptions, summary.officeEnvironment)}` : "",
-      summary.commuteOrientation ? `Employee commute orientation: ${optionLabel(commuteOrientationOptions, summary.commuteOrientation)}` : "",
+      summary.commuteOrientation.length ? `Employee commute orientation: ${selectedOptionLabels(commuteOrientationOptions, summary.commuteOrientation).join(" • ")}` : "",
       summary.expectedGrowth ? `Growth expectations: ${optionLabel(growthExpectationOptions, summary.expectedGrowth)}` : "",
       summary.institutionProximity && summary.institutionProximity !== "not_applicable" ? `Institution proximity: ${optionLabel(institutionProximityOptions, summary.institutionProximity)}` : "",
       summary.sizeOrPeople ? `Execution-stage size context: ${summary.sizeOrPeople}` : "",
@@ -1457,7 +1472,7 @@
       location_profile_business_type: summary.businessType || "",
       location_profile_operational_use: summary.operationalUse.join(", "),
       location_profile_office_environment: summary.officeEnvironment || "",
-      location_profile_commute_orientation: summary.commuteOrientation || "",
+      location_profile_commute_orientation: summary.commuteOrientation.join(", "),
       location_profile_expected_growth: summary.expectedGrowth || "",
       location_profile_institution_proximity: summary.institutionProximity || "",
       selected_locations: JSON.stringify(summary.selectedLocations),
@@ -1474,7 +1489,8 @@
         business_type: summary.businessType || "",
         operational_use: summary.operationalUse,
         office_environment: summary.officeEnvironment || "",
-        commute_orientation: summary.commuteOrientation || "",
+        commute_orientation: primarySelectedValue(summary.commuteOrientation),
+        commute_orientations: summary.commuteOrientation,
         expected_growth: summary.expectedGrowth || "",
         institution_proximity: summary.institutionProximity || "",
         timing: summary.timing,
@@ -1569,13 +1585,13 @@
       profile[key] = [...current];
     } else {
       const previousValue = profile[key];
-      const requiredChoice = ["spaceType", "timing", "people", "size", "locationIntent", "businessType", "officeEnvironment", "commuteOrientation", "expectedGrowth", "institutionProximity"].includes(key);
+      const requiredChoice = ["spaceType", "timing", "people", "size", "locationIntent", "businessType", "officeEnvironment", "expectedGrowth", "institutionProximity"].includes(key);
       profile[key] = requiredChoice ? value : profile[key] === value ? "" : value;
       if (key === "spaceType" && previousValue !== value) {
         profile.businessType = "";
         profile.operationalUse = [];
         profile.officeEnvironment = "";
-        profile.commuteOrientation = "";
+        profile.commuteOrientation = [];
         profile.expectedGrowth = "";
         profile.institutionProximity = "";
         profile.people = "";
@@ -1619,7 +1635,7 @@
       button.type = "button";
       button.textContent = optionLabel;
       button.dataset.profileValue = optionValue;
-      const multi = key === "important" || key === "features" || key === "operationalUse";
+      const multi = key === "important" || key === "features" || key === "operationalUse" || key === "commuteOrientation";
       const selected = multi
         ? Array.isArray(profile[key]) && profile[key].includes(optionValue)
         : profile[key] === optionValue;
@@ -1804,7 +1820,7 @@
       summary.businessType ? ["Business type", optionLabel(businessTypeOptions, summary.businessType)] : ["", ""],
       summary.operationalUse.length ? ["Primary office use", selectedOptionLabels(operationalUseOptions, summary.operationalUse).join(" · ")] : ["", ""],
       summary.officeEnvironment ? ["Office environment", optionLabel(officeEnvironmentOptions, summary.officeEnvironment)] : ["", ""],
-      summary.commuteOrientation ? ["Employee commute", optionLabel(commuteOrientationOptions, summary.commuteOrientation)] : ["", ""],
+      summary.commuteOrientation.length ? ["Employee commute", selectedOptionLabels(commuteOrientationOptions, summary.commuteOrientation).join(" · ")] : ["", ""],
       summary.expectedGrowth ? ["Growth", optionLabel(growthExpectationOptions, summary.expectedGrowth)] : ["", ""],
       summary.institutionProximity && summary.institutionProximity !== "not_applicable" ? ["Institution proximity", optionLabel(institutionProximityOptions, summary.institutionProximity)] : ["", ""],
       summary.sizeOrPeople ? ["Approximate size", summary.sizeOrPeople] : ["", ""],
@@ -2076,7 +2092,7 @@
       businessType: "",
       operationalUse: [],
       officeEnvironment: "",
-      commuteOrientation: "",
+      commuteOrientation: [],
       expectedGrowth: "",
       institutionProximity: "",
       sourceContext: { ...defaultProfile.sourceContext },

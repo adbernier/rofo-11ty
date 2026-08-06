@@ -52,6 +52,7 @@ function normalizeLocation(location) {
 
 function normalizeSearchProfile(profile) {
   const value = profile && typeof profile === "object" ? profile : {};
+  const commuteOrientations = cleanArray(value.commuteOrientations || value.commute_orientations || value.commuteOrientation || value.commute_orientation, 6);
   return {
     locations: Array.isArray(value.locations)
       ? value.locations.map(normalizeLocation).filter(Boolean)
@@ -64,7 +65,8 @@ function normalizeSearchProfile(profile) {
     businessType: clean(value.businessType || value.business_type, 120),
     operationalUse: cleanArray(value.operationalUse || value.operational_use, 12),
     officeEnvironment: clean(value.officeEnvironment || value.office_environment, 140),
-    commuteOrientation: clean(value.commuteOrientation || value.commute_orientation, 140),
+    commuteOrientation: commuteOrientations[0] || clean(value.commuteOrientation || value.commute_orientation, 140),
+    commuteOrientations,
     expectedGrowth: clean(value.expectedGrowth || value.expected_growth, 120),
     institutionProximity: clean(value.institutionProximity || value.institution_proximity, 140),
     facts: value.facts && typeof value.facts === "object" ? value.facts : {},
@@ -213,6 +215,9 @@ function normalizeLiveMarketInvestigation(value) {
       location: clean(requirements.location, 240),
       spaceType: clean(requirements.spaceType, 120),
       targetSize: clean(requirements.targetSize, 120),
+      headcount: clean(requirements.headcount, 120),
+      approximateSize: clean(requirements.approximateSize, 120),
+      budgetContext: clean(requirements.budgetContext, 240),
       timing: clean(requirements.timing || value.timing, 80),
       locationIntent: clean(requirements.locationIntent, 120),
       locationPriorities: cleanArray(requirements.locationPriorities || requirements.priorities, 12),
@@ -569,6 +574,9 @@ function investigationHtmlBlock(investigation) {
         ${emailField("Confirmed requirements", formatList([
           requirements.spaceType ? `Space type: ${requirements.spaceType}` : "",
           requirements.targetSize ? `Target size: ${requirements.targetSize}` : "",
+          requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
+          requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
+          requirements.budgetContext ? `Budget/rent context: ${requirements.budgetContext}` : "",
           requirements.locationIntent ? `Location intent: ${requirements.locationIntent}` : "",
           requirements.locationPriorities && requirements.locationPriorities.length ? `Priorities: ${requirements.locationPriorities.join(", ")}` : "",
         ].filter(Boolean)))}
@@ -732,11 +740,18 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
   const scope = investigationScopeLabels(investigation);
   const district = investigation.districtName || locationSummary(brief);
   const city = [investigation.city, investigation.state].filter(Boolean).join(", ");
-  const subject = `Rofo received your Live Market Investigation request for ${district}`;
+  const subject = "Your Rofo Location Brief";
   const text = [
     `Hi ${contact.name || "there"},`,
     "",
-    `Rofo received your Live Market Investigation request for ${district}.`,
+    "Thank you for requesting current availability from Rofo.",
+    "",
+    `Location Brief: ${url}`,
+    "",
+    "What happens next:",
+    "Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage. This is not a promise of immediate broker contact.",
+    "",
+    `Selected district: ${district}`,
     city ? `Market: ${city}` : "",
     "",
     "REPRESENTATIVE BUILDINGS",
@@ -747,11 +762,6 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
     scope.length ? scope.map((item) => `- ${item}`).join("\n") : "- Scope to confirm",
     investigation.timing ? `Timing: ${investigation.timing}` : "",
     `Broker preference: ${brokerPreferenceLabel(investigation.brokerPreference) || "Research first"}`,
-    "",
-    `Location Brief: ${url}`,
-    "",
-    "What happens next:",
-    "Rofo will review your request and determine available market coverage. Representative buildings are starting points for investigation, not confirmed availability. Broker guidance depends on market coverage and your requirements.",
     "",
     "Rofo",
   ].filter(Boolean).join("\n");
@@ -765,18 +775,19 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:640px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
             <tr>
               <td style="padding:22px;background:#123f8c;color:#ffffff;">
-                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Live Market Investigation</div>
-                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">We received your request for ${escapeHtml(district)}</h1>
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div>
+                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">Your Location Brief request was received.</h1>
                 ${city ? `<div style="font-size:15px;line-height:22px;color:#eff6ff;">${escapeHtml(city)}</div>` : ""}
               </td>
             </tr>
             <tr>
               <td style="padding:22px;font-size:15px;line-height:23px;">
                 <p style="margin:0 0 14px;">${contact.name ? `Hi ${escapeHtml(contact.name)},` : "Hi,"}</p>
-                <p style="margin:0 0 18px;">Rofo received your Live Market Investigation request. Representative buildings are starting points for review, not confirmed availability.</p>
+                <p style="margin:0 0 14px;">Thank you for requesting current availability from Rofo.</p>
+                <p style="margin:0 0 18px;">Rofo will review your request and determine the best next step. This does not promise immediate broker contact.</p>
 
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
-                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Investigation summary</div>
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Request summary</div>
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     ${emailField("District", escapeHtml(district))}
                     ${city ? emailField("City", escapeHtml(city)) : ""}
@@ -790,11 +801,11 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
 
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
-                  <p style="margin:0;color:#334155;">Rofo will review your request and determine available market coverage for the selected district, representative buildings, and comparable buildings. Broker guidance depends on market coverage and your requirements.</p>
+                  <p style="margin:0;color:#334155;">Rofo will review the Location Brief, selected district, representative buildings, and any comparable-building request before deciding the appropriate next step.</p>
                 </div>
 
                 <a href="${escapeHtml(url)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">View Location Brief</a>
-                <p style="margin:18px 0 0;color:#64748b;font-size:13px;line-height:20px;">This confirmation does not mean availability research is complete or that broker coverage has been accepted.</p>
+                <p style="margin:18px 0 0;color:#64748b;font-size:13px;line-height:20px;">Representative buildings are starting points for review, not confirmed availability.</p>
               </td>
             </tr>
           </table>

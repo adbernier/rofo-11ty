@@ -12,6 +12,9 @@ import {
   listReferralsForLeads,
   referralStatusLabel,
 } from "../broker-referral/_shared.js";
+import {
+  buildProjectSnapshotFromLead,
+} from "../_shared/project-snapshot.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
@@ -552,6 +555,52 @@ function detailsBlock(label, value) {
   `;
 }
 
+function renderProjectSnapshot(lead, market) {
+  const snapshot = buildProjectSnapshotFromLead(lead);
+  const topDistricts = Array.isArray(snapshot.topDistricts) ? snapshot.topDistricts.filter(Boolean) : [];
+  return `
+    <section class="lead-ops-summary" aria-label="Project Snapshot">
+      <div class="lead-ops-summary__header">
+        <div>
+          <span>Project Snapshot</span>
+          <h3>${escapeHtml(lead.company || lead.name || "Customer")}</h3>
+        </div>
+        ${lead.location_brief_url ? `<a href="${escapeHtml(lead.location_brief_url)}" target="_blank" rel="noopener">Open Brief</a>` : ""}
+      </div>
+      <dl class="lead-grid lead-grid--compact">
+        ${field("Customer", [lead.name, lead.company].filter(Boolean).join(" - "))}
+        ${field("Market", snapshot.market || market)}
+        ${field("Property type", snapshot.propertyType || lead.requested_space_type || lead.space_type)}
+        ${field("Business type", snapshot.businessType || lead.location_profile_business_type)}
+        ${field("Approx. size", snapshot.approximateSize || lead.space_needed)}
+        ${field("Timing", snapshot.timing || lead.move_timing)}
+        ${field("Growth", snapshot.growth || lead.location_profile_expected_growth)}
+        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path)}
+      </dl>
+    </section>
+  `;
+}
+
+function renderBusinessProfileSummary(lead) {
+  const items = [
+    ["Business type", lead.location_profile_business_type],
+    ["Office use", lead.location_profile_operational_use],
+    ["Office environment", lead.location_profile_office_environment],
+    ["Commute", lead.location_profile_commute_orientation],
+    ["Growth", lead.location_profile_expected_growth],
+    ["Institution proximity", lead.location_profile_institution_proximity],
+  ].filter(([, value]) => normalizeText(value));
+  if (!items.length) return "";
+  return `
+    <section class="message-block message-block--plain">
+      <h3>Business Profile</h3>
+      <dl class="lead-grid lead-grid--compact">
+        ${items.map(([label, value]) => field(label, value)).join("")}
+      </dl>
+    </section>
+  `;
+}
+
 function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const lead = parseJson(row.lead_json);
   const officeFinderPayload = parseJson(row.officefinder_json);
@@ -603,6 +652,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         ${linkField("Page URL", lead.page_url || lead.rofo_source)}
       </div>
 
+      ${isLocationBrief ? renderProjectSnapshot(lead, market) : ""}
+
       ${adminSpam.signals.length || adminSpam.context.length ? `
         <div class="spam-box spam-box--${escapeHtml(adminSpam.risk.toLowerCase())}">
           <strong>Spam risk: ${escapeHtml(adminSpam.risk)}</strong>
@@ -617,6 +668,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       </section>
 
       ${isLocationBrief ? `
+        ${renderBusinessProfileSummary(lead)}
         ${isInvestigation ? `
         <section class="message-block message-block--investigation">
           <h3>Live Market Investigation</h3>
@@ -652,7 +704,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       ` : ""}
 
       <details class="admin-details">
-        <summary>Routing and admin details</summary>
+        <summary>Advanced: routing and admin details</summary>
         <div class="lead-grid">
         ${isLocationBrief ? "" : field("Company", lead.company)}
         ${lead.lead_type === "location_profile" ? "" : field("State", lead.state)}
@@ -681,7 +733,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
 
       <div class="lead-card__details">
         <details>
-          <summary>OfficeFinder latest attempt</summary>
+          <summary>Advanced: OfficeFinder latest attempt</summary>
           ${
             latestAttempt
               ? `<div class="lead-grid lead-grid--compact">
@@ -696,8 +748,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
               : "<p>No OfficeFinder attempts yet.</p>"
           }
         </details>
-        ${detailsBlock("Stored OfficeFinder payload", officeFinderPayload)}
-        ${detailsBlock("Lead JSON", lead)}
+        ${detailsBlock("Advanced: stored OfficeFinder payload", officeFinderPayload)}
+        ${detailsBlock("Advanced: stored lead JSON", lead)}
       </div>
 
       ${renderLeadActions(row, route, token, activeReferral)}
@@ -930,6 +982,12 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     dd { margin: 4px 0 0; overflow-wrap: anywhere; }
     .message-block { margin-top: 16px; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px; background: #f8fafc; color: #172033; }
     .message-block > div { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 22px; }
+    .message-block--plain > div { white-space: normal; }
+    .lead-ops-summary { margin-top: 16px; border: 1px solid #bfdbfe; border-radius: 14px; padding: 16px; background: #eff6ff; }
+    .lead-ops-summary__header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 4px; }
+    .lead-ops-summary__header span { display: block; color: #1d4ed8; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; }
+    .lead-ops-summary__header h3 { margin: 4px 0 0; font-size: 18px; color: #0f172a; }
+    .lead-ops-summary__header a { flex: 0 0 auto; border-radius: 8px; padding: 9px 12px; background: #174ea6; color: #fff; font-size: 13px; font-weight: 900; text-decoration: none; }
     .broker-match-block > div { white-space: normal; }
     .broker-match-list { display: grid; gap: 10px; }
     .broker-match-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; padding: 12px; border: 1px solid #dbe5f3; border-radius: 10px; background: #fff; }

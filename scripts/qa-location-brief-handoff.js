@@ -52,7 +52,8 @@ assert(leadShared.includes("locationBriefReferenceText({"), "OfficeFinder commen
 assert(projectSnapshot.includes("Please review the Location Brief before contacting the client."), "OfficeFinder handoff should ask downstream recipients to review the Brief.");
 assert(leadShared.includes("Please review the Brief before contacting the client."), "Broker handoff should ask recipients to review the Brief.");
 assert(leadShared.includes("New Rofo ${propertyType} Requirement - ${market}"), "Broker email subject should use property type and market.");
-assert(leadShared.includes("Your Location Brief has been created."), "Customer confirmation should reinforce Location Brief creation.");
+assert(leadShared.includes("Your Rofo Location Brief"), "Customer confirmation should use the production Location Brief subject.");
+assert(leadShared.includes("Rofo will review your request and determine the best next step."), "Customer confirmation should avoid promising immediate broker contact.");
 assert(leadShared.includes("buildProjectSnapshotFromLead(lead)"), "Lead utilities should reuse Project Snapshot from the lead.");
 assert(leadShared.includes("appendOfficeFinderAttempt"), "OfficeFinder failures should remain logged on the lead.");
 assert(leadShared.includes("approved_send_failed"), "Failed OfficeFinder or broker sends should update lead status instead of dropping the lead.");
@@ -70,7 +71,10 @@ assert(leadShared.includes("`Phone: ${lead.phone || \"\"}`"), "Broker email shou
   assert(leadShared.includes(spaceType), `Lead/OfficeFinder compatibility should retain ${spaceType} handling.`);
 });
 
-assert(recommendationsPage.includes("Discuss This Recommendation With a Broker"), "Production Location Brief broker CTA should remain intact.");
+assert(recommendationsPage.includes("Request Current Availability"), "Production Location Brief should use the Request Current Availability CTA.");
+assert(recommendationsPage.includes("data-live-market-headcount"), "Availability request should capture optional headcount.");
+assert(recommendationsPage.includes("data-live-market-size"), "Availability request should capture optional approximate size.");
+assert(recommendationsPage.includes("data-live-market-budget"), "Availability request should preserve optional budget/rent context for review.");
 assert(recommendationsPage.includes("/api/location-brief/submit"), "Production Location Brief form should submit to the Location Brief endpoint.");
 
 console.log("Location Brief handoff QA passed.");

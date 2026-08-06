@@ -31,6 +31,12 @@ function clean(value, max = 500) {
   return String(value || "").trim().slice(0, max);
 }
 
+function cleanArray(value, max = 10) {
+  return Array.isArray(value)
+    ? value.map((item) => clean(item, 180)).filter(Boolean).slice(0, max)
+    : clean(value) ? [clean(value, 180)] : [];
+}
+
 function stableJson(value) {
   if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
   if (value && typeof value === "object") {
@@ -78,6 +84,9 @@ function normalizedInvestigationFingerprint(input) {
     requirements: {
       spaceType: clean(requirements.spaceType, 120).toLowerCase(),
       targetSize: clean(requirements.targetSize, 120).toLowerCase(),
+      headcount: clean(requirements.headcount, 120).toLowerCase(),
+      approximateSize: clean(requirements.approximateSize, 120).toLowerCase(),
+      budgetContext: clean(requirements.budgetContext, 240).toLowerCase(),
       locationIntent: clean(requirements.locationIntent, 120).toLowerCase(),
       priorities: Array.isArray(requirements.locationPriorities) ? requirements.locationPriorities.map((item) => clean(item, 120).toLowerCase()).sort() : [],
       knownConstraints: clean(requirements.knownConstraints, 1000).toLowerCase(),
@@ -321,6 +330,9 @@ function investigationRequirementsSummary(investigation) {
     `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
     investigationScopeSummary(investigation) ? `Investigation scope: ${investigationScopeSummary(investigation)}` : "",
     investigation.timing || requirements.timing ? `Timing: ${investigation.timing || requirements.timing}` : "",
+    requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
+    requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
+    requirements.budgetContext ? `Budget/rent context: ${requirements.budgetContext}` : "",
     investigation.brokerPreference ? `Broker preference: ${investigation.brokerPreference}` : "",
     requirements.locationPriorities && requirements.locationPriorities.length ? `Profile priorities: ${requirements.locationPriorities.join(", ")}` : "",
     investigation.additionalNotes ? `Investigation notes: ${investigation.additionalNotes}` : "",
@@ -348,6 +360,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
   const projectSnapshot = brief.projectSnapshot || buildProjectSnapshotFromBrief(brief);
   const snapshotLines = projectSnapshotTextLines(projectSnapshot);
   const businessProfile = brief.searchProfile || {};
+  const commuteOrientations = cleanArray(businessProfile.commuteOrientations || businessProfile.commute_orientations || businessProfile.commuteOrientation || businessProfile.commute_orientation, 6);
 
   return {
     lead_type: investigation && investigation.investigationIntent ? "live_market_investigation" : "location_brief",
@@ -388,7 +401,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     location_profile_business_type: businessProfile.businessType || businessProfile.business_type || "",
     location_profile_operational_use: Array.isArray(businessProfile.operationalUse) ? businessProfile.operationalUse.join(", ") : "",
     location_profile_office_environment: businessProfile.officeEnvironment || businessProfile.office_environment || "",
-    location_profile_commute_orientation: businessProfile.commuteOrientation || businessProfile.commute_orientation || "",
+    location_profile_commute_orientation: commuteOrientations.join(", "),
     location_profile_expected_growth: businessProfile.expectedGrowth || businessProfile.expected_growth || "",
     location_profile_institution_proximity: businessProfile.institutionProximity || businessProfile.institution_proximity || "",
     business_priorities: priorities.join(", "),

@@ -218,11 +218,14 @@ function generatedPageChecks() {
     return { errors: [], warnings: ["generated recommendations page is stale; run npm run build for markup checks"] };
   }
   const html = fs.readFileSync(htmlPath, "utf8");
+  const contextSource = fs.readFileSync(path.join(__dirname, "..", "js", "recommendation-context.js"), "utf8");
   const errors = [];
   const warnings = [];
   if (!html.includes("data-location-brief-representative-buildings")) errors.push("recommendation page missing representative-building module shell");
   if (!html.includes("representative examples, not current availability")) errors.push("missing representative-example disclosure");
-  const jsHasInvestigationCta = fs.readFileSync(path.join(__dirname, "..", "js", "recommendation-context.js"), "utf8").includes("data-live-market-investigation-cta");
+  if (!contextSource.includes("renderRepresentativeBuildings([fits[index] || fits[0]], state)")) errors.push("Best Fit selection does not refresh representative buildings for the active district");
+  if (!contextSource.includes("renderRepresentativeBuildings(fits.length ? [fits[0]] : [], state)")) errors.push("Initial representative buildings do not render only the primary selected district");
+  const jsHasInvestigationCta = contextSource.includes("data-live-market-investigation-cta");
   if (!jsHasInvestigationCta && !html.includes("data-location-brief-contact")) errors.push("missing Live Market Investigation CTA");
   if (!html.includes('id="location-brief-contact"')) errors.push("dead investigation CTA");
   if (html.includes("undefined")) errors.push("generated recommendations page contains undefined");

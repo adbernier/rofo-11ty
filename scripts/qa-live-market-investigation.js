@@ -85,6 +85,9 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["data-investigation-competitive-buildings", "competitive buildings option"],
   ["data-live-market-scope-options", "scope controls"],
   ["data-live-market-timing", "timing control"],
+  ["data-live-market-headcount", "execution headcount field"],
+  ["data-live-market-size", "execution approximate-size field"],
+  ["data-live-market-budget", "execution budget context field"],
   ["data-live-market-broker-preference", "broker preference controls"],
 ].forEach(([token, label]) => requireIncludes(recommendationPage, token, label));
 
@@ -101,7 +104,7 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["investigationSubmissionToken", "stable investigation submission token"],
   ["submissionToken", "investigation submission token persistence"],
   ["liveMarketInvestigation", "investigation state"],
-  ["Discuss This Recommendation With a Broker", "broker handoff submit state"],
+  ["Request Current Availability", "availability request submit state"],
 ].forEach(([token, label]) => requireIncludes(recommendationContext, token, label));
 
 [
