@@ -1,5 +1,9 @@
 import publisherSnapshot from "../../data/generated/publisher-analysis.json";
 import publisherExpansionPlans from "../../data/generated/publisher-expansion-plans.json";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -77,20 +81,6 @@ function severityClass(severity) {
   if (severity === "high") return "is-high";
   if (severity === "medium") return "is-medium";
   return "is-low";
-}
-
-function renderNav(token) {
-  return `
-    <nav class="admin-nav" aria-label="Admin navigation">
-      <a class="button-link" href="/admin/eos?${tokenParam(token)}">EOS</a>
-      <a class="button-link" href="/admin/operations?${tokenParam(token)}">Operations</a>
-      <a class="button-link button-link--active" href="/admin/publisher?${tokenParam(token)}">Publisher</a>
-      <a class="button-link" href="/admin/compass?${tokenParam(token)}">Rofo Compass</a>
-      <a class="button-link" href="/admin/coverage?${tokenParam(token)}">Compass Coverage</a>
-      <a class="button-link" href="/admin/leads?${tokenParam(token)}">Leads</a>
-      <a class="button-link" href="/admin/search-profile-analytics?${tokenParam(token)}">Search Profile Analytics</a>
-    </nav>
-  `;
 }
 
 function renderMetric(label, value, note) {
@@ -753,9 +743,7 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
     td small { display: block; margin-top: 3px; font-size: 0.78rem; }
     .hero { margin-bottom: 22px; }
     .hero p { max-width: 860px; font-size: 1.06rem; }
-    .admin-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
-    .button-link { display: inline-flex; align-items: center; min-height: 38px; padding: 0 12px; border: 1px solid var(--border); border-radius: 9px; background: #fff; color: var(--ink); font-weight: 850; }
-    .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; }
+    ${MISSION_CONTROL_NAV_CSS}
     .panel, .metric, .category-card { border: 1px solid var(--border); border-radius: 14px; background: #fff; box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05); }
     .panel { margin-bottom: 18px; padding: 22px; }
     .metrics { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
@@ -815,12 +803,13 @@ function renderPage({ token, analysis, plans, selectedMetro, selectedCategory, s
 </head>
 <body>
   <main>
-    <header class="hero">
-      <a class="back-link" href="/admin/operations?${tokenParam(token)}">Back to Operations</a>
-      <h1>Rofo Publisher</h1>
-      <p>Measure metro completeness, identify content and graph gaps, and plan the next highest-value expansion work without changing production data.</p>
-      ${renderNav(token)}
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "publisher",
+      title: "Publisher",
+      description: "Measure metro completeness, identify content and graph gaps, and plan the next highest-value expansion work without changing production data.",
+      escapeHtml,
+    })}
     ${renderFilters({ token, selectedMetro, selectedCategory, selectedPriority, automationOnly, selectedMode: mode })}
     ${metro && !selectedCategory && !selectedPriority && !automationOnly ? renderMetroDetailWithPlan(metro, token, plan, mode) : ""}
     ${metro && (selectedCategory || selectedPriority || automationOnly) ? renderQueue(filteredQueue, token, "Filtered Work Queue", "Filtered deterministic Publisher tasks.") : ""}

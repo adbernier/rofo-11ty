@@ -15,6 +15,10 @@ import {
 import {
   buildProjectSnapshotFromLead,
 } from "../_shared/project-snapshot.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
@@ -1041,6 +1045,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     a { color: #174ea6; }
     .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 48px; }
     header { margin-bottom: 20px; }
+    ${MISSION_CONTROL_NAV_CSS}
     h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 42px); line-height: 1.05; }
     h2 { margin: 4px 0; font-size: 20px; }
     h3 { margin: 0 0 8px; font-size: 15px; }
@@ -1177,10 +1182,13 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
 </head>
 <body>
   <main class="shell">
-    <header>
-      <h1>Rofo Lead Dashboard</h1>
-      <p>Recent tenant leads, routing status, and OfficeFinder attempt history.</p>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "leads",
+      title: "Lead Operations",
+      description: "Recent requirements, routing status, fulfillment partners, and operational follow-up.",
+      escapeHtml,
+    })}
     ${renderTabs(token, filters, counts)}
     ${renderFilters(token, filters)}
     ${renderLeadQualitySection(leadQuality)}

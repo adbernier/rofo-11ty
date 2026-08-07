@@ -1,5 +1,9 @@
 import { escapeHtml } from "../api/leads/_shared.js";
 import { FIELD_PHOTO_IMAGE_TYPES } from "../api/field-photos/_shared.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -32,9 +36,9 @@ function renderPage({ token, env }) {
     main { width: min(1080px, calc(100% - 28px)); margin: 0 auto; padding: 28px 0 48px; }
     a { color: var(--blue); font-weight: 800; text-decoration: none; }
     .back-link { display: inline-flex; margin-bottom: 16px; }
-    .admin-nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 22px; }
+    ${MISSION_CONTROL_NAV_CSS}
     .button-link, button { border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); font: inherit; font-weight: 800; min-height: 44px; padding: 11px 14px; cursor: pointer; }
-    .button-link--active, .primary { border-color: var(--blue); background: var(--blue); color: #fff; }
+    .primary { border-color: var(--blue); background: var(--blue); color: #fff; }
     button:disabled { opacity: .55; cursor: wait; }
     h1 { margin: 0; font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1; letter-spacing: 0; }
     h2 { margin: 0 0 10px; font-size: 1.25rem; }
@@ -85,19 +89,13 @@ function renderPage({ token, env }) {
 </head>
 <body>
   <main>
-    <a class="back-link" href="/admin/operations?${tokenParam(token)}">Back to Operations</a>
-    <nav class="admin-nav" aria-label="Admin navigation">
-      <a class="button-link" href="/admin/eos?${tokenParam(token)}">EOS</a>
-      <a class="button-link" href="/admin/operations?${tokenParam(token)}">Operations</a>
-      <a class="button-link button-link--active" href="/admin/field-photos?${tokenParam(token)}">Field Photos</a>
-      <a class="button-link" href="/admin/publisher?${tokenParam(token)}">Publisher</a>
-      <a class="button-link" href="/admin/leads?${tokenParam(token)}">Leads</a>
-    </nav>
-
-    <header class="hero">
-      <h1>Field Photos</h1>
-      <p>Upload Rofo-owned city, district, and building photos from a phone. The browser optimizes the image before upload; R2 stores the files and D1 stores the publishing record.</p>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "field",
+      title: "Field Photos",
+      description: "Upload Rofo-owned city, district, and building photos from a phone. The browser optimizes the image before upload; R2 stores the files and D1 stores the publishing record.",
+      escapeHtml,
+    })}
 
     ${storageConfigured ? "" : `<section class="panel"><h2>Storage setup required</h2><p>Configure a D1 binding through <code>FIELD_PHOTOS_DB</code> or <code>LEADS_DB</code>, plus the <code>ROFO_PHOTOS</code> R2 binding before the first upload.</p></section>`}
 

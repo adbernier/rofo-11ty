@@ -13,6 +13,10 @@ import {
   listReferralsForBroker,
   referralStatusLabel,
 } from "../broker-referral/_shared.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 const BROKER_STATUSES = ["active", "inactive", "pending"];
 const SPACE_TYPES = ["office", "industrial", "warehouse", "flex", "retail", "medical", "coworking"];
@@ -453,10 +457,10 @@ function renderPage({ token, brokers, broker, notice, error }) {
     a { color: var(--blue); }
     .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 56px; }
     header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 22px; }
+    ${MISSION_CONTROL_NAV_CSS}
     h1 { margin: 0 0 8px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1; }
     h2, h3, p { margin: 0; }
     header p, .section-heading p, .broker-card p { color: var(--muted); line-height: 1.5; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: .9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
     .panel { margin-top: 16px; padding: 20px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 12px 30px rgba(15, 23, 42, .06); }
@@ -506,7 +510,6 @@ function renderPage({ token, brokers, broker, notice, error }) {
     .muted, .empty { color: var(--muted); }
     @media (max-width: 820px) {
       header, .broker-card__header { display: grid; }
-      .nav { justify-content: flex-start; }
       .broker-form, .broker-grid, .checkbox-grid { grid-template-columns: 1fr; }
       .broker-referral-list article { grid-template-columns: 1fr; }
       .broker-referral-list span { justify-self: start; }
@@ -515,20 +518,13 @@ function renderPage({ token, brokers, broker, notice, error }) {
 </head>
 <body>
   <main class="shell">
-    <header>
-      <div>
-        <h1>Broker Partners</h1>
-        <p>Manage trusted broker partners by market, space type, and referral readiness.</p>
-      </div>
-      <nav class="nav" aria-label="Admin links">
-        <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
-        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
-        <a class="button-link button-link--active" href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>
-        <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead Dashboard</a>
-        <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
-        <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
-      </nav>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "leads",
+      title: "Broker Partners",
+      description: "Manage trusted broker partners by market, space type, and referral readiness.",
+      escapeHtml,
+    })}
     ${renderBrokerForm({ token, broker, notice, error })}
     ${renderBrokerList(brokers, token)}
   </main>

@@ -2,6 +2,10 @@ import graph from "../../_data/locationKnowledgeGraph.js";
 import schema from "../../_data/locationKnowledgeSchema.js";
 import recommendationQaStatus from "../../_data/recommendationQaStatus.js";
 import { escapeHtml } from "../api/leads/_shared.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 const RESOLVER_VERSION = "Compass Resolver v1";
 const EXPLAINABILITY_VERSION = "Explainability Layer v1";
@@ -283,9 +287,9 @@ function renderPage({ token }) {
     h1, h2, h3, p { margin: 0; }
     .shell { width: min(1240px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
     header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 20px; }
+    ${MISSION_CONTROL_NAV_CSS}
     h1 { margin-bottom: 8px; font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 0.98; letter-spacing: -0.02em; }
     header p, .section-heading p, .compass-definition { color: var(--muted); line-height: 1.55; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; font-weight: 850; white-space: nowrap; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
     .back-link { display: inline-flex; width: fit-content; margin-bottom: 12px; color: var(--blue); font-size: 0.88rem; font-weight: 900; }
@@ -329,7 +333,6 @@ function renderPage({ token }) {
     .lifecycle li strong { align-self: end; line-height: 1.2; }
     @media (max-width: 980px) {
       header { display: grid; }
-      .nav { justify-content: flex-start; }
       .metrics, .module-grid, .overview-grid, .operating-grid, .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
@@ -341,25 +344,17 @@ function renderPage({ token }) {
 </head>
 <body>
   <main class="shell">
-    <header>
-      <div>
-        <a class="back-link" href="/admin/operations?token=${encodeURIComponent(token)}">Back to Operations</a>
-        <h1>Rofo Compass</h1>
-        <p>Commercial Location Intelligence Engine health, graph maturity, resolver support, explainability, QA, and Location Brief generation.</p>
-        <div class="compass-definition">Rofo Compass is the internal intelligence layer that turns commercial geography into explainable Location Briefs.</div>
-        <ol class="stack" aria-label="Rofo Compass hierarchy">
-          ${COMPASS_STACK.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-        </ol>
-      </div>
-      <nav class="nav" aria-label="Admin links">
-        <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
-        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
-        <a class="button-link button-link--active" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
-        <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
-        <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>
-        <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
-      </nav>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "compass",
+      title: "Rofo Compass",
+      description: "Commercial Location Intelligence Engine health, graph maturity, resolver support, explainability, QA, and Location Brief generation.",
+      escapeHtml,
+    })}
+    <section class="compass-definition">Rofo Compass is the internal intelligence layer that turns commercial geography into explainable Location Briefs.</section>
+    <ol class="stack" aria-label="Rofo Compass hierarchy">
+      ${COMPASS_STACK.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+    </ol>
 
     <section class="panel panel--overview">
       <div class="section-heading">

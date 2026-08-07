@@ -1,4 +1,8 @@
 import { escapeHtml } from "../api/leads/_shared.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 const KPI_WINDOWS = [7, 30];
 const RECENT_BRIEF_LIMIT = 50;
@@ -389,14 +393,14 @@ function renderHealth(env) {
 function renderAdminModules(token) {
   const modules = [
     {
-      title: "Operations",
-      purpose: "Run the business",
+      title: "Lead Operations",
+      purpose: "Run requirement intake, routing, and fulfillment follow-up",
       href: `/admin/operations?token=${encodeURIComponent(token)}`,
       current: true,
     },
     {
-      title: "Editorial Operating System",
-      purpose: "Editorial health, planning, and cross-module work queue",
+      title: "Today",
+      purpose: "Executive briefing and highest-leverage work",
       href: `/admin/eos?token=${encodeURIComponent(token)}`,
     },
     {
@@ -410,17 +414,17 @@ function renderAdminModules(token) {
       href: `/admin/publisher?token=${encodeURIComponent(token)}`,
     },
     {
-      title: "Field Photos",
+      title: "Field",
       purpose: "Mobile Rofo-owned photo upload and publishing",
       href: `/admin/field-photos?token=${encodeURIComponent(token)}`,
     },
     {
-      title: "Rofo Compass Coverage",
+      title: "Compass Coverage",
       purpose: "Metro maturity and expansion roadmap",
       href: `/admin/coverage?token=${encodeURIComponent(token)}`,
     },
     {
-      title: "Lead Dashboard",
+      title: "Leads",
       purpose: "Expert review and referral pipeline",
       href: `/admin/leads?token=${encodeURIComponent(token)}`,
     },
@@ -474,10 +478,10 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     a { color: var(--blue); }
     .shell { width: min(1220px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 56px; }
     header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 22px; }
+    ${MISSION_CONTROL_NAV_CSS}
     h1 { margin: 0 0 8px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -0.02em; }
     h2, h3, p { margin: 0; }
     header p, .section-heading p { color: var(--muted); line-height: 1.55; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
     .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
@@ -527,7 +531,6 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     .admin-module-card em { align-self: end; color: var(--blue); font-style: normal; font-weight: 900; }
     @media (max-width: 980px) {
       header, .section-heading--row { display: grid; }
-      .nav { justify-content: flex-start; }
       .metrics, .pipeline-grid, .health-grid, .demand-grid, .funnel, .admin-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .funnel article::after { display: none; }
     }
@@ -538,24 +541,13 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
 </head>
 <body>
   <main class="shell">
-    <header>
-      <div>
-        <h1>Rofo Operations</h1>
-        <p>Recommendation activity, Location Briefs, and expert review workflow.</p>
-      </div>
-      <nav class="nav" aria-label="Admin links">
-        <a class="button-link button-link--active" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
-        <a class="button-link" href="/admin/eos?token=${encodeURIComponent(token)}">EOS</a>
-        <a class="button-link" href="/admin/field-photos?token=${encodeURIComponent(token)}">Field Photos</a>
-        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
-        <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
-        <a class="button-link" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
-        <a class="button-link" href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>
-        <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">View Lead Dashboard</a>
-        <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
-        <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
-      </nav>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "leads",
+      title: "Lead Operations",
+      description: "Recommendation activity, Location Briefs, requirements, routing status, and expert review workflow.",
+      escapeHtml,
+    })}
 
     ${errors.length ? `<div class="notice">Some operations data could not be loaded: ${errors.map(escapeHtml).join(" ")}</div>` : ""}
 

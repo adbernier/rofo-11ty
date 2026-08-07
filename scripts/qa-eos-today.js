@@ -22,16 +22,22 @@ assert(adminSource.includes("function renderExploreWorkspace"), "Existing Market
 assert(adminSource.includes('selectedQueue === "markets"'), "Explore Markets route should be wired.");
 assert(adminSource.includes('selectedQueue === "intelligence"'), "Commercial Knowledge Intelligence explore route should be wired.");
 assert(adminSource.includes("What should I work on today?"), "Today page should ask what to work on today.");
+assert(adminSource.includes("function todayThesis"), "Today should derive a deterministic thesis from the selected recommendations.");
+assert(adminSource.includes("Today's highest-leverage work"), "Today hero should use concise executive-briefing language.");
+assert(adminSource.includes("Today's Thesis"), "Today should render the generated thesis.");
 assert(adminSource.includes("What Changed"), "Today page should include What Changed.");
 assert(adminSource.includes("Needs Attention"), "Today page should include Needs Attention.");
-assert(adminSource.includes("Explore More"), "Today page should include Explore navigation.");
-assert(adminSource.includes("Lead Operations"), "Today explore navigation should include Lead Operations.");
+assert(adminSource.includes("Mission Control"), "Today page should include Mission Control exploration navigation.");
+assert(adminSource.includes("active: \"intelligence\""), "Intelligence deep link should activate the canonical nav item.");
+assert(adminSource.includes("provide the strongest current evidence"), "Search Mission card should present narrative evidence, not raw diagnostics.");
 assert(adminSource.includes("Commercial Knowledge Intelligence"), "Today should link into Commercial Knowledge Intelligence.");
 assert(adminSource.includes("Recommended Search Missions"), "Commercial Knowledge Intelligence Explore should lead with recommended Search Missions.");
 assert(adminSource.includes("id=\"review-queue\""), "Review Queue should have a stable anchor.");
 assert(adminSource.includes("id=\"commercial-market-evidence\""), "Commercial Market Evidence should have a stable anchor.");
 assert(adminSource.includes(".today-card-grid"), "Today cards should have dedicated layout styles.");
 assert(adminSource.includes(".today-explore__grid"), "Explore links should have dedicated layout styles.");
+assert(adminSource.includes("padStart(2"), "Today priority cards should show explicit ranked priority labels.");
+assert((adminSource.match(/type: "Search Mission"/g) || []).length === 1, "Today should surface at most one Search Mission recommendation path.");
 
 const intelligence = eos.commercialKnowledgeIntelligence;
 assert(Boolean(intelligence), "Generated EOS should include Commercial Knowledge Intelligence for Today.");

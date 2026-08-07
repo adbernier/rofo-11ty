@@ -2,6 +2,10 @@ import graph from "../../_data/locationKnowledgeGraph.js";
 import schema from "../../_data/locationKnowledgeSchema.js";
 import recommendationQaStatus from "../../_data/recommendationQaStatus.js";
 import { escapeHtml } from "../api/leads/_shared.js";
+import {
+  MISSION_CONTROL_NAV_CSS,
+  renderMissionControlHeader,
+} from "./mission-control-nav.js";
 
 const ROADMAP_TIERS = [
   { tier: "Tier 1", metros: ["Seattle", "Phoenix", "Denver"] },
@@ -603,10 +607,10 @@ function renderPage({ token, metros, report }) {
     h1, h2, h3, p { margin: 0; }
     .shell { width: min(1260px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
     header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-bottom: 20px; }
+    ${MISSION_CONTROL_NAV_CSS}
     h1 { margin-bottom: 8px; font-size: clamp(2.1rem, 4vw, 3.6rem); line-height: 0.98; letter-spacing: -0.02em; }
     header p, .section-heading p, .philosophy { color: var(--muted); line-height: 1.55; }
     .philosophy { margin-top: 12px; max-width: 760px; padding: 12px 14px; border: 1px solid #dbeafe; border-radius: 14px; background: var(--soft-blue); color: #1e3a8a; font-weight: 750; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; white-space: nowrap; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
     .back-link { display: inline-flex; width: fit-content; margin-bottom: 12px; color: var(--blue); font-size: 0.88rem; font-weight: 900; }
@@ -657,7 +661,6 @@ function renderPage({ token, metros, report }) {
     .healthy { margin-top: 12px; color: var(--green); font-weight: 850; }
     @media (max-width: 980px) {
       header { display: grid; }
-      .nav { justify-content: flex-start; }
       .metrics, .detail-grid, .queue-grid, .roadmap-grid, .space-grid, .validation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
@@ -668,23 +671,14 @@ function renderPage({ token, metros, report }) {
 </head>
 <body>
   <main class="shell">
-    <header>
-      <div>
-        <a class="back-link" href="/admin/operations?token=${encodeURIComponent(token)}">← Back to Operations</a>
-        <h1>Rofo Compass Coverage</h1>
-        <p>Measures the maturity of Rofo Compass across supported commercial markets.</p>
-        <div class="philosophy">A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.</div>
-      </div>
-      <nav class="nav" aria-label="Admin links">
-        <a class="button-link" href="/admin/operations?token=${encodeURIComponent(token)}">Operations</a>
-        <a class="button-link" href="/admin/publisher?token=${encodeURIComponent(token)}">Publisher</a>
-        <a class="button-link" href="/admin/compass?token=${encodeURIComponent(token)}">Rofo Compass</a>
-        <a class="button-link button-link--active" href="/admin/coverage?token=${encodeURIComponent(token)}">Compass Coverage</a>
-        <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Leads</a>
-        <a class="button-link" href="/admin/search-profile-analytics?token=${encodeURIComponent(token)}">Search Profile Analytics</a>
-        <a class="button-link" href="/example-location-brief/">Example Location Brief</a>
-      </nav>
-    </header>
+    ${renderMissionControlHeader({
+      token,
+      active: "compass",
+      title: "Compass Coverage",
+      description: "Measures the maturity of Rofo Compass across supported commercial markets.",
+      escapeHtml,
+    })}
+    <section class="philosophy">A metro is Compass Ready when a business can receive a credible Location Brief backed by Rofo Compass: the Knowledge Graph, Recommendation Resolver, Explainability Layer, Location Brief Generator, and Recommendation QA.</section>
 
     <section class="metrics" aria-label="Rofo Compass coverage KPIs">
       ${renderMetric("Knowledge Graph Nodes", report.nodeCount, "Current canonical graph")}
