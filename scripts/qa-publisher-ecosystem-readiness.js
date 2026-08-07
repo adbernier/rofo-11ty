@@ -10,7 +10,7 @@ const EXPECTED_SCORES = {
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },
-  denver: { overall: 94, status: "Distribution Ready" },
+  denver: { overall: 97, status: "Distribution Ready" },
   seattle: { overall: 94, status: "Distribution Ready" },
 };
 

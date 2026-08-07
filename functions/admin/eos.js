@@ -3,6 +3,15 @@ import {
   MISSION_CONTROL_NAV_CSS,
   renderMissionControlHeader,
 } from "./mission-control-nav.js";
+import {
+  codexPacketMarkdown,
+  commenceSearchMission,
+  generateSearchMissionWorkPacket,
+  getMission,
+  listMissions,
+  markMissionComplete,
+  updateMissionTask,
+} from "./eos-missions.js";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -25,6 +34,29 @@ function escapeHtml(value) {
 
 function tokenParam(token) {
   return `token=${encodeURIComponent(token)}`;
+}
+
+function redirectResponse(location) {
+  return new Response(null, {
+    status: 303,
+    headers: {
+      location,
+      "cache-control": "no-store",
+    },
+  });
+}
+
+function formatDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
 }
 
 function pct(value) {
@@ -107,6 +139,14 @@ function compactMissionFacts(item) {
 
 function taskUrl(token, taskId) {
   return `/admin/eos?${tokenParam(token)}&task=${encodeURIComponent(taskId)}`;
+}
+
+function searchMissionUrl(token, missionId) {
+  return `/admin/eos?${tokenParam(token)}&queue=intelligence&searchMission=${encodeURIComponent(missionId)}`;
+}
+
+function durableMissionUrl(token, missionId) {
+  return `/admin/eos?${tokenParam(token)}&queue=archive&mission=${encodeURIComponent(missionId)}`;
 }
 
 function missionById(eos, missionId) {
@@ -975,7 +1015,32 @@ function formatIntelligenceMetric(value, fallback = "Pending") {
   return Number.isFinite(Number(value)) ? String(Math.round(Number(value))) : fallback;
 }
 
-function renderCommercialKnowledgeIntelligence(eos) {
+function activeMissionBySourceId(missionState) {
+  const map = new Map();
+  for (const mission of (missionState && missionState.missions) || []) {
+    if (mission.status === "active" && mission.sourceMissionId) map.set(mission.sourceMissionId, mission);
+  }
+  return map;
+}
+
+function completedMissionSourceIds(missionState) {
+  return new Set(((missionState && missionState.missions) || [])
+    .filter((mission) => mission.status === "completed" && mission.sourceMissionId)
+    .map((mission) => mission.sourceMissionId));
+}
+
+function renderSearchMissionState(mission, token, activeBySource, completedSources) {
+  const active = activeBySource.get(mission.id);
+  if (active) {
+    return `<a class="start-work start-work--small" href="${durableMissionUrl(token, active.id)}">${escapeHtml(active.displayId)} · Active</a>`;
+  }
+  if (completedSources.has(mission.id)) {
+    return `<span class="mission-state-pill mission-state-pill--completed">Completed</span>`;
+  }
+  return `<a class="start-work start-work--small" href="${searchMissionUrl(token, mission.id)}">Review Mission</a>`;
+}
+
+function renderCommercialKnowledgeIntelligence(eos, token, missionState) {
   const intelligence = eos.commercialKnowledgeIntelligence;
   if (!intelligence) return "";
 
@@ -987,6 +1052,8 @@ function renderCommercialKnowledgeIntelligence(eos) {
   const searchMissions = (intelligence.searchMissions || []).slice(0, 5);
   const investorSignals = (intelligence.investorFutureSignals || []).slice(0, 4);
   const publisherOpportunities = intelligence.publisherOpportunities || [];
+  const activeBySource = activeMissionBySourceId(missionState);
+  const completedSources = completedMissionSourceIds(missionState);
 
   return `
     <section class="platform-service platform-service--knowledge" aria-label="Commercial Knowledge Intelligence">
@@ -1011,6 +1078,7 @@ function renderCommercialKnowledgeIntelligence(eos) {
                 <strong>${escapeHtml(mission.title)}</strong>
                 <small>${escapeHtml(mission.confidence)} confidence · ${escapeHtml(formatIntelligenceMetric(mission.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(mission.averagePosition))}</small>
                 <p>${escapeHtml(mission.whyNow || "Search demand and coverage gaps point to a focused knowledge mission.")}</p>
+                ${renderSearchMissionState(mission, token, activeBySource, completedSources)}
               </li>
             `).join("") || "<li><strong>No recommended search missions</strong><small>Search Intelligence has not found a high-leverage editorial mission yet.</small></li>"}
           </ul>
@@ -1106,7 +1174,7 @@ function firstActionableMission(eos) {
   return null;
 }
 
-function todayRecommendations(eos, token) {
+function todayRecommendations(eos, token, missionState) {
   const recommendations = [];
   const queues = eos.portfolioQueues || {};
   const reviewQueue = queues.reviewQueue || [];
@@ -1114,6 +1182,8 @@ function todayRecommendations(eos, token) {
   const intelligence = eos.commercialKnowledgeIntelligence || {};
   const googleMarkets = (((intelligence.googleOpportunity || {}).markets) || []);
   const searchMissions = intelligence.searchMissions || [];
+  const activeBySource = activeMissionBySourceId(missionState);
+  const completedSources = completedMissionSourceIds(missionState);
 
   if ((marketEvidence && marketEvidence.validationStatus && marketEvidence.validationStatus !== "PASS") || reviewQueue.length) {
     recommendations.push({
@@ -1129,17 +1199,20 @@ function todayRecommendations(eos, token) {
     });
   }
 
-  const searchMission = searchMissions[0];
+  const searchMission = searchMissions.find((mission) => !completedSources.has(mission.id)) || searchMissions[0];
   if (searchMission) {
+    const activeMission = activeBySource.get(searchMission.id);
     const markets = (searchMission.supportingMarkets || []).slice(0, 3).map((market) => market.marketName).join(", ");
     recommendations.push({
       type: "Search Mission",
-      title: searchMission.title,
-      reason: `${searchMission.whyNow || "Search Intelligence identified a focused editorial mission."}${markets ? ` ${markets} provide the strongest current evidence.` : ""}`,
-      effort: searchMission.type === "market_specific" ? "Small" : "Medium",
-      impact: searchMission.confidence === "high" ? "High" : "Medium",
-      actionLabel: "Review Mission",
-      href: `/admin/eos?${tokenParam(token)}&queue=intelligence`,
+      title: activeMission ? `${activeMission.displayId} · ${activeMission.title}` : searchMission.title,
+      reason: activeMission
+        ? `${activeMission.displayId} is active. Continue the commenced packet rather than creating a duplicate mission.`
+        : `${searchMission.whyNow || "Search Intelligence identified a focused editorial mission."}${markets ? ` ${markets} provide the strongest current evidence.` : ""}`,
+      effort: activeMission ? activeMission.estimatedEffort : searchMission.type === "market_specific" ? "Small" : "Medium",
+      impact: activeMission ? activeMission.expectedImpact : searchMission.confidence === "high" ? "High" : "Medium",
+      actionLabel: activeMission ? "Continue Mission" : "Review Mission",
+      href: activeMission ? durableMissionUrl(token, activeMission.id) : searchMissionUrl(token, searchMission.id),
     });
   } else {
     const searchLed = googleMarkets.find((market) =>
@@ -1326,10 +1399,100 @@ function renderTodayExplore(token) {
   `;
 }
 
-function renderIntelligenceExplorer(eos, token) {
+function renderIntelligenceExplorer(eos, token, missionState) {
   return `
     <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Today</a>
-    ${renderCommercialKnowledgeIntelligence(eos)}
+    ${renderCommercialKnowledgeIntelligence(eos, token, missionState)}
+  `;
+}
+
+function searchMissionById(eos, missionId) {
+  return (((eos.commercialKnowledgeIntelligence || {}).searchMissions) || []).find((mission) => mission.id === missionId) || null;
+}
+
+function renderSearchMissionReview(eos, missionId, token, missionState) {
+  const mission = searchMissionById(eos, missionId);
+  if (!mission) {
+    return `
+      <section class="panel">
+        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
+        <h2>Search Mission Not Found</h2>
+        <p>The requested Search Mission is not present in the current generated intelligence snapshot.</p>
+      </section>
+    `;
+  }
+  const active = activeMissionBySourceId(missionState).get(mission.id);
+  const completed = ((missionState && missionState.missions) || [])
+    .filter((item) => item.sourceMissionId === mission.id && item.status === "completed")
+    .sort((a, b) => Number(b.sequenceNumber || 0) - Number(a.sequenceNumber || 0))[0];
+  const packet = generateSearchMissionWorkPacket(mission, eos);
+  const preview = codexPacketMarkdown({
+    displayId: "Suggested Mission",
+    title: mission.title,
+    objective: packet.objective,
+    workPacket: packet,
+  });
+
+  return `
+    <section class="panel search-mission-review">
+      <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
+      <div class="section-heading">
+        <div>
+          <span class="mission-kicker">Search Mission Review</span>
+          <h2>${escapeHtml(mission.title)}</h2>
+          <p>${escapeHtml(mission.whyNow || "Search Intelligence identified a focused editorial mission.")}</p>
+        </div>
+        ${active ? `<a class="start-work" href="${durableMissionUrl(token, active.id)}">Continue ${escapeHtml(active.displayId)}</a>` : `
+          <form method="post" action="/admin/eos?${tokenParam(token)}">
+            <input type="hidden" name="action" value="commence_search_mission">
+            <input type="hidden" name="sourceMissionId" value="${escapeHtml(mission.id)}">
+            <button class="copy-prompt-button" type="submit">Commence Work</button>
+          </form>
+        `}
+      </div>
+      ${completed && !active ? `<p class="mission-history-note">Last completed as <a href="${durableMissionUrl(token, completed.id)}">${escapeHtml(completed.displayId)}</a>. A new mission should be commenced only if current evidence or gaps justify a materially new packet.</p>` : ""}
+      <div class="mission-facts">
+        <span><em>Status</em>${active ? `Active as ${escapeHtml(active.displayId)}` : "Suggested"}</span>
+        <span><em>Confidence</em>${escapeHtml(mission.confidence || "")}</span>
+        <span><em>Impressions</em>${escapeHtml(formatIntelligenceMetric(mission.impressions, "0"))}</span>
+        <span><em>Avg Position</em>${escapeHtml(formatIntelligenceMetric(mission.averagePosition))}</span>
+      </div>
+      <div class="packet-grid">
+        <article>
+          <h3>Why Now</h3>
+          <ul>${(mission.evidence || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          ${mission.whyNow ? `<p>${escapeHtml(mission.whyNow)}</p>` : ""}
+        </article>
+        <article>
+          <h3>Supporting Markets</h3>
+          <ul>${(mission.supportingMarkets || []).map((market) => `<li>${escapeHtml(market.marketName)}${market.state ? `, ${escapeHtml(market.state)}` : ""} · ${escapeHtml(formatIntelligenceMetric(market.impressions, "0"))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}</li>`).join("") || "<li>No supporting markets supplied.</li>"}</ul>
+        </article>
+      </div>
+      <div class="packet-grid">
+        <article>
+          <h3>Current Gaps</h3>
+          <ul>${(packet.currentGaps || []).map((gap) => `<li>${escapeHtml(gap.label || gap.id)}</li>`).join("") || "<li>No gaps specified.</li>"}</ul>
+        </article>
+        <article>
+          <h3>Generated Work</h3>
+          <ul>${(packet.workToComplete || []).map((item) => `<li><strong>${escapeHtml(item.owner)}</strong> · ${escapeHtml(item.title)}</li>`).join("")}</ul>
+        </article>
+      </div>
+      <section class="codex-handoff" aria-label="Suggested Codex packet">
+        <div class="codex-handoff__top">
+          <div>
+            <h3>Codex Packet Preview</h3>
+            <p>This packet becomes immutable mission history after Commence Work.</p>
+          </div>
+          <button class="copy-prompt-button" type="button" data-copy-prompt>Copy Codex Packet</button>
+        </div>
+        <details class="prompt-preview" open>
+          <summary>View Work Packet</summary>
+          <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(preview)}</textarea>
+        </details>
+        <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
+      </section>
+    </section>
   `;
 }
 
@@ -1382,18 +1545,156 @@ const missionArchive = [
   },
 ];
 
-function renderMissionArchive(eos, token) {
+function taskProgress(record) {
+  const tasks = ((record.workPacket || {}).workToComplete) || [];
+  const completed = tasks.filter((task) => (record.taskStatus || {})[task.id] === "complete").length;
+  return { completed, total: tasks.length };
+}
+
+function renderDurableMissionPage(record, token) {
+  if (!record) {
+    return `
+      <section class="panel">
+        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Back to Mission History</a>
+        <h2>Mission Not Found</h2>
+        <p>The requested durable mission record was not found.</p>
+      </section>
+    `;
+  }
+  const progressState = taskProgress(record);
+  const tasks = ((record.workPacket || {}).workToComplete) || [];
+  const baseline = record.baselineSearchSnapshot || {};
+  return `
+    <section class="panel durable-mission">
+      <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Back to Mission History</a>
+      <div class="section-heading">
+        <div>
+          <span class="mission-kicker">${escapeHtml(record.displayId)}</span>
+          <h2>${escapeHtml(record.title)}</h2>
+          <p>${escapeHtml(record.objective)}</p>
+        </div>
+        <span class="status-pill ${record.status === "completed" ? "status--ready" : "status--improving"}">${escapeHtml(record.status === "completed" ? "Completed" : "Active")}</span>
+      </div>
+      <div class="mission-facts">
+        <span><em>Started</em>${escapeHtml(formatDate(record.startedAt))}</span>
+        ${record.completedAt ? `<span><em>Completed</em>${escapeHtml(formatDate(record.completedAt))}</span>` : ""}
+        <span><em>Confidence</em>${escapeHtml(record.confidence || "")}</span>
+        <span><em>Effort</em>${escapeHtml(record.estimatedEffort || "")}</span>
+        <span><em>Impact</em>${escapeHtml(record.expectedImpact || "")}</span>
+        <span><em>Progress</em>${escapeHtml(`${progressState.completed} of ${progressState.total}`)}</span>
+      </div>
+      <section class="codex-handoff" aria-label="Codex packet">
+        <div class="codex-handoff__top">
+          <div>
+            <h3>Work Packet</h3>
+            <p>The packet and evidence below are the snapshot captured when this mission was commenced.</p>
+          </div>
+          <button class="copy-prompt-button" type="button" data-copy-prompt>Copy Codex Packet</button>
+        </div>
+        <details class="prompt-preview" open>
+          <summary>View Work Packet</summary>
+          <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(record.codexPacket || codexPacketMarkdown(record))}</textarea>
+        </details>
+        <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
+      </section>
+      <div class="packet-grid">
+        <article>
+          <h3>Why We Started</h3>
+          <ul>${((record.evidenceSnapshot || {}).evidence || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("") || "<li>No evidence lines captured.</li>"}</ul>
+          ${(record.evidenceSnapshot || {}).whyNow ? `<p>${escapeHtml(record.evidenceSnapshot.whyNow)}</p>` : ""}
+        </article>
+        <article>
+          <h3>Baseline</h3>
+          <dl>
+            <div><dt>28-day impressions</dt><dd>${escapeHtml(formatIntelligenceMetric(baseline.impressions28d, "0"))}</dd></div>
+            <div><dt>Clicks</dt><dd>${escapeHtml(formatIntelligenceMetric(baseline.clicks28d, "0"))}</dd></div>
+            <div><dt>Average position</dt><dd>${escapeHtml(formatIntelligenceMetric(baseline.averagePosition))}</dd></div>
+            <div><dt>Source range</dt><dd>${escapeHtml(baseline.sourceDateRange || "Not captured")}</dd></div>
+          </dl>
+        </article>
+      </div>
+      <section class="mission-task-list">
+        <div class="section-heading">
+          <div>
+            <h3>Progress / Tasks</h3>
+            <p>${escapeHtml(`${progressState.completed} of ${progressState.total} tasks complete.`)}</p>
+          </div>
+          ${record.status !== "completed" ? `
+            <form method="post" action="/admin/eos?${tokenParam(token)}">
+              <input type="hidden" name="action" value="complete_mission">
+              <input type="hidden" name="missionId" value="${escapeHtml(record.id)}">
+              <button class="secondary-button" type="submit">Mark Mission Complete</button>
+            </form>
+          ` : ""}
+        </div>
+        <div class="mission-task-list__items">
+          ${tasks.map((task) => {
+            const complete = (record.taskStatus || {})[task.id] === "complete";
+            return `
+              <article class="${complete ? "is-complete" : ""}">
+                <div>
+                  <span>${escapeHtml(task.owner || "Codex")}</span>
+                  <strong>${escapeHtml(task.title)}</strong>
+                  <p>${escapeHtml(task.details || "")}</p>
+                </div>
+                ${record.status !== "completed" ? `
+                  <form method="post" action="/admin/eos?${tokenParam(token)}">
+                    <input type="hidden" name="action" value="toggle_task">
+                    <input type="hidden" name="missionId" value="${escapeHtml(record.id)}">
+                    <input type="hidden" name="taskId" value="${escapeHtml(task.id)}">
+                    <input type="hidden" name="complete" value="${complete ? "0" : "1"}">
+                    <button class="secondary-button secondary-button--muted" type="submit">${complete ? "Mark Pending" : "Mark Complete"}</button>
+                  </form>
+                ` : `<span class="mission-state-pill mission-state-pill--completed">Complete</span>`}
+              </article>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    </section>
+  `;
+}
+
+function renderMissionArchive(eos, token, missionState) {
+  const durable = (missionState && missionState.missions) || [];
+  const active = durable.filter((mission) => mission.status === "active");
+  const completed = durable.filter((mission) => mission.status === "completed");
+  const row = (mission) => `
+    <a class="mission-history-row" href="${durableMissionUrl(token, mission.id)}">
+      <strong>${escapeHtml(mission.displayId)}</strong>
+      <span>${escapeHtml(mission.title)}</span>
+      <em>${escapeHtml(mission.status === "completed" ? "Completed" : "Active")}</em>
+      <small>${escapeHtml(formatDate(mission.startedAt))}${mission.completedAt ? ` · completed ${escapeHtml(formatDate(mission.completedAt))}` : ""}</small>
+    </a>
+  `;
   return `
     <section class="queue-section mission-archive">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Mission Control</a>
       <div class="section-heading">
         <div>
-          <h2>Mission Archive</h2>
-          <p>Mocked browser-only history that demonstrates the intended review model before persistent mission state exists.</p>
+          <h2>Mission History</h2>
+          <p>Commenced missions are durable operational records. Search Mission suggestions are not persisted until Alan chooses Commence Work.</p>
         </div>
-        <span class="archive-note">Architecture preview · No persistence</span>
+        <span class="archive-note">${missionState && missionState.configured ? "D1 backed" : "D1 not configured"}</span>
+      </div>
+      ${missionState && !missionState.configured ? `<section class="panel"><h3>Mission persistence is not configured</h3><p>Configure the <code>LEADS_DB</code> D1 binding and apply <code>migrations/0002_eos_missions.sql</code> for production mission history.</p></section>` : ""}
+      <div class="mission-history-groups">
+        <section>
+          <h3>Active</h3>
+          <div class="mission-history-list">${active.map(row).join("") || "<p>No active commenced missions.</p>"}</div>
+        </section>
+        <section>
+          <h3>Completed</h3>
+          <div class="mission-history-list">${completed.map(row).join("") || "<p>No completed durable missions yet.</p>"}</div>
+        </section>
       </div>
       <div class="archive-grid">
+        <div class="section-heading section-heading--standalone">
+          <div>
+            <h3>Legacy / Prior Work</h3>
+            <p>These items predate durable Mission numbering and are preserved separately without fabricated sequence numbers.</p>
+          </div>
+        </div>
         ${missionArchive.map((item) => `
           <article class="archive-card">
             <div>
@@ -1420,7 +1721,7 @@ function renderMissionArchive(eos, token) {
   `;
 }
 
-function renderExploreWorkspace(eos, token) {
+function renderExploreWorkspace(eos, token, missionState) {
   const queues = eos.portfolioQueues || {};
   const inventory = queues.opportunityInventory || {};
   const expansionProjects = eos.expansionProjects || [];
@@ -1467,7 +1768,7 @@ function renderExploreWorkspace(eos, token) {
 
     ${renderQueueSummary(eos)}
     ${renderHandoffSummary(eos)}
-    ${renderCommercialKnowledgeIntelligence(eos)}
+    ${renderCommercialKnowledgeIntelligence(eos, token, missionState)}
     ${renderCommercialMarketEvidenceService(eos)}
 
     <section class="section-heading section-heading--standalone">
@@ -1513,8 +1814,8 @@ function renderExploreWorkspace(eos, token) {
   `;
 }
 
-function renderOverview(eos, token) {
-  const recommendations = todayRecommendations(eos, token);
+function renderOverview(eos, token, missionState) {
+  const recommendations = todayRecommendations(eos, token, missionState);
   const thesis = todayThesis(recommendations);
   const changes = todayChanged(eos);
   const attention = todayAttentionItems(eos);
@@ -1581,7 +1882,21 @@ function renderSnapshotError(token) {
 </html>`;
 }
 
-function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue }) {
+function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission }) {
+  if (selectedMission) {
+    return {
+      active: "archive",
+      title: "Mission Detail",
+      description: "Durable mission record, immutable evidence snapshot, generated work packet, and completion state.",
+    };
+  }
+  if (selectedSearchMission) {
+    return {
+      active: "intelligence",
+      title: "Search Mission Review",
+      description: "Review the current search-led recommendation, generated work packet, and commencement action.",
+    };
+  }
   if (selectedTask) {
     return {
       active: "markets",
@@ -1624,21 +1939,25 @@ function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQue
   };
 }
 
-function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) {
-  const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue });
+function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission, durableMission, missionState }) {
+  const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission });
   const body = selectedTask
     ? renderExecutionPacket(eos, selectedTask, token)
+    : selectedMission
+      ? renderDurableMissionPage(durableMission, token)
+      : selectedSearchMission
+      ? renderSearchMissionReview(eos, selectedSearchMission, token, missionState)
     : selectedQueue === "archive"
-      ? renderMissionArchive(eos, token)
+      ? renderMissionArchive(eos, token, missionState)
       : selectedQueue === "markets"
-      ? renderExploreWorkspace(eos, token)
+      ? renderExploreWorkspace(eos, token, missionState)
       : selectedQueue === "intelligence"
-      ? renderIntelligenceExplorer(eos, token)
+      ? renderIntelligenceExplorer(eos, token, missionState)
       : selectedQueue === "inventory"
       ? renderInventory(eos, token)
       : selectedMetro
         ? renderSelectedMetro(eos, selectedMetro, token)
-        : renderOverview(eos, token);
+        : renderOverview(eos, token, missionState);
 
   return `<!doctype html>
 <html lang="en">
@@ -1898,6 +2217,24 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .mission-debrief { margin: 20px 0; padding: 22px; border: 1px solid #dbe4ef; border-radius: 20px; background: #fff; box-shadow: 0 18px 48px rgba(15, 23, 42, 0.055); }
     .mission-debrief__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
     .mission-debrief__input, .reviewer-notes textarea { display: block; width: 100%; min-height: 180px; padding: 12px; border: 1px solid #dbe4ef; border-radius: 12px; color: #0f172a; background: #fff; font: 0.88rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; resize: vertical; }
+    .search-mission-review, .durable-mission { display: grid; gap: 16px; }
+    .mission-history-note { padding: 12px 14px; border: 1px solid #fed7aa; border-radius: 12px; background: #fff7ed; color: #92400e; font-size: 0.9rem; }
+    .mission-state-pill { display: inline-flex; align-items: center; width: fit-content; min-height: 30px; padding: 0 10px; border-radius: 999px; background: #f1f5f9; color: #475569; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
+    .mission-state-pill--completed { background: #ccfbf1; color: #0f766e; }
+    .mission-history-groups { display: grid; gap: 16px; margin-bottom: 20px; }
+    .mission-history-groups section { padding: 16px; border: 1px solid #e5edf7; border-radius: 16px; background: #fff; }
+    .mission-history-list { display: grid; gap: 8px; }
+    .mission-history-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto minmax(180px, auto); gap: 12px; align-items: center; padding: 12px; border: 1px solid #e5edf7; border-radius: 12px; background: #f8fafc; color: #0f172a; }
+    .mission-history-row span { color: #0f172a; font-weight: 850; }
+    .mission-history-row em { color: #1d4ed8; font-size: 0.76rem; font-style: normal; font-weight: 950; letter-spacing: 0.05em; text-transform: uppercase; }
+    .mission-history-row small { text-align: right; }
+    .mission-task-list { display: grid; gap: 12px; }
+    .mission-task-list__items { display: grid; gap: 10px; }
+    .mission-task-list__items article { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 13px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; }
+    .mission-task-list__items article.is-complete { border-color: #b7efe3; background: #f0fdfa; }
+    .mission-task-list__items span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .mission-task-list__items strong { display: block; color: #0f172a; }
+    .mission-task-list__items p { margin: 4px 0 0; font-size: 0.85rem; }
     .mission-review { margin-top: 22px; padding-top: 22px; border-top: 1px solid #e5edf7; }
     .mission-review__hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 18px; align-items: stretch; margin-bottom: 16px; padding: 22px; border: 1px solid #c7d7ee; border-radius: 18px; background: linear-gradient(135deg, #f8fbff, #eef6ff); }
     .mission-kicker { display: block; margin-bottom: 8px; color: #1d4ed8; font-size: 0.72rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -1935,7 +2272,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three, .today-card-grid, .today-briefing-grid, .today-explore__grid { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three, .today-card-grid, .today-briefing-grid, .today-explore__grid, .mission-history-row, .mission-task-list__items article { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
@@ -1949,12 +2286,14 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
       const prompt = section && section.querySelector("[data-codex-prompt]");
       const status = section && section.querySelector("[data-copy-status]");
       if (!prompt || !status) return;
+      const originalLabel = button.dataset.copyLabel || button.textContent || "Copy Codex Packet";
+      button.dataset.copyLabel = originalLabel;
       const setStatus = (message) => {
         status.textContent = message;
       };
       const resetLabel = () => {
         window.setTimeout(() => {
-          button.textContent = "Copy Codex Prompt";
+          button.textContent = originalLabel;
           button.disabled = false;
         }, 1800);
       };
@@ -2183,11 +2522,69 @@ export async function onRequestGet({ request, env }) {
     return adminResponse(renderSnapshotError(token), 503);
   }
 
+  const selectedMission = url.searchParams.get("mission") || "";
+  const missionState = await listMissions(env);
+  const durableMission = selectedMission ? await getMission(env, selectedMission) : null;
+
   return adminResponse(renderPage({
     token,
     eos: eosAnalysis,
     selectedMetro: url.searchParams.get("metro") || "",
     selectedTask: url.searchParams.get("task") || "",
     selectedQueue: url.searchParams.get("queue") || "",
+    selectedSearchMission: url.searchParams.get("searchMission") || "",
+    selectedMission,
+    durableMission,
+    missionState,
   }));
+}
+
+export async function onRequestPost({ request, env }) {
+  const configuredToken = env.ADMIN_DASHBOARD_TOKEN;
+  if (!configuredToken) {
+    return adminResponse("Admin dashboard is not configured.", 403);
+  }
+
+  const url = new URL(request.url);
+  const token = url.searchParams.get("token") || "";
+  if (token !== configuredToken) {
+    return adminResponse("Forbidden", 403);
+  }
+
+  const form = await request.formData();
+  const action = form.get("action");
+
+  try {
+    if (action === "commence_search_mission") {
+      const sourceMissionId = String(form.get("sourceMissionId") || "");
+      const result = await commenceSearchMission(env, eosAnalysis, sourceMissionId);
+      return redirectResponse(`${durableMissionUrl(token, result.mission.id)}&commenced=${result.created ? "1" : "existing"}`);
+    }
+
+    if (action === "toggle_task") {
+      const missionId = String(form.get("missionId") || "");
+      const taskId = String(form.get("taskId") || "");
+      const complete = String(form.get("complete") || "") === "1";
+      await updateMissionTask(env, missionId, taskId, complete);
+      return redirectResponse(durableMissionUrl(token, missionId));
+    }
+
+    if (action === "complete_mission") {
+      const missionId = String(form.get("missionId") || "");
+      await markMissionComplete(env, missionId);
+      return redirectResponse(durableMissionUrl(token, missionId));
+    }
+
+    return adminResponse("Unsupported EOS mission action.", 400);
+  } catch (error) {
+    return adminResponse(`
+      <main>
+        <section class="panel">
+          <h1>Mission action failed</h1>
+          <p>${escapeHtml(error && error.message ? error.message : "Unknown error")}</p>
+          <p><a href="/admin/eos?${tokenParam(token)}">Back to Mission Control</a></p>
+        </section>
+      </main>
+    `, 500);
+  }
 }
