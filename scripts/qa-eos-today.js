@@ -16,6 +16,8 @@ const eos = JSON.parse(fs.readFileSync(EOS_PATH, "utf8"));
 
 assert(adminSource.includes("function todayRecommendations"), "EOS admin should generate Today recommendations.");
 assert(adminSource.includes("return recommendations.slice(0, 3);"), "Today recommendations should be capped at three.");
+assert(adminSource.includes("const searchMissions = intelligence.searchMissions || [];"), "Today should consume Search Mission intelligence.");
+assert(adminSource.includes('type: "Search Mission"'), "Today should surface a concise Search Mission recommendation.");
 assert(adminSource.includes("function renderExploreWorkspace"), "Existing Market Workspace should remain available as an Explore view.");
 assert(adminSource.includes('selectedQueue === "markets"'), "Explore Markets route should be wired.");
 assert(adminSource.includes('selectedQueue === "intelligence"'), "Commercial Knowledge Intelligence explore route should be wired.");
@@ -25,6 +27,7 @@ assert(adminSource.includes("Needs Attention"), "Today page should include Needs
 assert(adminSource.includes("Explore More"), "Today page should include Explore navigation.");
 assert(adminSource.includes("Lead Operations"), "Today explore navigation should include Lead Operations.");
 assert(adminSource.includes("Commercial Knowledge Intelligence"), "Today should link into Commercial Knowledge Intelligence.");
+assert(adminSource.includes("Recommended Search Missions"), "Commercial Knowledge Intelligence Explore should lead with recommended Search Missions.");
 assert(adminSource.includes("id=\"review-queue\""), "Review Queue should have a stable anchor.");
 assert(adminSource.includes("id=\"commercial-market-evidence\""), "Commercial Market Evidence should have a stable anchor.");
 assert(adminSource.includes(".today-card-grid"), "Today cards should have dedicated layout styles.");

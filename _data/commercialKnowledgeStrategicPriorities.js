@@ -28,6 +28,7 @@ module.exports = {
       priority: "high",
       score: 78,
       category: "strategic_expansion",
+      supportingMarketIds: ["aliso-viejo", "costa-mesa", "irvine"],
       rationale: "Important Southern California expansion market with multi-city commercial demand and future occupier workflows.",
     },
     {

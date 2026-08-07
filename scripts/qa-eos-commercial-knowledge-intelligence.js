@@ -57,10 +57,44 @@ function run() {
   const salinas = ((intelligence.googleOpportunity || {}).markets || []).find((market) => market.marketId === "salinas");
   assert(salinas && salinas.googleOpportunity === "high", "Salinas should surface as a high Google opportunity from the manual metric example.");
   assert(salinas && salinas.knowledgeGaps.includes("retail-depth"), "Salinas should show retail-depth as a knowledge gap.");
+  assert(salinas && salinas.provenance && salinas.provenance.source, "Search-led market opportunities should include provenance.");
+
+  const sourceSnapshot = (intelligence.googleOpportunity || {}).sourceSnapshot || {};
+  assert(sourceSnapshot.schemaVersion === "normalized-search-console-opportunity-v2", "EOS intelligence should consume the Phase 2A normalized Search Intelligence artifact.");
+  assert(sourceSnapshot.grain === "date-page-query", "EOS intelligence should preserve the page/query/date Search Intelligence grain.");
+  assert(sourceSnapshot.status && sourceSnapshot.status.mode, "EOS intelligence should expose Search Intelligence source status.");
+  assert(sourceSnapshot.thresholdPolicy && sourceSnapshot.thresholdPolicy.rawRowsRetained === true, "EOS intelligence should expose Search Intelligence threshold policy.");
+  assert(Array.isArray((intelligence.googleOpportunity || {}).propertyTypeOpportunities), "EOS intelligence should expose property-type Search Intelligence opportunities.");
 
   const publisherOppMarkets = new Set((intelligence.publisherOpportunities || []).map((item) => item.marketId));
   assert(publisherOppMarkets.has("salinas"), "Publisher opportunity preparation should include Salinas.");
+  const salinasPublisherOpportunity = (intelligence.publisherOpportunities || []).find((item) => item.marketId === "salinas");
+  assert(salinasPublisherOpportunity && salinasPublisherOpportunity.evidence && salinasPublisherOpportunity.targetEntity, "Publisher opportunities should include evidence and target entity metadata.");
+  assert(salinasPublisherOpportunity && salinasPublisherOpportunity.source === "search_intelligence", "Search-led Publisher opportunities should identify Search Intelligence as the source.");
   assert(!publisherOppMarkets.has("indianapolis") || normalized.find((record) => record.marketId === "indianapolis").queries.some((query) => query.occupierRelevance !== "low_future"), "Investor demand should not alone create occupier Publisher work.");
+
+  const metricPendingIntelligence = buildCommercialKnowledgeIntelligence({
+    generatedAt: "2026-08-07T00:00:00.000Z",
+    searchConsoleSnapshot: {
+      schemaVersion: "normalized-search-console-opportunity-v2",
+      records: [
+        {
+          marketId: "metric-pending",
+          marketName: "Metric Pending",
+          state: "CA",
+          impressions: 0,
+          averagePosition: null,
+          queries: [{ query: "metric pending retail space", impressions: 0, position: null }],
+        },
+      ],
+    },
+  });
+  const metricPendingMarket = ((metricPendingIntelligence.googleOpportunity || {}).markets || [])[0];
+  assert(metricPendingMarket && metricPendingMarket.positionBand === "metric_pending", "Markets without average position should not be treated as near-term opportunities.");
+
+  const orangeCounty = (intelligence.strategicRoadmap || []).find((market) => market.marketId === "orange-county");
+  assert(orangeCounty && Array.isArray(orangeCounty.supportingSearchMarkets), "Strategic markets should expose supporting child-market search signals.");
+  assert(orangeCounty.supportingSearchMarkets.some((market) => market.marketId === "aliso-viejo"), "Orange County should show Aliso Viejo as a supporting search market.");
 
   assert((intelligence.emergingThemes || []).some((theme) => theme.id === "retail"), "Emerging themes should include retail.");
   assert((intelligence.emergingThemes || []).some((theme) => theme.id === "warehouse"), "Emerging themes should include warehouse.");
@@ -84,6 +118,120 @@ function run() {
   });
   assert((investorOnlyIntelligence.investorFutureSignals || []).some((market) => market.marketId === "investor-test"), "Investor signals should remain visible separately.");
   assert(!(investorOnlyIntelligence.publisherOpportunities || []).some((market) => market.marketId === "investor-test"), "Investor-only demand should not create occupier Publisher opportunities.");
+
+  const missionFixture = {
+    schemaVersion: "normalized-search-console-opportunity-v2",
+    source: "Google Search Console Search Analytics API",
+    sourceDateRange: "2026-07-10:2026-08-06",
+    generatedAt: "2026-08-07T00:00:00.000Z",
+    status: { mode: "live", ok: true },
+    grain: "date-page-query",
+    thresholdPolicy: { rawRowsRetained: true },
+    records: [
+      {
+        marketId: "salinas",
+        marketName: "Salinas",
+        state: "CA",
+        impressions: 272,
+        clicks: 6,
+        averagePosition: 13.8,
+        source: "search_intelligence",
+        momentum: { twentyEightDay: { impressionMomentum: "up" } },
+        queries: [
+          { query: "salinas retail space for lease", impressions: 160, clicks: 4, position: 12.2 },
+          { query: "commercial salinas ca", impressions: 80, clicks: 1, position: 14.5 },
+          { query: "salinas industrial space", impressions: 32, clicks: 1, position: 19.8 },
+        ],
+      },
+      {
+        marketId: "gainesville",
+        marketName: "Gainesville",
+        state: "FL",
+        impressions: 130,
+        clicks: 2,
+        averagePosition: 24.1,
+        source: "search_intelligence",
+        momentum: { twentyEightDay: { impressionMomentum: "up" } },
+        queries: [
+          { query: "gainesville retail storefront for rent", impressions: 70, clicks: 1, position: 21.5 },
+          { query: "gainesville warehouse for lease", impressions: 60, clicks: 1, position: 27.3 },
+        ],
+      },
+      {
+        marketId: "fort-wayne",
+        marketName: "Fort Wayne",
+        state: "IN",
+        impressions: 120,
+        clicks: 1,
+        averagePosition: 32,
+        source: "search_intelligence",
+        momentum: { twentyEightDay: { impressionMomentum: "stable" } },
+        queries: [
+          { query: "fort wayne warehouses for lease", impressions: 75, clicks: 1, position: 30 },
+          { query: "fort wayne retail space", impressions: 45, clicks: 0, position: 35 },
+        ],
+      },
+      {
+        marketId: "aliso-viejo",
+        marketName: "Aliso Viejo",
+        state: "CA",
+        impressions: 210,
+        clicks: 9,
+        averagePosition: 8.5,
+        source: "search_intelligence",
+        strategicParent: { marketId: "orange-county", marketName: "Orange County" },
+        momentum: { twentyEightDay: { impressionMomentum: "up" } },
+        queries: [
+          { query: "aliso viejo commercial real estate cap rates", impressions: 130, clicks: 6, position: 7.8 },
+          { query: "aliso viejo market analysis", impressions: 80, clicks: 3, position: 9.7 },
+        ],
+      },
+      {
+        marketId: "houston",
+        marketName: "Houston",
+        state: "TX",
+        impressions: 300,
+        clicks: 1,
+        averagePosition: 51,
+        source: "search_intelligence",
+        momentum: { twentyEightDay: { impressionMomentum: "stable" } },
+        queries: [
+          { query: "commercial real estate houston", impressions: 300, clicks: 1, position: 51 },
+        ],
+      },
+    ],
+  };
+  const missionIntelligence = buildCommercialKnowledgeIntelligence({
+    generatedAt: "2026-08-07T00:00:00.000Z",
+    searchConsoleSnapshot: missionFixture,
+  });
+  const retailTopic = (missionIntelligence.topicIntelligence || []).find((topic) => topic.id === "retail");
+  assert(retailTopic && retailTopic.marketCount >= 3, "Topic-first intelligence should aggregate retail demand across markets.");
+  assert(retailTopic && retailTopic.occupierRelevance === "high", "Retail topic should be high occupier relevance.");
+
+  const retailMission = (missionIntelligence.searchMissions || []).find((mission) => mission.id === "expand-retail-knowledge");
+  assert(retailMission, "Search Missions should include Expand Retail Knowledge.");
+  assert(retailMission && ["high", "medium"].includes(retailMission.confidence), "Retail mission should include transparent confidence.");
+  assert(retailMission && retailMission.supportingMarkets.some((market) => market.marketId === "salinas"), "Retail mission should include supporting market evidence.");
+  assert(retailMission && retailMission.knowledgeGaps.includes("retail-depth"), "Retail mission should map demand to retail knowledge gaps.");
+
+  const warehouseMission = (missionIntelligence.searchMissions || []).find((mission) => mission.id === "expand-warehouse-industrial-knowledge");
+  assert(warehouseMission, "Search Missions should include Warehouse / Industrial knowledge when supported.");
+
+  const orangeCountyMission = (missionIntelligence.searchMissions || []).find((mission) => mission.id === "accelerate-orange-county");
+  assert(orangeCountyMission && orangeCountyMission.supportingMarkets.some((market) => market.marketId === "aliso-viejo"), "Strategic parent support should preserve Aliso Viejo evidence for Orange County.");
+
+  const houstonMissionIndex = (missionIntelligence.searchMissions || []).findIndex((mission) =>
+    (mission.supportingMarkets || []).some((market) => market.marketId === "houston")
+  );
+  const salinasMissionIndex = (missionIntelligence.searchMissions || []).findIndex((mission) =>
+    (mission.supportingMarkets || []).some((market) => market.marketId === "salinas")
+  );
+  assert(houstonMissionIndex === -1 || salinasMissionIndex === -1 || salinasMissionIndex < houstonMissionIndex, "Houston-like discovery demand should not outrank stronger near-page-one occupier evidence without strategic reason.");
+
+  assert((missionIntelligence.investorFutureSignals || []).some((market) => market.marketId === "aliso-viejo"), "Investor-heavy Aliso Viejo demand should remain visible as future intelligence.");
+  assert(!(missionIntelligence.publisherOpportunities || []).some((item) => item.marketId === "aliso-viejo"), "Investor-heavy Aliso Viejo should not automatically create an occupier market Publisher opportunity.");
+  assert((missionIntelligence.publisherOpportunities || []).some((item) => item.type === "search_mission" && item.source === "search_intelligence"), "Search Missions should create advisory Publisher mission payloads.");
 
   Object.entries(marketSnapshots).forEach(([key, snapshot]) => {
     assert(snapshot.commercialCharacter, `${key} should include commercial character.`);

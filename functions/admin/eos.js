@@ -990,7 +990,10 @@ function renderCommercialKnowledgeIntelligence(eos) {
 
   const strategic = (intelligence.strategicRoadmap || []).slice(0, 5);
   const opportunities = (((intelligence.googleOpportunity || {}).markets) || []).slice(0, 6);
-  const themes = (intelligence.emergingThemes || []).slice(0, 6);
+  const sourceSnapshot = (intelligence.googleOpportunity || {}).sourceSnapshot || {};
+  const propertyTypeOpportunities = ((intelligence.googleOpportunity || {}).propertyTypeOpportunities || []).slice(0, 6);
+  const themes = (intelligence.topicIntelligence || intelligence.emergingThemes || []).slice(0, 6);
+  const searchMissions = (intelligence.searchMissions || []).slice(0, 5);
   const investorSignals = (intelligence.investorFutureSignals || []).slice(0, 4);
   const publisherOpportunities = intelligence.publisherOpportunities || [];
 
@@ -1000,12 +1003,38 @@ function renderCommercialKnowledgeIntelligence(eos) {
         <span>Commercial Knowledge Intelligence</span>
         <h2>Where should Rofo get smarter next?</h2>
         <p>EOS v3 keeps strategic expansion separate from observed Google demand, then compares both with knowledge coverage and Publisher readiness.</p>
+        <p class="platform-service__inline-meta">Source: ${escapeHtml(sourceSnapshot.status && sourceSnapshot.status.mode ? sourceSnapshot.status.mode : "manual/import")} · Grain: ${escapeHtml(sourceSnapshot.grain || "market-query")}${sourceSnapshot.status && sourceSnapshot.status.stale ? " · Stale data warning" : ""}</p>
       </div>
       <div class="platform-service__metrics">
         <article><strong>${escapeHtml(String(strategic.length))}</strong><span>Strategic Markets</span></article>
         <article><strong>${escapeHtml(String(opportunities.length))}</strong><span>Google Signals</span></article>
-        <article><strong>${escapeHtml(String(themes.length))}</strong><span>Emerging Themes</span></article>
+        <article><strong>${escapeHtml(String(searchMissions.length))}</strong><span>Search Missions</span></article>
         <article><strong>${escapeHtml(String(publisherOpportunities.length))}</strong><span>Publisher Inputs</span></article>
+      </div>
+      <div class="knowledge-intelligence-grid">
+        <article>
+          <span>Recommended Search Missions</span>
+          <ul>
+            ${searchMissions.map((mission) => `
+              <li>
+                <strong>${escapeHtml(mission.title)}</strong>
+                <small>${escapeHtml(mission.confidence)} confidence · ${escapeHtml(formatIntelligenceMetric(mission.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(mission.averagePosition))}</small>
+                <p>${escapeHtml(mission.whyNow || "Search demand and coverage gaps point to a focused knowledge mission.")}</p>
+              </li>
+            `).join("") || "<li><strong>No recommended search missions</strong><small>Search Intelligence has not found a high-leverage editorial mission yet.</small></li>"}
+          </ul>
+        </article>
+        <article>
+          <span>Strategic Markets + Search Support</span>
+          <ul>
+            ${strategic.map((market) => `
+              <li>
+                <strong>${escapeHtml(market.marketName)}</strong>
+                <small>${escapeHtml(market.priority)} priority${market.supportingSearchMarkets && market.supportingSearchMarkets.length ? ` · supported by ${escapeHtml(market.supportingSearchMarkets.map((item) => item.marketName).join(", "))}` : ""}</small>
+              </li>
+            `).join("")}
+          </ul>
+        </article>
       </div>
       <div class="knowledge-intelligence-grid">
         <article>
@@ -1025,7 +1054,7 @@ function renderCommercialKnowledgeIntelligence(eos) {
             ${opportunities.map((market) => `
               <li>
                 <strong>${escapeHtml(market.marketName)}</strong>
-                <small>${escapeHtml(market.googleOpportunity)} · ${escapeHtml(formatIntelligenceMetric(market.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}</small>
+                <small>${escapeHtml(market.googleOpportunity)} · ${escapeHtml(formatIntelligenceMetric(market.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}${market.momentum && market.momentum.twentyEightDay ? ` · 28d ${escapeHtml(market.momentum.twentyEightDay.impressionMomentum)}` : ""}</small>
                 <p>${escapeHtml((market.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ") || "Themes pending")}</p>
               </li>
             `).join("")}
@@ -1048,8 +1077,16 @@ function renderCommercialKnowledgeIntelligence(eos) {
           <span>Emerging Themes</span>
           <ul>
             ${themes.map((theme) => `
-              <li><strong>${escapeHtml(theme.label)}</strong><small>${escapeHtml(String(theme.marketCount))} markets · ${escapeHtml(theme.markets.slice(0, 4).join(", "))}</small></li>
+              <li><strong>${escapeHtml(theme.label)}</strong><small>${escapeHtml(String(theme.marketCount))} markets · ${escapeHtml(formatIntelligenceMetric(theme.impressions || theme.queryCount, "0"))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(theme.averagePosition))}</small></li>
             `).join("")}
+          </ul>
+        </article>
+        <article>
+          <span>Property-Type Signals</span>
+          <ul>
+            ${propertyTypeOpportunities.length ? propertyTypeOpportunities.map((item) => `
+              <li><strong>${escapeHtml(`${item.marketName} ${item.propertyType}`)}</strong><small>${escapeHtml(formatIntelligenceMetric(item.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(item.averagePosition))}</small></li>
+            `).join("") : "<li><strong>No property-type signals</strong><small>Run Search Intelligence sync with page/query rows to populate this layer.</small></li>"}
           </ul>
         </article>
         <article>
@@ -1085,7 +1122,7 @@ function todayRecommendations(eos, token) {
   const marketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
   const intelligence = eos.commercialKnowledgeIntelligence || {};
   const googleMarkets = (((intelligence.googleOpportunity || {}).markets) || []);
-  const publisherOpportunities = intelligence.publisherOpportunities || [];
+  const searchMissions = intelligence.searchMissions || [];
 
   if ((marketEvidence && marketEvidence.validationStatus && marketEvidence.validationStatus !== "PASS") || reviewQueue.length) {
     recommendations.push({
@@ -1101,21 +1138,35 @@ function todayRecommendations(eos, token) {
     });
   }
 
-  const searchLed = googleMarkets.find((market) =>
-    (market.googleOpportunity === "high" || market.googleOpportunity === "theme_signal")
-    && !["san-francisco", "denver"].includes(market.marketId)
-  ) || googleMarkets[0];
-  if (searchLed) {
-    const themes = (searchLed.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ");
+  const searchMission = searchMissions[0];
+  if (searchMission) {
+    const markets = (searchMission.supportingMarkets || []).slice(0, 3).map((market) => market.marketName).join(", ");
     recommendations.push({
-      type: "Google Opportunity",
-      title: `${searchLed.marketName}${themes ? ` ${themes}` : ""}`,
-      reason: (searchLed.rationale || []).join(" ") || "Google is already testing Rofo for this commercial knowledge while coverage remains incomplete.",
-      effort: "Small",
-      impact: searchLed.googleOpportunity === "high" ? "High" : "Medium",
-      actionLabel: "Review Opportunity",
+      type: "Search Mission",
+      title: searchMission.title,
+      reason: `${searchMission.whyNow || "Search Intelligence identified a focused editorial mission."}${markets ? ` Evidence: ${markets}.` : ""}`,
+      effort: searchMission.type === "market_specific" ? "Small" : "Medium",
+      impact: searchMission.confidence === "high" ? "High" : "Medium",
+      actionLabel: "Review Mission",
       href: `/admin/eos?${tokenParam(token)}&queue=intelligence`,
     });
+  } else {
+    const searchLed = googleMarkets.find((market) =>
+      (market.googleOpportunity === "high" || market.googleOpportunity === "theme_signal")
+      && !["san-francisco", "denver"].includes(market.marketId)
+    ) || googleMarkets[0];
+    if (searchLed) {
+      const themes = (searchLed.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ");
+      recommendations.push({
+        type: "Google Opportunity",
+        title: `${searchLed.marketName}${themes ? ` ${themes}` : ""}`,
+        reason: (searchLed.rationale || []).join(" ") || "Google is already testing Rofo for this commercial knowledge while coverage remains incomplete.",
+        effort: "Small",
+        impact: searchLed.googleOpportunity === "high" ? "High" : "Medium",
+        actionLabel: "Review Opportunity",
+        href: `/admin/eos?${tokenParam(token)}&queue=intelligence`,
+      });
+    }
   }
 
   const missionRecord = firstActionableMission(eos);
@@ -1721,6 +1772,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .platform-service span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
     .platform-service h2 { margin: 7px 0 8px; font-size: 1.55rem; }
     .platform-service p { margin-bottom: 0; }
+    .platform-service__inline-meta { margin-top: 10px !important; color: #64748b; font-size: 0.84rem; font-weight: 800; }
     .platform-service__metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
     .platform-service__metrics article { padding: 12px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; box-shadow: none; }
     .platform-service__metrics strong { display: block; margin-bottom: 4px; color: #0f172a; font-size: 1.05rem; line-height: 1.18; }
