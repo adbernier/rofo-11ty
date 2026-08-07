@@ -980,6 +980,92 @@ function renderCommercialMarketEvidenceService(eos) {
   `;
 }
 
+function formatIntelligenceMetric(value, fallback = "Pending") {
+  return Number.isFinite(Number(value)) ? String(Math.round(Number(value))) : fallback;
+}
+
+function renderCommercialKnowledgeIntelligence(eos) {
+  const intelligence = eos.commercialKnowledgeIntelligence;
+  if (!intelligence) return "";
+
+  const strategic = (intelligence.strategicRoadmap || []).slice(0, 5);
+  const opportunities = (((intelligence.googleOpportunity || {}).markets) || []).slice(0, 6);
+  const themes = (intelligence.emergingThemes || []).slice(0, 6);
+  const investorSignals = (intelligence.investorFutureSignals || []).slice(0, 4);
+  const publisherOpportunities = intelligence.publisherOpportunities || [];
+
+  return `
+    <section class="platform-service platform-service--knowledge" aria-label="Commercial Knowledge Intelligence">
+      <div>
+        <span>Commercial Knowledge Intelligence</span>
+        <h2>Where should Rofo get smarter next?</h2>
+        <p>EOS v3 keeps strategic expansion separate from observed Google demand, then compares both with knowledge coverage and Publisher readiness.</p>
+      </div>
+      <div class="platform-service__metrics">
+        <article><strong>${escapeHtml(String(strategic.length))}</strong><span>Strategic Markets</span></article>
+        <article><strong>${escapeHtml(String(opportunities.length))}</strong><span>Google Signals</span></article>
+        <article><strong>${escapeHtml(String(themes.length))}</strong><span>Emerging Themes</span></article>
+        <article><strong>${escapeHtml(String(publisherOpportunities.length))}</strong><span>Publisher Inputs</span></article>
+      </div>
+      <div class="knowledge-intelligence-grid">
+        <article>
+          <span>Strategic Expansion</span>
+          <ul>
+            ${strategic.map((market) => `
+              <li>
+                <strong>${escapeHtml(market.marketName)}</strong>
+                <small>${escapeHtml(market.priority)} priority · ${escapeHtml(market.nextKnowledgeNeed || "")}</small>
+              </li>
+            `).join("")}
+          </ul>
+        </article>
+        <article>
+          <span>Google Opportunity</span>
+          <ul>
+            ${opportunities.map((market) => `
+              <li>
+                <strong>${escapeHtml(market.marketName)}</strong>
+                <small>${escapeHtml(market.googleOpportunity)} · ${escapeHtml(formatIntelligenceMetric(market.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}</small>
+                <p>${escapeHtml((market.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ") || "Themes pending")}</p>
+              </li>
+            `).join("")}
+          </ul>
+        </article>
+      </div>
+      <div class="knowledge-intelligence-grid knowledge-intelligence-grid--three">
+        <article>
+          <span>Why Now</span>
+          <ul>
+            ${opportunities.slice(0, 3).map((market) => `
+              <li>
+                <strong>${escapeHtml(market.marketName)}</strong>
+                <small>${escapeHtml((market.rationale || []).join(" "))}</small>
+              </li>
+            `).join("")}
+          </ul>
+        </article>
+        <article>
+          <span>Emerging Themes</span>
+          <ul>
+            ${themes.map((theme) => `
+              <li><strong>${escapeHtml(theme.label)}</strong><small>${escapeHtml(String(theme.marketCount))} markets · ${escapeHtml(theme.markets.slice(0, 4).join(", "))}</small></li>
+            `).join("")}
+          </ul>
+        </article>
+        <article>
+          <span>Investor / Future Signals</span>
+          <ul>
+            ${investorSignals.length ? investorSignals.map((market) => `
+              <li><strong>${escapeHtml(market.marketName)}</strong><small>${escapeHtml(market.note)}</small></li>
+            `).join("") : "<li><strong>No separated future signals</strong><small>Investor demand remains outside the current occupier roadmap.</small></li>"}
+          </ul>
+        </article>
+      </div>
+      <p class="platform-service__meta">Phase 1 is advisory only. Publisher receives recommendations, but EOS does not automatically modify public content.</p>
+    </section>
+  `;
+}
+
 function renderInventory(eos, token) {
   const items = ((eos.portfolioQueues || {}).editorialQueue || []).slice(0, 100);
   return `
@@ -1113,6 +1199,7 @@ function renderOverview(eos, token) {
 
     ${renderQueueSummary(eos)}
     ${renderHandoffSummary(eos)}
+    ${renderCommercialKnowledgeIntelligence(eos)}
     ${renderCommercialMarketEvidenceService(eos)}
 
     <section class="section-heading section-heading--standalone">
@@ -1384,6 +1471,15 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .platform-service__metrics article { padding: 12px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; box-shadow: none; }
     .platform-service__metrics strong { display: block; margin-bottom: 4px; color: #0f172a; font-size: 1.05rem; line-height: 1.18; }
     .platform-service__meta { grid-column: 1 / -1; padding-top: 4px; font-size: 0.84rem; }
+    .platform-service--knowledge { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+    .knowledge-intelligence-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 12px; border-top: 1px solid #e5edf7; }
+    .knowledge-intelligence-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 0; padding-top: 0; }
+    .knowledge-intelligence-grid article { padding: 13px; border: 1px solid #e5edf7; border-radius: 14px; background: #f8fafc; }
+    .knowledge-intelligence-grid ul { display: grid; gap: 8px; margin: 9px 0 0; padding: 0; list-style: none; }
+    .knowledge-intelligence-grid li { padding: 9px; border-radius: 11px; background: #fff; }
+    .knowledge-intelligence-grid strong { display: block; color: #0f172a; font-size: 0.9rem; line-height: 1.22; }
+    .knowledge-intelligence-grid small { display: block; margin-top: 3px; color: #64748b; font-size: 0.76rem; }
+    .knowledge-intelligence-grid p { margin: 5px 0 0; color: #475569; font-size: 0.78rem; }
     .market-evidence-expansion { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid #e5edf7; }
     .market-evidence-expansion .section-heading { margin-bottom: 10px; }
     .expansion-order { display: grid; gap: 10px; margin: 10px 0 0; padding-left: 20px; }
@@ -1443,7 +1539,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }

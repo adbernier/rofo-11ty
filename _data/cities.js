@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const marketSnapshots = require("./marketSnapshots.js");
+const commercialKnowledgeMarketSnapshots = require("./commercialKnowledgeMarketSnapshots.js");
 
 function findCityHeroImage(cityStateSlug) {
   const baseDir = path.join(process.cwd(), "assets", "images", "cities");
@@ -71,6 +72,7 @@ module.exports = () => {
       routing_market: cityStateSlug,
       routing_county: routingCounty,
       market_snapshot: marketSnapshots[marketSnapshotKey] || null,
+      commercial_knowledge_snapshot: commercialKnowledgeMarketSnapshots[marketSnapshotKey] || null,
       routing_candidates: getRoutingCandidates({
         city_state_slug: cityStateSlug,
         county_state_slug: routingCounty,

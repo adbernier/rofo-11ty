@@ -1,6 +1,6 @@
 # Orange County Recommendation QA Pilot
 
-Generated: 2026-08-07T17:00:23.070Z
+Generated: 2026-08-07T18:22:31.273Z
 
 This internal QA report validates whether Orange County Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 

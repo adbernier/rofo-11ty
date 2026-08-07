@@ -10,6 +10,8 @@ Commercial Market Evidence planning decisions should remain aligned with `docs/c
 
 Mission Control displays Commercial Market Evidence as a platform service. It consumes the generated validator summary through EOS analysis, and EOS resolves district building-evidence work into executable Program Initiatives and Missions. Publisher scoring and recommendation behavior remain unchanged.
 
+EOS v3 Commercial Knowledge Intelligence is documented in `docs/product/eos-v3-commercial-knowledge-intelligence.md`. It adds an advisory layer that compares editor-controlled strategic markets with manual/importable Google Search Console opportunity signals, Commercial Knowledge System coverage, and Publisher readiness. It is additive and does not replace the existing strategic roadmap, Publisher scoring, or recommendation models.
+
 EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based collection measurement remains intentionally simple, but the operator-facing Mission can also include selected Building Profile work when it belongs to the same district evidence workflow.
 
 EOS follows Rofo's one-commercial-geography principle: every canonical Knowledge Graph district is eligible for recommendations, Publisher coverage, Commercial Market Evidence planning, and Mission Control market-completion tracking. EOS may prioritize districts differently by maturity and evidence, but it should not maintain a separate district class that removes canonical districts from platform coverage.

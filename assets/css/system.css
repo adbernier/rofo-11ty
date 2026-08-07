@@ -5433,6 +5433,110 @@ section.market-page--space-type .market-links a {
   gap: 16px;
 }
 
+.city-page .city-decision-section--knowledge-snapshot {
+  padding-top: clamp(24px, 4vw, 42px);
+}
+
+.city-page .city-knowledge-snapshot {
+  display: grid;
+  gap: 18px;
+}
+
+.city-page .city-knowledge-snapshot__brief {
+  max-width: 860px;
+}
+
+.city-page .city-knowledge-snapshot__brief p {
+  font-size: 1.02rem;
+}
+
+.city-page .city-knowledge-snapshot__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.city-page .city-knowledge-snapshot__grid article,
+.city-page .city-knowledge-snapshot__columns > div,
+.city-page .city-knowledge-snapshot__cta {
+  padding: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.045);
+}
+
+.city-page .city-knowledge-snapshot__grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.city-page .city-knowledge-snapshot__grid p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.city-page .city-knowledge-snapshot__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.city-page .city-knowledge-snapshot__columns h3 {
+  margin-bottom: 12px;
+}
+
+.city-page .city-knowledge-snapshot__columns ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.city-page .city-knowledge-snapshot__columns li {
+  color: #475569;
+  line-height: 1.55;
+}
+
+.city-page .city-knowledge-snapshot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.city-page .city-knowledge-snapshot__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #1e3a8a;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.city-page .city-knowledge-snapshot__cta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.city-page .city-knowledge-snapshot__cta p {
+  max-width: 660px;
+  margin: 0;
+}
+
 .city-page .city-decision-section--find {
   padding-top: 18px;
   border-top: 0;
@@ -6063,8 +6167,21 @@ section.market-page--space-type .market-links a {
   .city-page .stats-grid,
   .city-page .building-grid,
   .city-page .city-market-snapshot__grid,
+  .city-page .city-knowledge-snapshot__grid,
+  .city-page .city-knowledge-snapshot__columns,
   .city-page .city-grid {
     grid-template-columns: 1fr;
+  }
+
+  .city-page .city-knowledge-snapshot__cta {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .city-page .city-knowledge-snapshot__cta .btn-primary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   .city-page .hero-actions {

@@ -27,6 +27,7 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 {% set isSanFranciscoDecisionJourney = city.slug == "san-francisco" and city.state_abbr == "CA" %}
+{% set commercialKnowledgeSnapshot = city.commercial_knowledge_snapshot or {} %}
 
 {% set cityBuildings = [] %}
 {% for b in buildingPages %}
@@ -219,6 +220,70 @@ eleventyComputed:
         {% include "partials/shared/editorial-photo-slot.njk" %}
 
         <div class="city-grid city-primary-content">
+          {% if commercialKnowledgeSnapshot and commercialKnowledgeSnapshot.commercialCharacter %}
+            <section class="city-decision-section city-decision-section--knowledge-snapshot" aria-labelledby="city-market-snapshot-heading">
+              <div class="city-decision-section__header">
+                <div class="eyebrow">Market Snapshot</div>
+                <h2 id="city-market-snapshot-heading">{{ commercialKnowledgeSnapshot.title or (city.city + " Market Snapshot") }}</h2>
+                <p>{{ commercialKnowledgeSnapshot.commercialCharacter }}</p>
+              </div>
+
+              <div class="city-knowledge-snapshot">
+                {% if commercialKnowledgeSnapshot.businessDrivers and commercialKnowledgeSnapshot.businessDrivers.length %}
+                  <div class="city-knowledge-snapshot__brief">
+                    {% for driver in commercialKnowledgeSnapshot.businessDrivers %}
+                      <p>{{ driver }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                {% if commercialKnowledgeSnapshot.propertyTypeContext %}
+                  <div class="city-knowledge-snapshot__grid" aria-label="{{ city.city }} commercial property context">
+                    {% for key, context in commercialKnowledgeSnapshot.propertyTypeContext %}
+                      {% if context %}
+                        <article>
+                          <span>{{ key | title }}</span>
+                          <p>{{ context }}</p>
+                        </article>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <div class="city-knowledge-snapshot__columns">
+                  {% if commercialKnowledgeSnapshot.keyDistricts and commercialKnowledgeSnapshot.keyDistricts.length %}
+                    <div>
+                      <h3>Key Commercial Districts</h3>
+                      <div class="city-knowledge-snapshot__links">
+                        {% for district in commercialKnowledgeSnapshot.keyDistricts %}
+                          <a href="{{ district.path }}">{{ district.label }}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  {% if commercialKnowledgeSnapshot.businessLocationContext and commercialKnowledgeSnapshot.businessLocationContext.length %}
+                    <div>
+                      <h3>Business Location Context</h3>
+                      <ul>
+                        {% for item in commercialKnowledgeSnapshot.businessLocationContext %}
+                          <li>{{ item }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+                </div>
+
+                {% if commercialKnowledgeSnapshot.cta %}
+                  <div class="city-knowledge-snapshot__cta">
+                    <p>Rofo can turn this market context into a personalized Location Brief based on your business.</p>
+                    <a class="btn-primary" href="{{ commercialKnowledgeSnapshot.cta.href }}">{{ commercialKnowledgeSnapshot.cta.label }}</a>
+                  </div>
+                {% endif %}
+              </div>
+            </section>
+          {% endif %}
+
           {% if hasAreaChapter %}
             <section class="city-decision-section city-decision-section--explore" aria-labelledby="city-commercial-areas-heading">
               <div class="city-decision-section__header">
