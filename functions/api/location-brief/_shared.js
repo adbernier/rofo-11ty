@@ -532,6 +532,20 @@ function brokerPreferenceLabel(value) {
   return labels[value] || value || "";
 }
 
+function executionTimingLabel(value) {
+  const normalized = clean(value, 80);
+  const labels = {
+    asap: "As soon as possible",
+    as_soon_as_possible: "As soon as possible",
+    within_3_months: "Within 3 months",
+    "3_6_months": "3-6 months",
+    "6_12_months": "6-12 months",
+    more_than_12_months: "More than 12 months",
+    not_sure: "Not sure yet",
+  };
+  return labels[normalized] || normalized.replace(/_/g, " ");
+}
+
 function selectedInvestigationBuildings(investigation) {
   return investigation && Array.isArray(investigation.representativeBuildings)
     ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
@@ -587,8 +601,11 @@ function investigationHtmlBlock(investigation) {
 }
 
 export async function sendLocationBriefEmail(env, request, brief) {
-  if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_EMAIL) {
-    return { sent: false, reason: "RESEND_API_KEY and LEAD_NOTIFY_EMAIL are not configured" };
+  if (!env.RESEND_API_KEY) {
+    return { sent: false, status: "not_configured", reason: "RESEND_API_KEY is not configured" };
+  }
+  if (!env.LEAD_NOTIFY_EMAIL) {
+    return { sent: false, status: "not_configured", reason: "LEAD_NOTIFY_EMAIL is not configured" };
   }
 
   const url = publicBriefUrl(request, brief.publicId);
@@ -716,10 +733,22 @@ export async function sendLocationBriefEmail(env, request, brief) {
   });
 
   if (!response.ok) {
-    return { sent: false, reason: await response.text() };
+    return {
+      sent: false,
+      status: "failed",
+      reason: await response.text(),
+      recipient: env.LEAD_NOTIFY_EMAIL,
+      sender: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
+    };
   }
 
-  return { sent: true };
+  return {
+    sent: true,
+    status: "sent",
+    sentAt: new Date().toISOString(),
+    recipient: env.LEAD_NOTIFY_EMAIL,
+    sender: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
+  };
 }
 
 export async function sendLiveMarketInvestigationConfirmationEmail(env, request, brief) {
@@ -736,32 +765,40 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
   }
 
   const url = publicBriefUrl(request, brief.publicId);
-  const buildings = selectedInvestigationBuildings(investigation);
-  const scope = investigationScopeLabels(investigation);
+  const requirements = investigation.confirmedRequirements || {};
   const district = investigation.districtName || locationSummary(brief);
   const city = [investigation.city, investigation.state].filter(Boolean).join(", ");
+  const timing = executionTimingLabel(requirements.timing || investigation.timing || "");
+  const buildings = selectedInvestigationBuildings(investigation);
+  const researchItems = investigationScopeLabels(investigation);
+  const researchList = researchItems.length ? researchItems : [
+    "Current availability",
+    "Asking rents and concessions",
+    "Comparable opportunities",
+    "Buildings worth touring",
+    "Relevant market conditions",
+  ];
   const subject = "Your Rofo Location Brief";
   const text = [
     `Hi ${contact.name || "there"},`,
     "",
-    "Thank you for requesting current availability from Rofo.",
+    `Thanks for requesting current availability${district ? ` in ${district}` : ""}.`,
+    "",
+    "We'll review your Location Brief and determine the best next step.",
+    "Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.",
     "",
     `Location Brief: ${url}`,
     "",
-    "What happens next:",
-    "Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage. This is not a promise of immediate broker contact.",
-    "",
+    "REQUEST SUMMARY",
     `Selected district: ${district}`,
     city ? `Market: ${city}` : "",
+    requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
+    requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
+    timing ? `Timing: ${timing}` : "",
+    buildings.length ? `Representative buildings: ${buildings.map((building) => building.name).join(", ")}` : "",
     "",
-    "REPRESENTATIVE BUILDINGS",
-    buildings.length ? buildings.map((building) => `- ${building.name}`).join("\n") : "- District-level review only",
-    `Include other competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
-    "",
-    "REQUESTED REVIEW",
-    scope.length ? scope.map((item) => `- ${item}`).join("\n") : "- Scope to confirm",
-    investigation.timing ? `Timing: ${investigation.timing}` : "",
-    `Broker preference: ${brokerPreferenceLabel(investigation.brokerPreference) || "Research first"}`,
+    "WHAT WE'LL RESEARCH",
+    ...researchList.map((item) => `- ${item}`),
     "",
     "Rofo",
   ].filter(Boolean).join("\n");
@@ -776,36 +813,41 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
             <tr>
               <td style="padding:22px;background:#123f8c;color:#ffffff;">
                 <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div>
-                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">Your Location Brief request was received.</h1>
+                <h1 style="margin:8px 0 8px;font-size:24px;line-height:30px;">We've received your request.</h1>
                 ${city ? `<div style="font-size:15px;line-height:22px;color:#eff6ff;">${escapeHtml(city)}</div>` : ""}
               </td>
             </tr>
             <tr>
               <td style="padding:22px;font-size:15px;line-height:23px;">
                 <p style="margin:0 0 14px;">${contact.name ? `Hi ${escapeHtml(contact.name)},` : "Hi,"}</p>
-                <p style="margin:0 0 14px;">Thank you for requesting current availability from Rofo.</p>
-                <p style="margin:0 0 18px;">Rofo will review your request and determine the best next step. This does not promise immediate broker contact.</p>
+                <p style="margin:0 0 14px;">Thanks for requesting current availability${district ? ` in ${escapeHtml(district)}` : ""}.</p>
+                <p style="margin:0 0 18px;">We'll review your Location Brief and determine the best next step. Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.</p>
 
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Request summary</div>
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     ${emailField("District", escapeHtml(district))}
                     ${city ? emailField("City", escapeHtml(city)) : ""}
-                    ${emailField("Representative buildings", buildings.length ? formatList(buildings.map((building) => building.name)) : escapeHtml("District-level review only"))}
-                    ${emailField("Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Included" : "Not selected"))}
-                    ${emailField("Scope", scope.length ? formatList(scope) : escapeHtml("To confirm"))}
-                    ${investigation.timing ? emailField("Timing", escapeHtml(investigation.timing)) : ""}
-                    ${emailField("Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference) || "Research first"))}
+                    ${requirements.headcount ? emailField("Headcount", escapeHtml(requirements.headcount)) : ""}
+                    ${requirements.approximateSize ? emailField("Approximate size", escapeHtml(requirements.approximateSize)) : ""}
+                    ${timing ? emailField("Timing", escapeHtml(timing)) : ""}
+                    ${buildings.length ? emailField("Representative buildings", formatList(buildings.map((building) => building.name))) : ""}
                   </table>
                 </div>
 
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What we'll research</div>
+                  ${formatList(researchList)}
+                </div>
+
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#ffffff;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
-                  <p style="margin:0;color:#334155;">Rofo will review the Location Brief, selected district, representative buildings, and any comparable-building request before deciding the appropriate next step.</p>
+                  <p style="margin:0;color:#334155;">We'll review your Location Brief together with the district you selected and current market activity. If additional research or local expertise would be helpful, we'll determine the best way to assist you.</p>
                 </div>
 
                 <a href="${escapeHtml(url)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">View Location Brief</a>
-                <p style="margin:18px 0 0;color:#64748b;font-size:13px;line-height:20px;">Representative buildings are starting points for review, not confirmed availability.</p>
+                <p style="margin:18px 0 0;color:#64748b;font-size:13px;line-height:20px;">Representative buildings illustrate the type of environment Rofo is evaluating. Current availability will be reviewed separately.</p>
+                <p style="margin:10px 0 0;color:#64748b;font-size:13px;line-height:20px;">Need to make a change? You can update your Business Profile and create a new Location Brief at any time.</p>
               </td>
             </tr>
           </table>

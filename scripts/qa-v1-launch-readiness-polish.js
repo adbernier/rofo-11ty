@@ -49,8 +49,10 @@ assertIncludes(searchProfile, "key === \"commuteOrientation\"", "Business Profil
 assertIncludes(searchProfile, "selectedOptionLabels(commuteOrientationOptions, summary.commuteOrientation)", "Business Profile commute summary");
 
 assertIncludes(briefShared, "Your Rofo Location Brief", "customer Location Brief email");
-assertIncludes(briefShared, "Rofo will review your request and determine the best next step.", "customer Location Brief email");
-assertIncludes(briefShared, "This is not a promise of immediate broker contact.", "customer Location Brief email");
+assertIncludes(briefShared, "We've received your request.", "customer Location Brief email");
+assertIncludes(briefShared, "We'll review your Location Brief and determine the best next step.", "customer Location Brief email");
+assertIncludes(briefShared, "What we'll research", "customer Location Brief email");
+assertNotIncludes(briefShared.slice(briefShared.indexOf("export async function sendLiveMarketInvestigationConfirmationEmail")), "This does not promise immediate broker contact.", "customer Location Brief email");
 assertIncludes(briefShared, "headcount: clean(requirements.headcount", "execution context email");
 
 assertIncludes(leadShared, "New Rofo ${propertyType} Requirement - ${market}", "broker email subject");
@@ -69,9 +71,10 @@ assertIncludes(briefSubmit, "headcount: clean(requirements.headcount", "Location
 assertIncludes(briefSubmit, "approximateSize: clean(requirements.approximateSize", "Location Brief submit fingerprint");
 assertIncludes(briefSubmit, "budgetContext: clean(requirements.budgetContext", "Location Brief submit fingerprint");
 
-assertIncludes(adminLeads, "Project Snapshot", "lead dashboard summary");
+assertIncludes(adminLeads, "Requirement", "lead dashboard summary");
 assertIncludes(adminLeads, "Business Profile", "lead dashboard summary");
-assertIncludes(adminLeads, "Advanced: routing and admin details", "lead dashboard advanced details");
-assertIncludes(adminLeads, "Advanced: stored lead JSON", "lead dashboard advanced details");
+assertIncludes(adminLeads, "Send Requirement", "lead dashboard fulfillment action");
+assertIncludes(adminLeads, "More Details", "lead dashboard advanced details");
+assertIncludes(adminLeads, "Stored lead JSON", "lead dashboard advanced details");
 
 console.log("V1 launch readiness polish QA passed.");

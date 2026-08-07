@@ -21,6 +21,7 @@ import {
   saveLead,
   sendApprovalEmail,
   sha256,
+  updateLeadStatus,
 } from "../leads/_shared.js";
 import {
   buildProjectSnapshotFromBrief,
@@ -642,9 +643,9 @@ export async function onRequestPost({ request, env, waitUntil }) {
         error: confirmationEmail.sent ? "" : confirmationEmail.reason || "",
       },
       internalEmail: {
-        status: email.sent ? "sent" : "failed",
-        sent: email.sent === true,
-        error: email.sent ? "" : email.reason || "",
+        status: "not_attempted",
+        sent: false,
+        error: "",
       },
     };
   }
@@ -667,14 +668,53 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (lead && lead.stored && lead.record && lead.token) {
     try {
       email = await sendApprovalEmail(env, request, lead.record, lead.token);
+      const updatedLead = {
+        ...(lead.record.lead || {}),
+        internal_email_status: email.status || (email.sent ? "sent" : "failed"),
+        internal_email_sent_at: email.sentAt || "",
+        internal_email_error: email.sent ? "" : email.reason || "",
+        internal_email_recipient: email.recipient || env.LEAD_NOTIFY_EMAIL || "",
+        internal_email_sender: email.sender || env.RESEND_FROM_EMAIL || "",
+        investigation_internal_email_status: email.status || (email.sent ? "sent" : "failed"),
+        investigation_internal_email_error: email.sent ? "" : email.reason || "",
+      };
+      lead.record.lead = updatedLead;
+      await updateLeadStatus(env, lead.id, {
+        status: lead.record.status,
+        lead: updatedLead,
+        officefinder_payload: lead.record.officefinder_payload,
+        approval_error: email.sent ? "" : email.reason || "",
+      });
       logPipelineStep("internal_notification", {
         leadId: lead.id,
         briefId: brief.id,
+        status: email.status || (email.sent ? "sent" : "failed"),
         sent: email.sent === true,
+        recipient: email.recipient || env.LEAD_NOTIFY_EMAIL || "",
         reason: email.reason || "",
       });
     } catch (error) {
       email = { sent: false, reason: error.message };
+      try {
+        const updatedLead = {
+          ...(lead.record.lead || {}),
+          internal_email_status: "failed",
+          internal_email_error: error.message,
+          internal_email_recipient: env.LEAD_NOTIFY_EMAIL || "",
+          internal_email_sender: env.RESEND_FROM_EMAIL || "",
+          investigation_internal_email_status: "failed",
+          investigation_internal_email_error: error.message,
+        };
+        lead.record.lead = updatedLead;
+        await updateLeadStatus(env, lead.id, {
+          status: lead.record.status,
+          lead: updatedLead,
+          officefinder_payload: lead.record.officefinder_payload,
+          approval_error: error.message,
+        });
+      } catch (updateError) {
+        console.warn("Unable to store Location Brief internal notification failure", updateError);
+      }
       console.warn("Unable to send Location Brief approval notification", error);
     }
   } else {

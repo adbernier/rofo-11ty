@@ -1613,11 +1613,14 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
 
 export async function sendApprovalEmail(env, request, record, token) {
   if (record.status !== "pending") {
-    return { sent: false, reason: `Lead status ${record.status} does not send approval alerts` };
+    return { sent: false, status: "not_attempted", reason: `Lead status ${record.status} does not send approval alerts` };
   }
 
-  if (!env.RESEND_API_KEY || !env.LEAD_NOTIFY_EMAIL) {
-    return { sent: false, reason: "RESEND_API_KEY and LEAD_NOTIFY_EMAIL are not configured" };
+  if (!env.RESEND_API_KEY) {
+    return { sent: false, status: "not_configured", reason: "RESEND_API_KEY is not configured" };
+  }
+  if (!env.LEAD_NOTIFY_EMAIL) {
+    return { sent: false, status: "not_configured", reason: "LEAD_NOTIFY_EMAIL is not configured" };
   }
 
   const baseUrl = getBaseUrl(request);
@@ -1637,7 +1640,7 @@ export async function sendApprovalEmail(env, request, record, token) {
   const locationBrief = isLocationBriefLead(lead);
   const snapshot = buildProjectSnapshotFromLead(lead);
   const subject = locationBrief
-    ? `New Rofo ${snapshot.propertyType || spaceType || "Space"} Requirement - ${snapshot.market || market || "Market"}`
+    ? `New Rofo Requirement in ${snapshot.market || market || "Market"}`
     : locationProfile
     ? buildLocationRequirementSubject(lead)
     : `New Rofo lead: ${market || "Unknown market"} - ${spaceType || lead.space_needed || "space needed"}`;
@@ -1659,13 +1662,6 @@ export async function sendApprovalEmail(env, request, record, token) {
     locationBrief ? "" : "",
     locationBrief ? "PROJECT SNAPSHOT" : "",
     ...(locationBrief ? snapshotLines : []),
-    locationBrief ? "" : "",
-    locationBrief ? "ROUTING" : "",
-    locationBrief ? `Recommended route: ${formatRouteLabel(lead.route_recommendation && lead.route_recommendation.route_to)}` : "",
-    locationBrief ? `Assigned broker: ${lead.assigned_broker || lead.route_recommendation && lead.route_recommendation.broker_email || "(none)"}` : "",
-    locationBrief ? `OfficeFinder status: ${lead.officefinder_status || "officefinder_not_attempted"}` : "",
-    locationBrief ? `Submission status: ${record.status}` : "",
-    locationBrief ? `Route reason: ${lead.route_recommendation && lead.route_recommendation.route_reason || ""}` : "",
     locationBrief ? "" : "",
     `Name: ${lead.name}`,
     `Company: ${lead.company || ""}`,
@@ -1693,11 +1689,11 @@ export async function sendApprovalEmail(env, request, record, token) {
     "",
     `Review Lead in Dashboard: ${dashboardUrl}`,
     "",
-    "Approval links:",
-    `Approve recommended: ${approveUrl}`,
-    `Approve OfficeFinder: ${approveOfficeFinderUrl}`,
-    `Approve broker: ${approveBrokerUrl}`,
-    `Reject: ${rejectUrl}`,
+    locationBrief ? "" : "Approval links:",
+    locationBrief ? "" : `Approve recommended: ${approveUrl}`,
+    locationBrief ? "" : `Approve OfficeFinder: ${approveOfficeFinderUrl}`,
+    locationBrief ? "" : `Approve broker: ${approveBrokerUrl}`,
+    locationBrief ? "" : `Reject: ${rejectUrl}`,
   ].filter((line) => line !== "").join("\n");
   const html = `<!doctype html>
 <html>
@@ -1729,9 +1725,6 @@ export async function sendApprovalEmail(env, request, record, token) {
                       const [label, ...rest] = line.split(": ");
                       return buildEmailField(label, escapeHtml(rest.join(": ")));
                     }).join("")}
-                    ${buildEmailField("Assigned broker", escapeHtml(lead.assigned_broker || lead.route_recommendation && lead.route_recommendation.broker_email || "(none)"))}
-                    ${buildEmailField("OfficeFinder status", escapeHtml(lead.officefinder_status || "officefinder_not_attempted"))}
-                    ${buildEmailField("Submission status", escapeHtml(record.status))}
                   </table>
                 </div>` : ""}
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:16px;">
@@ -1758,7 +1751,7 @@ export async function sendApprovalEmail(env, request, record, token) {
                   <div style="white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:21px;">${escapeHtml(requirements)}</div>
                 </div>
                 <a href="${escapeHtml(dashboardUrl)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">Review Lead in Dashboard</a>
-                <div style="margin-top:14px;color:#64748b;font-size:12px;line-height:18px;">OfficeFinder and broker routing still require manual approval. Spam-quarantined leads do not send this alert.</div>
+                <div style="margin-top:14px;color:#64748b;font-size:12px;line-height:18px;">Review the requirement in the dashboard before sending it to a fulfillment partner.</div>
               </td>
             </tr>
           </table>
@@ -1784,10 +1777,22 @@ export async function sendApprovalEmail(env, request, record, token) {
   });
 
   if (!response.ok) {
-    return { sent: false, reason: await response.text() };
+    return {
+      sent: false,
+      status: "failed",
+      reason: await response.text(),
+      recipient: env.LEAD_NOTIFY_EMAIL,
+      sender: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
+    };
   }
 
-  return { sent: true };
+  return {
+    sent: true,
+    status: "sent",
+    sentAt: new Date().toISOString(),
+    recipient: env.LEAD_NOTIFY_EMAIL,
+    sender: env.RESEND_FROM_EMAIL || "Rofo Leads <onboarding@resend.dev>",
+  };
 }
 
 export async function sendBrokerLeadEmail(env, record) {

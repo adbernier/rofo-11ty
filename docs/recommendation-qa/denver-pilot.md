@@ -1,6 +1,6 @@
 # Denver Recommendation QA Pilot
 
-Generated: 2026-08-07T00:57:18.140Z
+Generated: 2026-08-07T17:00:23.080Z
 
 This internal QA report validates whether Denver Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 

@@ -114,7 +114,7 @@ export function projectSnapshotTextLines(snapshot) {
     value.timing ? `Timing: ${value.timing}` : "",
     value.additionalNotes ? `Additional Notes: ${value.additionalNotes}` : "",
     value.growth ? `Growth: ${value.growth}` : "",
-    value.topDistricts && value.topDistricts.length ? `Top Three Districts: ${value.topDistricts.join(", ")}` : "",
+    value.topDistricts && value.topDistricts.length ? `Best Fits: ${value.topDistricts.join(", ")}` : "",
   ].filter(Boolean);
 }
 

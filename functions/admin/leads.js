@@ -305,6 +305,22 @@ function statusBadge(value) {
   return `<span class="badge badge--${escapeHtml(status.replace(/[^a-z0-9_-]/gi, "-").toLowerCase())}">${escapeHtml(label)}</span>`;
 }
 
+function leadOperatorStatus(row, activeReferral) {
+  const status = String(row && row.status || "").toLowerCase();
+  const referralStatus = String(activeReferral && activeReferral.status || "").toLowerCase();
+  if (referralStatus === "accepted") return "Accepted";
+  if (["rejected", "declined"].includes(status)) return "Rejected";
+  if (["spam_quarantined", "rejected_spam"].includes(status)) return "Spam";
+  if (status === "approved_send_failed") return "Failed";
+  if (["approved_sent", "broker_sent", "both_sent", "partial_sent"].includes(status) || activeReferral) return "Sent";
+  return "Pending";
+}
+
+function simpleStatusBadge(label) {
+  const key = String(label || "Pending").toLowerCase();
+  return `<span class="badge badge--${escapeHtml(key)}">${escapeHtml(label || "Pending")}</span>`;
+}
+
 function operatorReferralStatusLabel(referral) {
   const status = String(referral && referral.status || "").toLowerCase();
   if (status === "sent") return "Awaiting broker review";
@@ -455,11 +471,60 @@ function renderActiveReferralStatus(referral) {
       </div>
       <dl class="referral-sent-grid">
         ${field("Sent", formatDate(referral.sentAt))}
-        ${field("Viewed", formatDate(referral.briefViewedAt))}
         ${field("Accepted", formatDate(referral.acceptedAt))}
-        ${field("Contact revealed", formatDate(referral.contactRevealedAt))}
       </dl>
-      <p class="muted broker-match-note">Referral controls are hidden while this broker opportunity is active. Use Referral History to review status.</p>
+    </section>
+  `;
+}
+
+function officeFinderSentLabel(lead) {
+  const attempt = getLatestOfficeFinderAttempt(lead);
+  if (lead.officefinder_status !== "officefinder_sent" && !(attempt && attempt.success)) return "";
+  return `Sent to OfficeFinder${attempt && attempt.attempted_at ? ` - ${formatDate(attempt.attempted_at)}` : ""}`;
+}
+
+function fulfillmentDestinationOptions(matches) {
+  const officeFinder = [{
+    value: "officefinder",
+    label: "OfficeFinder",
+    description: "National referral network",
+  }];
+  const partners = matches.map(({ broker, matchType }) => ({
+    value: `broker:${broker.id}`,
+    label: broker.name || broker.email || "Broker partner",
+    description: broker.company || matchType || "Broker partner",
+  }));
+  return [...officeFinder, ...partners];
+}
+
+function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral = null }) {
+  const officeFinderSent = officeFinderSentLabel(lead);
+  if (activeReferral || officeFinderSent) {
+    return `
+      ${activeReferral ? renderActiveReferralStatus(activeReferral) : ""}
+      ${officeFinderSent ? `<section class="message-block referral-sent-block"><div class="referral-sent-block__header"><div><h3>Requirement sent</h3><p>OfficeFinder</p></div><span>${escapeHtml(officeFinderSent)}</span></div></section>` : ""}
+    `;
+  }
+  const destinations = fulfillmentDestinationOptions(matches);
+  return `
+    <section class="message-block broker-match-block fulfillment-block">
+      <h3>Send To</h3>
+      <form method="POST" action="/admin/leads" class="referral-form fulfillment-form">
+        <input type="hidden" name="token" value="${escapeHtml(token)}">
+        <input type="hidden" name="id" value="${escapeHtml(leadId)}">
+        <input type="hidden" name="action" value="send_requirement">
+        <label>
+          Destination
+          <select name="destination" required>
+            <option value="">Choose destination</option>
+            ${destinations.map((destination) => `<option value="${escapeHtml(destination.value)}">${escapeHtml(`${destination.label} - ${destination.description}`)}</option>`).join("")}
+          </select>
+        </label>
+        <button class="button button--approve" type="submit" data-send-requirement-button disabled>Send Requirement</button>
+      </form>
+      ${matches.length
+        ? `<p class="muted broker-match-note">${escapeHtml(matches[0].broker.name)} is the strongest available broker match. OfficeFinder is also available as a fulfillment destination.</p>`
+        : `<p class="muted broker-match-note">No active broker partner match found yet. OfficeFinder is available, or add coverage in <a href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>.</p>`}
     </section>
   `;
 }
@@ -468,35 +533,23 @@ function renderEligibleBrokers(matches, token, leadId, activeReferral = null) {
   if (activeReferral) return renderActiveReferralStatus(activeReferral);
   return `
     <section class="message-block broker-match-block">
-      <h3>Eligible Broker Partners</h3>
+      <h3>Assign Partner</h3>
       ${matches.length ? `
-        <div class="broker-match-list">
-          ${matches.map(({ broker, matchType }) => `
-            <article class="broker-match-card">
-              <div>
-                <strong>${escapeHtml(broker.name)}</strong>
-                <span>${escapeHtml([broker.company, broker.email].filter(Boolean).join(" · "))}</span>
-              </div>
-              <em>${escapeHtml(matchType)}</em>
-              <small>${escapeHtml((broker.markets || []).map(formatBrokerMarket).filter(Boolean).slice(0, 3).join("; ") || "Market coverage not specified")}</small>
-            </article>
-          `).join("")}
-        </div>
         <form method="POST" action="/admin/leads" class="referral-form">
           <input type="hidden" name="token" value="${escapeHtml(token)}">
           <input type="hidden" name="id" value="${escapeHtml(leadId)}">
           <input type="hidden" name="action" value="send_referral">
           <label>
-            Assign Partner
+            Partner
             <select name="broker_partner_id" required>
               <option value="">Choose broker partner</option>
-              ${matches.map(({ broker, matchType }) => `<option value="${escapeHtml(broker.id)}">${escapeHtml(`${broker.name}${broker.company ? ` - ${broker.company}` : ""} (${matchType})`)}</option>`).join("")}
+              ${matches.map(({ broker, matchType }) => `<option value="${escapeHtml(broker.id)}">${escapeHtml(`${broker.name}${broker.company ? ` - ${broker.company}` : ""} - ${matchType}`)}</option>`).join("")}
             </select>
           </label>
           <button class="button button--approve" type="submit">Send Referral</button>
         </form>
-      ` : `<p class="muted">No active broker partner match found yet. Add coverage in <a href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>.</p>`}
-      <p class="muted broker-match-note">Sending a referral creates a Referral record and emails the selected broker a private referral link. Customer contact is hidden until the broker accepts and confirms contact reveal.</p>
+        <p class="muted broker-match-note">${escapeHtml(matches[0].broker.name)} is the strongest available match: ${escapeHtml(matches[0].matchType)}.</p>
+      ` : `<p class="muted">No active partner match found yet. Add coverage in <a href="/admin/brokers?token=${encodeURIComponent(token)}">Broker Partners</a>.</p>`}
     </section>
   `;
 }
@@ -558,27 +611,36 @@ function detailsBlock(label, value) {
 function renderProjectSnapshot(lead, market) {
   const snapshot = buildProjectSnapshotFromLead(lead);
   const topDistricts = Array.isArray(snapshot.topDistricts) ? snapshot.topDistricts.filter(Boolean) : [];
+  const primaryLine = [snapshot.market || market, snapshot.propertyType || lead.requested_space_type || lead.space_type].filter(Boolean).join(" - ");
+  const requirementLine = [
+    snapshot.businessType || lead.location_profile_business_type,
+    snapshot.headcount || lead.investigation_headcount,
+    snapshot.approximateSize || lead.space_needed,
+    snapshot.timing || lead.move_timing,
+  ].filter(Boolean).join(" - ");
+  const customerLine = [lead.name, lead.company].filter(Boolean).join(" - ");
   return `
-    <section class="lead-ops-summary" aria-label="Project Snapshot">
+    <section class="lead-ops-summary" aria-label="Lead Summary">
       <div class="lead-ops-summary__header">
         <div>
-          <span>Project Snapshot</span>
-          <h3>${escapeHtml(lead.company || lead.name || "Customer")}</h3>
+          <span>Requirement</span>
+          <h3>${escapeHtml(primaryLine || "Location requirement")}</h3>
+          ${requirementLine ? `<p>${escapeHtml(requirementLine)}</p>` : ""}
         </div>
         ${lead.location_brief_url ? `<a href="${escapeHtml(lead.location_brief_url)}" target="_blank" rel="noopener">Open Brief</a>` : ""}
       </div>
       <dl class="lead-grid lead-grid--compact">
-        ${field("Customer", [lead.name, lead.company].filter(Boolean).join(" - "))}
-        ${field("Market", snapshot.market || market)}
-        ${field("Property type", snapshot.propertyType || lead.requested_space_type || lead.space_type)}
         ${field("Business type", snapshot.businessType || lead.location_profile_business_type)}
         ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district)}
+        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path)}
         ${field("Headcount", snapshot.headcount || lead.investigation_headcount)}
         ${field("Approx. size", snapshot.approximateSize || lead.space_needed)}
         ${field("Timing", snapshot.timing || lead.move_timing)}
+        ${field("Customer", customerLine || lead.name)}
+        ${field("Email", lead.email)}
+        ${field("Phone", lead.phone)}
         ${field("Additional notes", snapshot.additionalNotes || lead.investigation_notes)}
-        ${field("Growth", snapshot.growth || lead.location_profile_expected_growth)}
-        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path)}
+        ${field("Internal alert", lead.internal_email_status || lead.investigation_internal_email_status)}
       </dl>
     </section>
   `;
@@ -604,6 +666,89 @@ function renderBusinessProfileSummary(lead) {
   `;
 }
 
+function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons }) {
+  const officeFinderAttempt = latestAttempt
+    ? `<div class="lead-grid lead-grid--compact">
+        ${field("Attempted at", formatDate(latestAttempt.attempted_at))}
+        ${field("Mode", latestAttempt.officefinder_mode)}
+        ${field("HTTP status", latestAttempt.response_status)}
+        ${field("Success", String(Boolean(latestAttempt.success)))}
+        ${field("Error", latestAttempt.error)}
+      </div>
+      ${detailsBlock("OfficeFinder response body", latestAttempt.response_body)}
+      ${detailsBlock("OfficeFinder request payload", latestAttempt.request_payload)}`
+    : "<p>No OfficeFinder attempts yet.</p>";
+
+  return `
+    <details class="admin-details lead-card__advanced">
+      <summary>More Details</summary>
+      <div class="advanced-stack">
+        <section class="message-block">
+          <h3>Location Brief summary</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("Brief ID", lead.location_brief_public_id)}
+            ${linkField("Open Brief", lead.location_brief_url)}
+            ${field("Location Brief status", lead.location_brief_status)}
+            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
+          </div>
+        </section>
+        ${renderBusinessProfileSummary(lead)}
+        <section class="message-block message-block--investigation">
+          <h3>Live Market Investigation metadata</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("Request ID", lead.investigation_request_id)}
+            ${field("Status", lead.investigation_status)}
+            ${field("Confirmation email", lead.investigation_confirmation_email_status)}
+            ${field("Confirmation sent", formatDate(lead.investigation_confirmation_email_sent_at))}
+            ${field("Confirmation error", lead.investigation_confirmation_email_error)}
+            ${field("Internal alert", lead.internal_email_status || lead.investigation_internal_email_status)}
+            ${field("Internal alert sent", formatDate(lead.internal_email_sent_at))}
+            ${field("Internal alert recipient", lead.internal_email_recipient)}
+            ${field("Internal alert error", lead.internal_email_error || lead.investigation_internal_email_error)}
+            ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
+            ${field("District", lead.investigation_district)}
+            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
+            ${field("Scope", lead.investigation_scope)}
+            ${field("Timing", lead.investigation_timing || lead.move_timing)}
+            ${field("Source", lead.investigation_source)}
+            ${field("Idempotency", lead.investigation_idempotency_hash ? `Stored (${lead.investigation_idempotency_hash})` : "")}
+          </div>
+        </section>
+        <section class="message-block">
+          <h3>Recommendation and profile context</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("Recommended Market Path", lead.recommended_market_path)}
+            ${field("Business Priorities", lead.business_priorities)}
+            ${field("Location Intent", locationIntentLabel(lead))}
+            ${field("Location intent guidance", lead.location_intent_summary)}
+            ${field("Location Brief status", lead.location_brief_status)}
+          </div>
+        </section>
+        <section class="message-block">
+          <h3>Routing diagnostics</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("Route recommendation", route.route_to)}
+            ${field("Matched rule", route.route_id)}
+            ${field("Route reason", route.route_reason)}
+            ${field("Broker email", route.broker_email)}
+            ${field("OfficeFinder status", officeFinderStatus)}
+            ${field("Submission status", row.status)}
+            ${field("Approval error", row.approval_error)}
+          </div>
+        </section>
+        <section class="message-block">
+          <h3>OfficeFinder diagnostics</h3>
+          ${officeFinderAttempt}
+          ${detailsBlock("Stored OfficeFinder payload", officeFinderPayload)}
+        </section>
+        ${renderReferralHistory(referrals)}
+        ${spamReasons.length ? `<div class="spam-box"><strong>Spam review:</strong> Score ${escapeHtml(lead.spam_score || 0)}<ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
+        ${detailsBlock("Stored lead JSON", lead)}
+      </div>
+    </details>
+  `;
+}
+
 function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const lead = parseJson(row.lead_json);
   const officeFinderPayload = parseJson(row.officefinder_json);
@@ -626,6 +771,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
   const sourceLabel = lead.source || lead.page_type || lead.rofo_source || lead.page_url || "";
   const eligibleBrokers = eligibleBrokerMatches(lead, market, brokerPartners);
   const activeReferral = getActiveReferral(referrals);
+  const operatorStatus = leadOperatorStatus(row, activeReferral);
 
   return `
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
@@ -635,13 +781,12 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
           <h2>${escapeHtml(lead.name || "Unnamed lead")}</h2>
         </div>
         <div class="lead-card__status">
-          <span class="spam-risk ${escapeHtml(riskClass)}">Spam risk: ${escapeHtml(adminSpam.risk)}</span>
-          ${statusBadge(row.status)}
-          ${statusBadge(officeFinderStatus)}
+          ${adminSpam.risk === "Low" ? "" : `<span class="spam-risk ${escapeHtml(riskClass)}">Spam risk: ${escapeHtml(adminSpam.risk)}</span>`}
+          ${simpleStatusBadge(operatorStatus)}
         </div>
       </div>
 
-      <div class="lead-grid lead-grid--review">
+      ${isLocationBrief ? "" : `<div class="lead-grid lead-grid--review">
         ${field(lead.lead_type === "location_profile" || isLocationBrief ? "Location" : "City / market", market, { className: locationClass })}
         ${field("Space type", lead.requested_space_type || lead.space_type)}
         ${field("Size", lead.space_needed)}
@@ -653,7 +798,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         ${isLocationBrief ? linkField("View Brief", lead.location_brief_url) : ""}
         ${field("Source", sourceLabel)}
         ${linkField("Page URL", lead.page_url || lead.rofo_source)}
-      </div>
+      </div>`}
 
       ${isLocationBrief ? renderProjectSnapshot(lead, market) : ""}
 
@@ -665,46 +810,15 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         </div>
       ` : ""}
 
+      ${isLocationBrief ? `
+        ${renderFulfillmentRouting({ lead, matches: eligibleBrokers, token, leadId: row.id, activeReferral })}
+        ${renderLeadActions(row, route, token, activeReferral)}
+        ${renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons })}
+      ` : `
       <section class="message-block">
         <h3>${isLocationBrief ? "Location Brief summary" : "Message / notes"}</h3>
         <div>${message ? escapeHtml(truncate(message, 1200)) : "<span class=\"muted\">No message provided.</span>"}</div>
       </section>
-
-      ${isLocationBrief ? `
-        ${renderBusinessProfileSummary(lead)}
-        ${isInvestigation ? `
-        <section class="message-block message-block--investigation">
-          <h3>Live Market Investigation</h3>
-          <div class="lead-grid lead-grid--compact">
-            ${field("Request ID", lead.investigation_request_id)}
-            ${field("Status", lead.investigation_status)}
-            ${field("Confirmation email", lead.investigation_confirmation_email_status)}
-            ${field("Confirmation sent", formatDate(lead.investigation_confirmation_email_sent_at))}
-            ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
-            ${field("District", lead.investigation_district)}
-            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
-            ${field("Competitive buildings", lead.investigation_include_competitive_buildings === "true" ? "Include competitive buildings" : "Not selected")}
-            ${field("Scope", lead.investigation_scope)}
-            ${field("Timing", lead.investigation_timing || lead.move_timing)}
-            ${field("Broker preference", lead.investigation_broker_preference)}
-            ${field("Source", lead.investigation_source)}
-            ${field("Idempotency", lead.investigation_idempotency_hash ? `Stored (${lead.investigation_idempotency_hash})` : "")}
-            ${field("Internal email", lead.investigation_internal_email_status)}
-          </div>
-          ${lead.investigation_confirmation_email_error ? `<div class="spam-box spam-box--medium"><strong>Confirmation email issue:</strong> ${escapeHtml(lead.investigation_confirmation_email_error)}</div>` : ""}
-          ${lead.investigation_internal_email_error ? `<div class="spam-box spam-box--medium"><strong>Internal email issue:</strong> ${escapeHtml(lead.investigation_internal_email_error)}</div>` : ""}
-          ${lead.investigation_notes ? `<div class="message-block__note">${escapeHtml(lead.investigation_notes)}</div>` : ""}
-        </section>
-        ` : ""}
-        <section class="message-block">
-          <h3>Recommended Market Path</h3>
-          <div>${lead.recommended_market_path ? escapeHtml(lead.recommended_market_path) : "<span class=\"muted\">No market path recorded.</span>"}</div>
-        </section>
-        <section class="message-block">
-          <h3>Business Priorities</h3>
-          <div>${lead.business_priorities ? escapeHtml(lead.business_priorities) : "<span class=\"muted\">No priorities selected.</span>"}</div>
-        </section>
-      ` : ""}
 
       <details class="admin-details">
         <summary>Advanced: routing and admin details</summary>
@@ -756,6 +870,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       </div>
 
       ${renderLeadActions(row, route, token, activeReferral)}
+      `}
     </article>
   `;
 }
@@ -792,7 +907,6 @@ function renderLeadActions(row, route, token, activeReferral = null) {
 
   if (isLocationBrief) {
     return `
-      <div class="lead-actions"><span class="muted">Partner referrals are managed above. OfficeFinder routing remains available in the legacy workflow code but is not the primary Location Brief action.</span></div>
       <div class="lead-actions lead-actions--buttons">
         ${renderPostButton({ token, id: row.id, action: "reject", label: "Reject Lead", className: "button button--reject" })}
         ${renderPostButton({ token, id: row.id, action: "spam", label: "Mark as Spam", className: "button button--spam" })}
@@ -965,6 +1079,10 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .lead-card__status { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
     .badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #eef3f8; color: #24364d; font-size: 12px; font-weight: 800; }
     .badge--pending { background: #fff7db; color: #7a4b00; }
+    .badge--sent { background: #e4f8ec; color: #166534; }
+    .badge--accepted { background: #dcfce7; color: #14532d; }
+    .badge--spam { background: #ffedd5; color: #9a3412; }
+    .badge--failed { background: #fee2e2; color: #991b1b; }
     .badge--expert_review_requested { background: #dbeafe; color: #1e40af; }
     .badge--market_investigation_requested { background: #e0f2fe; color: #075985; }
     .badge--approved_sent, .badge--broker_sent, .badge--both_sent, .badge--partial_sent, .badge--officefinder_sent { background: #e4f8ec; color: #166534; }
@@ -990,6 +1108,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .lead-ops-summary__header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 4px; }
     .lead-ops-summary__header span { display: block; color: #1d4ed8; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; }
     .lead-ops-summary__header h3 { margin: 4px 0 0; font-size: 18px; color: #0f172a; }
+    .lead-ops-summary__header p { margin-top: 6px; color: #334155; font-weight: 700; }
     .lead-ops-summary__header a { flex: 0 0 auto; border-radius: 8px; padding: 9px 12px; background: #174ea6; color: #fff; font-size: 13px; font-weight: 900; text-decoration: none; }
     .broker-match-block > div { white-space: normal; }
     .broker-match-list { display: grid; gap: 10px; }
@@ -1000,6 +1119,8 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .broker-match-card small { grid-column: 1 / -1; }
     .broker-match-note { margin-top: 10px; font-size: 13px; }
     .referral-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; margin-top: 12px; }
+    .fulfillment-block { border-color: #bbf7d0; background: #f0fdf4; }
+    .fulfillment-form .button { min-width: 190px; min-height: 48px; }
     .referral-history-list { display: grid; gap: 10px; white-space: normal; }
     .referral-history-card { display: grid; gap: 10px; padding: 12px; border: 1px solid #dbe5f3; border-radius: 10px; background: #fff; }
     .referral-history-card > div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -1014,6 +1135,9 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .referral-sent-block__header span { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #dcfce7; color: #14532d; font-size: 12px; font-weight: 900; }
     .referral-sent-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 12px; margin: 12px 0 0; }
     .admin-details { background: #fff; }
+    .lead-card__advanced { margin-top: 14px; }
+    .advanced-stack { display: grid; gap: 14px; margin-top: 12px; }
+    .advanced-stack .message-block { margin-top: 0; }
     .alert, .note { margin-top: 14px; border-radius: 10px; padding: 12px; overflow-wrap: anywhere; }
     .alert { background: #fff1f2; color: #9f1239; }
     .note { background: #eff6ff; color: #1e3a8a; }
@@ -1030,6 +1154,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .lead-actions--buttons { border-top: 1px solid var(--border); padding-top: 14px; }
     .action-form { margin: 0; }
     .button { min-height: 46px; min-width: 150px; }
+    .button:disabled { opacity: .55; cursor: not-allowed; }
     .button--approve { background: #14532d; }
     .button--secondary { background: #334155; }
     .button--reject { background: #b91c1c; }
@@ -1044,6 +1169,8 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
       .referral-form, .referral-history-grid, .referral-sent-grid { grid-template-columns: 1fr; }
       .referral-sent-block__header { display: grid; }
       .lead-actions--buttons, .action-form, .button { display: grid; width: 100%; }
+      .lead-ops-summary__header { display: grid; }
+      .lead-ops-summary__header a, .fulfillment-form .button { width: 100%; text-align: center; }
       .button { min-height: 52px; font-size: 16px; }
     }
   </style>
@@ -1063,6 +1190,22 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
       ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners, referralsByLead.get(row.id) || [])).join("") : "<p>No leads match these filters.</p>"}
     </section>
   </main>
+  <script>
+    document.querySelectorAll(".fulfillment-form").forEach((form) => {
+      const select = form.querySelector("select[name='destination']");
+      const button = form.querySelector("[data-send-requirement-button]");
+      if (!select || !button) return;
+      const update = () => {
+        button.disabled = !select.value;
+      };
+      update();
+      select.addEventListener("change", update);
+      form.addEventListener("submit", () => {
+        button.disabled = true;
+        button.textContent = "Sending...";
+      });
+    });
+  </script>
 </body>
 </html>`;
 }
@@ -1298,6 +1441,37 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
+    if (action === "send_requirement") {
+      const destination = String(formData.get("destination") || "").trim();
+      params.set("id", id);
+      if (!destination) {
+        return adminResponse("Missing fulfillment destination", 400);
+      }
+      if (destination === "officefinder") {
+        const result = await approveLead(env, id, "officefinder");
+        params.set("notice", result.status === 200 ? "Requirement sent to OfficeFinder." : result.title || "OfficeFinder routing failed.");
+        return adminRedirect(`/admin/leads?${params.toString()}`);
+      }
+      if (destination.startsWith("broker:")) {
+        const brokerPartnerId = destination.slice("broker:".length).trim();
+        if (!brokerPartnerId) {
+          return adminResponse("Missing broker partner id", 400);
+        }
+        const result = await createAndSendReferral(env, request, {
+          leadId: id,
+          brokerPartnerId,
+          createdBy: "admin",
+        });
+        if (result.email && result.email.sent) {
+          params.set("notice", `Requirement sent to ${result.broker.name || result.broker.email}.`);
+        } else {
+          params.set("notice", `Requirement created but email failed: ${(result.email && result.email.reason) || "unknown error"}`);
+        }
+        return adminRedirect(`/admin/leads?${params.toString()}`);
+      }
+      return adminResponse("Unsupported fulfillment destination", 400);
+    }
+
     if (action === "send_referral") {
       const brokerPartnerId = String(formData.get("broker_partner_id") || "").trim();
       if (!brokerPartnerId) {

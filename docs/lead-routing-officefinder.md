@@ -4,7 +4,7 @@ permalink: false
 
 # Rofo Lead Approval and Routing System
 
-This workflow stores tenant leads as pending, emails Alan for approval, and sends the lead only after an approval link is clicked. It supports OfficeFinder, broker email delivery, or both.
+This workflow stores tenant requirements as pending, emails Rofo for review, and sends the requirement only after an operator chooses a fulfillment destination from the Lead Dashboard. It supports OfficeFinder, broker partner email delivery, and future routing adapters behind the same operator action.
 
 Partner and advertising forms should stay separate unless those inquiries should enter this tenant lead queue.
 
@@ -15,9 +15,9 @@ The production recommendation handoff now treats the Location Brief as the canon
 1. Stores the Location Brief and generates a stable `/location-brief/{briefId}` URL.
 2. Derives a reusable Project Snapshot from the Brief.
 3. Stores a pending lead-dashboard record with the Brief URL, Project Snapshot, route recommendation, and OfficeFinder payload.
-4. Sends the internal approval notification.
+4. Sends the internal new-requirement notification.
 5. Sends the customer confirmation email.
-6. Sends OfficeFinder and direct broker handoffs only after the existing approval action is used.
+6. Sends OfficeFinder or direct broker handoffs only after the operator chooses a destination and clicks `Send Requirement`.
 
 OfficeFinder and broker messages do not duplicate the full recommendation. They include a concise Project Snapshot, the top districts, and the Location Brief URL.
 
@@ -29,9 +29,24 @@ The Project Snapshot intentionally includes only execution-relevant fields:
 - Approximate Size, when available
 - Timing, when available
 - Growth, when available
-- Top Three Districts
+- Best Fits
 
 Location Brief handoff helpers live in `functions/_shared/project-snapshot.js`. The canonical Brief submit path is `functions/api/location-brief/submit.js`.
+
+## Lead Dashboard operator workflow
+
+The default Lead Dashboard card is mobile-first and should answer the routing questions quickly:
+
+- Who is this customer?
+- What do they need?
+- Where are they focused?
+- How large is the requirement?
+- When do they need it?
+- Which destination should receive it?
+
+For Location Brief requirements, the default card shows one compact summary, an `Open Brief` action, one `Send To` dropdown, and one `Send Requirement` button. The destination list includes OfficeFinder and all currently eligible active broker partners. OfficeFinder is treated as a fulfillment partner in the same control, even though it uses the OfficeFinder API adapter underneath.
+
+Technical diagnostics, raw JSON, idempotency data, referral history, OfficeFinder attempts, OfficeFinder payloads, and email delivery details remain available inside the collapsed `More Details` section.
 
 ## Architecture
 
@@ -39,14 +54,14 @@ Location Brief handoff helpers live in `functions/_shared/project-snapshot.js`. 
 2. The Pages Function validates required fields and the honeypot field.
 3. The lead is matched against `_data/leadRoutes.json`.
 4. The lead is stored with `status = pending`.
-5. Alan receives an email with lead summary, route recommendation, approve links, and a reject link.
-6. Approval sends to the selected target:
-   - recommended route
-   - OfficeFinder only
-   - broker only, when a broker route exists
+5. Rofo receives a concise internal email with the requirement summary, Location Brief URL, and dashboard link.
+6. The operator sends the requirement to the selected fulfillment destination:
+   - OfficeFinder
+   - direct broker partner
+   - future adapter-backed destination
 7. Rejection marks the lead `rejected`.
 
-No lead is auto-sent to OfficeFinder or a broker before approval.
+No lead is auto-sent to OfficeFinder or a broker before operator review.
 
 ## Cloudflare bindings and environment variables
 
@@ -57,10 +72,12 @@ Storage:
 
 Email and OfficeFinder:
 
-- `LEAD_NOTIFY_EMAIL`: approval notification recipient
-- `RESEND_API_KEY`: Resend API key for approval and broker emails
-- `RESEND_FROM_EMAIL`: optional sender address
+- `LEAD_NOTIFY_EMAIL`: required internal Rofo notification recipient for every successfully created lead or availability request.
+- `RESEND_API_KEY`: required Resend API key for internal alerts, customer confirmations, broker emails, and broker invitations.
+- `RESEND_FROM_EMAIL`: required production sender address, such as `Rofo <leads@rofo.com>` or another sender on a verified Resend domain.
 - `OFFICEFINDER_API_URL`: optional OfficeFinder endpoint override
+
+Production email requires a verified Resend sending domain. The code still has a development fallback to `onboarding@resend.dev`, but that address is subject to Resend test-domain restrictions and can return 403 for normal production recipients. Production Pages environments should set `RESEND_FROM_EMAIL` to a verified Rofo domain sender before launch testing.
 
 Optional Google Sheets logging:
 
@@ -394,3 +411,20 @@ Verify:
 - OfficeFinder comments point to the Brief instead of duplicating the full recommendation.
 - Broker email uses the concise Location Brief handoff format.
 - Customer confirmation links back to the Brief.
+
+## Production email verification checklist
+
+Before production lead testing, verify:
+
+- `RESEND_API_KEY` is configured in the Cloudflare Pages production environment.
+- The Resend sending domain is verified and authorized for the sender in `RESEND_FROM_EMAIL`.
+- `RESEND_FROM_EMAIL` is set to the verified production sender.
+- `LEAD_NOTIFY_EMAIL` is set to the internal Rofo operations inbox.
+- A safe test customer email is available for confirmation testing.
+
+Expected dashboard/email statuses:
+
+- `sent`: Resend accepted the email request.
+- `failed`: Resend was attempted and returned an error, such as a 403 sender/domain restriction.
+- `not_configured`: a required setting such as `RESEND_API_KEY` or `LEAD_NOTIFY_EMAIL` is missing.
+- `not_attempted`: the lead status or flow was not eligible for that email attempt.

@@ -81,15 +81,19 @@ const publicBrief = read("functions/location-brief/[publicId].js");
 
 [
   ["data-live-market-investigation-intake", "intake panel"],
-  ["data-live-market-building-options", "building selection options"],
-  ["data-investigation-competitive-buildings", "competitive buildings option"],
-  ["data-live-market-scope-options", "scope controls"],
   ["data-live-market-timing", "timing control"],
   ["data-live-market-headcount", "execution headcount field"],
   ["data-live-market-size", "execution approximate-size field"],
-  ["data-live-market-budget", "execution budget context field"],
-  ["data-live-market-broker-preference", "broker preference controls"],
+  ["data-live-market-notes", "execution additional-notes field"],
 ].forEach(([token, label]) => requireIncludes(recommendationPage, token, label));
+
+[
+  ["data-live-market-building-options", "removed building selection options"],
+  ["data-investigation-competitive-buildings", "removed competitive buildings option"],
+  ["data-live-market-scope-options", "removed scope controls"],
+  ["data-live-market-budget", "removed execution budget context field"],
+  ["data-live-market-broker-preference", "removed broker preference controls"],
+].forEach(([token, label]) => rejectIncludes(recommendationPage, token, label));
 
 [
   ["live_market_investigation_started", "started analytics"],
@@ -112,7 +116,8 @@ const publicBrief = read("functions/location-brief/[publicId].js");
   ["normalizeInvestigationBuilding", "server-side building sanitizer"],
   ["sendLiveMarketInvestigationConfirmationEmail", "user confirmation email sender"],
   ["confirmationEmail", "canonical confirmation-email status"],
-  ["investigationHtmlBlock", "internal email investigation block"],
+  ["Headcount", "customer email headcount context"],
+  ["Approximate size", "customer email size context"],
 ].forEach(([token, label]) => requireIncludes(locationBriefShared, token, label));
 
 [
@@ -133,10 +138,11 @@ const publicBrief = read("functions/location-brief/[publicId].js");
 
 [
   ["isInvestigationLead", "admin investigation detector"],
-  ["Live Market Investigation", "admin investigation section"],
+  ["Live Market Investigation metadata", "admin advanced investigation metadata"],
   ["market_investigation_requested", "admin investigation status"],
   ["Confirmation email", "admin confirmation email status"],
   ["Idempotency", "admin idempotency state"],
+  ["<summary>More Details</summary>", "collapsed more details section"],
 ].forEach(([token, label]) => requireIncludes(adminLeads, token, label));
 
 [
@@ -150,10 +156,17 @@ requireIncludes(publicBrief, "renderInvestigation", "public Location Brief inves
 if (generatedRecommendationPage && !generatedRecommendationIsStale) {
   [
     "data-live-market-investigation-intake",
-    "data-live-market-scope-options",
-    "data-investigation-competitive-buildings",
+    "data-live-market-headcount",
+    "data-live-market-size",
+    "data-live-market-notes",
     "data-location-brief-submit-button",
   ].forEach((token) => requireIncludes(generatedRecommendationPage, token, `generated recommendation markup ${token}`));
+  [
+    "data-live-market-scope-options",
+    "data-investigation-competitive-buildings",
+    "data-live-market-budget",
+    "data-live-market-broker-preference",
+  ].forEach((token) => rejectIncludes(generatedRecommendationPage, token, `generated recommendation markup ${token}`));
   ["undefined", "N/A", "[object Object]"].forEach((token) => rejectIncludes(generatedRecommendationPage, token, "generated placeholder output"));
 } else {
   warnings.push(generatedRecommendationPage
@@ -191,7 +204,7 @@ const reliabilityScenarios = [
     expectedInternalEmailCount: 1,
     expectedUserEmailCount: "0 or 1, depending on email availability and provider configuration",
     expectedResponse: "ok, received",
-    expectedEmailStatus: "sent, not_sent, or failed",
+    expectedEmailStatus: "sent, not_configured, not_sent, or failed",
     duplicateHandled: "no",
   },
   {
