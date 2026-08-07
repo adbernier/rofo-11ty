@@ -48,7 +48,7 @@ function statusClass(statusId) {
 function renderNav(token) {
   return `
     <nav class="admin-nav" aria-label="Admin navigation">
-      <a class="button-link button-link--active" href="/admin/eos?${tokenParam(token)}">Mission Control</a>
+      <a class="button-link button-link--active" href="/admin/eos?${tokenParam(token)}">Today</a>
       <a class="button-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Mission Archive</a>
       <a class="button-link" href="/admin/publisher?${tokenParam(token)}">Publisher</a>
       <a class="button-link" href="/admin/compass?${tokenParam(token)}">Rofo Compass</a>
@@ -891,14 +891,14 @@ function renderReviewQueue(eos, token) {
   const items = ((eos.portfolioQueues || {}).reviewQueue || []);
   if (!items.length) {
     return `
-      <section class="panel review-empty">
+      <section class="panel review-empty" id="review-queue">
         <h2>Review Queue</h2>
         <p>No autonomous execution work has been returned for review yet. Future providers will move completed packets here before approval.</p>
       </section>
     `;
   }
   return `
-    <section class="queue-section">
+    <section class="queue-section" id="review-queue">
       <div class="section-heading"><div><h2>Review Queue</h2><p>Returned autonomous work waiting on editorial approval.</p></div></div>
       <div class="work-queue">${items.map((item) => renderWorkItem(item, token)).join("")}</div>
     </section>
@@ -932,7 +932,7 @@ function renderCommercialMarketEvidenceService(eos) {
     ? " · Latest validation: " + service.latestValidation
     : "";
   return `
-    <section class="platform-service" aria-label="Commercial Market Evidence">
+    <section class="platform-service" id="commercial-market-evidence" aria-label="Commercial Market Evidence">
       <div>
         <span>Commercial Market Evidence</span>
         <h2>${escapeHtml(service.status || service.validationStatus || "Unavailable")}</h2>
@@ -1066,6 +1066,185 @@ function renderCommercialKnowledgeIntelligence(eos) {
   `;
 }
 
+function firstActionableMission(eos) {
+  const markets = activeProjectedMarkets(eos);
+  for (const market of markets) {
+    const mission = (market.nextMissions || [])[0];
+    const canonicalMission = mission ? missionById(eos, mission.id) || mission : null;
+    if (canonicalMission) {
+      return { market, mission: canonicalMission };
+    }
+  }
+  return null;
+}
+
+function todayRecommendations(eos, token) {
+  const recommendations = [];
+  const queues = eos.portfolioQueues || {};
+  const reviewQueue = queues.reviewQueue || [];
+  const marketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
+  const intelligence = eos.commercialKnowledgeIntelligence || {};
+  const googleMarkets = (((intelligence.googleOpportunity || {}).markets) || []);
+  const publisherOpportunities = intelligence.publisherOpportunities || [];
+
+  if ((marketEvidence && marketEvidence.validationStatus && marketEvidence.validationStatus !== "PASS") || reviewQueue.length) {
+    recommendations.push({
+      type: "QA",
+      title: reviewQueue.length ? `${reviewQueue.length} Review Item${reviewQueue.length === 1 ? "" : "s"}` : "Commercial Market Evidence Needs Review",
+      reason: reviewQueue.length
+        ? "Returned work is waiting on editorial review before it can be considered complete."
+        : "A platform validation check needs attention before follow-on Publisher work should proceed.",
+      effort: "Small",
+      impact: "High",
+      actionLabel: reviewQueue.length ? "Open Review" : "Review QA",
+      href: reviewQueue.length ? `/admin/eos?${tokenParam(token)}#review-queue` : `/admin/eos?${tokenParam(token)}&queue=markets#commercial-market-evidence`,
+    });
+  }
+
+  const searchLed = googleMarkets.find((market) =>
+    (market.googleOpportunity === "high" || market.googleOpportunity === "theme_signal")
+    && !["san-francisco", "denver"].includes(market.marketId)
+  ) || googleMarkets[0];
+  if (searchLed) {
+    const themes = (searchLed.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ");
+    recommendations.push({
+      type: "Google Opportunity",
+      title: `${searchLed.marketName}${themes ? ` ${themes}` : ""}`,
+      reason: (searchLed.rationale || []).join(" ") || "Google is already testing Rofo for this commercial knowledge while coverage remains incomplete.",
+      effort: "Small",
+      impact: searchLed.googleOpportunity === "high" ? "High" : "Medium",
+      actionLabel: "Review Opportunity",
+      href: `/admin/eos?${tokenParam(token)}&queue=intelligence`,
+    });
+  }
+
+  const missionRecord = firstActionableMission(eos);
+  if (missionRecord) {
+    const { market, mission } = missionRecord;
+    recommendations.push({
+      type: "Strategic",
+      title: `${market.label}: ${mission.title}`,
+      reason: mission.currentConstraint || "Highest-priority market mission from the current EOS market projection.",
+      effort: mission.estimatedEffort || "Medium",
+      impact: mission.expectedImpact || "High",
+      actionLabel: "Commence Work",
+      href: mission.executionPacket ? taskUrl(token, mission.id) : `/admin/eos?${tokenParam(token)}&queue=markets`,
+    });
+  }
+
+  return recommendations.slice(0, 3);
+}
+
+function todayChanged(eos) {
+  const intelligence = eos.commercialKnowledgeIntelligence || {};
+  const topOpportunity = (((intelligence.googleOpportunity || {}).markets) || [])[0];
+  const marketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
+  const changes = [];
+
+  if (topOpportunity) {
+    changes.push({
+      source: "Google",
+      text: `${topOpportunity.marketName} is the strongest current search-led knowledge opportunity${topOpportunity.averagePosition ? ` at average position ${Number(topOpportunity.averagePosition).toFixed(1)}` : ""}.`,
+    });
+  }
+
+  if (marketEvidence) {
+    changes.push({
+      source: "QA",
+      text: marketEvidence.validationStatus === "PASS"
+        ? "Commercial Market Evidence validation is passing."
+        : "Commercial Market Evidence validation needs attention.",
+    });
+  }
+
+  if (intelligence.publisherOpportunities && intelligence.publisherOpportunities.length) {
+    changes.push({
+      source: "Publisher",
+      text: `${intelligence.publisherOpportunities.length} Commercial Knowledge Intelligence opportunities are prepared for Publisher review.`,
+    });
+  }
+
+  return changes.slice(0, 4);
+}
+
+function todayAttentionItems(eos) {
+  const queues = eos.portfolioQueues || {};
+  const marketEvidence = eos.platformServices && eos.platformServices.commercialMarketEvidence;
+  const expansion = marketEvidence && marketEvidence.expansion;
+  const coverage = expansion && expansion.coverageSummary;
+  const attention = [];
+
+  if ((queues.reviewQueue || []).length) {
+    attention.push(`${(queues.reviewQueue || []).length} review item${(queues.reviewQueue || []).length === 1 ? "" : "s"} waiting.`);
+  }
+
+  if (marketEvidence && marketEvidence.validationStatus !== "PASS") {
+    attention.push("Commercial Market Evidence validation is not passing.");
+  }
+
+  if (coverage && Number(coverage.missingCollections || 0) > 0) {
+    attention.push(`${coverage.missingCollections} Commercial Market Evidence collection${Number(coverage.missingCollections) === 1 ? "" : "s"} remain missing.`);
+  }
+
+  if (!attention.length) {
+    attention.push("No QA or review blockers are visible in the generated EOS snapshot.");
+  }
+
+  return attention.slice(0, 4);
+}
+
+function renderTodayRecommendation(card) {
+  return `
+    <article class="today-card">
+      <span>${escapeHtml(card.type)}</span>
+      <h2>${escapeHtml(card.title)}</h2>
+      <p>${escapeHtml(card.reason)}</p>
+      <div class="today-card__facts">
+        <span><em>Effort</em>${escapeHtml(card.effort)}</span>
+        <span><em>Impact</em>${escapeHtml(card.impact)}</span>
+      </div>
+      <a class="start-work" href="${escapeHtml(card.href)}">${escapeHtml(card.actionLabel)}</a>
+    </article>
+  `;
+}
+
+function renderTodayExplore(token) {
+  const links = [
+    { label: "Explore Markets", href: `/admin/eos?${tokenParam(token)}&queue=markets`, note: "Market Workspace, metro health, expansion, Field Mode, and review queues." },
+    { label: "Commercial Knowledge Intelligence", href: `/admin/eos?${tokenParam(token)}&queue=intelligence`, note: "Strategic roadmap, Google opportunity, knowledge gaps, and Publisher inputs." },
+    { label: "Publisher", href: `/admin/publisher?${tokenParam(token)}`, note: "Publishing readiness and metro analysis." },
+    { label: "Lead Operations", href: `/admin/operations?${tokenParam(token)}`, note: "New requirements, routing, email status, and fulfillment workflow." },
+    { label: "Field Mode", href: `/admin/field-photos?${tokenParam(token)}`, note: "Photography coverage and field execution." },
+    { label: "Mission Archive", href: `/admin/eos?${tokenParam(token)}&queue=archive`, note: "Completed mission summaries and review history." },
+  ];
+
+  return `
+    <section class="today-explore" aria-label="Explore EOS systems">
+      <div class="section-heading">
+        <div>
+          <h2>Explore More</h2>
+          <p>The operational systems are still available. Today only changes what gets attention first.</p>
+        </div>
+      </div>
+      <div class="today-explore__grid">
+        ${links.map((link) => `
+          <a href="${escapeHtml(link.href)}">
+            <strong>${escapeHtml(link.label)}</strong>
+            <span>${escapeHtml(link.note)}</span>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderIntelligenceExplorer(eos, token) {
+  return `
+    <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Today</a>
+    ${renderCommercialKnowledgeIntelligence(eos)}
+  `;
+}
+
 function renderInventory(eos, token) {
   const items = ((eos.portfolioQueues || {}).editorialQueue || []).slice(0, 100);
   return `
@@ -1153,7 +1332,7 @@ function renderMissionArchive(eos, token) {
   `;
 }
 
-function renderOverview(eos, token) {
+function renderExploreWorkspace(eos, token) {
   const queues = eos.portfolioQueues || {};
   const inventory = queues.opportunityInventory || {};
   const expansionProjects = eos.expansionProjects || [];
@@ -1163,6 +1342,7 @@ function renderOverview(eos, token) {
   const remainingMarkets = projectedMarkets.filter((market) => !activeMarkets.some((active) => active.id === market.id));
   const projectionSummary = (eos.marketProjection && eos.marketProjection.summary) || {};
   return `
+    <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Today</a>
     <section class="current-focus" aria-label="Current Focus">
       <span>Current Focus</span>
       <p>${escapeHtml(marketFocusSummary(eos, activeMarkets))}</p>
@@ -1245,6 +1425,51 @@ function renderOverview(eos, token) {
   `;
 }
 
+function renderOverview(eos, token) {
+  const recommendations = todayRecommendations(eos, token);
+  const changes = todayChanged(eos);
+  const attention = todayAttentionItems(eos);
+
+  return `
+    <section class="today-hero" aria-label="Today's Briefing">
+      <span>Today</span>
+      <h2>If you only had one hour today, start here.</h2>
+      <p>Generated from EOS strategy, Publisher readiness, Commercial Knowledge Intelligence, QA, Field Mode, and review queues.</p>
+    </section>
+
+    <section class="today-section" aria-label="What should I work on today?">
+      <div class="section-heading">
+        <div>
+          <h2>What should I work on today?</h2>
+          <p>Maximum three recommendations. Everything else is available under Explore.</p>
+        </div>
+      </div>
+      <div class="today-card-grid">
+        ${recommendations.map(renderTodayRecommendation).join("")}
+      </div>
+    </section>
+
+    <section class="today-briefing-grid">
+      <article class="today-panel">
+        <span>What Changed</span>
+        <ul>
+          ${changes.map((item) => `<li><strong>${escapeHtml(item.source)}</strong><p>${escapeHtml(item.text)}</p></li>`).join("") || "<li><strong>No material changes</strong><p>No meaningful generated changes are visible in the current snapshot.</p></li>"}
+        </ul>
+        <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Explore more</a>
+      </article>
+      <article class="today-panel">
+        <span>Needs Attention</span>
+        <ul>
+          ${attention.map((item) => `<li><p>${escapeHtml(item)}</p></li>`).join("")}
+        </ul>
+        <a class="subtle-link" href="/admin/eos?${tokenParam(token)}&queue=markets">Explore more</a>
+      </article>
+    </section>
+
+    ${renderTodayExplore(token)}
+  `;
+}
+
 function renderSnapshotError(token) {
   return `<!doctype html>
 <html lang="en">
@@ -1268,6 +1493,10 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     ? renderExecutionPacket(eos, selectedTask, token)
     : selectedQueue === "archive"
       ? renderMissionArchive(eos, token)
+      : selectedQueue === "markets"
+      ? renderExploreWorkspace(eos, token)
+      : selectedQueue === "intelligence"
+      ? renderIntelligenceExplorer(eos, token)
       : selectedQueue === "inventory"
       ? renderInventory(eos, token)
       : selectedMetro
@@ -1299,6 +1528,31 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     .current-focus { margin: 0 0 20px; padding: 24px 28px; border-radius: 24px; background: #0f172a; box-shadow: 0 20px 52px rgba(15, 23, 42, 0.16); }
     .current-focus span { display: block; margin-bottom: 8px; color: #93c5fd; font-size: 0.76rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
     .current-focus p { max-width: 980px; margin: 0; color: #f8fafc; font-size: clamp(1.25rem, 2vw, 1.8rem); line-height: 1.28; }
+    .today-hero { margin: 0 0 28px; padding: clamp(26px, 5vw, 48px); border: 1px solid #dbeafe; border-radius: 28px; background: linear-gradient(135deg, #ffffff, #f8fbff); box-shadow: 0 22px 58px rgba(15, 23, 42, 0.07); }
+    .today-hero span, .today-card span, .today-panel > span { display: block; color: #1d4ed8; font-size: 0.74rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+    .today-hero h2 { max-width: 760px; margin: 10px 0; color: #0f172a; font-size: clamp(2rem, 4.2vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+    .today-hero p { max-width: 760px; margin: 0; font-size: 1.05rem; }
+    .today-section { margin: 0 0 24px; }
+    .today-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .today-card { display: grid; gap: 12px; align-content: start; padding: 20px; border: 1px solid rgba(203, 213, 225, 0.9); border-radius: 22px; background: #fff; box-shadow: 0 16px 42px rgba(15, 23, 42, 0.055); }
+    .today-card h2 { margin: 0; color: #0f172a; font-size: 1.22rem; line-height: 1.18; }
+    .today-card p { margin: 0; font-size: 0.92rem; }
+    .today-card__facts { display: flex; flex-wrap: wrap; gap: 7px; }
+    .today-card__facts span { display: inline-flex; gap: 6px; align-items: baseline; min-height: 28px; padding: 0 9px; border-radius: 999px; background: #f1f5f9; color: #0f172a; font-size: 0.78rem; font-weight: 850; }
+    .today-card__facts em { color: var(--muted); font-style: normal; font-size: 0.66rem; font-weight: 950; letter-spacing: 0.04em; text-transform: uppercase; }
+    .today-card .start-work { margin-top: 4px; }
+    .today-briefing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; }
+    .today-panel { padding: 20px; border: 1px solid rgba(203, 213, 225, 0.9); border-radius: 22px; background: rgba(255,255,255,0.94); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.045); }
+    .today-panel ul { display: grid; gap: 10px; margin: 12px 0 14px; padding: 0; list-style: none; }
+    .today-panel li { padding: 10px 0; border-bottom: 1px solid #edf2f7; }
+    .today-panel li:last-child { border-bottom: 0; }
+    .today-panel strong { display: block; margin-bottom: 3px; color: #0f172a; font-size: 0.9rem; }
+    .today-panel p { margin: 0; font-size: 0.9rem; }
+    .today-explore { margin-top: 18px; }
+    .today-explore__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .today-explore__grid a { display: grid; gap: 6px; min-height: 116px; padding: 16px; border: 1px solid #e5edf7; border-radius: 18px; background: #fff; color: #0f172a; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04); }
+    .today-explore__grid strong { font-size: 1rem; }
+    .today-explore__grid span { color: var(--muted); font-size: 0.85rem; font-weight: 650; line-height: 1.42; }
     .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
     .metrics--mission-control { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .metric-card, .metro-card, .panel, .work-item { border: 1px solid rgba(203, 213, 225, 0.86); border-radius: 20px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 14px 36px rgba(15, 23, 42, 0.045); }
@@ -1539,7 +1793,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three, .today-card-grid, .today-briefing-grid, .today-explore__grid { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
@@ -1765,8 +2019,8 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue }) 
 <body>
   <main>
     <header class="hero">
-      <h1>Mission Control</h1>
-      <p>Mission Control is Rofo's operator-facing EOS surface: a focused briefing for the next engineering session, the state of each metro, expansion blockers, Field Mode, and review.</p>
+      <h1>Today</h1>
+      <p>EOS is Rofo's executive operating system. The home screen is an opinionated briefing for what deserves attention, what changed, and what can wait.</p>
       ${renderNav(token)}
     </header>
     ${body}
