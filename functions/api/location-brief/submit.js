@@ -349,6 +349,7 @@ function buildLocationBriefLead(brief, request, briefUrl) {
   const locationIntent = brief.searchProfile && brief.searchProfile.locationIntent || "compare";
   const priorities = Array.isArray(brief.priorities) ? brief.priorities.filter(Boolean) : [];
   const investigation = brief.liveMarketInvestigation;
+  const investigationRequirements = investigation && investigation.confirmedRequirements || {};
   const investigationSummary = investigationRequirementsSummary(investigation);
   const requirements = [
     investigationSummary,
@@ -374,8 +375,8 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     market,
     space_type: spaceType,
     requested_space_type: spaceType,
-    space_needed: size,
-    move_timing: brief.searchProfile && brief.searchProfile.timing || investigation && investigation.timing || "",
+    space_needed: investigationRequirements.approximateSize || size,
+    move_timing: investigationRequirements.timing || investigation && investigation.timing || brief.searchProfile && brief.searchProfile.timing || "",
     requirements,
     page_type: "location_brief",
     page_url: briefUrl,
@@ -411,6 +412,8 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     investigation_city: investigation && investigation.investigationIntent ? investigation.city || "" : "",
     investigation_district: investigation && investigation.investigationIntent ? investigation.districtName || "" : "",
     investigation_district_id: investigation && investigation.investigationIntent ? investigation.districtId || "" : "",
+    investigation_headcount: investigation && investigation.investigationIntent ? investigationRequirements.headcount || "" : "",
+    investigation_approximate_size: investigation && investigation.investigationIntent ? investigationRequirements.approximateSize || "" : "",
     investigation_buildings: selectedBuildings.map((building) => building.name).join(", "),
     investigation_building_urls: selectedBuildings.map((building) => building.url).join(", "),
     investigation_include_competitive_buildings: investigation && investigation.investigationIntent ? String(investigation.includeCompetitiveBuildings !== false) : "",

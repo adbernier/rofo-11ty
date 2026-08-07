@@ -77,63 +77,32 @@ eleventyComputed:
       <div class="location-brief-building-groups" data-location-brief-building-groups></div>
     </section>
 
-    <section class="location-brief-refinement" aria-labelledby="location-brief-refinement-heading" data-location-brief-refinement>
-      <div class="location-brief-refinement__intro">
-        <div class="kicker">Questions to Validate</div>
-        <h2 id="location-brief-refinement-heading">What to confirm before touring.</h2>
-        <p>Use these questions to turn the recommendation into a focused live market review.</p>
-      </div>
-
-      <div class="location-brief-refinement__grid">
-        <section class="location-brief-refinement__panel" aria-labelledby="brief-priorities-heading">
-          <h3 id="brief-priorities-heading">What should be checked first?</h3>
-          <p>Choose the building and market issues that matter most before touring.</p>
-          <div class="location-brief-priority-list" data-location-brief-priorities></div>
-        </section>
-
-        <section class="location-brief-refinement__panel" aria-labelledby="brief-questions-heading">
-          <h3 id="brief-questions-heading">Questions to validate next</h3>
-          <ul class="location-brief-question-list" data-location-brief-questions>
-            <li>Current availability in the recommended districts.</li>
-            <li>Lease economics and timing for specific buildings.</li>
-            <li>Comparable buildings and nearby alternatives.</li>
-          </ul>
-        </section>
-
-        <section class="location-brief-refinement__panel" aria-labelledby="brief-notes-heading">
-          <h3 id="brief-notes-heading">Additional notes</h3>
-          <label class="location-brief-notes-label" for="location-brief-notes">Optional notes</label>
-          <textarea id="location-brief-notes" data-location-brief-notes rows="4" placeholder="Example: parking is critical, clients visit weekly, or we need room to expand."></textarea>
-        </section>
-      </div>
-    </section>
-
     <form class="recommendations-cta location-brief-contact location-brief-contact--final" id="location-brief-contact" data-location-brief-contact aria-labelledby="market-investigation" method="post" action="/api/location-brief/submit">
       <div class="location-brief-contact__header">
         <div class="kicker" data-recommendation-cta-kicker>Next Steps</div>
-        <h2 id="market-investigation" data-recommendation-cta-heading>Request Current Availability.</h2>
+        <h2 id="market-investigation" data-recommendation-cta-heading>Request Current Availability</h2>
         <p data-recommendation-cta-copy>
-          Send this Location Brief to Rofo for review. We will check the request and determine the best next step.
+          Rofo will review the selected district and request details to help identify current opportunities, asking rents, and relevant buildings.
         </p>
       </div>
 
       <div class="recommendations-cta__panel">
-        <h3>What a broker can validate</h3>
+        <h3>What we'll research</h3>
         <ul>
           <li>Current availability</li>
-          <li>Specific buildings to tour</li>
           <li>Asking rents and concessions</li>
-          <li>Lease structure and timing</li>
-          <li>Comparable options</li>
+          <li>Comparable buildings</li>
+          <li>Buildings worth touring</li>
           <li>Market conditions</li>
+          <li>Expansion options where relevant</li>
         </ul>
       </div>
 
-      <section class="live-market-intake" aria-labelledby="live-market-intake-heading" data-live-market-investigation-intake hidden>
+      <section class="live-market-intake" aria-labelledby="live-market-intake-heading" data-live-market-investigation-intake>
         <div class="live-market-intake__header">
           <div class="kicker">Current Availability Request</div>
-          <h3 id="live-market-intake-heading" data-live-market-intake-heading>Confirm what Rofo should check next</h3>
-          <p data-live-market-intake-summary>These details help fulfillment review current availability, comparable buildings, timing, and market context.</p>
+          <h3 id="live-market-intake-heading" data-live-market-intake-heading>Request Current Availability</h3>
+          <p data-live-market-intake-summary>These details help Rofo review current availability, comparable buildings, timing, and market context.</p>
         </div>
 
         <div class="live-market-intake__context" aria-label="Recommendation context">
@@ -143,7 +112,7 @@ eleventyComputed:
               <dd data-live-market-intake-city>To confirm</dd>
             </div>
             <div>
-              <dt>District</dt>
+              <dt>Selected district</dt>
               <dd data-live-market-intake-district>To confirm</dd>
             </div>
             <div>
@@ -152,29 +121,6 @@ eleventyComputed:
             </div>
           </dl>
         </div>
-
-        <fieldset class="live-market-intake__fieldset" data-live-market-building-fieldset>
-          <legend>Buildings to include</legend>
-          <p>Keep the representative buildings Rofo should use as reference points. You can still ask Rofo to investigate the district even if no individual building remains selected.</p>
-          <div class="live-market-building-options" data-live-market-building-options></div>
-          <label class="live-market-check">
-            <input type="checkbox" data-investigation-competitive-buildings checked>
-            <span>Include other competitive buildings in this district</span>
-          </label>
-        </fieldset>
-
-        <fieldset class="live-market-intake__fieldset">
-          <legend>What should Rofo check?</legend>
-          <p>Select only what matters for the next review.</p>
-          <div class="live-market-scope-grid" data-live-market-scope-options>
-            <label class="live-market-check"><input type="checkbox" value="currentAvailability" checked> <span>Current availability</span></label>
-            <label class="live-market-check"><input type="checkbox" value="futureAvailability" checked> <span>Future or upcoming availability</span></label>
-            <label class="live-market-check"><input type="checkbox" value="comparableBuildings" checked> <span>Comparable buildings</span></label>
-            <label class="live-market-check"><input type="checkbox" value="leasingActivity"> <span>Recent leasing activity or comps</span></label>
-            <label class="live-market-check"><input type="checkbox" value="marketInsight"> <span>Market conditions and tenant considerations</span></label>
-            <label class="live-market-check"><input type="checkbox" value="brokerGuidance"> <span>Broker guidance when available</span></label>
-          </div>
-        </fieldset>
 
         <div class="live-market-intake__grid">
           <section class="live-market-intake__fieldset" aria-labelledby="live-market-requirements-heading">
@@ -186,41 +132,26 @@ eleventyComputed:
             </label>
             <label class="live-market-field">
               <span>Approximate size <em>optional</em></span>
-              <input type="text" data-live-market-size placeholder="Example: 3,000-5,000 sq ft">
+              <input type="text" data-live-market-size placeholder="Example: 3,000-5,000 sq ft or not sure">
             </label>
             <label class="live-market-field">
               <span>Timing</span>
               <select data-live-market-timing>
-                <option value="">Use profile timing if available</option>
-                <option value="immediately">Immediately</option>
+                <option value="">Not sure</option>
+                <option value="asap">As soon as possible</option>
                 <option value="within_3_months">Within 3 months</option>
                 <option value="3_6_months">3-6 months</option>
                 <option value="6_12_months">6-12 months</option>
                 <option value="more_than_12_months">More than 12 months</option>
-                <option value="exploring">Exploring with no fixed date</option>
               </select>
-            </label>
-            <label class="live-market-field">
-              <span>Budget or rent context <em>optional</em></span>
-              <input type="text" data-live-market-budget placeholder="Preserved for review; not used to rank districts">
             </label>
           </section>
 
-          <fieldset class="live-market-intake__fieldset">
-            <legend>How should Rofo follow up?</legend>
-            <div class="live-market-radio-list" data-live-market-broker-preference>
-              <label class="live-market-check"><input type="radio" name="broker_preference" value="research_first" checked> <span>Research first; contact me with findings</span></label>
-              <label class="live-market-check"><input type="radio" name="broker_preference" value="include_local_broker"> <span>Include local broker guidance when available</span></label>
-              <label class="live-market-check"><input type="radio" name="broker_preference" value="already_working_with_broker"> <span>I am already working with a broker</span></label>
-              <label class="live-market-check"><input type="radio" name="broker_preference" value="not_sure"> <span>Not sure yet</span></label>
-            </div>
-          </fieldset>
+          <label class="live-market-field live-market-field--notes">
+            <span>Additional notes <em>optional</em></span>
+            <textarea data-live-market-notes rows="5" placeholder="Examples: parking is important, clients visit weekly, current lease expires in March, need room to grow, or want a lower-rise building."></textarea>
+          </label>
         </div>
-
-        <label class="live-market-field live-market-field--notes">
-          <span>Anything else Rofo should understand before investigating? <em>optional</em></span>
-          <textarea data-live-market-notes rows="4" placeholder="Examples: exact streets, parking needs, expansion plans, current lease timing, infrastructure requirements, or building types to avoid."></textarea>
-        </label>
       </section>
 
       <div class="location-brief-contact__grid">
@@ -252,6 +183,12 @@ eleventyComputed:
 <script id="location-knowledge-graph-data" type="application/json">{{ locationKnowledgeGraph | dump | safe }}</script>
 <script id="recommendation-profiles-data" type="application/json">{{ recommendationProfiles | dump | safe }}</script>
 <script id="recommendation-representative-buildings-data" type="application/json">{{ recommendationRepresentativeBuildings | dump | safe }}</script>
+<script id="sf-office-recommendation-model-data" type="application/json">{{ sfOfficeRecommendationModel | dump | safe }}</script>
+<script>
+  window.RofoSfOfficeRecommendationModel = JSON.parse(document.getElementById("sf-office-recommendation-model-data").textContent || "{}");
+</script>
+<script src="/js/recommendations/normalize-sf-office-profile.js" defer></script>
+<script src="/js/recommendations/sf-office-recommendation-resolver.js" defer></script>
 <script src="/js/recommendation-resolver.js" defer></script>
 <script src="/js/recommendation-representative-buildings.js" defer></script>
 <script src="/js/recommendation-context.js" defer></script>

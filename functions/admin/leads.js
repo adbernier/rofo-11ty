@@ -572,8 +572,11 @@ function renderProjectSnapshot(lead, market) {
         ${field("Market", snapshot.market || market)}
         ${field("Property type", snapshot.propertyType || lead.requested_space_type || lead.space_type)}
         ${field("Business type", snapshot.businessType || lead.location_profile_business_type)}
+        ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district)}
+        ${field("Headcount", snapshot.headcount || lead.investigation_headcount)}
         ${field("Approx. size", snapshot.approximateSize || lead.space_needed)}
         ${field("Timing", snapshot.timing || lead.move_timing)}
+        ${field("Additional notes", snapshot.additionalNotes || lead.investigation_notes)}
         ${field("Growth", snapshot.growth || lead.location_profile_expected_growth)}
         ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path)}
       </dl>

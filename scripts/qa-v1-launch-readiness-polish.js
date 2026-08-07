@@ -33,8 +33,9 @@ const adminLeads = read("functions/admin/leads.js");
 assertIncludes(recommendationsPage, "Request Current Availability", "recommendations page CTA");
 assertIncludes(recommendationsPage, "data-live-market-headcount", "recommendations page execution intake");
 assertIncludes(recommendationsPage, "data-live-market-size", "recommendations page execution intake");
-assertIncludes(recommendationsPage, "data-live-market-budget", "recommendations page execution intake");
-assertIncludes(recommendationsPage, "What should Rofo check?", "recommendations page execution scope");
+assertNotIncludes(recommendationsPage, "data-live-market-budget", "recommendations page execution intake");
+assertNotIncludes(recommendationsPage, "What should Rofo check?", "recommendations page execution scope");
+assertIncludes(recommendationsPage, "What we'll research", "recommendations page execution scope");
 assertNotIncludes(recommendationsPage, "Does this recommendation feel right?", "recommendations page customer copy");
 
 assertIncludes(recommendationContext, "renderRepresentativeBuildings([fits[index] || fits[0]], state)", "selected-district representative buildings");
@@ -50,7 +51,7 @@ assertIncludes(searchProfile, "selectedOptionLabels(commuteOrientationOptions, s
 assertIncludes(briefShared, "Your Rofo Location Brief", "customer Location Brief email");
 assertIncludes(briefShared, "Rofo will review your request and determine the best next step.", "customer Location Brief email");
 assertIncludes(briefShared, "This is not a promise of immediate broker contact.", "customer Location Brief email");
-assertIncludes(briefShared, "Budget/rent context", "execution context email");
+assertIncludes(briefShared, "headcount: clean(requirements.headcount", "execution context email");
 
 assertIncludes(leadShared, "New Rofo ${propertyType} Requirement - ${market}", "broker email subject");
 assertIncludes(leadShared, "Project Snapshot", "broker/internal email");

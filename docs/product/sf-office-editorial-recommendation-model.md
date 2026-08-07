@@ -2145,7 +2145,7 @@ Known integration gaps:
 - The current production Business Profile does not yet collect every advisory fact required by the model.
 - Commute orientation remains broad and should not be presented as precise BART, ferry, Caltrain, Marin, East Bay, Peninsula, or South Bay access guidance.
 - Relationship types remain coarse; `nearby`, `adjacent`, `substitute`, and `comparison` should not be presented as fully normalized until relationship metadata is expanded.
-- The production Location Brief is not wired to this resolver yet.
+- Production Location Brief routing is currently scoped to the `san-francisco:office` model key. Other markets and property types continue through the legacy graph/fallback path until they receive reviewed structured models.
 
 ## Calibration Addendum: Signal Deduplication and Historic/Distinctive Fit
 
@@ -2225,3 +2225,47 @@ Technology + modern + significant-growth profiles continue to keep Mission Bay a
 - The deduplication policy covers priority-family aliases. It does not deduplicate every possible correlated editorial signal, such as district entry plus district rise from the same business type. Those can be reviewed later if they create overconfidence.
 - Stable team is used only in the narrow cross-signal calibration above. A broader stable-team model may be useful later, but it should be handled deliberately rather than as a hidden inverse of growth.
 - Confidence state remains based on signal count and spread. Future calibration may need to lower confidence when multiple strong signal families point toward different district archetypes.
+
+## Production Integration Addendum: Location Brief Routing and Execution Intake
+
+Date: 2026-08-06
+
+Production Location Brief routing now treats `san-francisco:office` as the structured San Francisco Office model key. When a completed Business Profile has that model key, the production `/recommendations/` page uses:
+
+Business Profile context
+
+→ `lib/recommendations/normalize-sf-office-profile.js`
+
+→ `lib/recommendations/sf-office-recommendation-resolver.js`
+
+→ production Best Fits
+
+→ Location Brief snapshot
+
+Unsupported market/property-type combinations continue through the existing recommendation graph fallback. This preserves Denver, Sacramento, retail, flex/warehouse, malformed, incomplete, and other non-SF-Office production behavior.
+
+The production page maps the structured resolver shortlist into customer-facing Best Fits. It does not expose raw scores, resolver state, candidate-set terminology, signal audit, duplicate semantic contributions, ignored economics, or debug metadata. Executive Summary copy is generated from the same Best Fits shown on the page, so the summary and district cards remain coherent.
+
+The calibrated production defect profile:
+
+- San Francisco
+- Office
+- Design / Creative
+- Client meetings
+- Team collaboration
+- Historic and distinctive office environment
+- Stable team
+
+now resolves to Jackson Square and SoMa as the visible Best Fits. Financial District and South Beach remain defensible secondary/current candidates in the resolver output, while Mission Bay no longer leads without an independent modern, growth, commute, or institutional signal.
+
+Representative buildings remain tied to the selected Best Fit district. Changing the selected Best Fit updates District Detail, representative buildings, and the current-availability request context.
+
+The end-of-Brief customer flow has been simplified. The former customer-facing "Questions to Validate" section has been removed from production. After the recommendation, the user moves directly into execution:
+
+- selected district
+- headcount or approximate size
+- timing
+- additional notes
+- contact details
+
+The availability request is tied to the currently selected Best Fit district and is persisted with the Location Brief, Project Snapshot, lead dashboard record, broker/OfficeFinder handoff context, and customer confirmation. Phone remains optional for the customer; any OfficeFinder placeholder phone remains isolated to the OfficeFinder adapter.

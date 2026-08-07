@@ -226,6 +226,10 @@ function buildingProfileText(value) {
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy({
+    "lib/recommendations/normalize-sf-office-profile.js": "js/recommendations/normalize-sf-office-profile.js",
+    "lib/recommendations/sf-office-recommendation-resolver.js": "js/recommendations/sf-office-recommendation-resolver.js",
+  });
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("favicon.ico");

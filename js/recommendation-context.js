@@ -10,6 +10,7 @@
     brokerGuidance: "Broker guidance when available",
   };
   const INVESTIGATION_TIMING_LABELS = {
+    asap: "As soon as possible",
     immediately: "Immediately",
     within_3_months: "Within 3 months",
     "3_6_months": "3-6 months",
@@ -441,6 +442,101 @@
     return fallbacks[index] || `${item.label} helps explain the location decision.`;
   }
 
+  function fitConfidenceFromStructured(item, index) {
+    if (item.confidenceLabel) return item.confidenceLabel;
+    if (index === 0 && item.score >= 12) return "Excellent Fit";
+    if (item.score >= 6) return "Strong Fit";
+    return "Relevant Fit";
+  }
+
+  function structuredReasonLabels(candidate) {
+    const labels = (candidate.reasons || [])
+      .map((reason) => reason.signalLabel || reason.attributeLabel || "")
+      .filter(Boolean)
+      .filter((label) => !/^Business type:/i.test(label));
+    return Array.from(new Set(labels)).slice(0, 3);
+  }
+
+  function structuredSummary(candidate, context) {
+    const district = candidate.districtName || candidate.label || "This district";
+    const reasons = structuredReasonLabels(candidate);
+    if (reasons.length >= 2) {
+      return `${district} fits the Business Profile because ${reasons.map((reason) => reason.toLowerCase()).join(", ")} point in the same direction.`;
+    }
+    if (reasons.length === 1) {
+      return `${district} is supported by the Business Profile signal around ${reasons[0].toLowerCase()}.`;
+    }
+    return `${district} is a useful place to begin from this ${context.spaceType || "commercial"} Business Profile.`;
+  }
+
+  function structuredRecommendationItem(candidate, context, profiles, index) {
+    const indexes = profileIndexes(profiles || []);
+    const profile = profileBySlug(candidate.districtId || candidate.slug || candidate.districtName, indexes);
+    const enriched = profile ? recommendationItem(profile, context.spaceType || "Office") : {};
+    const reasons = structuredReasonLabels(candidate);
+    return {
+      ...enriched,
+      label: candidate.districtName || enriched.label || titleizeToken(candidate.districtId),
+      slug: candidate.districtId || enriched.slug || "",
+      type: enriched.type || "district",
+      city: enriched.city || "San Francisco",
+      state: enriched.state || "CA",
+      path: enriched.path || "",
+      fitLabel: fitConfidenceFromStructured(candidate, index),
+      summary: structuredSummary(candidate, context),
+      strengths: reasons.length ? reasons : enriched.strengths || [],
+      tradeoffs: enriched.tradeoffs || [],
+      bestFor: enriched.bestFor || [],
+      questionsToValidate: [],
+      structuredScore: candidate.score,
+      movement: candidate.movement || "",
+    };
+  }
+
+  function structuredSfOfficeState(context, profiles) {
+    if (context.modelKey !== "san-francisco:office") return null;
+    const normalizer = window.RofoSfOfficeProfileNormalizer;
+    const resolver = window.RofoSfOfficeRecommendationResolver;
+    if (!normalizer || typeof normalizer.normalizeSfOfficeProfile !== "function") return null;
+    if (!resolver || typeof resolver.resolveSfOfficeRecommendation !== "function") return null;
+    const normalized = normalizer.normalizeSfOfficeProfile(context);
+    if (!normalized || normalized.supported !== true) return null;
+    const result = resolver.resolveSfOfficeRecommendation(normalized.resolverProfile, window.RofoSfOfficeRecommendationModel);
+    if (!result || result.applicable !== true) return null;
+    const ordered = result.state && result.state.ordered && result.orderedCandidates && result.orderedCandidates.length;
+    const sourceCandidates = result.shortlist && result.shortlist.length
+      ? result.shortlist
+      : ordered
+      ? result.orderedCandidates
+      : result.currentCandidates || [];
+    const recommendedPath = sourceCandidates
+      .slice(0, 3)
+      .map((candidate, index) => structuredRecommendationItem(candidate, context, profiles, index));
+    const primary = recommendedPath[0] || null;
+    return {
+      mode: "structured_sf_office",
+      title: "Location Brief",
+      confidenceLabel: result.confidence && result.confidence.state === "refined_shortlist" ? "Strong Fit" : "Good Starting Point",
+      locationIntent: normalizeLocationIntent(context.locationIntent, "compare"),
+      intentCopy: "",
+      inputLocation: (context.locations || [])[0] || null,
+      primaryLocationLabel: primary ? primary.label : "San Francisco",
+      primaryRecommendation: primary,
+      recommendedPath,
+      compareWith: [],
+      questionsToValidate: [],
+      unresolvedTradeoffs: result.unresolvedTradeoffs || [],
+      structuredResult: {
+        state: result.state,
+        confidence: result.confidence,
+        shortlistSizeRationale: result.shortlistSizeRationale,
+      },
+      summaryCopy: result.shortlistSizeRationale || "",
+      ctaLabel: "Request Current Availability",
+      ctaHref: "#location-brief-contact",
+    };
+  }
+
   function renderBestFits(state, context, profiles) {
     const node = clearNode("[data-location-brief-best-fits]");
     if (!node) return [];
@@ -463,6 +559,7 @@
       button.addEventListener("click", () => {
         renderDistrictDetail(fits, index);
         renderRepresentativeBuildings([fits[index] || fits[0]], state);
+        updateAvailabilityRequestLabel(fits[index] || fits[0]);
         document.querySelectorAll("[data-location-brief-fit-index]").forEach((fitButton) => {
           fitButton.setAttribute("aria-expanded", String(fitButton === button));
         });
@@ -472,6 +569,7 @@
     });
     renderDistrictDetail(fits, 0);
     renderRepresentativeBuildings(fits.length ? [fits[0]] : [], state);
+    updateAvailabilityRequestLabel(fits[0]);
     return fits;
   }
 
@@ -719,10 +817,11 @@
   function renderContext(context) {
     const graph = readKnowledgeGraph();
     const profiles = readRecommendationProfiles();
-    const state = resolveMarketPath(context, graph, profiles);
+    const state = structuredSfOfficeState(context, profiles) || resolveMarketPath(context, graph, profiles);
     const locationText = formatLocations(context.locations || []);
     const spaceText = context.spaceType || "Commercial space";
     setSubmittedCta(state, context);
+    currentBriefState = buildBriefState(state, context);
 
     if (state.mode === "expert_guided") {
       renderProfileChips(context);
@@ -749,7 +848,9 @@
     );
     setText(
       "[data-location-brief-summary-copy-two]",
-      profilePhrase
+      state.mode === "structured_sf_office" && profilePhrase
+        ? `Your emphasis on ${profilePhrase} points toward this recommendation before the search narrows to individual buildings, availability, and lease economics.`
+        : profilePhrase
         ? `Your emphasis on ${profilePhrase} points toward these districts before the search narrows to individual buildings, availability, and lease economics.`
         : "This gives the search a clear starting point before the market is validated against specific buildings, availability, and lease economics."
     );
@@ -765,10 +866,10 @@
 
   function setSubmittedCta(state, context) {
     setText("[data-recommendation-cta-kicker]", "Next Steps");
-    setText("[data-recommendation-cta-heading]", "Request Current Availability.");
+    setText("[data-recommendation-cta-heading]", "Request Current Availability");
     setText(
       "[data-recommendation-cta-copy]",
-      "Send this Location Brief to Rofo for review. We will check the request and determine the best next step."
+      "Rofo will review the selected district and request details to help identify current opportunities, asking rents, and relevant buildings."
     );
     const button = document.querySelector("[data-location-brief-submit-button]");
     if (button) button.textContent = "Request Current Availability";
@@ -778,6 +879,15 @@
       link.textContent = state.ctaLabel || "Request Live Market Review";
       link.setAttribute("data-location-brief-review-trigger", "");
     }
+  }
+
+  function updateAvailabilityRequestLabel(item) {
+    const label = item && item.label ? item.label : "";
+    const heading = label ? `Request Current Availability in ${label}` : "Request Current Availability";
+    setText("[data-recommendation-cta-heading]", heading);
+    setText("[data-live-market-intake-heading]", heading);
+    const button = document.querySelector("[data-location-brief-submit-button]");
+    if (button) button.textContent = label ? `Request Current Availability in ${label}` : "Request Current Availability";
   }
 
   function renderLocationBriefSuccess(status, result) {
@@ -791,10 +901,13 @@
     status.appendChild(createElement("strong", "", isInvestigation ? "Your current availability request has been received." : "Your Location Brief has been created."));
     if (investigation) {
       const selectedCount = (investigation.representativeBuildings || []).filter((building) => building.selected !== false).length;
+      const requirements = investigation.confirmedRequirements || {};
       const detail = [
         investigation.districtName ? `District: ${investigation.districtName}` : "",
+        requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
+        requirements.approximateSize ? `Size: ${requirements.approximateSize}` : "",
+        requirements.timing || investigation.timing ? `Timing: ${INVESTIGATION_TIMING_LABELS[requirements.timing || investigation.timing] || requirements.timing || investigation.timing}` : "",
         `${selectedCount} representative building${selectedCount === 1 ? "" : "s"} selected`,
-        investigation.includeCompetitiveBuildings !== false ? "competitive buildings included" : "",
       ].filter(Boolean).join(" · ");
       if (detail) status.appendChild(createElement("span", "", detail));
       const confirmation = result.confirmationEmail || investigation.confirmationEmail || {};
@@ -1038,7 +1151,7 @@
     currentBriefState.liveMarketInvestigation = {
       ...existing,
       intent: "live_market_investigation",
-      investigationIntent: existing.investigationIntent === true,
+      investigationIntent: true,
       investigationStatus: existing.investigationStatus || "draft",
       source: "recommendation_representative_buildings",
       investigationSource: "recommendation_representative_buildings",
@@ -1051,10 +1164,10 @@
       includeCompetitiveBuildings: existing.includeCompetitiveBuildings !== false,
       investigationScope: existing.investigationScope || {
         currentAvailability: true,
-        futureAvailability: true,
+        futureAvailability: false,
         comparableBuildings: true,
         leasingActivity: false,
-        marketInsight: false,
+        marketInsight: true,
         brokerGuidance: false,
       },
       timing: existing.timing || "",
@@ -1087,10 +1200,10 @@
         includeCompetitiveBuildings: true,
         investigationScope: {
           currentAvailability: true,
-          futureAvailability: true,
+          futureAvailability: false,
           comparableBuildings: true,
           leasingActivity: false,
-          marketInsight: false,
+          marketInsight: true,
           brokerGuidance: false,
         },
         timing: "",
@@ -1125,7 +1238,7 @@
       timing: timingFromProfile(),
       locationIntent: locationIntentLabel(profile.locationIntent || marketPath.locationIntent || ""),
       priorities: Array.isArray(currentBriefState && currentBriefState.priorities) ? currentBriefState.priorities : [],
-      knownConstraints: currentBriefState && currentBriefState.notes || "",
+      knownConstraints: "",
     };
   }
 
@@ -1149,8 +1262,8 @@
       investigation.investigationStatus = "draft";
       investigation.requestedAt = "";
     }
-    panel.hidden = !investigation.investigationIntent;
-    if (!investigation.investigationIntent) return;
+    investigation.investigationIntent = true;
+    panel.hidden = false;
 
     const requirements = investigationRequirements();
     investigation.confirmedRequirements = {
@@ -1161,10 +1274,10 @@
       knownConstraints: requirements.knownConstraints,
     };
 
-    setText("[data-live-market-intake-heading]", `Review ${investigation.districtName || investigation.city || "this market"}`);
+    updateAvailabilityRequestLabel({ label: investigation.districtName || "" });
     setText(
       "[data-live-market-intake-summary]",
-      `Rofo already has the Business Profile and recommended ${investigation.districtName || "this district"} as the next market to review. These are representative buildings, not confirmed availability.`
+      `Rofo will review ${investigation.districtName || "the selected district"} and your request details to help identify current opportunities, asking rents, and relevant buildings.`
     );
     setText("[data-live-market-intake-city]", [investigation.city, investigation.state].filter(Boolean).join(", ") || "To confirm");
     setText("[data-live-market-intake-district]", investigation.districtName || "District-level review");
@@ -1175,11 +1288,9 @@
     renderDefinitionRows(document.querySelector("[data-live-market-requirements]"), [
       { label: "Original location", value: requirements.location },
       { label: "Space type", value: requirements.spaceType },
-      { label: "Approx. size", value: requirements.targetSize },
-      { label: "Timing from profile", value: requirements.timing || "Confirm below" },
+      { label: "Profile size context", value: requirements.targetSize },
+      { label: "Profile timing", value: requirements.timing || "Confirm below" },
       { label: "Location intent", value: requirements.locationIntent },
-      { label: "Selected priorities", value: requirements.priorities.join(", ") },
-      { label: "Known constraints", value: requirements.knownConstraints },
     ]);
 
     const buildingOptions = clearNode("[data-live-market-building-options]");
@@ -1321,7 +1432,7 @@
     }
 
     const submitButton = document.querySelector("[data-location-brief-submit-button]");
-    if (submitButton) submitButton.textContent = "Request Current Availability";
+    updateAvailabilityRequestLabel({ label: investigation.districtName || "" });
     persistBriefState();
   }
 
@@ -1621,7 +1732,8 @@
 
   function collectInvestigationFormState() {
     const investigation = currentBriefState && currentBriefState.liveMarketInvestigation;
-    if (!investigation || !investigation.investigationIntent) return;
+    if (!investigation) return;
+    investigation.investigationIntent = true;
     investigation.includeCompetitiveBuildings = document.querySelector("[data-investigation-competitive-buildings]")?.checked !== false;
     investigation.investigationScope = investigation.investigationScope || {};
     document.querySelectorAll("[data-live-market-scope-options] input[type='checkbox']").forEach((input) => {
@@ -1831,13 +1943,12 @@
   }
 
   function initializeBriefRefinement(state, context, spaceType) {
-    const root = document.querySelector("[data-location-brief-refinement]");
-    if (!root) return;
-    currentBriefState = buildBriefState(state, context);
+    if (!currentBriefState) currentBriefState = buildBriefState(state, context);
     renderQuestionList(state);
     renderPriorityButtons(spaceType);
     initializeFeedbackButtons();
     initializeNotes();
+    renderInvestigationIntake();
     initializeReviewTriggers();
     initializeContactForm();
     persistBriefState();

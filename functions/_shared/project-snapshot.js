@@ -42,13 +42,18 @@ function bestFitLabelsFromBrief(brief) {
 
 export function buildProjectSnapshotFromBrief(brief) {
   const searchProfile = brief && brief.searchProfile || {};
+  const investigation = brief && brief.liveMarketInvestigation || {};
+  const requirements = investigation && investigation.confirmedRequirements || {};
   const locations = Array.isArray(searchProfile.locations) ? searchProfile.locations : [];
   const firstLocation = locations[0] || {};
   const market = clean(firstLocation.city || firstLocation.label || searchProfile.market || searchProfile.city, 140);
   const propertyType = clean(searchProfile.spaceType || searchProfile.space_type || "Commercial space", 120);
   const businessType = clean(searchProfile.businessType || searchProfile.business_type, 140);
-  const approximateSize = clean(searchProfile.size || searchProfile.size_or_people, 120);
-  const timing = clean(searchProfile.timing || searchProfile.moveTiming || searchProfile.move_timing, 120);
+  const selectedDistrict = clean(investigation.districtName || investigation.district || "", 140);
+  const headcount = clean(requirements.headcount, 120);
+  const approximateSize = clean(requirements.approximateSize || searchProfile.size || searchProfile.size_or_people, 120);
+  const timing = clean(requirements.timing || investigation.timing || searchProfile.timing || searchProfile.moveTiming || searchProfile.move_timing, 120);
+  const additionalNotes = clean(investigation.additionalNotes, 240);
   const growth = clean(searchProfile.expectedGrowth || searchProfile.expected_growth, 120);
   const topDistricts = bestFitLabelsFromBrief(brief);
 
@@ -56,8 +61,11 @@ export function buildProjectSnapshotFromBrief(brief) {
     market,
     propertyType,
     businessType,
+    selectedDistrict,
+    headcount,
     approximateSize,
     timing,
+    additionalNotes,
     growth,
     topDistricts,
   };
@@ -70,8 +78,11 @@ export function buildProjectSnapshotFromLead(lead) {
       market: clean(parsed.market, 140),
       propertyType: clean(parsed.propertyType, 120),
       businessType: clean(parsed.businessType, 140),
+      selectedDistrict: clean(parsed.selectedDistrict, 140),
+      headcount: clean(parsed.headcount, 120),
       approximateSize: clean(parsed.approximateSize, 120),
       timing: clean(parsed.timing, 120),
+      additionalNotes: clean(parsed.additionalNotes, 240),
       growth: clean(parsed.growth, 120),
       topDistricts: cleanArray(parsed.topDistricts, 3),
     };
@@ -81,8 +92,11 @@ export function buildProjectSnapshotFromLead(lead) {
     market: clean(lead && (lead.market || lead.city), 140),
     propertyType: clean(lead && (lead.effective_space_type || lead.requested_space_type || lead.space_type), 120),
     businessType: clean(lead && (lead.location_profile_business_type || lead.business_type), 140),
+    selectedDistrict: clean(lead && lead.investigation_district, 140),
+    headcount: clean(lead && lead.investigation_headcount, 120),
     approximateSize: clean(lead && (lead.space_needed || lead.size), 120),
     timing: clean(lead && lead.move_timing, 120),
+    additionalNotes: clean(lead && lead.investigation_notes, 240),
     growth: clean(lead && (lead.location_profile_expected_growth || lead.expected_growth), 120),
     topDistricts: cleanArray(lead && (lead.top_three_districts || "").split(","), 3),
   };
@@ -94,8 +108,11 @@ export function projectSnapshotTextLines(snapshot) {
     value.market ? `Market: ${value.market}` : "",
     value.propertyType ? `Property Type: ${value.propertyType}` : "",
     value.businessType ? `Business Type: ${value.businessType}` : "",
+    value.selectedDistrict ? `Selected District: ${value.selectedDistrict}` : "",
+    value.headcount ? `Headcount: ${value.headcount}` : "",
     value.approximateSize ? `Approximate Size: ${value.approximateSize}` : "",
     value.timing ? `Timing: ${value.timing}` : "",
+    value.additionalNotes ? `Additional Notes: ${value.additionalNotes}` : "",
     value.growth ? `Growth: ${value.growth}` : "",
     value.topDistricts && value.topDistricts.length ? `Top Three Districts: ${value.topDistricts.join(", ")}` : "",
   ].filter(Boolean);

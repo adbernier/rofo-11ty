@@ -74,7 +74,8 @@ assert(leadShared.includes("`Phone: ${lead.phone || \"\"}`"), "Broker email shou
 assert(recommendationsPage.includes("Request Current Availability"), "Production Location Brief should use the Request Current Availability CTA.");
 assert(recommendationsPage.includes("data-live-market-headcount"), "Availability request should capture optional headcount.");
 assert(recommendationsPage.includes("data-live-market-size"), "Availability request should capture optional approximate size.");
-assert(recommendationsPage.includes("data-live-market-budget"), "Availability request should preserve optional budget/rent context for review.");
+assert(!recommendationsPage.includes("data-live-market-budget"), "Availability request should not ask for budget/rent context.");
+assert(!recommendationsPage.includes("Questions to Validate"), "Production Location Brief should remove customer-facing validation prompts.");
 assert(recommendationsPage.includes("/api/location-brief/submit"), "Production Location Brief form should submit to the Location Brief endpoint.");
 
 console.log("Location Brief handoff QA passed.");

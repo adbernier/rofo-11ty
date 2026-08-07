@@ -243,3 +243,19 @@ Mission Bay no longer leads this profile without a stronger modern, growth, comm
 ### Remaining limitation
 
 The original technology/product + historic/distinctive profile remains a separate editorial question. Deduplication makes that case less inflated, but the current explicit Jackson Square calibration is intentionally limited to the design/creative, client-facing, historic/stable production observation.
+
+## Production Integration Implemented
+
+Date: 2026-08-06
+
+The production `/recommendations/` Location Brief now routes `san-francisco:office` Business Profiles through the same structured normalizer and resolver used by QA:
+
+- `lib/recommendations/normalize-sf-office-profile.js`
+- `lib/recommendations/sf-office-recommendation-resolver.js`
+- `_data/sfOfficeRecommendationModel.js`
+
+The legacy recommendation graph remains the fallback for unsupported market/property-type combinations.
+
+The production defect profile now resolves to Jackson Square and SoMa as the visible structured Best Fits. Mission Bay no longer leads without an independent modern, growth, commute, or institutional signal.
+
+The end-of-Brief validation prompts were also removed from the production page. The customer now moves from the recommendation into a concise current-availability request tied to the selected Best Fit district.

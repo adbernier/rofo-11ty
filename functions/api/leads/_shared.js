@@ -949,6 +949,9 @@ function getTenantConfirmationDetails(lead) {
 
 function buildTenantConfirmationText(lead) {
   if (isLocationBriefLead(lead)) {
+    const snapshot = buildProjectSnapshotFromLead(lead);
+    const requestLines = projectSnapshotTextLines(snapshot)
+      .filter((line) => /^(Selected District|Headcount|Approximate Size|Timing):/.test(line));
     return [
       "Hi,",
       "",
@@ -956,6 +959,9 @@ function buildTenantConfirmationText(lead) {
       "",
       "Your Location Brief is here:",
       normalizeField(lead.location_brief_url) || "(Location Brief URL unavailable)",
+      "",
+      requestLines.length ? "Request context:" : "",
+      ...requestLines.map((line) => `- ${line}`),
       "",
       "What happens next:",
       "Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.",
@@ -1054,6 +1060,13 @@ function buildTenantConfirmationText(lead) {
 function buildTenantConfirmationHtml(lead) {
   if (isLocationBriefLead(lead)) {
     const briefUrl = normalizeField(lead.location_brief_url);
+    const snapshot = buildProjectSnapshotFromLead(lead);
+    const requestRows = projectSnapshotTextLines(snapshot)
+      .filter((line) => /^(Selected District|Headcount|Approximate Size|Timing):/.test(line))
+      .map((line) => {
+        const [label, ...rest] = line.split(":");
+        return buildEmailField(label, escapeHtml(rest.join(":").trim()));
+      }).join("");
 
     return `<!doctype html>
 <html>
@@ -1073,6 +1086,13 @@ function buildTenantConfirmationHtml(lead) {
                 <p style="margin:0 0 14px;">Hi,</p>
                 <p style="margin:0 0 14px;">Thank you for requesting current availability from Rofo.</p>
                 ${briefUrl ? `<p style="margin:0 0 18px;">Your Location Brief is here:<br><a href="${escapeHtml(briefUrl)}" style="color:#1346d8;font-weight:700;text-decoration:none;">${escapeHtml(briefUrl)}</a></p>` : ""}
+                ${requestRows ? `
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Request context</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                    ${requestRows}
+                  </table>
+                </div>` : ""}
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
                   <p style="margin:0;color:#334155;">Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.</p>
