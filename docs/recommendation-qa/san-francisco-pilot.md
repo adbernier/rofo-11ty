@@ -1,6 +1,6 @@
 # San Francisco Recommendation QA Pilot
 
-Generated: 2026-08-07T00:05:34.957Z
+Generated: 2026-08-07T00:57:18.112Z
 
 This internal QA report validates whether San Francisco Location Brief recommendations feel differentiated, explainable, defensible, and actionable using the current Commercial Location Knowledge Graph. It is not customer-facing content.
 

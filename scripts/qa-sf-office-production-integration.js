@@ -1,7 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 const { normalizeSfOfficeProfile } = require("../lib/recommendations/normalize-sf-office-profile");
 const { resolveSfOfficeRecommendation } = require("../lib/recommendations/sf-office-recommendation-resolver");
+const sfOfficeRecommendationModel = require("../_data/sfOfficeRecommendationModel");
+const recommendationProfiles = require("../_data/recommendationProfiles");
 
 let failures = 0;
 
@@ -36,6 +39,9 @@ assert(eleventyConfig.includes("lib/recommendations/sf-office-recommendation-res
 assert(recommendationContext.includes("structuredSfOfficeState(context, profiles) || resolveMarketPath"), "SF Office structured state should be tried before the legacy graph fallback.");
 assert(recommendationContext.includes("context.modelKey !== \"san-francisco:office\""), "structured resolver should be scoped to san-francisco:office.");
 assert(recommendationContext.includes("resolveMarketPath(context, graph, profiles)"), "legacy recommendation fallback should remain available.");
+assert(recommendationContext.includes("shouldWaitForSfOfficeStructuredResolver(context)"), "SF Office production rendering should wait for structured resolver assets instead of prematurely falling back to the legacy graph.");
+assert(recommendationContext.includes("recommendationSource: \"structured_sf_office\""), "structured SF Office Best Fit items should retain their structured source marker.");
+assert(recommendationContext.includes("? item.summary || enriched.summary"), "structured Best Fit summaries should not be overwritten by legacy district profile copy.");
 
 assert(!recommendationsPage.includes("Questions to Validate"), "customer-facing validation section should be removed.");
 assert(!recommendationsPage.includes("What a broker can validate"), "broker-first validation heading should be removed.");
@@ -81,6 +87,67 @@ assert(result.profileSignalsUsed.includes("design_creative_historic_client_facin
 
 console.log(`Defect profile structured shortlist: ${shortlistIds.join(", ")}`);
 console.log(`Defect profile scores: Jackson Square ${jacksonSquare && jacksonSquare.score}; Mission Bay ${missionBay && missionBay.score}`);
+
+function pageMappingHarness() {
+  const context = {
+    window: {
+      __ROFO_RECOMMENDATION_CONTEXT_TEST__: true,
+      RofoSfOfficeRecommendationModel: sfOfficeRecommendationModel,
+      RofoSfOfficeProfileNormalizer: { normalizeSfOfficeProfile },
+      RofoSfOfficeRecommendationResolver: { resolveSfOfficeRecommendation },
+      sessionStorage: { getItem: () => null, setItem: () => {} },
+      localStorage: { getItem: () => null, setItem: () => {} },
+      setTimeout: () => {},
+    },
+    console,
+    setTimeout: () => {},
+  };
+  context.window.window = context.window;
+  vm.createContext(context);
+  vm.runInContext(recommendationContext, context, { filename: "js/recommendation-context.js" });
+  return context.window.RofoRecommendationContextTest;
+}
+
+const pageMapper = pageMappingHarness();
+assert(pageMapper, "production recommendation context test harness should be available.");
+
+const pageContext = pageMapper.normalizeContext(defectSourceAnswers);
+const pageState = pageMapper.structuredSfOfficeState(pageContext, recommendationProfiles);
+const renderedFits = pageMapper.bestFitItems(pageState, pageContext, recommendationProfiles);
+const renderedFitLabels = renderedFits.map((item) => item.label);
+const renderedSummary = renderedFitLabels.length > 1
+  ? `Based on your Business Profile, ${renderedFitLabels.join(", ")} are the strongest places to begin your office search.`
+  : "";
+const renderedBrief = pageMapper.buildBriefState(pageState, pageContext);
+
+assert(pageState && pageState.mode === "structured_sf_office", "defect profile should resolve to the structured SF Office production state.");
+assert(renderedFitLabels[0] === "Jackson Square", `rendered Best Fits should lead with Jackson Square, got ${renderedFitLabels[0] || "none"}.`);
+assert(renderedFitLabels[1] === "SoMa", `rendered Best Fits should include SoMa second, got ${renderedFitLabels[1] || "none"}.`);
+assert(!renderedFitLabels.includes("Mission Bay"), "Mission Bay should be absent from visible Best Fits for the defect profile.");
+assert(renderedSummary.includes("Jackson Square") && renderedSummary.includes("SoMa"), "Executive Summary source should name Jackson Square and SoMa.");
+assert(renderedBrief.marketPath.recommendedPath[0].label === "Jackson Square", "stored Brief state should persist Jackson Square as the first Best Fit.");
+assert(renderedBrief.marketPath.recommendedPath.length === 2, "stored Brief state should not force a third Best Fit for the defect profile.");
+
+const missionBayControl = {
+  city: "San Francisco",
+  market: "San Francisco",
+  locations: [{ label: "San Francisco", type: "city", city: "San Francisco", state: "CA" }],
+  spaceType: "Office",
+  modelKey: "san-francisco:office",
+  businessType: "technology",
+  operationalUse: ["team_collaboration", "recruiting"],
+  officeEnvironment: "Modern and polished",
+  commuteOrientation: "Peninsula South Bay",
+  expectedGrowth: "significant",
+};
+const controlContext = pageMapper.normalizeContext(missionBayControl);
+const controlState = pageMapper.structuredSfOfficeState(controlContext, recommendationProfiles);
+const controlFits = pageMapper.bestFitItems(controlState, controlContext, recommendationProfiles).map((item) => item.label);
+assert(controlFits.includes("Mission Bay"), `Mission Bay control should keep Mission Bay visible, got ${controlFits.join(", ") || "none"}.`);
+assert(controlFits.indexOf("Mission Bay") >= 0 && controlFits.indexOf("Mission Bay") <= 1, `Mission Bay control should keep Mission Bay highly competitive, got ${controlFits.join(", ") || "none"}.`);
+
+console.log(`Rendered production Best Fits for defect profile: ${renderedFitLabels.join(", ")}`);
+console.log(`Mission Bay control rendered Best Fits: ${controlFits.join(", ")}`);
 
 if (failures) {
   process.exitCode = 1;

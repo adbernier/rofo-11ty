@@ -25,6 +25,7 @@
     not_sure: "Not sure yet",
   };
   let currentBriefState = null;
+  let sfOfficeStructuredRenderRetries = 0;
   const buildingPhotoRequests = new Map();
 
   function investigationSubmissionToken() {
@@ -397,6 +398,7 @@
       if (!item || !item.label) return;
       if (items.some((existing) => slugKey(existing.slug || existing.label) === slugKey(item.slug || item.label))) return;
       const enriched = bySlug(item) || item;
+      const structured = item.recommendationSource === "structured_sf_office";
       items.push({
         ...enriched,
         label: item.label || enriched.label,
@@ -404,12 +406,15 @@
         path: item.path || enriched.path || "",
         city: item.city || enriched.city || "San Francisco",
         state: item.state || enriched.state || "CA",
-        fitLabel: enriched.fitLabel || (items.length === 0 ? "Excellent Fit" : "Strong Fit"),
-        summary: enriched.summary || item.reason || item.alternativeRationale || `${item.label} is a useful place to begin from this Business Profile.`,
-        strengths: enriched.strengths || [],
+        fitLabel: structured ? item.fitLabel : enriched.fitLabel || item.fitLabel || (items.length === 0 ? "Excellent Fit" : "Strong Fit"),
+        summary: structured
+          ? item.summary || enriched.summary || `${item.label} is a useful place to begin from this Business Profile.`
+          : enriched.summary || item.reason || item.alternativeRationale || `${item.label} is a useful place to begin from this Business Profile.`,
+        strengths: structured ? item.strengths || [] : enriched.strengths || item.strengths || [],
         tradeoffs: enriched.tradeoffs || [],
         bestFor: enriched.bestFor || [],
         questionsToValidate: enriched.questionsToValidate || [],
+        recommendationSource: item.recommendationSource || "",
       });
     };
 
@@ -490,7 +495,24 @@
       questionsToValidate: [],
       structuredScore: candidate.score,
       movement: candidate.movement || "",
+      recommendationSource: "structured_sf_office",
     };
+  }
+
+  function sfOfficeStructuredDependenciesReady() {
+    const normalizer = window.RofoSfOfficeProfileNormalizer;
+    const resolver = window.RofoSfOfficeRecommendationResolver;
+    return Boolean(
+      window.RofoSfOfficeRecommendationModel &&
+      normalizer &&
+      typeof normalizer.normalizeSfOfficeProfile === "function" &&
+      resolver &&
+      typeof resolver.resolveSfOfficeRecommendation === "function"
+    );
+  }
+
+  function shouldWaitForSfOfficeStructuredResolver(context) {
+    return context && context.modelKey === "san-francisco:office" && !sfOfficeStructuredDependenciesReady();
   }
 
   function structuredSfOfficeState(context, profiles) {
@@ -817,7 +839,13 @@
   function renderContext(context) {
     const graph = readKnowledgeGraph();
     const profiles = readRecommendationProfiles();
+    if (shouldWaitForSfOfficeStructuredResolver(context) && sfOfficeStructuredRenderRetries < 20) {
+      sfOfficeStructuredRenderRetries += 1;
+      window.setTimeout(() => renderContext(context), 50);
+      return;
+    }
     const state = structuredSfOfficeState(context, profiles) || resolveMarketPath(context, graph, profiles);
+    sfOfficeStructuredRenderRetries = 0;
     const locationText = formatLocations(context.locations || []);
     const spaceText = context.spaceType || "Commercial space";
     setSubmittedCta(state, context);
@@ -1952,6 +1980,17 @@
     initializeReviewTriggers();
     initializeContactForm();
     persistBriefState();
+  }
+
+  if (window.__ROFO_RECOMMENDATION_CONTEXT_TEST__) {
+    window.RofoRecommendationContextTest = {
+      bestFitItems,
+      buildBriefState,
+      normalizeContext,
+      shouldWaitForSfOfficeStructuredResolver,
+      structuredSfOfficeState,
+    };
+    return;
   }
 
   const context = readStoredContext();
