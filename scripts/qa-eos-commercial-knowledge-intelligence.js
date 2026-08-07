@@ -243,6 +243,15 @@ function run() {
     assert(Boolean(marketSnapshots[key]), `${key} should have an occupier Market Snapshot.`);
   });
 
+  ["CA/antioch", "CO/aurora", "IN/indianapolis", "AZ/tempe"].forEach((key) => {
+    const snapshot = marketSnapshots[key];
+    assert(Boolean(snapshot), `${key} should retain a Search Mission #001 occupier Market Snapshot.`);
+    if (snapshot) {
+      assert(snapshot.propertyTypeContext && snapshot.propertyTypeContext.industrial, `${key} should include warehouse / industrial context.`);
+      assert(Array.isArray(snapshot.sourceTrace) && snapshot.sourceTrace.some((item) => /Search Mission #001/i.test(item)), `${key} should retain Search Mission #001 provenance.`);
+    }
+  });
+
   const forbiddenPublicTerms = [/cap rate/i, /investment return/i, /\bIRR\b/i];
   const publicSnapshotText = JSON.stringify(marketSnapshots);
   forbiddenPublicTerms.forEach((pattern) => {
