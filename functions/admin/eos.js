@@ -1,4 +1,4 @@
-import eosAnalysis from "../../data/generated/eos-analysis.json";
+import eosAnalysis from "../../data/generated/eos-admin-runtime.json";
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -792,26 +792,27 @@ function renderSelectedMetro(eos, metroId, token) {
 
 function renderQueueSummary(eos) {
   const queues = eos.portfolioQueues || {};
+  const counts = queues.queueCounts || {};
   return `
     <section class="queue-summary">
       <article>
         <span>Editorial Queue</span>
-        <strong>${escapeHtml((queues.editorialQueue || []).length)}</strong>
+        <strong>${escapeHtml(counts.editorialQueue || (queues.editorialQueue || []).length)}</strong>
         <p>Existing metro improvement work.</p>
       </article>
       <article>
         <span>Expansion Queue</span>
-        <strong>${escapeHtml((queues.expansionQueue || []).length)}</strong>
+        <strong>${escapeHtml(counts.expansionQueue || (queues.expansionQueue || []).length)}</strong>
         <p>Future metro projects.</p>
       </article>
       <article>
         <span>Field Mode Queue</span>
-        <strong>${escapeHtml((queues.fieldModeQueue || []).length)}</strong>
+        <strong>${escapeHtml(counts.fieldModeQueue || (queues.fieldModeQueue || []).length)}</strong>
         <p>Photography summaries by metro.</p>
       </article>
       <article>
         <span>Review Queue</span>
-        <strong>${escapeHtml((queues.reviewQueue || []).length)}</strong>
+        <strong>${escapeHtml(counts.reviewQueue || (queues.reviewQueue || []).length)}</strong>
         <p>Returned execution work.</p>
       </article>
     </section>

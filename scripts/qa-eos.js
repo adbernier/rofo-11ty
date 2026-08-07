@@ -896,8 +896,12 @@ if (seattleExpansionProject && seattleExpansionProject.status !== "publishing_re
   fail("Seattle expansion project should advance to Publishing Ready when Publisher and Compass evidence are complete.");
 }
 
-if (!adminSource.includes("../../data/generated/eos-analysis.json")) {
-  fail("/admin/eos must consume the generated EOS snapshot.");
+if (!adminSource.includes("../../data/generated/eos-admin-runtime.json")) {
+  fail("/admin/eos must consume the compact generated EOS admin runtime snapshot.");
+}
+
+if (adminSource.includes("../../data/generated/eos-analysis.json") || adminSource.includes("../../data/generated/search-console-opportunity.json")) {
+  fail("/admin/eos must not statically import full generated EOS or Search Intelligence artifacts.");
 }
 
 if (/require\(|analyzePublisher\(/.test(adminSource) || /from\s+["'][^"']*locationKnowledgeGraph/.test(adminSource)) {
