@@ -23,6 +23,7 @@ const intelligence = runtime.commercialKnowledgeIntelligence || {};
 const markets = ((intelligence.googleOpportunity || {}).markets) || [];
 const missions = intelligence.searchMissions || [];
 const warehouseMission = missions.find((mission) => mission.id === "expand-warehouse-industrial-knowledge");
+const topicIntelligence = intelligence.topicIntelligence || intelligence.emergingThemes || [];
 
 assert(warehouseMission, "Warehouse / Industrial parent Search Mission should exist.");
 assert(/across\s+15\s+markets/i.test((warehouseMission.evidence || []).join(" ")), "Warehouse parent mission should preserve 15-market opportunity evidence.");
@@ -44,6 +45,13 @@ assert(missionSource.includes("parentMissionId"), "Market-specific missions shou
 assert(missionSource.includes("sourceContext"), "Market-specific missions should snapshot source context into the work packet.");
 
 assert(adminSource.includes("marketOpportunityAction"), "Google Opportunity cards should derive a recommended action.");
+assert(adminSource.includes("missionMarketThemeSupport"), "Market actions should require market-level theme support before inheriting a parent Search Mission.");
+assert(adminSource.includes("topicMarketEvidence"), "Market actions should use compact topic evidence instead of global mission rank alone.");
+assert(adminSource.includes("searchMissionThemeIds"), "Market actions should align parent missions to their actual themes.");
+assert(adminSource.includes("!parent && (market.googleOpportunity === \"discovery\" || weakPosition)"), "Weak position should affect urgency only after parent theme support is evaluated.");
+assert(adminSource.includes("market.propertyTypeDemand"), "Fallback market actions should use market-level property-type demand when available.");
+assert(adminSource.includes("Number(count) >= 3"), "Fallback property-type actions should require a material market-level property signal.");
+assert(adminSource.includes("index < 3 || Number(theme.count) >= 5"), "Lower-order property themes should not automatically override broad market actions.");
 assert(adminSource.includes("Establish Foundation"), "Market action taxonomy should include Establish Foundation.");
 assert(adminSource.includes("Continue Foundation"), "Market action taxonomy should include Continue Foundation.");
 assert(adminSource.includes("Deepen Knowledge"), "Market action taxonomy should include Deepen Knowledge.");
@@ -55,13 +63,24 @@ assert(adminSource.includes("activeMissionBySourceId(missionState).get(sourceId)
 
 const fortWayne = markets.find((market) => market.marketId === "fort-wayne");
 const antioch = markets.find((market) => market.marketId === "antioch");
+const oceanside = markets.find((market) => market.marketId === "oceanside");
+const salinas = markets.find((market) => market.marketId === "salinas");
 const alisoViejo = markets.find((market) => market.marketId === "aliso-viejo");
 const tampa = markets.find((market) => market.marketId === "tampa");
+const warehouseTopic = topicIntelligence.find((topic) => topic.id === "warehouse");
+const industrialTopic = topicIntelligence.find((topic) => topic.id === "industrial");
 
 assert(fortWayne && (fortWayne.knowledgeGaps || []).includes("industrial-warehouse-depth"), "Fort Wayne should remain an immature industrial/warehouse opportunity fixture.");
 assert(fortWayne && fortWayne.knowledgeCoverage && fortWayne.knowledgeCoverage.hasMarketSnapshot === false, "Fort Wayne should remain foundation-establishment eligible.");
+assert(warehouseTopic && (warehouseTopic.strongestMarkets || []).some((market) => market.marketId === "fort-wayne"), "Fort Wayne should retain market-level warehouse topic evidence.");
 assert(antioch && antioch.knowledgeCoverage && antioch.knowledgeCoverage.hasMarketSnapshot === true, "Antioch should remain a partial-foundation fixture.");
 assert(antioch && (antioch.knowledgeGaps || []).includes("industrial-warehouse-depth"), "Antioch should still need continued industrial foundation work.");
+assert(industrialTopic && (industrialTopic.strongestMarkets || []).some((market) => market.marketId === "antioch"), "Antioch should retain market-level industrial topic evidence.");
+assert(salinas && (salinas.dominantThemes || []).some((theme) => theme.id === "retail"), "Salinas should retain market-level retail evidence for retail action derivation.");
+assert(oceanside && (oceanside.dominantThemes || []).some((theme) => theme.id === "district-neighborhood"), "Oceanside should retain district/general market evidence.");
+assert(oceanside && !(warehouseTopic.strongestMarkets || []).some((market) => market.marketId === "oceanside"), "Oceanside must not inherit warehouse action from the global warehouse mission without market-level warehouse support.");
+assert(oceanside && !(industrialTopic.strongestMarkets || []).some((market) => market.marketId === "oceanside"), "Oceanside must not inherit industrial action from the global industrial mission without material topic support.");
+assert(oceanside && !Object.values(oceanside.propertyTypeDemand || {}).some((count) => Number(count) >= 3), "Oceanside should remain below fallback property-type action threshold.");
 assert(alisoViejo && alisoViejo.strategicParent && alisoViejo.strategicParent.marketName === "Orange County", "Aliso Viejo should retain Orange County strategic-parent support.");
 assert(tampa && Number(tampa.averagePosition) > 35, "Tampa should remain a weaker discovery/observe fixture.");
 

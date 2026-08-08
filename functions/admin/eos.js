@@ -1085,20 +1085,133 @@ function renderSearchMissionState(mission, token, activeBySource, missionState) 
   return `<span class="mission-state-stack"><span class="mission-state-pill">${escapeHtml(stateLabel)}</span>${progress}<a class="start-work start-work--small" href="${searchMissionUrl(token, mission.id)}">Review Mission</a></span>`;
 }
 
-function parentMissionForMarket(intelligence, market) {
-  return ((intelligence.searchMissions || [])).find((mission) =>
-    (mission.supportingMarkets || []).some((item) => item.marketId === market.marketId)
+const PROPERTY_THEME_LABELS = {
+  office: "Office",
+  retail: "Retail",
+  warehouse: "Warehouse / Industrial",
+  industrial: "Warehouse / Industrial",
+  flex: "Flex",
+  medical: "Medical Office",
+};
+
+function searchMissionThemeIds(mission) {
+  const text = `${mission.id || ""} ${mission.title || ""}`.toLowerCase();
+  const themes = new Set();
+  if (text.includes("warehouse") || text.includes("industrial")) {
+    themes.add("warehouse");
+    themes.add("industrial");
+  }
+  if (text.includes("retail")) themes.add("retail");
+  if (text.includes("office")) themes.add("office");
+  if (text.includes("flex")) themes.add("flex");
+  if (text.includes("medical")) themes.add("medical");
+  if (text.includes("district")) themes.add("district-neighborhood");
+  if (text.includes("building")) themes.add("building-address");
+  return themes;
+}
+
+function marketThemeCount(market, themeId) {
+  const theme = (market.dominantThemes || []).find((item) => item.id === themeId);
+  return Number(theme && theme.count) || 0;
+}
+
+function topicMarketEvidence(intelligence, marketId, themeId) {
+  const topic = ((intelligence.topicIntelligence || intelligence.emergingThemes) || []).find((item) => item.id === themeId);
+  return topic
+    ? (topic.strongestMarkets || []).find((item) => item.marketId === marketId) || null
+    : null;
+}
+
+function missionMarketThemeSupport(intelligence, mission, market) {
+  const missionThemes = searchMissionThemeIds(mission);
+  const directSupport = (mission.supportingMarkets || []).some((item) => item.marketId === market.marketId);
+  const themeEvidence = Array.from(missionThemes).map((themeId) => {
+    const topicEvidence = topicMarketEvidence(intelligence, market.marketId, themeId);
+    return {
+      themeId,
+      count: marketThemeCount(market, themeId),
+      topicEvidence,
+    };
+  });
+  const hasMarketTheme = themeEvidence.some((item) => item.count > 0 || item.topicEvidence);
+  const hasTopicSupport = themeEvidence.some((item) => item.topicEvidence);
+  const material = Boolean((directSupport && hasMarketTheme) || hasTopicSupport);
+  const strongest = themeEvidence
+    .filter((item) => item.count > 0 || item.topicEvidence)
+    .sort((a, b) =>
+      (Number(b.topicEvidence && b.topicEvidence.impressions) || 0) - (Number(a.topicEvidence && a.topicEvidence.impressions) || 0) ||
+      b.count - a.count
+    )[0] || null;
+  return {
+    material,
+    directSupport,
+    hasTopicSupport,
+    themeId: strongest ? strongest.themeId : Array.from(missionThemes)[0] || null,
+    topicEvidence: strongest ? strongest.topicEvidence : null,
+    count: strongest ? strongest.count : 0,
+  };
+}
+
+function activeSearchMissionOpportunity(mission, missionState) {
+  return searchMissionOpportunityState(mission, missionState).state !== "addressed";
+}
+
+function parentMissionForMarket(intelligence, market, missionState) {
+  return ((intelligence.searchMissions || []))
+    .map((mission) => ({
+      mission,
+      support: missionMarketThemeSupport(intelligence, mission, market),
+      opportunity: searchMissionOpportunityState(mission, missionState),
+    }))
+    .filter((item) => item.support.material && item.opportunity.state !== "addressed")
+    .sort((a, b) =>
+      Number(b.support.hasTopicSupport) - Number(a.support.hasTopicSupport) ||
+      (Number(b.support.topicEvidence && b.support.topicEvidence.impressions) || 0) - (Number(a.support.topicEvidence && a.support.topicEvidence.impressions) || 0) ||
+      Number(b.support.directSupport) - Number(a.support.directSupport) ||
+      (Number(b.mission.impressions) || 0) - (Number(a.mission.impressions) || 0)
+    )[0] || null;
+}
+
+function strongestMarketTheme(market) {
+  const propertyDemand = Object.entries(market.propertyTypeDemand || {})
+    .filter(([, count]) => Number(count) >= 3)
+    .sort((a, b) => Number(b[1]) - Number(a[1]))[0];
+  if (propertyDemand && PROPERTY_THEME_LABELS[propertyDemand[0]]) {
+    return {
+      id: propertyDemand[0],
+      label: PROPERTY_THEME_LABELS[propertyDemand[0]],
+      count: Number(propertyDemand[1]),
+    };
+  }
+  const propertyTheme = (market.dominantThemes || []).find((theme, index) =>
+    PROPERTY_THEME_LABELS[theme.id] && (index < 3 || Number(theme.count) >= 5)
+  );
+  if (propertyTheme) return propertyTheme;
+  return (market.dominantThemes || []).find((theme) =>
+    ["lease-availability", "district-neighborhood", "building-address", "general-commercial"].includes(theme.id)
   ) || null;
+}
+
+function actionTargetLabel(parent, market) {
+  if (parent && parent.support && parent.support.themeId && PROPERTY_THEME_LABELS[parent.support.themeId]) {
+    return PROPERTY_THEME_LABELS[parent.support.themeId];
+  }
+  const theme = strongestMarketTheme(market);
+  return theme && PROPERTY_THEME_LABELS[theme.id]
+    ? PROPERTY_THEME_LABELS[theme.id]
+    : "Commercial";
 }
 
 function marketOpportunityAction(intelligence, market, token, missionState) {
   const coverage = market.knowledgeCoverage || {};
   const themeIds = new Set((market.dominantThemes || []).map((theme) => theme.id));
-  const hasIndustrial = themeIds.has("warehouse") || themeIds.has("industrial") || (market.knowledgeGaps || []).includes("industrial-warehouse-depth");
-  const hasRetail = themeIds.has("retail") || (market.knowledgeGaps || []).includes("retail-depth");
-  const parent = parentMissionForMarket(intelligence, market);
+  const hasIndustrial = themeIds.has("warehouse") || themeIds.has("industrial");
+  const hasRetail = themeIds.has("retail");
+  const parent = parentMissionForMarket(intelligence, market, missionState);
+  const target = actionTargetLabel(parent, market);
   const sourceId = marketFoundationMissionId(parent ? parent.id : "market-opportunity", market.marketId);
   const active = activeMissionBySourceId(missionState).get(sourceId);
+  const weakPosition = Number(market.averagePosition) > 35 && market.googleOpportunity !== "high";
 
   if (active) {
     return {
@@ -1111,7 +1224,7 @@ function marketOpportunityAction(intelligence, market, token, missionState) {
     };
   }
 
-  if (market.strategicParent && !hasIndustrial && !hasRetail) {
+  if (market.strategicParent && !parent && !hasIndustrial && !hasRetail) {
     return {
       category: "Continue Strategic Market",
       label: `Supports ${market.strategicParent.marketName}`,
@@ -1122,7 +1235,7 @@ function marketOpportunityAction(intelligence, market, token, missionState) {
     };
   }
 
-  if ((market.googleOpportunity === "discovery") || (Number(market.averagePosition) > 35 && market.googleOpportunity !== "high")) {
+  if (!parent && (market.googleOpportunity === "discovery" || weakPosition)) {
     return {
       category: "Observe",
       label: "Discovery signal; keep watching before commencing work.",
@@ -1134,7 +1247,7 @@ function marketOpportunityAction(intelligence, market, token, missionState) {
   if (coverage.hasMarketSnapshot && (Number(coverage.districtCount || 0) < 1 || (market.knowledgeGaps || []).includes("industrial-warehouse-depth"))) {
     return {
       category: "Continue Foundation",
-      label: hasIndustrial ? "Continue Industrial Foundation" : "Continue Foundation",
+      label: `Continue ${target} Foundation`,
       cta: "Review Foundation Mission",
       href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
       actionable: true,
@@ -1143,7 +1256,6 @@ function marketOpportunityAction(intelligence, market, token, missionState) {
   }
 
   if (!coverage.hasMarketSnapshot || Number(coverage.districtCount || 0) < 1) {
-    const target = hasIndustrial ? "Warehouse / Industrial" : hasRetail ? "Retail" : "Commercial";
     return {
       category: "Establish Foundation",
       label: `Establish ${target} Foundation`,
@@ -1156,7 +1268,7 @@ function marketOpportunityAction(intelligence, market, token, missionState) {
 
   return {
     category: "Deepen Knowledge",
-    label: hasIndustrial ? "Deepen Industrial Knowledge" : hasRetail ? "Deepen Retail Knowledge" : "Deepen Knowledge",
+    label: `Deepen ${target} Knowledge`,
     cta: "Review Opportunity",
     href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
     actionable: true,
