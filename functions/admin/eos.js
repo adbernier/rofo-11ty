@@ -32,6 +32,14 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function labelize(value) {
+  return String(value || "")
+    .trim()
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 function tokenParam(token) {
   return `token=${encodeURIComponent(token)}`;
 }
@@ -1426,6 +1434,7 @@ function renderSearchMissionReview(eos, missionId, token, missionState) {
     .filter((item) => item.sourceMissionId === mission.id && item.status === "completed")
     .sort((a, b) => Number(b.sequenceNumber || 0) - Number(a.sequenceNumber || 0))[0];
   const packet = generateSearchMissionWorkPacket(mission, eos);
+  const foundation = packet.marketFoundation || {};
   const preview = codexPacketMarkdown({
     displayId: "Suggested Mission",
     title: mission.title,
@@ -1478,6 +1487,19 @@ function renderSearchMissionReview(eos, missionId, token, missionState) {
           <ul>${(packet.workToComplete || []).map((item) => `<li><strong>${escapeHtml(item.owner)}</strong> · ${escapeHtml(item.title)}</li>`).join("")}</ul>
         </article>
       </div>
+      <section class="packet-grid" aria-label="Market foundation assessment">
+        <article>
+          <h3>Foundation Assessment</h3>
+          <ul>${((foundation.markets || [])).map((market) => {
+            const coverage = market.knowledgeCoverage || {};
+            return `<li><strong>${escapeHtml(market.marketName)}${market.state ? `, ${escapeHtml(market.state)}` : ""}</strong> · ${escapeHtml(labelize(market.foundationState || ""))} foundation · ${escapeHtml(labelize(market.evidenceReadiness || ""))} evidence · ${escapeHtml(String(coverage.districtCount || 0))} geographies · ${escapeHtml(String(coverage.representativeBuildingCount || 0))} representative buildings</li>`;
+          }).join("") || "<li>No foundation assessment available.</li>"}</ul>
+        </article>
+        <article>
+          <h3>Evidence Standard</h3>
+          <ul>${((foundation.sourceStandard || [])).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        </article>
+      </section>
       <section class="codex-handoff" aria-label="Suggested Codex packet">
         <div class="codex-handoff__top">
           <div>
@@ -1564,6 +1586,7 @@ function renderDurableMissionPage(record, token) {
   const progressState = taskProgress(record);
   const tasks = ((record.workPacket || {}).workToComplete) || [];
   const baseline = record.baselineSearchSnapshot || {};
+  const foundation = (record.workPacket || {}).marketFoundation || {};
   return `
     <section class="panel durable-mission">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Back to Mission History</a>
@@ -1613,6 +1636,19 @@ function renderDurableMissionPage(record, token) {
           </dl>
         </article>
       </div>
+      <section class="packet-grid" aria-label="Market foundation snapshot">
+        <article>
+          <h3>Market Foundation</h3>
+          <ul>${((foundation.markets || [])).map((market) => {
+            const coverage = market.knowledgeCoverage || {};
+            return `<li><strong>${escapeHtml(market.marketName)}${market.state ? `, ${escapeHtml(market.state)}` : ""}</strong> · ${escapeHtml(labelize(market.foundationState || ""))} foundation · ${escapeHtml(labelize(market.evidenceReadiness || ""))} evidence · snapshot ${coverage.hasMarketSnapshot ? "ready" : "missing"} · ${escapeHtml(String(coverage.districtCount || 0))} geographies · ${escapeHtml(String(coverage.representativeBuildingCount || 0))} representative buildings</li>`;
+          }).join("") || "<li>No foundation snapshot captured.</li>"}</ul>
+        </article>
+        <article>
+          <h3>Completion Semantics</h3>
+          <p>Completed means scoped work delivered. Deferred or blocked gaps remain recorded as mission evidence and become input back to EOS, not authorization to continue.</p>
+        </article>
+      </section>
       <section class="mission-task-list">
         <div class="section-heading">
           <div>

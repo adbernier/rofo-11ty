@@ -41,6 +41,12 @@ assert(missionSource.includes("generateSearchMissionWorkPacket"), "Search Missio
 assert(missionSource.includes("codexPacketMarkdown"), "Codex-ready packet rendering is missing.");
 assert(missionSource.includes("Field / Human"), "Work Packet should distinguish human/field work where applicable.");
 assert(missionSource.includes("Do not change Search Mission scoring"), "Codex packet boundaries should protect Search Mission behavior.");
+assert(missionSource.includes("assessMarketFoundation"), "Search Mission packets should include Market Foundation assessment.");
+assert(missionSource.includes("EVIDENCE_READINESS"), "Evidence readiness model is missing.");
+assert(missionSource.includes("FOUNDATION_STATES"), "Market Foundation states are missing.");
+assert(missionSource.includes("Acquire bounded"), "Researchable markets should create an Evidence Acquisition work item.");
+assert(missionSource.includes("Ready, Researchable, or Blocked"), "Work packets should classify missing evidence before building.");
+assert(missionSource.includes("recommended next opportunity (advisory only; do not continue without a new approved packet)"), "Completion report should make recommended next opportunity advisory only.");
 
 assert(eosSource.includes('action" value="commence_search_mission"'), "Search Mission review should expose Commence Work action.");
 assert(eosSource.includes('action" value="toggle_task"'), "Mission detail should allow task progress updates.");
@@ -52,6 +58,8 @@ assert(eosSource.includes("Legacy / Prior Work"), "Legacy missions should remain
 assert(eosSource.includes("activeMissionBySourceId"), "Today/Intelligence should detect active Search Missions.");
 assert(eosSource.includes("Continue Mission"), "Today should continue active missions instead of duplicating commencement.");
 assert(eosSource.includes("Copy Codex Packet"), "Mission pages should expose Copy Codex Packet.");
+assert(eosSource.includes("Foundation Assessment"), "Search Mission review should show foundation assessment.");
+assert(eosSource.includes("Market Foundation"), "Mission detail should preserve market foundation snapshot.");
 
 assert(!missionSource.includes("data/generated/search-console-opportunity.json"), "Mission persistence must not import raw Search Intelligence snapshots.");
 assert(!missionSource.includes("data/generated/eos-analysis.json"), "Mission persistence must not import full EOS analysis.");

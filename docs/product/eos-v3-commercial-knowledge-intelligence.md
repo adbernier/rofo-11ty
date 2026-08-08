@@ -219,6 +219,119 @@ Coverage gaps are editor-readable labels such as:
 - industrial-warehouse-depth
 - office-business-guides
 
+## EOS v3.4 Market Foundation and Evidence Acquisition
+
+EOS v3.4 adds a bounded Market Foundation capability to Search Mission work-packet generation. The goal is to prevent immature markets from becoming automatic dead ends while preserving Rofo's evidence standard.
+
+When Search Intelligence identifies demand in a market where Rofo's canonical graph is thin, EOS should distinguish three states:
+
+- **Ready:** enough canonical evidence exists to build the requested knowledge directly.
+- **Researchable:** canonical evidence is incomplete, but the missing evidence can reasonably be acquired from trustworthy sources.
+- **Blocked:** the requested fact cannot currently be established responsibly.
+
+This changes the interpretation of missing evidence. Missing canonical evidence is not automatically failure; it may be the work. A packet should first ask whether Rofo can responsibly learn enough, then establish the smallest useful foundation before building deeper knowledge.
+
+### Minimum Viable Market Foundation
+
+A Market Foundation is not full market completion. It is the minimum commercial structure needed for later missions to work intelligently.
+
+For a market + property type, foundation should include:
+
+- canonical market identity, state, and strategic parent or nearby-market context where appropriate
+- occupier-focused commercial character
+- target property-type context
+- defensible commercial geography, which may be a district, submarket, corridor, industrial area, business park, municipality, or commercial center
+- a small set of representative properties where source evidence supports them
+- source trace sufficient for editorial review
+
+The model is property-type aware. Office foundations may emphasize CBDs and office corridors. Warehouse / industrial foundations may emphasize logistics corridors, industrial parks, access patterns, and warehouse/flex properties. Retail foundations may emphasize retail corridors, shopping centers, neighborhood commercial areas, and retail environments.
+
+EOS must not force San Francisco-style district ontology onto every market. Secondary markets and industrial markets may be better represented by corridors, business parks, or submarkets.
+
+### Foundation States
+
+Mission packets use three simple foundation states:
+
+- **Unmapped:** Rofo knows almost nothing structurally about the market/property type.
+- **Foundation:** enough source-supported commercial structure exists for targeted enhancement.
+- **Developed:** substantial canonical knowledge exists across market context, geography, and representative evidence.
+
+The important v3.4 transition is `Unmapped -> Foundation`. That transition lets EOS create useful follow-on missions without requiring complete market buildout.
+
+### Evidence Source Standard
+
+Evidence acquisition should prioritize sources that can support the specific claim being promoted:
+
+- **Tier 1 - Primary / Institutional:** official government, property owner, transit or planning agency, and official development material.
+- **Tier 2 - Strong Commercial Evidence:** established brokerage research, institutional CRE reports, and reputable property or development sources.
+- **Tier 3 - Discovery:** search results, directories, and secondary summaries.
+
+Tier 3 sources may identify candidates, but they should generally not be the sole basis for canonical geography, representative-property selection, or public claims.
+
+Research findings move through a simple promotion path:
+
+```text
+Candidate
+Source-supported
+Canonical
+```
+
+Codex should not promote a geography or property into canonical Rofo structures until the identity is stable, useful to occupiers, and supported by the source standard.
+
+### Work Packet Behavior
+
+Search Mission packets now include a `marketFoundation` assessment. If dependent knowledge is missing because underlying geography or building evidence is absent, the packet should insert an Evidence Acquisition phase before the knowledge build.
+
+Example sequence:
+
+```text
+Evidence Acquisition
+1. Establish target-property commercial geography.
+2. Identify representative property candidates.
+3. Validate evidence and source trace.
+4. Promote only defensible structures into canonical source files.
+
+Knowledge Build
+5. Update Market Snapshot or market context.
+6. Create Commercial Market Evidence only when the evidence standard is met.
+7. Add representative-building intelligence or Building Profiles only when source-supported.
+```
+
+Packets remain bounded to the approved mission's target markets, property type, and gaps. They should not ask Codex to research the entire city or adjacent property types unless directly required by the packet.
+
+### Contrasting Assessment Examples
+
+Fort Wayne + Warehouse is the canonical immature-market example. If search demand is visible but Rofo has little source-controlled market structure, the packet should classify the market as `Unmapped`, treat industrial geography and representative properties as `Researchable`, and mark dependent Commercial Market Evidence or public business-guide work as blocked until the foundation is established.
+
+Aurora + Warehouse is a more mature-market example because Denver-area industrial context and representative-building records already exist in the broader graph. A packet may still require evidence acquisition, but it should be narrower: validate Aurora-specific industrial geography and representative properties, then build only the knowledge that the acquired evidence supports.
+
+A truly blocked case remains possible. If reliable sources cannot establish stable commercial geography, representative property identity, or the requested property-type claim, the packet should stop and record the gap as `Blocked` rather than lowering the evidence standard.
+
+### Completion Semantics
+
+Mission completion means:
+
+```text
+Completed - scoped work delivered
+```
+
+Deferred or blocked gaps can remain recorded without making the mission a failure. Each deferred gap should state whether it is researchable later or genuinely blocked and why.
+
+The completion report should include:
+
+- Implementation Summary
+- Files Changed
+- Mission Evidence Used
+- Gaps Completed
+- Evidence Acquired
+- Canonical Knowledge Added
+- Gaps Deferred, classified as researchable later or blocked
+- QA Results
+- Validation Results
+- Recommended Next Opportunity
+
+`Recommended Next Opportunity` is input back to EOS. It is not authorization for Codex to continue working.
+
 These are prioritization aids, not claims of complete market knowledge.
 
 ## Opportunity Heuristic

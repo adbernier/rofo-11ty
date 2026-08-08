@@ -117,21 +117,220 @@ function workItem(id, owner, title, details) {
   return { id, owner, status: "pending", title, details };
 }
 
+const EVIDENCE_READINESS = {
+  ready: "ready",
+  researchable: "researchable",
+  blocked: "blocked",
+};
+
+const FOUNDATION_STATES = {
+  unmapped: "unmapped",
+  foundation: "foundation",
+  developed: "developed",
+};
+
+function runtimeMarket(eos, marketId) {
+  return asArray((((eos.commercialKnowledgeIntelligence || {}).googleOpportunity || {}).markets))
+    .find((market) => market.marketId === marketId) || null;
+}
+
+function runtimeMarketSnapshot(eos, marketId) {
+  return asArray((eos.commercialKnowledgeIntelligence || {}).marketSnapshots)
+    .find((snapshot) => snapshot.marketId === marketId) || null;
+}
+
+function readinessLabel(value) {
+  return labelize(value);
+}
+
+function targetPropertyTypeId(propertyTypes, mission) {
+  const text = `${propertyTypes.join(" ")} ${mission.title || ""}`.toLowerCase();
+  if (/warehouse|industrial/.test(text)) return "industrial";
+  if (/retail/.test(text)) return "retail";
+  if (/office/.test(text)) return "office";
+  if (/flex/.test(text)) return "flex";
+  if (/medical|healthcare/.test(text)) return "medical";
+  return "commercial";
+}
+
+function foundationStateForCoverage(coverage, snapshot, propertyTypeId) {
+  const hasOverview = Boolean(coverage && coverage.hasMarketOverview);
+  const hasSnapshot = Boolean(coverage && coverage.hasMarketSnapshot) || Boolean(snapshot);
+  const districtCount = Number((coverage && coverage.districtCount) || 0);
+  const buildingCount = Number((coverage && coverage.representativeBuildingCount) || 0);
+  const hasPropertyContext = Boolean(snapshot && snapshot.propertyTypeContext && snapshot.propertyTypeContext[propertyTypeId]);
+
+  if (hasOverview && hasSnapshot && districtCount >= 3 && buildingCount >= 5 && hasPropertyContext) {
+    return FOUNDATION_STATES.developed;
+  }
+  if ((hasSnapshot && hasPropertyContext) || districtCount > 0 || buildingCount >= 3) {
+    return FOUNDATION_STATES.foundation;
+  }
+  return FOUNDATION_STATES.unmapped;
+}
+
+function classifyGapReadiness(gap, { state, coverage, snapshot, propertyTypeId }) {
+  const districtCount = Number((coverage && coverage.districtCount) || 0);
+  const buildingCount = Number((coverage && coverage.representativeBuildingCount) || 0);
+  const hasSnapshot = Boolean((coverage && coverage.hasMarketSnapshot) || snapshot);
+  const hasPropertyContext = Boolean(snapshot && snapshot.propertyTypeContext && snapshot.propertyTypeContext[propertyTypeId]);
+
+  if (gap === "market-snapshot") {
+    return hasSnapshot && hasPropertyContext
+      ? { status: EVIDENCE_READINESS.ready, reason: "A source-controlled Market Snapshot already includes target property-type context." }
+      : { status: EVIDENCE_READINESS.researchable, reason: "A bounded occupier Market Snapshot can be created from trustworthy market and property-type evidence." };
+  }
+
+  if (gap === "market-overview") {
+    return state === FOUNDATION_STATES.unmapped
+      ? { status: EVIDENCE_READINESS.researchable, reason: "Canonical market identity and broad commercial character can usually be established from official or institutional sources." }
+      : { status: EVIDENCE_READINESS.ready, reason: "Enough market foundation exists to strengthen overview-level knowledge." };
+  }
+
+  if (gap === "district-coverage") {
+    return districtCount >= 3
+      ? { status: EVIDENCE_READINESS.ready, reason: "Canonical commercial geography already exists for this market." }
+      : { status: EVIDENCE_READINESS.researchable, reason: "Commercial geography should be researched as districts, corridors, industrial areas, business parks, or submarkets before creating dependent evidence." };
+  }
+
+  if (gap === "representative-buildings" || gap === "building-intelligence") {
+    return buildingCount >= 5
+      ? { status: EVIDENCE_READINESS.ready, reason: "A small representative property set already exists." }
+      : { status: EVIDENCE_READINESS.researchable, reason: "Representative properties can be identified only after source-supported geography and property identity are validated." };
+  }
+
+  if (/industrial|warehouse|retail|office|medical|flex/.test(gap)) {
+    if (hasPropertyContext && (districtCount > 0 || buildingCount >= 3)) {
+      return { status: EVIDENCE_READINESS.ready, reason: "Property-type context and at least one supporting geography or property-evidence signal exist." };
+    }
+    return { status: EVIDENCE_READINESS.researchable, reason: "Property-type depth requires narrow evidence acquisition before canonical knowledge is expanded." };
+  }
+
+  if (/business-guides/.test(gap)) {
+    if (state === FOUNDATION_STATES.developed) {
+      return { status: EVIDENCE_READINESS.ready, reason: "Market foundation is developed enough to evaluate guide readiness." };
+    }
+    return { status: EVIDENCE_READINESS.blocked, reason: "Business guides should wait until market foundation, property-type context, geography, and representative evidence are stronger." };
+  }
+
+  return { status: EVIDENCE_READINESS.researchable, reason: "The gap needs bounded evidence review before it can be promoted into canonical knowledge." };
+}
+
+export function assessMarketFoundation(mission, eos = {}) {
+  const propertyTypes = missionPropertyTypes(mission);
+  const propertyTypeId = targetPropertyTypeId(propertyTypes, mission);
+  const gaps = asArray(mission.knowledgeGaps);
+
+  const markets = asArray(mission.supportingMarkets).slice(0, 6).map((sourceMarket) => {
+    const market = runtimeMarket(eos, sourceMarket.marketId) || sourceMarket;
+    const snapshot = runtimeMarketSnapshot(eos, sourceMarket.marketId);
+    const coverage = (market && market.knowledgeCoverage) || {};
+    const state = foundationStateForCoverage(coverage, snapshot, propertyTypeId);
+    const gapReadiness = gaps.map((gap) => ({
+      id: gap,
+      label: gapLabel(gap),
+      ...classifyGapReadiness(gap, { state, coverage, snapshot, propertyTypeId }),
+    }));
+    const gapStatuses = new Set(gapReadiness.map((gap) => gap.status));
+    const readiness = gapStatuses.has(EVIDENCE_READINESS.ready)
+      ? EVIDENCE_READINESS.ready
+      : gapStatuses.has(EVIDENCE_READINESS.researchable)
+        ? EVIDENCE_READINESS.researchable
+        : EVIDENCE_READINESS.blocked;
+
+    return {
+      marketId: sourceMarket.marketId,
+      marketName: sourceMarket.marketName,
+      state: sourceMarket.state,
+      foundationState: state,
+      evidenceReadiness: readiness,
+      knowledgeCoverage: {
+        hasMarketOverview: Boolean(coverage.hasMarketOverview),
+        hasMarketSnapshot: Boolean(coverage.hasMarketSnapshot) || Boolean(snapshot),
+        districtCount: Number(coverage.districtCount || 0),
+        representativeBuildingCount: Number(coverage.representativeBuildingCount || 0),
+        publishedBusinessBriefCount: Number(coverage.publishedBusinessBriefCount || 0),
+      },
+      propertyTypeContextReady: Boolean(snapshot && snapshot.propertyTypeContext && snapshot.propertyTypeContext[propertyTypeId]),
+      gapReadiness,
+    };
+  });
+
+  return {
+    schemaVersion: "market-foundation-assessment-v1",
+    propertyTypeId,
+    propertyTypes,
+    foundationDefinition: [
+      "Canonical market identity and state.",
+      "Occupier-focused commercial character.",
+      "Target property-type context.",
+      "Defensible commercial geography such as districts, corridors, industrial areas, business parks, submarkets, municipalities, or commercial centers.",
+      "A bounded set of representative properties where source evidence supports them.",
+      "Source trace sufficient for editorial review.",
+    ],
+    sourceStandard: [
+      "Tier 1: official government, property owner, transit or planning agency, and official development material.",
+      "Tier 2: established brokerage research, institutional CRE reports, and reputable property or development sources.",
+      "Tier 3: discovery sources may identify candidates but should not be the sole basis for canonical claims.",
+    ],
+    markets,
+  };
+}
+
+function hasResearchablePrerequisites(assessment) {
+  return asArray(assessment.markets).some((market) =>
+    market.foundationState === FOUNDATION_STATES.unmapped ||
+    asArray(market.gapReadiness).some((gap) => gap.status === EVIDENCE_READINESS.researchable)
+  );
+}
+
+function hasBlockedGaps(assessment) {
+  return asArray(assessment.markets).some((market) =>
+    asArray(market.gapReadiness).some((gap) => gap.status === EVIDENCE_READINESS.blocked)
+  );
+}
+
+function marketFoundationSummary(assessment) {
+  return asArray(assessment.markets).map((market) => {
+    const blocked = asArray(market.gapReadiness).filter((gap) => gap.status === EVIDENCE_READINESS.blocked).map((gap) => gap.label);
+    return {
+      marketId: market.marketId,
+      marketName: market.marketName,
+      state: market.state,
+      foundationState: market.foundationState,
+      evidenceReadiness: market.evidenceReadiness,
+      propertyTypeContextReady: market.propertyTypeContextReady,
+      coverage: market.knowledgeCoverage,
+      blockedGaps: blocked,
+    };
+  });
+}
+
 export function generateSearchMissionWorkPacket(mission, eos = {}) {
   const supportingMarkets = asArray(mission.supportingMarkets).slice(0, 6);
   const gaps = asArray(mission.knowledgeGaps);
   const propertyTypes = missionPropertyTypes(mission);
   const themes = missionThemes(mission);
+  const foundationAssessment = assessMarketFoundation(mission, eos);
   const items = [];
   const marketList = supportingMarkets.map((market) => `${market.marketName}${market.state ? `, ${market.state}` : ""}`);
   const subject = propertyTypes[0] || (mission.type === "building_intelligence" ? "Building Intelligence" : "Commercial Knowledge");
+
+  if (hasResearchablePrerequisites(foundationAssessment)) {
+    items.push(workItem(
+      "evidence-acquisition",
+      "Codex",
+      `Acquire bounded ${subject.toLowerCase()} market-foundation evidence`,
+      `For ${marketList.join("; ") || "the supporting markets"}, classify each missing gap as Ready, Researchable, or Blocked. Research only the target property type. Establish source-supported commercial geography, representative property candidates, and source trace before promoting canonical knowledge. Do not fabricate districts or properties to satisfy a quota.`
+    ));
+  }
 
   if (gaps.some((gap) => /representative|building|industrial|warehouse|retail|office|medical|flex/.test(gap)) || mission.type === "building_intelligence") {
     items.push(workItem(
       "representative-evidence",
       "Codex",
       `Assess representative ${subject.toLowerCase()} evidence`,
-      `Review canonical market, district, and building data for ${marketList.join("; ") || "the supporting markets"}. Add only source-supported representative building or district evidence that closes an actual Publisher gap.`
+      `Review canonical market, district, and building data for ${marketList.join("; ") || "the supporting markets"}. If the foundation assessment is Ready, add only source-supported representative building or district evidence that closes an actual Publisher gap. If it is Researchable, complete the evidence-acquisition prerequisite first. If it is Blocked, defer and explain why.`
     ));
   }
 
@@ -158,7 +357,16 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
       "business-guides",
       "Codex",
       "Evaluate business-guide readiness",
-      "Identify whether public Business Brief or business-type guide work is actually supported. Do not create thin pages or new archetypes."
+      "Identify whether public Business Brief or business-type guide work is actually supported by the completed foundation. Do not create thin pages or new archetypes; classify unsupported guide work as deferred or blocked."
+    ));
+  }
+
+  if (hasBlockedGaps(foundationAssessment)) {
+    items.push(workItem(
+      "blocked-gap-reporting",
+      "Review",
+      "Record blocked gaps explicitly",
+      "For each blocked gap, record whether it is researchable later or genuinely blocked, and explain the evidence constraint. Completing scoped work with deferred gaps is acceptable when the approved packet is delivered."
     ));
   }
 
@@ -197,6 +405,7 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
       propertyTypes,
       themes,
     },
+    marketFoundation: foundationAssessment,
     currentGaps: gaps.map((gap) => ({ id: gap, label: gapLabel(gap) })),
     workToComplete: items,
     boundaries: [
@@ -211,12 +420,14 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
       "implementation summary",
       "files changed",
       "mission evidence used",
+      "evidence acquired",
+      "canonical knowledge added",
       "gaps completed",
-      "gaps deferred",
+      "gaps deferred with researchable or blocked classification",
       "Publisher/EOS before-after",
       "QA results",
       "validation results",
-      "recommended next mission",
+      "recommended next opportunity (advisory only; do not continue without a new approved packet)",
     ],
   };
 }
@@ -243,6 +454,16 @@ export function codexPacketMarkdown(record) {
     "",
     "CURRENT GAPS",
     ...(asArray(packet.currentGaps).length ? asArray(packet.currentGaps).map((gap) => `- ${gap.label || gap.id}`) : ["- None specified"]),
+    "",
+    "MARKET FOUNDATION",
+    ...asArray((packet.marketFoundation || {}).markets).map((market) => {
+      const coverage = market.knowledgeCoverage || market.coverage || {};
+      return `- ${market.marketName}${market.state ? `, ${market.state}` : ""}: ${readinessLabel(market.foundationState)} foundation; ${readinessLabel(market.evidenceReadiness)} evidence readiness; snapshot ${coverage.hasMarketSnapshot ? "ready" : "missing"}; districts ${coverage.districtCount || 0}; representative buildings ${coverage.representativeBuildingCount || 0}.`;
+    }),
+    ...(asArray((packet.marketFoundation || {}).markets).length ? [] : ["- Foundation assessment unavailable."]),
+    "",
+    "EVIDENCE STANDARD",
+    ...asArray((packet.marketFoundation || {}).sourceStandard).map((item) => `- ${item}`),
     "",
     "WORK TO COMPLETE",
     ...(asArray(packet.workToComplete).length ? asArray(packet.workToComplete).map((item, index) => `${index + 1}. ${item.title}\n   Owner: ${item.owner}\n   ${item.details}`) : ["1. Review current evidence and define the smallest supported source change."]),
