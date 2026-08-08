@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T18:11:38-07:00",
-  "sourceCommit": "cb9a24491d61090636ac4124aea4c3b34da5c85b",
+  "generatedAt": "2026-08-07T18:41:33-07:00",
+  "sourceCommit": "fd148a374af65824d75390bc476d2de9b8ab939a",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -44,6 +44,13 @@
         "state": "WA",
         "status": "active",
         "purpose": "Groups Pacific Northwest commercial markets."
+      },
+      {
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "state": "IN",
+        "status": "foundation",
+        "purpose": "Groups Midwest search-led commercial markets where Rofo is establishing bounded market foundations."
       }
     ],
     "markets": [
@@ -364,14 +371,36 @@
           "metroId": "seattle",
           "metroName": "Seattle"
         }
+      },
+      {
+        "id": "fort-wayne",
+        "name": "Fort Wayne",
+        "marketId": "fort-wayne",
+        "marketName": "Fort Wayne",
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "state": "IN",
+        "status": "foundation",
+        "cities": [
+          "Fort Wayne"
+        ],
+        "publisherMetroId": "fort-wayne",
+        "publisherMetroName": "Fort Wayne",
+        "publicRoute": "/commercial-real-estate/IN/fort-wayne/",
+        "implementationNote": "Search-led warehouse / industrial foundation market; canonical coverage is intentionally narrow until additional evidence is acquired.",
+        "districtCount": 1,
+        "publisherCompatibility": {
+          "metroId": "fort-wayne",
+          "metroName": "Fort Wayne"
+        }
       }
     ],
     "districtOwnershipSummary": {
-      "districtCount": 110,
-      "resolvedDistricts": 110,
+      "districtCount": 111,
+      "resolvedDistricts": 111,
       "unresolvedDistricts": 0,
       "duplicateAssignments": 0,
-      "recommendationEligibleDistricts": 110
+      "recommendationEligibleDistricts": 111
     },
     "ownershipByDistrict": [
       {
@@ -565,6 +594,18 @@
         "marketName": "East Bay",
         "recommendationEligible": true,
         "publicRoute": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
+      },
+      {
+        "districtId": "fort-wayne-airport-industrial",
+        "districtName": "Fort Wayne Airport Industrial",
+        "city": "fort-wayne",
+        "state": "IN",
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "marketId": "fort-wayne",
+        "marketName": "Fort Wayne",
+        "recommendationEligible": true,
+        "publicRoute": "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/"
       },
       {
         "districtId": "dogpatch",
@@ -1705,12 +1746,13 @@
     "service": "Commercial Market Evidence",
     "status": "Validated",
     "validationStatus": "PASS",
-    "collections": 11,
+    "collections": 12,
     "districts": [
       "Design District",
       "Dogpatch",
       "Downtown Denver",
       "Financial District",
+      "Fort Wayne Airport Industrial",
       "Jackson Square",
       "Mission Bay",
       "Mission District",
@@ -1719,10 +1761,11 @@
       "SoMa",
       "South Beach"
     ],
-    "evidenceRecords": 97,
+    "evidenceRecords": 100,
     "evidenceTypes": [
       "Adaptive Showroom / Creative Office",
       "Adaptive-Reuse Boutique Office",
+      "Airport-Oriented Industrial Area",
       "Biotech Research Environment",
       "Boutique Executive Office",
       "Boutique-Leaning Class A Tower",
@@ -1742,6 +1785,7 @@
       "Design Event / Showroom Center",
       "Design Showroom Anchor",
       "Downtown Class A Office",
+      "Economic Development Context",
       "Emerging Office/R&D Innovation",
       "Executive Office Environment",
       "Government-Adjacent Office",
@@ -1791,6 +1835,7 @@
       "Professional Services Tower",
       "Repositioned Downtown Tower",
       "Repositioned Waterfront-Adjacent Office",
+      "Representative Industrial Property Pattern",
       "Research Lab Environment",
       "Residential / Commercial Mixed-Use Anchor",
       "Showroom / Creative Office Anchor",
@@ -1828,6 +1873,7 @@
       "Brannan Mixed-Use Fabric Benchmark",
       "Brick-and-Timber Character Benchmark",
       "Broadway / North Beach Transition Benchmark",
+      "Building Profile Prerequisite",
       "Caltrain / Showplace Connection",
       "Caltrain-Oriented Workspace Benchmark",
       "Central SoMa Adaptive-Reuse Benchmark",
@@ -1860,6 +1906,7 @@
       "Historic SoMa Office Identity Benchmark",
       "Historic Waterfront Reuse Benchmark",
       "Hospitality-Style Repositioning Benchmark",
+      "Industrial Foundation Anchor",
       "Large Adaptive Creative Technology Benchmark",
       "Large Creative Floorplate Benchmark",
       "Larger Creative Inventory Benchmark",
@@ -1912,14 +1959,16 @@
       "Transit-Oriented Professional Services Benchmark",
       "UCSF-Adjacency Research Benchmark",
       "Walkable Downtown Access Benchmark",
+      "Warehouse / Industrial Market Context",
       "Warehouse Showroom Pattern",
       "Waterfront Historic Office Benchmark"
     ],
     "confidenceSummary": {
-      "High": 97
+      "High": 99,
+      "Low": 1
     },
-    "deferredCandidates": 45,
-    "latestValidation": "2026-08-07T18:11:38-07:00",
+    "deferredCandidates": 48,
+    "latestValidation": "2026-08-07T18:41:33-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -1929,7 +1978,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-07T18:11:38-07:00",
+    "generatedAt": "2026-08-07T18:41:33-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -80704,12 +80753,13 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 11,
+      "collections": 12,
       "districts": [
         "Design District",
         "Dogpatch",
         "Downtown Denver",
         "Financial District",
+        "Fort Wayne Airport Industrial",
         "Jackson Square",
         "Mission Bay",
         "Mission District",
@@ -80718,10 +80768,11 @@
         "SoMa",
         "South Beach"
       ],
-      "evidenceRecords": 97,
+      "evidenceRecords": 100,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
+        "Airport-Oriented Industrial Area",
         "Biotech Research Environment",
         "Boutique Executive Office",
         "Boutique-Leaning Class A Tower",
@@ -80741,6 +80792,7 @@
         "Design Event / Showroom Center",
         "Design Showroom Anchor",
         "Downtown Class A Office",
+        "Economic Development Context",
         "Emerging Office/R&D Innovation",
         "Executive Office Environment",
         "Government-Adjacent Office",
@@ -80790,6 +80842,7 @@
         "Professional Services Tower",
         "Repositioned Downtown Tower",
         "Repositioned Waterfront-Adjacent Office",
+        "Representative Industrial Property Pattern",
         "Research Lab Environment",
         "Residential / Commercial Mixed-Use Anchor",
         "Showroom / Creative Office Anchor",
@@ -80827,6 +80880,7 @@
         "Brannan Mixed-Use Fabric Benchmark",
         "Brick-and-Timber Character Benchmark",
         "Broadway / North Beach Transition Benchmark",
+        "Building Profile Prerequisite",
         "Caltrain / Showplace Connection",
         "Caltrain-Oriented Workspace Benchmark",
         "Central SoMa Adaptive-Reuse Benchmark",
@@ -80859,6 +80913,7 @@
         "Historic SoMa Office Identity Benchmark",
         "Historic Waterfront Reuse Benchmark",
         "Hospitality-Style Repositioning Benchmark",
+        "Industrial Foundation Anchor",
         "Large Adaptive Creative Technology Benchmark",
         "Large Creative Floorplate Benchmark",
         "Larger Creative Inventory Benchmark",
@@ -80911,14 +80966,16 @@
         "Transit-Oriented Professional Services Benchmark",
         "UCSF-Adjacency Research Benchmark",
         "Walkable Downtown Access Benchmark",
+        "Warehouse / Industrial Market Context",
         "Warehouse Showroom Pattern",
         "Waterfront Historic Office Benchmark"
       ],
       "confidenceSummary": {
-        "High": 97
+        "High": 99,
+        "Low": 1
       },
-      "deferredCandidates": 45,
-      "latestValidation": "2026-08-07T18:11:38-07:00",
+      "deferredCandidates": 48,
+      "latestValidation": "2026-08-07T18:41:33-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -80969,6 +81026,13 @@
           "state": "WA",
           "status": "active",
           "purpose": "Groups Pacific Northwest commercial markets."
+        },
+        {
+          "regionId": "midwest",
+          "regionName": "Midwest",
+          "state": "IN",
+          "status": "foundation",
+          "purpose": "Groups Midwest search-led commercial markets where Rofo is establishing bounded market foundations."
         }
       ],
       "markets": [
@@ -81289,14 +81353,36 @@
             "metroId": "seattle",
             "metroName": "Seattle"
           }
+        },
+        {
+          "id": "fort-wayne",
+          "name": "Fort Wayne",
+          "marketId": "fort-wayne",
+          "marketName": "Fort Wayne",
+          "regionId": "midwest",
+          "regionName": "Midwest",
+          "state": "IN",
+          "status": "foundation",
+          "cities": [
+            "Fort Wayne"
+          ],
+          "publisherMetroId": "fort-wayne",
+          "publisherMetroName": "Fort Wayne",
+          "publicRoute": "/commercial-real-estate/IN/fort-wayne/",
+          "implementationNote": "Search-led warehouse / industrial foundation market; canonical coverage is intentionally narrow until additional evidence is acquired.",
+          "districtCount": 1,
+          "publisherCompatibility": {
+            "metroId": "fort-wayne",
+            "metroName": "Fort Wayne"
+          }
         }
       ],
       "districtOwnershipSummary": {
-        "districtCount": 110,
-        "resolvedDistricts": 110,
+        "districtCount": 111,
+        "resolvedDistricts": 111,
         "unresolvedDistricts": 0,
         "duplicateAssignments": 0,
-        "recommendationEligibleDistricts": 110
+        "recommendationEligibleDistricts": 111
       },
       "ownershipByDistrict": [
         {
@@ -81490,6 +81576,18 @@
           "marketName": "East Bay",
           "recommendationEligible": true,
           "publicRoute": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
+        },
+        {
+          "districtId": "fort-wayne-airport-industrial",
+          "districtName": "Fort Wayne Airport Industrial",
+          "city": "fort-wayne",
+          "state": "IN",
+          "regionId": "midwest",
+          "regionName": "Midwest",
+          "marketId": "fort-wayne",
+          "marketName": "Fort Wayne",
+          "recommendationEligible": true,
+          "publicRoute": "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/"
         },
         {
           "districtId": "dogpatch",

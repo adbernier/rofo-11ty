@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T18:11:38-07:00",
+  "generatedAt": "2026-08-07T18:41:33-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -13,7 +13,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-07T18:11:38-07:00",
+    "generatedAt": "2026-08-07T18:41:33-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -662,15 +662,13 @@
           },
           "knowledgeCoverage": {
             "publisherScore": null,
-            "hasMarketOverview": false,
-            "hasMarketSnapshot": false,
-            "districtCount": 0,
+            "hasMarketOverview": true,
+            "hasMarketSnapshot": true,
+            "districtCount": 1,
             "representativeBuildingCount": 1,
             "publishedBusinessBriefCount": 0
           },
           "knowledgeGaps": [
-            "market-overview",
-            "market-snapshot",
             "district-coverage",
             "representative-buildings",
             "business-guides",
@@ -678,15 +676,15 @@
             "industrial-warehouse-depth"
           ],
           "recommendedActions": [
-            "Create occupier-focused Market Snapshot for Fort Wayne.",
             "Deepen canonical commercial district coverage for Fort Wayne.",
             "Add representative building evidence for Fort Wayne.",
-            "Review whether a Retail Space hub has enough local evidence."
+            "Review whether a Retail Space hub has enough local evidence.",
+            "Review warehouse and industrial knowledge depth before publishing occupier pages."
           ],
           "rationale": [
             "Fort Wayne has 554 observed impressions at average position 38.5.",
             "100% of observed query examples are occupier-relevant or market-context queries.",
-            "Knowledge gaps include market-overview, market-snapshot, district-coverage."
+            "Knowledge gaps include district-coverage, representative-buildings, business-guides."
           ],
           "provenance": {
             "source": "search_intelligence",
@@ -7447,8 +7445,6 @@
             },
             "strategicParent": null,
             "knowledgeGaps": [
-              "market-overview",
-              "market-snapshot",
               "district-coverage",
               "representative-buildings",
               "business-guides",
@@ -8424,8 +8420,6 @@
             },
             "strategicParent": null,
             "knowledgeGaps": [
-              "market-overview",
-              "market-snapshot",
               "district-coverage",
               "representative-buildings",
               "business-guides",
@@ -12179,8 +12173,6 @@
           }
         },
         "knowledgeGaps": [
-          "market-overview",
-          "market-snapshot",
           "district-coverage",
           "representative-buildings",
           "business-guides",
@@ -12188,15 +12180,15 @@
           "industrial-warehouse-depth"
         ],
         "recommendedActions": [
-          "Create occupier-focused Market Snapshot for Fort Wayne.",
           "Deepen canonical commercial district coverage for Fort Wayne.",
           "Add representative building evidence for Fort Wayne.",
-          "Review whether a Retail Space hub has enough local evidence."
+          "Review whether a Retail Space hub has enough local evidence.",
+          "Review warehouse and industrial knowledge depth before publishing occupier pages."
         ],
         "rationale": [
           "Fort Wayne has 554 observed impressions at average position 38.5.",
           "100% of observed query examples are occupier-relevant or market-context queries.",
-          "Knowledge gaps include market-overview, market-snapshot, district-coverage."
+          "Knowledge gaps include district-coverage, representative-buildings, business-guides."
         ],
         "source": "search_intelligence"
       },
@@ -15138,6 +15130,54 @@
       },
       {
         "schemaVersion": "occupier-market-snapshot-v1",
+        "marketId": "fort-wayne",
+        "title": "Fort Wayne Market Snapshot",
+        "commercialCharacter": "Fort Wayne is a Northeast Indiana commercial market where general commercial-space demand now needs a clearer warehouse and industrial foundation before Rofo can publish deeper occupier guidance.",
+        "businessDrivers": [
+          "Search Intelligence shows Fort Wayne demand around general commercial real estate, lease and availability language, building/address queries, and direct warehouse or industrial searches.",
+          "The most defensible first warehouse / industrial geography is the airport and Airport Expressway area, where official airport and economic-development sources support an industrial, logistics, and business-park context."
+        ],
+        "propertyTypeContext": {
+          "office": "Office questions should remain general until Rofo has stronger Fort Wayne office district and representative-building evidence.",
+          "retail": "Retail demand is visible in search, but retail-depth work is outside this warehouse / industrial foundation mission and should be assessed separately.",
+          "industrial": "Warehouse and industrial searches should begin by validating airport-area access, loading, truck movement, yard or trailer needs, and whether the use is storage, distribution, service-industrial, or light operations.",
+          "flex": "Flex requirements should be treated as property-specific office/warehouse or service-commercial searches until more Fort Wayne flex evidence is acquired."
+        },
+        "businessLocationContext": [
+          "Fort Wayne is now foundation-stage rather than unmapped for warehouse / industrial work.",
+          "The airport and Airport Expressway area is the first source-supported warehouse / industrial geography for future Fort Wayne evidence work.",
+          "Representative industrial examples should be used to frame what to validate, not as live availability claims.",
+          "Public business-type guides should remain deferred until Rofo has broader district, building, and property-type evidence."
+        ],
+        "nearbyMarkets": [
+          {
+            "label": "Indianapolis",
+            "path": "/commercial-real-estate/IN/indianapolis/"
+          },
+          {
+            "label": "South Bend",
+            "path": "/commercial-real-estate/IN/south-bend/"
+          },
+          {
+            "label": "Toledo",
+            "path": "/commercial-real-estate/OH/toledo/"
+          }
+        ],
+        "cta": {
+          "label": "Create My Location Brief",
+          "href": "/find-locations/?city=Fort%20Wayne&state=IN&propertyType=industrial&source=market_snapshot"
+        },
+        "sourceTrace": [
+          "EOS Mission #002",
+          "Search Intelligence Fort Wayne warehouse / industrial demand signal",
+          "Fort Wayne International Airport Air Trade Centre source material",
+          "Greater Fort Wayne / Allen County economic-development source material",
+          "Fort Wayne Airport Industrial Commercial Market Evidence collection"
+        ],
+        "lastReviewed": "2026-08-07"
+      },
+      {
+        "schemaVersion": "occupier-market-snapshot-v1",
         "marketId": "tempe",
         "title": "Tempe Market Snapshot",
         "commercialCharacter": "Tempe is a Phoenix-area commercial market where office, flex, service, and industrial-adjacent searches often need to be compared against broader metro alternatives before a business chooses a specific location.",
@@ -15194,12 +15234,13 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 11,
+      "collections": 12,
       "districts": [
         "Design District",
         "Dogpatch",
         "Downtown Denver",
         "Financial District",
+        "Fort Wayne Airport Industrial",
         "Jackson Square",
         "Mission Bay",
         "Mission District",
@@ -15208,10 +15249,11 @@
         "SoMa",
         "South Beach"
       ],
-      "evidenceRecords": 97,
+      "evidenceRecords": 100,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
+        "Airport-Oriented Industrial Area",
         "Biotech Research Environment",
         "Boutique Executive Office",
         "Boutique-Leaning Class A Tower",
@@ -15231,6 +15273,7 @@
         "Design Event / Showroom Center",
         "Design Showroom Anchor",
         "Downtown Class A Office",
+        "Economic Development Context",
         "Emerging Office/R&D Innovation",
         "Executive Office Environment",
         "Government-Adjacent Office",
@@ -15280,6 +15323,7 @@
         "Professional Services Tower",
         "Repositioned Downtown Tower",
         "Repositioned Waterfront-Adjacent Office",
+        "Representative Industrial Property Pattern",
         "Research Lab Environment",
         "Residential / Commercial Mixed-Use Anchor",
         "Showroom / Creative Office Anchor",
@@ -15317,6 +15361,7 @@
         "Brannan Mixed-Use Fabric Benchmark",
         "Brick-and-Timber Character Benchmark",
         "Broadway / North Beach Transition Benchmark",
+        "Building Profile Prerequisite",
         "Caltrain / Showplace Connection",
         "Caltrain-Oriented Workspace Benchmark",
         "Central SoMa Adaptive-Reuse Benchmark",
@@ -15349,6 +15394,7 @@
         "Historic SoMa Office Identity Benchmark",
         "Historic Waterfront Reuse Benchmark",
         "Hospitality-Style Repositioning Benchmark",
+        "Industrial Foundation Anchor",
         "Large Adaptive Creative Technology Benchmark",
         "Large Creative Floorplate Benchmark",
         "Larger Creative Inventory Benchmark",
@@ -15401,14 +15447,16 @@
         "Transit-Oriented Professional Services Benchmark",
         "UCSF-Adjacency Research Benchmark",
         "Walkable Downtown Access Benchmark",
+        "Warehouse / Industrial Market Context",
         "Warehouse Showroom Pattern",
         "Waterfront Historic Office Benchmark"
       ],
       "confidenceSummary": {
-        "High": 97
+        "High": 99,
+        "Low": 1
       },
-      "deferredCandidates": 45,
-      "latestValidation": "2026-08-07T18:11:38-07:00",
+      "deferredCandidates": 48,
+      "latestValidation": "2026-08-07T18:41:33-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -15427,10 +15475,10 @@
           "Publisher"
         ],
         "coverageSummary": {
-          "knowledgeGraphDistricts": 110,
-          "existingCollections": 11,
+          "knowledgeGraphDistricts": 111,
+          "existingCollections": 12,
           "missingCollections": 99,
-          "resolvedDistricts": 110,
+          "resolvedDistricts": 111,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
           "fallbackAssignments": 0,
@@ -15458,6 +15506,17 @@
             "resolvedDistricts": 7,
             "existingCollections": 0,
             "missingCollections": 7
+          },
+          {
+            "marketId": "fort-wayne",
+            "marketName": "Fort Wayne",
+            "regionId": "midwest",
+            "regionName": "Midwest",
+            "publisherMetroId": "fort-wayne",
+            "publisherMetroName": "Fort Wayne",
+            "resolvedDistricts": 1,
+            "existingCollections": 1,
+            "missingCollections": 0
           },
           {
             "marketId": "los-angeles",
@@ -16969,6 +17028,20 @@
               "isFallbackAssignment": false
             },
             {
+              "districtId": "fort-wayne-airport-industrial",
+              "districtName": "Fort Wayne Airport Industrial",
+              "city": "fort-wayne",
+              "state": "IN",
+              "marketId": "fort-wayne",
+              "marketName": "Fort Wayne",
+              "regionId": "midwest",
+              "regionName": "Midwest",
+              "publisherMetroId": "fort-wayne",
+              "publisherMetroName": "",
+              "resolutionSource": "explicit district ownership",
+              "isFallbackAssignment": false
+            },
+            {
               "districtId": "bellevue-cbd-office",
               "districtName": "Bellevue CBD Office",
               "city": "Bellevue",
@@ -17311,6 +17384,24 @@
             "resolutionSource": "explicit district ownership",
             "path": "/commercial-real-estate/CO/denver/downtown-denver/",
             "collectionId": "den-downtown-denver-commercial-market-evidence"
+          },
+          {
+            "districtId": "fort-wayne-airport-industrial",
+            "districtName": "Fort Wayne Airport Industrial",
+            "city": "fort-wayne",
+            "state": "IN",
+            "metroId": "fort-wayne",
+            "metroName": "Fort Wayne",
+            "marketId": "fort-wayne",
+            "marketName": "Fort Wayne",
+            "regionId": "midwest",
+            "regionName": "Midwest",
+            "publisherMetroId": "fort-wayne",
+            "publisherMetroName": "",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/",
+            "collectionId": "fort-wayne-airport-industrial-commercial-market-evidence"
           }
         ],
         "missingCollections": [
@@ -23987,6 +24078,13 @@
         "state": "WA",
         "status": "active",
         "purpose": "Groups Pacific Northwest commercial markets."
+      },
+      {
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "state": "IN",
+        "status": "foundation",
+        "purpose": "Groups Midwest search-led commercial markets where Rofo is establishing bounded market foundations."
       }
     ],
     "markets": [
@@ -24307,14 +24405,36 @@
           "metroId": "seattle",
           "metroName": "Seattle"
         }
+      },
+      {
+        "id": "fort-wayne",
+        "name": "Fort Wayne",
+        "marketId": "fort-wayne",
+        "marketName": "Fort Wayne",
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "state": "IN",
+        "status": "foundation",
+        "cities": [
+          "Fort Wayne"
+        ],
+        "publisherMetroId": "fort-wayne",
+        "publisherMetroName": "Fort Wayne",
+        "publicRoute": "/commercial-real-estate/IN/fort-wayne/",
+        "implementationNote": "Search-led warehouse / industrial foundation market; canonical coverage is intentionally narrow until additional evidence is acquired.",
+        "districtCount": 1,
+        "publisherCompatibility": {
+          "metroId": "fort-wayne",
+          "metroName": "Fort Wayne"
+        }
       }
     ],
     "districtOwnershipSummary": {
-      "districtCount": 110,
-      "resolvedDistricts": 110,
+      "districtCount": 111,
+      "resolvedDistricts": 111,
       "unresolvedDistricts": 0,
       "duplicateAssignments": 0,
-      "recommendationEligibleDistricts": 110
+      "recommendationEligibleDistricts": 111
     },
     "ownershipByDistrict": [
       {
@@ -24508,6 +24628,18 @@
         "marketName": "East Bay",
         "recommendationEligible": true,
         "publicRoute": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
+      },
+      {
+        "districtId": "fort-wayne-airport-industrial",
+        "districtName": "Fort Wayne Airport Industrial",
+        "city": "fort-wayne",
+        "state": "IN",
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "marketId": "fort-wayne",
+        "marketName": "Fort Wayne",
+        "recommendationEligible": true,
+        "publicRoute": "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/"
       },
       {
         "districtId": "dogpatch",
@@ -32377,6 +32509,53 @@
             "confidence": "Medium"
           },
           {
+            "evidenceMissionId": "district-building-evidence:fort-wayne:fort-wayne-airport-industrial",
+            "marketId": "fort-wayne",
+            "marketName": "Fort Wayne",
+            "programId": "commercial_market_evidence",
+            "campaignId": "fort-wayne:commercial_market_evidence:completion-campaign",
+            "districtId": "fort-wayne-airport-industrial",
+            "districtName": "Fort Wayne Airport Industrial",
+            "districtPath": "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/",
+            "cmeStatus": "Complete",
+            "collectionId": "fort-wayne-airport-industrial-commercial-market-evidence",
+            "evidenceRecordCount": 3,
+            "evidenceProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "0 / 0"
+            },
+            "supportingProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "No supporting profile work selected"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
+            "deferredWorkItems": [],
+            "missionSize": {
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
+            },
+            "eligibleForExecution": false,
+            "groupingRationale": [
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+            ],
+            "splitRationale": [
+              "No split required; district building evidence stays within the configured mission-size upper bound."
+            ],
+            "confidence": "High"
+          },
+          {
             "evidenceMissionId": "district-building-evidence:orange-county:irvine-business-complex",
             "marketId": "orange-county",
             "marketName": "Orange County",
@@ -38129,9 +38308,9 @@
           }
         ],
         "summary": {
-          "districts": 89,
+          "districts": 90,
           "executableDistrictMissions": 86,
-          "completedDistricts": 3,
+          "completedDistricts": 4,
           "inProgressDistricts": 8,
           "missingCollections": 78,
           "hiddenWorkItems": 324,
@@ -38284,6 +38463,14 @@
         "marketIds": [
           "seattle"
         ]
+      },
+      {
+        "regionId": "midwest",
+        "regionName": "Midwest",
+        "state": "IN",
+        "status": "foundation",
+        "purpose": "Groups Midwest search-led commercial markets where Rofo is establishing bounded market foundations.",
+        "marketIds": []
       }
     ],
     "markets": [

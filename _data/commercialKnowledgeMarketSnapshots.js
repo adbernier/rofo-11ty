@@ -204,6 +204,46 @@ module.exports = {
     ],
     lastReviewed: "2026-08-07",
   },
+  "IN/fort-wayne": {
+    schemaVersion: "occupier-market-snapshot-v1",
+    marketId: "fort-wayne",
+    title: "Fort Wayne Market Snapshot",
+    commercialCharacter:
+      "Fort Wayne is a Northeast Indiana commercial market where general commercial-space demand now needs a clearer warehouse and industrial foundation before Rofo can publish deeper occupier guidance.",
+    businessDrivers: [
+      "Search Intelligence shows Fort Wayne demand around general commercial real estate, lease and availability language, building/address queries, and direct warehouse or industrial searches.",
+      "The most defensible first warehouse / industrial geography is the airport and Airport Expressway area, where official airport and economic-development sources support an industrial, logistics, and business-park context.",
+    ],
+    propertyTypeContext: {
+      office: "Office questions should remain general until Rofo has stronger Fort Wayne office district and representative-building evidence.",
+      retail: "Retail demand is visible in search, but retail-depth work is outside this warehouse / industrial foundation mission and should be assessed separately.",
+      industrial: "Warehouse and industrial searches should begin by validating airport-area access, loading, truck movement, yard or trailer needs, and whether the use is storage, distribution, service-industrial, or light operations.",
+      flex: "Flex requirements should be treated as property-specific office/warehouse or service-commercial searches until more Fort Wayne flex evidence is acquired.",
+    },
+    businessLocationContext: [
+      "Fort Wayne is now foundation-stage rather than unmapped for warehouse / industrial work.",
+      "The airport and Airport Expressway area is the first source-supported warehouse / industrial geography for future Fort Wayne evidence work.",
+      "Representative industrial examples should be used to frame what to validate, not as live availability claims.",
+      "Public business-type guides should remain deferred until Rofo has broader district, building, and property-type evidence.",
+    ],
+    nearbyMarkets: [
+      { label: "Indianapolis", path: "/commercial-real-estate/IN/indianapolis/" },
+      { label: "South Bend", path: "/commercial-real-estate/IN/south-bend/" },
+      { label: "Toledo", path: "/commercial-real-estate/OH/toledo/" },
+    ],
+    cta: {
+      label: "Create My Location Brief",
+      href: "/find-locations/?city=Fort%20Wayne&state=IN&propertyType=industrial&source=market_snapshot",
+    },
+    sourceTrace: [
+      "EOS Mission #002",
+      "Search Intelligence Fort Wayne warehouse / industrial demand signal",
+      "Fort Wayne International Airport Air Trade Centre source material",
+      "Greater Fort Wayne / Allen County economic-development source material",
+      "Fort Wayne Airport Industrial Commercial Market Evidence collection",
+    ],
+    lastReviewed: "2026-08-07",
+  },
   "AZ/tempe": {
     schemaVersion: "occupier-market-snapshot-v1",
     marketId: "tempe",

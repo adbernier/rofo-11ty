@@ -504,6 +504,31 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
     ] },
   },
   {
+    id: "fort-wayne",
+    slug: "fort-wayne",
+    label: "Fort Wayne",
+    type: "city",
+    city: "Fort Wayne",
+    state: "IN",
+    path: "/commercial-real-estate/IN/fort-wayne/",
+    confidence: "medium",
+    marketPath: ["fort-wayne-airport-industrial"],
+    spaceTypeFit: {
+      industrial: fit("good", "Foundation-stage fit for warehouse, distribution, service-industrial, and light operational users that need Fort Wayne access before comparing building-level logistics requirements.", ["warehouse users", "distribution users", "service-industrial businesses"], ["Rofo's district and building evidence is still early and should be validated before public recommendation expansion"]),
+      warehouse: fit("good", "Useful initial warehouse market context where airport-area and expressway access appear to be the clearest supported industrial pattern.", ["storage users", "last-mile operations", "regional service businesses"], ["loading, clear height, yard, and trailer circulation require property-level review"]),
+      flex: fit("limited", "Some office/warehouse and flex needs may fit Fort Wayne, but current Rofo evidence is stronger for warehouse and industrial foundation work than for general flex guidance.", ["service businesses", "light operational users"], ["flex-specific district and building evidence remains thin"]),
+    },
+    attributes: businessAttrs({ freewayAccess: "medium", parking: "medium", expansionFlexibility: "medium", costPosition: "medium" }),
+    industrialAttributes: industrialAttrs({ truckAccess: "medium", highwayAccess: "medium", portAirportAccess: "high", loading: "medium", yard: "medium", zoningFlexibility: "medium", laborAccess: "medium", parkingTrailer: "medium" }),
+    bestFor: ["warehouse users", "distribution users", "service-industrial businesses"],
+    tradeoffs: ["foundation-stage evidence only", "building-level loading, clear height, yard, and use permissions must be verified"],
+    strengths: ["airport-area industrial geography", "general commercial search demand", "warehouse and industrial search signals"],
+    questionsToValidate: ["Is airport access important to the operation?", "Do you need loading, yard, trailer parking, or clear-height requirements?", "Is the search local-service oriented or regional distribution oriented?", "Would another Northeast Indiana market better fit the service territory?"],
+    relationships: { compareWith: [
+      { slug: "fort-wayne-airport-industrial", label: "Fort Wayne Airport Industrial", reason: "Initial warehouse and industrial foundation area for airport-oriented operations.", relationshipType: "better_truck_access" },
+    ] },
+  },
+  {
     slug: "palo-alto",
     label: "Palo Alto",
     type: "city",
@@ -534,6 +559,50 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
   {
     slug: "san-bruno",
     questionsToValidate: ["Is SFO or Peninsula access the main driver?", "Do you need a local-serving office or broader regional alternatives?", "How important is freeway access and parking?", "Should nearby stronger graph markets be reviewed with a local expert?"],
+  },
+].forEach((card) => mergeKnowledgeCard(graph, card));
+
+[
+  {
+    slug: "fort-wayne-airport-industrial",
+    label: "Fort Wayne Airport Industrial",
+    type: "district",
+    city: "fort-wayne",
+    state: "IN",
+    path: "/commercial-real-estate/IN/fort-wayne/fort-wayne-airport-industrial/",
+    confidence: "medium",
+    recommendationEligible: true,
+    operationalMarketId: "fort-wayne",
+    operationalMarketName: "Fort Wayne",
+    spaceTypeFit: {
+      industrial: fit("strong", "Strongest current Fort Wayne foundation area for warehouse, distribution, airport-adjacent industrial, and service-operational requirements.", ["warehouse users", "distribution users", "service-industrial businesses", "light operational users"], ["Rofo has not yet validated enough representative properties for broad public recommendation use"]),
+      warehouse: fit("strong", "Useful starting point for businesses that need a Fort Wayne warehouse context shaped by airport and expressway access.", ["storage users", "last-mile operations", "regional logistics users"], ["clear height, loading, truck circulation, and trailer parking must be validated property by property"]),
+      flex: fit("good", "Selective fit for users that need office/warehouse or service-commercial space near the airport-oriented industrial area.", ["service businesses", "contractor operations", "office/warehouse users"], ["not every industrial property will support customer-facing or office-heavy flex use"]),
+    },
+    attributes: businessAttrs({ freewayAccess: "medium", parking: "medium", expansionFlexibility: "medium", costPosition: "medium" }),
+    industrialAttributes: industrialAttrs({ truckAccess: "medium", highwayAccess: "medium", portAirportAccess: "high", loading: "medium", yard: "medium", zoningFlexibility: "medium", laborAccess: "medium", parkingTrailer: "medium" }),
+    bestFor: ["warehouse users", "distribution users", "airport-adjacent industrial users", "service-operational businesses"],
+    tradeoffs: ["foundation-stage evidence only", "current availability is not implied", "property-level loading, access, and permitted-use validation remains required"],
+    strengths: ["airport-oriented industrial setting", "expressway access context", "warehouse and distribution relevance", "foundation value for future Fort Wayne industrial work"],
+    questionsToValidate: ["What loading configuration is required?", "Do trucks, trailers, yard, or outdoor storage matter?", "Does airport proximity materially improve the operation?", "Is the requirement warehouse, service-industrial, light manufacturing, or flex?"],
+    relationships: { compareWith: [] },
+    commercialGeography: {
+      canonicalDistrict: true,
+      eligibility: "first_class",
+      marketId: "fort-wayne",
+      marketName: "Fort Wayne",
+      operationalOwnership: "canonical_market",
+      maturityMeasuredBy: ["Market Snapshot", "Commercial Market Evidence", "Representative Buildings", "Source Trace"],
+    },
+    commercialEcosystem: {
+      primary: "industrial_flex",
+      secondary: [],
+      subtypes: ["warehouse", "distribution", "small_bay_industrial", "flex"],
+      activities: ["receiving", "shipping", "storage", "distribution", "service_dispatch"],
+      archetypes: ["distributor", "wholesaler", "ecommerce_fulfillment_business", "building_services_company", "general_contractor"],
+      confidence: "medium",
+      reviewNotes: ["Foundation-stage classification based on bounded airport-area industrial evidence."],
+    },
   },
 ].forEach((card) => mergeKnowledgeCard(graph, card));
 

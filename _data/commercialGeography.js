@@ -34,6 +34,13 @@ const regions = [
     status: "active",
     purpose: "Groups Pacific Northwest commercial markets.",
   },
+  {
+    regionId: "midwest",
+    regionName: "Midwest",
+    state: "IN",
+    status: "foundation",
+    purpose: "Groups Midwest search-led commercial markets where Rofo is establishing bounded market foundations.",
+  },
 ];
 
 const markets = [
@@ -158,6 +165,18 @@ const markets = [
     status: "active",
     publisherCompatibility: { metroId: "seattle", metroName: "Seattle" },
     publicRoute: "/commercial-real-estate/WA/seattle/",
+  },
+  {
+    marketId: "fort-wayne",
+    marketName: "Fort Wayne",
+    regionId: "midwest",
+    regionName: "Midwest",
+    state: "IN",
+    cities: ["Fort Wayne"],
+    status: "foundation",
+    publisherCompatibility: { metroId: "fort-wayne", metroName: "Fort Wayne" },
+    publicRoute: "/commercial-real-estate/IN/fort-wayne/",
+    implementationNote: "Search-led warehouse / industrial foundation market; canonical coverage is intentionally narrow until additional evidence is acquired.",
   },
 ];
 
