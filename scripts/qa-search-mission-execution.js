@@ -39,6 +39,8 @@ assert(missionSource.includes("evidenceSnapshot(mission)"), "Commenced mission s
 assert(missionSource.includes("baselineSearchSnapshot(mission, eos)"), "Commenced mission should capture baseline Search snapshot.");
 assert(missionSource.includes("generateSearchMissionWorkPacket"), "Search Mission Work Packet generation is missing.");
 assert(missionSource.includes("codexPacketMarkdown"), "Codex-ready packet rendering is missing.");
+assert(missionSource.includes("createMarketFoundationMission"), "Market opportunity foundation mission generation is missing.");
+assert(missionSource.includes("marketFoundationMissionId"), "Market opportunity mission source IDs are missing.");
 assert(missionSource.includes("Field / Human"), "Work Packet should distinguish human/field work where applicable.");
 assert(missionSource.includes("Do not change Search Mission scoring"), "Codex packet boundaries should protect Search Mission behavior.");
 assert(missionSource.includes("assessMarketFoundation"), "Search Mission packets should include Market Foundation assessment.");
@@ -60,6 +62,9 @@ assert(eosSource.includes("Continue Mission"), "Today should continue active mis
 assert(eosSource.includes("Copy Codex Packet"), "Mission pages should expose Copy Codex Packet.");
 assert(eosSource.includes("Foundation Assessment"), "Search Mission review should show foundation assessment.");
 assert(eosSource.includes("Market Foundation"), "Mission detail should preserve market foundation snapshot.");
+assert(eosSource.includes("searchMissionOpportunityState"), "Search Mission opportunity state should remain separate from execution mission state.");
+assert(eosSource.includes("marketOpportunityAction"), "Google Opportunity cards should expose recommended action logic.");
+assert(eosSource.includes("renderMarketMissionReview"), "Market-specific opportunity missions should be reviewable.");
 
 assert(!missionSource.includes("data/generated/search-console-opportunity.json"), "Mission persistence must not import raw Search Intelligence snapshots.");
 assert(!missionSource.includes("data/generated/eos-analysis.json"), "Mission persistence must not import full EOS analysis.");

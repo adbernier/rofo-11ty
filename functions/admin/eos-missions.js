@@ -34,6 +34,7 @@ const MISSION_INDEX_SQL = [
 ];
 
 const SEARCH_MISSION_SOURCE = "search_intelligence";
+const MARKET_MISSION_PREFIX = "market-foundation";
 
 function safeJsonParse(value, fallback) {
   try {
@@ -80,6 +81,7 @@ function missionPropertyTypes(mission) {
 function missionThemes(mission) {
   const themes = [];
   if (mission.type) themes.push(labelize(mission.type));
+  if (mission.sourceContext && mission.sourceContext.parentMissionTitle) themes.push(mission.sourceContext.parentMissionTitle);
   for (const gap of asArray(mission.knowledgeGaps)) themes.push(labelize(gap));
   return unique(themes).slice(0, 8);
 }
@@ -94,6 +96,97 @@ function estimatedEffort(mission) {
 function expectedImpact(mission) {
   if (mission.expectedImpact) return mission.expectedImpact;
   return mission.confidence === "high" ? "High" : "Medium";
+}
+
+function formatMetric(value) {
+  return Number.isFinite(Number(value)) ? String(Number(value).toFixed(Number(value) % 1 ? 1 : 0)) : "pending";
+}
+
+function parentSearchMissionForMarket(eos, marketId) {
+  const missions = asArray((eos.commercialKnowledgeIntelligence || {}).searchMissions);
+  return missions.find((mission) =>
+    asArray(mission.supportingMarkets).some((market) => market.marketId === marketId)
+  ) || null;
+}
+
+function primaryMarketPropertyType(market, parentMission = null) {
+  const themeIds = new Set(asArray(market.dominantThemes).map((theme) => theme.id));
+  const text = `${parentMission ? parentMission.title : ""} ${asArray(market.knowledgeGaps).join(" ")}`.toLowerCase();
+  if (/warehouse|industrial/.test(text) || themeIds.has("warehouse") || themeIds.has("industrial")) return "Warehouse / Industrial";
+  if (/retail/.test(text) || themeIds.has("retail")) return "Retail";
+  if (/office/.test(text) || themeIds.has("office")) return "Office";
+  if (/flex/.test(text) || themeIds.has("flex")) return "Flex";
+  if (/medical|healthcare/.test(text) || themeIds.has("medical")) return "Medical Office";
+  return "Commercial Knowledge";
+}
+
+export function marketFoundationMissionId(parentMissionId, marketId) {
+  return `${MARKET_MISSION_PREFIX}:${parentMissionId || "market-opportunity"}:${marketId}`;
+}
+
+export function parseMarketFoundationMissionId(sourceMissionId) {
+  const parts = String(sourceMissionId || "").split(":");
+  if (parts[0] !== MARKET_MISSION_PREFIX || parts.length < 3) return null;
+  return {
+    parentMissionId: parts.slice(1, -1).join(":") || "market-opportunity",
+    marketId: parts[parts.length - 1],
+  };
+}
+
+export function createMarketFoundationMission(eos, sourceMissionId) {
+  const parsed = parseMarketFoundationMissionId(sourceMissionId);
+  if (!parsed) return null;
+  const intelligence = eos.commercialKnowledgeIntelligence || {};
+  const market = asArray((intelligence.googleOpportunity || {}).markets).find((item) => item.marketId === parsed.marketId);
+  if (!market) return null;
+  const explicitParent = asArray(intelligence.searchMissions).find((mission) => mission.id === parsed.parentMissionId);
+  const parentMission = explicitParent || parentSearchMissionForMarket(eos, market.marketId);
+  const propertyType = primaryMarketPropertyType(market, parentMission);
+  const parentLabel = parentMission ? parentMission.title : "Google Opportunity";
+  const title = propertyType === "Commercial Knowledge"
+    ? `Establish ${market.marketName} Foundation`
+    : `Establish ${market.marketName} ${propertyType} Foundation`;
+  const evidence = [
+    `${market.marketName} has ${formatMetric(market.impressions)} observed impressions at average position ${formatMetric(market.averagePosition)}.`,
+    `Dominant themes include ${asArray(market.dominantThemes).slice(0, 3).map((theme) => theme.label).join(", ") || "general commercial demand"}.`,
+    `Parent opportunity: ${parentLabel}.`,
+  ];
+  if (market.strategicParent && market.strategicParent.marketName) {
+    evidence.push(`Strategic parent support: ${market.strategicParent.marketName}.`);
+  }
+  return {
+    id: sourceMissionId,
+    parentMissionId: parentMission ? parentMission.id : "",
+    type: "market_foundation",
+    title,
+    confidence: market.googleOpportunity === "high" ? "medium" : "low",
+    impressions: market.impressions,
+    clicks: market.clicks || 0,
+    averagePosition: market.averagePosition,
+    momentum: market.momentum && market.momentum.twentyEightDay ? market.momentum.twentyEightDay.impressionMomentum : market.momentum || null,
+    occupierRelevance: market.occupierDemandShare >= 0.6 ? "high" : "medium",
+    supportingMarkets: [{
+      marketId: market.marketId,
+      marketName: market.marketName,
+      state: market.state,
+      impressions: market.impressions,
+      averagePosition: market.averagePosition,
+      googleOpportunity: market.googleOpportunity,
+      momentum: market.momentum,
+      strategicParent: market.strategicParent || null,
+    }],
+    evidence,
+    knowledgeGaps: asArray(market.knowledgeGaps),
+    recommendedActions: asArray(market.recommendedActions),
+    whyNow: `${market.marketName} has visible search demand, but foundation work is needed before deeper ${propertyType.toLowerCase()} knowledge can be built responsibly.`,
+    source: SEARCH_MISSION_SOURCE,
+    sourceContext: {
+      parentMissionId: parentMission ? parentMission.id : "",
+      parentMissionTitle: parentMission ? parentMission.title : "",
+      marketId: market.marketId,
+      actionType: "market_foundation",
+    },
+  };
 }
 
 function gapLabel(gap) {
@@ -399,6 +492,7 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
   return {
     schemaVersion: "eos-search-mission-work-packet-v1",
     objective: `Complete the bounded ${mission.title} mission without changing Search Mission scoring, GSC ingestion, recommendations, or public URL architecture.`,
+    sourceContext: mission.sourceContext || null,
     whyThisWork: asArray(mission.evidence).concat(mission.whyNow ? [mission.whyNow] : []),
     targets: {
       markets: supportingMarkets,
@@ -591,7 +685,8 @@ export async function commenceSearchMission(env, eos, sourceMissionId) {
   const existing = await getActiveMissionForSource(env, sourceMissionId);
   if (existing) return { mission: existing, created: false };
 
-  const mission = asArray(((eos.commercialKnowledgeIntelligence || {}).searchMissions)).find((item) => item.id === sourceMissionId);
+  const mission = asArray(((eos.commercialKnowledgeIntelligence || {}).searchMissions)).find((item) => item.id === sourceMissionId)
+    || createMarketFoundationMission(eos, sourceMissionId);
   if (!mission) throw new Error(`Search Mission not found: ${sourceMissionId}`);
 
   const packet = generateSearchMissionWorkPacket(mission, eos);

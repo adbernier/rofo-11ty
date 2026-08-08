@@ -6,9 +6,11 @@ import {
 import {
   codexPacketMarkdown,
   commenceSearchMission,
+  createMarketFoundationMission,
   generateSearchMissionWorkPacket,
   getMission,
   listMissions,
+  marketFoundationMissionId,
   markMissionComplete,
   updateMissionTask,
 } from "./eos-missions.js";
@@ -1031,21 +1033,149 @@ function activeMissionBySourceId(missionState) {
   return map;
 }
 
-function completedMissionSourceIds(missionState) {
-  return new Set(((missionState && missionState.missions) || [])
-    .filter((mission) => mission.status === "completed" && mission.sourceMissionId)
-    .map((mission) => mission.sourceMissionId));
+function totalMarketCountForSearchMission(mission) {
+  const evidenceText = ((mission.evidence || []).join(" ") || "");
+  const match = evidenceText.match(/across\s+(\d+)\s+markets?/i);
+  const parsed = match ? Number(match[1]) : null;
+  return Number.isFinite(parsed) && parsed > 0
+    ? parsed
+    : (mission.supportingMarkets || []).length;
 }
 
-function renderSearchMissionState(mission, token, activeBySource, completedSources) {
+function missionTargetMarketIds(mission) {
+  const packetMarkets = (((mission.workPacket || {}).targets || {}).markets) || mission.supportingMarkets || [];
+  return new Set(packetMarkets.map((market) => market.marketId).filter(Boolean));
+}
+
+function searchMissionOpportunityState(mission, missionState) {
+  const active = activeMissionBySourceId(missionState).get(mission.id);
+  const related = ((missionState && missionState.missions) || [])
+    .filter((record) => record.sourceMissionId === mission.id);
+  const addressedMarkets = new Set();
+  related
+    .filter((record) => record.status === "completed")
+    .forEach((record) => missionTargetMarketIds(record).forEach((marketId) => addressedMarkets.add(marketId)));
+  const totalMarkets = totalMarketCountForSearchMission(mission);
+  const remainingMarkets = Math.max(0, totalMarkets - addressedMarkets.size);
+  const meaningfulGaps = (mission.knowledgeGaps || []).length > 0;
+  const state = active
+    ? "active_execution"
+    : remainingMarkets === 0 && !meaningfulGaps
+      ? "addressed"
+      : addressedMarkets.size
+        ? "active_opportunity"
+        : "suggested";
+  const progressText = addressedMarkets.size
+    ? `${addressedMarkets.size} market${addressedMarkets.size === 1 ? "" : "s"} addressed${remainingMarkets ? ` · ${remainingMarkets} remain` : ""}`
+    : "";
+  return { state, active, addressedMarkets, totalMarkets, remainingMarkets, progressText };
+}
+
+function renderSearchMissionState(mission, token, activeBySource, missionState) {
   const active = activeBySource.get(mission.id);
   if (active) {
     return `<a class="start-work start-work--small" href="${durableMissionUrl(token, active.id)}">${escapeHtml(active.displayId)} · Active</a>`;
   }
-  if (completedSources.has(mission.id)) {
-    return `<span class="mission-state-pill mission-state-pill--completed">Completed</span>`;
+  const opportunity = searchMissionOpportunityState(mission, missionState);
+  if (opportunity.state === "addressed") {
+    return `<span class="mission-state-pill mission-state-pill--completed">Addressed</span>`;
   }
-  return `<a class="start-work start-work--small" href="${searchMissionUrl(token, mission.id)}">Review Mission</a>`;
+  const stateLabel = opportunity.state === "active_opportunity" ? "Active Opportunity" : "Suggested";
+  const progress = opportunity.progressText ? `<small>${escapeHtml(opportunity.progressText)}</small>` : "";
+  return `<span class="mission-state-stack"><span class="mission-state-pill">${escapeHtml(stateLabel)}</span>${progress}<a class="start-work start-work--small" href="${searchMissionUrl(token, mission.id)}">Review Mission</a></span>`;
+}
+
+function parentMissionForMarket(intelligence, market) {
+  return ((intelligence.searchMissions || [])).find((mission) =>
+    (mission.supportingMarkets || []).some((item) => item.marketId === market.marketId)
+  ) || null;
+}
+
+function marketOpportunityAction(intelligence, market, token, missionState) {
+  const coverage = market.knowledgeCoverage || {};
+  const themeIds = new Set((market.dominantThemes || []).map((theme) => theme.id));
+  const hasIndustrial = themeIds.has("warehouse") || themeIds.has("industrial") || (market.knowledgeGaps || []).includes("industrial-warehouse-depth");
+  const hasRetail = themeIds.has("retail") || (market.knowledgeGaps || []).includes("retail-depth");
+  const parent = parentMissionForMarket(intelligence, market);
+  const sourceId = marketFoundationMissionId(parent ? parent.id : "market-opportunity", market.marketId);
+  const active = activeMissionBySourceId(missionState).get(sourceId);
+
+  if (active) {
+    return {
+      category: "Continue Foundation",
+      label: `Active as ${active.displayId}`,
+      cta: "Continue Mission",
+      href: durableMissionUrl(token, active.id),
+      actionable: true,
+      sourceId,
+    };
+  }
+
+  if (market.strategicParent && !hasIndustrial && !hasRetail) {
+    return {
+      category: "Continue Strategic Market",
+      label: `Supports ${market.strategicParent.marketName}`,
+      cta: "Review Opportunity",
+      href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
+      actionable: true,
+      sourceId,
+    };
+  }
+
+  if ((market.googleOpportunity === "discovery") || (Number(market.averagePosition) > 35 && market.googleOpportunity !== "high")) {
+    return {
+      category: "Observe",
+      label: "Discovery signal; keep watching before commencing work.",
+      actionable: false,
+      sourceId,
+    };
+  }
+
+  if (coverage.hasMarketSnapshot && (Number(coverage.districtCount || 0) < 1 || (market.knowledgeGaps || []).includes("industrial-warehouse-depth"))) {
+    return {
+      category: "Continue Foundation",
+      label: hasIndustrial ? "Continue Industrial Foundation" : "Continue Foundation",
+      cta: "Review Foundation Mission",
+      href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
+      actionable: true,
+      sourceId,
+    };
+  }
+
+  if (!coverage.hasMarketSnapshot || Number(coverage.districtCount || 0) < 1) {
+    const target = hasIndustrial ? "Warehouse / Industrial" : hasRetail ? "Retail" : "Commercial";
+    return {
+      category: "Establish Foundation",
+      label: `Establish ${target} Foundation`,
+      cta: "Review Foundation Mission",
+      href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
+      actionable: true,
+      sourceId,
+    };
+  }
+
+  return {
+    category: "Deepen Knowledge",
+    label: hasIndustrial ? "Deepen Industrial Knowledge" : hasRetail ? "Deepen Retail Knowledge" : "Deepen Knowledge",
+    cta: "Review Opportunity",
+    href: `/admin/eos?${tokenParam(token)}&queue=intelligence&marketMission=${encodeURIComponent(sourceId)}`,
+    actionable: true,
+    sourceId,
+  };
+}
+
+function renderMarketOpportunityAction(action) {
+  if (!action) return "";
+  const cta = action.actionable && action.href
+    ? `<a class="start-work start-work--small" href="${escapeHtml(action.href)}">${escapeHtml(action.cta || "Review Opportunity")}</a>`
+    : "";
+  return `
+    <div class="market-action">
+      <small>Recommended Action</small>
+      <strong>${escapeHtml(action.label || action.category)}</strong>
+      ${cta}
+    </div>
+  `;
 }
 
 function renderCommercialKnowledgeIntelligence(eos, token, missionState) {
@@ -1061,7 +1191,6 @@ function renderCommercialKnowledgeIntelligence(eos, token, missionState) {
   const investorSignals = (intelligence.investorFutureSignals || []).slice(0, 4);
   const publisherOpportunities = intelligence.publisherOpportunities || [];
   const activeBySource = activeMissionBySourceId(missionState);
-  const completedSources = completedMissionSourceIds(missionState);
 
   return `
     <section class="platform-service platform-service--knowledge" aria-label="Commercial Knowledge Intelligence">
@@ -1086,7 +1215,7 @@ function renderCommercialKnowledgeIntelligence(eos, token, missionState) {
                 <strong>${escapeHtml(mission.title)}</strong>
                 <small>${escapeHtml(mission.confidence)} confidence · ${escapeHtml(formatIntelligenceMetric(mission.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(mission.averagePosition))}</small>
                 <p>${escapeHtml(mission.whyNow || "Search demand and coverage gaps point to a focused knowledge mission.")}</p>
-                ${renderSearchMissionState(mission, token, activeBySource, completedSources)}
+                ${renderSearchMissionState(mission, token, activeBySource, missionState)}
               </li>
             `).join("") || "<li><strong>No recommended search missions</strong><small>Search Intelligence has not found a high-leverage editorial mission yet.</small></li>"}
           </ul>
@@ -1123,6 +1252,7 @@ function renderCommercialKnowledgeIntelligence(eos, token, missionState) {
                 <strong>${escapeHtml(market.marketName)}</strong>
                 <small>${escapeHtml(market.googleOpportunity)} · ${escapeHtml(formatIntelligenceMetric(market.impressions))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}${market.momentum && market.momentum.twentyEightDay ? ` · 28d ${escapeHtml(market.momentum.twentyEightDay.impressionMomentum)}` : ""}</small>
                 <p>${escapeHtml((market.dominantThemes || []).slice(0, 3).map((theme) => theme.label).join(", ") || "Themes pending")}</p>
+                ${renderMarketOpportunityAction(marketOpportunityAction(intelligence, market, token, missionState))}
               </li>
             `).join("")}
           </ul>
@@ -1191,7 +1321,6 @@ function todayRecommendations(eos, token, missionState) {
   const googleMarkets = (((intelligence.googleOpportunity || {}).markets) || []);
   const searchMissions = intelligence.searchMissions || [];
   const activeBySource = activeMissionBySourceId(missionState);
-  const completedSources = completedMissionSourceIds(missionState);
 
   if ((marketEvidence && marketEvidence.validationStatus && marketEvidence.validationStatus !== "PASS") || reviewQueue.length) {
     recommendations.push({
@@ -1207,7 +1336,7 @@ function todayRecommendations(eos, token, missionState) {
     });
   }
 
-  const searchMission = searchMissions.find((mission) => !completedSources.has(mission.id)) || searchMissions[0];
+  const searchMission = searchMissions.find((mission) => searchMissionOpportunityState(mission, missionState).state !== "addressed") || searchMissions[0];
   if (searchMission) {
     const activeMission = activeBySource.get(searchMission.id);
     const markets = (searchMission.supportingMarkets || []).slice(0, 3).map((market) => market.marketName).join(", ");
@@ -1418,36 +1547,20 @@ function searchMissionById(eos, missionId) {
   return (((eos.commercialKnowledgeIntelligence || {}).searchMissions) || []).find((mission) => mission.id === missionId) || null;
 }
 
-function renderSearchMissionReview(eos, missionId, token, missionState) {
-  const mission = searchMissionById(eos, missionId);
-  if (!mission) {
-    return `
-      <section class="panel">
-        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
-        <h2>Search Mission Not Found</h2>
-        <p>The requested Search Mission is not present in the current generated intelligence snapshot.</p>
-      </section>
-    `;
-  }
+function renderMissionProposalReview({ mission, packet, preview, token, missionState, kicker = "Search Mission Review" }) {
   const active = activeMissionBySourceId(missionState).get(mission.id);
   const completed = ((missionState && missionState.missions) || [])
     .filter((item) => item.sourceMissionId === mission.id && item.status === "completed")
     .sort((a, b) => Number(b.sequenceNumber || 0) - Number(a.sequenceNumber || 0))[0];
-  const packet = generateSearchMissionWorkPacket(mission, eos);
   const foundation = packet.marketFoundation || {};
-  const preview = codexPacketMarkdown({
-    displayId: "Suggested Mission",
-    title: mission.title,
-    objective: packet.objective,
-    workPacket: packet,
-  });
+  const opportunity = mission.type === "market_foundation" ? null : searchMissionOpportunityState(mission, missionState);
 
   return `
     <section class="panel search-mission-review">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
       <div class="section-heading">
         <div>
-          <span class="mission-kicker">Search Mission Review</span>
+          <span class="mission-kicker">${escapeHtml(kicker)}</span>
           <h2>${escapeHtml(mission.title)}</h2>
           <p>${escapeHtml(mission.whyNow || "Search Intelligence identified a focused editorial mission.")}</p>
         </div>
@@ -1461,7 +1574,8 @@ function renderSearchMissionReview(eos, missionId, token, missionState) {
       </div>
       ${completed && !active ? `<p class="mission-history-note">Last completed as <a href="${durableMissionUrl(token, completed.id)}">${escapeHtml(completed.displayId)}</a>. A new mission should be commenced only if current evidence or gaps justify a materially new packet.</p>` : ""}
       <div class="mission-facts">
-        <span><em>Status</em>${active ? `Active as ${escapeHtml(active.displayId)}` : "Suggested"}</span>
+        <span><em>Status</em>${active ? `Active as ${escapeHtml(active.displayId)}` : opportunity ? escapeHtml(labelize(opportunity.state === "active_opportunity" ? "Active Opportunity" : opportunity.state)) : "Suggested"}</span>
+        ${opportunity && opportunity.progressText ? `<span><em>Progress</em>${escapeHtml(opportunity.progressText)}</span>` : ""}
         <span><em>Confidence</em>${escapeHtml(mission.confidence || "")}</span>
         <span><em>Impressions</em>${escapeHtml(formatIntelligenceMetric(mission.impressions, "0"))}</span>
         <span><em>Avg Position</em>${escapeHtml(formatIntelligenceMetric(mission.averagePosition))}</span>
@@ -1516,6 +1630,55 @@ function renderSearchMissionReview(eos, missionId, token, missionState) {
       </section>
     </section>
   `;
+}
+
+function renderSearchMissionReview(eos, missionId, token, missionState) {
+  const mission = searchMissionById(eos, missionId);
+  if (!mission) {
+    return `
+      <section class="panel">
+        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
+        <h2>Search Mission Not Found</h2>
+        <p>The requested Search Mission is not present in the current generated intelligence snapshot.</p>
+      </section>
+    `;
+  }
+  const packet = generateSearchMissionWorkPacket(mission, eos);
+  const preview = codexPacketMarkdown({
+    displayId: "Suggested Mission",
+    title: mission.title,
+    objective: packet.objective,
+    workPacket: packet,
+  });
+  return renderMissionProposalReview({ mission, packet, preview, token, missionState });
+}
+
+function renderMarketMissionReview(eos, sourceMissionId, token, missionState) {
+  const mission = createMarketFoundationMission(eos, sourceMissionId);
+  if (!mission) {
+    return `
+      <section class="panel">
+        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
+        <h2>Market Opportunity Not Found</h2>
+        <p>The requested market opportunity is not present in the current generated intelligence snapshot.</p>
+      </section>
+    `;
+  }
+  const packet = generateSearchMissionWorkPacket(mission, eos);
+  const preview = codexPacketMarkdown({
+    displayId: "Suggested Mission",
+    title: mission.title,
+    objective: packet.objective,
+    workPacket: packet,
+  });
+  return renderMissionProposalReview({
+    mission,
+    packet,
+    preview,
+    token,
+    missionState,
+    kicker: "Market Opportunity Review",
+  });
 }
 
 function renderInventory(eos, token) {
@@ -1918,7 +2081,7 @@ function renderSnapshotError(token) {
 </html>`;
 }
 
-function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission }) {
+function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission }) {
   if (selectedMission) {
     return {
       active: "archive",
@@ -1926,10 +2089,10 @@ function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQue
       description: "Durable mission record, immutable evidence snapshot, generated work packet, and completion state.",
     };
   }
-  if (selectedSearchMission) {
+  if (selectedSearchMission || selectedMarketMission) {
     return {
       active: "intelligence",
-      title: "Search Mission Review",
+      title: selectedMarketMission ? "Market Opportunity Review" : "Search Mission Review",
       description: "Review the current search-led recommendation, generated work packet, and commencement action.",
     };
   }
@@ -1975,12 +2138,14 @@ function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQue
   };
 }
 
-function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission, durableMission, missionState }) {
-  const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMission });
+function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission, durableMission, missionState }) {
+  const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission });
   const body = selectedTask
     ? renderExecutionPacket(eos, selectedTask, token)
     : selectedMission
       ? renderDurableMissionPage(durableMission, token)
+      : selectedMarketMission
+      ? renderMarketMissionReview(eos, selectedMarketMission, token, missionState)
       : selectedSearchMission
       ? renderSearchMissionReview(eos, selectedSearchMission, token, missionState)
     : selectedQueue === "archive"
@@ -2231,6 +2396,10 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, se
     .knowledge-intelligence-grid strong { display: block; color: #0f172a; font-size: 0.9rem; line-height: 1.22; }
     .knowledge-intelligence-grid small { display: block; margin-top: 3px; color: #64748b; font-size: 0.76rem; }
     .knowledge-intelligence-grid p { margin: 5px 0 0; color: #475569; font-size: 0.78rem; }
+    .mission-state-stack, .market-action { display: grid; gap: 6px; justify-items: start; margin-top: 8px; }
+    .market-action { padding-top: 8px; border-top: 1px solid #e5edf7; }
+    .market-action small { margin: 0; color: var(--muted); font-size: 0.66rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .market-action strong { font-size: 0.84rem; }
     .market-evidence-expansion { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid #e5edf7; }
     .market-evidence-expansion .section-heading { margin-bottom: 10px; }
     .expansion-order { display: grid; gap: 10px; margin: 10px 0 0; padding-left: 20px; }
@@ -2569,6 +2738,7 @@ export async function onRequestGet({ request, env }) {
     selectedTask: url.searchParams.get("task") || "",
     selectedQueue: url.searchParams.get("queue") || "",
     selectedSearchMission: url.searchParams.get("searchMission") || "",
+    selectedMarketMission: url.searchParams.get("marketMission") || "",
     selectedMission,
     durableMission,
     missionState,
