@@ -1,7 +1,10 @@
 module.exports = {
   collections: [
+    require("../data/commercial-market-evidence/antioch/antioch-east-18th-industrial"),
+    require("../data/commercial-market-evidence/aurora/aurora-i-70-airport-industrial"),
     require("../data/commercial-market-evidence/denver/downtown-denver"),
     require("../data/commercial-market-evidence/fort-wayne/fort-wayne-airport-industrial"),
+    require("../data/commercial-market-evidence/indianapolis/indianapolis-airport-logistics"),
     require("../data/commercial-market-evidence/san-francisco/financial-district"),
     require("../data/commercial-market-evidence/san-francisco/jackson-square"),
     require("../data/commercial-market-evidence/san-francisco/mission-bay"),
@@ -12,5 +15,6 @@ module.exports = {
     require("../data/commercial-market-evidence/san-francisco/potrero-hill"),
     require("../data/commercial-market-evidence/san-francisco/showplace-square"),
     require("../data/commercial-market-evidence/san-francisco/south-beach"),
+    require("../data/commercial-market-evidence/tempe/tempe-i-10-industrial"),
   ],
 };

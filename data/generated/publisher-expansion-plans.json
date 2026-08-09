@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T18:41:33-07:00",
+  "generatedAt": "2026-08-07T19:47:46-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -18893,7 +18893,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27733,7 +27733,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37555,7 +37555,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -46547,12 +46547,12 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 97,
+        "overallScore": 96,
         "recommendationScore": 100,
-        "editorialScore": 90,
+        "editorialScore": 89,
         "publishingScore": 100,
         "buildingScore": 21,
         "comparisonScore": 100,
@@ -46567,11 +46567,11 @@
           "status": 100
         },
         "districts": {
-          "count": 20,
+          "count": 21,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 20,
+          "count": 21,
           "score": 100
         },
         "comparisons": {
@@ -46579,7 +46579,7 @@
         },
         "representativeBuildings": {
           "count": 43,
-          "score": 65
+          "score": 62
         },
         "buildingBriefs": {
           "count": 9,
@@ -46824,13 +46824,18 @@
           "industrial_flex": {
             "id": "industrial_flex",
             "label": "Industrial & Flex",
-            "districtCount": 5,
+            "districtCount": 6,
             "secondaryDistrictCount": 7,
-            "recommendationNodeCount": 5,
+            "recommendationNodeCount": 6,
             "representativeBuildingCount": 8,
             "buildingBriefCount": 3,
             "status": "Developed",
             "districts": [
+              {
+                "slug": "aurora-i-70-airport-industrial",
+                "label": "Aurora I-70 / Airport Industrial",
+                "path": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/"
+              },
               {
                 "slug": "northeast-denver-industrial",
                 "label": "Northeast Denver Industrial",
@@ -46858,10 +46863,11 @@
               }
             ],
             "subtypes": {
-              "small_bay_industrial": 3,
-              "warehouse": 2,
+              "warehouse": 3,
+              "flex": 5,
+              "small_bay_industrial": 4,
+              "last_mile_logistics": 1,
               "distribution": 2,
-              "flex": 4,
               "manufacturing": 1,
               "professional_office": 3,
               "research_development": 2,
@@ -46869,17 +46875,20 @@
               "neighborhood_retail": 2
             },
             "archetypes": {
-              "general_contractor": 5,
+              "distributor": 6,
+              "building_services_company": 1,
+              "general_contractor": 6,
+              "medical_practice": 1,
               "cabinet_shop": 5,
               "light_manufacturer": 5,
-              "distributor": 5,
               "ecommerce_fulfillment_business": 5
             },
             "activities": {
-              "receiving": 5,
-              "shipping": 5,
-              "storage": 5,
-              "service_dispatch": 5,
+              "storage": 6,
+              "service_dispatch": 6,
+              "receiving": 6,
+              "shipping": 6,
+              "distribution": 1,
               "light_manufacturing": 5
             },
             "reviewRequiredDistricts": [],
@@ -47138,7 +47147,7 @@
             "id": "medical",
             "label": "Medical",
             "districtCount": 4,
-            "secondaryDistrictCount": 4,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 4,
             "representativeBuildingCount": 10,
             "buildingBriefCount": 1,
@@ -47440,10 +47449,11 @@
           "executive_office": 1,
           "creative_office": 1,
           "showroom_flex": 1,
-          "flex": 10,
+          "flex": 11,
           "research_development": 6,
-          "small_bay_industrial": 4,
-          "warehouse": 2,
+          "warehouse": 3,
+          "small_bay_industrial": 5,
+          "last_mile_logistics": 1,
           "distribution": 2,
           "manufacturing": 1,
           "showroom_retail": 2,
@@ -47458,10 +47468,11 @@
           "customer_showroom": 3,
           "research": 1,
           "product_development": 1,
-          "receiving": 5,
-          "shipping": 5,
-          "storage": 5,
-          "service_dispatch": 5,
+          "storage": 6,
+          "service_dispatch": 6,
+          "receiving": 6,
+          "shipping": 6,
+          "distribution": 1,
           "light_manufacturing": 5,
           "walk_in_retail": 2,
           "walk_in_service": 6,
@@ -47479,14 +47490,15 @@
           "marketing_agency": 2,
           "research_company": 1,
           "biotech_company": 1,
-          "general_contractor": 5,
+          "distributor": 6,
+          "building_services_company": 1,
+          "general_contractor": 6,
+          "medical_practice": 5,
           "cabinet_shop": 5,
           "light_manufacturer": 5,
-          "distributor": 5,
           "ecommerce_fulfillment_business": 5,
           "wellness_practice": 6,
           "physical_therapy_practice": 1,
-          "medical_practice": 4,
           "dental_practice": 4,
           "outpatient_clinic": 4
         },
@@ -47514,14 +47526,14 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "20 district nodes are available for the metro.",
+          "21 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 20,
+          "districtCount": 21,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
           "recommendationReadinessScore": 100
@@ -47740,27 +47752,27 @@
             "label": "Industrial & Flex",
             "relevance": "core",
             "relevanceLabel": "Core",
-            "readinessState": "strong",
-            "readinessLabel": "Strong",
+            "readinessState": "developed",
+            "readinessLabel": "Developed",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
               "subtypes": "developed",
-              "archetypes": "strong",
-              "activities": "strong",
+              "archetypes": "developed",
+              "activities": "developed",
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 5,
+              "districts": 6,
               "secondaryDistricts": 7,
-              "recommendations": 5,
+              "recommendations": 6,
               "representativeBuildings": 8,
               "buildingBriefs": 3,
-              "subtypes": 9,
-              "archetypes": 5,
-              "activities": 5,
+              "subtypes": 10,
+              "archetypes": 7,
+              "activities": 6,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -47772,7 +47784,7 @@
             "blockingCodes": [],
             "strategicPriority": 1,
             "evidence": [
-              "5 primary districts and 7 secondary districts.",
+              "6 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
             ],
@@ -48092,7 +48104,7 @@
             },
             "counts": {
               "districts": 4,
-              "secondaryDistricts": 4,
+              "secondaryDistricts": 5,
               "recommendations": 4,
               "representativeBuildings": 10,
               "buildingBriefs": 1,
@@ -48110,7 +48122,7 @@
             "blockingCodes": [],
             "strategicPriority": 3,
             "evidence": [
-              "4 primary districts and 4 secondary districts.",
+              "4 primary districts and 5 secondary districts.",
               "10 Representative Buildings and 1 Building Briefs.",
               "2 representative roles and 6 operational categories are covered."
             ],
@@ -51121,6 +51133,54 @@
           }
         },
         {
+          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Aurora I-70 / Airport Industrial",
+          "sourceId": "aurora-i-70-airport-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -51310,6 +51370,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+          "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+          "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -53549,6 +53703,54 @@
           }
         },
         {
+          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Aurora I-70 / Airport Industrial",
+          "sourceId": "aurora-i-70-airport-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -53738,6 +53940,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+          "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+          "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -54216,7 +54512,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -54355,6 +54651,23 @@
             ]
           },
           {
+            "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Aurora I-70 / Airport Industrial",
+            "sourceId": "aurora-i-70-airport-industrial",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
             "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
             "category": "representativeBuildings",
             "categoryLabel": "Representative Buildings",
@@ -54423,13 +54736,13 @@
             ]
           },
           {
-            "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+            "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
             "category": "comparisonGraph",
             "categoryLabel": "Comparison Graph",
             "gapType": "comparison",
-            "itemName": "Central Park -> Northeast Denver Industrial",
-            "sourceId": "central-park:northeast-denver-industrial",
-            "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+            "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+            "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
             "priorityScore": 66,
             "confidence": "Review recommended",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -54439,29 +54752,13 @@
             ]
           },
           {
-            "id": "gap:denver:comparisonGraph:one-way comparison:glendale-financial-district-bunker-hill",
+            "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
             "category": "comparisonGraph",
             "categoryLabel": "Comparison Graph",
             "gapType": "comparison",
-            "itemName": "Glendale -> Financial District / Bunker Hill",
-            "sourceId": "glendale:financial-district-bunker-hill",
-            "publicUrl": "/commercial-real-estate/CA/glendale/glendale/",
-            "priorityScore": 66,
-            "confidence": "Review recommended",
-            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-            "blockedBy": [],
-            "unlocks": [
-              "stronger recommendation alternatives"
-            ]
-          },
-          {
-            "id": "gap:denver:comparisonGraph:one-way comparison:golden-boulder",
-            "category": "comparisonGraph",
-            "categoryLabel": "Comparison Graph",
-            "gapType": "comparison",
-            "itemName": "Golden -> Boulder",
-            "sourceId": "golden:boulder",
-            "publicUrl": "/commercial-real-estate/CO/golden/golden/",
+            "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+            "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
             "priorityScore": 66,
             "confidence": "Review recommended",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -54484,7 +54781,7 @@
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
-          "Review whether the comparison should be reciprocal.",
+          "Curate representative buildings that explain this district.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
@@ -54517,8 +54814,8 @@
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
-          "comparisonTasks": 3,
-          "representativeBuildingTasks": 4,
+          "comparisonTasks": 2,
+          "representativeBuildingTasks": 5,
           "buildingBriefTasks": 8,
           "recommendationTasks": 0
         },
@@ -54528,7 +54825,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -54536,7 +54833,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -54675,6 +54972,23 @@
               ]
             },
             {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -54743,13 +55057,13 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Central Park -> Northeast Denver Industrial",
-              "sourceId": "central-park:northeast-denver-industrial",
-              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 66,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -54759,29 +55073,13 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:glendale-financial-district-bunker-hill",
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Glendale -> Financial District / Bunker Hill",
-              "sourceId": "glendale:financial-district-bunker-hill",
-              "publicUrl": "/commercial-real-estate/CA/glendale/glendale/",
-              "priorityScore": 66,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:golden-boulder",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Golden -> Boulder",
-              "sourceId": "golden:boulder",
-              "publicUrl": "/commercial-real-estate/CO/golden/golden/",
+              "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+              "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 66,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -54804,7 +55102,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Review whether the comparison should be reciprocal.",
+            "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
@@ -54837,8 +55135,8 @@
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 3,
-            "representativeBuildingTasks": 4,
+            "comparisonTasks": 2,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
@@ -54848,15 +55146,47 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+              "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
               "category": "comparisonGraph",
@@ -54922,35 +55252,20 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:lakewood-downtown-denver",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Lakewood -> Downtown Denver",
-              "sourceId": "lakewood:downtown-denver",
-              "publicUrl": "/commercial-real-estate/CO/lakewood/lakewood/",
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
               "blockedBy": [],
               "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:northeast-denver-industrial-aurora",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Northeast Denver Industrial -> Aurora",
-              "sourceId": "northeast-denver-industrial:aurora",
-              "publicUrl": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
+                "Building Brief migration",
+                "recommendation representative-building module"
               ]
             },
             {
@@ -55029,6 +55344,7 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -55051,7 +55367,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 4,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -55061,14 +55377,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver; Lakewood -> Downtown Denver; Northeast Denver Industrial -> Aurora\n\nTasks:\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Lakewood -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Northeast Denver Industrial -> Aurora - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
-          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -55241,6 +55557,23 @@
               ]
             },
             {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -55307,22 +55640,6 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Central Park -> Northeast Denver Industrial",
-              "sourceId": "central-park:northeast-denver-industrial",
-              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
-              "priorityScore": 68,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
             }
           ],
           "dataTasks": [
@@ -55340,7 +55657,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Review whether the comparison should be reciprocal."
+            "Curate representative buildings that explain this district."
           ],
           "contentTasks": [
             "Author a Building Brief for this representative building.",
@@ -55363,18 +55680,16 @@
           "dependencies": [
             "canonical representative building record",
             "district association",
-            "district commercial identity",
-            "district identity"
+            "district commercial identity"
           ],
           "expectedImpact": [
-            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
             "deeper public building intelligence and stronger internal links"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 1,
-            "representativeBuildingTasks": 4,
+            "comparisonTasks": 0,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -55384,15 +55699,32 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
@@ -55633,6 +55965,7 @@
             }
           ],
           "dataTasks": [
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -55678,7 +56011,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 4,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -55688,7 +56021,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -55697,7 +56030,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -61410,7 +61743,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -80248,7 +80581,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -89088,7 +89421,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -98910,7 +99243,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -107902,12 +108235,12 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-07T18:41:33-07:00",
+      "generatedAt": "2026-08-07T19:47:46-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 97,
+        "overallScore": 96,
         "recommendationScore": 100,
-        "editorialScore": 90,
+        "editorialScore": 89,
         "publishingScore": 100,
         "buildingScore": 21,
         "comparisonScore": 100,
@@ -107922,11 +108255,11 @@
           "status": 100
         },
         "districts": {
-          "count": 20,
+          "count": 21,
           "score": 100
         },
         "recommendationNodes": {
-          "count": 20,
+          "count": 21,
           "score": 100
         },
         "comparisons": {
@@ -107934,7 +108267,7 @@
         },
         "representativeBuildings": {
           "count": 43,
-          "score": 65
+          "score": 62
         },
         "buildingBriefs": {
           "count": 9,
@@ -108179,13 +108512,18 @@
           "industrial_flex": {
             "id": "industrial_flex",
             "label": "Industrial & Flex",
-            "districtCount": 5,
+            "districtCount": 6,
             "secondaryDistrictCount": 7,
-            "recommendationNodeCount": 5,
+            "recommendationNodeCount": 6,
             "representativeBuildingCount": 8,
             "buildingBriefCount": 3,
             "status": "Developed",
             "districts": [
+              {
+                "slug": "aurora-i-70-airport-industrial",
+                "label": "Aurora I-70 / Airport Industrial",
+                "path": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/"
+              },
               {
                 "slug": "northeast-denver-industrial",
                 "label": "Northeast Denver Industrial",
@@ -108213,10 +108551,11 @@
               }
             ],
             "subtypes": {
-              "small_bay_industrial": 3,
-              "warehouse": 2,
+              "warehouse": 3,
+              "flex": 5,
+              "small_bay_industrial": 4,
+              "last_mile_logistics": 1,
               "distribution": 2,
-              "flex": 4,
               "manufacturing": 1,
               "professional_office": 3,
               "research_development": 2,
@@ -108224,17 +108563,20 @@
               "neighborhood_retail": 2
             },
             "archetypes": {
-              "general_contractor": 5,
+              "distributor": 6,
+              "building_services_company": 1,
+              "general_contractor": 6,
+              "medical_practice": 1,
               "cabinet_shop": 5,
               "light_manufacturer": 5,
-              "distributor": 5,
               "ecommerce_fulfillment_business": 5
             },
             "activities": {
-              "receiving": 5,
-              "shipping": 5,
-              "storage": 5,
-              "service_dispatch": 5,
+              "storage": 6,
+              "service_dispatch": 6,
+              "receiving": 6,
+              "shipping": 6,
+              "distribution": 1,
               "light_manufacturing": 5
             },
             "reviewRequiredDistricts": [],
@@ -108493,7 +108835,7 @@
             "id": "medical",
             "label": "Medical",
             "districtCount": 4,
-            "secondaryDistrictCount": 4,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 4,
             "representativeBuildingCount": 10,
             "buildingBriefCount": 1,
@@ -108795,10 +109137,11 @@
           "executive_office": 1,
           "creative_office": 1,
           "showroom_flex": 1,
-          "flex": 10,
+          "flex": 11,
           "research_development": 6,
-          "small_bay_industrial": 4,
-          "warehouse": 2,
+          "warehouse": 3,
+          "small_bay_industrial": 5,
+          "last_mile_logistics": 1,
           "distribution": 2,
           "manufacturing": 1,
           "showroom_retail": 2,
@@ -108813,10 +109156,11 @@
           "customer_showroom": 3,
           "research": 1,
           "product_development": 1,
-          "receiving": 5,
-          "shipping": 5,
-          "storage": 5,
-          "service_dispatch": 5,
+          "storage": 6,
+          "service_dispatch": 6,
+          "receiving": 6,
+          "shipping": 6,
+          "distribution": 1,
           "light_manufacturing": 5,
           "walk_in_retail": 2,
           "walk_in_service": 6,
@@ -108834,14 +109178,15 @@
           "marketing_agency": 2,
           "research_company": 1,
           "biotech_company": 1,
-          "general_contractor": 5,
+          "distributor": 6,
+          "building_services_company": 1,
+          "general_contractor": 6,
+          "medical_practice": 5,
           "cabinet_shop": 5,
           "light_manufacturer": 5,
-          "distributor": 5,
           "ecommerce_fulfillment_business": 5,
           "wellness_practice": 6,
           "physical_therapy_practice": 1,
-          "medical_practice": 4,
           "dental_practice": 4,
           "outpatient_clinic": 4
         },
@@ -108869,14 +109214,14 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "20 district nodes are available for the metro.",
+          "21 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 20,
+          "districtCount": 21,
           "districtCoverageScore": 100,
           "comparisonGraphScore": 100,
           "recommendationReadinessScore": 100
@@ -109095,27 +109440,27 @@
             "label": "Industrial & Flex",
             "relevance": "core",
             "relevanceLabel": "Core",
-            "readinessState": "strong",
-            "readinessLabel": "Strong",
+            "readinessState": "developed",
+            "readinessLabel": "Developed",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
               "subtypes": "developed",
-              "archetypes": "strong",
-              "activities": "strong",
+              "archetypes": "developed",
+              "activities": "developed",
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 5,
+              "districts": 6,
               "secondaryDistricts": 7,
-              "recommendations": 5,
+              "recommendations": 6,
               "representativeBuildings": 8,
               "buildingBriefs": 3,
-              "subtypes": 9,
-              "archetypes": 5,
-              "activities": 5,
+              "subtypes": 10,
+              "archetypes": 7,
+              "activities": 6,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -109127,7 +109472,7 @@
             "blockingCodes": [],
             "strategicPriority": 1,
             "evidence": [
-              "5 primary districts and 7 secondary districts.",
+              "6 primary districts and 7 secondary districts.",
               "8 Representative Buildings and 3 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
             ],
@@ -109447,7 +109792,7 @@
             },
             "counts": {
               "districts": 4,
-              "secondaryDistricts": 4,
+              "secondaryDistricts": 5,
               "recommendations": 4,
               "representativeBuildings": 10,
               "buildingBriefs": 1,
@@ -109465,7 +109810,7 @@
             "blockingCodes": [],
             "strategicPriority": 3,
             "evidence": [
-              "4 primary districts and 4 secondary districts.",
+              "4 primary districts and 5 secondary districts.",
               "10 Representative Buildings and 1 Building Briefs.",
               "2 representative roles and 6 operational categories are covered."
             ],
@@ -112476,6 +112821,54 @@
           }
         },
         {
+          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Aurora I-70 / Airport Industrial",
+          "sourceId": "aurora-i-70-airport-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -112665,6 +113058,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+          "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+          "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -114904,6 +115391,54 @@
           }
         },
         {
+          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Aurora I-70 / Airport Industrial",
+          "sourceId": "aurora-i-70-airport-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -115093,6 +115628,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+          "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+          "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -115571,7 +116200,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -115710,6 +116339,23 @@
             ]
           },
           {
+            "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Aurora I-70 / Airport Industrial",
+            "sourceId": "aurora-i-70-airport-industrial",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
             "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
             "category": "representativeBuildings",
             "categoryLabel": "Representative Buildings",
@@ -115778,13 +116424,13 @@
             ]
           },
           {
-            "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+            "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
             "category": "comparisonGraph",
             "categoryLabel": "Comparison Graph",
             "gapType": "comparison",
-            "itemName": "Central Park -> Northeast Denver Industrial",
-            "sourceId": "central-park:northeast-denver-industrial",
-            "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+            "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+            "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
             "priorityScore": 66,
             "confidence": "Review recommended",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -115794,29 +116440,13 @@
             ]
           },
           {
-            "id": "gap:denver:comparisonGraph:one-way comparison:glendale-financial-district-bunker-hill",
+            "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
             "category": "comparisonGraph",
             "categoryLabel": "Comparison Graph",
             "gapType": "comparison",
-            "itemName": "Glendale -> Financial District / Bunker Hill",
-            "sourceId": "glendale:financial-district-bunker-hill",
-            "publicUrl": "/commercial-real-estate/CA/glendale/glendale/",
-            "priorityScore": 66,
-            "confidence": "Review recommended",
-            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-            "blockedBy": [],
-            "unlocks": [
-              "stronger recommendation alternatives"
-            ]
-          },
-          {
-            "id": "gap:denver:comparisonGraph:one-way comparison:golden-boulder",
-            "category": "comparisonGraph",
-            "categoryLabel": "Comparison Graph",
-            "gapType": "comparison",
-            "itemName": "Golden -> Boulder",
-            "sourceId": "golden:boulder",
-            "publicUrl": "/commercial-real-estate/CO/golden/golden/",
+            "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+            "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
             "priorityScore": 66,
             "confidence": "Review recommended",
             "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -115839,7 +116469,7 @@
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
-          "Review whether the comparison should be reciprocal.",
+          "Curate representative buildings that explain this district.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
@@ -115872,8 +116502,8 @@
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
-          "comparisonTasks": 3,
-          "representativeBuildingTasks": 4,
+          "comparisonTasks": 2,
+          "representativeBuildingTasks": 5,
           "buildingBriefTasks": 8,
           "recommendationTasks": 0
         },
@@ -115883,7 +116513,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -115891,7 +116521,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -116030,6 +116660,23 @@
               ]
             },
             {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -116098,13 +116745,13 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Central Park -> Northeast Denver Industrial",
-              "sourceId": "central-park:northeast-denver-industrial",
-              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 66,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -116114,29 +116761,13 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:glendale-financial-district-bunker-hill",
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
               "category": "comparisonGraph",
               "categoryLabel": "Comparison Graph",
               "gapType": "comparison",
-              "itemName": "Glendale -> Financial District / Bunker Hill",
-              "sourceId": "glendale:financial-district-bunker-hill",
-              "publicUrl": "/commercial-real-estate/CA/glendale/glendale/",
-              "priorityScore": 66,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:golden-boulder",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Golden -> Boulder",
-              "sourceId": "golden:boulder",
-              "publicUrl": "/commercial-real-estate/CO/golden/golden/",
+              "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+              "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 66,
               "confidence": "Review recommended",
               "suggestedNextAction": "Review whether the comparison should be reciprocal.",
@@ -116159,7 +116790,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Review whether the comparison should be reciprocal.",
+            "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
@@ -116192,8 +116823,8 @@
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 3,
-            "representativeBuildingTasks": 4,
+            "comparisonTasks": 2,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
@@ -116203,15 +116834,47 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-northeast-denver-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Northeast Denver Industrial",
+              "sourceId": "aurora-i-70-airport-industrial:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
               "category": "comparisonGraph",
@@ -116277,35 +116940,20 @@
               ]
             },
             {
-              "id": "gap:denver:comparisonGraph:one-way comparison:lakewood-downtown-denver",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Lakewood -> Downtown Denver",
-              "sourceId": "lakewood:downtown-denver",
-              "publicUrl": "/commercial-real-estate/CO/lakewood/lakewood/",
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
               "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
               "blockedBy": [],
               "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:northeast-denver-industrial-aurora",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Northeast Denver Industrial -> Aurora",
-              "sourceId": "northeast-denver-industrial:aurora",
-              "publicUrl": "/commercial-real-estate/CO/denver/northeast-denver-industrial/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
+                "Building Brief migration",
+                "recommendation representative-building module"
               ]
             },
             {
@@ -116384,6 +117032,7 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -116406,7 +117055,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 4,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -116416,14 +117065,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver; Lakewood -> Downtown Denver; Northeast Denver Industrial -> Aurora\n\nTasks:\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Lakewood -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Northeast Denver Industrial -> Aurora - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
-          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -116596,6 +117245,23 @@
               ]
             },
             {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -116662,22 +117328,6 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
-            },
-            {
-              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Central Park -> Northeast Denver Industrial",
-              "sourceId": "central-park:northeast-denver-industrial",
-              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
-              "priorityScore": 68,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
             }
           ],
           "dataTasks": [
@@ -116695,7 +117345,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Review whether the comparison should be reciprocal."
+            "Curate representative buildings that explain this district."
           ],
           "contentTasks": [
             "Author a Building Brief for this representative building.",
@@ -116718,18 +117368,16 @@
           "dependencies": [
             "canonical representative building record",
             "district association",
-            "district commercial identity",
-            "district identity"
+            "district commercial identity"
           ],
           "expectedImpact": [
-            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
             "deeper public building intelligence and stronger internal links"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 1,
-            "representativeBuildingTasks": 4,
+            "comparisonTasks": 0,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -116739,15 +117387,32 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 50 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 53 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Aurora I-70 / Airport Industrial",
+              "sourceId": "aurora-i-70-airport-industrial",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
@@ -116988,6 +117653,7 @@
             }
           ],
           "dataTasks": [
+            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -117033,7 +117699,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 4,
+            "representativeBuildingTasks": 5,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -117043,7 +117709,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -117053,8 +117719,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 328,
-    "totalPriorities": 328,
+    "totalGaps": 331,
+    "totalPriorities": 331,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
