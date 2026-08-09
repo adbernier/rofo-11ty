@@ -86,7 +86,7 @@ function getFinanceOption(spaceType) {
 
 export function normalizeSqFtForOfficeFinder(spaceNeeded) {
   const raw = normalizeField(spaceNeeded).toLowerCase();
-  if (!raw || raw.includes("not sure")) return "1000";
+  if (!raw || raw.includes("not sure") || raw.includes("not_sure")) return "1000";
   const numbers = raw.match(/\d[\d,]*/g);
   if (!numbers || !numbers.length) return "1000";
   const parsed = numbers.map((number) => Number(number.replace(/,/g, ""))).filter(Boolean);
@@ -951,7 +951,7 @@ function buildTenantConfirmationText(lead) {
   if (isLocationBriefLead(lead)) {
     const snapshot = buildProjectSnapshotFromLead(lead);
     const requestLines = projectSnapshotTextLines(snapshot)
-      .filter((line) => /^(Selected District|Headcount|Approximate Size|Timing):/.test(line));
+      .filter((line) => /^(Business Type|Selected District|Headcount|Approximate Size|Timing):/.test(line));
     return [
       "Hi,",
       "",
@@ -965,8 +965,7 @@ function buildTenantConfirmationText(lead) {
       "",
       "What happens next:",
       "Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.",
-      "",
-      "This is not a promise of immediate broker contact.",
+      "Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.",
       "",
       "Thanks,",
       "Rofo",
@@ -1062,7 +1061,7 @@ function buildTenantConfirmationHtml(lead) {
     const briefUrl = normalizeField(lead.location_brief_url);
     const snapshot = buildProjectSnapshotFromLead(lead);
     const requestRows = projectSnapshotTextLines(snapshot)
-      .filter((line) => /^(Selected District|Headcount|Approximate Size|Timing):/.test(line))
+      .filter((line) => /^(Business Type|Selected District|Headcount|Approximate Size|Timing):/.test(line))
       .map((line) => {
         const [label, ...rest] = line.split(":");
         return buildEmailField(label, escapeHtml(rest.join(":").trim()));
@@ -1095,9 +1094,8 @@ function buildTenantConfirmationHtml(lead) {
                 </div>` : ""}
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What happens next</div>
-                  <p style="margin:0;color:#334155;">Rofo will review your request and determine the best next step. We may check current availability, comparable buildings, market activity, or appropriate broker coverage.</p>
+                  <p style="margin:0;color:#334155;">Rofo will review your request and determine the best next step. Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.</p>
                 </div>
-                <p style="margin:0 0 18px;color:#64748b;">This is not a promise of immediate broker contact.</p>
                 <p style="margin:0;">Thanks,<br>Rofo</p>
               </td>
             </tr>

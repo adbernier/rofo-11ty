@@ -124,27 +124,54 @@ eleventyComputed:
 
         <div class="live-market-intake__grid">
           <section class="live-market-intake__fieldset" aria-labelledby="live-market-requirements-heading">
-            <h4 id="live-market-requirements-heading">Execution details</h4>
+            <h4 id="live-market-requirements-heading">Tell us a little more</h4>
+            <p class="live-market-muted">To research current options, Rofo needs business type, size context, and timing.</p>
             <dl class="live-market-requirements" data-live-market-requirements></dl>
+            <label class="live-market-field" data-live-market-business-type-field>
+              <span>What kind of business is this for?</span>
+              <select data-live-market-business-type>
+                <option value="">Choose business type</option>
+                <option value="professional_services">Professional services</option>
+                <option value="technology">Technology / product</option>
+                <option value="design_creative">Design / creative</option>
+                <option value="life_science">Healthcare / life science</option>
+                <option value="nonprofit">Nonprofit / mission-driven</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="live-market-field" data-live-market-business-type-other-field hidden>
+              <span>Business type detail</span>
+              <input type="text" data-live-market-business-type-other placeholder="Example: contractor, logistics, showroom, clinic">
+            </label>
             <label class="live-market-field">
               <span>Headcount <em>optional</em></span>
               <input type="text" data-live-market-headcount placeholder="Example: 18 people">
             </label>
             <label class="live-market-field">
-              <span>Approximate size <em>optional</em></span>
-              <input type="text" data-live-market-size placeholder="Example: 3,000-5,000 sq ft or not sure">
+              <span>Approximate size</span>
+              <select data-live-market-size>
+                <option value="">Choose approximate size</option>
+                <option value="Under 2,500 SF">Under 2,500 SF</option>
+                <option value="2,500-5,000 SF">2,500-5,000 SF</option>
+                <option value="5,000-10,000 SF">5,000-10,000 SF</option>
+                <option value="10,000-25,000 SF">10,000-25,000 SF</option>
+                <option value="25,000+ SF">25,000+ SF</option>
+                <option value="not_sure">I'm not sure</option>
+              </select>
             </label>
             <label class="live-market-field">
               <span>Timing</span>
               <select data-live-market-timing>
-                <option value="">Not sure</option>
+                <option value="">Choose timing</option>
                 <option value="asap">As soon as possible</option>
                 <option value="within_3_months">Within 3 months</option>
                 <option value="3_6_months">3-6 months</option>
                 <option value="6_12_months">6-12 months</option>
                 <option value="more_than_12_months">More than 12 months</option>
+                <option value="exploring">Just exploring</option>
               </select>
             </label>
+            <p class="live-market-error" data-live-market-qualification-error hidden></p>
           </section>
 
           <label class="live-market-field live-market-field--notes">

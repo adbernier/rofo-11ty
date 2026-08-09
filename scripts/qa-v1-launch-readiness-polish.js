@@ -60,7 +60,8 @@ assertIncludes(leadShared, "Project Snapshot", "broker/internal email");
 assertIncludes(leadShared, "Best Fits", "broker/internal email");
 assertIncludes(leadShared, "Location Brief", "broker/internal email");
 assertIncludes(leadShared, "Client", "broker email");
-assertIncludes(leadShared, "This is not a promise of immediate broker contact.", "tenant confirmation email");
+assertIncludes(leadShared, "Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.", "tenant confirmation email");
+assertNotIncludes(leadShared, "This is not a promise of immediate broker contact.", "tenant confirmation email");
 
 assertIncludes(officeFinderShared, "OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE", "OfficeFinder placeholder phone");
 assertIncludes(officeFinderShared, "placeholder_phone_used", "OfficeFinder placeholder logging");

@@ -18,6 +18,14 @@
     more_than_12_months: "More than 12 months",
     exploring: "Exploring with no fixed date",
   };
+  const INVESTIGATION_BUSINESS_TYPE_LABELS = {
+    professional_services: "Professional services",
+    technology: "Technology / product",
+    design_creative: "Design / creative",
+    life_science: "Healthcare / life science",
+    nonprofit: "Nonprofit / mission-driven",
+    other: "Other",
+  };
   const BROKER_PREFERENCE_LABELS = {
     research_first: "Research first; contact me with findings",
     include_local_broker: "Include local broker guidance when available",
@@ -1252,6 +1260,27 @@
     return String(profile.timing || profile.moveTiming || profile.move_timing || "").trim();
   }
 
+  function businessTypeFromProfile() {
+    const profile = currentBriefState && currentBriefState.searchProfile || {};
+    return String(profile.businessType || profile.business_type || "").trim();
+  }
+
+  function qualificationSpaceType() {
+    const profile = currentBriefState && currentBriefState.searchProfile || {};
+    return normalizeSpaceType(profile.spaceType || "");
+  }
+
+  function isNotSureSize(value) {
+    return /not[_\s-]*sure|i'?m not sure/i.test(String(value || ""));
+  }
+
+  function hasUsableSizeSignal({ spaceType, approximateSize, headcount }) {
+    if (approximateSize && !isNotSureSize(approximateSize)) return true;
+    const normalizedType = normalizeSpaceType(spaceType);
+    if ((normalizedType === "office" || normalizedType === "coworking") && String(headcount || "").trim()) return true;
+    return false;
+  }
+
   function investigationRequirements() {
     const profile = currentBriefState && currentBriefState.searchProfile || {};
     const marketPath = currentBriefState && currentBriefState.marketPath || {};
@@ -1260,6 +1289,7 @@
       location,
       spaceType: profile.spaceType || "",
       targetSize: profile.size || "",
+      businessType: businessTypeFromProfile(),
       headcount: "",
       approximateSize: profile.size || "",
       budgetContext: "",
@@ -1294,9 +1324,12 @@
     panel.hidden = false;
 
     const requirements = investigationRequirements();
+    const previousRequirements = investigation.confirmedRequirements || {};
     investigation.confirmedRequirements = {
+      ...previousRequirements,
       spaceType: requirements.spaceType,
       targetSize: requirements.targetSize,
+      businessType: previousRequirements.businessType || requirements.businessType,
       profileTiming: requirements.timing,
       locationPriorities: requirements.priorities,
       knownConstraints: requirements.knownConstraints,
@@ -1316,6 +1349,7 @@
     renderDefinitionRows(document.querySelector("[data-live-market-requirements]"), [
       { label: "Original location", value: requirements.location },
       { label: "Space type", value: requirements.spaceType },
+      { label: "Business type", value: INVESTIGATION_BUSINESS_TYPE_LABELS[requirements.businessType] || requirements.businessType },
       { label: "Profile size context", value: requirements.targetSize },
       { label: "Profile timing", value: requirements.timing || "Confirm below" },
       { label: "Location intent", value: requirements.locationIntent },
@@ -1387,11 +1421,52 @@
 
     const timing = document.querySelector("[data-live-market-timing]");
     if (timing) {
-      timing.value = investigation.timing || "";
+      timing.value = investigation.timing || timingFromProfile() || "";
       if (!timing.dataset.investigationBound) {
         timing.dataset.investigationBound = "true";
         timing.addEventListener("change", () => {
           investigation.timing = timing.value;
+          persistBriefState();
+        });
+      }
+    }
+
+    const businessType = document.querySelector("[data-live-market-business-type]");
+    const businessTypeField = document.querySelector("[data-live-market-business-type-field]");
+    const businessTypeOther = document.querySelector("[data-live-market-business-type-other]");
+    const businessTypeOtherField = document.querySelector("[data-live-market-business-type-other-field]");
+    const knownBusinessType = businessTypeFromProfile();
+    if (businessType) {
+      if (knownBusinessType) {
+        businessType.value = knownBusinessType;
+        businessTypeField.hidden = true;
+        investigation.confirmedRequirements.businessType = knownBusinessType;
+      } else {
+        businessTypeField.hidden = false;
+        businessType.value = investigation.confirmedRequirements && investigation.confirmedRequirements.businessType || "";
+      }
+      const syncOtherField = () => {
+        if (!businessTypeOtherField) return;
+        businessTypeOtherField.hidden = businessType.value !== "other";
+      };
+      syncOtherField();
+      if (!businessType.dataset.investigationBound) {
+        businessType.dataset.investigationBound = "true";
+        businessType.addEventListener("change", () => {
+          investigation.confirmedRequirements = investigation.confirmedRequirements || {};
+          investigation.confirmedRequirements.businessType = businessType.value;
+          syncOtherField();
+          persistBriefState();
+        });
+      }
+    }
+    if (businessTypeOther) {
+      businessTypeOther.value = investigation.confirmedRequirements && investigation.confirmedRequirements.businessTypeOther || "";
+      if (!businessTypeOther.dataset.investigationBound) {
+        businessTypeOther.dataset.investigationBound = "true";
+        businessTypeOther.addEventListener("input", () => {
+          investigation.confirmedRequirements = investigation.confirmedRequirements || {};
+          investigation.confirmedRequirements.businessTypeOther = businessTypeOther.value;
           persistBriefState();
         });
       }
@@ -1412,10 +1487,10 @@
 
     const approximateSize = document.querySelector("[data-live-market-size]");
     if (approximateSize) {
-      approximateSize.value = investigation.confirmedRequirements && investigation.confirmedRequirements.approximateSize || "";
+      approximateSize.value = investigation.confirmedRequirements && investigation.confirmedRequirements.approximateSize || (isNotSureSize(requirements.targetSize) ? "not_sure" : requirements.targetSize) || "";
       if (!approximateSize.dataset.investigationBound) {
         approximateSize.dataset.investigationBound = "true";
-        approximateSize.addEventListener("input", () => {
+        approximateSize.addEventListener("change", () => {
           investigation.confirmedRequirements = investigation.confirmedRequirements || {};
           investigation.confirmedRequirements.approximateSize = approximateSize.value;
           persistBriefState();
@@ -1462,6 +1537,33 @@
     const submitButton = document.querySelector("[data-location-brief-submit-button]");
     updateAvailabilityRequestLabel({ label: investigation.districtName || "" });
     persistBriefState();
+  }
+
+  function validateInvestigationQualification() {
+    const investigation = currentBriefState && currentBriefState.liveMarketInvestigation;
+    if (!investigation || !investigation.investigationIntent) return [];
+    const businessType = businessTypeFromProfile()
+      || String(document.querySelector("[data-live-market-business-type]")?.value || "").trim();
+    const businessTypeOther = String(document.querySelector("[data-live-market-business-type-other]")?.value || "").trim();
+    const timing = String(document.querySelector("[data-live-market-timing]")?.value || "").trim() || timingFromProfile();
+    const headcount = String(document.querySelector("[data-live-market-headcount]")?.value || "").trim();
+    const approximateSize = String(document.querySelector("[data-live-market-size]")?.value || "").trim();
+    const errors = [];
+    if (!businessType || (businessType === "other" && !businessTypeOther)) {
+      errors.push("Add the kind of business this is for.");
+    }
+    if (!timing) errors.push("Choose a timing range, even if you are just exploring.");
+    if (!hasUsableSizeSignal({ spaceType: qualificationSpaceType(), approximateSize, headcount })) {
+      errors.push("Add an approximate size range. For office requests, headcount can be used instead.");
+    }
+    return errors;
+  }
+
+  function renderQualificationErrors(errors) {
+    const node = document.querySelector("[data-live-market-qualification-error]");
+    if (!node) return;
+    node.hidden = !errors.length;
+    node.textContent = errors.join(" ");
   }
 
   function renderPathPanels(state, spaceType) {
@@ -1780,6 +1882,8 @@
     investigation.timing = document.querySelector("[data-live-market-timing]")?.value || investigation.timing || timingFromProfile() || "";
     const executionHeadcount = String(document.querySelector("[data-live-market-headcount]")?.value || "").trim();
     const executionSize = String(document.querySelector("[data-live-market-size]")?.value || "").trim();
+    const businessType = businessTypeFromProfile() || String(document.querySelector("[data-live-market-business-type]")?.value || "").trim();
+    const businessTypeOther = String(document.querySelector("[data-live-market-business-type-other]")?.value || "").trim();
     const budgetContext = String(document.querySelector("[data-live-market-budget]")?.value || "").trim();
     const broker = document.querySelector("[data-live-market-broker-preference] input[type='radio']:checked");
     investigation.brokerPreference = broker ? broker.value : investigation.brokerPreference || "research_first";
@@ -1787,6 +1891,8 @@
     investigation.confirmedRequirements = {
       ...investigation.confirmedRequirements,
       ...investigationRequirements(),
+      businessType,
+      businessTypeOther,
       headcount: executionHeadcount,
       approximateSize: executionSize,
       budgetContext,
@@ -1876,6 +1982,15 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
+      const isDraftInvestigation = currentBriefState && currentBriefState.liveMarketInvestigation && currentBriefState.liveMarketInvestigation.investigationIntent;
+      if (isDraftInvestigation) {
+        const qualificationErrors = validateInvestigationQualification();
+        renderQualificationErrors(qualificationErrors);
+        if (qualificationErrors.length) {
+          if (status) status.textContent = "Add the missing request details before Rofo researches current availability.";
+          return;
+        }
+      }
       currentBriefState.contact = {
         name: String(formData.get("name") || "").trim(),
         email: String(formData.get("email") || "").trim(),
@@ -1942,9 +2057,11 @@
             submitButton.setAttribute("aria-label", isInvestigation ? "Current availability request sent" : "Location Brief sent");
           }
         } catch (error) {
-          status.textContent = isInvestigation
-            ? "The current availability request could not be submitted. Please try again, or contact Rofo if the problem continues."
-            : "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
+          status.textContent = isInvestigation && error && error.message
+            ? error.message
+            : isInvestigation
+              ? "The current availability request could not be submitted. Please try again, or contact Rofo if the problem continues."
+              : "The permanent brief could not be created automatically. Please try again, or contact Rofo if the problem continues.";
           status.classList.remove("location-brief-contact-status--success");
           if (window.console && typeof window.console.warn === "function") {
             console.warn("Location Brief submission failed", error);

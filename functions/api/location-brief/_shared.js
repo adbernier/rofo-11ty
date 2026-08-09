@@ -6,6 +6,7 @@ import {
 } from "../leads/_shared.js";
 import {
   buildProjectSnapshotFromBrief,
+  executionTimingLabel,
   projectSnapshotTextLines,
 } from "../../_shared/project-snapshot.js";
 
@@ -215,6 +216,8 @@ function normalizeLiveMarketInvestigation(value) {
       location: clean(requirements.location, 240),
       spaceType: clean(requirements.spaceType, 120),
       targetSize: clean(requirements.targetSize, 120),
+      businessType: clean(requirements.businessType, 140),
+      businessTypeOther: clean(requirements.businessTypeOther, 140),
       headcount: clean(requirements.headcount, 120),
       approximateSize: clean(requirements.approximateSize, 120),
       budgetContext: clean(requirements.budgetContext, 240),
@@ -532,20 +535,6 @@ function brokerPreferenceLabel(value) {
   return labels[value] || value || "";
 }
 
-function executionTimingLabel(value) {
-  const normalized = clean(value, 80);
-  const labels = {
-    asap: "As soon as possible",
-    as_soon_as_possible: "As soon as possible",
-    within_3_months: "Within 3 months",
-    "3_6_months": "3-6 months",
-    "6_12_months": "6-12 months",
-    more_than_12_months: "More than 12 months",
-    not_sure: "Not sure yet",
-  };
-  return labels[normalized] || normalized.replace(/_/g, " ");
-}
-
 function selectedInvestigationBuildings(investigation) {
   return investigation && Array.isArray(investigation.representativeBuildings)
     ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
@@ -586,6 +575,7 @@ function investigationHtmlBlock(investigation) {
         ${emailField("Timing", escapeHtml(investigation.timing || requirements.timing || ""))}
         ${emailField("Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference)))}
         ${emailField("Confirmed requirements", formatList([
+          requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
           requirements.spaceType ? `Space type: ${requirements.spaceType}` : "",
           requirements.targetSize ? `Target size: ${requirements.targetSize}` : "",
           requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
@@ -792,6 +782,7 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
     "REQUEST SUMMARY",
     `Selected district: ${district}`,
     city ? `Market: ${city}` : "",
+    requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
     requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
     requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
     timing ? `Timing: ${timing}` : "",
@@ -828,6 +819,7 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     ${emailField("District", escapeHtml(district))}
                     ${city ? emailField("City", escapeHtml(city)) : ""}
+                    ${requirements.businessType ? emailField("Business type", escapeHtml(`${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}`)) : ""}
                     ${requirements.headcount ? emailField("Headcount", escapeHtml(requirements.headcount)) : ""}
                     ${requirements.approximateSize ? emailField("Approximate size", escapeHtml(requirements.approximateSize)) : ""}
                     ${timing ? emailField("Timing", escapeHtml(timing)) : ""}

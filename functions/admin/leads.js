@@ -23,6 +23,7 @@ import {
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
 const LEAD_QUALITY_SAMPLE_LIMIT = 2000;
+const DEFAULT_OPERATOR_TIME_ZONE = "America/Los_Angeles";
 const STATUS_VIEWS = {
   pending: ["pending", "approved_send_failed", "expert_review_requested", "market_investigation_requested"],
   sent: ["approved_sent", "broker_sent", "both_sent", "partial_sent"],
@@ -107,7 +108,17 @@ function normalizeLimit(value) {
   return Math.min(Math.floor(parsed), MAX_LIMIT);
 }
 
-function formatDate(value) {
+function normalizeOperatorTimeZone(value) {
+  const timeZone = String(value || "").trim() || DEFAULT_OPERATOR_TIME_ZONE;
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone }).format(new Date());
+    return timeZone;
+  } catch (error) {
+    return DEFAULT_OPERATOR_TIME_ZONE;
+  }
+}
+
+function formatDate(value, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   if (!value) return "";
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
@@ -117,6 +128,8 @@ function formatDate(value) {
     year: "numeric",
     hour: "numeric",
     minute: "2-digit",
+    timeZone: normalizeOperatorTimeZone(timeZone),
+    timeZoneName: "short",
   });
 }
 
@@ -279,7 +292,10 @@ function getLatestOfficeFinderAttempt(lead) {
 }
 
 function field(label, value, options = {}) {
-  if (value === undefined || value === null || value === "") return "";
+  if (value === undefined || value === null || value === "") {
+    if (!options.showEmpty) return "";
+    value = "Not provided";
+  }
   const className = options.className ? ` ${options.className}` : "";
   return `
     <div class="field${escapeHtml(className)}">
@@ -462,7 +478,7 @@ function eligibleBrokerMatches(lead, market, brokers) {
     .slice(0, 6);
 }
 
-function renderActiveReferralStatus(referral) {
+function renderActiveReferralStatus(referral, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   if (!referral) return "";
   return `
     <section class="message-block referral-sent-block">
@@ -474,17 +490,17 @@ function renderActiveReferralStatus(referral) {
         <span>${escapeHtml(operatorReferralStatusLabel(referral))}</span>
       </div>
       <dl class="referral-sent-grid">
-        ${field("Sent", formatDate(referral.sentAt))}
-        ${field("Accepted", formatDate(referral.acceptedAt))}
+        ${field("Sent", formatDate(referral.sentAt, timeZone))}
+        ${field("Accepted", formatDate(referral.acceptedAt, timeZone))}
       </dl>
     </section>
   `;
 }
 
-function officeFinderSentLabel(lead) {
+function officeFinderSentLabel(lead, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   const attempt = getLatestOfficeFinderAttempt(lead);
   if (lead.officefinder_status !== "officefinder_sent" && !(attempt && attempt.success)) return "";
-  return `Sent to OfficeFinder${attempt && attempt.attempted_at ? ` - ${formatDate(attempt.attempted_at)}` : ""}`;
+  return `Sent to OfficeFinder${attempt && attempt.attempted_at ? ` - ${formatDate(attempt.attempted_at, timeZone)}` : ""}`;
 }
 
 function fulfillmentDestinationOptions(matches) {
@@ -501,11 +517,11 @@ function fulfillmentDestinationOptions(matches) {
   return [...officeFinder, ...partners];
 }
 
-function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral = null }) {
-  const officeFinderSent = officeFinderSentLabel(lead);
+function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral = null, timeZone = DEFAULT_OPERATOR_TIME_ZONE }) {
+  const officeFinderSent = officeFinderSentLabel(lead, timeZone);
   if (activeReferral || officeFinderSent) {
     return `
-      ${activeReferral ? renderActiveReferralStatus(activeReferral) : ""}
+      ${activeReferral ? renderActiveReferralStatus(activeReferral, timeZone) : ""}
       ${officeFinderSent ? `<section class="message-block referral-sent-block"><div class="referral-sent-block__header"><div><h3>Requirement sent</h3><p>OfficeFinder</p></div><span>${escapeHtml(officeFinderSent)}</span></div></section>` : ""}
     `;
   }
@@ -533,8 +549,8 @@ function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral
   `;
 }
 
-function renderEligibleBrokers(matches, token, leadId, activeReferral = null) {
-  if (activeReferral) return renderActiveReferralStatus(activeReferral);
+function renderEligibleBrokers(matches, token, leadId, activeReferral = null, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
+  if (activeReferral) return renderActiveReferralStatus(activeReferral, timeZone);
   return `
     <section class="message-block broker-match-block">
       <h3>Assign Partner</h3>
@@ -558,7 +574,7 @@ function renderEligibleBrokers(matches, token, leadId, activeReferral = null) {
   `;
 }
 
-function renderReferralHistory(referrals) {
+function renderReferralHistory(referrals, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   return `
     <section class="message-block broker-match-block">
       <h3>Referral History</h3>
@@ -572,11 +588,11 @@ function renderReferralHistory(referrals) {
               </div>
               <em>${escapeHtml(operatorReferralStatusLabel(referral))}</em>
               <dl class="referral-history-grid">
-                ${field("Sent", formatDate(referral.sentAt))}
-                ${field("Viewed", formatDate(referral.briefViewedAt))}
-                ${field("Accepted", formatDate(referral.acceptedAt))}
-                ${field("Contact Revealed", formatDate(referral.contactRevealedAt))}
-                ${field("Expires", formatDate(referral.expiresAt))}
+                ${field("Sent", formatDate(referral.sentAt, timeZone))}
+                ${field("Viewed", formatDate(referral.briefViewedAt, timeZone))}
+                ${field("Accepted", formatDate(referral.acceptedAt, timeZone))}
+                ${field("Contact Revealed", formatDate(referral.contactRevealedAt, timeZone))}
+                ${field("Expires", formatDate(referral.expiresAt, timeZone))}
                 ${referral.emailDeliveryError ? field("Email error", referral.emailDeliveryError, { className: "field--warning" }) : ""}
               </dl>
             </article>
@@ -623,6 +639,7 @@ function renderProjectSnapshot(lead, market) {
     snapshot.timing || lead.move_timing,
   ].filter(Boolean).join(" - ");
   const customerLine = [lead.name, lead.company].filter(Boolean).join(" - ");
+  const qualified = lead.qualification_status === "qualified_requirement";
   return `
     <section class="lead-ops-summary" aria-label="Lead Summary">
       <div class="lead-ops-summary__header">
@@ -634,14 +651,15 @@ function renderProjectSnapshot(lead, market) {
         ${lead.location_brief_url ? `<a href="${escapeHtml(lead.location_brief_url)}" target="_blank" rel="noopener">Open Brief</a>` : ""}
       </div>
       <dl class="lead-grid lead-grid--compact">
-        ${field("Business type", snapshot.businessType || lead.location_profile_business_type)}
-        ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district)}
-        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path)}
-        ${field("Headcount", snapshot.headcount || lead.investigation_headcount)}
-        ${field("Approx. size", snapshot.approximateSize || lead.space_needed)}
-        ${field("Timing", snapshot.timing || lead.move_timing)}
-        ${field("Customer", customerLine || lead.name)}
-        ${field("Email", lead.email)}
+        ${field("Qualification", qualified ? "Qualified requirement" : "Incomplete legacy requirement", { showEmpty: true })}
+        ${field("Business type", snapshot.businessType || lead.location_profile_business_type, { showEmpty: true })}
+        ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district, { showEmpty: true })}
+        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true })}
+        ${field("Headcount", snapshot.headcount || lead.investigation_headcount, { showEmpty: true })}
+        ${field("Approx. size", snapshot.approximateSize || lead.space_needed, { showEmpty: true })}
+        ${field("Timing", snapshot.timing || lead.move_timing, { showEmpty: true })}
+        ${field("Customer", customerLine || lead.name, { showEmpty: true })}
+        ${field("Email", lead.email, { showEmpty: true })}
         ${field("Phone", lead.phone)}
         ${field("Additional notes", snapshot.additionalNotes || lead.investigation_notes)}
         ${field("Internal alert", lead.internal_email_status || lead.investigation_internal_email_status)}
@@ -670,10 +688,10 @@ function renderBusinessProfileSummary(lead) {
   `;
 }
 
-function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons }) {
+function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons, timeZone = DEFAULT_OPERATOR_TIME_ZONE }) {
   const officeFinderAttempt = latestAttempt
     ? `<div class="lead-grid lead-grid--compact">
-        ${field("Attempted at", formatDate(latestAttempt.attempted_at))}
+        ${field("Attempted at", formatDate(latestAttempt.attempted_at, timeZone))}
         ${field("Mode", latestAttempt.officefinder_mode)}
         ${field("HTTP status", latestAttempt.response_status)}
         ${field("Success", String(Boolean(latestAttempt.success)))}
@@ -703,10 +721,10 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
             ${field("Request ID", lead.investigation_request_id)}
             ${field("Status", lead.investigation_status)}
             ${field("Confirmation email", lead.investigation_confirmation_email_status)}
-            ${field("Confirmation sent", formatDate(lead.investigation_confirmation_email_sent_at))}
+            ${field("Confirmation sent", formatDate(lead.investigation_confirmation_email_sent_at, timeZone))}
             ${field("Confirmation error", lead.investigation_confirmation_email_error)}
             ${field("Internal alert", lead.internal_email_status || lead.investigation_internal_email_status)}
-            ${field("Internal alert sent", formatDate(lead.internal_email_sent_at))}
+            ${field("Internal alert sent", formatDate(lead.internal_email_sent_at, timeZone))}
             ${field("Internal alert recipient", lead.internal_email_recipient)}
             ${field("Internal alert error", lead.internal_email_error || lead.investigation_internal_email_error)}
             ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
@@ -745,7 +763,7 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
           ${officeFinderAttempt}
           ${detailsBlock("Stored OfficeFinder payload", officeFinderPayload)}
         </section>
-        ${renderReferralHistory(referrals)}
+        ${renderReferralHistory(referrals, timeZone)}
         ${spamReasons.length ? `<div class="spam-box"><strong>Spam review:</strong> Score ${escapeHtml(lead.spam_score || 0)}<ul>${spamReasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>` : ""}
         ${detailsBlock("Stored lead JSON", lead)}
       </div>
@@ -753,7 +771,7 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
   `;
 }
 
-function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
+function renderLeadCard(row, token, brokerPartners = [], referrals = [], timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   const lead = parseJson(row.lead_json);
   const officeFinderPayload = parseJson(row.officefinder_json);
   const route = lead.route_recommendation || {};
@@ -781,7 +799,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
       <div class="lead-card__header">
         <div>
-          <div class="lead-card__time">${escapeHtml(formatDate(row.created_at))}</div>
+          <div class="lead-card__time">${escapeHtml(formatDate(row.created_at, timeZone))}</div>
           <h2>${escapeHtml(lead.name || "Unnamed lead")}</h2>
         </div>
         <div class="lead-card__status">
@@ -815,9 +833,9 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       ` : ""}
 
       ${isLocationBrief ? `
-        ${renderFulfillmentRouting({ lead, matches: eligibleBrokers, token, leadId: row.id, activeReferral })}
+        ${renderFulfillmentRouting({ lead, matches: eligibleBrokers, token, leadId: row.id, activeReferral, timeZone })}
         ${renderLeadActions(row, route, token, activeReferral)}
-        ${renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons })}
+        ${renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons, timeZone })}
       ` : `
       <section class="message-block">
         <h3>${isLocationBrief ? "Location Brief summary" : "Message / notes"}</h3>
@@ -840,8 +858,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
         ${field("Broker email", route.broker_email)}
         ${field("OfficeFinder status", officeFinderStatus)}
         ${field("Spam score", lead.spam_score)}
-        ${field("Sent at", formatDate(row.sent_at))}
-        ${field("Rejected at", formatDate(row.rejected_at))}
+        ${field("Sent at", formatDate(row.sent_at, timeZone))}
+        ${field("Rejected at", formatDate(row.rejected_at, timeZone))}
         </div>
       </details>
 
@@ -849,8 +867,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
-      ${renderEligibleBrokers(eligibleBrokers, token, row.id, activeReferral)}
-      ${renderReferralHistory(referrals)}
+      ${renderEligibleBrokers(eligibleBrokers, token, row.id, activeReferral, timeZone)}
+      ${renderReferralHistory(referrals, timeZone)}
 
       <div class="lead-card__details">
         <details>
@@ -858,7 +876,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = []) {
           ${
             latestAttempt
               ? `<div class="lead-grid lead-grid--compact">
-                  ${field("Attempted at", formatDate(latestAttempt.attempted_at))}
+                  ${field("Attempted at", formatDate(latestAttempt.attempted_at, timeZone))}
                   ${field("Mode", latestAttempt.officefinder_mode)}
                   ${field("HTTP status", latestAttempt.response_status)}
                   ${field("Success", String(Boolean(latestAttempt.success)))}
@@ -1031,7 +1049,8 @@ function renderLeadQualitySection(leadQuality) {
   `;
 }
 
-function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead }) {
+function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead, operatorTimeZone = DEFAULT_OPERATOR_TIME_ZONE }) {
+  const timeZone = normalizeOperatorTimeZone(operatorTimeZone);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -1195,7 +1214,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     ${notice ? `<div class="notice">${escapeHtml(notice)}</div>` : ""}
     <p class="summary">Showing ${rows.length} ${escapeHtml(filters.status || filters.view)} lead${rows.length === 1 ? "" : "s"}${fetchedCount > rows.length ? ` after filtering ${fetchedCount} fetched records` : ""}. Ordered by newest first.</p>
     <section class="lead-list">
-      ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners, referralsByLead.get(row.id) || [])).join("") : "<p>No leads match these filters.</p>"}
+      ${rows.length ? rows.map((row) => renderLeadCard(row, token, brokerPartners, referralsByLead.get(row.id) || [], timeZone)).join("") : "<p>No leads match these filters.</p>"}
     </section>
   </main>
   <script>
@@ -1421,7 +1440,7 @@ export async function onRequestGet({ request, env, waitUntil }) {
     const { rows, fetchedCount } = await fetchLeadRows(env, filters);
     const brokerPartners = await fetchBrokerPartners(env);
     const referralsByLead = await fetchReferralHistory(env, rows);
-    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead }));
+    return adminResponse(renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQuality, brokerPartners, referralsByLead, operatorTimeZone: env.OPERATOR_TIME_ZONE }));
   } catch (error) {
     return adminResponse(`<h1>Lead dashboard error</h1><p>${escapeHtml(error.message)}</p>`, 500);
   }

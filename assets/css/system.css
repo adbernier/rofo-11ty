@@ -3813,6 +3813,7 @@ section.market-page--space-type .market-links a {
   font-weight: 800;
 }
 
+.live-market-field input,
 .live-market-field select,
 .live-market-field textarea {
   width: 100%;
@@ -3823,6 +3824,7 @@ section.market-page--space-type .market-links a {
   font: inherit;
 }
 
+.live-market-field input,
 .live-market-field select {
   min-height: 42px;
   padding: 0 11px;
@@ -3838,8 +3840,21 @@ section.market-page--space-type .market-links a {
   grid-column: 1 / -1;
 }
 
+.live-market-error {
+  margin: 0;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff1f2;
+  color: #991b1b;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .live-market-check input:focus-visible,
 .live-market-building-option input:focus-visible,
+.live-market-field input:focus,
 .live-market-field select:focus,
 .live-market-field textarea:focus {
   outline: 3px solid rgba(37, 99, 235, 0.18);

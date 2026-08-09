@@ -8,6 +8,30 @@ function cleanArray(value, max = 12) {
     : [];
 }
 
+export function executionTimingLabel(value) {
+  const normalized = clean(value, 80);
+  const labels = {
+    asap: "As soon as possible",
+    immediately: "Immediately",
+    as_soon_as_possible: "As soon as possible",
+    within_3_months: "Within 3 months",
+    "3_6_months": "3-6 months",
+    "6_12_months": "6-12 months",
+    more_than_12_months: "More than 12 months",
+    exploring: "Just exploring",
+    just_exploring: "Just exploring",
+    not_sure: "Not sure yet",
+  };
+  return labels[normalized] || normalized.replace(/_/g, " ");
+}
+
+export function executionSizeLabel(value) {
+  const raw = clean(value, 120);
+  if (!raw) return "";
+  if (/^not[_\s-]*sure$/i.test(raw) || /^i'?m not sure$/i.test(raw)) return "I'm not sure";
+  return raw.replace(/\bsqft\b/gi, "SF");
+}
+
 function parseJson(value, fallback = null) {
   if (!value) return fallback;
   if (typeof value === "object") return value;
@@ -48,11 +72,11 @@ export function buildProjectSnapshotFromBrief(brief) {
   const firstLocation = locations[0] || {};
   const market = clean(firstLocation.city || firstLocation.label || searchProfile.market || searchProfile.city, 140);
   const propertyType = clean(searchProfile.spaceType || searchProfile.space_type || "Commercial space", 120);
-  const businessType = clean(searchProfile.businessType || searchProfile.business_type, 140);
+  const businessType = clean(requirements.businessType || searchProfile.businessType || searchProfile.business_type, 140);
   const selectedDistrict = clean(investigation.districtName || investigation.district || "", 140);
   const headcount = clean(requirements.headcount, 120);
-  const approximateSize = clean(requirements.approximateSize || searchProfile.size || searchProfile.size_or_people, 120);
-  const timing = clean(requirements.timing || investigation.timing || searchProfile.timing || searchProfile.moveTiming || searchProfile.move_timing, 120);
+  const approximateSize = executionSizeLabel(requirements.approximateSize || searchProfile.size || searchProfile.size_or_people);
+  const timing = executionTimingLabel(requirements.timing || investigation.timing || searchProfile.timing || searchProfile.moveTiming || searchProfile.move_timing);
   const additionalNotes = clean(investigation.additionalNotes, 240);
   const growth = clean(searchProfile.expectedGrowth || searchProfile.expected_growth, 120);
   const topDistricts = bestFitLabelsFromBrief(brief);
@@ -80,8 +104,8 @@ export function buildProjectSnapshotFromLead(lead) {
       businessType: clean(parsed.businessType, 140),
       selectedDistrict: clean(parsed.selectedDistrict, 140),
       headcount: clean(parsed.headcount, 120),
-      approximateSize: clean(parsed.approximateSize, 120),
-      timing: clean(parsed.timing, 120),
+      approximateSize: executionSizeLabel(parsed.approximateSize),
+      timing: executionTimingLabel(parsed.timing),
       additionalNotes: clean(parsed.additionalNotes, 240),
       growth: clean(parsed.growth, 120),
       topDistricts: cleanArray(parsed.topDistricts, 3),
@@ -94,8 +118,8 @@ export function buildProjectSnapshotFromLead(lead) {
     businessType: clean(lead && (lead.location_profile_business_type || lead.business_type), 140),
     selectedDistrict: clean(lead && lead.investigation_district, 140),
     headcount: clean(lead && lead.investigation_headcount, 120),
-    approximateSize: clean(lead && (lead.space_needed || lead.size), 120),
-    timing: clean(lead && lead.move_timing, 120),
+    approximateSize: executionSizeLabel(lead && (lead.space_needed || lead.size)),
+    timing: executionTimingLabel(lead && lead.move_timing),
     additionalNotes: clean(lead && lead.investigation_notes, 240),
     growth: clean(lead && (lead.location_profile_expected_growth || lead.expected_growth), 120),
     topDistricts: cleanArray(lead && (lead.top_three_districts || "").split(","), 3),

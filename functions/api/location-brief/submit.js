@@ -50,6 +50,76 @@ function isInvestigationInput(input) {
   return Boolean(input && input.liveMarketInvestigation && input.liveMarketInvestigation.investigationIntent === true);
 }
 
+function normalizeToken(value) {
+  return clean(value, 120).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+}
+
+function isNotSureSize(value) {
+  return /not[_\s-]*sure|i'?m not sure/i.test(clean(value, 120));
+}
+
+function isOfficeLike(spaceType) {
+  const normalized = normalizeToken(spaceType);
+  return normalized.includes("office") || normalized.includes("coworking");
+}
+
+function isFlexIndustrialLike(spaceType) {
+  const normalized = normalizeToken(spaceType);
+  return normalized.includes("flex") || normalized.includes("warehouse") || normalized.includes("industrial");
+}
+
+function hasUsableSizingSignal({ spaceType, approximateSize, headcount }) {
+  if (approximateSize && !isNotSureSize(approximateSize)) return true;
+  if (isOfficeLike(spaceType) && headcount) return true;
+  return false;
+}
+
+function validateInvestigationQualification(input) {
+  if (!isInvestigationInput(input)) return { ok: true, missing: [], errors: [] };
+  const profile = input.searchProfile && typeof input.searchProfile === "object" ? input.searchProfile : {};
+  const investigation = input.liveMarketInvestigation || {};
+  const requirements = investigation.confirmedRequirements && typeof investigation.confirmedRequirements === "object"
+    ? investigation.confirmedRequirements
+    : {};
+  const spaceType = clean(requirements.spaceType || profile.spaceType || profile.space_type, 120);
+  const businessType = clean(profile.businessType || profile.business_type || requirements.businessType, 140);
+  const businessTypeOther = clean(requirements.businessTypeOther, 140);
+  const approximateSize = clean(requirements.approximateSize || profile.size || profile.size_or_people, 120);
+  const headcount = clean(requirements.headcount, 120);
+  const timing = clean(requirements.timing || investigation.timing || profile.timing || profile.moveTiming || profile.move_timing, 80);
+  const locations = Array.isArray(profile.locations) ? profile.locations : [];
+  const market = locations.length
+    ? clean(locations[0] && (locations[0].city || locations[0].label), 140)
+    : clean(profile.market || profile.city || investigation.city, 140);
+  const email = clean(input.contact && input.contact.email, 240);
+  const missing = [];
+  const errors = [];
+
+  if (!market) missing.push("market");
+  if (!spaceType) missing.push("property_type");
+  if (!businessType || (businessType === "other" && !businessTypeOther)) missing.push("business_type");
+  if (!timing) missing.push("timing");
+  if (!email) missing.push("email");
+  if (!hasUsableSizingSignal({ spaceType, approximateSize, headcount })) {
+    missing.push("usable_size");
+    errors.push(isFlexIndustrialLike(spaceType)
+      ? "Choose an approximate size range for flex, warehouse, or industrial availability requests."
+      : "Add an approximate size range, or provide headcount for an office request.");
+  }
+  if (!businessType || (businessType === "other" && !businessTypeOther)) {
+    errors.push("Add the kind of business this is for.");
+  }
+  if (!timing) {
+    errors.push("Choose a timing range, even if you are just exploring.");
+  }
+
+  return {
+    ok: missing.length === 0,
+    missing: [...new Set(missing)],
+    errors: [...new Set(errors)],
+  };
+}
+
 function selectedBuildingKeys(investigation) {
   return Array.isArray(investigation.representativeBuildings)
     ? investigation.representativeBuildings
@@ -331,6 +401,7 @@ function investigationRequirementsSummary(investigation) {
     `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
     investigationScopeSummary(investigation) ? `Investigation scope: ${investigationScopeSummary(investigation)}` : "",
     investigation.timing || requirements.timing ? `Timing: ${investigation.timing || requirements.timing}` : "",
+    requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
     requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
     requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
     requirements.budgetContext ? `Budget/rent context: ${requirements.budgetContext}` : "",
@@ -400,7 +471,9 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     project_snapshot_json: JSON.stringify(projectSnapshot),
     project_snapshot_summary: snapshotLines.join("\n"),
     top_three_districts: (projectSnapshot.topDistricts || []).join(", "),
-    location_profile_business_type: businessProfile.businessType || businessProfile.business_type || "",
+    location_profile_business_type: businessProfile.businessType || businessProfile.business_type || investigationRequirements.businessType || "",
+    business_type: businessProfile.businessType || businessProfile.business_type || investigationRequirements.businessType || "",
+    qualification_status: investigation && investigation.investigationIntent ? "qualified_requirement" : "",
     location_profile_operational_use: Array.isArray(businessProfile.operationalUse) ? businessProfile.operationalUse.join(", ") : "",
     location_profile_office_environment: businessProfile.officeEnvironment || businessProfile.office_environment || "",
     location_profile_commute_orientation: commuteOrientations.join(", "),
@@ -521,6 +594,16 @@ export async function onRequestPost({ request, env, waitUntil }) {
       error: "Missing required contact fields",
       missing: missingContact,
     }, 400);
+  }
+
+  const qualification = validateInvestigationQualification(input);
+  if (!qualification.ok) {
+    return jsonResponse({
+      ok: false,
+      error: "Availability request needs a few more details",
+      message: qualification.errors.join(" "),
+      missing: qualification.missing,
+    }, 422);
   }
 
   let idempotency = null;

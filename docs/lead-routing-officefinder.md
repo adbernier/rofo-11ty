@@ -76,6 +76,7 @@ Email and OfficeFinder:
 - `RESEND_API_KEY`: required Resend API key for internal alerts, customer confirmations, broker emails, and broker invitations.
 - `RESEND_FROM_EMAIL`: required production sender address, such as `Rofo <leads@rofo.com>` or another sender on a verified Resend domain.
 - `OFFICEFINDER_API_URL`: optional OfficeFinder endpoint override
+- `OPERATOR_TIME_ZONE`: optional Mission Control display timezone for lead, referral, and routing timestamps. Defaults to `America/Los_Angeles`. Stored timestamps remain UTC.
 
 Production email requires a verified Resend sending domain. The code still has a development fallback to `onboarding@resend.dev`, but that address is subject to Resend test-domain restrictions and can return 403 for normal production recipients. Production Pages environments should set `RESEND_FROM_EMAIL` to a verified Rofo domain sender before launch testing.
 
@@ -420,6 +421,7 @@ Before production lead testing, verify:
 - The Resend sending domain is verified and authorized for the sender in `RESEND_FROM_EMAIL`.
 - `RESEND_FROM_EMAIL` is set to the verified production sender.
 - `LEAD_NOTIFY_EMAIL` is set to the internal Rofo operations inbox.
+- `OPERATOR_TIME_ZONE` is set if Mission Control should display operator timestamps outside the default Pacific timezone.
 - A safe test customer email is available for confirmation testing.
 
 Expected dashboard/email statuses:
