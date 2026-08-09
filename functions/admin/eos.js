@@ -1499,12 +1499,19 @@ function profileMissing(statuses) {
   return (Number(evidence && evidence.missing) || 0) + (Number(supporting && supporting.missing) || 0);
 }
 
+function isDistrictBuildingEvidenceMission(mission) {
+  if (!mission) return false;
+  if (mission.source && mission.source.resolverId === "district-building-evidence-resolver-v1") return true;
+  if (mission.programId === "commercial_market_evidence" && String(mission.portfolioId || "").startsWith("district-building-evidence:")) return true;
+  if (String(mission.id || "").includes(":district-building-evidence:")) return true;
+  return false;
+}
+
 function relatedCurrentDistrictMission(eos, mission) {
   const allMissions = (((eos.portfolioQueues || {}).missionQueue) || [])
     .filter((item) =>
       item &&
-      item.source &&
-      item.source.resolverId === "district-building-evidence-resolver-v1" &&
+      isDistrictBuildingEvidenceMission(item) &&
       item.marketId === mission.marketId
     );
   const districtId = String(mission.districtId || "");
@@ -1521,7 +1528,7 @@ function relatedCurrentDistrictMission(eos, mission) {
 function currentStrategicReason(mission) {
   const statuses = mission.componentStatuses || {};
   if (cmeComplete(statuses) && profileMissing(statuses) > 0) {
-    return `${mission.districtName || mission.title} foundation and Commercial Market Evidence are established. Complete the remaining selected Building Profiles (${profileMissing(statuses)} of ${profileTarget(statuses)}).`;
+    return `${mission.districtName || mission.title} foundation is established. Complete the remaining selected Building Profiles (${profileMissing(statuses)} of ${profileTarget(statuses)}).`;
   }
   if (!cmeComplete(statuses) && profileMissing(statuses) > 0) {
     return `${mission.districtName || mission.title} still needs Commercial Market Evidence and selected Building Profile work.`;
@@ -1546,7 +1553,7 @@ function revalidateStrategicMissionCandidate(candidate, eos, token) {
   }
 
   const refreshedStatuses = mission.componentStatuses || {};
-  if (cmeComplete(refreshedStatuses) && profileMissing(refreshedStatuses) === 0 && mission.source && mission.source.resolverId === "district-building-evidence-resolver-v1") {
+  if (cmeComplete(refreshedStatuses) && profileMissing(refreshedStatuses) === 0 && isDistrictBuildingEvidenceMission(mission)) {
     return { valid: false, suppress: true };
   }
 
