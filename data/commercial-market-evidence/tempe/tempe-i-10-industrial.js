@@ -69,8 +69,8 @@ const records = [
         sourceType: "repository",
       },
       {
-        label: "City of Tempe Economic Development",
-        url: "https://www.tempe.gov/government/economic-development",
+        label: "City of Tempe Smith Innovation Hub",
+        url: "https://www.tempe.gov/government/economic-development/locate-in-tempe/innovation-hubs/smith-industrial-innovation-hub",
         sourceType: "official_government",
       },
     ],
@@ -115,14 +115,108 @@ const records = [
     ],
     publicSources: [
       {
-        label: "City of Tempe Economic Development",
-        url: "https://www.tempe.gov/government/economic-development",
+        label: "City of Tempe Maker District / Broadway Innovation Hub",
+        url: "https://www.tempe.gov/government/economic-development/locate-in-tempe/innovation-hubs/tempe-maker-district-broadway-innovation-hub",
         sourceType: "official_government",
       },
       {
         label: "Rofo Search Intelligence normalized data",
         url: "data/generated/search-console-opportunity.json",
         sourceType: "repository",
+      },
+    ],
+  }),
+  evidenceRecord({
+    id: "tempe-smith-innovation-hub-industrial-context",
+    title: "Smith Innovation Hub industrial context",
+    subjectType: "industrial_area",
+    subjectId: "smith-innovation-hub",
+    subjectName: "Smith Innovation Hub",
+    buildingProfileStatus: "not_applicable_area_evidence",
+    evidenceType: "tempe_innovation_industrial_area",
+    evidenceTypeLabel: "Tempe Innovation / Industrial Area",
+    evidenceRole: "industrial_geography_context",
+    evidenceRoleLabel: "Industrial Geography Context",
+    confidence: "source_supported",
+    whyItBelongs:
+      "Smith Innovation Hub is a source-supported Tempe geography that helps frame where industrial, production, distribution, and office/warehouse work should be evaluated inside the city.",
+    districtFit:
+      "It strengthens the Tempe I-10 Industrial foundation by showing that Tempe industrial work should not be treated as generic citywide office demand.",
+    typicalCompanies: ["warehouse users", "production-adjacent businesses", "service-industrial businesses", "office/warehouse users"],
+    typicalUsers: [
+      "occupiers comparing Tempe for operational space while still needing to validate whether Phoenix, Mesa, or Chandler alternatives are stronger",
+    ],
+    leasingSituations: [
+      "businesses validating whether Tempe offers enough industrial utility for storage, service dispatch, production-adjacent work, or office/warehouse use",
+      "operators that need central Phoenix metro access but should confirm truck, loading, parking, and permitted-use details building by building",
+    ],
+    strengths: [
+      "adds source-supported Tempe commercial geography",
+      "supports industrial and office/warehouse foundation work",
+      "keeps the mission bounded to Tempe industrial context",
+      "helps future research target exact-property validation",
+    ],
+    tradeoffs: [
+      "Area-level evidence does not establish a complete representative property set or public business-guide readiness.",
+    ],
+    nearbyAlternatives: [
+      "Tempe I-10 Industrial",
+      "Phoenix industrial alternatives",
+      "Mesa industrial alternatives",
+      "Chandler industrial alternatives",
+    ],
+    publicSources: [
+      {
+        label: "City of Tempe Economic Development",
+        url: "https://www.tempe.gov/government/economic-development",
+        sourceType: "official_government",
+      },
+    ],
+  }),
+  evidenceRecord({
+    id: "tempe-maker-district-industrial-context",
+    title: "Tempe Maker District industrial context",
+    subjectType: "industrial_area",
+    subjectId: "tempe-maker-district",
+    subjectName: "Tempe Maker District",
+    buildingProfileStatus: "not_applicable_area_evidence",
+    evidenceType: "tempe_maker_industrial_area",
+    evidenceTypeLabel: "Tempe Maker / Industrial Area",
+    evidenceRole: "industrial_geography_context",
+    evidenceRoleLabel: "Industrial Geography Context",
+    confidence: "source_supported",
+    whyItBelongs:
+      "Tempe's maker-oriented industrial geography gives Rofo a more precise foundation for production-adjacent, service, and office/warehouse users than a generic Tempe market snapshot.",
+    districtFit:
+      "The Maker District context supports the same bounded industrial foundation as 6840 S Harl Ave while preserving the need for exact representative-property validation.",
+    typicalCompanies: ["maker businesses", "light production users", "service-industrial companies", "office/warehouse users"],
+    typicalUsers: [
+      "businesses that want central Tempe access with practical industrial or maker-oriented operating context",
+    ],
+    leasingSituations: [
+      "users deciding whether Tempe's industrial/maker setting fits customer, employee, service-territory, and operational requirements",
+      "teams comparing Tempe's smaller operational formats with broader Phoenix metro warehouse corridors",
+    ],
+    strengths: [
+      "adds non-generic Tempe industrial geography",
+      "supports light production and office/warehouse context",
+      "improves future district-intelligence inputs",
+      "keeps live availability and technical building claims out of the foundation",
+    ],
+    tradeoffs: [
+      "The evidence supports a foundation geography, not a claim about current spaces, rents, tenants, or building-specific industrial infrastructure.",
+    ],
+    nearbyAlternatives: [
+      "Smith Innovation Hub",
+      "Tempe I-10 Industrial",
+      "Phoenix industrial alternatives",
+      "Mesa industrial alternatives",
+    ],
+    publicSources: [
+      {
+        label: "City of Tempe Economic Development",
+        url: "https://www.tempe.gov/government/economic-development",
+        sourceType: "official_government",
       },
     ],
   }),
@@ -140,7 +234,7 @@ module.exports = {
       label: "Additional Tempe warehouse / industrial Building Profiles",
       status: "researchable_later",
       reason:
-        "Tempe has one industrial Building Profile; a stronger representative set requires additional exact-property evidence.",
+        "Tempe has one industrial Building Profile plus source-supported industrial geography; a stronger representative set requires additional exact-property evidence.",
       prerequisite:
         "Validate additional Tempe industrial properties with source-supported identity, physical format, access/loading context, and public-page readiness.",
     },

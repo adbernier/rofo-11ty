@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T09:35:05-07:00",
+  "generatedAt": "2026-08-09T09:54:34-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -18893,7 +18893,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27733,7 +27733,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37555,7 +37555,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -46547,14 +46547,14 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 96,
+        "overallScore": 97,
         "recommendationScore": 100,
-        "editorialScore": 89,
+        "editorialScore": 90,
         "publishingScore": 100,
-        "buildingScore": 21,
+        "buildingScore": 20,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
@@ -46578,12 +46578,12 @@
           "score": 100
         },
         "representativeBuildings": {
-          "count": 43,
-          "score": 62
+          "count": 45,
+          "score": 67
         },
         "buildingBriefs": {
           "count": 9,
-          "score": 21
+          "score": 20
         },
         "insights": {
           "score": 100,
@@ -46827,7 +46827,7 @@
             "districtCount": 6,
             "secondaryDistrictCount": 7,
             "recommendationNodeCount": 6,
-            "representativeBuildingCount": 8,
+            "representativeBuildingCount": 11,
             "buildingBriefCount": 3,
             "status": "Developed",
             "districts": [
@@ -46902,73 +46902,78 @@
               "ecosystemId": "industrial_flex",
               "state": "developed",
               "stateLabel": "Developed",
-              "buildingCount": 8,
-              "explicitCount": 8,
-              "inheritedOnlyCount": 0,
+              "buildingCount": 11,
+              "explicitCount": 11,
+              "inheritedOnlyCount": 3,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "small_bay_service_environment": 2,
+                "contractor_service_cluster": 2,
                 "large_scale_distribution_environment": 1,
                 "warehouse_distribution_environment": 2,
-                "contractor_service_cluster": 1,
                 "light_manufacturing_environment": 1,
                 "last_mile_logistics_environment": 1,
                 "flex_business_park": 1,
                 "research_development_environment": 1
               },
               "subtypesCovered": {
+                "warehouse": 10,
+                "flex": 11,
+                "small_bay_industrial": 11,
+                "last_mile_logistics": 6,
                 "distribution": 7,
-                "warehouse": 7,
-                "last_mile_logistics": 3,
-                "small_bay_industrial": 8,
-                "flex": 8,
                 "manufacturing": 4,
                 "contractor_service": 1,
                 "light_manufacturing": 1,
                 "research_development": 2
               },
               "activityCoverage": {
-                "receiving": 8,
-                "shipping": 8,
-                "distribution": 4,
+                "service_dispatch": 11,
+                "equipment_storage": 4,
+                "receiving": 11,
+                "shipping": 11,
+                "storage": 11,
+                "distribution": 7,
+                "vehicle_storage": 2,
                 "inventory_management": 3,
-                "storage": 8,
-                "service_dispatch": 8,
                 "light_manufacturing": 7,
-                "equipment_storage": 1,
-                "vehicle_storage": 1,
                 "assembly": 3,
                 "knowledge_work": 2,
                 "product_development": 2,
                 "research": 1
               },
               "archetypeCoverage": {
-                "distributor": 8,
+                "distributor": 11,
+                "building_services_company": 6,
+                "general_contractor": 11,
+                "medical_practice": 3,
+                "electrician": 10,
+                "hvac_company": 8,
+                "plumbing_company": 4,
+                "landscaper": 3,
                 "wholesaler": 3,
                 "importer": 1,
                 "ecommerce_fulfillment_business": 7,
-                "general_contractor": 8,
                 "cabinet_shop": 8,
                 "light_manufacturer": 8,
-                "electrician": 7,
-                "hvac_company": 5,
-                "plumbing_company": 1,
-                "building_services_company": 3,
                 "furniture_maker": 1,
                 "equipment_service_company": 2,
                 "research_company": 2
               },
               "operationalCharacteristicsCovered": {
+                "grade_level_loading": 3,
+                "small_suite_sizes": 2,
+                "service_vehicle_parking": 4,
+                "office_warehouse_mix": 2,
+                "freeway_access": 5,
+                "outdoor_storage": 2,
+                "contractor_yard": 2,
+                "drive_in_access": 2,
                 "dock_high_loading": 3,
                 "heavy_truck_access": 1,
                 "truck_court": 3,
                 "high_clearance": 3,
                 "regional_distribution_access": 3,
-                "service_vehicle_parking": 1,
-                "outdoor_storage": 1,
-                "contractor_yard": 1,
-                "drive_in_access": 1,
-                "freeway_access": 2,
-                "grade_level_loading": 1,
                 "moderate_clearance": 1,
                 "high_power": 1,
                 "assembly_compatible": 1,
@@ -46982,11 +46987,11 @@
                 "research_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "access_loading": 11,
-                "configuration": 8,
-                "location_workforce": 5,
-                "parking_vehicles": 3,
-                "outdoor_special_use": 4,
+                "access_loading": 14,
+                "configuration": 12,
+                "parking_vehicles": 6,
+                "location_workforce": 8,
+                "outdoor_special_use": 6,
                 "infrastructure": 2
               },
               "missingRoles": [],
@@ -46994,6 +46999,24 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "3250 Abilene St",
+                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "1300-1390 S Potomac St",
+                  "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+                  "role": "contractor_service_cluster",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "17100-17210 E Ohio Dr",
+                  "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
                 {
                   "name": "10445 E 49th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
@@ -47010,24 +47033,6 @@
                   "name": "10515-10525 E 40th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                   "role": "contractor_service_cluster",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "11551 E 49th Ave",
-                  "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                  "role": "light_manufacturing_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "3559 N Himalaya Rd",
-                  "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                  "role": "last_mile_logistics_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "4550 Kingston St",
-                  "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                  "role": "warehouse_distribution_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -47149,7 +47154,7 @@
             "districtCount": 4,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 4,
-            "representativeBuildingCount": 10,
+            "representativeBuildingCount": 9,
             "buildingBriefCount": 1,
             "status": "Developed",
             "districts": [
@@ -47203,37 +47208,37 @@
               "ecosystemId": "medical",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 10,
-              "explicitCount": 10,
+              "buildingCount": 9,
+              "explicitCount": 9,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "outpatient_clinic_environment": 5,
+                "outpatient_clinic_environment": 4,
                 "medical_office_environment": 5
               },
               "subtypesCovered": {
-                "outpatient_clinic": 5,
-                "wellness": 3,
-                "medical_office": 10
+                "outpatient_clinic": 4,
+                "wellness": 2,
+                "medical_office": 9
               },
               "activityCoverage": {
-                "healthcare_delivery": 10,
-                "walk_in_service": 10,
-                "administrative_operations": 10
+                "healthcare_delivery": 9,
+                "walk_in_service": 9,
+                "administrative_operations": 9
               },
               "archetypeCoverage": {
-                "outpatient_clinic": 10,
-                "wellness_practice": 10,
-                "medical_practice": 10,
-                "dental_practice": 10,
-                "physical_therapy_practice": 10
+                "outpatient_clinic": 9,
+                "wellness_practice": 9,
+                "medical_practice": 9,
+                "dental_practice": 9,
+                "physical_therapy_practice": 9
               },
               "operationalCharacteristicsCovered": {
-                "customer_parking": 10,
-                "walk_in_customer_access": 5,
+                "customer_parking": 9,
+                "walk_in_customer_access": 4,
                 "retail_adjacent": 1,
-                "suburban_access": 8,
-                "medical_use_compatible": 10,
+                "suburban_access": 7,
+                "medical_use_compatible": 9,
                 "private_office_layout": 4,
                 "professional_image": 4,
                 "freeway_access": 2,
@@ -47242,10 +47247,10 @@
                 "neighborhood_access": 1
               },
               "operationalCategoriesCovered": {
-                "parking_vehicles": 10,
-                "market_presence": 11,
-                "location_workforce": 11,
-                "outdoor_special_use": 10,
+                "parking_vehicles": 9,
+                "market_presence": 10,
+                "location_workforce": 10,
+                "outdoor_special_use": 9,
                 "configuration": 4,
                 "infrastructure": 5
               },
@@ -47279,15 +47284,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "3250 Abilene St",
-                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "name": "Clock Tower Square",
+                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
                   "role": "outpatient_clinic_environment",
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "Clock Tower Square",
-                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "outpatient_clinic_environment",
+                  "name": "CO, Centennial - Chester St",
+                  "path": "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
+                  "role": "medical_office_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -47768,15 +47773,15 @@
               "districts": 6,
               "secondaryDistricts": 7,
               "recommendations": 6,
-              "representativeBuildings": 8,
+              "representativeBuildings": 11,
               "buildingBriefs": 3,
               "subtypes": 10,
               "archetypes": 7,
               "activities": 6,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 7,
+              "representativeRoles": 8,
               "operationalCategories": 6,
-              "operationalCharacteristics": 22,
+              "operationalCharacteristics": 24,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [],
@@ -47785,8 +47790,8 @@
             "strategicPriority": 1,
             "evidence": [
               "6 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "7 representative roles and 6 operational categories are covered."
+              "11 Representative Buildings and 3 Building Briefs.",
+              "8 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "small_bay_industrial",
@@ -47815,40 +47820,41 @@
               "ecosystemId": "industrial_flex",
               "state": "developed",
               "stateLabel": "Developed",
-              "buildingCount": 8,
-              "explicitCount": 8,
-              "inheritedOnlyCount": 0,
+              "buildingCount": 11,
+              "explicitCount": 11,
+              "inheritedOnlyCount": 3,
               "reviewRequiredCount": 0,
               "rolesCovered": [
+                "small_bay_service_environment",
+                "contractor_service_cluster",
                 "large_scale_distribution_environment",
                 "warehouse_distribution_environment",
-                "contractor_service_cluster",
                 "light_manufacturing_environment",
                 "last_mile_logistics_environment",
                 "flex_business_park",
                 "research_development_environment"
               ],
               "subtypesCovered": [
-                "distribution",
                 "warehouse",
-                "last_mile_logistics",
-                "small_bay_industrial",
                 "flex",
+                "small_bay_industrial",
+                "last_mile_logistics",
+                "distribution",
                 "manufacturing",
                 "contractor_service",
                 "light_manufacturing",
                 "research_development"
               ],
               "activityCoverage": [
+                "service_dispatch",
+                "equipment_storage",
                 "receiving",
                 "shipping",
-                "distribution",
-                "inventory_management",
                 "storage",
-                "service_dispatch",
-                "light_manufacturing",
-                "equipment_storage",
+                "distribution",
                 "vehicle_storage",
+                "inventory_management",
+                "light_manufacturing",
                 "assembly",
                 "knowledge_work",
                 "product_development",
@@ -47856,32 +47862,36 @@
               ],
               "archetypeCoverage": [
                 "distributor",
-                "wholesaler",
-                "importer",
-                "ecommerce_fulfillment_business",
+                "building_services_company",
                 "general_contractor",
-                "cabinet_shop",
-                "light_manufacturer",
+                "medical_practice",
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
-                "building_services_company",
+                "landscaper",
+                "wholesaler",
+                "importer",
+                "ecommerce_fulfillment_business",
+                "cabinet_shop",
+                "light_manufacturer",
                 "furniture_maker",
                 "equipment_service_company",
                 "research_company"
               ],
               "operationalCharacteristicsCovered": [
+                "grade_level_loading",
+                "small_suite_sizes",
+                "service_vehicle_parking",
+                "office_warehouse_mix",
+                "freeway_access",
+                "outdoor_storage",
+                "contractor_yard",
+                "drive_in_access",
                 "dock_high_loading",
                 "heavy_truck_access",
                 "truck_court",
                 "high_clearance",
                 "regional_distribution_access",
-                "service_vehicle_parking",
-                "outdoor_storage",
-                "contractor_yard",
-                "drive_in_access",
-                "freeway_access",
-                "grade_level_loading",
                 "moderate_clearance",
                 "high_power",
                 "assembly_compatible",
@@ -47897,8 +47907,8 @@
               "operationalCategoriesCovered": [
                 "access_loading",
                 "configuration",
-                "location_workforce",
                 "parking_vehicles",
+                "location_workforce",
                 "outdoor_special_use",
                 "infrastructure"
               ],
@@ -47907,6 +47917,24 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "3250 Abilene St",
+                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "1300-1390 S Potomac St",
+                  "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+                  "role": "contractor_service_cluster",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "17100-17210 E Ohio Dr",
+                  "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
                 {
                   "name": "10445 E 49th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
@@ -47923,24 +47951,6 @@
                   "name": "10515-10525 E 40th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                   "role": "contractor_service_cluster",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "11551 E 49th Ave",
-                  "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                  "role": "light_manufacturing_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "3559 N Himalaya Rd",
-                  "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                  "role": "last_mile_logistics_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "4550 Kingston St",
-                  "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                  "role": "warehouse_distribution_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -48106,7 +48116,7 @@
               "districts": 4,
               "secondaryDistricts": 5,
               "recommendations": 4,
-              "representativeBuildings": 10,
+              "representativeBuildings": 9,
               "buildingBriefs": 1,
               "subtypes": 5,
               "archetypes": 4,
@@ -48123,7 +48133,7 @@
             "strategicPriority": 3,
             "evidence": [
               "4 primary districts and 5 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
+              "9 Representative Buildings and 1 Building Briefs.",
               "2 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -48149,8 +48159,8 @@
               "ecosystemId": "medical",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 10,
-              "explicitCount": 10,
+              "buildingCount": 9,
+              "explicitCount": 9,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -48225,15 +48235,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "3250 Abilene St",
-                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "name": "Clock Tower Square",
+                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
                   "role": "outpatient_clinic_environment",
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "Clock Tower Square",
-                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "outpatient_clinic_environment",
+                  "name": "CO, Centennial - Chester St",
+                  "path": "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
+                  "role": "medical_office_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -48899,7 +48909,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0.53,
+          "representativeBuildingShare": 0.51,
           "buildingBriefShare": 0.44,
           "warnings": []
         }
@@ -48908,7 +48918,7 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "office",
-        "representativeBuildingShare": 0.53,
+        "representativeBuildingShare": 0.51,
         "buildingBriefShare": 0.44,
         "warnings": []
       },
@@ -49663,6 +49673,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1300-1390 S Potomac St",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
           "metroId": "denver",
           "metroName": "Denver",
@@ -49859,6 +49918,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "17100-17210 E Ohio Dr",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
           "metroId": "denver",
           "metroName": "Denver",
@@ -50024,7 +50132,7 @@
           "description": "Representative building has not migrated to the Building Brief journey.",
           "reason": "Representative building has not migrated to the canonical Building Brief journey.",
           "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
+          "confidence": "Research required",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
@@ -51130,54 +51238,6 @@
             "recommendation": 78,
             "editorial": 87,
             "building": 91
-          }
-        },
-        {
-          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-          "metroId": "denver",
-          "metroName": "Denver",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "Aurora I-70 / Airport Industrial",
-          "sourceId": "aurora-i-70-airport-industrial",
-          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 4,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
-          ],
-          "prerequisite": [
-            "district commercial identity"
-          ],
-          "followUp": [
-            "author initial Building Briefs after canonical records exist"
-          ],
-          "priorityScore": 74,
-          "modeScores": {
-            "balanced": 74,
-            "recommendation": 72,
-            "editorial": 79,
-            "building": 86
           }
         },
         {
@@ -52233,6 +52293,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1300-1390 S Potomac St",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
           "metroId": "denver",
           "metroName": "Denver",
@@ -52429,6 +52538,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "17100-17210 E Ohio Dr",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
           "metroId": "denver",
           "metroName": "Denver",
@@ -52594,7 +52752,7 @@
           "description": "Representative building has not migrated to the Building Brief journey.",
           "reason": "Representative building has not migrated to the canonical Building Brief journey.",
           "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
+          "confidence": "Research required",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
@@ -53703,54 +53861,6 @@
           }
         },
         {
-          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-          "metroId": "denver",
-          "metroName": "Denver",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "Aurora I-70 / Airport Industrial",
-          "sourceId": "aurora-i-70-airport-industrial",
-          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 4,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
-          ],
-          "prerequisite": [
-            "district commercial identity"
-          ],
-          "followUp": [
-            "author initial Building Briefs after canonical records exist"
-          ],
-          "priorityScore": 74,
-          "modeScores": {
-            "balanced": 74,
-            "recommendation": 72,
-            "editorial": 79,
-            "building": 86
-          }
-        },
-        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -54512,7 +54622,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -54600,6 +54710,23 @@
             ]
           },
           {
+            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "1300-1390 S Potomac St",
+            "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+            "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+            "priorityScore": 80,
+            "confidence": "Research required",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
+          {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
@@ -54631,40 +54758,6 @@
             "unlocks": [
               "Building Brief page depth",
               "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "16 Market Square",
-            "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "Aurora I-70 / Airport Industrial",
-            "sourceId": "aurora-i-70-airport-industrial",
-            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
             ]
           },
           {
@@ -54766,6 +54859,22 @@
             "unlocks": [
               "stronger recommendation alternatives"
             ]
+          },
+          {
+            "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "gapType": "comparison",
+            "itemName": "Central Park -> Northeast Denver Industrial",
+            "sourceId": "central-park:northeast-denver-industrial",
+            "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+            "priorityScore": 66,
+            "confidence": "Review recommended",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "blockedBy": [],
+            "unlocks": [
+              "stronger recommendation alternatives"
+            ]
           }
         ],
         "dataTasks": [
@@ -54781,7 +54890,7 @@
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
-          "Curate representative buildings that explain this district.",
+          "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
@@ -54814,8 +54923,8 @@
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
-          "comparisonTasks": 2,
-          "representativeBuildingTasks": 5,
+          "comparisonTasks": 3,
+          "representativeBuildingTasks": 4,
           "buildingBriefTasks": 8,
           "recommendationTasks": 0
         },
@@ -54825,7 +54934,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -54833,7 +54942,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -54921,6 +55030,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 80,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -54952,40 +55078,6 @@
               "unlocks": [
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "16 Market Square",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
               ]
             },
             {
@@ -55087,6 +55179,22 @@
               "unlocks": [
                 "stronger recommendation alternatives"
               ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Central Park -> Northeast Denver Industrial",
+              "sourceId": "central-park:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
             }
           ],
           "dataTasks": [
@@ -55102,7 +55210,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
+            "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
@@ -55135,8 +55243,8 @@
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 2,
-            "representativeBuildingTasks": 5,
+            "comparisonTasks": 3,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
@@ -55146,14 +55254,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
@@ -55252,23 +55360,6 @@
               ]
             },
             {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -55344,7 +55435,6 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
-            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -55367,7 +55457,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 5,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -55377,14 +55467,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
-          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -55472,6 +55562,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 87,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -55537,40 +55644,6 @@
               "unlocks": [
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "200 Union",
-              "sourceId": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "publicUrl": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
               ]
             },
             {
@@ -55640,6 +55713,22 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 68,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
             }
           ],
           "dataTasks": [
@@ -55657,7 +55746,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district."
+            "Review whether the comparison should be reciprocal."
           ],
           "contentTasks": [
             "Author a Building Brief for this representative building.",
@@ -55680,16 +55769,18 @@
           "dependencies": [
             "canonical representative building record",
             "district association",
-            "district commercial identity"
+            "district commercial identity",
+            "district identity"
           ],
           "expectedImpact": [
+            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
             "deeper public building intelligence and stronger internal links"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
+            "comparisonTasks": 1,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -55699,32 +55790,15 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 86,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
@@ -55879,6 +55953,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 91,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -55945,27 +56036,9 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "200 Union",
-              "sourceId": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "publicUrl": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
-            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -56011,7 +56084,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -56021,7 +56094,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -56030,7 +56103,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -61743,7 +61816,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -80581,7 +80654,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -89421,7 +89494,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -99243,7 +99316,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -108235,14 +108308,14 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-09T09:35:05-07:00",
+      "generatedAt": "2026-08-09T09:54:34-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 96,
+        "overallScore": 97,
         "recommendationScore": 100,
-        "editorialScore": 89,
+        "editorialScore": 90,
         "publishingScore": 100,
-        "buildingScore": 21,
+        "buildingScore": 20,
         "comparisonScore": 100,
         "insightScore": 100,
         "geographicReadiness": "developed",
@@ -108266,12 +108339,12 @@
           "score": 100
         },
         "representativeBuildings": {
-          "count": 43,
-          "score": 62
+          "count": 45,
+          "score": 67
         },
         "buildingBriefs": {
           "count": 9,
-          "score": 21
+          "score": 20
         },
         "insights": {
           "score": 100,
@@ -108515,7 +108588,7 @@
             "districtCount": 6,
             "secondaryDistrictCount": 7,
             "recommendationNodeCount": 6,
-            "representativeBuildingCount": 8,
+            "representativeBuildingCount": 11,
             "buildingBriefCount": 3,
             "status": "Developed",
             "districts": [
@@ -108590,73 +108663,78 @@
               "ecosystemId": "industrial_flex",
               "state": "developed",
               "stateLabel": "Developed",
-              "buildingCount": 8,
-              "explicitCount": 8,
-              "inheritedOnlyCount": 0,
+              "buildingCount": 11,
+              "explicitCount": 11,
+              "inheritedOnlyCount": 3,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "small_bay_service_environment": 2,
+                "contractor_service_cluster": 2,
                 "large_scale_distribution_environment": 1,
                 "warehouse_distribution_environment": 2,
-                "contractor_service_cluster": 1,
                 "light_manufacturing_environment": 1,
                 "last_mile_logistics_environment": 1,
                 "flex_business_park": 1,
                 "research_development_environment": 1
               },
               "subtypesCovered": {
+                "warehouse": 10,
+                "flex": 11,
+                "small_bay_industrial": 11,
+                "last_mile_logistics": 6,
                 "distribution": 7,
-                "warehouse": 7,
-                "last_mile_logistics": 3,
-                "small_bay_industrial": 8,
-                "flex": 8,
                 "manufacturing": 4,
                 "contractor_service": 1,
                 "light_manufacturing": 1,
                 "research_development": 2
               },
               "activityCoverage": {
-                "receiving": 8,
-                "shipping": 8,
-                "distribution": 4,
+                "service_dispatch": 11,
+                "equipment_storage": 4,
+                "receiving": 11,
+                "shipping": 11,
+                "storage": 11,
+                "distribution": 7,
+                "vehicle_storage": 2,
                 "inventory_management": 3,
-                "storage": 8,
-                "service_dispatch": 8,
                 "light_manufacturing": 7,
-                "equipment_storage": 1,
-                "vehicle_storage": 1,
                 "assembly": 3,
                 "knowledge_work": 2,
                 "product_development": 2,
                 "research": 1
               },
               "archetypeCoverage": {
-                "distributor": 8,
+                "distributor": 11,
+                "building_services_company": 6,
+                "general_contractor": 11,
+                "medical_practice": 3,
+                "electrician": 10,
+                "hvac_company": 8,
+                "plumbing_company": 4,
+                "landscaper": 3,
                 "wholesaler": 3,
                 "importer": 1,
                 "ecommerce_fulfillment_business": 7,
-                "general_contractor": 8,
                 "cabinet_shop": 8,
                 "light_manufacturer": 8,
-                "electrician": 7,
-                "hvac_company": 5,
-                "plumbing_company": 1,
-                "building_services_company": 3,
                 "furniture_maker": 1,
                 "equipment_service_company": 2,
                 "research_company": 2
               },
               "operationalCharacteristicsCovered": {
+                "grade_level_loading": 3,
+                "small_suite_sizes": 2,
+                "service_vehicle_parking": 4,
+                "office_warehouse_mix": 2,
+                "freeway_access": 5,
+                "outdoor_storage": 2,
+                "contractor_yard": 2,
+                "drive_in_access": 2,
                 "dock_high_loading": 3,
                 "heavy_truck_access": 1,
                 "truck_court": 3,
                 "high_clearance": 3,
                 "regional_distribution_access": 3,
-                "service_vehicle_parking": 1,
-                "outdoor_storage": 1,
-                "contractor_yard": 1,
-                "drive_in_access": 1,
-                "freeway_access": 2,
-                "grade_level_loading": 1,
                 "moderate_clearance": 1,
                 "high_power": 1,
                 "assembly_compatible": 1,
@@ -108670,11 +108748,11 @@
                 "research_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "access_loading": 11,
-                "configuration": 8,
-                "location_workforce": 5,
-                "parking_vehicles": 3,
-                "outdoor_special_use": 4,
+                "access_loading": 14,
+                "configuration": 12,
+                "parking_vehicles": 6,
+                "location_workforce": 8,
+                "outdoor_special_use": 6,
                 "infrastructure": 2
               },
               "missingRoles": [],
@@ -108682,6 +108760,24 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "3250 Abilene St",
+                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "1300-1390 S Potomac St",
+                  "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+                  "role": "contractor_service_cluster",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "17100-17210 E Ohio Dr",
+                  "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
                 {
                   "name": "10445 E 49th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
@@ -108698,24 +108794,6 @@
                   "name": "10515-10525 E 40th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                   "role": "contractor_service_cluster",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "11551 E 49th Ave",
-                  "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                  "role": "light_manufacturing_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "3559 N Himalaya Rd",
-                  "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                  "role": "last_mile_logistics_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "4550 Kingston St",
-                  "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                  "role": "warehouse_distribution_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -108837,7 +108915,7 @@
             "districtCount": 4,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 4,
-            "representativeBuildingCount": 10,
+            "representativeBuildingCount": 9,
             "buildingBriefCount": 1,
             "status": "Developed",
             "districts": [
@@ -108891,37 +108969,37 @@
               "ecosystemId": "medical",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 10,
-              "explicitCount": 10,
+              "buildingCount": 9,
+              "explicitCount": 9,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "outpatient_clinic_environment": 5,
+                "outpatient_clinic_environment": 4,
                 "medical_office_environment": 5
               },
               "subtypesCovered": {
-                "outpatient_clinic": 5,
-                "wellness": 3,
-                "medical_office": 10
+                "outpatient_clinic": 4,
+                "wellness": 2,
+                "medical_office": 9
               },
               "activityCoverage": {
-                "healthcare_delivery": 10,
-                "walk_in_service": 10,
-                "administrative_operations": 10
+                "healthcare_delivery": 9,
+                "walk_in_service": 9,
+                "administrative_operations": 9
               },
               "archetypeCoverage": {
-                "outpatient_clinic": 10,
-                "wellness_practice": 10,
-                "medical_practice": 10,
-                "dental_practice": 10,
-                "physical_therapy_practice": 10
+                "outpatient_clinic": 9,
+                "wellness_practice": 9,
+                "medical_practice": 9,
+                "dental_practice": 9,
+                "physical_therapy_practice": 9
               },
               "operationalCharacteristicsCovered": {
-                "customer_parking": 10,
-                "walk_in_customer_access": 5,
+                "customer_parking": 9,
+                "walk_in_customer_access": 4,
                 "retail_adjacent": 1,
-                "suburban_access": 8,
-                "medical_use_compatible": 10,
+                "suburban_access": 7,
+                "medical_use_compatible": 9,
                 "private_office_layout": 4,
                 "professional_image": 4,
                 "freeway_access": 2,
@@ -108930,10 +109008,10 @@
                 "neighborhood_access": 1
               },
               "operationalCategoriesCovered": {
-                "parking_vehicles": 10,
-                "market_presence": 11,
-                "location_workforce": 11,
-                "outdoor_special_use": 10,
+                "parking_vehicles": 9,
+                "market_presence": 10,
+                "location_workforce": 10,
+                "outdoor_special_use": 9,
                 "configuration": 4,
                 "infrastructure": 5
               },
@@ -108967,15 +109045,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "3250 Abilene St",
-                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "name": "Clock Tower Square",
+                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
                   "role": "outpatient_clinic_environment",
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "Clock Tower Square",
-                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "outpatient_clinic_environment",
+                  "name": "CO, Centennial - Chester St",
+                  "path": "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
+                  "role": "medical_office_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -109456,15 +109534,15 @@
               "districts": 6,
               "secondaryDistricts": 7,
               "recommendations": 6,
-              "representativeBuildings": 8,
+              "representativeBuildings": 11,
               "buildingBriefs": 3,
               "subtypes": 10,
               "archetypes": 7,
               "activities": 6,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 7,
+              "representativeRoles": 8,
               "operationalCategories": 6,
-              "operationalCharacteristics": 22,
+              "operationalCharacteristics": 24,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [],
@@ -109473,8 +109551,8 @@
             "strategicPriority": 1,
             "evidence": [
               "6 primary districts and 7 secondary districts.",
-              "8 Representative Buildings and 3 Building Briefs.",
-              "7 representative roles and 6 operational categories are covered."
+              "11 Representative Buildings and 3 Building Briefs.",
+              "8 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "small_bay_industrial",
@@ -109503,40 +109581,41 @@
               "ecosystemId": "industrial_flex",
               "state": "developed",
               "stateLabel": "Developed",
-              "buildingCount": 8,
-              "explicitCount": 8,
-              "inheritedOnlyCount": 0,
+              "buildingCount": 11,
+              "explicitCount": 11,
+              "inheritedOnlyCount": 3,
               "reviewRequiredCount": 0,
               "rolesCovered": [
+                "small_bay_service_environment",
+                "contractor_service_cluster",
                 "large_scale_distribution_environment",
                 "warehouse_distribution_environment",
-                "contractor_service_cluster",
                 "light_manufacturing_environment",
                 "last_mile_logistics_environment",
                 "flex_business_park",
                 "research_development_environment"
               ],
               "subtypesCovered": [
-                "distribution",
                 "warehouse",
-                "last_mile_logistics",
-                "small_bay_industrial",
                 "flex",
+                "small_bay_industrial",
+                "last_mile_logistics",
+                "distribution",
                 "manufacturing",
                 "contractor_service",
                 "light_manufacturing",
                 "research_development"
               ],
               "activityCoverage": [
+                "service_dispatch",
+                "equipment_storage",
                 "receiving",
                 "shipping",
-                "distribution",
-                "inventory_management",
                 "storage",
-                "service_dispatch",
-                "light_manufacturing",
-                "equipment_storage",
+                "distribution",
                 "vehicle_storage",
+                "inventory_management",
+                "light_manufacturing",
                 "assembly",
                 "knowledge_work",
                 "product_development",
@@ -109544,32 +109623,36 @@
               ],
               "archetypeCoverage": [
                 "distributor",
-                "wholesaler",
-                "importer",
-                "ecommerce_fulfillment_business",
+                "building_services_company",
                 "general_contractor",
-                "cabinet_shop",
-                "light_manufacturer",
+                "medical_practice",
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
-                "building_services_company",
+                "landscaper",
+                "wholesaler",
+                "importer",
+                "ecommerce_fulfillment_business",
+                "cabinet_shop",
+                "light_manufacturer",
                 "furniture_maker",
                 "equipment_service_company",
                 "research_company"
               ],
               "operationalCharacteristicsCovered": [
+                "grade_level_loading",
+                "small_suite_sizes",
+                "service_vehicle_parking",
+                "office_warehouse_mix",
+                "freeway_access",
+                "outdoor_storage",
+                "contractor_yard",
+                "drive_in_access",
                 "dock_high_loading",
                 "heavy_truck_access",
                 "truck_court",
                 "high_clearance",
                 "regional_distribution_access",
-                "service_vehicle_parking",
-                "outdoor_storage",
-                "contractor_yard",
-                "drive_in_access",
-                "freeway_access",
-                "grade_level_loading",
                 "moderate_clearance",
                 "high_power",
                 "assembly_compatible",
@@ -109585,8 +109668,8 @@
               "operationalCategoriesCovered": [
                 "access_loading",
                 "configuration",
-                "location_workforce",
                 "parking_vehicles",
+                "location_workforce",
                 "outdoor_special_use",
                 "infrastructure"
               ],
@@ -109595,6 +109678,24 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "3250 Abilene St",
+                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "1300-1390 S Potomac St",
+                  "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+                  "role": "contractor_service_cluster",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "17100-17210 E Ohio Dr",
+                  "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+                  "role": "small_bay_service_environment",
+                  "confidence": "district_inferred"
+                },
                 {
                   "name": "10445 E 49th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10445-e-49th-ave/",
@@ -109611,24 +109712,6 @@
                   "name": "10515-10525 E 40th Ave",
                   "path": "/commercial-real-estate/building/CO/denver/10515-10525-e-40th-ave/",
                   "role": "contractor_service_cluster",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "11551 E 49th Ave",
-                  "path": "/commercial-real-estate/building/CO/denver/11551-e-49th-ave/",
-                  "role": "light_manufacturing_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "3559 N Himalaya Rd",
-                  "path": "/commercial-real-estate/building/CO/denver/3559-n-himalaya-rd/",
-                  "role": "last_mile_logistics_environment",
-                  "confidence": "editorially_supported"
-                },
-                {
-                  "name": "4550 Kingston St",
-                  "path": "/commercial-real-estate/building/CO/denver/4550-kingston-st/",
-                  "role": "warehouse_distribution_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -109794,7 +109877,7 @@
               "districts": 4,
               "secondaryDistricts": 5,
               "recommendations": 4,
-              "representativeBuildings": 10,
+              "representativeBuildings": 9,
               "buildingBriefs": 1,
               "subtypes": 5,
               "archetypes": 4,
@@ -109811,7 +109894,7 @@
             "strategicPriority": 3,
             "evidence": [
               "4 primary districts and 5 secondary districts.",
-              "10 Representative Buildings and 1 Building Briefs.",
+              "9 Representative Buildings and 1 Building Briefs.",
               "2 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -109837,8 +109920,8 @@
               "ecosystemId": "medical",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 10,
-              "explicitCount": 10,
+              "buildingCount": 9,
+              "explicitCount": 9,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -109913,15 +109996,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "3250 Abilene St",
-                  "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
+                  "name": "Clock Tower Square",
+                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
                   "role": "outpatient_clinic_environment",
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "Clock Tower Square",
-                  "path": "/commercial-real-estate/building/CO/aurora/14201-14291-e-4th-avenue/",
-                  "role": "outpatient_clinic_environment",
+                  "name": "CO, Centennial - Chester St",
+                  "path": "/commercial-real-estate/building/CO/centennial/8085-s-chester-st/",
+                  "role": "medical_office_environment",
                   "confidence": "editorially_supported"
                 }
               ]
@@ -110587,7 +110670,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0.53,
+          "representativeBuildingShare": 0.51,
           "buildingBriefShare": 0.44,
           "warnings": []
         }
@@ -110596,7 +110679,7 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "office",
-        "representativeBuildingShare": 0.53,
+        "representativeBuildingShare": 0.51,
         "buildingBriefShare": 0.44,
         "warnings": []
       },
@@ -111351,6 +111434,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1300-1390 S Potomac St",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
           "metroId": "denver",
           "metroName": "Denver",
@@ -111547,6 +111679,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "17100-17210 E Ohio Dr",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
           "metroId": "denver",
           "metroName": "Denver",
@@ -111712,7 +111893,7 @@
           "description": "Representative building has not migrated to the Building Brief journey.",
           "reason": "Representative building has not migrated to the canonical Building Brief journey.",
           "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
+          "confidence": "Research required",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
@@ -112818,54 +112999,6 @@
             "recommendation": 78,
             "editorial": 87,
             "building": 91
-          }
-        },
-        {
-          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-          "metroId": "denver",
-          "metroName": "Denver",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "Aurora I-70 / Airport Industrial",
-          "sourceId": "aurora-i-70-airport-industrial",
-          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 4,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
-          ],
-          "prerequisite": [
-            "district commercial identity"
-          ],
-          "followUp": [
-            "author initial Building Briefs after canonical records exist"
-          ],
-          "priorityScore": 74,
-          "modeScores": {
-            "balanced": 74,
-            "recommendation": 72,
-            "editorial": 79,
-            "building": 86
           }
         },
         {
@@ -113921,6 +114054,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "1300-1390 S Potomac St",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
           "metroId": "denver",
           "metroName": "Denver",
@@ -114117,6 +114299,55 @@
           }
         },
         {
+          "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
+          "metroId": "denver",
+          "metroName": "Denver",
+          "category": "buildingBriefs",
+          "categoryLabel": "Building Briefs",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "building-missing-building-brief",
+          "taskType": "representative building missing Building Brief",
+          "affectedType": "building-or-district",
+          "itemName": "17100-17210 E Ohio Dr",
+          "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "Representative building has not migrated to the Building Brief journey.",
+          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+          "suggestedNextAction": "Author a Building Brief for this representative building.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 4,
+            "seoValue": 5,
+            "estimatedEffort": 4,
+            "dependencyRisk": 1
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief page depth",
+            "recommendation representative-building card eligibility"
+          ],
+          "prerequisite": [
+            "canonical representative building record",
+            "district association"
+          ],
+          "followUp": [
+            "QA Building Brief depth"
+          ],
+          "priorityScore": 80,
+          "modeScores": {
+            "balanced": 80,
+            "recommendation": 78,
+            "editorial": 87,
+            "building": 91
+          }
+        },
+        {
           "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
           "metroId": "denver",
           "metroName": "Denver",
@@ -114282,7 +114513,7 @@
           "description": "Representative building has not migrated to the Building Brief journey.",
           "reason": "Representative building has not migrated to the canonical Building Brief journey.",
           "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
+          "confidence": "Research required",
           "automationCandidate": true,
           "priorityFactors": {
             "userValue": 5,
@@ -115391,54 +115622,6 @@
           }
         },
         {
-          "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-          "metroId": "denver",
-          "metroName": "Denver",
-          "category": "representativeBuildings",
-          "categoryLabel": "Representative Buildings",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "district-missing-representative-buildings",
-          "taskType": "district missing representative buildings",
-          "affectedType": "building-or-district",
-          "itemName": "Aurora I-70 / Airport Industrial",
-          "sourceId": "aurora-i-70-airport-industrial",
-          "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "District lacks representative building examples.",
-          "reason": "District has no representative building examples.",
-          "suggestedNextAction": "Curate representative buildings that explain this district.",
-          "confidence": "Research required",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 5,
-            "seoValue": 4,
-            "estimatedEffort": 4,
-            "dependencyRisk": 3
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief migration",
-            "recommendation representative-building module"
-          ],
-          "prerequisite": [
-            "district commercial identity"
-          ],
-          "followUp": [
-            "author initial Building Briefs after canonical records exist"
-          ],
-          "priorityScore": 74,
-          "modeScores": {
-            "balanced": 74,
-            "recommendation": 72,
-            "editorial": 79,
-            "building": 86
-          }
-        },
-        {
           "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
           "metroId": "denver",
           "metroName": "Denver",
@@ -116200,7 +116383,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "Denver Building Brief Migration Sprint",
         "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-        "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -116288,6 +116471,23 @@
             ]
           },
           {
+            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "gapType": "representativeBuilding",
+            "itemName": "1300-1390 S Potomac St",
+            "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+            "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+            "priorityScore": 80,
+            "confidence": "Research required",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief page depth",
+              "recommendation representative-building card eligibility"
+            ]
+          },
+          {
             "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
             "category": "buildingBriefs",
             "categoryLabel": "Building Briefs",
@@ -116319,40 +116519,6 @@
             "unlocks": [
               "Building Brief page depth",
               "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "16 Market Square",
-            "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "Aurora I-70 / Airport Industrial",
-            "sourceId": "aurora-i-70-airport-industrial",
-            "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
             ]
           },
           {
@@ -116454,6 +116620,22 @@
             "unlocks": [
               "stronger recommendation alternatives"
             ]
+          },
+          {
+            "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "gapType": "comparison",
+            "itemName": "Central Park -> Northeast Denver Industrial",
+            "sourceId": "central-park:northeast-denver-industrial",
+            "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+            "priorityScore": 66,
+            "confidence": "Review recommended",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "blockedBy": [],
+            "unlocks": [
+              "stronger recommendation alternatives"
+            ]
           }
         ],
         "dataTasks": [
@@ -116469,7 +116651,7 @@
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
           "Curate representative buildings that explain this district.",
-          "Curate representative buildings that explain this district.",
+          "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
@@ -116502,8 +116684,8 @@
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
-          "comparisonTasks": 2,
-          "representativeBuildingTasks": 5,
+          "comparisonTasks": 3,
+          "representativeBuildingTasks": 4,
           "buildingBriefTasks": 8,
           "recommendationTasks": 0
         },
@@ -116513,7 +116695,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -116521,7 +116703,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "Denver Building Brief Migration Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -116609,6 +116791,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 80,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -116640,40 +116839,6 @@
               "unlocks": [
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "16 Market Square",
-              "sourceId": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "publicUrl": "/commercial-real-estate/building/CO/denver/1400-sixteenth-street/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
               ]
             },
             {
@@ -116775,6 +116940,22 @@
               "unlocks": [
                 "stronger recommendation alternatives"
               ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:central-park-northeast-denver-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Central Park -> Northeast Denver Industrial",
+              "sourceId": "central-park:northeast-denver-industrial",
+              "publicUrl": "/commercial-real-estate/CO/denver/central-park/",
+              "priorityScore": 66,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
             }
           ],
           "dataTasks": [
@@ -116790,7 +116971,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district.",
+            "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
@@ -116823,8 +117004,8 @@
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 2,
-            "representativeBuildingTasks": 5,
+            "comparisonTasks": 3,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
@@ -116834,14 +117015,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "Denver District Comparison Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
@@ -116940,23 +117121,6 @@
               ]
             },
             {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -117032,7 +117196,6 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
-            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -117055,7 +117218,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
-            "representativeBuildingTasks": 5,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 0,
             "recommendationTasks": 0
           },
@@ -117065,14 +117228,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver District Comparison Sprint\n\nMode: Recommendation Readiness\nObjective: Improve Denver expansion readiness by completing the highest-value Comparison Graph, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City; Aurora I-70 / Airport Industrial -> Northeast Denver Industrial; Central Park -> Northeast Denver Industrial; Glendale -> Financial District / Bunker Hill; Golden -> Boulder; Golden -> Downtown Denver\n\nTasks:\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Central Park -> Northeast Denver Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Glendale -> Financial District / Bunker Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Boulder - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Golden -> Downtown Denver - Review whether the comparison should be reciprocal.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "Denver Building Brief Migration Sprint",
-          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1023-santa-fe-dr",
@@ -117160,6 +117323,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 87,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -117225,40 +117405,6 @@
               "unlocks": [
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "200 Union",
-              "sourceId": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "publicUrl": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
               ]
             },
             {
@@ -117328,6 +117474,22 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
+            },
+            {
+              "id": "gap:denver:comparisonGraph:one-way comparison:aurora-i-70-airport-industrial-commerce-city",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Aurora I-70 / Airport Industrial -> Commerce City",
+              "sourceId": "aurora-i-70-airport-industrial:commerce-city",
+              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "priorityScore": 68,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
             }
           ],
           "dataTasks": [
@@ -117345,7 +117507,7 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Curate representative buildings that explain this district."
+            "Review whether the comparison should be reciprocal."
           ],
           "contentTasks": [
             "Author a Building Brief for this representative building.",
@@ -117368,16 +117530,18 @@
           "dependencies": [
             "canonical representative building record",
             "district association",
-            "district commercial identity"
+            "district commercial identity",
+            "district identity"
           ],
           "expectedImpact": [
+            "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
             "deeper public building intelligence and stronger internal links"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
-            "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
+            "comparisonTasks": 1,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -117387,32 +117551,15 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Building Brief Migration Sprint\n\nMode: Editorial Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Building Briefs, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St\n- Comparisons: Aurora I-70 / Airport Industrial -> Commerce City\n\nTasks:\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Aurora I-70 / Airport Industrial -> Commerce City - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "Denver Representative Building Foundation Sprint",
           "objective": "Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 53 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 54 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
-            {
-              "id": "gap:denver:representativeBuildings:district missing representative buildings:aurora-i-70-airport-industrial",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Aurora I-70 / Airport Industrial",
-              "sourceId": "aurora-i-70-airport-industrial",
-              "publicUrl": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "priorityScore": 86,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
             {
               "id": "gap:denver:representativeBuildings:district missing representative buildings:glendale",
               "category": "representativeBuildings",
@@ -117567,6 +117714,23 @@
               ]
             },
             {
+              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "gapType": "representativeBuilding",
+              "itemName": "1300-1390 S Potomac St",
+              "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
+              "priorityScore": 91,
+              "confidence": "Research required",
+              "suggestedNextAction": "Author a Building Brief for this representative building.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief page depth",
+                "recommendation representative-building card eligibility"
+              ]
+            },
+            {
               "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
               "category": "buildingBriefs",
               "categoryLabel": "Building Briefs",
@@ -117633,27 +117797,9 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "200 Union",
-              "sourceId": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "publicUrl": "/commercial-real-estate/building/CO/lakewood/200-union-blvd/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
-            "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
@@ -117699,7 +117845,7 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
+            "representativeBuildingTasks": 4,
             "buildingBriefTasks": 10,
             "recommendationTasks": 0
           },
@@ -117709,7 +117855,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St, 200 Union\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Aurora I-70 / Airport Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 200 Union - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for Denver: Denver Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve Denver expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1023 Santa Fe Dr, 10500-10600 E. 54th Ave, 109 Inverness Dr E, 11551 E 49th Ave, 12375 E Cornell Ave, 1300-1390 S Potomac St, 15152 E Fremont Dr, 1550 Wewatta St, 16 Market Square, 1615 Platte St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Glendale - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Golden - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Interlocken - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Westminster - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1023 Santa Fe Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 10500-10600 E. 54th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 109 Inverness Dr E - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 11551 E 49th Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 12375 E Cornell Ave - Author a Building Brief for this representative building.\n- [Research required] Building Briefs: 1300-1390 S Potomac St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 15152 E Fremont Dr - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1550 Wewatta St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 16 Market Square - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1615 Platte St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -117719,8 +117865,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 331,
-    "totalPriorities": 331,
+    "totalGaps": 332,
+    "totalPriorities": 332,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
