@@ -35,6 +35,12 @@ const MISSION_INDEX_SQL = [
 
 const SEARCH_MISSION_SOURCE = "search_intelligence";
 const MARKET_MISSION_PREFIX = "market-foundation";
+export const MISSION_TASK_RESULTS_SCHEMA_VERSION = "mission-task-results-v1";
+const MISSION_TASK_RESULTS_START = "MISSION_TASK_RESULTS_V1";
+const MISSION_TASK_RESULTS_END = "END_MISSION_TASK_RESULTS_V1";
+const TASK_RESULT_STATUSES = new Set(["pending", "complete", "complete_scoped"]);
+const TASK_RESULT_OUTCOMES = new Set(["delivered", "researchable_later", "blocked", "no_action_needed"]);
+const MAX_EXECUTION_REPORT_LENGTH = 64000;
 
 function safeJsonParse(value, fallback) {
   try {
@@ -208,6 +214,176 @@ function gapLabel(gap) {
 
 function workItem(id, owner, title, details) {
   return { id, owner, status: "pending", title, details };
+}
+
+function taskStatusEntry(value) {
+  if (!value) return { status: "pending", outcome: "", executionSummary: "", completedAt: "" };
+  if (typeof value === "string") return { status: value, outcome: "", executionSummary: "", completedAt: "" };
+  if (typeof value === "object") {
+    return {
+      status: clean(value.status) || "pending",
+      outcome: clean(value.outcome),
+      executionSummary: clean(value.executionSummary || value.summary),
+      completedAt: clean(value.completedAt),
+    };
+  }
+  return { status: "pending", outcome: "", executionSummary: "", completedAt: "" };
+}
+
+export function isMissionTaskComplete(value) {
+  const entry = taskStatusEntry(value);
+  return entry.status === "complete" || entry.status === "complete_scoped";
+}
+
+function sanitizeExecutionSummary(value) {
+  return clean(value).slice(0, 500);
+}
+
+function missionTaskIds(record) {
+  return new Set(asArray((record.workPacket || {}).workToComplete).map((task) => task.id).filter(Boolean));
+}
+
+function parseMissionTaskResultsBlock(rawReport) {
+  const report = String(rawReport || "");
+  if (!report.trim()) throw new Error("Paste a Codex execution report before reviewing results.");
+  if (report.length > MAX_EXECUTION_REPORT_LENGTH) throw new Error("Execution report is too large to process.");
+  const pattern = new RegExp(`${MISSION_TASK_RESULTS_START}\\s*([\\s\\S]*?)\\s*${MISSION_TASK_RESULTS_END}`);
+  const match = report.match(pattern);
+  if (!match) throw new Error(`Execution report is missing a ${MISSION_TASK_RESULTS_START} block.`);
+  let parsed;
+  try {
+    parsed = JSON.parse(match[1].trim());
+  } catch (error) {
+    throw new Error(`Invalid ${MISSION_TASK_RESULTS_START} JSON: ${error.message}`);
+  }
+  if (!parsed || parsed.schemaVersion !== MISSION_TASK_RESULTS_SCHEMA_VERSION) {
+    throw new Error(`Unsupported execution report schema. Expected ${MISSION_TASK_RESULTS_SCHEMA_VERSION}.`);
+  }
+  if (!Array.isArray(parsed.tasks)) throw new Error("Execution report task results must be an array.");
+  if (parsed.tasks.length > 50) throw new Error("Execution report contains too many task results.");
+  return parsed;
+}
+
+export function reviewMissionExecutionReport(record, rawReport) {
+  if (!record) throw new Error("Mission not found.");
+  const parsed = parseMissionTaskResultsBlock(rawReport);
+  const providedMissionId = clean(parsed.missionId);
+  const providedDisplayId = clean(parsed.missionDisplayId);
+  if (!providedMissionId && !providedDisplayId) {
+    throw new Error("Execution report must include missionId or missionDisplayId.");
+  }
+  if (providedMissionId && providedMissionId !== record.id) {
+    throw new Error("Execution report missionId does not match this mission.");
+  }
+  if (providedDisplayId && providedDisplayId !== record.displayId) {
+    throw new Error("Execution report missionDisplayId does not match this mission.");
+  }
+
+  const taskIds = missionTaskIds(record);
+  const seen = new Set();
+  const matched = [];
+  const unmatched = [];
+  for (const item of parsed.tasks) {
+    const taskId = clean(item && item.taskId);
+    const status = clean(item && item.status);
+    const outcome = clean(item && item.outcome);
+    const result = {
+      taskId,
+      status,
+      outcome,
+      summary: sanitizeExecutionSummary(item && item.summary),
+      applied: false,
+      reason: "",
+    };
+    if (!taskId || !taskIds.has(taskId)) {
+      result.reason = "Unknown task ID.";
+      unmatched.push(result);
+      continue;
+    }
+    if (seen.has(taskId)) {
+      result.reason = "Duplicate task result.";
+      unmatched.push(result);
+      continue;
+    }
+    seen.add(taskId);
+    if (!TASK_RESULT_STATUSES.has(status)) {
+      result.reason = "Unsupported task status.";
+      unmatched.push(result);
+      continue;
+    }
+    if (outcome && !TASK_RESULT_OUTCOMES.has(outcome)) {
+      result.reason = "Unsupported task outcome.";
+      unmatched.push(result);
+      continue;
+    }
+    result.applied = true;
+    matched.push(result);
+  }
+
+  const taskMap = new Map(asArray((record.workPacket || {}).workToComplete).map((task) => [task.id, task]));
+  const missing = Array.from(taskIds)
+    .filter((taskId) => !seen.has(taskId))
+    .map((taskId) => ({
+      taskId,
+      title: taskMap.get(taskId)?.title || taskId,
+      status: taskStatusEntry((record.taskStatus || {})[taskId]).status,
+    }));
+  const completedStatuses = matched.filter((item) => item.status === "complete" || item.status === "complete_scoped");
+  return {
+    schemaVersion: MISSION_TASK_RESULTS_SCHEMA_VERSION,
+    missionId: record.id,
+    missionDisplayId: record.displayId,
+    rawReport: String(rawReport || ""),
+    matched,
+    unmatched,
+    missing,
+    summary: {
+      matched: matched.length,
+      unmatched: unmatched.length,
+      missing: missing.length,
+      complete: matched.filter((item) => item.status === "complete").length,
+      completeScoped: matched.filter((item) => item.status === "complete_scoped").length,
+      researchableLater: matched.filter((item) => item.outcome === "researchable_later").length,
+      blocked: matched.filter((item) => item.outcome === "blocked").length,
+      completeLike: completedStatuses.length,
+    },
+  };
+}
+
+export async function applyMissionExecutionReport(env, id, rawReport) {
+  const db = env.LEADS_DB;
+  if (!db) throw new Error("LEADS_DB D1 binding is required for EOS mission persistence.");
+  const mission = await getMission(env, id);
+  if (!mission) throw new Error("Mission not found.");
+  const review = reviewMissionExecutionReport(mission, rawReport);
+  const taskStatus = { ...(mission.taskStatus || {}) };
+  const now = new Date().toISOString();
+
+  for (const result of review.matched) {
+    const existing = taskStatusEntry(taskStatus[result.taskId]);
+    if (isMissionTaskComplete(existing) && result.status === "pending") continue;
+    const completedAt = (result.status === "complete" || result.status === "complete_scoped")
+      ? existing.completedAt || now
+      : "";
+    taskStatus[result.taskId] = {
+      status: result.status,
+      outcome: result.outcome || existing.outcome || "delivered",
+      executionSummary: result.summary || existing.executionSummary,
+      completedAt,
+    };
+  }
+  taskStatus.__executionReport = {
+    schemaVersion: review.schemaVersion,
+    appliedAt: now,
+    matched: review.summary.matched,
+    unmatched: review.summary.unmatched,
+    missing: review.summary.missing,
+  };
+
+  await db.prepare("update eos_missions set task_status_json = ?, updated_at = ? where id = ?")
+    .bind(JSON.stringify(taskStatus), now, id)
+    .run();
+  return getMission(env, id);
 }
 
 const EVIDENCE_READINESS = {
@@ -522,6 +698,7 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
       "QA results",
       "validation results",
       "recommended next opportunity (advisory only; do not continue without a new approved packet)",
+      `${MISSION_TASK_RESULTS_START} structured block with every supplied task ID`,
     ],
   };
 }
@@ -560,7 +737,7 @@ export function codexPacketMarkdown(record) {
     ...asArray((packet.marketFoundation || {}).sourceStandard).map((item) => `- ${item}`),
     "",
     "WORK TO COMPLETE",
-    ...(asArray(packet.workToComplete).length ? asArray(packet.workToComplete).map((item, index) => `${index + 1}. ${item.title}\n   Owner: ${item.owner}\n   ${item.details}`) : ["1. Review current evidence and define the smallest supported source change."]),
+    ...(asArray(packet.workToComplete).length ? asArray(packet.workToComplete).map((item, index) => `${index + 1}. ${item.title}\n   Task ID: ${item.id}\n   Owner: ${item.owner}\n   ${item.details}`) : ["1. Review current evidence and define the smallest supported source change."]),
     "",
     "BOUNDARIES",
     ...asArray(packet.boundaries).map((item) => `- ${item}`),
@@ -570,6 +747,27 @@ export function codexPacketMarkdown(record) {
     "",
     "COMPLETION REPORT",
     ...asArray(packet.completionReport).map((item) => `- ${item}`),
+    "",
+    "IMPORTANT COMPLETION REQUIREMENT",
+    `At the end of your Standardized Execution Report, return a valid ${MISSION_TASK_RESULTS_START} block containing exactly the mission task IDs supplied in this packet and the result of each task.`,
+    "Do not rename task IDs.",
+    "Do not omit a task because the outcome is blocked or deferred.",
+    "A task can be complete even when its outcome is blocked or researchable later.",
+    "Recommended Next Opportunity is advisory input back to EOS. It is not authorization for Codex to continue working.",
+    "",
+    MISSION_TASK_RESULTS_START,
+    JSON.stringify({
+      schemaVersion: MISSION_TASK_RESULTS_SCHEMA_VERSION,
+      missionDisplayId: record.displayId,
+      missionId: record.id || "",
+      tasks: asArray(packet.workToComplete).map((item) => ({
+        taskId: item.id,
+        status: "complete",
+        outcome: "delivered",
+        summary: `Replace with the concise result for ${item.id}.`,
+      })),
+    }, null, 2),
+    MISSION_TASK_RESULTS_END,
   ];
   return lines.join("\n").trim();
 }
@@ -754,7 +952,20 @@ export async function updateMissionTask(env, id, taskId, complete) {
   const mission = await getMission(env, id);
   if (!mission) throw new Error("Mission not found.");
   const taskStatus = { ...(mission.taskStatus || {}) };
-  taskStatus[taskId] = complete ? "complete" : "pending";
+  const existing = taskStatusEntry(taskStatus[taskId]);
+  taskStatus[taskId] = complete
+    ? {
+      status: "complete",
+      outcome: existing.outcome || "delivered",
+      executionSummary: existing.executionSummary,
+      completedAt: existing.completedAt || new Date().toISOString(),
+    }
+    : {
+      status: "pending",
+      outcome: existing.outcome,
+      executionSummary: existing.executionSummary,
+      completedAt: "",
+    };
   const now = new Date().toISOString();
   await db.prepare("update eos_missions set task_status_json = ?, updated_at = ? where id = ?")
     .bind(JSON.stringify(taskStatus), now, id)
@@ -767,6 +978,11 @@ export async function markMissionComplete(env, id) {
   if (!db) throw new Error("LEADS_DB D1 binding is required for EOS mission persistence.");
   const mission = await getMission(env, id);
   if (!mission) throw new Error("Mission not found.");
+  const tasks = asArray((mission.workPacket || {}).workToComplete);
+  const incomplete = tasks.filter((task) => !isMissionTaskComplete((mission.taskStatus || {})[task.id]));
+  if (incomplete.length) {
+    throw new Error("Mission scoped work is not ready to close. Complete or reconcile every assigned task first.");
+  }
   const now = new Date().toISOString();
   await db.prepare("update eos_missions set status = 'completed', completed_at = ?, updated_at = ? where id = ?")
     .bind(now, now, id)

@@ -4,14 +4,17 @@ import {
   renderMissionControlHeader,
 } from "./mission-control-nav.js";
 import {
+  applyMissionExecutionReport,
   codexPacketMarkdown,
   commenceSearchMission,
   createMarketFoundationMission,
   generateSearchMissionWorkPacket,
   getMission,
+  isMissionTaskComplete,
   listMissions,
   marketFoundationMissionId,
   markMissionComplete,
+  reviewMissionExecutionReport,
   updateMissionTask,
 } from "./eos-missions.js";
 
@@ -1844,11 +1847,93 @@ const missionArchive = [
 
 function taskProgress(record) {
   const tasks = ((record.workPacket || {}).workToComplete) || [];
-  const completed = tasks.filter((task) => (record.taskStatus || {})[task.id] === "complete").length;
-  return { completed, total: tasks.length };
+  const statuses = record.taskStatus || {};
+  const entries = tasks.map((task) => taskStatusView(statuses[task.id]));
+  const completed = entries.filter((entry) => entry.complete).length;
+  const completeScoped = entries.filter((entry) => entry.status === "complete_scoped").length;
+  const researchableLater = entries.filter((entry) => entry.outcome === "researchable_later").length;
+  const blocked = entries.filter((entry) => entry.outcome === "blocked").length;
+  return { completed, total: tasks.length, completeScoped, researchableLater, blocked, readyToClose: tasks.length > 0 && completed === tasks.length };
 }
 
-function renderDurableMissionPage(record, token) {
+function taskStatusView(value) {
+  if (typeof value === "string") {
+    return { status: value, outcome: "", executionSummary: "", completedAt: "", complete: value === "complete" };
+  }
+  const status = value && typeof value === "object" ? String(value.status || "pending") : "pending";
+  return {
+    status,
+    outcome: value && typeof value === "object" ? String(value.outcome || "") : "",
+    executionSummary: value && typeof value === "object" ? String(value.executionSummary || value.summary || "") : "",
+    completedAt: value && typeof value === "object" ? String(value.completedAt || "") : "",
+    complete: isMissionTaskComplete(value),
+  };
+}
+
+function taskStatusLabel(entry) {
+  if (entry.status === "complete_scoped") return "Scoped Work Complete";
+  if (entry.status === "complete") return "Complete";
+  return "Pending";
+}
+
+function taskOutcomeLabel(outcome) {
+  const labels = {
+    delivered: "Delivered",
+    researchable_later: "Researchable later",
+    blocked: "Blocked",
+    no_action_needed: "No action needed",
+  };
+  return labels[outcome] || "";
+}
+
+function renderExecutionReportReview(review, token) {
+  if (!review) return "";
+  const resultRow = (item, applied) => `
+    <article class="${applied ? "is-complete" : ""}">
+      <div>
+        <span>${escapeHtml(applied ? taskStatusLabel(item) : "Unmatched result")}</span>
+        <strong>${escapeHtml(item.taskId || "Unknown task")}</strong>
+        ${item.outcome ? `<em>${escapeHtml(taskOutcomeLabel(item.outcome))}</em>` : ""}
+        <p>${escapeHtml(item.summary || item.reason || "")}</p>
+      </div>
+    </article>
+  `;
+  return `
+    <section class="execution-report-review" aria-label="Execution Report Review">
+      <div class="section-heading">
+        <div>
+          <h3>Execution Report Review</h3>
+          <p>${escapeHtml(`${review.summary.matched} tasks matched. ${review.summary.missing} mission tasks remain pending. ${review.summary.unmatched} unmatched results will not be applied.`)}</p>
+        </div>
+        <form method="post" action="/admin/eos?${tokenParam(token)}">
+          <input type="hidden" name="action" value="apply_execution_report">
+          <input type="hidden" name="missionId" value="${escapeHtml(review.missionId)}">
+          <input type="hidden" name="executionReport" value="${escapeHtml(review.rawReport)}">
+          <button class="copy-prompt-button" type="submit">Apply Execution Report</button>
+        </form>
+      </div>
+      <div class="mission-facts">
+        <span><em>Matched</em>${escapeHtml(String(review.summary.matched))}</span>
+        <span><em>Complete</em>${escapeHtml(String(review.summary.complete))}</span>
+        <span><em>Scoped</em>${escapeHtml(String(review.summary.completeScoped))}</span>
+        <span><em>Deferred</em>${escapeHtml(String(review.summary.researchableLater))}</span>
+        <span><em>Blocked outcome</em>${escapeHtml(String(review.summary.blocked))}</span>
+      </div>
+      <div class="mission-task-list__items">
+        ${review.matched.map((item) => resultRow(item, true)).join("")}
+        ${review.unmatched.map((item) => resultRow(item, false)).join("")}
+      </div>
+      ${review.missing.length ? `
+        <div class="missing-task-note">
+          <strong>Still pending</strong>
+          <ul>${review.missing.map((item) => `<li>${escapeHtml(item.title)} <small>${escapeHtml(item.taskId)}</small></li>`).join("")}</ul>
+        </div>
+      ` : ""}
+    </section>
+  `;
+}
+
+function renderDurableMissionPage(record, token, executionReportReview = null) {
   if (!record) {
     return `
       <section class="panel">
@@ -1879,8 +1964,15 @@ function renderDurableMissionPage(record, token) {
         <span><em>Confidence</em>${escapeHtml(record.confidence || "")}</span>
         <span><em>Effort</em>${escapeHtml(record.estimatedEffort || "")}</span>
         <span><em>Impact</em>${escapeHtml(record.expectedImpact || "")}</span>
-        <span><em>Progress</em>${escapeHtml(`${progressState.completed} of ${progressState.total}`)}</span>
+        <span><em>Progress</em>${escapeHtml(`${progressState.completed} of ${progressState.total} assigned tasks complete`)}</span>
       </div>
+      ${progressState.researchableLater || progressState.blocked ? `
+        <div class="mission-outcome-summary">
+          ${progressState.completeScoped ? `<span>${escapeHtml(String(progressState.completeScoped))} scoped</span>` : ""}
+          ${progressState.researchableLater ? `<span>${escapeHtml(String(progressState.researchableLater))} researchable later</span>` : ""}
+          ${progressState.blocked ? `<span>${escapeHtml(String(progressState.blocked))} blocked outcome</span>` : ""}
+        </div>
+      ` : ""}
       <section class="codex-handoff" aria-label="Codex packet">
         <div class="codex-handoff__top">
           <div>
@@ -1928,9 +2020,9 @@ function renderDurableMissionPage(record, token) {
         <div class="section-heading">
           <div>
             <h3>Progress / Tasks</h3>
-            <p>${escapeHtml(`${progressState.completed} of ${progressState.total} tasks complete.`)}</p>
+            <p>${escapeHtml(`${progressState.completed} of ${progressState.total} assigned tasks complete.`)}${progressState.readyToClose ? " Scoped work is ready to close." : ""}</p>
           </div>
-          ${record.status !== "completed" ? `
+          ${record.status !== "completed" && progressState.readyToClose ? `
             <form method="post" action="/admin/eos?${tokenParam(token)}">
               <input type="hidden" name="action" value="complete_mission">
               <input type="hidden" name="missionId" value="${escapeHtml(record.id)}">
@@ -1940,13 +2032,16 @@ function renderDurableMissionPage(record, token) {
         </div>
         <div class="mission-task-list__items">
           ${tasks.map((task) => {
-            const complete = (record.taskStatus || {})[task.id] === "complete";
+            const entry = taskStatusView((record.taskStatus || {})[task.id]);
+            const complete = entry.complete;
             return `
               <article class="${complete ? "is-complete" : ""}">
                 <div>
-                  <span>${escapeHtml(task.owner || "Codex")}</span>
+                  <span>${escapeHtml(complete ? taskStatusLabel(entry) : task.owner || "Codex")}</span>
                   <strong>${escapeHtml(task.title)}</strong>
+                  ${entry.outcome ? `<em>${escapeHtml(taskOutcomeLabel(entry.outcome))}</em>` : ""}
                   <p>${escapeHtml(task.details || "")}</p>
+                  ${entry.executionSummary ? `<p class="execution-summary">${escapeHtml(entry.executionSummary)}</p>` : ""}
                 </div>
                 ${record.status !== "completed" ? `
                   <form method="post" action="/admin/eos?${tokenParam(token)}">
@@ -1962,6 +2057,23 @@ function renderDurableMissionPage(record, token) {
           }).join("")}
         </div>
       </section>
+      ${record.status !== "completed" ? `
+        <section class="execution-report-reconcile" aria-label="Apply Execution Report">
+          <div class="section-heading">
+            <div>
+              <h3>Apply Execution Report</h3>
+              <p>Paste the Codex report, review matched task results, then apply. Mission completion remains manual.</p>
+            </div>
+          </div>
+          <form method="post" action="/admin/eos?${tokenParam(token)}&mission=${encodeURIComponent(record.id)}">
+            <input type="hidden" name="action" value="review_execution_report">
+            <input type="hidden" name="missionId" value="${escapeHtml(record.id)}">
+            <textarea class="mission-debrief__input" name="executionReport" maxlength="64000" placeholder="Paste Codex Standardized Execution Report with MISSION_TASK_RESULTS_V1 block.">${escapeHtml(executionReportReview ? executionReportReview.rawReport : "")}</textarea>
+            <button class="secondary-button" type="submit">Review Results</button>
+          </form>
+          ${renderExecutionReportReview(executionReportReview, token)}
+        </section>
+      ` : ""}
     </section>
   `;
 }
@@ -2250,12 +2362,12 @@ function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQue
   };
 }
 
-function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission, durableMission, missionState }) {
+function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission, durableMission, missionState, executionReportReview }) {
   const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission });
   const body = selectedTask
     ? renderExecutionPacket(eos, selectedTask, token)
     : selectedMission
-      ? renderDurableMissionPage(durableMission, token)
+      ? renderDurableMissionPage(durableMission, token, executionReportReview)
       : selectedMarketMission
       ? renderMarketMissionReview(eos, selectedMarketMission, token, missionState)
       : selectedSearchMission
@@ -2551,7 +2663,17 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, se
     .mission-task-list__items article.is-complete { border-color: #b7efe3; background: #f0fdfa; }
     .mission-task-list__items span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 0.68rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
     .mission-task-list__items strong { display: block; color: #0f172a; }
+    .mission-task-list__items em { display: inline-flex; width: fit-content; margin-top: 6px; padding: 4px 8px; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 0.72rem; font-style: normal; font-weight: 900; }
     .mission-task-list__items p { margin: 4px 0 0; font-size: 0.85rem; }
+    .execution-summary { color: #0f766e; font-weight: 750; }
+    .mission-outcome-summary { display: flex; flex-wrap: wrap; gap: 7px; margin: -2px 0 8px; }
+    .mission-outcome-summary span { display: inline-flex; align-items: center; min-height: 26px; padding: 0 9px; border-radius: 999px; background: #f8fafc; border: 1px solid #e5edf7; color: #475569; font-size: 0.76rem; font-weight: 900; }
+    .execution-report-reconcile, .execution-report-review { display: grid; gap: 12px; padding: 16px; border: 1px solid #dbeafe; border-radius: 16px; background: #fbfdff; }
+    .execution-report-reconcile form { display: grid; gap: 10px; }
+    .missing-task-note { padding: 12px; border: 1px solid #fed7aa; border-radius: 12px; background: #fff7ed; }
+    .missing-task-note strong { display: block; margin-bottom: 6px; color: #92400e; }
+    .missing-task-note ul { margin: 0; padding-left: 18px; }
+    .missing-task-note small { color: #64748b; }
     .mission-review { margin-top: 22px; padding-top: 22px; border-top: 1px solid #e5edf7; }
     .mission-review__hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 18px; align-items: stretch; margin-bottom: 16px; padding: 22px; border: 1px solid #c7d7ee; border-radius: 18px; background: linear-gradient(135deg, #f8fbff, #eef6ff); }
     .mission-kicker { display: block; margin-bottom: 8px; color: #1d4ed8; font-size: 0.72rem; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -2884,6 +3006,34 @@ export async function onRequestPost({ request, env }) {
       const taskId = String(form.get("taskId") || "");
       const complete = String(form.get("complete") || "") === "1";
       await updateMissionTask(env, missionId, taskId, complete);
+      return redirectResponse(durableMissionUrl(token, missionId));
+    }
+
+    if (action === "review_execution_report") {
+      const missionId = String(form.get("missionId") || "");
+      const executionReport = String(form.get("executionReport") || "");
+      const missionState = await listMissions(env);
+      const durableMission = await getMission(env, missionId);
+      const review = reviewMissionExecutionReport(durableMission, executionReport);
+      return adminResponse(renderPage({
+        token,
+        eos: eosAnalysis,
+        selectedMetro: "",
+        selectedTask: "",
+        selectedQueue: "",
+        selectedSearchMission: "",
+        selectedMarketMission: "",
+        selectedMission: missionId,
+        durableMission,
+        missionState,
+        executionReportReview: review,
+      }));
+    }
+
+    if (action === "apply_execution_report") {
+      const missionId = String(form.get("missionId") || "");
+      const executionReport = String(form.get("executionReport") || "");
+      await applyMissionExecutionReport(env, missionId, executionReport);
       return redirectResponse(durableMissionUrl(token, missionId));
     }
 

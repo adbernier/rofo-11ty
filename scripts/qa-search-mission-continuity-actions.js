@@ -71,7 +71,7 @@ const warehouseTopic = topicIntelligence.find((topic) => topic.id === "warehouse
 const industrialTopic = topicIntelligence.find((topic) => topic.id === "industrial");
 
 assert(fortWayne && (fortWayne.knowledgeGaps || []).includes("industrial-warehouse-depth"), "Fort Wayne should remain an immature industrial/warehouse opportunity fixture.");
-assert(fortWayne && fortWayne.knowledgeCoverage && fortWayne.knowledgeCoverage.hasMarketSnapshot === false, "Fort Wayne should remain foundation-establishment eligible.");
+assert(fortWayne && fortWayne.knowledgeCoverage && fortWayne.knowledgeCoverage.hasMarketSnapshot === true, "Fort Wayne should retain its completed foundation snapshot and remain eligible for continued industrial depth work.");
 assert(warehouseTopic && (warehouseTopic.strongestMarkets || []).some((market) => market.marketId === "fort-wayne"), "Fort Wayne should retain market-level warehouse topic evidence.");
 assert(antioch && antioch.knowledgeCoverage && antioch.knowledgeCoverage.hasMarketSnapshot === true, "Antioch should remain a partial-foundation fixture.");
 assert(antioch && (antioch.knowledgeGaps || []).includes("industrial-warehouse-depth"), "Antioch should still need continued industrial foundation work.");
